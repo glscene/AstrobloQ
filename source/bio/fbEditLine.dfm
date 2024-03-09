@@ -1,0 +1,68 @@
+object FormEditLine: TFormEditLine
+  Left = 241
+  Top = 234
+  Margins.Left = 4
+  Margins.Top = 4
+  Margins.Right = 4
+  Margins.Bottom = 4
+  Caption = 'Edit'
+  ClientHeight = 141
+  ClientWidth = 623
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -19
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poOwnerFormCenter
+  PixelsPerInch = 168
+  TextHeight = 24
+  object labName: TLabel
+    Left = 32
+    Top = 21
+    Width = 56
+    Height = 24
+    Margins.Left = 6
+    Margins.Top = 6
+    Margins.Right = 6
+    Margins.Bottom = 6
+    Caption = 'Name:'
+  end
+  object edLine: TEdit
+    Left = 32
+    Top = 55
+    Width = 438
+    Height = 32
+    Margins.Left = 6
+    Margins.Top = 6
+    Margins.Right = 6
+    Margins.Bottom = 6
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 487
+    Top = 53
+    Width = 130
+    Height = 44
+    Margins.Left = 6
+    Margins.Top = 6
+    Margins.Right = 6
+    Margins.Bottom = 6
+    Kind = bkOK
+    NumGlyphs = 2
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    Left = 487
+    Top = 105
+    Width = 130
+    Height = 43
+    Margins.Left = 6
+    Margins.Top = 6
+    Margins.Right = 6
+    Margins.Bottom = 6
+    Kind = bkCancel
+    NumGlyphs = 2
+    TabOrder = 2
+  end
+end
