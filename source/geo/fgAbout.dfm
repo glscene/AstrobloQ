@@ -50,10 +50,6 @@ object FormAbout: TFormAbout
     ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 14
-    ExplicitTop = 14
-    ExplicitWidth = 784
-    ExplicitHeight = 320
     object tsInfo: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -78,8 +74,6 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 776
-        ExplicitHeight = 275
         object ImageMoons: TImage
           Left = 1
           Top = 1
@@ -3778,9 +3772,6 @@ object FormAbout: TFormAbout
           'Liz Sobolev'
           'Danil Wasilyev')
         TabOrder = 0
-        ExplicitTop = 62
-        ExplicitWidth = 776
-        ExplicitHeight = 213
       end
       object PanelTeam: TPanel
         Left = 0

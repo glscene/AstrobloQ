@@ -15,7 +15,7 @@
         <Projects Include="Plotstars.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="WebGalaxy.dproj">
+        <Projects Include="Milkyway.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -62,23 +62,23 @@
     <Target Name="Plotstars:Make">
         <MSBuild Projects="Plotstars.dproj" Targets="Make"/>
     </Target>
-    <Target Name="WebGalaxy">
-        <MSBuild Projects="WebGalaxy.dproj"/>
+    <Target Name="Milkyway">
+        <MSBuild Projects="Milkyway.dproj"/>
     </Target>
-    <Target Name="WebGalaxy:Clean">
-        <MSBuild Projects="WebGalaxy.dproj" Targets="Clean"/>
+    <Target Name="Milkyway:Clean">
+        <MSBuild Projects="Milkyway.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="WebGalaxy:Make">
-        <MSBuild Projects="WebGalaxy.dproj" Targets="Make"/>
+    <Target Name="Milkyway:Make">
+        <MSBuild Projects="Milkyway.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Geosfera;Biosfera;Noosfera;Plotstars;WebGalaxy"/>
+        <CallTarget Targets="Geosfera;Biosfera;Noosfera;Plotstars;Milkyway"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Geosfera:Clean;Biosfera:Clean;Noosfera:Clean;Plotstars:Clean;WebGalaxy:Clean"/>
+        <CallTarget Targets="Geosfera:Clean;Biosfera:Clean;Noosfera:Clean;Plotstars:Clean;Milkyway:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Geosfera:Make;Biosfera:Make;Noosfera:Make;Plotstars:Make;WebGalaxy:Make"/>
+        <CallTarget Targets="Geosfera:Make;Biosfera:Make;Noosfera:Make;Plotstars:Make;Milkyway:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -7,8 +7,8 @@ object FormGeosfera: TFormGeosfera
   Margins.Right = 5
   Margins.Bottom = 5
   Caption = 'Geosfera'
-  ClientHeight = 991
-  ClientWidth = 1713
+  ClientHeight = 978
+  ClientWidth = 1711
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -26,8 +26,8 @@ object FormGeosfera: TFormGeosfera
   object SceneViewer: TGLSceneViewer
     Left = 249
     Top = 0
-    Width = 1235
-    Height = 957
+    Width = 1233
+    Height = 944
     Cursor = crCross
     Margins.Left = 5
     Margins.Top = 5
@@ -36,7 +36,7 @@ object FormGeosfera: TFormGeosfera
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 156.495925903320300000
+    FieldOfView = 156.181442260742200000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -48,7 +48,7 @@ object FormGeosfera: TFormGeosfera
     Left = 0
     Top = 0
     Width = 249
-    Height = 957
+    Height = 944
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -59,7 +59,7 @@ object FormGeosfera: TFormGeosfera
       Left = 1
       Top = 1
       Width = 247
-      Height = 955
+      Height = 942
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -166,8 +166,8 @@ object FormGeosfera: TFormGeosfera
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 957
-    Width = 1713
+    Top = 944
+    Width = 1711
     Height = 34
     Margins.Left = 5
     Margins.Top = 5
@@ -176,26 +176,26 @@ object FormGeosfera: TFormGeosfera
     Panels = <
       item
         Text = 'FPS: '
-        Width = 150
+        Width = 151
       end
       item
         Text = 'X:'
-        Width = 150
+        Width = 151
       end
       item
         Text = 'Y:'
-        Width = 150
+        Width = 151
       end
       item
         Text = 'Z:'
-        Width = 150
+        Width = 151
       end>
   end
   object PanelRight: TPanel
-    Left = 1484
+    Left = 1482
     Top = 0
     Width = 229
-    Height = 957
+    Height = 944
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -205,7 +205,7 @@ object FormGeosfera: TFormGeosfera
     StyleName = '`'
     object pcParameters: TPageControl
       Left = 1
-      Top = 66
+      Top = 67
       Width = 227
       Height = 504
       Margins.Left = 5
@@ -235,7 +235,7 @@ object FormGeosfera: TFormGeosfera
       Left = 1
       Top = 1
       Width = 227
-      Height = 65
+      Height = 66
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
