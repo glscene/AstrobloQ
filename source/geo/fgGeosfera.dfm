@@ -55,7 +55,7 @@ object FormGeosfera: TFormGeosfera
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 1
-    object TreeView: TTreeView
+    object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 247
@@ -70,7 +70,7 @@ object FormGeosfera: TFormGeosfera
       Images = dfImages.ImgVirtPlanets
       Indent = 33
       TabOrder = 0
-      OnClick = TreeViewClick
+      OnClick = tvPlanetsClick
       Items.NodeData = {
         071900000009540054007200650065004E006F00640065002500000000000000
         00000000FFFFFFFFFFFFFFFF000000000000000000000000000103530075006E
@@ -245,8 +245,8 @@ object FormGeosfera: TFormGeosfera
       TabOrder = 1
     end
     object chbInnerCore: TCheckBox
-      Left = 42
-      Top = 672
+      Left = 37
+      Top = 602
       Width = 170
       Height = 30
       Margins.Left = 5
@@ -255,11 +255,12 @@ object FormGeosfera: TFormGeosfera
       Margins.Bottom = 5
       Caption = 'Inner Core'
       TabOrder = 2
+      StyleName = 'Windows'
       OnClick = miInnerCoreClick
     end
     object CheckBox1: TCheckBox
-      Left = 42
-      Top = 728
+      Left = 37
+      Top = 642
       Width = 183
       Height = 29
       Margins.Left = 5
@@ -268,6 +269,49 @@ object FormGeosfera: TFormGeosfera
       Margins.Bottom = 5
       Caption = 'Bump Shading'
       TabOrder = 3
+      StyleName = 'Windows'
+    end
+    object chbRotate: TCheckBox
+      Left = 37
+      Top = 681
+      Width = 145
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Rotation'
+      Checked = True
+      State = cbChecked
+      TabOrder = 4
+      StyleName = 'Windows'
+    end
+    object chbShowAxes: TCheckBox
+      Left = 37
+      Top = 720
+      Width = 133
+      Height = 29
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Axes'
+      TabOrder = 5
+      StyleName = 'Windows'
+      OnClick = chbShowAxesClick
+    end
+    object ButtonGrid: TButton
+      Left = 47
+      Top = 790
+      Width = 131
+      Height = 43
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Grid'
+      TabOrder = 6
+      OnClick = ButtonGridClick
     end
   end
   object Scene: TGLScene

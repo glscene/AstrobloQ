@@ -94,7 +94,7 @@ type
     About1: TMenuItem;
     miInnerCore: TMenuItem;
     PanelLeft: TPanel;
-    TreeView: TTreeView;
+    tvPlanets: TTreeView;
     Options1: TMenuItem;
     miClearTreeView: TMenuItem;
     miViewConstlines: TMenuItem;
@@ -133,6 +133,9 @@ type
     chbInnerCore: TCheckBox;
     CheckBox1: TCheckBox;
     PlanetCore: TGLSphere;
+    chbRotate: TCheckBox;
+    chbShowAxes: TCheckBox;
+    ButtonGrid: TButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -148,7 +151,7 @@ type
     procedure miFileExitClick(Sender: TObject);
     procedure miViewConstlinesClick(Sender: TObject);
     procedure miViewConstbordersClick(Sender: TObject);
-    procedure TreeViewClick(Sender: TObject);
+    procedure tvPlanetsClick(Sender: TObject);
     procedure miFileOpenClick(Sender: TObject);
     procedure miFileSaveAsClick(Sender: TObject);
     procedure miClearTreeViewClick(Sender: TObject);
@@ -164,6 +167,8 @@ type
     procedure miSystemStarClick(Sender: TObject);
     procedure miFileNewClick(Sender: TObject);
     procedure miToolsSettingsClick(Sender: TObject);
+    procedure ButtonGridClick(Sender: TObject);
+    procedure chbShowAxesClick(Sender: TObject);
   public
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
@@ -223,7 +228,7 @@ begin
   SetCurrentDir(DataDir);
   StarDir := DataDir + '\star';
 
-  CatalogName := DataDir + '\catalog\hipparcos_9.stars';
+  CatalogName := DataDir + '\catalog\hipparcos.stars';
 //  CatalogName := DataDir + '\catalog\gaia_dr3.stars';
 
   if FileExists(CatalogName) then
@@ -246,8 +251,8 @@ begin
   Atmosphere.MoveTo(dcStar);
   Atmosphere.Opacity := cOpacity;
 
-  TreeView.Select(TreeView.Items[3]);  // goto to Earth
-  miHelpWiki.Caption := TreeView.Selected.Text + ' in ' + 'Wikipedia...';
+  tvPlanets.Select(tvPlanets.Items[3]);  // goto to Earth
+  miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
   TimeMultiplier := Power(1, 3); // faster - Power(2, 3);
 end;
@@ -282,7 +287,7 @@ begin
   miInnerCore.Checked := not miInnerCore.Checked;
   if miInnerCore.Checked then
   begin
-    FileName := CurrentStar + TreeView.Selected.Text;
+    FileName := CurrentStar + tvPlanets.Selected.Text;
     if FileExists(FileName + 'core.jpg') then
       PlanetMantle.Material.Texture.Image.LoadFromFile(FileName + 'core.jpg')
     else
@@ -298,7 +303,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// ShowHide TreeView
+// ShowHide tvPlanets
 //------------------------------------------------------------------
 procedure TFormGeosfera.miViewHidePanelsClick(Sender: TObject);
 begin
@@ -321,15 +326,15 @@ begin
 end;
 
 //------------------------------------------------------------------
-// TreeViewClick
+// tvPlanetsClick
 //------------------------------------------------------------------
-procedure TFormGeosfera.TreeViewClick(Sender: TObject);
+procedure TFormGeosfera.tvPlanetsClick(Sender: TObject);
 begin
-  FileName := CurrentStar + TreeView.Selected.Text;
+  FileName := CurrentStar + tvPlanets.Selected.Text;
 
-  if TreeView.Selected.StateIndex = -1 then    // Planet as TGLSphere
+  if tvPlanets.Selected.StateIndex = -1 then    // Planet as TGLSphere
   begin
-//  sfPlanet.LoadFromFile(FileName + '.3ds'); // Sphere.3ds for TGLFreeForms
+//  sfPlanet.LoadFromFile(FileName + '.3ds'); // Sphere.3ds as TGLFreeForms
     sfPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
     sfPlanet.Visible := True;
     ffPlanet.Visible := False;
@@ -354,7 +359,7 @@ begin
   end;
 
   // Rings
-  if TreeView.Selected.Text = 'Saturn' then
+  if tvPlanets.Selected.Text = 'Saturn' then
   begin
     PlanetRingUp.Material.Texture.Image.LoadFromFile(FileName  + 'ring.jpg');
     PlanetRingDn.Material.Texture.Image.LoadFromFile(FileName  + 'ring.jpg');
@@ -366,10 +371,10 @@ begin
     PlanetRingDn.Visible := False;
   end;
 
-  miHelpWiki.Caption := TreeView.Selected.Text + ' in ' + 'Wikipedia...';
+  miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
   // Atmospheres
-  if (TreeView.Selected.Text = 'Earth') then
+  if (tvPlanets.Selected.Text = 'Earth') then
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
@@ -431,6 +436,12 @@ begin
     end;
   end;
   Result.W := n * contrib * cOpacity * 0.1;
+end;
+
+//------------------------------------------------------------------
+procedure TFormGeosfera.ButtonGridClick(Sender: TObject);
+begin
+  ButtonGrid.Enabled := not ButtonGrid.Enabled;
 end;
 
 //------------------------------------------------------------------
@@ -569,7 +580,6 @@ begin
     ConstLinesAlpha := 0.5 - ConstLinesAlpha;
     LoadConstLines;
   end;
-//  ConstBorders.Nodes.Clear;
 end;
 
 //------------------------------------------------------------------
@@ -583,7 +593,7 @@ var
 begin
   sl := TStringList.Create;
   line := TStringList.Create;
-  sl.LoadFromFile(DataDir + '\constellation\ConstLinesRey.cln'); // Rey
+  sl.LoadFromFile(DataDir + '\constellation\ConstLinesRey.dat'); // Rey
 //  sl.LoadFromFile(DataDir + '\constellation\ConstLines.dat'); //  SkyChart
   for i := 0 to sl.Count - 1 do
   begin
@@ -653,8 +663,12 @@ begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
   // make rotate
-  sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
-  ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
+  if chbRotate.Checked then
+  begin
+    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
+  end;
+
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
  /// LSSun.Position.AsAffineVector := p;      //stop sun motion
@@ -697,6 +711,12 @@ begin
                  ConstBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
   end;
+end;
+
+procedure TFormGeosfera.chbShowAxesClick(Sender: TObject);
+begin
+  sfPlanet.ShowAxes := chbShowAxes.Checked;
+
 end;
 
 //------------------------------------------------------------------
@@ -890,23 +910,23 @@ begin
 end;
 
 //------------------------------------------------------------------
-// miClear TreeView
+// miClear tvPlanets
 //------------------------------------------------------------------
 procedure TFormGeosfera.miClearTreeViewClick(Sender: TObject);
 begin
-  TreeView.Items.Clear;
+  tvPlanets.Items.Clear;
 end;
 
 procedure TFormGeosfera.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
-  if (TreeView.Selected.Level = 0)   then
+  if (tvPlanets.Selected.Level = 0)   then
     // Planets or Asteroids, sometimes with S + '_(planet)' like for ../Mercury_(planet)
-    S :=  'https://en.wikipedia.org/wiki/' + TreeView.Selected.Text
+    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
   else
     // Moons
-    S :=  'https://en.wikipedia.org/wiki/' + TreeView.Selected.Text + '_(moon)';
+    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
 end;
 
@@ -933,10 +953,10 @@ begin
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
   begin
-    TreeView.LoadFromFile(OpenDialog.FileName);
+    tvPlanets.LoadFromFile(OpenDialog.FileName);
     CurrentStar := ExtractFilePath(OpenDialog.FileName);
-    TreeView.Select(TreeView.Items[0]);  // goto to new Star
-    TreeViewClick(Sender);
+    tvPlanets.Select(tvPlanets.Items[0]);  // goto to new Star
+    tvPlanetsClick(Sender);
   end;
 end;
 
@@ -962,7 +982,7 @@ begin
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
   begin
-    TreeView.SaveToFile(SaveDialog.FileName);
+    tvPlanets.SaveToFile(SaveDialog.FileName);
     CurrentStar := GetCurrentDir();
   end;
 end;

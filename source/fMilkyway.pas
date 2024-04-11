@@ -25,7 +25,7 @@ uses
   GLS.Graph, 
   GLS.Coordinates, 
   GLS.GeomObjects,
-  GLS.SimpleNavigation;
+  GLS.SimpleNavigation, GLS.VectorFileObjects;
 
 type
   TFormMilkyway = class(TForm)
@@ -80,6 +80,7 @@ type
     Cube: TGLCube;
     GLSimpleNavigation: TGLSimpleNavigation;
     XYZGrid: TGLXYZGrid;
+    GLHexahedron1: TGLHexahedron;
     procedure miExitClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Open1Click(Sender: TObject);

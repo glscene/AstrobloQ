@@ -30,11 +30,12 @@ object FormMilkyway: TFormMilkyway
     Margins.Bottom = 5
     Camera = Camera
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 165.238723754882800000
+    FieldOfView = 156.582000732421900000
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 179
+    ExplicitLeft = 159
+    ExplicitTop = -10
   end
   object PanelLeft: TPanel
     Left = 0
@@ -87,11 +88,11 @@ object FormMilkyway: TFormMilkyway
     Left = 218
     Top = 80
     object Camera: TGLCamera
-      DepthOfView = 100.000000000000000000
-      FocalLength = 50.000000000000000000
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 80.000000000000000000
       TargetObject = DummyCube
       CameraStyle = csInfinitePerspective
-      Position.Coordinates = {00007A4400007A4400007A440000803F}
+      Position.Coordinates = {0000FA440000FA440000FA440000803F}
       object LightSource: TGLLightSource
         ConstAttenuation = 1.000000000000000000
         SpotCutOff = 180.000000000000000000
@@ -100,19 +101,26 @@ object FormMilkyway: TFormMilkyway
     object DummyCube: TGLDummyCube
       CubeSize = 1.000000000000000000
       object Cube: TGLCube
-        CubeSize = {00007A4400007A4400007A44}
+        Material.PolygonMode = pmLines
+        CubeSize = {0000FA440000FA440000FA44}
+      end
+      object GLHexahedron1: TGLHexahedron
+        Material.PolygonMode = pmLines
+        Scale.Coordinates = {0000FA440000FA440000FA4400000000}
       end
       object XYZGrid: TGLXYZGrid
         Direction.Coordinates = {000000000000803F0000000000000000}
         ShowAxes = True
         Up.Coordinates = {0000000000000000000080BF00000000}
-        XSamplingScale.Min = -5000.000000000000000000
-        XSamplingScale.Max = 5000.000000000000000000
-        XSamplingScale.Step = 100.000000000000000000
-        YSamplingScale.Min = -5000.000000000000000000
-        YSamplingScale.Max = 5000.000000000000000000
-        YSamplingScale.Step = 100.000000000000000000
-        ZSamplingScale.Step = 0.100000001490116100
+        XSamplingScale.Min = -50000.000000000000000000
+        XSamplingScale.Max = 50000.000000000000000000
+        XSamplingScale.Step = 1000.000000000000000000
+        YSamplingScale.Min = -50000.000000000000000000
+        YSamplingScale.Max = 50000.000000000000000000
+        YSamplingScale.Step = 1000.000000000000000000
+        ZSamplingScale.Min = -500.000000000000000000
+        ZSamplingScale.Max = 500.000000000000000000
+        ZSamplingScale.Step = 1000.000000000000000000
         Parts = [gpX, gpY, gpZ]
       end
     end
