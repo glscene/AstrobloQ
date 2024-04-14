@@ -159,7 +159,7 @@ object frmSettings: TfrmSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Load when starting'
+          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
           Checked = True
           State = cbChecked
           TabOrder = 3
@@ -173,7 +173,7 @@ object frmSettings: TfrmSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Save when exiting'
+          Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
           Checked = True
           State = cbChecked
           TabOrder = 4
@@ -187,13 +187,13 @@ object frmSettings: TfrmSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Language'
+          Caption = #1071#1079#1099#1082
           Columns = 3
           ItemIndex = 0
           Items.Strings = (
-            'English'
-            'Russian'
-            'Spanish')
+            #1056#1091#1089#1089#1082#1080#1081
+            #1040#1085#1075#1083#1080#1081#1089#1082#1080#1081
+            #1048#1089#1087#1072#1085#1089#1082#1080#1081)
           TabOrder = 5
         end
         object cbSplashStart: TCheckBox
@@ -205,7 +205,7 @@ object frmSettings: TfrmSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Show splash screen'
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1089#1090#1072#1074#1082#1091
           TabOrder = 6
         end
       end
@@ -352,7 +352,6 @@ object frmSettings: TfrmSettings
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
-          ExplicitWidth = 1157
         end
         object ButtonModifyMat: TButton
           Left = 254
@@ -381,7 +380,7 @@ object frmSettings: TfrmSettings
           Font.Height = 26
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 26
+          ItemHeight = 30
           Items.Strings = (
             '"O"'
             '"A"'
@@ -430,7 +429,7 @@ object frmSettings: TfrmSettings
           Left = 364
           Top = 135
           Width = 212
-          Height = 38
+          Height = 41
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -452,8 +451,8 @@ object frmSettings: TfrmSettings
         object ColorGrid1: TColorGrid
           Left = 434
           Top = 210
-          Width = 175
-          Height = 175
+          Width = 172
+          Height = 172
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -478,14 +477,14 @@ object frmSettings: TfrmSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          ItemHeight = 26
+          ItemHeight = 30
           TabOrder = 0
         end
         object ComboBox1: TComboBox
           Left = 630
           Top = 476
           Width = 254
-          Height = 23
+          Height = 38
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -625,7 +624,7 @@ object frmSettings: TfrmSettings
           Left = 214
           Top = 404
           Width = 71
-          Height = 38
+          Height = 41
           Hint = 'Precision'
           Margins.Left = 5
           Margins.Top = 5
@@ -733,8 +732,8 @@ object frmSettings: TfrmSettings
         object PanelTitle: TPanel
           Left = 0
           Top = 0
-          Width = 1143
-          Height = 849
+          Width = 1170
+          Height = 864
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -952,19 +951,19 @@ object frmSettings: TfrmSettings
       OnClick = tvSettingsClick
       Items.NodeData = {
         070800000009540054007200650065004E006F00640065002D00000000000000
-        00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
-        006500720061006C000000310000000000000000000000FFFFFFFFFFFFFFFF00
-        000000000000000000000000010949006E007400650072006600610063006500
+        00000000FFFFFFFFFFFFFFFF00000000000000000000000000010713043B0430
+        0432043D044B0435040000310000000000000000000000FFFFFFFFFFFFFFFF00
+        000000000000000000000000010918043D044204350440044404350439044104
         00002D0000000000000000000000FFFFFFFFFFFFFFFF02000000000000000000
-        000000010744006900730070006C006100790000002F00000000000000000000
-        00FFFFFFFFFFFFFFFF0400000000000000000000000001084D00610074006500
-        7200690061006C0000002B0000000000000000000000FFFFFFFFFFFFFFFF0000
-        00000000000000000000000106470061006C0061007800790000002900000000
-        00000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001055300
-        740061007200730000002B0000000000000000000000FFFFFFFFFFFFFFFF0000
-        0000000000000000000000010650006C0061006E006500740000002D00000000
-        00000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001074600
-        6C0069006700680074007300}
+        00000001071404380441043F043B043504390400003D00000000000000000000
+        00FFFFFFFFFFFFFFFF04000000000000000000000000010F2604320435044204
+        200038042000420435043A044104420443044004300400003100000000000000
+        00000000FFFFFFFFFFFFFFFF000000000000000000000000000109130430043B
+        0430043A04420438043A04300400002B0000000000000000000000FFFFFFFFFF
+        FFFFFF000000000000000000000000000106170432045104370434044B040000
+        2D0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000
+        0001071F04340430043D04350442044B040000290000000000000000000000FF
+        FFFFFFFFFFFFFF00000000000000000000000000010524043B04300439044204}
     end
   end
   object PanelTop: TPanel

@@ -24,10 +24,8 @@ type
     tsInfo: TTabSheet;
     Panel2: TPanel;
     tsContributor: TTabSheet;
-    Memo1: TMemo;
-    PanelTeam: TPanel;
-    ImageMoons: TImage;
     MemoDevelopers: TMemo;
+    ImageMoons: TImage;
     procedure ImageGLSClick(Sender: TObject);
     procedure ImageMoonsDblClick(Sender: TObject);
   private

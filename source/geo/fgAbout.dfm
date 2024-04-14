@@ -6,7 +6,7 @@ object FormAbout: TFormAbout
   Margins.Right = 5
   Margins.Bottom = 5
   BorderStyle = bsDialog
-  Caption = 'About'
+  Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
   ClientHeight = 893
   ClientWidth = 1131
   Color = clBtnFace
@@ -47,7 +47,7 @@ object FormAbout: TFormAbout
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsInfo
+    ActivePage = tsContributor
     Align = alClient
     TabOrder = 1
     object tsInfo: TTabSheet
@@ -55,7 +55,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Info'
+      Caption = #1048#1085#1092#1086
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -3753,13 +3753,13 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Contributors'
+      Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
       ImageIndex = 1
-      object Memo1: TMemo
+      object MemoDevelopers: TMemo
         Left = 0
-        Top = 52
+        Top = 0
         Width = 1123
-        Height = 706
+        Height = 758
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -3772,44 +3772,6 @@ object FormAbout: TFormAbout
           'Liz Sobolev'
           'Danil Wasilyev')
         TabOrder = 0
-      end
-      object PanelTeam: TPanel
-        Left = 0
-        Top = 0
-        Width = 1123
-        Height = 52
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Align = alTop
-        Caption = 'GXScene Team'
-        TabOrder = 1
-      end
-      object MemoDevelopers: TMemo
-        Left = 396
-        Top = 351
-        Width = 324
-        Height = 36
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Alignment = taCenter
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -21
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        Lines.Strings = (
-          'Developers & Contributors '
-          'Pavel Vassiliev '
-          'Lev Koptyaev'
-          'Elizaveta Soboleva')
-        ParentFont = False
-        TabOrder = 2
-        Visible = False
       end
     end
   end

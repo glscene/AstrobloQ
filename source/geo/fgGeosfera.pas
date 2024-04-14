@@ -61,7 +61,7 @@ uses
   fgSettings,
 
   fStarSystem,
-  dImages;
+  dImages, Vcl.ToolWin;
 
 
 type
@@ -83,7 +83,7 @@ type
     CameraControler: TGLCamera;
     StarSkyDome: TGLSkyDome;
     ConstLines: TGLLines;
-    ConstBorders: TGLLines;
+    ConstBounds: TGLLines;
     MainMenu: TMainMenu;
     miView: TMenuItem;
     Open1: TMenuItem;
@@ -95,7 +95,7 @@ type
     miInnerCore: TMenuItem;
     PanelLeft: TPanel;
     tvPlanets: TTreeView;
-    Options1: TMenuItem;
+    miOptions: TMenuItem;
     miClearTreeView: TMenuItem;
     miViewConstlines: TMenuItem;
     miViewConstborders: TMenuItem;
@@ -123,7 +123,7 @@ type
     N4: TMenuItem;
     miFileNew: TMenuItem;
     miSystemStar: TMenuItem;
-    miToolsSettings: TMenuItem;
+    miSettings: TMenuItem;
     N6: TMenuItem;
     PanelRight: TPanel;
     pcParameters: TPageControl;
@@ -136,6 +136,11 @@ type
     chbRotate: TCheckBox;
     chbShowAxes: TCheckBox;
     ButtonGrid: TButton;
+    ControlBar1: TControlBar;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -166,7 +171,7 @@ type
     procedure miSystemProjectionClick(Sender: TObject);
     procedure miSystemStarClick(Sender: TObject);
     procedure miFileNewClick(Sender: TObject);
-    procedure miToolsSettingsClick(Sender: TObject);
+    procedure miSettingsClick(Sender: TObject);
     procedure ButtonGridClick(Sender: TObject);
     procedure chbShowAxesClick(Sender: TObject);
   public
@@ -183,7 +188,7 @@ type
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName, FileName: TFileName;
     procedure LoadConstLines;
-    procedure LoadConstBorders;
+    procedure LoadConstBounds;
     // Atmosphere Color
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
     // Compute AtmColor
@@ -265,14 +270,14 @@ begin
   miShowHidePlanet.Checked := not miShowHidePlanet.Checked;
   if miShowHidePlanet.Checked then
   begin
-    miShowHidePlanet.Caption := 'Show Planet';
+    miShowHidePlanet.Caption := 'Показать планету';
     sfPlanet.Visible := False;
     ffPlanet.Visible := False;
     DirectOpenGL.Visible := False;
   end
   else
   begin
-    miShowHidePlanet.Caption := 'Hide Planet';
+    miShowHidePlanet.Caption := 'Скрыть планету';
     sfPlanet.Visible := True;
     ffPlanet.Visible := True;
     DirectOpenGL.Visible := True;
@@ -288,8 +293,8 @@ begin
   if miInnerCore.Checked then
   begin
     FileName := CurrentStar + tvPlanets.Selected.Text;
-    if FileExists(FileName + 'core.jpg') then
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName + 'core.jpg')
+    if FileExists(FileName + '_core.jpg') then
+      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName + '_core.jpg')
     else
       PlanetMantle.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
     sfPlanet.Stop := 180;
@@ -310,14 +315,14 @@ begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
   if miViewHidePanels.Checked then
   begin
-    miViewHidePanels.Caption := 'Show Panels';
+    miViewHidePanels.Caption := 'Показать панели';
     PanelLeft.Visible := False;
     PanelRight.Visible := False;
     StatusBar.Visible := False;
   end
   else
   begin
-    miViewHidePanels.Caption := 'Hide Panels';
+    miViewHidePanels.Caption := 'Скрыть панели';
     PanelLeft.Visible := True;
     PanelRight.Visible := True;
     StatusBar.Visible := True;
@@ -352,8 +357,8 @@ begin
   // Cores of Planets
   if miInnerCore.Checked then
   begin
-    if FileExists(FileName  + 'core.jpg') then
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + 'core.jpg')
+    if FileExists(FileName  + '_core.jpg') then
+      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '_core.jpg')
     else
       PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
   end;
@@ -361,8 +366,8 @@ begin
   // Rings
   if tvPlanets.Selected.Text = 'Saturn' then
   begin
-    PlanetRingUp.Material.Texture.Image.LoadFromFile(FileName  + 'ring.jpg');
-    PlanetRingDn.Material.Texture.Image.LoadFromFile(FileName  + 'ring.jpg');
+    PlanetRingUp.Material.Texture.Image.LoadFromFile(FileName  + '_ring.jpg');
+    PlanetRingDn.Material.Texture.Image.LoadFromFile(FileName  + '_ring.jpg');
     PlanetRingUp.Visible := True; PlanetRingDn.Visible := True;
   end
   else
@@ -608,9 +613,9 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Constellation Boundaries
+// Constellation Bounds
 //------------------------------------------------------------------
-procedure TFormGeosfera.LoadConstBorders;
+procedure TFormGeosfera.LoadConstBounds;
 var
   sl, line: TStrings;
   skypos: TAffineVector;
@@ -618,34 +623,31 @@ var
 begin
   sl := TStringList.Create;
   line := TStringList.Create;
-//  sl.LoadFromFile(DataDir + '\constellation\ConstB.cby');
-  sl.LoadFromFile(DataDir + '\constellation\ConstBnd.dat');
-//  sl.LoadFromFile(DataDir + '\constellation\Boundaries.dat'); // Celestia
-//  sl.LoadFromFile(DataDir + '\constellation\Boundaries.csv'); // GaiaSky
-//  sl.LoadFromFile(DataDir + '\constellation\ConstBorders.dat');
-///  sl.LoadFromFile(DataDir + '\constellation\ConstBoundaries.dat');
+//  sl.LoadFromFile(DataDir + '\constellation\ConstB.cby');  // GaiaSky
+  sl.LoadFromFile(DataDir + '\constellation\ConstBounds.csv');
+//  sl.LoadFromFile(DataDir + '\constellation\Constellations.csv'); // Eleanor
 ///  sl.LoadFromFile(DataDir + '\constellation\and.txt');  // IAU for Andromeda
   for i := 0 to sl.Count - 1 do
   begin
     line.CommaText := sl[i];
     skypos := LonLatToPos(StrToFloatDef(line[0], 0), StrToFloatDef(line[1], 0));
-    ConstBorders.AddNode(skypos);
+    ConstBounds.AddNode(skypos);
   end;
   sl.Free;
   line.Free;
 end;
 
 //------------------------------------------------------------------
-// Show Constellation Borders
+// Show Constellation Bounds
 //------------------------------------------------------------------
 procedure TFormGeosfera.miViewConstbordersClick(Sender: TObject);
 begin
-  ConstBorders.Nodes.Clear;
+  ConstBounds.Nodes.Clear;
   miViewConstborders.Checked := not miViewConstborders.Checked;
   if miViewConstborders.Checked then
   begin
     ConstBordersAlpha := 0.5 - ConstBordersAlpha;
-    LoadConstBorders;
+    LoadConstBounds;
   end;
  // ConstLines.Nodes.Clear;
 end;
@@ -703,13 +705,13 @@ begin
                  ConstLines.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
   end;
-  // smooth constellation borders appearance/disappearance
-  if ConstBorders.LineColor.Alpha <> ConstBordersAlpha then
+  // smooth constellation bounds appearance/disappearance
+  if ConstBounds.LineColor.Alpha <> ConstBordersAlpha then
   begin
-    ConstBorders.LineColor.Alpha :=
-      ClampValue(ConstBorders.LineColor.Alpha + Sign(ConstBordersAlpha -
-                 ConstBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
-    ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
+    ConstBounds.LineColor.Alpha :=
+      ClampValue(ConstBounds.LineColor.Alpha + Sign(ConstBordersAlpha -
+                 ConstBounds.LineColor.Alpha) * deltaTime, 0, 0.5);
+    ConstBounds.Visible := (ConstBounds.LineColor.Alpha > 0);
   end;
 end;
 
@@ -838,9 +840,9 @@ begin
         try
           if DirectoryExists(CurrentStar) then
           begin
-            LoadHighResTexture(MatLib.Materials[0], 'land_ocean_ice_4096.jpg');
-            LoadHighResTexture(MatLib.Materials[1], 'land_ocean_ice_lights_4096.jpg');
-            LoadHighResTexture(MatLib.Materials[2], 'moon_2048.jpg');
+            LoadHighResTexture(MatLib.Materials[0], 'earth_4096.jpg');
+            LoadHighResTexture(MatLib.Materials[1], 'earth_night_4096.jpg');
+            LoadHighResTexture(MatLib.Materials[2], 'moon.jpg');  //need moon_4096
           end;
           SceneViewer.Buffer.AntiAliasing := aa2x;
         finally
@@ -961,7 +963,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TFormGeosfera.miToolsSettingsClick(Sender: TObject);
+procedure TFormGeosfera.miSettingsClick(Sender: TObject);
 begin
   with TfrmSettings.Create(Self) do
     try
