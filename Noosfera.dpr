@@ -26,20 +26,20 @@ program Noosfera;
 
 uses
   Forms,
-  Noo.Globals in 'source\noo\Noo.Globals.pas',
-  Astro.Objects in 'source\astro\Astro.Objects.pas',
-  Astro.Bodies in 'source\astro\Astro.Bodies.pas',
-  fnAbout in 'source\noo\fnAbout.pas' {AboutFrm},
-  Noo.SMDstuff in 'source\noo\Noo.SMDstuff.pas',
-  fnNoosfera in 'source\noo\fnNoosfera.pas' {FormNoosphere},
+  uGlobals in 'source\unit\uGlobals.pas',
+  uOglObjects in 'source\unit\uOglObjects.pas',
+  uSkyBodies in 'source\unit\uSkyBodies.pas',
+  uSMDstuff in 'source\unit\uSMDstuff.pas',
+  fNoosfera in 'source\fNoosfera.pas' {FormNoosphere},
   fLocations in 'source\fLocations.pas' {FormLocations},
   fLoadSMD in 'source\fLoadSMD.pas' {FormLoadSmdMdl},
-  fnABCreator in 'source\noo\fnABCreator.pas' {FormABCreator},
+  fGenPlanetsys in 'source\fGenPlanetsys.pas' {FormGenPlanetsys},
   fSMDqc in 'source\fSMDqc.pas' {FormSMDqc},
   fMeshShow in 'source\fMeshShow.pas' {FormMeshShow},
   fMeshData in 'source\fMeshData.pas' {FormMeshData},
   fGLSViewer in 'source\fGLSViewer.pas' {FormGLSViewer},
-  fStarPilot in 'source\fStarPilot.pas' {FormSpacePilot};
+  fStarPilot in 'source\fStarPilot.pas' {FormSpacePilot},
+  fAbout in 'source\fAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -54,6 +54,7 @@ begin
   Application.CreateForm(TFormSMDqc, FormSMDqc);
   Application.CreateForm(TFormSpacePilot, FormSpacePilot);
   Application.CreateForm(TFormLoadSmdMdl, FormLoadSmdMdl);
-  Application.CreateForm(TFormABCreator, FormABCreator);
+  Application.CreateForm(TFormGenPlanetsys, FormGenPlanetsys);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

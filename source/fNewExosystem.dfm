@@ -5,7 +5,7 @@ object FormNewSystem: TFormNewSystem
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'New System'
+  Caption = #1053#1086#1074#1072#1103' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072
   ClientHeight = 758
   ClientWidth = 1103
   Color = clBtnFace
@@ -17,4 +17,16 @@ object FormNewSystem: TFormNewSystem
   Position = poScreenCenter
   PixelsPerInch = 168
   TextHeight = 30
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 281
+    Height = 758
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alLeft
+    TabOrder = 0
+  end
 end

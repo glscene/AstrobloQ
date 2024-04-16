@@ -1,4 +1,4 @@
-unit Astro.Bodies;
+unit uSkyBodies;
 
 (*-----------------------------------------------------------------------------
   Purpose: Custom "Space" GLScene Objects

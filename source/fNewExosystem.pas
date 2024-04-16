@@ -1,4 +1,4 @@
-unit fgNewSystem;
+unit fNewExosystem;
 
 interface
 
@@ -11,14 +11,13 @@ uses
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
-  Vcl.Dialogs;
+  Vcl.Dialogs, Vcl.ExtCtrls;
 
 type
   TFormNewSystem = class(TForm)
+    Panel1: TPanel;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

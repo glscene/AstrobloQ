@@ -1,4 +1,4 @@
-unit fgGeosfera;
+unit fLitosfera;
 
 interface
 
@@ -27,6 +27,7 @@ uses
   Vcl.ImgList,
   Vcl.StdCtrls,
   Vcl.CheckLst,
+  Vcl.ToolWin,
 
   GLS.FileJPEG,
   GLS.VectorTypes,
@@ -55,17 +56,19 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  fgProjection,
-  fgSolarSystem,
-  fgNewSystem,
-  fgSettings,
-
+  dImages,
+  fProjection,
+  fSolarSystem,
   fStarSystem,
-  dImages, Vcl.ToolWin;
+  fNewExosystem,
+  fSettings,
+  fGenPlanetsys,
+
+  fAbout;
 
 
 type
-  TFormGeosfera = class(TForm)
+  TFormLitosfera = class(TForm)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -115,9 +118,7 @@ type
     N3: TMenuItem;
     miPlanetSkyDome: TMenuItem;
     StatusBar: TStatusBar;
-    miSystem: TMenuItem;
     miSystemSolar: TMenuItem;
-    N5: TMenuItem;
     miSystemProjection: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
@@ -126,10 +127,7 @@ type
     miSettings: TMenuItem;
     N6: TMenuItem;
     PanelRight: TPanel;
-    pcParameters: TPageControl;
     PanelParameters: TPanel;
-    tsOrbits: TTabSheet;
-    tsPlanets: TTabSheet;
     chbInnerCore: TCheckBox;
     CheckBox1: TCheckBox;
     PlanetCore: TGLSphere;
@@ -141,6 +139,8 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+    N1: TMenuItem;
+    MemoParams: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -197,7 +197,7 @@ type
   end;
 
 var
-  FormGeosfera: TFormGeosfera;
+  FormLitosfera: TFormLitosfera;
 
 const
   cOpacity: Single = 5;
@@ -222,12 +222,9 @@ implementation
 
 {$R *.dfm}
 
-uses
-  fgAbout;
-
 //------------------------------------------------------------------
 
-procedure TFormGeosfera.FormCreate(Sender: TObject);
+procedure TFormLitosfera.FormCreate(Sender: TObject);
 begin
   DataDir := ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
@@ -265,7 +262,7 @@ end;
 //------------------------------------------------------------------
 // Show Planet
 //------------------------------------------------------------------
-procedure TFormGeosfera.miShowHidePlanetClick(Sender: TObject);
+procedure TFormLitosfera.miShowHidePlanetClick(Sender: TObject);
 begin
   miShowHidePlanet.Checked := not miShowHidePlanet.Checked;
   if miShowHidePlanet.Checked then
@@ -287,7 +284,7 @@ end;
 //------------------------------------------------------------------
 // Show Inner Core
 //------------------------------------------------------------------
-procedure TFormGeosfera.miInnerCoreClick(Sender: TObject);
+procedure TFormLitosfera.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   if miInnerCore.Checked then
@@ -310,7 +307,7 @@ end;
 //------------------------------------------------------------------
 // ShowHide tvPlanets
 //------------------------------------------------------------------
-procedure TFormGeosfera.miViewHidePanelsClick(Sender: TObject);
+procedure TFormLitosfera.miViewHidePanelsClick(Sender: TObject);
 begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
   if miViewHidePanels.Checked then
@@ -333,7 +330,7 @@ end;
 //------------------------------------------------------------------
 // tvPlanetsClick
 //------------------------------------------------------------------
-procedure TFormGeosfera.tvPlanetsClick(Sender: TObject);
+procedure TFormLitosfera.tvPlanetsClick(Sender: TObject);
 begin
   FileName := CurrentStar + tvPlanets.Selected.Text;
 
@@ -347,7 +344,7 @@ begin
   else    // StateIndex = 1 for Planetoid as TGLFreeForm
   begin
     ffPlanet.LoadFromFile(FileName + '.3ds');
-    ffPlanet.Scale.X := 0.003; ffPlanet.Scale.Y := 0.003; ffPlanet.Scale.Z := 0.003;
+    ffPlanet.Scale.X := 0.01; ffPlanet.Scale.Y := 0.01; ffPlanet.Scale.Z := 0.01;
     sfPlanet.Visible := False;
     ffPlanet.Visible := True;
     ffPlanet.Material.Texture.Disabled := False;
@@ -376,7 +373,7 @@ begin
     PlanetRingDn.Visible := False;
   end;
 
-  miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
+  miHelpWiki.Caption := tvPlanets.Selected.Text + ' в ' + 'Рувики...';
 
   // Atmospheres
   if (tvPlanets.Selected.Text = 'Earth') then
@@ -388,7 +385,7 @@ end;
 //------------------------------------------------------------------
 // SceneViewerBeforeRender
 //------------------------------------------------------------------
-procedure TFormGeosfera.SceneViewerBeforeRender(Sender: TObject);
+procedure TFormLitosfera.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // if no multitexturing or no combiner support, turn off city lights
@@ -398,7 +395,7 @@ end;
 
 //------------------------------------------------------------------
 
-function TFormGeosfera.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TFormLitosfera.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
   atmPoint, normal: TGLVector;
@@ -444,14 +441,14 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TFormGeosfera.ButtonGridClick(Sender: TObject);
+procedure TFormLitosfera.ButtonGridClick(Sender: TObject);
 begin
   ButtonGrid.Enabled := not ButtonGrid.Enabled;
 end;
 
 //------------------------------------------------------------------
 
-function TFormGeosfera.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TFormLitosfera.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
   rayVector: TGLVector;
@@ -482,7 +479,7 @@ end;
 //------------------------------------------------------------------
 // Atmosphere with DirectOpenGLRender
 //------------------------------------------------------------------
-procedure TFormGeosfera.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TFormLitosfera.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
   cSlices = 60;
 var
@@ -576,7 +573,7 @@ end;
 //--------------------------- Menu Items ---------------------------
 // Show Constellation Lines
 //------------------------------------------------------------------
-procedure TFormGeosfera.miViewConstlinesClick(Sender: TObject);
+procedure TFormLitosfera.miViewConstlinesClick(Sender: TObject);
 begin
   ConstLines.Nodes.Clear;
   miViewConstlines.Checked := not miViewConstlines.Checked;
@@ -590,7 +587,7 @@ end;
 //------------------------------------------------------------------
 // Constellation Lines
 //------------------------------------------------------------------
-procedure TFormGeosfera.LoadConstLines;
+procedure TFormLitosfera.LoadConstLines;
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -615,7 +612,7 @@ end;
 //------------------------------------------------------------------
 // Constellation Bounds
 //------------------------------------------------------------------
-procedure TFormGeosfera.LoadConstBounds;
+procedure TFormLitosfera.LoadConstBounds;
 var
   sl, line: TStrings;
   skypos: TAffineVector;
@@ -640,7 +637,7 @@ end;
 //------------------------------------------------------------------
 // Show Constellation Bounds
 //------------------------------------------------------------------
-procedure TFormGeosfera.miViewConstbordersClick(Sender: TObject);
+procedure TFormLitosfera.miViewConstbordersClick(Sender: TObject);
 begin
   ConstBounds.Nodes.Clear;
   miViewConstborders.Checked := not miViewConstborders.Checked;
@@ -656,7 +653,7 @@ end;
 //------------------------------------------------------------------
 // CadencerProgress
 //------------------------------------------------------------------
-procedure TFormGeosfera.CadencerProgress(Sender: TObject; const deltaTime,
+procedure TFormLitosfera.CadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   d : Double;
@@ -715,7 +712,7 @@ begin
   end;
 end;
 
-procedure TFormGeosfera.chbShowAxesClick(Sender: TObject);
+procedure TFormLitosfera.chbShowAxesClick(Sender: TObject);
 begin
   sfPlanet.ShowAxes := chbShowAxes.Checked;
 
@@ -724,7 +721,7 @@ end;
 //------------------------------------------------------------------
 // SceneViewerMouseDown
 //------------------------------------------------------------------
-procedure TFormGeosfera.SceneViewerMouseDown(Sender: TObject;
+procedure TFormLitosfera.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := x;
@@ -734,7 +731,7 @@ end;
 //------------------------------------------------------------------
 // SceneViewerMouseMove
 //------------------------------------------------------------------
-procedure TFormGeosfera.SceneViewerMouseMove(Sender: TObject;
+procedure TFormLitosfera.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
 
@@ -752,7 +749,7 @@ end;
 //------------------------------------------------------------------
 // FormMouseWheel
 //------------------------------------------------------------------
-procedure TFormGeosfera.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormLitosfera.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   f: Single;
@@ -771,7 +768,7 @@ end;
 //------------------------------------------------------------------
 // Click to Show Planet SkyDome
 //------------------------------------------------------------------
-procedure TFormGeosfera.miPlanetSkyDomeClick(Sender: TObject);
+procedure TFormLitosfera.miPlanetSkyDomeClick(Sender: TObject);
 begin
   miPlanetSkyDome.Checked := not miPlanetSkyDome.Checked;
   if miPlanetSkyDome.Checked then
@@ -790,7 +787,7 @@ end;
 //------------------------------------------------------------------
 // DblClick to ShowHide Panels
 //------------------------------------------------------------------
-procedure TFormGeosfera.SceneViewerDblClick(Sender: TObject);
+procedure TFormLitosfera.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -809,7 +806,7 @@ end;
 //------------------------------------------------------------------
 // LoadHighResTexture
 //------------------------------------------------------------------
-procedure TFormGeosfera.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
+procedure TFormLitosfera.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
   if FileExists(FileName) then
   begin
@@ -821,7 +818,7 @@ end;
 //------------------------------------------------------------------
 // FormKeyPress
 //------------------------------------------------------------------
-procedure TFormGeosfera.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormLitosfera.FormKeyPress(Sender: TObject; var Key: Char);
 
 begin
   case Key of
@@ -858,7 +855,7 @@ end;
 //------------------------------------------------------------------
 //  Timer1Timer
 //------------------------------------------------------------------
-procedure TFormGeosfera.TimerTimer(Sender: TObject);
+procedure TFormLitosfera.TimerTimer(Sender: TObject);
 begin
 //  Caption := Format('Geosfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
    StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
@@ -867,7 +864,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormGeosfera.miSystemSolarClick(Sender: TObject);
+procedure TFormLitosfera.miSystemSolarClick(Sender: TObject);
 begin
   with TFormSolarSys.Create(Self) do
     try
@@ -877,7 +874,7 @@ begin
     end;
 end;
 
-procedure TFormGeosfera.miSystemStarClick(Sender: TObject);
+procedure TFormLitosfera.miSystemStarClick(Sender: TObject);
 begin
   with TFormStarSys.Create(Self) do
     try
@@ -887,21 +884,37 @@ begin
     end;
 end;
 
-procedure TFormGeosfera.miFileNewClick(Sender: TObject);
+procedure TFormLitosfera.miFileNewClick(Sender: TObject);
 begin
-  // New planet system of star with params
+  Timer.Enabled := False;
+  Cadencer.Enabled := False;
+(*
+  if FileExists(AppPath + 'EarthAbcde.exe') then
+    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
+*)
+  with TFormGenPlanetsys.Create(Self) do  // not   FormABCreator.ShowModal;
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+ (*
+  // Новая экзопланетная система с известными параметрами
   with TFormNewSystem.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
+*)
+  Timer.Enabled := True;
+  Cadencer.Enabled := True;
 end;
 
 
 //------------------------------------------------------------------
 
-procedure TFormGeosfera.About1Click(Sender: TObject);
+procedure TFormLitosfera.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -914,12 +927,12 @@ end;
 //------------------------------------------------------------------
 // miClear tvPlanets
 //------------------------------------------------------------------
-procedure TFormGeosfera.miClearTreeViewClick(Sender: TObject);
+procedure TFormLitosfera.miClearTreeViewClick(Sender: TObject);
 begin
   tvPlanets.Items.Clear;
 end;
 
-procedure TFormGeosfera.miHelpWikiClick(Sender: TObject);
+procedure TFormLitosfera.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
@@ -935,7 +948,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormGeosfera.miSystemProjectionClick(Sender: TObject);
+procedure TFormLitosfera.miSystemProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -948,9 +961,9 @@ end;
 //------------------------------------------------------------------
 //  miOpenFile with exoplanets
 //------------------------------------------------------------------
-procedure TFormGeosfera.miFileOpenClick(Sender: TObject);
+procedure TFormLitosfera.miFileOpenClick(Sender: TObject);
 begin
-  OpenDialog.Filter := 'Star Planets (*.star)|*.star';
+  OpenDialog.Filter := 'Экзосистема (*.star)|*.star';
   OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
@@ -963,9 +976,9 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TFormGeosfera.miSettingsClick(Sender: TObject);
+procedure TFormLitosfera.miSettingsClick(Sender: TObject);
 begin
-  with TfrmSettings.Create(Self) do
+  with TFormSettings.Create(Self) do
     try
       ShowModal;
     finally
@@ -977,9 +990,9 @@ end;
 //------------------------------------------------------------------
 // miSaveAs exosystem
 //------------------------------------------------------------------
-procedure TFormGeosfera.miFileSaveAsClick(Sender: TObject);
+procedure TFormLitosfera.miFileSaveAsClick(Sender: TObject);
 begin
-  SaveDialog.Filter := 'Star Planets (*.star)|*.star';
+  SaveDialog.Filter := 'Экзосистема (*.star)|*.star';
   SaveDialog.InitialDir := StarDir;
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
@@ -993,7 +1006,7 @@ end;
 //------------------------------------------------------------------
 // miGoogleEarth
 //------------------------------------------------------------------
-procedure TFormGeosfera.miGoogleEarthClick(Sender: TObject);
+procedure TFormLitosfera.miGoogleEarthClick(Sender: TObject);
 var
   S: String;
 begin
@@ -1003,7 +1016,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormGeosfera.miFileExitClick(Sender: TObject);
+procedure TFormLitosfera.miFileExitClick(Sender: TObject);
 begin
   Close;
 end;

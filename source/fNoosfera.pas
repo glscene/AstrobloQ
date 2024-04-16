@@ -1,4 +1,4 @@
-unit fnNoosfera;
+unit fNoosfera;
 
 interface
 
@@ -328,11 +328,11 @@ implementation
 {$R *.dfm}
 
 uses
-  Noo.Globals,
+  uGlobals,
   // accurate movements left for later... or the astute reader
-  Astro.Objects, // Asteroid as potatoid
-  fnABCreator, // 2000 Asteroid.. Galaxy System Creator
-  fnAbout,
+  uOglObjects, // Asteroid as potatoid
+  fGenPlanetsys, // 2000 Asteroid.. Galaxy System Creator
+  fAbout,
   //AllShapeLoaderFrm,  {Earth Cities, Countries}
   //Gizmo in 'Gizmo.pas'..not yet
   fMeshShow, // 3000
@@ -1954,7 +1954,7 @@ begin
   if FileExists(AppPath + 'EarthAbcde.exe') then
     ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
 *)
-  with TFormABCreator.Create(Self) do  // not   FormABCreator.ShowModal;
+  with TFormGenPlanetsys.Create(Self) do  // not   FormABCreator.ShowModal;
     try
       ShowModal;
     finally
@@ -2076,7 +2076,7 @@ end;
 
 procedure TFormNoosphere.miAboutClick(Sender: TObject);
 begin
-  with TAboutFrm.Create(Self) do
+  with TFormAbout.Create(Self) do
     try
       ShowModal;
     finally

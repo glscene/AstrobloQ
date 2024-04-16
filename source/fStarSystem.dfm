@@ -819,25 +819,31 @@ object FormStarSys: TFormStarSys
     Left = 358
     Top = 32
     object File1: TMenuItem
-      Caption = '&File'
+      Caption = '&'#1060#1072#1081#1083
       object New1: TMenuItem
         Caption = '&New'
       end
       object Open1: TMenuItem
-        Caption = '&Open...'
+        Caption = #1054'&'#1090#1082#1088#1099#1090#1100'...'
         OnClick = Open1Click
       end
       object Save1: TMenuItem
-        Caption = '&Save'
+        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100
       end
       object SaveAs1: TMenuItem
         Caption = 'Save &As...'
       end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object N3: TMenuItem
+        Caption = '&'#1042#1099#1093#1086#1076
+      end
     end
     object Window1: TMenuItem
-      Caption = '&View'
+      Caption = '&'#1042#1080#1076
       object miInnerCore: TMenuItem
-        Caption = 'Inner Core'
+        Caption = #1071#1076#1088#1086
         OnClick = miInnerCoreClick
       end
       object N1: TMenuItem

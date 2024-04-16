@@ -1,13 +1,13 @@
 //
 // Some MDL utility functions
 //
-unit Noo.SMDstuff;
+unit uSMDstuff;
 
 // LoadQC Examples:
 //
-// 1) LoadQC('C:\KazeXtreme2\KazeXtreme2.qc',Actor1,True);  <-- Loads the first body found in .QC and animation sequences.
-// 2) LoadQC('C:\KazeXtreme2\KazeXtreme2.qc',Actor1,True,'template_urban2');        <-- Loads in Actor1 the body "template_urban2" found in .QC and animation sequences.
-// LoadQC('C:\KazeXtreme2\KazeXtreme2.qc',Actor2,True, 'template_urban2_pack');  <-- Loads in Actor2 the body "template_urban2_pack" found in .QC and animation sequences.
+// 1) LoadQC('D:\KazeXtreme2\KazeXtreme2.qc',Actor1,True); <-- Loads the first body found in .QC and animation sequences.
+// 2) LoadQC('D:\KazeXtreme2\KazeXtreme2.qc',Actor1,True,'template_urban2'); <-- Loads in Actor1 the body "template_urban2" found in .QC and animation sequences.
+// LoadQC('D:\KazeXtreme2\KazeXtreme2.qc',Actor2,True, 'template_urban2_pack');  <-- Loads in Actor2 the body "template_urban2_pack" found in .QC and animation sequences.
 // Use "Actor2.Synchronize(Actor1)" when you switch between Actor1's animations
 
 interface
@@ -35,7 +35,9 @@ procedure RotateBone(Ac: TGLActor; BoneIndex: integer; aa, bb, cc: single;
   SlowerCoeff: single; Maxaa, Minaa, Maxbb, Minbb, Maxcc, Mincc: single);
 function GetBoneIndexByName(Ac: TGLActor; BoneName: string): integer;
 
+// ----------------------------------------------------------------------
 implementation
+// ----------------------------------------------------------------------
 
 function Get_String_From1_From2_To1(st: string;
   From1, From2, To1: string): string;

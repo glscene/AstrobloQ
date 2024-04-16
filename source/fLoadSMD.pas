@@ -275,7 +275,7 @@ implementation
 {$R *.DFM}
 
 uses
- Noo.Globals;
+  uGlobals;
 
 procedure TFormLoadSmdMdl.FormCreate(Sender: TObject);
 begin

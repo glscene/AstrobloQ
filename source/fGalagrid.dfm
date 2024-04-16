@@ -5,7 +5,7 @@ object FormMilkyway: TFormMilkyway
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Milkyway'
+  Caption = 'Galagrid'
   ClientHeight = 801
   ClientWidth = 1362
   Color = clBtnFace
@@ -34,8 +34,6 @@ object FormMilkyway: TFormMilkyway
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 159
-    ExplicitTop = -10
   end
   object PanelLeft: TPanel
     Left = 0
@@ -85,8 +83,8 @@ object FormMilkyway: TFormMilkyway
     TabOrder = 3
   end
   object GLScene: TGLScene
-    Left = 218
-    Top = 80
+    Left = 312
+    Top = 112
     object Camera: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
@@ -172,120 +170,102 @@ object FormMilkyway: TFormMilkyway
     Left = 1036
     Top = 86
     object File1: TMenuItem
-      Caption = '&File'
-      object New1: TMenuItem
-        Caption = '&New'
-      end
+      Caption = '&'#1060#1072#1081#1083
       object Open1: TMenuItem
-        Caption = '&Open...'
+        Caption = #1054'&'#1090#1082#1088#1099#1090#1100'...'
         OnClick = Open1Click
       end
       object Save1: TMenuItem
-        Caption = '&Save'
+        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100
       end
       object SaveAs1: TMenuItem
-        Caption = 'Save &As...'
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' &'#1082#1072#1082'...'
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object miExit: TMenuItem
-        Caption = 'E&xit'
+        Caption = #1042#1099'&'#1093#1086#1076
         OnClick = miExitClick
       end
     end
     object Edit1: TMenuItem
-      Caption = '&Edit'
+      Caption = '&'#1055#1088#1072#1074#1082#1072
       object Undo1: TMenuItem
-        Caption = '&Undo'
+        Caption = #1054'&'#1090#1084#1077#1085#1080#1090#1100
         ShortCut = 16474
       end
       object N4: TMenuItem
         Caption = '-'
       end
       object Cut1: TMenuItem
-        Caption = 'Cu&t'
+        Caption = #1042#1099'&'#1088#1077#1079#1072#1090#1100
         ShortCut = 16472
       end
       object Copy1: TMenuItem
-        Caption = '&Copy'
+        Caption = '&'#1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
         ShortCut = 16451
       end
       object Paste1: TMenuItem
-        Caption = '&Paste'
+        Caption = '&'#1042#1089#1090#1072#1074#1080#1090#1100
         ShortCut = 16470
       end
       object N3: TMenuItem
         Caption = '-'
       end
       object Find1: TMenuItem
-        Caption = '&Find...'
+        Caption = '&'#1053#1072#1081#1090#1080'...'
       end
       object Replace1: TMenuItem
-        Caption = 'R&eplace...'
+        Caption = '&'#1047#1072#1084#1077#1085#1080#1090#1100'...'
       end
       object GoTo1: TMenuItem
-        Caption = '&Go To...'
+        Caption = '&'#1055#1077#1088#1077#1081#1090#1080' '#1082'...'
       end
       object N1: TMenuItem
         Caption = '-'
       end
-      object Links1: TMenuItem
-        Caption = 'Lin&ks...'
-      end
       object Object1: TMenuItem
-        Caption = '&Object'
+        Caption = #1054'&'#1073#1098#1077#1082#1090
       end
     end
     object miView: TMenuItem
-      Caption = '&View'
-      object NewWindow1: TMenuItem
-        Caption = '&New Window'
-      end
+      Caption = '&'#1042#1080#1076
       object Tile1: TMenuItem
         Caption = '&Tile'
-      end
-      object Cascade1: TMenuItem
-        Caption = '&Cascade'
-      end
-      object ArrangeAll1: TMenuItem
-        Caption = '&Arrange All'
       end
       object N5: TMenuItem
         Caption = '-'
       end
       object Hide1: TMenuItem
-        Caption = '&Hide'
+        Caption = '&'#1057#1082#1088#1099#1090#1100
       end
       object Show1: TMenuItem
-        Caption = '&Show...'
+        Caption = '&'#1055#1086#1082#1072#1079#1072#1090#1100'...'
       end
     end
     object Help1: TMenuItem
-      Caption = '&Help'
+      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
       object miWiki: TMenuItem
-        Caption = '&Wiki...'
-      end
-      object SearchforHelpOn1: TMenuItem
-        Caption = '&Search for Help On...'
+        Caption = '&'#1042#1080#1082#1080'...'
       end
       object N6: TMenuItem
         Caption = '-'
       end
       object About1: TMenuItem
-        Caption = '&About...'
+        Caption = #1054' &'#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
         OnClick = About1Click
       end
     end
   end
   object GLAsyncTimer: TGLAsyncTimer
-    Left = 364
-    Top = 84
+    Left = 623
+    Top = 147
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
-    Left = 224
-    Top = 210
+    Left = 294
+    Top = 340
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -304,7 +284,7 @@ object FormMilkyway: TFormMilkyway
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 392
-    Top = 210
+    Left = 630
+    Top = 326
   end
 end

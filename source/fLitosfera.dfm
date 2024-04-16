@@ -1,4 +1,4 @@
-object FormGeosfera: TFormGeosfera
+object FormLitosfera: TFormLitosfera
   Left = 412
   Top = 123
   Cursor = crHelp
@@ -6,9 +6,9 @@ object FormGeosfera: TFormGeosfera
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Geosfera'
-  ClientHeight = 913
-  ClientWidth = 1636
+  Caption = 'Litosfera'
+  ClientHeight = 803
+  ClientWidth = 1524
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -26,8 +26,8 @@ object FormGeosfera: TFormGeosfera
   object SceneViewer: TGLSceneViewer
     Left = 249
     Top = 51
-    Width = 1158
-    Height = 828
+    Width = 1046
+    Height = 718
     Cursor = crCross
     Margins.Left = 5
     Margins.Top = 5
@@ -36,7 +36,7 @@ object FormGeosfera: TFormGeosfera
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 152.959899902343800000
+    FieldOfView = 149.004043579101600000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -48,19 +48,18 @@ object FormGeosfera: TFormGeosfera
     Left = 0
     Top = 51
     Width = 249
-    Height = 828
+    Height = 718
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 893
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 247
-      Height = 826
+      Height = 716
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -163,13 +162,12 @@ object FormGeosfera: TFormGeosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 891
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 879
-    Width = 1636
+    Top = 769
+    Width = 1524
     Height = 34
     Margins.Left = 5
     Margins.Top = 5
@@ -192,14 +190,12 @@ object FormGeosfera: TFormGeosfera
         Text = 'Z:'
         Width = 151
       end>
-    ExplicitTop = 944
-    ExplicitWidth = 1711
   end
   object PanelRight: TPanel
-    Left = 1407
+    Left = 1295
     Top = 51
     Width = 229
-    Height = 828
+    Height = 718
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -207,36 +203,6 @@ object FormGeosfera: TFormGeosfera
     Align = alRight
     TabOrder = 3
     StyleName = '`'
-    ExplicitLeft = 1482
-    ExplicitHeight = 893
-    object pcParameters: TPageControl
-      Left = 1
-      Top = 67
-      Width = 227
-      Height = 504
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      ActivePage = tsOrbits
-      Align = alTop
-      TabOrder = 0
-      object tsOrbits: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Caption = 'Orbits'
-      end
-      object tsPlanets: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Caption = 'Planets'
-        ImageIndex = 1
-      end
-    end
     object PanelParameters: TPanel
       Left = 1
       Top = 1
@@ -248,11 +214,11 @@ object FormGeosfera: TFormGeosfera
       Margins.Bottom = 5
       Align = alTop
       Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
-      TabOrder = 1
+      TabOrder = 0
     end
     object chbInnerCore: TCheckBox
-      Left = 37
-      Top = 602
+      Left = 23
+      Top = 308
       Width = 170
       Height = 30
       Margins.Left = 5
@@ -260,13 +226,13 @@ object FormGeosfera: TFormGeosfera
       Margins.Right = 5
       Margins.Bottom = 5
       Caption = #1071#1076#1088#1086
-      TabOrder = 2
+      TabOrder = 1
       StyleName = 'Windows'
       OnClick = miInnerCoreClick
     end
     object CheckBox1: TCheckBox
-      Left = 37
-      Top = 642
+      Left = 23
+      Top = 348
       Width = 183
       Height = 29
       Margins.Left = 5
@@ -274,12 +240,12 @@ object FormGeosfera: TFormGeosfera
       Margins.Right = 5
       Margins.Bottom = 5
       Caption = #1047#1072#1090#1077#1085#1077#1085#1080#1077
-      TabOrder = 3
+      TabOrder = 2
       StyleName = 'Windows'
     end
     object chbRotate: TCheckBox
-      Left = 37
-      Top = 681
+      Left = 23
+      Top = 387
       Width = 145
       Height = 29
       Margins.Left = 5
@@ -289,12 +255,12 @@ object FormGeosfera: TFormGeosfera
       Caption = #1042#1088#1072#1097#1077#1085#1080#1077
       Checked = True
       State = cbChecked
-      TabOrder = 4
+      TabOrder = 3
       StyleName = 'Windows'
     end
     object chbShowAxes: TCheckBox
-      Left = 37
-      Top = 720
+      Left = 23
+      Top = 426
       Width = 133
       Height = 29
       Margins.Left = 5
@@ -302,13 +268,13 @@ object FormGeosfera: TFormGeosfera
       Margins.Right = 5
       Margins.Bottom = 5
       Caption = #1054#1089#1080
-      TabOrder = 5
+      TabOrder = 4
       StyleName = 'Windows'
       OnClick = chbShowAxesClick
     end
     object ButtonGrid: TButton
-      Left = 47
-      Top = 790
+      Left = 33
+      Top = 496
       Width = 131
       Height = 43
       Margins.Left = 5
@@ -316,14 +282,31 @@ object FormGeosfera: TFormGeosfera
       Margins.Right = 5
       Margins.Bottom = 5
       Caption = #1057#1077#1090#1082#1072
-      TabOrder = 6
+      TabOrder = 5
       OnClick = ButtonGridClick
+    end
+    object MemoParams: TMemo
+      Left = 1
+      Top = 67
+      Width = 227
+      Height = 200
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alTop
+      Lines.Strings = (
+        #1056#1072#1076#1080#1091#1089
+        #1052#1072#1089#1089#1072
+        #1055#1083#1086#1090#1085#1086#1089#1090#1100
+        #1053#1072#1082#1083#1086#1085' '#1086#1089#1080)
+      TabOrder = 6
     end
   end
   object ControlBar1: TControlBar
     Left = 0
     Top = 0
-    Width = 1636
+    Width = 1524
     Height = 51
     Margins.Left = 5
     Margins.Top = 5
@@ -332,7 +315,6 @@ object FormGeosfera: TFormGeosfera
     Align = alTop
     RowSize = 46
     TabOrder = 4
-    ExplicitWidth = 1711
     object ToolBar1: TToolBar
       Left = 24
       Top = 2
@@ -434,7 +416,7 @@ object FormGeosfera: TFormGeosfera
         end
       end
       object CameraControler: TGLCamera
-        DepthOfView = 1000.000000000000000000
+        DepthOfView = 10000.000000000000000000
         FocalLength = 50.000000000000000000
         TargetObject = dcStar
         Position.Coordinates = {0000803F000000000000803F0000803F}
@@ -578,11 +560,11 @@ object FormGeosfera: TFormGeosfera
     object Open1: TMenuItem
       Caption = #1060#1072#1081#1083
       object miFileOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084#1091'...'
         OnClick = miFileOpenClick
       end
       object miFileNew: TMenuItem
-        Caption = #1053#1086#1074#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        Caption = #1053#1086#1074#1072#1103' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miFileNewClick
       end
       object miFileSaveAs: TMenuItem
@@ -597,26 +579,23 @@ object FormGeosfera: TFormGeosfera
         OnClick = miFileExitClick
       end
     end
-    object miSystem: TMenuItem
-      Caption = #1057#1080#1089#1090#1077#1084#1072
+    object miView: TMenuItem
+      Caption = '&'#1042#1080#1076
       object miSystemSolar: TMenuItem
-        Caption = 'Sol...'
+        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSystemSolarClick
       end
       object miSystemStar: TMenuItem
-        Caption = 'Star...'
+        Caption = #1069#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSystemStarClick
-      end
-      object N5: TMenuItem
-        Caption = '-'
       end
       object miSystemProjection: TMenuItem
         Caption = #1055#1088#1086#1077#1082#1094#1080#1080'...'
         OnClick = miSystemProjectionClick
       end
-    end
-    object miView: TMenuItem
-      Caption = #1042#1080#1076
+      object N1: TMenuItem
+        Caption = '-'
+      end
       object miViewConstlines: TMenuItem
         Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
         OnClick = miViewConstlinesClick

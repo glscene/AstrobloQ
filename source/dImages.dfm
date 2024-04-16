@@ -1,6 +1,6 @@
 object dfImages: TdfImages
-  Height = 1470
-  Width = 1960
+  Height = 703
+  Width = 1038
   PixelsPerInch = 168
   object ImgCollectionPlanets: TImageCollection
     Images = <
@@ -2097,8 +2097,8 @@ object dfImages: TdfImages
               EB58ED6D6D9724ED48D00551924E140E4D6D5007FFD9}
           end>
       end>
-    Left = 148
-    Top = 362
+    Left = 524
+    Top = 66
   end
   object ImgPlanetSymbols: TImageList
     Left = 146
@@ -2834,8 +2834,8 @@ object dfImages: TdfImages
     ImageCollection = ImgCollectionPlanets
     Width = 32
     Height = 32
-    Left = 136
-    Top = 480
+    Left = 520
+    Top = 224
   end
   object ImgExoplanetSymbols: TImageList
     Left = 144

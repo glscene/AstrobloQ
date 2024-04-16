@@ -225,7 +225,7 @@ object FormSMDqc: TFormSMDqc
     object Label15: TLabel
       Left = 1
       Top = 680
-      Width = 432
+      Width = 418
       Height = 48
       Margins.Left = 6
       Margins.Top = 6
@@ -239,7 +239,6 @@ object FormSMDqc: TFormSMDqc
       Color = clGray
       ParentColor = False
       WordWrap = True
-      ExplicitWidth = 418
     end
     object HelpBtn: TSpeedButton
       Left = 322

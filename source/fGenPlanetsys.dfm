@@ -1,11 +1,11 @@
-object FormABCreator: TFormABCreator
+object FormGenPlanetsys: TFormGenPlanetsys
   Left = 30
   Top = 20
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Planet System Creator'
+  Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084
   ClientHeight = 831
   ClientWidth = 1306
   Color = clBtnFace
@@ -97,26 +97,26 @@ object FormABCreator: TFormABCreator
       object Label2: TLabel
         Left = 35
         Top = 177
-        Width = 68
+        Width = 55
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Moons :'
+        Caption = #1051#1091#1085#1099' :'
         ParentShowHint = False
         ShowHint = False
       end
       object Label6: TLabel
         Left = 44
         Top = 140
-        Width = 58
+        Width = 75
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Rings :'
+        Caption = #1050#1086#1083#1100#1094#1072' :'
         ParentShowHint = False
         ShowHint = False
       end
@@ -135,13 +135,13 @@ object FormABCreator: TFormABCreator
       object Label22: TLabel
         Left = 14
         Top = 714
-        Width = 66
+        Width = 67
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Camera'
+        Caption = #1050#1072#1084#1077#1088#1072
       end
       object TimeLabel: TLabel
         Left = 14
@@ -335,15 +335,15 @@ object FormABCreator: TFormABCreator
         OnClick = PlanetsRGClick
       end
       object OrbitGroupBox: TGroupBox
-        Left = 340
-        Top = 242
+        Left = 343
+        Top = 243
         Width = 250
         Height = 460
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Orbit '
+        Caption = #1054#1088#1073#1080#1090#1072' '
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
@@ -635,21 +635,21 @@ object FormABCreator: TFormABCreator
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Object'
+        Caption = #1054#1073#1098#1077#1082#1090
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
         object MoonsLabel: TLabel
-          Left = 56
+          Left = 69
           Top = 240
-          Width = 68
+          Width = 55
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = 'Moons :'
+          Caption = #1051#1091#1085#1099' :'
         end
         object RingsLabel: TLabel
           Left = 66
@@ -664,28 +664,28 @@ object FormABCreator: TFormABCreator
           Caption = 'Rings :'
         end
         object Label4: TLabel
-          Left = 19
+          Left = 16
           Top = 68
-          Width = 105
+          Width = 108
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = 'Radius (km):'
+          Caption = #1056#1072#1076#1080#1091#1089' ('#1082#1084'):'
         end
         object Label16: TLabel
-          Left = 6
+          Left = 8
           Top = 110
-          Width = 118
+          Width = 122
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = 'Rotate (hours)'
+          Caption = #1056#1086#1090#1072#1094#1080#1103' ('#1095#1072#1089')'
         end
         object Label14: TLabel
           Left = 54
@@ -702,13 +702,13 @@ object FormABCreator: TFormABCreator
         object Label10: TLabel
           Left = 70
           Top = 25
-          Width = 56
+          Width = 41
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Name:'
+          Caption = #1048#1084#1103':'
         end
         object Label17: TLabel
           Left = 28
@@ -968,15 +968,15 @@ object FormABCreator: TFormABCreator
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Create Planet System Objects'
+        Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1085#1077#1073#1077#1089#1085#1099#1093' '#1090#1077#1083
         Columns = 5
         ItemIndex = 0
         Items.Strings = (
-          'Star'
-          'Planets'
-          'Asteroids'
-          'Comets'
-          'Debris')
+          #1047#1074#1077#1079#1076#1072
+          #1055#1083#1072#1085#1077#1090#1099
+          #1040#1089#1090#1077#1088#1086#1080#1076#1099
+          #1050#1086#1084#1077#1090#1099
+          #1044#1077#1073#1088#1080#1089)
         ParentShowHint = False
         ShowHint = False
         TabOrder = 2
@@ -1737,8 +1737,8 @@ object FormABCreator: TFormABCreator
   object GLCadencerA: TGLCadencer
     Scene = GLSceneA
     OnProgress = GLCadencerAProgress
-    Left = 392
-    Top = 72
+    Left = 798
+    Top = 114
   end
   object GLMaterialLibraryA: TGLMaterialLibrary
     Left = 488
@@ -1747,7 +1747,7 @@ object FormABCreator: TFormABCreator
   object GLSceneA: TGLScene
     ObjectsSorting = osNone
     VisibilityCulling = vcHierarchical
-    Left = 392
+    Left = 798
     Top = 16
     object SunShineFlare: TGLLensFlare
       Tag = 20
@@ -1964,8 +1964,8 @@ object FormABCreator: TFormABCreator
         Material.Texture.TextureFormat = tfLuminanceAlpha
         Material.Texture.Disabled = False
       end>
-    Left = 392
-    Top = 136
+    Left = 812
+    Top = 220
   end
   object WindowsBitmapFontA: TGLWindowsBitmapFont
     Font.Charset = DEFAULT_CHARSET

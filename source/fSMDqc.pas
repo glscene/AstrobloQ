@@ -125,8 +125,8 @@ var
 implementation
 
 uses
-  Noo.Globals,
-  Noo.SMDstuff;
+  uGlobals,
+  uSMDstuff;
 
 {$R *.DFM}
 

@@ -1,4 +1,4 @@
-unit fgSolarSystem;
+unit fSolarSystem;
 
 interface
 
@@ -48,7 +48,7 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  fgParams;
+  fParams;
 
 type
   TFormSolarSys = class(TForm)
@@ -211,7 +211,7 @@ begin
 
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg');
-    Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
+  Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
 
   Earth.Material.Texture.Image.LoadFromFile('earth.jpg');
     Moon.Material.Texture.Image.LoadFromFile('moon.jpg');
@@ -229,14 +229,14 @@ begin
   Saturn.Material.Texture.Image.LoadFromFile('saturn.jpg');
     Titan.Material.Texture.Image.LoadFromFile('titan.jpg');
     Enceladus.Material.Texture.Image.LoadFromFile('enceladus.jpg');
-    SaturnRing.Material.Texture.Image.LoadFromFile('saturnring.jpg');
+    SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.jpg');
 
   Uranus.Material.Texture.Image.LoadFromFile('uranus.jpg');
     Titania.Material.Texture.Image.LoadFromFile('titania.jpg');
     Miranda.Material.Texture.Image.LoadFromFile('miranda.jpg');
 
   Neptune.Material.Texture.Image.LoadFromFile('neptune.jpg');
-    NeptuneRing.Material.Texture.Image.LoadFromFile('neptunering.jpg');
+    NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.jpg');
     Triton.Material.Texture.Image.LoadFromFile('triton.jpg');
 
   Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
@@ -287,9 +287,9 @@ begin
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := 'Hide Panels'
+     miHidePanels.Caption := 'Скрыть панели'
    else
-    miHidePanels.Caption := 'Show Panels';
+    miHidePanels.Caption := 'Показать панели';
 end;
 
 procedure TFormSolarSys.miInnerCoreClick(Sender: TObject);
@@ -526,7 +526,7 @@ begin
       // Earth.Radius := 0.8;
       Earth.Stop := 180;
       // a half map of Earth
-      Earth.Material.Texture.Image.LoadFromFile('eartheast.jpg'); // remove to MatLib
+      Earth.Material.Texture.Image.LoadFromFile('earth_east.jpg'); // remove to MatLib
       // Core
       Core := TGLSphere.CreateAsChild(Earth);
       Core.Radius := 0.3;
@@ -590,7 +590,7 @@ begin
     begin
       // Mars.Radius := 0.4;
       Mars.Stop := 180;   // Half sphere
-      Mars.Material.Texture.Image.LoadFromFile('marseast.jpg');
+      Mars.Material.Texture.Image.LoadFromFile('mars_east.jpg');
       // Core
       Core := TGLSphere.CreateAsChild(Mars);
       Core.Radius := 0.1;
@@ -900,7 +900,7 @@ end;
 //
 procedure TFormSolarSys.AsyncTimerTimer;
 begin
-  Caption := 'Solar System / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Солнечная система / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
@@ -908,8 +908,8 @@ end;
 //
 procedure TFormSolarSys.About1Click(Sender: TObject);
 begin
-  ShowMessage('A freeware program based on GLScene...'#13#10#13#10 +
-    'to show planets of the Solar System!');
+  ShowMessage('Астровьюер планетных систем...'#13#10#13#10 +
+    'на основе компонентов GLScene!');
 end;
 
 // Exit

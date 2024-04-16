@@ -48,7 +48,7 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  fgParams;
+  fParams;
 
 type
   TFormStarSys = class(TForm)
@@ -146,6 +146,8 @@ type
     StatusBarStar: TStatusBar;
     miInnerCore: TMenuItem;
     N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -206,6 +208,7 @@ begin
 
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');   // current star
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg'); // appropriate map
+  Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
 
   Earth.Material.Texture.Image.LoadFromFile('earth.jpg');
   Moon.Material.Texture.Image.LoadFromFile('moon.jpg');
@@ -223,14 +226,14 @@ begin
   Saturn.Material.Texture.Image.LoadFromFile('saturn.jpg');
     Titan.Material.Texture.Image.LoadFromFile('titan.jpg');
     Enceladus.Material.Texture.Image.LoadFromFile('enceladus.jpg');
-    SaturnRing.Material.Texture.Image.LoadFromFile('saturnring.jpg');
+    SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.jpg');
 
   Uranus.Material.Texture.Image.LoadFromFile('uranus.jpg');
     Titania.Material.Texture.Image.LoadFromFile('titania.jpg');
     Miranda.Material.Texture.Image.LoadFromFile('miranda.jpg');
 
   Neptune.Material.Texture.Image.LoadFromFile('neptune.jpg');
-    NeptuneRing.Material.Texture.Image.LoadFromFile('neptunering.jpg');
+    NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.jpg');
     Triton.Material.Texture.Image.LoadFromFile('triton.jpg');
 
   Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
@@ -520,7 +523,7 @@ begin
       // Earth.Radius := 0.8;
       Earth.Stop := 180;
       // a half map of Earth
-      Earth.Material.Texture.Image.LoadFromFile('eartheast.jpg'); // remove to MatLib
+      Earth.Material.Texture.Image.LoadFromFile('earth_east.jpg'); // remove to MatLib
       // Core
       Core := TGLSphere.CreateAsChild(Earth);
       Core.Radius := 0.3;
@@ -584,7 +587,7 @@ begin
     begin
       // Mars.Radius := 0.4;
       Mars.Stop := 180;   // Half sphere
-      Mars.Material.Texture.Image.LoadFromFile('marseast.jpg');
+      Mars.Material.Texture.Image.LoadFromFile('mars_east.jpg');
       // Core
       Core := TGLSphere.CreateAsChild(Mars);
       Core.Radius := 0.1;
@@ -894,7 +897,7 @@ end;
 //
 procedure TFormStarSys.AsyncTimerTimer;
 begin
-  Caption := 'Solar System / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Ёкзопланетна€ система / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
@@ -904,8 +907,8 @@ end;
 //---------------------------------------------------------
 procedure TFormStarSys.About1Click(Sender: TObject);
 begin
-  ShowMessage('A freeware program based on GLScene...'#13#10#13#10 +
-    'to show planets of the Solar System!');
+  ShowMessage('јстровьюер экзопланетных систем...'#13#10#13#10 +
+    'основанный на компонентах GLScene!');
 end;
 
 // Exit

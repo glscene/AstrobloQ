@@ -68,7 +68,7 @@ type
     SaveListBtn: TSpeedButton;
     SaveColorsBtn: TSpeedButton;
     NickNameEdit: TEdit;
-    Label9: TLabel;
+    LabeNick: TLabel;
     EMailEdit: TEdit;
     Label10: TLabel;
     UrlEdit: TEdit;
@@ -119,8 +119,8 @@ implementation
 //-------------------------------------------------------------------
 
 uses
-  fnNoosfera,
-  Noo.Globals;
+  fNoosfera,
+  uGlobals;
 
 {$R *.DFM}
 

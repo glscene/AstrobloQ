@@ -241,7 +241,7 @@ uses
   GLS.Color,
   GLS.RenderContextInfo,
 
-  Noo.Globals;
+  uGlobals;
 
 type
 

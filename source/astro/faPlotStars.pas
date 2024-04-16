@@ -49,7 +49,7 @@ uses
   faGridOptions,
   faDerivativeOptions,
   faPlotColors,
-  faAbout;
+  fAbout;
 
 type
   TFormPlotStars = class(TForm)
@@ -1231,7 +1231,7 @@ end;
 
 procedure TFormPlotStars.About1Click(Sender: TObject);
 begin
-  AboutForm.Show;
+  FormAbout.Show;
 end;
 
 procedure TFormPlotStars.ClearAddedField;

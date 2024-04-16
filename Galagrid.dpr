@@ -1,8 +1,8 @@
-program Milkyway;
+program Galagrid;
 
 uses
   Vcl.Forms,
-  fMilkyway in 'source\fMilkyway.pas' {FormMilkyway};
+  fGalagrid in 'source\fGalagrid.pas' {FormMilkyway};
 
 {$R *.res}
 

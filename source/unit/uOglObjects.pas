@@ -1,4 +1,4 @@
-unit Astro.Objects;
+unit uOglObjects;
 
 (*
   Alexandre Hirzel Collection of OpenGL objects
@@ -68,10 +68,10 @@ type
     procedure GyroYaw(const Moment: single); // V rotation
   end; // class
 
-(*
-  Cube for sphere radius 1 (size 2 with vertices between -1 and 1) centred on the origine.
-  If a texture is applied it will be tiled Tile times along each direction
-*)
+  (*
+    Cube for sphere radius 1 (size 2 with vertices between -1 and 1) centred on the origine.
+    If a texture is applied it will be tiled Tile times along each direction
+  *)
 procedure BuildCube(const Tile: double = 1);
 // Stars randomly placed on a sphere of radius 1
 procedure BuildStarField(const nbStars: integer);
@@ -88,6 +88,7 @@ function BuildPotatoid(var Mesh: TGLMeshObject; const Deviance: single = 0.2;
 
 // ==================================================================
 implementation
+
 // ==================================================================
 
 // BuildCube
@@ -213,12 +214,12 @@ end;
 procedure BuildCross(const Radius: single);
 begin
   glBegin(GL_LINES);
-    glVertex3f(-Radius, 0, 0);
-    glVertex3f(+Radius, 0, 0);
+  glVertex3f(-Radius, 0, 0);
+  glVertex3f(+Radius, 0, 0);
   glEnd;
   glBegin(GL_LINES);
-    glVertex3f(0, -Radius, 0);
-    glVertex3f(0, +Radius, 0);
+  glVertex3f(0, -Radius, 0);
+  glVertex3f(0, +Radius, 0);
   glEnd;
 end;
 
@@ -304,7 +305,7 @@ end;
 
 // ----------------------------------------------------------------
 procedure BuildSphere(var Mesh: TGLMeshObject; const Depth: integer = 0);
-// Polyhedron and Subdivide algorithms from OpenGL Red Book 
+// Polyhedron and Subdivide algorithms from OpenGL Red Book
 
   procedure Subdivide(const v1, v2, v3: array of single; const Depth: integer);
   var
@@ -498,9 +499,9 @@ begin
   Result := True;
 end;
 
-(************************************************************************
-// CAMERA OBJECT
- ************************************************************************)
+(* ***********************************************************************
+  // CAMERA OBJECT
+  *********************************************************************** *)
 
 // TMovingCamera
 
@@ -788,6 +789,5 @@ destructor TMovingCamera.Destroy;
 begin
   inherited Destroy;
 end;
-
 
 end.

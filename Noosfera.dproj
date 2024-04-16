@@ -108,15 +108,11 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\noo\Noo.Globals.pas"/>
-        <DCCReference Include="source\astro\Astro.Objects.pas"/>
-        <DCCReference Include="source\astro\Astro.Bodies.pas"/>
-        <DCCReference Include="source\noo\fnAbout.pas">
-            <Form>AboutFrm</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\noo\Noo.SMDstuff.pas"/>
-        <DCCReference Include="source\noo\fnNoosfera.pas">
+        <DCCReference Include="source\unit\uGlobals.pas"/>
+        <DCCReference Include="source\unit\uOglObjects.pas"/>
+        <DCCReference Include="source\unit\uSkyBodies.pas"/>
+        <DCCReference Include="source\unit\uSMDstuff.pas"/>
+        <DCCReference Include="source\fNoosfera.pas">
             <Form>FormNoosphere</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -128,8 +124,8 @@
             <Form>FormLoadSmdMdl</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\noo\fnABCreator.pas">
-            <Form>FormABCreator</Form>
+        <DCCReference Include="source\fGenPlanetsys.pas">
+            <Form>FormGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fSMDqc.pas">
@@ -150,6 +146,10 @@
         </DCCReference>
         <DCCReference Include="source\fStarPilot.pas">
             <Form>FormSpacePilot</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fAbout.pas">
+            <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

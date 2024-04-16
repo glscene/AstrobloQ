@@ -1,4 +1,4 @@
-unit fgSettings;
+unit fSettings;
 
 interface
 
@@ -26,7 +26,7 @@ uses
   Vcl.CheckLst, Vcl.WinXCtrls;
 
 type
-  TfrmSettings = class(TForm)
+  TFormSettings = class(TForm)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -113,14 +113,14 @@ type
   end;
 
 var
-  frmSettings: TfrmSettings;
+  FormSettings: TFormSettings;
 
 //================================================
 implementation
 
 {$R *.dfm}
 
-procedure TfrmSettings.FormCreate(Sender: TObject);
+procedure TFormSettings.FormCreate(Sender: TObject);
 begin
   // Default classes for terrain planets
 	chlbStarClasses.Checked[0] := False;
@@ -134,7 +134,7 @@ begin
   trbVelocityChange(Self);
 end;
 
-procedure TfrmSettings.FormShow(Sender: TObject);
+procedure TFormSettings.FormShow(Sender: TObject);
 var
   I: Integer;
 begin
@@ -154,7 +154,7 @@ begin
   tvSettings.FullExpand;
 end;
 
-procedure TfrmSettings.trbVelocityChange(Sender: TObject);
+procedure TFormSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   Ratio, FlightTime: Extended;
@@ -169,7 +169,7 @@ begin
 
 end;
 
-procedure TfrmSettings.tvSettingsClick(Sender: TObject);
+procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin
   tvSettings.Items[0].DropHighlighted := False;
   case tvSettings.Selected.Index of

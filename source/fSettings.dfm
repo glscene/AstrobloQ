@@ -1,11 +1,11 @@
-object frmSettings: TfrmSettings
+object FormSettings: TFormSettings
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Settings'
+  Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 971
   ClientWidth = 1475
   Color = clBtnFace
@@ -84,19 +84,19 @@ object frmSettings: TfrmSettings
         TabVisible = False
         object LabelProgram: TLabel
           Tag = 1000
-          Left = 70
+          Left = 38
           Top = 5
-          Width = 79
+          Width = 111
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = 'Program'
+          Caption = #1055#1088#1086#1075#1088#1072#1084#1084#1072
         end
         object LabelData: TLabel
-          Left = -60
+          Left = -4
           Top = 123
           Width = 170
           Height = 28
@@ -106,7 +106,7 @@ object frmSettings: TfrmSettings
           Margins.Bottom = 5
           Alignment = taRightJustify
           AutoSize = False
-          Caption = 'Data'
+          Caption = #1041#1072#1079#1072' '#1076#1072#1085#1085#1099#1093
         end
         object PanelExePath: TPanel
           Left = 33

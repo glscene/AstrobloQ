@@ -5,9 +5,9 @@ object FormSolarSys: TFormSolarSys
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Solar System'
-  ClientHeight = 985
-  ClientWidth = 1773
+  Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
+  ClientHeight = 699
+  ClientWidth = 1570
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,8 +24,8 @@ object FormSolarSys: TFormSolarSys
   object SceneViewer: TGLSceneViewer
     Left = 341
     Top = 0
-    Width = 1194
-    Height = 952
+    Width = 991
+    Height = 666
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -36,7 +36,7 @@ object FormSolarSys: TFormSolarSys
     Buffer.FogEnvironment.FogEnd = 1000.000000000000000000
     Buffer.FogEnvironment.FogDistance = fdEyePlane
     Buffer.BackgroundColor = clBackground
-    FieldOfView = 156.271224975585900000
+    FieldOfView = 146.569946289062500000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
@@ -46,7 +46,7 @@ object FormSolarSys: TFormSolarSys
     Left = 0
     Top = 0
     Width = 341
-    Height = 952
+    Height = 666
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -55,11 +55,12 @@ object FormSolarSys: TFormSolarSys
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
+    ExplicitHeight = 952
     object TreeView: TTreeView
       Left = 4
       Top = 4
       Width = 333
-      Height = 944
+      Height = 658
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -71,19 +72,22 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 944
     end
   end
   object PanelRight: TPanel
-    Left = 1535
+    Left = 1332
     Top = 0
     Width = 238
-    Height = 952
+    Height = 666
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 1535
+    ExplicitHeight = 952
     object Splitter1: TSplitter
       Left = 1
       Top = 142
@@ -114,6 +118,8 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
+      ExplicitLeft = 10
+      ExplicitTop = 4
     end
     inline FrameParams: TFrameParams
       Left = 1
@@ -169,7 +175,7 @@ object FormSolarSys: TFormSolarSys
     end
     object MemoInfo: TMemo
       Left = 1
-      Top = 724
+      Top = 438
       Width = 236
       Height = 227
       Margins.Left = 5
@@ -180,6 +186,7 @@ object FormSolarSys: TFormSolarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 4
+      ExplicitTop = 724
     end
     object cbRotation: TCheckBox
       Left = 51
@@ -199,14 +206,16 @@ object FormSolarSys: TFormSolarSys
   end
   object StatusBarSol: TStatusBar
     Left = 0
-    Top = 952
-    Width = 1773
+    Top = 666
+    Width = 1570
     Height = 33
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Panels = <>
+    ExplicitTop = 952
+    ExplicitWidth = 1773
   end
   object Scene: TGLScene
     Left = 254
@@ -821,53 +830,53 @@ object FormSolarSys: TFormSolarSys
     Left = 358
     Top = 32
     object File1: TMenuItem
-      Caption = '&File'
+      Caption = '&'#1060#1072#1081#1083
       object New1: TMenuItem
-        Caption = '&New'
+        Caption = '&'#1053#1086#1074#1099#1081
       end
       object Open1: TMenuItem
-        Caption = '&Open...'
+        Caption = #1054'&'#1090#1082#1088#1099#1090#1100'...'
         OnClick = Open1Click
       end
       object Save1: TMenuItem
-        Caption = '&Save'
+        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100
       end
       object SaveAs1: TMenuItem
-        Caption = 'Save &As...'
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' &'#1082#1072#1082'...'
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = 'E&xit'
+        Caption = '&'#1042#1099#1093#1086#1076
         OnClick = Exit1Click
       end
     end
     object Window1: TMenuItem
-      Caption = '&View'
+      Caption = '&'#1042#1080#1076
       object miInnerCore: TMenuItem
-        Caption = '&Inner Core'
+        Caption = #1071'&'#1076#1088#1086
         OnClick = miInnerCoreClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miHidePanels: TMenuItem
-        Caption = '&Hide Panels'
+        Caption = #1057#1082#1088#1099#1090#1100' &'#1087#1072#1085#1077#1083#1080
         Checked = True
         OnClick = miHidePanelsClick
       end
     end
     object Help1: TMenuItem
-      Caption = '&Help'
+      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
       object Contents1: TMenuItem
-        Caption = '&Contents'
+        Caption = '&'#1050#1086#1085#1090#1077#1085#1090
       end
       object N7: TMenuItem
         Caption = '-'
       end
       object About1: TMenuItem
-        Caption = '&About...'
+        Caption = #1054' &'#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
         OnClick = About1Click
       end
     end

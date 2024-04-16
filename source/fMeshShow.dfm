@@ -126,7 +126,7 @@ object FormMeshShow: TFormMeshShow
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = TabSheet1
+      ActivePage = TabSheet3
       Align = alClient
       TabOrder = 0
       object TabSheet1: TTabSheet
@@ -134,7 +134,7 @@ object FormMeshShow: TFormMeshShow
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Control'
+        Caption = #1050#1086#1085#1090#1088#1086#1083#1099
         object Label6: TLabel
           Left = 14
           Top = 336
@@ -147,8 +147,8 @@ object FormMeshShow: TFormMeshShow
           Caption = 'Camera X Position'
         end
         object Label2: TLabel
-          Left = 14
-          Top = 14
+          Left = 5
+          Top = 8
           Width = 123
           Height = 24
           Margins.Left = 5
@@ -350,7 +350,7 @@ object FormMeshShow: TFormMeshShow
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Attributes'
+        Caption = #1040#1090#1088#1080#1073#1091#1090#1099
         ImageIndex = 1
       end
       object TabSheet3: TTabSheet
@@ -358,7 +358,7 @@ object FormMeshShow: TFormMeshShow
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Data'
+        Caption = #1044#1072#1085#1085#1099#1077
         ImageIndex = 2
         object Label1: TLabel
           Left = 28
@@ -479,25 +479,25 @@ object FormMeshShow: TFormMeshShow
     Left = 360
     Top = 16
     object File1: TMenuItem
-      Caption = 'File'
+      Caption = #1060#1072#1081#1083
       object Open1: TMenuItem
-        Caption = 'Open...'
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
         OnClick = Open1Click
       end
       object Save1: TMenuItem
-        Caption = 'Save...'
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100'...'
         OnClick = Save1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = 'Exit'
+        Caption = #1042#1099#1093#1086#1076
         OnClick = Exit1Click
       end
     end
     object Edit1: TMenuItem
-      Caption = 'Edit'
+      Caption = #1055#1088#1072#1074#1082#1072
       object ViewControlPanel: TMenuItem
         Caption = 'View Control Panel'
         Checked = True

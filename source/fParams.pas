@@ -1,4 +1,4 @@
-unit fgParams;
+unit fParams;
 
 interface
 
@@ -27,7 +27,7 @@ type
 implementation
 
 uses
-  fgSolarSystem;
+  fSolarSystem;
 
 {$R *.dfm}
 
@@ -80,9 +80,9 @@ var
   i: integer;
 
 begin
+{
   with FormSolarSys do
   begin
-{
     if (lastPickObject <> PickObject) or (PickObject = nil) then
       for i := self.ControlCount - 1 downto 0 do
         self.Controls[i].Free
@@ -118,8 +118,8 @@ begin
       addLabel(10, 70, 'Height:');
       addSpin(120, 68, 64, 'Height');
     end;
-    }
   end;
+{}
 end;
 
 // edKeyPress

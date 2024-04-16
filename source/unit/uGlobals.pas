@@ -1,4 +1,4 @@
-unit Noo.Globals;
+unit uGlobals;
 
 interface
 

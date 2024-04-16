@@ -1,4 +1,4 @@
-unit fgProjection;
+unit fProjection;
 
 // Stars within 1kpc with terraplanets and superearths
 
@@ -23,6 +23,7 @@ uses
   GLS.RenderContextInfo,
   GLS.State,
   GLS.VectorTypes,
+  GLS.VectorLists,
   GLS.Graph,
   GLS.Coordinates,
   GLS.Color,

@@ -1,4 +1,4 @@
-unit fMilkyway;
+unit fGalagrid;
 
 interface
 
@@ -38,7 +38,6 @@ type
     GLAsyncTimer: TGLAsyncTimer;
     GLCadencer: TGLCadencer;
     File1: TMenuItem;
-    New1: TMenuItem;
     Open1: TMenuItem;
     Save1: TMenuItem;
     SaveAs1: TMenuItem;
@@ -52,22 +51,17 @@ type
     Find1: TMenuItem;
     Replace1: TMenuItem;
     GoTo1: TMenuItem;
-    Links1: TMenuItem;
     Object1: TMenuItem;
     N1: TMenuItem;
     N3: TMenuItem;
     N4: TMenuItem;
     miView: TMenuItem;
-    NewWindow1: TMenuItem;
     Tile1: TMenuItem;
-    Cascade1: TMenuItem;
-    ArrangeAll1: TMenuItem;
     Hide1: TMenuItem;
     Show1: TMenuItem;
     N5: TMenuItem;
     Help1: TMenuItem;
     miWiki: TMenuItem;
-    SearchforHelpOn1: TMenuItem;
     About1: TMenuItem;
     N6: TMenuItem;
     Camera: TGLCamera;

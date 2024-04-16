@@ -12,8 +12,8 @@ uses
   Astro.Global in 'source\astro\Astro.Global.pas',
   faPlotStars in 'source\astro\faPlotStars.pas' {FormPlotStars},
   faFunctions in 'source\astro\faFunctions.pas' {FunctionsForm},
-  faAbout in 'source\astro\faAbout.pas' {AboutForm},
-  faEvaluate in 'source\astro\faEvaluate.pas' {EvaluateForm};
+  faEvaluate in 'source\astro\faEvaluate.pas' {EvaluateForm},
+  fAbout in 'source\fAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -29,6 +29,6 @@ begin
   Application.CreateForm(TGridColorsForm, GridColorsForm);
   Application.CreateForm(TPlotColorsForm, PlotColorsForm);
   Application.CreateForm(TAddPlotColorsForm, AddPlotColorsForm);
-  Application.CreateForm(TAboutForm, AboutForm);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

@@ -1,4 +1,4 @@
-unit fgAbout;
+unit fAbout;
 
 interface
 
@@ -15,7 +15,7 @@ uses
   Vcl.Dialogs,
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  Vcl.Imaging.jpeg, Vcl.ComCtrls;
+  Vcl.Imaging.jpeg, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.Buttons;
 
 type
   TFormAbout = class(TForm)
@@ -23,11 +23,18 @@ type
     PageControl: TPageControl;
     tsInfo: TTabSheet;
     Panel2: TPanel;
-    tsContributor: TTabSheet;
+    tsDevelopers: TTabSheet;
     MemoDevelopers: TMemo;
     ImageMoons: TImage;
+    tsTools: TTabSheet;
+    DelphiButton: TSpeedButton;
+    OGLImage: TImage;
+    GLSImage: TImage;
     procedure ImageGLSClick(Sender: TObject);
     procedure ImageMoonsDblClick(Sender: TObject);
+    procedure GLSImageClick(Sender: TObject);
+    procedure OGLImageClick(Sender: TObject);
+    procedure DelphiButtonClick(Sender: TObject);
   private
   public
   end;
@@ -39,6 +46,18 @@ implementation
 
 {$R *.dfm}
 
+procedure TFormAbout.DelphiButtonClick(Sender: TObject);
+begin
+  ShellExecute(0, 'open',
+    'https://github.com/glscene', '', '', SW_SHOW);
+end;
+
+procedure TFormAbout.GLSImageClick(Sender: TObject);
+begin
+  ShellExecute(0, 'open',
+   'https://www.glscene.org/', '', '', SW_SHOW);
+end;
+
 procedure TFormAbout.ImageGLSClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
@@ -48,6 +67,12 @@ end;
 procedure TFormAbout.ImageMoonsDblClick(Sender: TObject);
 begin
   MemoDevelopers.Visible := not MemoDevelopers.Visible;
+end;
+
+procedure TFormAbout.OGLImageClick(Sender: TObject);
+begin
+   ShellExecute(0, 'open',
+    'https://www.opengl.org/', '', '', SW_SHOW);
 end;
 
 end.
