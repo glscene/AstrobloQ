@@ -5,7 +5,7 @@ object FormMeshData: TFormMeshData
   Margins.Top = 4
   Margins.Right = 4
   Margins.Bottom = 4
-  Caption = 'Mesh Data'
+  Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1089#1077#1090#1082#1080
   ClientHeight = 615
   ClientWidth = 834
   Color = clBtnFace

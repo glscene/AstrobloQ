@@ -2,7 +2,7 @@ program Galagrid;
 
 uses
   Vcl.Forms,
-  fGalagrid in 'source\fGalagrid.pas' {FormMilkyway};
+  fnNoosfera in 'source\noo\fnNoosfera.pas' {FormMilkyway};
 
 {$R *.res}
 

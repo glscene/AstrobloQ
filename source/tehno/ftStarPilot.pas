@@ -1,6 +1,6 @@
 // This Form demonstrates basic "hierarchical" movements
 
-unit fStarPilot;
+unit ftStarPilot;
 
 interface
 

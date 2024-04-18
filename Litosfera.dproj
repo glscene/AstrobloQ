@@ -103,30 +103,26 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\fLitosfera.pas">
+        <DCCReference Include="source\lito\flLitosfera.pas">
             <Form>FormLitosfera</Form>
         </DCCReference>
         <DCCReference Include="source\fAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="source\fParams.pas">
+        <DCCReference Include="source\lito\flParams.pas">
             <Form>FrameParams</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\fStarSystem.pas">
+        <DCCReference Include="source\lito\flStarSystem.pas">
             <Form>FormStarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fProjection.pas">
-            <Form>FormProjection</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fSolarSystem.pas">
+        <DCCReference Include="source\lito\flSolarSystem.pas">
             <Form>FormSolarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fNewExosystem.pas">
+        <DCCReference Include="source\lito\flNewLitosystem.pas">
             <Form>FormNewSystem</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -143,7 +139,7 @@
             <Form>FormGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\unit\uOglObjects.pas"/>
+        <DCCReference Include="source\uOglObjects.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

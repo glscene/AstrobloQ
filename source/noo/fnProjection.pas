@@ -1,7 +1,7 @@
-unit fProjection;
-
-// Stars within 1kpc with terraplanets and superearths
-
+unit fnProjection;
+//
+// Star projections on the galactic plane
+//
 interface
 
 uses

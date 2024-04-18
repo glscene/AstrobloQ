@@ -9,13 +9,13 @@
         <Projects Include="Biosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Noosfera.dproj">
+        <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Plotstars.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Galagrid.dproj">
+        <Projects Include="Noosfera.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -44,14 +44,14 @@
     <Target Name="Biosfera:Make">
         <MSBuild Projects="Biosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Noosfera">
-        <MSBuild Projects="Noosfera.dproj"/>
+    <Target Name="Tehnosfera">
+        <MSBuild Projects="Tehnosfera.dproj"/>
     </Target>
-    <Target Name="Noosfera:Clean">
-        <MSBuild Projects="Noosfera.dproj" Targets="Clean"/>
+    <Target Name="Tehnosfera:Clean">
+        <MSBuild Projects="Tehnosfera.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Noosfera:Make">
-        <MSBuild Projects="Noosfera.dproj" Targets="Make"/>
+    <Target Name="Tehnosfera:Make">
+        <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Plotstars">
         <MSBuild Projects="Plotstars.dproj"/>
@@ -62,23 +62,23 @@
     <Target Name="Plotstars:Make">
         <MSBuild Projects="Plotstars.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galagrid">
-        <MSBuild Projects="Galagrid.dproj"/>
+    <Target Name="Noosfera">
+        <MSBuild Projects="Noosfera.dproj"/>
     </Target>
-    <Target Name="Galagrid:Clean">
-        <MSBuild Projects="Galagrid.dproj" Targets="Clean"/>
+    <Target Name="Noosfera:Clean">
+        <MSBuild Projects="Noosfera.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galagrid:Make">
-        <MSBuild Projects="Galagrid.dproj" Targets="Make"/>
+    <Target Name="Noosfera:Make">
+        <MSBuild Projects="Noosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Litosfera;Biosfera;Noosfera;Plotstars;Galagrid"/>
+        <CallTarget Targets="Litosfera;Biosfera;Tehnosfera;Plotstars;Noosfera"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Plotstars:Clean;Galagrid:Clean"/>
+        <CallTarget Targets="Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;Plotstars:Clean;Noosfera:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Litosfera:Make;Biosfera:Make;Noosfera:Make;Plotstars:Make;Galagrid:Make"/>
+        <CallTarget Targets="Litosfera:Make;Biosfera:Make;Tehnosfera:Make;Plotstars:Make;Noosfera:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

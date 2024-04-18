@@ -5,7 +5,7 @@ object FormMeshShow: TFormMeshShow
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Mesh Show'
+  Caption = #1057#1082#1091#1083#1100#1087#1090#1086#1088' '#1084#1086#1076#1077#1083#1077#1081
   ClientHeight = 697
   ClientWidth = 1183
   Color = clBtnFace
@@ -363,13 +363,13 @@ object FormMeshShow: TFormMeshShow
         object Label1: TLabel
           Left = 28
           Top = 158
-          Width = 176
+          Width = 189
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Subdivision Iterations'
+          Caption = #1048#1090#1077#1088#1072#1094#1080#1080' '#1088#1072#1079#1073#1080#1077#1085#1080#1103
         end
         object TrackBar1: TTrackBar
           Left = 28

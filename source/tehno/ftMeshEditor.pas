@@ -1,4 +1,4 @@
-unit fMeshShow;
+unit ftMeshEditor;
 (*
   Changing mesh vertex data, normals and striping redundent data.
   Custom cube class declared for vertex point identification.
@@ -179,8 +179,8 @@ implementation
 //===============================================
 
 uses
-  fMeshData,
-  uGlobals;
+  ftMeshData,
+  utGlobals;
 
 {$R *.dfm}
 

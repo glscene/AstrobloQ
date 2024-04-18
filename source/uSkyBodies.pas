@@ -1,7 +1,7 @@
 unit uSkyBodies;
 
 (*-----------------------------------------------------------------------------
-  Purpose: Custom "Space" GLScene Objects
+  Purpose:
   - Multiple planets, Moons,... with their individual properties
   - One Space object per orbit, unlimited orbit per Planet & for Sun
   History:

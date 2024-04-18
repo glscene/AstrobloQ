@@ -2,34 +2,24 @@ unit fGenPlanetsys;
 
 (*
   -----------------------------------------------------------------------------
-  Original unit name: GLSpaceEntities
-  Author: J.Delauney
-  Purpose: Custom "Space" GLObject for better integrating with GLScene
+  Purpose: Generator sky bodies and exoplanet systems of stars,
   - Multiple planets, Moons,... with their individual properties
   - One Space object per orbit, unlimited orbit per Planet & for Sun
-  History:  "Main Idea From Blaise Bernier"
+  History:  "Main Idea From Blaise Bernier and Alexandre Hirzel"
   -----------------------------------------------------------------------------
 
- "Planet Frenzy" Demo. http://jdelauney.free.fr/glscene/planetfrenzy
-  Version : PRE-ALPHA 0.1
-
-  An idea of Alexandre Hirzel
-  Purpose: Shows GLScene users and developers around the world!
-  Eric Grange (chief GLScene maintainer) is a 'type 0' so is displayed in a
-  different colour!
+  Original unit version from "Planet Frenzy" by Jerome Delauney
   Credits :
-  Aaron Hochwimmer :  Asteroid Maker
-  Blaise Bernier :  SystemSolar class, SunBurst's Trick
-  StuartGooding   TDOT3BumpShader
-  Eric Grange :
-  The atmospheric effect is rendered in GLDirectOpenGL1Render, which essentially
-  renders a disk, with color of the vertices computed via ray-tracing. Not that
-  the tesselation of the disk has been hand-optimized so as to reduce CPU use
-  while retaining quality. On anything >1 GHz, the rendering is fill-rate
-  limited on a GeForce 4 Ti 4200.
-  Stars support is built into the TGLSkyDome, but constellations are rendered
-  via a TGLLines, which is filled in the LoadConstellationLines method.
-  http://glscene.org
+  Aaron Hochwimmer:  Asteroid Maker
+  Blaise Bernier:  SystemSolar class, SunBurst's Trick
+  StuartGooding:  TDOT3BumpShader
+  Eric Grange: The atmospheric effect is rendered in GLDirectOpenGL1Render,
+  which essentially renders a disk, with color of the vertices computed via ray-tracing.
+  Not that the tesselation of the disk has been hand-optimized
+  so as to reduce CPU use while retaining quality.
+  Pavel Vassiliev: TreeViews of exoplanet systems for all spectral classes of stars with
+  visualisation using TGLSkyDome. Constellation lines and bounds are rendered
+  via a TGLLines using LoadConstellations method.
 
   TO DO :
   - Create Atmosphere per planet data
@@ -40,16 +30,16 @@ unit fGenPlanetsys;
   .. dunno what that is, except just a link to launch a .html or .txt page
   - Add Legend for space entities and constellations (THudText)
   - Calculate Orbits (with TGLMovementPath and TGLLine)
-  ..Orbit Elements: 
+  ..Orbit Elements:
   -+-TGLLine : Display 'connecting lines' as they rotate
   - Add More user interactive facts like :
   * you point and click on a planet, draw a TGLArrow, point and click on
   target planet you see real Distance.
-  - Add Credits Part (like in DemoScene)
+  - Add Credits Part
   - Add "Messiers" Objects
   - Add "Milkyway"
   - Add Space Shuttle .. Artificial Satelites: DIY with 3ds
-  - Add Mission Simulation (Lambert's Maths)..DWS .. Eris' Reaver
+  - Add Mission Simulation (Lambert's Maths).
 *)
 
 (*

@@ -6,7 +6,7 @@ object FormSMDqc: TFormSMDqc
   Margins.Top = 4
   Margins.Right = 4
   Margins.Bottom = 4
-  Caption = 'Rag Doll'
+  Caption = #1050#1080#1073#1086#1088#1075
   ClientHeight = 729
   ClientWidth = 1245
   Color = clBtnFace
@@ -101,13 +101,13 @@ object FormSMDqc: TFormSMDqc
     object Label4: TLabel
       Left = 28
       Top = 182
-      Width = 123
+      Width = 115
       Height = 50
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = '(Tracked by Spine)'
+      Caption = 'Tracked by Spine'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -20
@@ -152,13 +152,13 @@ object FormSMDqc: TFormSMDqc
     object Label8: TLabel
       Left = 28
       Top = 364
-      Width = 123
+      Width = 115
       Height = 50
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = '(Tracked by Head)'
+      Caption = 'Tracked by Head'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -20
@@ -225,7 +225,7 @@ object FormSMDqc: TFormSMDqc
     object Label15: TLabel
       Left = 1
       Top = 680
-      Width = 418
+      Width = 432
       Height = 48
       Margins.Left = 6
       Margins.Top = 6
@@ -233,12 +233,11 @@ object FormSMDqc: TFormSMDqc
       Margins.Bottom = 6
       Align = alBottom
       Alignment = taCenter
-      Caption = 
-        '(Note that best results are when Cube 1 && Cube 2 are in about t' +
-        'he same direction)'
+      Caption = #1056#1072#1089#1087#1086#1083#1072#1075#1072#1081#1090#1077' Cube 1 '#1080' Cube 2 are '#1074' '#1086#1076#1085#1086#1084' '#1085#1072#1087#1088#1072#1074#1083#1077#1085#1080#1080
       Color = clGray
       ParentColor = False
       WordWrap = True
+      ExplicitWidth = 389
     end
     object HelpBtn: TSpeedButton
       Left = 322
@@ -298,14 +297,14 @@ object FormSMDqc: TFormSMDqc
     object CheckBox1: TCheckBox
       Left = 14
       Top = 70
-      Width = 127
+      Width = 267
       Height = 29
       HelpContext = 8000
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Skeleton'
+      Caption = #1057#1082#1077#1083#1077#1090#1085#1072#1103' '#1072#1085#1080#1084#1072#1094#1080#1103
       TabOrder = 1
       OnClick = CheckBox1Click
     end
@@ -320,7 +319,7 @@ object FormSMDqc: TFormSMDqc
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Load Actor+Animations from a .QC File'
+      Caption = #1055#1088#1080#1075#1083#1072#1089#1080#1090#1100' Actor+Animations from a .QC File'
       TabOrder = 0
       OnClick = Button1Click
     end

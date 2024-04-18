@@ -1,4 +1,4 @@
-unit fParams;
+unit flParams;
 
 interface
 
@@ -27,7 +27,7 @@ type
 implementation
 
 uses
-  fSolarSystem;
+  flSolarSystem;
 
 {$R *.dfm}
 

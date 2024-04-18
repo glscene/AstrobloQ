@@ -1,8 +1,7 @@
-// ------------------------------------------------
-// Just a demo of uSMDStuff.pas unit
-// ------------------------------------------------
-
-unit fSMDqc;
+// --------------------------
+// Viewer for Cyborgs
+// --------------------------
+unit ftKiborg;
 
 interface
 
@@ -125,8 +124,8 @@ var
 implementation
 
 uses
-  uGlobals,
-  uSMDstuff;
+  utGlobals,
+  utBoneUtils;
 
 {$R *.DFM}
 
@@ -163,7 +162,7 @@ end;
 
 procedure TFormSMDqc.ExitBtnClick(Sender: TObject);
 begin
-  Close; { ModalResult:=mrOK; }
+  Close; // ModalResult := mrOK;
 end;
 
 procedure TFormSMDqc.HelpBtnClick(Sender: TObject);
@@ -223,13 +222,15 @@ begin
   GLScene1.NotifyChange(nil);
 end;
 
-{ (Use Milkshape to decompile a H-L SMD character)
-  http://www.milkshape3d.com }
-{ (Loading will be slow if there are many animations) }
+(*
+ (Use Milkshape to decompile a H-L SMD character)
+  http://www.milkshape3d.com
+*)
+// (Loading will be slow if there are many animations)
 procedure TFormSMDqc.Button1Click(Sender: TObject);
 begin
   OpenDialog1.Filter := 'lifeless (*.qc)|*.qc';
-  { OpenDialog1.InitialDir := TigerPath; }
+  // OpenDialog1.InitialDir := TigerPath;
   OpenDialog1.fileName := '*.qc';
   if OpenDialog1.Execute then
     DoCcOpen(OpenDialog1.fileName);
@@ -239,7 +240,7 @@ procedure TFormSMDqc.DoCcOpen(const fileName: String);
 var
   t: Integer;
 begin
-  { TigerPath:=ExtractFilePath(FileName); }
+  // TigerPath := ExtractFilePath(FileName);
   Application.ProcessMessages;
   FormSMDqc.Cursor := crHourGlass;
   Timer1.Enabled := True;
@@ -265,7 +266,7 @@ end;
 
 procedure TFormSMDqc.cboAnimationsChange(Sender: TObject);
 begin
-  Timer1.Enabled := True; { Just in case its been hiding... }
+  Timer1.Enabled := True; // Just in case its been hiding...
   GLCadencer1.Enabled := True;
   Actor1.SwitchToAnimation(cboAnimations.Text, True);
 end;

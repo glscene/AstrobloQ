@@ -1,4 +1,7 @@
-unit fLoadSMD;
+// ------------------
+// Viewer for Robots
+// ------------------
+unit ftRobot;
 
 interface
 
@@ -275,7 +278,7 @@ implementation
 {$R *.DFM}
 
 uses
-  uGlobals;
+  utGlobals;
 
 procedure TFormLoadSmdMdl.FormCreate(Sender: TObject);
 begin

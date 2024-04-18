@@ -1,4 +1,7 @@
-unit fGLSViewer;
+// ------------------
+// Show of Mechanisms
+// ------------------
+unit ftMehanizm;
 
 interface
 
@@ -241,7 +244,7 @@ uses
   GLS.Color,
   GLS.RenderContextInfo,
 
-  uGlobals;
+  utGlobals;
 
 type
 

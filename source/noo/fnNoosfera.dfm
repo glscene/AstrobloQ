@@ -229,6 +229,13 @@ object FormMilkyway: TFormMilkyway
         Caption = #1054'&'#1073#1098#1077#1082#1090
       end
     end
+    object N7: TMenuItem
+      Caption = #1052#1086#1085#1080#1090#1086#1088
+      object N8: TMenuItem
+        Caption = #1055#1088#1086#1077#1082#1094#1080#1080' '#1079#1074#1105#1079#1076'...'
+        OnClick = N8Click
+      end
+    end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
       object Tile1: TMenuItem

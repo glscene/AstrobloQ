@@ -1,4 +1,4 @@
-unit fSolarSystem;
+unit flSolarSystem;
 
 interface
 
@@ -48,7 +48,7 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  fParams;
+  flParams;
 
 type
   TFormSolarSys = class(TForm)

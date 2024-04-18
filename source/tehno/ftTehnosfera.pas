@@ -1,4 +1,4 @@
-unit fNoosfera;
+unit ftTehnosfera;
 
 interface
 
@@ -161,7 +161,6 @@ type
     CountryColorPanel: TPanel;
     GlsGlowLF: TGLLensFlare;
     miSatelliteLight: TMenuItem;
-    miABCreator: TMenuItem;
     miSmdQc: TMenuItem;
     miMdlQc: TMenuItem;
     miConstellationLines: TMenuItem;
@@ -275,7 +274,6 @@ type
     procedure miSatelliteLightClick(Sender: TObject);
     procedure miViewerClick(Sender: TObject);
     procedure miMeshShowClick(Sender: TObject);
-    procedure miABCreatorClick(Sender: TObject);
     procedure miSmdQcClick(Sender: TObject);
     procedure miMdlQcClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -328,19 +326,17 @@ implementation
 {$R *.dfm}
 
 uses
-  uGlobals,
+  utGlobals,
   // accurate movements left for later... or the astute reader
-  uOglObjects, // Asteroid as potatoid
-  fGenPlanetsys, // 2000 Asteroid.. Galaxy System Creator
+  uOglObjects, // Asteroid as monolith rock
   fAbout,
-  //AllShapeLoaderFrm,  {Earth Cities, Countries}
-  //Gizmo in 'Gizmo.pas'..not yet
-  fMeshShow, // 3000
-  fLocations, // 1300 Data input for planet
-  fGLSViewer, // 4000 GLS Viewer demo
-  fStarPilot, // 5000
-  fSMDqc, // 8000 ...
-  fLoadSMD; // 8500
+  //fAllShapeLoader,  {Earth Cities, Countries}
+  ftMeshEditor, // 3000
+  ftLocations, // 1300 Data input for planet
+  ftMehanizm, // 4000
+  ftStarPilot, // 5000
+  ftKiborg, // 8000 ...
+  ftRobot; // 8500
 
 // ----- TMarkerPosition.GetCartesian ------------------------------------------
 (*
@@ -1945,24 +1941,6 @@ begin
 end;
 
 //-------------------------------------------------------------------
-// ABCreator
-procedure TFormNoosphere.miABCreatorClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  Cadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenPlanetsys.Create(Self) do  // not   FormABCreator.ShowModal;
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-  Timer.Enabled := True;
-  Cadencer.Enabled := True;
-end;
 
 // MeshShow
 procedure TFormNoosphere.miMeshShowClick(Sender: TObject);

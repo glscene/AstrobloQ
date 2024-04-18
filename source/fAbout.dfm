@@ -47,7 +47,7 @@ object FormAbout: TFormAbout
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsDevelopers
+    ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
     object tsInfo: TTabSheet

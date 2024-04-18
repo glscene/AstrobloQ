@@ -1,4 +1,4 @@
-unit fStarSystem;
+unit flStarSystem;
 
 interface
 
@@ -48,7 +48,7 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  fParams;
+  flParams;
 
 type
   TFormStarSys = class(TForm)

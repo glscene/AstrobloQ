@@ -1,7 +1,7 @@
 //
 // Some MDL utility functions
 //
-unit uSMDstuff;
+unit utBoneUtils;
 
 // LoadQC Examples:
 //

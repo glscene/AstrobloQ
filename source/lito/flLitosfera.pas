@@ -1,4 +1,4 @@
-unit fLitosfera;
+unit flLitosfera;
 
 interface
 
@@ -57,14 +57,13 @@ uses
   GLS.SkyDome,
 
   dImages,
-  fProjection,
-  fSolarSystem,
-  fStarSystem,
-  fNewExosystem,
+  flSolarSystem,
+  flStarSystem,
   fSettings,
-  fGenPlanetsys,
+  fGenPlanetsys, // Planetary System Creator
+  fAbout,
 
-  fAbout;
+  flNewLitosystem;
 
 
 type
@@ -119,10 +118,8 @@ type
     miPlanetSkyDome: TMenuItem;
     StatusBar: TStatusBar;
     miSystemSolar: TMenuItem;
-    miSystemProjection: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
-    miFileNew: TMenuItem;
     miSystemStar: TMenuItem;
     miSettings: TMenuItem;
     N6: TMenuItem;
@@ -141,6 +138,8 @@ type
     ToolButton3: TToolButton;
     N1: TMenuItem;
     MemoParams: TMemo;
+    miMonitor: TMenuItem;
+    miGenExosystem: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -168,12 +167,12 @@ type
     procedure miGoogleEarthClick(Sender: TObject);
     procedure miPlanetSkyDomeClick(Sender: TObject);
     procedure miSystemSolarClick(Sender: TObject);
-    procedure miSystemProjectionClick(Sender: TObject);
     procedure miSystemStarClick(Sender: TObject);
     procedure miFileNewClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure ButtonGridClick(Sender: TObject);
     procedure chbShowAxesClick(Sender: TObject);
+    procedure miGenExosystemClick(Sender: TObject);
   public
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
@@ -325,6 +324,33 @@ begin
     StatusBar.Visible := True;
   end;
 //  frmTerraplanet.BorderStyle := bsNone;
+end;
+
+procedure TFormLitosfera.miGenExosystemClick(Sender: TObject);
+begin
+   Timer.Enabled := False;
+  Cadencer.Enabled := False;
+(*
+  if FileExists(AppPath + 'EarthAbcde.exe') then
+    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
+*)
+  with TFormGenPlanetsys.Create(Self) do  // not   FormABCreator.ShowModal;
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+ (*
+  // Новая экзопланетная система с известными параметрами
+  with TFormNewSystem.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+*)
+  Timer.Enabled := True;
+  Cadencer.Enabled := True;
 end;
 
 //------------------------------------------------------------------
@@ -886,29 +912,6 @@ end;
 
 procedure TFormLitosfera.miFileNewClick(Sender: TObject);
 begin
-  Timer.Enabled := False;
-  Cadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenPlanetsys.Create(Self) do  // not   FormABCreator.ShowModal;
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
- (*
-  // Новая экзопланетная система с известными параметрами
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
-  Timer.Enabled := True;
-  Cadencer.Enabled := True;
 end;
 
 
@@ -945,18 +948,6 @@ begin
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
 end;
 
-
-//------------------------------------------------------------------
-
-procedure TFormLitosfera.miSystemProjectionClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
 
 //------------------------------------------------------------------
 //  miOpenFile with exoplanets

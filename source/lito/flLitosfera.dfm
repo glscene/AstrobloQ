@@ -563,10 +563,6 @@ object FormLitosfera: TFormLitosfera
         Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084#1091'...'
         OnClick = miFileOpenClick
       end
-      object miFileNew: TMenuItem
-        Caption = #1053#1086#1074#1072#1103' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miFileNewClick
-      end
       object miFileSaveAs: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
         OnClick = miFileSaveAsClick
@@ -588,10 +584,6 @@ object FormLitosfera: TFormLitosfera
       object miSystemStar: TMenuItem
         Caption = #1069#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSystemStarClick
-      end
-      object miSystemProjection: TMenuItem
-        Caption = #1055#1088#1086#1077#1082#1094#1080#1080'...'
-        OnClick = miSystemProjectionClick
       end
       object N1: TMenuItem
         Caption = '-'
@@ -633,6 +625,13 @@ object FormLitosfera: TFormLitosfera
       end
       object NightLights1: TMenuItem
         Caption = 'Night Lights'
+      end
+    end
+    object miMonitor: TMenuItem
+      Caption = '&'#1052#1086#1085#1080#1090#1086#1088
+      object miGenExosystem: TMenuItem
+        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084'...'
+        OnClick = miGenExosystemClick
       end
     end
     object miOptions: TMenuItem

@@ -1,4 +1,4 @@
-unit fGalagrid;
+unit fnNoosfera;
 
 interface
 
@@ -25,7 +25,10 @@ uses
   GLS.Graph, 
   GLS.Coordinates, 
   GLS.GeomObjects,
-  GLS.SimpleNavigation, GLS.VectorFileObjects;
+  GLS.SimpleNavigation,
+  GLS.VectorFileObjects,
+
+  fnProjection;
 
 type
   TFormMilkyway = class(TForm)
@@ -75,9 +78,12 @@ type
     GLSimpleNavigation: TGLSimpleNavigation;
     XYZGrid: TGLXYZGrid;
     GLHexahedron1: TGLHexahedron;
+    N7: TMenuItem;
+    N8: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Open1Click(Sender: TObject);
+    procedure N8Click(Sender: TObject);
   private
     
   public
@@ -99,6 +105,16 @@ end;
 procedure TFormMilkyway.miExitClick(Sender: TObject);
 begin
   Close();
+end;
+
+procedure TFormMilkyway.N8Click(Sender: TObject);
+begin
+   with TFormProjection.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 procedure TFormMilkyway.Open1Click(Sender: TObject);

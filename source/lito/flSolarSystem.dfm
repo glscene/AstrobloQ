@@ -72,7 +72,6 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
-      ExplicitHeight = 944
     end
   end
   object PanelRight: TPanel
@@ -118,8 +117,7 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitLeft = 10
-      ExplicitTop = 4
+      ExplicitWidth = 107
     end
     inline FrameParams: TFrameParams
       Left = 1
@@ -186,7 +184,6 @@ object FormSolarSys: TFormSolarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 4
-      ExplicitTop = 724
     end
     object cbRotation: TCheckBox
       Left = 51
