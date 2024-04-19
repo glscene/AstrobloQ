@@ -1,7 +1,5 @@
-unit Astro.Parser;
-(*
-  This parser is used only for z = f(x,y) heightfield 3D graphs
-*)
+unit Graf.Parser1d;
+// This parser is used only for y = f(x) graphs
 
 interface
 
@@ -14,11 +12,6 @@ const
   Pi: extended = 3.1415926535897932385;
   PiOn2: extended = 1.5707963267948966192;
   twoPi: extended = 6.2831853071795864769;
-  PiOn180: extended = 0.017453292519943296;
-
-  ParseSet: Set of Char = [' ', '!', '(', ')', '*', '+', '-', '.', ',', '/',
-    '0' .. '9', 'A' .. 'E', 'G' .. 'I', 'L', 'N' .. 'U', 'X', 'Y', '^',
-    '`', #8];
 
 type
   TFuncDef = class
@@ -38,8 +31,8 @@ type
     function Eval: extended; virtual; abstract;
   end;
 
-  TfxyParser = class(TObject)
-    constructor Create(x, y: extended);
+  TFxParser = class(TObject)
+    constructor Create(x: extended);
     destructor Destroy; override;
   private
     FunctionList: TList;
@@ -50,9 +43,10 @@ type
     function CompileExpresion(const s: string; var Error: byte): TCalculus;
     function FactorCompile(const s: string; var Error: byte): TCalculus;
     function SimpleCompile(const s: string; var Error: byte): TCalculus;
+    procedure Substitute(var s: string);
     procedure ClearLists;
   public
-    VarX, VarY: TVarDef;
+    VarX: TVarDef;
     Calculus: TCalculus;
     ErrorByte: byte;
     function Compile(s: string; var Error: byte): TCalculus;
@@ -130,18 +124,6 @@ type
   end;
 
   TAbs = class(TFuncDef)
-  public
-    function DefName: string; override;
-    function Eval(x: extended): extended; override;
-  end;
-
-  TInt = class(TFuncDef)
-  public
-    function DefName: string; override;
-    function Eval(x: extended): extended; override;
-  end;
-
-  TRound = class(TFuncDef)
   public
     function DefName: string; override;
     function Eval(x: extended): extended; override;
@@ -243,12 +225,6 @@ type
     function Eval(x: extended): extended; override;
   end;
 
-  TExp1 = class(TFuncDef)
-  public
-    function DefName: string; override;
-    function Eval(x: extended): extended; override;
-  end;
-
   TLog10 = class(TFuncDef)
   public
     function DefName: string; override;
@@ -335,16 +311,13 @@ type
 
 function ScanText(const s: string): string;
 function ParseAndEvaluate(const aText: string; var e: byte): extended;
-function ParseEvaluateFxy(const aVarX, aVarY: extended; const aText: string;
-  var e: byte): extended;
 
-// =====================================================================
+//================================================================
 implementation
-// =====================================================================
+//================================================================
 
 uses
-  Astro.Global,
-  faGraf2d;
+  faGraf1D;
 
 // TCalculus Class
 constructor TConst.Create(c: extended);
@@ -364,7 +337,7 @@ end;
 
 function TVar.Eval: extended;
 begin
-  Result := Def.Value;
+  Result := Def.value;
 end;
 
 constructor TFunc.Create(v: TCalculus; f: TFuncDef);
@@ -394,9 +367,10 @@ begin
   e1.Free;
   e2.Free;
 end;
+{ TCalculus Class }
 
-// TfxyParser
-constructor TfxyParser.Create(x, y: extended);
+{ TFxParser }
+constructor TFxParser.Create(x: extended);
 begin
   inherited Create;
   FunctionList := TList.Create;
@@ -407,31 +381,26 @@ begin
   VarX := TVarDef.Create;
   VarX.VarName := 'x';
   VarX.Value := x;
-  AddVar(VarX);
-
-  VarY := TVarDef.Create;
-  VarY.VarName := 'y';
-  VarY.Value := y;
-  AddVar(VarY);
+  addVar(VarX);
 end;
 
-destructor TfxyParser.Destroy;
+destructor TFxParser.Destroy;
 begin
   ClearLists;
   inherited Destroy;
 end;
 
-function TfxyParser.FunctionOf(i: integer): TFuncDef;
+function TFxParser.FunctionOf(i: integer): TFuncDef;
 begin
   Result := TFuncDef(FunctionList.Items[i]);
 end;
 
-function TfxyParser.VariableOf(i: integer): TVarDef;
+function TFxParser.VariableOf(i: integer): TVarDef;
 begin
   Result := TVarDef(VariableList.Items[i]);
 end;
 
-function TfxyParser.CheckBrackets(const s: string): Boolean;
+function TFxParser.CheckBrackets(const s: string): Boolean;
 var
   i, j, c1, c2: integer;
 
@@ -442,17 +411,14 @@ begin
   j := Length(s);
   while i <= j do
   begin
-    if s[i] = '(' then
-      Inc(c1);
-    if s[i] = ')' then
-      Inc(c2);
+    if s[i] = '(' then Inc(c1);
+    if s[i] = ')' then Inc(c2);
     Inc(i);
   end;
   Result := c1 = c2;
 end;
 
-function TfxyParser.CompileExpresion(const s: string; var Error: byte)
-  : TCalculus;
+function TFxParser.CompileExpresion(const s: string; var Error: byte): TCalculus;
 var
   i: integer;
   e1: byte;
@@ -474,10 +440,10 @@ begin
     Exit;
   end;
 
-  // ----- -factor -----
+ {----- -factor -----}
   if s[1] = '-' then
   begin
-    c1 := FactorCompile(copy(s, 2, Length(s) - 1), e1);
+    c1 := FactorCompile(copy(s, 2, length(s)-1), e1);
     if e1 = 0 then
     begin
       c2 := TConst.Create(0);
@@ -487,83 +453,75 @@ begin
     end;
   end;
 
-  { ----- exp+factor ----- }
-  { ----- exp-factor ----- }
-  { ----- exp!factor ----- }
-  { ----- exp°factor ----- }
-  for i := Length(s) downto 1 do
+ {----- exp+factor -----}
+ {----- exp-factor -----}
+ {----- exp!factor -----}
+ {----- exp°factor -----}
+  for i := length(s) downto 1 do
   begin
     case s[i] of
-      '+':
+ '+': begin
+        c1 := CompileExpresion(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := CompileExpresion(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := FactorCompile(copy(s, i +1, length(s) -i), e2);
+          if e2 = 0 then
           begin
-            c2 := FactorCompile(copy(s, i + 1, Length(s) - i), e2);
-            if e2 = 0 then
-            begin
-              Result := TSum.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TSum.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-      '-':
+      end;
+ '-': begin
+        c1 := CompileExpresion(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := CompileExpresion(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := FactorCompile(copy(s, i +1, length(s) -i), e2);
+          if e2 = 0 then
           begin
-            c2 := FactorCompile(copy(s, i + 1, Length(s) - i), e2);
-            if e2 = 0 then
-            begin
-              Result := TMinus.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TMinus.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-      '!':
+      end;
+ '!': begin
+        c1 := CompileExpresion(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := CompileExpresion(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := FactorCompile(copy(s, 1, i -1), e2);
+          if e2 = 0 then
           begin
-            c2 := FactorCompile(copy(s, 1, i - 1), e2);
-            if e2 = 0 then
-            begin
-              Result := TFactorial.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TFactorial.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-      '°':
+      end;
+ '°': begin
+        c1 := CompileExpresion(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := CompileExpresion(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := FactorCompile(copy(s, 1, i -1), e2);
+          if e2 = 0 then
           begin
-            c2 := FactorCompile(copy(s, 1, i - 1), e2);
-            if e2 = 0 then
-            begin
-              Result := TDegToRad.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TDegToRad.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-    end; // case s[i] of...
-  end; // for i := length(s) downto 1 do...
+      end;
+    end;  { case s[i] of... }
+  end;  { for i := length(s) downto 1 do... }
   Result := FactorCompile(s, Error);
 end;
 
-function TfxyParser.FactorCompile(const s: string; var Error: byte): TCalculus;
+function TFxParser.FactorCompile(const s: string; var Error: byte): TCalculus;
 var
   i: integer;
   e1, e2: byte;
@@ -584,49 +542,45 @@ begin
     Exit;
   end;
 
-  { ----- factor*simple ----- }
-  { ----- factor/simple ----- }
-  for i := Length(s) downto 1 do
+ {----- factor*simple -----}
+ {----- factor/simple -----}
+  for i := length(s) downto 1 do
   begin
     case s[i] of
-      '*':
+ '*': begin
+        c1 := FactorCompile(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := FactorCompile(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := SimpleCompile(copy(s, i +1, length(s) -i), e2);
+          if e2 = 0 then
           begin
-            c2 := SimpleCompile(copy(s, i + 1, Length(s) - i), e2);
-            if e2 = 0 then
-            begin
-              Result := TProduct.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TProduct.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-      '/':
+      end;
+ '/': begin
+        c1 := FactorCompile(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := FactorCompile(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := SimpleCompile(copy(s, i +1, length(s) -i), e2);
+          if e2 = 0 then
           begin
-            c2 := SimpleCompile(copy(s, i + 1, Length(s) - i), e2);
-            if e2 = 0 then
-            begin
-              Result := TDivision.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TDivision.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-    end; { case s[i] of... }
-  end; { for i := length(s) downto 1 do... }
+      end;
+    end;  { case s[i] of... }
+  end;  { for i := length(s) downto 1 do... }
   Result := SimpleCompile(s, Error);
 end;
 
-function TfxyParser.SimpleCompile(const s: string; var Error: byte): TCalculus;
+function TFxParser.SimpleCompile(const s: string; var Error: byte): TCalculus;
 var
   i: integer;
   e1, e2: byte;
@@ -648,7 +602,7 @@ begin
     Exit;
   end;
 
-  { ----- const ----- }
+ {----- const -----}
   Val(s, d, i);
   if i = 0 then
   begin
@@ -657,20 +611,20 @@ begin
     Exit;
   end;
 
-  { ----- (exp) ----- }
-  if (s[1] = '(') and (s[Length(s)] = ')') then
+ {----- (exp) -----}
+  if (s[1] = '(') and (s[length(s)] = ')') then
   begin
-    c1 := CompileExpresion(copy(s, 2, Length(s) - 2), e1);
+    c1 := CompileExpresion(copy(s, 2, length(s)-2), e1);
     if e1 = 0 then
     begin
       Result := c1;
       Error := 0;
       Exit;
-    end;
+    end;   
   end;
 
-  { ----- VarName ----- }
-  for i := 0 to VariableList.Count - 1 do
+ {----- VarName -----}
+  for i := 0 to VariableList.Count -1 do
   begin
     if s = VariableOf(i).VarName then
     begin
@@ -680,13 +634,14 @@ begin
     end;
   end;
 
-  { ----- DefNameFunc(exp) ----- }
-  for i := 0 to FunctionList.Count - 1 do
+ {----- DefNameFunc(exp) -----}
+  for i := 0 to FunctionList.Count -1 do
   begin
-    if (Pos(FunctionOf(i).DefName + '(', s) = 1) and (s[Length(s)] = ')') then
+    if (Pos(FunctionOf(i).DefName + '(', s) = 1) and (s[length(s)] = ')')
+    then
     begin
-      c1 := CompileExpresion(copy(s, Length(FunctionOf(i).DefName) + 2,
-        Length(s) - Length(FunctionOf(i).DefName) - 2), e1);
+      c1 := CompileExpresion(copy(s, length(FunctionOf(i).DefName) +2,
+                         length(s) - length(FunctionOf(i).DefName) -2), e1);
       if e1 = 0 then
       begin
         Result := TFunc.Create(c1, FunctionOf(i));
@@ -696,52 +651,61 @@ begin
     end;
   end;
 
-  { ----- simple^simple ----- }
-  for i := 1 to Length(s) do
+ {----- simple^simple -----}
+  for i := 1 to length(s) do
   begin
     case s[i] of
-      '^':
+ '^': begin
+        c1 := SimpleCompile(copy(s, 1, i -1), e1);
+        if e1 = 0 then
         begin
-          c1 := SimpleCompile(copy(s, 1, i - 1), e1);
-          if e1 = 0 then
+          c2 := SimpleCompile(copy(s, i +1, length(s) -i), e2);
+          if e2 = 0 then
           begin
-            c2 := SimpleCompile(copy(s, i + 1, Length(s) - i), e2);
-            if e2 = 0 then
-            begin
-              Result := TPower.Create(c1, c2);
-              Error := 0;
-              Exit;
-            end
-            else
-              c1.Free;
-          end;
+            Result := TPower.Create(c1, c2);
+            Error := 0;
+            Exit;
+          end
+          else c1.Free;
         end;
-    end; { case s[i] of... }
-  end; { for i := 1 to length(s) do... }
+      end;
+    end;  { case s[i] of... }
+  end;  { for i := 1 to length(s) do... }
 
   Error := 2;
   Result := nil;
 end;
 
-function TfxyParser.Compile(s: string; var Error: byte): TCalculus;
+procedure TFxParser.Substitute(var s: string);
+var
+  t: string;
+  i: integer;
+
+begin       
+  t := '';
+  for i := 1 to Length(s) do
+  if s[i] <> ' ' then if s[i] = 'ø' then t := t + 'x' else t := t + s[i];
+  s := t;
+end;
+
+function TFxParser.Compile(s: string; var Error: byte): TCalculus;
 begin
+  Substitute(s); { this will substitute x for Ø }
   Result := CompileExpresion(s, Error);
 end;
 
-procedure TfxyParser.AddVar(v: TVarDef);
+procedure TFxParser.AddVar(v: TVarDef);
 begin
   VariableList.Add(v);
 end;
 
-procedure TfxyParser.ConstructLists;
+procedure TFxParser.ConstructLists;
 var
   v: TVarDef;
 begin
   with FunctionList do
   begin
     Add(TAbs.Create);
-    Add(TInt.Create);
-    Add(TRound.Create);
     Add(TSqr.Create);
     Add(TSqrt.Create);
     Add(TSin.Create);
@@ -760,7 +724,6 @@ begin
 
     Add(TLn.Create);
     Add(TExp.Create);
-    Add(TExp1.Create);
     Add(TLog10.Create);
     Add(TLog2.Create);
 
@@ -789,73 +752,92 @@ begin
   VariableList.Add(v);
 end;
 
-procedure TfxyParser.ClearLists;
+procedure TFxParser.ClearLists;
 var
   i: integer;
 
 begin
-  for i := 0 to FunctionList.Count - 1 do
-    TFuncDef(FunctionList[i]).Free;
+  for i := 0 to FunctionList.Count -1 do TFuncDef(FunctionList[i]).Free;
   FunctionList.Free;
-  for i := 0 to VariableList.Count - 1 do
-    TVarDef(VariableList[i]).Free;
+  for i := 0 to VariableList.Count -1 do TVarDef(VariableList[i]).Free;
   VariableList.Free;
-end; // TfxyParser
+end;
+{ TFxParser }
 
-// TOperator Class
+{ TOperator Class }
 function TMinus.Eval: extended;
+var
+  n1, n2: extended;
+
 begin
-  Result := e1.Eval - e2.Eval;
+  n1 := e1.Eval;
+  n2 := e2.Eval;
+  Result := n1 - n2;
 end;
 
 function TSum.Eval: extended;
+var
+  n1, n2: extended;
+
 begin
-  Result := e1.Eval + e2.Eval;
+  n1 := e1.Eval;
+  n2 := e2.Eval;
+  Result := n1 + n2;
 end;
 
 function TProduct.Eval: extended;
+var
+  n1, n2: extended;
 begin
-  Result := e1.Eval * e2.Eval;
+  n1 := e1.Eval;
+  n2 := e2.Eval;
+  Result := n1*n2;
 end;
 
 function TDivision.Eval: extended;
+var
+  n1, n2: extended;
 begin
-  if IsInfinite(e2.Eval) then
-    Result := NaN
-  else
-    Result := e1.Eval / e2.Eval;
+  n1 := e1.Eval;  { numerator }
+  n2 := e2.Eval;  { deviser }
+
+  if IsInfinite(n2) then
+  begin
+    Result := NaN;
+    Exit;
+  end;
+
+  Result := n1/n2;
 end;
 
 function TPower.Eval: extended;
+var
+  b, e: extended;
 { For fractional exponents or exponents greater than MaxInt,
   base must be greater than 0. }
 begin
-  // e1.Eval base/mantissa e2.Eval exponent
-  if e1.Eval = 0 then
-    Result := 0
-  else
-    Result := Power(e1.Eval, e2.Eval)
+  b := e1.Eval;  { base/mantissa }
+  e := e2.Eval;  { exponent }
+  if b = 0 then Result := 0 else Result := Power(b, e)
 end;
 
 function TFactorial.Eval: extended;
 var
   i, j: integer;
-
 begin
   j := round(e1.Eval);
-  if (j < 0) or (j > 1754) then
-    Result := 0.0
+  if (j < 0) or (j > 1754)
+  then Result := 0.0
   else
   begin
     Result := 1.0;
-    for i := 2 to j do
-      Result := i * Result;
+    for i := 2 to j do Result := i*Result;
   end;
 end;
 
 function TDegToRad.Eval: extended;
 begin
-  Result := e1.Eval * PiOn180;
+  Result := DegToRad(e1.Eval);
 end;
 
 function TAbs.DefName: string;
@@ -866,26 +848,6 @@ end;
 function TAbs.Eval(x: extended): extended;
 begin
   Result := Abs(x);
-end;
-
-function TInt.DefName: string;
-begin
-  Result := 'int';
-end;
-
-function TInt.Eval(x: extended): extended;
-begin
-  Result := Int(x);
-end;
-
-function TRound.DefName: string;
-begin
-  Result := 'round';
-end;
-
-function TRound.Eval(x: extended): extended;
-begin
-  Result := round(x);
 end;
 
 function TSqr.DefName: string;
@@ -1026,8 +988,8 @@ end;
 function TArcCot.Eval(x: extended): extended;
 begin
   Result := ArcCot(x);
-  if (Result > PiOn2) or (Result < -PiOn2) then
-    Result := NaN;
+  if (Result > Pion2) or (Result < -Pion2)
+  then Result := NaN;
 end;
 
 function TLn.DefName: string;
@@ -1041,12 +1003,9 @@ begin
   if isNaN(Result) then
   begin
     case Sign(Result) of
-      - 1:
-        Result := NegInfinity;
-      0:
-        Result := 0;
-      1:
-        Result := Infinity;
+   -1:Result := NegInfinity;
+    0:Result := 0;
+    1:Result := Infinity;
     end;
   end;
 end;
@@ -1057,16 +1016,6 @@ begin
 end;
 
 function TExp.Eval(x: extended): extended;
-begin
-  Result := Exp(x);
-end;
-
-function TExp1.DefName: string;
-begin
-  Result := 'e^';
-end;
-
-function TExp1.Eval(x: extended): extended;
 begin
   Result := Exp(x);
 end;
@@ -1082,12 +1031,9 @@ begin
   if isNaN(Result) then
   begin
     case Sign(Result) of
-      - 1:
-        Result := NegInfinity;
-      0:
-        Result := 0;
-      1:
-        Result := Infinity;
+   -1:Result := NegInfinity;
+    0:Result := 0;
+    1:Result := Infinity;
     end;
   end;
 end;
@@ -1103,12 +1049,9 @@ begin
   if isNaN(Result) then
   begin
     case Sign(Result) of
-      - 1:
-        Result := NegInfinity;
-      0:
-        Result := 0;
-      1:
-        Result := Infinity;
+   -1:Result := NegInfinity;
+    0:Result := 0;
+    1:Result := Infinity;
     end;
   end;
 end;
@@ -1210,10 +1153,8 @@ end;
 
 function TArcCsch.Eval(x: extended): extended;
 begin
-  if x = 0 then
-    Result := Infinity
-  else
-    Result := ArcCsch(x);
+  if x = 0 then Result := Infinity else Result := ArcCsch(x);
+{ it would seem that Delphi 7 personal calculates ArcCsch incorrectly }
 end;
 
 function TArcSech.DefName: string;
@@ -1223,10 +1164,7 @@ end;
 
 function TArcSech.Eval(x: extended): extended;
 begin
-  if x <= 0 then
-    Result := Infinity
-  else
-    Result := ArcSech(x);
+  if x <= 0 then Result := Infinity else Result := ArcSech(x);
 end;
 
 function TArcCoth.DefName: string;
@@ -1236,16 +1174,11 @@ end;
 
 function TArcCoth.Eval(x: extended): extended;
 begin
-  if (x >= -1) and (x < 0) then
-    Result := NegInfinity
-  else if (x > 0) and (x <= 1) then
-    Result := Infinity
-  else if x = 0 then
-    Result := NaN
-  else
-    Result := ArcCoth(x);
+  if (x >= -1) and (x < 0) then Result := NegInfinity else
+  if (x > 0) and (x <= 1) then Result := Infinity else
+  if x = 0 then Result := NaN else Result := ArcCoth(x);
 end;
-// TOperator Class
+{ TOperator Class }
 
 function ScanText(const s: string): string;
   function DropSpaces_Commas(const s: string): string;
@@ -1255,13 +1188,12 @@ function ScanText(const s: string): string;
   begin
     Result := '';
     for i := 1 to Length(s) do
-      if (s[i] <> ' ') and (s[i] <> ',') then
-        Result := Result + s[i];
-  end; // DropSpaces_Commas
+    if (s[i] <> ' ') and (s[i] <> ',') then Result := Result + s[i];
+  end;   { DropSpaces_Commas }
 
 var
   i, j: integer;
-  c0, c1, c2: Char;
+  c0, c1, c2: char;
   cc, ccc, isStr: string;
   nostar: Boolean;
   isExp: Boolean;
@@ -1269,7 +1201,7 @@ var
   isPwr: Boolean;
   t: string;
 
-begin { ScanText }
+begin  { ScanText }
   t := DropSpaces_Commas(s);
   i := 1;
   j := 1;
@@ -1277,14 +1209,11 @@ begin { ScanText }
   while i < Length(t) do
   begin
     c0 := UpCase(t[i]);
-    c1 := UpCase(t[i + 1]);
-    if i < Length(t) - 1 then
-      c2 := UpCase(t[i + 2])
-    else
-      c2 := #0;
+    c1 := UpCase(t[i +1]);
+    if i < Length(t) - 1 then c2 := UpCase(t[i +2]) else c2 := #0;
 
-    cc := c0 + c1;
-    ccc := c0 + c1 + c2;
+    cc  := c0+c1;
+    ccc := c0+c1+c2;
 
     isExp := ccc = 'XP(';
     isStr := '';
@@ -1292,98 +1221,60 @@ begin { ScanText }
 
     if (i > 3) and ((cc = '0(') or (cc = '2(')) then
     begin
-      if cc = '0(' then
-        isStr := UpperCase(copy(t, i - 4, 3)) { Log10 }
-      else
-        isStr := UpperCase(copy(t, i - 3, 3)); { Log2 }
+      if cc = '0('
+      then isStr := UpperCase(Copy(t, i -4, 3))    { Log10 }
+      else isStr := UpperCase(Copy(t, i -3, 3));   { Log2 }
       isLog := isStr = 'LOG';
     end;
 
-    isPwr := CharInSet(c0, ['+', '-', '0' .. '9']) and (UpCase(c1) = 'E') and
-      CharInSet(c2, ['+', '-', '0' .. '9']);
+    isPwr := CharInSet(c0, ['+', '-', '0'..'9']) and (UpCase(c1) = 'E') and
+             CharInSet(c2, ['+', '-', '0'..'9']);
     nostar := isExp or isLog or isPwr;
 
-    if not nostar and CharInSet(c0, ['X', 'Y', 'I', '0' .. '9', ')']) and
-      CharInSet(c1, ['A' .. 'C', 'E', 'L', 'P', 'S', 'T', 'X', 'Y', '(']) then
+    if not nostar and
+      CharInSet(c0, ['X', 'I', '0'..'9', ')']) and
+      CharInSet(c1, ['A'..'C', 'E', 'L', 'P', 'S', 'T', 'X', 'Ø', '(']) then
     begin
       Insert('*', Result, i + j);
       Inc(j);
     end;
     Inc(i);
   end;
-end; // ScanText
+end;   { ScanText }
 
 function ParseAndEvaluate(const aText: string; var e: byte): extended;
 var
-  aParser: TfxyParser;
+  aParser: TFxParser;
 
 begin
-  aParser := TfxyParser.Create(0, 0);
+  aParser := TFxParser.Create(0);
   with aParser do
   begin
     Calculus.Free;
     ErrorByte := 0;
-    FormPlotStars.StatusBar.Panels[4].Text := '';
+    MainForm.StatusBar.Panels[2].Text := '';
     Calculus := Compile(AnsiLowerCase(aText), ErrorByte);
     e := ErrorByte;
     if ErrorByte > 0 then
     begin
-      with FormPlotStars.StatusBar.Panels[4] do
-        case ErrorByte of
-          1:
-            Text := 'Check Brackets for "' + aText + '"';
-          2:
-            Text := 'Unable to Parse "' + aText + '"';
-        end;
+      with MainForm.StatusBar.Panels[2] do
+      case ErrorByte of
+      1:Text := 'Check Brackets for "'+ aText+'"';
+      2:Text := 'Unable to Parse "'+aText+'"';
+      end;
       Result := 0;
     end
-    else
-      Result := Calculus.Eval;
+    else Result := Calculus.Eval;
     Calculus.Free;
     Calculus := nil;
     Free;
   end;
 end;
 
-function ParseEvaluateFxy(const aVarX, aVarY: extended; const aText: string;
-  var e: byte): extended;
-var
-  aParser: TfxyParser;
-
-begin
-  aParser := TfxyParser.Create(0, 0);
-  with aParser do
-  begin
-    Calculus.Free;
-    ErrorByte := 0;
-    FormPlotStars.StatusBar.Panels[4].Text := '';
-    Calculus := Compile(AnsiLowerCase(aText), ErrorByte);
-    VarX.Value := aVarX;
-    VarY.Value := aVarY;
-    e := ErrorByte;
-    if ErrorByte > 0 then
-    begin
-      with FormPlotStars.StatusBar.Panels[4] do
-        case ErrorByte of
-          1:
-            Text := 'Check Brackets for "' + aText + '"';
-          2:
-            Text := 'Unable to Parse "' + aText + '"';
-        end;
-      Result := 0;
-    end
-    else
-      Result := Calculus.Eval;
-    Calculus.Free;
-    Calculus := nil;
-    Free;
-  end;
-end;
-
-initialization
-
-// Avoids arithmetic exceptions in the above code
-SetExceptionMask([exInvalidOp, exDenormalized, exZeroDivide, exOverflow,
-  exUnderflow, exPrecision]);
+Initialization
+{ Avoids arithmetic exceptions in the above code }
+SetExceptionMask([exInvalidOp, exDenormalized, exZeroDivide,
+                  exOverflow, exUnderflow, exPrecision]);
 
 end.
+

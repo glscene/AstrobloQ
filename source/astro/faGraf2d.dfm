@@ -359,22 +359,22 @@ object FormPlotStars: TFormPlotStars
         Caption = '-'
       end
       object miGrid: TMenuItem
-        Caption = 'Grids...'
+        Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1089#1077#1090#1082#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090'...'
         OnClick = miGridClick
       end
       object miCoordText: TMenuItem
-        Caption = 'Grids Coordinates...'
+        Caption = #1054#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090'...'
         OnClick = miCoordTextClick
       end
       object miGridColours: TMenuItem
-        Caption = 'Grids Colours...'
+        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1094#1074#1077#1090#1072' '#1089#1077#1090#1082#1080'...'
         OnClick = miGridColoursClick
       end
       object N3: TMenuItem
         Caption = '-'
       end
       object miEvaluate: TMenuItem
-        Caption = 'Evaluate Function...'
+        Caption = #1054#1094#1077#1085#1082#1072' '#1079#1085#1072#1095#1077#1085#1080#1081' '#1092#1091#1085#1082#1094#1080#1080'...'
         OnClick = miEvaluateClick
       end
       object miPlotColours: TMenuItem
@@ -385,11 +385,11 @@ object FormPlotStars: TFormPlotStars
         Caption = '-'
       end
       object miDerivativeOps: TMenuItem
-        Caption = 'Partial Derivative or Double Integral...'
+        Caption = #1055#1088#1086#1080#1079#1074#1086#1076#1085#1099#1077' '#1080' '#1080#1085#1090#1077#1075#1088#1072#1083#1099'...'
         OnClick = miDerivativeOpsClick
       end
       object miDerivativePlotColours: TMenuItem
-        Caption = 'Derivative or Double Integral Plot Colours...'
+        Caption = #1062#1074#1077#1090' '#1075#1088#1072#1092#1080#1082#1072' '#1087#1088#1086#1080#1079#1074#1086#1076#1085#1086#1081' '#1080' '#1080#1085#1090#1077#1075#1088#1072#1083#1072'...'
         Enabled = False
         OnClick = miDerivativePlotColoursClick
       end

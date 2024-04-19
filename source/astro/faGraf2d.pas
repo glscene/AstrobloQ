@@ -1,4 +1,4 @@
-unit faAstroGraf;
+unit faGraf2d;
 
 interface
 
@@ -194,10 +194,10 @@ begin
   BinPath := IncludeTrailingPathDelimiter(BinPath);
 //  PlotPath := BinPath;
 //  Delete(PlotPath, Length(PlotPath) - 4, 4);
-  DataPath := BinPath + 'data\plots\'; // PlotPath
+  DataPath := BinPath + 'data\plot2d\';
   SetCurrentDir(DataPath);
-  ImagePath := BinPath + 'Images\';
-  LayoutFName := BinPath + 'Layout.lay';
+  ImagePath := BinPath + 'data\images\';
+  LayoutFName := BinPath + 'Layout2d.lay';
   RecentFName := BinPath + 'Recent.ini';
 
   Screen.Cursors[crLightxy] := LoadCursor(HInstance, 'LIGHTXY');
@@ -280,9 +280,9 @@ begin
       end;
       FunctionsForm.EditMinX.SetFocus;
     except
-      MessageDlg('File Error! An Error has occurred when attempting to read' +
+      MessageDlg('Ошибка чтения файла!' +
         #13#10'"' + LayoutFName + '".' +
-        #13#10'The default layout will be used.', mtError, [mbOK], 0);
+        #13#10'Будут использованы исходные настройки', mtError, [mbOK], 0);
       DefaultLayout;
     end;
   end
@@ -426,15 +426,15 @@ begin
       CloseFile(f);
     end;
   except
-    MessageDlg('File Error! An Error has occurred' +
-      #13#10'when attempting to write to "' + LayoutFName + '".', mtError,
+    MessageDlg('Ошибка записи файла!' +
+      #13#10'при записи в "' + LayoutFName + '".', mtError,
       [mbOK], 0);
   end;
 
   if Altered or GridColorsAltered or DerivativeAltered then
   begin
-    case MessageDlg('The current graph''s data has been altered.' +
-      #13#10'Do you wish to save the alterations ?', mtConfirmation,
+    case MessageDlg('Параметры графика были изменены.' +
+      #13#10'Сохранить изменения ?', mtConfirmation,
       [mbYes, mbNo, mbCancel], 0) of
       mrYes:
         FunctionsForm.SaveClick(Sender);
@@ -651,7 +651,7 @@ end;
 
 procedure TFormPlotStars.ShowCameraLocation;
 begin
-  StatusBar.Panels[0].Text := 'Camera: ' +
+  StatusBar.Panels[0].Text := 'Камера: ' +
     FloatToStrF(Camera.Position.X, ffNumber, 5, 2) + ', ' +
     FloatToStrF(Camera.Position.Y, ffNumber, 5, 2) + ', ' +
     FloatToStrF(Camera.Position.Z, ffNumber, 5, 2);
@@ -688,7 +688,7 @@ end;
 
 procedure TFormPlotStars.ShowLightLocation;
 begin
-  StatusBar.Panels[3].Text := 'Light: ' +
+  StatusBar.Panels[3].Text := 'Свет: ' +
     FloatToStrF(GLLight.Position.X, ffNumber, 5, 2) + ', ' +
     FloatToStrF(GLLight.Position.Y, ffNumber, 5, 2) + ', ' +
     FloatToStrF(GLLight.Position.Z, ffNumber, 5, 2);
@@ -1166,10 +1166,10 @@ procedure TFormPlotStars.PlotIntegralField;
 
     with DerivativesForm do
     begin
-      PosVolLabel.Caption := 'Positive Volume: ' + FloatToStr(VolPos);
-      NegVolLabel.Caption := 'Negative Volume: ' + FloatToStr(VolNeg);
-      TotalLabel.Caption := 'Absolute Volume: ' + FloatToStr(VolPos - VolNeg);
-      VolumeLabel.Caption := 'Total Volume: ' + FloatToStr(VolPos + VolNeg);
+      PosVolLabel.Caption := 'Положительный объём: ' + FloatToStr(VolPos);
+      NegVolLabel.Caption := 'Отрицательный объём: ' + FloatToStr(VolNeg);
+      TotalLabel.Caption := 'Абсолютный объём: ' + FloatToStr(VolPos - VolNeg);
+      VolumeLabel.Caption := 'Полный объём: ' + FloatToStr(VolPos + VolNeg);
     end;
   end; // CalculateVolume
 

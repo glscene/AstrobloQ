@@ -144,7 +144,7 @@ implementation
 // ========================================================================
 
 uses
-  faAstroGraf,
+  faGraf2d,
   faPlotColors,
   faEvaluate,
   faCoordOptions,

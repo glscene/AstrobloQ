@@ -112,7 +112,7 @@ implementation
 
 {$R *.dfm}
 uses
-  faAstroGraf,
+  faGraf2d,
   faAddPlotColors,
   faEvaluate;
 

@@ -94,7 +94,7 @@ implementation
 //==================================================================
 
 uses
-  faAstroGraf;
+  faGraf2d;
 
 {$R *.dfm}
 

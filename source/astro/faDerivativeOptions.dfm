@@ -29,7 +29,7 @@ object DerivativesForm: TDerivativesForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  Plot Range  '
+    Caption = '  '#1044#1080#1072#1087#1072#1079#1086#1085' '#1075#1088#1072#1092#1080#1082#1072
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -39,13 +39,13 @@ object DerivativesForm: TDerivativesForm
     object Label1: TLabel
       Left = 95
       Top = 26
-      Width = 77
+      Width = 81
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Minimum'
+      Caption = #1052#1080#1085#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -682,7 +682,7 @@ object DerivativesForm: TDerivativesForm
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = '&Close'
+      Caption = #1047#1072#1082#1088#1099#1090#1100
       Glyph.Data = {
         F6000000424DF600000000000000760000002800000010000000100000000100
         040000000000800000000000000000000000100000001000000000000000FFFF
@@ -778,7 +778,7 @@ object DerivativesForm: TDerivativesForm
   end
   object ColorDialog: TColorDialog
     Options = [cdFullOpen]
-    Left = 264
-    Top = 307
+    Left = 250
+    Top = 363
   end
 end
