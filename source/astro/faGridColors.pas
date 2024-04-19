@@ -94,7 +94,7 @@ implementation
 //==================================================================
 
 uses
-  faPlotStars;
+  faAstroGraf;
 
 {$R *.dfm}
 

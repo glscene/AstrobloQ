@@ -560,7 +560,7 @@ object FormLitosfera: TFormLitosfera
     object Open1: TMenuItem
       Caption = #1060#1072#1081#1083
       object miFileOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084#1091'...'
+        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1091'...'
         OnClick = miFileOpenClick
       end
       object miFileSaveAs: TMenuItem
@@ -629,9 +629,9 @@ object FormLitosfera: TFormLitosfera
     end
     object miMonitor: TMenuItem
       Caption = '&'#1052#1086#1085#1080#1090#1086#1088
-      object miGenExosystem: TMenuItem
-        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084'...'
-        OnClick = miGenExosystemClick
+      object miGenExoplanets: TMenuItem
+        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090'..'
+        OnClick = miGenExoplanetsClick
       end
     end
     object miOptions: TMenuItem

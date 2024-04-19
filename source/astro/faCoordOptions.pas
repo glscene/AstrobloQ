@@ -80,7 +80,7 @@ implementation
 {$R *.dfm}
 
 uses
-  faPlotStars;
+  faAstroGraf;
 
 procedure TCoordsForm.UpdateCoordText;
 var

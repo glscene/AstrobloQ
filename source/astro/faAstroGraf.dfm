@@ -311,82 +311,94 @@ object FormPlotStars: TFormPlotStars
     OwnerDraw = True
     Left = 248
     Top = 33
-    object File1: TMenuItem
-      Caption = 'File'
-      object New1: TMenuItem
-        Caption = 'New'
-        OnClick = New1Click
+    object miFile: TMenuItem
+      Caption = '&'#1060#1072#1081#1083
+      object miNew: TMenuItem
+        Caption = #1053#1086#1074#1099#1081
+        OnClick = miNewClick
       end
-      object OpenFile: TMenuItem
-        Caption = 'Open...'
-        OnClick = OpenFileClick
+      object miOpenFile: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        OnClick = miOpenFileClick
       end
-      object Recent1: TMenuItem
-        Caption = 'Recent'
+      object miRecent: TMenuItem
+        Caption = #1055#1086#1089#1083#1077#1076#1085#1080#1077
       end
-      object Save1: TMenuItem
-        Caption = 'Save'
-        OnClick = Save1Click
+      object miSave: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        OnClick = miSaveClick
       end
-      object Saveas1: TMenuItem
-        Caption = 'Save as...'
-        OnClick = Saveas1Click
+      object miSaveas: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+        OnClick = miSaveasClick
       end
-      object Exit1: TMenuItem
-        Caption = 'Exit'
-        OnClick = Exit1Click
+      object miExit: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = miExitClick
       end
     end
-    object Options1: TMenuItem
-      Caption = 'Options'
-      object DefaultLayout1: TMenuItem
-        Caption = 'Default Layout'
-        OnClick = DefaultLayout1Click
+    object miView: TMenuItem
+      Caption = #1042#1080#1076
+      object miGraf1d: TMenuItem
+        Caption = #1043#1088#1072#1092#1080#1082#1080' y=f(x)...'
+      end
+      object miGraf2d: TMenuItem
+        Caption = #1043#1088#1072#1092#1080#1082#1080' z=f(x,y)...'
+      end
+      object miGraf3d: TMenuItem
+        Caption = #1043#1088#1072#1092#1080#1082#1080' g=f(x,y,z)...'
+      end
+    end
+    object miOptions: TMenuItem
+      Caption = #1054#1087#1094#1080#1080
+      object miDefaultLayout: TMenuItem
+        Caption = #1048#1089#1093#1086#1076#1085#1099#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080
+        OnClick = miDefaultLayoutClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
-      object Grid1: TMenuItem
+      object miGrid: TMenuItem
         Caption = 'Grids...'
-        OnClick = Grid1Click
+        OnClick = miGridClick
       end
-      object CoordText1: TMenuItem
+      object miCoordText: TMenuItem
         Caption = 'Grids Coordinates...'
-        OnClick = CoordText1Click
+        OnClick = miCoordTextClick
       end
-      object GridColours1: TMenuItem
+      object miGridColours: TMenuItem
         Caption = 'Grids Colours...'
-        OnClick = GridColours1Click
+        OnClick = miGridColoursClick
       end
       object N3: TMenuItem
         Caption = '-'
       end
-      object Evaluate1: TMenuItem
+      object miEvaluate: TMenuItem
         Caption = 'Evaluate Function...'
-        OnClick = Evaluate1Click
+        OnClick = miEvaluateClick
       end
-      object PlotColours1: TMenuItem
-        Caption = 'Plot Function Colours...'
-        OnClick = PlotColours1Click
+      object miPlotColours: TMenuItem
+        Caption = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1075#1088#1072#1092#1080#1082#1072'...'
+        OnClick = miPlotColoursClick
       end
       object N4: TMenuItem
         Caption = '-'
       end
-      object DerivativeOps: TMenuItem
+      object miDerivativeOps: TMenuItem
         Caption = 'Partial Derivative or Double Integral...'
-        OnClick = DerivativeOpsClick
+        OnClick = miDerivativeOpsClick
       end
-      object DerivativePlotColours1: TMenuItem
+      object miDerivativePlotColours: TMenuItem
         Caption = 'Derivative or Double Integral Plot Colours...'
         Enabled = False
-        OnClick = DerivativePlotColours1Click
+        OnClick = miDerivativePlotColoursClick
       end
     end
-    object Help1: TMenuItem
-      Caption = 'Help'
-      object About1: TMenuItem
-        Caption = 'About..'
-        OnClick = About1Click
+    object miHelp: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+      object miAbout: TMenuItem
+        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        OnClick = miAboutClick
       end
     end
   end

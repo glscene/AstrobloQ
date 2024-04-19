@@ -12,7 +12,7 @@
         <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Plotstars.dproj">
+        <Projects Include="AstroGraf.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Noosfera.dproj">
@@ -53,14 +53,14 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Plotstars">
-        <MSBuild Projects="Plotstars.dproj"/>
+    <Target Name="AstroGraf">
+        <MSBuild Projects="AstroGraf.dproj"/>
     </Target>
-    <Target Name="Plotstars:Clean">
-        <MSBuild Projects="Plotstars.dproj" Targets="Clean"/>
+    <Target Name="AstroGraf:Clean">
+        <MSBuild Projects="AstroGraf.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Plotstars:Make">
-        <MSBuild Projects="Plotstars.dproj" Targets="Make"/>
+    <Target Name="AstroGraf:Make">
+        <MSBuild Projects="AstroGraf.dproj" Targets="Make"/>
     </Target>
     <Target Name="Noosfera">
         <MSBuild Projects="Noosfera.dproj"/>
@@ -72,13 +72,13 @@
         <MSBuild Projects="Noosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Litosfera;Biosfera;Tehnosfera;Plotstars;Noosfera"/>
+        <CallTarget Targets="Litosfera;Biosfera;Tehnosfera;AstroGraf;Noosfera"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;Plotstars:Clean;Noosfera:Clean"/>
+        <CallTarget Targets="Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;AstroGraf:Clean;Noosfera:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Litosfera:Make;Biosfera:Make;Tehnosfera:Make;Plotstars:Make;Noosfera:Make"/>
+        <CallTarget Targets="Litosfera:Make;Biosfera:Make;Tehnosfera:Make;AstroGraf:Make;Noosfera:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

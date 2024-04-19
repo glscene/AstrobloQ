@@ -139,7 +139,7 @@ type
     N1: TMenuItem;
     MemoParams: TMemo;
     miMonitor: TMenuItem;
-    miGenExosystem: TMenuItem;
+    miGenExoplanets: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -172,7 +172,7 @@ type
     procedure miSettingsClick(Sender: TObject);
     procedure ButtonGridClick(Sender: TObject);
     procedure chbShowAxesClick(Sender: TObject);
-    procedure miGenExosystemClick(Sender: TObject);
+    procedure miGenExoplanetsClick(Sender: TObject);
   public
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
@@ -326,7 +326,7 @@ begin
 //  frmTerraplanet.BorderStyle := bsNone;
 end;
 
-procedure TFormLitosfera.miGenExosystemClick(Sender: TObject);
+procedure TFormLitosfera.miGenExoplanetsClick(Sender: TObject);
 begin
    Timer.Enabled := False;
   Cadencer.Enabled := False;

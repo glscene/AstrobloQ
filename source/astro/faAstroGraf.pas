@@ -1,4 +1,4 @@
-unit faPlotStars;
+unit faAstroGraf;
 
 interface
 
@@ -63,17 +63,17 @@ type
     GLWinBmpFont: TGLWindowsBitmapFont;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
-    File1: TMenuItem;
-    New1: TMenuItem;
-    Options1: TMenuItem;
-    DefaultLayout1: TMenuItem;
-    OpenFile: TMenuItem;
-    Save1: TMenuItem;
-    Saveas1: TMenuItem;
-    Exit1: TMenuItem;
-    Grid1: TMenuItem;
-    GridColours1: TMenuItem;
-    Evaluate1: TMenuItem;
+    miFile: TMenuItem;
+    miNew: TMenuItem;
+    miOptions: TMenuItem;
+    miDefaultLayout: TMenuItem;
+    miOpenFile: TMenuItem;
+    miSave: TMenuItem;
+    miSaveas: TMenuItem;
+    miExit: TMenuItem;
+    miGrid: TMenuItem;
+    miGridColours: TMenuItem;
+    miEvaluate: TMenuItem;
     GLxzGrid: TGLXYZGrid;
     GLyzGrid: TGLXYZGrid;
     TargetCube: TGLDummyCube;
@@ -84,26 +84,30 @@ type
     BoxLine2: TGLLines;
     BoxLine3: TGLLines;
     BoxLine4: TGLLines;
-    CoordText1: TMenuItem;
+    miCoordText: TMenuItem;
     YCoordsCube: TGLDummyCube;
     XCoordsCube: TGLDummyCube;
     ZCoordsCube: TGLDummyCube;
     xArrow: TGLArrowLine;
     yArrow: TGLArrowLine;
-    Recent1: TMenuItem;
-    DerivativeOps: TMenuItem;
+    miRecent: TMenuItem;
+    miDerivativeOps: TMenuItem;
     AddedField: TGLDummyCube;
     AddXLine: TGLLines;
     AddYLine: TGLLines;
     AddZLine: TGLLines;
-    PlotColours1: TMenuItem;
-    DerivativePlotColours1: TMenuItem;
+    miPlotColours: TMenuItem;
+    miDerivativePlotColours: TMenuItem;
     VolumeLines: TGLDummyCube;
     N2: TMenuItem;
     N3: TMenuItem;
     N4: TMenuItem;
-    Help1: TMenuItem;
-    About1: TMenuItem;
+    miHelp: TMenuItem;
+    miAbout: TMenuItem;
+    miView: TMenuItem;
+    miGraf1d: TMenuItem;
+    miGraf2d: TMenuItem;
+    miGraf3d: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -117,24 +121,24 @@ type
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure DefaultLayout1Click(Sender: TObject);
-    procedure Exit1Click(Sender: TObject);
-    procedure Grid1Click(Sender: TObject);
-    procedure GridColours1Click(Sender: TObject);
-    procedure Evaluate1Click(Sender: TObject);
-    procedure New1Click(Sender: TObject);
-    procedure OpenFileClick(Sender: TObject);
-    procedure Save1Click(Sender: TObject);
-    procedure Saveas1Click(Sender: TObject);
+    procedure miDefaultLayoutClick(Sender: TObject);
+    procedure miExitClick(Sender: TObject);
+    procedure miGridClick(Sender: TObject);
+    procedure miGridColoursClick(Sender: TObject);
+    procedure miEvaluateClick(Sender: TObject);
+    procedure miNewClick(Sender: TObject);
+    procedure miOpenFileClick(Sender: TObject);
+    procedure miSaveClick(Sender: TObject);
+    procedure miSaveasClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormActivate(Sender: TObject);
-    procedure CoordText1Click(Sender: TObject);
+    procedure miCoordTextClick(Sender: TObject);
     procedure RecentFilesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure DerivativeOpsClick(Sender: TObject);
-    procedure PlotColours1Click(Sender: TObject);
-    procedure DerivativePlotColours1Click(Sender: TObject);
-    procedure About1Click(Sender: TObject);
+    procedure miDerivativeOpsClick(Sender: TObject);
+    procedure miPlotColoursClick(Sender: TObject);
+    procedure miDerivativePlotColoursClick(Sender: TObject);
+    procedure miAboutClick(Sender: TObject);
   private
     AtStart: Boolean;
     SelectedData: TPlotData; // data used to evaluate dz/dx or dz/dy
@@ -308,9 +312,9 @@ begin
       c := ReadInteger(Name, 'RecentCount', 0);
       for i := 0 to c - 1 do
       begin
-        Recent1.Add(TMenuItem.Create(Self));
-        Recent1.Items[i].Caption := ReadString(Name, IntToStr(i), '');
-        Recent1.Items[i].OnClick := RecentFilesClick;
+        miRecent.Add(TMenuItem.Create(Self));
+        miRecent.Items[i].Caption := ReadString(Name, IntToStr(i), '');
+        miRecent.Items[i].OnClick := RecentFilesClick;
       end;
     finally
       Free;
@@ -337,9 +341,9 @@ var
 begin
   ini := TIniFile.Create(RecentFName);
   try
-    ini.WriteInteger(Name, 'RecentCount', Recent1.Count);
-    for i := 0 to Recent1.Count - 1 do
-      ini.WriteString(Name, IntToStr(i), Recent1.Items[i].Caption);
+    ini.WriteInteger(Name, 'RecentCount', miRecent.Count);
+    for i := 0 to miRecent.Count - 1 do
+      ini.WriteString(Name, IntToStr(i), miRecent.Items[i].Caption);
   finally
     ini.Free;
   end;
@@ -625,22 +629,22 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormPlotStars.New1Click(Sender: TObject);
+procedure TFormPlotStars.miNewClick(Sender: TObject);
 begin
   FunctionsForm.New1Click(Sender);
 end;
 
-procedure TFormPlotStars.OpenFileClick(Sender: TObject);
+procedure TFormPlotStars.miOpenFileClick(Sender: TObject);
 begin
   FunctionsForm.OpenFileClick(Sender);
 end;
 
-procedure TFormPlotStars.Save1Click(Sender: TObject);
+procedure TFormPlotStars.miSaveClick(Sender: TObject);
 begin
   FunctionsForm.SaveClick(Sender);
 end;
 
-procedure TFormPlotStars.Saveas1Click(Sender: TObject);
+procedure TFormPlotStars.miSaveasClick(Sender: TObject);
 begin
   FunctionsForm.SaveAsClick(Sender);
 end;
@@ -653,12 +657,12 @@ begin
     FloatToStrF(Camera.Position.Z, ffNumber, 5, 2);
 end;
 
-procedure TFormPlotStars.GridColours1Click(Sender: TObject);
+procedure TFormPlotStars.miGridColoursClick(Sender: TObject);
 begin
   GridColorsForm.Show;
 end;
 
-procedure TFormPlotStars.CoordText1Click(Sender: TObject);
+procedure TFormPlotStars.miCoordTextClick(Sender: TObject);
 begin
   CoordsForm.Show;
 end;
@@ -677,7 +681,7 @@ begin
     FloatToStrF(-TargetCube.Position.Z, ffNumber, 5, 2);
 end;
 
-procedure TFormPlotStars.Evaluate1Click(Sender: TObject);
+procedure TFormPlotStars.miEvaluateClick(Sender: TObject);
 begin
   EvaluateForm.Show;
 end;
@@ -690,12 +694,12 @@ begin
     FloatToStrF(GLLight.Position.Z, ffNumber, 5, 2);
 end;
 
-procedure TFormPlotStars.Grid1Click(Sender: TObject);
+procedure TFormPlotStars.miGridClick(Sender: TObject);
 begin
   FormGridOptions.Show;
 end;
 
-procedure TFormPlotStars.DefaultLayout1Click(Sender: TObject);
+procedure TFormPlotStars.miDefaultLayoutClick(Sender: TObject);
 begin
   DefaultLayout;
 end;
@@ -719,7 +723,7 @@ begin
   FunctionsForm.OpenRecentFile(TMenuItem(Sender).Caption);
 end;
 
-procedure TFormPlotStars.Exit1Click(Sender: TObject);
+procedure TFormPlotStars.miExitClick(Sender: TObject);
 begin
   Close;
 end;
@@ -750,20 +754,20 @@ begin
   FunctionsForm.EditMinX.SetFocus;
 end;
 
-procedure TFormPlotStars.DerivativeOpsClick(Sender: TObject);
+procedure TFormPlotStars.miDerivativeOpsClick(Sender: TObject);
 begin
   if PlotColorsForm.Visible then
     PlotColorsForm.Close;
-  PlotColours1.Enabled := False;
-  DerivativePlotColours1.Enabled := True;
+  miPlotColours.Enabled := False;
+  miDerivativePlotColours.Enabled := True;
   DerivativesForm.Show;
 end;
 
-procedure TFormPlotStars.DerivativePlotColours1Click(Sender: TObject);
+procedure TFormPlotStars.miDerivativePlotColoursClick(Sender: TObject);
 begin
   if PlotColorsForm.Visible then
     PlotColorsForm.Close;
-  PlotColours1.Enabled := False;
+  miPlotColours.Enabled := False;
   AddPlotColorsForm.Show;
 end;
 
@@ -1180,7 +1184,7 @@ begin // TFormPlotStars.PlotIntegralField
   Screen.Cursor := crDefault;
 end; // TFormPlotStars.PlotIntegralField
 
-procedure TFormPlotStars.PlotColours1Click(Sender: TObject);
+procedure TFormPlotStars.miPlotColoursClick(Sender: TObject);
 begin
   PlotColorsForm.Show;
 end;
@@ -1229,7 +1233,7 @@ begin
     PlotDerivativeField;
 end;
 
-procedure TFormPlotStars.About1Click(Sender: TObject);
+procedure TFormPlotStars.miAboutClick(Sender: TObject);
 begin
   FormAbout.Show;
 end;

@@ -145,7 +145,7 @@ implementation
 // =====================================================================
 
 uses
-  faPlotStars,
+  faAstroGraf,
   faEvaluate,
   faCoordOptions,
   faFunctions;

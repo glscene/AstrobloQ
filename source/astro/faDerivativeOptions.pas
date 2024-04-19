@@ -112,7 +112,7 @@ implementation
 
 {$R *.dfm}
 uses
-  faPlotStars,
+  faAstroGraf,
   faAddPlotColors,
   faEvaluate;
 
@@ -295,8 +295,8 @@ begin
   FormPlotStars.AddXLine.Visible := False;
   FormPlotStars.AddYLine.Visible := False;
   FormPlotStars.AddZLine.Visible := False;
-  FormPlotStars.PlotColours1.Enabled := True;
-  FormPlotStars.DerivativePlotColours1.Enabled := False;
+  FormPlotStars.miPlotColours.Enabled := True;
+  FormPlotStars.miDerivativePlotColours.Enabled := False;
   if AddPlotColorsForm.Visible then AddPlotColorsForm.Close;
   Altered := Altered or DerivativeAltered;
 end;

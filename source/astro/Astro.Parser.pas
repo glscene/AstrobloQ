@@ -344,7 +344,7 @@ implementation
 
 uses
   Astro.Global,
-  faPlotStars;
+  faAstroGraf;
 
 // TCalculus Class
 constructor TConst.Create(c: extended);

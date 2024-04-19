@@ -144,7 +144,7 @@ implementation
 // ========================================================================
 
 uses
-  faPlotStars,
+  faAstroGraf,
   faPlotColors,
   faEvaluate,
   faCoordOptions,
@@ -523,7 +523,7 @@ end;
 
 procedure TFunctionsForm.Exit1Click(Sender: TObject);
 begin
-  FormPlotStars.Exit1Click(Sender);
+  FormPlotStars.miExitClick(Sender);
 end;
 
 procedure TFunctionsForm.FloatKeyPress(Sender: TObject; var Key: Char);
@@ -1620,7 +1620,7 @@ var
   Found: Boolean;
 
 begin
-  with FormPlotStars.Recent1 do
+  with FormPlotStars.miRecent do
   begin
     Found := False;
     i := 0;

@@ -1,4 +1,4 @@
-program Plotstars;
+program AstroGraf;
 
 uses
   Forms,
@@ -10,7 +10,7 @@ uses
   faAddPlotColors in 'source\astro\faAddPlotColors.pas',
   Astro.Parser in 'source\astro\Astro.Parser.pas',
   Astro.Global in 'source\astro\Astro.Global.pas',
-  faPlotStars in 'source\astro\faPlotStars.pas' {FormPlotStars},
+  faAstroGraf in 'source\astro\faAstroGraf.pas' {FormPlotStars},
   faFunctions in 'source\astro\faFunctions.pas' {FunctionsForm},
   faEvaluate in 'source\astro\faEvaluate.pas' {EvaluateForm},
   fAbout in 'source\fAbout.pas' {FormAbout};
