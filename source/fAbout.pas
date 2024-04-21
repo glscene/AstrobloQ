@@ -15,7 +15,10 @@ uses
   Vcl.Dialogs,
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
-  Vcl.Imaging.jpeg, Vcl.ComCtrls, Vcl.Imaging.pngimage, Vcl.Buttons;
+  Vcl.Imaging.jpeg,
+  Vcl.ComCtrls,
+  Vcl.Imaging.pngimage,
+  Vcl.Buttons;
 
 type
   TFormAbout = class(TForm)

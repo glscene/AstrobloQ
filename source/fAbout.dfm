@@ -55,7 +55,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1048#1085#1092#1086
+      Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -11269,14 +11269,13 @@ object FormAbout: TFormAbout
         Alignment = taCenter
         Lines.Strings = (
           'Pavel Vassiliev'
-          'Lev Koptyaev'
+          'Eric Hardinger'
           'Ivan Lee Herring'
           'Alexandre Hirzel'
-          'Liza Soboleva'
           'Dave Kerr'
-          'Danil Wasilyev'
-          'Eric Hardinger'
-          'Da Stranger')
+          'Lev Koptyaev'
+          'Liza Soboleva'
+          'Danil Wasilyev')
         TabOrder = 0
       end
     end

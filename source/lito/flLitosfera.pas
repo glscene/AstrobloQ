@@ -354,7 +354,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// tvPlanetsClick
+//                          tvPlanetsClick
 //------------------------------------------------------------------
 procedure TFormLitosfera.tvPlanetsClick(Sender: TObject);
 begin

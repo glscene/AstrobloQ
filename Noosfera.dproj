@@ -134,6 +134,15 @@
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="source\dImages.pas">
+            <Form>dfImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="source\fAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -21,7 +21,8 @@ uses
   Graf.Canvas1d in 'source\astro\Graf.Canvas1d.pas',
   Graf.Global1d in 'source\astro\Graf.Global1d.pas',
   Graf.Parser1d in 'source\astro\Graf.Parser1d.pas',
-  faGraf1d in 'source\astro\faGraf1d.pas' {MainForm};
+  faGraf1d in 'source\astro\faGraf1d.pas' {MainForm},
+  fAbout in 'source\fAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -43,5 +44,6 @@ begin
   Application.CreateForm(TfxValueForm, fxValueForm);
   Application.CreateForm(Tfx1ValueForm, fx1ValueForm);
   Application.CreateForm(Tfx2ValueForm, fx2ValueForm);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

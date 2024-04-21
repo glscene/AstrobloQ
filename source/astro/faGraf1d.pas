@@ -31,6 +31,7 @@ uses
   GLS.WindowsFont,
   GLS.RenderContextInfo,
 
+  fAbout,
   Graf.Canvas1d,
   Graf.Global1d,
   faFunc1d;
@@ -68,6 +69,7 @@ type
     DefaultLayout1: TMenuItem;
     Help1: TMenuItem;
     About1: TMenuItem;
+    miRuwiki: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -1051,7 +1053,12 @@ end;
 
 procedure TMainForm.About1Click(Sender: TObject);
 begin
-  //
+  with TFormAbout.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 procedure TMainForm.DefaultLayout;

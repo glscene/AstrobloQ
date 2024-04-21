@@ -332,6 +332,9 @@ object FormPlotStars: TFormPlotStars
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
         OnClick = miSaveasClick
       end
+      object N1: TMenuItem
+        Caption = '-'
+      end
       object miExit: TMenuItem
         Caption = #1042#1099#1093#1086#1076
         OnClick = miExitClick
@@ -344,9 +347,6 @@ object FormPlotStars: TFormPlotStars
       end
       object miGraf2d: TMenuItem
         Caption = #1043#1088#1072#1092#1080#1082#1080' z=f(x,y)...'
-      end
-      object miGraf3d: TMenuItem
-        Caption = #1043#1088#1072#1092#1080#1082#1080' g=f(x,y,z)...'
       end
     end
     object miOptions: TMenuItem
@@ -396,6 +396,9 @@ object FormPlotStars: TFormPlotStars
     end
     object miHelp: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1082#1072
+      object miRuwiki: TMenuItem
+        Caption = #1056#1091#1074#1080#1082#1080'...'
+      end
       object miAbout: TMenuItem
         Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
         OnClick = miAboutClick

@@ -107,7 +107,8 @@ type
     miView: TMenuItem;
     miGraf1d: TMenuItem;
     miGraf2d: TMenuItem;
-    miGraf3d: TMenuItem;
+    miRuwiki: TMenuItem;
+    N1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -1235,7 +1236,12 @@ end;
 
 procedure TFormPlotStars.miAboutClick(Sender: TObject);
 begin
-  FormAbout.Show;
+  with TFormAbout.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 procedure TFormPlotStars.ClearAddedField;

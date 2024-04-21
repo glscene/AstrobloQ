@@ -29,6 +29,5 @@ begin
   Application.CreateForm(TGridColorsForm, GridColorsForm);
   Application.CreateForm(TPlotColorsForm, PlotColorsForm);
   Application.CreateForm(TAddPlotColorsForm, AddPlotColorsForm);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

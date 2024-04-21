@@ -74,8 +74,8 @@ object MainForm: TMainForm
     TabOrder = 1
   end
   object MainMenu: TMainMenu
-    Left = 710
-    Top = 8
+    Left = 277
+    Top = 140
     object File1: TMenuItem
       Bitmap.Data = {
         36030000424D3603000000000000360000002800000010000000100000000100
@@ -574,6 +574,9 @@ object MainForm: TMainForm
     end
     object Help1: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1082#1072
+      object miRuwiki: TMenuItem
+        Caption = #1056#1091#1074#1080#1082#1080'...'
+      end
       object About1: TMenuItem
         Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
         OnClick = About1Click
@@ -610,11 +613,11 @@ object MainForm: TMainForm
   end
   object GLMemoryViewer: TGLMemoryViewer
     Camera = GLCamera
-    Left = 323
-    Top = 9
+    Left = 481
+    Top = 16
   end
   object PrinterSetupDialog: TPrinterSetupDialog
-    Left = 530
-    Top = 9
+    Left = 676
+    Top = 16
   end
 end

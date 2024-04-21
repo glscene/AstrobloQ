@@ -15,9 +15,7 @@ uses
 type
   TdfImages = class(TDataModule)
     ImgCollectionPlanets: TImageCollection;
-    ImgPlanetSymbols: TImageList;
     ImgVirtPlanets: TVirtualImageList;
-    ImgExoplanetSymbols: TImageList;
   private
     { Private declarations }
   public

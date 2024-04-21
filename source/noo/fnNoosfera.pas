@@ -16,18 +16,19 @@ uses
   Vcl.ExtCtrls, 
   Vcl.Menus,
   
-  GLS.BaseClasses, 
+  GLS.BaseClasses,
   GLS.Scene,
-  GLS.SceneViewer, 
+  GLS.SceneViewer,
   GLS.AsyncTimer,
-  GLS.Cadencer, 
-  GLS.Objects, 
-  GLS.Graph, 
-  GLS.Coordinates, 
+  GLS.Cadencer,
+  GLS.Objects,
+  GLS.Graph,
+  GLS.Coordinates,
   GLS.GeomObjects,
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
+  fAbout,
   fnProjection;
 
 type
@@ -45,7 +46,7 @@ type
     Save1: TMenuItem;
     SaveAs1: TMenuItem;
     miExit: TMenuItem;
-    N2: TMenuItem;
+    miN2: TMenuItem;
     Edit1: TMenuItem;
     Undo1: TMenuItem;
     Cut1: TMenuItem;
@@ -55,18 +56,18 @@ type
     Replace1: TMenuItem;
     GoTo1: TMenuItem;
     Object1: TMenuItem;
-    N1: TMenuItem;
-    N3: TMenuItem;
-    N4: TMenuItem;
+    miN1: TMenuItem;
+    miN3: TMenuItem;
+    miN4: TMenuItem;
     miView: TMenuItem;
     Tile1: TMenuItem;
     Hide1: TMenuItem;
     Show1: TMenuItem;
-    N5: TMenuItem;
+    miN5: TMenuItem;
     Help1: TMenuItem;
     miWiki: TMenuItem;
     About1: TMenuItem;
-    N6: TMenuItem;
+    miN6: TMenuItem;
     Camera: TGLCamera;
     LightSource: TGLLightSource;
     DummyCube: TGLDummyCube;
@@ -85,9 +86,7 @@ type
     procedure Open1Click(Sender: TObject);
     procedure N8Click(Sender: TObject);
   private
-    
   public
-    
   end;
 
 var
@@ -99,7 +98,12 @@ implementation
 
 procedure TFormMilkyway.About1Click(Sender: TObject);
 begin
-  //
+  with TFormAbout.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 procedure TFormMilkyway.miExitClick(Sender: TObject);

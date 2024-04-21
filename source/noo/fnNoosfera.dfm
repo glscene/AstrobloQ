@@ -83,8 +83,8 @@ object FormMilkyway: TFormMilkyway
     TabOrder = 3
   end
   object GLScene: TGLScene
-    Left = 312
-    Top = 112
+    Left = 308
+    Top = 70
     object Camera: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
@@ -181,7 +181,7 @@ object FormMilkyway: TFormMilkyway
       object SaveAs1: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' &'#1082#1072#1082'...'
       end
-      object N2: TMenuItem
+      object miN2: TMenuItem
         Caption = '-'
       end
       object miExit: TMenuItem
@@ -195,7 +195,7 @@ object FormMilkyway: TFormMilkyway
         Caption = #1054'&'#1090#1084#1077#1085#1080#1090#1100
         ShortCut = 16474
       end
-      object N4: TMenuItem
+      object miN4: TMenuItem
         Caption = '-'
       end
       object Cut1: TMenuItem
@@ -210,7 +210,7 @@ object FormMilkyway: TFormMilkyway
         Caption = '&'#1042#1089#1090#1072#1074#1080#1090#1100
         ShortCut = 16470
       end
-      object N3: TMenuItem
+      object miN3: TMenuItem
         Caption = '-'
       end
       object Find1: TMenuItem
@@ -222,7 +222,7 @@ object FormMilkyway: TFormMilkyway
       object GoTo1: TMenuItem
         Caption = '&'#1055#1077#1088#1077#1081#1090#1080' '#1082'...'
       end
-      object N1: TMenuItem
+      object miN1: TMenuItem
         Caption = '-'
       end
       object Object1: TMenuItem
@@ -241,7 +241,7 @@ object FormMilkyway: TFormMilkyway
       object Tile1: TMenuItem
         Caption = '&Tile'
       end
-      object N5: TMenuItem
+      object miN5: TMenuItem
         Caption = '-'
       end
       object Hide1: TMenuItem
@@ -256,7 +256,7 @@ object FormMilkyway: TFormMilkyway
       object miWiki: TMenuItem
         Caption = '&'#1042#1080#1082#1080'...'
       end
-      object N6: TMenuItem
+      object miN6: TMenuItem
         Caption = '-'
       end
       object About1: TMenuItem
@@ -266,13 +266,13 @@ object FormMilkyway: TFormMilkyway
     end
   end
   object GLAsyncTimer: TGLAsyncTimer
-    Left = 623
-    Top = 147
+    Left = 502
+    Top = 75
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
-    Left = 294
-    Top = 340
+    Left = 319
+    Top = 245
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -291,7 +291,7 @@ object FormMilkyway: TFormMilkyway
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 630
-    Top = 326
+    Left = 884
+    Top = 422
   end
 end
