@@ -5,7 +5,7 @@ object FormStarSys: TFormStarSys
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Star System'
+  Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
   ClientHeight = 985
   ClientWidth = 1745
   Color = clBtnFace
@@ -114,7 +114,6 @@ object FormStarSys: TFormStarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     inline FrameParams: TFrameParams
       Left = 1

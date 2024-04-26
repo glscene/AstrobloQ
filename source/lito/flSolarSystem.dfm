@@ -55,7 +55,6 @@ object FormSolarSys: TFormSolarSys
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
-    ExplicitHeight = 952
     object TreeView: TTreeView
       Left = 4
       Top = 4
@@ -85,8 +84,6 @@ object FormSolarSys: TFormSolarSys
     Margins.Bottom = 5
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 1535
-    ExplicitHeight = 952
     object Splitter1: TSplitter
       Left = 1
       Top = 142
@@ -117,7 +114,6 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     inline FrameParams: TFrameParams
       Left = 1
@@ -211,8 +207,6 @@ object FormSolarSys: TFormSolarSys
     Margins.Right = 5
     Margins.Bottom = 5
     Panels = <>
-    ExplicitTop = 952
-    ExplicitWidth = 1773
   end
   object Scene: TGLScene
     Left = 254
@@ -472,6 +466,27 @@ object FormSolarSys: TFormSolarSys
               Stacks = 32
             end
           end
+          object JupiterRing: TGLDisk
+            Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
+            Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
+            Material.BackProperties.Emission.Color = {0000803F0000803F0000803F0000803F}
+            Material.BackProperties.Specular.Color = {0000803F0000803F0000803F0000803F}
+            Material.FrontProperties.Ambient.Color = {0000003F0000003F0000003F0000803F}
+            Material.FrontProperties.Diffuse.Color = {0000003F0000003F0000003F0000803F}
+            Material.FrontProperties.Emission.Color = {0000003F0000003F0000003F0000803F}
+            Material.FrontProperties.Specular.Color = {0000003F0000003F0000003F0000803F}
+            Material.BlendingMode = bmTransparency
+            Material.FaceCulling = fcNoCull
+            ObjectsSorting = osRenderNearestFirst
+            Direction.Coordinates = {000000000000803F2EBD3BB300000000}
+            PitchAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            Visible = False
+            InnerRadius = 5.000000000000000000
+            OuterRadius = 6.000000000000000000
+            Slices = 64
+            SweepAngle = 360.000000000000000000
+          end
         end
         object JupiterOrbit: TGLTorus
           Tag = 5
@@ -513,7 +528,7 @@ object FormSolarSys: TFormSolarSys
             Up.Coordinates = {000000002EBD3BB3000080BF00000000}
             InnerRadius = 3.200000047683716000
             OuterRadius = 6.000000000000000000
-            Slices = 32
+            Slices = 64
             SweepAngle = 360.000000000000000000
           end
           object dcEnceladus: TGLDummyCube
@@ -587,7 +602,7 @@ object FormSolarSys: TFormSolarSys
             Up.Coordinates = {000000002EBD3BB3000080BF00000000}
             InnerRadius = 2.799999952316284000
             OuterRadius = 3.200000047683716000
-            Slices = 32
+            Slices = 64
             SweepAngle = 360.000000000000000000
           end
           object dcTitania: TGLDummyCube
@@ -655,7 +670,7 @@ object FormSolarSys: TFormSolarSys
             Up.Coordinates = {000000002EBD3BB3000080BF00000000}
             InnerRadius = 4.000000000000000000
             OuterRadius = 4.199999809265137000
-            Slices = 32
+            Slices = 64
             SweepAngle = 360.000000000000000000
           end
           object dcTriton: TGLDummyCube

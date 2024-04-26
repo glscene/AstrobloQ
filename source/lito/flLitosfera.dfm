@@ -26,7 +26,7 @@ object FormLitosfera: TFormLitosfera
   object SceneViewer: TGLSceneViewer
     Left = 249
     Top = 51
-    Width = 1046
+    Width = 1275
     Height = 718
     Cursor = crCross
     Margins.Left = 5
@@ -43,6 +43,7 @@ object FormLitosfera: TFormLitosfera
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitWidth = 1046
   end
   object PanelLeft: TPanel
     Left = 0
@@ -191,119 +192,7 @@ object FormLitosfera: TFormLitosfera
         Width = 151
       end>
   end
-  object PanelRight: TPanel
-    Left = 1295
-    Top = 51
-    Width = 229
-    Height = 718
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Align = alRight
-    TabOrder = 3
-    StyleName = '`'
-    object PanelParameters: TPanel
-      Left = 1
-      Top = 1
-      Width = 227
-      Height = 66
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Align = alTop
-      Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
-      TabOrder = 0
-    end
-    object chbInnerCore: TCheckBox
-      Left = 23
-      Top = 308
-      Width = 170
-      Height = 30
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = #1071#1076#1088#1086
-      TabOrder = 1
-      StyleName = 'Windows'
-      OnClick = miInnerCoreClick
-    end
-    object CheckBox1: TCheckBox
-      Left = 23
-      Top = 348
-      Width = 183
-      Height = 29
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = #1047#1072#1090#1077#1085#1077#1085#1080#1077
-      TabOrder = 2
-      StyleName = 'Windows'
-    end
-    object chbRotate: TCheckBox
-      Left = 23
-      Top = 387
-      Width = 145
-      Height = 29
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = #1042#1088#1072#1097#1077#1085#1080#1077
-      Checked = True
-      State = cbChecked
-      TabOrder = 3
-      StyleName = 'Windows'
-    end
-    object chbShowAxes: TCheckBox
-      Left = 23
-      Top = 426
-      Width = 133
-      Height = 29
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = #1054#1089#1080
-      TabOrder = 4
-      StyleName = 'Windows'
-      OnClick = chbShowAxesClick
-    end
-    object ButtonGrid: TButton
-      Left = 33
-      Top = 496
-      Width = 131
-      Height = 43
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = #1057#1077#1090#1082#1072
-      TabOrder = 5
-      OnClick = ButtonGridClick
-    end
-    object MemoParams: TMemo
-      Left = 1
-      Top = 67
-      Width = 227
-      Height = 200
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Align = alTop
-      Lines.Strings = (
-        #1056#1072#1076#1080#1091#1089
-        #1052#1072#1089#1089#1072
-        #1055#1083#1086#1090#1085#1086#1089#1090#1100
-        #1053#1072#1082#1083#1086#1085' '#1086#1089#1080)
-      TabOrder = 6
-    end
-  end
-  object ControlBar1: TControlBar
+  object ControlBar: TControlBar
     Left = 0
     Top = 0
     Width = 1524
@@ -314,7 +203,7 @@ object FormLitosfera: TFormLitosfera
     Margins.Bottom = 5
     Align = alTop
     RowSize = 46
-    TabOrder = 4
+    TabOrder = 3
     object ToolBar1: TToolBar
       Left = 24
       Top = 2
@@ -464,7 +353,7 @@ object FormLitosfera: TFormLitosfera
         Radius = 0.500000000000000000
         Slices = 64
         Stacks = 64
-        object PlanetRingDn: TGLDisk
+        object diskRingDn: TGLDisk
           Material.Texture.Disabled = False
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
           PitchAngle = 90.000000000000000000
@@ -475,7 +364,7 @@ object FormLitosfera: TFormLitosfera
           Slices = 64
           SweepAngle = 360.000000000000000000
         end
-        object PlanetRingUp: TGLDisk
+        object diskRingUp: TGLDisk
           Material.Texture.Disabled = False
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
           PitchAngle = 90.000000000000000000
@@ -487,7 +376,7 @@ object FormLitosfera: TFormLitosfera
           Slices = 64
           SweepAngle = 360.000000000000000000
         end
-        object PlanetMantle: TGLDisk
+        object diskMantle: TGLDisk
           Material.Texture.Disabled = False
           Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
           PitchAngle = 90.000000000000000000
@@ -495,14 +384,14 @@ object FormLitosfera: TFormLitosfera
           TurnAngle = 90.000000000000000000
           Up.Coordinates = {000000002EBD3BB3000080BF00000000}
           NormalDirection = ndInside
+          InnerRadius = 0.200000002980232200
           OuterRadius = 0.499000012874603300
           Slices = 64
           SweepAngle = 360.000000000000000000
         end
-        object PlanetCore: TGLSphere
+        object sfCore: TGLSphere
           Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
           Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-          Visible = False
           Radius = 0.200000002980232200
           Slices = 64
         end
@@ -551,8 +440,8 @@ object FormLitosfera: TFormLitosfera
       'Tex1:=InterPolate(Tex0, Tex1, PrimaryColor);'
       '')
     DesignTimeEnabled = False
-    Left = 746
-    Top = 186
+    Left = 1152
+    Top = 200
   end
   object MainMenu: TMainMenu
     Left = 501
@@ -560,7 +449,7 @@ object FormLitosfera: TFormLitosfera
     object Open1: TMenuItem
       Caption = #1060#1072#1081#1083
       object miFileOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1091'...'
+        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
         OnClick = miFileOpenClick
       end
       object miFileSaveAs: TMenuItem
@@ -577,17 +466,6 @@ object FormLitosfera: TFormLitosfera
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object miSystemSolar: TMenuItem
-        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miSystemSolarClick
-      end
-      object miSystemStar: TMenuItem
-        Caption = #1069#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miSystemStarClick
-      end
-      object N1: TMenuItem
-        Caption = '-'
-      end
       object miViewConstlines: TMenuItem
         Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
         OnClick = miViewConstlinesClick
@@ -608,7 +486,7 @@ object FormLitosfera: TFormLitosfera
         OnClick = miShowHidePlanetClick
       end
       object miClearTreeView: TMenuItem
-        Caption = #1054#1095#1080#1089#1090#1080#1090#1100' TreeView'
+        Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1089#1087#1080#1089#1086#1082
         Enabled = False
         OnClick = miClearTreeViewClick
       end
@@ -629,9 +507,20 @@ object FormLitosfera: TFormLitosfera
     end
     object miMonitor: TMenuItem
       Caption = '&'#1052#1086#1085#1080#1090#1086#1088
-      object miGenExoplanets: TMenuItem
-        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090'..'
-        OnClick = miGenExoplanetsClick
+      object miSolarSystem: TMenuItem
+        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        OnClick = miSolarSystemClick
+      end
+      object miStarSystem: TMenuItem
+        Caption = #1047#1074#1105#1079#1076#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        OnClick = miStarSystemClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object miExosystemCreator: TMenuItem
+        Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1087#1083#1072#1085#1077#1090#1085#1086#1081' '#1089#1080#1089#1090#1077#1084#1099'...'
+        OnClick = miExosystemCreatorClick
       end
     end
     object miOptions: TMenuItem
@@ -669,5 +558,9 @@ object FormLitosfera: TFormLitosfera
   object SaveDialog: TSaveDialog
     Left = 313
     Top = 299
+  end
+  object MainMenu1: TMainMenu
+    Left = 812
+    Top = 205
   end
 end

@@ -18,6 +18,7 @@ uses
   Vcl.Forms,
   Vcl.ExtCtrls,
   Vcl.Imaging.Jpeg,
+  Vcl.Imaging.pngimage,
   Vcl.Menus,
   Vcl.ComCtrls,
   Vcl.Dialogs,
@@ -59,9 +60,9 @@ uses
   dImages,
   flSolarSystem,
   flStarSystem,
-  fSettings,
-  fGenPlanetsys, // Planetary System Creator
+  fGenPlanetsys,
   fAbout,
+  fSettings,
 
   flNewLitosystem;
 
@@ -106,40 +107,33 @@ type
     SaveDialog: TSaveDialog;
     Atmosphere: TGLAtmosphere;
     PlanetSkyDome: TGLEarthSkyDome;
-    PlanetMantle: TGLDisk;
+    diskMantle: TGLDisk;
     ffPlanet: TGLFreeForm;
-    PlanetRingUp: TGLDisk;
+    diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
-    PlanetRingDn: TGLDisk;
+    diskRingDn: TGLDisk;
     miViewHidePanels: TMenuItem;
     miShowHidePlanet: TMenuItem;
     miGoogleEarth: TMenuItem;
     N3: TMenuItem;
     miPlanetSkyDome: TMenuItem;
     StatusBar: TStatusBar;
-    miSystemSolar: TMenuItem;
+    miSolarSystem: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
-    miSystemStar: TMenuItem;
+    miStarSystem: TMenuItem;
     miSettings: TMenuItem;
     N6: TMenuItem;
-    PanelRight: TPanel;
-    PanelParameters: TPanel;
-    chbInnerCore: TCheckBox;
-    CheckBox1: TCheckBox;
-    PlanetCore: TGLSphere;
-    chbRotate: TCheckBox;
-    chbShowAxes: TCheckBox;
-    ButtonGrid: TButton;
-    ControlBar1: TControlBar;
+    sfCore: TGLSphere;
+    ControlBar: TControlBar;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     N1: TMenuItem;
-    MemoParams: TMemo;
     miMonitor: TMenuItem;
-    miGenExoplanets: TMenuItem;
+    miExosystemCreator: TMenuItem;
+    MainMenu1: TMainMenu;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -166,31 +160,30 @@ type
     procedure miShowHidePlanetClick(Sender: TObject);
     procedure miGoogleEarthClick(Sender: TObject);
     procedure miPlanetSkyDomeClick(Sender: TObject);
-    procedure miSystemSolarClick(Sender: TObject);
-    procedure miSystemStarClick(Sender: TObject);
+    procedure miSolarSystemClick(Sender: TObject);
+    procedure miStarSystemClick(Sender: TObject);
     procedure miFileNewClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure ButtonGridClick(Sender: TObject);
-    procedure chbShowAxesClick(Sender: TObject);
-    procedure miGenExoplanetsClick(Sender: TObject);
+    procedure miExosystemCreatorClick(Sender: TObject);
   public
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
     TimeMultiplier: Single;
-    mx, my, dmx, dmy: Integer;
-    HighResResourcesLoaded: Boolean;
+    HighResResourcesLoaded: Boolean;// для карт текстур высокого разрешения
     CameraTimeSteps: Single;
     Radius, invAtmosphereHeight: Single;
     eyePos, lightingVector: TGLVector;
     diskNormal, diskRight, diskUp: TGLVector;
+    procedure PlanetSection(AFileName: TFileName);
   private
+    mx, my, dmx, dmy: Integer;
     DataDir, StarDir, CurrentStar: TFileName;
-    CatalogName, FileName: TFileName;
+    FileName, CatalogName: TFileName;
     procedure LoadConstLines;
     procedure LoadConstBounds;
-    // Atmosphere Color
+    // Цвет атмосферы
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
-    // Compute AtmColor
+    // Расчёт цвета атмосферы
     function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
     procedure LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
   end;
@@ -280,19 +273,19 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------
-// Show Inner Core
-//------------------------------------------------------------------
-procedure TFormLitosfera.miInnerCoreClick(Sender: TObject);
+
+//---------------------------------------------------
+// Показать разрез планеты с корой, мантией и ядром
+//---------------------------------------------------
+procedure TFormLitosfera.PlanetSection(AFileName: TFileName);
 begin
-  miInnerCore.Checked := not miInnerCore.Checked;
-  if miInnerCore.Checked then
+  if (miInnerCore.Checked or FormSettings.chbPlanetGuts.Checked) then
   begin
     FileName := CurrentStar + tvPlanets.Selected.Text;
     if FileExists(FileName + '_core.jpg') then
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName + '_core.jpg')
+      diskMantle.Material.Texture.Image.LoadFromFile(FileName + '_core.jpg')
     else
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+      diskMantle.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
     sfPlanet.Stop := 180;
     Atmosphere.Visible := False;
   end
@@ -303,8 +296,15 @@ begin
   end;
 end;
 
+// Меню для разреза планеты с ядром
+procedure TFormLitosfera.miInnerCoreClick(Sender: TObject);
+begin
+  miInnerCore.Checked := not miInnerCore.Checked;
+  PlanetSection(FileName);
+end;
+
 //------------------------------------------------------------------
-// ShowHide tvPlanets
+// Показать или скрыть все панели с контрольными элементами
 //------------------------------------------------------------------
 procedure TFormLitosfera.miViewHidePanelsClick(Sender: TObject);
 begin
@@ -313,20 +313,26 @@ begin
   begin
     miViewHidePanels.Caption := 'Показать панели';
     PanelLeft.Visible := False;
-    PanelRight.Visible := False;
     StatusBar.Visible := False;
+    ControlBar.Visible := False;
+    // Скрыть кайму формы
+    FormLitosfera.BorderStyle := bsNone;
   end
   else
   begin
     miViewHidePanels.Caption := 'Скрыть панели';
     PanelLeft.Visible := True;
-    PanelRight.Visible := True;
     StatusBar.Visible := True;
+    ControlBar.Visible := True;
+    // Скрыть кайму формы
+    FormLitosfera.BorderStyle := bsSizeable;
   end;
-//  frmTerraplanet.BorderStyle := bsNone;
 end;
 
-procedure TFormLitosfera.miGenExoplanetsClick(Sender: TObject);
+
+//----------------------------------------------------------------------
+
+procedure TFormLitosfera.miExosystemCreatorClick(Sender: TObject);
 begin
    Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -334,7 +340,7 @@ begin
   if FileExists(AppPath + 'EarthAbcde.exe') then
     ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
 *)
-  with TFormGenPlanetsys.Create(Self) do  // not   FormABCreator.ShowModal;
+  with TFormGenPlanetsys.Create(Self) do
     try
       ShowModal;
     finally
@@ -377,6 +383,7 @@ begin
     ffPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
   end;
 
+ (*
   // Cores of Planets
   if miInnerCore.Checked then
   begin
@@ -386,17 +393,19 @@ begin
       PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
   end;
 
-  // Rings
-  if tvPlanets.Selected.Text = 'Saturn' then
+*)
+
+  // Planet with rings
+  if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
   begin
-    PlanetRingUp.Material.Texture.Image.LoadFromFile(FileName  + '_ring.jpg');
-    PlanetRingDn.Material.Texture.Image.LoadFromFile(FileName  + '_ring.jpg');
-    PlanetRingUp.Visible := True; PlanetRingDn.Visible := True;
+    diskRingUp.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
+    diskRingDn.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
+    diskRingUp.Visible := True; diskRingDn.Visible := True;
   end
   else
   begin
-    PlanetRingUp.Visible := False;
-    PlanetRingDn.Visible := False;
+    diskRingUp.Visible := False;
+    diskRingDn.Visible := False;
   end;
 
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' в ' + 'Рувики...';
@@ -464,12 +473,6 @@ begin
     end;
   end;
   Result.W := n * contrib * cOpacity * 0.1;
-end;
-
-//------------------------------------------------------------------
-procedure TFormLitosfera.ButtonGridClick(Sender: TObject);
-begin
-  ButtonGrid.Enabled := not ButtonGrid.Enabled;
 end;
 
 //------------------------------------------------------------------
@@ -688,7 +691,7 @@ begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
   // make rotate
-  if chbRotate.Checked then
+  if FormSettings.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -736,12 +739,6 @@ begin
                  ConstBounds.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstBounds.Visible := (ConstBounds.LineColor.Alpha > 0);
   end;
-end;
-
-procedure TFormLitosfera.chbShowAxesClick(Sender: TObject);
-begin
-  sfPlanet.ShowAxes := chbShowAxes.Checked;
-
 end;
 
 //------------------------------------------------------------------
@@ -890,7 +887,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormLitosfera.miSystemSolarClick(Sender: TObject);
+procedure TFormLitosfera.miSolarSystemClick(Sender: TObject);
 begin
   with TFormSolarSys.Create(Self) do
     try
@@ -900,7 +897,7 @@ begin
     end;
 end;
 
-procedure TFormLitosfera.miSystemStarClick(Sender: TObject);
+procedure TFormLitosfera.miStarSystemClick(Sender: TObject);
 begin
   with TFormStarSys.Create(Self) do
     try
@@ -969,12 +966,16 @@ end;
 //------------------------------------------------------------------
 procedure TFormLitosfera.miSettingsClick(Sender: TObject);
 begin
+(* // for ShowModal move FormSettings to right panel
+   // in project Forms options
   with TFormSettings.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
+*)
+  FormSettings.Show;
 end;
 
 //------------------------------------------------------------------

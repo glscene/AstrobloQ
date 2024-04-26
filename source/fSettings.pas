@@ -9,6 +9,8 @@ uses
   System.Variants,
   System.Classes,
   System.ImageList,
+  System.Beacon.Components,
+
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -23,7 +25,11 @@ uses
   Vcl.Samples.DirOutln,
   Vcl.ColorGrd,
   Vcl.Samples.Gauges,
-  Vcl.CheckLst, Vcl.WinXCtrls;
+  Vcl.CheckLst,
+  Vcl.WinXCtrls,
+  System.Beacon,
+  System.Bluetooth,
+  Vcl.NumberBox;
 
 type
   TFormSettings = class(TForm)
@@ -41,11 +47,9 @@ type
     CheckBoxSaveProject: TCheckBox;
     tsDisplay: TTabSheet;
     LabelBackground: TLabel;
-    LabelMapUnits: TLabel;
     CheckBoxAxes: TCheckBox;
     PanelBackground: TPanel;
     CheckBoxCoordinates: TCheckBox;
-    ComboBoxMapUnits: TComboBox;
     cbxTwoSideLighting: TCheckBox;
     tsMaterial: TTabSheet;
     ListView: TListView;
@@ -60,11 +64,7 @@ type
     Gauge1: TGauge;
     ColorGrid1: TColorGrid;
     SpinEdit1: TSpinEdit;
-    ListBox1: TListBox;
-    ComboBox1: TComboBox;
     rgLanguage: TRadioGroup;
-    Memo1: TMemo;
-    chlbStarClasses: TCheckListBox;
     cbSplashStart: TCheckBox;
     tsGeneral: TTabSheet;
     tsFlights: TTabSheet;
@@ -100,16 +100,49 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
+    grbPlanetGuts: TGroupBox;
+    LabelIce: TLabel;
+    nbIce: TNumberBox;
+    nbWater: TNumberBox;
+    LabelWater: TLabel;
+    nbCrust: TNumberBox;
+    LabelCrust: TLabel;
+    nbMantle: TNumberBox;
+    LabelMantle: TLabel;
+    nbCore: TNumberBox;
+    LabelCore: TLabel;
+    chlbStarClasses: TCheckListBox;
+    grbPlanetShow: TGroupBox;
+    chbRotate: TCheckBox;
+    chbShowAxes: TCheckBox;
+    CheckBox4: TCheckBox;
+    chbPlanetGuts: TCheckBox;
+    ButtonGrid: TButton;
+    GroupBox1: TGroupBox;
+    nbTilt: TNumberBox;
+    LabelPlanetTilt: TLabel;
+    nbDensity: TNumberBox;
+    LabelPlanetDensity: TLabel;
+    nbRadius: TNumberBox;
+    LabelPlanetRadius: TLabel;
+    nbRadiusEcv: TNumberBox;
+    Label3: TLabel;
+    nbRadiusPol: TNumberBox;
+    Label4: TLabel;
+    nbGravityAccel: TNumberBox;
+    LabelGravityAccel: TLabel;
+    NumberBox7: TNumberBox;
+    Label6: TLabel;
     procedure tvSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
+    procedure ButtonOKClick(Sender: TObject);
   private
+    //
+  public
     //
     Node: TTreeNode;
     Nodes: TTreeNodes;
-  public
-    //
   end;
 
 var
@@ -120,9 +153,16 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TFormSettings.ButtonOKClick(Sender: TObject);
 begin
-  // Default classes for terrain planets
+  Close;
+end;
+
+procedure TFormSettings.FormCreate(Sender: TObject);
+var
+  I: Integer;
+begin
+  // спектральные классы звёзд по умолчанию
 	chlbStarClasses.Checked[0] := False;
  	chlbStarClasses.Checked[1] := False;
  	chlbStarClasses.Checked[2] := False;
@@ -131,29 +171,29 @@ begin
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
 
-  trbVelocityChange(Self);
-end;
-
-procedure TFormSettings.FormShow(Sender: TObject);
-var
-  I: Integer;
-begin
-//  create new nodes
+//  создание новых узлов
 //  Nodes := TTreeNodes.Create (tvSettings);
 //  Node := TTreeNode.Create (Nodes);
 //  Node := nil;
-  tvSettings.Items[0].Selected := True;
-  tvSettings.Items[0].Focused := True;
+  // Заполнение индексов узлов дерева установок
   for I := 0 to tvSettings.Items.Count - 1 do
   begin
-    tvSettings.Items[i].ImageIndex := 0;
-    tvSettings.Items[i].SelectedIndex := 1;
+    tvSettings.Items[I].ImageIndex := 0;
+    tvSettings.Items[I].SelectedIndex := 1;
+    tvSettings.Items[I].StateIndex := I;
   end;
-  tvSettingsClick(Sender);
-  tvSettings.Items[0].DropHighlighted := True;
+  tvSettings.Items[6].Selected := True; // 6 - Планеты
+  tvSettings.Items[6].Focused := True;
+  tvSettings.Items[6].DropHighlighted := True;
   tvSettings.FullExpand;
+
+  tvSettingsClick(Sender);
+  trbVelocityChange(Self);
 end;
 
+//---------------------------------------------------------------
+// Настройка навигации среди звёзд по кратчайшему пути
+//--------------------------------------------------------------
 procedure TFormSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
@@ -166,13 +206,11 @@ begin
   FlightTime := DistanceInYears/Ratio;
 
   stFlightTime.Caption := FloatToStrF(FlightTime, ffFixed, 20, 1);
-
 end;
 
 procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin
-  tvSettings.Items[0].DropHighlighted := False;
-  case tvSettings.Selected.Index of
+  case tvSettings.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
      1: PageControl.ActivePage := tsInterface;
      2: PageControl.ActivePage := tsDisplay;
@@ -182,6 +220,7 @@ begin
      6: PageControl.ActivePage := tsPlanets;
      7: PageControl.ActivePage := tsFlights;
   end;
+  PageControl.ActivePage.Repaint;
 end;
 
 end.

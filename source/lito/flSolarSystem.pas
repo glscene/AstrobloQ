@@ -14,6 +14,7 @@ uses
   Vcl.ExtCtrls,
   Vcl.StdCtrls,
   Vcl.Imaging.Jpeg,
+  Vcl.Imaging.pngimage,
   Vcl.Menus,
 
   GLS.SceneViewer,
@@ -152,6 +153,7 @@ type
     Phobos: TGLFreeForm;
     Deimos: TGLFreeForm;
     StatusBarSol: TStatusBar;
+    JupiterRing: TGLDisk;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -227,16 +229,17 @@ begin
     Callisto.Material.Texture.Image.LoadFromFile('callisto.jpg');
 
   Saturn.Material.Texture.Image.LoadFromFile('saturn.jpg');
+    SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.png');
     Titan.Material.Texture.Image.LoadFromFile('titan.jpg');
     Enceladus.Material.Texture.Image.LoadFromFile('enceladus.jpg');
-    SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.jpg');
 
   Uranus.Material.Texture.Image.LoadFromFile('uranus.jpg');
+    UranusRing.Material.Texture.Image.LoadFromFile('uranus_ring.png');
     Titania.Material.Texture.Image.LoadFromFile('titania.jpg');
     Miranda.Material.Texture.Image.LoadFromFile('miranda.jpg');
 
   Neptune.Material.Texture.Image.LoadFromFile('neptune.jpg');
-    NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.jpg');
+    NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.png');
     Triton.Material.Texture.Image.LoadFromFile('triton.jpg');
 
   Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');

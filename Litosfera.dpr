@@ -29,5 +29,6 @@ begin
   Application.Title := 'Litosfere';
   Application.CreateForm(TFormLitosfera, FormLitosfera);
   Application.CreateForm(TdfImages, dfImages);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
 end.

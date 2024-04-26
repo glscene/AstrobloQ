@@ -410,7 +410,7 @@ begin
   top := FormPlanetY;
   left := FormPlanetX;
   if FileExists(AppPath + 'EarthGLS.chm') then
-    Application.HelpFile := AppPath + 'EarthGLS.chm';  // not ready yet from EarthGLS.hlp
+    Application.HelpFile := AppPath + 'EarthGLS.chm';  // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;
@@ -1340,7 +1340,7 @@ end;
 
 procedure TFormNoosphere.NightSkyorBumpyLand1Click(Sender: TObject);
 begin
-  NightSkyorBumpyLand1.Checked := (not NightSkyorBumpyLand1.Checked);
+  NightSkyorBumpyLand1.Checked := not NightSkyorBumpyLand1.Checked;
   ptsLocations.StructureChanged;
   GLSceneViewer.Invalidate;
 end;
