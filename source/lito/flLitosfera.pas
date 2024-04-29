@@ -121,7 +121,7 @@ type
     miSolarSystem: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
-    miStarSystem: TMenuItem;
+    miPlanetSystem: TMenuItem;
     miSettings: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
@@ -161,7 +161,7 @@ type
     procedure miGoogleEarthClick(Sender: TObject);
     procedure miPlanetSkyDomeClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
-    procedure miStarSystemClick(Sender: TObject);
+    procedure miPlanetSystemClick(Sender: TObject);
     procedure miFileNewClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miExosystemCreatorClick(Sender: TObject);
@@ -176,7 +176,8 @@ type
     diskNormal, diskRight, diskUp: TGLVector;
     procedure PlanetSection(AFileName: TFileName);
   private
-    mx, my, dmx, dmy: Integer;
+    mx, my,
+    dmx, dmy: Integer;
     DataDir, StarDir, CurrentStar: TFileName;
     FileName, CatalogName: TFileName;
     procedure LoadConstLines;
@@ -217,6 +218,9 @@ implementation
 //------------------------------------------------------------------
 
 procedure TFormLitosfera.FormCreate(Sender: TObject);
+var
+  I: Integer;
+
 begin
   DataDir := ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
@@ -245,10 +249,22 @@ begin
   Atmosphere.MoveTo(dcStar);
   Atmosphere.Opacity := cOpacity;
 
+
+  // Заполнение индексов узлов дерева планет
+
+  for I := 0 to tvPlanets.Items.Count - 1 do
+  begin
+//    tvPlanets.Items[I].ImageIndex := I;
+//    tvPlanets.Items[I].SelectedIndex := I;
+//    tvPlanets.Items[I].StateIndex := I;
+  end;
+  (**)
   tvPlanets.Select(tvPlanets.Items[3]);  // goto to Earth
+  // tvPlanets.FullExpand;
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
-  TimeMultiplier := Power(1, 3); // faster - Power(2, 3);
+
+  TimeMultiplier := Power(1, 3); // 0 - стоп, быстрое вращение - Power(3, 3);
 end;
 
 //------------------------------------------------------------------
@@ -324,9 +340,75 @@ begin
     PanelLeft.Visible := True;
     StatusBar.Visible := True;
     ControlBar.Visible := True;
-    // Скрыть кайму формы
+    // Показать кайму формы
     FormLitosfera.BorderStyle := bsSizeable;
   end;
+end;
+
+
+//------------------------------------------------------------------
+//                          tvPlanetsClick
+//------------------------------------------------------------------
+procedure TFormLitosfera.tvPlanetsClick(Sender: TObject);
+begin
+  FileName := CurrentStar + tvPlanets.Selected.Text;
+
+//  В случае загрузки текстурных карт в компонент коллекции
+//  tvPlanets.Images := dfImages.ImgVirtPlanets;
+
+  // Выбор сферической планеты типа TGLFreeForm для модели sphere.3ds
+  if tvPlanets.Selected.StateIndex = -1 then
+  begin
+//  sfPlanet.LoadFromFile(FileName + 'sphere.3ds');
+//    ffPlanet.LoadFromFile(FileName + '\' + 'sphere.3ds');
+    sfPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+
+    sfPlanet.Visible := True;
+    ffPlanet.Visible := False;
+  end
+  else  // StateIndex = 1
+  // Выбор планетоида или астероида типа TGLFreeForm с загрузкой модели
+  begin
+    ffPlanet.LoadFromFile(FileName + '.3ds');
+    ffPlanet.Scale.X := 0.01; ffPlanet.Scale.Y := 0.01; ffPlanet.Scale.Z := 0.01;
+    sfPlanet.Visible := False;
+    ffPlanet.Visible := True;
+    ffPlanet.Material.Texture.Disabled := False;
+    ffPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+  end;
+
+ (*
+  // Cores of Planets
+  if miInnerCore.Checked then
+  begin
+    if FileExists(FileName  + '_core.jpg') then
+      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '_core.jpg')
+    else
+      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
+  end;
+
+*)
+  // Планеты с кольцами
+  if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
+  begin
+    diskRingUp.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
+    diskRingUp.Visible := True;
+    diskRingDn.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
+    diskRingDn.Visible := True;
+  end
+  else
+  begin
+    diskRingUp.Visible := False;
+    diskRingDn.Visible := False;
+  end;
+
+  miHelpWiki.Caption := tvPlanets.Selected.Text + ' в ' + 'Рувики...';
+
+  // Планеты с атмосферами
+  if (tvPlanets.Selected.Text = 'Earth') then
+    DirectOpenGL.Visible := True
+  else
+    DirectOpenGL.Visible := False;
 end;
 
 
@@ -334,7 +416,7 @@ end;
 
 procedure TFormLitosfera.miExosystemCreatorClick(Sender: TObject);
 begin
-   Timer.Enabled := False;
+  Timer.Enabled := False;
   Cadencer.Enabled := False;
 (*
   if FileExists(AppPath + 'EarthAbcde.exe') then
@@ -359,63 +441,6 @@ begin
   Cadencer.Enabled := True;
 end;
 
-//------------------------------------------------------------------
-//                          tvPlanetsClick
-//------------------------------------------------------------------
-procedure TFormLitosfera.tvPlanetsClick(Sender: TObject);
-begin
-  FileName := CurrentStar + tvPlanets.Selected.Text;
-
-  if tvPlanets.Selected.StateIndex = -1 then    // Planet as TGLSphere
-  begin
-//  sfPlanet.LoadFromFile(FileName + '.3ds'); // Sphere.3ds as TGLFreeForms
-    sfPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
-    sfPlanet.Visible := True;
-    ffPlanet.Visible := False;
-  end
-  else    // StateIndex = 1 for Planetoid as TGLFreeForm
-  begin
-    ffPlanet.LoadFromFile(FileName + '.3ds');
-    ffPlanet.Scale.X := 0.01; ffPlanet.Scale.Y := 0.01; ffPlanet.Scale.Z := 0.01;
-    sfPlanet.Visible := False;
-    ffPlanet.Visible := True;
-    ffPlanet.Material.Texture.Disabled := False;
-    ffPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
-  end;
-
- (*
-  // Cores of Planets
-  if miInnerCore.Checked then
-  begin
-    if FileExists(FileName  + '_core.jpg') then
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '_core.jpg')
-    else
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
-  end;
-
-*)
-
-  // Planet with rings
-  if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
-  begin
-    diskRingUp.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
-    diskRingDn.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
-    diskRingUp.Visible := True; diskRingDn.Visible := True;
-  end
-  else
-  begin
-    diskRingUp.Visible := False;
-    diskRingDn.Visible := False;
-  end;
-
-  miHelpWiki.Caption := tvPlanets.Selected.Text + ' в ' + 'Рувики...';
-
-  // Atmospheres
-  if (tvPlanets.Selected.Text = 'Earth') then
-    DirectOpenGL.Visible := True
-  else
-    DirectOpenGL.Visible := False;
-end;
 
 //------------------------------------------------------------------
 // SceneViewerBeforeRender
@@ -690,7 +715,7 @@ var
 begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
-  // make rotate
+  // задание вращения вланеты
   if FormSettings.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -715,7 +740,7 @@ begin
     dmx := 0;
     dmy := 0;
   end;
-  // this gives us smoother camera movements
+  // это даёт более плавное перемещение камеры
   cameraTimeSteps := cameraTimeSteps + deltaTime;
   while cameraTimeSteps > 0.005 do
   begin
@@ -723,7 +748,7 @@ begin
       CameraControler.Position.AsVector, 0.05);
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
-  // smooth constellation lines appearance/disappearance
+  // постепенное появление/исчезновение линий созвездий
   if ConstLines.LineColor.Alpha <> ConstLinesAlpha then
   begin
     ConstLines.LineColor.Alpha :=
@@ -731,7 +756,7 @@ begin
                  ConstLines.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
   end;
-  // smooth constellation bounds appearance/disappearance
+  // постепенное появление/исчезновение границ созвездий
   if ConstBounds.LineColor.Alpha <> ConstBordersAlpha then
   begin
     ConstBounds.LineColor.Alpha :=
@@ -742,7 +767,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// SceneViewerMouseDown
+// Присваиваем экранные координаты мышке при нажатии правой кнопки
 //------------------------------------------------------------------
 procedure TFormLitosfera.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -751,13 +776,12 @@ begin
   my := y;
 end;
 
-//------------------------------------------------------------------
-// SceneViewerMouseMove
-//------------------------------------------------------------------
+//-----------------------------------------------------------------
+// Изменяем экранные координаты при перемещении мышки
+//-----------------------------------------------------------------
 procedure TFormLitosfera.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
-
   if Shift = [ssLeft] then
   begin
     dmx := dmx + (mx - x);
@@ -897,7 +921,7 @@ begin
     end;
 end;
 
-procedure TFormLitosfera.miStarSystemClick(Sender: TObject);
+procedure TFormLitosfera.miPlanetSystemClick(Sender: TObject);
 begin
   with TFormStarSys.Create(Self) do
     try

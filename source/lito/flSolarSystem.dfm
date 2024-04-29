@@ -114,6 +114,7 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
+      ExplicitWidth = 107
     end
     inline FrameParams: TFrameParams
       Left = 1
@@ -146,7 +147,7 @@ object FormSolarSys: TFormSolarSys
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Orbit Lines'
+      Caption = #1051#1080#1085#1080#1080' '#1086#1088#1073#1080#1090
       Checked = True
       State = cbChecked
       TabOrder = 2
@@ -161,7 +162,7 @@ object FormSolarSys: TFormSolarSys
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Habitable Zone'
+      Caption = #1047#1086#1085#1072' '#1086#1073#1080#1090#1072#1077#1084#1086#1089#1090#1080
       Checked = True
       State = cbChecked
       TabOrder = 3
@@ -190,7 +191,7 @@ object FormSolarSys: TFormSolarSys
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Rotation'
+      Caption = #1042#1088#1072#1097#1077#1085#1080#1077
       Checked = True
       State = cbChecked
       TabOrder = 5

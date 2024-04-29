@@ -9,16 +9,19 @@
         <Projects Include="Graf2d.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Graf3d.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Litosfera.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Biosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Tehnosfera.dproj">
+        <Projects Include="Noosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Noosfera.dproj">
+        <Projects Include="Evoluter.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -47,6 +50,15 @@
     <Target Name="Graf2d:Make">
         <MSBuild Projects="Graf2d.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Graf3d">
+        <MSBuild Projects="Graf3d.dproj"/>
+    </Target>
+    <Target Name="Graf3d:Clean">
+        <MSBuild Projects="Graf3d.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Graf3d:Make">
+        <MSBuild Projects="Graf3d.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Litosfera.dproj"/>
     </Target>
@@ -65,15 +77,6 @@
     <Target Name="Biosfera:Make">
         <MSBuild Projects="Biosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Tehnosfera">
-        <MSBuild Projects="Tehnosfera.dproj"/>
-    </Target>
-    <Target Name="Tehnosfera:Clean">
-        <MSBuild Projects="Tehnosfera.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Tehnosfera:Make">
-        <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Noosfera">
         <MSBuild Projects="Noosfera.dproj"/>
     </Target>
@@ -83,14 +86,23 @@
     <Target Name="Noosfera:Make">
         <MSBuild Projects="Noosfera.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Evoluter">
+        <MSBuild Projects="Evoluter.dproj"/>
+    </Target>
+    <Target Name="Evoluter:Clean">
+        <MSBuild Projects="Evoluter.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Evoluter:Make">
+        <MSBuild Projects="Evoluter.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Graf1d;Graf2d;Litosfera;Biosfera;Tehnosfera;Noosfera"/>
+        <CallTarget Targets="Graf1d;Graf2d;Graf3d;Litosfera;Biosfera;Noosfera;Evoluter"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Graf1d:Clean;Graf2d:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;Noosfera:Clean"/>
+        <CallTarget Targets="Graf1d:Clean;Graf2d:Clean;Graf3d:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Evoluter:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Graf1d:Make;Graf2d:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;Noosfera:Make"/>
+        <CallTarget Targets="Graf1d:Make;Graf2d:Make;Graf3d:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Evoluter:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

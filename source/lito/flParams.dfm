@@ -1,8 +1,8 @@
 object FrameParams: TFrameParams
   Left = 0
   Top = 0
-  Width = 830
-  Height = 625
+  Width = 1041
+  Height = 747
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5

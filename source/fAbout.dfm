@@ -47,7 +47,7 @@ object FormAbout: TFormAbout
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsInfo
+    ActivePage = tsTools
     Align = alClient
     TabOrder = 1
     object tsInfo: TTabSheet
@@ -74,7 +74,7 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        object ImageMoons: TImage
+        object ImagePlanets: TImage
           Left = 1
           Top = 1
           Width = 1121
@@ -3740,7 +3740,8 @@ object FormAbout: TFormAbout
             A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028
             A28A0028A28A0028A28A0028A28A00FFD9}
           Stretch = True
-          OnDblClick = ImageMoonsDblClick
+          OnClick = ImagePlanetsClick
+          OnDblClick = ImagePlanetsDblClick
           ExplicitLeft = 322
           ExplicitTop = -242
           ExplicitWidth = 365
@@ -11256,6 +11257,7 @@ object FormAbout: TFormAbout
       Margins.Bottom = 5
       Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
       ImageIndex = 1
+      TabVisible = False
       object MemoDevelopers: TMemo
         Left = 0
         Top = 0

@@ -31,7 +31,6 @@ object FormSettings: TFormSettings
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1332
     DesignSize = (
       1313
       71)
@@ -49,7 +48,6 @@ object FormSettings: TFormSettings
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 1073
     end
   end
   object PanelMiddle: TPanel
@@ -65,7 +63,6 @@ object FormSettings: TFormSettings
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 1332
     object PageControl: TPageControl
       Left = 292
       Top = 5
@@ -79,7 +76,6 @@ object FormSettings: TFormSettings
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 1035
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -326,7 +322,6 @@ object FormSettings: TFormSettings
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
-          ExplicitWidth = 1027
         end
         object ButtonModifyMat: TButton
           Left = 254
@@ -436,7 +431,6 @@ object FormSettings: TFormSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
-          ExplicitLeft = 136
         end
       end
       object tsPlanets: TTabSheet
@@ -1121,7 +1115,6 @@ object FormSettings: TFormSettings
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 1027
           object LabelA: TLabel
             Left = 154
             Top = 16
@@ -1346,8 +1339,6 @@ object FormSettings: TFormSettings
         FFFFFFFFFFFF0000000000000000000000000001071F043B0430043D04350442
         044B040000310000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         00000000000001091D0430043204380433043004460438044F04}
-      ExplicitLeft = -1
-      ExplicitTop = 10
     end
   end
   object PanelTop: TPanel
@@ -1362,7 +1353,6 @@ object FormSettings: TFormSettings
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 1332
   end
   object ImageList: TImageList
     Left = 127
