@@ -49,13 +49,13 @@ object FunctionsForm: TFunctionsForm
   object Label9: TLabel
     Left = 12
     Top = 431
-    Width = 112
+    Width = 91
     Height = 28
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = 'Functions :'
+    Caption = #1060#1091#1085#1082#1094#1080#1080
     Visible = False
   end
   object AddButton: TSpeedButton
@@ -220,20 +220,20 @@ object FunctionsForm: TFunctionsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  Plot Range  '
+    Caption = '  '#1056#1072#1084#1082#1080' '#1075#1088#1072#1092#1080#1082#1072
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
     object Label1: TLabel
       Left = 95
       Top = 26
-      Width = 77
+      Width = 81
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Minimum'
+      Caption = #1052#1080#1085#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -244,13 +244,13 @@ object FunctionsForm: TFunctionsForm
     object Label2: TLabel
       Left = 249
       Top = 26
-      Width = 81
+      Width = 87
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Maximum'
+      Caption = #1052#1072#1082#1089#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -259,16 +259,16 @@ object FunctionsForm: TFunctionsForm
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 405
+      Left = 396
       Top = 26
-      Width = 87
+      Width = 96
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Increment'
+      Caption = #1048#1085#1082#1088#1077#1084#1077#1085#1090
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -334,16 +334,16 @@ object FunctionsForm: TFunctionsForm
       ParentFont = False
     end
     object Label17: TLabel
-      Left = 9
+      Left = 19
       Top = 224
-      Width = 80
+      Width = 70
       Height = 28
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Modes :'
+      Caption = #1056#1077#1078#1080#1084
     end
     object zCountLabel: TLabel
       Left = 9
@@ -376,7 +376,7 @@ object FunctionsForm: TFunctionsForm
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Plot Centre'
+      Caption = #1062#1077#1085#1090#1088#1080#1088#1086#1074#1072#1090#1100
       Flat = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clMaroon
@@ -701,7 +701,7 @@ object FunctionsForm: TFunctionsForm
     Margins.Right = 5
     Margins.Bottom = 5
     Anchors = [akLeft, akTop, akRight, akBottom]
-    ItemHeight = 28
+    ItemHeight = 30
     TabOrder = 2
     OnClick = CheckListBoxClick
     OnClickCheck = CheckListBoxClickCheck
@@ -718,7 +718,7 @@ object FunctionsForm: TFunctionsForm
     Margins.Right = 5
     Margins.Bottom = 5
     Anchors = [akTop, akRight]
-    Caption = 'Apply'
+    Caption = #1055#1088#1080#1084#1077#1085#1080#1090#1100
     Default = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
@@ -775,32 +775,32 @@ object FunctionsForm: TFunctionsForm
   object MainMenu: TMainMenu
     AutoHotkeys = maManual
     AutoLineReduction = maManual
-    Left = 152
+    Left = 390
     Top = 275
     object File1: TMenuItem
-      Caption = 'File'
-      object New1: TMenuItem
-        Caption = 'New'
-        OnClick = New1Click
+      Caption = #1060#1072#1081#1083
+      object miNew: TMenuItem
+        Caption = #1053#1086#1074#1099#1081
+        OnClick = miNewClick
       end
-      object OpenFile: TMenuItem
-        Caption = 'Open...'
-        OnClick = OpenFileClick
+      object miOpenFile: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        OnClick = miOpenFileClick
       end
-      object Save: TMenuItem
-        Caption = 'Save...'
-        OnClick = SaveClick
+      object miSave: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100'...'
+        OnClick = miSaveClick
       end
-      object SaveAs: TMenuItem
-        Caption = 'Save As...'
-        OnClick = SaveAsClick
+      object miSaveAs: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+        OnClick = miSaveAsClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
-      object Exit1: TMenuItem
-        Caption = 'Exit'
-        OnClick = Exit1Click
+      object miExit: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = miExitClick
       end
     end
   end
@@ -809,14 +809,14 @@ object FunctionsForm: TFunctionsForm
     Filter = 'z = f(x,y)  Files|*.fxy'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
     Title = 'Plot z = f(x,y) Files'
-    Left = 98
+    Left = 280
     Top = 274
   end
   object OpenDialog: TOpenDialog
     DefaultExt = 'fyx'
     Filter = 'z = f(x,y)  Files|*.fxy'
     Title = 'Plot z = f(x,y) Files'
-    Left = 56
+    Left = 168
     Top = 273
   end
 end

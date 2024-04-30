@@ -17,9 +17,7 @@ type
     ImgCollectionPlanets: TImageCollection;
     ImgVirtPlanets: TVirtualImageList;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

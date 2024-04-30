@@ -1,4 +1,4 @@
-unit Astro.Parser;
+unit Graf.Parser2d;
 (*
   This parser is used only for z = f(x,y) heightfield 3D graphs
 *)
@@ -343,7 +343,7 @@ implementation
 // =====================================================================
 
 uses
-  Astro.Global,
+  Graf.Global2d,
   faGraf2d;
 
 // TCalculus Class

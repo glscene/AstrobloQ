@@ -776,7 +776,7 @@ object IntegrateXForm: TIntegrateXForm
     OnKeyUp = EditCountKeyUp
   end
   object UpDown1: TUpDown
-    Left = 295
+    Left = 300
     Top = 93
     Width = 28
     Height = 36

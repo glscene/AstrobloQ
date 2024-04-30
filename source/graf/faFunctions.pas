@@ -30,8 +30,8 @@ uses
   GLS.Color,
   GLS.VectorTypes,
 
-  Astro.Global,
-  Astro.Parser;
+  Graf.Global2d,
+  Graf.Parser2d;
 
 type
   TFunctionsForm = class(TForm)
@@ -59,12 +59,12 @@ type
     CheckListBox: TCheckListBox;
     MainMenu: TMainMenu;
     File1: TMenuItem;
-    New1: TMenuItem;
-    OpenFile: TMenuItem;
-    Save: TMenuItem;
-    SaveAs: TMenuItem;
+    miNew: TMenuItem;
+    miOpenFile: TMenuItem;
+    miSave: TMenuItem;
+    miSaveAs: TMenuItem;
     N1: TMenuItem;
-    Exit1: TMenuItem;
+    miExit: TMenuItem;
     SaveDialog: TSaveDialog;
     OpenDialog: TOpenDialog;
     Label17: TLabel;
@@ -86,13 +86,13 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AddButtonClick(Sender: TObject);
-    procedure SaveClick(Sender: TObject);
-    procedure SaveAsClick(Sender: TObject);
+    procedure miSaveClick(Sender: TObject);
+    procedure miSaveAsClick(Sender: TObject);
     procedure CheckListBoxClick(Sender: TObject);
     procedure DeleteButtonClick(Sender: TObject);
-    procedure OpenFileClick(Sender: TObject);
-    procedure Exit1Click(Sender: TObject);
-    procedure New1Click(Sender: TObject);
+    procedure miOpenFileClick(Sender: TObject);
+    procedure miExitClick(Sender: TObject);
+    procedure miNewClick(Sender: TObject);
     procedure cbZLimitClick(Sender: TObject);
     procedure ModeComboBoxChange(Sender: TObject);
     procedure StyleComboBoxChange(Sender: TObject);
@@ -290,18 +290,18 @@ begin
   ApplyBtnClick(Sender);
 end;
 
-procedure TFunctionsForm.New1Click(Sender: TObject);
+procedure TFunctionsForm.miNewClick(Sender: TObject);
 var
   i: integer;
   s: string;
 
 begin
   if Altered or GridColorsAltered or DerivativeAltered then
-    case MessageDlg('The current graph''s data has been altered.' +
-      #13#10'Do you wish to save the alterations ?', mtConfirmation,
+    case MessageDlg('Параметры графика изменены.' +
+      #13#10'Сохранить изменения?', mtConfirmation,
       [mbYes, mbNo, mbCancel], 0) of
       mrYes:
-        SaveClick(Sender);
+        miSaveClick(Sender);
       mrCancel:
         Exit;
     end;
@@ -344,7 +344,7 @@ begin
   ShowData(Sender);
 end;
 
-procedure TFunctionsForm.OpenFileClick(Sender: TObject);
+procedure TFunctionsForm.miOpenFileClick(Sender: TObject);
 var
   i: integer;
   s: string;
@@ -357,11 +357,11 @@ begin
   if PlotColorsForm.Visible then
     PlotColorsForm.ShowPlotColorData;
   if Altered or GridColorsAltered or DerivativeAltered then
-    case MessageDlg('The current graph''s data has been altered.' +
-      #13#10'Do you wish to save the alterations ?', mtConfirmation,
+    case MessageDlg('Параметры графика изменены.' +
+      #13#10'Сохранить изменения?', mtConfirmation,
       [mbYes, mbNo, mbCancel], 0) of
       mrYes:
-        SaveClick(Sender);
+        miSaveClick(Sender);
       mrCancel:
         Exit;
       mrNo:
@@ -521,7 +521,7 @@ begin
   end;
 end;
 
-procedure TFunctionsForm.Exit1Click(Sender: TObject);
+procedure TFunctionsForm.miExitClick(Sender: TObject);
 begin
   FormPlotStars.miExitClick(Sender);
 end;
@@ -733,7 +733,7 @@ begin
     zCountLabel.Caption := 'Too many Points: ' + FloatToStrF(n, ffnumber,
       8, 0) + ' !'
   else
-    zCountLabel.Caption := 'N° Points = ' + FloatToStrF(n, ffnumber, 8, 0);
+    zCountLabel.Caption := 'N° точек = ' + FloatToStrF(n, ffnumber, 8, 0);
 end;
 
 procedure TFunctionsForm.UpdateTPlotDataObject;
@@ -1072,8 +1072,8 @@ begin
       end;
 
     except
-      MessageDlg('File Error! An Error has occurred' +
-        #13#10'when attempting to read "' + FName + '".', mtError, [mbOK], 0);
+      MessageDlg('Ошибка!' +
+        #13#10'при попытке считывания "' + FName + '".', mtError, [mbOK], 0);
       CloseFile(f);
       Exit;
     end;
@@ -1084,15 +1084,15 @@ begin
   end;
 end;
 
-procedure TFunctionsForm.SaveClick(Sender: TObject);
+procedure TFunctionsForm.miSaveClick(Sender: TObject);
 begin
   if NewFile then
-    SaveAsClick(Sender)
+    miSaveAsClick(Sender)
   else
     WriteData(DataPath + GraphFName);
 end;
 
-procedure TFunctionsForm.SaveAsClick(Sender: TObject);
+procedure TFunctionsForm.miSaveAsClick(Sender: TObject);
 begin
   SaveDialog.InitialDir := DataPath;
   SaveDialog.FileName := GraphFName;
@@ -1137,7 +1137,7 @@ begin
   try
     AssignFile(f, FName);
     try
-      Rewrite(f); { write tab delimited data }
+      Rewrite(f); // write tab delimited data
       with ViewData do
       begin
         CameraCubeAt := FormPlotStars.CameraCube.Position.AsVector;
@@ -1215,8 +1215,8 @@ begin
       CloseFile(f);
     end;
   except
-    MessageDlg('File Error! An Error has occurred' +
-      #13#10'when attempting to write to "' + GraphFName + '".', mtError,
+    MessageDlg('Ошибка!' +
+      #13#10'при попытке записи в "' + GraphFName + '".', mtError,
       [mbOK], 0);
   end;
   NewFile := False;
@@ -1382,7 +1382,7 @@ begin
   EvaluateForm.UpdateEvaluate;
 
   CoordsForm.cbShowCoords.Checked := ViewData.TextVisible;
-  CoordsForm.FontButton.Caption := 'Font:' + ' ' + ViewData.TextFontN + ' ' +
+  CoordsForm.FontButton.Caption := 'Шрифт:' + ' ' + ViewData.TextFontN + ' ' +
     IntToStr(ViewData.TextFontSz);
   FormPlotStars.GLWinBmpFont.Font.Name := ViewData.TextFontN;
   FormPlotStars.GLWinBmpFont.Font.Size := ViewData.TextFontSz;
@@ -1456,7 +1456,7 @@ begin
   begin
     AddItem(PlotData.txtStr, TPlotDataObject.Create(PlotData));
     ItemIndex := Count - 1;
-    Checked[ItemIndex] := True; { initially this item is checked }
+    Checked[ItemIndex] := True; // initially this item is checked
   end;
   Editfxy.SetFocus;
   Editfxy.SelLength := 0;
@@ -1473,7 +1473,7 @@ begin
 
   with PlotData do
   begin
-    if xMin > xMax then { swap }
+    if xMin > xMax then // swap
     begin
       v := xMin;
       xMin := xMax;
@@ -1483,7 +1483,7 @@ begin
       EditMaxX.Text := s;
       UpdateTPlotDataObject;
     end;
-    if yMin > yMax then { swap }
+    if yMin > yMax then // swap
     begin
       v := yMin;
       yMin := yMax;
@@ -1570,11 +1570,11 @@ begin
   if FileExists(FName) then
   begin
     if Altered or GridColorsAltered then
-      case MessageDlg('The current graph''s data has been altered.' +
-        #13#10'Do you wish to save the alterations ?', mtConfirmation,
+      case MessageDlg('Параметры графика были изменены.' +
+        #13#10'Сохранить изменения ?', mtConfirmation,
         [mbYes, mbNo, mbCancel], 0) of
         mrYes:
-          SaveClick(Self);
+          miSaveClick(Self);
         mrCancel:
           Exit;
         mrNo:
@@ -1611,7 +1611,7 @@ begin
     DerivativeAltered := False;
   end
   else
-    MessageDlg('The file ' + FName + ' does not exist!', mtError, [mbOK], 0);
+    MessageDlg('Файл ' + FName + ' не найден', mtError, [mbOK], 0);
 end;
 
 procedure TFunctionsForm.AddRecent(const f: TFileName);
@@ -1672,7 +1672,7 @@ begin
   end
   else
   begin
-    MessageDlg('The file' + FName + #13#10'Could not be found.', mtError,
+    MessageDlg('Файл' + FName + #13#10'не найден', mtError,
       [mbOK], 0);
     Screen.Cursor := crDefault;
   end;

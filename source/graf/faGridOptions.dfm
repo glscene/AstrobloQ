@@ -30,20 +30,20 @@ object FormGridOptions: TFormGridOptions
     Margins.Right = 5
     Margins.Bottom = 5
     Anchors = [akTop, akRight]
-    Caption = '  X, Y Grid Range  '
+    Caption = '  X, Y '#1088#1072#1084#1082#1080' '#1075#1088#1080#1076#1072
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
     object Label7: TLabel
       Left = 72
       Top = 26
-      Width = 77
+      Width = 81
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Minimum'
+      Caption = #1052#1080#1085#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -54,13 +54,13 @@ object FormGridOptions: TFormGridOptions
     object Label8: TLabel
       Left = 186
       Top = 26
-      Width = 81
+      Width = 87
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Maximum'
+      Caption = #1052#1072#1082#1089#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -69,16 +69,16 @@ object FormGridOptions: TFormGridOptions
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 300
+      Left = 291
       Top = 26
-      Width = 87
+      Width = 96
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Increment'
+      Caption = #1048#1085#1082#1088#1077#1084#1077#1085#1090
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -127,13 +127,13 @@ object FormGridOptions: TFormGridOptions
     object Label10: TLabel
       Left = 424
       Top = 26
-      Width = 103
+      Width = 115
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Position ( z )'
+      Caption = #1055#1086#1079#1080#1094#1080#1103' ( z )'
     end
     object EditxyGridMinx: TEdit
       Left = 37
@@ -301,20 +301,20 @@ object FormGridOptions: TFormGridOptions
     Margins.Right = 5
     Margins.Bottom = 5
     Anchors = [akTop, akRight]
-    Caption = '  X, Z Grid Range  '
+    Caption = '  X, Z '#1088#1072#1084#1082#1080' '#1075#1088#1080#1076#1072
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     object Label13: TLabel
       Left = 72
       Top = 26
-      Width = 77
+      Width = 81
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Minimum'
+      Caption = #1052#1080#1085#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -325,13 +325,13 @@ object FormGridOptions: TFormGridOptions
     object Label18: TLabel
       Left = 186
       Top = 26
-      Width = 81
+      Width = 87
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Maximum'
+      Caption = #1052#1072#1082#1089#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -340,16 +340,16 @@ object FormGridOptions: TFormGridOptions
       ParentFont = False
     end
     object Label20: TLabel
-      Left = 300
+      Left = 291
       Top = 26
-      Width = 87
+      Width = 96
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Increment'
+      Caption = #1048#1085#1082#1088#1077#1084#1077#1085#1090
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -398,13 +398,13 @@ object FormGridOptions: TFormGridOptions
     object Label23: TLabel
       Left = 424
       Top = 26
-      Width = 104
+      Width = 116
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Position ( y )'
+      Caption = #1055#1086#1079#1080#1094#1080#1103' ( y )'
     end
     object EditxzGridMinx: TEdit
       Left = 37
@@ -573,20 +573,20 @@ object FormGridOptions: TFormGridOptions
     Margins.Right = 5
     Margins.Bottom = 5
     Anchors = [akTop, akRight]
-    Caption = '  Y, Z Grid Range  '
+    Caption = '  Y, Z '#1088#1072#1084#1082#1080' '#1075#1088#1080#1076#1072
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label24: TLabel
       Left = 72
       Top = 26
-      Width = 77
+      Width = 81
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Minimum'
+      Caption = #1052#1080#1085#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -597,13 +597,13 @@ object FormGridOptions: TFormGridOptions
     object Label25: TLabel
       Left = 186
       Top = 26
-      Width = 81
+      Width = 87
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Maximum'
+      Caption = #1052#1072#1082#1089#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -612,16 +612,16 @@ object FormGridOptions: TFormGridOptions
       ParentFont = False
     end
     object Label26: TLabel
-      Left = 300
+      Left = 291
       Top = 26
-      Width = 87
+      Width = 96
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Increment'
+      Caption = #1048#1085#1082#1088#1077#1084#1077#1085#1090
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -670,13 +670,13 @@ object FormGridOptions: TFormGridOptions
     object Label29: TLabel
       Left = 424
       Top = 26
-      Width = 104
+      Width = 116
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Position ( x )'
+      Caption = #1055#1086#1079#1080#1094#1080#1103' ( x )'
     end
     object EdityzGridMiny: TEdit
       Left = 37
@@ -846,7 +846,7 @@ object FormGridOptions: TFormGridOptions
     Margins.Right = 5
     Margins.Bottom = 5
     Anchors = [akTop, akRight]
-    Caption = '  Options  '
+    Caption = '  '#1054#1087#1094#1080#1080
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
@@ -889,7 +889,7 @@ object FormGridOptions: TFormGridOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = '&Colours'
+      Caption = '&'#1062#1074#1077#1090
       Flat = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clMaroon
@@ -980,7 +980,7 @@ object FormGridOptions: TFormGridOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'xy Grid'
+      Caption = 'xy '#1075#1088#1080#1076
       TabOrder = 0
       OnClick = xyGridCBClick
     end
@@ -994,7 +994,7 @@ object FormGridOptions: TFormGridOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'xz Grid'
+      Caption = 'xz '#1075#1088#1080#1076
       TabOrder = 1
       OnClick = xzGridCBClick
     end
@@ -1008,7 +1008,7 @@ object FormGridOptions: TFormGridOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'yz Grid'
+      Caption = 'yz '#1075#1088#1080#1076
       TabOrder = 2
       OnClick = yzGridCBClick
     end
@@ -1061,7 +1061,7 @@ object FormGridOptions: TFormGridOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Box Outline'
+      Caption = #1082#1086#1085#1090#1077#1081#1085#1077#1088
       TabOrder = 3
       OnClick = BoxOutlineCBClick
     end
@@ -1094,7 +1094,7 @@ object FormGridOptions: TFormGridOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = '&Close'
+      Caption = '&'#1047#1072#1082#1088#1099#1090#1100
       Glyph.Data = {
         F6000000424DF600000000000000760000002800000010000000100000000100
         040000000000800000000000000000000000100000001000000000000000FFFF

@@ -32,7 +32,7 @@ object GridColorsForm: TGridColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = 'Background Color'
+    Caption = #1062#1074#1077#1090' '#1092#1086#1085#1072
     Glyph.Data = {
       F6060000424DF606000000000000360000002800000018000000180000000100
       180000000000C00600000000000000000000000000000000000082C9F77FC8F7
@@ -101,7 +101,7 @@ object GridColorsForm: TGridColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  xy Grid Color  '
+    Caption = '  xy '#1094#1074#1077#1090' '#1089#1077#1090#1082#1080
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -23
@@ -110,16 +110,16 @@ object GridColorsForm: TGridColorsForm
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 30
+      Left = -5
       Top = 39
-      Width = 51
+      Width = 107
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Red :'
+      Caption = #1050#1088#1072#1089#1085#1099#1081
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -19
@@ -128,16 +128,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 12
+      Left = -5
       Top = 77
-      Width = 69
+      Width = 107
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Green :'
+      Caption = #1047#1077#1083#1105#1085#1099#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clGreen
       Font.Height = -19
@@ -146,16 +146,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 26
+      Left = 20
       Top = 116
-      Width = 55
+      Width = 61
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Blue :'
+      Caption = #1057#1080#1085#1080#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -164,21 +164,21 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 9
+      Left = 13
       Top = 154
-      Width = 72
+      Width = 68
       Height = 28
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Alpha :'
+      Caption = #1040#1083#1100#1092#1072
     end
     object xyRed: TTrackBar
-      Left = 79
+      Left = 112
       Top = 32
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -197,9 +197,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = xyRedChange
     end
     object xyGreen: TTrackBar
-      Left = 79
+      Left = 112
       Top = 72
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -218,9 +218,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = xyGreenChange
     end
     object xyBlue: TTrackBar
-      Left = 79
+      Left = 112
       Top = 114
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -239,9 +239,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = xyBlueChange
     end
     object xyAlpha: TTrackBar
-      Left = 79
+      Left = 112
       Top = 152
-      Width = 355
+      Width = 322
       Height = 53
       Cursor = crHandPoint
       Margins.Left = 5
@@ -269,7 +269,7 @@ object GridColorsForm: TGridColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  xz Grid Color  '
+    Caption = '  xz '#1094#1074#1077#1090' '#1089#1077#1090#1082#1080
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -23
@@ -278,16 +278,16 @@ object GridColorsForm: TGridColorsForm
     ParentFont = False
     TabOrder = 1
     object Label5: TLabel
-      Left = 30
+      Left = -5
       Top = 39
-      Width = 51
+      Width = 107
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Red :'
+      Caption = #1050#1088#1072#1089#1085#1099#1081
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -19
@@ -296,16 +296,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 12
+      Left = -5
       Top = 77
-      Width = 69
+      Width = 107
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Green :'
+      Caption = #1047#1077#1083#1105#1085#1099#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clGreen
       Font.Height = -19
@@ -314,16 +314,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 26
+      Left = 20
       Top = 116
-      Width = 55
+      Width = 61
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Blue :'
+      Caption = #1057#1080#1085#1080#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -332,21 +332,21 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 9
+      Left = 13
       Top = 154
-      Width = 72
+      Width = 68
       Height = 28
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Alpha :'
+      Caption = #1040#1083#1100#1092#1072
     end
     object xzRed: TTrackBar
-      Left = 79
+      Left = 112
       Top = 32
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -365,9 +365,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = xzRedChange
     end
     object xzGreen: TTrackBar
-      Left = 79
+      Left = 112
       Top = 72
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -386,9 +386,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = xzGreenChange
     end
     object xzBlue: TTrackBar
-      Left = 79
+      Left = 112
       Top = 114
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -407,9 +407,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = xzBlueChange
     end
     object xzAlpha: TTrackBar
-      Left = 79
+      Left = 112
       Top = 152
-      Width = 355
+      Width = 322
       Height = 53
       Cursor = crHandPoint
       Margins.Left = 5
@@ -437,7 +437,7 @@ object GridColorsForm: TGridColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  yz Grid Color  '
+    Caption = '  yz '#1094#1074#1077#1090' '#1089#1077#1090#1082#1080
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -23
@@ -446,16 +446,16 @@ object GridColorsForm: TGridColorsForm
     ParentFont = False
     TabOrder = 2
     object Label9: TLabel
-      Left = 30
+      Left = -5
       Top = 39
-      Width = 51
+      Width = 107
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Red :'
+      Caption = #1050#1088#1072#1089#1085#1099#1081
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -19
@@ -464,16 +464,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label10: TLabel
-      Left = 12
+      Left = -5
       Top = 77
-      Width = 69
+      Width = 107
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Green :'
+      Caption = #1047#1077#1083#1105#1085#1099#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clGreen
       Font.Height = -19
@@ -482,16 +482,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label11: TLabel
-      Left = 26
+      Left = 20
       Top = 116
-      Width = 55
+      Width = 61
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Blue :'
+      Caption = #1057#1080#1085#1080#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -500,21 +500,21 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label12: TLabel
-      Left = 9
+      Left = 13
       Top = 154
-      Width = 72
+      Width = 68
       Height = 28
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Alpha :'
+      Caption = #1040#1083#1100#1092#1072
     end
     object yzRed: TTrackBar
-      Left = 79
+      Left = 112
       Top = 32
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -533,9 +533,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = yzRedChange
     end
     object yzGreen: TTrackBar
-      Left = 79
+      Left = 112
       Top = 72
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -554,9 +554,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = yzGreenChange
     end
     object yzBlue: TTrackBar
-      Left = 79
+      Left = 112
       Top = 114
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -575,9 +575,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = yzBlueChange
     end
     object yzAlpha: TTrackBar
-      Left = 79
+      Left = 112
       Top = 152
-      Width = 355
+      Width = 322
       Height = 53
       Cursor = crHandPoint
       Margins.Left = 5
@@ -605,7 +605,7 @@ object GridColorsForm: TGridColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  Outline Box Color  '
+    Caption = '  '#1062#1074#1077#1090' '#1082#1086#1085#1090#1077#1081#1085#1077#1088#1072
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -23
@@ -614,16 +614,16 @@ object GridColorsForm: TGridColorsForm
     ParentFont = False
     TabOrder = 3
     object Label13: TLabel
-      Left = 30
+      Left = -5
       Top = 39
-      Width = 51
+      Width = 107
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Red :'
+      Caption = #1050#1088#1072#1089#1085#1099#1081
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -19
@@ -632,16 +632,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label14: TLabel
-      Left = 12
+      Left = -5
       Top = 77
-      Width = 69
+      Width = 107
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Green :'
+      Caption = #1047#1077#1083#1105#1085#1099#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clGreen
       Font.Height = -19
@@ -650,16 +650,16 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label15: TLabel
-      Left = 26
+      Left = 20
       Top = 116
-      Width = 55
+      Width = 61
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Blue :'
+      Caption = #1057#1080#1085#1080#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -668,21 +668,21 @@ object GridColorsForm: TGridColorsForm
       ParentFont = False
     end
     object Label16: TLabel
-      Left = 9
+      Left = 13
       Top = 154
-      Width = 72
+      Width = 68
       Height = 28
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Alpha :'
+      Caption = #1040#1083#1100#1092#1072
     end
     object BoxRed: TTrackBar
-      Left = 79
+      Left = 112
       Top = 32
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -701,9 +701,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = BoxRedChange
     end
     object BoxGreen: TTrackBar
-      Left = 79
+      Left = 112
       Top = 72
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -722,9 +722,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = BoxGreenChange
     end
     object BoxBlue: TTrackBar
-      Left = 79
+      Left = 112
       Top = 114
-      Width = 355
+      Width = 322
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -743,9 +743,9 @@ object GridColorsForm: TGridColorsForm
       OnChange = BoxBlueChange
     end
     object BoxAlpha: TTrackBar
-      Left = 79
+      Left = 112
       Top = 152
-      Width = 355
+      Width = 322
       Height = 53
       Cursor = crHandPoint
       Margins.Left = 5
@@ -773,7 +773,7 @@ object GridColorsForm: TGridColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '&Close'
+    Caption = '&'#1047#1072#1082#1088#1099#1090#1100
     Glyph.Data = {
       F6000000424DF600000000000000760000002800000010000000100000000100
       040000000000800000000000000000000000100000001000000000000000FFFF
@@ -788,7 +788,7 @@ object GridColorsForm: TGridColorsForm
   end
   object ColorDialog: TColorDialog
     Options = [cdFullOpen]
-    Left = 129
-    Top = 111
+    Left = 255
+    Top = 167
   end
 end

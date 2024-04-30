@@ -1,4 +1,4 @@
-unit Astro.Global;
+unit Graf.Global2d;
 
 interface
 

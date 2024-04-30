@@ -101,26 +101,26 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\astro\faFunc1d.pas"/>
-        <DCCReference Include="source\astro\faGridOpt1d.pas"/>
-        <DCCReference Include="source\astro\faNumeric.pas"/>
-        <DCCReference Include="source\astro\faTextBlocks.pas"/>
-        <DCCReference Include="source\astro\faDerivative.pas"/>
-        <DCCReference Include="source\astro\faIntegrateX.pas"/>
-        <DCCReference Include="source\astro\faIntegrateY.pas"/>
-        <DCCReference Include="source\astro\faBetween.pas"/>
-        <DCCReference Include="source\astro\faVolumeX.pas"/>
-        <DCCReference Include="source\astro\faVolumeY.pas"/>
-        <DCCReference Include="source\astro\faBitmap.pas"/>
-        <DCCReference Include="source\astro\faPrint.pas"/>
-        <DCCReference Include="source\astro\faStyle.pas"/>
-        <DCCReference Include="source\astro\faValueX.pas"/>
-        <DCCReference Include="source\astro\faValueX1.pas"/>
-        <DCCReference Include="source\astro\faValueX2.pas"/>
-        <DCCReference Include="source\astro\Graf.Canvas1d.pas"/>
-        <DCCReference Include="source\astro\Graf.Global1d.pas"/>
-        <DCCReference Include="source\astro\Graf.Parser1d.pas"/>
-        <DCCReference Include="source\astro\faGraf1d.pas">
+        <DCCReference Include="source\graf\faFunc1d.pas"/>
+        <DCCReference Include="source\graf\faGridOpt1d.pas"/>
+        <DCCReference Include="source\graf\faNumeric.pas"/>
+        <DCCReference Include="source\graf\faTextBlocks.pas"/>
+        <DCCReference Include="source\graf\faDerivative.pas"/>
+        <DCCReference Include="source\graf\faIntegrateX.pas"/>
+        <DCCReference Include="source\graf\faIntegrateY.pas"/>
+        <DCCReference Include="source\graf\faBetween.pas"/>
+        <DCCReference Include="source\graf\faVolumeX.pas"/>
+        <DCCReference Include="source\graf\faVolumeY.pas"/>
+        <DCCReference Include="source\graf\faBitmap.pas"/>
+        <DCCReference Include="source\graf\faPrint.pas"/>
+        <DCCReference Include="source\graf\faStyle.pas"/>
+        <DCCReference Include="source\graf\faValueX.pas"/>
+        <DCCReference Include="source\graf\faValueX1.pas"/>
+        <DCCReference Include="source\graf\faValueX2.pas"/>
+        <DCCReference Include="source\graf\Graf.Canvas1d.pas"/>
+        <DCCReference Include="source\graf\Graf.Global1d.pas"/>
+        <DCCReference Include="source\graf\Graf.Parser1d.pas"/>
+        <DCCReference Include="source\graf\faGraf1d.pas">
             <Form>MainForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>

@@ -25,8 +25,8 @@ uses
   GLS.VectorGeometry,
   faDerivativeOptions,
 
-  Astro.Global,
-  Astro.Parser;
+  Graf.Global2d,
+  Graf.Parser2d;
 
 type
   TEvaluateForm = class(TForm)

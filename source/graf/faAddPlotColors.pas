@@ -1,4 +1,4 @@
-unit faPlotColors;
+unit faAddPlotColors;
 
 interface
 
@@ -6,9 +6,9 @@ uses
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
-  System.UITypes,
   System.Variants,
   System.Classes,
+  System.UITypes,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -20,12 +20,11 @@ uses
   GLS.OpenGLTokens,
   GLS.VectorTypes,
 
-  Astro.Global,
-  faFunctions,
+  Graf.Global2d,
   faDerivativeOptions;
 
 type
-  TPlotColorsForm = class(TForm)
+  TAddPlotColorsForm = class(TForm)
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -72,51 +71,49 @@ type
                               Shift: TShiftState);
     procedure EditMoveKeyPress(Sender: TObject; var Key: Char);
     procedure EditMoveKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-  private
   public
     procedure ShowPlotColorData;
   end;
 
 var
-  PlotColorsForm: TPlotColorsForm;
+  AddPlotColorsForm: TAddPlotColorsForm;
 
-//=======================================================================
+//========================================================================
 implementation
-//=======================================================================
+//========================================================================
 
 uses
   faGraf2d;
 
 {$R *.dfm}
 
-procedure TPlotColorsForm.ApplyBtnClick(Sender: TObject);
+procedure TAddPlotColorsForm.ApplyBtnClick(Sender: TObject);
 begin
-  with FunctionsForm.CheckListBox do
-  TPlotDataObject(Items.Objects[ItemIndex]).Data := PlotData;
-  FormPlotStars.UpdatePlot;
   ApplyBtn.Visible := False;
+  FormPlotStars.UpdateAdded;
   Altered := True;
 end;
 
-procedure TPlotColorsForm.BitBtn1Click(Sender: TObject);
+procedure TAddPlotColorsForm.BitBtn1Click(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TPlotColorsForm.EditBlendKeyDown(Sender: TObject; var Key: Word;
+//---------------------------------------------------------------------------
+procedure TAddPlotColorsForm.EditBlendKeyDown(Sender: TObject; var Key: Word;
                                             Shift: TShiftState);
 begin
   if (Key = VK_DELETE) or (Key = VK_BACK) then ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.EditBlendKeyPress(Sender: TObject; var Key: Char);
+procedure TAddPlotColorsForm.EditBlendKeyPress(Sender: TObject; var Key: Char);
 begin
   if CharInSet(Key, PosFloat) then ApplyBtn.Visible := True
   else Key := #0;
 end;
 
-procedure TPlotColorsForm.EditBlendKeyUp(Sender: TObject; var Key: Word;
-                                          Shift: TShiftState);
+procedure TAddPlotColorsForm.EditBlendKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 var
   x: TGLFloat;
 
@@ -126,18 +123,18 @@ begin
   except
     x := 1.0;
   end;
-  PlotData.ColorBlend := x;
+  AddedData.ColorBlend := x;
   ApplyBtn.Visible := True;
 end;
 
-
-procedure TPlotColorsForm.EditMoveKeyPress(Sender: TObject; var Key: Char);
+//---------------------------------------------------------------------------
+procedure TAddPlotColorsForm.EditMoveKeyPress(Sender: TObject; var Key: Char);
 begin
   if CharInSet(Key, AnyFloat) then ApplyBtn.Visible := True
   else Key := #0;
 end;
 
-procedure TPlotColorsForm.EditMoveKeyUp(Sender: TObject; var Key: Word;
+procedure TAddPlotColorsForm.EditMoveKeyUp(Sender: TObject; var Key: Word;
                                          Shift: TShiftState);
 var
   x: TGLFloat;
@@ -148,55 +145,59 @@ begin
   except
     x := 0.0;
   end;
-  PlotData.ColorMove := x;
+  AddedData.ColorMove := x;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.FormCloseQuery(Sender: TObject;
-                                   var CanClose: Boolean);
+procedure TAddPlotColorsForm.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
 begin
   if ApplyBtn.Visible then
   begin
-    case MessageDlg('The current graph''s color data has been altered.'+
-              #13#10'Do you wish to save the alterations ?', mtConfirmation,
-                    [mbYes, mbNo, mbCancel], 0) of
-    mrYes: ApplyBtnClick(Sender);
- mrCancel: begin
-             CanClose := False;
-             Exit;
-           end;
+    case MessageDlg('The current graph''s color data has been altered.' +
+      #13#10'Do you wish to save the alterations ?', mtConfirmation,
+      [mbYes, mbNo, mbCancel], 0) of
+      mrYes:
+        ApplyBtnClick(Sender);
+      mrCancel:
+        begin
+          CanClose := False;
+          Exit;
+        end;
     end;
   end;
 end;
 
-procedure TPlotColorsForm.FormKeyDown(Sender: TObject; var Key: Word;
+//---------------------------------------------------------------------------
+procedure TAddPlotColorsForm.FormKeyDown(Sender: TObject; var Key: Word;
                                        Shift: TShiftState);
 begin
   if Key = VK_ESCAPE then Close;
 end;
 
-procedure TPlotColorsForm.FormShow(Sender: TObject);
+procedure TAddPlotColorsForm.FormShow(Sender: TObject);
 begin
+  Caption := GraphFName;
   UpperLowerLock.Checked := False;
   ShowPlotColorData;
   ApplyBtn.Visible := False;
 end;
 
-procedure TPlotColorsForm.UpperRedChange(Sender: TObject);
+procedure TAddPlotColorsForm.UpperRedChange(Sender: TObject);
 begin
-  PlotData.UpperColor.X := UpperRed.Position/225;
+  AddedData.UpperColor.X := UpperRed.Position/225;
   if UpperLowerLock.Checked then LowerRed.Position := UpperRed.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.UpperGreenChange(Sender: TObject);
+procedure TAddPlotColorsForm.UpperGreenChange(Sender: TObject);
 begin
-  PlotData.UpperColor.Y := UpperGreen.Position/225;
+  AddedData.UpperColor.X := UpperRed.Position/225;
   if UpperLowerLock.Checked then LowerGreen.Position := UpperGreen.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.UpperLowerLockClick(Sender: TObject);
+procedure TAddPlotColorsForm.UpperLowerLockClick(Sender: TObject);
 begin
   if UpperLowerLock.Checked then
   begin
@@ -207,63 +208,64 @@ begin
   end;
 end;
 
-procedure TPlotColorsForm.UpperBlueChange(Sender: TObject);
+procedure TAddPlotColorsForm.UpperBlueChange(Sender: TObject);
 begin
-  PlotData.UpperColor.Z := UpperBlue.Position/225;
+  AddedData.UpperColor.Z := UpperBlue.Position/225;
   if UpperLowerLock.Checked then LowerBlue.Position := UpperBlue.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.UpperAlphaChange(Sender: TObject);
+//---------------------------------------------------------------------------
+procedure TAddPlotColorsForm.UpperAlphaChange(Sender: TObject);
 begin
-  PlotData.UpperColor.W := UpperAlpha.Position/1000;
+  AddedData.UpperColor.W := UpperAlpha.Position/1000;
   if UpperLowerLock.Checked then LowerAlpha.Position := UpperAlpha.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.LowerRedChange(Sender: TObject);
+procedure TAddPlotColorsForm.LowerRedChange(Sender: TObject);
 begin
-  PlotData.LowerColor.X := LowerRed.Position/225;
+  AddedData.LowerColor.X := LowerRed.Position/225;
   if UpperLowerLock.Checked then UpperRed.Position := LowerRed.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.LowerGreenChange(Sender: TObject);
+procedure TAddPlotColorsForm.LowerGreenChange(Sender: TObject);
 begin
-  PlotData.LowerColor.Y := LowerGreen.Position/225;
+  AddedData.LowerColor.Y := LowerGreen.Position/225;
   if UpperLowerLock.Checked then UpperGreen.Position := LowerGreen.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.LowerBlueChange(Sender: TObject);
+procedure TAddPlotColorsForm.LowerBlueChange(Sender: TObject);
 begin
-  PlotData.LowerColor.Z := LowerBlue.Position/225;
+  AddedData.LowerColor.Z := LowerBlue.Position/225;
   if UpperLowerLock.Checked then UpperBlue.Position := LowerBlue.Position;
   ApplyBtn.Visible := True;
 end;
 
-procedure TPlotColorsForm.LowerAlphaChange(Sender: TObject);
+procedure TAddPlotColorsForm.LowerAlphaChange(Sender: TObject);
 begin
-  PlotData.LowerColor.W := LowerAlpha.Position/1000;
+  AddedData.LowerColor.W := LowerAlpha.Position/1000;
   if UpperLowerLock.Checked then UpperAlpha.Position := LowerAlpha.Position;
   ApplyBtn.Visible := True;
 end;
 
-    { Public declarations }
-procedure TPlotColorsForm.ShowPlotColorData;
+//---------------------------------------------------------------------------
+procedure TAddPlotColorsForm.ShowPlotColorData;
 begin
-  UpperRed.Position := round(PlotData.UpperColor.X*255);
-  UpperGreen.Position := round(PlotData.UpperColor.Y*255);
-  UpperBlue.Position := round(PlotData.UpperColor.Z*255);
-  UpperAlpha.Position := round(PlotData.UpperColor.W*1000);
+  UpperRed.Position := round(AddedData.UpperColor.X*255);
+  UpperGreen.Position := round(AddedData.UpperColor.Y*255);
+  UpperBlue.Position := round(AddedData.UpperColor.Z*255);
+  UpperAlpha.Position := round(AddedData.UpperColor.W*1000);
 
-  LowerRed.Position := round(PlotData.LowerColor.X*255);
-  LowerGreen.Position := round(PlotData.LowerColor.Y*255);
-  LowerBlue.Position := round(PlotData.LowerColor.Z*255);
-  LowerAlpha.Position := round(PlotData.LowerColor.W*1000);
+  LowerRed.Position := round(AddedData.LowerColor.X*255);
+  LowerGreen.Position := round(AddedData.LowerColor.Y*255);
+  LowerBlue.Position := round(AddedData.LowerColor.Z*255);
+  LowerAlpha.Position := round(AddedData.LowerColor.W*1000);
 
-  EditBlend.Text := FloatToStrF(PlotData.ColorBlend, ffGeneral, 7, 4);
-  EditMove.Text := FloatToStrF(Plotdata.ColorMove, ffGeneral, 7, 4);
+  EditBlend.Text := FloatToStrF(AddedData.ColorBlend, ffGeneral, 7, 4);
+  EditMove.Text := FloatToStrF(AddedData.ColorMove, ffGeneral, 7, 4);
 end;
 
 end.

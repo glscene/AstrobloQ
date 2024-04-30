@@ -1,19 +1,23 @@
 program Graf2d;
 
+
+
+
 uses
   Forms,
-  faGridOptions in 'source\astro\faGridOptions.pas' {FormGridOptions},
-  faCoordOptions in 'source\astro\faCoordOptions.pas',
-  faDerivativeOptions in 'source\astro\faDerivativeOptions.pas',
-  faGridColors in 'source\astro\faGridColors.pas',
-  faPlotColors in 'source\astro\faPlotColors.pas',
-  faAddPlotColors in 'source\astro\faAddPlotColors.pas',
-  Astro.Parser in 'source\astro\Astro.Parser.pas',
-  Astro.Global in 'source\astro\Astro.Global.pas',
-  faGraf2d in 'source\astro\faGraf2d.pas' {FormPlotStars},
-  faFunctions in 'source\astro\faFunctions.pas' {FunctionsForm},
-  faEvaluate in 'source\astro\faEvaluate.pas' {EvaluateForm},
-  fAbout in 'source\fAbout.pas' {FormAbout};
+  faGridOptions in 'source\graf\faGridOptions.pas' {FormGridOptions},
+  faCoordOptions in 'source\graf\faCoordOptions.pas',
+  faDerivativeOptions in 'source\graf\faDerivativeOptions.pas',
+  faGridColors in 'source\graf\faGridColors.pas',
+  faPlotColors in 'source\graf\faPlotColors.pas',
+  faAddPlotColors in 'source\graf\faAddPlotColors.pas',
+  Graf.Parser2d in 'source\graf\Graf.Parser2d.pas',
+  Graf.Global2d in 'source\graf\Graf.Global2d.pas',
+  faGraf2d in 'source\graf\faGraf2d.pas' {FormPlotStars},
+  faFunctions in 'source\graf\faFunctions.pas' {FunctionsForm},
+  faEvaluate in 'source\graf\faEvaluate.pas' {EvaluateForm},
+  fAbout in 'source\fAbout.pas' {FormAbout},
+  dImages in 'source\dImages.pas' {dfImages: TDataModule};
 
 {$R *.res}
 
@@ -29,5 +33,6 @@ begin
   Application.CreateForm(TGridColorsForm, GridColorsForm);
   Application.CreateForm(TPlotColorsForm, PlotColorsForm);
   Application.CreateForm(TAddPlotColorsForm, AddPlotColorsForm);
+  Application.CreateForm(TdfImages, dfImages);
   Application.Run;
 end.

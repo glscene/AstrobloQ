@@ -28,18 +28,18 @@ object CoordsForm: TCoordsForm
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = '  Y Coordinates  '
+    Caption = '  Y '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1072
     TabOrder = 1
     object Label1: TLabel
       Left = 20
       Top = 43
-      Width = 76
+      Width = 74
       Height = 23
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Location:'
+      Caption = #1051#1086#1082#1072#1094#1080#1103
     end
     object yColorBtn: TSpeedButton
       Left = 379
@@ -146,18 +146,18 @@ object CoordsForm: TCoordsForm
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = '  X Coordinates  '
+    Caption = '  X '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1072
     TabOrder = 0
     object Label2: TLabel
       Left = 20
       Top = 43
-      Width = 76
+      Width = 74
       Height = 23
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Location:'
+      Caption = #1051#1086#1082#1072#1094#1080#1103
     end
     object xColorBtn: TSpeedButton
       Left = 379
@@ -264,18 +264,18 @@ object CoordsForm: TCoordsForm
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = '  Z Coordinates  '
+    Caption = '  Z '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1072
     TabOrder = 2
     object Label3: TLabel
       Left = 20
       Top = 43
-      Width = 76
+      Width = 74
       Height = 23
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Location:'
+      Caption = #1051#1086#1082#1072#1094#1080#1103
     end
     object zColorBtn: TSpeedButton
       Left = 379
@@ -374,15 +374,15 @@ object CoordsForm: TCoordsForm
     end
   end
   object cbShowCoords: TCheckBox
-    Left = 175
-    Top = 363
-    Width = 196
+    Left = 119
+    Top = 361
+    Width = 246
     Height = 29
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = 'Show Coordinates'
+    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1099
     Checked = True
     State = cbChecked
     TabOrder = 4
@@ -410,7 +410,7 @@ object CoordsForm: TCoordsForm
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = '&Close'
+    Caption = '&'#1047#1072#1082#1088#1099#1090#1100
     Glyph.Data = {
       F6000000424DF600000000000000760000002800000010000000100000000100
       040000000000800000000000000000000000100000001000000000000000FFFF

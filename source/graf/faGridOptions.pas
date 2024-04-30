@@ -21,8 +21,8 @@ uses
   GLS.Coordinates,
   GLS.VectorGeometry,
 
-  Astro.Global,
-  Astro.Parser,
+  Graf.Global2d,
+  Graf.Parser2d,
   faGridColors;
 
 type

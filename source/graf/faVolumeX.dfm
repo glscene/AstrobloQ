@@ -328,9 +328,9 @@ object VolumeXForm: TVolumeXForm
   PixelsPerInch = 168
   TextHeight = 28
   object Label3: TLabel
-    Left = 2
+    Left = 10
     Top = 57
-    Width = 209
+    Width = 201
     Height = 28
     Margins.Left = 5
     Margins.Top = 5

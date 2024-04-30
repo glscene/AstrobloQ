@@ -1,4 +1,4 @@
-object FormEvoluter: TFormEvoluter
+object FormEvolutor: TFormEvolutor
   Left = 0
   Top = 0
   Margins.Left = 5

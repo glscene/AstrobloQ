@@ -1,4 +1,4 @@
-unit feEvoluter;
+unit feEvolutor;
 
 interface
 
@@ -32,7 +32,7 @@ uses
   fProjection;
 
 type
-  TFormEvoluter = class(TForm)
+  TFormEvolutor = class(TForm)
     GLSceneViewer: TGLSceneViewer;
     GLScene: TGLScene;
     PanelLeft: TPanel;
@@ -90,13 +90,13 @@ type
   end;
 
 var
-  FormEvoluter: TFormEvoluter;
+  FormEvolutor: TFormEvolutor;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormEvoluter.About1Click(Sender: TObject);
+procedure TFormEvolutor.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -106,12 +106,12 @@ begin
     end;
 end;
 
-procedure TFormEvoluter.miExitClick(Sender: TObject);
+procedure TFormEvolutor.miExitClick(Sender: TObject);
 begin
   Close();
 end;
 
-procedure TFormEvoluter.N8Click(Sender: TObject);
+procedure TFormEvolutor.N8Click(Sender: TObject);
 begin
    with TFormProjection.Create(Self) do
     try
@@ -121,7 +121,7 @@ begin
     end;
 end;
 
-procedure TFormEvoluter.Open1Click(Sender: TObject);
+procedure TFormEvolutor.Open1Click(Sender: TObject);
 begin
  //
 end;

@@ -17,7 +17,7 @@ uses
   Vcl.StdCtrls,
   Vcl.Buttons,
 
-  Astro.Global;
+  Graf.Global2d;
 
 type
   TGridColorsForm = class(TForm)

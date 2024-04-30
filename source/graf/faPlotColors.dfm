@@ -1,4 +1,4 @@
-object AddPlotColorsForm: TAddPlotColorsForm
+object PlotColorsForm: TPlotColorsForm
   Left = 0
   Top = 0
   Margins.Left = 5
@@ -7,6 +7,7 @@ object AddPlotColorsForm: TAddPlotColorsForm
   Margins.Bottom = 5
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
+  Caption = #1062#1074#1077#1090' '#1075#1088#1072#1092#1080#1082#1072
   ClientHeight = 620
   ClientWidth = 483
   Color = clBtnFace
@@ -54,7 +55,7 @@ object AddPlotColorsForm: TAddPlotColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  Upper Plot Color  '
+    Caption = '  '#1062#1074#1077#1090' '#1074#1077#1088#1093#1085#1077#1081' '#1087#1086#1074#1077#1088#1093#1085#1086#1089#1090#1080
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -23
@@ -63,16 +64,16 @@ object AddPlotColorsForm: TAddPlotColorsForm
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 30
-      Top = 39
-      Width = 51
+      Left = -22
+      Top = 32
+      Width = 121
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Red :'
+      Caption = #1050#1088#1072#1089#1085#1099#1081
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -19
@@ -81,16 +82,16 @@ object AddPlotColorsForm: TAddPlotColorsForm
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 12
+      Left = -5
       Top = 77
-      Width = 69
+      Width = 104
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Green :'
+      Caption = #1047#1077#1083#1105#1085#1099#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clGreen
       Font.Height = -19
@@ -99,16 +100,16 @@ object AddPlotColorsForm: TAddPlotColorsForm
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 26
+      Left = 20
       Top = 116
-      Width = 55
+      Width = 61
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Blue :'
+      Caption = #1057#1080#1085#1080#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -129,9 +130,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       Caption = 'Alpha :'
     end
     object UpperRed: TTrackBar
-      Left = 79
+      Left = 126
       Top = 32
-      Width = 355
+      Width = 308
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -150,9 +151,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       OnChange = UpperRedChange
     end
     object UpperGreen: TTrackBar
-      Left = 79
+      Left = 126
       Top = 72
-      Width = 355
+      Width = 308
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -171,9 +172,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       OnChange = UpperGreenChange
     end
     object UpperBlue: TTrackBar
-      Left = 79
+      Left = 126
       Top = 114
-      Width = 355
+      Width = 308
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -192,9 +193,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       OnChange = UpperBlueChange
     end
     object UpperAlpha: TTrackBar
-      Left = 79
+      Left = 126
       Top = 152
-      Width = 355
+      Width = 308
       Height = 53
       Cursor = crHandPoint
       Margins.Left = 5
@@ -222,7 +223,7 @@ object AddPlotColorsForm: TAddPlotColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  Lower Plot Color  '
+    Caption = '  '#1062#1074#1077#1090' '#1085#1080#1078#1085#1077#1081' '#1087#1086#1074#1077#1088#1093#1085#1086#1089#1090#1080
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -23
@@ -231,16 +232,16 @@ object AddPlotColorsForm: TAddPlotColorsForm
     ParentFont = False
     TabOrder = 1
     object Label5: TLabel
-      Left = 30
+      Left = -5
       Top = 39
-      Width = 51
+      Width = 104
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Red :'
+      Caption = #1050#1088#1072#1089#1085#1099#1081
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -19
@@ -249,16 +250,16 @@ object AddPlotColorsForm: TAddPlotColorsForm
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 12
+      Left = -5
       Top = 77
-      Width = 69
+      Width = 104
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Green :'
+      Caption = #1047#1077#1083#1105#1085#1099#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clGreen
       Font.Height = -19
@@ -267,16 +268,16 @@ object AddPlotColorsForm: TAddPlotColorsForm
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 26
+      Left = 20
       Top = 116
-      Width = 55
+      Width = 61
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Blue :'
+      Caption = #1057#1080#1085#1080#1081
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlue
       Font.Height = -19
@@ -297,9 +298,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       Caption = 'Alpha :'
     end
     object LowerRed: TTrackBar
-      Left = 79
+      Left = 126
       Top = 32
-      Width = 355
+      Width = 308
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -318,9 +319,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       OnChange = LowerRedChange
     end
     object LowerGreen: TTrackBar
-      Left = 79
-      Top = 72
-      Width = 355
+      Left = 126
+      Top = 73
+      Width = 320
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -339,9 +340,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       OnChange = LowerGreenChange
     end
     object LowerBlue: TTrackBar
-      Left = 79
+      Left = 126
       Top = 114
-      Width = 355
+      Width = 308
       Height = 52
       Cursor = crHandPoint
       Margins.Left = 5
@@ -360,9 +361,9 @@ object AddPlotColorsForm: TAddPlotColorsForm
       OnChange = LowerBlueChange
     end
     object LowerAlpha: TTrackBar
-      Left = 79
+      Left = 126
       Top = 152
-      Width = 355
+      Width = 308
       Height = 53
       Cursor = crHandPoint
       Margins.Left = 5
@@ -439,7 +440,7 @@ object AddPlotColorsForm: TAddPlotColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = 'Apply'
+    Caption = #1055#1088#1080#1084#1077#1085#1080#1090#1100
     Default = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
@@ -481,7 +482,7 @@ object AddPlotColorsForm: TAddPlotColorsForm
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '&Close'
+    Caption = '&'#1047#1072#1082#1088#1099#1090#1100
     Glyph.Data = {
       F6000000424DF600000000000000760000002800000010000000100000000100
       040000000000800000000000000000000000100000001000000000000000FFFF

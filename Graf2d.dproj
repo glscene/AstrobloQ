@@ -128,31 +128,36 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\astro\faGridOptions.pas">
+        <DCCReference Include="source\graf\faGridOptions.pas">
             <Form>FormGridOptions</Form>
         </DCCReference>
-        <DCCReference Include="source\astro\faCoordOptions.pas"/>
-        <DCCReference Include="source\astro\faDerivativeOptions.pas"/>
-        <DCCReference Include="source\astro\faGridColors.pas"/>
-        <DCCReference Include="source\astro\faPlotColors.pas"/>
-        <DCCReference Include="source\astro\faAddPlotColors.pas"/>
-        <DCCReference Include="source\astro\Astro.Parser.pas"/>
-        <DCCReference Include="source\astro\Astro.Global.pas"/>
-        <DCCReference Include="source\astro\faGraf2d.pas">
+        <DCCReference Include="source\graf\faCoordOptions.pas"/>
+        <DCCReference Include="source\graf\faDerivativeOptions.pas"/>
+        <DCCReference Include="source\graf\faGridColors.pas"/>
+        <DCCReference Include="source\graf\faPlotColors.pas"/>
+        <DCCReference Include="source\graf\faAddPlotColors.pas"/>
+        <DCCReference Include="source\graf\Graf.Parser2d.pas"/>
+        <DCCReference Include="source\graf\Graf.Global2d.pas"/>
+        <DCCReference Include="source\graf\faGraf2d.pas">
             <Form>FormPlotStars</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\astro\faFunctions.pas">
+        <DCCReference Include="source\graf\faFunctions.pas">
             <Form>FunctionsForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\astro\faEvaluate.pas">
+        <DCCReference Include="source\graf\faEvaluate.pas">
             <Form>EvaluateForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\dImages.pas">
+            <Form>dfImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

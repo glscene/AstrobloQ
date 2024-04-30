@@ -56,13 +56,13 @@ object DerivativesForm: TDerivativesForm
     object Label2: TLabel
       Left = 249
       Top = 26
-      Width = 81
+      Width = 87
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Maximum'
+      Caption = #1052#1072#1082#1089#1080#1084#1091#1084
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -71,16 +71,16 @@ object DerivativesForm: TDerivativesForm
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 405
+      Left = 396
       Top = 26
-      Width = 87
+      Width = 96
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Increment'
+      Caption = #1048#1085#1082#1088#1077#1084#1077#1085#1090
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -144,16 +144,16 @@ object DerivativesForm: TDerivativesForm
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 22
+      Left = 32
       Top = 224
-      Width = 67
+      Width = 57
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Alignment = taRightJustify
-      Caption = 'Modes :'
+      Caption = #1056#1077#1078#1080#1084
     end
     object zCountLabel: TLabel
       Left = 12
@@ -225,7 +225,7 @@ object DerivativesForm: TDerivativesForm
     object Label7: TLabel
       Left = 16
       Top = 502
-      Width = 98
+      Width = 142
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
@@ -233,7 +233,7 @@ object DerivativesForm: TDerivativesForm
       Margins.Bottom = 5
       Alignment = taRightJustify
       AutoSize = False
-      Caption = 'Line width:'
+      Caption = #1058#1086#1083#1097#1080#1085#1072' '#1083#1080#1085#1080#1081
     end
     object ColorButton: TSpeedButton
       Left = 317
@@ -244,7 +244,7 @@ object DerivativesForm: TDerivativesForm
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Line Color...'
+      Caption = #1062#1074#1077#1090' '#1083#1080#1085#1080#1081'...'
       Glyph.Data = {
         F6060000424DF606000000000000360000002800000018000000180000000100
         180000000000C00600000000000000000000000000000000000082C9F77FC8F7
@@ -640,7 +640,7 @@ object DerivativesForm: TDerivativesForm
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Apply'
+      Caption = #1055#1088#1080#1084#1077#1085#1080#1090#1100
       Default = True
       Glyph.Data = {
         36030000424D3603000000000000360000002800000010000000100000000100
@@ -757,9 +757,9 @@ object DerivativesForm: TDerivativesForm
     end
     object EditAddLineWidth: TEdit
       Tag = 1
-      Left = 121
-      Top = 497
-      Width = 98
+      Left = 168
+      Top = 493
+      Width = 79
       Height = 31
       Margins.Left = 5
       Margins.Top = 5

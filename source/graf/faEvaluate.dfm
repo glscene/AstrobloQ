@@ -24,20 +24,20 @@ object EvaluateForm: TEvaluateForm
   object GroupBox1: TGroupBox
     Left = 14
     Top = 9
-    Width = 534
+    Width = 550
     Height = 411
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '  Evaluate function  '
+    Caption = '  '#1054#1094#1077#1085#1080#1090#1100' '#1092#1091#1085#1082#1094#1080#1102
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
     object Labe1: TLabel
-      Left = 33
-      Top = 35
-      Width = 119
+      Left = 5
+      Top = 41
+      Width = 191
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
@@ -45,7 +45,7 @@ object EvaluateForm: TEvaluateForm
       Margins.Bottom = 5
       Alignment = taRightJustify
       AutoSize = False
-      Caption = 'Enter X value:'
+      Caption = #1042#1074#1077#1076#1080#1090#1077' '#1079#1085#1072#1095#1077#1085#1080#1077' X'
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -54,9 +54,9 @@ object EvaluateForm: TEvaluateForm
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 33
+      Left = 14
       Top = 74
-      Width = 119
+      Width = 182
       Height = 22
       Margins.Left = 5
       Margins.Top = 5
@@ -64,7 +64,7 @@ object EvaluateForm: TEvaluateForm
       Margins.Bottom = 5
       Alignment = taRightJustify
       AutoSize = False
-      Caption = 'Enter Y value:'
+      Caption = #1042#1074#1077#1076#1080#1090#1077' '#1079#1085#1072#1095#1077#1085#1080#1077' Y'
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -83,7 +83,7 @@ object EvaluateForm: TEvaluateForm
       Margins.Bottom = 5
       Alignment = taRightJustify
       AutoSize = False
-      Caption = 'Z value:'
+      Caption = #1047#1085#1072#1095#1077#1085#1080#1077' Z'
       Font.Charset = ANSI_CHARSET
       Font.Color = clMaroon
       Font.Height = -19
@@ -92,9 +92,9 @@ object EvaluateForm: TEvaluateForm
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 7
-      Top = 355
-      Width = 98
+      Left = 5
+      Top = 383
+      Width = 145
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
@@ -102,7 +102,7 @@ object EvaluateForm: TEvaluateForm
       Margins.Bottom = 5
       Alignment = taRightJustify
       AutoSize = False
-      Caption = 'Line width:'
+      Caption = #1058#1086#1083#1097#1080#1085#1072' '#1083#1080#1085#1080#1080
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -111,15 +111,15 @@ object EvaluateForm: TEvaluateForm
       ParentFont = False
     end
     object ColorButton: TSpeedButton
-      Left = 214
-      Top = 343
-      Width = 175
+      Left = 386
+      Top = 303
+      Width = 137
       Height = 51
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Line Color...'
+      Caption = #1062#1074#1077#1090' '#1083#1080#1085#1080#1080'...'
       Glyph.Data = {
         F6060000424DF606000000000000360000002800000018000000180000000100
         180000000000C00600000000000000000000000000000000000082C9F77FC8F7
@@ -218,9 +218,9 @@ object EvaluateForm: TEvaluateForm
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 299
-      Top = 301
-      Width = 98
+      Left = 5
+      Top = 334
+      Width = 147
       Height = 23
       Margins.Left = 5
       Margins.Top = 5
@@ -228,7 +228,7 @@ object EvaluateForm: TEvaluateForm
       Margins.Bottom = 5
       Alignment = taRightJustify
       AutoSize = False
-      Caption = 'Arrow size:'
+      Caption = #1056#1072#1079#1084#1077#1088' '#1089#1090#1088#1077#1083#1082#1080
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -19
@@ -238,9 +238,9 @@ object EvaluateForm: TEvaluateForm
     end
     object EditX: TEdit
       Tag = 1
-      Left = 156
+      Left = 238
       Top = 30
-      Width = 350
+      Width = 268
       Height = 31
       Margins.Left = 5
       Margins.Top = 5
@@ -258,9 +258,9 @@ object EvaluateForm: TEvaluateForm
     end
     object EditY: TEdit
       Tag = 2
-      Left = 156
+      Left = 238
       Top = 68
-      Width = 350
+      Width = 268
       Height = 31
       Margins.Left = 5
       Margins.Top = 5
@@ -277,9 +277,9 @@ object EvaluateForm: TEvaluateForm
       OnKeyUp = EditYKeyUp
     end
     object EditZ: TEdit
-      Left = 156
+      Left = 238
       Top = 109
-      Width = 350
+      Width = 268
       Height = 31
       Margins.Left = 5
       Margins.Top = 5
@@ -296,15 +296,15 @@ object EvaluateForm: TEvaluateForm
       TabOrder = 2
     end
     object Coordinates: TCheckBox
-      Left = 51
-      Top = 233
-      Width = 254
+      Left = 19
+      Top = 227
+      Width = 370
       Height = 30
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Show coordinate lines'
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1085#1091#1102' '#1089#1077#1090#1082#1091
       Checked = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clMaroon
@@ -317,15 +317,15 @@ object EvaluateForm: TEvaluateForm
       OnClick = CoordinatesClick
     end
     object ToGrids: TCheckBox
-      Left = 51
-      Top = 266
-      Width = 332
+      Left = 19
+      Top = 261
+      Width = 370
       Height = 30
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Show coordinate lines to grids'
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' coordinate lines to grids'
       Font.Charset = ANSI_CHARSET
       Font.Color = clMaroon
       Font.Height = -19
@@ -337,9 +337,9 @@ object EvaluateForm: TEvaluateForm
     end
     object EditCoordWidth: TEdit
       Tag = 1
-      Left = 112
-      Top = 350
-      Width = 98
+      Left = 172
+      Top = 375
+      Width = 70
       Height = 31
       Margins.Left = 5
       Margins.Top = 5
@@ -356,9 +356,9 @@ object EvaluateForm: TEvaluateForm
       OnKeyUp = EditCoordWidthKeyUp
     end
     object Editdzdx: TEdit
-      Left = 156
+      Left = 238
       Top = 147
-      Width = 350
+      Width = 268
       Height = 31
       Hint = 'Right click for Popup menu'
       Margins.Left = 5
@@ -377,9 +377,9 @@ object EvaluateForm: TEvaluateForm
       TabOrder = 3
     end
     object Editdzdy: TEdit
-      Left = 156
+      Left = 238
       Top = 186
-      Width = 350
+      Width = 268
       Height = 31
       Hint = 'Right click for Popup menu'
       Margins.Left = 5
@@ -398,15 +398,15 @@ object EvaluateForm: TEvaluateForm
       TabOrder = 4
     end
     object dzdx_dzdy: TCheckBox
-      Left = 51
-      Top = 299
-      Width = 236
+      Left = 19
+      Top = 294
+      Width = 272
       Height = 30
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Show dz/dx && dz/dy'
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' dz/dx && dz/dy'
       Font.Charset = ANSI_CHARSET
       Font.Color = clMaroon
       Font.Height = -19
@@ -418,9 +418,9 @@ object EvaluateForm: TEvaluateForm
     end
     object EditArrow: TEdit
       Tag = 1
-      Left = 404
-      Top = 298
-      Width = 98
+      Left = 171
+      Top = 334
+      Width = 71
       Height = 31
       Margins.Left = 5
       Margins.Top = 5
@@ -438,15 +438,15 @@ object EvaluateForm: TEvaluateForm
     end
   end
   object BitBtn1: TBitBtn
-    Left = 406
-    Top = 352
-    Width = 131
+    Left = 413
+    Top = 373
+    Width = 124
     Height = 51
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = '&Close'
+    Caption = '&'#1047#1072#1082#1088#1099#1090#1100
     DoubleBuffered = False
     Glyph.Data = {
       F6000000424DF600000000000000760000002800000010000000100000000100
@@ -462,12 +462,12 @@ object EvaluateForm: TEvaluateForm
   end
   object ColorDialog: TColorDialog
     Options = [cdFullOpen]
-    Left = 16
-    Top = 59
+    Left = 392
+    Top = 47
   end
   object PopupMenu1: TPopupMenu
-    Left = 16
-    Top = 103
+    Left = 392
+    Top = 152
     object Slope1: TMenuItem
       Caption = 'Tangent'
       Checked = True

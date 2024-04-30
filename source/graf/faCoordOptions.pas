@@ -22,7 +22,7 @@ uses
   GLS.BitmapFont,
   GLS.VectorGeometry,
   
-  Astro.Global,
+  Graf.Global2d,
   faGridOptions,
   faEvaluate;
 

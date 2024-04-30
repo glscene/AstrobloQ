@@ -40,8 +40,8 @@ uses
   GLS.State,
   GLS.Material,
 
-  Astro.Global,
-  Astro.Parser,
+  Graf.Global2d,
+  Graf.Parser2d,
   faEvaluate,
   faGridColors,
   faAddPlotColors,
@@ -184,7 +184,6 @@ implementation
 // =====================================================================
 
 {$R *.dfm}
-{$R CURSORS.RES}
 
 uses
   faFunctions;
@@ -438,7 +437,7 @@ begin
       #13#10'Сохранить изменения ?', mtConfirmation,
       [mbYes, mbNo, mbCancel], 0) of
       mrYes:
-        FunctionsForm.SaveClick(Sender);
+        FunctionsForm.miSaveClick(Sender);
       mrCancel:
         begin
           CanClose := False;
@@ -632,22 +631,22 @@ end;
 
 procedure TFormPlotStars.miNewClick(Sender: TObject);
 begin
-  FunctionsForm.New1Click(Sender);
+  FunctionsForm.miNewClick(Sender);
 end;
 
 procedure TFormPlotStars.miOpenFileClick(Sender: TObject);
 begin
-  FunctionsForm.OpenFileClick(Sender);
+  FunctionsForm.miOpenFileClick(Sender);
 end;
 
 procedure TFormPlotStars.miSaveClick(Sender: TObject);
 begin
-  FunctionsForm.SaveClick(Sender);
+  FunctionsForm.miSaveClick(Sender);
 end;
 
 procedure TFormPlotStars.miSaveasClick(Sender: TObject);
 begin
-  FunctionsForm.SaveAsClick(Sender);
+  FunctionsForm.miSaveAsClick(Sender);
 end;
 
 procedure TFormPlotStars.ShowCameraLocation;

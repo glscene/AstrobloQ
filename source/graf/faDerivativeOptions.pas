@@ -22,8 +22,8 @@ uses
   GLS.VectorTypes,
   GLS.VectorGeometry,
 
-  Astro.Global,
-  Astro.Parser,
+  Graf.Global2d,
+  Graf.Parser2d,
   faGridOptions;
 
 type
