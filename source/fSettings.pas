@@ -10,6 +10,8 @@ uses
   System.Classes,
   System.ImageList,
   System.Beacon.Components,
+  System.Beacon,
+  System.Bluetooth,
 
   Vcl.Graphics,
   Vcl.Controls,
@@ -27,8 +29,6 @@ uses
   Vcl.Samples.Gauges,
   Vcl.CheckLst,
   Vcl.WinXCtrls,
-  System.Beacon,
-  System.Bluetooth,
   Vcl.NumberBox;
 
 type

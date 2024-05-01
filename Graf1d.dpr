@@ -1,6 +1,6 @@
 program Graf1d;
 
-
+{$R 'data\resource\Cursors.res'}
 
 uses
   Forms,

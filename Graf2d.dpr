@@ -1,7 +1,6 @@
 program Graf2d;
 
-
-
+{$R 'data\resource\Cursors.res'}
 
 uses
   Forms,

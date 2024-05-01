@@ -245,36 +245,36 @@ begin
         GraphFName := CurrentGraphFName;
         DataPath := CurrentDataPath;
         ImagePath := CurrentImagePath;
-        // FunctionsForm
+        // Форма функций
         FunctionsForm.Left := FuncLeft;
         FunctionsForm.Top := FuncTop;
         FunctionsForm.Width := FuncWidth;
         FunctionsForm.Height := FuncHeight;
-        // GridOptionsForm
+        // Форма параметров сетки
         if GridsVisible then
           FormGridOptions.Show;
         FormGridOptions.Left := GridsLeft;
         FormGridOptions.Top := GridsTop;
-        // GridColorsForm
+        // Форма цвета сетки
         GridColorsForm.Left := GridColorsLeft;
         GridColorsForm.Top := GridColorsTop;
-        // PlotColorsForm
+        // Форма цвета графика
         PlotColorsForm.Left := PlotColorsLeft;
         PlotColorsForm.Top := PlotColorsTop;
-        // EvaluateForm
+        // Форма оценки функций
         if EvaluateVisible then
           EvaluateForm.Show;
         EvaluateForm.Left := EvaluateLeft;
         EvaluateForm.Top := EvaluateTop;
-        // CoordsForm
+        // Форма координат
         if CoordVisible then
           CoordsForm.Show;
         CoordsForm.Left := CoordLeft;
         CoordsForm.Top := CoordTop;
-        // DerivativesForm
+        // Форма производных
         DerivativesForm.Left := DerivLeft;
         DerivativesForm.Top := DerivTop;
-        // AddPlotColorsForm
+        // Форма дополнительныъ цветов графика
         AddPlotColorsForm.Left := AddColorsLeft;
         AddPlotColorsForm.Top := AddColorsTop;
       end;
@@ -375,42 +375,34 @@ begin
     CurrentDataPath := DataPath;
     CurrentImagePath := ImagePath;
 
-    // FunctionsForm
     FuncLeft := FunctionsForm.Left;
     FuncTop := FunctionsForm.Top;
     FuncWidth := FunctionsForm.Width;
     FuncHeight := FunctionsForm.Height;
 
-    // GridOptionsForm
     GridsVisible := FormGridOptions.Visible;
     GridsLeft := FormGridOptions.Left;
     GridsTop := FormGridOptions.Top;
 
-    // GridColorsForm
     GridColorsLeft := GridColorsForm.Left;
     GridColorsTop := GridColorsForm.Top;
 
-    // PlotColorsForm
     PlotColorsLeft := PlotColorsForm.Left;
     PlotColorsTop := PlotColorsForm.Top;
 
-    // EvaluateForm
     EvaluateVisible := EvaluateForm.Visible;
     EvaluateLeft := EvaluateForm.Left;
     EvaluateTop := EvaluateForm.Top;
 
-    // CoordsForm
     CoordVisible := CoordsForm.Visible;
     CoordLeft := CoordsForm.Left;
     CoordTop := CoordsForm.Top;
 
-    // DerivativesForm
     DerivLeft := DerivativesForm.Left;
     DerivTop := DerivativesForm.Top;
     if DerivativesForm.Visible then
       DerivativesForm.Close;
 
-    // AddPlotColorsForm
     AddColorsLeft := AddPlotColorsForm.Left;
     AddColorsTop := AddPlotColorsForm.Top;
     if AddPlotColorsForm.Visible then
@@ -447,6 +439,7 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------
 procedure TFormPlotStars.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 var
@@ -481,6 +474,7 @@ begin
   Key := 0;
 end;
 
+//---------------------------------------------------------------
 procedure TFormPlotStars.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -505,6 +499,7 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------
 procedure TFormPlotStars.GLSViewerMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -538,6 +533,7 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------
 procedure TFormPlotStars.GLSViewerMouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 var
@@ -623,6 +619,7 @@ begin // refer GLScene\Demos\interface\camera\Camera.dpr
   MousePoint.Y := Y;
 end;
 
+//---------------------------------------------------------------
 procedure TFormPlotStars.GLSViewerMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
