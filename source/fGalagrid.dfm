@@ -1,4 +1,4 @@
-object FormEvolutor: TFormEvolutor
+object FormGalagrid: TFormGalagrid
   Left = 0
   Top = 0
   Margins.Left = 5
@@ -48,8 +48,6 @@ object FormEvolutor: TFormEvolutor
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 1
-    ExplicitTop = 0
-    ExplicitHeight = 772
     object tvGalaxy: TTreeView
       Left = 1
       Top = 1
@@ -75,10 +73,6 @@ object FormEvolutor: TFormEvolutor
         0000000000000000010721044204400435043B04350446040000290000000000
         000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E0440
         0438043E043D04}
-      ExplicitLeft = 38
-      ExplicitTop = 182
-      ExplicitWidth = 121
-      ExplicitHeight = 96
     end
   end
   object StatusBar1: TStatusBar
@@ -115,8 +109,6 @@ object FormEvolutor: TFormEvolutor
     Margins.Bottom = 5
     Align = alRight
     TabOrder = 3
-    ExplicitTop = 0
-    ExplicitHeight = 772
   end
   object ControlBar1: TControlBar
     Left = 0
@@ -164,8 +156,8 @@ object FormEvolutor: TFormEvolutor
     end
   end
   object GLScene: TGLScene
-    Left = 308
-    Top = 70
+    Left = 301
+    Top = 123
     object Camera: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
@@ -329,8 +321,9 @@ object FormEvolutor: TFormEvolutor
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object Tile1: TMenuItem
-        Caption = '&Tile'
+      object miSettings: TMenuItem
+        Caption = '&'#1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
+        OnClick = miSettingsClick
       end
       object miN5: TMenuItem
         Caption = '-'
@@ -360,14 +353,14 @@ object FormEvolutor: TFormEvolutor
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 502
-    Top = 75
+    Left = 739
+    Top = 145
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 319
-    Top = 245
+    Left = 502
+    Top = 135
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -103239,7 +103232,7 @@ object FormEvolutor: TFormEvolutor
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 506
-    Top = 234
+    Left = 312
+    Top = 228
   end
 end

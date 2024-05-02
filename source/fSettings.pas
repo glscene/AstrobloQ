@@ -61,9 +61,7 @@ type
     tsStars: TTabSheet;
     tsPlanets: TTabSheet;
     LabelDiameter: TLabel;
-    Gauge1: TGauge;
     ColorGrid1: TColorGrid;
-    SpinEdit1: TSpinEdit;
     rgLanguage: TRadioGroup;
     cbSplashStart: TCheckBox;
     tsGeneral: TTabSheet;
@@ -90,7 +88,6 @@ type
     gbFindPath: TGroupBox;
     chbOnTetramesh: TCheckBox;
     chbAvoidHazards: TCheckBox;
-    Button1: TButton;
     SpinEditPrecision: TSpinEdit;
     LabelPrecision: TLabel;
     PanelScale: TPanel;
@@ -133,10 +130,42 @@ type
     LabelGravityAccel: TLabel;
     NumberBox7: TNumberBox;
     Label6: TLabel;
+    nbGxDiameter: TNumberBox;
+    grbDrakeFormula: TGroupBox;
+    PanelDrake: TPanel;
+    Label5: TLabel;
+    lbEquals: TLabel;
+    lbNs: TLabel;
+    lbMult1: TLabel;
+    lbMult2: TLabel;
+    lbMult3: TLabel;
+    lbMult4: TLabel;
+    lbFl: TLabel;
+    lbFb: TLabel;
+    kbFn: TLabel;
+    lbLc: TLabel;
+    lbLs: TLabel;
+    lbDivide: TLabel;
+    ButtonCalculate: TButton;
+    stNc: TStaticText;
+    EditLc: TEdit;
+    EditLs: TEdit;
+    EditNs: TEdit;
+    EditFl: TEdit;
+    EditFb: TEdit;
+    EditFn: TEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
     procedure tvSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
+    procedure ButtonCalculateClick(Sender: TObject);
   private
     //
   public
@@ -152,6 +181,7 @@ var
 implementation
 
 {$R *.dfm}
+
 
 procedure TFormSettings.ButtonOKClick(Sender: TObject);
 begin
@@ -182,13 +212,34 @@ begin
     tvSettings.Items[I].SelectedIndex := 1;
     tvSettings.Items[I].StateIndex := I;
   end;
-  tvSettings.Items[6].Selected := True; // 6 - Планеты
-  tvSettings.Items[6].Focused := True;
-  tvSettings.Items[6].DropHighlighted := True;
+  tvSettings.Items[4].Selected := True; // 4 - Галактика
+  tvSettings.Items[4].Focused := True;
+  tvSettings.Items[4].DropHighlighted := True;
   tvSettings.FullExpand;
 
   tvSettingsClick(Sender);
   trbVelocityChange(Self);
+end;
+
+//---------------------------------------------------------------
+// Расчёт числа ноосфер
+//---------------------------------------------------------------
+procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
+var
+  Nc, Fl, Fb, Fn, Ratio : Extended;
+  Ns, Lc, Ls: LONG64;
+begin
+  Ns := StrToInt64(EditNs.Text);
+  Fl := StrToFloat(EditFl.Text);
+  Fb := StrToFloat(EditFb.Text);
+  Fn := StrToFloat(EditFn.Text);
+
+  Lc := StrToInt64(EditLc.Text);
+  Ls := StrToInt64(EditLs.Text);
+
+ // Ratio := Lc/Ls;
+  Nc := Ns*Fl*Fb*Fn; // *Ratio;
+  stNc.Caption := FloatToStr(Nc);
 end;
 
 //---------------------------------------------------------------
@@ -197,16 +248,17 @@ end;
 procedure TFormSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
-  Ratio, FlightTime: Extended;
-
+  FlightTime: Extended;
+  Ratio : Extended;
 begin
   stTrackBar.Caption := IntToStr(trbVelocity.Position);
   DistanceInYears := StrToFloat(EditDistance.Text);
   Ratio := trbVelocity.Position/299792;
   FlightTime := DistanceInYears/Ratio;
-
   stFlightTime.Caption := FloatToStrF(FlightTime, ffFixed, 20, 1);
 end;
+
+
 
 procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin

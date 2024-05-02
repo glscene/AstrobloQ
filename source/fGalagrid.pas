@@ -3,19 +3,20 @@ unit fGalagrid;
 interface
 
 uses
-  Winapi.Windows, 
-  Winapi.Messages, 
-  System.SysUtils, 
-  System.Variants, 
-  System.Classes, 
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
   Vcl.Graphics,
-  Vcl.Controls, 
-  Vcl.Forms, 
-  Vcl.Dialogs, 
-  Vcl.ComCtrls, 
-  Vcl.ExtCtrls, 
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ComCtrls,
+  Vcl.ExtCtrls,
   Vcl.Menus,
-  
+  Vcl.ToolWin,
+
   GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
@@ -27,12 +28,14 @@ uses
   GLS.GeomObjects,
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
+  GLS.Material,
 
   fAbout,
-  fProjection, GLS.Material, Vcl.ToolWin;
+  fProjection,
+  fSettings;
 
 type
-  TFormEvolutor = class(TForm)
+  TFormGalagrid = class(TForm)
     GLSceneViewer: TGLSceneViewer;
     GLScene: TGLScene;
     PanelLeft: TPanel;
@@ -60,7 +63,7 @@ type
     miN3: TMenuItem;
     miN4: TMenuItem;
     miView: TMenuItem;
-    Tile1: TMenuItem;
+    miSettings: TMenuItem;
     miViewPanelHide: TMenuItem;
     miViewPanelShow: TMenuItem;
     miN5: TMenuItem;
@@ -102,6 +105,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure miSettingsClick(Sender: TObject);
   private
     AtStart: Boolean;
   public
@@ -121,13 +125,13 @@ const
   crSlidezy = 10;
 
 var
-  FormEvolutor: TFormEvolutor;
+  FormGalagrid: TFormGalagrid;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormEvolutor.FormCreate(Sender: TObject);
+procedure TFormGalagrid.FormCreate(Sender: TObject);
 begin
   tvGalaxy.FullExpand;
 
@@ -135,41 +139,51 @@ begin
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
 end;
 
-procedure TFormEvolutor.GLAsyncTimerTimer(Sender: TObject);
+procedure TFormGalagrid.GLAsyncTimerTimer(Sender: TObject);
 begin
 //  diskGalaxy.Roll(0.01);
 end;
 
-procedure TFormEvolutor.GLCadencerProgress(Sender: TObject; const DeltaTime,
+procedure TFormGalagrid.GLCadencerProgress(Sender: TObject; const DeltaTime,
   NewTime: Double);
 begin
   diskGalaxy.Roll(0.001);
 end;
 
-procedure TFormEvolutor.GLSceneViewerMouseDown(Sender: TObject;
+procedure TFormGalagrid.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormEvolutor.GLSceneViewerMouseUp(Sender: TObject;
+procedure TFormGalagrid.GLSceneViewerMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormEvolutor.miViewPanelHideClick(Sender: TObject);
+procedure TFormGalagrid.miViewPanelHideClick(Sender: TObject);
 begin
   PanelLeft.Visible := False;
   PanelRight.Visible := False;
 end;
 
-procedure TFormEvolutor.miExitClick(Sender: TObject);
+procedure TFormGalagrid.miExitClick(Sender: TObject);
 begin
   Close();
 end;
 
-procedure TFormEvolutor.N8Click(Sender: TObject);
+procedure TFormGalagrid.miSettingsClick(Sender: TObject);
+begin
+   with TFormSettings.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TFormGalagrid.N8Click(Sender: TObject);
 begin
    with TFormProjection.Create(Self) do
     try
@@ -179,19 +193,19 @@ begin
     end;
 end;
 
-procedure TFormEvolutor.Open1Click(Sender: TObject);
+procedure TFormGalagrid.Open1Click(Sender: TObject);
 begin
  //
 end;
 
-procedure TFormEvolutor.miViewPanelShowClick(Sender: TObject);
+procedure TFormGalagrid.miViewPanelShowClick(Sender: TObject);
 begin
   PanelLeft.Visible := True;
   PanelRight.Visible := True;
 end;
 
 
-procedure TFormEvolutor.About1Click(Sender: TObject);
+procedure TFormGalagrid.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try

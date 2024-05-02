@@ -1,10 +1,9 @@
 program Galagrid;
 
-{$R 'data\resource\Cursors.res'}
 
 uses
   Vcl.Forms,
-  fGalagrid in 'source\fGalagrid.pas' {FormEvolutor},
+  fGalagrid in 'source\fGalagrid.pas' {FormGalagrid},
   fProjection in 'source\fProjection.pas' {FormProjection},
   dImages in 'source\dImages.pas' {dfImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},
@@ -15,7 +14,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormEvolutor, FormEvolutor);
+  Application.CreateForm(TFormGalagrid, FormGalagrid);
   Application.CreateForm(TdfImages, dfImages);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
