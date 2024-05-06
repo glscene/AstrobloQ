@@ -290,9 +290,15 @@ object FormLitosfera: TFormLitosfera
       Slices = 48
       Stacks = 24
     end
-    object dcStar: TGLDummyCube
-      ObjectsSorting = osNone
-      CubeSize = 1000.000000000000000000
+    object Camera: TGLCamera
+      DepthOfView = 200000.000000000000000000
+      FocalLength = 99.545860290527340000
+      NearPlaneBias = 0.100000001490116100
+      TargetObject = dcStar
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Direction.Coordinates = {0000803F000000000000008000000000}
+      Up.Coordinates = {00000000000000000000803F00000000}
       object LightStar: TGLLightSource
         ConstAttenuation = 1.000000000000000000
         Position.Coordinates = {00D0044600D00446000000000000803F}
@@ -303,39 +309,20 @@ object FormLitosfera: TFormLitosfera
           FlareIsNotOccluded = True
         end
       end
-      object CameraControler: TGLCamera
-        DepthOfView = 10000.000000000000000000
-        FocalLength = 50.000000000000000000
-        TargetObject = dcStar
-        Position.Coordinates = {0000803F000000000000803F0000803F}
-        Direction.Coordinates = {0000803F000000000000008000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
-      end
-      object Camera: TGLCamera
-        DepthOfView = 200000.000000000000000000
-        FocalLength = 99.545860290527340000
-        NearPlaneBias = 0.100000001490116100
-        TargetObject = dcStar
-        CameraStyle = csInfinitePerspective
-        Position.Coordinates = {0000803F000000000000803F0000803F}
-        Direction.Coordinates = {0000803F000000000000008000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
-      end
-      object dcMoon: TGLDummyCube
-        Up.Coordinates = {FC9D7FB10000803F0000000000000000}
-        CubeSize = 1.000000000000000000
-        object Moon: TGLSphere
-          Material.MaterialLibrary = MatLib
-          Material.LibMaterialName = 'moon'
-          Direction.Coordinates = {D947AABE616D713F0000000000000000}
-          Position.Coordinates = {CDCCECC100000000000000000000803F}
-          Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
-          TurnAngle = -170.000000000000000000
-          Up.Coordinates = {00000000000000000000803F00000000}
-          Radius = 0.500000000000000000
-          Slices = 32
-          Stacks = 32
-        end
+    end
+    object CameraControler: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 50.000000000000000000
+      TargetObject = dcStar
+      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Direction.Coordinates = {0000803F000000000000008000000000}
+      Up.Coordinates = {00000000000000000000803F00000000}
+    end
+    object dcStar: TGLDummyCube
+      ObjectsSorting = osNone
+      CubeSize = 1000.000000000000000000
+      object actorPlanet: TGLActor
+        Interval = 100
       end
       object ffPlanet: TGLFreeForm
         Material.MaterialLibrary = MatLib
@@ -343,15 +330,6 @@ object FormLitosfera: TFormLitosfera
         Up.Coordinates = {00000000000000000000803F00000000}
         Visible = False
         MaterialLibrary = MatLib
-      end
-      object sfPlanet: TGLSphere
-        Material.LibMaterialName = 'earthDay'
-        Direction.Coordinates = {000000000000803F0000000000000000}
-        TurnAngle = -150.000000000000000000
-        Up.Coordinates = {00000000000000800000803F00000000}
-        Radius = 0.500000000000000000
-        Slices = 64
-        Stacks = 64
         object diskRingDn: TGLDisk
           Material.Texture.Disabled = False
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
@@ -388,6 +366,32 @@ object FormLitosfera: TFormLitosfera
           Slices = 64
           SweepAngle = 360.000000000000000000
         end
+        object dcMoon: TGLDummyCube
+          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+          CubeSize = 1.000000000000000000
+          object Moon: TGLSphere
+            Material.MaterialLibrary = MatLib
+            Material.LibMaterialName = 'moon'
+            Direction.Coordinates = {D947AABE616D713F0000000000000000}
+            Position.Coordinates = {CDCCECC100000000000000000000803F}
+            Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
+            TurnAngle = -170.000000000000000000
+            Up.Coordinates = {00000000000000000000803F00000000}
+            Radius = 0.500000000000000000
+            Slices = 32
+            Stacks = 32
+          end
+        end
+      end
+      object spherePlanet: TGLSphere
+        Material.LibMaterialName = 'earthDay'
+        Direction.Coordinates = {000000000000803F0000000000000000}
+        TurnAngle = -150.000000000000000000
+        Up.Coordinates = {00000000000000800000803F00000000}
+        Visible = False
+        Radius = 0.500000000000000000
+        Slices = 64
+        Stacks = 64
         object sfCore: TGLSphere
           Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
           Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}

@@ -237,8 +237,8 @@ begin
   Lc := StrToInt64(EditLc.Text);
   Ls := StrToInt64(EditLs.Text);
 
- // Ratio := Lc/Ls;
-  Nc := Ns*Fl*Fb*Fn; // *Ratio;
+  Ratio := Lc/Ls;
+  Nc := Ns*Fl*Fb*Fn*Ratio;
   stNc.Caption := FloatToStr(Nc);
 end;
 

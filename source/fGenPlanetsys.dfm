@@ -651,7 +651,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
           Alignment = taRightJustify
           Caption = #1051#1091#1085#1099' :'
         end
-        object RingsLabel: TLabel
+        object lbRings: TLabel
           Left = 66
           Top = 196
           Width = 58
@@ -663,7 +663,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
           Alignment = taRightJustify
           Caption = 'Rings :'
         end
-        object Label4: TLabel
+        object lbRadius: TLabel
           Left = 16
           Top = 68
           Width = 108
@@ -675,7 +675,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
           Alignment = taRightJustify
           Caption = #1056#1072#1076#1080#1091#1089' ('#1082#1084'):'
         end
-        object Label16: TLabel
+        object lbRotation: TLabel
           Left = 8
           Top = 110
           Width = 122
@@ -687,7 +687,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
           Alignment = taRightJustify
           Caption = #1056#1086#1090#1072#1094#1080#1103' ('#1095#1072#1089')'
         end
-        object Label14: TLabel
+        object lbAxisTilt: TLabel
           Left = 54
           Top = 154
           Width = 70
@@ -1813,11 +1813,11 @@ object FormGenPlanetsys: TFormGenPlanetsys
       end
     end
   end
-  object OpenDialog1: TOpenDialog
+  object OpenDialog: TOpenDialog
     Left = 600
     Top = 16
   end
-  object SaveDialog1: TSaveDialog
+  object SaveDialog: TSaveDialog
     Left = 600
     Top = 80
   end

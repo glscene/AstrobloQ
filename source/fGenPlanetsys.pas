@@ -2,44 +2,42 @@ unit fGenPlanetsys;
 
 (*
   -----------------------------------------------------------------------------
-  Purpose: Generator sky bodies and exoplanet systems of stars,
-  - Multiple planets, Moons,... with their individual properties
+  Генератор небесных тел и экзопланетных систем звёзд,
+  - Планет и Луны ... с главными параметрами
   - One Space object per orbit, unlimited orbit per Planet & for Sun
-  History:  "Main Idea From Blaise Bernier and Alexandre Hirzel"
-  -----------------------------------------------------------------------------
 
-  Original unit version from "Planet Frenzy" by Jerome Delauney
-  Credits :
-  Aaron Hochwimmer:  Asteroid Maker
-  Blaise Bernier:  SystemSolar class, SunBurst's Trick
-  StuartGooding:  TDOT3BumpShader
-  Eric Grange: The atmospheric effect is rendered in GLDirectOpenGL1Render,
-  which essentially renders a disk, with color of the vertices computed via ray-tracing.
+  Основано на идее Blaise Bernier и Alexandre Hirzel
+  Первоначальная версия модуля создана Jerome Delauney
+  Контрибуторы:
+  Aaron Hochwimmer:  конструктор астероидов
+  Blaise Bernier: класс SystemSolar, SunBurst's Trick
+  StuartGooding:  класс TDOT3BumpShader
+  Eric Grange: эффект свечения атмосферы в GLDirectOpenGL1Render для диска disk,
+  с цветом вершин вычисляемых с помощью трассировки лучей ray-tracing.
   Not that the tesselation of the disk has been hand-optimized
   so as to reduce CPU use while retaining quality.
-  Pavel Vassiliev: TreeViews of exoplanet systems for all spectral classes of stars with
-  visualisation using TGLSkyDome. Constellation lines and bounds are rendered
-  via a TGLLines using LoadConstellations method.
+  Pavel Vassiliev: включение компонента TreeViews для просмотра экзопланетных
+  систем по спектральным классам звёзд с визуализацией на TGLSkyDome.
+  Линии и границы созвездий отображаются с помощью TGLLines.
 
-  TO DO :
-  - Create Atmosphere per planet data
-  --Bump Mapping to increase Texture 'Depth'
+  Дополнительно:
+  - Создать генерацию и рендеринг полнофуцнкциональной атмосферы по планетным данным
+  --Bump Mapping для улучшения текстурной 'глубины'
   ..Change "Clouds" per Object Velocity
-  ...Layers of Clouds rotate counter each other..or faster..or Turbulent 'spots'
-  - Display Document per DocIndex..
-  .. dunno what that is, except just a link to launch a .html or .txt page
+  ..Layers of Clouds rotate counter each other..or faster..or Turbulent 'spots'
   - Add Legend for space entities and constellations (THudText)
-  - Calculate Orbits (with TGLMovementPath and TGLLine)
-  ..Orbit Elements:
+    Элементы орбит:
+  - вычисление длины орбит (по TGLMovementPath и TGLLine)
   -+-TGLLine : Display 'connecting lines' as they rotate
-  - Add More user interactive facts like :
-  * you point and click on a planet, draw a TGLArrow, point and click on
-  target planet you see real Distance.
-  - Add Credits Part
-  - Add "Messiers" Objects
-  - Add "Milkyway"
-  - Add Space Shuttle .. Artificial Satelites: DIY with 3ds
-  - Add Mission Simulation (Lambert's Maths).
+    Взаимодействие с пользователем:
+  - щелкаем по первой планете, появляется стрелка TGLArrow, щелкаем по второй планете
+    и читаем сообщение о реальном расстоянии между ними.
+  - добавление объектов "Messiers"
+  - добавление "Milkyway"
+  - добавление Space Shuttle .. спутники: DIY with 3ds
+  - добавление симуляцию миссий (Lambert's Maths).
+  - подключение в Help справочной системы Wiki.
+
 *)
 
 (*
@@ -210,8 +208,8 @@ type
     GLLightSource1: TGLLightSource;
     SunShineFlare: TGLLensFlare;
     GLCamera: TGLCamera;
-    OpenDialog1: TOpenDialog;
-    SaveDialog1: TSaveDialog;
+    OpenDialog: TOpenDialog;
+    SaveDialog: TSaveDialog;
     TimerA: TTimer;
     PopupMenuA: TPopupMenu;
     DisplayToolbar1: TMenuItem;
@@ -229,7 +227,7 @@ type
     MoonScalex50: TMenuItem;
     CometSprite: TGLSprite;
     CometGLMaterialLibrary: TGLMaterialLibrary;
-    DCComet: TGLDummyCube;
+    dcComet: TGLDummyCube;
     DebrisLoadFakeTexture: TMenuItem;
     RingsLoadFakeTexture: TMenuItem;
     CometsLoadFakeTexture: TMenuItem;
@@ -270,10 +268,10 @@ type
     EMaxEdit: TEdit;
     GroupBox6: TGroupBox;
     MoonsLabel: TLabel;
-    RingsLabel: TLabel;
-    Label4: TLabel;
-    Label16: TLabel;
-    Label14: TLabel;
+    lbRings: TLabel;
+    lbRadius: TLabel;
+    lbRotation: TLabel;
+    lbAxisTilt: TLabel;
     Label10: TLabel;
     Label17: TLabel;
     nbS3dLabel: TLabel;
@@ -592,10 +590,10 @@ begin
   end;
   DCSolarSystem.DeleteChildren;
 
-  for j := DCComet.Count - 1 downto 1 do
+  for j := dcComet.Count - 1 downto 1 do
   begin
-    DCComet.Children[j].Visible := False;
-    DCComet.Children[j].Free;
+    dcComet.Children[j].Visible := False;
+    dcComet.Children[j].Free;
   end;
 
   PlanetToOrbitTrail := 0; // Basically null ..no
@@ -639,12 +637,12 @@ begin
   for j := OrbitLines.Nodes.Count - 1 downto 0 do
     OrbitLines.Nodes[j].Free;
   OrbitLines.AddNode(0, 0, 0);
-  for j := DCComet.Count - 1 downto 1 do
+  for j := dcComet.Count - 1 downto 1 do
   begin // Leave the 1 REAL one there always
-    DCComet.Children[j].Visible := False;
-    DCComet.Children[j].Free;
+    dcComet.Children[j].Visible := False;
+    dcComet.Children[j].Free;
   end;
-  DCComet.Children[0].Visible := False;
+  dcComet.Children[0].Visible := False;
   If CometFiring then
   begin
     /// Fx.FxEnabled:=False;
@@ -799,16 +797,16 @@ end;
 procedure TFormGenPlanetsys.LoadBtnClick(Sender: TObject);
 begin
 //  SetCurrentDir(Application.ExeName);
-  OpenDialog1.Filter := 'Universal Definition(*.spud)|*.spud';
-  OpenDialog1.InitialDir := ExtractFilePath(EarthModelPath);
-  if OpenDialog1.Execute then
+  OpenDialog.Filter := 'Universal Definition(*.spud)|*.spud';
+  OpenDialog.InitialDir := ExtractFilePath(EarthModelPath);
+  if OpenDialog.Execute then
   begin
-    // On a fast system.. never even seen
-    FormGenPlanetsys.Caption := 'Loading';
-///   FormABCreator.ProcessMessages; // for auto-create forms
+    // на быстрых машинах обычно не видно
+    FormGenPlanetsys.Caption := 'Загрузка';
+///   FormABCreator.ProcessMessages; // при авто-создании форм
     ClearBtnClick(Sender);
-    EarthModelPath := ExtractFilePath(OpenDialog1.filename);
-    CreateGLSolarSystem(OpenDialog1.filename);
+    EarthModelPath := ExtractFilePath(OpenDialog.filename);
+    CreateGLSolarSystem(OpenDialog.filename);
     // Got here without crashing so Loaded is true
     if PlanetsLoaded = False then
       ClearBtnClick(Sender);
@@ -816,8 +814,9 @@ begin
       'create' the spheres and textures.. so this shows... }
   end;
 end;
-{ This should be divided into Loading Data file and Setting up GLScene objects
-  then it could be split from Viewer and be a Loader.. if required }
+
+{ Это надо бы разделить на файл загрузки данных и настройку объектов GLScene,
+  чтобы перенести часть кода из Viewer в Loader.. }
 { GetPitchAngle  FRotation.X;
   GetTurnAngle   FRotation.Y;
   GetRollAngle    FRotation.Z; }
@@ -857,13 +856,13 @@ var
 begin
   GLSceneA.BeginUpdate;
   PlanetsLoaded := False;
-  // Clear and Free ALL Children of  DCSolarSystem
   CometSprite.Visible := False;
+  // Очистить и освободиться от всех дочерних объектов dcSolarSystem
   DCSolarSystem.DeleteChildren;
-  for j := DCComet.Count - 1 downto 1 do
+  for j := dcComet.Count - 1 downto 1 do
   begin
-    DCComet.Children[j].Visible := False;
-    DCComet.Children[j].Free;
+    dcComet.Children[j].Visible := False;
+    dcComet.Children[j].Free;
   end;
 
   PlanetPickerCB.Items.Clear; // This loads All new ones
@@ -872,7 +871,7 @@ begin
   Assignfile(F, filename);
   reset(F, 1);
   BlockRead(F, CheckVersionDataTmp, sizeof(TVersionData));
-  // Check Version for Changes to Perform
+  // проверка Version for Changes to Perform
   (*
     if ((VersionDataTmp.MajorVersion = CheckVersionDataTmp.MajorVersion) and
     (VersionDataTmp.MinorVersion = CheckVersionDataTmp.MinorVersion)) then
@@ -903,7 +902,7 @@ begin
   SetLength(AsteroidDataTmpArray, SystemDataTmp.NbAsteroid);
   SetLength(CometDataTmpArray, SystemDataTmp.NbComet);
   SetLength(DebrisDataTmpArray, SystemDataTmp.NbDebris);
-  // ------- Loading & Create Sun -------------------------------------
+  // ------- Загрузка и создание Солнца Sun ---------------------------------
   BlockRead(F, SunDataTmp, sizeof(TGLStarData));
   SolarScaleDivisor := SunDataTmp.StarSysScale;
   SolarDistance := SunDataTmp.StarDistanceScale;
@@ -921,7 +920,7 @@ begin
     Stacks := 32;
     Slices := 32;
     Tag := 1;
-    Hint := Inttostr(0); // jpg tga png bmp
+    Hint := IntToStr(0); // jpg tga png bmp
     If FileExists(EarthModelPath + SunDataTmp.StarName + '.jpg') then
     begin { Create the matlib }
       GLMaterialLibraryA.AddTextureMaterial(SunDataTmp.StarName,
@@ -933,7 +932,7 @@ begin
     end
     else
     begin
-      // Set some  kinda Color to the Sphere
+      // Установка цвета материала сферы Sphere
       Material.FrontProperties.Diffuse.Color := clrYellow;
     end;
     // Make a Sun Flare.. Made it Permanent
@@ -958,7 +957,7 @@ begin
     If (not(FileExists(S3dsDataTmpArray[0, 0, j].Name + '.3ds'))) then
     begin
       ShowMessage(S3dsDataTmpArray[0, 0, j].Name + '.3ds' +
-        ' Not Found Exiting');
+        ' не найден');
       Closefile(F);
       GLSceneA.EndUpdate;
       exit;
@@ -1531,7 +1530,7 @@ begin
       If (not(FileExists(S3dsDataTmpArray[1, i, j].Name + '.3ds'))) then
       begin
         ShowMessage(S3dsDataTmpArray[1, i, j].Name + '.3ds' +
-          ' Not Found Exiting');
+          ' не найден');
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
@@ -1694,7 +1693,7 @@ begin
       If (not(FileExists(S3dsDataTmpArray[2, i, j].Name + '.3ds'))) then
       begin
         ShowMessage(S3dsDataTmpArray[2, i, j].Name + '.3ds' +
-          ' Not Found Exiting');
+          ' не найден');
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
@@ -1893,22 +1892,22 @@ begin
       end
       else if Trunc(CometDataTmpArray[i].RCDType) = 2 then
       begin
-        // ---------- DCComet and Sprite
+        // ---------- dcComet and Sprite
         // New sprites are created by duplicating the template CometSprite
         { Create Particles PFX for the 'Trail' }
         CometSprite.Visible := True;
         for j := 1 to Trunc(CometDataTmpArray[i].RCDCount) do
         begin { Real: CometSprite 19 Hint 1 }
-          spr := TGLSprite(DCComet.AddNewChild(TGLSprite));
+          spr := TGLSprite(dcComet.AddNewChild(TGLSprite));
           spr.Assign(CometSprite);
           spr.Name := CometDataTmpArray[i].Name +
-            Inttostr(j { DCComet.Count } );
-          spr.Hint := Inttostr(j { DCComet.Count } );
+            Inttostr(j { dcComet.Count } );
+          spr.Hint := Inttostr(j { dcComet.Count } );
           spr.Tag := 19;
           spr.Visible := True;
         end;
         CometSprite.Visible := False;
-        If DCComet.Count > 1 then
+        If dcComet.Count > 1 then
           CometTrailing := True;
       end;
     end;
@@ -1927,7 +1926,7 @@ begin
       if (not(FileExists(S3dsDataTmpArray[3, i, j].Name + '.3ds'))) then
       begin
         ShowMessage(S3dsDataTmpArray[3, i, j].Name + '.3ds' +
-          ' Not Found Exiting');
+          ' не найден');
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
@@ -2157,7 +2156,7 @@ begin
         b := Random * pi - pi / 2;
         SinCos(a, s, c);
         SinCos(b, sb, cb);
-        { wide circle }
+        // широкий круг
         Position.X := c * cb * (DebrisDataTmpArray[i].RCDPosition) * Random * 2;
         Position.Y := s * cb * (DebrisDataTmpArray[i].RCDPosition) *
           Random - Random;
@@ -2165,7 +2164,7 @@ begin
           - Random;
         DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
           .Children[Proxyi].Translate(X, Y, z);
-        // randomize orientation
+        // рандомизация ориентации
         RollAngle := Random(360);
         TransformationChanged;
       end; { with Proxy }
@@ -2186,7 +2185,7 @@ begin
       If (not(FileExists(S3dsDataTmpArray[4, i, j].Name + '.3ds'))) then
       begin
         ShowMessage(S3dsDataTmpArray[4, i, j].Name + '.3ds' +
-          ' Not Found Exiting');
+          ' не найден');
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
@@ -2339,12 +2338,12 @@ end;
 { --------------------------------------------------- }
 procedure TFormGenPlanetsys.SaveBtnClick(Sender: TObject);
 begin
-  SaveDialog1.Filter := 'Universal Definition(*.spud)|*.spud';
-  SaveDialog1.InitialDir := ExtractFilePath(EarthModelPath);
-  if SaveDialog1.Execute then
+  SaveDialog.Filter := 'Universal Definition(*.spud)|*.spud';
+  SaveDialog.InitialDir := ExtractFilePath(EarthModelPath);
+  if SaveDialog.Execute then
   begin
     Application.ProcessMessages;
-    SaveGLSolarSystem(SaveDialog1.filename);
+    SaveGLSolarSystem(SaveDialog.filename);
   end;
 end;
 
@@ -2397,20 +2396,20 @@ procedure TFormGenPlanetsys.PlanetsRGClick(Sender: TObject);
 var
   tempbool: Boolean;
 begin
-  // only sun has the scale
+  // только солнце sun имеет масштаб scale
   ScaleDistanceEdit.Visible :=
     ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0));
   ScaleObjectEdit.Visible := ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0));
   { everytjing else has these 2 }
   MassEdit.Visible := (not((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)));
   DensityEdit.Visible := (not((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)));
-  // Base objects can have S3ds orbiters
+  // Базовые объекты имеют S3ds orbiters
   nbS3dsEdit.Visible := ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)) or
     ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0)) or
     ((SSORG.ItemIndex = 2) and (AsteroidRG.ItemIndex = 0)) or
     ((SSORG.ItemIndex = 3) and (CometRG.ItemIndex = 0)) or
     ((SSORG.ItemIndex = 4) and (DebrisRG.ItemIndex = 0));
-  // Only Planet: Moons and Rings DO NOT have 3ds Anything
+  // только планета: Moons and Rings DO NOT have 3ds Anything
   nbS3dLabel.Visible := (not((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 1)
     ) or ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 2)));
   // Only the S3ds object can set the Texture available CB
@@ -2420,15 +2419,15 @@ begin
     ((SSORG.ItemIndex = 3) and (CometRG.ItemIndex = 1)) or
     ((SSORG.ItemIndex = 4) and (DebrisRG.ItemIndex = 1));
 
-  // Sun has NO orbit, but its S3ds does
+  // Солнце Sun не имеет орбиты, но имеет S3ds
   OrbitGroupBox.Visible := ((SSORG.ItemIndex > 0) or ((SSORG.ItemIndex = 0) and
     (SunRG.ItemIndex = 1)));
-  // only planets have Rings and moons
+  // показать только планеты с лунами и кольцами
   nbMoonsEdit.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
   MoonsLabel.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
   nbRingsEdit.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
-  RingsLabel.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
-  // Only  Comets, Debris and Planet:Rings REQUIRE more data
+  lbRings.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
+  // Только кометы, дебрис и планеты: Rings REQUIRE more data
 
   tempbool := (((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 1)) or
     ((SSORG.ItemIndex = 3) and (CometRG.ItemIndex = 0)) or
@@ -4366,8 +4365,9 @@ begin // a Brainiac could Get Save and Set the data...
   end;
 end;
 
-{ Save info as a Text file
-  and Call System to Open THAT... to print or ? }
+{
+  Сохранение в текстовый файл
+  и вызов System to Open THAT... для печати }
 procedure TFormGenPlanetsys.PrintBtnClick(Sender: TObject);
 var
   i, j: Integer;
@@ -5678,7 +5678,7 @@ begin
             for j := 0 to Trunc(CometDataTmpArray[i - 1].RCDCount) - 1 do
             begin
               a := DegToRadian(aBase + j * CometDataTmpArray[i - 1].RCDCount);
-              with (DCComet.Children[j + kometcount] as TGLSprite) do
+              with (dcComet.Children[j + kometcount] as TGLSprite) do
               begin
                 // rotation movement
                 Position.X :=

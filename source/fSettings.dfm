@@ -347,7 +347,7 @@ object FormSettings: TFormSettings
         TabVisible = False
         object LabelDiameter: TLabel
           Left = 226
-          Top = 5
+          Top = 32
           Width = 223
           Height = 30
           Margins.Left = 5
@@ -355,11 +355,10 @@ object FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1044#1080#1072#1084#1077#1090#1088' '#1043#1072#1083#1072#1082#1090#1080#1082#1080', l.y.'
-          Visible = False
         end
         object nbGxDiameter: TNumberBox
           Left = 530
-          Top = 5
+          Top = 32
           Width = 156
           Height = 38
           Margins.Left = 5
@@ -370,12 +369,11 @@ object FormSettings: TFormSettings
           Decimal = 0
           TabOrder = 0
           Value = 100000.000000000000000000
-          Visible = False
           SpinButtonOptions.ButtonWidth = 30
         end
         object grbDrakeFormula: TGroupBox
           Left = 28
-          Top = 45
+          Top = 80
           Width = 939
           Height = 583
           Margins.Left = 5
@@ -429,14 +427,14 @@ object FormSettings: TFormSettings
           object Label9: TLabel
             Left = 58
             Top = 332
-            Width = 845
+            Width = 710
             Height = 38
             Hint = 'Number of civilisations'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Fl - '#1076#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1082#1072#1084#1077#1085#1085#1099#1084#1080' '#1087#1083#1072#1085#1077#1090#1072#1084#1080' '#1074' '#1079#1086#1085#1072#1093' '#1086#1073#1080#1090#1072#1077#1084#1086#1089#1090#1080
+            Caption = 'Fl - '#1076#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080' '#1074' '#1079#1086#1085#1072#1093' '#1086#1073#1080#1090#1072#1077#1084#1086#1089#1090#1080
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -28
@@ -993,7 +991,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1057#1083#1086#1080', '#1076#1086#1083#1080' '#1088#1072#1076#1080#1091#1089#1072
+          Caption = #1057#1083#1086#1080', '#1076#1086#1083#1080' '#1076#1080#1072#1084#1077#1090#1088#1072
           TabOrder = 0
           object LabelIce: TLabel
             Left = 42
@@ -1223,7 +1221,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+          Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1047#1077#1084#1083#1080
           TabOrder = 2
           object LabelPlanetTilt: TLabel
             Left = 14
@@ -1288,14 +1286,14 @@ object FormSettings: TFormSettings
           object LabelGravityAccel: TLabel
             Left = 14
             Top = 345
-            Width = 151
+            Width = 169
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1059#1089#1082#1086#1088#1077#1085#1080#1077' '#1089'.'#1087'., '
+            Caption = #1059#1089#1082#1086#1088#1077#1085#1080#1077' '#1089'.'#1087'., g '
           end
           object Label6: TLabel
             Left = 14

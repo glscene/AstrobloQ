@@ -1,0 +1,55 @@
+Солнце
+Меркурий
+Венера
+Земля
+	Луна
+Марс
+	Фобос
+	Деймос
+Юпитер
+	Io
+	Europa
+	Ganymede
+	Callisto
+	Amalthea
+Сатурн
+	Enceladus
+	Titan
+	Mimas
+	Tethys
+	Dione
+	Rhea
+	Iapetus
+	Janus
+	Hyperion
+	Prometheus
+	Phoebe
+	Pandora
+Uranus
+	Miranda
+	Ariel
+	Umbriel
+	Titania
+	Oberon
+Neptune
+	Larissa
+	Nereid
+	Triton
+	Proteus
+Pluto
+	Charon
+Ceres
+Eris_(dwarf_planet)
+Haumea
+Vesta
+243_Ida
+433_Eros
+951_Gaspra
+1620_Geographos
+1810_Epimetheus
+1998_KY26
+2063_Bacchus
+4179_Toutatis
+4769_Castalia
+6489_Golevka
+90377_Sedna
