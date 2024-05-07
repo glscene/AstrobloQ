@@ -1,4 +1,4 @@
-unit unGlobals;
+unit uGlobals;
 
 interface
 
@@ -43,7 +43,7 @@ var
   PreRcd: PrefRecord;
   HiddenString, StartedNameNumber: String;
 
-  AppPath, ShpPath, EarthDataPath, EarthModelPath, EarthPhotoPath, EarthHRPath: TFileName;
+  DataPath, ShpPath, EarthDataPath, EarthModelPath, EarthPhotoPath, EarthHRPath: TFileName;
 
   GlowUpDowni, Colorreg: INTEGER;
   MyPixelFormat: TPixelFormat; // pf24bit pf32bit

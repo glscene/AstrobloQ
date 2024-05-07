@@ -120,7 +120,7 @@ implementation
 
 uses
   fnNoosfera,
-  unGlobals;
+  uGlobals;
 
 {$R *.DFM}
 

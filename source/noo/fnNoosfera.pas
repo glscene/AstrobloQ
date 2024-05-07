@@ -297,6 +297,9 @@ type
     procedure miOptionsClick(Sender: TObject);
     procedure miStarPilotClick(Sender: TObject);
   private
+    DataDir, StarDir, CurrentStar: TFileName;
+    FileName, CatalogName: TFileName;
+
     MenuVisible, ColorAlltheSame, CapitalsLoaded, EarthLoaded, CitiesLoaded,
       CountriesLoaded: Boolean;
     markersCounted, MarkersDisplaySelection: Integer;
@@ -326,9 +329,10 @@ implementation
 {$R *.dfm}
 
 uses
-  unGlobals,
+  uGlobals,
   // accurate movements left for later... or the astute reader
-  uOglObjects, // Asteroid as monolith rock
+  uMoveCamera,
+  uSkyBodies, // Asteroid as monolith rock
   fAbout,
   //fAllShapeLoader,  //Earth Cities, Countries
   fnMeshEditor, // 3000
@@ -369,8 +373,9 @@ var
   sDate, sDateSmuoosh, sDateFormat, sWhoWhereFormat: String;
 
 begin
-  AppPath := ExtractFilePath(ParamStr(0));
-  SetCurrentDir(AppPath);
+  DataPath := ExtractFilePath(ParamStr(0)) + 'data\';
+  SetCurrentDir(DataDir);
+
   (*
     if FileExists(ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof') then
     begin
@@ -399,27 +404,30 @@ begin
   ABCreatorFormY := 123;
   Colorreg := 123;
   GlowUpDowni := 20;
-  ShpPath := AppPath + 'EarthShp\';
-  EarthDataPath := AppPath + 'EarthData\';
-  EarthModelPath := AppPath + 'EarthModel\';
-  EarthPhotoPath := AppPath + 'EarthPhoto\';
-  EarthHRPath := AppPath + 'EarthHR\';
+  ShpPath := DataPath + 'EarthShp\';
+  EarthDataPath := DataPath + 'EarthData\';
+  EarthModelPath := DataPath + 'EarthModel\';
+  EarthPhotoPath := DataPath + 'EarthPhoto\';
+  EarthHRPath := DataPath + 'EarthHR\';
   /// StartedNameNumber:='Alle Alle in Free';
+
   DoSaver;
-  // end;
+
   top := FormPlanetY;
   left := FormPlanetX;
-  if FileExists(AppPath + 'EarthGLS.chm') then
-    Application.HelpFile := AppPath + 'EarthGLS.chm';  // not ready yet
+  if FileExists(DataPath + 'EarthGLS.chm') then
+    Application.HelpFile := DataPath + 'EarthGLS.chm';  // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;
+
+  // Загрузка и отображение ярких звёзд Йельского каталога
   if FileExists(EarthDataPath + 'Yale_BSC.stars') then
     SkyDome.Stars.LoadStarsFile(EarthDataPath + 'Yale_BSC.stars');
   if FileExists(EarthDataPath + 'constellations.dat') then
     LoadConstellationLines;
   timeMultiplier := 1;
-  // V5 additions
+  // Добавление материала облаков в MatLib
    if FileExists(EarthModelPath + 'earth_cloud_360.jpg') then
   begin
     MatLib.Materials[3].Material.Texture.Compression := tcStandard;
@@ -1321,7 +1329,7 @@ end;
 
 procedure TFormNoosfera.miCloudsClick(Sender: TObject);
 begin
-  miClouds.Checked := (not miClouds.Checked);
+  miClouds.Checked := not miClouds.Checked;
   EarthClouds.Visible := miClouds.Checked;
   ptsLocations.StructureChanged;
   DrawPoints;

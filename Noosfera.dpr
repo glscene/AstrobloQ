@@ -8,10 +8,10 @@ program Noosfera;
 
 uses
   Forms,
-  unGlobals in 'source\noo\unGlobals.pas',
-  uOglObjects in 'source\uOglObjects.pas',
+  uGlobals in 'source\uGlobals.pas',
+  uMoveCamera in 'source\uMoveCamera.pas',
   uSkyBodies in 'source\uSkyBodies.pas',
-  unBoneUtils in 'source\noo\unBoneUtils.pas',
+  uBoneUtils in 'source\uBoneUtils.pas',
   fnNoosfera in 'source\noo\fnNoosfera.pas' {FormNoosfera},
   fnLocations in 'source\noo\fnLocations.pas' {FormLocations},
   fnRobot in 'source\noo\fnRobot.pas' {FormLoadSmdMdl},

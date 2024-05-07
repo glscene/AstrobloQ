@@ -225,7 +225,7 @@ object FormKiborg: TFormKiborg
     object Label15: TLabel
       Left = 1
       Top = 680
-      Width = 432
+      Width = 389
       Height = 48
       Margins.Left = 6
       Margins.Top = 6
@@ -237,7 +237,6 @@ object FormKiborg: TFormKiborg
       Color = clGray
       ParentColor = False
       WordWrap = True
-      ExplicitWidth = 389
     end
     object HelpBtn: TSpeedButton
       Left = 322

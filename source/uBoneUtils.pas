@@ -1,7 +1,7 @@
 //
-// Some MDL utility functions
+// Some skelet utility functions for MDL
 //
-unit unBoneUtils;
+unit uBoneUtils;
 
 // LoadQC Examples:
 //
@@ -24,8 +24,8 @@ uses
   GLS.VectorGeometry,
   GLS.VectorTypes;
 
-// LOADING STUFF
-procedure LoadQC(QCFilename: string; Ac: TGLActor; LoadReference: Boolean;
+// Загрузка из файла модели с анимацией
+procedure LoadQC(QCFilename: string; Actor: TGLActor; LoadReference: Boolean;
   LoadAnimations: Boolean; BodyName: string = '');
 
 // Bones stuff
@@ -37,6 +37,7 @@ function GetBoneIndexByName(Ac: TGLActor; BoneName: string): integer;
 
 // ----------------------------------------------------------------------
 implementation
+
 // ----------------------------------------------------------------------
 
 function Get_String_From1_From2_To1(st: string;
@@ -64,7 +65,7 @@ begin
   end;
 end;
 
-procedure LoadQC(QCFilename: string; Ac: TGLActor; LoadReference: Boolean;
+procedure LoadQC(QCFilename: string; Actor: TGLActor; LoadReference: Boolean;
   LoadAnimations: Boolean; BodyName: string = '');
 var
   cwd: string;
@@ -93,7 +94,7 @@ begin
       end
       else
         st := BodyName;
-      Ac.LoadFromFile(st + '.smd');
+      Actor.LoadFromFile(st + '.smd');
     end;
 
     if LoadAnimations then
@@ -109,17 +110,16 @@ begin
           st := Trim(Get_String_From1_From2_To1(Stl[t], '$sequence ',
             ' "', '"'));
           if st <> '' then
-            Ac.AddDataFromFile(st + '.smd');
+            Actor.AddDataFromFile(st + '.smd');
           st := Trim(Get_String_From1_From2_To1(Stl[t], '$sequence ',
             '" "', '"'));
           if st <> '' then
-            Ac.AddDataFromFile(st + '.smd');
-          Ac.Animations[Ac.Animations.Count - 1].Name := stAnimName;
-          Ac.Animations[Ac.Animations.Count - 1].MakeSkeletalTranslationStatic;
+            Actor.AddDataFromFile(st + '.smd');
+          Actor.Animations[Actor.Animations.Count - 1].Name := stAnimName;
+          Actor.Animations[Actor.Animations.Count - 1].MakeSkeletalTranslationStatic;
         end;
       end;
     end;
-
   finally
     Stl.Free;
     SetCurrentDir(cwd);
@@ -139,7 +139,7 @@ var
 begin
   AcAp := Ac.AbsolutePosition;
 
-  // ---------------Horizontal angles-----------------------
+  // ---------------Горизонтальные углы-----------------------
   V4.X := AbsolutePosition.X;
   V4.Y := AcAp.Y;
   V4.Z := AbsolutePosition.Z;
@@ -152,7 +152,7 @@ begin
   if VC.Y > 0 then
     aa := -aa;
 
-  // ---------------Vertical angles-----------------------
+  // ---------------Вертикальные углы-----------------------
   V4.X := AbsolutePosition.X;
   V4.Y := AbsolutePosition.Y + YCenterOffset;
   V4.Z := AbsolutePosition.Y;
@@ -217,7 +217,7 @@ var
   t: integer;
 begin
   Result := -1;
-  // we need to get the bouns count ?!?!?
+  // как подсчитать число костей в скелете !?
   try
     for t := 0 to 99 { Ac.Skeleton.RootBones.Count-1 } do
     begin

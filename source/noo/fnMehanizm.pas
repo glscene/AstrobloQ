@@ -7,8 +7,8 @@ interface
 
 uses
   Winapi.Windows,
-  WinApi.Messages,
-  WinApi.OpenGL,
+  Winapi.Messages,
+  Winapi.OpenGL,
   System.SysUtils,
   System.Classes,
   System.Actions,
@@ -40,7 +40,7 @@ uses
   GLS.VectorLists,
   GLS.Material,
   GLS.Coordinates,
-  
+
   GLS.BaseClasses;
 
 type
@@ -193,7 +193,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure About1Click(Sender: TObject);
   private
-     
+
     procedure DoResetCamera;
     procedure ApplyShadeModeToMaterial(aMaterial: TGLMaterial);
     procedure ApplyShadeMode;
@@ -206,7 +206,7 @@ type
     procedure DoOpen(const fileName: String);
 
   public
-     
+
     md, nthShow: Boolean;
     mx, my: Integer;
     hlShader: TGLShader;
@@ -223,7 +223,7 @@ implementation
 
 uses
   GLS.Keyboard,
-  //GraphicEx,
+  // GraphicEx,
   GLS.PersistentClasses,
   GLS.MeshUtils,
   GLS.FileOBJ,
@@ -244,11 +244,11 @@ uses
   GLS.Color,
   GLS.RenderContextInfo,
 
-  unGlobals;
+  uGlobals;
 
 type
 
-  // Hidden line shader (specific implem for the viewer, *not* generic)
+  // Шейдер скрытых линий (реализация для вьюера, *not* generic)
   THiddenLineShader = class(TGLShader)
   private
     LinesColor: TGLColorVector;
@@ -378,14 +378,14 @@ begin
     173 / 256, 1);
   THiddenLineShader(hlShader).BackgroundColor :=
     ConvertWinColor(GLSceneViewer.Buffer.BackgroundColor);
-{
-  if not GL_ARB_multisample then
-  begin
+  {
+    if not GL_ARB_multisample then
+    begin
     MIAADefault.Checked := True;
     MIAA2x.Enabled := False;
     MIAA4X.Enabled := False;
-  end;
-}
+    end;
+  }
 end;
 
 procedure TFormMehanizm.GLSceneViewerAfterRender(Sender: TObject);
@@ -401,10 +401,8 @@ end;
 
 procedure TFormMehanizm.About1Click(Sender: TObject);
 begin
-  ShowMessage('GLSViewer - Simple OpenGL Mesh Viewer'#13#10 +
-    'A freeware Delphi program based on...'#13#10#13#10 +
-    'GLScene: 3D view, 3D file formats support'#13#10 +
-    'http://glscene.org');
+  ShowMessage('AstroViewer - OpenGL Mesh Viewer'#13#10 +
+    'Модуль основанный на GLScene'#13#10#13#10);
 end;
 
 procedure TFormMehanizm.DoResetCamera;
@@ -581,7 +579,7 @@ begin
     Exit;
 
   Screen.Cursor := crHourGlass;
-  Caption := 'GLSViewer1 - ' + ExtractFileName(fileName);
+  Caption := 'AstroViewer - ' + ExtractFileName(fileName);
 
   FreeForm.MeshObjects.Clear;
   GLMaterialLibrary.Materials.Clear;
@@ -902,7 +900,7 @@ begin
         '.' + GetVectorFileFormats.FindExtByIndex(SaveDialog.FilterIndex,
         False, True));
     if GetVectorFileFormats.FindFromFileName(SaveDialog.fileName) = nil then
-      ShowMessage('Unsupported or unspecified file extension.')
+      ShowMessage('Расширение файла не поддерживается')
     else
       FreeForm.SaveToFile(SaveDialog.fileName);
   end;

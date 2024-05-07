@@ -509,11 +509,8 @@ var
 implementation
 
 uses
-  uOglObjects // Debris Field Asteroid maker
-  (* uSpaceEntities .. definitions added in here *)
+  uSkyBodies; // Debris Field Asteroid maker initially was in uOglObjects
   /// SpudVCFrm;  {Orbit Elements Input AND Version Convertor}
-  // uGlobals
-    ;
 
 var
   EarthModelPath: String;
@@ -554,7 +551,7 @@ begin
   ColorArray[9] := clrSienna;
   VersionDataTmp.MajorVersion := 2;
   VersionDataTmp.MinorVersion := 1;
-  VersionDataTmp.Author := 'Pavel Vassiliev, 17 May 1950';
+  VersionDataTmp.Author := 'Pavel Vassiliev';
   // HUDLabel.Visible:=False;
   Randomize;
   CometTrailing := False;

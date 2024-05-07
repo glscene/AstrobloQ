@@ -20,7 +20,8 @@ uses
   fSettings in 'source\fSettings.pas' {FormSettings},
   dImages in 'source\dImages.pas' {dfImages: TDataModule},
   fGenPlanetsys in 'source\fGenPlanetsys.pas' {FormGenPlanetsys},
-  uOglObjects in 'source\uOglObjects.pas';
+  uMoveCamera in 'source\uMoveCamera.pas',
+  uSkyBodies in 'source\uSkyBodies.pas';
 
 {$R *.res}
 

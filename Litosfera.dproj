@@ -139,7 +139,8 @@
             <Form>FormGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\uOglObjects.pas"/>
+        <DCCReference Include="source\uMoveCamera.pas"/>
+        <DCCReference Include="source\uSkyBodies.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
