@@ -3,13 +3,13 @@
 ; Moons, number
 ; Diameter, km
 ; Mass, Earth=1
-; OrbitTime, Earth years
+; OrbitalPeriod, Earth years
 ; Distance, million km from sun
 ; Gravity, Earth=1
 ; 'Day', hours
 ; Density, tonnes/m3
 ; Speed, km/sec
-Planet, Temperature, Moons, Diameter, Mass, OrbitTime, Distance, Gravity, Day, Density, Speed
+Planet, Temperature, Moons, Diameter, Mass, OrbitPeriod, Distance, Gravity, Day, Density, Speed
 Mercury, 350, 0, 4900, 0.05, 0.24, 58, 0.4, 1416, 5.4, 48
 Venus, 470, 0, 12100, 0.8, 0.62, 108, 0.1, 5832, 5.25, 32
 Earth, 20, 1, 12700, 1, 1, 150, 1.0, 23.9, 5.51, 30

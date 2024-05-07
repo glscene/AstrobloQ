@@ -7,7 +7,7 @@ object FormLitosfera: TFormLitosfera
   Margins.Right = 5
   Margins.Bottom = 5
   Caption = 'Litosfera'
-  ClientHeight = 803
+  ClientHeight = 837
   ClientWidth = 1524
   Color = clBtnFace
   DoubleBuffered = True
@@ -27,7 +27,7 @@ object FormLitosfera: TFormLitosfera
     Left = 249
     Top = 51
     Width = 1275
-    Height = 718
+    Height = 752
     Cursor = crCross
     Margins.Left = 5
     Margins.Top = 5
@@ -36,7 +36,7 @@ object FormLitosfera: TFormLitosfera
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 149.004043579101600000
+    FieldOfView = 150.342361450195300000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -48,18 +48,19 @@ object FormLitosfera: TFormLitosfera
     Left = 0
     Top = 51
     Width = 249
-    Height = 718
+    Height = 752
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 718
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 247
-      Height = 716
+      Height = 750
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -162,11 +163,12 @@ object FormLitosfera: TFormLitosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
+      ExplicitHeight = 716
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 769
+    Top = 803
     Width = 1524
     Height = 34
     Margins.Left = 5
@@ -190,6 +192,7 @@ object FormLitosfera: TFormLitosfera
         Text = 'Z:'
         Width = 151
       end>
+    ExplicitTop = 769
   end
   object ControlBar: TControlBar
     Left = 0
@@ -321,15 +324,18 @@ object FormLitosfera: TFormLitosfera
     object dcStar: TGLDummyCube
       ObjectsSorting = osNone
       CubeSize = 1000.000000000000000000
-      object actorPlanet: TGLActor
-        Interval = 100
-      end
-      object ffPlanet: TGLFreeForm
-        Material.MaterialLibrary = MatLib
-        Direction.Coordinates = {00000000000080BF0000000000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
+      object Atmosphere: TGLAtmosphere
+        Sun = LightStar
         Visible = False
-        MaterialLibrary = MatLib
+      end
+      object spherePlanet: TGLSphere
+        Material.LibMaterialName = 'earthDay'
+        Direction.Coordinates = {000000000000803F0000000000000000}
+        TurnAngle = -150.000000000000000000
+        Up.Coordinates = {00000000000000800000803F00000000}
+        Radius = 0.500000000000000000
+        Slices = 64
+        Stacks = 64
         object diskRingDn: TGLDisk
           Material.Texture.Disabled = False
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
@@ -366,6 +372,22 @@ object FormLitosfera: TFormLitosfera
           Slices = 64
           SweepAngle = 360.000000000000000000
         end
+        object sfCore: TGLSphere
+          Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+          Radius = 0.200000002980232200
+          Slices = 64
+        end
+      end
+      object actorPlanet: TGLActor
+        Interval = 100
+      end
+      object freePlanet: TGLFreeForm
+        Material.MaterialLibrary = MatLib
+        Direction.Coordinates = {00000000000080BF0000000000000000}
+        Up.Coordinates = {00000000000000000000803F00000000}
+        Visible = False
+        MaterialLibrary = MatLib
         object dcMoon: TGLDummyCube
           Up.Coordinates = {FC9D7FB10000803F0000000000000000}
           CubeSize = 1.000000000000000000
@@ -381,26 +403,6 @@ object FormLitosfera: TFormLitosfera
             Slices = 32
             Stacks = 32
           end
-        end
-      end
-      object spherePlanet: TGLSphere
-        Material.LibMaterialName = 'earthDay'
-        Direction.Coordinates = {000000000000803F0000000000000000}
-        TurnAngle = -150.000000000000000000
-        Up.Coordinates = {00000000000000800000803F00000000}
-        Visible = False
-        Radius = 0.500000000000000000
-        Slices = 64
-        Stacks = 64
-        object sfCore: TGLSphere
-          Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
-          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-          Radius = 0.200000002980232200
-          Slices = 64
-        end
-        object Atmosphere: TGLAtmosphere
-          Sun = LightStar
-          Visible = False
         end
       end
       object DirectOpenGL: TGLDirectOpenGL
@@ -88795,9 +88797,5 @@ object FormLitosfera: TFormLitosfera
   object SaveDialog: TSaveDialog
     Left = 313
     Top = 299
-  end
-  object MainMenu1: TMainMenu
-    Left = 924
-    Top = 79
   end
 end

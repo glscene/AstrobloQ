@@ -108,7 +108,7 @@ type
     Atmosphere: TGLAtmosphere;
     PlanetSkyDome: TGLEarthSkyDome;
     diskMantle: TGLDisk;
-    ffPlanet: TGLFreeForm;
+    freePlanet: TGLFreeForm;
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
@@ -133,7 +133,6 @@ type
     N1: TMenuItem;
     miMonitor: TMenuItem;
     miExosystemCreator: TMenuItem;
-    MainMenu1: TMainMenu;
     actorPlanet: TGLActor;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
@@ -195,9 +194,9 @@ var
 
 const
   cOpacity: Single = 5;
-  // unrealistic thick atmospheres look better :)
+  // более толстая астмосфера выглядит лучше :)
   cAtmosphereRadius: Single = 0.55;
-  // use value slightly lower than actual radius, for antialiasing effect
+  // берётся чуть меньший радиус для устранения эффекта наложения линий
   cPlanetRadius: Single = 0.495;
   cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
   cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
@@ -229,6 +228,7 @@ begin
 
   // путь к звёздному каталогу Гиппарха или Hyg
   CatalogName := DataDir + '\catalog\hipparcos.stars';
+  // более полный каталог звёзд обзора Gaia имеет большой объём
 //  CatalogName := DataDir + '\catalog\gaia_dr3.stars';
 
   // загрузка каталога в скайдом
@@ -240,18 +240,19 @@ begin
     StarSkyDome.StructureChanged;
   end;
 
-  // смена текущего директория на звезду sun
+  // смена текущего директория на нашу звезду sun
   if DirectoryExists('star\sun') then
         ChDir('star\sun');
   CurrentStar := DataDir + '\star\sun\';
 
   // разрешение текстурирования и наложения карт
   spherePlanet.Material.Texture.Disabled := False;
-  ffPlanet.Material.Texture.Disabled := False;
-  actorPlanet.Material.Texture.Disabled := False;
+  spherePlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 
-// ffPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
-//  spherePlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+  freePlanet.Material.Texture.Disabled := False;
+  freePlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+
+  actorPlanet.Material.Texture.Disabled := False;
 {}
   Atmosphere.PlanetRadius := spherePlanet.Radius;
   Atmosphere.AtmosphereRadius := spherePlanet.Radius + 0.05;
@@ -284,14 +285,14 @@ begin
   begin
     miShowHidePlanet.Caption := 'Показать планету';
     spherePlanet.Visible := False;
-    ffPlanet.Visible := False;
+    freePlanet.Visible := False;
     DirectOpenGL.Visible := False;
   end
   else
   begin
     miShowHidePlanet.Caption := 'Скрыть планету';
     spherePlanet.Visible := True;
-    ffPlanet.Visible := True;
+    freePlanet.Visible := True;
     DirectOpenGL.Visible := True;
   end;
 end;
@@ -354,7 +355,7 @@ end;
 
 
 //------------------------------------------------------------------
-//                          tvPlanetsClick
+//   Выбор узла дерева tvPlanetsClick
 //------------------------------------------------------------------
 procedure TFormLitosfera.tvPlanetsClick(Sender: TObject);
 begin
@@ -363,35 +364,37 @@ begin
 //  В случае загрузки текстурной карты из компонента коллекции
 //  tvPlanets.Images := dfImages.ImgVirtPlanets;
 
-  // Выбор сферической планеты planet.3ds типа TGLFreeForm
+  // Выбор и загрузка модели сферической планеты planet.3ds
   if tvPlanets.Selected.StateIndex = -1 then
   begin
-    ffPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
-    ffPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+    spherePlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+
+    freePlanet.LoadFromFile(DataDir + 'model\planet.3ds');
+    freePlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
 
     actorPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
     actorPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
 
-    // изменить масштаб отображения планеты
-    actorPlanet.Scale.X := 12.0;
-    actorPlanet.Scale.Y := 12.0;
-    actorPlanet.Scale.Z := 12.0;
+    // изменяем масштаб отображения планеты
+    actorPlanet.Scale.Scale(1.0);
 
-
-    // spherePlanet.Visible := True;
-    ffPlanet.Visible := True;
+    spherePlanet.Visible := True;
+    freePlanet.Visible := True;
     actorPlanet.Visible := True;
   end
   else  // StateIndex = 1
-  // Выбор планетоида или астероида типа TGLFreeForm
+  // Выбор и загрузка модели планетоида произвольной формы
   begin
-    ffPlanet.LoadFromFile(FileName + '.3ds');
-    // уменьшение масштаба
-    ffPlanet.Scale.X := 0.01; ffPlanet.Scale.Y := 0.01; ffPlanet.Scale.Z := 0.01;
     spherePlanet.Visible := False;
-    ffPlanet.Visible := True;
-    ffPlanet.Material.Texture.Disabled := False;
-    ffPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+
+    freePlanet.LoadFromFile(FileName + '.3ds');
+    // уменьшение масштаба
+    freePlanet.Scale.Scale(0.1);
+    Camera.TagObject := freePlanet;
+
+    freePlanet.Visible := True;
+    freePlanet.Material.Texture.Disabled := False;
+    freePlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
   end;
 
  (*
@@ -736,20 +739,21 @@ begin
   if FormSettings.chbRotate.Checked then
   begin
     spherePlanet.TurnAngle := spherePlanet.TurnAngle + deltaTime * TimeMultiplier;
-    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    freePlanet.TurnAngle := freePlanet.TurnAngle + deltaTime * TimeMultiplier;
   end;
 
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
- /// LSSun.Position.AsAffineVector := p;      //stop sun motion
+ /// LSSun.Position.AsAffineVector := p;   //стоп движения солнца
 
-  // make moon rotate on itself and around earth (not sure about the rotation direction!)
+  // создание вращения Луны вокруг себя и вокруг Земли
+  // направление вращения можно изменить!
   p := ComputePlanetPosition(cMoonOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   Moon.TurnAngle := 180 - dcMoon.TurnAngle;
 
-  // honour camera movements
+  // обработка перемещения камеры
   if (dmy <> 0) or (dmx <> 0) then
   begin
     CameraControler.MoveAroundTarget(ClampValue(dmy * 0.3, -5, 5),
@@ -784,7 +788,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Присвоение экранных координат мышке при нажатии правой кнопки
+// Присвоение экранных координат при нажатии правой кнопки мышки
 //------------------------------------------------------------------
 procedure TFormLitosfera.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -818,14 +822,12 @@ procedure TFormLitosfera.FormMouseWheel(Sender: TObject; Shift: TShiftState;
 var
   f: Single;
 begin
-
   if (WheelDelta > 0) or (CameraControler.Position.VectorLength > 0.90) then
   begin
     f := Power(1.05, WheelDelta * (1 / 120));
     CameraControler.AdjustDistanceToTarget(f);
   end;
   Handled := True;
-
 end;
 
 
@@ -849,7 +851,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// DblClick to ShowHide Panels
+// Двойной щелчок мыши скрывает панели
 //------------------------------------------------------------------
 procedure TFormLitosfera.SceneViewerDblClick(Sender: TObject);
 begin
@@ -868,7 +870,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// LoadHighResTexture
+// Загрузка текстурной карты более высокого разрешения
 //------------------------------------------------------------------
 procedure TFormLitosfera.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
@@ -886,15 +888,14 @@ procedure TFormLitosfera.FormKeyPress(Sender: TObject; var Key: Char);
 
 begin
   case Key of
-    'e', 'E':    // Planet
+    'e', 'E': // планета
       begin
         Camera.MoveTo(dcStar);
         CameraControler.MoveTo(dcStar);
         Camera.TargetObject := dcStar;
         CameraControler.TargetObject := dcStar;
       end;
-
-    'h':
+    'h':  // высокое разрешение
       if not highResResourcesLoaded then
       begin
         SceneViewer.Cursor := crHourGlass;
@@ -922,12 +923,11 @@ end;
 procedure TFormLitosfera.TimerTimer(Sender: TObject);
 begin
 //  Caption := Format('Geosfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
-   StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
+  StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
 //------------------------------------------------------------------
-
 procedure TFormLitosfera.miSolarSystemClick(Sender: TObject);
 begin
   with TFormSolarSys.Create(Self) do
@@ -950,6 +950,7 @@ end;
 
 procedure TFormLitosfera.miFileNewClick(Sender: TObject);
 begin
+  //
 end;
 
 
@@ -996,11 +997,11 @@ begin
   OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
-  begin
+  begin  // переход к новой звезде Star
     tvPlanets.LoadFromFile(OpenDialog.FileName);
-    tvPlanets.Images := dfImages.ImgVirtPlanets;
+    // tvPlanets.Images := dfImages.ImgVirtPlanets; // не загружаются символы
     CurrentStar := ExtractFilePath(OpenDialog.FileName);
-    tvPlanets.Select(tvPlanets.Items[0]);  // goto to new Star
+    tvPlanets.Select(tvPlanets.Items[0]);
     tvPlanetsClick(Sender);
   end;
 end;
@@ -1021,7 +1022,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// miSaveAs exosystem
+// Сохранение системы как exosystem
 //------------------------------------------------------------------
 procedure TFormLitosfera.miFileSaveAsClick(Sender: TObject);
 begin
