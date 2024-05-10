@@ -72,7 +72,7 @@ type
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
-    spherePlanet: TGLSphere;
+    sfPlanet: TGLSphere;
     LightStar: TGLLightSource;
     DirectOpenGL: TGLDirectOpenGL;
     Cadencer: TGLCadencer;
@@ -95,7 +95,6 @@ type
     miFileOpen: TMenuItem;
     Help1: TMenuItem;
     About1: TMenuItem;
-    miInnerCore: TMenuItem;
     PanelLeft: TPanel;
     tvPlanets: TTreeView;
     miOptions: TMenuItem;
@@ -108,7 +107,7 @@ type
     Atmosphere: TGLAtmosphere;
     PlanetSkyDome: TGLEarthSkyDome;
     diskMantle: TGLDisk;
-    freePlanet: TGLFreeForm;
+    ffPlanet: TGLFreeForm;
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
@@ -133,7 +132,8 @@ type
     N1: TMenuItem;
     miMonitor: TMenuItem;
     miExosystemCreator: TMenuItem;
-    actorPlanet: TGLActor;
+    acPlanet: TGLActor;
+    N5: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -153,7 +153,6 @@ type
     procedure miFileOpenClick(Sender: TObject);
     procedure miFileSaveAsClick(Sender: TObject);
     procedure miClearTreeViewClick(Sender: TObject);
-    procedure miInnerCoreClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure miViewHidePanelsClick(Sender: TObject);
@@ -174,7 +173,7 @@ type
     Radius, invAtmosphereHeight: Single;
     eyePos, lightingVector: TGLVector;
     diskNormal, diskRight, diskUp: TGLVector;
-    procedure PlanetSection(AFileName: TFileName);
+    procedure PlanetCore;
   private
     mx, my,
     dmx, dmy: Integer;
@@ -245,17 +244,18 @@ begin
         ChDir('star\sun');
   CurrentStar := DataDir + '\star\sun\';
 
-  // разрешение текстурирования и наложения карт
-  spherePlanet.Material.Texture.Disabled := False;
-  spherePlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+  // планетосфера, разрешение текстурирования и наложения карт
+  sfPlanet.Material.Texture.Disabled := False;
+  sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 
-  freePlanet.Material.Texture.Disabled := False;
-  freePlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+  // планетоглыба
+  acPlanet.Material.Texture.Disabled := False;
+  acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
+  acPlanet.Scale.Scale(0.1);
 
-  actorPlanet.Material.Texture.Disabled := False;
-{}
-  Atmosphere.PlanetRadius := spherePlanet.Radius;
-  Atmosphere.AtmosphereRadius := spherePlanet.Radius + 0.05;
+
+  Atmosphere.PlanetRadius := sfPlanet.Radius;
+  Atmosphere.AtmosphereRadius := sfPlanet.Radius + 0.05;
   Atmosphere.MoveTo(dcStar);
   Atmosphere.Opacity := cOpacity;
 
@@ -268,7 +268,7 @@ begin
   end;
   (**)
   tvPlanets.Select(tvPlanets.Items[3]);  // goto to Earth
-  // tvPlanets.FullExpand;
+  tvPlanets.FullExpand;
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
 
@@ -284,15 +284,15 @@ begin
   if miShowHidePlanet.Checked then
   begin
     miShowHidePlanet.Caption := 'Показать планету';
-    spherePlanet.Visible := False;
-    freePlanet.Visible := False;
+    sfPlanet.Visible := False;
+    ffPlanet.Visible := False;
     DirectOpenGL.Visible := False;
   end
   else
   begin
     miShowHidePlanet.Caption := 'Скрыть планету';
-    spherePlanet.Visible := True;
-    freePlanet.Visible := True;
+    sfPlanet.Visible := True;
+    ffPlanet.Visible := True;
     DirectOpenGL.Visible := True;
   end;
 end;
@@ -301,30 +301,23 @@ end;
 //---------------------------------------------------
 // Показать разрез планеты с корой, мантией и ядром
 //---------------------------------------------------
-procedure TFormLitosfera.PlanetSection(AFileName: TFileName);
+procedure TFormLitosfera.PlanetCore;
 begin
-  if (miInnerCore.Checked or FormSettings.chbPlanetGuts.Checked) then
+  if FormSettings.chbPlanetCore.Checked then
   begin
     FileName := CurrentStar + tvPlanets.Selected.Text;
     if FileExists(FileName + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(FileName + '_core.jpg')
     else
       diskMantle.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
-    spherePlanet.Stop := 180;
+    sfPlanet.Stop := 180;
     Atmosphere.Visible := False;
   end
   else
   begin
-    spherePlanet.Stop := 360;
+    sfPlanet.Stop := 360;
     Atmosphere.Visible := True;
   end;
-end;
-
-// Меню для разреза планеты с ядром
-procedure TFormLitosfera.miInnerCoreClick(Sender: TObject);
-begin
-  miInnerCore.Checked := not miInnerCore.Checked;
-  PlanetSection(FileName);
 end;
 
 //------------------------------------------------------------------
@@ -367,34 +360,24 @@ begin
   // Выбор и загрузка модели сферической планеты planet.3ds
   if tvPlanets.Selected.StateIndex = -1 then
   begin
-    spherePlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+    sfPlanet.Visible := True;
+    sfPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
 
-    freePlanet.LoadFromFile(DataDir + 'model\planet.3ds');
-    freePlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
-
-    actorPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
-    actorPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
-
+    // Aктор модель с поддержкой октодеревьев !
+    acPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
+    acPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
     // изменяем масштаб отображения планеты
-    actorPlanet.Scale.Scale(1.0);
-
-    spherePlanet.Visible := True;
-    freePlanet.Visible := True;
-    actorPlanet.Visible := True;
-  end
+    end
   else  // StateIndex = 1
   // Выбор и загрузка модели планетоида произвольной формы
   begin
-    spherePlanet.Visible := False;
+    sfPlanet.Visible := False;
 
-    freePlanet.LoadFromFile(FileName + '.3ds');
+    acPlanet.LoadFromFile(FileName + '.3ds');
+    acPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
     // уменьшение масштаба
-    freePlanet.Scale.Scale(0.1);
-    Camera.TagObject := freePlanet;
+    Camera.TagObject := acPlanet;
 
-    freePlanet.Visible := True;
-    freePlanet.Material.Texture.Disabled := False;
-    freePlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
   end;
 
  (*
@@ -738,8 +721,8 @@ begin
   // задание вращения вланеты
   if FormSettings.chbRotate.Checked then
   begin
-    spherePlanet.TurnAngle := spherePlanet.TurnAngle + deltaTime * TimeMultiplier;
-    freePlanet.TurnAngle := freePlanet.TurnAngle + deltaTime * TimeMultiplier;
+    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
   end;
 
   p := ComputePlanetPosition(cSunOrbitalElements, d);
@@ -955,7 +938,8 @@ end;
 
 
 //------------------------------------------------------------------
-
+// О программе
+//------------------------------------------------------------------
 procedure TFormLitosfera.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
@@ -967,7 +951,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// miClear tvPlanets
+// Очистить дерево просмотра tvPlanets
 //------------------------------------------------------------------
 procedure TFormLitosfera.miClearTreeViewClick(Sender: TObject);
 begin

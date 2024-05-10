@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -1135,7 +1135,7 @@ object FormSettings: TFormSettings
           end
         end
         object grbPlanetShow: TGroupBox
-          Left = 737
+          Left = 745
           Top = 42
           Width = 258
           Height = 477
@@ -1186,7 +1186,7 @@ object FormSettings: TFormSettings
             TabOrder = 2
             StyleName = 'Windows'
           end
-          object chbPlanetGuts: TCheckBox
+          object chbPlanetCore: TCheckBox
             Left = 60
             Top = 104
             Width = 170
@@ -1198,6 +1198,7 @@ object FormSettings: TFormSettings
             Caption = #1071#1076#1088#1086
             TabOrder = 3
             StyleName = 'Windows'
+            OnClick = chbPlanetCoreClick
           end
           object ButtonGrid: TButton
             Left = 47

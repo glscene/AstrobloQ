@@ -23,7 +23,6 @@ uses
   Vcl.ExtCtrls,
   Vcl.ImgList,
   Vcl.Grids,
-  Vcl.Outline,
   Vcl.Samples.DirOutln,
   Vcl.ColorGrd,
   Vcl.Samples.Gauges,
@@ -113,7 +112,7 @@ type
     chbRotate: TCheckBox;
     chbShowAxes: TCheckBox;
     CheckBox4: TCheckBox;
-    chbPlanetGuts: TCheckBox;
+    chbPlanetCore: TCheckBox;
     ButtonGrid: TButton;
     GroupBox1: TGroupBox;
     nbTilt: TNumberBox;
@@ -166,6 +165,7 @@ type
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
+    procedure chbPlanetCoreClick(Sender: TObject);
   private
     //
   public
@@ -182,10 +182,21 @@ implementation
 
 {$R *.dfm}
 
+uses
+  flLitosfera;
+
 
 procedure TFormSettings.ButtonOKClick(Sender: TObject);
 begin
   Close;
+end;
+
+//
+// Показать сечение планеты с ядром
+//
+procedure TFormSettings.chbPlanetCoreClick(Sender: TObject);
+begin
+  FormLitosfera.PlanetCore;
 end;
 
 procedure TFormSettings.FormCreate(Sender: TObject);

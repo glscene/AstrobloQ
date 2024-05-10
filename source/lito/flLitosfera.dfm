@@ -55,7 +55,6 @@ object FormLitosfera: TFormLitosfera
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 718
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
@@ -163,7 +162,6 @@ object FormLitosfera: TFormLitosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 716
     end
   end
   object StatusBar: TStatusBar
@@ -192,7 +190,6 @@ object FormLitosfera: TFormLitosfera
         Text = 'Z:'
         Width = 151
       end>
-    ExplicitTop = 769
   end
   object ControlBar: TControlBar
     Left = 0
@@ -328,7 +325,7 @@ object FormLitosfera: TFormLitosfera
         Sun = LightStar
         Visible = False
       end
-      object spherePlanet: TGLSphere
+      object sfPlanet: TGLSphere
         Material.LibMaterialName = 'earthDay'
         Direction.Coordinates = {000000000000803F0000000000000000}
         TurnAngle = -150.000000000000000000
@@ -379,15 +376,10 @@ object FormLitosfera: TFormLitosfera
           Slices = 64
         end
       end
-      object actorPlanet: TGLActor
+      object acPlanet: TGLActor
         Interval = 100
-      end
-      object freePlanet: TGLFreeForm
-        Material.MaterialLibrary = MatLib
-        Direction.Coordinates = {00000000000080BF0000000000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
-        Visible = False
         MaterialLibrary = MatLib
+        LightmapLibrary = MatLib
         object dcMoon: TGLDummyCube
           Up.Coordinates = {FC9D7FB10000803F0000000000000000}
           CubeSize = 1.000000000000000000
@@ -404,6 +396,13 @@ object FormLitosfera: TFormLitosfera
             Stacks = 32
           end
         end
+      end
+      object ffPlanet: TGLFreeForm
+        Material.MaterialLibrary = MatLib
+        Direction.Coordinates = {00000000000080BF0000000000000000}
+        Up.Coordinates = {00000000000000000000803F00000000}
+        Visible = False
+        MaterialLibrary = MatLib
       end
       object DirectOpenGL: TGLDirectOpenGL
         Visible = False
@@ -88732,16 +88731,12 @@ object FormLitosfera: TFormLitosfera
       object N6: TMenuItem
         Caption = '-'
       end
-      object miInnerCore: TMenuItem
-        Caption = #1071#1076#1088#1086' '
-        OnClick = miInnerCoreClick
-      end
       object miPlanetSkyDome: TMenuItem
         Caption = #1053#1077#1073#1086#1089#1074#1086#1076
         OnClick = miPlanetSkyDomeClick
       end
       object NightLights1: TMenuItem
-        Caption = 'Night Lights'
+        Caption = #1054#1075#1085#1080' '#1075#1086#1088#1086#1076#1086#1074
       end
     end
     object miMonitor: TMenuItem
@@ -88757,6 +88752,9 @@ object FormLitosfera: TFormLitosfera
       object N1: TMenuItem
         Caption = '-'
       end
+    end
+    object N5: TMenuItem
+      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090
       object miExosystemCreator: TMenuItem
         Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1087#1083#1072#1085#1077#1090#1085#1086#1081' '#1089#1080#1089#1090#1077#1084#1099'...'
         OnClick = miExosystemCreatorClick
@@ -88772,7 +88770,7 @@ object FormLitosfera: TFormLitosfera
     object Help1: TMenuItem
       Caption = '&'#1057#1087#1088#1072#1074#1082#1072
       object miHelpWiki: TMenuItem
-        Caption = #1056#1091#1074#1080#1082#1080'...'
+        Caption = #1042#1080#1082#1080'...'
         Hint = 'Information'
         ShortCut = 112
         OnClick = miHelpWikiClick

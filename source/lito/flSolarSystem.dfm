@@ -114,7 +114,6 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     inline FrameParams: TFrameParams
       Left = 1
