@@ -88746,7 +88746,7 @@ object FormLitosfera: TFormLitosfera
         OnClick = miSolarSystemClick
       end
       object miPlanetSystem: TMenuItem
-        Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        Caption = #1048#1085#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miPlanetSystemClick
       end
       object N1: TMenuItem
@@ -88756,7 +88756,7 @@ object FormLitosfera: TFormLitosfera
     object N5: TMenuItem
       Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090
       object miExosystemCreator: TMenuItem
-        Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1087#1083#1072#1085#1077#1090#1085#1086#1081' '#1089#1080#1089#1090#1077#1084#1099'...'
+        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
         OnClick = miExosystemCreatorClick
       end
     end

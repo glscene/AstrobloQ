@@ -160,12 +160,18 @@ type
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
+    chbAtmosfera: TCheckBox;
+    GroupBox2: TGroupBox;
+    chbConstFigures: TCheckBox;
+    chbConstLines: TCheckBox;
+    chbConstBounds: TCheckBox;
     procedure tvSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
     procedure chbPlanetCoreClick(Sender: TObject);
+    procedure chbAtmosferaClick(Sender: TObject);
   private
     //
   public
@@ -194,6 +200,11 @@ end;
 //
 // Показать сечение планеты с ядром
 //
+procedure TFormSettings.chbAtmosferaClick(Sender: TObject);
+begin
+ //FormLitosfera.Atmosphere;
+end;
+
 procedure TFormSettings.chbPlanetCoreClick(Sender: TObject);
 begin
   FormLitosfera.PlanetCore;
@@ -216,6 +227,7 @@ begin
 //  Nodes := TTreeNodes.Create (tvSettings);
 //  Node := TTreeNode.Create (Nodes);
 //  Node := nil;
+
   // Заполнение индексов узлов дерева установок
   for I := 0 to tvSettings.Items.Count - 1 do
   begin
@@ -223,12 +235,11 @@ begin
     tvSettings.Items[I].SelectedIndex := 1;
     tvSettings.Items[I].StateIndex := I;
   end;
-  tvSettings.Items[4].Selected := True; // 4 - Галактика
-  tvSettings.Items[4].Focused := True;
-  tvSettings.Items[4].DropHighlighted := True;
+  // 4 - Галактика 5 - Звёзды 6 - Планеты
+  tvSettings.Select(tvSettings.Items[6]);
   tvSettings.FullExpand;
+  tvSettings.Items[6].DropHighlighted := True;
 
-  tvSettingsClick(Sender);
   trbVelocityChange(Self);
 end;
 
@@ -273,6 +284,7 @@ end;
 
 procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin
+  tvSettings.Items[6].DropHighlighted := False;
   case tvSettings.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
      1: PageControl.ActivePage := tsInterface;
@@ -283,7 +295,6 @@ begin
      6: PageControl.ActivePage := tsPlanets;
      7: PageControl.ActivePage := tsFlights;
   end;
-  PageControl.ActivePage.Repaint;
 end;
 
 end.

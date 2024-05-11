@@ -64,7 +64,7 @@ uses
   fAbout,
   fSettings,
 
-  flNewLitosystem, GLS.Mesh;
+  flNewLitosystem;
 
 
 type
@@ -113,7 +113,6 @@ type
     diskRingDn: TGLDisk;
     miViewHidePanels: TMenuItem;
     miShowHidePlanet: TMenuItem;
-    miGoogleEarth: TMenuItem;
     N3: TMenuItem;
     miPlanetSkyDome: TMenuItem;
     StatusBar: TStatusBar;
@@ -134,6 +133,7 @@ type
     miExosystemCreator: TMenuItem;
     acPlanet: TGLActor;
     N5: TMenuItem;
+    miGoogleEarth: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -157,13 +157,12 @@ type
     procedure About1Click(Sender: TObject);
     procedure miViewHidePanelsClick(Sender: TObject);
     procedure miShowHidePlanetClick(Sender: TObject);
-    procedure miGoogleEarthClick(Sender: TObject);
     procedure miPlanetSkyDomeClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
     procedure miPlanetSystemClick(Sender: TObject);
-    procedure miFileNewClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miExosystemCreatorClick(Sender: TObject);
+    procedure miGoogleEarthClick(Sender: TObject);
   public
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
@@ -253,12 +252,6 @@ begin
   acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
   acPlanet.Scale.Scale(0.1);
 
-
-  Atmosphere.PlanetRadius := sfPlanet.Radius;
-  Atmosphere.AtmosphereRadius := sfPlanet.Radius + 0.05;
-  Atmosphere.MoveTo(dcStar);
-  Atmosphere.Opacity := cOpacity;
-
   // Заполнение индексов узлов дерева планет
   for I := 0 to tvPlanets.Items.Count - 1 do
   begin
@@ -276,7 +269,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Show Planet
+// Показать или скрыть планету
 //------------------------------------------------------------------
 procedure TFormLitosfera.miShowHidePlanetClick(Sender: TObject);
 begin
@@ -407,7 +400,7 @@ begin
 
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' в ' + 'Рувики...';
 
-  // Атмосферы планет - planet rings
+  // Земная атмосфера
   if (tvPlanets.Selected.Text = 'Earth') then
     DirectOpenGL.Visible := True
   else
@@ -534,7 +527,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Atmosphere with DirectOpenGLRender
+// Рендер атмосферы DirectOpenGLRender
 //------------------------------------------------------------------
 procedure TFormLitosfera.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
@@ -865,7 +858,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// FormKeyPress
+// Обработка нажатия клавиш
 //------------------------------------------------------------------
 procedure TFormLitosfera.FormKeyPress(Sender: TObject; var Key: Char);
 
@@ -910,6 +903,9 @@ begin
   SceneViewer.ResetPerformanceMonitor;
 end;
 
+
+//------------------------------------------------------------------
+// Вся солнечная система с движением планет по орбитам
 //------------------------------------------------------------------
 procedure TFormLitosfera.miSolarSystemClick(Sender: TObject);
 begin
@@ -929,11 +925,6 @@ begin
     finally
       Free;
     end;
-end;
-
-procedure TFormLitosfera.miFileNewClick(Sender: TObject);
-begin
-  //
 end;
 
 
@@ -958,20 +949,6 @@ begin
   tvPlanets.Items.Clear;
 end;
 
-procedure TFormLitosfera.miHelpWikiClick(Sender: TObject);
-var
-  S: String;
-begin
-  if (tvPlanets.Selected.Level = 0)   then
-    // Planets or Asteroids, sometimes with S + '_(planet)' like for ../Mercury_(planet)
-    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
-  else
-    // Moons
-    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
-  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-end;
-
-
 //------------------------------------------------------------------
 //  miOpenFile with exoplanets
 //------------------------------------------------------------------
@@ -993,15 +970,6 @@ end;
 //------------------------------------------------------------------
 procedure TFormLitosfera.miSettingsClick(Sender: TObject);
 begin
-(* // for ShowModal move FormSettings to right panel
-   // in project Forms options
-  with TFormSettings.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
   FormSettings.Show;
 end;
 
@@ -1022,7 +990,24 @@ end;
 
 
 //------------------------------------------------------------------
-// miGoogleEarth
+// Справка в вики
+//------------------------------------------------------------------
+procedure TFormLitosfera.miHelpWikiClick(Sender: TObject);
+var
+  S: String;
+begin
+  // сделать переход с Вики на Рувики
+  if (tvPlanets.Selected.Level = 0)   then
+    // Планеты или астероиды, иногда S + '_(planet)' like for ../Mercury_(planet)
+    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
+  else
+    // Луны
+    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
+  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+end;
+
+//------------------------------------------------------------------
+// Запуск программы GoogleEarth
 //------------------------------------------------------------------
 procedure TFormLitosfera.miGoogleEarthClick(Sender: TObject);
 var
@@ -1031,6 +1016,7 @@ begin
   S := 'https://earth.google.com/';
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
 end;
+
 
 //------------------------------------------------------------------
 

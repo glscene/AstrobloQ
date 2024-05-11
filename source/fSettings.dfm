@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPlanets
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -934,8 +934,8 @@ object FormSettings: TFormSettings
           1008
           668)
         object ColorGrid1: TColorGrid
-          Left = 406
-          Top = 100
+          Left = 546
+          Top = 324
           Width = 172
           Height = 172
           Margins.Left = 5
@@ -945,15 +945,16 @@ object FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 117
-          Top = 100
+          Left = 229
+          Top = 324
           Width = 182
-          Height = 198
+          Height = 223
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Anchors = [akTop, akRight]
+          Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = 26
@@ -961,17 +962,65 @@ object FormSettings: TFormSettings
           Font.Style = []
           ItemHeight = 30
           Items.Strings = (
-            '"O"'
-            '"A"'
-            '"B"'
-            '"F"'
-            '"G"'
-            '"K"'
-            '"M"')
+            'O'
+            'B'
+            'A'
+            'F'
+            'G'
+            'K'
+            'M')
           ParentFont = False
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
+        end
+        object GroupBox2: TGroupBox
+          Left = 56
+          Top = 42
+          Width = 253
+          Height = 183
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1086#1079#1074#1077#1079#1076#1080#1103
+          TabOrder = 2
+          object chbConstFigures: TCheckBox
+            Left = 45
+            Top = 120
+            Width = 138
+            Height = 29
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1060#1080#1075#1091#1088#1099
+            TabOrder = 0
+          end
+          object chbConstLines: TCheckBox
+            Left = 45
+            Top = 42
+            Width = 138
+            Height = 29
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1051#1080#1085#1080#1080
+            TabOrder = 1
+          end
+          object chbConstBounds: TCheckBox
+            Left = 45
+            Top = 81
+            Width = 138
+            Height = 29
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1043#1088#1072#1085#1080#1094#1099
+            TabOrder = 2
+          end
         end
       end
       object tsPlanets: TTabSheet
@@ -1161,8 +1210,8 @@ object FormSettings: TFormSettings
             StyleName = 'Windows'
           end
           object chbShowAxes: TCheckBox
-            Left = 83
-            Top = 225
+            Left = 55
+            Top = 277
             Width = 133
             Height = 29
             Margins.Left = 5
@@ -1175,7 +1224,7 @@ object FormSettings: TFormSettings
           end
           object CheckBox4: TCheckBox
             Left = 47
-            Top = 284
+            Top = 340
             Width = 183
             Height = 29
             Margins.Left = 5
@@ -1202,7 +1251,7 @@ object FormSettings: TFormSettings
           end
           object ButtonGrid: TButton
             Left = 47
-            Top = 165
+            Top = 401
             Width = 178
             Height = 43
             Margins.Left = 5
@@ -1211,6 +1260,20 @@ object FormSettings: TFormSettings
             Margins.Bottom = 5
             Caption = #1057#1077#1090#1082#1072
             TabOrder = 4
+          end
+          object chbAtmosfera: TCheckBox
+            Left = 55
+            Top = 165
+            Width = 156
+            Height = 29
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
+            TabOrder = 5
+            StyleName = 'Windows'
+            OnClick = chbAtmosferaClick
           end
         end
         object GroupBox1: TGroupBox
@@ -1523,8 +1586,9 @@ object FormSettings: TFormSettings
         object rgUnits: TRadioGroup
           Left = 639
           Top = 42
-          Width = 188
-          Height = 172
+          Width = 342
+          Height = 296
+          Hint = 'https://ru.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1532,9 +1596,13 @@ object FormSettings: TFormSettings
           Caption = #1045#1076#1080#1085#1080#1094#1099
           ItemIndex = 0
           Items.Strings = (
-            #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076
-            #1055#1072#1088#1089#1077#1082
-            #1050#1080#1083#1086#1087#1072#1088#1089#1077#1082)
+            #1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103' - '#1072'.'#1077'., au'
+            #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076' - '#1089'.'#1075'., ly '
+            #1050#1080#1083#1086#1089#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076' - '#1082'.'#1089'.'#1075'., kly'
+            #1055#1072#1088#1089#1077#1082' - '#1087#1082', pc'
+            #1050#1080#1083#1086#1087#1072#1088#1089#1077#1082' - '#1082#1087#1082', kpc')
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 1
         end
         object SpinEditPrecision: TSpinEdit
