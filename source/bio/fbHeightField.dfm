@@ -6,7 +6,7 @@ object FormHeightField: TFormHeightField
   Margins.Right = 4
   Margins.Bottom = 4
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = 'Heat Field'
+  Caption = #1058#1077#1087#1083#1086#1074#1086#1077' '#1087#1086#1083#1077
   ClientHeight = 524
   ClientWidth = 904
   Color = clBtnFace
@@ -76,15 +76,15 @@ object FormHeightField: TFormHeightField
       BevelOuter = bvNone
       TabOrder = 0
       object btnRun: TBitBtn
-        Left = 14
-        Top = 7
+        Left = 5
+        Top = 11
         Width = 132
         Height = 43
         Margins.Left = 6
         Margins.Top = 6
         Margins.Right = 6
         Margins.Bottom = 6
-        Caption = 'Close'
+        Caption = #1047#1072#1082#1088#1099#1090#1100
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -115,16 +115,16 @@ object FormHeightField: TFormHeightField
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Axis'
+      Caption = #1054#1089#1080
       Checked = True
       State = cbChecked
       TabOrder = 2
       OnClick = cbAxisClick
     end
     object tbAlpha: TTrackBar
-      Left = 571
+      Left = 630
       Top = 7
-      Width = 172
+      Width = 113
       Height = 43
       Margins.Left = 6
       Margins.Top = 6
@@ -159,15 +159,15 @@ object FormHeightField: TFormHeightField
         'None')
     end
     object cbLighting: TCheckBox
-      Left = 196
-      Top = 14
+      Left = 202
+      Top = 12
       Width = 85
       Height = 29
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Light'
+      Caption = #1057#1074#1077#1090
       Checked = True
       State = cbChecked
       TabOrder = 5

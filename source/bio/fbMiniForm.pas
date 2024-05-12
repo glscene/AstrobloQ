@@ -28,7 +28,7 @@ type
   TMinimizeEvent = procedure(Sender: TObject; var state: TMiniState) of object;
 
 type
-  TMiniForm = class(TForm) // derived from TForm
+  TMiniForm = class(TForm)
   private
     FOnMinimize: TMinimizeEvent;
     FOnMaximize: TMinimizeEvent;

@@ -6,7 +6,7 @@ object FormPopulations: TFormPopulations
   Margins.Right = 4
   Margins.Bottom = 4
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = 'Populations'
+  Caption = #1053#1072#1089#1077#1083#1077#1085#1080#1077
   ClientHeight = 582
   ClientWidth = 780
   Color = clBtnFace
@@ -112,7 +112,7 @@ object FormPopulations: TFormPopulations
         Margins.Top = 6
         Margins.Right = 6
         Margins.Bottom = 6
-        Caption = 'Close'
+        Caption = #1047#1072#1082#1088#1099#1090#1100
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0

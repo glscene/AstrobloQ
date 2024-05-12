@@ -7,7 +7,7 @@ object FormEvents: TFormEvents
   Margins.Bottom = 5
   Align = alRight
   BorderIcons = [biSystemMenu]
-  Caption = 'Events'
+  Caption = #1057#1086#1073#1099#1090#1080#1103
   ClientHeight = 775
   ClientWidth = 502
   Color = clBtnFace

@@ -6,7 +6,7 @@ object fmConstruction: TfmConstruction
   Margins.Right = 4
   Margins.Bottom = 4
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = 'Construction'
+  Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1094#1080#1103
   ClientHeight = 776
   ClientWidth = 708
   Color = clBtnFace

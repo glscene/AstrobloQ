@@ -30,10 +30,8 @@ type
     labDate: TLabel;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
     rePhilosophy: TRichEdit;
-    reHistory: TRichEdit;
     redIntro: TRichEdit;
     TabSheet4: TTabSheet;
     RichEdit3: TRichEdit;

@@ -8,7 +8,7 @@ object FormManager: TFormManager
   Align = alLeft
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Views'
+  Caption = #1052#1086#1085#1080#1090#1086#1088#1099
   ClientHeight = 928
   ClientWidth = 270
   Color = clBtnFace
@@ -48,7 +48,7 @@ object FormManager: TFormManager
       Margins.Bottom = 5
       Align = alTop
       BevelOuter = bvLowered
-      Caption = 'Reality'
+      Caption = #1056#1077#1072#1083#1100#1085#1086#1089#1090#1100
       Color = clActiveBorder
       TabOrder = 0
     end
@@ -63,10 +63,9 @@ object FormManager: TFormManager
       Margins.Bottom = 5
       Align = alClient
       ButtonHeight = 30
-      ButtonWidth = 200
+      ButtonWidth = 185
       Caption = 'ToolBar1'
       EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-      Images = fmImages.imgIcons
       List = True
       ShowCaptions = True
       TabOrder = 1
@@ -94,7 +93,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Space'
+        Caption = #1050#1086#1089#1084#1086#1089
         ImageIndex = 63
         ParentShowHint = False
         Wrap = True
@@ -109,7 +108,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Populations'
+        Caption = #1053#1072#1089#1077#1083#1077#1085#1080#1077
         ImageIndex = 117
         Wrap = True
         Style = tbsCheck
@@ -122,7 +121,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Temperature'
+        Caption = #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1072
         ImageIndex = 77
         Wrap = True
         Style = tbsCheck
@@ -135,7 +134,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Humidity'
+        Caption = #1042#1083#1072#1078#1085#1086#1089#1090#1100
         ImageIndex = 57
         Wrap = True
         Style = tbsCheck
@@ -148,7 +147,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Construction'
+        Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1094#1080#1103
         ImageIndex = 40
         Wrap = True
         Style = tbsCheck
@@ -162,7 +161,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Lists'
+        Caption = #1057#1087#1080#1089#1082#1080
         ImageIndex = 26
         ParentShowHint = False
         Wrap = True
@@ -178,7 +177,7 @@ object FormManager: TFormManager
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Events'
+        Caption = #1057#1086#1073#1099#1090#1080#1103
         ImageIndex = 30
         ParentShowHint = False
         ShowHint = True
@@ -229,7 +228,6 @@ object FormManager: TFormManager
       ButtonWidth = 75
       Caption = 'tbSpirits'
       EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-      Images = fmImages.imgIcons
       List = True
       ShowCaptions = True
       TabOrder = 1

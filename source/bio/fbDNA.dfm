@@ -41,7 +41,7 @@ object FormDNA: TFormDNA
       Margins.Bottom = 6
       Align = alLeft
       BevelOuter = bvNone
-      Caption = 'Creature:'
+      Caption = #1054#1088#1075#1072#1085#1080#1079#1084
       TabOrder = 0
     end
     object panID: TPanel
@@ -83,7 +83,7 @@ object FormDNA: TFormDNA
       Margins.Bottom = 6
       Align = alLeft
       BevelOuter = bvNone
-      Caption = 'Mutation:'
+      Caption = #1052#1091#1090#1072#1094#1080#1103
       TabOrder = 0
     end
   end
@@ -318,13 +318,13 @@ object FormDNA: TFormDNA
     object btnLoadDNA: TBitBtn
       Left = 18
       Top = 11
-      Width = 191
+      Width = 235
       Height = 44
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Load DNA File'
+      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1092#1072#1081#1083' DNA'
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
         04000000000000010000130B0000130B00001000000000000000000000000000
@@ -343,15 +343,15 @@ object FormDNA: TFormDNA
       OnClick = LoadDNA1Click
     end
     object btnSaveDNA: TBitBtn
-      Left = 224
-      Top = 11
-      Width = 195
+      Left = 420
+      Top = 16
+      Width = 238
       Height = 44
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = 'Save DNA File'
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083' DNA'
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
         04000000000000010000130B0000130B00001000000000000000000000000000
@@ -371,24 +371,24 @@ object FormDNA: TFormDNA
     end
   end
   object OpenDNADialog: TOpenDialog
-    Left = 120
-    Top = 5
+    Left = 358
+    Top = 103
   end
   object SaveDNADialog: TSaveDialog
-    Left = 88
+    Left = 354
     Top = 5
   end
   object MainMenu1: TMainMenu
-    Left = 152
+    Left = 460
     Top = 6
     object File1: TMenuItem
-      Caption = '&File'
+      Caption = '&'#1060#1072#1081#1083
       object LoadDNA1: TMenuItem
-        Caption = '&Load DNA'
+        Caption = '&'#1047#1072#1075#1088#1091#1079#1080#1090#1100' DNA'
         OnClick = LoadDNA1Click
       end
       object SaveDNA1: TMenuItem
-        Caption = '&Save DNA'
+        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100' DNA'
         OnClick = SaveDNA1Click
       end
     end

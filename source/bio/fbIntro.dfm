@@ -53,7 +53,7 @@ object FormIntro: TFormIntro
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alTop
-    Caption = 'BioSphere'
+    Caption = 'Biosfera'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
     Font.Height = -28

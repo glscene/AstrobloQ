@@ -5,7 +5,7 @@ object FormCreatingGalaxy: TFormCreatingGalaxy
   Margins.Top = 4
   Margins.Right = 4
   Margins.Bottom = 4
-  Caption = 'Creating Galaxy'
+  Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1043#1072#1083#1072#1082#1090#1080#1082#1080
   ClientHeight = 515
   ClientWidth = 708
   Color = clBtnFace

@@ -1,4 +1,4 @@
-object fmImages: TfmImages
+object FormImages: TFormImages
   Left = 950
   Top = 511
   Margins.Left = 4

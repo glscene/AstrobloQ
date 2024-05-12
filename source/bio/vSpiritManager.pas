@@ -100,7 +100,7 @@ begin
   SpiritForm.SpiritHolder := self;
   SpiritForm.Target.AssignTarget(Thing);
   // assign icon to form
-  fmImages.imgIcons.GetIcon(ThingImageIndex(Thing.Kind), SpiritForm.Icon);
+  FormImages.imgIcons.GetIcon(ThingImageIndex(Thing.Kind), SpiritForm.Icon);
 end;
 
 procedure TSpiritHolder.CreateSpiritButton(aSpiritBar: TToolBar);

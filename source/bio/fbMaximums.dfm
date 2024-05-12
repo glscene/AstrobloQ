@@ -5,7 +5,7 @@ object FormMaximums: TFormMaximums
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Maximums'
+  Caption = #1052#1072#1082#1089#1080#1084#1091#1084
   ClientHeight = 886
   ClientWidth = 788
   Color = clBtnFace

@@ -94,6 +94,6 @@ begin
   Application.Title := 'BioSphere';
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfmSplash, fmSplash);
-  Application.CreateForm(TfmImages, fmImages);
+  Application.CreateForm(TFormImages, FormImages);
   Application.Run;
 end.

@@ -16,7 +16,7 @@ uses
   System.ImageList;
 
 type
-  TfmImages = class(TForm)
+  TFormImages = class(TForm)
     panImages: TPanel;
     imgIcons: TImageList;
   private
@@ -26,7 +26,7 @@ type
   end;
 
 var
-  fmImages: TfmImages;
+  FormImages: TFormImages;
 
 implementation
 

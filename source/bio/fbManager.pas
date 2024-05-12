@@ -197,7 +197,7 @@ procedure TFormManager.BigHide;
 begin
   SpaceForm.Hide;
   EventsForm.Hide;
-  fmImages.Hide;
+  FormImages.Hide;
   SpiritWindows.HideAll;
   if Assigned(fListsForm) then
     ListsForm.Hide;
