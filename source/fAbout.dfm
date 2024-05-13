@@ -29,7 +29,7 @@ object FormAbout: TFormAbout
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'AstrobloQ'
+    Caption = 'Terra Planets'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70
@@ -37,6 +37,7 @@ object FormAbout: TFormAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitTop = -10
   end
   object PageControl: TPageControl
     Left = 0

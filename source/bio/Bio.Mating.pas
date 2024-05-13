@@ -1,7 +1,7 @@
 unit Bio.Mating;
 (*
-  A mating creature can be reproduced with another creature of the same kind
-  Must be in a community
+  Для спаривания живого организма с другим организмом того же вида
+  Они должны быть в одном сообществе, комьюнити
 *)
 interface
 
@@ -28,8 +28,8 @@ type
 // ============================================================================
 AIMatingCreature = class(AICommunityCreature)
 private
-  fPartner: AILink; // potential partner to reproduce with
-  fFemale: boolean; // true if girl, false if guy
+  fPartner: AILink; // потенциальный репродуктивный партнёр
+  fFemale: boolean; // true для жен, false для муж пола
   fStage: integer;  // stage of sexual reproduction
   fMatingTimer: integer; // timer to delay mating
 protected
@@ -149,7 +149,7 @@ begin
     exit;
   end;
 
-  // look for a partner
+  // Поиск партнёра
   if not Partner.ValidTarget then
     FindMate
   else
@@ -224,12 +224,12 @@ procedure AIMatingCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
-  aList.Add('Partner: ' + Partner.OneLineDisplayRight);
-  aList.Add('Female/Male: ' + BoolToGender(fFemale));
+  aList.Add('Партнёр: ' + Partner.OneLineDisplayRight);
+  aList.Add('Самка/Самец: ' + BoolToGender(fFemale));
   case fStage of
-    cCreatureBaby:  aList.Add('Stage: Baby');
-    cCreatureAdult: aList.Add('Stage: Adult');
-    cCreatureElder: aList.Add('Stage: Elder');
+    cCreatureBaby:  aList.Add('Стадия: Юный');
+    cCreatureAdult: aList.Add('Стадия: Взрослый');
+    cCreatureElder: aList.Add('Стадия: Старый');
   end;
 
 end;
@@ -240,14 +240,14 @@ begin
   result := GetName + ' ' + IntToStr(Handle) + ' ';
 
   if Female then
-    result := result + 'Female'
+    result := result + 'Самка'
   else
-    result := result + 'Male';
+    result := result + 'Самец';
 
   case fStage of
-    cCreatureBaby: result := result + ' Baby';
-    cCreatureAdult: result := result + ' Adult';
-    cCreatureElder: result := result + ' Elder';
+    cCreatureBaby: result := result + ' Юный';
+    cCreatureAdult: result := result + ' Взрослый';
+    cCreatureElder: result := result + ' Старый';
   end;
 
   if Dead then
