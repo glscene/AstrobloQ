@@ -126,7 +126,7 @@
             <Form>FormNewSystem</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fSettings.pas">
+        <DCCReference Include="source\lito\flSettings.pas">
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>

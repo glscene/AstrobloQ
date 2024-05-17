@@ -29,7 +29,7 @@ type
 AIMatingCreature = class(AICommunityCreature)
 private
   fPartner: AILink; // потенциальный репродуктивный партнёр
-  fFemale: boolean; // true для жен, false для муж пола
+  fFemale: boolean; // true для жен, false для муж
   fStage: integer;  // stage of sexual reproduction
   fMatingTimer: integer; // timer to delay mating
 protected

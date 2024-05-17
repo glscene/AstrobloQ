@@ -31,8 +31,8 @@ uses
   GLS.Material,
 
   fAbout,
-  fProjection,
-  fSettings;
+  fOptions,
+  fProjection;
 
 type
   TFormGalagrid = class(TForm)
@@ -175,7 +175,7 @@ end;
 
 procedure TFormGalagrid.miSettingsClick(Sender: TObject);
 begin
-   with TFormSettings.Create(Self) do
+   with TFormOptions.Create(Self) do
     try
       ShowModal;
     finally

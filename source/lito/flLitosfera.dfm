@@ -6,7 +6,7 @@ object FormLitosfera: TFormLitosfera
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Litosfera'
+  Caption = #1051#1080#1090#1086#1089#1092#1077#1088#1072
   ClientHeight = 837
   ClientWidth = 1524
   Color = clBtnFace

@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsGalaxy
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -427,14 +427,14 @@ object FormSettings: TFormSettings
           object Label9: TLabel
             Left = 58
             Top = 332
-            Width = 710
+            Width = 614
             Height = 38
             Hint = 'Number of civilisations'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Fl - '#1076#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080' '#1074' '#1079#1086#1085#1072#1093' '#1086#1073#1080#1090#1072#1077#1084#1086#1089#1090#1080
+            Caption = 'Fl - '#1080#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080' '#1087#1083#1072#1085#1077#1090
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -28
@@ -499,14 +499,14 @@ object FormSettings: TFormSettings
           object Label13: TLabel
             Left = 59
             Top = 526
-            Width = 618
+            Width = 614
             Height = 38
             Hint = 'Number of civilisations'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Ls - '#1089#1088#1077#1076#1085#1077#1077' '#1074#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1074#1089#1077#1093' '#1082#1083#1072#1089#1089#1086#1074' '#1079#1074#1105#1079#1076
+            Caption = 'Ls - '#1089#1088#1077#1076#1085#1077#1077' '#1074#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1079#1074#1105#1079#1076' '#1089' '#1087#1083#1072#1085#1077#1090#1072#1084#1080
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clRed
             Font.Height = -28
@@ -817,7 +817,8 @@ object FormSettings: TFormSettings
               Font.Style = []
               ParentFont = False
               TabOrder = 2
-              Text = '1000'
+              Text = '10000'
+              TextHint = 'Avarage life time for civilisation'
             end
             object EditLs: TEdit
               Left = 672
@@ -838,6 +839,7 @@ object FormSettings: TFormSettings
               ParentFont = False
               TabOrder = 3
               Text = '10000000000'
+              TextHint = 'Mean lifitime for planet'
             end
             object EditNs: TEdit
               Left = 116
@@ -877,7 +879,7 @@ object FormSettings: TFormSettings
               Font.Style = []
               ParentFont = False
               TabOrder = 5
-              Text = '0.01'
+              Text = '0.1'
             end
             object EditFb: TEdit
               Left = 418
@@ -897,7 +899,7 @@ object FormSettings: TFormSettings
               Font.Style = []
               ParentFont = False
               TabOrder = 6
-              Text = '0.001'
+              Text = '0.1'
             end
             object EditFn: TEdit
               Left = 544
@@ -917,7 +919,7 @@ object FormSettings: TFormSettings
               Font.Style = []
               ParentFont = False
               TabOrder = 7
-              Text = '0.001'
+              Text = '0.01'
             end
           end
         end
@@ -1578,7 +1580,7 @@ object FormSettings: TFormSettings
             ItemIndex = 0
             Items.Strings = (
               #1057#1092#1077#1088#1080#1095#1077#1089#1082#1072#1103
-              #1055#1088#1103#1084#1086#1091#1075#1086#1083#1100#1085#1072#1103)
+              #1044#1077#1082#1072#1088#1090#1086#1074#1072#1103)
             ParentCtl3D = False
             TabOrder = 4
           end

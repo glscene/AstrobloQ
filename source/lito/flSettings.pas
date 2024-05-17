@@ -1,4 +1,4 @@
-unit fSettings;
+unit flSettings;
 
 interface
 
@@ -244,7 +244,7 @@ begin
 end;
 
 //---------------------------------------------------------------
-// Расчёт числа ноосфер
+// Расчёт числа цивилизаций в МП по ноосферной формуле Дрейка
 //---------------------------------------------------------------
 procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
 var
@@ -260,7 +260,7 @@ begin
   Ls := StrToInt64(EditLs.Text);
 
   Ratio := Lc/Ls;
-  Nc := Ns*Fl*Fb*Fn*Ratio;
+  Nc := Ns*Fl*Fb*Fn *Ratio;  // без времени существования ВЦ
   stNc.Caption := FloatToStr(Nc);
 end;
 

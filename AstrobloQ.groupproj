@@ -3,15 +3,6 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Graf1d.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Graf2d.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Graf3d.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Litosfera.dproj">
             <Dependencies/>
         </Projects>
@@ -32,33 +23,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Graf1d">
-        <MSBuild Projects="Graf1d.dproj"/>
-    </Target>
-    <Target Name="Graf1d:Clean">
-        <MSBuild Projects="Graf1d.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Graf1d:Make">
-        <MSBuild Projects="Graf1d.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Graf2d">
-        <MSBuild Projects="Graf2d.dproj"/>
-    </Target>
-    <Target Name="Graf2d:Clean">
-        <MSBuild Projects="Graf2d.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Graf2d:Make">
-        <MSBuild Projects="Graf2d.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Graf3d">
-        <MSBuild Projects="Graf3d.dproj"/>
-    </Target>
-    <Target Name="Graf3d:Clean">
-        <MSBuild Projects="Graf3d.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Graf3d:Make">
-        <MSBuild Projects="Graf3d.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Litosfera.dproj"/>
     </Target>
@@ -96,13 +60,13 @@
         <MSBuild Projects="Galagrid.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Graf1d;Graf2d;Graf3d;Litosfera;Biosfera;Noosfera;Galagrid"/>
+        <CallTarget Targets="Litosfera;Biosfera;Noosfera;Galagrid"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Graf1d:Clean;Graf2d:Clean;Graf3d:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Galagrid:Clean"/>
+        <CallTarget Targets="Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Galagrid:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Graf1d:Make;Graf2d:Make;Graf3d:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Galagrid:Make"/>
+        <CallTarget Targets="Litosfera:Make;Biosfera:Make;Noosfera:Make;Galagrid:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

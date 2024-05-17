@@ -62,7 +62,7 @@ uses
   flStarSystem,
   fGenPlanetsys,
   fAbout,
-  fSettings,
+  flSettings,
 
   flNewLitosystem;
 

@@ -49,7 +49,7 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  fSettings,
+  flSettings,
   flParams;
 
 type

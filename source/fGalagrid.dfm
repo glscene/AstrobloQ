@@ -5,7 +5,7 @@ object FormGalagrid: TFormGalagrid
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galagrid'
+  Caption = #1043#1072#1083#1072#1075#1088#1080#1076
   ClientHeight = 801
   ClientWidth = 1362
   Color = clBtnFace
@@ -175,7 +175,6 @@ object FormGalagrid: TFormGalagrid
         Direction.Coordinates = {000000000000803F0000000000000000}
         ShowAxes = True
         Up.Coordinates = {0000000000000000000080BF00000000}
-        Visible = False
         XSamplingScale.Min = -50000.000000000000000000
         XSamplingScale.Max = 50000.000000000000000000
         XSamplingScale.Step = 1000.000000000000000000
@@ -322,7 +321,7 @@ object FormGalagrid: TFormGalagrid
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
       object miSettings: TMenuItem
-        Caption = '&'#1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
+        Caption = '&'#1054#1087#1094#1080#1080'...'
         OnClick = miSettingsClick
       end
       object miN5: TMenuItem

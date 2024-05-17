@@ -1,6 +1,6 @@
 ; Planet, name 
-; Temperature, average deg C
-; Moons, number
+; Temperature, средняя температура в градусах Цельсия C
+; Moons, число лун
 ; Diameter, km
 ; Mass, Earth=1
 ; OrbitalPeriod, Earth years

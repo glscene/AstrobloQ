@@ -143,8 +143,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fSettings.pas">
-            <Form>FormSettings</Form>
+        <DCCReference Include="source\fOptions.pas">
+            <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
