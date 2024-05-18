@@ -32,15 +32,12 @@ uses
 
   fAbout,
   fOptions,
-  fProjection;
+  fProjection, Vcl.Samples.Spin, Vcl.StdCtrls, Vcl.NumberBox;
 
 type
   TFormGalagrid = class(TForm)
-    GLSceneViewer: TGLSceneViewer;
     GLScene: TGLScene;
-    PanelLeft: TPanel;
     StatusBar1: TStatusBar;
-    PanelRight: TPanel;
     MainMenu: TMainMenu;
     GLAsyncTimer: TGLAsyncTimer;
     GLCadencer: TGLCadencer;
@@ -71,19 +68,17 @@ type
     miWiki: TMenuItem;
     About1: TMenuItem;
     miN6: TMenuItem;
-    Camera: TGLCamera;
-    LightSource: TGLLightSource;
-    DummyCube: TGLDummyCube;
+    camGal: TGLCamera;
+    LightGal: TGLLightSource;
+    dcGalaxy: TGLDummyCube;
     dcSol: TGLDummyCube;
     ArrowZ: TGLArrowLine;
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
-    Cube: TGLCube;
-    GLSimpleNavigation: TGLSimpleNavigation;
+    StarCube: TGLCube;
     XYZGrid: TGLXYZGrid;
     N7: TMenuItem;
     N8: TMenuItem;
-    tvGalaxy: TTreeView;
     ControlBar1: TControlBar;
     diskGalaxy: TGLDisk;
     GLMatLib: TGLMaterialLibrary;
@@ -91,6 +86,55 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+    PageControl1: TPageControl;
+    tsSolacube: TTabSheet;
+    tsGalacube: TTabSheet;
+    svGal: TGLSceneViewer;
+    tvGalaxy: TTreeView;
+    PanelLeft: TPanel;
+    svSol: TGLSceneViewer;
+    camSol: TGLCamera;
+    LightSol: TGLLightSource;
+    GLSimpleNavigation: TGLSimpleNavigation;
+    dcAxis: TGLDummyCube;
+    PanelRight: TPanel;
+    ButtonStars: TButton;
+    gbStars: TGroupBox;
+    shO: TShape;
+    shB: TShape;
+    shA: TShape;
+    shG: TShape;
+    shK: TShape;
+    shF: TShape;
+    shM: TShape;
+    Label1: TLabel;
+    Label2: TLabel;
+    chbO: TCheckBox;
+    chbB: TCheckBox;
+    chbA: TCheckBox;
+    chbF: TCheckBox;
+    chbG: TCheckBox;
+    chbK: TCheckBox;
+    chbM: TCheckBox;
+    chbAll: TCheckBox;
+    nbO: TNumberBox;
+    nbB: TNumberBox;
+    nbA: TNumberBox;
+    nbF: TNumberBox;
+    nbG: TNumberBox;
+    nbK: TNumberBox;
+    nbM: TNumberBox;
+    nbAn: TNumberBox;
+    nbMn: TNumberBox;
+    nbKn: TNumberBox;
+    nbGn: TNumberBox;
+    nbFn: TNumberBox;
+    nbBn: TNumberBox;
+    nbOn: TNumberBox;
+    SpinEdit: TSpinEdit;
+    chbSmoothStars: TCheckBox;
+    chbOnClasses: TCheckBox;
+    ButtonClear: TButton;
     procedure miExitClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Open1Click(Sender: TObject);
@@ -101,9 +145,9 @@ type
     procedure GLCadencerProgress(Sender: TObject; const DeltaTime,
       NewTime: Double);
     procedure FormCreate(Sender: TObject);
-    procedure GLSceneViewerMouseUp(Sender: TObject; Button: TMouseButton;
+    procedure svGalMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure svGalMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure miSettingsClick(Sender: TObject);
   private
@@ -150,13 +194,13 @@ begin
   diskGalaxy.Roll(0.001);
 end;
 
-procedure TFormGalagrid.GLSceneViewerMouseDown(Sender: TObject;
+procedure TFormGalagrid.svGalMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalagrid.GLSceneViewerMouseUp(Sender: TObject;
+procedure TFormGalagrid.svGalMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;

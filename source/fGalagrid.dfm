@@ -5,9 +5,9 @@ object FormGalagrid: TFormGalagrid
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1043#1072#1083#1072#1075#1088#1080#1076
-  ClientHeight = 801
-  ClientWidth = 1362
+  Caption = #1052#1083#1077#1095#1085#1099#1081' '#1055#1091#1090#1100
+  ClientHeight = 805
+  ClientWidth = 1352
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,69 +16,14 @@ object FormGalagrid: TFormGalagrid
   Font.Style = []
   Menu = MainMenu
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnCreate = FormCreate
   PixelsPerInch = 168
   TextHeight = 30
-  object GLSceneViewer: TGLSceneViewer
-    Left = 169
-    Top = 43
-    Width = 1021
-    Height = 729
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Camera = Camera
-    Buffer.BackgroundColor = clBlack
-    FieldOfView = 155.242141723632800000
-    PenAsTouch = False
-    Align = alClient
-    OnMouseDown = GLSceneViewerMouseDown
-    OnMouseUp = GLSceneViewerMouseUp
-    TabOrder = 0
-  end
-  object PanelLeft: TPanel
-    Left = 0
-    Top = 43
-    Width = 169
-    Height = 729
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Align = alLeft
-    TabOrder = 1
-    object tvGalaxy: TTreeView
-      Left = 1
-      Top = 1
-      Width = 167
-      Height = 727
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Align = alClient
-      Indent = 33
-      TabOrder = 0
-      Items.NodeData = {
-        070200000009540054007200650065004E006F00640065002500000000000000
-        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001031104300440
-        040000290000000000000000000000FFFFFFFFFFFFFFFF000000000000000000
-        050000000105200443043A043004320400002B0000000000000000000000FFFF
-        FFFFFFFFFFFF0000000000000000000000000001061F04350440044104350439
-        0400002B0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000
-        0000000001061B0435043104350434044C0400002D0000000000000000000000
-        FFFFFFFFFFFFFFFF000000000000000000000000000107260435043D04420430
-        043204400400002D0000000000000000000000FFFFFFFFFFFFFFFF0000000000
-        0000000000000000010721044204400435043B04350446040000290000000000
-        000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E0440
-        0438043E043D04}
-    end
-  end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 772
-    Width = 1362
+    Top = 776
+    Width = 1352
     Height = 29
     Margins.Left = 5
     Margins.Top = 5
@@ -98,22 +43,10 @@ object FormGalagrid: TFormGalagrid
         Width = 150
       end>
   end
-  object PanelRight: TPanel
-    Left = 1190
-    Top = 43
-    Width = 172
-    Height = 729
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Align = alRight
-    TabOrder = 3
-  end
   object ControlBar1: TControlBar
     Left = 0
     Top = 0
-    Width = 1362
+    Width = 1352
     Height = 43
     Margins.Left = 5
     Margins.Top = 5
@@ -121,7 +54,7 @@ object FormGalagrid: TFormGalagrid
     Margins.Bottom = 5
     Align = alTop
     RowSize = 46
-    TabOrder = 4
+    TabOrder = 1
     object ToolBar1: TToolBar
       Left = 19
       Top = 2
@@ -155,26 +88,731 @@ object FormGalagrid: TFormGalagrid
       end
     end
   end
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 43
+    Width = 1352
+    Height = 733
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    ActivePage = tsSolacube
+    Align = alClient
+    TabOrder = 2
+    object tsSolacube: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = #1057#1086#1083#1072#1082#1091#1073
+      object PanelLeft: TPanel
+        Left = 0
+        Top = 0
+        Width = 197
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alLeft
+        TabOrder = 0
+      end
+      object svSol: TGLSceneViewer
+        Left = 197
+        Top = 0
+        Width = 776
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Camera = camSol
+        Buffer.BackgroundColor = clBlack
+        FieldOfView = 153.816207885742200000
+        PenAsTouch = False
+        Align = alClient
+        TabOrder = 1
+        ExplicitWidth = 965
+      end
+      object PanelRight: TPanel
+        Left = 973
+        Top = 0
+        Width = 371
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alRight
+        TabOrder = 2
+        ExplicitLeft = 1151
+        ExplicitHeight = 969
+        object ButtonStars: TButton
+          Left = 38
+          Top = 26
+          Width = 172
+          Height = 44
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1079#1074#1105#1079#1076
+          TabOrder = 0
+        end
+        object gbStars: TGroupBox
+          Left = 10
+          Top = 253
+          Width = 353
+          Height = 474
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1050#1083#1072#1089#1089#1099' '#1079#1074#1105#1079#1076
+          TabOrder = 1
+          object shO: TShape
+            Left = 84
+            Top = 55
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clHotLight
+            Pen.Width = 2
+          end
+          object shB: TShape
+            Left = 84
+            Top = 107
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clSkyBlue
+            Pen.Width = 2
+          end
+          object shA: TShape
+            Left = 84
+            Top = 166
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clCream
+            Pen.Width = 2
+          end
+          object shG: TShape
+            Left = 84
+            Top = 291
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clYellow
+            Pen.Width = 2
+          end
+          object shK: TShape
+            Left = 84
+            Top = 349
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clOrange
+            Pen.Width = 2
+          end
+          object shF: TShape
+            Left = 84
+            Top = 226
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clFuchsia
+            Pen.Width = 2
+          end
+          object shM: TShape
+            Left = 84
+            Top = 406
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Brush.Color = clRed
+            Pen.Width = 2
+          end
+          object Label1: TLabel
+            Left = 188
+            Top = 40
+            Width = 17
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = '%'
+          end
+          object Label2: TLabel
+            Left = 280
+            Top = 40
+            Width = 59
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1063#1080#1089#1083#1086
+          end
+          object chbO: TCheckBox
+            Left = 14
+            Top = 60
+            Width = 60
+            Height = 29
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'O'
+            Color = clBtnFace
+            ParentColor = False
+            TabOrder = 0
+          end
+          object chbB: TCheckBox
+            Left = 14
+            Top = 119
+            Width = 60
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'B'
+            Color = clBtnFace
+            ParentColor = False
+            TabOrder = 1
+          end
+          object chbA: TCheckBox
+            Left = 14
+            Top = 179
+            Width = 60
+            Height = 29
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'A'
+            Color = clBtnFace
+            ParentColor = False
+            TabOrder = 2
+          end
+          object chbF: TCheckBox
+            Left = 14
+            Top = 236
+            Width = 60
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'F'
+            Color = clBtnFace
+            ParentColor = False
+            TabOrder = 3
+          end
+          object chbG: TCheckBox
+            Left = 14
+            Top = 296
+            Width = 60
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'G'
+            Checked = True
+            Color = clYellow
+            ParentColor = False
+            State = cbChecked
+            TabOrder = 4
+          end
+          object chbK: TCheckBox
+            Left = 14
+            Top = 355
+            Width = 60
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'K'
+            Color = clBtnFace
+            ParentColor = False
+            TabOrder = 5
+          end
+          object chbM: TCheckBox
+            Left = 14
+            Top = 415
+            Width = 60
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'M'
+            Color = clBtnFace
+            ParentColor = False
+            TabOrder = 6
+          end
+          object chbAll: TCheckBox
+            Left = 154
+            Top = 0
+            Width = 116
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1042#1089#1077
+            TabOrder = 7
+          end
+          object nbO: TNumberBox
+            Left = 154
+            Top = 63
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 8
+            Value = 0.100000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbB: TNumberBox
+            Left = 154
+            Top = 114
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 9
+            Value = 0.400000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbA: TNumberBox
+            Left = 154
+            Top = 177
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 10
+            Value = 0.500000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbF: TNumberBox
+            Left = 154
+            Top = 238
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 11
+            Value = 3.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbG: TNumberBox
+            Left = 154
+            Top = 301
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 12
+            Value = 8.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbK: TNumberBox
+            Left = 154
+            Top = 355
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 13
+            Value = 12.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbM: TNumberBox
+            Left = 154
+            Top = 413
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 14
+            Value = 76.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbAn: TNumberBox
+            Left = 268
+            Top = 177
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 15
+            Value = 5.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbMn: TNumberBox
+            Left = 268
+            Top = 413
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 16
+            Value = 760.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbKn: TNumberBox
+            Left = 268
+            Top = 355
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 17
+            Value = 120.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbGn: TNumberBox
+            Left = 268
+            Top = 301
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 18
+            Value = 80.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbFn: TNumberBox
+            Left = 268
+            Top = 238
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 19
+            Value = 30.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbBn: TNumberBox
+            Left = 268
+            Top = 118
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 20
+            Value = 4.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+          object nbOn: TNumberBox
+            Left = 268
+            Top = 63
+            Width = 80
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Decimal = 0
+            MaxValue = 10000.000000000000000000
+            TabOrder = 21
+            Value = 1.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
+        end
+        object SpinEdit: TSpinEdit
+          Left = 238
+          Top = 32
+          Width = 99
+          Height = 41
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          MaxValue = 100000
+          MinValue = 1000
+          TabOrder = 2
+          Value = 1000
+        end
+        object chbSmoothStars: TCheckBox
+          Left = 56
+          Top = 143
+          Width = 197
+          Height = 29
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1050#1088#1091#1075#1083#1099#1077' '#1079#1074#1105#1079#1076#1099
+          TabOrder = 3
+        end
+        object chbOnClasses: TCheckBox
+          Left = 56
+          Top = 196
+          Width = 225
+          Height = 30
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1055#1086' '#1082#1083#1072#1089#1089#1072#1084
+          TabOrder = 4
+        end
+        object ButtonClear: TButton
+          Left = 112
+          Top = 89
+          Width = 131
+          Height = 44
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1054#1095#1080#1089#1090#1080#1090#1100
+          TabOrder = 5
+        end
+      end
+    end
+    object tsGalacube: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = #1043#1072#1083#1072#1082#1091#1073
+      ImageIndex = 1
+      object svGal: TGLSceneViewer
+        Left = 197
+        Top = 0
+        Width = 1147
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Camera = camGal
+        Buffer.BackgroundColor = clBlack
+        FieldOfView = 153.816207885742200000
+        PenAsTouch = False
+        Align = alClient
+        OnMouseDown = svGalMouseDown
+        OnMouseUp = svGalMouseUp
+        TabOrder = 0
+      end
+      object tvGalaxy: TTreeView
+        Left = 0
+        Top = 0
+        Width = 197
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alLeft
+        Indent = 33
+        TabOrder = 1
+        Items.NodeData = {
+          070200000009540054007200650065004E006F00640065002500000000000000
+          00000000FFFFFFFFFFFFFFFF0000000000000000000000000001031104300440
+          040000290000000000000000000000FFFFFFFFFFFFFFFF000000000000000000
+          050000000105200443043A043004320400002B0000000000000000000000FFFF
+          FFFFFFFFFFFF0000000000000000000000000001061F04350440044104350439
+          0400002B0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000
+          0000000001061B0435043104350434044C0400002D0000000000000000000000
+          FFFFFFFFFFFFFFFF000000000000000000000000000107260435043D04420430
+          043204400400002D0000000000000000000000FFFFFFFFFFFFFFFF0000000000
+          0000000000000000010721044204400435043B04350446040000290000000000
+          000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E0440
+          0438043E043D04}
+      end
+    end
+  end
   object GLScene: TGLScene
     Left = 301
     Top = 123
-    object Camera: TGLCamera
+    object camGal: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
-      TargetObject = DummyCube
+      TargetObject = dcGalaxy
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0000FA440000FA440000FA440000803F}
-      object LightSource: TGLLightSource
+      object LightGal: TGLLightSource
         ConstAttenuation = 1.000000000000000000
         SpotCutOff = 180.000000000000000000
       end
     end
-    object DummyCube: TGLDummyCube
+    object camSol: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 80.000000000000000000
+      TargetObject = dcSol
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {00002F4400002F44000061440000803F}
+      object LightSol: TGLLightSource
+        ConstAttenuation = 1.000000000000000000
+        SpotCutOff = 180.000000000000000000
+      end
+    end
+    object dcSol: TGLDummyCube
+      Direction.Coordinates = {000000000000803F0000000000000000}
+      Up.Coordinates = {0000000000000000000080BF00000000}
+      CubeSize = 1000.000000000000000000
+      EdgeColor.Color = {0000803F00000000000000000000803F}
+      VisibleAtRunTime = True
+      object StarCube: TGLCube
+        Material.PolygonMode = pmLines
+        CubeSize = {00007A4400007A4400007A44}
+      end
+      object dcAxis: TGLDummyCube
+        Position.Coordinates = {0000FAC30000FA430000FAC30000803F}
+        CubeSize = 1.000000000000000000
+        object ArrowX: TGLArrowLine
+          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+          Direction.Coordinates = {0000803F000000000000000000000000}
+          Position.Coordinates = {0000FA4300000000000000000000803F}
+          Scale.Coordinates = {0000FA430000FA430000FA4300000000}
+          BottomRadius = 0.050000000745058060
+          Height = 2.000000000000000000
+          TopRadius = 0.050000000745058060
+          TopArrowHeadHeight = 0.500000000000000000
+          TopArrowHeadRadius = 0.100000001490116100
+          BottomArrowHeadHeight = 0.500000000000000000
+          BottomArrowHeadRadius = 0.200000002980232200
+        end
+        object ArrowY: TGLArrowLine
+          Material.FrontProperties.Ambient.Color = {0000000000000000000000000000803F}
+          Material.FrontProperties.Diffuse.Color = {0AD7A33E48E1FA3E1F85EB3E0000803F}
+          Direction.Coordinates = {00000000000080BF0000000000000000}
+          Position.Coordinates = {000000000000FAC3000000000000803F}
+          Scale.Coordinates = {0000FA430000FA430000FA4300000000}
+          Up.Coordinates = {00000000000000000000803F00000000}
+          BottomRadius = 0.050000000745058060
+          Height = 2.000000000000000000
+          TopRadius = 0.050000000745058060
+          TopArrowHeadHeight = 0.500000000000000000
+          TopArrowHeadRadius = 0.100000001490116100
+          BottomArrowHeadHeight = 0.500000000000000000
+          BottomArrowHeadRadius = 0.200000002980232200
+        end
+        object ArrowZ: TGLArrowLine
+          Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
+          Position.Coordinates = {00000000000000000000FA430000803F}
+          Scale.Coordinates = {0000FA430000FA430000FA4300000000}
+          BottomRadius = 0.050000000745058060
+          Height = 2.000000000000000000
+          TopRadius = 0.050000000745058060
+          TopArrowHeadHeight = 0.500000000000000000
+          TopArrowHeadRadius = 0.100000001490116100
+          BottomArrowHeadHeight = 0.500000000000000000
+          BottomArrowHeadRadius = 0.200000002980232200
+        end
+      end
+    end
+    object dcGalaxy: TGLDummyCube
       CubeSize = 1.000000000000000000
       object XYZGrid: TGLXYZGrid
         Direction.Coordinates = {000000000000803F0000000000000000}
         ShowAxes = True
         Up.Coordinates = {0000000000000000000080BF00000000}
+        Visible = False
         XSamplingScale.Min = -50000.000000000000000000
         XSamplingScale.Max = 50000.000000000000000000
         XSamplingScale.Step = 1000.000000000000000000
@@ -192,59 +830,10 @@ object FormGalagrid: TFormGalagrid
         Material.LibMaterialName = 'Milkyway'
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {0000000000000000000080BF00000000}
+        Visible = False
         OuterRadius = 50000.000000000000000000
         Slices = 64
         SweepAngle = 360.000000000000000000
-        object dcSol: TGLDummyCube
-          Direction.Coordinates = {000000000000803F0000000000000000}
-          Up.Coordinates = {0000000000000000000080BF00000000}
-          CubeSize = 2000.000000000000000000
-          EdgeColor.Color = {0000803F00000000000000000000803F}
-          VisibleAtRunTime = True
-          object Cube: TGLCube
-            Material.PolygonMode = pmLines
-            CubeSize = {0000FA440000FA440000FA44}
-          end
-          object ArrowZ: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
-            Position.Coordinates = {0000000000000000000000400000803F}
-            Scale.Coordinates = {00007A4400007A4400007A4400000000}
-            BottomRadius = 0.050000000745058060
-            Height = 4.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.500000000000000000
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.500000000000000000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object ArrowY: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
-            Direction.Coordinates = {000000000000803F0000000000000000}
-            Position.Coordinates = {0000000000000040000000000000803F}
-            Scale.Coordinates = {00007A4400007A4400007A4400000000}
-            Up.Coordinates = {00000000000000000000803F00000000}
-            BottomRadius = 0.050000000745058060
-            Height = 4.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.500000000000000000
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.500000000000000000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object ArrowX: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
-            Direction.Coordinates = {0000803F000000000000000000000000}
-            Position.Coordinates = {0000004000000000000000000000803F}
-            Scale.Coordinates = {00007A4400007A4400007A4400000000}
-            BottomRadius = 0.050000000745058060
-            Height = 4.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.500000000000000000
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.500000000000000000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-        end
       end
     end
   end
@@ -352,34 +941,14 @@ object FormGalagrid: TFormGalagrid
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 739
-    Top = 145
+    Left = 669
+    Top = 117
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 502
-    Top = 135
-  end
-  object GLSimpleNavigation: TGLSimpleNavigation
-    Form = Owner
-    GLSceneViewer = GLSceneViewer
-    FormCaption = 'Galagrid - %FPS'
-    KeyCombinations = <
-      item
-        ShiftState = [ssLeft, ssRight]
-        Action = snaZoom
-      end
-      item
-        ShiftState = [ssLeft]
-        Action = snaMoveAroundTarget
-      end
-      item
-        ShiftState = [ssRight]
-        Action = snaMoveAroundTarget
-      end>
-    Left = 1024
-    Top = 226
+    Left = 446
+    Top = 121
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <
@@ -103233,5 +103802,25 @@ object FormGalagrid: TFormGalagrid
       end>
     Left = 312
     Top = 228
+  end
+  object GLSimpleNavigation: TGLSimpleNavigation
+    Form = Owner
+    GLSceneViewer = svSol
+    FormCaption = #1052#1083#1077#1095#1085#1099#1081' '#1055#1091#1090#1100' - %FPS'
+    KeyCombinations = <
+      item
+        ShiftState = [ssLeft, ssRight]
+        Action = snaZoom
+      end
+      item
+        ShiftState = [ssLeft]
+        Action = snaMoveAroundTarget
+      end
+      item
+        ShiftState = [ssRight]
+        Action = snaMoveAroundTarget
+      end>
+    Left = 312
+    Top = 392
   end
 end
