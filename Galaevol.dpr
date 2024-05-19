@@ -1,9 +1,9 @@
-program Galagrid;
+program Galaevol;
 
 
 uses
   Vcl.Forms,
-  fGalagrid in 'source\fGalagrid.pas' {FormGalagrid},
+  fGalaevol in 'source\fGalaevol.pas' {FormGalagrid},
   fProjection in 'source\fProjection.pas' {FormProjection},
   dImages in 'source\dImages.pas' {dfImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},

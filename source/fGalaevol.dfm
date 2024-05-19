@@ -5,7 +5,7 @@ object FormGalagrid: TFormGalagrid
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1052#1083#1077#1095#1085#1099#1081' '#1055#1091#1090#1100
+  Caption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1075#1072#1083#1072#1082#1090#1080#1082#1080
   ClientHeight = 805
   ClientWidth = 1352
   Color = clBtnFace
@@ -97,15 +97,15 @@ object FormGalagrid: TFormGalagrid
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsSolacube
+    ActivePage = tsHeliocube
     Align = alClient
     TabOrder = 2
-    object tsSolacube: TTabSheet
+    object tsHeliocube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1057#1086#1083#1072#1082#1091#1073
+      Caption = #1043#1077#1083#1080#1086#1082#1091#1073
       object PanelLeft: TPanel
         Left = 0
         Top = 0
@@ -118,7 +118,7 @@ object FormGalagrid: TFormGalagrid
         Align = alLeft
         TabOrder = 0
       end
-      object svSol: TGLSceneViewer
+      object svHelios: TGLSceneViewer
         Left = 197
         Top = 0
         Width = 776
@@ -127,13 +127,12 @@ object FormGalagrid: TFormGalagrid
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Camera = camSol
+        Camera = camHelios
         Buffer.BackgroundColor = clBlack
         FieldOfView = 153.816207885742200000
         PenAsTouch = False
         Align = alClient
         TabOrder = 1
-        ExplicitWidth = 965
       end
       object PanelRight: TPanel
         Left = 973
@@ -146,8 +145,6 @@ object FormGalagrid: TFormGalagrid
         Margins.Bottom = 5
         Align = alRight
         TabOrder = 2
-        ExplicitLeft = 1151
-        ExplicitHeight = 969
         object ButtonStars: TButton
           Left = 38
           Top = 26
@@ -157,12 +154,13 @@ object FormGalagrid: TFormGalagrid
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1079#1074#1105#1079#1076
+          Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1079#1074#1105#1079#1076#1099
           TabOrder = 0
+          OnClick = ButtonStarsClick
         end
         object gbStars: TGroupBox
           Left = 10
-          Top = 253
+          Top = 99
           Width = 353
           Height = 474
           Margins.Left = 5
@@ -388,6 +386,7 @@ object FormGalagrid: TFormGalagrid
             Margins.Bottom = 5
             Caption = #1042#1089#1077
             TabOrder = 7
+            OnClick = chbAllClick
           end
           object nbO: TNumberBox
             Left = 154
@@ -634,34 +633,11 @@ object FormGalagrid: TFormGalagrid
           MinValue = 1000
           TabOrder = 2
           Value = 1000
-        end
-        object chbSmoothStars: TCheckBox
-          Left = 56
-          Top = 143
-          Width = 197
-          Height = 29
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1050#1088#1091#1075#1083#1099#1077' '#1079#1074#1105#1079#1076#1099
-          TabOrder = 3
-        end
-        object chbOnClasses: TCheckBox
-          Left = 56
-          Top = 196
-          Width = 225
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1055#1086' '#1082#1083#1072#1089#1089#1072#1084
-          TabOrder = 4
+          OnChange = SpinEditChange
         end
         object ButtonClear: TButton
-          Left = 112
-          Top = 89
+          Left = 126
+          Top = 610
           Width = 131
           Height = 44
           Margins.Left = 5
@@ -669,7 +645,8 @@ object FormGalagrid: TFormGalagrid
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1054#1095#1080#1089#1090#1080#1090#1100
-          TabOrder = 5
+          TabOrder = 3
+          OnClick = ButtonClearClick
         end
       end
     end
@@ -689,7 +666,7 @@ object FormGalagrid: TFormGalagrid
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Camera = camGal
+        Camera = camGalaxy
         Buffer.BackgroundColor = clBlack
         FieldOfView = 153.816207885742200000
         PenAsTouch = False
@@ -725,11 +702,49 @@ object FormGalagrid: TFormGalagrid
           0438043E043D04}
       end
     end
+    object tsTable: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = #1058#1072#1073#1083#1080#1094#1072
+      ImageIndex = 2
+      object DBGrid: TDBGrid
+        Left = 728
+        Top = 0
+        Width = 616
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -21
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = []
+      end
+      object MemoTable: TMemo
+        Left = 0
+        Top = 0
+        Width = 659
+        Height = 688
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alLeft
+        Lines.Strings = (
+          'MemoTable')
+        TabOrder = 1
+      end
+    end
   end
   object GLScene: TGLScene
     Left = 301
     Top = 123
-    object camGal: TGLCamera
+    object camGalaxy: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
       TargetObject = dcGalaxy
@@ -740,10 +755,10 @@ object FormGalagrid: TFormGalagrid
         SpotCutOff = 180.000000000000000000
       end
     end
-    object camSol: TGLCamera
+    object camHelios: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
-      TargetObject = dcSol
+      TargetObject = dcHelios
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {00002F4400002F44000061440000803F}
       object LightSol: TGLLightSource
@@ -751,59 +766,58 @@ object FormGalagrid: TFormGalagrid
         SpotCutOff = 180.000000000000000000
       end
     end
-    object dcSol: TGLDummyCube
+    object dcHelios: TGLDummyCube
       Direction.Coordinates = {000000000000803F0000000000000000}
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1000.000000000000000000
-      EdgeColor.Color = {0000803F00000000000000000000803F}
       VisibleAtRunTime = True
-      object StarCube: TGLCube
-        Material.PolygonMode = pmLines
-        CubeSize = {00007A4400007A4400007A44}
+      object dotStars: TGLPoints
+        NoZWrite = False
+        Static = False
       end
-      object dcAxis: TGLDummyCube
-        Position.Coordinates = {0000FAC30000FA430000FAC30000803F}
-        CubeSize = 1.000000000000000000
-        object ArrowX: TGLArrowLine
-          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-          Direction.Coordinates = {0000803F000000000000000000000000}
-          Position.Coordinates = {0000FA4300000000000000000000803F}
-          Scale.Coordinates = {0000FA430000FA430000FA4300000000}
-          BottomRadius = 0.050000000745058060
-          Height = 2.000000000000000000
-          TopRadius = 0.050000000745058060
-          TopArrowHeadHeight = 0.500000000000000000
-          TopArrowHeadRadius = 0.100000001490116100
-          BottomArrowHeadHeight = 0.500000000000000000
-          BottomArrowHeadRadius = 0.200000002980232200
-        end
-        object ArrowY: TGLArrowLine
-          Material.FrontProperties.Ambient.Color = {0000000000000000000000000000803F}
-          Material.FrontProperties.Diffuse.Color = {0AD7A33E48E1FA3E1F85EB3E0000803F}
-          Direction.Coordinates = {00000000000080BF0000000000000000}
-          Position.Coordinates = {000000000000FAC3000000000000803F}
-          Scale.Coordinates = {0000FA430000FA430000FA4300000000}
-          Up.Coordinates = {00000000000000000000803F00000000}
-          BottomRadius = 0.050000000745058060
-          Height = 2.000000000000000000
-          TopRadius = 0.050000000745058060
-          TopArrowHeadHeight = 0.500000000000000000
-          TopArrowHeadRadius = 0.100000001490116100
-          BottomArrowHeadHeight = 0.500000000000000000
-          BottomArrowHeadRadius = 0.200000002980232200
-        end
-        object ArrowZ: TGLArrowLine
-          Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
-          Position.Coordinates = {00000000000000000000FA430000803F}
-          Scale.Coordinates = {0000FA430000FA430000FA4300000000}
-          BottomRadius = 0.050000000745058060
-          Height = 2.000000000000000000
-          TopRadius = 0.050000000745058060
-          TopArrowHeadHeight = 0.500000000000000000
-          TopArrowHeadRadius = 0.100000001490116100
-          BottomArrowHeadHeight = 0.500000000000000000
-          BottomArrowHeadRadius = 0.200000002980232200
-        end
+    end
+    object dcAxis: TGLDummyCube
+      Position.Coordinates = {0000FAC30000FA430000FAC30000803F}
+      CubeSize = 1.000000000000000000
+      object ArrowX: TGLArrowLine
+        Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+        Direction.Coordinates = {0000803F000000000000000000000000}
+        Position.Coordinates = {0000FA4300007AC4000000000000803F}
+        Scale.Coordinates = {00004843000048430000FA4300000000}
+        BottomRadius = 0.050000000745058060
+        Height = 2.000000000000000000
+        TopRadius = 0.050000000745058060
+        TopArrowHeadHeight = 0.200000002980232200
+        TopArrowHeadRadius = 0.100000001490116100
+        BottomArrowHeadHeight = 0.200000002980232200
+        BottomArrowHeadRadius = 0.100000001490116100
+      end
+      object ArrowY: TGLArrowLine
+        Material.FrontProperties.Ambient.Color = {0000000000000000000000000000803F}
+        Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+        Direction.Coordinates = {000000000000803F0000000000000000}
+        Position.Coordinates = {000000000000FAC3000000000000803F}
+        Scale.Coordinates = {00004843000048430000FA4300000000}
+        Up.Coordinates = {00000000000000000000803F00000000}
+        BottomRadius = 0.050000000745058060
+        Height = 2.000000000000000000
+        TopRadius = 0.050000000745058060
+        TopArrowHeadHeight = 0.200000002980232200
+        TopArrowHeadRadius = 0.100000001490116100
+        BottomArrowHeadHeight = 0.200000002980232200
+        BottomArrowHeadRadius = 0.100000001490116100
+      end
+      object ArrowZ: TGLArrowLine
+        Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
+        Position.Coordinates = {0000000000007AC40000FA430000803F}
+        Scale.Coordinates = {00004843000048430000FA4300000000}
+        BottomRadius = 0.050000000745058060
+        Height = 2.000000000000000000
+        TopRadius = 0.050000000745058060
+        TopArrowHeadHeight = 0.200000002980232200
+        TopArrowHeadRadius = 0.100000001490116100
+        BottomArrowHeadHeight = 0.200000002980232200
+        BottomArrowHeadRadius = 0.100000001490116100
       end
     end
     object dcGalaxy: TGLDummyCube
@@ -836,10 +850,57 @@ object FormGalagrid: TFormGalagrid
         SweepAngle = 360.000000000000000000
       end
     end
+    object SpaceTextX: TGLSpaceText
+      Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+      Direction.Coordinates = {0000803F000000000000000000000000}
+      Position.Coordinates = {008022440000FAC30000FAC30000803F}
+      Scale.Coordinates = {0000C8420000C8420000C84200000000}
+      Up.Coordinates = {00000080000000000000803F00000000}
+      Extrusion = 0.200000002980232200
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      Lines.Strings = (
+        'X')
+      CharacterRange = stcrAlphaNum
+    end
+    object SpaceTextY: TGLSpaceText
+      Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+      Direction.Coordinates = {0000803F000000000000000000000000}
+      Position.Coordinates = {0000FAC3008022440000FAC30000803F}
+      Scale.Coordinates = {0000C8420000C8420000C84200000000}
+      Up.Coordinates = {000000000000803F0CD8CC3400000000}
+      Extrusion = 0.200000002980232200
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      Lines.Strings = (
+        'Y')
+      CharacterRange = stcrAlphaNum
+    end
+    object SpaceTextZ: TGLSpaceText
+      Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
+      Position.Coordinates = {0000FAC30000FAC3008022440000803F}
+      Scale.Coordinates = {0000C8420000C8420000C84200000000}
+      Up.Coordinates = {00000080000080BF0000000000000000}
+      Extrusion = 0.200000002980232200
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      Lines.Strings = (
+        'Z')
+      CharacterRange = stcrAlphaNum
+    end
   end
   object MainMenu: TMainMenu
-    Left = 1036
-    Top = 86
+    Left = 746
+    Top = 343
     object File1: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object Open1: TMenuItem
@@ -851,6 +912,7 @@ object FormGalagrid: TFormGalagrid
       end
       object SaveAs1: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' &'#1082#1072#1082'...'
+        OnClick = SaveAs1Click
       end
       object miN2: TMenuItem
         Caption = '-'
@@ -926,7 +988,8 @@ object FormGalagrid: TFormGalagrid
       end
     end
     object Help1: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = '&?'
+      Hint = #1057#1087#1088#1072#1074#1082#1072
       object miWiki: TMenuItem
         Caption = '&'#1042#1080#1082#1080'...'
       end
@@ -941,8 +1004,8 @@ object FormGalagrid: TFormGalagrid
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 669
-    Top = 117
+    Left = 261
+    Top = 373
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
@@ -103800,13 +103863,13 @@ object FormGalagrid: TFormGalagrid
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 312
-    Top = 228
+    Left = 322
+    Top = 175
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
-    GLSceneViewer = svSol
-    FormCaption = #1052#1083#1077#1095#1085#1099#1081' '#1055#1091#1090#1100' - %FPS'
+    GLSceneViewer = svHelios
+    FormCaption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1075#1072#1083#1072#1082#1090#1080#1082#1080' - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -103820,7 +103883,31 @@ object FormGalagrid: TFormGalagrid
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 312
-    Top = 392
+    Left = 322
+    Top = 252
+  end
+  object OpenTextFileDialog: TOpenTextFileDialog
+    Filter = 
+      'Data with coma (*.csv)|*.csv|Data with space (*.dat)|*.dat|All (' +
+      '*.*)|*.*'
+    Encodings.Strings = (
+      'ASCII'
+      'ANSI'
+      'Unicode'
+      'Big Endian Unicode'
+      'UTF-8'
+      'UTF-7')
+    Left = 540
+    Top = 410
+  end
+  object SaveTextFileDialog: TSaveTextFileDialog
+    Left = 530
+    Top = 522
+  end
+  object FDBatchMove: TFDBatchMove
+    Mappings = <>
+    LogFileName = 'Data.log'
+    Left = 746
+    Top = 476
   end
 end
