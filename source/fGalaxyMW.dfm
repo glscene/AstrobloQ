@@ -1,11 +1,11 @@
-object FormGalagrid: TFormGalagrid
+object FormGalaxyMW: TFormGalaxyMW
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1075#1072#1083#1072#1082#1090#1080#1082#1080
+  Caption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1052#1083#1077#1095#1085#1086#1075#1086' '#1055#1091#1090#1080
   ClientHeight = 805
   ClientWidth = 1352
   Color = clBtnFace
@@ -145,6 +145,20 @@ object FormGalagrid: TFormGalagrid
         Margins.Bottom = 5
         Align = alRight
         TabOrder = 2
+        object shW: TShape
+          Left = 91
+          Top = 583
+          Width = 50
+          Height = 42
+          Hint = #1041#1077#1083#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          ParentShowHint = False
+          Pen.Width = 2
+          ShowHint = True
+        end
         object ButtonStars: TButton
           Left = 38
           Top = 26
@@ -204,6 +218,7 @@ object FormGalagrid: TFormGalagrid
             Margins.Bottom = 5
             Brush.Color = clCream
             Pen.Width = 2
+            OnContextPopup = shAContextPopup
           end
           object shG: TShape
             Left = 84
@@ -238,7 +253,7 @@ object FormGalagrid: TFormGalagrid
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Brush.Color = clFuchsia
+            Brush.Color = clKhaki
             Pen.Width = 2
           end
           object shM: TShape
@@ -287,6 +302,8 @@ object FormGalagrid: TFormGalagrid
             Caption = 'O'
             Color = clBtnFace
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 0
           end
           object chbB: TCheckBox
@@ -301,6 +318,8 @@ object FormGalagrid: TFormGalagrid
             Caption = 'B'
             Color = clBtnFace
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 1
           end
           object chbA: TCheckBox
@@ -315,6 +334,8 @@ object FormGalagrid: TFormGalagrid
             Caption = 'A'
             Color = clBtnFace
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 2
           end
           object chbF: TCheckBox
@@ -322,6 +343,7 @@ object FormGalagrid: TFormGalagrid
             Top = 236
             Width = 60
             Height = 30
+            Hint = #1046#1077#1083#1090#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -329,6 +351,8 @@ object FormGalagrid: TFormGalagrid
             Caption = 'F'
             Color = clBtnFace
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 3
           end
           object chbG: TCheckBox
@@ -336,6 +360,7 @@ object FormGalagrid: TFormGalagrid
             Top = 296
             Width = 60
             Height = 30
+            Hint = #1046#1077#1083#1090#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -344,6 +369,8 @@ object FormGalagrid: TFormGalagrid
             Checked = True
             Color = clYellow
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
             State = cbChecked
             TabOrder = 4
           end
@@ -352,13 +379,18 @@ object FormGalagrid: TFormGalagrid
             Top = 355
             Width = 60
             Height = 30
+            Hint = #1054#1088#1072#1085#1078#1077#1074#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'K'
+            Checked = True
             Color = clBtnFace
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
+            State = cbChecked
             TabOrder = 5
           end
           object chbM: TCheckBox
@@ -366,6 +398,7 @@ object FormGalagrid: TFormGalagrid
             Top = 415
             Width = 60
             Height = 30
+            Hint = #1050#1088#1072#1089#1085#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -373,6 +406,8 @@ object FormGalagrid: TFormGalagrid
             Caption = 'M'
             Color = clBtnFace
             ParentColor = False
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 6
           end
           object chbAll: TCheckBox
@@ -636,8 +671,8 @@ object FormGalagrid: TFormGalagrid
           OnChange = SpinEditChange
         end
         object ButtonClear: TButton
-          Left = 126
-          Top = 610
+          Left = 210
+          Top = 638
           Width = 131
           Height = 44
           Margins.Left = 5
@@ -647,6 +682,41 @@ object FormGalagrid: TFormGalagrid
           Caption = #1054#1095#1080#1089#1090#1080#1090#1100
           TabOrder = 3
           OnClick = ButtonClearClick
+        end
+        object chbW: TCheckBox
+          Left = 24
+          Top = 583
+          Width = 71
+          Height = 43
+          Hint = #1041#1077#1083#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'W'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+        end
+        object nbWn: TNumberBox
+          Left = 168
+          Top = 583
+          Width = 121
+          Height = 38
+          Hint = #1041#1077#1083#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          Mode = nbmInt64
+          MinValue = 100.000000000000000000
+          MaxValue = 1000.000000000000000000
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 100.000000000000000000
+          SpinButtonOptions.ButtonWidth = 30
         end
       end
     end
@@ -899,8 +969,8 @@ object FormGalagrid: TFormGalagrid
     end
   end
   object MainMenu: TMainMenu
-    Left = 746
-    Top = 343
+    Left = 284
+    Top = 474
     object File1: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object Open1: TMenuItem
@@ -964,9 +1034,9 @@ object FormGalagrid: TFormGalagrid
     end
     object N7: TMenuItem
       Caption = #1052#1086#1085#1080#1090#1086#1088
-      object N8: TMenuItem
+      object miProjection: TMenuItem
         Caption = #1055#1088#1086#1077#1082#1094#1080#1080' '#1079#1074#1105#1079#1076'...'
-        OnClick = N8Click
+        OnClick = miProjectionClick
       end
     end
     object miView: TMenuItem
@@ -103863,8 +103933,8 @@ object FormGalagrid: TFormGalagrid
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 322
-    Top = 175
+    Left = 291
+    Top = 306
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -103897,8 +103967,8 @@ object FormGalagrid: TFormGalagrid
       'Big Endian Unicode'
       'UTF-8'
       'UTF-7')
-    Left = 540
-    Top = 410
+    Left = 819
+    Top = 396
   end
   object SaveTextFileDialog: TSaveTextFileDialog
     Left = 530

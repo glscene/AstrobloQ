@@ -1,4 +1,4 @@
-unit fGalaevol;
+unit fGalaxyMW;
 
 interface
 
@@ -19,6 +19,12 @@ uses
   Vcl.Samples.Spin,
   Vcl.StdCtrls,
   Vcl.NumberBox,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.ExtDlgs,
+  Data.DB,
+  FireDAC.Stan.Intf,
+  FireDAC.Comp.BatchMove,
 
   GLS.BaseClasses,
   GLS.Scene,
@@ -34,13 +40,16 @@ uses
   GLS.Material,
   GLS.Color,
 
+  uGlobals,
   fAbout,
   fOptions,
-  fProjection, GLS.SpaceText, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.ExtDlgs,
-  FireDAC.Stan.Intf, FireDAC.Comp.BatchMove;
+  fProjection,
+  fProjectionEn,
+  GLS.SpaceText,
+  GR32_ColorPicker;
 
 type
-  TFormGalagrid = class(TForm)
+  TFormGalaxyMW = class(TForm)
     GLScene: TGLScene;
     StatusBar1: TStatusBar;
     MainMenu: TMainMenu;
@@ -82,7 +91,7 @@ type
     ArrowX: TGLArrowLine;
     XYZGrid: TGLXYZGrid;
     N7: TMenuItem;
-    N8: TMenuItem;
+    miProjection: TMenuItem;
     ControlBar1: TControlBar;
     diskGalaxy: TGLDisk;
     GLMatLib: TGLMaterialLibrary;
@@ -147,10 +156,13 @@ type
     OpenTextFileDialog: TOpenTextFileDialog;
     SaveTextFileDialog: TSaveTextFileDialog;
     FDBatchMove: TFDBatchMove;
+    chbW: TCheckBox;
+    shW: TShape;
+    nbWn: TNumberBox;
     procedure miExitClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Open1Click(Sender: TObject);
-    procedure N8Click(Sender: TObject);
+    procedure miProjectionClick(Sender: TObject);
     procedure miViewPanelHideClick(Sender: TObject);
     procedure miViewPanelShowClick(Sender: TObject);
     procedure GLAsyncTimerTimer(Sender: TObject);
@@ -167,6 +179,8 @@ type
     procedure ButtonClearClick(Sender: TObject);
     procedure SpinEditChange(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
+    procedure shAContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
   public
     MousePoint: TPoint;
     // Создание скопления звёзд со случайной позицией и цветом
@@ -192,7 +206,7 @@ const
   crSlidezy = 10;
 
 var
-  FormGalagrid: TFormGalagrid;
+  FormGalaxyMW: TFormGalaxyMW;
 
 //========================================================
 implementation
@@ -200,20 +214,22 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormGalagrid.FormCreate(Sender: TObject);
+procedure TFormGalaxyMW.FormCreate(Sender: TObject);
 begin
   tvGalaxy.FullExpand;
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
+  SpinEdit.Value := 10000;
 end;
 
-procedure TFormGalagrid.GLAsyncTimerTimer(Sender: TObject);
+
+procedure TFormGalaxyMW.GLAsyncTimerTimer(Sender: TObject);
 begin
 //  diskGalaxy.Roll(0.01);
 end;
 
-procedure TFormGalagrid.GLCadencerProgress(Sender: TObject; const DeltaTime,
+procedure TFormGalaxyMW.GLCadencerProgress(Sender: TObject; const DeltaTime,
   NewTime: Double);
 begin
   diskGalaxy.Roll(0.001);
@@ -221,45 +237,13 @@ end;
 
 // -----------------------------------------------------------------
 //
-procedure TFormGalagrid.MakeRandomStars;
+procedure TFormGalaxyMW.MakeRandomStars;
 var
   I: Integer;
   NStars: Integer;
+  clrStar: TGLColorVector;
+
 begin
-  {
-    for I := 0 to SpinEdit.Value - 1 do
-    begin
-    Stars := TGLPoints.Create(dcSol);
-    Stars.Style := psSmooth;
-    Stars.Size := 5;
-    Stars.PointParameters.Enabled := true;
-    Stars.PointParameters.MinSize := 1;
-    Stars.PointParameters.MaxSize := 10;
-    Stars.PointParameters.DistanceAttenuation.SetVector(0, 0.1, 0);
-    Stars.Positions.Add(Random(1000), Random(1000), Random(1000));
-    Stars.Colors.AddPoint(Random(), Random(), Random());
-    end;
-
-  NumPoints := 10000;
-  GLPoints := TGLPoints(dcWorld.AddNewChild(TGLPoints));
-  GLPoints.Size := 5.0;
-  GLPoints.Style := psSmooth;
-  for I := 0 to NumPoints - 1 do
-  begin
-    Color.X := Random();
-    Color.Y := Random();
-    Color.Z := Random();
-
-    X := Random(10) - 5;
-    Y := Random(10) - 5;
-    Z := Random(10) - 5;
-
-    GLPoints.Positions.Add(X * 0.05, Y * 0.05, Z * 0.05);
-    // Fill array of GLPoints
-    GLPoints.Colors.AddPoint(Color);
-  end;
-
-  }
   dotStars := TGLPoints(dcHelios.AddNewChild(TGLPoints));
   dotStars.Size := 5.0;
   dotStars.Style := psSmooth;
@@ -271,7 +255,8 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrBlue);
+      clrStar := ConvertWinColor(shO.Brush.Color); // clBlue;
+      dotStars.Colors.Add(clrStar);
     end
   end;
   // B class
@@ -281,7 +266,8 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrLightBlue);
+      clrStar := ConvertWinColor(shB.Brush.Color); // clLightBlue;
+      dotStars.Colors.Add(clrStar);
     end
   end;
   // A class
@@ -291,7 +277,8 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrWheat);
+      clrStar := ConvertWinColor(shA.Brush.Color); // clCream;
+      dotStars.Colors.Add(clrStar);
     end
   end;
   // F class
@@ -301,7 +288,8 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrFuchsia);
+      clrStar := ConvertWinColor(shF.Brush.Color); // clKhaki
+      dotStars.Colors.Add(clrStar);
     end
   end;
   // G class
@@ -311,7 +299,8 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrYellow);
+      clrStar := ConvertWinColor(shG.Brush.Color); // clYellow
+      dotStars.Colors.Add(clrStar);
     end
   end;
   // K class
@@ -321,7 +310,8 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrOrange);
+      clrStar := ConvertWinColor(shK.Brush.Color); // clOrange
+      dotStars.Colors.Add(clrStar);
     end
   end;
   // M class
@@ -331,23 +321,35 @@ begin
     for I := 0 to NStars - 1 do
     begin
       dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
-      dotStars.Colors.Add(clrRed);
+      clrStar := ConvertWinColor(shM.Brush.Color); // clRed
+      dotStars.Colors.Add(clrStar);
+    end
+  end;
+  // W class of white dwarf
+  if (chbW.Checked) then
+  begin
+    NStars := Round(nbWn.Value);
+    for I := 0 to NStars - 1 do
+    begin
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      clrStar := ConvertWinColor(shW.Brush.Color); // clWhite
+      dotStars.Colors.Add(clrStar);
     end
   end;
 end;
 
-procedure TFormGalagrid.ButtonClearClick(Sender: TObject);
+procedure TFormGalaxyMW.ButtonClearClick(Sender: TObject);
 begin
  dcHelios.DeleteChildren();
  svHelios.Invalidate();
 end;
 
-procedure TFormGalagrid.ButtonStarsClick(Sender: TObject);
+procedure TFormGalaxyMW.ButtonStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
-procedure TFormGalagrid.chbAllClick(Sender: TObject);
+procedure TFormGalaxyMW.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -358,26 +360,27 @@ begin
   chbM.Checked := chbAll.Checked;
 end;
 
+
 //-----------------------------------------------------------------------
-procedure TFormGalagrid.svGalMouseDown(Sender: TObject;
+procedure TFormGalaxyMW.svGalMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalagrid.svGalMouseUp(Sender: TObject;
+procedure TFormGalaxyMW.svGalMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalagrid.miViewPanelHideClick(Sender: TObject);
+procedure TFormGalaxyMW.miViewPanelHideClick(Sender: TObject);
 begin
   PanelLeft.Visible := False;
   PanelRight.Visible := False;
 end;
 
-procedure TFormGalagrid.miSettingsClick(Sender: TObject);
+procedure TFormGalaxyMW.miSettingsClick(Sender: TObject);
 begin
    with TFormOptions.Create(Self) do
     try
@@ -387,18 +390,26 @@ begin
     end;
 end;
 
-procedure TFormGalagrid.N8Click(Sender: TObject);
+procedure TFormGalaxyMW.miProjectionClick(Sender: TObject);
 begin
-   with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
+  if isEnglish then
+    with TFormProjectionEn.Create(Self) do
+      try
+        ShowModal;
+      finally
+        Free;
+      end
+  else
+    with TFormProjection.Create(Self) do
+      try
+        ShowModal;
+      finally
+        Free;
+      end;
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalagrid.Open1Click(Sender: TObject);
+procedure TFormGalaxyMW.Open1Click(Sender: TObject);
 var
   F: TextFile;
   sl, tl: TStringList;
@@ -442,7 +453,7 @@ end;
 //--------------------------------------------------------
 // Пересчёт числа классов звёзд при изменении общего числа
 //--------------------------------------------------------
-procedure TFormGalagrid.SaveAs1Click(Sender: TObject);
+procedure TFormGalaxyMW.SaveAs1Click(Sender: TObject);
 begin
   // Открываем диалог сохранения файла
   if SaveTextFileDialog.Execute then
@@ -457,8 +468,14 @@ begin
 end;
 
 
+procedure TFormGalaxyMW.shAContextPopup(Sender: TObject; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+
+end;
+
 // -------------------------------------------------------------
-procedure TFormGalagrid.SpinEditChange(Sender: TObject);
+procedure TFormGalaxyMW.SpinEditChange(Sender: TObject);
 begin
  nbOn.Value := Round(nbO.Value * SpinEdit.Value / 100);
  nbBn.Value := Round(nbB.Value * SpinEdit.Value / 100);
@@ -469,14 +486,14 @@ begin
  nbMn.Value := Round(nbM.Value * SpinEdit.Value / 100);
 end;
 
-procedure TFormGalagrid.miViewPanelShowClick(Sender: TObject);
+procedure TFormGalaxyMW.miViewPanelShowClick(Sender: TObject);
 begin
   PanelLeft.Visible := True;
   PanelRight.Visible := True;
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalagrid.About1Click(Sender: TObject);
+procedure TFormGalaxyMW.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -487,7 +504,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalagrid.miExitClick(Sender: TObject);
+procedure TFormGalaxyMW.miExitClick(Sender: TObject);
 begin
   Close();
 end;

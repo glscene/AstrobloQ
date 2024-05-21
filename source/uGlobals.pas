@@ -11,6 +11,8 @@ uses
   GLS.Texture;
 
 const
+  isEnglish: Boolean = False; // Выбор русского языка интерфейса перенести в опции
+
   SELDIRHELP: INTEGER = 180;
 
 type

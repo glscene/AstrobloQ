@@ -3,7 +3,7 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Galaevol.dproj">
+        <Projects Include="GalaxyMW.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Litosfera.dproj">
@@ -23,14 +23,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Galaevol">
-        <MSBuild Projects="Galaevol.dproj"/>
+    <Target Name="GalaxyMW">
+        <MSBuild Projects="GalaxyMW.dproj"/>
     </Target>
-    <Target Name="Galaevol:Clean">
-        <MSBuild Projects="Galaevol.dproj" Targets="Clean"/>
+    <Target Name="GalaxyMW:Clean">
+        <MSBuild Projects="GalaxyMW.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaevol:Make">
-        <MSBuild Projects="Galaevol.dproj" Targets="Make"/>
+    <Target Name="GalaxyMW:Make">
+        <MSBuild Projects="GalaxyMW.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Litosfera.dproj"/>
@@ -60,13 +60,13 @@
         <MSBuild Projects="Noosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaevol;Litosfera;Biosfera;Noosfera"/>
+        <CallTarget Targets="GalaxyMW;Litosfera;Biosfera;Noosfera"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaevol:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean"/>
+        <CallTarget Targets="GalaxyMW:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaevol:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make"/>
+        <CallTarget Targets="GalaxyMW:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

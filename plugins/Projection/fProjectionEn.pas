@@ -1,13 +1,9 @@
-unit fProjection;
-//
-// Star projections on the galactic plane
-//
+unit fProjectionEn;
+
 interface
 
 uses
   Winapi.OpenGL,
-  Winapi.OpenGLext,
-
   System.SysUtils,
   System.Classes,
   System.Types,
@@ -19,19 +15,17 @@ uses
   GLS.SceneViewer,
   GLS.Texture,
   GLS.VectorGeometry,
-  GLS.GeomObjects,
+  GLS.VectorLists,
   GLS.RenderContextInfo,
   GLS.State,
   GLS.VectorTypes,
-  GLS.VectorLists,
-  GLS.Graph,
   GLS.Coordinates,
-  GLS.Color,
-
-  GLS.BaseClasses;
+  GLS.BaseClasses,
+  GLS.GeomObjects,
+  GLS.Graph;
 
 type
-  TFormProjection = class(TForm)
+  TFormProjectionEn = class(TForm)
     GLScene1: TGLScene;
     SceneViewer: TGLSceneViewer;
     GLCamera: TGLCamera;
@@ -52,20 +46,19 @@ type
     procedure FormMouseWheel(Sender: TObject; Shift: TShiftState;
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
   private
-     
+
   public
-     
     mx, my: Integer;
   end;
 
 var
-  FormProjection: TFormProjection;
+  FormProjectionEn: TFormProjectionEn;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormProjection.FormCreate(Sender: TObject);
+procedure TFormProjectionEn.FormCreate(Sender: TObject);
 var
   i: Integer;
 begin
@@ -77,7 +70,7 @@ begin
   end;
 end;
 
-procedure TFormProjection.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TFormProjectionEn.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 var
   i: Integer;
   mat: TGLMatrix;
@@ -115,14 +108,14 @@ begin
   glEnd;
 end;
 
-procedure TFormProjection.SceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormProjectionEn.SceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
   my := Y;
 end;
 
-procedure TFormProjection.SceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormProjectionEn.SceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -133,7 +126,7 @@ begin
   my := Y;
 end;
 
-procedure TFormProjection.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormProjectionEn.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 begin
   GLPlane.Position.Y := GLPlane.Position.Y + WheelDelta * 0.001;
