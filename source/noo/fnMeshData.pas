@@ -28,6 +28,9 @@ type
 
 procedure ShowMeshData(const aList : TStringList);
 
+var
+  FormMeshData: TFormMeshData;
+
 implementation
 
 {$R *.dfm}

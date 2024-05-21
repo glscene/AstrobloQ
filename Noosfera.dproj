@@ -110,14 +110,6 @@
         <DCCReference Include="source\uMoveCamera.pas"/>
         <DCCReference Include="source\uSkyBodies.pas"/>
         <DCCReference Include="source\uBoneUtils.pas"/>
-        <DCCReference Include="source\noo\fnNoosfera.pas">
-            <Form>FormNoosfera</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\noo\fnLocations.pas">
-            <Form>FormLocations</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="source\noo\fnRobot.pas">
             <Form>FormLoadSmdMdl</Form>
             <FormType>dfm</FormType>
@@ -144,6 +136,14 @@
         </DCCReference>
         <DCCReference Include="source\fAbout.pas">
             <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\noo\fnLocations.pas">
+            <Form>FormLocations</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\noo\fnNoosfera.pas">
+            <Form>FormNoosfera</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -178,13 +178,13 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="4">
-                <DeployFile LocalName="Bin\Noosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Bin\Technosphere.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Noosfera.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Noosfera.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Bin\Technosphere.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>

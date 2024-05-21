@@ -1,4 +1,4 @@
-unit fGalaxyMW;
+unit fGalaktika;
 
 interface
 
@@ -49,7 +49,7 @@ uses
   GR32_ColorPicker;
 
 type
-  TFormGalaxyMW = class(TForm)
+  TFormGalaktika = class(TForm)
     GLScene: TGLScene;
     StatusBar1: TStatusBar;
     MainMenu: TMainMenu;
@@ -206,7 +206,7 @@ const
   crSlidezy = 10;
 
 var
-  FormGalaxyMW: TFormGalaxyMW;
+  FormGalaktika: TFormGalaktika;
 
 //========================================================
 implementation
@@ -214,7 +214,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormGalaxyMW.FormCreate(Sender: TObject);
+procedure TFormGalaktika.FormCreate(Sender: TObject);
 begin
   tvGalaxy.FullExpand;
 
@@ -224,12 +224,12 @@ begin
 end;
 
 
-procedure TFormGalaxyMW.GLAsyncTimerTimer(Sender: TObject);
+procedure TFormGalaktika.GLAsyncTimerTimer(Sender: TObject);
 begin
 //  diskGalaxy.Roll(0.01);
 end;
 
-procedure TFormGalaxyMW.GLCadencerProgress(Sender: TObject; const DeltaTime,
+procedure TFormGalaktika.GLCadencerProgress(Sender: TObject; const DeltaTime,
   NewTime: Double);
 begin
   diskGalaxy.Roll(0.001);
@@ -237,7 +237,7 @@ end;
 
 // -----------------------------------------------------------------
 //
-procedure TFormGalaxyMW.MakeRandomStars;
+procedure TFormGalaktika.MakeRandomStars;
 var
   I: Integer;
   NStars: Integer;
@@ -338,18 +338,18 @@ begin
   end;
 end;
 
-procedure TFormGalaxyMW.ButtonClearClick(Sender: TObject);
+procedure TFormGalaktika.ButtonClearClick(Sender: TObject);
 begin
  dcHelios.DeleteChildren();
  svHelios.Invalidate();
 end;
 
-procedure TFormGalaxyMW.ButtonStarsClick(Sender: TObject);
+procedure TFormGalaktika.ButtonStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
-procedure TFormGalaxyMW.chbAllClick(Sender: TObject);
+procedure TFormGalaktika.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -362,25 +362,25 @@ end;
 
 
 //-----------------------------------------------------------------------
-procedure TFormGalaxyMW.svGalMouseDown(Sender: TObject;
+procedure TFormGalaktika.svGalMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalaxyMW.svGalMouseUp(Sender: TObject;
+procedure TFormGalaktika.svGalMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalaxyMW.miViewPanelHideClick(Sender: TObject);
+procedure TFormGalaktika.miViewPanelHideClick(Sender: TObject);
 begin
   PanelLeft.Visible := False;
   PanelRight.Visible := False;
 end;
 
-procedure TFormGalaxyMW.miSettingsClick(Sender: TObject);
+procedure TFormGalaktika.miSettingsClick(Sender: TObject);
 begin
    with TFormOptions.Create(Self) do
     try
@@ -390,7 +390,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyMW.miProjectionClick(Sender: TObject);
+procedure TFormGalaktika.miProjectionClick(Sender: TObject);
 begin
   if isEnglish then
     with TFormProjectionEn.Create(Self) do
@@ -409,7 +409,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaxyMW.Open1Click(Sender: TObject);
+procedure TFormGalaktika.Open1Click(Sender: TObject);
 var
   F: TextFile;
   sl, tl: TStringList;
@@ -453,7 +453,7 @@ end;
 //--------------------------------------------------------
 // Пересчёт числа классов звёзд при изменении общего числа
 //--------------------------------------------------------
-procedure TFormGalaxyMW.SaveAs1Click(Sender: TObject);
+procedure TFormGalaktika.SaveAs1Click(Sender: TObject);
 begin
   // Открываем диалог сохранения файла
   if SaveTextFileDialog.Execute then
@@ -468,14 +468,14 @@ begin
 end;
 
 
-procedure TFormGalaxyMW.shAContextPopup(Sender: TObject; MousePos: TPoint;
+procedure TFormGalaktika.shAContextPopup(Sender: TObject; MousePos: TPoint;
   var Handled: Boolean);
 begin
 
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaxyMW.SpinEditChange(Sender: TObject);
+procedure TFormGalaktika.SpinEditChange(Sender: TObject);
 begin
  nbOn.Value := Round(nbO.Value * SpinEdit.Value / 100);
  nbBn.Value := Round(nbB.Value * SpinEdit.Value / 100);
@@ -486,14 +486,14 @@ begin
  nbMn.Value := Round(nbM.Value * SpinEdit.Value / 100);
 end;
 
-procedure TFormGalaxyMW.miViewPanelShowClick(Sender: TObject);
+procedure TFormGalaktika.miViewPanelShowClick(Sender: TObject);
 begin
   PanelLeft.Visible := True;
   PanelRight.Visible := True;
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaxyMW.About1Click(Sender: TObject);
+procedure TFormGalaktika.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -504,7 +504,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaxyMW.miExitClick(Sender: TObject);
+procedure TFormGalaktika.miExitClick(Sender: TObject);
 begin
   Close();
 end;

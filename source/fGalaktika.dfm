@@ -1,11 +1,11 @@
-object FormGalaxyMW: TFormGalaxyMW
+object FormGalaktika: TFormGalaktika
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1052#1083#1077#1095#1085#1086#1075#1086' '#1055#1091#1090#1080
+  Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
   ClientHeight = 805
   ClientWidth = 1352
   Color = clBtnFace
@@ -103939,7 +103939,7 @@ object FormGalaxyMW: TFormGalaxyMW
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svHelios
-    FormCaption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1075#1072#1083#1072#1082#1090#1080#1082#1080' - %FPS'
+    FormCaption = #1043#1072#1083#1072#1082#1090#1080#1082#1072' - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
