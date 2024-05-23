@@ -38,7 +38,7 @@ type
     GLCamera: TGLCamera;
     GLDummyCube: TGLDummyCube;
     GLPlane: TGLPlane;
-    GLPoints: TGLPoints;
+    GLStars: TGLPoints;
     DirectOpenGL: TGLDirectOpenGL;
     GLArrowLine1: TGLArrowLine;
     GLLightSource1: TGLLightSource;
@@ -70,11 +70,11 @@ procedure TFormProjection.FormCreate(Sender: TObject);
 var
   i: Integer;
 begin
-  // generate a bunch of random points
+  // создание скопления случайных звёзл
   for i := 1 to 1000 do
   begin
-    GLPoints.Positions.Add((Random - 0.5) * 5, (Random - 0.5) * 5, (Random - 0.5) * 5);
-    GLPoints.Colors.Add(Random, Random, Random, 0.8);
+    GLStars.Positions.Add((Random - 0.5) * 5, (Random - 0.5) * 5, (Random - 0.5) * 5);
+    GLStars.Colors.Add(Random, Random, Random, 0.8);
   end;
 end;
 
@@ -103,10 +103,10 @@ begin
   // we'll be drawing a bunch of lines, to specify a line in OpenGL,
   // you only need to specify the line start and end vertices
   glBegin(GL_LINES);
-  for i := 0 to GLPoints.Positions.Count - 1 do
+  for i := 0 to GLStars.Positions.Count - 1 do
   begin
     // read the point coordinates, directly from the TGLPoints list
-    MakePoint(p, GLPoints.Positions.List[i]);
+    MakePoint(p, GLStars.Positions.List[i]);
     // project this point on the plane with the matrix
     pProj := VectorTransform(p, mat);
     // specify the two vertices for a line

@@ -5,7 +5,7 @@ object FormGalaktika: TFormGalaktika
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+  Caption = 'Galaktika'
   ClientHeight = 805
   ClientWidth = 1352
   Color = clBtnFace
@@ -18,6 +18,7 @@ object FormGalaktika: TFormGalaktika
   Position = poScreenCenter
   WindowState = wsMaximized
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 168
   TextHeight = 30
   object StatusBar1: TStatusBar
@@ -139,6 +140,7 @@ object FormGalaktika: TFormGalaktika
         Top = 0
         Width = 371
         Height = 688
+        Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' O'
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -295,6 +297,7 @@ object FormGalaktika: TFormGalaktika
             Top = 60
             Width = 60
             Height = 29
+            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' O'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -311,6 +314,7 @@ object FormGalaktika: TFormGalaktika
             Top = 119
             Width = 60
             Height = 30
+            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' B'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -327,6 +331,7 @@ object FormGalaktika: TFormGalaktika
             Top = 179
             Width = 60
             Height = 29
+            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' A'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -343,7 +348,7 @@ object FormGalaktika: TFormGalaktika
             Top = 236
             Width = 60
             Height = 30
-            Hint = #1046#1077#1083#1090#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
+            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' F'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1041,9 +1046,9 @@ object FormGalaktika: TFormGalaktika
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object miSettings: TMenuItem
+      object miOptions: TMenuItem
         Caption = '&'#1054#1087#1094#1080#1080'...'
-        OnClick = miSettingsClick
+        OnClick = miOptionsClick
       end
       object miN5: TMenuItem
         Caption = '-'
@@ -1074,8 +1079,8 @@ object FormGalaktika: TFormGalaktika
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 261
-    Top = 373
+    Left = 779
+    Top = 345
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
@@ -103933,13 +103938,13 @@ object FormGalaktika: TFormGalaktika
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 291
-    Top = 306
+    Left = 775
+    Top = 371
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svHelios
-    FormCaption = #1043#1072#1083#1072#1082#1090#1080#1082#1072' - %FPS'
+    FormCaption = 'Galaktika - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -103953,8 +103958,8 @@ object FormGalaktika: TFormGalaktika
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 322
-    Top = 252
+    Left = 312
+    Top = 203
   end
   object OpenTextFileDialog: TOpenTextFileDialog
     Filter = 
@@ -103978,6 +103983,6 @@ object FormGalaktika: TFormGalaktika
     Mappings = <>
     LogFileName = 'Data.log'
     Left = 746
-    Top = 476
+    Top = 518
   end
 end

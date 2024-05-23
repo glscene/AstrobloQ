@@ -61,7 +61,7 @@ type
     tsPlanets: TTabSheet;
     LabelDiameter: TLabel;
     ColorGrid1: TColorGrid;
-    rgLanguage: TRadioGroup;
+    rgLang: TRadioGroup;
     cbSplashStart: TCheckBox;
     tsGeneral: TTabSheet;
     tsFlights: TTabSheet;

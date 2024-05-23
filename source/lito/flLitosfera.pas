@@ -60,11 +60,9 @@ uses
   dImages,
   flSolarSystem,
   flStarSystem,
-  fGenPlanetsys,
-  fAbout,
-  flSettings,
-
-  flNewLitosystem;
+  flGenExosys,
+  flAbout,
+  flSettings;
 
 
 type
@@ -97,7 +95,6 @@ type
     About1: TMenuItem;
     PanelLeft: TPanel;
     tvPlanets: TTreeView;
-    miOptions: TMenuItem;
     miClearTreeView: TMenuItem;
     miViewConstlines: TMenuItem;
     miViewConstborders: TMenuItem;
@@ -119,7 +116,7 @@ type
     miSolarSystem: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
-    miPlanetSystem: TMenuItem;
+    miExoSystem: TMenuItem;
     miSettings: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
@@ -130,10 +127,11 @@ type
     ToolButton3: TToolButton;
     N1: TMenuItem;
     miMonitor: TMenuItem;
-    miExosystemCreator: TMenuItem;
+    miExogen: TMenuItem;
     acPlanet: TGLActor;
+    miTools: TMenuItem;
     N5: TMenuItem;
-    miGoogleEarth: TMenuItem;
+    N7: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -159,9 +157,9 @@ type
     procedure miShowHidePlanetClick(Sender: TObject);
     procedure miPlanetSkyDomeClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
-    procedure miPlanetSystemClick(Sender: TObject);
+    procedure miExoSystemClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miExosystemCreatorClick(Sender: TObject);
+    procedure miExogenClick(Sender: TObject);
     procedure miGoogleEarthClick(Sender: TObject);
   public
     ConstLinesAlpha: Single;
@@ -410,7 +408,7 @@ end;
 
 //----------------------------------------------------------------------
 
-procedure TFormLitosfera.miExosystemCreatorClick(Sender: TObject);
+procedure TFormLitosfera.miExogenClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -917,7 +915,7 @@ begin
     end;
 end;
 
-procedure TFormLitosfera.miPlanetSystemClick(Sender: TObject);
+procedure TFormLitosfera.miExoSystemClick(Sender: TObject);
 begin
   with TFormStarSys.Create(Self) do
     try

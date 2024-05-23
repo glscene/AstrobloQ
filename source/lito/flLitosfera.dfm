@@ -6,7 +6,7 @@ object FormLitosfera: TFormLitosfera
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1051#1080#1090#1086#1089#1092#1077#1088#1072
+  Caption = 'Litosfera'
   ClientHeight = 837
   ClientWidth = 1524
   Color = clBtnFace
@@ -162,8 +162,6 @@ object FormLitosfera: TFormLitosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitLeft = -8
-      ExplicitTop = -27
     end
   end
   object StatusBar: TStatusBar
@@ -88747,39 +88745,38 @@ object FormLitosfera: TFormLitosfera
         Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSolarSystemClick
       end
-      object miPlanetSystem: TMenuItem
-        Caption = #1048#1085#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miPlanetSystemClick
+      object miExoSystem: TMenuItem
+        Caption = #1069#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
+        OnClick = miExoSystemClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
     end
-    object N5: TMenuItem
+    object miTools: TMenuItem
       Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090
-      object miExosystemCreator: TMenuItem
-        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
-        OnClick = miExosystemCreatorClick
-      end
-    end
-    object miOptions: TMenuItem
-      Caption = #1054#1087#1094#1080#1080
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
         OnClick = miSettingsClick
       end
+      object N5: TMenuItem
+        Caption = #1054#1087#1094#1080#1080'...'
+      end
+      object N7: TMenuItem
+        Caption = '-'
+      end
+      object miExogen: TMenuItem
+        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084'...'
+        OnClick = miExogenClick
+      end
     end
     object Help1: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = '&?'
       object miHelpWiki: TMenuItem
         Caption = #1042#1080#1082#1080'...'
         Hint = 'Information'
         ShortCut = 112
         OnClick = miHelpWikiClick
-      end
-      object miGoogleEarth: TMenuItem
-        Caption = 'Google Earth...'
-        OnClick = miGoogleEarthClick
       end
       object N3: TMenuItem
         Caption = '-'

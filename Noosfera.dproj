@@ -106,10 +106,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\uGlobals.pas"/>
+        <DCCReference Include="source\noo\Noo.Globals.pas"/>
         <DCCReference Include="source\uMoveCamera.pas"/>
         <DCCReference Include="source\uSkyBodies.pas"/>
-        <DCCReference Include="source\uBoneUtils.pas"/>
+        <DCCReference Include="source\noo\Noo.BoneUtils.pas"/>
         <DCCReference Include="source\noo\fnRobot.pas">
             <Form>FormLoadSmdMdl</Form>
             <FormType>dfm</FormType>
@@ -134,16 +134,24 @@
             <Form>FormSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="source\noo\fnLocations.pas">
             <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\noo\fnNoosfera.pas">
             <Form>FormNoosfera</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\noo\fnAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\noo\fnNoosfera_en.pas">
+            <Form>FormNoosfera_en</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\noo\fnLocations_en.pas">
+            <Form>FormLocations_en</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

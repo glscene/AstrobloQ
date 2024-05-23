@@ -180,7 +180,7 @@ implementation
 
 uses
   fnMeshData,
-  uGlobals;
+  Noo.Globals;
 
 {$R *.dfm}
 

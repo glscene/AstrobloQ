@@ -127,9 +127,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="fProjectionEn.pas">
-            <Form>FormProjectionEn</Form>
-        </DCCReference>
         <DCCReference Include="fProjection.pas">
             <Form>FormProjection</Form>
         </DCCReference>

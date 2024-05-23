@@ -6,7 +6,7 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
   Margins.Top = 4
   Margins.Right = 4
   Margins.Bottom = 4
-  Caption = 'Load a .mdl or .qc file'
+  Caption = #1056#1086#1073#1086#1090' .mdl '#1080#1083#1080' .qc'
   ClientHeight = 596
   ClientWidth = 752
   Color = clBtnFace
@@ -305,10 +305,11 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
     end
   end
   object OpenDialog1: TOpenDialog
-    Left = 152
+    Left = 138
+    Top = 140
   end
   object SaveDialog1: TSaveDialog
-    Left = 184
-    Top = 8
+    Left = 296
+    Top = 134
   end
 end

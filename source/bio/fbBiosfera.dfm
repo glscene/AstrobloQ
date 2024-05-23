@@ -7,7 +7,7 @@ object FormBiosfera: TFormBiosfera
   Margins.Bottom = 5
   Align = alClient
   BorderIcons = [biSystemMenu]
-  Caption = #1041#1080#1086#1089#1092#1077#1088#1072
+  Caption = 'Biosfera'
   ClientHeight = 1183
   ClientWidth = 1764
   Color = clBtnFace

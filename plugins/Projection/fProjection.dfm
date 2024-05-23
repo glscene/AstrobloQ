@@ -74,7 +74,7 @@ object FormProjection: TFormProjection
       OnRender = DirectOpenGLRender
       Blend = False
     end
-    object GLPoints: TGLPoints
+    object GLStars: TGLPoints
       NoZWrite = False
       Static = False
       Size = 5.000000000000000000

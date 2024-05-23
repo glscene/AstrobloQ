@@ -8,6 +8,7 @@ uses
   System.SysUtils,
   System.Variants,
   System.Classes,
+  System.IniFiles,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -39,14 +40,15 @@ uses
   GLS.VectorFileObjects,
   GLS.Material,
   GLS.Color,
+  GLS.SpaceText,
 
   uGlobals,
   fAbout,
-  fOptions,
+//  fOptions,
+  fGLOptions,
   fProjection,
-  fProjectionEn,
-  GLS.SpaceText,
-  GR32_ColorPicker;
+
+  gnuGettext;
 
 type
   TFormGalaktika = class(TForm)
@@ -74,7 +76,7 @@ type
     miN3: TMenuItem;
     miN4: TMenuItem;
     miView: TMenuItem;
-    miSettings: TMenuItem;
+    miOptions: TMenuItem;
     miViewPanelHide: TMenuItem;
     miViewPanelShow: TMenuItem;
     miN5: TMenuItem;
@@ -173,7 +175,6 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure svGalMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure miSettingsClick(Sender: TObject);
     procedure ButtonStarsClick(Sender: TObject);
     procedure chbAllClick(Sender: TObject);
     procedure ButtonClearClick(Sender: TObject);
@@ -181,6 +182,8 @@ type
     procedure SaveAs1Click(Sender: TObject);
     procedure shAContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
+    procedure FormShow(Sender: TObject);
+    procedure miOptionsClick(Sender: TObject);
   public
     MousePoint: TPoint;
     // Создание скопления звёзд со случайной позицией и цветом
@@ -223,12 +226,65 @@ begin
   SpinEdit.Value := 10000;
 end;
 
+//------------------------------------------------------------------
+procedure LangIni();
+var
+  i: integer;
+begin
+for i := 0 to Application.ComponentCount - 1 do
+  begin
+    if (Application.Components[i] is TForm)
+    then TranslateComponent(Application.Components[i]);;
+  end;
+end;
 
+//------------------------------------------------------------------
+procedure LangChange();
+var
+  i: Integer;
+
+begin
+  for i := 0 to Application.ComponentCount - 1 do
+  begin
+    if (Application.Components[i] is TForm) then
+      RetranslateComponent(Application.Components[i]);;
+  end;
+end;
+
+//------------------------------------------------------------------
+procedure TFormGalaktika.FormShow(Sender: TObject);
+var
+  i: Integer;
+begin
+{
+  with TFormOptions.Create(Self) do
+    try
+      ShowModal;
+      if (FormOptions.rgLanguages.ItemIndex = 0) then
+      begin
+        CurLang := 'ru';
+        UseLanguage('ru');
+      end
+      else
+      begin
+        CurLang := 'en';
+        UseLanguage('en');
+      end;
+      LangIni();
+
+    finally
+      Free;
+    end;
+}
+end;
+
+// ------------------------------------------------------------------
 procedure TFormGalaktika.GLAsyncTimerTimer(Sender: TObject);
 begin
 //  diskGalaxy.Roll(0.01);
 end;
 
+//------------------------------------------------------------------
 procedure TFormGalaktika.GLCadencerProgress(Sender: TObject; const DeltaTime,
   NewTime: Double);
 begin
@@ -380,32 +436,14 @@ begin
   PanelRight.Visible := False;
 end;
 
-procedure TFormGalaktika.miSettingsClick(Sender: TObject);
+procedure TFormGalaktika.miProjectionClick(Sender: TObject);
 begin
-   with TFormOptions.Create(Self) do
+  with TFormProjection.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
-end;
-
-procedure TFormGalaktika.miProjectionClick(Sender: TObject);
-begin
-  if isEnglish then
-    with TFormProjectionEn.Create(Self) do
-      try
-        ShowModal;
-      finally
-        Free;
-      end
-  else
-    with TFormProjection.Create(Self) do
-      try
-        ShowModal;
-      finally
-        Free;
-      end;
 end;
 
 // -------------------------------------------------------------
@@ -507,6 +545,16 @@ end;
 procedure TFormGalaktika.miExitClick(Sender: TObject);
 begin
   Close();
+end;
+
+procedure TFormGalaktika.miOptionsClick(Sender: TObject);
+begin
+  with TFormGLOptions.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 end.

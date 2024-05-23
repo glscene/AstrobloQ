@@ -86,7 +86,7 @@ type
     Label17: TLabel;
     GlowTrackBar: TTrackBar;
     PhotoEdit: TEdit;
-    Label18: TLabel;
+    LabelFoto: TLabel;
     OpenDialog1: TOpenDialog;
     PhotoBtn: TSpeedButton;
     HelpBtn: TSpeedButton;
@@ -120,7 +120,7 @@ implementation
 
 uses
   fnNoosfera,
-  uGlobals;
+  Noo.Globals;
 
 {$R *.DFM}
 

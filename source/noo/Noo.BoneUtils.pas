@@ -1,7 +1,7 @@
 //
 // Some skelet utility functions for MDL
 //
-unit uBoneUtils;
+unit Noo.BoneUtils;
 
 // LoadQC Examples:
 //
@@ -37,7 +37,6 @@ function GetBoneIndexByName(Ac: TGLActor; BoneName: string): integer;
 
 // ----------------------------------------------------------------------
 implementation
-
 // ----------------------------------------------------------------------
 
 function Get_String_From1_From2_To1(st: string;

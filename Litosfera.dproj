@@ -106,9 +106,6 @@
         <DCCReference Include="source\lito\flLitosfera.pas">
             <Form>FormLitosfera</Form>
         </DCCReference>
-        <DCCReference Include="source\fAbout.pas">
-            <Form>FormAbout</Form>
-        </DCCReference>
         <DCCReference Include="source\lito\flParams.pas">
             <Form>FrameParams</Form>
             <FormType>dfm</FormType>
@@ -122,10 +119,6 @@
             <Form>FormSolarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\lito\flNewLitosystem.pas">
-            <Form>FormNewSystem</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="source\lito\flSettings.pas">
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
@@ -135,12 +128,16 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\fGenPlanetsys.pas">
+        <DCCReference Include="source\lito\flGenExosys.pas">
             <Form>FormGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\uMoveCamera.pas"/>
         <DCCReference Include="source\uSkyBodies.pas"/>
+        <DCCReference Include="source\lito\flAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

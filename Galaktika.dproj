@@ -124,7 +124,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\uGlobals.pas"/>
         <DCCReference Include="source\fGalaktika.pas">
             <Form>FormGalaktika</Form>
             <FormType>dfm</FormType>
@@ -134,10 +133,6 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\fAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="source\fOptions.pas">
             <Form>FormOptions</Form>
             <FormType>dfm</FormType>
@@ -145,9 +140,18 @@
         <DCCReference Include="plugins\Projection\fProjection.pas">
             <Form>FormProjection</Form>
         </DCCReference>
-        <DCCReference Include="plugins\Projection\fProjectionEn.pas">
-            <Form>FormProjectionEn</Form>
+        <DCCReference Include="source\fAbout.pas">
+            <Form>FormAbout</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\uGlobals.pas"/>
+        <DCCReference Include="source\fGLDialog.pas"/>
+        <DCCReference Include="source\fGLForm.pas">
+            <Form>GLForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fGLOptions.pas">
+            <Form>FormGLOptions</Form>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

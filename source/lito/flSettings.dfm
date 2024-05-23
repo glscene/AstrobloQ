@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -180,7 +180,7 @@ object FormSettings: TFormSettings
           State = cbChecked
           TabOrder = 4
         end
-        object rgLanguage: TRadioGroup
+        object rgLang: TRadioGroup
           Left = 46
           Top = 392
           Width = 740

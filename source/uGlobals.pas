@@ -5,14 +5,14 @@ interface
 uses
   Winapi.Windows,
   System.SysUtils,
+  System.IniFiles,
+
   Vcl.Graphics,
 
   GLS.Color,
   GLS.Texture;
 
 const
-  isEnglish: Boolean = False; // Выбор русского языка интерфейса перенести в опции
-
   SELDIRHELP: INTEGER = 180;
 
 type
@@ -22,56 +22,58 @@ type
       PEarthHRPath: string[255];
     PStartedNameNumber: string[25];
     PMapBordersColor, PMapGridsColor, PMapDatasColor, PMapBacksColor: TColor;
-    PGlowUpDowni, PColorreg: INTEGER;
+    PGlowUpDowni, PColorreg: Integer;
     PStarted: TDateTime;
 
-    PClassStartPanelColor, PEditingColor, PBackgroundColor, PHighlightColor, PEditColor,
-      PCurrentColor: TColor;
+    PClassStartPanelColor, PEditingColor, PBackgroundColor, PHighlightColor,
+      PEditColor, PCurrentColor: TColor;
 
-    PErrorBeepOn, PWarningBeepOn, PInfoBeepOn, PConfirmBeepOn, PCompletedBeepOn: Boolean;
-    PSelectionRadius: INTEGER;
-
-    // X Y Location of forms
-    PEarthFormY, PEarthFormX, PAboutFormX, PAboutFormY, PGlsSmdQcFormX, PGlsSmdQcFormY,
-      PGlsSmdLoadMdlFormX, PGlsSmdLoadMdlFormY, PGLSViewerFormX, PGLSViewerFormY, PABCreatorFormX,
-      PABCreatorFormY, PHoloFormY, PHoloFormX, PAboutHolographicsX, PAboutHolographicsY, PMessageX,
-      PMessageY, PSystemInfoFormX, PSystemInfoFormY: INTEGER;
+    PErrorBeepOn, PWarningBeepOn, PInfoBeepOn, PConfirmBeepOn,
+      PCompletedBeepOn: Boolean;
+    PSelectionRadius: Integer;
   end;
 
 type
   PrefFile = file of PrefRecord;
 
 var
+  IniFile: TIniFile;
+  LangID: INTEGER;
+  CurLangID: string = 'ru'; // Current default is 'en', localized is 'ru' etc.
+
   PreRcd: PrefRecord;
   HiddenString, StartedNameNumber: String;
 
-  DataPath, ShpPath, EarthDataPath, EarthModelPath, EarthPhotoPath, EarthHRPath: TFileName;
+  DataPath, ShpPath, EarthDataPath, EarthModelPath, EarthPhotoPath,
+    EarthHRPath: TFileName;
 
-  GlowUpDowni, Colorreg: INTEGER;
+  GlowUpDowni, Colorreg: Integer;
   MyPixelFormat: TPixelFormat; // pf24bit pf32bit
   PixelScanSize: Byte;
   Started: TDateTime;
 
-  PrintBigChecked, UseThumbnails, AutoDisPlay, VoicesON, DoneBeepOn, ErrorBeepOn,
-    bAutoSave: Boolean;
+  PrintBigChecked, UseThumbnails, AutoDisPlay, VoicesON, DoneBeepOn,
+    ErrorBeepOn, bAutoSave: Boolean;
   CurrentColor: TColor;
 
-  FormPlanetX, FormPlanetY, FormCyborgX, FormCyborgY, FormLoadSmdMdlX, FormLoadSmdMdlY,
-    FormGLSViewerX, FormGLSViewerY, ABCreatorFormX, ABCreatorFormY, AboutFormX, AboutFormY,
-    AboutHolographicsX, AboutHolographicsY, MessageX, MessageY, HoloFormY, HoloFormX,
-    SystemInfoFormX, SystemInfoFormY: INTEGER;
+  FormPlanetX, FormPlanetY, FormCyborgX, FormCyborgY, FormLoadSmdMdlX,
+    FormLoadSmdMdlY, FormGLSViewerX, FormGLSViewerY, ABCreatorFormX,
+    ABCreatorFormY, AboutFormX, AboutFormY, AboutHolographicsX,
+    AboutHolographicsY, MessageX, MessageY, HoloFormY, HoloFormX,
+    SystemInfoFormX, SystemInfoFormY: Integer;
 
 var
-  ThumbColor, MapBordersColor, MapGridsColor, MapDatasColor, MapBacksColor: TColor;
-  EditingColor, ClassStartPanelColor, BackgroundColor, HighlightColor, 
-  EditColor: TColor; // ,  CurrentColor
-  SelectionRadius: INTEGER;
+  ThumbColor, MapBordersColor, MapGridsColor, MapDatasColor,
+    MapBacksColor: TColor;
+  EditingColor, ClassStartPanelColor, BackgroundColor, HighlightColor,
+    EditColor: TColor; // ,  CurrentColor
+  SelectionRadius: Integer;
 
-  StillOpen, FilePreviews, Skip32BitNotice, SkipIntroScreen, ScaleBarVisible, WarningBeepOn,
-    InfoBeepOn, ConfirmBeepOn, CompletedBeepOn: Boolean;
+  StillOpen, FilePreviews, Skip32BitNotice, SkipIntroScreen, ScaleBarVisible,
+    WarningBeepOn, InfoBeepOn, ConfirmBeepOn, CompletedBeepOn: Boolean;
 
   DotColorArray: array of TGLColorVector;
-  MarkerIndex, ColorIndex: INTEGER;
+  MarkerIndex, ColorIndex: Integer;
 
   MMSysHandle: THandle;
   PlaySound: function(lpszSoundName: PAnsiChar; uFlags: UINT): BOOL; stdcall;
@@ -85,12 +87,9 @@ procedure GetPreferences;
 implementation
 // --------------------------------------------------------------------
 
-// uses LOResMess;
-
 procedure DoLoader;
 var
   P_File: PrefFile;
-var
   PathS: string;
 begin
   PathS := ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof';
@@ -139,20 +138,6 @@ begin // after loading
     MapGridsColor := PMapGridsColor;
     MapDatasColor := PMapDatasColor;
     MapBacksColor := PMapBacksColor;
-    MessageX := PMessageX;
-    MessageY := PMessageY;
-    FormPlanetX := PEarthFormX;
-    FormPlanetY := PEarthFormY;
-    AboutFormX := PAboutFormX;
-    AboutFormY := PAboutFormY;
-    ABCreatorFormX := PABCreatorFormX;
-    ABCreatorFormY := PABCreatorFormY;
-    AboutHolographicsX := PAboutHolographicsX;
-    AboutHolographicsY := PAboutHolographicsY;
-    HoloFormY := PHoloFormY;
-    HoloFormX := PHoloFormX;
-    SystemInfoFormX := PSystemInfoFormX;
-    SystemInfoFormY := PSystemInfoFormY;
   end;
 end;
 
@@ -173,7 +158,7 @@ begin
   CloseFile(P_File);
 end;
 
-//  ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 procedure GetPreferences;
 begin // before saving
@@ -208,20 +193,6 @@ begin // before saving
     PMapDatasColor := MapDatasColor;
     PMapBacksColor := MapBacksColor;
 
-    PEarthFormX := FormPlanetX;
-    PEarthFormY := FormPlanetY;
-    PAboutFormX := AboutFormX;
-    PAboutFormY := AboutFormY;
-    PABCreatorFormX := ABCreatorFormX;
-    PABCreatorFormY := ABCreatorFormY;
-    PMessageX := MessageX;
-    PMessageY := MessageY;
-    PAboutHolographicsX := AboutHolographicsX;
-    PAboutHolographicsY := AboutHolographicsY;
-    PHoloFormY := HoloFormY;
-    PHoloFormX := HoloFormX;
-    PSystemInfoFormX := SystemInfoFormX;
-    PSystemInfoFormY := SystemInfoFormY;
   end;
 end;
 

@@ -124,8 +124,8 @@ var
 implementation
 
 uses
-  uGlobals,
-  uBoneUtils;
+  Noo.Globals,
+  Noo.BoneUtils;
 
 {$R *.DFM}
 

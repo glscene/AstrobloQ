@@ -198,7 +198,7 @@ type
     ptsSizeEdit: TEdit;
     N2: TMenuItem;
     miDisplay: TMenuItem;
-    miPopulation: TMenuItem;
+    miLocations: TMenuItem;
     EarthCore: TGLSphere;
     miCore: TMenuItem;
     dcEarthCore: TGLDummyCube;
@@ -292,7 +292,7 @@ type
     procedure lblPhotoNameClick(Sender: TObject);
     procedure NightSkyorBumpyLand1Click(Sender: TObject);
     procedure ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
-    procedure miPopulationClick(Sender: TObject);
+    procedure miLocationsClick(Sender: TObject);
     procedure miCoreClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
     procedure miStarPilotClick(Sender: TObject);
@@ -329,18 +329,18 @@ implementation
 {$R *.dfm}
 
 uses
-  uGlobals,
+  Noo.Globals,
   // accurate movements left for later... or the astute reader
   uMoveCamera,
   uSkyBodies, // Asteroid as monolith rock
-  fAbout,
+  fnAbout,
   //fAllShapeLoader,  //Earth Cities, Countries
   fnMeshEditor, // 3000
-  fnLocations, // 1300 Data input for planet
+//  fnLocations, // 1300 Data input for planet
   fnMehanizm, // 4000
   fnStarPilot, // 5000
   fnCyborg, // 8000 ...
-  fnRobot; // 8500
+  fnRobot, fnLocations; // 8500
 
 // ----- TMarkerPosition.GetCartesian ------------------------------------------
 (*
@@ -1307,10 +1307,10 @@ begin
   GLLensFlare1.Visible := miSunFlare.Checked;
 end;
 
-procedure TFormNoosfera.miPopulationClick(Sender: TObject);
+procedure TFormNoosfera.miLocationsClick(Sender: TObject);
 begin
-  miPopulation.Checked := (not miPopulation.Checked);
-  MemberGB.Visible := miPopulation.Checked;
+  miLocations.Checked := (not miLocations.Checked);
+  MemberGB.Visible := miLocations.Checked;
   GLSceneViewer.Invalidate;
 end;
 

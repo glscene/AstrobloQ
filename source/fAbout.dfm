@@ -29,7 +29,7 @@ object FormAbout: TFormAbout
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'EvolutionMW'
+    Caption = 'Galaktika'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70
@@ -50,8 +50,6 @@ object FormAbout: TFormAbout
     ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
-    ExplicitTop = 90
-    ExplicitHeight = 803
     object tsInfo: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -76,7 +74,6 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitHeight = 758
         object ImagePlanets: TImage
           Left = 1
           Top = 1
@@ -11282,7 +11279,6 @@ object FormAbout: TFormAbout
           'Liza Soboleva'
           'Danil Wasilyev')
         TabOrder = 0
-        ExplicitHeight = 758
       end
     end
   end

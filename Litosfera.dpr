@@ -9,19 +9,20 @@
 *)
 program Litosfera;
 
+
+
 uses
   Forms,
   flLitosfera in 'source\lito\flLitosfera.pas' {FormLitosfera},
-  fAbout in 'source\fAbout.pas' {FormAbout},
   flParams in 'source\lito\flParams.pas' {FrameParams: TFrame},
   flStarSystem in 'source\lito\flStarSystem.pas' {FormStarSys},
   flSolarSystem in 'source\lito\flSolarSystem.pas' {FormSolarSys},
-  flNewLitosystem in 'source\lito\flNewLitosystem.pas' {FormNewSystem},
   flSettings in 'source\lito\flSettings.pas' {FormSettings},
   dImages in 'source\dImages.pas' {dfImages: TDataModule},
-  fGenPlanetsys in 'source\fGenPlanetsys.pas' {FormGenPlanetsys},
+  flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
   uMoveCamera in 'source\uMoveCamera.pas',
-  uSkyBodies in 'source\uSkyBodies.pas';
+  uSkyBodies in 'source\uSkyBodies.pas',
+  flAbout in 'source\lito\flAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -31,5 +32,6 @@ begin
   Application.CreateForm(TFormLitosfera, FormLitosfera);
   Application.CreateForm(TdfImages, dfImages);
   Application.CreateForm(TFormSettings, FormSettings);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
