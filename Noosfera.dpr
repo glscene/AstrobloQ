@@ -20,9 +20,7 @@ uses
   fnStarPilot in 'source\noo\fnStarPilot.pas' {FormSpacePilot},
   fnLocations in 'source\noo\fnLocations.pas' {FormLocations},
   fnNoosfera in 'source\noo\fnNoosfera.pas' {FormNoosfera},
-  fnAbout in 'source\noo\fnAbout.pas' {FormAbout},
-  fnNoosfera_en in 'source\noo\fnNoosfera_en.pas' {FormNoosfera_en},
-  fnLocations_en in 'source\noo\fnLocations_en.pas' {FormLocations_en};
+  fnAbout in 'source\noo\fnAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -31,7 +29,6 @@ begin
 
   Application.Title := 'Tehnosfera';
   Application.CreateForm(TFormNoosfera, FormNoosfera);
-  Application.CreateForm(TFormLocations_en, FormLocations_en);
   Application.CreateForm(TFormLoadSmdMdl, FormLoadSmdMdl);
   Application.CreateForm(TFormKiborg, FormKiborg);
   Application.CreateForm(TFormMeshShow, FormMeshShow);
@@ -39,6 +36,5 @@ begin
   Application.CreateForm(TFormMehanizm, FormMehanizm);
   Application.CreateForm(TFormSpacePilot, FormSpacePilot);
   Application.CreateForm(TFormLocations, FormLocations);
-  Application.CreateForm(TFormNoosfera_en, FormNoosfera_en);
   Application.Run;
 end.

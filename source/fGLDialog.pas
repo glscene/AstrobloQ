@@ -27,7 +27,6 @@ type
     PanelBottom: TPanel;
     ButtonOK: TButton;
     ButtonCancel: TButton;
-    ButtonHelp: TButton;
     Memo: TMemo;
     procedure ButtonHelpClick(Sender: TObject);
   public

@@ -133,10 +133,6 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\fOptions.pas">
-            <Form>FormOptions</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="plugins\Projection\fProjection.pas">
             <Form>FormProjection</Form>
         </DCCReference>
@@ -145,7 +141,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\uGlobals.pas"/>
-        <DCCReference Include="source\fGLOptions.pas">
+        <DCCReference Include="source\fSettings.pas">
             <Form>FormGLOptions</Form>
         </DCCReference>
         <DCCReference Include="source\fGLForm.pas">

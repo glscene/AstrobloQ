@@ -16,6 +16,7 @@ type
   TdfImages = class(TDataModule)
     ImgCollectionPlanets: TImageCollection;
     ImgVirtPlanets: TVirtualImageList;
+    ImageList: TImageList;
   private
   public
   end;

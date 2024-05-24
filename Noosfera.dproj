@@ -146,14 +146,6 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\noo\fnNoosfera_en.pas">
-            <Form>FormNoosfera_en</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\noo\fnLocations_en.pas">
-            <Form>FormLocations_en</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

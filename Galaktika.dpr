@@ -5,11 +5,10 @@ uses
   Vcl.Forms,
   fGalaktika in 'source\fGalaktika.pas' {FormGalaktika},
   dImages in 'source\dImages.pas' {dfImages: TDataModule},
-  fOptions in 'source\fOptions.pas' {FormOptions},
   fProjection in 'plugins\Projection\fProjection.pas' {FormProjection},
   fAbout in 'source\fAbout.pas' {FormAbout},
   uGlobals in 'source\uGlobals.pas',
-  fGLOptions in 'source\fGLOptions.pas' {FormGLOptions},
+  fSettings in 'source\fSettings.pas' {FormGLOptions},
   fGLForm in 'source\fGLForm.pas' {GLForm},
   fGLDialog in 'source\fGLDialog.pas' {GLDialog};
 

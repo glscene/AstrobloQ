@@ -974,20 +974,20 @@ object FormGalaktika: TFormGalaktika
     end
   end
   object MainMenu: TMainMenu
-    Left = 284
-    Top = 474
-    object File1: TMenuItem
+    Left = 690
+    Top = 124
+    object miFile: TMenuItem
       Caption = '&'#1060#1072#1081#1083
-      object Open1: TMenuItem
+      object miOpen: TMenuItem
         Caption = #1054'&'#1090#1082#1088#1099#1090#1100'...'
-        OnClick = Open1Click
+        OnClick = miOpenClick
       end
-      object Save1: TMenuItem
+      object miSave: TMenuItem
         Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100
       end
-      object SaveAs1: TMenuItem
+      object miSaveAs: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' &'#1082#1072#1082'...'
-        OnClick = SaveAs1Click
+        OnClick = miSaveAsClick
       end
       object miN2: TMenuItem
         Caption = '-'
@@ -997,47 +997,47 @@ object FormGalaktika: TFormGalaktika
         OnClick = miExitClick
       end
     end
-    object Edit1: TMenuItem
+    object miEdit: TMenuItem
       Caption = '&'#1055#1088#1072#1074#1082#1072
-      object Undo1: TMenuItem
+      object miUndo: TMenuItem
         Caption = #1054'&'#1090#1084#1077#1085#1080#1090#1100
         ShortCut = 16474
       end
       object miN4: TMenuItem
         Caption = '-'
       end
-      object Cut1: TMenuItem
+      object miCut: TMenuItem
         Caption = #1042#1099'&'#1088#1077#1079#1072#1090#1100
         ShortCut = 16472
       end
-      object Copy1: TMenuItem
+      object miCopy: TMenuItem
         Caption = '&'#1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
         ShortCut = 16451
       end
-      object Paste1: TMenuItem
+      object miPaste: TMenuItem
         Caption = '&'#1042#1089#1090#1072#1074#1080#1090#1100
         ShortCut = 16470
       end
       object miN3: TMenuItem
         Caption = '-'
       end
-      object Find1: TMenuItem
+      object miFind: TMenuItem
         Caption = '&'#1053#1072#1081#1090#1080'...'
       end
-      object Replace1: TMenuItem
+      object miReplace: TMenuItem
         Caption = '&'#1047#1072#1084#1077#1085#1080#1090#1100'...'
       end
-      object GoTo1: TMenuItem
+      object miGoTo: TMenuItem
         Caption = '&'#1055#1077#1088#1077#1081#1090#1080' '#1082'...'
       end
       object miN1: TMenuItem
         Caption = '-'
       end
-      object Object1: TMenuItem
+      object miObject: TMenuItem
         Caption = #1054'&'#1073#1098#1077#1082#1090
       end
     end
-    object N7: TMenuItem
+    object miMonitor: TMenuItem
       Caption = #1052#1086#1085#1080#1090#1086#1088
       object miProjection: TMenuItem
         Caption = #1055#1088#1086#1077#1082#1094#1080#1080' '#1079#1074#1105#1079#1076'...'
@@ -1046,41 +1046,38 @@ object FormGalaktika: TFormGalaktika
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object miOptions: TMenuItem
-        Caption = '&'#1054#1087#1094#1080#1080'...'
-        OnClick = miOptionsClick
+      object miSettings: TMenuItem
+        Caption = '&'#1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
+        OnClick = miSettingsClick
       end
       object miN5: TMenuItem
         Caption = '-'
       end
-      object miViewPanelHide: TMenuItem
-        Caption = '&'#1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
-        OnClick = miViewPanelHideClick
-      end
-      object miViewPanelShow: TMenuItem
-        Caption = '&'#1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1072#1085#1077#1083#1080'...'
-        OnClick = miViewPanelShowClick
+      object miPanelShow: TMenuItem
+        Caption = '&'#1055#1072#1085#1077#1083#1080
+        Checked = True
+        OnClick = miPanelShowClick
       end
     end
-    object Help1: TMenuItem
+    object miHelp: TMenuItem
       Caption = '&?'
       Hint = #1057#1087#1088#1072#1074#1082#1072
-      object miWiki: TMenuItem
-        Caption = '&'#1042#1080#1082#1080'...'
+      object miRuwiki: TMenuItem
+        Caption = '&'#1056#1091#1074#1080#1082#1080'...'
       end
       object miN6: TMenuItem
         Caption = '-'
       end
-      object About1: TMenuItem
+      object miAbout: TMenuItem
         Caption = #1054' &'#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
-        OnClick = About1Click
+        OnClick = miAboutClick
       end
     end
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 779
-    Top = 345
+    Left = 285
+    Top = 450
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
@@ -103938,8 +103935,8 @@ object FormGalaktika: TFormGalaktika
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 775
-    Top = 371
+    Left = 306
+    Top = 579
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner

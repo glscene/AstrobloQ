@@ -45,7 +45,7 @@ uses
   uGlobals,
   fAbout,
   fGLForm,
-  fGLOptions,
+  fSettings,
   fProjection,
 
   gnuGettext;
@@ -57,32 +57,31 @@ type
     MainMenu: TMainMenu;
     GLAsyncTimer: TGLAsyncTimer;
     GLCadencer: TGLCadencer;
-    File1: TMenuItem;
-    Open1: TMenuItem;
-    Save1: TMenuItem;
-    SaveAs1: TMenuItem;
+    miFile: TMenuItem;
+    miOpen: TMenuItem;
+    miSave: TMenuItem;
+    miSaveAs: TMenuItem;
     miExit: TMenuItem;
     miN2: TMenuItem;
-    Edit1: TMenuItem;
-    Undo1: TMenuItem;
-    Cut1: TMenuItem;
-    Copy1: TMenuItem;
-    Paste1: TMenuItem;
-    Find1: TMenuItem;
-    Replace1: TMenuItem;
-    GoTo1: TMenuItem;
-    Object1: TMenuItem;
+    miEdit: TMenuItem;
+    miUndo: TMenuItem;
+    miCut: TMenuItem;
+    miCopy: TMenuItem;
+    miPaste: TMenuItem;
+    miFind: TMenuItem;
+    miReplace: TMenuItem;
+    miGoTo: TMenuItem;
+    miObject: TMenuItem;
     miN1: TMenuItem;
     miN3: TMenuItem;
     miN4: TMenuItem;
     miView: TMenuItem;
-    miOptions: TMenuItem;
-    miViewPanelHide: TMenuItem;
-    miViewPanelShow: TMenuItem;
+    miSettings: TMenuItem;
+    miPanelShow: TMenuItem;
     miN5: TMenuItem;
-    Help1: TMenuItem;
-    miWiki: TMenuItem;
-    About1: TMenuItem;
+    miHelp: TMenuItem;
+    miRuwiki: TMenuItem;
+    miAbout: TMenuItem;
     miN6: TMenuItem;
     camGalaxy: TGLCamera;
     LightGal: TGLLightSource;
@@ -92,7 +91,7 @@ type
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
     XYZGrid: TGLXYZGrid;
-    N7: TMenuItem;
+    miMonitor: TMenuItem;
     miProjection: TMenuItem;
     ControlBar1: TControlBar;
     diskGalaxy: TGLDisk;
@@ -162,11 +161,10 @@ type
     shW: TShape;
     nbWn: TNumberBox;
     procedure miExitClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
-    procedure Open1Click(Sender: TObject);
+    procedure miAboutClick(Sender: TObject);
+    procedure miOpenClick(Sender: TObject);
     procedure miProjectionClick(Sender: TObject);
-    procedure miViewPanelHideClick(Sender: TObject);
-    procedure miViewPanelShowClick(Sender: TObject);
+    procedure miPanelShowClick(Sender: TObject);
     procedure GLAsyncTimerTimer(Sender: TObject);
     procedure GLCadencerProgress(Sender: TObject; const DeltaTime,
       NewTime: Double);
@@ -179,11 +177,11 @@ type
     procedure chbAllClick(Sender: TObject);
     procedure ButtonClearClick(Sender: TObject);
     procedure SpinEditChange(Sender: TObject);
-    procedure SaveAs1Click(Sender: TObject);
+    procedure miSaveAsClick(Sender: TObject);
     procedure shAContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
     procedure FormShow(Sender: TObject);
-    procedure miOptionsClick(Sender: TObject);
+    procedure miSettingsClick(Sender: TObject);
   public
     MousePoint: TPoint;
     // Создание скопления звёзд со случайной позицией и цветом
@@ -432,10 +430,12 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalaktika.miViewPanelHideClick(Sender: TObject);
+//-------------------------------------------------------------
+procedure TFormGalaktika.miPanelShowClick(Sender: TObject);
 begin
-  PanelLeft.Visible := False;
-  PanelRight.Visible := False;
+  miPanelShow.Checked := not miPanelShow.Checked;
+  PanelLeft.Visible := not PanelLeft.Visible;
+  PanelRight.Visible := not PanelRight.Visible;
 end;
 
 procedure TFormGalaktika.miProjectionClick(Sender: TObject);
@@ -449,7 +449,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.Open1Click(Sender: TObject);
+procedure TFormGalaktika.miOpenClick(Sender: TObject);
 var
   F: TextFile;
   sl, tl: TStringList;
@@ -493,7 +493,7 @@ end;
 //--------------------------------------------------------
 // Пересчёт числа классов звёзд при изменении общего числа
 //--------------------------------------------------------
-procedure TFormGalaktika.SaveAs1Click(Sender: TObject);
+procedure TFormGalaktika.miSaveAsClick(Sender: TObject);
 begin
   // Открываем диалог сохранения файла
   if SaveTextFileDialog.Execute then
@@ -526,14 +526,8 @@ begin
  nbMn.Value := Round(nbM.Value * SpinEdit.Value / 100);
 end;
 
-procedure TFormGalaktika.miViewPanelShowClick(Sender: TObject);
-begin
-  PanelLeft.Visible := True;
-  PanelRight.Visible := True;
-end;
-
 // -------------------------------------------------------------
-procedure TFormGalaktika.About1Click(Sender: TObject);
+procedure TFormGalaktika.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -549,7 +543,7 @@ begin
   Close();
 end;
 
-procedure TFormGalaktika.miOptionsClick(Sender: TObject);
+procedure TFormGalaktika.miSettingsClick(Sender: TObject);
 begin
   with TFormGLOptions.Create(Self) do
     try
