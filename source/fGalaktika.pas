@@ -44,14 +44,14 @@ uses
 
   uGlobals,
   fAbout,
-//  fOptions,
+  fGLForm,
   fGLOptions,
   fProjection,
 
   gnuGettext;
 
 type
-  TFormGalaktika = class(TForm)
+  TFormGalaktika = class(TGLForm)
     GLScene: TGLScene;
     StatusBar1: TStatusBar;
     MainMenu: TMainMenu;
@@ -219,6 +219,7 @@ implementation
 
 procedure TFormGalaktika.FormCreate(Sender: TObject);
 begin
+ // inherited;
   tvGalaxy.FullExpand;
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
@@ -256,6 +257,7 @@ procedure TFormGalaktika.FormShow(Sender: TObject);
 var
   i: Integer;
 begin
+  inherited;
 {
   with TFormOptions.Create(Self) do
     try

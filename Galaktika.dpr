@@ -9,9 +9,9 @@ uses
   fProjection in 'plugins\Projection\fProjection.pas' {FormProjection},
   fAbout in 'source\fAbout.pas' {FormAbout},
   uGlobals in 'source\uGlobals.pas',
-  fGLDialog in 'source\fGLDialog.pas',
+  fGLOptions in 'source\fGLOptions.pas' {FormGLOptions},
   fGLForm in 'source\fGLForm.pas' {GLForm},
-  fGLOptions in 'source\fGLOptions.pas' {FormGLOptions};
+  fGLDialog in 'source\fGLDialog.pas' {GLDialog};
 
 {$R *.res}
 
@@ -21,6 +21,7 @@ begin
   Application.CreateForm(TdfImages, dfImages);
   Application.CreateForm(TFormGalaktika, FormGalaktika);
   Application.CreateForm(TGLForm, GLForm);
+  Application.CreateForm(TGLDialog, GLDialog);
   Application.Run;
 end.
 

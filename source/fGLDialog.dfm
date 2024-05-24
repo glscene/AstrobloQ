@@ -1,55 +1,53 @@
 inherited GLDialog: TGLDialog
   BorderIcons = [biSystemMenu]
-  ClientHeight = 469
-  ClientWidth = 664
+  ClientHeight = 500
+  ClientWidth = 708
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
-  ExplicitWidth = 680
-  ExplicitHeight = 508
-  TextHeight = 20
+  ExplicitWidth = 724
+  ExplicitHeight = 539
+  TextHeight = 30
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 664
+    Width = 708
     Height = 35
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 476
+    ExplicitWidth = 700
   end
   object PanelMiddle: TPanel
     Left = 0
     Top = 35
-    Width = 664
-    Height = 393
+    Width = 708
+    Height = 424
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 476
-    ExplicitHeight = 261
+    ExplicitWidth = 700
+    ExplicitHeight = 399
     object Memo: TMemo
       Left = 1
       Top = 1
-      Width = 662
-      Height = 391
+      Width = 706
+      Height = 422
       Align = alClient
       Lines.Strings = (
         ''
         ''
         '')
       TabOrder = 0
-      ExplicitWidth = 474
-      ExplicitHeight = 259
+      ExplicitWidth = 698
+      ExplicitHeight = 397
     end
   end
   object PanelBottom: TPanel
     Left = 0
-    Top = 428
-    Width = 664
+    Top = 459
+    Width = 708
     Height = 41
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 296
-    ExplicitWidth = 476
+    ExplicitTop = 434
+    ExplicitWidth = 700
     object ButtonOK: TButton
       Left = 144
       Top = 6
@@ -64,16 +62,17 @@ inherited GLDialog: TGLDialog
       Top = 6
       Width = 75
       Height = 25
-      Caption = 'Cancel'
+      Caption = #1054#1090#1084#1077#1085#1072
       ModalResult = 2
       TabOrder = 1
     end
     object ButtonHelp: TButton
       Left = 360
       Top = 6
-      Width = 75
+      Width = 89
       Height = 25
-      Caption = 'Help'
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+      ModalResult = 9
       TabOrder = 2
       OnClick = ButtonHelpClick
     end

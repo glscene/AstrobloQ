@@ -1,3 +1,6 @@
+//
+// This unit is part of the Galaktika
+//
 unit fGLOptions;
 
 interface

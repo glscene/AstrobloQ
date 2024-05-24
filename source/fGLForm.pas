@@ -1,10 +1,10 @@
-//---------------------------------------
-// This unit is part of the GLSViewer
-//---------------------------------------
+//-------------------------------------
+// This unit is part of the Galaktika
+//-------------------------------------
 
 unit fGLForm;
 
-(* The fGLForm unit for TGLForm class as parent for all child forms of GLSViewer *)
+(* The fGLForm unit for TGLForm class as parent for all child forms *)
 
 interface
 
@@ -55,13 +55,13 @@ var
 
 begin
   LocalePath := ExtractFileDir(ParamStr(0)); // Path to GLSViewer
-  LocalePath := LocalePath + PathDelim + 'Locale' + PathDelim;
+  LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
   ReadIniFile;
   if (LangID <> LANG_ENGLISH) then
   begin
-    Textdomain('glsviewer');
-    BindTextDomain ('glsviewer', LocalePath);
+    Textdomain('galaktika');  // galaktika.mo file renamed from default.mo
+    BindTextDomain ('galaktika', LocalePath);
     AddDomainForResourceString('language');
     BindTextDomain ('language', LocalePath);
 

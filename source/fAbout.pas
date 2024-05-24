@@ -28,17 +28,17 @@ type
     Panel2: TPanel;
     tsDevelopers: TTabSheet;
     MemoDevelopers: TMemo;
-    ImagePlanets: TImage;
+    ImageGalaxy: TImage;
     tsTools: TTabSheet;
     DelphiButton: TSpeedButton;
     OGLImage: TImage;
     GLSImage: TImage;
     procedure ImageGLSClick(Sender: TObject);
-    procedure ImagePlanetsDblClick(Sender: TObject);
+    procedure ImageGalaxyDblClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
     procedure DelphiButtonClick(Sender: TObject);
-    procedure ImagePlanetsClick(Sender: TObject);
+    procedure ImageGalaxyClick(Sender: TObject);
   private
   public
   end;
@@ -68,13 +68,13 @@ begin
     'https://gitverse.ru/glscene/GLScene', '', '', SW_SHOW);
 end;
 
-procedure TFormAbout.ImagePlanetsClick(Sender: TObject);
+procedure TFormAbout.ImageGalaxyClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
    'https://gitflic.ru/project/glscene/astrobloq/', '', '', SW_SHOW);
 end;
 
-procedure TFormAbout.ImagePlanetsDblClick(Sender: TObject);
+procedure TFormAbout.ImageGalaxyDblClick(Sender: TObject);
 begin
   MemoDevelopers.Visible := not MemoDevelopers.Visible;
 end;

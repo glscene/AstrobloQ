@@ -1,3 +1,6 @@
+//
+// This unit is part of the Galaktika
+//
 unit fGLDialog;
 
 interface

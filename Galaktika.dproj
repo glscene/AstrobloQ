@@ -145,13 +145,16 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\uGlobals.pas"/>
-        <DCCReference Include="source\fGLDialog.pas"/>
+        <DCCReference Include="source\fGLOptions.pas">
+            <Form>FormGLOptions</Form>
+        </DCCReference>
         <DCCReference Include="source\fGLForm.pas">
             <Form>GLForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fGLOptions.pas">
-            <Form>FormGLOptions</Form>
+        <DCCReference Include="source\fGLDialog.pas">
+            <Form>GLDialog</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
