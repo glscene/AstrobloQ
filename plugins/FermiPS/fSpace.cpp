@@ -24,22 +24,28 @@
 #pragma resource "*.dfm"
 TFormPX *FormPX;
 
-int mx, my; // vars for saving position
+int mx, my; // для хранения позиции
 String prefix = ".\\..\\..\\DATA\\";
 
-// All Delaunay structs
-DelaunayBase O_Delaunay; DelaunayBase A_Delaunay;
-DelaunayBase B_Delaunay; DelaunayBase F_Delaunay;
-DelaunayBase G_Delaunay; DelaunayBase K_Delaunay;
+// Структуруры Делоне
+DelaunayBase O_Delaunay;
+DelaunayBase B_Delaunay;
+DelaunayBase A_Delaunay;
+DelaunayBase F_Delaunay;
+DelaunayBase G_Delaunay;
+DelaunayBase K_Delaunay;
 DelaunayBase M_Delaunay;
 
-// All Voronoi structs
-VoronoiBase O_Voronoi; VoronoiBase A_Voronoi;
-VoronoiBase B_Voronoi; VoronoiBase F_Voronoi;
-VoronoiBase G_Voronoi; VoronoiBase K_Voronoi;
+// Структуруры Вороного
+VoronoiBase O_Voronoi;
+VoronoiBase B_Voronoi;
+VoronoiBase A_Voronoi;
+VoronoiBase F_Voronoi;
+VoronoiBase G_Voronoi;
+VoronoiBase K_Voronoi;
 VoronoiBase M_Voronoi;
 
-// Colors for each star class
+// Цвета всех классов звёзд
 float lightblue[3] = {0, 0.8, 1};
 float skyblue[3] = {0.803, 1, 1};
 float white[3] = {1, 1, 1};
@@ -47,8 +53,20 @@ float lightyellow[3] = {0.996, 1, 0.6};
 float yellow[3] = {1, 1, 0.003};
 float orange[3] = {1, 0.4, 0};
 float red[3] = {0.992, 0, 0.003};
+
 //---------------------------------------------------------------------------
-// Init Delaunay struct
+void __fastcall TFormPX::FormCreate(TObject *Sender)
+{
+	miStars->Checked = true;
+	miMode->Enabled = false;
+	miCatalog->Enabled = false;
+	CheckListBox1->Checked[3] = true;
+    TreeViewParadox->FullExpand();
+}
+
+
+//---------------------------------------------------------------------------
+// Инициализация структур Делоне
 DelaunayBase __fastcall TFormPX::InitDelaunay(String filename, float color[])
 {
 	// Connect to specified DB
@@ -256,13 +274,13 @@ VoronoiBase __fastcall TFormPX::InitVoronoi(String filename, float color[])
 	return vd_struct;
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormPX::DrawPoints()
+void __fastcall TFormPX::DrawStars()
 {
-	// Delete all points from the scene
+	// Удаление всех звёзд сцены
 	GLStars->Free();
 	GLStars = (TGLPoints *)(dcGalablock->AddNewChild(__classid(TGLPoints)));
 
-	// Delete all lines from the scene
+	// Удаление всех линий сцены
 	GLLines1->Free();
 	GLLines1 = (TGLLines *)(dcGalablock->AddNewChild(__classid(TGLLines)));
 
@@ -441,7 +459,7 @@ void __fastcall TFormPX::DrawDelaunay()
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 1:
-                    R = B_Delaunay.color[0];
+					R = B_Delaunay.color[0];
 					G = B_Delaunay.color[1];
 					B = B_Delaunay.color[2];
 
@@ -541,7 +559,7 @@ void __fastcall TFormPX::DrawDelaunay()
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 5:
-                    R = M_Delaunay.color[0];
+					R = M_Delaunay.color[0];
 					G = M_Delaunay.color[1];
 					B = M_Delaunay.color[2];
 
@@ -621,11 +639,11 @@ void __fastcall TFormPX::DrawDelaunay()
 //---------------------------------------------------------------------------
 void __fastcall TFormPX::DrawVoronoi()
 {
-	// Delete all points from the scene
+	// Удаление звёзд сцены
 	GLStars->Free();
 	GLStars = (TGLPoints *)(dcGalablock->AddNewChild(__classid(TGLPoints)));
 
-	// Delete all lines from the scene
+	// Удаление линий сцены
 	GLLines1->Free();
 	GLLines1 = (TGLLines *)(dcGalablock->AddNewChild(__classid(TGLLines)));
 
@@ -879,13 +897,13 @@ void __fastcall TFormPX::DrawVoronoi()
 void __fastcall TFormPX::InitDraw()
 {
 	// Draw 3D model based on selected mode
-	if (Points1->Checked == true) {
-		DrawPoints();
+	if (miStars->Checked == true) {
+		DrawStars();
 	}
-	else if (Delaunay1->Checked == true) {
+	else if (miDelaunay->Checked == true) {
 		DrawDelaunay();
 	}
-	else if (Voronoi1->Checked == true) {
+	else if (miVoronoi->Checked == true) {
 		DrawVoronoi();
 	}
 }
@@ -940,40 +958,29 @@ void __fastcall TFormPX::Exit1Click(TObject *Sender)
 	FormPX->Close();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormPX::Points1Click(TObject *Sender)
+void __fastcall TFormPX::miStarsClick(TObject *Sender)
 {
-	if (Points1->Checked == false) Points1->Checked = true;
-	FormPX->Caption = "HYG 3D | Режим звёзд";
+	if (miStars->Checked == false) miStars->Checked = true;
+	FormPX->Caption = "HYG 3D | Звёзды";
 	InitDraw();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormPX::Delaunay1Click(TObject *Sender)
+void __fastcall TFormPX::miDelaunayClick(TObject *Sender)
 {
-	if (Delaunay1->Checked == false) Delaunay1->Checked = true;
-	FormPX->Caption = "HYG 3D | Режим тетрасети Делоне";
+	if (miDelaunay->Checked == false) miDelaunay->Checked = true;
+	FormPX->Caption = "HYG 3D | Тетрасеть Делоне";
 	InitDraw();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormPX::Voronoi1Click(TObject *Sender)
+void __fastcall TFormPX::miVoronoiClick(TObject *Sender)
 {
-	if (Voronoi1->Checked == false) Voronoi1->Checked = true;
-	FormPX->Caption = "HYG 3D | Режим полисети Вороного";
+	if (miVoronoi->Checked == false) miVoronoi->Checked = true;
+	FormPX->Caption = "HYG 3D | Полисеть Вороного";
 	InitDraw();
 }
+
 //---------------------------------------------------------------------------
-
-void __fastcall TFormPX::FormCreate(TObject *Sender)
-{
-	Points1->Checked = true;
-	FormPX->Caption = "HYG 3D | Режим звёзд";
-
-	Mode1->Enabled = false;
-	Data1->Enabled = false;
-
-	CheckListBox1->Checked[0] = true;
-}
-//---------------------------------------------------------------------------
-void __fastcall TFormPX::Start1Click(TObject *Sender)
+void __fastcall TFormPX::miStartClick(TObject *Sender)
 {
 	// Auxiliary array with files' names
 	String filenames[14];
@@ -1014,9 +1021,9 @@ void __fastcall TFormPX::Start1Click(TObject *Sender)
 	M_Voronoi = InitVoronoi("M_Voronoi.sqlite", red);
 	O_Voronoi = InitVoronoi("O_Voronoi.sqlite", lightblue);
 
-	Start1->Enabled = False;
-	Mode1->Enabled = True;
-	Data1->Enabled = True;
+	miStart->Enabled = False;
+	miCatalog->Enabled = True;
+	miMode->Enabled = True;
 
 	// Visualization
 	InitDraw();
@@ -1028,7 +1035,7 @@ void __fastcall TFormPX::CheckListBox1ClickCheck(TObject *Sender)
 	InitDraw();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormPX::Data1Click(TObject *Sender)
+void __fastcall TFormPX::miCatalogClick(TObject *Sender)
 {
 	Form2->Show();
 }

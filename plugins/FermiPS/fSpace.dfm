@@ -14,31 +14,18 @@ object FormPX: TFormPX
   Font.Height = -19
   Font.Name = 'Tahoma'
   Font.Style = []
-  Menu = MainMenu1
+  Menu = MainMenu
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnCreate = FormCreate
   OnMouseWheel = FormMouseWheel
   PixelsPerInch = 168
-  DesignSize = (
-    1376
-    779)
   TextHeight = 23
-  object LabelStarClass: TLabel
-    Left = 1243
-    Top = 37
-    Width = 105
-    Height = 23
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Caption = #1050#1083#1072#1089#1089' '#1079#1074#1105#1079#1076
-  end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 746
+    Top = 742
     Width = 1376
-    Height = 33
+    Height = 37
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -53,57 +40,223 @@ object FormPX: TFormPX
         Width = 88
       end>
   end
-  object GLSceneViewer1: TGLSceneViewer
+  object PageControl1: TPageControl
     Left = 0
-    Top = -18
-    Width = 1233
-    Height = 762
+    Top = 51
+    Width = 1376
+    Height = 691
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Camera = GLCamera1
-    Buffer.BackgroundColor = clBlack
-    FieldOfView = 165.047180175781300000
-    PenAsTouch = False
-    Anchors = [akLeft, akTop, akRight, akBottom]
-    OnMouseDown = GLSceneViewer1MouseDown
-    OnMouseMove = GLSceneViewer1MouseMove
+    ActivePage = tsAstronet
+    Align = alClient
     TabOrder = 1
+    object tsAstronet: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = #1040#1089#1090#1088#1086#1085#1077#1090
+      object GLSceneViewer1: TGLSceneViewer
+        Left = 0
+        Top = 0
+        Width = 1106
+        Height = 653
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Camera = GLCamera1
+        Buffer.BackgroundColor = clBlack
+        FieldOfView = 162.586807250976600000
+        PenAsTouch = False
+        Align = alClient
+        OnMouseDown = GLSceneViewer1MouseDown
+        OnMouseMove = GLSceneViewer1MouseMove
+        TabOrder = 0
+      end
+      object Panel1: TPanel
+        Left = 1106
+        Top = 0
+        Width = 262
+        Height = 653
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alRight
+        TabOrder = 1
+        DesignSize = (
+          262
+          653)
+        object LabelStarClass: TLabel
+          Left = 36
+          Top = 23
+          Width = 105
+          Height = 23
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1050#1083#1072#1089#1089' '#1079#1074#1105#1079#1076
+        end
+        object CheckListBox1: TCheckListBox
+          Left = 19
+          Top = 56
+          Width = 173
+          Height = 253
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Anchors = [akTop, akRight]
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = 26
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemHeight = 30
+          Items.Strings = (
+            '"A"'
+            '"B"'
+            '"F"'
+            '"G"'
+            '"K"'
+            '"M"'
+            '"O"')
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 0
+          OnClickCheck = CheckListBox1ClickCheck
+        end
+        object rgMode: TRadioGroup
+          Left = 24
+          Top = 350
+          Width = 229
+          Height = 155
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1056#1077#1078#1080#1084
+          ItemIndex = 0
+          Items.Strings = (
+            #1047#1074#1105#1079#1076#1099
+            #1058#1077#1090#1088#1072#1085#1077#1090' '#1044#1077#1083#1086#1085#1077
+            #1055#1086#1083#1080#1085#1077#1090' '#1042#1086#1088#1086#1085#1086#1075#1086)
+          TabOrder = 1
+        end
+      end
+    end
+    object tsCatalog: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = #1050#1072#1090#1072#1083#1086#1075
+      ImageIndex = 1
+    end
+    object tsParadox: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = #1055#1072#1088#1072#1076#1086#1082#1089
+      ImageIndex = 2
+      object TreeViewParadox: TTreeView
+        Left = 0
+        Top = 0
+        Width = 351
+        Height = 653
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alLeft
+        AutoExpand = True
+        Indent = 33
+        TabOrder = 0
+        Items.NodeData = {
+          070400000009540054007200650065004E006F00640065003700000000000000
+          00000000FFFFFFFFFFFFFFFF00000000000000000003000000010C23043D0438
+          043A0430043B044C043D043E04410442044C0400004B00000000000000000000
+          00FFFFFFFFFFFFFFFF0000000000000000000000000001161B04380442043E04
+          41044404350440044B0420003C0430043B043E044704380441043B0435043D04
+          3D044B0400003B0000000000000000000000FFFFFFFFFFFFFFFF000000000000
+          00000000000000010E110438043E0441044404350440044B0420004004350434
+          043A0438040000430000000000000000000000FFFFFFFFFFFFFFFF0000000000
+          000000000000000001121D043E043E0441044404350440044B04200035043404
+          38043D04380447043D044B0420000000370000000000000000000000FFFFFFFF
+          FFFFFFFF0000000000000000000C000000010C1A043004420430044104420440
+          043E044404380437043C0400003B0000000000000000000000FFFFFFFFFFFFFF
+          FF00000000000000000000000000010E2D0432043E043B044E04460438044F04
+          2000370432045104370434040000470000000000000000000000FFFFFFFFFFFF
+          FFFF000000000000000000000000000114130430043C043C0430042D00320441
+          043F044B0448043A0438042000380420003F043E043B044F0400004700000000
+          00000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001141E04
+          400431043804420430043B044C043D044B043504200034043204380436043504
+          3D0438044F040000430000000000000000000000FFFFFFFFFFFFFFFF00000000
+          0000000000000000000112100441044204350440043E04380434044B04200038
+          0420003A043E043C04350442044B040000490000000000000000000000FFFFFF
+          FFFFFFFFFF000000000000000000000000000115220435043A0442043E043D04
+          38043A043004200038042000320443043B043A0430043D04380437043C040000
+          430000000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000
+          0001121404350433044004300434043004460438044F0420003A043B0438043C
+          0430044204300400003F0000000000000000000000FFFFFFFFFFFFFFFF000000
+          0000000000000000000001101B043004420435043D0442043D044B0435042000
+          320438044004430441044B0400003D0000000000000000000000FFFFFFFFFFFF
+          FFFF00000000000000000000000000010F200435043304400435044104410420
+          0041043E044604380443043C04300400003F0000000000000000000000FFFFFF
+          FFFFFFFFFF00000000000000000000000000011013043B043E04310430043B04
+          4C043D044B043504200032043E0439043D044B0400004F000000000000000000
+          0000FFFFFFFFFFFFFFFF0000000000000000000000000001182D043A0441043F
+          043504400438043C0435043D04420430043B044C043D0430044F042000440438
+          04370438043A04300400003F0000000000000000000000FFFFFFFFFFFFFFFF00
+          0000000000000000000000000110130435043D043D0430044F04200038043D04
+          360435043D043504400438044F040000450000000000000000000000FFFFFFFF
+          FFFFFFFF0000000000000000000000000001132D043A0441043F043E043D0435
+          043D044604380430043B044C043D044B04390420001804180400003B00000000
+          00000000000000FFFFFFFFFFFFFFFF00000000000000000007000000010E1D04
+          35043A043E043D04420430043A0442043D043E04410442044C04000053000000
+          0000000000000000FFFFFFFFFFFFFFFF00000000000000000000000000011A1E
+          0442044104430442044104420432043804350420004204350445043D043E043B
+          043E043304380439042000430045005400490000004700000000000000000000
+          00FFFFFFFFFFFFFFFF0000000000000000000000000001141D04350442042000
+          430441043B043E04320438043904200034043B044F0420004D00450054004900
+          0000470000000000000000000000FFFFFFFFFFFFFFFF00000000000000000000
+          000000011417043E043E043F04300440043A042000260438043E043B043A043E
+          04320441043A043E0433043E040000330000000000000000000000FFFFFFFFFF
+          FFFFFF00000000000000000000000000010A1A04410435043D043E0444043E04
+          310438044F040000430000000000000000000000FFFFFFFFFFFFFFFF00000000
+          0000000000000000000112210442044004300445042000420451043C043D043E
+          0433043E0420003B0435044104300400004F0000000000000000000000FFFFFF
+          FFFFFFFFFF00000000000000000000000000011812044B0441043E043A043804
+          390420003F043E0440043E043304200030044104420440043E043A043B044304
+          3104300400004D0000000000000000000000FFFFFFFFFFFFFFFF000000000000
+          0000000000000001171F044304410442043E0439042000410435043A0442043E
+          0440042000330430043B0430043A04420438043A04380400001F000000000000
+          0000000000FFFFFFFFFFFFFFFF000000000000000000000000000100}
+      end
+    end
   end
-  object CheckListBox1: TCheckListBox
-    Left = 1243
-    Top = 70
-    Width = 133
-    Height = 197
+  object ControlBar1: TControlBar
+    Left = 0
+    Top = 0
+    Width = 1376
+    Height = 51
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Anchors = [akTop, akRight]
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = 26
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ItemHeight = 26
-    Items.Strings = (
-      '"A"'
-      '"B"'
-      '"F"'
-      '"G"'
-      '"K"'
-      '"M"'
-      '"O"')
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = False
+    Align = alTop
+    RowSize = 46
     TabOrder = 2
-    OnClickCheck = CheckListBox1ClickCheck
   end
   object GLScene1: TGLScene
-    Left = 232
-    Top = 8
+    Left = 862
+    Top = 134
     object GLCamera1: TGLCamera
       DepthOfView = 200.000000000000000000
       FocalLength = 50.000000000000000000
@@ -155,15 +308,18 @@ object FormPX: TFormPX
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    Left = 360
-    Top = 8
+    Left = 388
+    Top = 330
   end
-  object MainMenu1: TMainMenu
+  object MainMenu: TMainMenu
     Left = 658
-    Top = 8
-    object Start1: TMenuItem
-      Caption = #1047#1072#1075#1088#1091#1079#1082#1072
-      OnClick = Start1Click
+    Top = 120
+    object miFile: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object miStart: TMenuItem
+        Caption = #1047#1072#1075#1088#1091#1079#1082#1072
+        OnClick = miStartClick
+      end
       object N2: TMenuItem
         Caption = '-'
       end
@@ -172,35 +328,59 @@ object FormPX: TFormPX
         OnClick = Exit1Click
       end
     end
-    object Mode1: TMenuItem
+    object miMode: TMenuItem
       Caption = #1056#1077#1078#1080#1084
-      object Points1: TMenuItem
+      object miStars: TMenuItem
         Caption = #1047#1074#1105#1079#1076#1099
         RadioItem = True
-        OnClick = Points1Click
+        OnClick = miStarsClick
       end
-      object Delaunay1: TMenuItem
+      object miDelaunay: TMenuItem
         Caption = #1058#1077#1090#1088#1072#1089#1077#1090#1100' '#1044#1077#1083#1086#1085#1077
         RadioItem = True
-        OnClick = Delaunay1Click
+        OnClick = miDelaunayClick
       end
-      object Voronoi1: TMenuItem
+      object miVoronoi: TMenuItem
         Caption = #1055#1086#1083#1080#1089#1077#1090#1100' '#1042#1086#1088#1086#1085#1086#1075#1086
         RadioItem = True
-        OnClick = Voronoi1Click
+        OnClick = miVoronoiClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
     end
-    object Data1: TMenuItem
-      Caption = #1058#1072#1073#1083#1080#1094#1072
-      OnClick = Data1Click
+    object N3: TMenuItem
+      Caption = #1042#1080#1076
+      object miParadox: TMenuItem
+        Caption = #1055#1072#1088#1072#1076#1086#1082#1089
+      end
+      object N9: TMenuItem
+        Caption = '-'
+      end
+      object miCatalog: TMenuItem
+        Caption = #1050#1072#1090#1072#1083#1086#1075
+        OnClick = miCatalogClick
+      end
+      object miSpace: TMenuItem
+        Caption = #1057#1094#1077#1085#1072
+      end
+    end
+    object N4: TMenuItem
+      Caption = '?'
+      object N5: TMenuItem
+        Caption = #1056#1091#1074#1080#1082#1080'...'
+      end
+      object N6: TMenuItem
+        Caption = '-'
+      end
+      object N7: TMenuItem
+        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+      end
     end
   end
   object OpenTextFileDialog1: TOpenTextFileDialog
-    Left = 502
-    Top = 8
+    Left = 250
+    Top = 456
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
@@ -208,8 +388,8 @@ object FormPX: TFormPX
         'Database=C:\Users\dgoni\Documents\Embarcadero\Studio\STARS_DB\DA' +
         'TA\A_Delaunay.sqlite'
       'DriverID=SQLite')
-    Left = 136
-    Top = 198
+    Left = 994
+    Top = 347
   end
   object FDQuery1: TFDQuery
     Connection = FDConnection1

@@ -73,34 +73,51 @@ class TFormPX : public TForm
 {
 __published:	// IDE-managed Components
 	TStatusBar *StatusBar1;
-	TGLSceneViewer *GLSceneViewer1;
 	TGLScene *GLScene1;
 	TGLCadencer *GLCadencer1;
 	TTimer *Timer1;
-	TMainMenu *MainMenu1;
+	TMainMenu *MainMenu;
 	TGLDummyCube *dcGalablock;
 	TGLLightSource *GLLightSource1;
 	TGLCamera *GLCamera1;
 	TOpenTextFileDialog *OpenTextFileDialog1;
 	TGLPoints *GLStars;
-	TMenuItem *Mode1;
-	TMenuItem *Points1;
-	TMenuItem *Delaunay1;
-	TMenuItem *Voronoi1;
+	TMenuItem *miMode;
+	TMenuItem *miStars;
+	TMenuItem *miDelaunay;
+	TMenuItem *miVoronoi;
 	TMenuItem *N1;
 	TMenuItem *Exit1;
-	TCheckListBox *CheckListBox1;
 	TFDConnection *FDConnection1;
 	TFDQuery *FDQuery1;
-	TMenuItem *Start1;
+	TMenuItem *miStart;
 	TFDPhysSQLiteDriverLink *FDPhysSQLiteDriverLink1;
 	TGLLines *GLLines1;
 	TGLPolygon *GLPolygon1;
 	TGLTetrahedron *GLTetrahedron1;
 	TGLFreeForm *GLFreeForm1;
-	TMenuItem *Data1;
+	TMenuItem *miCatalog;
 	TMenuItem *N2;
+	TMenuItem *miFile;
+	TMenuItem *N3;
+	TMenuItem *N4;
+	TMenuItem *N5;
+	TMenuItem *N6;
+	TMenuItem *N7;
+	TMenuItem *miSpace;
+	TMenuItem *N9;
+	TMenuItem *miParadox;
+	TPageControl *PageControl1;
+	TTabSheet *tsAstronet;
+	TTabSheet *tsCatalog;
+	TTabSheet *tsParadox;
+	TGLSceneViewer *GLSceneViewer1;
+	TPanel *Panel1;
+	TCheckListBox *CheckListBox1;
 	TLabel *LabelStarClass;
+	TControlBar *ControlBar1;
+	TRadioGroup *rgMode;
+	TTreeView *TreeViewParadox;
 	void __fastcall GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift, int X,
@@ -110,19 +127,19 @@ __published:	// IDE-managed Components
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall GLCadencer1Progress(TObject *Sender, const double deltaTime, const double newTime);
 	void __fastcall Exit1Click(TObject *Sender);
-	void __fastcall Points1Click(TObject *Sender);
-	void __fastcall Delaunay1Click(TObject *Sender);
-	void __fastcall Voronoi1Click(TObject *Sender);
+	void __fastcall miStarsClick(TObject *Sender);
+	void __fastcall miDelaunayClick(TObject *Sender);
+	void __fastcall miVoronoiClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall Start1Click(TObject *Sender);
+	void __fastcall miStartClick(TObject *Sender);
 	DelaunayBase __fastcall InitDelaunay(String filename, float color[]);
 	VoronoiBase __fastcall InitVoronoi(String filename, float color[]);
 	void __fastcall InitDraw();
-	void __fastcall DrawPoints();
+	void __fastcall DrawStars();
 	void __fastcall DrawDelaunay();
 	void __fastcall DrawVoronoi();
 	void __fastcall CheckListBox1ClickCheck(TObject *Sender);
-	void __fastcall Data1Click(TObject *Sender);
+	void __fastcall miCatalogClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
