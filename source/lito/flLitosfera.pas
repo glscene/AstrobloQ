@@ -130,7 +130,6 @@ type
     miExogen: TMenuItem;
     acPlanet: TGLActor;
     miTools: TMenuItem;
-    N5: TMenuItem;
     N7: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
@@ -336,6 +335,7 @@ begin
     FormLitosfera.BorderStyle := bsSizeable;
   end;
 end;
+
 
 
 //------------------------------------------------------------------

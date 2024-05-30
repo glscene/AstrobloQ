@@ -88754,13 +88754,10 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object miTools: TMenuItem
-      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090
+      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
         OnClick = miSettingsClick
-      end
-      object N5: TMenuItem
-        Caption = #1054#1087#1094#1080#1080'...'
       end
       object N7: TMenuItem
         Caption = '-'

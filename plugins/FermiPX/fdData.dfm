@@ -1,0 +1,19 @@
+object FormTables: TFormTables
+  Left = 0
+  Top = 0
+  Margins.Left = 5
+  Margins.Top = 5
+  Margins.Right = 5
+  Margins.Bottom = 5
+  Caption = 'Table'
+  ClientHeight = 758
+  ClientWidth = 1307
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -19
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  PixelsPerInch = 168
+  TextHeight = 23
+end

@@ -18,7 +18,7 @@ uses
   flStarSystem in 'source\lito\flStarSystem.pas' {FormStarSys},
   flSolarSystem in 'source\lito\flSolarSystem.pas' {FormSolarSys},
   flSettings in 'source\lito\flSettings.pas' {FormSettings},
-  dImages in 'source\dImages.pas' {dfImages: TDataModule},
+  dImages in 'src\dImages.pas' {dfImages: TDataModule},
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
   uMoveCamera in 'source\uMoveCamera.pas',
   uSkyBodies in 'source\uSkyBodies.pas',

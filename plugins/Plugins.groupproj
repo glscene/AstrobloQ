@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EB36530C-803F-4068-A899-BEFDE4D9FC61}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FermiPX\FermiPD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FermiPX\FermiPC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarProj\StarProj.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FermiPD">
+        <MSBuild Projects="FermiPX\FermiPD.dproj"/>
+    </Target>
+    <Target Name="FermiPD:Clean">
+        <MSBuild Projects="FermiPX\FermiPD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FermiPD:Make">
+        <MSBuild Projects="FermiPX\FermiPD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FermiPC">
+        <MSBuild Projects="FermiPX\FermiPC.cbproj"/>
+    </Target>
+    <Target Name="FermiPC:Clean">
+        <MSBuild Projects="FermiPX\FermiPC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FermiPC:Make">
+        <MSBuild Projects="FermiPX\FermiPC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarProj">
+        <MSBuild Projects="StarProj\StarProj.dproj"/>
+    </Target>
+    <Target Name="StarProj:Clean">
+        <MSBuild Projects="StarProj\StarProj.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarProj:Make">
+        <MSBuild Projects="StarProj\StarProj.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FermiPD;FermiPC;StarProj"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FermiPD:Clean;FermiPC:Clean;StarProj:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FermiPD:Make;FermiPC:Make;StarProj:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
