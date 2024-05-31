@@ -5,39 +5,68 @@ inherited FormSettings: TFormSettings
   ClientWidth = 1313
   StyleElements = [seFont, seClient, seBorder]
   OnClose = FormClose
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 30
-  inherited PanelTop: TPanel
+  object PanelBottom: TPanel
+    Left = 0
+    Top = 687
     Width = 1313
-    StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 1223
-  end
-  inherited PanelMiddle: TPanel
-    Width = 1313
-    Height = 683
-    StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 1223
-    ExplicitHeight = 683
-    inherited Memo: TMemo
-      Left = 458
-      Top = 308
-      Width = 648
-      Height = 326
-      Align = alNone
-      StyleElements = [seFont, seClient, seBorder]
-      ExplicitLeft = 458
-      ExplicitTop = 308
-      ExplicitWidth = 648
-      ExplicitHeight = 326
+    Height = 72
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alBottom
+    TabOrder = 0
+    ExplicitTop = 662
+    ExplicitWidth = 1305
+    object Button2: TButton
+      Left = 1059
+      Top = 15
+      Width = 131
+      Height = 44
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Cancel'
+      ModalResult = 2
+      TabOrder = 0
     end
+    object ButtonOk: TButton
+      Left = 866
+      Top = 15
+      Width = 131
+      Height = 44
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Ok'
+      ModalResult = 1
+      TabOrder = 1
+      OnClick = ButtonOKClick
+    end
+  end
+  object PanelMain: TPanel
+    Left = 0
+    Top = 0
+    Width = 1313
+    Height = 687
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alClient
+    TabOrder = 1
+    ExplicitWidth = 1305
+    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
       Width = 218
-      Height = 681
+      Height = 685
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -47,7 +76,7 @@ inherited FormSettings: TFormSettings
       HotTrack = True
       Images = dfImages.ImageList
       Indent = 33
-      TabOrder = 1
+      TabOrder = 0
       OnClick = tvSettingsClick
       Items.NodeData = {
         070800000009540054007200650065004E006F00640065002D00000000000000
@@ -64,21 +93,23 @@ inherited FormSettings: TFormSettings
         0000000000000000000000010750006C0061006E006500740073000000330000
         000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000000010A
         530074006100720066006C006900670068007400}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
       Top = 1
       Width = 1093
-      Height = 681
+      Height = 685
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPlanets
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
-      TabOrder = 2
-      ExplicitWidth = 1003
+      TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -90,7 +121,7 @@ inherited FormSettings: TFormSettings
           Tag = 1000
           Left = 33
           Top = 5
-          Width = 170
+          Width = 79
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
@@ -319,7 +350,7 @@ inherited FormSettings: TFormSettings
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
-          ExplicitWidth = 995
+          ExplicitWidth = 1065
         end
         object ButtonModifyMat: TButton
           Left = 254
@@ -1007,7 +1038,7 @@ inherited FormSettings: TFormSettings
         TabVisible = False
         DesignSize = (
           1085
-          671)
+          675)
         object ColorGrid1: TColorGrid
           Left = 546
           Top = 324
@@ -1020,7 +1051,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 404
+          Left = 388
           Top = 324
           Width = 182
           Height = 223
@@ -1048,7 +1079,6 @@ inherited FormSettings: TFormSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
-          ExplicitLeft = 314
         end
         object GroupBox2: TGroupBox
           Left = 56
@@ -1223,14 +1253,15 @@ inherited FormSettings: TFormSettings
           Left = 0
           Top = 0
           Width = 1085
-          Height = 671
+          Height = 675
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 995
+          ExplicitWidth = 1065
+          ExplicitHeight = 403
           object LabelA: TLabel
             Left = 129
             Top = 70
@@ -1468,27 +1499,6 @@ inherited FormSettings: TFormSettings
           TabOrder = 1
         end
       end
-    end
-  end
-  inherited PanelBottom: TPanel
-    Top = 718
-    Width = 1313
-    StyleElements = [seFont, seClient, seBorder]
-    ExplicitTop = 718
-    ExplicitWidth = 1223
-    inherited ButtonOK: TButton
-      Left = 768
-      Top = 3
-      OnClick = ButtonOKClick
-      ExplicitLeft = 768
-      ExplicitTop = 3
-    end
-    inherited ButtonCancel: TButton
-      Left = 942
-      Top = 3
-      Caption = 'Cancel'
-      ExplicitLeft = 942
-      ExplicitTop = 3
     end
   end
 end

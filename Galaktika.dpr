@@ -9,8 +9,7 @@ uses
   uGlobals in 'src\uGlobals.pas',
   fSettings in 'src\fSettings.pas' {FormSettings},
   fGLForm in 'src\fGLForm.pas' {FormGL},
-  fStarProj in 'plugins\StarProj\fStarProj.pas' {FormProjection},
-  fGLDialog in 'src\fGLDialog.pas' {FormGLDialog};
+  fStarProj in 'plugins\StarProj\fStarProj.pas' {FormProjection};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

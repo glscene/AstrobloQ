@@ -149,10 +149,6 @@
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="src\fGLDialog.pas">
-            <Form>FormGLDialog</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -29,11 +29,14 @@ uses
   //
   uGlobals,
   dImages,
-  fGLForm,
-  fGLDialog;
+  fGLForm;
 
 type
-  TFormSettings = class(TFormGLDialog)
+  TFormSettings = class(TFormGL)
+    PanelBottom: TPanel;
+    Button2: TButton;
+    ButtonOk: TButton;
+    PanelMain: TPanel;
     tvSettings: TTreeView;
     PageControl: TPageControl;
     tsInterface: TTabSheet;
@@ -45,6 +48,7 @@ type
     CheckBoxLoadProject: TCheckBox;
     CheckBoxSaveProject: TCheckBox;
     cbSplashStart: TCheckBox;
+    rgLanguages: TRadioGroup;
     tsDisplay: TTabSheet;
     LabelBackground: TLabel;
     CheckBoxAxis: TCheckBox;
@@ -87,6 +91,13 @@ type
     EditFl: TEdit;
     EditFb: TEdit;
     EditFn: TEdit;
+    StaticTextNc: TStaticText;
+    StaticTextNs: TStaticText;
+    StaticText1: TStaticText;
+    StaticTextFb: TStaticText;
+    StaticTextFn: TStaticText;
+    StaticTextLc: TStaticText;
+    StaticTextLs: TStaticText;
     tsStars: TTabSheet;
     ColorGrid1: TColorGrid;
     chlbStarClasses: TCheckListBox;
@@ -99,6 +110,7 @@ type
     gbxCoordinateSys: TGroupBox;
     chbEquatorial: TCheckBox;
     CheckBox2: TCheckBox;
+    CheckBox1: TCheckBox;
     rgUnits: TRadioGroup;
     SpinEditPrecision: TSpinEdit;
     tsFlights: TTabSheet;
@@ -117,31 +129,24 @@ type
     gbFindPath: TGroupBox;
     chbOnTetramesh: TCheckBox;
     chbAvoidHazards: TCheckBox;
-    rgLanguages: TRadioGroup;
+    CheckBox4: TCheckBox;
     tsPlanets: TTabSheet;
     chlbPlanetsize: TCheckListBox;
     CheckListBox1: TCheckListBox;
-    CheckBox4: TCheckBox;
-    CheckBox1: TCheckBox;
-    StaticTextNc: TStaticText;
-    StaticTextNs: TStaticText;
-    StaticText1: TStaticText;
-    StaticTextFb: TStaticText;
-    StaticTextFn: TStaticText;
-    StaticTextLc: TStaticText;
-    StaticTextLs: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguagesClick(Sender: TObject);
-    procedure ButtonOKClick(Sender: TObject);
     procedure PanelBackgroundClick(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
+    procedure ButtonOkClick(Sender: TObject);
   private
   public
     CurLangID : Word;
     procedure ReadIniFile; override;
     procedure WriteIniFile;
+    function Execute: boolean; virtual;
+
   end;
 
 var
@@ -280,7 +285,7 @@ begin
 end;
 
 //-----------------------------------------------------
-procedure TFormSettings.ButtonOKClick(Sender: TObject);
+procedure TFormSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -290,11 +295,15 @@ begin
       mtInformation, [mbOK], 0);
     FileName := ChangeFileExt(ParamStr(0), '.ini');
     if FileExists(UpperCase(FileName)) then
-      DeleteFile(UpperCase(FileName)); //для исключения дублирования разделов перевода
+      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
 end;
 
-//-----------------------------------------------------
+function TFormSettings.Execute: boolean;
+begin
+  Result := ShowModal = mrOk;
+end;
+
 procedure TFormSettings.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
