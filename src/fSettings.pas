@@ -27,6 +27,7 @@ uses
   Vcl.NumberBox,
 
   //
+  uGlobals,
   dImages,
   fGLForm,
   fGLDialog;
@@ -46,8 +47,8 @@ type
     cbSplashStart: TCheckBox;
     tsDisplay: TTabSheet;
     LabelBackground: TLabel;
-    CheckBoxAxes: TCheckBox;
-    Panel1: TPanel;
+    CheckBoxAxis: TCheckBox;
+    PanelBkg: TPanel;
     CheckBoxCoordinates: TCheckBox;
     cbxTwoSideLighting: TCheckBox;
     tsMaterial: TTabSheet;
@@ -55,15 +56,15 @@ type
     ButtonModifyMat: TButton;
     tsGalaxy: TTabSheet;
     LabelDiameter: TLabel;
-    nbGxDiameter: TNumberBox;
+    nbRadius: TNumberBox;
     grbDrakeFormula: TGroupBox;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
+    LabelNc: TLabel;
+    LabelNs: TLabel;
+    LabelFl: TLabel;
+    LabelFb: TLabel;
+    LabelFn: TLabel;
+    LabelLc: TLabel;
+    LabelLs: TLabel;
     PanelDrake: TPanel;
     Label5: TLabel;
     lbEquals: TLabel;
@@ -116,14 +117,19 @@ type
     gbFindPath: TGroupBox;
     chbOnTetramesh: TCheckBox;
     chbAvoidHazards: TCheckBox;
-    ‘ÓÌ: TStaticText;
     rgLanguages: TRadioGroup;
-    PanelBackground: TPanel;
     tsPlanets: TTabSheet;
     chlbPlanetsize: TCheckListBox;
     CheckListBox1: TCheckListBox;
     CheckBox4: TCheckBox;
     CheckBox1: TCheckBox;
+    StaticTextNc: TStaticText;
+    StaticTextNs: TStaticText;
+    StaticText1: TStaticText;
+    StaticTextFb: TStaticText;
+    StaticTextFn: TStaticText;
+    StaticTextLc: TStaticText;
+    StaticTextLs: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguagesClick(Sender: TObject);
@@ -180,27 +186,6 @@ begin
   tvSettings.Items[6].DropHighlighted := True;
 
   trbVelocityChange(Self);
-
-end;
-
-procedure TFormSettings.ReadIniFile;
-begin
-  inherited;
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  with IniFile do
-    try
-//      CheckBoxAxis.Checked := ReadBool(Name, CheckBoxAxis.Name, True);
-      PanelBackground.Color  := ReadInteger(Name, PanelBackground.Name, 0);
-      LangID := ReadInteger(Name, rgLanguages.Name, 0);
-      case LangID of
-        LANG_ENGLISH : rgLanguages.ItemIndex := 0;
-        LANG_RUSSIAN : rgLanguages.ItemIndex := 1;
-        else
-          rgLanguages.ItemIndex := 0;
-      end;
-    finally
-      IniFile.Free;
-    end;
 end;
 
 procedure TFormSettings.rgLanguagesClick(Sender: TObject);
@@ -242,24 +227,50 @@ begin
   end;
 end;
 
+//--------------------------------------------------------------------
+procedure TFormSettings.ReadIniFile;
+var
+  IniFile: TIniFile;
+begin
+  inherited;
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    CheckBoxAxis.Checked := IniFile.ReadBool(Name, CheckBoxAxis.Name, True);
+    PanelBkg.Color := IniFile.ReadInteger(Name, PanelBkg.Name, 0);
+    LangID := IniFile.ReadInteger(Name, rgLanguages.Name, 0);
+    case LangID of
+      LANG_ENGLISH:
+        rgLanguages.ItemIndex := 0;
+      LANG_RUSSIAN:
+        rgLanguages.ItemIndex := 1;
+    else
+      rgLanguages.ItemIndex := 0;
+    end;
+  finally
+    IniFile.Free;
+  end;
+end;
+
+// --------------------------------------------------------------------
 procedure TFormSettings.WriteIniFile;
+var
+  IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  with IniFile do
-    try
-//      WriteBool(Name, CheckBoxAxis.Name, CheckBoxAxis.Checked);
-      WriteInteger(Name, PanelBackground.Name, PanelBackground.Color);
-      WriteInteger(Name, rgLanguages.Name, CurLangID);
-    finally
-      IniFile.Free;
-    end;
+  try
+    IniFile.WriteBool(Name, CheckBoxAxis.Name, CheckBoxAxis.Checked);
+    IniFile.WriteInteger(Name, PanelBkg.Name, PanelBkg.Color);
+    IniFile.WriteInteger(Name, rgLanguages.Name, CurLangID);
+  finally
+    IniFile.Free;
+  end;
   inherited;
 end;
 
 procedure TFormSettings.PanelBackgroundClick(Sender: TObject);
 begin
-{
-   dmDialogs.ColorDialog.Color := PanelBackground.Color;
+  {
+    dmDialogs.ColorDialog.Color := PanelBackground.Color;
    if dmDialogs.ColorDialog.Execute then
    begin
      PanelBackground.Color :=  dmDialogs.ColorDialog.Color;

@@ -17,6 +17,7 @@ uses
   Vcl.Menus,
   Vcl.Actnlist,
 
+  uGlobals,
   gnuGettext;
 
 type
@@ -25,25 +26,20 @@ type
   private
      
   public
-    IniFile : TIniFile;
     procedure ReadIniFile; virtual;
     procedure SetLanguage;
   end;
 
 var
   FormGL: TFormGL;
-  LangID : Word;
 
 implementation
 
 {$R *.dfm}
 
 //
-// Перевод всех строк компонентов
-//
 procedure TFormGL.FormCreate(Sender: TObject);
 begin
-  inherited;
   SetLanguage;
 end;
 
@@ -51,10 +47,8 @@ end;
 procedure TFormGL.SetLanguage;
 var
   LocalePath : TFileName;
-  IniFile : TIniFile;
-
 begin
-  LocalePath := ExtractFileDir(ParamStr(0)); // Path to GLSViewer
+  LocalePath := ExtractFileDir(ParamStr(0));
   LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
   ReadIniFile;
@@ -106,6 +100,8 @@ end;
 
 
 procedure TFormGL.ReadIniFile;
+var
+  IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do

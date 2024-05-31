@@ -15,6 +15,10 @@ uses
 const
   SELDIRHELP: INTEGER = 180;
 
+var
+  LangID: Word;
+  CurLang: string = 'ru'; // Current default is 'en', localized is 'ru' etc.
+
 type
   PrefRecord = record
     // first line of file serves as Version ID
@@ -37,10 +41,6 @@ type
   PrefFile = file of PrefRecord;
 
 var
-  IniFile: TIniFile;
-  LangID: INTEGER;
-  CurLangID: string = 'ru'; // Current default is 'en', localized is 'ru' etc.
-
   PreRcd: PrefRecord;
   HiddenString, StartedNameNumber: String;
 
