@@ -70,7 +70,7 @@ procedure TFormProjection.FormCreate(Sender: TObject);
 var
   i: Integer;
 begin
-  // создание скопления случайных звёзл
+  // создание скопления случайных звёзд
   for i := 1 to 1000 do
   begin
     GLStars.Positions.Add((Random - 0.5) * 5, (Random - 0.5) * 5, (Random - 0.5) * 5);

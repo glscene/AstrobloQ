@@ -165,11 +165,18 @@
             <DependentOn>fcSpace.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <CppCompile Include="fcStarlife.cpp">
+            <Form>FormLife</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>fcStarlife.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
         <CppCompile Include="FermiPC.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
         <FormResources Include="fcSpace.dfm"/>
         <FormResources Include="fcData.dfm"/>
+        <FormResources Include="fcStarlife.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

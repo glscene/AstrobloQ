@@ -1,0 +1,318 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2024-06-01 22:02+0300\n"
+"Last-Translator: Somebody <your.email@address.com>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+msgid "About"
+msgstr "О программе"
+
+msgid "About..."
+msgstr "О программе..."
+
+msgid "Add stars"
+msgstr "Все звёзды"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Astronomical unit"
+msgstr "Астрономическая единица"
+
+msgid "Avarage life time for civilisation"
+msgstr "Среднее время жизни цивилизации"
+
+msgid "Axis"
+msgstr "Оси"
+
+msgid "Background"
+msgstr "Фон"
+
+msgid "Borders"
+msgstr "Границы"
+
+msgid "Calculate"
+msgstr "Вычислить"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Change..."
+msgstr "Изменить..."
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Click to change background colour"
+msgstr "Щелкните сменить цвет фона"
+
+msgid "Constellations"
+msgstr "Созвездия"
+
+msgid "Coordinate system"
+msgstr "Система координат"
+
+msgid "Coordinates"
+msgstr "Координаты"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Cut"
+msgstr "Вырезать"
+
+msgid "Database"
+msgstr "Базаданных"
+
+msgid "Datacat"
+msgstr "Датакат"
+
+msgid "Developers"
+msgstr "Разработчики"
+
+msgid "Display"
+msgstr "Дисплей"
+
+msgid "Distance"
+msgstr "Расстояние"
+
+msgid "Drake formula"
+msgstr "Формула Дрейка"
+
+msgid "Earthlike"
+msgstr "Землеподобный"
+
+msgid "Edit"
+msgstr "Правка"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "Exit"
+msgstr "Выход"
+
+msgid "Figures"
+msgstr "Фигуры"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "File exists. Can not overwrite"
+msgstr "Файл существует. Перезаписать нельзя"
+
+msgid "Find..."
+msgstr "Найти..."
+
+msgid "Flight time"
+msgstr "Время полёта"
+
+msgid "Fraction of planets with biospheres"
+msgstr "Доля планет с биосферами"
+
+msgid "Fraction of planets with noospheres"
+msgstr "Доля планет с ноосферами"
+
+msgid "Fraction of stars with lithospheres"
+msgstr "Доля звёзд с литосферами"
+
+msgid "Galabox"
+msgstr "Галабокс"
+
+msgid "Galactic"
+msgstr "Галактическая"
+
+msgid "Galagrid"
+msgstr "Галагрид"
+
+msgid "Galaxy"
+msgstr "Галактика"
+
+msgid "Gaseous"
+msgstr "Газовый"
+
+msgid "General"
+msgstr "Общие"
+
+msgid "Go to..."
+msgstr "Перейти к..."
+
+msgid "Heliobox"
+msgstr "Гелиобокс"
+
+msgid "Heliocentric"
+msgstr "Гелиоцентрическая"
+
+msgid "Help"
+msgstr "Справка"
+
+msgid "Icy"
+msgstr "Ледяной"
+
+msgid "Info"
+msgstr "Инфо"
+
+msgid "Insert"
+msgstr "Вставить"
+
+msgid "Interface"
+msgstr "Интерфейс"
+
+msgid "Jupiterlike"
+msgstr "Юпитерский"
+
+msgid "Kilolight year"
+msgstr "Килосветовой год"
+
+msgid "Kiloparsec"
+msgstr "Килопарсек"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Light year"
+msgstr "Световой год"
+
+msgid "Lines"
+msgstr "Линии"
+
+msgid "Loading at start"
+msgstr "Загрузка при старте"
+
+msgid "Location"
+msgstr "Локация"
+
+msgid "Material"
+msgstr "Материал"
+
+msgid "Mean lifetime of noospheres"
+msgstr "Среднее время жизни ноосфер"
+
+msgid "Mean lifetime of stars"
+msgstr "Среднее время жизни звёзд"
+
+msgid "Mean lifitime for planet"
+msgstr "Среднее время жизни планеты"
+
+msgid "Model"
+msgstr "Модель"
+
+msgid "Monitor"
+msgstr "Монитор"
+
+msgid "Neptunelike"
+msgstr "Нептунский"
+
+msgid "Number"
+msgstr "Число"
+
+msgid "Number of galaxy stars"
+msgstr "Число звёзд в галактике"
+
+msgid "Number of noospheres"
+msgstr "Число ноосфер"
+
+msgid "Number of stars in MW"
+msgstr "Число звёзд в МП"
+
+msgid "Object"
+msgstr "Объект"
+
+msgid "Open..."
+msgstr "Открыть..."
+
+msgid "Panels"
+msgstr "Панели"
+
+msgid "Parsec"
+msgstr "Парсек"
+
+msgid "Planets"
+msgstr "Планеты"
+
+msgid "Plutolike"
+msgstr "Плутоновый"
+
+msgid "Polinet"
+msgstr "Полинет"
+
+msgid "Precision"
+msgstr "Точность"
+
+msgid "Radius"
+msgstr "Радиус"
+
+msgid "Reload to change language"
+msgstr "Перегрузите для смены языка"
+
+msgid "Replace..."
+msgstr "Заменить..."
+
+msgid "Rocky"
+msgstr "Каменный"
+
+msgid "Russian"
+msgstr "Русский"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Save as..."
+msgstr "Сохранить как..."
+
+msgid "Save on exit"
+msgstr "Сохранить при выходе"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Settings..."
+msgstr "Настройки..."
+
+msgid "Shortest path"
+msgstr "Кратчайший путь"
+
+msgid "Show splash"
+msgstr "Показать заставку"
+
+msgid "Sol"
+msgstr "Сол"
+
+msgid "Star classes"
+msgstr "Классы звёзд"
+
+msgid "Stars"
+msgstr "Звёзды"
+
+msgid "Superearth"
+msgstr "Суперземельный"
+
+msgid "Supergalactic"
+msgstr "Сверхгалактическая"
+
+msgid "Table"
+msgstr "Таблица"
+
+msgid "Tetranet"
+msgstr "Тетранет"
+
+msgid "Tools"
+msgstr "Инструменты"
+
+msgid "Twoside lighting"
+msgstr "Двустороннее освещение"
+
+msgid "Units"
+msgstr "Единицы"
+
+msgid "Velocity"
+msgstr "Скорость"
+
+msgid "Watery"
+msgstr "Водный"

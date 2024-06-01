@@ -62,38 +62,19 @@ type
     LabelDiameter: TLabel;
     nbRadius: TNumberBox;
     grbDrakeFormula: TGroupBox;
-    LabelNc: TLabel;
-    LabelNs: TLabel;
-    LabelFl: TLabel;
-    LabelFb: TLabel;
-    LabelFn: TLabel;
-    LabelLc: TLabel;
-    LabelLs: TLabel;
     PanelDrake: TPanel;
-    Label5: TLabel;
     lbEquals: TLabel;
-    lbNs: TLabel;
     lbMult1: TLabel;
     lbMult2: TLabel;
     lbMult3: TLabel;
     lbMult4: TLabel;
-    lbFl: TLabel;
-    lbFb: TLabel;
-    kbFn: TLabel;
-    lbLc: TLabel;
-    lbLs: TLabel;
     lbDivide: TLabel;
     ButtonCalculate: TButton;
-    stNc: TStaticText;
     EditLc: TEdit;
     EditLs: TEdit;
     EditNs: TEdit;
-    EditFl: TEdit;
-    EditFb: TEdit;
-    EditFn: TEdit;
     StaticTextNc: TStaticText;
     StaticTextNs: TStaticText;
-    StaticText1: TStaticText;
     StaticTextFb: TStaticText;
     StaticTextFn: TStaticText;
     StaticTextLc: TStaticText;
@@ -133,6 +114,15 @@ type
     tsPlanets: TTabSheet;
     chlbPlanetsize: TCheckListBox;
     CheckListBox1: TCheckListBox;
+    EditNc: TEdit;
+    StaticTextFl: TStaticText;
+    nbFl: TNumberBox;
+    nbFb: TNumberBox;
+    nbFn: TNumberBox;
+    Label1: TLabel;
+    StaticTextDc: TStaticText;
+    StaticText2: TStaticText;
+    nbDc: TNumberBox;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguagesClick(Sender: TObject);
@@ -140,6 +130,7 @@ type
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
+    procedure ButtonCalculateClick(Sender: TObject);
   private
   public
     CurLangID : Word;
@@ -285,6 +276,25 @@ begin
 end;
 
 //-----------------------------------------------------
+procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
+var
+  Nc, Fl, Fb, Fn, Ratio : Extended;
+  Ns, Lc, Ls: LONG64;
+begin
+  Ns := StrToInt64(EditNs.Text);
+
+  Fl := nbFl.Value;
+  Fb := nbFb.Value;
+  Fn := nbFn.Value;
+
+  Lc := StrToInt64(EditLc.Text);
+  Ls := StrToInt64(EditLs.Text);
+
+  Ratio := Lc/Ls;
+  Nc := Ns*Fl*Fb*Fn *Ratio;  // без времени существования ВЦ
+  EditNc.Text := FloatToStr(Nc);
+end;
+
 procedure TFormSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;

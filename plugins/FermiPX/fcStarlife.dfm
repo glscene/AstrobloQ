@@ -5,7 +5,7 @@ object FormLife: TFormLife
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Random Stars with LifeTimes'
+  Caption = 'Starlife'
   ClientHeight = 1155
   ClientWidth = 1675
   Color = clBtnFace
@@ -481,7 +481,7 @@ object FormLife: TFormLife
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
-    FormCaption = 'Random Stars with Lifetimes - %FPS'
+    FormCaption = 'Starlife - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

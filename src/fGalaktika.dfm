@@ -140,7 +140,6 @@ object FormGalaktika: TFormGalaktika
         Top = 0
         Width = 371
         Height = 688
-        Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' O'
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -152,7 +151,6 @@ object FormGalaktika: TFormGalaktika
           Top = 583
           Width = 50
           Height = 42
-          Hint = #1041#1077#1083#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -297,7 +295,6 @@ object FormGalaktika: TFormGalaktika
             Top = 60
             Width = 60
             Height = 29
-            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' O'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -306,7 +303,7 @@ object FormGalaktika: TFormGalaktika
             Color = clBtnFace
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
           end
           object chbB: TCheckBox
@@ -314,7 +311,6 @@ object FormGalaktika: TFormGalaktika
             Top = 119
             Width = 60
             Height = 30
-            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' B'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -323,7 +319,7 @@ object FormGalaktika: TFormGalaktika
             Color = clBtnFace
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 1
           end
           object chbA: TCheckBox
@@ -331,7 +327,6 @@ object FormGalaktika: TFormGalaktika
             Top = 179
             Width = 60
             Height = 29
-            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' A'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -340,7 +335,7 @@ object FormGalaktika: TFormGalaktika
             Color = clBtnFace
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
           end
           object chbF: TCheckBox
@@ -348,7 +343,6 @@ object FormGalaktika: TFormGalaktika
             Top = 236
             Width = 60
             Height = 30
-            Hint = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1081' '#1082#1083#1072#1089#1089' F'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -357,7 +351,7 @@ object FormGalaktika: TFormGalaktika
             Color = clBtnFace
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 3
           end
           object chbG: TCheckBox
@@ -365,7 +359,6 @@ object FormGalaktika: TFormGalaktika
             Top = 296
             Width = 60
             Height = 30
-            Hint = #1046#1077#1083#1090#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -375,16 +368,15 @@ object FormGalaktika: TFormGalaktika
             Color = clYellow
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             State = cbChecked
             TabOrder = 4
           end
           object chbK: TCheckBox
             Left = 14
-            Top = 355
+            Top = 366
             Width = 60
             Height = 30
-            Hint = #1054#1088#1072#1085#1078#1077#1074#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -394,7 +386,7 @@ object FormGalaktika: TFormGalaktika
             Color = clBtnFace
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             State = cbChecked
             TabOrder = 5
           end
@@ -403,7 +395,6 @@ object FormGalaktika: TFormGalaktika
             Top = 415
             Width = 60
             Height = 30
-            Hint = #1050#1088#1072#1089#1085#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -412,7 +403,7 @@ object FormGalaktika: TFormGalaktika
             Color = clBtnFace
             ParentColor = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
           end
           object chbAll: TCheckBox
@@ -429,8 +420,8 @@ object FormGalaktika: TFormGalaktika
             OnClick = chbAllClick
           end
           object nbO: TNumberBox
-            Left = 154
-            Top = 63
+            Left = 144
+            Top = 66
             Width = 80
             Height = 38
             Margins.Left = 5
@@ -629,7 +620,7 @@ object FormGalaktika: TFormGalaktika
           end
           object nbBn: TNumberBox
             Left = 268
-            Top = 118
+            Top = 111
             Width = 80
             Height = 38
             Margins.Left = 5
@@ -693,14 +684,13 @@ object FormGalaktika: TFormGalaktika
           Top = 583
           Width = 71
           Height = 43
-          Hint = #1041#1077#1083#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'W'
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
         end
         object nbWn: TNumberBox
@@ -708,7 +698,6 @@ object FormGalaktika: TFormGalaktika
           Top = 583
           Width = 121
           Height = 38
-          Hint = #1041#1077#1083#1099#1077' '#1082#1072#1088#1083#1080#1082#1080
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -725,14 +714,14 @@ object FormGalaktika: TFormGalaktika
         end
       end
     end
-    object tsGalacube: TTabSheet
+    object tsGalabox: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Caption = 'Galabox'
       ImageIndex = 1
-      object svGal: TGLSceneViewer
+      object svGalaxy: TGLSceneViewer
         Left = 197
         Top = 0
         Width = 1147
@@ -746,8 +735,8 @@ object FormGalaktika: TFormGalaktika
         FieldOfView = 153.816207885742200000
         PenAsTouch = False
         Align = alClient
-        OnMouseDown = svGalMouseDown
-        OnMouseUp = svGalMouseUp
+        OnMouseDown = svGalaxyMouseDown
+        OnMouseUp = svGalaxyMouseUp
         TabOrder = 0
       end
       object tvGalaxy: TTreeView
@@ -777,17 +766,17 @@ object FormGalaktika: TFormGalaktika
           000000000001054F00720069006F006E00}
       end
     end
-    object tsData: TTabSheet
+    object tsDatacat: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Data'
+      Caption = 'Datacat'
       ImageIndex = 2
       object DBGrid: TDBGrid
-        Left = 728
+        Left = 700
         Top = 0
-        Width = 616
+        Width = 644
         Height = 688
         Margins.Left = 5
         Margins.Top = 5
@@ -852,47 +841,99 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object dcAxis: TGLDummyCube
-      Position.Coordinates = {0000FAC30000FA430000FAC30000803F}
+      Position.Coordinates = {0000000000007A44000000000000803F}
       CubeSize = 1.000000000000000000
       object ArrowX: TGLArrowLine
         Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
         Direction.Coordinates = {0000803F000000000000000000000000}
-        Position.Coordinates = {0000FA4300007AC4000000000000803F}
+        Position.Coordinates = {0000000000007AC4000000000000803F}
         Scale.Coordinates = {00004843000048430000FA4300000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
         TopRadius = 0.050000000745058060
+        Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
         TopArrowHeadRadius = 0.100000001490116100
         BottomArrowHeadHeight = 0.200000002980232200
         BottomArrowHeadRadius = 0.100000001490116100
+      end
+      object SpaceTextX: TGLSpaceText
+        Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+        Direction.Coordinates = {0000803F000000000000000000000000}
+        Position.Coordinates = {0080224400806DC4000048C20000803F}
+        RollAngle = 90.000000000000000000
+        Scale.Coordinates = {0000C8420000C8420000C84200000000}
+        Up.Coordinates = {00000000000080BF2EBD3BB300000000}
+        Extrusion = 0.200000002980232200
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        Lines.Strings = (
+          'X')
+        CharacterRange = stcrAlphaNum
       end
       object ArrowY: TGLArrowLine
         Material.FrontProperties.Ambient.Color = {0000000000000000000000000000803F}
         Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
         Direction.Coordinates = {000000000000803F0000000000000000}
-        Position.Coordinates = {000000000000FAC3000000000000803F}
+        Position.Coordinates = {0000000000007AC4000000000000803F}
         Scale.Coordinates = {00004843000048430000FA4300000000}
         Up.Coordinates = {00000000000000000000803F00000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
         TopRadius = 0.050000000745058060
+        Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
         TopArrowHeadRadius = 0.100000001490116100
         BottomArrowHeadHeight = 0.200000002980232200
         BottomArrowHeadRadius = 0.100000001490116100
       end
+      object SpaceTextY: TGLSpaceText
+        Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+        Direction.Coordinates = {30BD3BB30CD8CC34000080BF00000000}
+        Position.Coordinates = {000048420000AFC3000000000000803F}
+        Scale.Coordinates = {0000C8420000C8420000C84200000000}
+        TurnAngle = 90.000000000000000000
+        Up.Coordinates = {000000000000803F0DD8CC3400000000}
+        Extrusion = 0.200000002980232200
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        Lines.Strings = (
+          'Y')
+        CharacterRange = stcrAlphaNum
+      end
       object ArrowZ: TGLArrowLine
         Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
-        Position.Coordinates = {0000000000007AC40000FA430000803F}
+        Position.Coordinates = {0000000000007AC4000000000000803F}
         Scale.Coordinates = {00004843000048430000FA4300000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
         TopRadius = 0.050000000745058060
+        Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
         TopArrowHeadRadius = 0.100000001490116100
         BottomArrowHeadHeight = 0.200000002980232200
         BottomArrowHeadRadius = 0.100000001490116100
+      end
+      object SpaceTextZ: TGLSpaceText
+        Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
+        Position.Coordinates = {0000484200806DC4008022440000803F}
+        Scale.Coordinates = {0000C8420000C8420000C84200000000}
+        Up.Coordinates = {00000080000080BF0000000000000000}
+        Extrusion = 0.200000002980232200
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        Lines.Strings = (
+          'Z')
+        CharacterRange = stcrAlphaNum
       end
     end
     object dcGalaxy: TGLDummyCube
@@ -919,65 +960,17 @@ object FormGalaktika: TFormGalaktika
         Material.LibMaterialName = 'Milkyway'
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {0000000000000000000080BF00000000}
-        Visible = False
         OuterRadius = 50000.000000000000000000
         Slices = 64
         SweepAngle = 360.000000000000000000
       end
-    end
-    object SpaceTextX: TGLSpaceText
-      Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-      Direction.Coordinates = {0000803F000000000000000000000000}
-      Position.Coordinates = {008022440000FAC30000FAC30000803F}
-      Scale.Coordinates = {0000C8420000C8420000C84200000000}
-      Up.Coordinates = {00000080000000000000803F00000000}
-      Extrusion = 0.200000002980232200
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -12
-      Font.Name = 'Arial'
-      Font.Style = []
-      Lines.Strings = (
-        'X')
-      CharacterRange = stcrAlphaNum
-    end
-    object SpaceTextY: TGLSpaceText
-      Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
-      Direction.Coordinates = {0000803F000000000000000000000000}
-      Position.Coordinates = {0000FAC3008022440000FAC30000803F}
-      Scale.Coordinates = {0000C8420000C8420000C84200000000}
-      Up.Coordinates = {000000000000803F0CD8CC3400000000}
-      Extrusion = 0.200000002980232200
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Arial'
-      Font.Style = []
-      Lines.Strings = (
-        'Y')
-      CharacterRange = stcrAlphaNum
-    end
-    object SpaceTextZ: TGLSpaceText
-      Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
-      Position.Coordinates = {0000FAC30000FAC3008022440000803F}
-      Scale.Coordinates = {0000C8420000C8420000C84200000000}
-      Up.Coordinates = {00000080000080BF0000000000000000}
-      Extrusion = 0.200000002980232200
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Arial'
-      Font.Style = []
-      Lines.Strings = (
-        'Z')
-      CharacterRange = stcrAlphaNum
     end
   end
   object MainMenu: TMainMenu
     Left = 690
     Top = 124
     object miFile: TMenuItem
-      Caption = 'File'
+      Caption = '&File'
       object miOpen: TMenuItem
         Caption = 'Open...'
         OnClick = miOpenClick
@@ -998,7 +991,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miEdit: TMenuItem
-      Caption = 'Edit'
+      Caption = '&Edit'
       object miUndo: TMenuItem
         Caption = 'Cancel'
         ShortCut = 16474
@@ -1038,7 +1031,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miMonitor: TMenuItem
-      Caption = 'Monitor'
+      Caption = '&Monitor'
       object miProjection: TMenuItem
         Caption = 'Star projections...'
         OnClick = miProjectionClick
@@ -1050,7 +1043,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miTools: TMenuItem
-      Caption = 'Tools'
+      Caption = '&Tools'
       object miSettings: TMenuItem
         Caption = 'Settings...'
         OnClick = miSettingsClick
@@ -1060,8 +1053,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miHelp: TMenuItem
-      Caption = 'Help'
-      Hint = #1057#1087#1088#1072#1074#1082#1072
+      Caption = '&Help'
       object miRuwiki: TMenuItem
         Caption = 'Ruwiki...'
       end
@@ -103935,8 +103927,8 @@ object FormGalaktika: TFormGalaktika
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 306
-    Top = 579
+    Left = 404
+    Top = 635
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner

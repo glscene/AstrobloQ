@@ -5,7 +5,7 @@ object FormPX: TFormPX
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'FermiPC - '#1089#1080#1084#1091#1083#1103#1090#1086#1088' '#1087#1072#1088#1072#1076#1086#1082#1089#1072' '#1060#1077#1088#1084#1080
+  Caption = 'FermiPC'
   ClientHeight = 779
   ClientWidth = 1376
   Color = clBtnFace
@@ -57,7 +57,7 @@ object FormPX: TFormPX
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1040#1089#1090#1088#1086#1085#1077#1090
+      Caption = 'Starnet'
       object GLSceneViewer1: TGLSceneViewer
         Left = 0
         Top = 0
@@ -93,13 +93,13 @@ object FormPX: TFormPX
         object LabelStarClass: TLabel
           Left = 36
           Top = 23
-          Width = 105
+          Width = 79
           Height = 23
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1050#1083#1072#1089#1089' '#1079#1074#1105#1079#1076
+          Caption = 'Star class'
         end
         object CheckListBox1: TCheckListBox
           Left = 19
@@ -140,12 +140,13 @@ object FormPX: TFormPX
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1056#1077#1078#1080#1084
+          Caption = 'Mode'
           ItemIndex = 0
           Items.Strings = (
-            #1047#1074#1105#1079#1076#1099
-            #1058#1077#1090#1088#1072#1085#1077#1090' '#1044#1077#1083#1086#1085#1077
-            #1055#1086#1083#1080#1085#1077#1090' '#1042#1086#1088#1086#1085#1086#1075#1086)
+            'Stars'
+            'Tetranet'
+            'Polynet'
+            'Galagrid')
           TabOrder = 1
         end
       end
@@ -155,7 +156,7 @@ object FormPX: TFormPX
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1050#1072#1090#1072#1083#1086#1075
+      Caption = 'Catalog'
       ImageIndex = 1
     end
     object tsParadox: TTabSheet
@@ -163,7 +164,7 @@ object FormPX: TFormPX
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1055#1072#1088#1072#1076#1086#1082#1089
+      Caption = 'Paradox'
       ImageIndex = 2
       object TreeViewParadox: TTreeView
         Left = 0
@@ -315,66 +316,76 @@ object FormPX: TFormPX
     Left = 658
     Top = 120
     object miFile: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = 'File'
       object miStart: TMenuItem
-        Caption = #1047#1072#1075#1088#1091#1079#1082#1072
+        Caption = 'Open...'
         OnClick = miStartClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         OnClick = Exit1Click
       end
     end
     object miMode: TMenuItem
-      Caption = #1056#1077#1078#1080#1084
+      Caption = 'Mode'
       object miStars: TMenuItem
-        Caption = #1047#1074#1105#1079#1076#1099
+        Caption = 'Stars'
         RadioItem = True
         OnClick = miStarsClick
-      end
-      object miDelaunay: TMenuItem
-        Caption = #1058#1077#1090#1088#1072#1089#1077#1090#1100' '#1044#1077#1083#1086#1085#1077
-        RadioItem = True
-        OnClick = miDelaunayClick
-      end
-      object miVoronoi: TMenuItem
-        Caption = #1055#1086#1083#1080#1089#1077#1090#1100' '#1042#1086#1088#1086#1085#1086#1075#1086
-        RadioItem = True
-        OnClick = miVoronoiClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
+      object miDelaunay: TMenuItem
+        Caption = 'Tetranet'
+        RadioItem = True
+        OnClick = miDelaunayClick
+      end
+      object miVoronoi: TMenuItem
+        Caption = 'Polynet'
+        RadioItem = True
+        OnClick = miVoronoiClick
+      end
+      object Galagrid1: TMenuItem
+        Caption = 'Galagrid'
+      end
     end
     object N3: TMenuItem
-      Caption = #1042#1080#1076
+      Caption = 'View'
       object miParadox: TMenuItem
-        Caption = #1055#1072#1088#1072#1076#1086#1082#1089
+        Caption = 'Paradox'
       end
       object N9: TMenuItem
         Caption = '-'
       end
       object miCatalog: TMenuItem
-        Caption = #1050#1072#1090#1072#1083#1086#1075
+        Caption = 'Catalog'
         OnClick = miCatalogClick
       end
       object miSpace: TMenuItem
-        Caption = #1057#1094#1077#1085#1072
+        Caption = 'Scene'
+      end
+    end
+    object ools1: TMenuItem
+      Caption = 'Tools'
+      object Starlife1: TMenuItem
+        Caption = 'Starlife...'
+        OnClick = Starlife1Click
       end
     end
     object N4: TMenuItem
-      Caption = '?'
+      Caption = 'Help'
       object N5: TMenuItem
-        Caption = #1056#1091#1074#1080#1082#1080'...'
+        Caption = 'Ruwiki...'
       end
       object N6: TMenuItem
         Caption = '-'
       end
       object N7: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'About...'
       end
     end
   end

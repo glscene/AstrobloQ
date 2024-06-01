@@ -23,6 +23,8 @@ uses
   Vcl.Grids,
   Vcl.DBGrids,
   Vcl.ExtDlgs,
+  Vcl.Actnlist,
+
   Data.DB,
   FireDAC.Stan.Intf,
   FireDAC.Comp.BatchMove,
@@ -102,8 +104,8 @@ type
     ToolButton3: TToolButton;
     PageControl1: TPageControl;
     tsHeliobox: TTabSheet;
-    tsGalacube: TTabSheet;
-    svGal: TGLSceneViewer;
+    tsGalabox: TTabSheet;
+    svGalaxy: TGLSceneViewer;
     tvGalaxy: TTreeView;
     PanelLeft: TPanel;
     svHelios: TGLSceneViewer;
@@ -151,7 +153,7 @@ type
     SpaceTextX: TGLSpaceText;
     SpaceTextY: TGLSpaceText;
     SpaceTextZ: TGLSpaceText;
-    tsData: TTabSheet;
+    tsDatacat: TTabSheet;
     DBGrid: TDBGrid;
     MemoTable: TMemo;
     FDBatchMove: TFDBatchMove;
@@ -169,9 +171,9 @@ type
     procedure GLCadencerProgress(Sender: TObject;
       const DeltaTime, NewTime: Double);
     procedure FormCreate(Sender: TObject);
-    procedure svGalMouseUp(Sender: TObject; Button: TMouseButton;
+    procedure svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure svGalMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure ButtonStarsClick(Sender: TObject);
     procedure chbAllClick(Sender: TObject);
@@ -210,21 +212,32 @@ const
 var
   FormGalaktika: TFormGalaktika;
 
-  // ========================================================
+// ========================================================
 implementation
-
 // ========================================================
 
 {$R *.dfm}
 
 procedure TFormGalaktika.FormCreate(Sender: TObject);
 begin
-  inherited;
+  TP_GlobalIgnoreClassProperty(TAction, 'Category');
+  TP_GlobalIgnoreClass(TOpenTextFileDialog);
+  //TP_GlobalIgnoreClass(TTable);
+  //TP_GlobalIgnoreClass(TFields);
+  //TP_GlobalIgnoreClass(TFont);
+  //TP_GlobalIgnoreClass(TListBox);
+  //TP_GlobalIgnoreClass(TStaticText);
+  //TP_GlobalIgnoreClass(TGLLibMaterial);
+  //TP_GlobalIgnoreClass(TGLMaterialLibrary);
+  //TP_IgnoreClass(TFont);
+
+
   tvGalaxy.FullExpand;
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
   SpinEdit.Value := 10000;
+  inherited;
 end;
 
 // ------------------------------------------------------------------
@@ -290,7 +303,9 @@ end;
 procedure TFormGalaktika.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  diskGalaxy.Roll(0.001);
+  dcGalaxy.Turn(0.001);
+  dcHelios.Roll(0.001);
+  dcAxis.Turn(0.001);
 end;
 
 // -----------------------------------------------------------------
@@ -427,13 +442,13 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaktika.svGalMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaktika.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalaktika.svGalMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaktika.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
@@ -445,6 +460,8 @@ begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelLeft.Visible := not PanelLeft.Visible;
   PanelRight.Visible := not PanelRight.Visible;
+  dcAxis.Visible := not dcAxis.Visible;
+  dcGalaxy.Visible := not dcGalaxy.Visible;
 end;
 
 procedure TFormGalaktika.miProjectionClick(Sender: TObject);

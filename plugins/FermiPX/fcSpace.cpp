@@ -10,6 +10,8 @@
 
 #include "fcSpace.h"
 #include "fcData.h"
+#include "fcStarlife.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "GLS.BaseClasses"
@@ -484,7 +486,7 @@ void __fastcall TFormPX::DrawDelaunay()
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 2:
-                    R = F_Delaunay.color[0];
+					R = F_Delaunay.color[0];
 					G = F_Delaunay.color[1];
 					B = F_Delaunay.color[2];
 
@@ -1126,3 +1128,16 @@ for (int i = 0; i < O_Delaunay.faceCount; i++) {
 }
 
 */
+void __fastcall TFormPX::Starlife1Click(TObject *Sender)
+{
+   TFormLife*  FormLife;
+   FormLife = new TFormLife(this);
+	try {
+	  FormLife->ShowModal();
+	}
+	__finally {
+	  FormLife->Free();
+	}
+}
+//---------------------------------------------------------------------------
+

@@ -66,7 +66,7 @@ inherited FormSettings: TFormSettings
       Left = 1
       Top = 1
       Width = 218
-      Height = 685
+      Height = 660
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -93,7 +93,6 @@ inherited FormSettings: TFormSettings
         0000000000000000000000010750006C0061006E006500740073000000330000
         000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000000010A
         530074006100720066006C006900670068007400}
-      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -104,7 +103,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -350,7 +349,6 @@ inherited FormSettings: TFormSettings
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
-          ExplicitWidth = 1065
         end
         object ButtonModifyMat: TButton
           Left = 254
@@ -401,14 +399,14 @@ inherited FormSettings: TFormSettings
         end
         object grbDrakeFormula: TGroupBox
           Left = 28
-          Top = 80
+          Top = 75
           Width = 1009
-          Height = 583
+          Height = 318
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Drake formula for noospheres'
+          Caption = 'Drake formula'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -416,153 +414,16 @@ inherited FormSettings: TFormSettings
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 1
-          object LabelNc: TLabel
-            Left = 58
-            Top = 235
-            Width = 558
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Number of noospheres in current moment'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelNs: TLabel
-            Left = 58
-            Top = 284
-            Width = 393
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Number of stars in Milky Way'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelFl: TLabel
-            Left = 58
-            Top = 332
-            Width = 446
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fraction of stars with lithospheres'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelFb: TLabel
-            Left = 58
-            Top = 380
-            Width = 461
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fraction of planets with biospheres'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelFn: TLabel
-            Left = 58
-            Top = 428
-            Width = 470
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fraction of planets with noospheres'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelLc: TLabel
-            Left = 59
-            Top = 476
-            Width = 378
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Mean lifetime of noospheres'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clRed
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object LabelLs: TLabel
-            Left = 59
-            Top = 526
-            Width = 289
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Mean lifetime of stars'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clRed
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
           object PanelDrake: TPanel
             Left = 28
             Top = 36
-            Width = 869
+            Width = 925
             Height = 189
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             TabOrder = 0
-            object Label5: TLabel
-              Left = 30
-              Top = 20
-              Width = 35
-              Height = 38
-              Hint = 'Number of civilisations'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Nc'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
             object lbEquals: TLabel
               Left = 103
               Top = 20
@@ -573,24 +434,6 @@ inherited FormSettings: TFormSettings
               Margins.Right = 5
               Margins.Bottom = 5
               Caption = '='
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbNs: TLabel
-              Left = 170
-              Top = 20
-              Width = 34
-              Height = 38
-              Hint = 'Number of stars'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Ns'
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -28
@@ -666,100 +509,6 @@ inherited FormSettings: TFormSettings
               Font.Style = [fsBold]
               ParentFont = False
             end
-            object lbFl: TLabel
-              Left = 309
-              Top = 20
-              Width = 23
-              Height = 38
-              Hint = 'Fraction of stars with lithospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Fl'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbFb: TLabel
-              Left = 429
-              Top = 20
-              Width = 32
-              Height = 38
-              Hint = 'Fraction of planets with biospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Fb'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object kbFn: TLabel
-              Left = 570
-              Top = 20
-              Width = 32
-              Height = 38
-              Hint = 'Fraction of planets with noospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Fn'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbLc: TLabel
-              Left = 710
-              Top = 19
-              Width = 27
-              Height = 38
-              Hint = 'Lifetime of Noosphere'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Lc'
-              Color = clRed
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-            end
-            object lbLs: TLabel
-              Left = 783
-              Top = 19
-              Width = 26
-              Height = 38
-              Hint = 'Lifetime of a star'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Ls'
-              Color = clRed
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-            end
             object lbDivide: TLabel
               Left = 747
               Top = 19
@@ -770,9 +519,28 @@ inherited FormSettings: TFormSettings
               Margins.Right = 5
               Margins.Bottom = 5
               Caption = '/'
-              Color = clRed
+              Color = clBackground
               Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
+              Font.Color = clBlack
+              Font.Height = -28
+              Font.Name = 'Segoe UI'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+            end
+            object Label1: TLabel
+              Left = 748
+              Top = 67
+              Width = 12
+              Height = 38
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Caption = '/'
+              Color = clBackground
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
               Font.Height = -28
               Font.Name = 'Segoe UI'
               Font.Style = [fsBold]
@@ -780,8 +548,8 @@ inherited FormSettings: TFormSettings
               ParentFont = False
             end
             object ButtonCalculate: TButton
-              Left = 14
-              Top = 126
+              Left = 629
+              Top = 131
               Width = 250
               Height = 43
               Margins.Left = 5
@@ -796,35 +564,33 @@ inherited FormSettings: TFormSettings
               Font.Style = []
               ParentFont = False
               TabOrder = 0
+              OnClick = ButtonCalculateClick
             end
-            object stNc: TStaticText
-              Left = 14
-              Top = 68
-              Width = 85
-              Height = 33
-              Hint = #1063#1080#1089#1083#1086' '#1094#1080#1074#1080#1083#1080#1079#1072#1094#1080#1081
+            object EditLc: TEdit
+              Left = 646
+              Top = 67
+              Width = 99
+              Height = 38
               Margins.Left = 5
               Margins.Top = 5
               Margins.Right = 5
               Margins.Bottom = 5
               Alignment = taCenter
-              AutoSize = False
-              BorderStyle = sbsSunken
-              Caption = '1'
               Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
+              Font.Color = clRed
+              Font.Height = -21
               Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
               TabOrder = 1
+              Text = '10000'
+              TextHint = 'Avarage life time for civilisation'
             end
-            object EditLc: TEdit
-              Left = 672
+            object EditLs: TEdit
+              Left = 770
               Top = 67
-              Width = 183
+              Width = 141
               Height = 38
-              Hint = #1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1085#1086#1086#1089#1092#1077#1088#1099
               Margins.Left = 5
               Margins.Top = 5
               Margins.Right = 5
@@ -837,27 +603,6 @@ inherited FormSettings: TFormSettings
               Font.Style = []
               ParentFont = False
               TabOrder = 2
-              Text = '10000'
-              TextHint = 'Avarage life time for civilisation'
-            end
-            object EditLs: TEdit
-              Left = 672
-              Top = 109
-              Width = 183
-              Height = 38
-              Hint = #1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1079#1074#1077#1079#1076#1099
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -21
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
               Text = '10000000000'
               TextHint = 'Mean lifitime for planet'
             end
@@ -866,7 +611,7 @@ inherited FormSettings: TFormSettings
               Top = 68
               Width = 171
               Height = 39
-              Hint = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076
+              Hint = 'Number of stars in MW'
               Margins.Left = 5
               Margins.Top = 5
               Margins.Right = 5
@@ -878,15 +623,51 @@ inherited FormSettings: TFormSettings
               Font.Name = 'Segoe UI'
               Font.Style = []
               ParentFont = False
-              TabOrder = 4
+              TabOrder = 3
               Text = '400000000000'
             end
-            object EditFl: TEdit
+            object EditNc: TEdit
+              Left = 14
+              Top = 68
+              Width = 92
+              Height = 39
+              Hint = 'Number os noospheres'
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Alignment = taCenter
+              Color = clMoneyGreen
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -23
+              Font.Name = 'Segoe UI'
+              Font.Style = [fsBold]
+              ParentFont = False
+              ReadOnly = True
+              TabOrder = 4
+              Text = '40'
+            end
+            object StaticTextFl: TStaticText
+              Left = 304
+              Top = 16
+              Width = 27
+              Height = 42
+              Hint = 'Fraction of stars with lithospheres'
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Caption = 'Fl'
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 5
+            end
+            object nbFl: TNumberBox
               Left = 297
               Top = 68
               Width = 69
               Height = 39
-              Hint = #1044#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080
               Margins.Left = 5
               Margins.Top = 5
               Margins.Right = 5
@@ -897,36 +678,18 @@ inherited FormSettings: TFormSettings
               Font.Height = -23
               Font.Name = 'Segoe UI'
               Font.Style = []
-              ParentFont = False
-              TabOrder = 5
-              Text = '0.1'
-            end
-            object EditFb: TEdit
-              Left = 418
-              Top = 68
-              Width = 69
-              Height = 39
-              Hint = #1048#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1087#1083#1072#1085#1077#1090' '#1089' '#1073#1080#1086#1089#1092#1077#1088#1072#1084#1080
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
+              Mode = nbmFloat
+              MaxValue = 1.000000000000000000
               ParentFont = False
               TabOrder = 6
-              Text = '0.1'
+              Value = 0.100000000000000000
+              SpinButtonOptions.ButtonWidth = 30
             end
-            object EditFn: TEdit
-              Left = 544
+            object nbFb: TNumberBox
+              Left = 410
               Top = 68
               Width = 69
               Height = 39
-              Hint = #1048#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1087#1083#1072#1085#1077#1090' '#1089' '#1085#1086#1086#1089#1092#1077#1088#1072#1084#1080
               Margins.Left = 5
               Margins.Top = 5
               Margins.Right = 5
@@ -937,16 +700,93 @@ inherited FormSettings: TFormSettings
               Font.Height = -23
               Font.Name = 'Segoe UI'
               Font.Style = []
+              Mode = nbmFloat
+              MaxValue = 1.000000000000000000
               ParentFont = False
               TabOrder = 7
-              Text = '0.01'
+              Value = 0.100000000000000000
+              SpinButtonOptions.ButtonWidth = 30
+            end
+            object nbFn: TNumberBox
+              Left = 550
+              Top = 68
+              Width = 69
+              Height = 39
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Alignment = taCenter
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -23
+              Font.Name = 'Segoe UI'
+              Font.Style = []
+              Mode = nbmFloat
+              MaxValue = 1.000000000000000000
+              ParentFont = False
+              TabOrder = 8
+              Value = 0.010000000000000000
+              SpinButtonOptions.ButtonWidth = 30
+            end
+            object StaticTextDc: TStaticText
+              Left = 31
+              Top = 140
+              Width = 38
+              Height = 42
+              Hint = 'Number of noospheres'
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Caption = 'Dc'
+              TabOrder = 9
+            end
+            object StaticText2: TStaticText
+              Left = 103
+              Top = 140
+              Width = 24
+              Height = 42
+              Hint = 'Number of noospheres'
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Caption = '='
+              TabOrder = 10
+            end
+            object nbDc: TNumberBox
+              Left = 164
+              Top = 138
+              Width = 243
+              Height = 39
+              Hint = 'Distance'
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 5
+              Margins.Bottom = 5
+              Alignment = taCenter
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -23
+              Font.Name = 'Segoe UI'
+              Font.Style = []
+              Mode = nbmInt64
+              MaxValue = 100000.000000000000000000
+              ParentFont = False
+              ParentShowHint = False
+              ShowHint = True
+              TabOrder = 11
+              Value = 100000.000000000000000000
+              SpinButtonOptions.ButtonWidth = 30
             end
           end
           object StaticTextNc: TStaticText
-            Left = 863
-            Top = 235
+            Left = 59
+            Top = 56
             Width = 39
             Height = 42
+            Hint = 'Number of noospheres'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -955,76 +795,79 @@ inherited FormSettings: TFormSettings
             TabOrder = 1
           end
           object StaticTextNs: TStaticText
-            Left = 863
-            Top = 280
+            Left = 192
+            Top = 56
             Width = 38
             Height = 42
+            Hint = 'Number of galaxy stars'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Ns'
+            ParentShowHint = False
+            ShowHint = True
             TabOrder = 2
           end
-          object StaticText1: TStaticText
-            Left = 863
-            Top = 332
-            Width = 27
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fl'
-            TabOrder = 3
-          end
           object StaticTextFb: TStaticText
-            Left = 863
-            Top = 376
+            Left = 457
+            Top = 52
             Width = 36
             Height = 42
+            Hint = 'Fraction of planets with biospheres'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Fb'
-            TabOrder = 4
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
           end
           object StaticTextFn: TStaticText
-            Left = 863
-            Top = 428
+            Left = 605
+            Top = 52
             Width = 36
             Height = 42
+            Hint = 'Fraction of planets with noospheres'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Fn'
-            TabOrder = 5
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
           end
           object StaticTextLc: TStaticText
-            Left = 863
-            Top = 480
+            Left = 734
+            Top = 51
             Width = 31
             Height = 42
+            Hint = 'Mean lifetime of noospheres'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Lc'
-            TabOrder = 6
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
           end
           object StaticTextLs: TStaticText
-            Left = 863
-            Top = 528
+            Left = 797
+            Top = 51
             Width = 30
             Height = 42
+            Hint = 'Mean lifetime of stars'
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Ls'
-            TabOrder = 7
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
           end
         end
       end
@@ -1051,7 +894,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 388
+          Left = 372
           Top = 324
           Width = 182
           Height = 223
@@ -1155,14 +998,13 @@ inherited FormSettings: TFormSettings
           Top = 42
           Width = 421
           Height = 251
-          Hint = #1044#1077#1082#1072#1088#1090#1086#1074#1099#1077' '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1099
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Coordinate system'
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           object chbEquatorial: TCheckBox
             Left = 56
@@ -1208,7 +1050,6 @@ inherited FormSettings: TFormSettings
           Top = 42
           Width = 342
           Height = 296
-          Hint = 'https://ru.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1222,7 +1063,7 @@ inherited FormSettings: TFormSettings
             'Parsec'
             'Kiloparsec')
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
         end
         object SpinEditPrecision: TSpinEdit
@@ -1260,8 +1101,6 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 1065
-          ExplicitHeight = 403
           object LabelA: TLabel
             Left = 129
             Top = 70

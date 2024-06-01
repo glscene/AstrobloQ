@@ -15,7 +15,7 @@ uses
   Vcl.Forms,
   Vcl.Graphics,
   Vcl.Menus,
-  Vcl.Actnlist,
+  Vcl.ExtDlgs,
 
   uGlobals,
   gnuGettext;
@@ -24,7 +24,6 @@ type
   TFormGL = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
-     
   public
     procedure ReadIniFile; virtual;
     procedure SetLanguage;
@@ -58,16 +57,6 @@ begin
     BindTextDomain ('galaktika', LocalePath);
     AddDomainForResourceString('language');
     BindTextDomain ('language', LocalePath);
-
-    //TP_GlobalIgnoreClass(TTable);
-    //TP_GlobalIgnoreClass(TFields);
-    //TP_GlobalIgnoreClass(TFont);
-    //TP_GlobalIgnoreClass(TListBox);
-    //TP_GlobalIgnoreClass(TStaticText);
-    //TP_GlobalIgnoreClass(TGLLibMaterial);
-    //TP_GlobalIgnoreClass(TGLMaterialLibrary);
-    //TP_IgnoreClass(TFont);
-    TP_GlobalIgnoreClassProperty(TAction, 'Category');
     // Removing the upper line will cause long loading but Action.Category translation
     case LangID of
       LANG_RUSSIAN:
@@ -83,18 +72,8 @@ begin
         // Help from Wiki
       end;
     end;
-  end
-  else
-  begin
-    UseLanguage('en');
-    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Galaktika.chm');
-    // Help from Wiki
   end;
   TranslateComponent(Self);
-  //TP_GlobalIgnoreClass(TGLLibMaterial);
-  //TP_GlobalIgnoreClass(TGLMaterialLibrary);
-  //TP_GlobalIgnoreClass(TListBox);
-  //TP_GlobalIgnoreClassProperty(TAction, 'Category');
 end;
 
 

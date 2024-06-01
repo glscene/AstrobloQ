@@ -118,6 +118,9 @@ __published:	// IDE-managed Components
 	TControlBar *ControlBar1;
 	TRadioGroup *rgMode;
 	TTreeView *TreeViewParadox;
+	TMenuItem *Galagrid1;
+	TMenuItem *ools1;
+	TMenuItem *Starlife1;
 	void __fastcall GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift, int X,
@@ -140,6 +143,7 @@ __published:	// IDE-managed Components
 	void __fastcall DrawVoronoi();
 	void __fastcall CheckListBox1ClickCheck(TObject *Sender);
 	void __fastcall miCatalogClick(TObject *Sender);
+	void __fastcall Starlife1Click(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

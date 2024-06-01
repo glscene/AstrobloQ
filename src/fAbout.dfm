@@ -6,7 +6,7 @@ object FormAbout: TFormAbout
   Margins.Right = 5
   Margins.Bottom = 5
   BorderStyle = bsDialog
-  Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
+  Caption = 'About'
   ClientHeight = 893
   ClientWidth = 1131
   Color = clBtnFace
@@ -55,7 +55,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      Caption = 'Info'
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -56220,7 +56220,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      Caption = 'Tools'
       ImageIndex = 2
       object DelphiButton: TSpeedButton
         Left = 675
@@ -63721,7 +63721,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
+      Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
       object MemoDevelopers: TMemo
@@ -63737,12 +63737,7 @@ object FormAbout: TFormAbout
         Alignment = taCenter
         Lines.Strings = (
           'Pavel Vassiliev'
-          'Eric Hardinger'
-          'Ivan Lee Herring'
-          'Alexandre Hirzel'
-          'Dave Kerr'
           'Lev Koptyaev'
-          'Liza Soboleva'
           'Danil Wasilyev')
         TabOrder = 0
       end

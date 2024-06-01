@@ -6,7 +6,7 @@ object FormProjection: TFormProjection
   Margins.Right = 5
   Margins.Bottom = 5
   BorderStyle = bsDialog
-  Caption = 'StarProj - '#1087#1088#1086#1077#1082#1094#1080#1080' '#1079#1074#1105#1079#1076
+  Caption = 'StarProj'
   ClientHeight = 714
   ClientWidth = 959
   Color = clBtnFace
