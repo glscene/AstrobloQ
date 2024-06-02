@@ -18,10 +18,12 @@ uses
   Vcl.Imaging.jpeg,
   Vcl.ComCtrls,
   Vcl.Imaging.pngimage,
-  Vcl.Buttons;
+  Vcl.Buttons,
+
+  fGLForm;
 
 type
-  TFormAbout = class(TForm)
+  TFormAbout = class(TFormGL)
     Panel1: TPanel;
     PageControl: TPageControl;
     tsInfo: TTabSheet;

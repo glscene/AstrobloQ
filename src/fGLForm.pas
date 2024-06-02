@@ -72,6 +72,11 @@ begin
         // Help from Wiki
       end;
     end;
+  end
+  else
+  begin
+    UseLanguage('en');
+    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'GLSViewer.chm');
   end;
   TranslateComponent(Self);
 end;

@@ -1,0 +1,35 @@
+rem @echo off
+cls
+
+set LANG=C
+
+echo Extracting texts from source code
+
+dxgettext -q --delphi --useignorepo -b
+
+echo Updating Russian translations
+pushd d:\astronomy\astrobloq\locale\ru\LC_MESSAGES
+copy default.po default-backup.po
+ren default.po default-old.po
+echo Merging
+msgmergedx default-old.po d:\astronomy\astrobloq\src\default.po -o default.po
+del default-old.po
+del default-backup.po
+copy default.po galaktika.po
+popd
+
+echo Updating English translations
+pushd d:\astronomy\astrobloq\locale\en\LC_MESSAGES
+copy default.po default-backup.po
+ren default.po default-old.po
+echo Merging
+msgmergedx default-old.po d:\astronomy\astrobloq\src\default.po -o default.po
+del default-old.po
+del default-backup.po
+copy default.po galaktika.po
+popd
+
+del d:\astronomy\astrobloq\src\default.po
+
+pause
+
