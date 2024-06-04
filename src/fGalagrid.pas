@@ -1,4 +1,4 @@
-unit fGalaktika;
+unit fGalagrid;
 
 interface
 
@@ -44,6 +44,9 @@ uses
   GLS.Color,
   GLS.SpaceText,
 
+  dImages,
+  dDialogs,
+  dBase,
   fGLForm,
   fAbout,
   fSettings,
@@ -103,11 +106,10 @@ type
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     PageControl1: TPageControl;
-    tsHeliobox: TTabSheet;
-    tsGalabox: TTabSheet;
+    tsSolacube: TTabSheet;
+    tsGalacube: TTabSheet;
     svGalaxy: TGLSceneViewer;
     tvGalaxy: TTreeView;
-    PanelLeft: TPanel;
     svHelios: TGLSceneViewer;
     camHelios: TGLCamera;
     LightSol: TGLLightSource;
@@ -156,12 +158,10 @@ type
     tsDatacat: TTabSheet;
     DBGrid: TDBGrid;
     MemoTable: TMemo;
-    FDBatchMove: TFDBatchMove;
     chbW: TCheckBox;
     shW: TShape;
     nbWn: TNumberBox;
-    OpenTextFileDialog: TOpenTextFileDialog;
-    SaveTextFileDialog: TSaveTextFileDialog;
+    ToolButton4: TToolButton;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -458,7 +458,6 @@ end;
 procedure TFormGalaktika.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
-  PanelLeft.Visible := not PanelLeft.Visible;
   PanelRight.Visible := not PanelRight.Visible;
   dcAxis.Visible := not dcAxis.Visible;
   dcGalaxy.Visible := not dcGalaxy.Visible;
@@ -489,27 +488,26 @@ begin
   DataDir := ExtractFilePath(ParamStr(0));
   DataDir := DataDir + 'data\catalog';
   // SetCurrentDir(DataDir);
-  OpenTextFileDialog.InitialDir := DataDir;
-  OpenTextFileDialog.FilterIndex := 1;
+  DataModuleDialogs.OpenTextFileDialog.InitialDir := DataDir;
+  DataModuleDialogs.OpenTextFileDialog.FilterIndex := 1;
 
   // Выполняем диалог открыть файл
-  if OpenTextFileDialog.Execute then
-    // Проверка есть ли файл
-    if FileExists(OpenTextFileDialog.FileName) then
+  if DataModuleDialogs.OpenTextFileDialog.Execute then
+    if FileExists(DataModuleDialogs.OpenTextFileDialog.FileName) then
       // If it exists, load the data into the memo box.
-      MemoTable.Lines.LoadFromFile(OpenTextFileDialog.FileName)
+      MemoTable.Lines.LoadFromFile(DataModuleDialogs.OpenTextFileDialog.FileName)
     else
       // Otherwise, raise an exception.
       raise Exception.Create('File not exists');
 
   (*
-    if OpenDialog.Execute() then
-    AssignFile(F, OpenDialog.FileName)
+    if DataModuleDialogs.OpenDialog.Execute() then
+    AssignFile(F, DataModuleDialogs.OpenDialog.FileName)
     else
     Exit;
     try
     Reset(F);
-    sl.LoadFromFile(OpenDialog.FileName);
+    sl.LoadFromFile(DataModuleDialogs.OpenDialog.FileName);
     finally
     //
     end;
@@ -521,15 +519,11 @@ end;
 // --------------------------------------------------------
 procedure TFormGalaktika.miSaveAsClick(Sender: TObject);
 begin
-  // Открываем диалог сохранения файла
-  if SaveTextFileDialog.Execute then
-    // Проверка существует ли файл
-    if FileExists(SaveTextFileDialog.FileName) then
-      // Если существует, то raise как исключение
+  if DataModuleDialogs.SaveTextFileDialog.Execute then
+    if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
       raise Exception.Create(_('File exists. Can not overwrite'))
     else
-      // Otherwise, save the memo box lines into the file.
-      MemoTable.Lines.SaveToFile(SaveTextFileDialog.FileName);
+      MemoTable.Lines.SaveToFile(DataModuleDialogs.SaveTextFileDialog.FileName);
   // Edit1.Text := SaveTextFileDialog.Encodings[SaveTextFileDialog.EncodingIndex];
 end;
 

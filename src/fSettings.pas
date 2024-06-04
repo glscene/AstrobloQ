@@ -150,7 +150,7 @@ implementation
 
 uses
   GnuGettext,
-  fGalaktika;
+  fGalagrid;
 
 
 procedure TFormSettings.FormCreate(Sender: TObject);

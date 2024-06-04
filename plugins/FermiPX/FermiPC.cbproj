@@ -174,9 +174,9 @@
         <CppCompile Include="FermiPC.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
+        <FormResources Include="fcStarlife.dfm"/>
         <FormResources Include="fcSpace.dfm"/>
         <FormResources Include="fcData.dfm"/>
-        <FormResources Include="fcStarlife.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -5,8 +5,8 @@ object FormGalaktika: TFormGalaktika
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaktika'
-  ClientHeight = 805
+  Caption = 'Galagrid'
+  ClientHeight = 838
   ClientWidth = 1352
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -23,7 +23,7 @@ object FormGalaktika: TFormGalaktika
   TextHeight = 30
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 776
+    Top = 809
     Width = 1352
     Height = 29
     Margins.Left = 5
@@ -48,7 +48,7 @@ object FormGalaktika: TFormGalaktika
     Left = 0
     Top = 0
     Width = 1352
-    Height = 43
+    Height = 57
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -68,6 +68,7 @@ object FormGalaktika: TFormGalaktika
       ButtonHeight = 39
       ButtonWidth = 40
       Caption = 'ToolBar1'
+      Images = DataModuleImages.ImageListInterface
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
@@ -87,65 +88,59 @@ object FormGalaktika: TFormGalaktika
         Caption = 'ToolButton3'
         ImageIndex = 2
       end
+      object ToolButton4: TToolButton
+        Left = 120
+        Top = 0
+        Caption = 'ToolButton4'
+        ImageIndex = 3
+      end
     end
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 43
+    Top = 57
     Width = 1352
-    Height = 733
+    Height = 752
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsHeliobox
+    ActivePage = tsSolacube
     Align = alClient
     TabOrder = 2
-    object tsHeliobox: TTabSheet
+    object tsSolacube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Heliobox'
-      object PanelLeft: TPanel
+      Caption = 'Solacube'
+      object svHelios: TGLSceneViewer
         Left = 0
         Top = 0
-        Width = 197
-        Height = 688
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Align = alLeft
-        TabOrder = 0
-      end
-      object svHelios: TGLSceneViewer
-        Left = 197
-        Top = 0
-        Width = 776
-        Height = 688
+        Width = 973
+        Height = 707
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Camera = camHelios
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 153.816207885742200000
+        FieldOfView = 154.496566772460900000
         PenAsTouch = False
         Align = alClient
-        TabOrder = 1
+        TabOrder = 0
       end
       object PanelRight: TPanel
         Left = 973
         Top = 0
         Width = 371
-        Height = 688
+        Height = 707
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Align = alRight
-        TabOrder = 2
+        TabOrder = 1
         object shW: TShape
           Left = 91
           Top = 583
@@ -161,7 +156,7 @@ object FormGalaktika: TFormGalaktika
         end
         object ButtonStars: TButton
           Left = 38
-          Top = 26
+          Top = 29
           Width = 172
           Height = 44
           Margins.Left = 5
@@ -174,7 +169,7 @@ object FormGalaktika: TFormGalaktika
         end
         object gbStars: TGroupBox
           Left = 10
-          Top = 99
+          Top = 83
           Width = 353
           Height = 474
           Margins.Left = 5
@@ -280,7 +275,7 @@ object FormGalaktika: TFormGalaktika
             Caption = '%'
           end
           object Label2: TLabel
-            Left = 280
+            Left = 272
             Top = 40
             Width = 76
             Height = 30
@@ -694,9 +689,9 @@ object FormGalaktika: TFormGalaktika
           TabOrder = 4
         end
         object nbWn: TNumberBox
-          Left = 168
+          Left = 280
           Top = 583
-          Width = 121
+          Width = 79
           Height = 38
           Margins.Left = 5
           Margins.Top = 5
@@ -714,25 +709,25 @@ object FormGalaktika: TFormGalaktika
         end
       end
     end
-    object tsGalabox: TTabSheet
+    object tsGalacube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Galabox'
+      Caption = 'Galacube'
       ImageIndex = 1
       object svGalaxy: TGLSceneViewer
-        Left = 197
+        Left = 0
         Top = 0
         Width = 1147
-        Height = 688
+        Height = 707
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Camera = camGalaxy
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 153.816207885742200000
+        FieldOfView = 154.496566772460900000
         PenAsTouch = False
         Align = alClient
         OnMouseDown = svGalaxyMouseDown
@@ -740,15 +735,15 @@ object FormGalaktika: TFormGalaktika
         TabOrder = 0
       end
       object tvGalaxy: TTreeView
-        Left = 0
+        Left = 1147
         Top = 0
         Width = 197
-        Height = 688
+        Height = 707
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Align = alLeft
+        Align = alRight
         Indent = 33
         TabOrder = 1
         Items.NodeData = {
@@ -793,7 +788,7 @@ object FormGalaktika: TFormGalaktika
         Left = 0
         Top = 0
         Width = 659
-        Height = 688
+        Height = 707
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -806,8 +801,8 @@ object FormGalaktika: TFormGalaktika
     end
   end
   object GLScene: TGLScene
-    Left = 301
-    Top = 123
+    Left = 163
+    Top = 201
     object camGalaxy: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
@@ -967,12 +962,14 @@ object FormGalaktika: TFormGalaktika
     end
   end
   object MainMenu: TMainMenu
+    Images = DataModuleImages.ImageListInterface
     Left = 690
     Top = 124
     object miFile: TMenuItem
       Caption = '&File'
       object miOpen: TMenuItem
         Caption = 'Open...'
+        ImageIndex = 2
         OnClick = miOpenClick
       end
       object miSave: TMenuItem
@@ -987,6 +984,7 @@ object FormGalaktika: TFormGalaktika
       end
       object miExit: TMenuItem
         Caption = 'Exit'
+        ImageIndex = 14
         OnClick = miExitClick
       end
     end
@@ -1046,6 +1044,7 @@ object FormGalaktika: TFormGalaktika
       Caption = '&Tools'
       object miSettings: TMenuItem
         Caption = 'Settings...'
+        ImageIndex = 130
         OnClick = miSettingsClick
       end
       object miN5: TMenuItem
@@ -1068,14 +1067,14 @@ object FormGalaktika: TFormGalaktika
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 285
-    Top = 450
+    Left = 163
+    Top = 382
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 446
-    Top = 121
+    Left = 557
+    Top = 212
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <
@@ -103933,7 +103932,7 @@ object FormGalaktika: TFormGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svHelios
-    FormCaption = 'Galaktika - %FPS'
+    FormCaption = 'Galagrid - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -103947,31 +103946,7 @@ object FormGalaktika: TFormGalaktika
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 312
-    Top = 203
-  end
-  object OpenTextFileDialog: TOpenTextFileDialog
-    Filter = 
-      'Data with coma (*.csv)|*.csv|Data with space (*.dat)|*.dat|All (' +
-      '*.*)|*.*'
-    Encodings.Strings = (
-      'ASCII'
-      'ANSI'
-      'Unicode'
-      'Big Endian Unicode'
-      'UTF-8'
-      'UTF-7')
-    Left = 819
-    Top = 396
-  end
-  object SaveTextFileDialog: TSaveTextFileDialog
-    Left = 530
-    Top = 522
-  end
-  object FDBatchMove: TFDBatchMove
-    Mappings = <>
-    LogFileName = 'Data.log'
-    Left = 746
-    Top = 518
+    Left = 546
+    Top = 411
   end
 end

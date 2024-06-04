@@ -1,10 +1,22 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
 # ==========================================================================================
 # Add terms that should not be translated to this file.
 # It works in conjunction with ggexclude.cfg. First try to exclude stuff via ggexclude.cfg.
 # Things that still make it through the ggexclude sieve should then be added here.
 # Make sure to leave a blank line after each entry!
 # ==========================================================================================
-
 msgid "OK"
 msgstr ""
 
@@ -52,7 +64,7 @@ msgstr ""
 msgid "1000%"
 msgstr ""
 
-#Units
+# Units
 msgid "nm"
 msgstr ""
 
@@ -150,12 +162,5 @@ msgstr ""
 msgid "()[]{}<>"
 msgstr ""
 
-msgid "@"
-msgstr ""
-
-msgid "&"
-msgstr ""
-
 msgid "glscene@gmail.com"
 msgstr ""
-

@@ -66,7 +66,7 @@ inherited FormSettings: TFormSettings
       Left = 1
       Top = 1
       Width = 218
-      Height = 660
+      Height = 685
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -74,7 +74,6 @@ inherited FormSettings: TFormSettings
       Align = alLeft
       AutoExpand = True
       HotTrack = True
-      Images = dfImages.ImageList
       Indent = 33
       TabOrder = 0
       OnClick = tvSettingsClick
@@ -103,7 +102,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -185,7 +184,7 @@ inherited FormSettings: TFormSettings
         object CheckBoxLoadProject: TCheckBox
           Left = 47
           Top = 282
-          Width = 322
+          Width = 294
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
@@ -199,7 +198,7 @@ inherited FormSettings: TFormSettings
         object CheckBoxSaveProject: TCheckBox
           Left = 351
           Top = 282
-          Width = 196
+          Width = 269
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
@@ -213,7 +212,7 @@ inherited FormSettings: TFormSettings
         object cbSplashStart: TCheckBox
           Left = 669
           Top = 282
-          Width = 172
+          Width = 256
           Height = 31
           Margins.Left = 5
           Margins.Top = 5
@@ -894,7 +893,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 372
+          Left = 348
           Top = 324
           Width = 182
           Height = 223

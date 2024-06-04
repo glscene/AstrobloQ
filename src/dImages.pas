@@ -13,16 +13,16 @@ uses
   Vcl.VirtualImageList;
 
 type
-  TdfImages = class(TDataModule)
+  TDataModuleImages = class(TDataModule)
     ImgCollectionPlanets: TImageCollection;
     ImgVirtPlanets: TVirtualImageList;
-    ImageList: TImageList;
+    ImageListInterface: TImageList;
   private
   public
   end;
 
 var
-  dfImages: TdfImages;
+  DataModuleImages: TDataModuleImages;
 
 implementation
 
