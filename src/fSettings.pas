@@ -34,7 +34,6 @@ uses
 type
   TFormSettings = class(TFormGL)
     PanelBottom: TPanel;
-    Button2: TButton;
     ButtonOk: TButton;
     PanelMain: TPanel;
     tvSettings: TTreeView;
@@ -48,7 +47,7 @@ type
     CheckBoxLoadProject: TCheckBox;
     CheckBoxSaveProject: TCheckBox;
     cbSplashStart: TCheckBox;
-    rgLanguages: TRadioGroup;
+    rgLanguage: TRadioGroup;
     tsDisplay: TTabSheet;
     LabelBackground: TLabel;
     CheckBoxAxis: TCheckBox;
@@ -59,7 +58,6 @@ type
     ListView: TListView;
     ButtonModifyMat: TButton;
     tsGalaxy: TTabSheet;
-    LabelDiameter: TLabel;
     nbRadius: TNumberBox;
     grbDrakeFormula: TGroupBox;
     PanelDrake: TPanel;
@@ -88,13 +86,9 @@ type
     chbConstBounds: TCheckBox;
     tsGeneral: TTabSheet;
     LabelPrecision: TLabel;
-    gbxCoordinateSys: TGroupBox;
-    chbEquatorial: TCheckBox;
-    CheckBox2: TCheckBox;
-    CheckBox1: TCheckBox;
     rgUnits: TRadioGroup;
     SpinEditPrecision: TSpinEdit;
-    tsFlights: TTabSheet;
+    tsTrack: TTabSheet;
     PanelTitle: TPanel;
     LabelA: TLabel;
     LabelB: TLabel;
@@ -108,9 +102,9 @@ type
     EditDistance: TEdit;
     stTrackBar: TStaticText;
     gbFindPath: TGroupBox;
-    chbOnTetramesh: TCheckBox;
-    chbAvoidHazards: TCheckBox;
-    CheckBox4: TCheckBox;
+    chbIsTetranet: TCheckBox;
+    chbIsPolynet: TCheckBox;
+    chbIsGridnet: TCheckBox;
     tsPlanets: TTabSheet;
     chlbPlanetsize: TCheckListBox;
     CheckListBox1: TCheckListBox;
@@ -120,12 +114,12 @@ type
     nbFb: TNumberBox;
     nbFn: TNumberBox;
     Label1: TLabel;
-    StaticTextDc: TStaticText;
-    StaticText2: TStaticText;
-    nbDc: TNumberBox;
+    RadioGroup1: TRadioGroup;
+    LabelRg: TLabel;
+    StaticTextRg: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure rgLanguagesClick(Sender: TObject);
+    procedure rgLanguageClick(Sender: TObject);
     procedure PanelBackgroundClick(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -150,14 +144,14 @@ implementation
 
 uses
   GnuGettext,
-  fGalagrid;
+  fGalablock;
 
 
+//--------------------------------------------------------------------
 procedure TFormSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
 begin
-  inherited;
   ReadIniFile;
 
   // спектральные классы звёзд по умолчанию
@@ -176,24 +170,34 @@ begin
     tvSettings.Items[I].SelectedIndex := 1;
     tvSettings.Items[I].StateIndex := I;
   end;
-  // Items: 4 - Галактика 5 - Звёзды 6 - Планеты
-  tvSettings.Select(tvSettings.Items[6]);
+  // Items:
+  // 0-Главные; 1-Интерфейс; 2-Дисплей; 3-Материал; 4-Галактика; 5-Звёзды; 6-Планеты
+  tvSettings.Select(tvSettings.Items[1]);
+  tvSettings.Items[1].DropHighlighted := True;
   tvSettings.FullExpand;
-  tvSettings.Items[6].DropHighlighted := True;
 
   trbVelocityChange(Self);
+  inherited;
 end;
 
-procedure TFormSettings.rgLanguagesClick(Sender: TObject);
+//--------------------------------------------------------------------
+procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin
-  case rgLanguages.ItemIndex of
-    0: CurLangID := LANG_ENGLISH;
-    1: CurLangID := LANG_RUSSIAN;
-    else
-      CurLangID := LANG_ENGLISH;
+  inherited;
+  tvSettings.Items[1].DropHighlighted := False;
+  case tvSettings.Selected.StateIndex of
+     0: PageControl.ActivePage := tsGeneral;
+     1: PageControl.ActivePage := tsInterface;
+     2: PageControl.ActivePage := tsDisplay;
+     3: PageControl.ActivePage := tsMaterial;
+     4: PageControl.ActivePage := tsGalaxy;
+     5: PageControl.ActivePage := tsStars;
+     6: PageControl.ActivePage := tsPlanets;
+     7: PageControl.ActivePage := tsTrack;
   end;
 end;
 
+//--------------------------------------------------------------------
 procedure TFormSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
@@ -207,21 +211,18 @@ begin
   stFlightTime.Caption := FloatToStrF(FlightTime, ffFixed, 20, 1);
 end;
 
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+
+//--------------------------------------------------------------------
+procedure TFormSettings.rgLanguageClick(Sender: TObject);
 begin
-  inherited;
-  tvSettings.Items[6].DropHighlighted := False;
-  case tvSettings.Selected.StateIndex of
-     0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsInterface;
-     2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsMaterial;
-     4: PageControl.ActivePage := tsGalaxy;
-     5: PageControl.ActivePage := tsStars;
-     6: PageControl.ActivePage := tsPlanets;
-     7: PageControl.ActivePage := tsFlights;
+  case rgLanguage.ItemIndex of
+    0: CurLangID := LANG_ENGLISH;
+    1: CurLangID := LANG_RUSSIAN;
+    else
+      CurLangID := LANG_ENGLISH;
   end;
 end;
+
 
 //--------------------------------------------------------------------
 procedure TFormSettings.ReadIniFile;
@@ -233,14 +234,14 @@ begin
   try
     CheckBoxAxis.Checked := IniFile.ReadBool(Name, CheckBoxAxis.Name, True);
     PanelBkg.Color := IniFile.ReadInteger(Name, PanelBkg.Name, 0);
-    LangID := IniFile.ReadInteger(Name, rgLanguages.Name, 0);
+    LangID := IniFile.ReadInteger(Name, rgLanguage.Name, 0);
     case LangID of
       LANG_ENGLISH:
-        rgLanguages.ItemIndex := 0;
+        rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
-        rgLanguages.ItemIndex := 1;
+        rgLanguage.ItemIndex := 1;
     else
-      rgLanguages.ItemIndex := 0;
+      rgLanguage.ItemIndex := 0;
     end;
   finally
     IniFile.Free;
@@ -256,7 +257,7 @@ begin
   try
     IniFile.WriteBool(Name, CheckBoxAxis.Name, CheckBoxAxis.Checked);
     IniFile.WriteInteger(Name, PanelBkg.Name, PanelBkg.Color);
-    IniFile.WriteInteger(Name, rgLanguages.Name, CurLangID);
+    IniFile.WriteInteger(Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;
@@ -307,6 +308,7 @@ begin
     if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
+  Close;
 end;
 
 function TFormSettings.Execute: boolean;

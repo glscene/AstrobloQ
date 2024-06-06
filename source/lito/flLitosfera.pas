@@ -994,13 +994,12 @@ procedure TFormLitosfera.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
-  // сделать переход с Вики на Рувики
-  if (tvPlanets.Selected.Level = 0)   then
-    // Планеты или астероиды, иногда S + '_(planet)' like for ../Mercury_(planet)
-    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
-  else
-    // Луны
+  if (tvPlanets.Selected.Level = 0)   then  // Planets, sometimes S + '_(planet)' e.g. ../Mercury_(planet)
+///    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
+    S :=  'https://ru.ruwiki.ru/wiki/' + 'Земля' // tvPlanets.Selected.Text must be translated to ru
+  else  // Moons
     S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
+///    S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text;
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
 end;
 

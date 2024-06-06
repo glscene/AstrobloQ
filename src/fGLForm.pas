@@ -51,10 +51,11 @@ begin
   LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
   ReadIniFile;
+
   if (LangID <> LANG_ENGLISH) then
   begin
-    Textdomain('galaktika');  // galaktika.mo file renamed from default.mo
-    BindTextDomain ('galaktika', LocalePath);
+    Textdomain('galablock');
+    BindTextDomain ('galablock', LocalePath);
     AddDomainForResourceString('language');
     BindTextDomain ('language', LocalePath);
     // Removing the upper line will cause long loading but Action.Category translation
@@ -62,27 +63,33 @@ begin
       LANG_RUSSIAN:
       begin
         UseLanguage('ru');
-        Application.HelpFile := UpperCase(LocalePath + 'ru'+ PathDelim+'Galaktika.chm');
-        // Help from Ruwiki
+        Application.HelpFile := UpperCase(LocalePath + 'ru'+ PathDelim+'Galablock.chm');
       end
       else
       begin
         UseLanguage('en');
-        Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Galaktika.chm');
-        // Help from Wiki
+        Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Galablock.chm');
       end;
     end;
   end
   else
   begin
     UseLanguage('en');
-    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'GLSViewer.chm');
+    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Galablock.chm');
   end;
+  //TP_GlobalIgnoreClass(TTable);
+  //TP_GlobalIgnoreClass(TFields);
+  //TP_GlobalIgnoreClass(TFont);
+  //TP_GlobalIgnoreClass(TListBox);
+  //TP_GlobalIgnoreClass(TGLLibMaterial);
+  //TP_GlobalIgnoreClass(TGLMaterialLibrary);
+  //TP_IgnoreClass(TFont);
+
   TranslateComponent(Self);
 end;
 
 
-
+//========================================================================
 procedure TFormGL.ReadIniFile;
 var
   IniFile: TIniFile;
@@ -90,7 +97,7 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      LangID := ReadInteger('FormSettings', 'rgLanguages', 0);
+      LangID := ReadInteger('FormSettings', 'rgLanguage', 0);
     finally
       IniFile.Free;
     end;

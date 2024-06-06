@@ -21,22 +21,9 @@ inherited FormSettings: TFormSettings
     TabOrder = 0
     ExplicitTop = 662
     ExplicitWidth = 1305
-    object Button2: TButton
-      Left = 1059
-      Top = 15
-      Width = 131
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = 'Cancel'
-      ModalResult = 2
-      TabOrder = 0
-    end
     object ButtonOk: TButton
-      Left = 866
-      Top = 15
+      Left = 1079
+      Top = 10
       Width = 131
       Height = 44
       Margins.Left = 5
@@ -45,7 +32,7 @@ inherited FormSettings: TFormSettings
       Margins.Bottom = 5
       Caption = 'Ok'
       ModalResult = 1
-      TabOrder = 1
+      TabOrder = 0
       OnClick = ButtonOKClick
     end
   end
@@ -89,9 +76,10 @@ inherited FormSettings: TFormSettings
         00000000000000000000000106470061006C0061007800790000002900000000
         00000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001055300
         740061007200730000002D0000000000000000000000FFFFFFFFFFFFFFFF0000
-        0000000000000000000000010750006C0061006E006500740073000000330000
-        000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000000010A
-        530074006100720066006C006900670068007400}
+        0000000000000000000000010750006C0061006E006500740073000000290000
+        000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000000105
+        54007200610063006B00}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -102,7 +90,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsGalaxy
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -137,7 +125,7 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           AutoSize = False
-          Caption = 'Database'
+          Caption = 'Data base'
         end
         object PanelExePath: TPanel
           Left = 33
@@ -150,7 +138,7 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           Alignment = taLeftJustify
           BevelOuter = bvLowered
-          Caption = 'AstrobloQ.exe'
+          Caption = 'Galablock.exe'
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
@@ -221,7 +209,7 @@ inherited FormSettings: TFormSettings
           Caption = 'Show splash'
           TabOrder = 5
         end
-        object rgLanguages: TRadioGroup
+        object rgLanguage: TRadioGroup
           Left = 47
           Top = 354
           Width = 444
@@ -233,7 +221,7 @@ inherited FormSettings: TFormSettings
             'English'
             'Russian')
           TabOrder = 6
-          OnClick = rgLanguagesClick
+          OnClick = rgLanguageClick
         end
       end
       object tsDisplay: TTabSheet
@@ -370,19 +358,19 @@ inherited FormSettings: TFormSettings
         Caption = 'Galaxy'
         ImageIndex = 4
         TabVisible = False
-        object LabelDiameter: TLabel
-          Left = 360
+        object LabelRg: TLabel
+          Left = 226
           Top = 35
-          Width = 62
+          Width = 123
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Radius'
+          Caption = 'Galaxy radius'
         end
         object nbRadius: TNumberBox
-          Left = 485
+          Left = 472
           Top = 32
           Width = 156
           Height = 38
@@ -397,10 +385,10 @@ inherited FormSettings: TFormSettings
           SpinButtonOptions.ButtonWidth = 30
         end
         object grbDrakeFormula: TGroupBox
-          Left = 28
-          Top = 75
-          Width = 1009
-          Height = 318
+          Left = 34
+          Top = 105
+          Width = 1017
+          Height = 344
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -415,7 +403,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 1
           object PanelDrake: TPanel
             Left = 28
-            Top = 36
+            Top = 37
             Width = 925
             Height = 189
             Margins.Left = 5
@@ -728,57 +716,6 @@ inherited FormSettings: TFormSettings
               Value = 0.010000000000000000
               SpinButtonOptions.ButtonWidth = 30
             end
-            object StaticTextDc: TStaticText
-              Left = 31
-              Top = 140
-              Width = 38
-              Height = 42
-              Hint = 'Number of noospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Dc'
-              TabOrder = 9
-            end
-            object StaticText2: TStaticText
-              Left = 103
-              Top = 140
-              Width = 24
-              Height = 42
-              Hint = 'Number of noospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '='
-              TabOrder = 10
-            end
-            object nbDc: TNumberBox
-              Left = 164
-              Top = 138
-              Width = 243
-              Height = 39
-              Hint = 'Distance'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              Mode = nbmInt64
-              MaxValue = 100000.000000000000000000
-              ParentFont = False
-              ParentShowHint = False
-              ShowHint = True
-              TabOrder = 11
-              Value = 100000.000000000000000000
-              SpinButtonOptions.ButtonWidth = 30
-            end
           end
           object StaticTextNc: TStaticText
             Left = 59
@@ -869,6 +806,18 @@ inherited FormSettings: TFormSettings
             TabOrder = 6
           end
         end
+        object StaticTextRg: TStaticText
+          Left = 399
+          Top = 32
+          Width = 29
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Rg'
+          TabOrder = 2
+        end
       end
       object tsStars: TTabSheet
         Margins.Left = 5
@@ -893,7 +842,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 348
+          Left = 324
           Top = 324
           Width = 182
           Height = 223
@@ -992,58 +941,6 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           Caption = 'Precision'
         end
-        object gbxCoordinateSys: TGroupBox
-          Left = 56
-          Top = 42
-          Width = 421
-          Height = 251
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Coordinate system'
-          ParentShowHint = False
-          ShowHint = False
-          TabOrder = 0
-          object chbEquatorial: TCheckBox
-            Left = 56
-            Top = 56
-            Width = 214
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Heliocentric'
-            Checked = True
-            State = cbChecked
-            TabOrder = 0
-          end
-          object CheckBox2: TCheckBox
-            Left = 56
-            Top = 112
-            Width = 214
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Galactic'
-            TabOrder = 1
-          end
-          object CheckBox1: TCheckBox
-            Left = 56
-            Top = 166
-            Width = 214
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Supergalactic'
-            TabOrder = 2
-          end
-        end
         object rgUnits: TRadioGroup
           Left = 613
           Top = 42
@@ -1063,7 +960,7 @@ inherited FormSettings: TFormSettings
             'Kiloparsec')
           ParentShowHint = False
           ShowHint = False
-          TabOrder = 1
+          TabOrder = 0
         end
         object SpinEditPrecision: TSpinEdit
           Left = 886
@@ -1077,16 +974,33 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           MaxValue = 18
           MinValue = 0
-          TabOrder = 2
+          TabOrder = 1
           Value = 2
         end
+        object RadioGroup1: TRadioGroup
+          Left = 70
+          Top = 42
+          Width = 309
+          Height = 267
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Coordinate system'
+          ItemIndex = 0
+          Items.Strings = (
+            'Heliocentric'
+            'Galactic'
+            'Supergalactic')
+          TabOrder = 2
+        end
       end
-      object tsFlights: TTabSheet
+      object tsTrack: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Flights'
+        Caption = 'Track'
         ImageIndex = 8
         TabVisible = False
         object PanelTitle: TPanel
@@ -1252,7 +1166,7 @@ inherited FormSettings: TFormSettings
             Margins.Bottom = 5
             Caption = 'Shortest path'
             TabOrder = 6
-            object chbOnTetramesh: TCheckBox
+            object chbIsTetranet: TCheckBox
               Left = 31
               Top = 93
               Width = 186
@@ -1264,7 +1178,7 @@ inherited FormSettings: TFormSettings
               Caption = 'Tetranet'
               TabOrder = 0
             end
-            object chbAvoidHazards: TCheckBox
+            object chbIsPolynet: TCheckBox
               Left = 31
               Top = 133
               Width = 214
@@ -1276,7 +1190,7 @@ inherited FormSettings: TFormSettings
               Caption = 'Polinet'
               TabOrder = 1
             end
-            object CheckBox4: TCheckBox
+            object chbIsGridnet: TCheckBox
               Left = 31
               Top = 53
               Width = 158
@@ -1285,7 +1199,7 @@ inherited FormSettings: TFormSettings
               Margins.Top = 5
               Margins.Right = 5
               Margins.Bottom = 5
-              Caption = 'Galagrid'
+              Caption = 'Gridnet'
               Checked = True
               State = cbChecked
               TabOrder = 2

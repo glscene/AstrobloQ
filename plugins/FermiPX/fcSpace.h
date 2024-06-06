@@ -44,6 +44,9 @@
 #include "GLS.VectorFileObjects.hpp"
 #include "GLS.Mesh.hpp"
 #include <FireDAC.Phys.SQLiteWrapper.Stat.hpp>
+#include <System.ImageList.hpp>
+#include <Vcl.ImgList.hpp>
+#include <Vcl.ToolWin.hpp>
 //---------------------------------------------------------------------------
 struct DelaunayBase
 {
@@ -121,6 +124,9 @@ __published:	// IDE-managed Components
 	TMenuItem *Galagrid1;
 	TMenuItem *ools1;
 	TMenuItem *Starlife1;
+	TToolBar *ToolBar1;
+	TToolButton *ToolButton1;
+	TImageList *ImageList1;
 	void __fastcall GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift, int X,

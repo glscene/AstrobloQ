@@ -237,6 +237,22 @@ begin
   trbVelocityChange(Self);
 end;
 
+procedure TFormSettings.tvSettingsClick(Sender: TObject);
+begin
+  tvSettings.Items[6].DropHighlighted := False;
+  case tvSettings.Selected.StateIndex of
+     0: PageControl.ActivePage := tsGeneral;
+     1: PageControl.ActivePage := tsInterface;
+     2: PageControl.ActivePage := tsDisplay;
+     3: PageControl.ActivePage := tsMaterial;
+     4: PageControl.ActivePage := tsGalaxy;
+     5: PageControl.ActivePage := tsStars;
+     6: PageControl.ActivePage := tsPlanets;
+     7: PageControl.ActivePage := tsFlights;
+  end;
+end;
+
+
 //---------------------------------------------------------------
 // Расчёт числа цивилизаций в МП по ноосферной формуле Дрейка
 //---------------------------------------------------------------
@@ -272,23 +288,6 @@ begin
   Ratio := trbVelocity.Position/299792;
   FlightTime := DistanceInYears/Ratio;
   stFlightTime.Caption := FloatToStrF(FlightTime, ffFixed, 20, 1);
-end;
-
-
-
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
-begin
-  tvSettings.Items[6].DropHighlighted := False;
-  case tvSettings.Selected.StateIndex of
-     0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsInterface;
-     2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsMaterial;
-     4: PageControl.ActivePage := tsGalaxy;
-     5: PageControl.ActivePage := tsStars;
-     6: PageControl.ActivePage := tsPlanets;
-     7: PageControl.ActivePage := tsFlights;
-  end;
 end;
 
 end.

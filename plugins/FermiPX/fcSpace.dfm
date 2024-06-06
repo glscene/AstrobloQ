@@ -254,6 +254,26 @@ object FormPX: TFormPX
     Align = alTop
     RowSize = 46
     TabOrder = 2
+    object ToolBar1: TToolBar
+      Left = 19
+      Top = 2
+      Width = 263
+      Height = 88
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      ButtonHeight = 39
+      ButtonWidth = 40
+      Caption = 'ToolBar1'
+      TabOrder = 0
+      object ToolButton1: TToolButton
+        Left = 0
+        Top = 0
+        Caption = 'ToolButton1'
+        ImageIndex = 0
+      end
+    end
   end
   object GLScene1: TGLScene
     Left = 862
@@ -410,5 +430,9 @@ object FormPX: TFormPX
   object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
     Left = 444
     Top = 198
+  end
+  object ImageList1: TImageList
+    Left = 523
+    Top = 114
   end
 end

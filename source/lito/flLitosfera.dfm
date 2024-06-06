@@ -67,7 +67,7 @@ object FormLitosfera: TFormLitosfera
       Align = alClient
       AutoExpand = True
       HideSelection = False
-      Images = dfImages.ImgVirtPlanets
+      Images = DataModuleImages.ImgVirtPlanets
       Indent = 33
       TabOrder = 0
       OnClick = tvPlanetsClick
@@ -88685,25 +88685,25 @@ object FormLitosfera: TFormLitosfera
     Left = 501
     Top = 56
     object Open1: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = '&File'
       object miFileOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
+        Caption = 'Open...'
         OnClick = miFileOpenClick
       end
       object miFileSaveAs: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+        Caption = 'Save as...'
         OnClick = miFileSaveAsClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object miFileExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         OnClick = miFileExitClick
       end
     end
     object miView: TMenuItem
-      Caption = '&'#1042#1080#1076
+      Caption = '&View'
       object miViewConstlines: TMenuItem
         Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
         OnClick = miViewConstlinesClick
@@ -88740,7 +88740,7 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object miMonitor: TMenuItem
-      Caption = '&'#1052#1086#1085#1080#1090#1086#1088
+      Caption = '&Monitor'
       object miSolarSystem: TMenuItem
         Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSolarSystemClick
@@ -88754,7 +88754,7 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object miTools: TMenuItem
-      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      Caption = '&Tools'
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
         OnClick = miSettingsClick
@@ -88768,7 +88768,7 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object Help1: TMenuItem
-      Caption = '&?'
+      Caption = '&Help'
       object miHelpWiki: TMenuItem
         Caption = #1042#1080#1082#1080'...'
         Hint = 'Information'
@@ -88779,7 +88779,7 @@ object FormLitosfera: TFormLitosfera
         Caption = '-'
       end
       object About1: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'About...'
         OnClick = About1Click
       end
     end

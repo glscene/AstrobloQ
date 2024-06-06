@@ -1,11 +1,11 @@
-object FormGalaktika: TFormGalaktika
+object FormGalablock: TFormGalablock
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galagrid'
+  Caption = 'Galablock'
   ClientHeight = 838
   ClientWidth = 1352
   Color = clBtnFace
@@ -18,7 +18,6 @@ object FormGalaktika: TFormGalaktika
   Position = poScreenCenter
   WindowState = wsMaximized
   OnCreate = FormCreate
-  OnShow = FormShow
   PixelsPerInch = 168
   TextHeight = 30
   object StatusBar1: TStatusBar
@@ -75,6 +74,7 @@ object FormGalaktika: TFormGalaktika
         Top = 0
         Caption = 'ToolButton1'
         ImageIndex = 0
+        OnClick = ToolButton1Click
       end
       object ToolButton2: TToolButton
         Left = 40
@@ -213,7 +213,6 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Brush.Color = clCream
             Pen.Width = 2
-            OnContextPopup = shAContextPopup
           end
           object shG: TShape
             Left = 84
@@ -933,6 +932,15 @@ object FormGalaktika: TFormGalaktika
     end
     object dcGalaxy: TGLDummyCube
       CubeSize = 1.000000000000000000
+      object diskGalaxy: TGLDisk
+        Material.MaterialLibrary = GLMatLib
+        Material.LibMaterialName = 'Milkyway'
+        Direction.Coordinates = {000000000000803F0000000000000000}
+        Up.Coordinates = {0000000000000000000080BF00000000}
+        OuterRadius = 50000.000000000000000000
+        Slices = 64
+        SweepAngle = 360.000000000000000000
+      end
       object XYZGrid: TGLXYZGrid
         Direction.Coordinates = {000000000000803F0000000000000000}
         ShowAxes = True
@@ -949,15 +957,6 @@ object FormGalaktika: TFormGalaktika
         ZSamplingScale.Origin = -500.000000000000000000
         ZSamplingScale.Step = 1000.000000000000000000
         Parts = [gpX, gpY, gpZ]
-      end
-      object diskGalaxy: TGLDisk
-        Material.MaterialLibrary = GLMatLib
-        Material.LibMaterialName = 'Milkyway'
-        Direction.Coordinates = {000000000000803F0000000000000000}
-        Up.Coordinates = {0000000000000000000080BF00000000}
-        OuterRadius = 50000.000000000000000000
-        Slices = 64
-        SweepAngle = 360.000000000000000000
       end
     end
   end
@@ -1029,7 +1028,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miMonitor: TMenuItem
-      Caption = '&Monitor'
+      Caption = '&View'
       object miProjection: TMenuItem
         Caption = 'Star projections...'
         OnClick = miProjectionClick
@@ -1049,6 +1048,14 @@ object FormGalaktika: TFormGalaktika
       end
       object miN5: TMenuItem
         Caption = '-'
+      end
+      object miAnalyzer: TMenuItem
+        Caption = 'Analyzer...'
+        OnClick = miAnalyzerClick
+      end
+      object Monitor1: TMenuItem
+        Caption = 'Monitor...'
+        OnClick = Monitor1Click
       end
     end
     object miHelp: TMenuItem
@@ -103932,7 +103939,7 @@ object FormGalaktika: TFormGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svHelios
-    FormCaption = 'Galagrid - %FPS'
+    FormCaption = 'Galablock - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

@@ -22,14 +22,14 @@ object FormAbout: TFormAbout
     Left = 0
     Top = 0
     Width = 1131
-    Height = 99
+    Height = 113
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'Galagrid'
+    Caption = 'Galablock'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70
@@ -40,9 +40,9 @@ object FormAbout: TFormAbout
   end
   object PageControl: TPageControl
     Left = 0
-    Top = 99
+    Top = 113
     Width = 1131
-    Height = 794
+    Height = 780
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -50,6 +50,8 @@ object FormAbout: TFormAbout
     ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
+    ExplicitTop = 99
+    ExplicitHeight = 794
     object tsInfo: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -60,7 +62,7 @@ object FormAbout: TFormAbout
         Left = 0
         Top = 0
         Width = 1123
-        Height = 749
+        Height = 735
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -74,11 +76,12 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitHeight = 749
         object ImageGalaxy: TImage
           Left = 1
           Top = 1
           Width = 1121
-          Height = 747
+          Height = 733
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -63728,7 +63731,7 @@ object FormAbout: TFormAbout
         Left = 0
         Top = 0
         Width = 1123
-        Height = 749
+        Height = 735
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -63740,6 +63743,7 @@ object FormAbout: TFormAbout
           'Lev Koptyaev'
           'Danil Wasilyev')
         TabOrder = 0
+        ExplicitHeight = 749
       end
     end
   end
