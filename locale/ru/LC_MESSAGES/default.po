@@ -1,10 +1,9 @@
 #
 #, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
+msgstr "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-06-06 18:42+0300\n"
+"PO-Revision-Date: 2024-06-07 13:09+0300\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -19,20 +18,35 @@ msgid "About"
 msgstr "О программе"
 
 #. FormAbout..Font.Name
+#: fAbout.dfm:16
 #. FormGalablock..Font.Name
+#: fGalablock.dfm:15
 #. FormGalablock..PageControl1..tsDatacat..DBGrid..TitleFont.Name
+#: fGalablock.dfm:783
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelDs..Font.Name
+#: fSettings.dfm:443
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbEquals..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult1..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult2..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult3..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult4..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbDivide..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..Label1..Font.Name
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..ButtonCalculate..Font.Name
-#: fAbout.dfm:16 fGalablock.dfm:15 fGalablock.dfm:782 fSettings.dfm:400
-#: fSettings.dfm:427 fSettings.dfm:444 fSettings.dfm:461 fSettings.dfm:478
-#: fSettings.dfm:495 fSettings.dfm:513 fSettings.dfm:532 fSettings.dfm:550
+#: fSettings.dfm:492
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNs..Font.Name
+#: fSettings.dfm:510
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNt..Font.Name
+#: fSettings.dfm:530
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Font.Name
+#: fSettings.dfm:550
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFb..Font.Name
+#: fSettings.dfm:570
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFn..Font.Name
+#: fSettings.dfm:590
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFt..Font.Name
+#: fSettings.dfm:610
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..LabelDt..Font.Name
+#: fSettings.dfm:630
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFp..Font.Name
+#: fSettings.dfm:650
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Font.Name
+#: fSettings.dfm:669
+#. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Font.Name
+#: fSettings.dfm:1178
 msgid "Segoe UI"
 msgstr ""
 
@@ -87,20 +101,28 @@ msgid "Analyzer"
 msgstr "Анализатор"
 
 #. FormAnalyzer..PageControl..tsAverageDistance..Caption
-#: fAnalyzer.dfm:52
+#: fAnalyzer.dfm:49
 msgid "Average distance"
 msgstr "Среднее расстояние"
 
 #. FormAnalyzer..PageControl..tsDrakeFormula..Caption
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Caption
-#: fAnalyzer.dfm:110 fSettings.dfm:396
+#: fAnalyzer.dfm:107
 msgid "Drake formula"
 msgstr "Формула Дрейка"
 
 #. FormAnalyzer..PageControl..tsStarTrek..Caption
-#: fAnalyzer.dfm:169
+#: fAnalyzer.dfm:166
 msgid "Star trek"
 msgstr "Траектория"
+
+#. FormAnalyzer..PanelBottom..ButtonOk..Caption
+#: fAnalyzer.dfm:192
+#. FormMonitor..PanelBottom..ButtonOk..Caption
+#: fMonitor.dfm:32
+#. FormSettings..PanelBottom..ButtonOk..Caption
+#: fSettings.dfm:35
+msgid "Ok"
+msgstr "ОК"
 
 #. FormGalablock..Caption
 #: fGalablock.dfm:8
@@ -133,623 +155,745 @@ msgid "ToolButton1"
 msgstr ""
 
 #. FormGalablock..ControlBar1..ToolBar1..ToolButton2..Caption
-#: fGalablock.dfm:81
+#: fGalablock.dfm:82
 msgid "ToolButton2"
 msgstr ""
 
 #. FormGalablock..ControlBar1..ToolBar1..ToolButton3..Caption
-#: fGalablock.dfm:87
+#: fGalablock.dfm:88
 msgid "ToolButton3"
 msgstr ""
 
 #. FormGalablock..ControlBar1..ToolBar1..ToolButton4..Caption
-#: fGalablock.dfm:93
+#: fGalablock.dfm:94
 msgid "ToolButton4"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..Caption
-#: fGalablock.dfm:115
+#: fGalablock.dfm:116
 msgid "Solacube"
 msgstr "Солакуб"
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..ButtonStars..Caption
-#: fGalablock.dfm:165
+#: fGalablock.dfm:166
 msgid "Add stars"
 msgstr "Все звёзды"
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..Caption
-#: fGalablock.dfm:178
+#: fGalablock.dfm:179
 msgid "Star classes"
 msgstr "Классы звёзд"
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..Label1..Caption
-#: fGalablock.dfm:273
+#: fGalablock.dfm:274
 msgid "%"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..Label2..Caption
-#: fGalablock.dfm:284
+#: fGalablock.dfm:285
 msgid "Number"
 msgstr "Число"
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbO..Caption
+#: fGalablock.dfm:296
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fGalablock.dfm:295 fSettings.dfm:862
+#: fSettings.dfm:1225
 msgid "O"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbB..Caption
+#: fGalablock.dfm:312
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..LabelB..Caption
-#: fGalablock.dfm:311 fSettings.dfm:863 fSettings.dfm:1037
+#: fSettings.dfm:1226
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelB..Caption
+#: fSettings.dfm:1400
 msgid "B"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbA..Caption
+#: fGalablock.dfm:328
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..LabelA..Caption
-#: fGalablock.dfm:327 fSettings.dfm:864 fSettings.dfm:1026
+#: fSettings.dfm:1227
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelA..Caption
+#: fSettings.dfm:1389
 msgid "A"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbF..Caption
+#: fGalablock.dfm:344
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fGalablock.dfm:343 fSettings.dfm:865
+#: fSettings.dfm:1228
 msgid "F"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbG..Caption
+#: fGalablock.dfm:360
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fGalablock.dfm:359 fSettings.dfm:866
+#: fSettings.dfm:1229
 msgid "G"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbK..Caption
+#: fGalablock.dfm:378
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fGalablock.dfm:377 fSettings.dfm:867
+#: fSettings.dfm:1230
 msgid "K"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbM..Caption
+#: fGalablock.dfm:396
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fGalablock.dfm:395 fSettings.dfm:868
+#: fSettings.dfm:1231
 msgid "M"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..gbStars..chbAll..Caption
-#: fGalablock.dfm:411
+#: fGalablock.dfm:412
 msgid "All"
 msgstr "Все"
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..ButtonClear..Caption
-#: fGalablock.dfm:671
+#: fGalablock.dfm:672
 msgid "Clear"
 msgstr "Очистить"
 
 #. FormGalablock..PageControl1..tsSolacube..PanelRight..chbW..Caption
-#: fGalablock.dfm:684
+#: fGalablock.dfm:685
 msgid "W"
 msgstr ""
 
 #. FormGalablock..PageControl1..tsGalacube..Caption
-#: fGalablock.dfm:715
+#: fGalablock.dfm:716
 msgid "Galacube"
 msgstr "Галакуб"
 
 #. FormGalablock..PageControl1..tsDatacat..Caption
-#: fGalablock.dfm:767
+#: fGalablock.dfm:768
 msgid "Datacat"
 msgstr "Датакат"
 
 #. FormGalablock..PageControl1..tsDatacat..MemoTable....Lines.Strings
-#: fGalablock.dfm:796
+#: fGalablock.dfm:797
 msgid "MemoTable"
 msgstr ""
 
 #. FormGalablock..GLScene..dcAxis..SpaceTextX..Font.Name
+#: fGalablock.dfm:865
 #. FormGalablock..GLScene..dcAxis..SpaceTextY..Font.Name
+#: fGalablock.dfm:898
 #. FormGalablock..GLScene..dcAxis..SpaceTextZ..Font.Name
-#: fGalablock.dfm:864 fGalablock.dfm:897 fGalablock.dfm:925
+#: fGalablock.dfm:926
 msgid "Arial"
 msgstr ""
 
 #. FormGalablock..GLScene..dcAxis..SpaceTextX....Lines.Strings
-#: fGalablock.dfm:867
+#: fGalablock.dfm:868
 msgid "X"
 msgstr ""
 
 #. FormGalablock..GLScene..dcAxis..SpaceTextY....Lines.Strings
-#: fGalablock.dfm:900
+#: fGalablock.dfm:901
 msgid "Y"
 msgstr ""
 
 #. FormGalablock..GLScene..dcAxis..SpaceTextZ....Lines.Strings
-#: fGalablock.dfm:928
+#: fGalablock.dfm:929
 msgid "Z"
 msgstr ""
 
 #. FormGalablock..GLScene..dcGalaxy..diskGalaxy..Material.LibMaterialName
+#: fGalablock.dfm:937
 #. FormGalablock..GLMatLib......Name
-#: fGalablock.dfm:936 fGalablock.dfm:1087
+#: fGalablock.dfm:1089
 msgid "Milkyway"
 msgstr "Млечныйпуть"
 
 #. FormGalablock..MainMenu..miFile..Caption
-#: fGalablock.dfm:967
+#: fGalablock.dfm:968
 msgid "&File"
 msgstr "&Файл"
 
 #. FormGalablock..MainMenu..miFile..miOpen..Caption
-#: fGalablock.dfm:969
+#: fGalablock.dfm:970
 msgid "Open..."
 msgstr "Открыть..."
 
 #. FormGalablock..MainMenu..miFile..miSave..Caption
-#: fGalablock.dfm:974
+#: fGalablock.dfm:975
 msgid "Save"
 msgstr "Сохранить"
 
 #. FormGalablock..MainMenu..miFile..miSaveAs..Caption
-#: fGalablock.dfm:977
+#: fGalablock.dfm:978
 msgid "Save as..."
 msgstr "Сохранить как..."
 
 #. FormGalablock..MainMenu..miFile..miN2..Caption
+#: fGalablock.dfm:982
 #. FormGalablock..MainMenu..miEdit..miN4..Caption
+#: fGalablock.dfm:997
 #. FormGalablock..MainMenu..miEdit..miN3..Caption
+#: fGalablock.dfm:1012
 #. FormGalablock..MainMenu..miEdit..miN1..Caption
+#: fGalablock.dfm:1024
 #. FormGalablock..MainMenu..miTools..miN5..Caption
+#: fGalablock.dfm:1050
 #. FormGalablock..MainMenu..miHelp..miN6..Caption
-#: fGalablock.dfm:981 fGalablock.dfm:996 fGalablock.dfm:1011
-#: fGalablock.dfm:1023 fGalablock.dfm:1049 fGalablock.dfm:1065
+#: fGalablock.dfm:1067
 msgid "-"
 msgstr ""
 
 #. FormGalablock..MainMenu..miFile..miExit..Caption
-#: fGalablock.dfm:984
+#: fGalablock.dfm:985
 msgid "Exit"
 msgstr "Выход"
 
 #. FormGalablock..MainMenu..miEdit..Caption
-#: fGalablock.dfm:990
+#: fGalablock.dfm:991
 msgid "&Edit"
 msgstr "&Правка"
 
 #. FormGalablock..MainMenu..miEdit..miUndo..Caption
-#: fGalablock.dfm:992
+#: fGalablock.dfm:993
 msgid "Cancel"
 msgstr "Отмена"
 
 #. FormGalablock..MainMenu..miEdit..miCut..Caption
-#: fGalablock.dfm:999
+#: fGalablock.dfm:1000
 msgid "Cut"
 msgstr "Вырезать"
 
 #. FormGalablock..MainMenu..miEdit..miCopy..Caption
-#: fGalablock.dfm:1003
+#: fGalablock.dfm:1004
 msgid "Copy"
 msgstr "Копировать"
 
 #. FormGalablock..MainMenu..miEdit..miPaste..Caption
-#: fGalablock.dfm:1007
+#: fGalablock.dfm:1008
 msgid "Insert"
 msgstr "Вставить"
 
 #. FormGalablock..MainMenu..miEdit..miFind..Caption
-#: fGalablock.dfm:1014
+#: fGalablock.dfm:1015
 msgid "Find..."
 msgstr "Найти..."
 
 #. FormGalablock..MainMenu..miEdit..miReplace..Caption
-#: fGalablock.dfm:1017
+#: fGalablock.dfm:1018
 msgid "Replace..."
 msgstr "Заменить..."
 
 #. FormGalablock..MainMenu..miEdit..miGoTo..Caption
-#: fGalablock.dfm:1020
+#: fGalablock.dfm:1021
 msgid "Go to..."
 msgstr "Перейти к..."
 
 #. FormGalablock..MainMenu..miEdit..miObject..Caption
-#: fGalablock.dfm:1026
+#: fGalablock.dfm:1027
 msgid "Object"
 msgstr "Объект"
 
 #. FormGalablock..MainMenu..miMonitor..Caption
-#: fGalablock.dfm:1030
+#: fGalablock.dfm:1031
 msgid "&View"
 msgstr "&Вид"
 
 #. FormGalablock..MainMenu..miMonitor..miProjection..Caption
-#: fGalablock.dfm:1032
+#: fGalablock.dfm:1033
 msgid "Star projections..."
 msgstr "Проекции звёзд..."
 
 #. FormGalablock..MainMenu..miMonitor..miPanelShow..Caption
-#: fGalablock.dfm:1036
+#: fGalablock.dfm:1037
 msgid "Panels"
 msgstr "Панели"
 
 #. FormGalablock..MainMenu..miTools..Caption
-#: fGalablock.dfm:1042
+#: fGalablock.dfm:1043
 msgid "&Tools"
 msgstr "&Инструменты"
 
 #. FormGalablock..MainMenu..miTools..miSettings..Caption
-#: fGalablock.dfm:1044
+#: fGalablock.dfm:1045
 msgid "Settings..."
 msgstr "Настройки..."
 
 #. FormGalablock..MainMenu..miTools..miAnalyzer..Caption
-#: fGalablock.dfm:1052
+#: fGalablock.dfm:1053
 msgid "Analyzer..."
 msgstr "Анализатор..."
 
 #. FormGalablock..MainMenu..miTools..Monitor1..Caption
-#: fGalablock.dfm:1056
+#: fGalablock.dfm:1057
 msgid "Monitor..."
 msgstr "Монитор..."
 
 #. FormGalablock..MainMenu..miHelp..Caption
-#: fGalablock.dfm:1060
+#: fGalablock.dfm:1062
 msgid "&Help"
 msgstr "&Справка"
 
 #. FormGalablock..MainMenu..miHelp..miRuwiki..Caption
-#: fGalablock.dfm:1062
+#: fGalablock.dfm:1064
 msgid "Ruwiki..."
 msgstr ""
 
 #. FormGalablock..MainMenu..miHelp..miAbout..Caption
-#: fGalablock.dfm:1068
+#: fGalablock.dfm:1070
 msgid "About..."
 msgstr "О программе..."
 
 #. FormGalablock..GLSimpleNavigation..FormCaption
-#: fGalablock.dfm:103940
+#: fGalablock.dfm:103942
 msgid "Galablock - %FPS"
 msgstr ""
+
+#. FormMonitor..Caption
+#: fMonitor.dfm:2
+msgid "Monitor"
+msgstr "Монитор"
 
 #. FormSettings..Caption
 #: fSettings.dfm:3
 msgid "Settings"
 msgstr "Настройки"
 
-#. FormSettings..PanelBottom..ButtonOk..Caption
-#: fSettings.dfm:33
-msgid "Ok"
-msgstr "ОК"
-
 #. FormSettings..PanelMain..PageControl..tsInterface..Caption
-#: fSettings.dfm:104
+#: fSettings.dfm:106
 msgid "Interface"
 msgstr "Интерфейс"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..LabelProgram..Caption
-#: fSettings.dfm:116
+#: fSettings.dfm:118
 msgid "Location"
 msgstr "Локация"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..LabelData..Caption
-#: fSettings.dfm:128
+#: fSettings.dfm:130
 msgid "Data base"
 msgstr "База данных"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..ButtonBrowsePathData..Hint
-#: fSettings.dfm:162
+#: fSettings.dfm:164
 msgid "Browse|Browse the directory"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsInterface..ButtonBrowsePathData..Caption
-#: fSettings.dfm:167
+#: fSettings.dfm:169
 msgid "..."
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsInterface..CheckBoxLoadProject..Caption
-#: fSettings.dfm:181
+#: fSettings.dfm:183
 msgid "Loading at start"
 msgstr "Загрузка при старте"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..CheckBoxSaveProject..Caption
-#: fSettings.dfm:195
+#: fSettings.dfm:197
 msgid "Save on exit"
 msgstr "Сохранить при выходе"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..cbSplashStart..Caption
-#: fSettings.dfm:209
+#: fSettings.dfm:211
 msgid "Show splash"
 msgstr "Показать заставку"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..rgLanguage..Caption
-#: fSettings.dfm:217
+#: fSettings.dfm:219
 msgid "Language"
 msgstr "Язык"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..rgLanguage....Items.Strings
-#: fSettings.dfm:221
+#: fSettings.dfm:223
 msgid "English"
 msgstr "Английский"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..rgLanguage....Items.Strings
-#: fSettings.dfm:222
+#: fSettings.dfm:224
 msgid "Russian"
 msgstr "Русский"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..Caption
-#: fSettings.dfm:232
+#: fSettings.dfm:234
 msgid "Display"
 msgstr "Дисплей"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..LabelBackground..Caption
-#: fSettings.dfm:244
+#: fSettings.dfm:246
 msgid "Background"
 msgstr "Фон"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxAxis..Caption
-#: fSettings.dfm:255
+#: fSettings.dfm:257
 msgid "Axis"
 msgstr "Оси"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxCoordinates..Caption
-#: fSettings.dfm:285
+#: fSettings.dfm:287
 msgid "Coordinates"
 msgstr "Координаты"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..cbxTwoSideLighting..Caption
-#: fSettings.dfm:299
+#: fSettings.dfm:301
 msgid "Twoside lighting"
 msgstr "Двустороннее освещение"
 
 #. FormSettings..PanelMain..PageControl..tsMaterial..Caption
-#: fSettings.dfm:308
+#: fSettings.dfm:310
 msgid "Material"
 msgstr "Материал"
 
 #. FormSettings..PanelMain..PageControl..tsMaterial..ListView......Caption
-#: fSettings.dfm:323
+#: fSettings.dfm:325
 msgid "Model"
 msgstr "Модель"
 
 #. FormSettings..PanelMain..PageControl..tsMaterial..ListView......Caption
-#: fSettings.dfm:330
+#: fSettings.dfm:332
 msgid "Table"
 msgstr "Таблица"
 
 #. FormSettings..PanelMain..PageControl..tsMaterial..ButtonModifyMat..Caption
-#: fSettings.dfm:349
+#: fSettings.dfm:351
 msgid "Change..."
 msgstr "Изменить..."
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..Caption
-#: fSettings.dfm:358
+#: fSettings.dfm:360
 msgid "Galaxy"
 msgstr "Галактика"
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..LabelRg..Caption
-#: fSettings.dfm:370
+#: fSettings.dfm:372
 msgid "Galaxy radius"
 msgstr "Радиус галактики"
 
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbEquals..Caption
-#: fSettings.dfm:423
-msgid "="
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelNs..Caption
+#: fSettings.dfm:383
+msgid "Number of galaxy stars"
+msgstr "Число звёзд в галактике"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelLs..Caption
+#: fSettings.dfm:394
+msgid "Longevity of stars"
+msgstr "Долголетие звёзд"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelLt..Caption
+#: fSettings.dfm:405
+msgid "Longevity of technospheres"
+msgstr "Долголетие техносфер"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelHg..Caption
+#: fSettings.dfm:416
+msgid "Galaxy thickness"
+msgstr "Толщина галактики"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelVg..Caption
+#: fSettings.dfm:427
+msgid "Volume of Galaxy, ly^3"
+msgstr "Объём галактики, ly^3"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelDs..Hint
+#: fSettings.dfm:434
+msgid "Distance between stars"
+msgstr "Расстояние между звёздами"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..LabelDs..Caption
+#: fSettings.dfm:439
+msgid "Ds"
 msgstr ""
 
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult1..Caption
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult2..Caption
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult3..Caption
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbMult4..Caption
-#: fSettings.dfm:440 fSettings.dfm:457 fSettings.dfm:474 fSettings.dfm:491
-msgid "*"
+#. FormSettings..PanelMain..PageControl..tsGalaxy..Label5..Caption
+#: fSettings.dfm:458
+msgid "Average distance between stars, ly"
+msgstr "Среднее расстояние между звёздами, ly"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Caption
+#: fSettings.dfm:488
+msgid "Drake formula for technospheres"
+msgstr "Формула Дрейка для техносфер"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNs..Hint
+#: fSettings.dfm:501
+msgid "Number of stars"
+msgstr "Число звёзд"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNs..Caption
+#: fSettings.dfm:506
+msgid "Ns"
 msgstr ""
 
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..lbDivide..Caption
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..Label1..Caption
-#: fSettings.dfm:508 fSettings.dfm:527
-msgid "/"
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNt..Hint
+#: fSettings.dfm:521
+msgid "Number of noospheres"
+msgstr "Число ноосфер"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNt..Caption
+#: fSettings.dfm:526
+msgid "Nt"
 msgstr ""
 
-#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..PanelDrake..ButtonCalculate..Caption
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Hint
+#: fSettings.dfm:541
+msgid "Number of lithospheres suitable for "
+"life"
+msgstr "Число литосфер, пригодных для жизни"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Caption
 #: fSettings.dfm:546
+msgid "Nl"
+msgstr ""
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFb..Hint
+#: fSettings.dfm:561
+msgid "Fraction of biospheres among lithospheres"
+msgstr "Доля биосфер среди литосфер"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFb..Caption
+#: fSettings.dfm:566
+msgid "Fb"
+msgstr ""
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFn..Hint
+#: fSettings.dfm:581
+msgid "Fraction of noospheres among biospheres"
+msgstr "Доля ноосфер среди биосфер"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFn..Caption
+#: fSettings.dfm:586
+msgid "Fn"
+msgstr ""
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFt..Hint
+#: fSettings.dfm:601
+msgid "Fraction of technospheres among noospheres"
+msgstr "Доля техносфер среди ноосфер"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFt..Caption
+#: fSettings.dfm:606
+msgid "Ft"
+msgstr ""
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..LabelDt..Hint
+#: fSettings.dfm:621
+msgid "Distance between technospheres"
+msgstr "Расстояние между техносферами"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..LabelDt..Caption
+#: fSettings.dfm:626
+msgid "Dt"
+msgstr ""
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFp..Hint
+#: fSettings.dfm:641
+msgid "Fraction of stars with planetary systems"
+msgstr "Доля звёзд с планетными системами"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFp..Caption
+#: fSettings.dfm:646
+msgid "Fp"
+msgstr ""
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Caption
+#: fSettings.dfm:665
+msgid "Average distance between technospheres, "
+"ly"
+msgstr "Среднее расстояние между техносферами, "
+"ly"
+
+#. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Caption
+#: fSettings.dfm:1174
 msgid "Calculate"
 msgstr "Вычислить"
 
 #. FormSettings..PanelMain..PageControl..tsStars..Caption
-#: fSettings.dfm:827
+#: fSettings.dfm:1190
 msgid "Stars"
 msgstr "Звёзды"
 
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses..Font.Name
-#: fSettings.dfm:858
+#: fSettings.dfm:1221
 msgid "Tahoma"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..Caption
-#: fSettings.dfm:883
+#: fSettings.dfm:1246
 msgid "Constellations"
 msgstr "Созвездия"
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..chbConstFigures..Caption
-#: fSettings.dfm:894
+#: fSettings.dfm:1257
 msgid "Figures"
 msgstr "Фигуры"
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..chbConstLines..Caption
-#: fSettings.dfm:906
+#: fSettings.dfm:1269
 msgid "Lines"
 msgstr "Линии"
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..chbConstBounds..Caption
-#: fSettings.dfm:920
+#: fSettings.dfm:1283
 msgid "Borders"
 msgstr "Границы"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..Caption
-#: fSettings.dfm:930
+#: fSettings.dfm:1293
 msgid "General"
 msgstr "Общие"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..LabelPrecision..Caption
+#: fSettings.dfm:1305
 #. FormSettings..PanelMain..PageControl..tsGeneral..SpinEditPrecision..Hint
-#: fSettings.dfm:942 fSettings.dfm:970
+#: fSettings.dfm:1333
 msgid "Precision"
 msgstr "Точность"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..rgUnits..Caption
-#: fSettings.dfm:953
+#: fSettings.dfm:1316
 msgid "Units"
 msgstr "Единицы"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..rgUnits....Items.Strings
-#: fSettings.dfm:956
+#: fSettings.dfm:1319
 msgid "Astronomical unit"
 msgstr "Астрономическая единица"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..rgUnits....Items.Strings
-#: fSettings.dfm:957
+#: fSettings.dfm:1320
 msgid "Light year"
 msgstr "Световой год"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..rgUnits....Items.Strings
-#: fSettings.dfm:958
+#: fSettings.dfm:1321
 msgid "Kilolight year"
 msgstr "Килосветовой год"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..rgUnits....Items.Strings
-#: fSettings.dfm:959
+#: fSettings.dfm:1322
 msgid "Parsec"
 msgstr "Парсек"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..rgUnits....Items.Strings
-#: fSettings.dfm:960
+#: fSettings.dfm:1323
 msgid "Kiloparsec"
 msgstr "Килопарсек"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..RadioGroup1..Caption
-#: fSettings.dfm:989
+#: fSettings.dfm:1352
 msgid "Coordinate system"
 msgstr "Система координат"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..RadioGroup1....Items.Strings
-#: fSettings.dfm:992
+#: fSettings.dfm:1355
 msgid "Heliocentric"
 msgstr "Гелиоцентрическая"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..RadioGroup1....Items.Strings
-#: fSettings.dfm:993
+#: fSettings.dfm:1356
 msgid "Galactic"
 msgstr "Галактическая"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..RadioGroup1....Items.Strings
-#: fSettings.dfm:994
+#: fSettings.dfm:1357
 msgid "Supergalactic"
 msgstr "Сверхгалактическая"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..Caption
-#: fSettings.dfm:1003
-msgid "Track"
-msgstr "Трасса"
+#. FormSettings..PanelMain..PageControl..tsPathway..Caption
+#: fSettings.dfm:1366
+msgid "Pathway"
+msgstr ""
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..LabelDistance..Caption
-#: fSettings.dfm:1048
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelDistance..Caption
+#: fSettings.dfm:1411
 msgid "Distance"
 msgstr "Расстояние"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..LabelVelocity..Caption
-#: fSettings.dfm:1059
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelVelocity..Caption
+#: fSettings.dfm:1422
 msgid "Velocity"
 msgstr "Скорость"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..LabelFlightTime..Caption
-#: fSettings.dfm:1070
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelFlightTime..Caption
+#: fSettings.dfm:1433
 msgid "Flight time"
 msgstr "Время полёта"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..SearchBoxA..Text
-#: fSettings.dfm:1084
-msgid "Sol"
-msgstr "Сол"
-
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..SearchBoxB..Text
-#: fSettings.dfm:1130
-msgid "TOI-700"
-msgstr ""
-
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..gbFindPath..Caption
-#: fSettings.dfm:1167
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..gbFindPath..Caption
+#: fSettings.dfm:1530
 msgid "Shortest path"
 msgstr "Кратчайший путь"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..gbFindPath..chbIsTetranet..Caption
-#: fSettings.dfm:1178
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..gbFindPath..chbIsTetranet..Caption
+#: fSettings.dfm:1541
 msgid "Tetranet"
 msgstr "Тетранет"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..gbFindPath..chbIsPolynet..Caption
-#: fSettings.dfm:1190
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..gbFindPath..chbIsPolynet..Caption
+#: fSettings.dfm:1553
 msgid "Polinet"
 msgstr "Полинет"
 
-#. FormSettings..PanelMain..PageControl..tsTrack..PanelTitle..gbFindPath..chbIsGridnet..Caption
-#: fSettings.dfm:1202
+#. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..gbFindPath..chbIsGridnet..Caption
+#: fSettings.dfm:1565
 msgid "Gridnet"
 msgstr "Гриднет"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..Caption
-#: fSettings.dfm:1215
+#: fSettings.dfm:1578
 msgid "Planets"
 msgstr "Планеты"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..chlbPlanetsize....Items.Strings
-#: fSettings.dfm:1229
+#: fSettings.dfm:1592
 msgid "Jupiterlike"
 msgstr "Юпитерский"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..chlbPlanetsize....Items.Strings
-#: fSettings.dfm:1230
+#: fSettings.dfm:1593
 msgid "Neptunelike"
 msgstr "Нептунский"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..chlbPlanetsize....Items.Strings
-#: fSettings.dfm:1231
+#: fSettings.dfm:1594
 msgid "Superearth"
 msgstr "Суперземельный"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..chlbPlanetsize....Items.Strings
-#: fSettings.dfm:1232
+#: fSettings.dfm:1595
 msgid "Earthlike"
 msgstr "Землеподобный"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..chlbPlanetsize....Items.Strings
-#: fSettings.dfm:1233
+#: fSettings.dfm:1596
 msgid "Plutolike"
 msgstr "Плутоновый"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..CheckListBox1....Items.Strings
-#: fSettings.dfm:1247
+#: fSettings.dfm:1610
 msgid "Gaseous"
 msgstr "Газовый"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..CheckListBox1....Items.Strings
-#: fSettings.dfm:1248
+#: fSettings.dfm:1611
 msgid "Watery"
 msgstr "Водный"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..CheckListBox1....Items.Strings
-#: fSettings.dfm:1249
+#: fSettings.dfm:1612
 msgid "Rocky"
 msgstr "Каменный"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..CheckListBox1....Items.Strings
-#: fSettings.dfm:1250
+#: fSettings.dfm:1613
 msgid "Icy"
 msgstr "Ледяной"
 
 #. --------------------------------------------------------
-#: fGalablock.pas:455
+#: fGalablock.pas:462
 msgid "File exists. Can not overwrite"
 msgstr "Файл существует. Перезаписать нельзя"
 
-#: fSettings.pas:305
+#: fSettings.pas:345
 msgid "Reload to change language"
 msgstr "Перегрузите для смены языка"
+

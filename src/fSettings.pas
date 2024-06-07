@@ -13,6 +13,7 @@ uses
   System.Variants,
   System.Classes,
   System.IniFiles,
+  System.Math,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -58,25 +59,8 @@ type
     ListView: TListView;
     ButtonModifyMat: TButton;
     tsGalaxy: TTabSheet;
-    nbRadius: TNumberBox;
+    nbRg: TNumberBox;
     grbDrakeFormula: TGroupBox;
-    PanelDrake: TPanel;
-    lbEquals: TLabel;
-    lbMult1: TLabel;
-    lbMult2: TLabel;
-    lbMult3: TLabel;
-    lbMult4: TLabel;
-    lbDivide: TLabel;
-    ButtonCalculate: TButton;
-    EditLc: TEdit;
-    EditLs: TEdit;
-    EditNs: TEdit;
-    StaticTextNc: TStaticText;
-    StaticTextNs: TStaticText;
-    StaticTextFb: TStaticText;
-    StaticTextFn: TStaticText;
-    StaticTextLc: TStaticText;
-    StaticTextLs: TStaticText;
     tsStars: TTabSheet;
     ColorGrid1: TColorGrid;
     chlbStarClasses: TCheckListBox;
@@ -88,7 +72,7 @@ type
     LabelPrecision: TLabel;
     rgUnits: TRadioGroup;
     SpinEditPrecision: TSpinEdit;
-    tsTrack: TTabSheet;
+    tsPathway: TTabSheet;
     PanelTitle: TPanel;
     LabelA: TLabel;
     LabelB: TLabel;
@@ -108,15 +92,51 @@ type
     tsPlanets: TTabSheet;
     chlbPlanetsize: TCheckListBox;
     CheckListBox1: TCheckListBox;
-    EditNc: TEdit;
-    StaticTextFl: TStaticText;
-    nbFl: TNumberBox;
-    nbFb: TNumberBox;
-    nbFn: TNumberBox;
-    Label1: TLabel;
     RadioGroup1: TRadioGroup;
     LabelRg: TLabel;
     StaticTextRg: TStaticText;
+    LabelNs: TLabel;
+    StaticTextNs: TStaticText;
+    lbNs: TLabel;
+    lbNt: TLabel;
+    nbFn: TNumberBox;
+    nbFb: TNumberBox;
+    nbNl: TNumberBox;
+    EditNt: TEdit;
+    stMult1: TStaticText;
+    stMult2: TStaticText;
+    stMult3: TStaticText;
+    stMult4: TStaticText;
+    stEqual: TStaticText;
+    lbFl: TLabel;
+    lbFb: TLabel;
+    StaticTextLt: TStaticText;
+    EditLt: TEdit;
+    EditLs: TEdit;
+    StaticTextLs: TStaticText;
+    lbFn: TLabel;
+    LabelLs: TLabel;
+    LabelLt: TLabel;
+    nbFt: TNumberBox;
+    lbFt: TLabel;
+    nbHg: TNumberBox;
+    StaticTextHg: TStaticText;
+    LabelHg: TLabel;
+    LabelDt: TLabel;
+    EditDt: TEdit;
+    LabelVg: TLabel;
+    StaticTextVg: TStaticText;
+    EditVg: TEdit;
+    nbFp: TNumberBox;
+    lbFp: TLabel;
+    stMult5: TStaticText;
+    EditNs: TEdit;
+    nbNs: TNumberBox;
+    EditDs: TEdit;
+    LabelDs: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    ButtonCalculate: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguageClick(Sender: TObject);
@@ -193,7 +213,7 @@ begin
      4: PageControl.ActivePage := tsGalaxy;
      5: PageControl.ActivePage := tsStars;
      6: PageControl.ActivePage := tsPlanets;
-     7: PageControl.ActivePage := tsTrack;
+     7: PageControl.ActivePage := tsPathway;
   end;
 end;
 
@@ -279,21 +299,42 @@ end;
 //-----------------------------------------------------
 procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
 var
-  Nc, Fl, Fb, Fn, Ratio : Extended;
-  Ns, Lc, Ls: LONG64;
+  Ns, Nt, Nl : Extended;
+  Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
+  Ds, // Distance between stars
+  Dt: Extended; // Distance between technospheres
+  Lc, Ls: LONG64;
 begin
-  Ns := StrToInt64(EditNs.Text);
-
-  Fl := nbFl.Value;
+  Ns := nbNs.Value;
+  EditNs.Text := FloatToStr(Ns);
+  Fp := nbFp.Value;
+  Nl := nbNl.Value;
   Fb := nbFb.Value;
   Fn := nbFn.Value;
-
+  Ft := nbFt.Value;
+(*
   Lc := StrToInt64(EditLc.Text);
   Ls := StrToInt64(EditLs.Text);
-
   Ratio := Lc/Ls;
-  Nc := Ns*Fl*Fb*Fn *Ratio;  // без времени существования ВЦ
-  EditNc.Text := FloatToStr(Nc);
+*)
+  // Number of technospheres
+  Nt := Round(Ns*Fp*Nl*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
+  EditNt.Text := FloatToStr(Nt);
+
+  // Calculating volume of galaxy cylinder
+  Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
+  EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
+  // Average distance betweem galaxy stars
+  Ratio := Vg/Ns;
+  Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
+  // Distance betweem stars
+  EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
+
+  // Average distance betweem galaxy technospheres
+  Ratio := Vg/Nt;
+  Dt := Power(Ratio, 1/3);
+  // Distance betweem technospheres
+  EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
 procedure TFormSettings.ButtonOkClick(Sender: TObject);

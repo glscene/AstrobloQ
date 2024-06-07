@@ -28,7 +28,7 @@ inherited FormAnalyzer: TFormAnalyzer
       4400720061006B006500200066006F0072006D0075006C006100000031000000
       020000000200000002000000FFFFFFFF00000000000000000000000000010953
       0074006100720020007400720065006B00}
-    ExplicitHeight = 719
+    ExplicitHeight = 647
   end
   object PageControl: TPageControl
     Left = 211
@@ -39,7 +39,7 @@ inherited FormAnalyzer: TFormAnalyzer
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsAverageDistance
+    ActivePage = tsDrakeFormula
     TabOrder = 1
     object tsAverageDistance: TTabSheet
       Margins.Left = 5
@@ -178,8 +178,8 @@ inherited FormAnalyzer: TFormAnalyzer
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 2
-    ExplicitLeft = -131
-    ExplicitWidth = 1313
+    ExplicitTop = 647
+    ExplicitWidth = 1174
     object ButtonOk: TButton
       Left = 981
       Top = 10
