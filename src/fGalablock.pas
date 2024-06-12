@@ -108,7 +108,7 @@ type
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     PageControl1: TPageControl;
-    tsSolacube: TTabSheet;
+    tsSolcube: TTabSheet;
     tsGalacube: TTabSheet;
     svGalaxy: TGLSceneViewer;
     tvGalaxy: TTreeView;
@@ -190,15 +190,14 @@ type
     procedure Monitor1Click(Sender: TObject);
   public
     MousePoint: TPoint;
-    // Создание скопления звёзд со случайной позицией и цветом
     procedure MakeRandomStars;
+    procedure ReadIniFile; override;
+    procedure WriteIniFile;
   private
     AtStart: Boolean;
     mx, my, dmx, dmy: Integer;
     DataDir, StarDir, CurrentStar: TFileName;
     FileName, CatalogName: TFileName;
-    procedure ReadIniFile; override;
-    procedure WriteIniFile;
   end;
 
 const
@@ -227,6 +226,7 @@ begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
   TP_GlobalIgnoreClass(TOpenTextFileDialog);
   TP_GlobalIgnoreClass(TStaticText);
+  TP_GlobalIgnoreClass(TFont);
   TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
 
   tvGalaxy.FullExpand;

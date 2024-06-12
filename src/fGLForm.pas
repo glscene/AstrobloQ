@@ -58,6 +58,7 @@ begin
     BindTextDomain ('galablock', LocalePath);
     AddDomainForResourceString('language');
     BindTextDomain ('language', LocalePath);
+
     // Removing the upper line will cause long loading but Action.Category translation
     case LangID of
       LANG_RUSSIAN:
@@ -79,11 +80,9 @@ begin
   end;
   //TP_GlobalIgnoreClass(TTable);
   //TP_GlobalIgnoreClass(TFields);
-  //TP_GlobalIgnoreClass(TFont);
   //TP_GlobalIgnoreClass(TListBox);
   //TP_GlobalIgnoreClass(TGLLibMaterial);
   //TP_GlobalIgnoreClass(TGLMaterialLibrary);
-  //TP_IgnoreClass(TFont);
 
   TranslateComponent(Self);
 end;

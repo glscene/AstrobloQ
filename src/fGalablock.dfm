@@ -105,15 +105,15 @@ object FormGalablock: TFormGalablock
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsSolacube
+    ActivePage = tsSolcube
     Align = alClient
     TabOrder = 2
-    object tsSolacube: TTabSheet
+    object tsSolcube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Solacube'
+      Caption = 'Solcube'
       object svHelios: TGLSceneViewer
         Left = 0
         Top = 0

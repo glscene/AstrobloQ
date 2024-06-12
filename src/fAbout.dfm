@@ -50,8 +50,6 @@ object FormAbout: TFormAbout
     ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
-    ExplicitTop = 99
-    ExplicitHeight = 794
     object tsInfo: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -76,7 +74,6 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitHeight = 749
         object ImageGalaxy: TImage
           Left = 1
           Top = 1
@@ -56210,7 +56207,6 @@ object FormAbout: TFormAbout
             49454E44AE426082}
           Stretch = True
           OnClick = ImageGalaxyClick
-          OnDblClick = ImageGalaxyDblClick
           ExplicitLeft = 322
           ExplicitTop = -242
           ExplicitWidth = 365
@@ -63727,23 +63723,41 @@ object FormAbout: TFormAbout
       Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
-      object MemoDevelopers: TMemo
-        Left = 0
-        Top = 0
-        Width = 1123
-        Height = 735
+      object StaticText1: TStaticText
+        Left = 478
+        Top = 120
+        Width = 137
+        Height = 34
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Align = alClient
-        Alignment = taCenter
-        Lines.Strings = (
-          'Pavel Vassiliev'
-          'Lev Koptyaev'
-          'Danil Wasilyev')
+        Caption = 'Pavel Vassiliev'
         TabOrder = 0
-        ExplicitHeight = 749
+      end
+      object StaticText2: TStaticText
+        Left = 478
+        Top = 164
+        Width = 126
+        Height = 34
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'Lev Koptyaev'
+        TabOrder = 1
+      end
+      object StaticText3: TStaticText
+        Left = 478
+        Top = 208
+        Width = 139
+        Height = 34
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'Danil Wasilyev'
+        TabOrder = 2
       end
     end
   end

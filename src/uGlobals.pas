@@ -17,7 +17,6 @@ const
 
 var
   LangID: Word;
-  CurLang: string = 'ru'; // Current default is 'en', localized is 'ru' etc.
 
 type
   PrefRecord = record

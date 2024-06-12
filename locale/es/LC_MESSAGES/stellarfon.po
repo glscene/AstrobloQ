@@ -1,0 +1,1616 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr "Project-Id-Version: \n"
+"POT-Creation-Date: 2012-12-20 07:34\n"
+"PO-Revision-Date: 2024-05-29 17:38+0300\n"
+"Last-Translator: Somebody <your.email@address.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. FormAbout..Caption
+#: fAbout.dfm:8
+msgid "About"
+msgstr ""
+
+#. FormAbout..Font.Name
+#: fAbout.dfm:15
+#. frmColorwheel..Font.Name
+#: fdColorwheel.dfm:15
+#. FormStellarfon..Font.Name
+#: fStellarfon.dfm:15
+msgid "Segoe UI"
+msgstr ""
+
+#. FormAbout..PageControl..tsInfo..Caption
+#: fAbout.dfm:173
+msgid "Info"
+msgstr ""
+
+#. FormAbout..PageControl..tsDevelopers..Caption
+#: fAbout.dfm:199
+msgid "Developers"
+msgstr ""
+
+#. FormAbout..PageControl..tsDevelopers..MemoDevelopers....Lines.Strings
+#: fAbout.dfm:213
+msgid "Pavel Vassiliev"
+msgstr ""
+
+#. FormAbout..PageControl..tsDevelopers..MemoDevelopers....Lines.Strings
+#: fAbout.dfm:214
+msgid "Lev Koptyaev"
+msgstr ""
+
+#. FormAbout..PageControl..tsDevelopers..MemoDevelopers....Lines.Strings
+#: fAbout.dfm:215
+msgid "Victor Raytarovskiy"
+msgstr ""
+
+#. FormAbout..PageControl..tsDevelopers..MemoDevelopers....Lines.Strings
+#: fAbout.dfm:216
+msgid "Danil Wasilyev"
+msgstr ""
+
+#. FormAbout..PageControl..tsOpenGL..Caption
+#: fAbout.dfm:226
+#. FormAbout..Scene..Extra..GLSpaceText1....Lines.Strings
+#: fAbout.dfm:387
+#. FormInfos..Scene..Extra..GLSpaceText1....Lines.Strings
+#: fGLInfosD.dfm:185
+msgid "OpenGL"
+msgstr ""
+
+#. FormAbout..Scene..Background..GLPlane1..Material.LibMaterialName
+#: fAbout.dfm:280
+#. FormAbout..MaterialLibrary......Name
+#: fAbout.dfm:404
+#. FormInfos..Scene..Background..GLPlane1..Material.LibMaterialName
+#: fGLInfosD.dfm:76
+#. FormInfos..MaterialLibrary......Name
+#: fGLInfosD.dfm:203
+msgid "Background"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_Vendor..Text
+#: fAbout.dfm:297
+#. FormInfos..Scene..DriverInfo..HUDText_Vendor..Text
+#: fGLInfosD.dfm:93
+msgid "Vendor    :"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_Renderer..Text
+#: fAbout.dfm:304
+#. FormInfos..Scene..DriverInfo..HUDText_Renderer..Text
+#: fGLInfosD.dfm:100
+msgid "Renderer :"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_Version..Text
+#: fAbout.dfm:311
+#. FormInfos..Scene..DriverInfo..HUDText_Version..Text
+#: fGLInfosD.dfm:107
+msgid "Version   :"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_ExtVersion..Text
+#: fAbout.dfm:318
+#. FormInfos..Scene..DriverInfo..HUDText_ExtVersion..Text
+#: fGLInfosD.dfm:114
+msgid "Extension Version   :"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_GLSLVersion..Text
+#: fAbout.dfm:325
+#. FormInfos..Scene..DriverInfo..HUDText_GLSLVersion..Text
+#: fGLInfosD.dfm:121
+msgid "GLSL Version   :"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_NBExt..Text
+#: fAbout.dfm:332
+#. FormInfos..Scene..DriverInfo..HUDText_NBExt..Text
+#: fGLInfosD.dfm:128
+msgid "Extensions supported   :"
+msgstr ""
+
+#. FormAbout..Scene..DriverInfo..HUDText_Counter..Text
+#: fAbout.dfm:339
+#. FormInfos..Scene..DriverInfo..HUDText_Counter..Text
+#: fGLInfosD.dfm:135
+msgid "Counter"
+msgstr ""
+
+#. FormAbout..Scene..ForeGround..HUDLogo..Material.LibMaterialName
+#: fAbout.dfm:351
+#. FormAbout..MaterialLibrary......Name
+#: fAbout.dfm:413
+#. FormInfos..Scene..ForeGround..HUDLogo..Material.LibMaterialName
+#: fGLInfosD.dfm:148
+#. FormInfos..MaterialLibrary......Name
+#: fGLInfosD.dfm:212
+msgid "Logo"
+msgstr ""
+
+#. FormAbout..Scene..Extra..HUDHelp..Text
+#: fAbout.dfm:366
+#. FormInfos..Scene..Extra..HUDHelp..Text
+#: fGLInfosD.dfm:163
+msgid "Press Up,Down to Scroll. Space Toggle Sound. ESC to "
+"Exit."
+msgstr ""
+
+#. FormAbout..Scene..Extra..GLSpaceText1..Material.LibMaterialName
+#: fAbout.dfm:372
+#. FormAbout..MaterialLibrary......Name
+#: fAbout.dfm:1949
+#. FormInfos..Scene..Extra..GLSpaceText1..Material.LibMaterialName
+#: fGLInfosD.dfm:169
+#. FormInfos..MaterialLibrary......Name
+#: fGLInfosD.dfm:1748
+msgid "Title"
+msgstr ""
+
+#. FormAbout..Scene..Extra..GLSpaceText1..Font.Name
+#: fAbout.dfm:382
+#. FormInfos..Scene..Extra..GLSpaceText1..Font.Name
+#: fGLInfosD.dfm:180
+#. FormStellarfon..GLWindowsBitmapFont..Font.Name
+#: fStellarfon.dfm:1047
+msgid "Arial"
+msgstr ""
+
+#. FormAbout..Scene..Extra..GLSpaceText1....Lines.Strings
+#: fAbout.dfm:386
+#. FormInfos..Scene..Extra..GLSpaceText1....Lines.Strings
+#: fGLInfosD.dfm:184
+msgid "Simple"
+msgstr ""
+
+#. FormAbout..Scene..Extra..GLSpaceText1....Lines.Strings
+#: fAbout.dfm:388
+#. FormInfos..Scene..Extra..GLSpaceText1....Lines.Strings
+#: fGLInfosD.dfm:186
+msgid "Informations"
+msgstr ""
+
+#. FormAbout..WindowsBitmapFont..Font.Name
+#: fAbout.dfm:1964
+#. FormInfos..WindowsBitmapFont..Font.Name
+#: fGLInfosD.dfm:1763
+msgid "Courier New"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1974
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1773
+msgid "uniform float time;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1975
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1774
+msgid "uniform vec2 resolution;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1977
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2176
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1776
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1975
+msgid "varying vec4 Vertex_UV;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1979
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1778
+msgid "float saturate(float x)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1980
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1985
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1993
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2161
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1779
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1784
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1792
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1960
+msgid "{"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1981
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1780
+msgid "    return clamp(x, 0.0, 1.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1982
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1989
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2158
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2181
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1781
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1788
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1957
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1980
+msgid "}"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1984
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1783
+msgid "float isectPlane(vec3 n, float d, vec3 org, vec3 "
+"dir)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1986
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1785
+msgid "    float t = -(dot(org, n) + d) / dot(dir, "
+"n);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1988
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1787
+msgid "    return t;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1992
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1791
+msgid "vec3 drawEffect(vec2 coord, float time)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1994
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1793
+msgid "    vec3 clr = vec3(0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1995
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1794
+msgid "    const float far_dist = 10000.0;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1997
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1796
+msgid "    float mtime =  time * 2.0 /1.7;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:1998
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1797
+msgid "    vec2 uv = coord.xy /resolution.xy;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2000
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1799
+msgid "    vec3 org = vec3(0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2001
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1800
+msgid "    vec3 dir = vec3(uv.xy * 2.0 - 1.0,1.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2003
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1802
+msgid "    // Animate tilt"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2004
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1803
+msgid "    float ang = sin(time * 0.5) * 0.2;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2005
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1804
+msgid "    vec3 odir = dir;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2006
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1805
+msgid "    dir.x = sin(ang) * odir.x - cos(ang) * "
+"odir.y;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2007
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1806
+msgid "    dir.y = cos(ang) * odir.x + sin(ang) * "
+"odir.y;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2009
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1808
+msgid "    // Animate FOV and aspect ratio"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2010
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1809
+msgid "    dir.x *= 1.5 + 0.5 * sin(time * "
+"0.125);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2011
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1810
+msgid "    dir.y *= 1.5 + 0.5 * cos(time * 0.25 + "
+"0.5);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2013
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1812
+msgid "    // Animate view direction"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2014
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1813
+msgid "    dir.x += 0.25 * sin(time * 0.3);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2015
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1814
+msgid "    dir.y += 0.25 * sin(time * 0.7);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2017
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1816
+msgid "    // Bend it like this"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2020
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1819
+msgid "    dir.xy = mix(vec2(dir.x + 0.2 * cos(dir.y) - 0.1, dir.y), "
+"dir.xy,"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2023
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1822
+msgid "        smoothstep(0.0, 1.0, saturate(0.5 * abs(mtime - "
+"50.0))));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2025
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1824
+msgid "    // Bend it like that"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2028
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1827
+msgid "    dir.xy = mix(vec2(dir.x + 0.1 * sin(4.0 * (dir.x + time)),dir.y), "
+"dir.xy,"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2031
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1830
+msgid "        smoothstep(0.0, 1.0, saturate(0.5 * abs(mtime - "
+"58.0))));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2033
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1832
+msgid "    // Cycle between long blurry and short sharp "
+"particles"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2034
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1833
+msgid "    vec2 param = mix(vec2(60.0, 0.8), vec2(800.0, "
+"3.0),"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2035
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1834
+msgid "        pow(0.5 + 0.5 * sin(time * 0.2), "
+"2.0));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2037
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1836
+msgid "    float lt = fract(mtime / 4.0) * "
+"4.0;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2038
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1837
+msgid "    vec2 mutes = vec2(0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2039
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2046
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1838
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1845
+msgid "    "
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2040
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1839
+msgid "    if (mtime >= 32.0 && mtime < 48.0)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2041
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2049
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2127
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1840
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1848
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1926
+msgid "    {"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2044
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1843
+msgid "        mutes = max(vec2(0.0), 1.0 - 4.0 * abs(lt - vec2(3.25, "
+"3.50)));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2045
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2109
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2131
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1844
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1908
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1930
+msgid "    }"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2047
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1846
+msgid "    for (int k = 0; k < 2; k++)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2048
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1847
+msgid "    for (int i = 0; i < 64; i++)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2050
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1849
+msgid "        // Draw only few layers during "
+"prologue"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2051
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1850
+msgid "        if (mtime < 16.0 && i >= 16) "
+"break;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2053
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1852
+msgid "        vec3 pn = vec3(k > 0 ? -1.0 : 1.0, 0.0, "
+"0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2056
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1855
+msgid "        float t = isectPlane(pn, 100.0 + float(i) * 20.0, org, "
+"dir);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2058
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1857
+msgid "        if (t <= 0.0 || t >= far_dist) "
+"continue;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2060
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1859
+msgid "        vec3 p = org + dir * t;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2061
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1860
+msgid "        vec3 vdir = normalize(-p);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2063
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1862
+msgid "        // Create particle lanes by quantizing "
+"position"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2064
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1863
+msgid "        vec3 pp = ceil(p / 100.0) * "
+"100.0;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2066
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1865
+msgid "        // Pseudo-random variables"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2067
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1866
+msgid "        float n = pp.y + float(i) + float(k) * "
+"123.0;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2068
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1867
+msgid "        float q = fract(sin(n * 123.456) * "
+"234.345);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2069
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1868
+msgid "        float q2= fract(sin(n * 234.123) * "
+"345.234);"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2073
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1872
+msgid "        q = sin(p.z * 0.0003 + 1.0 * time * (0.25 + 0.75 * q2) + q * "
+"12.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2075
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1874
+msgid "        // Smooth particle edges out"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2076
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1875
+msgid "        q = saturate(q * param.x - param.x + 1.0) * "
+"param.y;"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2079
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1878
+msgid "        q *= saturate(4.0 - 8.0 * abs(-50.0 + pp.y - p.y) / "
+"100.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2081
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1880
+msgid "        // Fade out based on distance"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2082
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1881
+msgid "        q *= 1.0 - saturate(pow(t / far_dist, "
+"5.0));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2084
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1883
+msgid "        // Fade out based on view angle"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2085
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1884
+msgid "        float fn = 1.0 - pow(1.0 - dot(vdir, pn), "
+"2.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2086
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1885
+msgid "        q *= 2.0 * smoothstep(0.0, 1.0, "
+"fn);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2088
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1887
+msgid "        // Flash fade left or right "
+"plane"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2089
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1888
+msgid "        q *= 1.0 - 0.9 * (k == 0 ? mutes.x : "
+"mutes.y);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2091
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1890
+msgid "        // Cycle palettes"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2092
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1891
+msgid "        const vec3 orange = vec3(1.0, 0.7, "
+"0.4);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2093
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1892
+msgid "        const vec3 blue   = vec3(0.4, 0.7, "
+"1.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2096
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1895
+msgid "        clr += q * mix(orange, blue, 0.5 + 0.5 * sin(time * 0.5 + "
+"q2));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2098
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1897
+msgid "        // Flash some particles in sync with bass "
+"drum"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2099
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1898
+msgid "        float population = mtime < 32.0 ? 0.0 : "
+"0.97;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2101
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1900
+msgid "        if (mtime >= 8.0 && q2 > population)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2102
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1901
+msgid "        {"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2103
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1902
+msgid "            float a = mtime >= 62.0 ? 8.0 : "
+"1.0;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2104
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1903
+msgid "            float b = mtime <  16.0 ? 2.0 : "
+"a;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2106
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1905
+msgid "            clr += q * (mtime < 16.0 ? 2.0 : "
+"8.0)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2107
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1906
+msgid "                * max(0.0, fract(-mtime * b) * 2.0 - "
+"1.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2108
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1907
+msgid "        }"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2111
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1910
+msgid "    clr *= 0.2;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2113
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1912
+msgid "    // Cycle gammas"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2114
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1913
+msgid "    clr.r = pow(clr.r, 0.75 + 0.35 * sin(time * "
+"0.5));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2115
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1914
+msgid "    clr.b = pow(clr.b, 0.75 - 0.35 * sin(time * "
+"0.5));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2117
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1916
+msgid "    // Initial fade-in"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2118
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1917
+msgid "    clr *= pow(min(mtime / 4.0, 1.0), "
+"2.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2122
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1921
+msgid "    // Fade-out shortly after initial fade-in right before drums kick "
+"in"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2123
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1922
+msgid "    if (mtime < 8.0) clr *= 1.0 - saturate((mtime - 5.0) / "
+"3.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2125
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1924
+msgid "    // Flash horizon in sync with snare "
+"drum"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2126
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1925
+msgid "    if (mtime >= 15.0)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2128
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1927
+msgid "        float h = normalize(dir).x;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2129
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1928
+msgid "        clr *= 1.0 + 2.0 * pow(saturate(1.0 - abs(h)), "
+"8.0)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2130
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1929
+msgid "            * max(0.0, fract(-mtime + 0.5) * 4.0 - "
+"3.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2133
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1932
+msgid "    // The end"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2134
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1933
+msgid "   // if (mtime >= 64.0) clr = vec3(0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2136
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1935
+msgid "    // Initial flash"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2139
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1938
+msgid "    if (mtime >= 16.0) clr += max(0.0, 1.0 - (mtime-16.0) * "
+"1.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2141
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1940
+msgid "    // Final flash"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2144
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1943
+msgid "   // if (mtime >= 64.0) clr += max(0.0, 1.0 - (mtime-64.0) * 0.5) * "
+"vec3(0.8,0.9,1.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2146
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1945
+msgid "    // Desaturate prologue"
+msgstr ""
+
+#. FormAbout..GLSLShader1......FragmentProgram.Code.Strings
+#: fAbout.dfm:2149
+#. FormInfos..GLSLShader1......FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1948
+msgid "    if (mtime < 16.0) clr = mix( vec3(dot(clr, vec3(0.33))), clr, "
+"min(1.0, mtime / 32.0));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2151
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1950
+msgid "    // Vignette in linear space (looks "
+"better)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2152
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1951
+msgid "    clr *= clr;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2153
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1952
+msgid "    clr *= 1.4;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2154
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1953
+msgid "    clr *= 1.0 - 1.5 * dot(uv - 0.5, uv - "
+"0.5);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2155
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1954
+msgid "    clr = sqrt(max(vec3(0.0), clr));"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2157
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1956
+msgid "    return clr;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2160
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1959
+msgid "void main(void)"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2162
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1961
+msgid "    vec3  clr = vec3(0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2163
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1962
+msgid "    float ttime = max(0.0,time-2.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2164
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1963
+msgid "    clr = drawEffect(gl_FragCoord.xy, "
+"ttime);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2165
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1964
+msgid "    clr = mix(clr, vec3(0.8, 0.9, 1.0), "
+"0.3);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2167
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1966
+msgid "    gl_FragColor = vec4(clr, 0.0);"
+msgstr ""
+
+#. FormAbout..GLSLShader1....FragmentProgram.Code.Strings
+#: fAbout.dfm:2168
+#. FormInfos..GLSLShader1....FragmentProgram.Code.Strings
+#: fGLInfosD.dfm:1967
+msgid " }"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2171
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1970
+msgid "//#version 150"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2172
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1971
+msgid "//in vec4 gxl3d_Position;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2173
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1972
+msgid "//in vec4 gxl3d_TexCoord0;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2174
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1973
+msgid "//uniform mat4 gxl3d_ModelViewProjectionMatrix;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2175
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1974
+msgid "//out vec4 Vertex_UV;"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2177
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1976
+msgid "void main()"
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2178
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1977
+msgid "{  "
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2179
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1978
+msgid "  gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;    "
+msgstr ""
+
+#. FormAbout..GLSLShader1....VertexProgram.Code.Strings
+#: fAbout.dfm:2180
+#. FormInfos..GLSLShader1....VertexProgram.Code.Strings
+#: fGLInfosD.dfm:1979
+msgid "  Vertex_UV = gl_MultiTexCoord0;"
+msgstr ""
+
+#. FormAbout..SoundLibrary......Name
+#: fAbout.dfm:2190
+#. FormAbout..FMODPlayer......SoundName
+#: fAbout.dfm:22177
+#. FormInfos..SoundLibrary......Name
+#: fGLInfosD.dfm:1990
+#. FormInfos..FMODPlayer......SoundName
+#: fGLInfosD.dfm:21974
+msgid "Music"
+msgstr ""
+
+#. FormAbout..WindowsBitmapFont2..Font.Name
+#: fAbout.dfm:22202
+#. FormInfos..WindowsBitmapFont2..Font.Name
+#: fGLInfosD.dfm:22000
+msgid "Verdana"
+msgstr ""
+
+#. frmColorwheel..Caption
+#: fdColorwheel.dfm:8
+msgid "Colorwheel"
+msgstr ""
+
+#. frmColorwheel..GLSimpleNavigation1..FormCaption
+#: fdColorwheel.dfm:61
+msgid "Colorwheel - %FPS"
+msgstr ""
+
+#. FormOptions..Caption
+#: fdOptions.dfm:2
+msgid "Options"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Caption
+#: fdOptions.dfm:41
+msgid "TabSheet1"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Label1..Caption
+#: fdOptions.dfm:51
+msgid "Label1"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Label2..Caption
+#: fdOptions.dfm:62
+msgid "Label2"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Label3..Caption
+#: fdOptions.dfm:73
+msgid "Label3"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Button1..Caption
+#: fdOptions.dfm:84
+msgid "Button1"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Button2..Caption
+#: fdOptions.dfm:108
+msgid "Button2"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet1..Button3..Caption
+#: fdOptions.dfm:157
+msgid "TabSheet"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet2..Caption
+#: fdOptions.dfm:175
+msgid "TabSheet2"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet3..Caption
+#: fdOptions.dfm:179
+msgid "TabSheet3"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet4..Caption
+#: fdOptions.dfm:183
+msgid "TabSheet4"
+msgstr ""
+
+#. FormOptions..PageControl1..TabSheet5..Caption
+#: fdOptions.dfm:187
+msgid "TabSheet5"
+msgstr ""
+
+#. FormInfos..Caption
+#: fGLInfosD.dfm:9
+msgid "GLScene OpenGL Information"
+msgstr ""
+
+#. FormInfos..Font.Name
+#: fGLInfosD.dfm:16
+msgid "Tahoma"
+msgstr ""
+
+#. FormStellarfon..Caption
+#: fStellarfon.dfm:8
+msgid "Stellarfon"
+msgstr ""
+
+#. FormStellarfon..PanelRight..rgKeyboardColors..Caption
+#: fStellarfon.dfm:162
+msgid "Keyboard"
+msgstr ""
+
+#. FormStellarfon..PanelRight..rgKeyboardColors....Items.Strings
+#: fStellarfon.dfm:165
+msgid "Sonochromatic"
+msgstr ""
+
+#. FormStellarfon..PanelRight..rgKeyboardColors....Items.Strings
+#: fStellarfon.dfm:166
+msgid "Black and White"
+msgstr ""
+
+#. FormStellarfon..PanelRight..chbKeyboard..Caption
+#: fStellarfon.dfm:179
+msgid "Show keyboards"
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..Caption
+#: fStellarfon.dfm:190
+msgid "File"
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..miNew..Caption
+#: fStellarfon.dfm:192
+msgid "New"
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..miOpen..Caption
+#: fStellarfon.dfm:196
+msgid "Open..."
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..miSave..Caption
+#: fStellarfon.dfm:200
+msgid "Save"
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..miSaveAs..Caption
+#: fStellarfon.dfm:204
+msgid "Save as..."
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..N1..Caption
+#: fStellarfon.dfm:208
+#. FormStellarfon..MainMenu..Edit1..N5..Caption
+#: fStellarfon.dfm:224
+#. FormStellarfon..MainMenu..Edit1..N4..Caption
+#: fStellarfon.dfm:239
+#. FormStellarfon..MainMenu..Edit1..N3..Caption
+#: fStellarfon.dfm:245
+#. FormStellarfon..MainMenu..Window1..N6..Caption
+#: fStellarfon.dfm:271
+#. FormStellarfon..MainMenu..Help1..N2..Caption
+#: fStellarfon.dfm:297
+msgid "-"
+msgstr ""
+
+#. FormStellarfon..MainMenu..File1..miExit..Caption
+#: fStellarfon.dfm:211
+msgid "Exit"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Edit1..Caption
+#: fStellarfon.dfm:218
+msgid "Edit"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Edit1..Undo1..Caption
+#: fStellarfon.dfm:220
+msgid "Undo"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Edit1..Cut1..Caption
+#: fStellarfon.dfm:227
+msgid "Cut"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Edit1..Copy1..Caption
+#: fStellarfon.dfm:231
+msgid "Copy"
+msgstr "Copia"
+
+#. FormStellarfon..MainMenu..Edit1..Paste1..Caption
+#: fStellarfon.dfm:235
+msgid "Insert"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Edit1..GoTo1..Caption
+#: fStellarfon.dfm:242
+msgid "Go to..."
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..Caption
+#: fStellarfon.dfm:249
+msgid "View"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..miColorwheel..Caption
+#: fStellarfon.dfm:251
+msgid "Quint circle..."
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..miChangeFPS..Caption
+#: fStellarfon.dfm:255
+msgid "Change FPS"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..miChangeFPS..miMaxFPS..Caption
+#: fStellarfon.dfm:257
+msgid "Max"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..miChangeFPS..miMiddleFPS..Caption
+#: fStellarfon.dfm:262
+msgid "Middle"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..miChangeFPS..miMinFPS..Caption
+#: fStellarfon.dfm:266
+msgid "Min"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..Hide1..Caption
+#: fStellarfon.dfm:274
+msgid "Hide"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Window1..Show1..Caption
+#: fStellarfon.dfm:277
+msgid "Show..."
+msgstr ""
+
+#. FormStellarfon..MainMenu..miTools..Caption
+#: fStellarfon.dfm:281
+msgid "Tools"
+msgstr ""
+
+#. FormStellarfon..MainMenu..miTools..miOptions..Caption
+#: fStellarfon.dfm:283
+msgid "Options..."
+msgstr ""
+
+#. FormStellarfon..MainMenu..miTools..miCalculate..Caption
+#: fStellarfon.dfm:287
+msgid "Calculate"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Help1..Caption
+#: fStellarfon.dfm:291
+msgid "Help"
+msgstr "Ayuda"
+
+#. FormStellarfon..MainMenu..Help1..miContents..Caption
+#: fStellarfon.dfm:293
+msgid "Ruwiki"
+msgstr ""
+
+#. FormStellarfon..MainMenu..Help1..miAbout..Caption
+#: fStellarfon.dfm:300
+msgid "About..."
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameTop
+#: fStellarfon.dfm:309
+msgid "Top"
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameBottom
+#: fStellarfon.dfm:310
+msgid "Bottom"
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameLeft
+#: fStellarfon.dfm:311
+msgid "Left"
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameRight
+#: fStellarfon.dfm:312
+msgid "Right"
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameFront
+#: fStellarfon.dfm:313
+msgid "Front"
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameBack
+#: fStellarfon.dfm:314
+msgid "Back"
+msgstr ""
+
+#. FormStellarfon..GLScene..SkyBox..MatNameClouds
+#: fStellarfon.dfm:315
+msgid "Clouds"
+msgstr ""
+
+#. FormStellarfon..GLScene..HUDTextGuitar..Text
+#: fStellarfon.dfm:387
+msgid "Guitar ColorFretboard"
+msgstr ""
+
+#. FormStellarfon..GLScene..HUDTextPiano..Text
+#: fStellarfon.dfm:394
+msgid "Piano ColorKeyboard"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcCircleOfFifths..dcMajor..C..Material.LibMaterialName
+#: fStellarfon.dfm:409
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeZc..Material.LibMaterialName
+#: fStellarfon.dfm:853
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1101
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1231
+msgid "c"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcCircleOfFifths..dcMinor..Am..Material.LibMaterialName
+#: fStellarfon.dfm:486
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeXa..Material.LibMaterialName
+#: fStellarfon.dfm:965
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1067
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1209
+msgid "a"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcCircleOfFifths..dcDim..dimB..Material.LibMaterialName
+#: fStellarfon.dfm:563
+#. FormStellarfon..GLScene..dcCircleOfFifths..dcNdb..db0..Material.LibMaterialName
+#: fStellarfon.dfm:640
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeXb..Material.LibMaterialName
+#: fStellarfon.dfm:993
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1090
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1223
+msgid "b"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcCircleOfFifths..dcNdb..d1..Material.LibMaterialName
+#: fStellarfon.dfm:648
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeZd..Material.LibMaterialName
+#: fStellarfon.dfm:879
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1123
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1245
+msgid "d"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcCircleOfFifths..dcNdb..b1..Material.LibMaterialName
+#: fStellarfon.dfm:710
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeYgs..Material.LibMaterialName
+#: fStellarfon.dfm:950
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1189
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1289
+msgid "gs"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeZcs..Material.LibMaterialName
+#: fStellarfon.dfm:866
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1112
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1239
+msgid "cs"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeZds..Material.LibMaterialName
+#: fStellarfon.dfm:892
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1134
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1253
+msgid "ds"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeYf..Material.LibMaterialName
+#: fStellarfon.dfm:905
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1156
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1267
+msgid "f"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeYfs..Material.LibMaterialName
+#: fStellarfon.dfm:920
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1167
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1275
+msgid "fs"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeYg..Material.LibMaterialName
+#: fStellarfon.dfm:935
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1178
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1281
+msgid "g"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeXas..Material.LibMaterialName
+#: fStellarfon.dfm:979
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1079
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1217
+msgid "as"
+msgstr ""
+
+#. FormStellarfon..GLScene..dcScene..dcEdges..EdgeXe..Material.LibMaterialName
+#: fStellarfon.dfm:1007
+#. FormStellarfon..GLMatLibOctava......Name
+#: fStellarfon.dfm:1145
+#. FormStellarfon..GLMatLibBW......Name
+#: fStellarfon.dfm:1259
+msgid "e"
+msgstr ""
+
+#. FormStellarfon..GLScene..GLFlatText1..Text
+#: fStellarfon.dfm:1026
+msgid "0 1 2 3 4"
+msgstr ""
+

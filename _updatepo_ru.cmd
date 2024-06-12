@@ -5,7 +5,7 @@ set LANG=C
 
 echo Extracting texts from src dir to d:\astronomy\astrobloq\default.po
 
-dxgettext -b d:\astronomy\astrobloq\src --delphi --useignorepo 
+dxgettext -b d:\astronomy\astrobloq\src --delphi --useignorepo -r
 
 echo Updating Russian translations
 pushd d:\astronomy\astrobloq\locale\ru\LC_MESSAGES
@@ -18,7 +18,6 @@ del default-old.po
 del default-backup.po
 copy default.po galablock.po
 popd
-
 
 del d:\astronomy\astrobloq\default.po
 

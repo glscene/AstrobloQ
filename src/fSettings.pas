@@ -191,7 +191,15 @@ begin
     tvSettings.Items[I].StateIndex := I;
   end;
   // Items:
-  // 0-Главные; 1-Интерфейс; 2-Дисплей; 3-Материал; 4-Галактика; 5-Звёзды; 6-Планеты
+  tvSettings.Items[0].Text := _('General');
+  tvSettings.Items[1].Text := _('Interface');
+  tvSettings.Items[2].Text := _('Display');
+  tvSettings.Items[3].Text := _('Material');
+  tvSettings.Items[4].Text := _('Galaxy');
+  tvSettings.Items[5].Text := _('Stars');
+  tvSettings.Items[6].Text := _('Planets');
+  tvSettings.Items[7].Text := _('Pathway');
+
   tvSettings.Select(tvSettings.Items[1]);
   tvSettings.Items[1].DropHighlighted := True;
   tvSettings.FullExpand;
@@ -238,6 +246,7 @@ begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
     1: CurLangID := LANG_RUSSIAN;
+    2: CurLangID := LANG_SPANISH;
     else
       CurLangID := LANG_ENGLISH;
   end;
@@ -252,14 +261,16 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxis.Checked := IniFile.ReadBool(Name, CheckBoxAxis.Name, True);
-    PanelBkg.Color := IniFile.ReadInteger(Name, PanelBkg.Name, 0);
-    LangID := IniFile.ReadInteger(Name, rgLanguage.Name, 0);
+    CheckBoxAxis.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxis.Name, True);
+    PanelBkg.Color := IniFile.ReadInteger(FormSettings.Name, PanelBkg.Name, 0);
+    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
         rgLanguage.ItemIndex := 1;
+      LANG_SPANISH:
+        rgLanguage.ItemIndex := 2;
     else
       rgLanguage.ItemIndex := 0;
     end;
@@ -275,9 +286,9 @@ var
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(Name, CheckBoxAxis.Name, CheckBoxAxis.Checked);
-    IniFile.WriteInteger(Name, PanelBkg.Name, PanelBkg.Color);
-    IniFile.WriteInteger(Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(FormSettings.Name, CheckBoxAxis.Name, CheckBoxAxis.Checked);
+    IniFile.WriteInteger(FormSettings.Name, PanelBkg.Name, PanelBkg.Color);
+    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;

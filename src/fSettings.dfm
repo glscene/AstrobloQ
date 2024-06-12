@@ -3,10 +3,9 @@ inherited FormSettings: TFormSettings
   Caption = 'Settings'
   ClientHeight = 759
   ClientWidth = 1313
-  StyleElements = [seFont, seClient, seBorder]
   OnClose = FormClose
-  ExplicitWidth = 1329
-  ExplicitHeight = 798
+  ExplicitWidth = 1337
+  ExplicitHeight = 823
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
@@ -90,7 +89,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -210,16 +209,17 @@ inherited FormSettings: TFormSettings
           TabOrder = 5
         end
         object rgLanguage: TRadioGroup
-          Left = 47
+          Left = 33
           Top = 354
-          Width = 444
+          Width = 514
           Height = 109
           Caption = 'Language'
-          Columns = 2
+          Columns = 3
           ItemIndex = 0
           Items.Strings = (
             'English'
-            'Russian')
+            'Russian'
+            'Spanish')
           TabOrder = 6
           OnClick = rgLanguageClick
         end
@@ -1191,8 +1191,8 @@ inherited FormSettings: TFormSettings
           1085
           675)
         object ColorGrid1: TColorGrid
-          Left = 546
-          Top = 324
+          Left = 784
+          Top = 53
           Width = 172
           Height = 172
           Margins.Left = 5
@@ -1202,10 +1202,10 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 292
-          Top = 324
+          Left = 522
+          Top = 53
           Width = 149
-          Height = 223
+          Height = 200
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1586,15 +1586,15 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           ItemHeight = 30
           Items.Strings = (
-            'Jupiterlike'
-            'Neptunelike'
-            'Superearth'
-            'Earthlike'
-            'Plutolike')
+            'Jupiterian'
+            'Neptunian'
+            'Superterrain'
+            'Terrain'
+            'Plutonian')
           TabOrder = 0
         end
         object CheckListBox1: TCheckListBox
-          Left = 528
+          Left = 500
           Top = 252
           Width = 238
           Height = 169

@@ -24,12 +24,10 @@ rem delete more files
 
 del *.bak /s
 del *.xml /s
-del *.cvsignore /s
 del *.identcache /s
 del *.otares /s
 del *.tvsconfig /s
 del *.stat /s
-del *.db /s
 del *.~dbg /s
 del *.spider /s
 
