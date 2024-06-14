@@ -41,7 +41,7 @@ object FormDNA: TFormDNA
       Margins.Bottom = 6
       Align = alLeft
       BevelOuter = bvNone
-      Caption = #1054#1088#1075#1072#1085#1080#1079#1084
+      Caption = 'Organizm'
       TabOrder = 0
     end
     object panID: TPanel
@@ -83,7 +83,7 @@ object FormDNA: TFormDNA
       Margins.Bottom = 6
       Align = alLeft
       BevelOuter = bvNone
-      Caption = #1052#1091#1090#1072#1094#1080#1103
+      Caption = 'Mutation'
       TabOrder = 0
     end
   end
@@ -324,7 +324,7 @@ object FormDNA: TFormDNA
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1092#1072#1081#1083' DNA'
+      Caption = 'Load DNA'
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
         04000000000000010000130B0000130B00001000000000000000000000000000
@@ -351,7 +351,7 @@ object FormDNA: TFormDNA
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083' DNA'
+      Caption = 'Save DNA'
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
         04000000000000010000130B0000130B00001000000000000000000000000000
@@ -371,24 +371,24 @@ object FormDNA: TFormDNA
     end
   end
   object OpenDNADialog: TOpenDialog
-    Left = 358
-    Top = 103
+    Left = 375
+    Top = 166
   end
   object SaveDNADialog: TSaveDialog
-    Left = 354
-    Top = 5
+    Left = 382
+    Top = 37
   end
   object MainMenu1: TMainMenu
     Left = 460
     Top = 6
     object File1: TMenuItem
-      Caption = '&'#1060#1072#1081#1083
+      Caption = '&File'
       object LoadDNA1: TMenuItem
-        Caption = '&'#1047#1072#1075#1088#1091#1079#1080#1090#1100' DNA'
+        Caption = '&Load DNA'
         OnClick = LoadDNA1Click
       end
       object SaveDNA1: TMenuItem
-        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100' DNA'
+        Caption = '&Save DNA'
         OnClick = SaveDNA1Click
       end
     end

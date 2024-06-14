@@ -5,7 +5,7 @@ object FormNewReality: TFormNewReality
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1053#1086#1074#1072#1103' '#1055#1083#1072#1085#1077#1090#1072
+  Caption = 'New planet'
   ClientHeight = 791
   ClientWidth = 729
   Color = clBtnFace
@@ -55,7 +55,6 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 1
-    ExplicitWidth = 726
     object Panel2: TPanel
       Left = 0
       Top = 0
@@ -69,7 +68,7 @@ object FormNewReality: TFormNewReality
       Alignment = taRightJustify
       BevelOuter = bvNone
       BorderWidth = 5
-      Caption = #1048#1084#1103' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Caption = 'User name'
       ParentColor = True
       TabOrder = 0
     end
@@ -99,7 +98,6 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 2
-    ExplicitWidth = 726
     object Panel4: TPanel
       Left = 0
       Top = 0
@@ -113,11 +111,9 @@ object FormNewReality: TFormNewReality
       Alignment = taRightJustify
       BevelOuter = bvNone
       BorderWidth = 5
-      Caption = #1044#1083#1080#1085#1072' '#1082#1072#1088#1090#1099
+      Caption = 'Length of map'
       ParentColor = True
       TabOrder = 0
-      ExplicitLeft = 26
-      ExplicitTop = -10
     end
     object edWidth: TEdit
       Left = 265
@@ -162,7 +158,6 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 0
-    ExplicitWidth = 726
     object Panel6: TPanel
       Left = 0
       Top = 0
@@ -176,7 +171,7 @@ object FormNewReality: TFormNewReality
       Alignment = taRightJustify
       BevelOuter = bvNone
       BorderWidth = 5
-      Caption = #1048#1084#1103' '#1087#1083#1072#1085#1077#1090#1099
+      Caption = 'Planet name'
       ParentColor = True
       TabOrder = 0
     end
@@ -206,7 +201,6 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 3
-    ExplicitWidth = 726
     object Panel8: TPanel
       Left = 0
       Top = 0
@@ -220,7 +214,7 @@ object FormNewReality: TFormNewReality
       Alignment = taRightJustify
       BevelOuter = bvNone
       BorderWidth = 5
-      Caption = #1042#1099#1089#1086#1090#1072' '#1082#1072#1088#1090#1099
+      Caption = 'Height of map'
       ParentColor = True
       TabOrder = 0
     end
@@ -267,7 +261,6 @@ object FormNewReality: TFormNewReality
     ParentColor = True
     TabOrder = 4
     Visible = False
-    ExplicitWidth = 726
     object Panel12: TPanel
       Left = 0
       Top = 0
@@ -324,7 +317,6 @@ object FormNewReality: TFormNewReality
     Margins.Bottom = 5
     Align = alTop
     TabOrder = 5
-    ExplicitWidth = 726
     object btnBarren: TBitBtn
       Left = 70
       Top = 14
@@ -389,8 +381,6 @@ object FormNewReality: TFormNewReality
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 7
-    ExplicitTop = 665
-    ExplicitWidth = 726
     object Panel22: TPanel
       Left = 418
       Top = 1
@@ -403,7 +393,6 @@ object FormNewReality: TFormNewReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 415
       object BitBtn1: TBitBtn
         Left = 151
         Top = 14
@@ -444,8 +433,6 @@ object FormNewReality: TFormNewReality
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 6
-    ExplicitWidth = 726
-    ExplicitHeight = 289
     object Panel21: TPanel
       Left = 1
       Top = 1
@@ -458,7 +445,6 @@ object FormNewReality: TFormNewReality
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 287
       object Panel13: TPanel
         Left = 0
         Top = 58
@@ -485,7 +471,7 @@ object FormNewReality: TFormNewReality
           Alignment = taRightJustify
           BevelOuter = bvNone
           BorderWidth = 5
-          Caption = #1042#1086#1076#1072
+          Caption = 'Water'
           ParentColor = True
           TabOrder = 0
         end
@@ -543,7 +529,7 @@ object FormNewReality: TFormNewReality
           Alignment = taRightJustify
           BevelOuter = bvNone
           BorderWidth = 5
-          Caption = #1042#1099#1089#1086#1090#1072
+          Caption = 'Heigght'
           ParentColor = True
           TabOrder = 0
         end
@@ -601,7 +587,7 @@ object FormNewReality: TFormNewReality
           Alignment = taRightJustify
           BevelOuter = bvNone
           BorderWidth = 5
-          Caption = #1042#1083#1072#1078#1085#1086#1089#1090#1100
+          Caption = 'Humidity'
           ParentColor = True
           TabOrder = 0
         end
@@ -658,7 +644,7 @@ object FormNewReality: TFormNewReality
           Alignment = taRightJustify
           BevelOuter = bvNone
           BorderWidth = 5
-          Caption = #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1072
+          Caption = 'Tempreture'
           ParentColor = True
           TabOrder = 0
         end
@@ -727,29 +713,27 @@ object FormNewReality: TFormNewReality
       Margins.Bottom = 5
       Align = alClient
       TabOrder = 1
-      ExplicitWidth = 304
-      ExplicitHeight = 287
       object Label1: TLabel
         Left = 25
         Top = 14
-        Width = 180
+        Width = 188
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1088#1077#1083#1100#1077#1092#1072
+        Caption = 'Landscape generation'
       end
       object cbContinents: TCheckBox
         Left = 56
-        Top = 63
+        Top = 65
         Width = 170
         Height = 30
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1050#1086#1085#1090#1080#1085#1077#1090#1099
+        Caption = 'Continents'
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
@@ -763,7 +747,7 @@ object FormNewReality: TFormNewReality
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1054#1089#1090#1088#1086#1074#1072
+        Caption = 'Islands'
         TabOrder = 3
       end
       object cbHalo: TCheckBox
@@ -791,7 +775,7 @@ object FormNewReality: TFormNewReality
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1057#1086#1083#1085#1094#1077
+        Caption = 'Sun'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 7
@@ -832,7 +816,7 @@ object FormNewReality: TFormNewReality
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1051#1077#1076#1103#1085#1099#1077' '#1096#1072#1087#1082#1080
+        Caption = 'Icy poles'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 8
@@ -895,7 +879,6 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 8
-    ExplicitWidth = 726
     object Panel27: TPanel
       Left = 0
       Top = 0
@@ -909,7 +892,7 @@ object FormNewReality: TFormNewReality
       Alignment = taRightJustify
       BevelOuter = bvNone
       BorderWidth = 5
-      Caption = #1056#1072#1076#1080#1091#1089' '#1087#1083#1072#1085#1077#1090#1099
+      Caption = 'Planet radius'
       ParentColor = True
       TabOrder = 0
     end

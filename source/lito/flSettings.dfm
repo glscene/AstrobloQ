@@ -7,7 +7,7 @@ object FormSettings: TFormSettings
   Margins.Right = 5
   Margins.Bottom = 5
   BorderStyle = bsDialog
-  Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+  Caption = 'Settings'
   ClientHeight = 775
   ClientWidth = 1313
   Color = clBtnFace
@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -86,16 +86,16 @@ object FormSettings: TFormSettings
         TabVisible = False
         object LabelProgram: TLabel
           Tag = 1000
-          Left = 38
+          Left = 70
           Top = 5
-          Width = 111
+          Width = 79
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = #1055#1088#1086#1075#1088#1072#1084#1084#1072
+          Caption = 'Program'
         end
         object LabelData: TLabel
           Left = -4
@@ -108,7 +108,7 @@ object FormSettings: TFormSettings
           Margins.Bottom = 5
           Alignment = taRightJustify
           AutoSize = False
-          Caption = #1041#1072#1079#1072' '#1076#1072#1085#1085#1099#1093
+          Caption = 'Data base'
         end
         object PanelExePath: TPanel
           Left = 33
@@ -121,7 +121,7 @@ object FormSettings: TFormSettings
           Margins.Bottom = 5
           Alignment = taLeftJustify
           BevelOuter = bvLowered
-          Caption = 'AstrobloQ.exe'
+          Caption = 'Litosfera.exe'
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
@@ -161,7 +161,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
+          Caption = 'Loading at start'
           Checked = True
           State = cbChecked
           TabOrder = 3
@@ -175,7 +175,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
+          Caption = 'Save on exit'
           Checked = True
           State = cbChecked
           TabOrder = 4
@@ -189,12 +189,12 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1071#1079#1099#1082
-          Columns = 3
+          Caption = 'Language'
+          Columns = 2
           ItemIndex = 0
           Items.Strings = (
-            #1056#1091#1089#1089#1082#1080#1081
-            #1040#1085#1075#1083#1080#1081#1089#1082#1080#1081)
+            'English'
+            'Russia')
           TabOrder = 5
         end
         object cbSplashStart: TCheckBox
@@ -206,7 +206,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1089#1090#1072#1074#1082#1091
+          Caption = 'Show splash'
           TabOrder = 6
         end
       end
@@ -221,15 +221,15 @@ object FormSettings: TFormSettings
         object LabelBackground: TLabel
           Left = 312
           Top = 40
-          Width = 39
+          Width = 110
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1060#1086#1085
+          Caption = 'Background'
         end
-        object CheckBoxAxes: TCheckBox
+        object CheckBoxAxis: TCheckBox
           Left = 89
           Top = 42
           Width = 109
@@ -238,7 +238,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1054#1089#1080
+          Caption = 'Axis'
           Checked = True
           State = cbChecked
           TabOrder = 0
@@ -268,7 +268,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099
+          Caption = 'Coordinates'
           Checked = True
           State = cbChecked
           TabOrder = 2
@@ -282,7 +282,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1044#1074#1091#1093#1089#1090#1086#1088#1086#1085#1085#1077#1077' '#1086#1089#1074#1077#1097#1077#1085#1080#1077
+          Caption = 'Twoside lighting'
           TabOrder = 3
         end
       end
@@ -1514,7 +1514,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1057#1080#1089#1090#1077#1084#1072' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
+          Caption = 'Coordinates'
           TabOrder = 0
           object chbEquatorial: TCheckBox
             Left = 56
@@ -1594,7 +1594,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1045#1076#1080#1085#1080#1094#1099
+          Caption = 'Units'
           ItemIndex = 0
           Items.Strings = (
             #1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103' - '#1072'.'#1077'., au'
@@ -1621,7 +1621,7 @@ object FormSettings: TFormSettings
           TabOrder = 2
           Value = 2
         end
-        object GroupBox3: TGroupBox
+        object GroupBoxConstellations: TGroupBox
           Left = 112
           Top = 376
           Width = 253
@@ -1630,9 +1630,9 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1086#1079#1074#1077#1079#1076#1080#1103
+          Caption = 'Constellations'
           TabOrder = 3
-          object CheckBox5: TCheckBox
+          object CheckBoxConstFigures: TCheckBox
             Left = 45
             Top = 120
             Width = 138
@@ -1641,10 +1641,10 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1060#1080#1075#1091#1088#1099
+            Caption = 'Figures'
             TabOrder = 0
           end
-          object CheckBox6: TCheckBox
+          object CheckBoxConstLines: TCheckBox
             Left = 45
             Top = 42
             Width = 138
@@ -1653,10 +1653,10 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1051#1080#1085#1080#1080
+            Caption = 'Lines'
             TabOrder = 1
           end
-          object CheckBox7: TCheckBox
+          object CheckBoxConstBorders: TCheckBox
             Left = 45
             Top = 81
             Width = 138
@@ -1665,7 +1665,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1043#1088#1072#1085#1080#1094#1099
+            Caption = 'Borders'
             TabOrder = 2
           end
         end
@@ -1864,6 +1864,8 @@ object FormSettings: TFormSettings
         FFFFFFFFFFFF0000000000000000000000000001071F043B0430043D04350442
         044B0400002B0000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000106220440043004410441043004}
+      ExplicitLeft = -1
+      ExplicitTop = 0
     end
   end
   object PanelTop: TPanel

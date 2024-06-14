@@ -3,17 +3,17 @@ program Galablock;
 
 uses
   Vcl.Forms,
-  fGalablock in 'src\fGalablock.pas' {FormGalablock},
-  dImages in 'src\dImages.pas' {DataModuleImages: TDataModule},
-  fAbout in 'src\fAbout.pas' {FormAbout},
-  uGlobals in 'src\uGlobals.pas',
-  fSettings in 'src\fSettings.pas' {FormSettings},
-  fGLForm in 'src\fGLForm.pas' {FormGL},
+  fGalablock in 'source\fGalablock.pas' {FormGalablock},
+  dImages in 'source\dImages.pas' {DataModuleImages: TDataModule},
+  fAbout in 'source\fAbout.pas' {FormAbout},
+  uGlobals in 'source\uGlobals.pas',
+  fSettings in 'source\fSettings.pas' {FormSettings},
+  fGLForm in 'source\fGLForm.pas' {FormGL},
   fStarProj in 'plugins\StarProj\fStarProj.pas' {FormProjection},
-  dDialogs in 'src\dDialogs.pas' {DataModuleDialogs: TDataModule},
-  dBase in 'src\dBase.pas' {DataModuleBase: TDataModule},
-  fAnalyzer in 'src\fAnalyzer.pas' {FormAnalyzer},
-  fMonitor in 'src\fMonitor.pas' {FormMonitor};
+  dDialogs in 'source\dDialogs.pas' {DataModuleDialogs: TDataModule},
+  dBase in 'source\dBase.pas' {DataModuleBase: TDataModule},
+  fAnalyzer in 'source\fAnalyzer.pas' {FormAnalyzer},
+  fMonitor in 'source\fMonitor.pas' {FormMonitor};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

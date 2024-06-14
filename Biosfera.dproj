@@ -229,7 +229,6 @@
         <DCCReference Include="source\bio\fbSpirit.pas">
             <Form>FormSpirit</Form>
         </DCCReference>
-        <DCCReference Include="source\bio\fbTutorial.pas"/>
         <DCCReference Include="source\bio\vInterfaceClasses.pas"/>
         <DCCReference Include="source\bio\fbFirstForm.pas">
             <Form>FormFirst</Form>
@@ -267,6 +266,10 @@
         </DCCReference>
         <DCCReference Include="source\bio\Bio.Things.pas"/>
         <DCCReference Include="source\bio\Bio.Utilities.pas"/>
+        <DCCReference Include="source\bio\fbTutorial.pas">
+            <Form>fmTutorial</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

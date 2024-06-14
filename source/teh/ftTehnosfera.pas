@@ -1,7 +1,7 @@
 // ------------------
-// Show of Mechanisms
+// Show Tehnosfera
 // ------------------
-unit fnMehanizm;
+unit ftTehnosfera;
 
 interface
 
@@ -41,10 +41,13 @@ uses
   GLS.Material,
   GLS.Coordinates,
 
-  GLS.BaseClasses;
+  GLS.BaseClasses,
+
+  gnugettext,
+  fGLForm;
 
 type
-  TFormMehanizm = class(TForm)
+  TFormTehnosfera = class(TFormGL)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;
@@ -215,7 +218,7 @@ type
   end;
 
 var
-  FormMehanizm: TFormMehanizm;
+  FormTehnosfera: TFormTehnosfera;
 
 implementation
 
@@ -244,7 +247,7 @@ uses
   GLS.Color,
   GLS.RenderContextInfo,
 
-  Noo.Globals;
+  uGlobals;
 
 type
 
@@ -296,7 +299,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.FormCreate(Sender: TObject);
+procedure TFormTehnosfera.FormCreate(Sender: TObject);
 (* var
   reg : TRegistry;
   shellCmd : String;
@@ -305,8 +308,8 @@ procedure TFormMehanizm.FormCreate(Sender: TObject);
   cKeyName : String = 'Applications\GLSViewer1.exe\shell\open\command';
   cFriendlyKeyName : String = 'Applications\GLSViewer1.exe'; *)
 begin
-  top := FormGLSViewerY;
-  left := FormGLSViewerX;
+  top := FormTehnosferaY;
+  left := FormTehnosferaX;
   // instantiate our specific hidden-lines shader
   hlShader := THiddenLineShader.Create(Self);
 
@@ -336,20 +339,20 @@ begin
     end; *)
 end;
 
-procedure TFormMehanizm.ACExitExecute(Sender: TObject);
+procedure TFormTehnosfera.ACExitExecute(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFormMehanizm.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormTehnosfera.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   ACFPS.Checked := False;
   ApplyFPS;
-  FormGLSViewerY := FormMehanizm.top;
-  FormGLSViewerX := FormMehanizm.left;
+  FormTehnosferaY := FormTehnosfera.Top;
+  FormTehnosferaX := FormTehnosfera.Left;
 end;
 
-procedure TFormMehanizm.FormShow(Sender: TObject);
+procedure TFormTehnosfera.FormShow(Sender: TObject);
 var
   i: Integer;
 begin
@@ -372,7 +375,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.GLSceneViewerBeforeRender(Sender: TObject);
+procedure TFormTehnosfera.GLSceneViewerBeforeRender(Sender: TObject);
 begin
   THiddenLineShader(hlShader).LinesColor := VectorMake(107 / 256, 123 / 256,
     173 / 256, 1);
@@ -388,24 +391,23 @@ begin
   }
 end;
 
-procedure TFormMehanizm.GLSceneViewerAfterRender(Sender: TObject);
+procedure TFormTehnosfera.GLSceneViewerAfterRender(Sender: TObject);
 begin
   ApplyFSAA;
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormMehanizm.MIAboutClick(Sender: TObject);
+procedure TFormTehnosfera.MIAboutClick(Sender: TObject);
 begin
   Application.HelpContext(4000);
 end;
 
-procedure TFormMehanizm.About1Click(Sender: TObject);
+procedure TFormTehnosfera.About1Click(Sender: TObject);
 begin
-  ShowMessage('AstroViewer - OpenGL Mesh Viewer'#13#10 +
-    'Модуль основанный на GLScene'#13#10#13#10);
+  ShowMessage('Communications'#13#10 + 'based on GLScene'#13#10#13#10);
 end;
 
-procedure TFormMehanizm.DoResetCamera;
+procedure TFormTehnosfera.DoResetCamera;
 var
   objSize: Single;
 begin
@@ -431,7 +433,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.ApplyShadeModeToMaterial(aMaterial: TGLMaterial);
+procedure TFormTehnosfera.ApplyShadeModeToMaterial(aMaterial: TGLMaterial);
 begin
   with aMaterial do
   begin
@@ -468,7 +470,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.ApplyShadeMode;
+procedure TFormTehnosfera.ApplyShadeMode;
 var
   i: Integer;
 begin
@@ -484,7 +486,7 @@ begin
   FreeForm.StructureChanged;
 end;
 
-procedure TFormMehanizm.ApplyFSAA;
+procedure TFormTehnosfera.ApplyFSAA;
 begin
   with GLSceneViewer.Buffer do
   begin
@@ -497,7 +499,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.ApplyFaceCull;
+procedure TFormTehnosfera.ApplyFaceCull;
 begin
   with GLSceneViewer.Buffer do
   begin
@@ -514,7 +516,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.ApplyBgColor;
+procedure TFormTehnosfera.ApplyBgColor;
 var
   bmp: TBitmap;
   col: TColor;
@@ -537,7 +539,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.ApplyTexturing;
+procedure TFormTehnosfera.ApplyTexturing;
 var
   i: Integer;
 begin
@@ -554,7 +556,7 @@ begin
   FreeForm.StructureChanged;
 end;
 
-procedure TFormMehanizm.ApplyFPS;
+procedure TFormTehnosfera.ApplyFPS;
 begin
   if ACFPS.Checked then
   begin
@@ -569,7 +571,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.DoOpen(const fileName: String);
+procedure TFormTehnosfera.DoOpen(const fileName: String);
 var
   i: Integer;
   min, max: TAffineVector;
@@ -579,7 +581,7 @@ begin
     Exit;
 
   Screen.Cursor := crHourGlass;
-  Caption := 'AstroViewer - ' + ExtractFileName(fileName);
+  Caption := 'Tehnosfera - ' + ExtractFileName(fileName);
 
   FreeForm.MeshObjects.Clear;
   GLMaterialLibrary.Materials.Clear;
@@ -622,14 +624,14 @@ begin
   DoResetCamera;
 end;
 
-procedure TFormMehanizm.ACOpenExecute(Sender: TObject);
+procedure TFormTehnosfera.ACOpenExecute(Sender: TObject);
 begin
   OpenDialog.InitialDir := EarthModelPath;
   if OpenDialog.Execute then
     DoOpen(OpenDialog.fileName);
 end;
 
-procedure TFormMehanizm.GLSceneViewerMouseDown(Sender: TObject;
+procedure TFormTehnosfera.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
@@ -637,7 +639,7 @@ begin
   md := True;
 end;
 
-procedure TFormMehanizm.GLSceneViewerMouseMove(Sender: TObject;
+procedure TFormTehnosfera.GLSceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 var
   d: Single;
@@ -671,13 +673,13 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.GLSceneViewerMouseUp(Sender: TObject;
+procedure TFormTehnosfera.GLSceneViewerMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   md := False;
 end;
 
-procedure TFormMehanizm.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormTehnosfera.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 begin
   if FreeForm.MeshObjects.Count > 0 then
@@ -689,26 +691,26 @@ begin
   Handled := True;
 end;
 
-procedure TFormMehanizm.ACZoomInExecute(Sender: TObject);
+procedure TFormTehnosfera.ACZoomInExecute(Sender: TObject);
 var
   h: Boolean;
 begin
   FormMouseWheel(Self, [], -120 * 4, Point(0, 0), h);
 end;
 
-procedure TFormMehanizm.ACZoomOutExecute(Sender: TObject);
+procedure TFormTehnosfera.ACZoomOutExecute(Sender: TObject);
 var
   h: Boolean;
 begin
   FormMouseWheel(Self, [], 120 * 4, Point(0, 0), h);
 end;
 
-procedure TFormMehanizm.ACShadeSmoothExecute(Sender: TObject);
+procedure TFormTehnosfera.ACShadeSmoothExecute(Sender: TObject);
 begin
   ApplyShadeMode;
 end;
 
-procedure TFormMehanizm.AllBtnsUp;
+procedure TFormTehnosfera.AllBtnsUp;
 Begin
   Smoothshading1.Checked := False;
   ToolButton6.Down := False;
@@ -722,7 +724,7 @@ Begin
   ToolButton13.Down := False;
 End;
 
-procedure TFormMehanizm.Smoothshading1Click(Sender: TObject);
+procedure TFormTehnosfera.Smoothshading1Click(Sender: TObject);
 begin
   AllBtnsUp;
   Smoothshading1.Checked := True;
@@ -730,7 +732,7 @@ begin
   ApplyShadeMode;
 end;
 
-procedure TFormMehanizm.Flatshading1Click(Sender: TObject);
+procedure TFormTehnosfera.Flatshading1Click(Sender: TObject);
 begin
   AllBtnsUp;
   Flatshading1.Checked := True;
@@ -738,7 +740,7 @@ begin
   ApplyShadeMode;
 end;
 
-procedure TFormMehanizm.FlatShadingwithlines1Click(Sender: TObject);
+procedure TFormTehnosfera.FlatShadingwithlines1Click(Sender: TObject);
 begin
   AllBtnsUp;
   FlatShadingwithlines1.Checked := True;
@@ -746,7 +748,7 @@ begin
   ApplyShadeMode;
 end;
 
-procedure TFormMehanizm.Hiddenlines1Click(Sender: TObject);
+procedure TFormTehnosfera.Hiddenlines1Click(Sender: TObject);
 begin
   AllBtnsUp;
   Hiddenlines1.Checked := True;
@@ -754,7 +756,7 @@ begin
   ApplyShadeMode;
 end;
 
-procedure TFormMehanizm.Wireframe1Click(Sender: TObject);
+procedure TFormTehnosfera.Wireframe1Click(Sender: TObject);
 begin
   AllBtnsUp;
   Wireframe1.Checked := True;
@@ -762,37 +764,37 @@ begin
   ApplyShadeMode;
 end;
 
-procedure TFormMehanizm.MIAADefaultClick(Sender: TObject);
+procedure TFormTehnosfera.MIAADefaultClick(Sender: TObject);
 begin
   (Sender as TMenuItem).Checked := True;
   ApplyFSAA;
 end;
 
-procedure TFormMehanizm.ACResetViewExecute(Sender: TObject);
+procedure TFormTehnosfera.ACResetViewExecute(Sender: TObject);
 begin
   DoResetCamera;
 end;
 
-procedure TFormMehanizm.ACCullFaceExecute(Sender: TObject);
+procedure TFormTehnosfera.ACCullFaceExecute(Sender: TObject);
 begin
   ACCullFace.Checked := not ACCullFace.Checked;
   ApplyFaceCull;
 end;
 
-procedure TFormMehanizm.MIBgColorClick(Sender: TObject);
+procedure TFormTehnosfera.MIBgColorClick(Sender: TObject);
 begin
   if ColorDialog.Execute then
     ApplyBgColor;
 end;
 
-procedure TFormMehanizm.GLMaterialLibraryTextureNeeded(Sender: TObject;
+procedure TFormTehnosfera.GLMaterialLibraryTextureNeeded(Sender: TObject;
   var textureFileName: String);
 begin
   if not ACTexturing.Enabled then
     textureFileName := '';
 end;
 
-procedure TFormMehanizm.ACTexturingExecute(Sender: TObject);
+procedure TFormTehnosfera.ACTexturingExecute(Sender: TObject);
 begin
   ACTexturing.Checked := not ACTexturing.Checked;
   if ACTexturing.Checked then
@@ -806,12 +808,12 @@ begin
     ApplyTexturing;
 end;
 
-procedure TFormMehanizm.MIFileClick(Sender: TObject);
+procedure TFormTehnosfera.MIFileClick(Sender: TObject);
 begin
   MIPickTexture.Enabled := (GLMaterialLibrary.Materials.Count > 0);
 end;
 
-procedure TFormMehanizm.MIPickTextureClick(Sender: TObject);
+procedure TFormTehnosfera.MIPickTextureClick(Sender: TObject);
 begin
   OpenPictureDialog.InitialDir := EarthModelPath;
   if OpenPictureDialog.Execute then
@@ -829,7 +831,7 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.MIOpenTexLibClick(Sender: TObject);
+procedure TFormTehnosfera.MIOpenTexLibClick(Sender: TObject);
 var
   i: Integer;
 begin
@@ -846,7 +848,7 @@ begin
     end;
 end;
 
-procedure TFormMehanizm.ACInvertNormalsExecute(Sender: TObject);
+procedure TFormTehnosfera.ACInvertNormalsExecute(Sender: TObject);
 var
   i: Integer;
 begin
@@ -857,7 +859,7 @@ begin
   FreeForm.StructureChanged;
 end;
 
-procedure TFormMehanizm.ACReverseRenderingOrderExecute(Sender: TObject);
+procedure TFormTehnosfera.ACReverseRenderingOrderExecute(Sender: TObject);
 var
   i, j, n: Integer;
   fg: TGLFaceGroup;
@@ -887,7 +889,7 @@ begin
   FreeForm.StructureChanged;
 end;
 
-procedure TFormMehanizm.ACSaveAsExecute(Sender: TObject);
+procedure TFormTehnosfera.ACSaveAsExecute(Sender: TObject);
 var
   ext: String;
 begin
@@ -900,18 +902,18 @@ begin
         '.' + GetVectorFileFormats.FindExtByIndex(SaveDialog.FilterIndex,
         False, True));
     if GetVectorFileFormats.FindFromFileName(SaveDialog.fileName) = nil then
-      ShowMessage('Расширение файла не поддерживается')
+      ShowMessage(_('File extension not supported'))
     else
       FreeForm.SaveToFile(SaveDialog.fileName);
   end;
 end;
 
-procedure TFormMehanizm.ACSaveAsUpdate(Sender: TObject);
+procedure TFormTehnosfera.ACSaveAsUpdate(Sender: TObject);
 begin
   ACSaveAs.Enabled := (FreeForm.MeshObjects.Count > 0);
 end;
 
-procedure TFormMehanizm.ACConvertToIndexedTrianglesExecute(Sender: TObject);
+procedure TFormTehnosfera.ACConvertToIndexedTrianglesExecute(Sender: TObject);
 var
   v: TGLAffineVectorList;
   i: TGLIntegerList;
@@ -943,33 +945,33 @@ begin
   end;
 end;
 
-procedure TFormMehanizm.GLCadencerProgress(Sender: TObject;
+procedure TFormTehnosfera.GLCadencerProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
   GLSceneViewer.Invalidate;
 end;
 
-procedure TFormMehanizm.ACFPSExecute(Sender: TObject);
+procedure TFormTehnosfera.ACFPSExecute(Sender: TObject);
 begin
   ACFPS.Checked := not ACFPS.Checked;
   ApplyFPS;
 end;
 
-procedure TFormMehanizm.TimerTimer(Sender: TObject);
+procedure TFormTehnosfera.TimerTimer(Sender: TObject);
 begin
   StatusBar.Panels[1].Text := Format('%.1f FPS',
     [GLSceneViewer.FramesPerSecond]);
   GLSceneViewer.ResetPerformanceMonitor;
 end;
 
-procedure TFormMehanizm.ACSaveTexturesExecute(Sender: TObject);
+procedure TFormTehnosfera.ACSaveTexturesExecute(Sender: TObject);
 begin
   SDTextures.InitialDir := EarthModelPath;
   if SDTextures.Execute then
     GLMaterialLibrary.SaveToFile(SDTextures.fileName);
 end;
 
-procedure TFormMehanizm.LightMapMaker1Click(Sender: TObject);
+procedure TFormTehnosfera.LightMapMaker1Click(Sender: TObject);
 begin
   { }
 end;

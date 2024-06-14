@@ -12,7 +12,12 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  fGLForm, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.NumberBox, Vcl.ExtCtrls;
+  Vcl.ComCtrls,
+  Vcl.StdCtrls,
+  Vcl.NumberBox,
+  Vcl.ExtCtrls,
+
+  fGLForm;
 
 type
   TFormAnalyzer = class(TFormGL)

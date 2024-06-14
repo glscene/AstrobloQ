@@ -6,7 +6,7 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
   Margins.Top = 4
   Margins.Right = 4
   Margins.Bottom = 4
-  Caption = #1056#1086#1073#1086#1090' .mdl '#1080#1083#1080' .qc'
+  Caption = 'Robot'
   ClientHeight = 596
   ClientWidth = 752
   Color = clBtnFace

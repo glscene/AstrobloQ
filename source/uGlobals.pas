@@ -56,7 +56,7 @@ var
   CurrentColor: TColor;
 
   FormPlanetX, FormPlanetY, FormCyborgX, FormCyborgY, FormLoadSmdMdlX,
-    FormLoadSmdMdlY, FormGLSViewerX, FormGLSViewerY, ABCreatorFormX,
+    FormLoadSmdMdlY, FormTehnosferaX, FormTehnosferaY, ABCreatorFormX,
     ABCreatorFormY, AboutFormX, AboutFormY, AboutHolographicsX,
     AboutHolographicsY, MessageX, MessageY, HoloFormY, HoloFormX,
     SystemInfoFormX, SystemInfoFormY: Integer;

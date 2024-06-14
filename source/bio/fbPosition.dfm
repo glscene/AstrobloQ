@@ -5,7 +5,7 @@ object FormPosition: TFormPosition
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1055#1086#1083#1086#1078#1077#1085#1080#1077
+  Caption = 'Position'
   ClientHeight = 903
   ClientWidth = 562
   Color = clBtnFace

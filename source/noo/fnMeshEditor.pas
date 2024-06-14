@@ -76,7 +76,7 @@ type
     dcModifiers: TGLDummyCube;
     Splitter1: TSplitter;
     PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
+    TabSheetControls: TTabSheet;
     TabSheet2: TTabSheet;
     GroupBox2: TGroupBox;
     rbXY: TRadioButton;

@@ -336,11 +336,13 @@ uses
   fnAbout,
   //fAllShapeLoader,  //Earth Cities, Countries
   fnMeshEditor, // 3000
-//  fnLocations, // 1300 Data input for planet
-  fnMehanizm, // 4000
-  fnStarPilot, // 5000
-  fnCyborg, // 8000 ...
-  fnRobot, fnLocations; // 8500
+  fnLocations, // 1300 Data input for planet
+
+  // Should be removed to tehnosfera later
+  ftTehnosfera, // 4000
+  ftRobot,
+  ftStarPilot, // 5000
+  ftCyborg; // 8000 ...
 
 // ----- TMarkerPosition.GetCartesian ------------------------------------------
 (*
@@ -1963,14 +1965,14 @@ begin
   Cadencer.Enabled := True;
 end;
 
-// Mehanizm Viewer
+// Tehnosfera Viewer
 procedure TFormNoosfera.miViewerClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormMehanizm.ShowModal;
+  FormTehnosfera.ShowModal;
   (*
-  with TFormGLSViewer.Create(Self) do
+  with TFormTehnosfera.Create(Self) do
     try
       ShowModal;
     finally
@@ -1980,7 +1982,7 @@ begin
   Timer.Enabled := True;
   Cadencer.Enabled := True;
   (*
-  FormGLSViewer in 'fmGLSViewer.pas',
+  FormTehnosfera in 'fTehnosfera.pas',
   FormSmdQc in 'fmSmdQc.pas',
   FormSmdLoadMdl in 'fmSmdLoadMdl.pas' ,
   *)
@@ -1991,9 +1993,9 @@ procedure TFormNoosfera.miSmdQcClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormKiborg.ShowModal;
+  FormCyborg.ShowModal;
   (*
-  with TFormSMDqc.Create(Self) do
+  with TFormCyborg.Create(Self) do
     try
       ShowModal;
     finally

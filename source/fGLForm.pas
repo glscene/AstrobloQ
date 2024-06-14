@@ -54,35 +54,40 @@ begin
 
   if (LangID <> LANG_ENGLISH) then
   begin
+  (*
+    Textdomain('astrobloq');
+    BindTextDomain ('astrobloq', LocalePath);
+  *)
     Textdomain('galablock');
     BindTextDomain ('galablock', LocalePath);
     AddDomainForResourceString('language');
     BindTextDomain ('language', LocalePath);
-
-    // Removing the upper line will cause long loading but Action.Category translation
     case LangID of
       LANG_RUSSIAN:
       begin
         UseLanguage('ru');
-        Application.HelpFile := UpperCase(LocalePath + 'ru'+ PathDelim+'Galablock.chm');
+        Application.HelpFile := UpperCase(LocalePath + 'ru'+ PathDelim+'Astrobloq.chm');
       end
       else
       begin
         UseLanguage('en');
-        Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Galablock.chm');
+        Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Astrobloq.chm');
       end;
     end;
   end
   else
   begin
     UseLanguage('en');
-    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Galablock.chm');
+    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Astrobloq.chm');
   end;
   //TP_GlobalIgnoreClass(TTable);
   //TP_GlobalIgnoreClass(TFields);
   //TP_GlobalIgnoreClass(TListBox);
   //TP_GlobalIgnoreClass(TGLLibMaterial);
   //TP_GlobalIgnoreClass(TGLMaterialLibrary);
+
+  // Uncomment the next line will cause long loading but Action.Category translation
+  //TP_GlobalIgnoreClass(TAction);
 
   TranslateComponent(Self);
 end;

@@ -1,6 +1,6 @@
 object DataModuleDialogs: TDataModuleDialogs
-  Height = 694
-  Width = 975
+  Height = 457
+  Width = 958
   PixelsPerInch = 168
   object SaveTextFileDialog: TSaveTextFileDialog
     Left = 378

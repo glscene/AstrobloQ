@@ -1,7 +1,7 @@
 // --------------------------
 // Viewer for Cyborgs
 // --------------------------
-unit fnCyborg;
+unit ftCyborg;
 
 interface
 
@@ -35,7 +35,7 @@ uses
   GLS.BaseClasses;
 
 type
-  TFormKiborg = class(TForm)
+  TFormCyborg = class(TForm)
     GLScene1: TGLScene;
     GLSceneViewer1: TGLSceneViewer;
     GLCamera1: TGLCamera;
@@ -118,18 +118,18 @@ type
   end;
 
 var
-  FormKiborg: TFormKiborg;
+  FormCyborg: TFormCyborg;
 
 //============================================================================
 implementation
 
 uses
-  Noo.Globals,
-  Noo.BoneUtils;
+  uGlobals,
+  Teh.BoneUtils;
 
 {$R *.DFM}
 
-procedure TFormKiborg.FormCreate(Sender: TObject);
+procedure TFormCyborg.FormCreate(Sender: TObject);
 begin
   top := FormCyborgY;
   left := FormCyborgX;
@@ -137,52 +137,52 @@ begin
   GLCadencer1.Enabled := False;
 end;
 
-procedure TFormKiborg.FormShow(Sender: TObject);
+procedure TFormCyborg.FormShow(Sender: TObject);
 begin
   Timer1.Enabled := False;
   GLCadencer1.Enabled := False;
-  FormKiborg.Cursor := crDefault;
+  FormCyborg.Cursor := crDefault;
 end;
 
-procedure TFormKiborg.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormCyborg.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Timer1.Enabled := False;
   GLCadencer1.Enabled := False;
   // NoGLRunning:=True;
-  FormCyborgY := FormKiborg.top;
-  FormCyborgX := FormKiborg.left;
+  FormCyborgY := FormCyborg.top;
+  FormCyborgX := FormCyborg.left;
 
 end;
 
-procedure TFormKiborg.FormHide(Sender: TObject);
+procedure TFormCyborg.FormHide(Sender: TObject);
 begin
   Timer1.Enabled := False;
   GLCadencer1.Enabled := False;
 end;
 
-procedure TFormKiborg.ExitBtnClick(Sender: TObject);
+procedure TFormCyborg.ExitBtnClick(Sender: TObject);
 begin
   Close; // ModalResult := mrOK;
 end;
 
-procedure TFormKiborg.HelpBtnClick(Sender: TObject);
+procedure TFormCyborg.HelpBtnClick(Sender: TObject);
 begin
   Application.HelpContext(8000);
 end;
 
-procedure TFormKiborg.CheckBox1Click(Sender: TObject);
+procedure TFormCyborg.CheckBox1Click(Sender: TObject);
 begin
   Actor1.OverlaySkeleton := CheckBox1.Checked;
 end;
 
-procedure TFormKiborg.GLSceneViewer1MouseDown(Sender: TObject;
+procedure TFormCyborg.GLSceneViewer1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
   my := Y;
 end;
 
-procedure TFormKiborg.GLSceneViewer1MouseMove(Sender: TObject;
+procedure TFormCyborg.GLSceneViewer1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Shift <> [] then
@@ -193,13 +193,13 @@ begin
   my := Y;
 end;
 
-procedure TFormKiborg.Timer1Timer(Sender: TObject);
+procedure TFormCyborg.Timer1Timer(Sender: TObject);
 begin
   Caption := Format('%.1f FPS', [GLSceneViewer1.FramesPerSecond]);
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
-procedure TFormKiborg.GLCadencer1Progress(Sender: TObject;
+procedure TFormCyborg.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
   if AlreadyLoaded then
@@ -227,7 +227,7 @@ end;
   http://www.milkshape3d.com
 *)
 // (Loading will be slow if there are many animations)
-procedure TFormKiborg.Button1Click(Sender: TObject);
+procedure TFormCyborg.Button1Click(Sender: TObject);
 begin
   OpenDialog1.Filter := 'lifeless (*.qc)|*.qc';
   // OpenDialog1.InitialDir := TigerPath;
@@ -236,17 +236,17 @@ begin
     DoCcOpen(OpenDialog1.fileName);
 end;
 
-procedure TFormKiborg.DoCcOpen(const fileName: String);
+procedure TFormCyborg.DoCcOpen(const fileName: String);
 var
   t: Integer;
 begin
   // TigerPath := ExtractFilePath(FileName);
   Application.ProcessMessages;
-  FormKiborg.Cursor := crHourGlass;
+  FormCyborg.Cursor := crHourGlass;
   Timer1.Enabled := True;
   GLCadencer1.Enabled := True;
   // LOAD THE Filename, into Actor1, with MODEL, + with ANIMATIONS
-  LoadQC(fileName, Actor1, True, True);
+  LoadGLB(fileName, Actor1, True, True);
 
   BoneIndex_Spine := GetBoneIndexByName(Actor1, 'Bip01 Spine');
   BoneIndex_Head := GetBoneIndexByName(Actor1, 'Bip01 Head');
@@ -261,29 +261,29 @@ begin
   cboAnimations.ItemIndex := cboAnimations.Items.IndexOf
     (Actor1.Animations[1].Name);
   AlreadyLoaded := True;
-  FormKiborg.Cursor := crDefault;
+  FormCyborg.Cursor := crDefault;
 end;
 
-procedure TFormKiborg.cboAnimationsChange(Sender: TObject);
+procedure TFormCyborg.cboAnimationsChange(Sender: TObject);
 begin
   Timer1.Enabled := True; // Just in case its been hiding...
   GLCadencer1.Enabled := True;
   Actor1.SwitchToAnimation(cboAnimations.Text, True);
 end;
 
-procedure TFormKiborg.TrackBar1Change(Sender: TObject);
+procedure TFormCyborg.TrackBar1Change(Sender: TObject);
 begin
   Cube1.Position.SetPoint(TrackBar1.Position, TrackBar2.Position,
     TrackBar3.Position);
 end;
 
-procedure TFormKiborg.TrackBar4Change(Sender: TObject);
+procedure TFormCyborg.TrackBar4Change(Sender: TObject);
 begin
   Cube2.Position.SetPoint(TrackBar4.Position, TrackBar5.Position,
     TrackBar6.Position);
 end;
 
-procedure TFormKiborg.Panel2MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormCyborg.Panel2MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 var
   Tb1, Tb2: TTrackBar;

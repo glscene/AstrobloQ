@@ -1,7 +1,7 @@
 // ------------------
 // Viewer for Robots
 // ------------------
-unit fnRobot;
+unit ftRobot;
 
 interface
 
@@ -278,7 +278,7 @@ implementation
 {$R *.DFM}
 
 uses
-  Noo.Globals;
+  uGlobals;
 
 procedure TFormLoadSmdMdl.FormCreate(Sender: TObject);
 begin

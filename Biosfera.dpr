@@ -69,7 +69,6 @@ uses
   fbSatellite in 'source\bio\fbSatellite.pas' {FormSatellite},
   fbSettings in 'source\bio\fbSettings.pas' {FormSettings},
   fbSpirit in 'source\bio\fbSpirit.pas' {FormSpirit},
-  fbTutorial in 'source\bio\fbTutorial.pas',
   vInterfaceClasses in 'source\bio\vInterfaceClasses.pas',
   fbFirstForm in 'source\bio\fbFirstForm.pas' {FormFirst},
   vSpiritManager in 'source\bio\vSpiritManager.pas',
@@ -85,7 +84,8 @@ uses
   fbMiniForm in 'source\bio\fbMiniForm.pas',
   fbImages in 'source\bio\fbImages.pas' {FormImages},
   Bio.Things in 'source\bio\Bio.Things.pas',
-  Bio.Utilities in 'source\bio\Bio.Utilities.pas';
+  Bio.Utilities in 'source\bio\Bio.Utilities.pas',
+  fbTutorial in 'source\bio\fbTutorial.pas' {fmTutorial};
 
 {$R *.res}
 
@@ -95,5 +95,6 @@ begin
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfmSplash, fmSplash);
   Application.CreateForm(TFormImages, FormImages);
+  Application.CreateForm(TfmTutorial, fmTutorial);
   Application.Run;
 end.

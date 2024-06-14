@@ -5,7 +5,7 @@ object FormPhotograph: TFormPhotograph
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1060#1086#1090#1086#1075#1088#1072#1092#1080#1103
+  Caption = 'Photograph'
   ClientHeight = 445
   ClientWidth = 788
   Color = clBtnFace
@@ -303,7 +303,6 @@ object FormPhotograph: TFormPhotograph
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1054#1090#1084#1077#1085#1072
         Kind = bkCancel
         NumGlyphs = 2
         TabOrder = 1

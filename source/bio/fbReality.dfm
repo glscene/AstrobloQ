@@ -84,7 +84,7 @@ object fmReality: TfmReality
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = '&'#1043#1054#1059
+        Caption = 'GO'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -19
@@ -120,7 +120,7 @@ object fmReality: TfmReality
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = '&'#1057#1058#1054#1055
+        Caption = 'STOP'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -19
@@ -351,7 +351,7 @@ object fmReality: TfmReality
           Margins.Bottom = 5
           Align = alLeft
           BevelOuter = bvNone
-          Caption = #1042#1088#1077#1084#1103':'
+          Caption = 'Time'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clTeal
           Font.Height = -23
@@ -391,7 +391,7 @@ object fmReality: TfmReality
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1044#1077#1090#1077#1082#1090#1086#1088' '#1089#1090#1086#1083#1082#1085#1086#1074#1077#1085#1080#1081
+          Caption = 'Collisions'
           ParentShowHint = False
           ShowHint = True
           TabOrder = 2
@@ -399,7 +399,7 @@ object fmReality: TfmReality
         end
         object cbAI: TCheckBox
           Left = 273
-          Top = 0
+          Top = 2
           Width = 246
           Height = 30
           Hint = 'Run ai code for objects.'
@@ -407,7 +407,7 @@ object fmReality: TfmReality
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1048#1089#1082#1091#1089#1089#1090#1074#1077#1085#1085#1099#1081' '#1080#1085#1090#1077#1083#1083#1077#1082#1090
+          Caption = 'Artificial Intelligence'
           ParentShowHint = False
           ShowHint = False
           TabOrder = 3
@@ -437,7 +437,7 @@ object fmReality: TfmReality
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = '&'#1042#1067#1061#1054#1044
+        Caption = 'EXIT'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -19
@@ -469,38 +469,38 @@ object fmReality: TfmReality
     Left = 574
     Top = 65522
     object File1: TMenuItem
-      Caption = '&'#1060#1072#1081#1083
+      Caption = 'File'
       object menuNewReality: TMenuItem
-        Caption = '&'#1053#1086#1074#1099#1081' '#1084#1080#1088
+        Caption = 'New world'
         OnClick = menuNewRealityClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object Load1: TMenuItem
-        Caption = '&'#1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1084#1080#1088'...'
+        Caption = 'Load world...'
         OnClick = Load1Click
       end
       object menuSave: TMenuItem
-        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1084#1080#1088
+        Caption = 'Save world'
         OnClick = menuSaveClick
       end
       object SaveAs1: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1084#1080#1088' &'#1082#1072#1082'...'
+        Caption = 'Save world as...'
         OnClick = SaveAs1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Quit1: TMenuItem
-        Caption = '&'#1042#1099#1093#1086#1076
+        Caption = 'Exit'
         OnClick = Quit1Click
       end
     end
     object Add1: TMenuItem
-      Caption = '&'#1044#1086#1073#1072#1074#1080#1090#1100
+      Caption = 'Add'
       object Object1: TMenuItem
-        Caption = #1054#1073#1098#1077#1082#1090
+        Caption = 'Object'
         Enabled = False
         object Apple1: TMenuItem
           Caption = 'Apple'
@@ -517,7 +517,7 @@ object fmReality: TfmReality
       end
     end
     object View1: TMenuItem
-      Caption = '&'#1042#1080#1076
+      Caption = 'View'
       object menuMonitor: TMenuItem
         Caption = '&Desktop'
         Visible = False
@@ -556,7 +556,7 @@ object fmReality: TfmReality
       end
     end
     object Run1: TMenuItem
-      Caption = '&'#1055#1091#1089#1082
+      Caption = 'Start'
       object menuGo: TMenuItem
         Caption = '&Go!'
         OnClick = menuGoClick
@@ -567,18 +567,18 @@ object fmReality: TfmReality
       end
     end
     object Net1: TMenuItem
-      Caption = '&'#1057#1074#1103#1079#1100
+      Caption = 'Network'
       object AllowCommunication1: TMenuItem
-        Caption = #1056#1072#1079#1088#1077#1096#1080#1090#1100' '#1082#1086#1084#1084#1091#1085#1080#1082#1072#1094#1080#1080
+        Caption = 'Allow communications'
         Enabled = False
       end
       object AllowInterNetTravel1: TMenuItem
-        Caption = #1056#1072#1079#1088#1077#1096#1080#1090#1100' '#1087#1091#1090#1077#1096#1077#1089#1090#1074#1080#1103
+        Caption = 'Allow travels'
         Enabled = False
       end
     end
     object Set1: TMenuItem
-      Caption = '&'#1054#1087#1094#1080#1080
+      Caption = 'Options'
       object TimeMode1: TMenuItem
         Caption = '&Time Mode'
         object menuSetTimeTicking: TMenuItem
@@ -593,13 +593,13 @@ object fmReality: TfmReality
         end
       end
       object Names1: TMenuItem
-        Caption = '&'#1048#1084#1103
+        Caption = 'Name'
         object menuEnvironmentName: TMenuItem
-          Caption = #1048#1084#1103' '#1087#1083#1072#1085#1077#1090#1099
+          Caption = 'Planet name'
           OnClick = menuEnvironmentNameClick
         end
         object menuCreatorName: TMenuItem
-          Caption = #1048#1084#1103' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+          Caption = 'User name'
           OnClick = menuCreatorNameClick
         end
       end
@@ -608,7 +608,7 @@ object fmReality: TfmReality
         OnClick = ReloadDNA1Click
       end
       object menuMax: TMenuItem
-        Caption = '&'#1052#1072#1082#1089#1080#1084#1091#1084#1099
+        Caption = 'Maxims'
         OnClick = menuMaxClick
       end
       object menuSettings: TMenuItem
@@ -616,12 +616,12 @@ object fmReality: TfmReality
         OnClick = menuSettingsClick
       end
       object AAsteroids1: TMenuItem
-        Caption = '&'#1040#1089#1090#1077#1088#1086#1080#1076#1099
+        Caption = 'Asteroids'
         OnClick = AAsteroids1Click
       end
     end
     object About1: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = 'Help'
       object menuReadme: TMenuItem
         Caption = '&Readme'
         OnClick = menuReadmeClick
@@ -635,7 +635,7 @@ object fmReality: TfmReality
         OnClick = ipoftheDay1Click
       end
       object menuKeyboard: TMenuItem
-        Caption = #1059'&'#1087#1088#1072#1074#1083#1077#1085#1080#1077
+        Caption = 'Management'
         OnClick = menuKeyboardClick
       end
       object Restore1: TMenuItem
@@ -647,7 +647,7 @@ object fmReality: TfmReality
         Caption = '-'
       end
       object About2: TMenuItem
-        Caption = #1054' &'#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'About...'
         OnClick = About2Click
       end
     end

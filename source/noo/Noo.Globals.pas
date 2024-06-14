@@ -44,12 +44,6 @@ type
   PrefFile = file of PrefRecord;
 
 var
-  IniFile: TIniFile;
-  // Выбор русского языка интерфейса перенести в опции
-  isEnglish: Boolean = False;
-  LangID: INTEGER;
-  CurLang: string = 'ru'; // Current default is 'en', localized is 'ru' etc.
-
   PreRcd: PrefRecord;
   HiddenString, StartedNameNumber: String;
 

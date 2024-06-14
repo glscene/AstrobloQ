@@ -3,26 +3,23 @@ inherited FormMonitor: TFormMonitor
   ClientHeight = 573
   ClientWidth = 854
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 870
   ExplicitHeight = 612
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
-    Top = 490
+    Top = 510
     Width = 854
-    Height = 83
+    Height = 63
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitWidth = 1096
     object ButtonOk: TButton
       Left = 687
-      Top = 24
+      Top = 10
       Width = 131
       Height = 44
       Margins.Left = 5
@@ -38,7 +35,7 @@ inherited FormMonitor: TFormMonitor
     Left = 0
     Top = 0
     Width = 183
-    Height = 490
+    Height = 510
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -46,5 +43,6 @@ inherited FormMonitor: TFormMonitor
     Align = alLeft
     Indent = 33
     TabOrder = 1
+    ExplicitHeight = 465
   end
 end

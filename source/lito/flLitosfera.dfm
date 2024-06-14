@@ -88705,26 +88705,26 @@ object FormLitosfera: TFormLitosfera
     object miView: TMenuItem
       Caption = '&View'
       object miViewConstlines: TMenuItem
-        Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+        Caption = 'Constellines'
         OnClick = miViewConstlinesClick
       end
       object miViewConstborders: TMenuItem
-        Caption = #1043#1088#1072#1085#1080#1094#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+        Caption = 'Constelborders'
         OnClick = miViewConstbordersClick
       end
       object N4: TMenuItem
         Caption = '-'
       end
       object miViewHidePanels: TMenuItem
-        Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
+        Caption = 'Hide panels'
         OnClick = miViewHidePanelsClick
       end
       object miShowHidePlanet: TMenuItem
-        Caption = #1057#1082#1088#1099#1090#1100' '#1087#1083#1072#1085#1077#1090#1091
+        Caption = 'Hide planet'
         OnClick = miShowHidePlanetClick
       end
       object miClearTreeView: TMenuItem
-        Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1089#1087#1080#1089#1086#1082
+        Caption = 'Clear'
         Enabled = False
         OnClick = miClearTreeViewClick
       end
@@ -88732,21 +88732,21 @@ object FormLitosfera: TFormLitosfera
         Caption = '-'
       end
       object miPlanetSkyDome: TMenuItem
-        Caption = #1053#1077#1073#1086#1089#1074#1086#1076
+        Caption = 'Skydome'
         OnClick = miPlanetSkyDomeClick
       end
       object NightLights1: TMenuItem
-        Caption = #1054#1075#1085#1080' '#1075#1086#1088#1086#1076#1086#1074
+        Caption = 'City lights'
       end
     end
     object miMonitor: TMenuItem
       Caption = '&Monitor'
       object miSolarSystem: TMenuItem
-        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        Caption = 'Solar system...'
         OnClick = miSolarSystemClick
       end
       object miExoSystem: TMenuItem
-        Caption = #1069#1082#1079#1086#1089#1080#1089#1090#1077#1084#1072'...'
+        Caption = 'Exosystem...'
         OnClick = miExoSystemClick
       end
       object N1: TMenuItem
@@ -88756,21 +88756,21 @@ object FormLitosfera: TFormLitosfera
     object miTools: TMenuItem
       Caption = '&Tools'
       object miSettings: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+        Caption = 'Settings...'
         OnClick = miSettingsClick
       end
       object N7: TMenuItem
         Caption = '-'
       end
       object miExogen: TMenuItem
-        Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1089#1080#1089#1090#1077#1084'...'
+        Caption = 'Exosystem generator...'
         OnClick = miExogenClick
       end
     end
     object Help1: TMenuItem
       Caption = '&Help'
       object miHelpWiki: TMenuItem
-        Caption = #1042#1080#1082#1080'...'
+        Caption = 'Ruwiki...'
         Hint = 'Information'
         ShortCut = 112
         OnClick = miHelpWikiClick

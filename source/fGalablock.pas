@@ -436,7 +436,7 @@ begin
       MemoTable.Lines.LoadFromFile(DataModuleDialogs.OpenTextFileDialog.FileName)
     else
       // Otherwise, raise an exception.
-      raise Exception.Create('File not exists');
+      raise Exception.Create(_('File not exists'));
 
   (*
     if DataModuleDialogs.OpenDialog.Execute() then
@@ -492,14 +492,6 @@ end;
 procedure TFormGalablock.miSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;
-{
-  with TFormSettings.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-}
 end;
 
 procedure TFormGalablock.Monitor1Click(Sender: TObject);
@@ -542,8 +534,8 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    Top := IniFile.ReadInteger(Name, 'Top', 100);
-    Left := IniFile.ReadInteger(Name, 'Left', 200);
+    Top := IniFile.ReadInteger(FormGalablock.Name, 'Top', 100);
+    Left := IniFile.ReadInteger(FormGalablock.Name, 'Left', 200);
   finally
     IniFile.Free;
   end;
@@ -556,9 +548,9 @@ var
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(Name, 'Top', Top);
-    IniFile.WriteInteger(Name, 'Left', Left);
-    // IniFile.WriteBool(Name, 'InitMax', WindowState = wsMaximized);
+    IniFile.WriteInteger(FormGalablock.Name, 'Top', Top);
+    IniFile.WriteInteger(FormGalablock.Name, 'Left', Left);
+    // IniFile.WriteBool(FormGalablock.Name, 'InitMax', WindowState = wsMaximized);
   finally
     IniFile.Free;
   end;

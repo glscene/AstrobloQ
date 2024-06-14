@@ -6,7 +6,7 @@ object FormHeightField: TFormHeightField
   Margins.Right = 4
   Margins.Bottom = 4
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = #1058#1077#1087#1083#1086#1074#1086#1077' '#1087#1086#1083#1077
+  Caption = 'Height field'
   ClientHeight = 524
   ClientWidth = 904
   Color = clBtnFace
@@ -84,7 +84,7 @@ object FormHeightField: TFormHeightField
         Margins.Top = 6
         Margins.Right = 6
         Margins.Bottom = 6
-        Caption = #1047#1072#1082#1088#1099#1090#1100
+        Caption = 'Close'
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -115,7 +115,7 @@ object FormHeightField: TFormHeightField
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = #1054#1089#1080
+      Caption = 'Axis'
       Checked = True
       State = cbChecked
       TabOrder = 2
@@ -167,7 +167,7 @@ object FormHeightField: TFormHeightField
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = #1057#1074#1077#1090
+      Caption = 'Light'
       Checked = True
       State = cbChecked
       TabOrder = 5

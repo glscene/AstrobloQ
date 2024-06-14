@@ -110,12 +110,12 @@
         <DCCReference Include="source\uMoveCamera.pas"/>
         <DCCReference Include="source\uSkyBodies.pas"/>
         <DCCReference Include="source\noo\Noo.BoneUtils.pas"/>
-        <DCCReference Include="source\noo\fnRobot.pas">
+        <DCCReference Include="source\teh\ftRobot.pas">
             <Form>FormLoadSmdMdl</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\noo\fnCyborg.pas">
-            <Form>FormKiborg</Form>
+        <DCCReference Include="source\teh\ftCyborg.pas">
+            <Form>FormCyborg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\noo\fnMeshEditor.pas">
@@ -126,11 +126,11 @@
             <Form>FormMeshData</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\noo\fnMehanizm.pas">
+        <DCCReference Include="source\teh\ftTehnosfera.pas">
             <Form>FormMehanizm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\noo\fnStarPilot.pas">
+        <DCCReference Include="source\teh\ftStarPilot.pas">
             <Form>FormSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -146,6 +146,11 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="source\fGLForm.pas">
+            <Form>FormGL</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\uGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

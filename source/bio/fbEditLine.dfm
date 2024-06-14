@@ -20,13 +20,13 @@ object FormEditLine: TFormEditLine
   object labName: TLabel
     Left = 32
     Top = 21
-    Width = 36
+    Width = 51
     Height = 24
     Margins.Left = 6
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = #1048#1084#1103
+    Caption = 'Name'
   end
   object edLine: TEdit
     Left = 32
@@ -61,7 +61,6 @@ object FormEditLine: TFormEditLine
     Margins.Top = 6
     Margins.Right = 6
     Margins.Bottom = 6
-    Caption = #1054#1090#1084#1077#1085#1072
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 2

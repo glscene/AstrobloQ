@@ -46,7 +46,7 @@ type
     CheckBoxSaveProject: TCheckBox;
     tsDisplay: TTabSheet;
     LabelBackground: TLabel;
-    CheckBoxAxes: TCheckBox;
+    CheckBoxAxis: TCheckBox;
     PanelBackground: TPanel;
     CheckBoxCoordinates: TCheckBox;
     cbxTwoSideLighting: TCheckBox;
@@ -155,10 +155,10 @@ type
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
-    GroupBox3: TGroupBox;
-    CheckBox5: TCheckBox;
-    CheckBox6: TCheckBox;
-    CheckBox7: TCheckBox;
+    GroupBoxConstellations: TGroupBox;
+    CheckBoxConstFigures: TCheckBox;
+    CheckBoxConstLines: TCheckBox;
+    CheckBoxConstBorders: TCheckBox;
     procedure tvSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);

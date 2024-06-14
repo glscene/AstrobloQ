@@ -1,4 +1,4 @@
-object FormKiborg: TFormKiborg
+object FormCyborg: TFormCyborg
   Left = 126
   Top = 77
   HelpContext = 8000
@@ -6,7 +6,7 @@ object FormKiborg: TFormKiborg
   Margins.Top = 4
   Margins.Right = 4
   Margins.Bottom = 4
-  Caption = #1050#1080#1073#1086#1088#1075
+  Caption = 'Cyborg'
   ClientHeight = 729
   ClientWidth = 1245
   Color = clBtnFace
@@ -224,16 +224,16 @@ object FormKiborg: TFormKiborg
     end
     object Label15: TLabel
       Left = 1
-      Top = 680
-      Width = 389
-      Height = 48
+      Top = 704
+      Width = 166
+      Height = 24
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
       Align = alBottom
       Alignment = taCenter
-      Caption = #1056#1072#1089#1087#1086#1083#1072#1075#1072#1081#1090#1077' Cube 1 '#1080' Cube 2 are '#1074' '#1086#1076#1085#1086#1084' '#1085#1072#1087#1088#1072#1074#1083#1077#1085#1080#1080
+      Caption = 'Place cubes on line'
       Color = clGray
       ParentColor = False
       WordWrap = True
@@ -303,7 +303,7 @@ object FormKiborg: TFormKiborg
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = #1057#1082#1077#1083#1077#1090#1085#1072#1103' '#1072#1085#1080#1084#1072#1094#1080#1103
+      Caption = 'Skeleton animation'
       TabOrder = 1
       OnClick = CheckBox1Click
     end
@@ -312,13 +312,12 @@ object FormKiborg: TFormKiborg
       Top = 14
       Width = 393
       Height = 43
-      Hint = 'open me'
       HelpContext = 8000
       Margins.Left = 6
       Margins.Top = 6
       Margins.Right = 6
       Margins.Bottom = 6
-      Caption = #1055#1088#1080#1075#1083#1072#1089#1080#1090#1100' Actor+Animations from a .QC File'
+      Caption = 'Actor+Animations from a .QC File'
       TabOrder = 0
       OnClick = Button1Click
     end

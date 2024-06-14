@@ -5,7 +5,7 @@ object FormSettings: TFormSettings
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080
+  Caption = 'Settings'
   ClientHeight = 648
   ClientWidth = 432
   Color = clBtnFace
@@ -21,13 +21,13 @@ object FormSettings: TFormSettings
   object Label3: TLabel
     Left = 21
     Top = 21
-    Width = 233
+    Width = 157
     Height = 24
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1059#1089#1090#1072#1085#1072#1086#1074#1082#1080' '#1087#1088#1086#1075#1088#1072#1084#1084#1099
+    Caption = 'Program settings'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -38,13 +38,13 @@ object FormSettings: TFormSettings
   object Label1: TLabel
     Left = 21
     Top = 138
-    Width = 92
+    Width = 64
     Height = 24
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1047#1072#1089#1090#1072#1074#1082#1072
+    Caption = 'Splash'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -55,13 +55,13 @@ object FormSettings: TFormSettings
   object Label2: TLabel
     Left = 21
     Top = 301
-    Width = 112
+    Width = 81
     Height = 24
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1048#1085#1090#1077#1088#1092#1077#1081#1089
+    Caption = 'Interface'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -78,7 +78,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1087#1083#1072#1085#1077#1090#1091' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
+    Caption = 'Load planet on start'
     TabOrder = 0
     OnClick = cbLoadOnStartupClick
   end
@@ -91,7 +91,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1040#1074#1090#1086#1089#1086#1093#1088#1072#1085#1077#1085#1080#1077' '#1085#1072' '#1074#1099#1093#1086#1076#1077
+    Caption = 'Autosave on exit'
     Enabled = False
     TabOrder = 1
     OnClick = cbAutosaveClick
@@ -144,7 +144,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
+    Caption = 'Show at start'
     TabOrder = 3
     OnClick = cbSplashStartClick
   end
@@ -157,7 +157,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
+    Caption = 'Show on exit'
     TabOrder = 4
     OnClick = cbSplashExitClick
   end
@@ -222,7 +222,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1087#1088#1072#1074#1082#1091' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
+    Caption = 'Show help at start'
     TabOrder = 9
     OnClick = cbTipOfTheDayClick
   end
@@ -235,7 +235,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1055#1086#1084#1085#1080#1090#1100' '#1088#1072#1079#1084#1088' 3D '#1074#1080#1076#1072
+    Caption = 'Remember size of 3D'
     TabOrder = 10
     OnClick = cbRememberViewClick
   end
@@ -249,7 +249,7 @@ object FormSettings: TFormSettings
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    Caption = #1056#1072#1089#1096#1080#1088#1077#1085#1085#1099#1081' '#1088#1077#1078#1080#1084
+    Caption = 'Advanced mode'
     ParentShowHint = False
     ShowHint = True
     TabOrder = 11

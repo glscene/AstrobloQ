@@ -123,7 +123,7 @@
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="src\dImages.pas">
+        <DCCReference Include="source\dImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
