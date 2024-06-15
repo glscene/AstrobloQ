@@ -3,7 +3,7 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Galablock.dproj">
+        <Projects Include="Galaktika.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Litosfera.dproj">
@@ -26,14 +26,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Galablock">
-        <MSBuild Projects="Galablock.dproj"/>
+    <Target Name="Galaktika">
+        <MSBuild Projects="Galaktika.dproj"/>
     </Target>
-    <Target Name="Galablock:Clean">
-        <MSBuild Projects="Galablock.dproj" Targets="Clean"/>
+    <Target Name="Galaktika:Clean">
+        <MSBuild Projects="Galaktika.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galablock:Make">
-        <MSBuild Projects="Galablock.dproj" Targets="Make"/>
+    <Target Name="Galaktika:Make">
+        <MSBuild Projects="Galaktika.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Litosfera.dproj"/>
@@ -72,13 +72,13 @@
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galablock;Litosfera;Biosfera;Noosfera;Tehnosfera"/>
+        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Noosfera;Tehnosfera"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galablock:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean"/>
+        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galablock:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make"/>
+        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

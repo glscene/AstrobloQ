@@ -5,7 +5,7 @@ object FormGalablock: TFormGalablock
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galablock'
+  Caption = 'Galaktika'
   ClientHeight = 838
   ClientWidth = 1352
   Color = clBtnFace
@@ -103939,7 +103939,7 @@ object FormGalablock: TFormGalablock
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svHelios
-    FormCaption = 'Galablock - %FPS'
+    FormCaption = 'Galaktika - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

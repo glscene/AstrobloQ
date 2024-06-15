@@ -1,9 +1,9 @@
-program Galablock;
+program Galaktika;
 
 
 uses
   Vcl.Forms,
-  fGalablock in 'source\fGalablock.pas' {FormGalablock},
+  fGalaktika in 'source\fGalaktika.pas' {FormGalablock},
   dImages in 'source\dImages.pas' {DataModuleImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},
   uGlobals in 'source\uGlobals.pas',

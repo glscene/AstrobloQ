@@ -8,6 +8,7 @@ The po files could be created, edited and used in the next way:
 - Download dxgettext-1.2.2.exe from http://sourceforge.net/projects/dxgettext/ 
   and install it on your computer. For Windows users there will be corresponding items 
   inserted to Explorer's menu. 
+- Upgraded version at https://gitverse.ru/glscene/dxGettext.
 - Extract captions, text strings and hints from pas/cpp/dfm files in your project's directory  
   to insert it to a template default.po file. Right click by mouse button on appropriate folder opened in PoEditor.
 - Merge your project's templete default.po file with main translated samples.po file 

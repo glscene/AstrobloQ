@@ -163,8 +163,8 @@ implementation
 {$R *.dfm}
 
 uses
-  GnuGettext,
-  fGalablock;
+  gnuGettext,
+  fGalaktika;
 
 
 //--------------------------------------------------------------------

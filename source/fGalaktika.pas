@@ -1,4 +1,4 @@
-unit fGalablock;
+unit fGalaktika;
 
 interface
 

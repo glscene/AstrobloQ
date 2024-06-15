@@ -58,8 +58,8 @@ begin
     Textdomain('astrobloq');
     BindTextDomain ('astrobloq', LocalePath);
   *)
-    Textdomain('galablock');
-    BindTextDomain ('galablock', LocalePath);
+    Textdomain('galaktika');
+    BindTextDomain ('galaktika', LocalePath);
     AddDomainForResourceString('language');
     BindTextDomain ('language', LocalePath);
     case LangID of
