@@ -111,7 +111,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\lito\flStarSystem.pas">
+        <DCCReference Include="source\lito\flStellarSystem.pas">
             <Form>FormStarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -136,6 +136,10 @@
         <DCCReference Include="source\uSkyBodies.pas"/>
         <DCCReference Include="source\lito\flAbout.pas">
             <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fGLForm.pas">
+            <Form>FormGL</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

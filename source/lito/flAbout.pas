@@ -18,7 +18,8 @@ uses
   Vcl.Imaging.jpeg,
   Vcl.ComCtrls,
   Vcl.Imaging.pngimage,
-  Vcl.Buttons;
+  Vcl.Buttons, GLS.BaseClasses, GLS.Scene, GLS.SceneViewer, GLS.SkyDome,
+  GLS.Objects, GLS.Coordinates;
 
 type
   TFormAbout = class(TForm)
@@ -35,6 +36,13 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    tsCubemap: TTabSheet;
+    GLSceneViewer: TGLSceneViewer;
+    GLScene: TGLScene;
+    Camera: TGLCamera;
+    LightSource: TGLLightSource;
+    DummyCube: TGLDummyCube;
+    SkyDome: TGLSkyDome;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);

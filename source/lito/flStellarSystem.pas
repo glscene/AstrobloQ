@@ -1,4 +1,4 @@
-unit flStarSystem;
+unit flStellarSystem;
 
 interface
 
@@ -150,6 +150,8 @@ type
     N1: TMenuItem;
     N2: TMenuItem;
     N3: TMenuItem;
+    Help1: TMenuItem;
+    About1: TMenuItem;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);

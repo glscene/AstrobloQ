@@ -57,9 +57,10 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
+  gnuGettext,
   dImages,
   flSolarSystem,
-  flStarSystem,
+  flStellarSystem,
   flGenExosys,
   flAbout,
   flSettings;
@@ -174,7 +175,7 @@ type
     mx, my,
     dmx, dmy: Integer;
     DataDir, StarDir, CurrentStar: TFileName;
-    FileName, CatalogName: TFileName;
+    PlanetPath, CatalogName: TFileName;
     procedure LoadConstLines;
     procedure LoadConstBounds;
     // Цвет атмосферы
@@ -244,7 +245,7 @@ begin
   sfPlanet.Material.Texture.Disabled := False;
   sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 
-  // планетоглыба
+  // планетоид
   acPlanet.Material.Texture.Disabled := False;
   acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
   acPlanet.Scale.Scale(0.1);
@@ -273,14 +274,14 @@ begin
   miShowHidePlanet.Checked := not miShowHidePlanet.Checked;
   if miShowHidePlanet.Checked then
   begin
-    miShowHidePlanet.Caption := 'Показать планету';
+    miShowHidePlanet.Caption := _('Show planet');
     sfPlanet.Visible := False;
     ffPlanet.Visible := False;
     DirectOpenGL.Visible := False;
   end
   else
   begin
-    miShowHidePlanet.Caption := 'Скрыть планету';
+    miShowHidePlanet.Caption := _('Hide planet');
     sfPlanet.Visible := True;
     ffPlanet.Visible := True;
     DirectOpenGL.Visible := True;
@@ -295,11 +296,11 @@ procedure TFormLitosfera.PlanetCore;
 begin
   if FormSettings.chbPlanetCore.Checked then
   begin
-    FileName := CurrentStar + tvPlanets.Selected.Text;
-    if FileExists(FileName + '_core.jpg') then
-      diskMantle.Material.Texture.Image.LoadFromFile(FileName + '_core.jpg')
+    PlanetPath := CurrentStar + tvPlanets.Selected.Text;
+    if FileExists(PlanetPath + '_core.jpg') then
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
-      diskMantle.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     sfPlanet.Stop := 180;
     Atmosphere.Visible := False;
   end
@@ -318,7 +319,7 @@ begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
   if miViewHidePanels.Checked then
   begin
-    miViewHidePanels.Caption := 'Показать панели';
+    miViewHidePanels.Caption := _('Show panels');
     PanelLeft.Visible := False;
     StatusBar.Visible := False;
     ControlBar.Visible := False;
@@ -327,7 +328,7 @@ begin
   end
   else
   begin
-    miViewHidePanels.Caption := 'Скрыть панели';
+    miViewHidePanels.Caption := _('Hide panels');
     PanelLeft.Visible := True;
     StatusBar.Visible := True;
     ControlBar.Visible := True;
@@ -343,7 +344,7 @@ end;
 //------------------------------------------------------------------
 procedure TFormLitosfera.tvPlanetsClick(Sender: TObject);
 begin
-  FileName := CurrentStar + tvPlanets.Selected.Text;
+  PlanetPath := CurrentStar + tvPlanets.Selected.Text;
 
 //  В случае загрузки текстурной карты из компонента коллекции
 //  tvPlanets.Images := dfImages.ImgVirtPlanets;
@@ -352,11 +353,11 @@ begin
   if tvPlanets.Selected.StateIndex = -1 then
   begin
     sfPlanet.Visible := True;
-    sfPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+    sfPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
 
     // Aктор модель с поддержкой октодеревьев !
     acPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
-    acPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+    acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     // изменяем масштаб отображения планеты
     end
   else  // StateIndex = 1
@@ -364,8 +365,8 @@ begin
   begin
     sfPlanet.Visible := False;
 
-    acPlanet.LoadFromFile(FileName + '.3ds');
-    acPlanet.Material.Texture.Image.LoadFromFile(FileName + '.jpg');
+    acPlanet.LoadFromFile(PlanetPath + '.3ds');
+    acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     // уменьшение масштаба
     Camera.TagObject := acPlanet;
 
@@ -385,9 +386,9 @@ begin
   // Кольца планет - planet rings
   if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
   begin
-    diskRingUp.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
+    diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
     diskRingUp.Visible := True;
-    diskRingDn.Material.Texture.Image.LoadFromFile(FileName  + '_ring.png');
+    diskRingDn.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
     diskRingDn.Visible := True;
   end
   else
@@ -396,10 +397,10 @@ begin
     diskRingDn.Visible := False;
   end;
 
-  miHelpWiki.Caption := tvPlanets.Selected.Text + ' в ' + 'Рувики...';
+  miHelpWiki.Caption := tvPlanets.Selected.Text + _('in Ruwiki');
 
   // Земная атмосфера
-  if (tvPlanets.Selected.Text = 'Earth') then
+  if tvPlanets.Selected.Text = 'Earth' then
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
@@ -948,35 +949,40 @@ begin
 end;
 
 //------------------------------------------------------------------
-//  miOpenFile with exoplanets
+//  miOpenFile with Planet system
 //------------------------------------------------------------------
 procedure TFormLitosfera.miFileOpenClick(Sender: TObject);
+var
+  I, J: Integer;
 begin
-  OpenDialog.Filter := 'Экзосистема (*.star)|*.star';
+  OpenDialog.Filter := 'Planet system (*.star)|*.star';
   OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
   begin  // переход к новой звезде Star
-    tvPlanets.LoadFromFile(OpenDialog.FileName);
+    tvPlanets.LoadFromFile(OpenDialog.FileName, TEncoding.UTF8);
     // tvPlanets.Images := dfImages.ImgVirtPlanets; // не загружаются символы
     CurrentStar := ExtractFilePath(OpenDialog.FileName);
+
+    // Заполнение индексов узлов дерева планет
+    for I := 0 to tvPlanets.Items.Count - 1 do
+    begin
+      tvPlanets.Items[I].ImageIndex := I; // and may be .Item[J] ?
+      tvPlanets.Items[I].SelectedIndex := I;
+      tvPlanets.Items[I].StateIndex := -1;
+    end;
+    (**)
     tvPlanets.Select(tvPlanets.Items[0]);
     tvPlanetsClick(Sender);
   end;
 end;
 
 //------------------------------------------------------------------
-procedure TFormLitosfera.miSettingsClick(Sender: TObject);
-begin
-  FormSettings.Show;
-end;
-
-//------------------------------------------------------------------
-// Сохранение системы как exosystem
+// miFileSaveAs Planet system
 //------------------------------------------------------------------
 procedure TFormLitosfera.miFileSaveAsClick(Sender: TObject);
 begin
-  SaveDialog.Filter := 'Экзосистема (*.star)|*.star';
+  SaveDialog.Filter := 'Planet system (*.star)|*.star';
   SaveDialog.InitialDir := StarDir;
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
@@ -984,6 +990,12 @@ begin
     tvPlanets.SaveToFile(SaveDialog.FileName);
     CurrentStar := GetCurrentDir();
   end;
+end;
+
+//------------------------------------------------------------------
+procedure TFormLitosfera.miSettingsClick(Sender: TObject);
+begin
+  FormSettings.Show;
 end;
 
 
@@ -996,7 +1008,7 @@ var
 begin
   if (tvPlanets.Selected.Level = 0)   then  // Planets, sometimes S + '_(planet)' e.g. ../Mercury_(planet)
 ///    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
-    S :=  'https://ru.ruwiki.ru/wiki/' + 'Земля' // tvPlanets.Selected.Text must be translated to ru
+    S :=  'https://ru.ruwiki.ru/wiki/' + _('Earth') // tvPlanets.Selected.Text must be translated to ru
   else  // Moons
     S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
 ///    S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text;

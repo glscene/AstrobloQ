@@ -10,13 +10,15 @@ uses
   Vcl.Controls,
   Vcl.BaseImageCollection,
   Vcl.ImageCollection,
-  Vcl.VirtualImageList;
+  Vcl.VirtualImageList, GLS.BaseClasses, GLS.Material;
 
 type
   TDataModuleImages = class(TDataModule)
-    ImgCollectionPlanets: TImageCollection;
-    ImgVirtPlanets: TVirtualImageList;
+    PlanetSymbols: TImageCollection;
+    VirtPlanetSymbols: TVirtualImageList;
     ImageListInterface: TImageList;
+    PlanetMaps: TImageCollection;
+    GLPlanetMaps: TGLMaterialLibrary;
   private
   public
   end;

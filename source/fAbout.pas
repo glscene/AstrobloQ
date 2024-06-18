@@ -27,9 +27,7 @@ type
     Panel1: TPanel;
     PageControl: TPageControl;
     tsInfo: TTabSheet;
-    Panel2: TPanel;
     tsDevelopers: TTabSheet;
-    ImageGalaxy: TImage;
     tsTools: TTabSheet;
     DelphiButton: TSpeedButton;
     OGLImage: TImage;
@@ -37,6 +35,8 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    ImageGalaxy: TImage;
+    Label1: TLabel;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);

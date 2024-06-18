@@ -15,14 +15,15 @@ uses
   Forms,
   flLitosfera in 'source\lito\flLitosfera.pas' {FormLitosfera},
   flParams in 'source\lito\flParams.pas' {FrameParams: TFrame},
-  flStarSystem in 'source\lito\flStarSystem.pas' {FormStarSys},
+  flStellarSystem in 'source\lito\flStellarSystem.pas' {FormStarSys},
   flSolarSystem in 'source\lito\flSolarSystem.pas' {FormSolarSys},
   flSettings in 'source\lito\flSettings.pas' {FormSettings},
   dImages in 'source\dImages.pas' {DataModuleImages: TDataModule},
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
   uMoveCamera in 'source\uMoveCamera.pas',
   uSkyBodies in 'source\uSkyBodies.pas',
-  flAbout in 'source\lito\flAbout.pas' {FormAbout};
+  flAbout in 'source\lito\flAbout.pas' {FormAbout},
+  fGLForm in 'source\fGLForm.pas' {FormGL};
 
 {$R *.res}
 
@@ -33,5 +34,6 @@ begin
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormAbout, FormAbout);
+  Application.CreateForm(TFormGL, FormGL);
   Application.Run;
 end.

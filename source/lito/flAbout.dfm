@@ -47,7 +47,7 @@ object FormAbout: TFormAbout
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsInfo
+    ActivePage = tsCubemap
     Align = alClient
     TabOrder = 1
     object tsInfo: TTabSheet
@@ -11292,6 +11292,58 @@ object FormAbout: TFormAbout
         Margins.Bottom = 5
         Caption = 'Danil Wasilyev'
         TabOrder = 2
+      end
+    end
+    object tsCubemap: TTabSheet
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Caption = 'Cubemap'
+      ImageIndex = 3
+      object GLSceneViewer: TGLSceneViewer
+        Left = 0
+        Top = 0
+        Width = 1123
+        Height = 749
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Camera = Camera
+        FieldOfView = 164.790664672851600000
+        PenAsTouch = False
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+  end
+  object GLScene: TGLScene
+    Left = 186
+    Top = 224
+    object Camera: TGLCamera
+      DepthOfView = 100.000000000000000000
+      FocalLength = 50.000000000000000000
+    end
+    object LightSource: TGLLightSource
+      ConstAttenuation = 1.000000000000000000
+      SpotCutOff = 180.000000000000000000
+    end
+    object DummyCube: TGLDummyCube
+      CubeSize = 1.000000000000000000
+      object SkyDome: TGLSkyDome
+        Bands = <
+          item
+            StartColor.Color = {0000803F0000803F0000803F0000803F}
+            StopAngle = 15.000000000000000000
+          end
+          item
+            StartAngle = 15.000000000000000000
+            StopAngle = 90.000000000000000000
+            StopColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
+            Stacks = 4
+          end>
+        Stars = <>
       end
     end
   end

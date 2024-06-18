@@ -15,9 +15,6 @@ uses
 const
   SELDIRHELP: INTEGER = 180;
 
-var
-  LangID: Word;
-
 type
   PrefRecord = record
     // first line of file serves as Version ID

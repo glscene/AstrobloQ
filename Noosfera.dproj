@@ -151,6 +151,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\uGlobals.pas"/>
+        <DCCReference Include="source\teh\Teh.BoneUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -3,27 +3,27 @@ cls
 
 set LANG=C
 
-echo Extracting texts from source dir to d:\astronomy\astrobloq\default.po
+rem extracting texts from source dir to ..\..\astrobloq\default.po
 
-echo -r ...if apply for all subdirs
-dxgettext -b d:\astronomy\astrobloq\source --delphi --useignorepo
+echo -r ...if applied for all subdirs
+dxgettext -b source --delphi --useignorepo
 
-echo Updating Russian translations
-pushd d:\astronomy\astrobloq\locale\ru\LC_MESSAGES
+echo updating Russian translations
+pushd locale\ru\LC_MESSAGES
 copy default.po default-backup.po
 ren default.po default-old.po
 
 echo Merging
-msgmergedx default-old.po d:\astronomy\astrobloq\default.po -o default.po
+msgmergedx default-old.po ..\..\..\default.po -o default.po
 del default-old.po
 del default-backup.po
 
-echo copy default.po astrobloq.po ...if apply for all projects
+rem copy default.po astrobloq.po ...if applied for all projects
 copy default.po galaktika.po
 
 popd
 
-del d:\astronomy\astrobloq\default.po
+del default.po
 
 pause
 

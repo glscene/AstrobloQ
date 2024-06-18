@@ -67,7 +67,7 @@ object FormLitosfera: TFormLitosfera
       Align = alClient
       AutoExpand = True
       HideSelection = False
-      Images = DataModuleImages.ImgVirtPlanets
+      Images = DataModuleImages.VirtPlanetSymbols
       Indent = 33
       TabOrder = 0
       OnClick = tvPlanetsClick
@@ -88745,12 +88745,12 @@ object FormLitosfera: TFormLitosfera
         Caption = 'Solar system...'
         OnClick = miSolarSystemClick
       end
-      object miExoSystem: TMenuItem
-        Caption = 'Exosystem...'
-        OnClick = miExoSystemClick
-      end
       object N1: TMenuItem
         Caption = '-'
+      end
+      object miExoSystem: TMenuItem
+        Caption = 'Stellar system...'
+        OnClick = miExoSystemClick
       end
     end
     object miTools: TMenuItem

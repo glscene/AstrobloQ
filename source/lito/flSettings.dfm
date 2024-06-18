@@ -180,7 +180,7 @@ object FormSettings: TFormSettings
           State = cbChecked
           TabOrder = 4
         end
-        object rgLang: TRadioGroup
+        object rgLanguage: TRadioGroup
           Left = 47
           Top = 392
           Width = 573
@@ -190,12 +190,14 @@ object FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Language'
-          Columns = 2
+          Columns = 3
           ItemIndex = 0
           Items.Strings = (
             'English'
-            'Russia')
+            'Russia'
+            'Spanish')
           TabOrder = 5
+          OnClick = rgLanguageClick
         end
         object cbSplashStart: TCheckBox
           Left = 669
@@ -1864,8 +1866,6 @@ object FormSettings: TFormSettings
         FFFFFFFFFFFF0000000000000000000000000001071F043B0430043D04350442
         044B0400002B0000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000106220440043004410441043004}
-      ExplicitLeft = -1
-      ExplicitTop = 0
     end
   end
   object PanelTop: TPanel

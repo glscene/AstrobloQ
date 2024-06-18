@@ -28,10 +28,12 @@ uses
   Vcl.Samples.Gauges,
   Vcl.CheckLst,
   Vcl.WinXCtrls,
-  Vcl.NumberBox;
+  Vcl.NumberBox,
+
+  fGLForm;
 
 type
-  TFormSettings = class(TForm)
+  TFormSettings = class(TFormGL)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -61,7 +63,7 @@ type
     tsPlanets: TTabSheet;
     LabelDiameter: TLabel;
     ColorGrid1: TColorGrid;
-    rgLang: TRadioGroup;
+    rgLanguage: TRadioGroup;
     cbSplashStart: TCheckBox;
     tsGeneral: TTabSheet;
     tsFlights: TTabSheet;
@@ -166,8 +168,11 @@ type
     procedure ButtonCalculateClick(Sender: TObject);
     procedure chbPlanetCoreClick(Sender: TObject);
     procedure chbAtmosferaClick(Sender: TObject);
+    procedure rgLanguageClick(Sender: TObject);
   private
-    //
+    CurLangID : Word;
+    procedure ReadIniFile; override;
+    procedure WriteIniFile;
   public
     //
     Node: TTreeNode;
@@ -237,6 +242,17 @@ begin
   trbVelocityChange(Self);
 end;
 
+procedure TFormSettings.rgLanguageClick(Sender: TObject);
+begin
+  case rgLanguage.ItemIndex of
+    0: CurLangID := LANG_ENGLISH;
+    1: CurLangID := LANG_RUSSIAN;
+    2: CurLangID := LANG_SPANISH;
+    else
+      CurLangID := LANG_ENGLISH;
+  end;
+end;
+
 procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin
   tvSettings.Items[6].DropHighlighted := False;
@@ -252,6 +268,19 @@ begin
   end;
 end;
 
+
+//------------------------------------------------------------
+procedure TFormSettings.ReadIniFile;
+begin
+  inherited;
+  //
+end;
+
+//------------------------------------------------------------
+procedure TFormSettings.WriteIniFile;
+begin
+//
+end;
 
 //---------------------------------------------------------------
 // Расчёт числа цивилизаций в МП по ноосферной формуле Дрейка

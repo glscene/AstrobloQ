@@ -22,7 +22,8 @@ uses
   fnNoosfera in 'source\noo\fnNoosfera.pas' {FormNoosfera},
   fnAbout in 'source\noo\fnAbout.pas' {FormAbout},
   fGLForm in 'source\fGLForm.pas' {FormGL},
-  uGlobals in 'source\uGlobals.pas';
+  uGlobals in 'source\uGlobals.pas',
+  Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas';
 
 {$R *.res}
 

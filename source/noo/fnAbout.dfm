@@ -6,7 +6,7 @@ object FormAbout: TFormAbout
   Margins.Right = 5
   Margins.Bottom = 5
   BorderStyle = bsDialog
-  Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
+  Caption = 'About'
   ClientHeight = 893
   ClientWidth = 1131
   Color = clBtnFace
@@ -55,7 +55,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      Caption = 'Info'
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -3741,7 +3741,6 @@ object FormAbout: TFormAbout
             A28A0028A28A0028A28A0028A28A00FFD9}
           Stretch = True
           OnClick = ImagePlanetsClick
-          OnDblClick = ImagePlanetsDblClick
           ExplicitLeft = 322
           ExplicitTop = -242
           ExplicitWidth = 365
@@ -3754,7 +3753,7 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      Caption = 'Instruments'
       ImageIndex = 2
       object DelphiButton: TSpeedButton
         Left = 675
@@ -11255,30 +11254,56 @@ object FormAbout: TFormAbout
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
+      Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
-      object MemoDevelopers: TMemo
-        Left = 0
-        Top = 0
-        Width = 1123
-        Height = 749
+      object StaticText1: TStaticText
+        Left = 490
+        Top = 28
+        Width = 137
+        Height = 34
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Align = alClient
-        Alignment = taCenter
-        Lines.Strings = (
-          'Pavel Vassiliev'
-          'Eric Hardinger'
-          'Ivan Lee Herring'
-          'Alexandre Hirzel'
-          'Dave Kerr'
-          'Lev Koptyaev'
-          'Liza Soboleva'
-          'Danil Wasilyev')
+        Caption = 'Pavel Vassiliev'
         TabOrder = 0
+      end
+      object StaticText2: TStaticText
+        Left = 490
+        Top = 72
+        Width = 126
+        Height = 34
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'Lev Koptyaev'
+        TabOrder = 1
+      end
+      object StaticText3: TStaticText
+        Left = 490
+        Top = 116
+        Width = 156
+        Height = 34
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'Ivan Lee Herring'
+        TabOrder = 2
+      end
+      object StaticText4: TStaticText
+        Left = 490
+        Top = 160
+        Width = 139
+        Height = 34
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'Danil Wasilyev'
+        TabOrder = 3
       end
     end
   end

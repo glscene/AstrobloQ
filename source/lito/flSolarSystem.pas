@@ -48,6 +48,7 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
   GLS.Utils,
+  gnuGettext,
 
   flSettings,
   flParams;
@@ -291,9 +292,9 @@ begin
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := 'Скрыть панели'
+     miHidePanels.Caption := _('Hide panels')
    else
-    miHidePanels.Caption := 'Показать панели';
+    miHidePanels.Caption := _('Show panels');
 end;
 
 procedure TFormSolarSys.miInnerCoreClick(Sender: TObject);

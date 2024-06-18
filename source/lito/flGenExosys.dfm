@@ -5,9 +5,9 @@ object FormGenPlanetsys: TFormGenPlanetsys
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084
-  ClientHeight = 831
-  ClientWidth = 1306
+  Caption = 'Stellar system generator'
+  ClientHeight = 877
+  ClientWidth = 1316
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -50,8 +50,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
   object GLSceneViewerA: TGLSceneViewer
     Left = 604
     Top = 0
-    Width = 702
-    Height = 797
+    Width = 712
+    Height = 843
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -60,7 +60,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
     BeforeRender = GLSceneViewerABeforeRender
     Buffer.BackgroundColor = clBackground
     Buffer.AmbientColor.Color = {9A99193F9A99193F9A99193F0000803F}
-    FieldOfView = 163.785507202148400000
+    FieldOfView = 164.010269165039100000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewerAMouseEnter
     Align = alClient
@@ -69,23 +69,26 @@ object FormGenPlanetsys: TFormGenPlanetsys
     OnMouseDown = GLSceneViewerAMouseDown
     OnMouseUp = GLSceneViewerAMouseUp
     TabOrder = 1
+    ExplicitWidth = 707
+    ExplicitHeight = 822
   end
   object SolarDataPanel: TPanel
     Left = 0
     Top = 0
     Width = 604
-    Height = 797
+    Height = 843
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 797
     object ToolBarGB: TGroupBox
       Left = 1
       Top = 1
       Width = 602
-      Height = 795
+      Height = 841
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -94,29 +97,30 @@ object FormGenPlanetsys: TFormGenPlanetsys
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
+      ExplicitHeight = 795
       object Label2: TLabel
         Left = 35
         Top = 177
-        Width = 55
+        Width = 58
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1051#1091#1085#1099' :'
+        Caption = 'Moons'
         ParentShowHint = False
         ShowHint = False
       end
       object Label6: TLabel
         Left = 44
         Top = 140
-        Width = 75
+        Width = 48
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1050#1086#1083#1100#1094#1072' :'
+        Caption = 'Rings'
         ParentShowHint = False
         ShowHint = False
       end
@@ -135,13 +139,13 @@ object FormGenPlanetsys: TFormGenPlanetsys
       object Label22: TLabel
         Left = 14
         Top = 714
-        Width = 67
+        Width = 66
         Height = 24
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1050#1072#1084#1077#1088#1072
+        Caption = 'Camera'
       end
       object TimeLabel: TLabel
         Left = 14
@@ -205,7 +209,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Caption = '1.00'
       end
       object SunShineLabel: TLabel
-        Left = 462
+        Left = 476
         Top = 770
         Width = 30
         Height = 24
@@ -343,7 +347,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1054#1088#1073#1080#1090#1072' '
+        Caption = 'Orbit'
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
@@ -635,21 +639,21 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1054#1073#1098#1077#1082#1090
+        Caption = 'Object'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
         object MoonsLabel: TLabel
-          Left = 69
+          Left = 66
           Top = 240
-          Width = 55
+          Width = 58
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = #1051#1091#1085#1099' :'
+          Caption = 'Moons'
         end
         object lbRings: TLabel
           Left = 66
@@ -664,28 +668,28 @@ object FormGenPlanetsys: TFormGenPlanetsys
           Caption = 'Rings :'
         end
         object lbRadius: TLabel
-          Left = 16
+          Left = 24
           Top = 68
-          Width = 108
+          Width = 100
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = #1056#1072#1076#1080#1091#1089' ('#1082#1084'):'
+          Caption = 'Radius (km)'
         end
         object lbRotation: TLabel
-          Left = 8
+          Left = 6
           Top = 110
-          Width = 122
+          Width = 124
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taRightJustify
-          Caption = #1056#1086#1090#1072#1094#1080#1103' ('#1095#1072#1089')'
+          Caption = 'Rotation (hour)'
         end
         object lbAxisTilt: TLabel
           Left = 54
@@ -702,13 +706,13 @@ object FormGenPlanetsys: TFormGenPlanetsys
         object Label10: TLabel
           Left = 70
           Top = 25
-          Width = 41
+          Width = 51
           Height = 24
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1048#1084#1103':'
+          Caption = 'Name'
         end
         object Label17: TLabel
           Left = 28
@@ -968,15 +972,15 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1085#1077#1073#1077#1089#1085#1099#1093' '#1090#1077#1083
+        Caption = 'Celectial bodies'
         Columns = 5
         ItemIndex = 0
         Items.Strings = (
-          #1047#1074#1077#1079#1076#1072
-          #1055#1083#1072#1085#1077#1090#1099
-          #1040#1089#1090#1077#1088#1086#1080#1076#1099
-          #1050#1086#1084#1077#1090#1099
-          #1044#1077#1073#1088#1080#1089)
+          'Star'
+          'Planets'
+          'Asteroids'
+          'Comets'
+          'Debris')
         ParentShowHint = False
         ShowHint = False
         TabOrder = 2
@@ -1213,7 +1217,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
       object SunShineCB: TCheckBox
         Left = 340
         Top = 770
-        Width = 112
+        Width = 126
         Height = 30
         Hint = 'Sun Shine On'
         Margins.Left = 5
@@ -1722,8 +1726,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 797
-    Width = 1306
+    Top = 843
+    Width = 1316
     Height = 34
     Margins.Left = 5
     Margins.Top = 5
@@ -1733,6 +1737,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
       item
         Width = 150
       end>
+    ExplicitTop = 797
+    ExplicitWidth = 1306
   end
   object GLCadencerA: TGLCadencer
     Scene = GLSceneA
@@ -1741,8 +1747,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
     Top = 114
   end
   object GLMaterialLibraryA: TGLMaterialLibrary
-    Left = 488
-    Top = 16
+    Left = 600
+    Top = 282
   end
   object GLSceneA: TGLScene
     ObjectsSorting = osNone
@@ -1814,17 +1820,17 @@ object FormGenPlanetsys: TFormGenPlanetsys
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 600
-    Top = 16
+    Left = 1006
+    Top = 184
   end
   object SaveDialog: TSaveDialog
-    Left = 600
-    Top = 80
+    Left = 824
+    Top = 332
   end
   object TimerA: TTimer
     OnTimer = TimerATimer
-    Left = 600
-    Top = 144
+    Left = 614
+    Top = 410
   end
   object PopupMenuA: TPopupMenu
     Left = 680
@@ -1973,8 +1979,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
     Font.Height = -20
     Font.Name = 'Arial'
     Font.Style = [fsBold]
-    Left = 488
-    Top = 72
+    Left = 824
+    Top = 450
   end
   object FontDialogA: TFontDialog
     Font.Charset = DEFAULT_CHARSET
@@ -1982,8 +1988,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Left = 672
-    Top = 16
+    Left = 1036
+    Top = 310
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner

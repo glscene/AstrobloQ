@@ -17,7 +17,6 @@ uses
   Vcl.Menus,
   Vcl.ExtDlgs,
 
-  uGlobals,
   gnuGettext;
 
 type
@@ -25,6 +24,7 @@ type
     procedure FormCreate(Sender: TObject);
   private
   public
+    LangID: Word;
     procedure ReadIniFile; virtual;
     procedure SetLanguage;
   end;

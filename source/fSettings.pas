@@ -183,13 +183,6 @@ begin
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
 
-  // «аполнение индексов узлов дерева установок
-  for I := 0 to tvSettings.Items.Count - 1 do
-  begin
-    tvSettings.Items[I].ImageIndex := 0;
-    tvSettings.Items[I].SelectedIndex := 1;
-    tvSettings.Items[I].StateIndex := I;
-  end;
   // Items:
   tvSettings.Items[0].Text := _('General');
   tvSettings.Items[1].Text := _('Interface');
@@ -199,6 +192,14 @@ begin
   tvSettings.Items[5].Text := _('Stars');
   tvSettings.Items[6].Text := _('Planets');
   tvSettings.Items[7].Text := _('Pathway');
+
+  // «аполнение индексов узлов дерева установок
+  for I := 0 to tvSettings.Items.Count - 1 do
+  begin
+    tvSettings.Items[I].ImageIndex := 0;
+    tvSettings.Items[I].SelectedIndex := 1;
+    tvSettings.Items[I].StateIndex := I;
+  end;
 
   tvSettings.Select(tvSettings.Items[1]);
   tvSettings.Items[1].DropHighlighted := True;
