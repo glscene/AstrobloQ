@@ -3,9 +3,7 @@ cls
 
 set LANG=C
 
-rem extracting texts from source dir to ..\..\astrobloq\default.po
-
-echo -r ...if applied for all subdirs
+rem -r ...if applied for all subdirs of astrobloq
 dxgettext -b source --delphi --useignorepo
 
 echo updating Russian translations

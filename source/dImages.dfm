@@ -19688,31 +19688,43 @@ object DataModuleImages: TDataModuleImages
   object GLPlanetMaps: TGLMaterialLibrary
     Materials = <
       item
-        Name = 'LibMaterial'
+        Name = 'Sun'
         Tag = 0
       end
       item
-        Name = 'LibMaterial1'
+        Name = 'Mercury'
         Tag = 0
       end
       item
-        Name = 'LibMaterial2'
+        Name = 'Venus'
         Tag = 0
       end
       item
-        Name = 'LibMaterial3'
+        Name = 'Earth'
         Tag = 0
       end
       item
-        Name = 'LibMaterial4'
+        Name = 'Mars'
         Tag = 0
       end
       item
-        Name = 'LibMaterial5'
+        Name = 'Jupiter'
         Tag = 0
       end
       item
-        Name = 'LibMaterial6'
+        Name = 'Saturn'
+        Tag = 0
+      end
+      item
+        Name = 'Uranus'
+        Tag = 0
+      end
+      item
+        Name = 'Neptune'
+        Tag = 0
+      end
+      item
+        Name = 'Pluto'
         Tag = 0
       end>
     Left = 424

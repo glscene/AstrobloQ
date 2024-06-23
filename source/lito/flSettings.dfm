@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -346,584 +346,6 @@ object FormSettings: TFormSettings
         Caption = 'Galaxy'
         ImageIndex = 4
         TabVisible = False
-        object LabelDiameter: TLabel
-          Left = 226
-          Top = 32
-          Width = 223
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1044#1080#1072#1084#1077#1090#1088' '#1043#1072#1083#1072#1082#1090#1080#1082#1080', l.y.'
-        end
-        object nbGxDiameter: TNumberBox
-          Left = 530
-          Top = 32
-          Width = 156
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Alignment = taCenter
-          Decimal = 0
-          TabOrder = 0
-          Value = 100000.000000000000000000
-          SpinButtonOptions.ButtonWidth = 30
-        end
-        object grbDrakeFormula: TGroupBox
-          Left = 28
-          Top = 80
-          Width = 939
-          Height = 583
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = '                  '#1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1085#1086#1086#1089#1092#1077#1088' '#1094#1080#1074#1080#1083#1080#1079#1072#1094#1080#1081
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -28
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          object Label7: TLabel
-            Left = 58
-            Top = 236
-            Width = 720
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Nc - '#1095#1080#1089#1083#1086' '#1094#1080#1074#1080#1083#1080#1079#1072#1094#1080#1081' '#1074' '#1076#1072#1085#1085#1099#1081' '#1084#1086#1084#1077#1085#1090' '#1074#1088#1077#1084#1077#1085#1080
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label8: TLabel
-            Left = 58
-            Top = 284
-            Width = 394
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Ns - '#1095#1080#1089#1083#1086' '#1079#1074#1105#1079#1076' '#1074' '#1043#1072#1083#1072#1082#1090#1080#1082#1077
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label9: TLabel
-            Left = 58
-            Top = 332
-            Width = 614
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fl - '#1080#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080' '#1087#1083#1072#1085#1077#1090
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label10: TLabel
-            Left = 58
-            Top = 380
-            Width = 528
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fb - '#1080#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1087#1083#1072#1085#1077#1090' '#1089' '#1073#1080#1086#1089#1092#1077#1088#1072#1084#1080
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label11: TLabel
-            Left = 58
-            Top = 428
-            Width = 527
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fn - '#1080#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1087#1083#1072#1085#1077#1090' '#1089' '#1085#1086#1086#1089#1092#1077#1088#1072#1084#1080
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label12: TLabel
-            Left = 59
-            Top = 476
-            Width = 732
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Lc - '#1089#1088#1077#1076#1085#1077#1077' '#1074#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1094#1080#1074#1080#1083#1080#1079#1072#1094#1080#1080' '#1089' '#1085#1086#1086#1089#1092#1077#1088#1086#1081
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clRed
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object Label13: TLabel
-            Left = 59
-            Top = 526
-            Width = 614
-            Height = 38
-            Hint = 'Number of civilisations'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Ls - '#1089#1088#1077#1076#1085#1077#1077' '#1074#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1079#1074#1105#1079#1076' '#1089' '#1087#1083#1072#1085#1077#1090#1072#1084#1080
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clRed
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-          end
-          object PanelDrake: TPanel
-            Left = 28
-            Top = 36
-            Width = 869
-            Height = 189
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            TabOrder = 0
-            object Label5: TLabel
-              Left = 30
-              Top = 20
-              Width = 35
-              Height = 38
-              Hint = 'Number of civilisations'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Nc'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbEquals: TLabel
-              Left = 103
-              Top = 20
-              Width = 20
-              Height = 38
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '='
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbNs: TLabel
-              Left = 170
-              Top = 20
-              Width = 34
-              Height = 38
-              Hint = 'Number of stars'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Ns'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbMult1: TLabel
-              Left = 257
-              Top = 20
-              Width = 13
-              Height = 38
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '*'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbMult2: TLabel
-              Left = 376
-              Top = 20
-              Width = 13
-              Height = 38
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '*'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbMult3: TLabel
-              Left = 509
-              Top = 20
-              Width = 13
-              Height = 38
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '*'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbMult4: TLabel
-              Left = 649
-              Top = 19
-              Width = 13
-              Height = 38
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '*'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbFl: TLabel
-              Left = 309
-              Top = 20
-              Width = 23
-              Height = 38
-              Hint = 'Fraction of stars with lithospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Fl'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbFb: TLabel
-              Left = 429
-              Top = 20
-              Width = 32
-              Height = 38
-              Hint = 'Fraction of planets with biospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Fb'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object kbFn: TLabel
-              Left = 570
-              Top = 20
-              Width = 32
-              Height = 38
-              Hint = 'Fraction of planets with noospheres'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Fn'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object lbLc: TLabel
-              Left = 710
-              Top = 19
-              Width = 27
-              Height = 38
-              Hint = 'Lifetime of Noosphere'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Lc'
-              Color = clRed
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-            end
-            object lbLs: TLabel
-              Left = 783
-              Top = 19
-              Width = 26
-              Height = 38
-              Hint = 'Lifetime of a star'
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = 'Ls'
-              Color = clRed
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-            end
-            object lbDivide: TLabel
-              Left = 747
-              Top = 19
-              Width = 12
-              Height = 38
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = '/'
-              Color = clRed
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -28
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-            end
-            object ButtonCalculate: TButton
-              Left = 14
-              Top = 126
-              Width = 250
-              Height = 43
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Caption = #1042#1099#1095#1080#1089#1083#1080#1090#1100
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 0
-              OnClick = ButtonCalculateClick
-            end
-            object stNc: TStaticText
-              Left = 14
-              Top = 68
-              Width = 85
-              Height = 33
-              Hint = #1063#1080#1089#1083#1086' '#1094#1080#1074#1080#1083#1080#1079#1072#1094#1080#1081
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              AutoSize = False
-              BorderStyle = sbsSunken
-              Caption = '1'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = [fsBold]
-              ParentFont = False
-              TabOrder = 1
-            end
-            object EditLc: TEdit
-              Left = 672
-              Top = 67
-              Width = 183
-              Height = 38
-              Hint = #1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1085#1086#1086#1089#1092#1077#1088#1099
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -21
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 2
-              Text = '10000'
-              TextHint = 'Avarage life time for civilisation'
-            end
-            object EditLs: TEdit
-              Left = 672
-              Top = 109
-              Width = 183
-              Height = 38
-              Hint = #1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1079#1074#1077#1079#1076#1099
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clRed
-              Font.Height = -21
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 3
-              Text = '10000000000'
-              TextHint = 'Mean lifitime for planet'
-            end
-            object EditNs: TEdit
-              Left = 116
-              Top = 68
-              Width = 171
-              Height = 39
-              Hint = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 4
-              Text = '400000000000'
-            end
-            object EditFl: TEdit
-              Left = 297
-              Top = 68
-              Width = 69
-              Height = 39
-              Hint = #1044#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 5
-              Text = '0.1'
-            end
-            object EditFb: TEdit
-              Left = 418
-              Top = 68
-              Width = 69
-              Height = 39
-              Hint = #1048#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1087#1083#1072#1085#1077#1090' '#1089' '#1073#1080#1086#1089#1092#1077#1088#1072#1084#1080
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 6
-              Text = '0.1'
-            end
-            object EditFn: TEdit
-              Left = 544
-              Top = 68
-              Width = 69
-              Height = 39
-              Hint = #1048#1079' '#1085#1080#1093' '#1076#1086#1083#1103' '#1087#1083#1072#1085#1077#1090' '#1089' '#1085#1086#1086#1089#1092#1077#1088#1072#1084#1080
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
-              Alignment = taCenter
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -23
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-              TabOrder = 7
-              Text = '0.01'
-            end
-          end
-        end
       end
       object tsStars: TTabSheet
         Margins.Left = 5
@@ -1043,67 +465,67 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1057#1083#1086#1080', '#1076#1086#1083#1080' '#1076#1080#1072#1084#1077#1090#1088#1072
+          Caption = 'Layers'
           TabOrder = 0
           object LabelIce: TLabel
             Left = 42
             Top = 70
-            Width = 36
+            Width = 27
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1051#1105#1076
+            Caption = 'Ice'
           end
           object LabelWater: TLabel
             Left = 42
             Top = 126
-            Width = 46
+            Width = 55
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1042#1086#1076#1072
+            Caption = 'Water'
           end
           object LabelCrust: TLabel
             Left = 42
             Top = 182
-            Width = 47
+            Width = 48
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1050#1086#1088#1072
+            Caption = 'Crust'
           end
           object LabelMantle: TLabel
             Left = 42
-            Top = 235
-            Width = 74
+            Top = 233
+            Width = 65
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1052#1072#1085#1090#1080#1103
+            Caption = 'Mantle'
           end
           object LabelCore: TLabel
             Left = 42
             Top = 302
-            Width = 47
+            Width = 43
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1071#1076#1088#1086
+            Caption = 'Core'
           end
           object nbIce: TNumberBox
             Left = 168
@@ -1195,7 +617,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1055#1086#1082#1072#1079#1072#1090#1077#1083#1080
+          Caption = 'Options'
           TabOrder = 1
           object chbRotate: TCheckBox
             Left = 57
@@ -1206,7 +628,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1042#1088#1072#1097#1077#1085#1080#1077
+            Caption = 'Rotation'
             Checked = True
             State = cbChecked
             TabOrder = 0
@@ -1221,7 +643,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1054#1089#1080
+            Caption = 'Axis'
             TabOrder = 1
             StyleName = 'Windows'
           end
@@ -1234,7 +656,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1047#1072#1090#1077#1085#1077#1085#1080#1077
+            Caption = 'Shading'
             TabOrder = 2
             StyleName = 'Windows'
           end
@@ -1247,7 +669,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1071#1076#1088#1086
+            Caption = 'Core'
             TabOrder = 3
             StyleName = 'Windows'
             OnClick = chbPlanetCoreClick
@@ -1261,7 +683,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1057#1077#1090#1082#1072
+            Caption = 'Grid'
             TabOrder = 4
           end
           object chbAtmosfera: TCheckBox
@@ -1273,7 +695,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
+            Caption = 'Atmosphere'
             TabOrder = 5
             StyleName = 'Windows'
             OnClick = chbAtmosferaClick
@@ -1288,7 +710,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1047#1077#1084#1083#1080
+          Caption = 'Earth params'
           TabOrder = 2
           object LabelPlanetTilt: TLabel
             Left = 14
@@ -1853,19 +1275,19 @@ object FormSettings: TFormSettings
       OnClick = tvSettingsClick
       Items.NodeData = {
         070800000009540054007200650065004E006F00640065002D00000000000000
-        00000000FFFFFFFFFFFFFFFF00000000000000000000000000010713043B0430
-        0432043D044B0435040000310000000000000000000000FFFFFFFFFFFFFFFF00
-        000000000000000000000000010918043D044204350440044404350439044104
+        00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
+        006500720061006C000000310000000000000000000000FFFFFFFFFFFFFFFF00
+        000000000000000000000000010949006E007400650072006600610063006500
         00002D0000000000000000000000FFFFFFFFFFFFFFFF02000000000000000000
-        00000001071404380441043F043B043504390400002F00000000000000000000
-        00FFFFFFFFFFFFFFFF0400000000000000000000000001081C04300442043504
-        4004380430043B040000310000000000000000000000FFFFFFFFFFFFFFFF0000
-        00000000000000000000000109130430043B0430043A04420438043A04300400
-        002B0000000000000000000000FFFFFFFFFFFFFFFF0000000000000000000000
-        00000106170432045104370434044B0400002D0000000000000000000000FFFF
-        FFFFFFFFFFFF0000000000000000000000000001071F043B0430043D04350442
-        044B0400002B0000000000000000000000FFFFFFFFFFFFFFFF00000000000000
-        0000000000000106220440043004410441043004}
+        000000010744006900730070006C006100790000002F00000000000000000000
+        00FFFFFFFFFFFFFFFF0400000000000000000000000001085400650078007400
+        750072006500730000002B0000000000000000000000FFFFFFFFFFFFFFFF0000
+        00000000000000000000000106470061006C0061007800790000002900000000
+        00000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001055300
+        740061007200730000002D0000000000000000000000FFFFFFFFFFFFFFFF0000
+        0000000000000000000000010750006C0061006E0065007400730000002D0000
+        000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000000107
+        5000610074006800770061007900}
     end
   end
   object PanelTop: TPanel

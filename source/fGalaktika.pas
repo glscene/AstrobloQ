@@ -90,10 +90,10 @@ type
     miRuwiki: TMenuItem;
     miAbout: TMenuItem;
     miN6: TMenuItem;
-    camGalaxy: TGLCamera;
+    camGalacube: TGLCamera;
     LightGal: TGLLightSource;
-    dcGalaxy: TGLDummyCube;
-    dcHelios: TGLDummyCube;
+    dcGalacube: TGLDummyCube;
+    dcSolcube: TGLDummyCube;
     ArrowZ: TGLArrowLine;
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
@@ -108,12 +108,9 @@ type
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     PageControl1: TPageControl;
-    tsSolcube: TTabSheet;
     tsGalacube: TTabSheet;
-    svGalaxy: TGLSceneViewer;
-    tvGalaxy: TTreeView;
     svHelios: TGLSceneViewer;
-    camHelios: TGLCamera;
+    camSolcube: TGLCamera;
     LightSol: TGLLightSource;
     GLSimpleNavigation: TGLSimpleNavigation;
     dcAxis: TGLDummyCube;
@@ -229,7 +226,6 @@ begin
   TP_GlobalIgnoreClass(TFont);
   TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
 
-  tvGalaxy.FullExpand;
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
@@ -247,8 +243,8 @@ end;
 procedure TFormGalablock.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  dcGalaxy.Turn(0.001);
-  dcHelios.Roll(0.001);
+  dcGalacube.Turn(0.001);
+  dcSolcube.Roll(0.001);
   dcAxis.Turn(0.001);
 end;
 
@@ -261,7 +257,7 @@ var
   clrStar: TGLColorVector;
 
 begin
-  dotStars := TGLPoints(dcHelios.AddNewChild(TGLPoints));
+  dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
   dotStars.Size := 5.0;
   dotStars.Style := psSmooth;
 
@@ -365,7 +361,7 @@ end;
 
 procedure TFormGalablock.ButtonClearClick(Sender: TObject);
 begin
-  dcHelios.DeleteChildren();
+  dcSolcube.DeleteChildren();
   svHelios.Invalidate();
 end;
 
@@ -400,7 +396,7 @@ end;
 
 procedure TFormGalablock.ToolButton1Click(Sender: TObject);
 begin
-  dcGalaxy.Visible := not dcGalaxy.Visible;
+  dcGalacube.Visible := not dcGalacube.Visible;
 end;
 
 // -------------------------------------------------------------
@@ -418,7 +414,7 @@ var
   sl, tl: TStringList;
 
 begin
-  dcHelios.DeleteChildren();
+  dcSolcube.DeleteChildren();
   svHelios.Invalidate();
 
   sl := TStringList.Create;

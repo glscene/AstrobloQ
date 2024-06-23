@@ -105,15 +105,15 @@ object FormGalablock: TFormGalablock
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsSolcube
+    ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    object tsSolcube: TTabSheet
+    object tsGalacube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Solcube'
+      Caption = 'Galacube'
       object svHelios: TGLSceneViewer
         Left = 0
         Top = 0
@@ -123,7 +123,7 @@ object FormGalablock: TFormGalablock
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Camera = camHelios
+        Camera = camSolcube
         Buffer.BackgroundColor = clBlack
         FieldOfView = 154.496566772460900000
         PenAsTouch = False
@@ -708,58 +708,6 @@ object FormGalablock: TFormGalablock
         end
       end
     end
-    object tsGalacube: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = 'Galacube'
-      ImageIndex = 1
-      object svGalaxy: TGLSceneViewer
-        Left = 0
-        Top = 0
-        Width = 1147
-        Height = 707
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Camera = camGalaxy
-        Buffer.BackgroundColor = clBlack
-        FieldOfView = 154.496566772460900000
-        PenAsTouch = False
-        Align = alClient
-        OnMouseDown = svGalaxyMouseDown
-        OnMouseUp = svGalaxyMouseUp
-        TabOrder = 0
-      end
-      object tvGalaxy: TTreeView
-        Left = 1147
-        Top = 0
-        Width = 197
-        Height = 707
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Align = alRight
-        Indent = 33
-        TabOrder = 1
-        Items.NodeData = {
-          070200000009540054007200650065004E006F00640065002900000000000000
-          00000000FFFFFFFFFFFFFFFF000000000000000000000000000105420075006C
-          00670065000000250000000000000000000000FFFFFFFFFFFFFFFF0000000000
-          00000000050000000103410072006D0000002D0000000000000000000000FFFF
-          FFFFFFFFFFFF0000000000000000000000000001075000650072006300650075
-          0073000000270000000000000000000000FFFFFFFFFFFFFFFF00000000000000
-          00000000000001045300770061006E000000310000000000000000000000FFFF
-          FFFFFFFFFFFF000000000000000000000000000109430065006E007400610075
-          007200750073000000350000000000000000000000FFFFFFFFFFFFFFFF000000
-          00000000000000000000010B5300610067006900740074006100720069007500
-          73000000290000000000000000000000FFFFFFFFFFFFFFFF0000000000000000
-          000000000001054F00720069006F006E00}
-      end
-    end
     object tsDatacat: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -802,10 +750,10 @@ object FormGalablock: TFormGalablock
   object GLScene: TGLScene
     Left = 163
     Top = 201
-    object camGalaxy: TGLCamera
+    object camGalacube: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
-      TargetObject = dcGalaxy
+      TargetObject = dcGalacube
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0000FA440000FA440000FA440000803F}
       object LightGal: TGLLightSource
@@ -813,10 +761,10 @@ object FormGalablock: TFormGalablock
         SpotCutOff = 180.000000000000000000
       end
     end
-    object camHelios: TGLCamera
+    object camSolcube: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
-      TargetObject = dcHelios
+      TargetObject = dcSolcube
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {00002F4400002F44000061440000803F}
       object LightSol: TGLLightSource
@@ -824,7 +772,7 @@ object FormGalablock: TFormGalablock
         SpotCutOff = 180.000000000000000000
       end
     end
-    object dcHelios: TGLDummyCube
+    object dcSolcube: TGLDummyCube
       Direction.Coordinates = {000000000000803F0000000000000000}
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1000.000000000000000000
@@ -930,8 +878,9 @@ object FormGalablock: TFormGalablock
         CharacterRange = stcrAlphaNum
       end
     end
-    object dcGalaxy: TGLDummyCube
-      CubeSize = 1.000000000000000000
+    object dcGalacube: TGLDummyCube
+      CubeSize = 100000.000000000000000000
+      VisibleAtRunTime = True
       object diskGalaxy: TGLDisk
         Material.MaterialLibrary = GLMatLib
         Material.LibMaterialName = 'Milkyway'

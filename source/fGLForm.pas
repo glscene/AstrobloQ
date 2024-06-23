@@ -101,6 +101,7 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
+      // use correct argument names
       LangID := ReadInteger('FormSettings', 'rgLanguage', 0);
     finally
       IniFile.Free;
