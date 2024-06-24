@@ -4,7 +4,7 @@ program Galaktika;
 uses
   Vcl.Forms,
   fGalaktika in 'source\fGalaktika.pas' {FormGalablock},
-  dImages in 'source\dImages.pas' {DataModuleImages: TDataModule},
+  dImages in 'source\dImages.pas' {dmImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},
   uGlobals in 'source\uGlobals.pas',
   fSettings in 'source\fSettings.pas' {FormSettings},
@@ -23,7 +23,7 @@ begin
 
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TFormGalablock, FormGalablock);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleBase, DataModuleBase);

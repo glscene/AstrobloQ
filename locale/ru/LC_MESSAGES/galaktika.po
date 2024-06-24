@@ -1,10 +1,12 @@
 #
 #, fuzzy
 msgid ""
-msgstr "Project-Id-Version: \n"
+msgstr ""
+"Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-06-18 23:36+0300\n"
-"Last-Translator: Somebody <your.email@address.com>\n"
+"PO-Revision-Date: 2024-06-24 14:47+0300\n"
+"Last-Translator: Somebody <your.email@address."
+"com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,36 +20,28 @@ msgid "About"
 msgstr "О программе"
 
 #. FormAbout..Font.Name
-#: fAbout.dfm:16
 #. FormAbout..PageControl..tsInfo..Label1..Font.Name
-#: fAbout.dfm:56212
 #. FormGalablock..Font.Name
-#: fGalaktika.dfm:15
 #. FormGalablock..PageControl1..tsDatacat..DBGrid..TitleFont.Name
-#: fGalaktika.dfm:783
 #. FormSettings..PanelMain..PageControl..tsGalaxy..LabelDs..Font.Name
-#: fSettings.dfm:442
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Font.Name
-#: fSettings.dfm:491
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNs..Font.Name
-#: fSettings.dfm:509
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNt..Font.Name
-#: fSettings.dfm:529
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Font.Name
-#: fSettings.dfm:549
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFb..Font.Name
-#: fSettings.dfm:569
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFn..Font.Name
-#: fSettings.dfm:589
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFt..Font.Name
-#: fSettings.dfm:609
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..LabelDt..Font.Name
-#: fSettings.dfm:629
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFp..Font.Name
-#: fSettings.dfm:649
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Font.Name
-#: fSettings.dfm:668
 #. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Font.Name
+#: fAbout.dfm:16 fAbout.dfm:56212 fGalaktika.dfm:15
+#: fGalaktika.dfm:768 fSettings.dfm:442
+#: fSettings.dfm:491 fSettings.dfm:509
+#: fSettings.dfm:529 fSettings.dfm:549
+#: fSettings.dfm:569 fSettings.dfm:589
+#: fSettings.dfm:609 fSettings.dfm:629
+#: fSettings.dfm:649 fSettings.dfm:668
 #: fSettings.dfm:1176
 msgid "Segoe UI"
 msgstr ""
@@ -108,11 +102,9 @@ msgid "Star trek"
 msgstr "Стар трек"
 
 #. FormAnalyzer..PanelBottom..ButtonOk..Caption
-#: fAnalyzer.dfm:192
 #. FormMonitor..PanelBottom..ButtonOk..Caption
-#: fMonitor.dfm:29
 #. FormSettings..PanelBottom..ButtonOk..Caption
-#: fSettings.dfm:33
+#: fAnalyzer.dfm:192 fMonitor.dfm:29 fSettings.dfm:33
 msgid "Ok"
 msgstr "ОК"
 
@@ -121,302 +113,284 @@ msgstr "ОК"
 msgid "Galaktika"
 msgstr ""
 
-#. FormGalablock..ControlBar1..ToolBar1..ToolButton1..Caption
-#: fGalaktika.dfm:75
-msgid "ToolButton1"
+#. FormGalablock..ControlBar..tbView..tbShowSolcube..Hint
+#: fGalaktika.dfm:109
+msgid "Show solcube"
 msgstr ""
 
-#. FormGalablock..ControlBar1..ToolBar1..ToolButton2..Caption
-#: fGalaktika.dfm:82
-msgid "ToolButton2"
-msgstr ""
-
-#. FormGalablock..ControlBar1..ToolBar1..ToolButton3..Caption
-#: fGalaktika.dfm:88
-msgid "ToolButton3"
-msgstr ""
-
-#. FormGalablock..ControlBar1..ToolBar1..ToolButton4..Caption
-#: fGalaktika.dfm:94
-msgid "ToolButton4"
-msgstr ""
-
-#. FormGalablock..PageControl1..tsSolcube..Caption
-#: fGalaktika.dfm:116
-msgid "Solcube"
-msgstr "Солкуб"
-
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..ButtonStars..Caption
-#: fGalaktika.dfm:166
+#. FormGalablock..ControlBar..tbView..tbAddStars..Hint
+#: fGalaktika.dfm:118
 msgid "Add stars"
 msgstr "Все звёзды"
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..Caption
-#: fGalaktika.dfm:179
-msgid "Star classes"
-msgstr "Классы звёзд"
+#. FormGalablock..ControlBar..tbView..tbClearSolcube..Hint
+#: fGalaktika.dfm:127
+msgid "Clear solcube"
+msgstr "Очистить солкуб"
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..Label1..Caption
-#: fGalaktika.dfm:274
+#. FormGalablock..PageControl1..tsGalacube..Caption
+#: fGalaktika.dfm:152
+msgid "Galacube"
+msgstr "Галакуб"
+
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..Caption
+#: fGalaktika.dfm:202
+msgid "Spectral classes"
+msgstr "Спектральные классы"
+
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..Label1..Caption
+#: fGalaktika.dfm:297
 msgid "%"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..Label2..Caption
-#: fGalaktika.dfm:285
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..Label2..Caption
+#: fGalaktika.dfm:308
 msgid "Number"
 msgstr "Число"
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbO..Caption
-#: fGalaktika.dfm:296
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbO..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1223
+#: fGalaktika.dfm:319 fSettings.dfm:1223
 msgid "O"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbB..Caption
-#: fGalaktika.dfm:312
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbB..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1224
 #. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelB..Caption
+#: fGalaktika.dfm:335 fSettings.dfm:1224
 #: fSettings.dfm:1398
 msgid "B"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbA..Caption
-#: fGalaktika.dfm:328
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbA..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1225
 #. FormSettings..PanelMain..PageControl..tsPathway..PanelTitle..LabelA..Caption
+#: fGalaktika.dfm:351 fSettings.dfm:1225
 #: fSettings.dfm:1387
 msgid "A"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbF..Caption
-#: fGalaktika.dfm:344
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbF..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1226
+#: fGalaktika.dfm:367 fSettings.dfm:1226
 msgid "F"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbG..Caption
-#: fGalaktika.dfm:360
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbG..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1227
+#: fGalaktika.dfm:383 fSettings.dfm:1227
 msgid "G"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbK..Caption
-#: fGalaktika.dfm:378
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbK..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1228
+#: fGalaktika.dfm:401 fSettings.dfm:1228
 msgid "K"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbM..Caption
-#: fGalaktika.dfm:396
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..gbStars..chbM..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1229
+#: fGalaktika.dfm:419 fSettings.dfm:1229
 msgid "M"
 msgstr ""
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..gbStars..chbAll..Caption
-#: fGalaktika.dfm:412
-msgid "All"
-msgstr "Все"
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..chbD..Hint
+#: fGalaktika.dfm:678
+msgid "White Dwaft"
+msgstr "Белые карлики"
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..ButtonClear..Caption
-#: fGalaktika.dfm:672
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..chbD..Caption
+#: fGalaktika.dfm:683
+msgid "D"
+msgstr ""
+
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..chbAll..Caption
+#: fGalaktika.dfm:716
+msgid "All stars"
+msgstr "Все звёзды"
+
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..ButtonAdd..Caption
+#: fGalaktika.dfm:729
+msgid "Add"
+msgstr "Добавить"
+
+#. FormGalablock..PageControl1..tsGalacube..PanelRight..ButtonClear..Caption
+#: fGalaktika.dfm:742
 msgid "Clear"
 msgstr "Очистить"
 
-#. FormGalablock..PageControl1..tsSolcube..PanelRight..chbW..Caption
-#: fGalaktika.dfm:685
-msgid "W"
-msgstr ""
-
-#. FormGalablock..PageControl1..tsGalacube..Caption
-#: fGalaktika.dfm:716
-msgid "Galacube"
-msgstr "Галакуб"
-
 #. FormGalablock..PageControl1..tsDatacat..Caption
-#: fGalaktika.dfm:768
+#: fGalaktika.dfm:753
 msgid "Datacat"
 msgstr "Датакат"
 
 #. FormGalablock..PageControl1..tsDatacat..MemoTable....Lines.Strings
-#: fGalaktika.dfm:797
+#: fGalaktika.dfm:782
 msgid "MemoTable"
 msgstr ""
 
 #. FormGalablock..GLScene..dcAxis..SpaceTextX..Font.Name
-#: fGalaktika.dfm:865
-#. FormGalablock..GLScene..dcAxis..SpaceTextY..Font.Name
-#: fGalaktika.dfm:898
 #. FormGalablock..GLScene..dcAxis..SpaceTextZ..Font.Name
-#: fGalaktika.dfm:926
+#. FormGalablock..GLScene..dcAxis..SpaceTextY..Font.Name
+#: fGalaktika.dfm:847 fGalaktika.dfm:862
+#: fGalaktika.dfm:879
 msgid "Arial"
 msgstr ""
 
 #. FormGalablock..GLScene..dcAxis..SpaceTextX....Lines.Strings
-#: fGalaktika.dfm:868
+#: fGalaktika.dfm:850
 msgid "X"
 msgstr ""
 
-#. FormGalablock..GLScene..dcAxis..SpaceTextY....Lines.Strings
-#: fGalaktika.dfm:901
-msgid "Y"
-msgstr ""
-
 #. FormGalablock..GLScene..dcAxis..SpaceTextZ....Lines.Strings
-#: fGalaktika.dfm:929
+#: fGalaktika.dfm:865
 msgid "Z"
 msgstr ""
 
-#. FormGalablock..GLScene..dcGalaxy..diskGalaxy..Material.LibMaterialName
-#: fGalaktika.dfm:937
-#. FormGalablock..GLMatLib......Name
-#: fGalaktika.dfm:1089
+#. FormGalablock..GLScene..dcAxis..SpaceTextY....Lines.Strings
+#: fGalaktika.dfm:882
+msgid "Y"
+msgstr ""
+
+#. FormGalablock..GLScene..dcGalacube..diskGalaxy..Material.LibMaterialName
+#: fGalaktika.dfm:916
 msgid "Milkyway"
 msgstr ""
 
 #. FormGalablock..MainMenu..miFile..Caption
-#: fGalaktika.dfm:968
+#: fGalaktika.dfm:946
 msgid "&File"
 msgstr "&Файл"
 
 #. FormGalablock..MainMenu..miFile..miOpen..Caption
-#: fGalaktika.dfm:970
+#: fGalaktika.dfm:948
 msgid "Open..."
 msgstr "Открыть..."
 
 #. FormGalablock..MainMenu..miFile..miSave..Caption
-#: fGalaktika.dfm:975
+#: fGalaktika.dfm:953
 msgid "Save"
 msgstr "Сохранить"
 
 #. FormGalablock..MainMenu..miFile..miSaveAs..Caption
-#: fGalaktika.dfm:978
+#: fGalaktika.dfm:956
 msgid "Save as..."
 msgstr "Сохранить как..."
 
 #. FormGalablock..MainMenu..miFile..miN2..Caption
-#: fGalaktika.dfm:982
 #. FormGalablock..MainMenu..miEdit..miN4..Caption
-#: fGalaktika.dfm:997
 #. FormGalablock..MainMenu..miEdit..miN3..Caption
-#: fGalaktika.dfm:1012
 #. FormGalablock..MainMenu..miEdit..miN1..Caption
-#: fGalaktika.dfm:1024
 #. FormGalablock..MainMenu..miTools..miN5..Caption
-#: fGalaktika.dfm:1050
 #. FormGalablock..MainMenu..miHelp..miN6..Caption
-#: fGalaktika.dfm:1067
+#: fGalaktika.dfm:960 fGalaktika.dfm:975
+#: fGalaktika.dfm:990 fGalaktika.dfm:1002
+#: fGalaktika.dfm:1028 fGalaktika.dfm:1045
 msgid "-"
 msgstr ""
 
 #. FormGalablock..MainMenu..miFile..miExit..Caption
-#: fGalaktika.dfm:985
+#: fGalaktika.dfm:963
 msgid "Exit"
 msgstr "Выход"
 
 #. FormGalablock..MainMenu..miEdit..Caption
-#: fGalaktika.dfm:991
+#: fGalaktika.dfm:969
 msgid "&Edit"
 msgstr "&Правка"
 
 #. FormGalablock..MainMenu..miEdit..miUndo..Caption
-#: fGalaktika.dfm:993
+#: fGalaktika.dfm:971
 msgid "Cancel"
 msgstr "Отмена"
 
 #. FormGalablock..MainMenu..miEdit..miCut..Caption
-#: fGalaktika.dfm:1000
+#: fGalaktika.dfm:978
 msgid "Cut"
 msgstr "Вырезать"
 
 #. FormGalablock..MainMenu..miEdit..miCopy..Caption
-#: fGalaktika.dfm:1004
+#: fGalaktika.dfm:982
 msgid "Copy"
 msgstr "Копировать"
 
 #. FormGalablock..MainMenu..miEdit..miPaste..Caption
-#: fGalaktika.dfm:1008
+#: fGalaktika.dfm:986
 msgid "Insert"
 msgstr "Вставить"
 
 #. FormGalablock..MainMenu..miEdit..miFind..Caption
-#: fGalaktika.dfm:1015
+#: fGalaktika.dfm:993
 msgid "Find..."
 msgstr "Найти..."
 
 #. FormGalablock..MainMenu..miEdit..miReplace..Caption
-#: fGalaktika.dfm:1018
+#: fGalaktika.dfm:996
 msgid "Replace..."
 msgstr "Заменить..."
 
 #. FormGalablock..MainMenu..miEdit..miGoTo..Caption
-#: fGalaktika.dfm:1021
+#: fGalaktika.dfm:999
 msgid "Go to..."
 msgstr "Перейти к..."
 
 #. FormGalablock..MainMenu..miEdit..miObject..Caption
-#: fGalaktika.dfm:1027
+#: fGalaktika.dfm:1005
 msgid "Object"
 msgstr "Объект"
 
 #. FormGalablock..MainMenu..miMonitor..Caption
-#: fGalaktika.dfm:1031
+#: fGalaktika.dfm:1009
 msgid "&View"
 msgstr "&Вид"
 
 #. FormGalablock..MainMenu..miMonitor..miProjection..Caption
-#: fGalaktika.dfm:1033
+#: fGalaktika.dfm:1011
 msgid "Star projections..."
 msgstr "Проекции звёзд..."
 
 #. FormGalablock..MainMenu..miMonitor..miPanelShow..Caption
-#: fGalaktika.dfm:1037
+#: fGalaktika.dfm:1015
 msgid "Panels"
 msgstr "Панели"
 
 #. FormGalablock..MainMenu..miTools..Caption
-#: fGalaktika.dfm:1043
+#: fGalaktika.dfm:1021
 msgid "&Tools"
 msgstr "&Инструменты"
 
 #. FormGalablock..MainMenu..miTools..miSettings..Caption
-#: fGalaktika.dfm:1045
+#: fGalaktika.dfm:1023
 msgid "Settings..."
 msgstr "Настройки..."
 
 #. FormGalablock..MainMenu..miTools..miAnalyzer..Caption
-#: fGalaktika.dfm:1053
+#: fGalaktika.dfm:1031
 msgid "Analyzer..."
 msgstr "Анализатор..."
 
 #. FormGalablock..MainMenu..miTools..Monitor1..Caption
-#: fGalaktika.dfm:1057
+#: fGalaktika.dfm:1035
 msgid "Monitor..."
 msgstr "Монитор..."
 
 #. FormGalablock..MainMenu..miHelp..Caption
-#: fGalaktika.dfm:1062
+#: fGalaktika.dfm:1040
 msgid "&Help"
 msgstr "&Справка"
 
 #. FormGalablock..MainMenu..miHelp..miRuwiki..Caption
-#: fGalaktika.dfm:1064
+#: fGalaktika.dfm:1042
 msgid "Ruwiki..."
 msgstr ""
 
 #. FormGalablock..MainMenu..miHelp..miAbout..Caption
-#: fGalaktika.dfm:1070
+#: fGalaktika.dfm:1048
 msgid "About..."
 msgstr "О программе..."
 
 #. FormGalablock..GLSimpleNavigation..FormCaption
-#: fGalaktika.dfm:103942
+#: fGalaktika.dfm:1067
 msgid "Galaktika - %FPS"
 msgstr ""
 
@@ -431,8 +405,7 @@ msgid "Settings"
 msgstr "Настройки"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..Caption
-#: fSettings.dfm:104
-#: fSettings.pas:188
+#: fSettings.dfm:104 fSettings.pas:188
 msgid "Interface"
 msgstr "Интерфейс"
 
@@ -492,8 +465,7 @@ msgid "Spanish"
 msgstr "Испанский"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..Caption
-#: fSettings.dfm:233
-#: fSettings.pas:189
+#: fSettings.dfm:233 fSettings.pas:189
 msgid "Display"
 msgstr "Дисплей"
 
@@ -518,8 +490,7 @@ msgid "Twoside lighting"
 msgstr "Двустороннее освещение"
 
 #. FormSettings..PanelMain..PageControl..tsMaterial..Caption
-#: fSettings.dfm:309
-#: fSettings.pas:190
+#: fSettings.dfm:309 fSettings.pas:190
 msgid "Material"
 msgstr "Материал"
 
@@ -539,8 +510,7 @@ msgid "Change..."
 msgstr "Изменить..."
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..Caption
-#: fSettings.dfm:359
-#: fSettings.pas:191
+#: fSettings.dfm:359 fSettings.pas:191
 msgid "Galaxy"
 msgstr "Галактика"
 
@@ -616,8 +586,7 @@ msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Hint
 #: fSettings.dfm:540
-msgid "Number of lithospheres suitable for "
-"life"
+msgid "Number of lithospheres suitable for life"
 msgstr "Число литосфер, пригодных для жизни"
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Caption
@@ -677,10 +646,8 @@ msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Caption
 #: fSettings.dfm:664
-msgid "Average distance between technospheres, "
-"ly"
-msgstr "Среднее расстояние между техносферами, "
-"ly"
+msgid "Average distance between technospheres, ly"
+msgstr "Среднее расстояние между техносферами, ly"
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Caption
 #: fSettings.dfm:1172
@@ -688,8 +655,7 @@ msgid "Calculate"
 msgstr "Вычислить"
 
 #. FormSettings..PanelMain..PageControl..tsStars..Caption
-#: fSettings.dfm:1188
-#: fSettings.pas:192
+#: fSettings.dfm:1188 fSettings.pas:192
 msgid "Stars"
 msgstr "Звёзды"
 
@@ -719,16 +685,14 @@ msgid "Borders"
 msgstr "Границы"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..Caption
-#: fSettings.dfm:1291
 #. Items:
-#: fSettings.pas:187
+#: fSettings.dfm:1291 fSettings.pas:187
 msgid "General"
 msgstr "Общие"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..LabelPrecision..Caption
-#: fSettings.dfm:1303
 #. FormSettings..PanelMain..PageControl..tsGeneral..SpinEditPrecision..Hint
-#: fSettings.dfm:1331
+#: fSettings.dfm:1303 fSettings.dfm:1331
 msgid "Precision"
 msgstr "Точность"
 
@@ -783,8 +747,7 @@ msgid "Supergalactic"
 msgstr "Сверхгалактическая"
 
 #. FormSettings..PanelMain..PageControl..tsPathway..Caption
-#: fSettings.dfm:1364
-#: fSettings.pas:194
+#: fSettings.dfm:1364 fSettings.pas:194
 msgid "Pathway"
 msgstr "Трасса"
 
@@ -824,8 +787,7 @@ msgid "Gridnet"
 msgstr "Гриднет"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..Caption
-#: fSettings.dfm:1576
-#: fSettings.pas:193
+#: fSettings.dfm:1576 fSettings.pas:193
 msgid "Planets"
 msgstr "Планеты"
 
@@ -875,16 +837,15 @@ msgid "Icy"
 msgstr "Ледяной"
 
 #. Otherwise, raise an exception.
-#: fGalaktika.pas:439
+#: fGalaktika.pas:452
 msgid "File not exists"
-msgstr ""
+msgstr "Файла нет"
 
 #. --------------------------------------------------------
-#: fGalaktika.pas:462
+#: fGalaktika.pas:475
 msgid "File exists. Can not overwrite"
 msgstr "Файл существует. Перезаписать нельзя"
 
 #: fSettings.pas:358
 msgid "Reload to change language"
 msgstr "Перегрузите для смены языка"
-

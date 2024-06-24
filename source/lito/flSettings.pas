@@ -133,7 +133,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure ButtonCalculateClick(Sender: TObject);
     procedure chbPlanetCoreClick(Sender: TObject);
     procedure chbAtmosferaClick(Sender: TObject);
     procedure rgLanguageClick(Sender: TObject);
@@ -248,27 +247,6 @@ end;
 procedure TFormSettings.WriteIniFile;
 begin
 //
-end;
-
-//---------------------------------------------------------------
-// Расчёт числа цивилизаций в МП по ноосферной формуле Дрейка
-//---------------------------------------------------------------
-procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
-var
-  Nc, Fl, Fb, Fn, Ratio : Extended;
-  Ns, Lc, Ls: LONG64;
-begin
-  Ns := StrToInt64(EditNs.Text);
-  Fl := StrToFloat(EditFl.Text);
-  Fb := StrToFloat(EditFb.Text);
-  Fn := StrToFloat(EditFn.Text);
-
-  Lc := StrToInt64(EditLc.Text);
-  Ls := StrToInt64(EditLs.Text);
-
-  Ratio := Lc/Ls;
-  Nc := Ns*Fl*Fb*Fn *Ratio;  // без времени существования ВЦ
-  stNc.Caption := FloatToStr(Nc);
 end;
 
 //---------------------------------------------------------------

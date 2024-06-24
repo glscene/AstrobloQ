@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPlanets
+      ActivePage = tsGalaxy
       Align = alClient
       Style = tsButtons
       TabOrder = 0

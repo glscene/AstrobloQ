@@ -13,18 +13,19 @@ uses
   Vcl.VirtualImageList, GLS.BaseClasses, GLS.Material;
 
 type
-  TDataModuleImages = class(TDataModule)
+  TdmImages = class(TDataModule)
     PlanetSymbols: TImageCollection;
     VirtPlanetSymbols: TVirtualImageList;
     ImageListInterface: TImageList;
     PlanetMaps: TImageCollection;
     GLPlanetMaps: TGLMaterialLibrary;
+    GLMatLib: TGLMaterialLibrary;
   private
   public
   end;
 
 var
-  DataModuleImages: TDataModuleImages;
+  dmImages: TdmImages;
 
 implementation
 

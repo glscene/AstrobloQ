@@ -18,7 +18,7 @@ uses
   flStellarSystem in 'source\lito\flStellarSystem.pas' {FormStarSys},
   flSolarSystem in 'source\lito\flSolarSystem.pas' {FormSolarSys},
   flSettings in 'source\lito\flSettings.pas' {FormSettings},
-  dImages in 'source\dImages.pas' {DataModuleImages: TDataModule},
+  dImages in 'source\dImages.pas' {dmImages: TDataModule},
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
   uMoveCamera in 'source\uMoveCamera.pas',
   uSkyBodies in 'source\uSkyBodies.pas',
@@ -31,7 +31,7 @@ begin
   Application.Initialize;
   Application.Title := 'Litosfere';
   Application.CreateForm(TFormLitosfera, FormLitosfera);
-  Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormAbout, FormAbout);
   Application.CreateForm(TFormGL, FormGL);

@@ -67,7 +67,7 @@ object FormLitosfera: TFormLitosfera
       Align = alClient
       AutoExpand = True
       HideSelection = False
-      Images = DataModuleImages.VirtPlanetSymbols
+      Images = dmImages.VirtPlanetSymbols
       Indent = 33
       TabOrder = 0
       OnClick = tvPlanetsClick
@@ -162,8 +162,6 @@ object FormLitosfera: TFormLitosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitLeft = -8
-      ExplicitTop = 10
     end
   end
   object StatusBar: TStatusBar

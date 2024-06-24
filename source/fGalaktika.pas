@@ -60,7 +60,7 @@ uses
 type
   TFormGalablock = class(TFormGL)
     GLScene: TGLScene;
-    StatusBar1: TStatusBar;
+    StatusBar: TStatusBar;
     MainMenu: TMainMenu;
     GLAsyncTimer: TGLAsyncTimer;
     GLCadencer: TGLCadencer;
@@ -90,7 +90,7 @@ type
     miRuwiki: TMenuItem;
     miAbout: TMenuItem;
     miN6: TMenuItem;
-    camGalacube: TGLCamera;
+    Camera: TGLCamera;
     LightGal: TGLLightSource;
     dcGalacube: TGLDummyCube;
     dcSolcube: TGLDummyCube;
@@ -100,22 +100,19 @@ type
     XYZGrid: TGLXYZGrid;
     miMonitor: TMenuItem;
     miProjection: TMenuItem;
-    ControlBar1: TControlBar;
+    ControlBar: TControlBar;
     diskGalaxy: TGLDisk;
-    GLMatLib: TGLMaterialLibrary;
-    ToolBar1: TToolBar;
+    tbMain: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     PageControl1: TPageControl;
     tsGalacube: TTabSheet;
-    svHelios: TGLSceneViewer;
-    camSolcube: TGLCamera;
+    svGalacube: TGLSceneViewer;
     LightSol: TGLLightSource;
     GLSimpleNavigation: TGLSimpleNavigation;
     dcAxis: TGLDummyCube;
     PanelRight: TPanel;
-    ButtonStars: TButton;
     gbStars: TGroupBox;
     shO: TShape;
     shB: TShape;
@@ -133,7 +130,6 @@ type
     chbG: TCheckBox;
     chbK: TCheckBox;
     chbM: TCheckBox;
-    chbAll: TCheckBox;
     nbO: TNumberBox;
     nbB: TNumberBox;
     nbA: TNumberBox;
@@ -149,7 +145,6 @@ type
     nbBn: TNumberBox;
     nbOn: TNumberBox;
     SpinEdit: TSpinEdit;
-    ButtonClear: TButton;
     dotStars: TGLPoints;
     SpaceTextX: TGLSpaceText;
     SpaceTextY: TGLSpaceText;
@@ -157,12 +152,19 @@ type
     tsDatacat: TTabSheet;
     DBGrid: TDBGrid;
     MemoTable: TMemo;
-    chbW: TCheckBox;
+    chbD: TCheckBox;
     shW: TShape;
     nbWn: TNumberBox;
     ToolButton4: TToolButton;
     miAnalyzer: TMenuItem;
     Monitor1: TMenuItem;
+    tbView: TToolBar;
+    tbShowSolcube: TToolButton;
+    tbAddStars: TToolButton;
+    tbClearSolcube: TToolButton;
+    chbAll: TCheckBox;
+    ButtonAdd: TButton;
+    ButtonClear: TButton;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -176,15 +178,15 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure ButtonStarsClick(Sender: TObject);
+    procedure ButtonAddStarsClick(Sender: TObject);
     procedure chbAllClick(Sender: TObject);
     procedure ButtonClearClick(Sender: TObject);
     procedure SpinEditChange(Sender: TObject);
     procedure miSaveAsClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAnalyzerClick(Sender: TObject);
-    procedure ToolButton1Click(Sender: TObject);
     procedure Monitor1Click(Sender: TObject);
+    procedure tbShowSolcubeClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -229,17 +231,16 @@ begin
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
-  SpinEdit.Value := 10000;
   inherited;
 end;
 
-// ------------------------------------------------------------------
+// --------------------------------------------------------
 procedure TFormGalablock.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
-// ------------------------------------------------------------------
+// -----------------------------------------------------------
 procedure TFormGalablock.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
@@ -248,7 +249,7 @@ begin
   dcAxis.Turn(0.001);
 end;
 
-// -----------------------------------------------------------------
+// ------------------------------------------------------------
 //
 procedure TFormGalablock.MakeRandomStars;
 var
@@ -345,8 +346,8 @@ begin
       dotStars.Colors.Add(clrStar);
     end
   end;
-  // W class of white dwarf
-  if (chbW.Checked) then
+  // D class of white dwarf
+  if (chbD.Checked) then
   begin
     NStars := Round(nbWn.Value);
     for i := 0 to NStars - 1 do
@@ -359,17 +360,20 @@ begin
   end;
 end;
 
+//--------------------------------------------------------
 procedure TFormGalablock.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
-  svHelios.Invalidate();
+  svGalacube.Invalidate();
 end;
 
-procedure TFormGalablock.ButtonStarsClick(Sender: TObject);
+//--------------------------------------------------------
+procedure TFormGalablock.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
+//--------------------------------------------------------
 procedure TFormGalablock.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
@@ -394,9 +398,22 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalablock.ToolButton1Click(Sender: TObject);
+procedure TFormGalablock.tbShowSolcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
+  if dcGalacube.Visible then
+  begin
+    Camera.Position.X := 50000;
+    Camera.Position.Y := 60000;
+    Camera.Position.Z := 70000;
+  end
+  else
+  begin
+    Camera.Position.X := 1000;
+    Camera.Position.Y := 1000;
+    Camera.Position.Z := 1000;
+  end;
+
 end;
 
 // -------------------------------------------------------------
@@ -415,7 +432,7 @@ var
 
 begin
   dcSolcube.DeleteChildren();
-  svHelios.Invalidate();
+  svGalacube.Invalidate();
 
   sl := TStringList.Create;
   tl := TStringList.Create;

@@ -90,7 +90,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsMaterial
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -1203,7 +1203,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 490
+          Left = 482
           Top = 53
           Width = 149
           Height = 200
