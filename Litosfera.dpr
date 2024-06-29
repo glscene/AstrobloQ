@@ -29,11 +29,10 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'Litosfere';
+  Application.Title := 'Litosfera';
   Application.CreateForm(TFormLitosfera, FormLitosfera);
   Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.CreateForm(TFormGL, FormGL);
   Application.Run;
 end.

@@ -125,7 +125,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="source\fGalaktika.pas">
-            <Form>FormGalablock</Form>
+            <Form>FormGalaktika</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dImages.pas">
@@ -150,12 +150,12 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dDialogs.pas">
-            <Form>DataModuleDialogs</Form>
+            <Form>dmDialogs</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="source\dBase.pas">
-            <Form>DataModuleBase</Form>
+            <Form>dmBase</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -165,6 +165,10 @@
         </DCCReference>
         <DCCReference Include="source\fMonitor.pas">
             <Form>FormMonitor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fSolver.pas">
+            <Form>FormSolver</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

@@ -294,7 +294,7 @@ end;
 //---------------------------------------------------
 procedure TFormLitosfera.PlanetCore;
 begin
-  if FormSettings.chbPlanetCore.Checked then
+  if FormSettings.chbCore.Checked then
   begin
     PlanetPath := CurrentStar + tvPlanets.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
@@ -710,7 +710,7 @@ var
 begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
-  // задание вращения вланеты
+  // задание вращения планеты
   if FormSettings.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -1007,8 +1007,9 @@ var
   S: String;
 begin
   if (tvPlanets.Selected.Level = 0)   then  // Planets, sometimes S + '_(planet)' e.g. ../Mercury_(planet)
-///    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
-    S :=  'https://ru.ruwiki.ru/wiki/' + _('Earth') // tvPlanets.Selected.Text must be translated to ru
+    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
+/// tvPlanets.Selected.Text must be translated to ru for ruwiki
+/// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text + _('Earth')
   else  // Moons
     S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
 ///    S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text;
@@ -1042,6 +1043,7 @@ initialization
 //------------------------------------------------------------------
 finalization
 //------------------------------------------------------------------
+
 //  return to FormatSettings.DecimalSeparator := ',';
 
 end.

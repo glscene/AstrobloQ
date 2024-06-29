@@ -1,10 +1,10 @@
-object DataModuleDialogs: TDataModuleDialogs
-  Height = 457
-  Width = 958
+object dmDialogs: TdmDialogs
+  Height = 657
+  Width = 968
   PixelsPerInch = 168
   object SaveTextFileDialog: TSaveTextFileDialog
-    Left = 378
-    Top = 58
+    Left = 354
+    Top = 218
   end
   object OpenTextFileDialog: TOpenTextFileDialog
     Filter = 
@@ -17,7 +17,23 @@ object DataModuleDialogs: TDataModuleDialogs
       'Big Endian Unicode'
       'UTF-8'
       'UTF-7')
-    Left = 123
-    Top = 60
+    Left = 107
+    Top = 212
+  end
+  object OpenDialog: TOpenDialog
+    Left = 112
+    Top = 64
+  end
+  object SaveDialog: TSaveDialog
+    Left = 352
+    Top = 72
+  end
+  object OpenPictureDialog: TOpenPictureDialog
+    Left = 112
+    Top = 336
+  end
+  object SavePictureDialog: TSavePictureDialog
+    Left = 352
+    Top = 336
   end
 end

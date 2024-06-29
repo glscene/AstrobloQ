@@ -7,9 +7,13 @@ uses
   System.Classes, Vcl.Dialogs, Vcl.ExtDlgs;
 
 type
-  TDataModuleDialogs = class(TDataModule)
+  TdmDialogs = class(TDataModule)
     SaveTextFileDialog: TSaveTextFileDialog;
     OpenTextFileDialog: TOpenTextFileDialog;
+    OpenDialog: TOpenDialog;
+    SaveDialog: TSaveDialog;
+    OpenPictureDialog: TOpenPictureDialog;
+    SavePictureDialog: TSavePictureDialog;
   private
     { Private declarations }
   public
@@ -17,7 +21,7 @@ type
   end;
 
 var
-  DataModuleDialogs: TDataModuleDialogs;
+  dmDialogs: TdmDialogs;
 
 implementation
 

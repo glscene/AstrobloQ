@@ -28,7 +28,7 @@ uses
   FireDAC.Comp.Client, FireDAC.Comp.BatchMove;
 
 type
-  TDataModuleBase = class(TDataModule)
+  TdmBase = class(TDataModule)
     FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink;
     FDConnection: TFDConnection;
     FDQuery: TFDQuery;
@@ -38,7 +38,7 @@ type
   end;
 
 var
-  DataModuleBase: TDataModuleBase;
+  dmBase: TdmBase;
 
 implementation
 

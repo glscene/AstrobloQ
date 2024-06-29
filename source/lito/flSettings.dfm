@@ -73,7 +73,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -334,7 +334,7 @@ object FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1048#1079#1084#1077#1085#1080#1090#1100'...'
+          Caption = 'Change...'
           TabOrder = 1
         end
       end
@@ -402,13 +402,13 @@ object FormSettings: TFormSettings
         object GroupBox2: TGroupBox
           Left = 56
           Top = 42
-          Width = 253
-          Height = 183
+          Width = 281
+          Height = 169
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1086#1079#1074#1077#1079#1076#1080#1103
+          Caption = 'Constellations'
           TabOrder = 2
           object chbConstFigures: TCheckBox
             Left = 45
@@ -419,7 +419,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1060#1080#1075#1091#1088#1099
+            Caption = 'Figures'
             TabOrder = 0
           end
           object chbConstLines: TCheckBox
@@ -431,7 +431,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1051#1080#1085#1080#1080
+            Caption = 'Lines'
             TabOrder = 1
           end
           object chbConstBounds: TCheckBox
@@ -443,7 +443,7 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1043#1088#1072#1085#1080#1094#1099
+            Caption = 'Borders'
             TabOrder = 2
           end
         end
@@ -660,7 +660,7 @@ object FormSettings: TFormSettings
             TabOrder = 2
             StyleName = 'Windows'
           end
-          object chbPlanetCore: TCheckBox
+          object chbCore: TCheckBox
             Left = 60
             Top = 104
             Width = 170
@@ -672,7 +672,7 @@ object FormSettings: TFormSettings
             Caption = 'Core'
             TabOrder = 3
             StyleName = 'Windows'
-            OnClick = chbPlanetCoreClick
+            OnClick = chbCoreClick
           end
           object ButtonGrid: TButton
             Left = 47
@@ -700,105 +700,95 @@ object FormSettings: TFormSettings
             StyleName = 'Windows'
             OnClick = chbAtmosferaClick
           end
+          object chbClouds: TCheckBox
+            Left = 55
+            Top = 221
+            Width = 170
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'Clouds'
+            TabOrder = 6
+            StyleName = 'Windows'
+            OnClick = chbCoreClick
+          end
         end
         object GroupBox1: TGroupBox
           Left = 364
           Top = 42
           Width = 337
-          Height = 477
+          Height = 393
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Earth params'
+          Caption = 'Earth'
           TabOrder = 2
           object LabelPlanetTilt: TLabel
-            Left = 14
-            Top = 289
-            Width = 147
+            Left = 19
+            Top = 199
+            Width = 68
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1053#1072#1082#1083#1086#1085' '#1086#1089#1080', '#1075#1088'.'
+            Caption = 'Axis tilt'
           end
           object LabelPlanetDensity: TLabel
-            Left = 14
-            Top = 233
-            Width = 164
+            Left = 19
+            Top = 126
+            Width = 69
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1055#1083#1086#1090#1085#1086#1089#1090#1100', '#1075'/'#1089#1084'3'
+            Caption = 'Density'
           end
           object LabelPlanetRadius: TLabel
-            Left = 14
+            Left = 19
             Top = 51
-            Width = 102
+            Width = 62
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1056#1072#1076#1080#1091#1089', '#1082#1084
-          end
-          object Label3: TLabel
-            Left = 14
-            Top = 103
-            Width = 139
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Caption = #1056#1072#1076#1080#1091#1089' '#1101#1082#1074', '#1082#1084
-          end
-          object Label4: TLabel
-            Left = 14
-            Top = 164
-            Width = 143
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Caption = #1056#1072#1076#1080#1091#1089' '#1087#1086#1083', '#1082#1084
+            Caption = 'Radius'
           end
           object LabelGravityAccel: TLabel
-            Left = 14
-            Top = 345
-            Width = 169
+            Left = 19
+            Top = 276
+            Width = 70
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1059#1089#1082#1086#1088#1077#1085#1080#1077' '#1089'.'#1087'., g '
+            Caption = 'Gravity '
           end
           object Label6: TLabel
-            Left = 14
-            Top = 401
-            Width = 149
+            Left = 19
+            Top = 339
+            Width = 116
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
             Alignment = taCenter
-            Caption = #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1072', '#1057
+            Caption = 'Temperature'
           end
           object nbTilt: TNumberBox
             Left = 202
-            Top = 280
+            Top = 196
             Width = 113
             Height = 38
             Margins.Left = 5
@@ -814,8 +804,8 @@ object FormSettings: TFormSettings
             SpinButtonOptions.ButtonWidth = 30
           end
           object nbDensity: TNumberBox
-            Left = 200
-            Top = 221
+            Left = 202
+            Top = 123
             Width = 113
             Height = 38
             Margins.Left = 5
@@ -844,39 +834,9 @@ object FormSettings: TFormSettings
             Value = 6371.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
-          object nbRadiusEcv: TNumberBox
-            Left = 202
-            Top = 106
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            MaxValue = 100000.000000000000000000
-            TabOrder = 3
-            Value = 6378.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object nbRadiusPol: TNumberBox
-            Left = 196
-            Top = 161
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            MaxValue = 100000.000000000000000000
-            TabOrder = 4
-            Value = 6357.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
           object nbGravityAccel: TNumberBox
             Left = 202
-            Top = 336
+            Top = 273
             Width = 113
             Height = 38
             Margins.Left = 5
@@ -887,13 +847,13 @@ object FormSettings: TFormSettings
             Decimal = 1
             Mode = nbmFloat
             MaxValue = 100.000000000000000000
-            TabOrder = 5
+            TabOrder = 3
             Value = 9.800000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
           object NumberBox7: TNumberBox
-            Left = 202
-            Top = 392
+            Left = 193
+            Top = 336
             Width = 113
             Height = 38
             Margins.Left = 5
@@ -904,7 +864,7 @@ object FormSettings: TFormSettings
             Decimal = 0
             MinValue = -373.000000000000000000
             MaxValue = 1000.000000000000000000
-            TabOrder = 6
+            TabOrder = 4
             Value = 27.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
@@ -919,99 +879,20 @@ object FormSettings: TFormSettings
         ImageIndex = 7
         TabVisible = False
         object LabelPrecision: TLabel
-          Left = 672
-          Top = 379
-          Width = 89
+          Left = 182
+          Top = 421
+          Width = 83
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1058#1086#1095#1085#1086#1089#1090#1100
-        end
-        object gbxCoordinateSys: TGroupBox
-          Left = 56
-          Top = 42
-          Width = 519
-          Height = 296
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Coordinates'
-          TabOrder = 0
-          object chbEquatorial: TCheckBox
-            Left = 56
-            Top = 56
-            Width = 214
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1069#1082#1074#1072#1090#1086#1088#1080#1072#1083#1100#1085#1072#1103
-            Checked = True
-            State = cbChecked
-            TabOrder = 0
-          end
-          object CheckBox1: TCheckBox
-            Left = 56
-            Top = 112
-            Width = 197
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1040#1079#1080#1084#1091#1090#1072#1083#1100#1085#1072#1103
-            TabOrder = 1
-          end
-          object CheckBox2: TCheckBox
-            Left = 56
-            Top = 170
-            Width = 214
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1043#1072#1083#1072#1082#1090#1080#1095#1077#1089#1082#1072#1103
-            TabOrder = 2
-          end
-          object CheckBox3: TCheckBox
-            Left = 56
-            Top = 233
-            Width = 211
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1069#1082#1083#1080#1087#1090#1080#1095#1077#1089#1082#1072#1103
-            TabOrder = 3
-          end
-          object rgrSystem: TRadioGroup
-            Left = 280
-            Top = 28
-            Width = 211
-            Height = 144
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Ctl3D = True
-            ItemIndex = 0
-            Items.Strings = (
-              #1057#1092#1077#1088#1080#1095#1077#1089#1082#1072#1103
-              #1044#1077#1082#1072#1088#1090#1086#1074#1072#1103)
-            ParentCtl3D = False
-            TabOrder = 4
-          end
+          Caption = 'Precision'
         end
         object rgUnits: TRadioGroup
-          Left = 639
-          Top = 42
-          Width = 342
+          Left = 261
+          Top = 70
+          Width = 356
           Height = 296
           Hint = 'https://ru.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072
           Margins.Left = 5
@@ -1021,18 +902,18 @@ object FormSettings: TFormSettings
           Caption = 'Units'
           ItemIndex = 0
           Items.Strings = (
-            #1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103' - '#1072'.'#1077'., au'
-            #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076' - '#1089'.'#1075'., ly '
-            #1050#1080#1083#1086#1089#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076' - '#1082'.'#1089'.'#1075'., kly'
-            #1055#1072#1088#1089#1077#1082' - '#1087#1082', pc'
-            #1050#1080#1083#1086#1087#1072#1088#1089#1077#1082' - '#1082#1087#1082', kpc')
+            'Astronomical unit'
+            'Light year'
+            'Kilolight year'
+            'Parsec'
+            'Kiloparsec')
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 1
+          TabOrder = 0
         end
         object SpinEditPrecision: TSpinEdit
-          Left = 914
-          Top = 376
+          Left = 546
+          Top = 418
           Width = 71
           Height = 41
           Hint = 'Precision'
@@ -1042,56 +923,8 @@ object FormSettings: TFormSettings
           Margins.Bottom = 5
           MaxValue = 18
           MinValue = 0
-          TabOrder = 2
+          TabOrder = 1
           Value = 2
-        end
-        object GroupBoxConstellations: TGroupBox
-          Left = 112
-          Top = 376
-          Width = 253
-          Height = 183
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Constellations'
-          TabOrder = 3
-          object CheckBoxConstFigures: TCheckBox
-            Left = 45
-            Top = 120
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Figures'
-            TabOrder = 0
-          end
-          object CheckBoxConstLines: TCheckBox
-            Left = 45
-            Top = 42
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Lines'
-            TabOrder = 1
-          end
-          object CheckBoxConstBorders: TCheckBox
-            Left = 45
-            Top = 81
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Borders'
-            TabOrder = 2
-          end
         end
       end
       object tsFlights: TTabSheet
@@ -1116,57 +949,57 @@ object FormSettings: TFormSettings
           object LabelA: TLabel
             Left = 168
             Top = 86
-            Width = 92
+            Width = 70
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1055#1083#1072#1085#1077#1090#1072' I'
+            Caption = 'Planet I'
           end
           object LabelB: TLabel
             Left = 649
             Top = 86
+            Width = 76
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'Planet II'
+          end
+          object LabelDistance: TLabel
+            Left = 165
+            Top = 350
+            Width = 80
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'Distance'
+          end
+          object LabelVelocity: TLabel
+            Left = 165
+            Top = 434
+            Width = 71
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'Velosity'
+          end
+          object LabelFlightTime: TLabel
+            Left = 165
+            Top = 515
             Width = 98
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1055#1083#1072#1085#1077#1090#1072' II'
-          end
-          object LabelDistance: TLabel
-            Left = 165
-            Top = 294
-            Width = 144
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077', au'
-          end
-          object LabelVelocity: TLabel
-            Left = 165
-            Top = 378
-            Width = 166
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1057#1082#1086#1088#1086#1089#1090#1100', km/sec'
-          end
-          object LabelFlightTime: TLabel
-            Left = 165
-            Top = 459
-            Width = 175
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1042#1088#1077#1084#1103' '#1087#1086#1083#1105#1090#1072', '#1083#1077#1090
+            Caption = 'Flight time'
           end
           object SearchBoxA: TSearchBox
             Left = 112
@@ -1185,7 +1018,7 @@ object FormSettings: TFormSettings
           end
           object trbVelocity: TTrackBar
             Left = 326
-            Top = 369
+            Top = 425
             Width = 292
             Height = 51
             Margins.Left = 5
@@ -1201,7 +1034,7 @@ object FormSettings: TFormSettings
           end
           object stFlightTime: TStaticText
             Left = 338
-            Top = 459
+            Top = 515
             Width = 262
             Height = 33
             Margins.Left = 5
@@ -1217,7 +1050,7 @@ object FormSettings: TFormSettings
           object SearchBoxB: TSearchBox
             Left = 560
             Top = 123
-            Width = 240
+            Width = 253
             Height = 40
             Margins.Left = 5
             Margins.Top = 5
@@ -1231,7 +1064,7 @@ object FormSettings: TFormSettings
           end
           object EditDistance: TEdit
             Left = 338
-            Top = 291
+            Top = 347
             Width = 262
             Height = 38
             Margins.Left = 5
@@ -1244,7 +1077,7 @@ object FormSettings: TFormSettings
           end
           object stTrackBar: TStaticText
             Left = 628
-            Top = 378
+            Top = 434
             Width = 83
             Height = 34
             Margins.Left = 5
@@ -1253,6 +1086,30 @@ object FormSettings: TFormSettings
             Margins.Bottom = 5
             Caption = 'TrackBar'
             TabOrder = 5
+          end
+          object ListBox1: TListBox
+            Left = 112
+            Top = 173
+            Width = 254
+            Height = 96
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ItemHeight = 30
+            TabOrder = 6
+          end
+          object ListBox2: TListBox
+            Left = 560
+            Top = 173
+            Width = 254
+            Height = 96
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ItemHeight = 30
+            TabOrder = 7
           end
         end
       end

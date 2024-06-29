@@ -26,6 +26,7 @@ uses
   Vcl.CheckLst,
   Vcl.ColorGrd,
   Vcl.NumberBox,
+  Vcl.Themes,
 
   //
   uGlobals,
@@ -40,9 +41,7 @@ type
     tvSettings: TTreeView;
     PageControl: TPageControl;
     tsInterface: TTabSheet;
-    LabelProgram: TLabel;
     LabelData: TLabel;
-    PanelExePath: TPanel;
     cbDataPath: TComboBox;
     ButtonBrowsePathData: TButton;
     CheckBoxLoadProject: TCheckBox;
@@ -74,8 +73,8 @@ type
     SpinEditPrecision: TSpinEdit;
     tsPathway: TTabSheet;
     PanelTitle: TPanel;
-    LabelA: TLabel;
-    LabelB: TLabel;
+    LabelStarI: TLabel;
+    LabelStarII: TLabel;
     LabelDistance: TLabel;
     LabelVelocity: TLabel;
     LabelFlightTime: TLabel;
@@ -137,6 +136,8 @@ type
     Label4: TLabel;
     Label5: TLabel;
     ButtonCalculate: TButton;
+    cbxVclStyles: TComboBox;
+    Label2: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguageClick(Sender: TObject);
@@ -145,6 +146,9 @@ type
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
+    procedure tsInterfaceContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure cbxVclStylesChange(Sender: TObject);
   private
   public
     CurLangID : Word;
@@ -171,10 +175,17 @@ uses
 procedure TFormSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
+  StyleName: string;
 begin
   ReadIniFile;
 
-  // спектральные классы звёзд по умолчанию
+  for StyleName in TStyleManager.StyleNames do
+    cbxVclStyles.Items.Add(StyleName);
+
+  cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
+
+
+  // Спектральные классы звёзд по умолчанию
 	chlbStarClasses.Checked[0] := False;
  	chlbStarClasses.Checked[1] := False;
  	chlbStarClasses.Checked[2] := False;
@@ -183,7 +194,7 @@ begin
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
 
-  // Items:
+  // Темы:
   tvSettings.Items[0].Text := _('General');
   tvSettings.Items[1].Text := _('Interface');
   tvSettings.Items[2].Text := _('Display');
@@ -241,13 +252,19 @@ begin
 end;
 
 
+procedure TFormSettings.tsInterfaceContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+
+end;
+
 //--------------------------------------------------------------------
 procedure TFormSettings.rgLanguageClick(Sender: TObject);
 begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
-    1: CurLangID := LANG_RUSSIAN;
-    2: CurLangID := LANG_SPANISH;
+    1: CurLangID := LANG_RUSSIAN
     else
       CurLangID := LANG_ENGLISH;
   end;
@@ -269,9 +286,7 @@ begin
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1;
-      LANG_SPANISH:
-        rgLanguage.ItemIndex := 2;
+        rgLanguage.ItemIndex := 1
     else
       rgLanguage.ItemIndex := 0;
     end;
@@ -362,6 +377,12 @@ begin
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
   Close;
+end;
+
+procedure TFormSettings.cbxVclStylesChange(Sender: TObject);
+begin
+  inherited;
+  TStyleManager.SetStyle(cbxVclStyles.Text);
 end;
 
 function TFormSettings.Execute: boolean;

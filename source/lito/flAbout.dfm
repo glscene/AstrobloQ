@@ -47,7 +47,7 @@ object FormAbout: TFormAbout
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsCubemap
+    ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
     object tsInfo: TTabSheet
@@ -11319,7 +11319,7 @@ object FormAbout: TFormAbout
     end
   end
   object GLScene: TGLScene
-    Left = 186
+    Left = 284
     Top = 224
     object Camera: TGLCamera
       DepthOfView = 100.000000000000000000

@@ -66,12 +66,6 @@ type
     cbSplashStart: TCheckBox;
     tsGeneral: TTabSheet;
     tsFlights: TTabSheet;
-    gbxCoordinateSys: TGroupBox;
-    chbEquatorial: TCheckBox;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
-    CheckBox3: TCheckBox;
-    rgrSystem: TRadioGroup;
     rgUnits: TRadioGroup;
     PanelTitle: TPanel;
     LabelA: TLabel;
@@ -103,7 +97,7 @@ type
     chbRotate: TCheckBox;
     chbShowAxes: TCheckBox;
     CheckBox4: TCheckBox;
-    chbPlanetCore: TCheckBox;
+    chbCore: TCheckBox;
     ButtonGrid: TButton;
     GroupBox1: TGroupBox;
     nbTilt: TNumberBox;
@@ -112,10 +106,6 @@ type
     LabelPlanetDensity: TLabel;
     nbRadius: TNumberBox;
     LabelPlanetRadius: TLabel;
-    nbRadiusEcv: TNumberBox;
-    Label3: TLabel;
-    nbRadiusPol: TNumberBox;
-    Label4: TLabel;
     nbGravityAccel: TNumberBox;
     LabelGravityAccel: TLabel;
     NumberBox7: TNumberBox;
@@ -125,15 +115,14 @@ type
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
-    GroupBoxConstellations: TGroupBox;
-    CheckBoxConstFigures: TCheckBox;
-    CheckBoxConstLines: TCheckBox;
-    CheckBoxConstBorders: TCheckBox;
+    ListBox1: TListBox;
+    ListBox2: TListBox;
+    chbClouds: TCheckBox;
     procedure tvSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure chbPlanetCoreClick(Sender: TObject);
+    procedure chbCoreClick(Sender: TObject);
     procedure chbAtmosferaClick(Sender: TObject);
     procedure rgLanguageClick(Sender: TObject);
   private
@@ -157,12 +146,6 @@ implementation
 uses
   flLitosfera;
 
-
-procedure TFormSettings.ButtonOKClick(Sender: TObject);
-begin
-  Close;
-end;
-
 //
 // Показать сечение планеты с ядром
 //
@@ -171,7 +154,7 @@ begin
  //FormLitosfera.Atmosphere;
 end;
 
-procedure TFormSettings.chbPlanetCoreClick(Sender: TObject);
+procedure TFormSettings.chbCoreClick(Sender: TObject);
 begin
   FormLitosfera.PlanetCore;
 end;
@@ -264,5 +247,12 @@ begin
   FlightTime := DistanceInYears/Ratio;
   stFlightTime.Caption := FloatToStrF(FlightTime, ffFixed, 20, 1);
 end;
+
+//--------------------------------------------------------------
+procedure TFormSettings.ButtonOKClick(Sender: TObject);
+begin
+  Close;
+end;
+
 
 end.

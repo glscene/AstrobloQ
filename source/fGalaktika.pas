@@ -52,13 +52,15 @@ uses
   fSettings,
   fAnalyzer,
   fMonitor,
+  fSolver,
+
   fStarProj,
   uGlobals,
 
   gnuGettext;
 
 type
-  TFormGalablock = class(TFormGL)
+  TFormGalaktika = class(TFormGL)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -91,7 +93,7 @@ type
     miAbout: TMenuItem;
     miN6: TMenuItem;
     Camera: TGLCamera;
-    LightGal: TGLLightSource;
+    Lighting: TGLLightSource;
     dcGalacube: TGLDummyCube;
     dcSolcube: TGLDummyCube;
     ArrowZ: TGLArrowLine;
@@ -165,6 +167,8 @@ type
     chbAll: TCheckBox;
     ButtonAdd: TButton;
     ButtonClear: TButton;
+    tbRotation: TToolButton;
+    Solver1: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -187,6 +191,7 @@ type
     procedure miAnalyzerClick(Sender: TObject);
     procedure Monitor1Click(Sender: TObject);
     procedure tbShowSolcubeClick(Sender: TObject);
+    procedure Solver1Click(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -212,7 +217,7 @@ const
   crSlidezy = 10;
 
 var
-  FormGalablock: TFormGalablock;
+  FormGalaktika: TFormGalaktika;
 
 // ========================================================
 implementation
@@ -220,7 +225,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormGalablock.FormCreate(Sender: TObject);
+procedure TFormGalaktika.FormCreate(Sender: TObject);
 begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
   TP_GlobalIgnoreClass(TOpenTextFileDialog);
@@ -235,13 +240,13 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalablock.GLAsyncTimerTimer(Sender: TObject);
+procedure TFormGalaktika.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
 // -----------------------------------------------------------
-procedure TFormGalablock.GLCadencerProgress(Sender: TObject;
+procedure TFormGalaktika.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   dcGalacube.Turn(0.001);
@@ -251,7 +256,7 @@ end;
 
 // ------------------------------------------------------------
 //
-procedure TFormGalablock.MakeRandomStars;
+procedure TFormGalaktika.MakeRandomStars;
 var
   i: Integer;
   NStars: Integer;
@@ -361,20 +366,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TFormGalablock.ButtonClearClick(Sender: TObject);
+procedure TFormGalaktika.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TFormGalablock.ButtonAddStarsClick(Sender: TObject);
+procedure TFormGalaktika.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TFormGalablock.chbAllClick(Sender: TObject);
+procedure TFormGalaktika.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -386,19 +391,19 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalablock.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaktika.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalablock.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaktika.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalablock.tbShowSolcubeClick(Sender: TObject);
+procedure TFormGalaktika.tbShowSolcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -417,7 +422,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalablock.miPanelShowClick(Sender: TObject);
+procedure TFormGalaktika.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
@@ -425,7 +430,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalablock.miOpenClick(Sender: TObject);
+procedure TFormGalaktika.miOpenClick(Sender: TObject);
 var
   F: TextFile;
   sl, tl: TStringList;
@@ -439,26 +444,26 @@ begin
   DataDir := ExtractFilePath(ParamStr(0));
   DataDir := DataDir + 'data\catalog';
   // SetCurrentDir(DataDir);
-  DataModuleDialogs.OpenTextFileDialog.InitialDir := DataDir;
-  DataModuleDialogs.OpenTextFileDialog.FilterIndex := 1;
+  dmDialogs.OpenTextFileDialog.InitialDir := DataDir;
+  dmDialogs.OpenTextFileDialog.FilterIndex := 1;
 
   // Выполняем диалог открыть файл
-  if DataModuleDialogs.OpenTextFileDialog.Execute then
-    if FileExists(DataModuleDialogs.OpenTextFileDialog.FileName) then
+  if dmDialogs.OpenTextFileDialog.Execute then
+    if FileExists(dmDialogs.OpenTextFileDialog.FileName) then
       // If it exists, load the data into the memo box.
-      MemoTable.Lines.LoadFromFile(DataModuleDialogs.OpenTextFileDialog.FileName)
+      MemoTable.Lines.LoadFromFile(dmDialogs.OpenTextFileDialog.FileName)
     else
       // Otherwise, raise an exception.
       raise Exception.Create(_('File not exists'));
 
   (*
-    if DataModuleDialogs.OpenDialog.Execute() then
-    AssignFile(F, DataModuleDialogs.OpenDialog.FileName)
+    if dmDialogs.OpenDialog.Execute() then
+    AssignFile(F, dmDialogs.OpenDialog.FileName)
     else
     Exit;
     try
     Reset(F);
-    sl.LoadFromFile(DataModuleDialogs.OpenDialog.FileName);
+    sl.LoadFromFile(dmDialogs.OpenDialog.FileName);
     finally
     //
     end;
@@ -468,18 +473,18 @@ end;
 // --------------------------------------------------------
 // Пересчёт числа классов звёзд при изменении общего числа
 // --------------------------------------------------------
-procedure TFormGalablock.miSaveAsClick(Sender: TObject);
+procedure TFormGalaktika.miSaveAsClick(Sender: TObject);
 begin
-  if DataModuleDialogs.SaveTextFileDialog.Execute then
-    if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
+  if dmDialogs.SaveTextFileDialog.Execute then
+    if FileExists(dmDialogs.SaveTextFileDialog.FileName) then
       raise Exception.Create(_('File exists. Can not overwrite'))
     else
-      MemoTable.Lines.SaveToFile(DataModuleDialogs.SaveTextFileDialog.FileName);
+      MemoTable.Lines.SaveToFile(dmDialogs.SaveTextFileDialog.FileName);
   // Edit1.Text := SaveTextFileDialog.Encodings[SaveTextFileDialog.EncodingIndex];
 end;
 
-// -------------------------------------------------------------
-procedure TFormGalablock.SpinEditChange(Sender: TObject);
+//-----------------------------------------------------------
+procedure TFormGalaktika.SpinEditChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * SpinEdit.Value / 100);
   nbBn.Value := Round(nbB.Value * SpinEdit.Value / 100);
@@ -491,7 +496,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalablock.miAboutClick(Sender: TObject);
+procedure TFormGalaktika.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -502,12 +507,12 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalablock.miSettingsClick(Sender: TObject);
+procedure TFormGalaktika.miSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;
 end;
 
-procedure TFormGalablock.Monitor1Click(Sender: TObject);
+procedure TFormGalaktika.Monitor1Click(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -518,7 +523,7 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalablock.miAnalyzerClick(Sender: TObject);
+procedure TFormGalaktika.miAnalyzerClick(Sender: TObject);
 begin
   with TFormAnalyzer.Create(Self) do
     try
@@ -529,7 +534,7 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalablock.miProjectionClick(Sender: TObject);
+procedure TFormGalaktika.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -539,31 +544,42 @@ begin
     end;
 end;
 
+// -------------------------------------------------------------
+procedure TFormGalaktika.Solver1Click(Sender: TObject);
+begin
+  with TFormSolver.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
 //---------------------------------------------------------------------
-procedure TFormGalablock.ReadIniFile;
+procedure TFormGalaktika.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    Top := IniFile.ReadInteger(FormGalablock.Name, 'Top', 100);
-    Left := IniFile.ReadInteger(FormGalablock.Name, 'Left', 200);
+    Top := IniFile.ReadInteger(FormGalaktika.Name, 'Top', 100);
+    Left := IniFile.ReadInteger(FormGalaktika.Name, 'Left', 200);
   finally
     IniFile.Free;
   end;
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalablock.WriteIniFile;
+procedure TFormGalaktika.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(FormGalablock.Name, 'Top', Top);
-    IniFile.WriteInteger(FormGalablock.Name, 'Left', Left);
-    // IniFile.WriteBool(FormGalablock.Name, 'InitMax', WindowState = wsMaximized);
+    IniFile.WriteInteger(FormGalaktika.Name, 'Top', Top);
+    IniFile.WriteInteger(FormGalaktika.Name, 'Left', Left);
+    // IniFile.WriteBool(FormGalaktika.Name, 'InitMax', WindowState = wsMaximized);
   finally
     IniFile.Free;
   end;
@@ -571,7 +587,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalablock.miExitClick(Sender: TObject);
+procedure TFormGalaktika.miExitClick(Sender: TObject);
 begin
   Close();
 end;

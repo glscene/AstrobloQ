@@ -48,6 +48,7 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
   GLS.Utils,
+
   gnuGettext,
 
   flSettings,
@@ -905,7 +906,7 @@ end;
 //
 procedure TFormSolarSys.AsyncTimerTimer;
 begin
-  Caption := 'Солнечная система / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Solar system / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
@@ -913,8 +914,7 @@ end;
 //
 procedure TFormSolarSys.About1Click(Sender: TObject);
 begin
-  ShowMessage('Астровьюер планетных систем...'#13#10#13#10 +
-    'на основе компонентов GLScene!');
+  ShowMessage(_('Litosfera!'));
 end;
 
 // Exit

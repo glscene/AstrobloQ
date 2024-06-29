@@ -1,4 +1,4 @@
-object DataModuleBase: TDataModuleBase
+object dmBase: TdmBase
   Height = 649
   Width = 983
   PixelsPerInch = 168

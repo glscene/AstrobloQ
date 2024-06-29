@@ -90,7 +90,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsMaterial
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -103,18 +103,7 @@ inherited FormSettings: TFormSettings
         Margins.Bottom = 5
         Caption = 'Interface'
         TabVisible = False
-        object LabelProgram: TLabel
-          Tag = 1000
-          Left = 33
-          Top = 5
-          Width = 79
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Location'
-        end
+        OnContextPopup = tsInterfaceContextPopup
         object LabelData: TLabel
           Left = 33
           Top = 123
@@ -127,21 +116,16 @@ inherited FormSettings: TFormSettings
           AutoSize = False
           Caption = 'Data base'
         end
-        object PanelExePath: TPanel
-          Left = 33
-          Top = 44
-          Width = 559
-          Height = 52
+        object Label2: TLabel
+          Left = 42
+          Top = 43
+          Width = 43
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Alignment = taLeftJustify
-          BevelOuter = bvLowered
-          Caption = 'Galablock.exe'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 0
+          Caption = 'Style'
         end
         object cbDataPath: TComboBox
           Left = 33
@@ -152,7 +136,7 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          TabOrder = 1
+          TabOrder = 0
         end
         object ButtonBrowsePathData: TButton
           Left = 579
@@ -167,7 +151,7 @@ inherited FormSettings: TFormSettings
           Caption = '...'
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
         end
         object CheckBoxLoadProject: TCheckBox
           Left = 47
@@ -181,7 +165,7 @@ inherited FormSettings: TFormSettings
           Caption = 'Loading at start'
           Checked = True
           State = cbChecked
-          TabOrder = 3
+          TabOrder = 2
         end
         object CheckBoxSaveProject: TCheckBox
           Left = 351
@@ -195,7 +179,7 @@ inherited FormSettings: TFormSettings
           Caption = 'Save on exit'
           Checked = True
           State = cbChecked
-          TabOrder = 4
+          TabOrder = 3
         end
         object cbSplashStart: TCheckBox
           Left = 669
@@ -207,22 +191,34 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Show splash'
-          TabOrder = 5
+          TabOrder = 4
         end
         object rgLanguage: TRadioGroup
           Left = 33
           Top = 354
-          Width = 514
+          Width = 388
           Height = 109
           Caption = 'Language'
-          Columns = 3
+          Columns = 2
           ItemIndex = 0
           Items.Strings = (
             'English'
-            'Russian'
-            'Spanish')
-          TabOrder = 6
+            'Russian')
+          TabOrder = 5
           OnClick = rgLanguageClick
+        end
+        object cbxVclStyles: TComboBox
+          Left = 252
+          Top = 43
+          Width = 317
+          Height = 38
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Style = csDropDownList
+          TabOrder = 6
+          OnChange = cbxVclStylesChange
         end
       end
       object tsDisplay: TTabSheet
@@ -1203,7 +1199,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 482
+          Left = 466
           Top = 53
           Width = 149
           Height = 200
@@ -1375,27 +1371,27 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
-          object LabelA: TLabel
-            Left = 129
+          object LabelStarI: TLabel
+            Left = 75
             Top = 70
-            Width = 14
+            Width = 47
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'A'
+            Caption = 'Star I'
           end
-          object LabelB: TLabel
+          object LabelStarII: TLabel
             Left = 566
             Top = 70
-            Width = 12
+            Width = 53
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'B'
+            Caption = 'Star II'
           end
           object LabelDistance: TLabel
             Left = 409
@@ -1431,7 +1427,7 @@ inherited FormSettings: TFormSettings
             Caption = 'Flight time'
           end
           object SearchBoxA: TSearchBox
-            Left = 153
+            Left = 181
             Top = 67
             Width = 198
             Height = 40
@@ -1477,7 +1473,7 @@ inherited FormSettings: TFormSettings
             TabOrder = 2
           end
           object SearchBoxB: TSearchBox
-            Left = 588
+            Left = 644
             Top = 67
             Width = 197
             Height = 40

@@ -1,4 +1,4 @@
-object FormGalablock: TFormGalablock
+object FormGalaktika: TFormGalaktika
   Left = 0
   Top = 0
   Margins.Left = 5
@@ -107,7 +107,7 @@ object FormGalablock: TFormGalablock
         Left = 0
         Top = 0
         Hint = 'Show solcube'
-        ImageIndex = 15
+        ImageIndex = 82
         ParentShowHint = False
         ShowHint = True
         OnClick = tbShowSolcubeClick
@@ -121,8 +121,16 @@ object FormGalablock: TFormGalablock
         ShowHint = True
         OnClick = ButtonAddStarsClick
       end
-      object tbClearSolcube: TToolButton
+      object tbRotation: TToolButton
         Left = 80
+        Top = 0
+        Hint = 'Rotation'
+        ImageIndex = 54
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object tbClearSolcube: TToolButton
+        Left = 120
         Top = 0
         Hint = 'Clear solcube'
         ImageIndex = 122
@@ -889,7 +897,7 @@ object FormGalablock: TFormGalablock
       TargetObject = dcGalacube
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0050434700606A4700B888470000803F}
-      object LightGal: TGLLightSource
+      object Lighting: TGLLightSource
         ConstAttenuation = 1.000000000000000000
         SpotCutOff = 180.000000000000000000
       end
@@ -1034,6 +1042,10 @@ object FormGalablock: TFormGalablock
       object Monitor1: TMenuItem
         Caption = 'Monitor...'
         OnClick = Monitor1Click
+      end
+      object Solver1: TMenuItem
+        Caption = 'Solver...'
+        OnClick = Solver1Click
       end
     end
     object miHelp: TMenuItem

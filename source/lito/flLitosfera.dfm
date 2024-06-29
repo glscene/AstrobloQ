@@ -28,7 +28,7 @@ object FormLitosfera: TFormLitosfera
     Top = 51
     Width = 1275
     Height = 752
-    Cursor = crCross
+    Cursor = crHandPoint
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -162,6 +162,7 @@ object FormLitosfera: TFormLitosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
+      ExplicitHeight = 329
     end
   end
   object StatusBar: TStatusBar
