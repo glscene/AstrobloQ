@@ -14,6 +14,7 @@ uses
   System.Classes,
   System.IniFiles,
   System.Math,
+
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -22,13 +23,17 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
   Vcl.WinXCtrls,
+  Vcl.WinXPickers,
+  Vcl.WinXCalendars,
+
   Vcl.Samples.Spin,
   Vcl.CheckLst,
   Vcl.ColorGrd,
   Vcl.NumberBox,
-  Vcl.Themes,
 
   //
+  gnuGettext,
+
   uGlobals,
   dImages,
   fGLForm;
@@ -146,8 +151,6 @@ type
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
-    procedure tsInterfaceContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: Boolean);
     procedure cbxVclStylesChange(Sender: TObject);
   private
   public
@@ -167,7 +170,7 @@ implementation
 {$R *.dfm}
 
 uses
-  gnuGettext,
+  Vcl.Themes,
   fGalaktika;
 
 
@@ -181,9 +184,7 @@ begin
 
   for StyleName in TStyleManager.StyleNames do
     cbxVclStyles.Items.Add(StyleName);
-
   cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
-
 
   // Спектральные классы звёзд по умолчанию
 	chlbStarClasses.Checked[0] := False;
@@ -251,13 +252,6 @@ begin
   stFlightTime.Caption := FloatToStrF(FlightTime, ffFixed, 20, 1);
 end;
 
-
-procedure TFormSettings.tsInterfaceContextPopup(Sender: TObject;
-  MousePos: TPoint; var Handled: Boolean);
-begin
-  inherited;
-
-end;
 
 //--------------------------------------------------------------------
 procedure TFormSettings.rgLanguageClick(Sender: TObject);

@@ -14,14 +14,17 @@ uses
   dBase in 'source\dBase.pas' {dmBase: TDataModule},
   fAnalyzer in 'source\fAnalyzer.pas' {FormAnalyzer},
   fMonitor in 'source\fMonitor.pas' {FormMonitor},
-  fSolver in 'source\fSolver.pas' {FormSolver};
+  fSolver in 'source\fSolver.pas' {FormSolver},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
 
 begin
-  Application.Title := 'Galablock';
-
+  TStyleManager.TrySetStyle('Windows10 Dark');
+  TStyleManager.TrySetStyle('Windows10');
+  Application.Title := 'Galaktika';
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmImages, dmImages);
@@ -29,7 +32,6 @@ begin
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TFormSolver, FormSolver);
   Application.Run;
 end.
 

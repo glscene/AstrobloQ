@@ -5,6 +5,8 @@ inherited FormSettings: TFormSettings
   ClientWidth = 1313
   StyleElements = [seFont, seClient, seBorder]
   OnClose = FormClose
+  ExplicitLeft = 4
+  ExplicitTop = 4
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 30
@@ -47,8 +49,6 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 1305
-    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -90,12 +90,10 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1085
-      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -103,7 +101,6 @@ inherited FormSettings: TFormSettings
         Margins.Bottom = 5
         Caption = 'Interface'
         TabVisible = False
-        OnContextPopup = tsInterfaceContextPopup
         object LabelData: TLabel
           Left = 33
           Top = 123
@@ -114,23 +111,23 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           AutoSize = False
-          Caption = 'Data base'
+          Caption = 'Database path'
         end
         object Label2: TLabel
-          Left = 42
-          Top = 43
-          Width = 43
+          Left = 33
+          Top = 46
+          Width = 155
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Style'
+          Caption = 'Style of interface'
         end
         object cbDataPath: TComboBox
-          Left = 33
-          Top = 161
-          Width = 536
+          Left = 252
+          Top = 113
+          Width = 317
           Height = 38
           Margins.Left = 5
           Margins.Top = 5
@@ -140,7 +137,7 @@ inherited FormSettings: TFormSettings
         end
         object ButtonBrowsePathData: TButton
           Left = 579
-          Top = 161
+          Top = 110
           Width = 41
           Height = 44
           Hint = 'Browse|Browse the directory'
@@ -155,7 +152,7 @@ inherited FormSettings: TFormSettings
         end
         object CheckBoxLoadProject: TCheckBox
           Left = 47
-          Top = 282
+          Top = 226
           Width = 294
           Height = 30
           Margins.Left = 5
@@ -169,7 +166,7 @@ inherited FormSettings: TFormSettings
         end
         object CheckBoxSaveProject: TCheckBox
           Left = 351
-          Top = 282
+          Top = 226
           Width = 269
           Height = 30
           Margins.Left = 5
@@ -183,7 +180,7 @@ inherited FormSettings: TFormSettings
         end
         object cbSplashStart: TCheckBox
           Left = 669
-          Top = 282
+          Top = 226
           Width = 256
           Height = 31
           Margins.Left = 5
@@ -195,7 +192,7 @@ inherited FormSettings: TFormSettings
         end
         object rgLanguage: TRadioGroup
           Left = 33
-          Top = 354
+          Top = 298
           Width = 388
           Height = 109
           Caption = 'Language'
@@ -217,8 +214,13 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Style = csDropDownList
+          DropDownCount = 5
+          ItemIndex = 0
           TabOrder = 6
+          Text = 'Windows'
           OnChange = cbxVclStylesChange
+          Items.Strings = (
+            'Windows')
         end
       end
       object tsDisplay: TTabSheet
@@ -1199,7 +1201,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 466
+          Left = 458
           Top = 53
           Width = 149
           Height = 200
@@ -1302,7 +1304,7 @@ inherited FormSettings: TFormSettings
           Left = 613
           Top = 42
           Width = 342
-          Height = 296
+          Height = 253
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1338,7 +1340,7 @@ inherited FormSettings: TFormSettings
           Left = 70
           Top = 42
           Width = 309
-          Height = 267
+          Height = 169
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
