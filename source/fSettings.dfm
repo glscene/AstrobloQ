@@ -5,8 +5,6 @@ inherited FormSettings: TFormSettings
   ClientWidth = 1313
   StyleElements = [seFont, seClient, seBorder]
   OnClose = FormClose
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 30
@@ -49,6 +47,8 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 1305
+    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -90,10 +90,12 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -215,12 +217,8 @@ inherited FormSettings: TFormSettings
           Margins.Bottom = 5
           Style = csDropDownList
           DropDownCount = 5
-          ItemIndex = 0
           TabOrder = 6
-          Text = 'Windows'
           OnChange = cbxVclStylesChange
-          Items.Strings = (
-            'Windows')
         end
       end
       object tsDisplay: TTabSheet
@@ -1201,7 +1199,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 458
+          Left = 434
           Top = 53
           Width = 149
           Height = 200

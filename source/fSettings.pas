@@ -179,12 +179,15 @@ procedure TFormSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
+
 begin
   ReadIniFile;
 
+  // Styles of interface
   for StyleName in TStyleManager.StyleNames do
     cbxVclStyles.Items.Add(StyleName);
   cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
+//  cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.cSystemStyleName);
 
   // Спектральные классы звёзд по умолчанию
 	chlbStarClasses.Checked[0] := False;
@@ -195,7 +198,7 @@ begin
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
 
-  // Темы:
+  // Items:
   tvSettings.Items[0].Text := _('General');
   tvSettings.Items[1].Text := _('Interface');
   tvSettings.Items[2].Text := _('Display');
@@ -205,7 +208,7 @@ begin
   tvSettings.Items[6].Text := _('Planets');
   tvSettings.Items[7].Text := _('Pathway');
 
-  // Заполнение индексов узлов дерева установок
+  // TreeView item indexes
   for I := 0 to tvSettings.Items.Count - 1 do
   begin
     tvSettings.Items[I].ImageIndex := 0;
@@ -375,7 +378,6 @@ end;
 
 procedure TFormSettings.cbxVclStylesChange(Sender: TObject);
 begin
-  inherited;
   TStyleManager.SetStyle(cbxVclStyles.Text);
 end;
 

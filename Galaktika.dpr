@@ -22,8 +22,7 @@ uses
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
 
 begin
-  TStyleManager.TrySetStyle('Windows10 Dark');
-  TStyleManager.TrySetStyle('Windows10');
+  TStyleManager.TrySetStyle('Windows');
   Application.Title := 'Galaktika';
   Application.Initialize;
   Application.MainFormOnTaskbar := True;

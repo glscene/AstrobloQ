@@ -7,49 +7,49 @@
 	Фобос
 	Деймос
 Юпитер
-	Io
-	Europa
-	Ganymede
-	Callisto
-	Amalthea
+	Ио
+	Европа
+	Ганимед
+	Каллисто
+	Амальтея
 Сатурн
-	Enceladus
-	Titan
-	Mimas
-	Tethys
-	Dione
-	Rhea
-	Iapetus
-	Janus
-	Hyperion
-	Prometheus
-	Phoebe
-	Pandora
-Uranus
-	Miranda
-	Ariel
-	Umbriel
-	Titania
-	Oberon
-Neptune
-	Larissa
-	Nereid
-	Triton
-	Proteus
-Pluto
-	Charon
-Ceres
-Eris_(dwarf_planet)
-Haumea
-Vesta
-243_Ida
-433_Eros
-951_Gaspra
-1620_Geographos
-1810_Epimetheus
+	Энцелад
+	Титан
+	Мимас
+	Титис
+	Диона
+	Рея
+	Япет
+	Янус
+	Гиперион
+	Прометей
+	Фебе
+	Пандора
+Уран
+	Миранда
+	Ариель
+	Умбриель
+	Титания
+	Оберон
+Нептун
+	Ларисса
+	Нереида
+	Тритон
+	Протеус
+Плутон
+	Шарон
+Церера
+Эрис_(планетоид)
+Хаумея
+Веста
+243_Ида
+433_Эрос
+951_Гаспра
+1620_Географ
+1810_Эпиметеус
 1998_KY26
-2063_Bacchus
-4179_Toutatis
-4769_Castalia
-6489_Golevka
-90377_Sedna
+2063_Бахус
+4179_Тоутатис
+4769_Касталия
+6489_Голевка
+90377_Седна
