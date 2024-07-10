@@ -63,7 +63,6 @@ void __fastcall TFormPX::FormCreate(TObject *Sender)
 	miMode->Enabled = false;
 	miCatalog->Enabled = false;
 	CheckListBox1->Checked[3] = true;
-    TreeViewParadox->FullExpand();
 }
 
 

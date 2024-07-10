@@ -1,4 +1,4 @@
-unit fAnalyzer;
+unit fAnalyser;
 
 interface
 
@@ -20,20 +20,16 @@ uses
   fGLForm;
 
 type
-  TFormAnalyzer = class(TFormGL)
+  TFormAnalyser = class(TFormGL)
     tvAnalyzer: TTreeView;
     PageControl: TPageControl;
     tsAverageDistance: TTabSheet;
     tsDrakeFormula: TTabSheet;
-    tsStarTrek: TTabSheet;
-    StaticText3: TStaticText;
-    StaticText1: TStaticText;
-    NumberBox1: TNumberBox;
-    nbDc: TNumberBox;
-    StaticText2: TStaticText;
-    StaticTextDc: TStaticText;
     PanelBottom: TPanel;
     ButtonOk: TButton;
+    NumberBox1: TNumberBox;
+    StaticText1: TStaticText;
+    StaticText3: TStaticText;
     procedure tvAnalyzerClick(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
   private
@@ -43,26 +39,25 @@ type
   end;
 
 var
-  FormAnalyzer: TFormAnalyzer;
+  FormAnalyser: TFormAnalyser;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormAnalyzer.ButtonOkClick(Sender: TObject);
+procedure TFormAnalyser.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;
 end;
 
-procedure TFormAnalyzer.tvAnalyzerClick(Sender: TObject);
+procedure TFormAnalyser.tvAnalyzerClick(Sender: TObject);
 begin
   inherited;
   tvAnalyzer.Items[1].DropHighlighted := False;
   case tvAnalyzer.Selected.StateIndex of
      0: PageControl.ActivePage := tsAverageDistance;
      1: PageControl.ActivePage := tsDrakeFormula;
-     2: PageControl.ActivePage := tsStarTrek;
   end;
 end;
 

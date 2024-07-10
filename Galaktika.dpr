@@ -12,9 +12,9 @@ uses
   fStarProj in 'plugins\StarProj\fStarProj.pas' {FormProjection},
   dDialogs in 'source\dDialogs.pas' {dmDialogs: TDataModule},
   dBase in 'source\dBase.pas' {dmBase: TDataModule},
-  fAnalyzer in 'source\fAnalyzer.pas' {FormAnalyzer},
+  fAnalyser in 'source\fAnalyser.pas' {FormAnalyser},
   fMonitor in 'source\fMonitor.pas' {FormMonitor},
-  fSolver in 'source\fSolver.pas' {FormSolver},
+  fParadox in 'source\fParadox.pas' {FormParadox},
   Vcl.Themes,
   Vcl.Styles;
 
@@ -22,8 +22,6 @@ uses
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
 
 begin
-  TStyleManager.TrySetStyle('Windows');
-  Application.Title := 'Galaktika';
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmImages, dmImages);

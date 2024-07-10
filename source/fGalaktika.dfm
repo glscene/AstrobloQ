@@ -5,8 +5,8 @@ object FormGalaktika: TFormGalaktika
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaktika'
-  ClientHeight = 838
+  Caption = 'Galaktika MW'
+  ClientHeight = 678
   ClientWidth = 1352
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object FormGalaktika: TFormGalaktika
   TextHeight = 30
   object StatusBar: TStatusBar
     Left = 0
-    Top = 809
+    Top = 649
     Width = 1352
     Height = 29
     Margins.Left = 5
@@ -42,6 +42,7 @@ object FormGalaktika: TFormGalaktika
         Text = 'Z:'
         Width = 150
       end>
+    ExplicitTop = 809
   end
   object ControlBar: TControlBar
     Left = 0
@@ -144,7 +145,7 @@ object FormGalaktika: TFormGalaktika
     Left = 0
     Top = 57
     Width = 1352
-    Height = 752
+    Height = 592
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -152,6 +153,7 @@ object FormGalaktika: TFormGalaktika
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
+    ExplicitHeight = 752
     object tsGalacube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -162,14 +164,14 @@ object FormGalaktika: TFormGalaktika
         Left = 0
         Top = 0
         Width = 973
-        Height = 707
+        Height = 547
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 154.496566772460900000
+        FieldOfView = 147.391128540039100000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
@@ -178,13 +180,14 @@ object FormGalaktika: TFormGalaktika
         Left = 973
         Top = 0
         Width = 371
-        Height = 707
+        Height = 547
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Align = alRight
         TabOrder = 1
+        ExplicitHeight = 707
         object shW: TShape
           Left = 91
           Top = 583
@@ -780,7 +783,7 @@ object FormGalaktika: TFormGalaktika
         Left = 0
         Top = 0
         Width = 659
-        Height = 707
+        Height = 547
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -1013,7 +1016,7 @@ object FormGalaktika: TFormGalaktika
         Caption = 'Object'
       end
     end
-    object miMonitor: TMenuItem
+    object miView: TMenuItem
       Caption = '&View'
       object miProjection: TMenuItem
         Caption = 'Star projections...'
@@ -1035,17 +1038,17 @@ object FormGalaktika: TFormGalaktika
       object miN5: TMenuItem
         Caption = '-'
       end
-      object miAnalyzer: TMenuItem
-        Caption = 'Analyzer...'
-        OnClick = miAnalyzerClick
+      object miAnalyser: TMenuItem
+        Caption = 'Analyser...'
+        OnClick = miAnalyserClick
       end
-      object Monitor1: TMenuItem
+      object miMonitor: TMenuItem
         Caption = 'Monitor...'
-        OnClick = Monitor1Click
+        OnClick = miMonitorClick
       end
-      object Solver1: TMenuItem
-        Caption = 'Solver...'
-        OnClick = Solver1Click
+      object miParadox: TMenuItem
+        Caption = 'Paradox...'
+        OnClick = miParadoxClick
       end
     end
     object miHelp: TMenuItem
@@ -1076,7 +1079,7 @@ object FormGalaktika: TFormGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaktika - %FPS'
+    FormCaption = 'Galaktika MW - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

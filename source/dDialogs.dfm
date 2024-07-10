@@ -1,4 +1,5 @@
 object dmDialogs: TdmDialogs
+  OnCreate = DataModuleCreate
   Height = 657
   Width = 968
   PixelsPerInch = 168

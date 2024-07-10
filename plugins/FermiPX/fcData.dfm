@@ -31,7 +31,7 @@ object Form2: TForm2
     Margins.Right = 6
     Margins.Bottom = 6
     Anchors = [akTop, akRight]
-    Caption = #1042#1099#1073#1086#1088' '#1082#1083#1072#1089#1089#1072':'
+    Caption = 'Classes'
     Items.Strings = (
       'A_Delaunay'
       'A_Voronoi'
@@ -79,7 +79,7 @@ object Form2: TForm2
     Margins.Right = 6
     Margins.Bottom = 6
     Anchors = [akLeft, akTop, akRight]
-    Caption = #1058#1072#1073#1083#1080#1094#1099':'
+    Caption = 'Tables'
     Columns = 5
     TabOrder = 2
     OnClick = RadioGroup2Click

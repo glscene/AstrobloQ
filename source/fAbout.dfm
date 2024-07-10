@@ -29,7 +29,7 @@ object FormAbout: TFormAbout
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'Galaktika'
+    Caption = 'Galaktika MW'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70
@@ -56205,14 +56205,14 @@ object FormAbout: TFormAbout
         Margins.Bottom = 5
         Align = alTop
         Alignment = taCenter
-        Caption = 'Modeling the Evolution of Galaxy Habitability'
+        Caption = 'Simulator of Habitability and Communications'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -37
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        ExplicitWidth = 743
+        ExplicitWidth = 759
       end
     end
     object tsTools: TTabSheet

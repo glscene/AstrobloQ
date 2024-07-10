@@ -182,7 +182,6 @@ var
 
 begin
   ReadIniFile;
-
   // Styles of interface
   for StyleName in TStyleManager.StyleNames do
     cbxVclStyles.Items.Add(StyleName);

@@ -50,9 +50,9 @@ uses
   fGLForm,
   fAbout,
   fSettings,
-  fAnalyzer,
+  fAnalyser,
   fMonitor,
-  fSolver,
+  fParadox,
 
   fStarProj,
   uGlobals,
@@ -100,7 +100,6 @@ type
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
     XYZGrid: TGLXYZGrid;
-    miMonitor: TMenuItem;
     miProjection: TMenuItem;
     ControlBar: TControlBar;
     diskGalaxy: TGLDisk;
@@ -158,8 +157,8 @@ type
     shW: TShape;
     nbWn: TNumberBox;
     ToolButton4: TToolButton;
-    miAnalyzer: TMenuItem;
-    Monitor1: TMenuItem;
+    miAnalyser: TMenuItem;
+    miMonitor: TMenuItem;
     tbView: TToolBar;
     tbShowSolcube: TToolButton;
     tbAddStars: TToolButton;
@@ -168,7 +167,7 @@ type
     ButtonAdd: TButton;
     ButtonClear: TButton;
     tbRotation: TToolButton;
-    Solver1: TMenuItem;
+    miParadox: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -188,10 +187,10 @@ type
     procedure SpinEditChange(Sender: TObject);
     procedure miSaveAsClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miAnalyzerClick(Sender: TObject);
-    procedure Monitor1Click(Sender: TObject);
+    procedure miAnalyserClick(Sender: TObject);
+    procedure miMonitorClick(Sender: TObject);
     procedure tbShowSolcubeClick(Sender: TObject);
-    procedure Solver1Click(Sender: TObject);
+    procedure miParadoxClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -228,7 +227,6 @@ implementation
 procedure TFormGalaktika.FormCreate(Sender: TObject);
 begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
-  TP_GlobalIgnoreClass(TOpenTextFileDialog);
   TP_GlobalIgnoreClass(TStaticText);
   TP_GlobalIgnoreClass(TFont);
   TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
@@ -249,8 +247,8 @@ end;
 procedure TFormGalaktika.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  dcGalacube.Turn(0.001);
   dcSolcube.Roll(0.001);
+  dcGalacube.Turn(0.001);
   dcAxis.Turn(0.001);
 end;
 
@@ -512,7 +510,7 @@ begin
   FormSettings.Show;
 end;
 
-procedure TFormGalaktika.Monitor1Click(Sender: TObject);
+procedure TFormGalaktika.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -523,9 +521,9 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalaktika.miAnalyzerClick(Sender: TObject);
+procedure TFormGalaktika.miAnalyserClick(Sender: TObject);
 begin
-  with TFormAnalyzer.Create(Self) do
+  with TFormAnalyser.Create(Self) do
     try
       ShowModal;
     finally
@@ -545,9 +543,9 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.Solver1Click(Sender: TObject);
+procedure TFormGalaktika.miParadoxClick(Sender: TObject);
 begin
-  with TFormSolver.Create(Self) do
+  with TFormParadox.Create(Self) do
     try
       ShowModal;
     finally

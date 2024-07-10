@@ -4,7 +4,11 @@ interface
 
 uses
   System.SysUtils,
-  System.Classes, Vcl.Dialogs, Vcl.ExtDlgs;
+  System.Classes,
+  Vcl.Dialogs,
+  Vcl.ExtDlgs,
+
+  gnugettext;
 
 type
   TdmDialogs = class(TDataModule)
@@ -14,10 +18,9 @@ type
     SaveDialog: TSaveDialog;
     OpenPictureDialog: TOpenPictureDialog;
     SavePictureDialog: TSavePictureDialog;
+    procedure DataModuleCreate(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
@@ -28,5 +31,13 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TdmDialogs.DataModuleCreate(Sender: TObject);
+begin
+  TP_GlobalIgnoreClass(TOpenDialog);
+  TP_GlobalIgnoreClass(TSaveDialog);
+  TP_GlobalIgnoreClass(TOpenTextFileDialog);
+  TP_GlobalIgnoreClass(TSaveTextFileDialog);
+end;
 
 end.
