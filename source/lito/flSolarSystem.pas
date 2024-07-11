@@ -51,7 +51,7 @@ uses
 
   gnuGettext,
 
-  flSettings,
+  flOptions,
   flParams;
 
 type
@@ -142,7 +142,7 @@ type
     Exit1: TMenuItem;
     N2: TMenuItem;
     Help1: TMenuItem;
-    Contents1: TMenuItem;
+    miWiki: TMenuItem;
     About1: TMenuItem;
     stPickObject: TStaticText;
     FrameParams: TFrameParams;

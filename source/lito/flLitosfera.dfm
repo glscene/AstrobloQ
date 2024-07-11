@@ -162,7 +162,6 @@ object FormLitosfera: TFormLitosfera
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 329
     end
   end
   object StatusBar: TStatusBar
@@ -88668,6 +88667,10 @@ object FormLitosfera: TFormLitosfera
           F50FDDC2E99FF2C49ADA5423D0D8755DB55C0C0EC7FCB32AE9BF572AC659EDA5
           C231A0FF00965D577FFE84637B5DC56396FF00E5995617EA653867D2CE287F8E
           0B67FE59F255E53925B2AF54CA3FCAD8FFD9}
+      end
+      item
+        Name = 'clouds'
+        Tag = 0
       end>
     Left = 744
     Top = 69
@@ -88757,7 +88760,7 @@ object FormLitosfera: TFormLitosfera
     object miTools: TMenuItem
       Caption = '&Tools'
       object miSettings: TMenuItem
-        Caption = 'Settings...'
+        Caption = 'Options...'
         OnClick = miSettingsClick
       end
       object N7: TMenuItem

@@ -71,7 +71,7 @@ type
     property DateDOB: TDate read fDateDOB write fDateDOB;
     property DateAdded: TDate read fDateAdded write fDateAdded;
     property Glow: byte read fGlow write fGlow;
-    property membertype: byte read fMembertype write fMembertype;
+    property membertype: byte read fmembertype write fmembertype;
     property Latitude: single read fLatitude write fLatitude;
     property Longitude: single read fLongitude write fLongitude;
   end;
@@ -169,7 +169,7 @@ type
     miHighResolution: TMenuItem;
     miClouds: TMenuItem;
     miAtmosphere: TMenuItem;
-    miAsteroidField: TMenuItem;
+    miAsteroids: TMenuItem;
     N3: TMenuItem;
     miShowCities: TMenuItem;
     miSpinSolarSystem: TMenuItem;
@@ -188,8 +188,8 @@ type
     DateForwardCB: TCheckBox;
     PhotoImage: TImage;
     PhotoCB: TCheckBox;
-    dcEarthClouds: TGLDummyCube;
-    EarthClouds: TGLSphere;
+    dcPlanetClouds: TGLDummyCube;
+    sfPlanetClouds: TGLSphere;
     NightSkyorBumpyLand1: TMenuItem;
     MultiMatShader: TGLMultiMaterialShader;
     MMShaderMatLibrary: TGLMaterialLibrary;
@@ -206,7 +206,7 @@ type
     diskEarthMantleL: TGLDisk;
     lsSoletta: TGLLightSource;
     miShowMoon: TMenuItem;
-    miShowEarth: TMenuItem;
+    miShowPlanet: TMenuItem;
     miOptions: TMenuItem;
     StatusBar: TStatusBar;
     N4: TMenuItem;
@@ -248,9 +248,9 @@ type
     procedure DisplayCountries(Show: Boolean);
     function LoadCountryShapes: Boolean;
     (*
-    function LoadShapes:Boolean;
-    function NewLayer:Boolean;
-    procedure DVDORedraw;
+      function LoadShapes:Boolean;
+      function NewLayer:Boolean;
+      procedure DVDORedraw;
     *)
     procedure miShowCapitalsClick(Sender: TObject);
     procedure DisplayCapitals(Show: Boolean);
@@ -280,7 +280,7 @@ type
     procedure miSpinSolarSystemClick(Sender: TObject);
     procedure miStarsClick(Sender: TObject);
     procedure miSunFlareClick(Sender: TObject);
-    procedure miAsteroidFieldClick(Sender: TObject);
+    procedure miAsteroidsClick(Sender: TObject);
     procedure miConstellationLinesClick(Sender: TObject);
     procedure miAtmosphereClick(Sender: TObject);
     procedure miCloudsClick(Sender: TObject);
@@ -322,8 +322,9 @@ var
   markers: TStringList; // from Private
   markerIndex, ColorIndex: Integer;
 
-// ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
 implementation
+
 // ----------------------------------------------------------------------
 
 {$R *.dfm}
@@ -334,7 +335,7 @@ uses
   uMoveCamera,
   uSkyBodies, // Asteroid as monolith rock
   fnAbout,
-  //fAllShapeLoader,  //Earth Cities, Countries
+  // fAllShapeLoader,  //Earth Cities, Countries
   fnMeshEditor, // 3000
   fnLocations, // 1300 Data input for planet
 
@@ -362,7 +363,7 @@ begin
   Result.Z := dRadius * so * ca;
 end;
 
-//--------------------------------------------------------------
+// --------------------------------------------------------------
 procedure TFormNoosfera.FormCreate(Sender: TObject);
 var
   Temp: TGLMeshObject;
@@ -418,7 +419,7 @@ begin
   top := FormPlanetY;
   left := FormPlanetX;
   if FileExists(DataPath + 'EarthGLS.chm') then
-    Application.HelpFile := DataPath + 'EarthGLS.chm';  // not ready yet
+    Application.HelpFile := DataPath + 'EarthGLS.chm'; // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;
@@ -430,19 +431,21 @@ begin
     LoadConstellationLines;
   timeMultiplier := 1;
   // Добавление материала облаков в MatLib
-   if FileExists(EarthModelPath + 'earth_cloud_360.jpg') then
+  if FileExists(EarthModelPath + 'earth_cloud_360.jpg') then
   begin
     MatLib.Materials[3].Material.Texture.Compression := tcStandard;
-    MatLib.Materials[3].Material.Texture.Image.LoadFromFile(EarthModelPath + 'earth_cloud_360.jpg');
+    MatLib.Materials[3].Material.Texture.Image.LoadFromFile
+      (EarthModelPath + 'earth_cloud_360.jpg');
   end
   else
   begin
     miClouds.Enabled := False;
-    EarthClouds.Visible := False;
+    sfPlanetClouds.Visible := False;
   end;
 
   if FileExists(EarthModelPath + 'earth_bump.bmp') then
-    MatLib.Materials[4].Material.Texture.Image.LoadFromFile(EarthModelPath + 'earth_bump.bmp')
+    MatLib.Materials[4].Material.Texture.Image.LoadFromFile
+      (EarthModelPath + 'earth_bump.bmp')
     // GLMaterialLibrary.AddTextureMaterial('EarthBump',EarthProjectPath+'earth_bump.bmp')
   else
     NightSkyorBumpyLand1.Enabled := False;
@@ -615,8 +618,7 @@ begin
   markers.Clear;
 end;
 
-// ----- Draw people sites as points ------------------------------------------
-
+// ----- Draw people locations as points ---------------------------
 procedure TFormNoosfera.DrawPoints;
 var
   i: Integer;
@@ -624,7 +626,7 @@ var
 
 begin
   if miClouds.Checked then
-    PlanetLocation := EarthClouds.Radius
+    PlanetLocation := sfPlanetClouds.Radius
   else
     PlanetLocation := Earth.Radius;
   ptsLocations.Positions.Clear;
@@ -728,8 +730,7 @@ begin
   ptsLocations.StructureChanged;
 end;
 
-//----------------------------------------------------------------------
-
+// ----------------------------------------------------------------------
 procedure TFormNoosfera.GLSceneViewerBeforeRender(Sender: TObject);
 begin
   if miSunFlare.Checked then
@@ -778,7 +779,7 @@ var
   sunPos, eyePos, lightingVector: TGLVector;
   diskNormal, diskRight, diskUp: TGLVector;
 
-//-------------------------------------------------------------------
+  // -------------------------------------------------------------------
 
   function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
   var
@@ -824,7 +825,7 @@ var
     Result.W := n * contrib * cOpacity * 0.1;
   end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
   function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean)
     : TGLColorVector;
@@ -953,8 +954,7 @@ begin
   end;
 end;
 
-//----------------------------------------------------------------------
-
+// ----------------------------------------------------------------------
 procedure TFormNoosfera.LoadConstellationLines;
 var
   sl, line: TStrings;
@@ -978,17 +978,17 @@ begin
   line.Free;
 end;
 
-//----------------------------------------------------------------------
+// ----------------------------------------------------------------------
 
 procedure TFormNoosfera.TimerTimer(Sender: TObject);
 begin
   If MarkersDisplaySelection < 4 then
     StatusBar.Panels[0].Text := (*
-    miFPS.Caption := *) Format('%.1f FPS', [GLSceneViewer.FramesPerSecond])
+      miFPS.Caption := *) Format('%.1f FPS', [GLSceneViewer.FramesPerSecond])
   else
     StatusBar.Panels[0].Text := (*
-    miFPS.Caption := *) IntToStr(markersCounted) + ' of ' + IntToStr(markers.Count)
-      + ' : ' + DateToStr(TemporalFlowDateTime);
+      miFPS.Caption := *) IntToStr(markersCounted) + ' of ' +
+      IntToStr(markers.Count) + ' : ' + DateToStr(TemporalFlowDateTime);
   GLSceneViewer.ResetPerformanceMonitor;
 end;
 
@@ -1015,9 +1015,9 @@ begin
   *)
   { Pluto... }
   // d := GMTDateTimeToJulianDay(Now-2+newTime*timeMultiplier);
-  // make earth rotate
+  // make earth rotate with clouds
   Earth.TurnAngle := Earth.TurnAngle + deltaTime * timeMultiplier;
-  EarthClouds.TurnAngle := EarthClouds.TurnAngle + deltaTime *
+  sfPlanetClouds.TurnAngle := sfPlanetClouds.TurnAngle + deltaTime *
     timeMultiplier { +timeMultiplier };
   If miSpinSolarSystem.Checked then
   begin
@@ -1027,7 +1027,7 @@ begin
     LSSun.Position.AsAffineVector := p;
     { showmessage('Sun: '+Floattostr(LSSun.Position.x)  +' , '+Floattostr(LSSun.Position.y)  +' , '+Floattostr(LSSun.Position.z)); }
   end;
-  If miAsteroidField.Checked then
+  If miAsteroids.Checked then
   begin
     MasterAsteroidF.RollAngle := MasterAsteroidF.RollAngle + 1 +
       (Random * deltaTime);
@@ -1054,7 +1054,7 @@ begin
 
   // moon rotates on itself and around earth (not sure about the rotation direction!)
   (*
-  p := ComputePlanetPosition(cMoonOrbitalElements, d);
+    p := ComputePlanetPosition(cMoonOrbitalElements, d);
     ScaleVector(p, 0.5*cAUToKilometers*(1/cEarthRadius));
     Moon.Position.AsAffineVector := p;
   *)
@@ -1156,9 +1156,9 @@ begin
   Handled := True;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 // FullScreen
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 procedure TFormNoosfera.GLSceneViewerDblClick(Sender: TObject);
 begin
   GLSceneViewer.OnMouseMove := nil;
@@ -1215,7 +1215,7 @@ begin
   GLSceneViewer.Focused;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miRoundClick(Sender: TObject);
 begin
@@ -1253,7 +1253,7 @@ begin
   ptsLocations.Style := psSquare;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miSelectedSatelliteClick(Sender: TObject);
 begin
@@ -1275,14 +1275,14 @@ begin
     GlsGlowLF.Visible := False;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miAddaPeopleClick(Sender: TObject);
 begin
   FormLocations.Show;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miSpinThePlanetClick(Sender: TObject);
 begin
@@ -1295,7 +1295,7 @@ begin
   miSpinSolarSystem.Checked := (not miSpinSolarSystem.Checked);
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miStarsClick(Sender: TObject);
 begin
@@ -1316,9 +1316,9 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-procedure TFormNoosfera.miAsteroidFieldClick(Sender: TObject);
+procedure TFormNoosfera.miAsteroidsClick(Sender: TObject);
 begin
-  miAsteroidField.Checked := (not miAsteroidField.Checked);
+  miAsteroids.Checked := (not miAsteroids.Checked);
   MasterAsteroidF.Position.X := 3;
   GlsGlowLF.Visible := False;
 end;
@@ -1332,7 +1332,7 @@ end;
 procedure TFormNoosfera.miCloudsClick(Sender: TObject);
 begin
   miClouds.Checked := not miClouds.Checked;
-  EarthClouds.Visible := miClouds.Checked;
+  sfPlanetClouds.Visible := miClouds.Checked;
   ptsLocations.StructureChanged;
   DrawPoints;
   GLSceneViewer.Invalidate;
@@ -1350,15 +1350,15 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miFlipFlopLandClick(Sender: TObject);
-  procedure LoadHighResTexture(libMat: TGLLibMaterial; const fileName: String);
+  procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
-    if FileExists(fileName) then
+    if FileExists(FileName) then
     begin
       libMat.Material.Texture.Compression := tcStandard;
-      libMat.Material.Texture.Image.LoadFromFile(fileName);
+      libMat.Material.Texture.Image.LoadFromFile(FileName);
     end;
   end;
 
@@ -1389,12 +1389,12 @@ begin
 end;
 
 procedure TFormNoosfera.miHighResolutionClick(Sender: TObject);
-  procedure LoadHighResTexture(libMat: TGLLibMaterial; const fileName: String);
+  procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
-    if FileExists(fileName) then
+    if FileExists(FileName) then
     begin
       libMat.Material.Texture.Compression := tcStandard;
-      libMat.Material.Texture.Image.LoadFromFile(fileName);
+      libMat.Material.Texture.Image.LoadFromFile(FileName);
     end;
   end;
 
@@ -1445,7 +1445,7 @@ begin
     showmessage(ShpPath + 'country.dat missing');
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.DisplayCountries(Show: Boolean);
 begin
@@ -1471,7 +1471,7 @@ begin
   end;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 function TFormNoosfera.LoadCountryShapes: Boolean;
 var
@@ -1688,9 +1688,9 @@ end;
   end;{Any Layers ?}
   End; *)
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 { CAPITALS.SHP }
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 procedure TFormNoosfera.miShowCapitalsClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'CAPITALS.dat') then
@@ -1726,7 +1726,7 @@ begin
   end;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 function TFormNoosfera.LoadCapitalShapes: Boolean;
 var
@@ -1789,7 +1789,7 @@ begin
     showmessage(ShpPath + 'Cities.dat missing');
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.DisplayCities(Show: Boolean);
 begin
@@ -1863,7 +1863,7 @@ begin
   ShpPoints.StructureChanged;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miGLSTemporalFlowClick(Sender: TObject);
 begin
@@ -1880,7 +1880,7 @@ begin
     MarkersDisplaySelection := ChoiceRG.ItemIndex;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.FlowTimerTimer(Sender: TObject);
 begin
@@ -1921,9 +1921,9 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 // Tools
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 procedure TFormNoosfera.miDisplayToolBarClick(Sender: TObject);
 begin
   miDisplayToolBar.Checked := (not miDisplayToolBar.Checked);
@@ -1945,7 +1945,7 @@ begin
   end;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 // MeshShow
 procedure TFormNoosfera.miMeshShowClick(Sender: TObject);
@@ -1954,11 +1954,11 @@ begin
   Cadencer.Enabled := False;
   FormMeshShow.ShowModal;
   (*
-  with TFormMeshShow.Create(Self) do
+    with TFormMeshShow.Create(Self) do
     try
-      ShowModal;
+    ShowModal;
     finally
-      Free;
+    Free;
     end;
   *)
   Timer.Enabled := True;
@@ -1972,19 +1972,19 @@ begin
   Cadencer.Enabled := False;
   FormTehnosfera.ShowModal;
   (*
-  with TFormTehnosfera.Create(Self) do
+    with TFormTehnosfera.Create(Self) do
     try
-      ShowModal;
+    ShowModal;
     finally
-      Free;
+    Free;
     end;
   *)
   Timer.Enabled := True;
   Cadencer.Enabled := True;
   (*
-  FormTehnosfera in 'fTehnosfera.pas',
-  FormSmdQc in 'fmSmdQc.pas',
-  FormSmdLoadMdl in 'fmSmdLoadMdl.pas' ,
+    FormTehnosfera in 'fTehnosfera.pas',
+    FormSmdQc in 'fmSmdQc.pas',
+    FormSmdLoadMdl in 'fmSmdLoadMdl.pas' ,
   *)
 end;
 
@@ -1995,18 +1995,18 @@ begin
   Cadencer.Enabled := False;
   FormCyborg.ShowModal;
   (*
-  with TFormCyborg.Create(Self) do
+    with TFormCyborg.Create(Self) do
     try
-      ShowModal;
+    ShowModal;
     finally
-      Free;
+    Free;
     end;
   *)
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 // MdlQc
 procedure TFormNoosfera.miMdlQcClick(Sender: TObject);
 begin
@@ -2014,11 +2014,11 @@ begin
   Cadencer.Enabled := False;
   FormLoadSmdMdl.ShowModal;
   (*
-  with TFormLoadSmdMdl.Create(Self) do
+    with TFormLoadSmdMdl.Create(Self) do
     try
-      ShowModal;
+    ShowModal;
     finally
-      Free;
+    Free;
     end;
   *)
   Timer.Enabled := True;
@@ -2032,11 +2032,11 @@ begin
   Cadencer.Enabled := False;
   FormSpacePilot.ShowModal;
   (*
-  with TFormSpacePilot.Create(Self) do
+    with TFormSpacePilot.Create(Self) do
     try
-      ShowModal;
+    ShowModal;
     finally
-      Free;
+    Free;
     end;
   *)
   Timer.Enabled := True;
@@ -2055,20 +2055,20 @@ begin
   Application.HelpCommand(HELP_HELPONHELP, 0);
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miAboutClick(Sender: TObject);
 begin
-  with TFormAbout.Create(Self) do
+  with TFormAbout.CReate(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
-(*
-  ShowMessage('A freeware program based on Earth Advdemo...'#13#10#13#10 +
+  (*
+    ShowMessage('A freeware program based on Earth Advdemo...'#13#10#13#10 +
     'to shows GLScene users and developers around the world!');
-*)
+  *)
 end;
 
 // ==============================================================
@@ -2088,7 +2088,7 @@ begin
     TemporalFlowDateTime }
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.cbTypesChange(Sender: TObject);
 begin
@@ -2100,7 +2100,7 @@ begin
   DrawPoints; // redraw points based on new date constraint
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.NameCBChange(Sender: TObject);
 var
@@ -2199,7 +2199,7 @@ begin
   DrawPoints; // NameCB
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.CountryColorPanelClick(Sender: TObject);
 begin
@@ -2231,7 +2231,7 @@ begin
     LoadCityShapes; // DVDORedraw;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.PeopleColorPanelClick(Sender: TObject);
 begin
@@ -2263,7 +2263,7 @@ begin
   ShellExecute(0, 'open', PChar(lblDemoName.Caption), '', '', SW_SHOW);
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.GlowUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
@@ -2275,15 +2275,14 @@ begin
   GlsGlowLF.Size := GlowUpDown.Position;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
-procedure TFormNoosfera.ptsSizeUpDownClick(Sender: TObject;
-  Button: TUDBtnType);
+procedure TFormNoosfera.ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   ptsFlashLocations.Size := ptsSizeUpDown.Position;
 end;
 
-//-------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 procedure TFormNoosfera.miOptionsClick(Sender: TObject);
 begin
@@ -2294,6 +2293,5 @@ procedure TFormNoosfera.miExitClick(Sender: TObject);
 begin
   Close;
 end;
-
 
 end.

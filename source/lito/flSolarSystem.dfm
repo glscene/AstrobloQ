@@ -814,8 +814,8 @@ object FormSolarSys: TFormSolarSys
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 140
-    Top = 96
+    Left = 378
+    Top = 180
   end
   object MatLib: TGLMaterialLibrary
     Left = 40
@@ -881,8 +881,8 @@ object FormSolarSys: TFormSolarSys
     end
     object Help1: TMenuItem
       Caption = 'Help'
-      object Contents1: TMenuItem
-        Caption = 'Content'
+      object miWiki: TMenuItem
+        Caption = 'Wiki'
       end
       object N7: TMenuItem
         Caption = '-'

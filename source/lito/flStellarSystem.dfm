@@ -776,7 +776,7 @@ object FormStarSys: TFormStarSys
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = SceneViewer
-    FormCaption = 'Solar System'
+    FormCaption = 'Stellar System'
     Options = [snoMouseWheelHandled]
     KeyCombinations = <
       item
@@ -857,8 +857,8 @@ object FormStarSys: TFormStarSys
     end
     object Help1: TMenuItem
       Caption = 'Help'
-      object About1: TMenuItem
-        Caption = 'About...'
+      object miWiki: TMenuItem
+        Caption = 'Wiki'
       end
     end
   end

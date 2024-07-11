@@ -119,8 +119,8 @@
             <Form>FormSolarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\lito\flSettings.pas">
-            <Form>FormSettings</Form>
+        <DCCReference Include="source\lito\flOptions.pas">
+            <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dImages.pas">

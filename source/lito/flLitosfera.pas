@@ -63,7 +63,7 @@ uses
   flStellarSystem,
   flGenExosys,
   flAbout,
-  flSettings;
+  flOptions;
 
 
 type
@@ -171,13 +171,14 @@ type
     eyePos, lightingVector: TGLVector;
     diskNormal, diskRight, diskUp: TGLVector;
     procedure PlanetCore;
+    procedure ShowHidePlanet;
+    procedure LoadConstLines;
+    procedure LoadConstBounds;
   private
     mx, my,
     dmx, dmy: Integer;
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
-    procedure LoadConstLines;
-    procedure LoadConstBounds;
     // Цвет атмосферы
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
     // Расчёт цвета атмосферы
@@ -269,7 +270,8 @@ end;
 //------------------------------------------------------------------
 // Показать или скрыть планету
 //------------------------------------------------------------------
-procedure TFormLitosfera.miShowHidePlanetClick(Sender: TObject);
+
+procedure TFormLitosfera.ShowHidePlanet;
 begin
   miShowHidePlanet.Checked := not miShowHidePlanet.Checked;
   if miShowHidePlanet.Checked then
@@ -288,13 +290,18 @@ begin
   end;
 end;
 
+procedure TFormLitosfera.miShowHidePlanetClick(Sender: TObject);
+begin
+  ShowHidePlanet;
+end;
+
 
 //---------------------------------------------------
 // Показать разрез планеты с корой, мантией и ядром
 //---------------------------------------------------
 procedure TFormLitosfera.PlanetCore;
 begin
-  if FormSettings.chbCore.Checked then
+  if FormOptions.chbCore.Checked then
   begin
     PlanetPath := CurrentStar + tvPlanets.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
@@ -711,7 +718,7 @@ begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
   // задание вращения планеты
-  if FormSettings.chbRotate.Checked then
+  if FormOptions.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -955,7 +962,7 @@ procedure TFormLitosfera.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
 begin
-  OpenDialog.Filter := 'Planet system (*.star)|*.star';
+  OpenDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
   OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
@@ -982,7 +989,7 @@ end;
 //------------------------------------------------------------------
 procedure TFormLitosfera.miFileSaveAsClick(Sender: TObject);
 begin
-  SaveDialog.Filter := 'Planet system (*.star)|*.star';
+  SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
   SaveDialog.InitialDir := StarDir;
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
@@ -995,7 +1002,7 @@ end;
 //------------------------------------------------------------------
 procedure TFormLitosfera.miSettingsClick(Sender: TObject);
 begin
-  FormSettings.Show;
+  FormOptions.Show;
 end;
 
 

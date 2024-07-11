@@ -49,7 +49,7 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  flSettings,
+  flOptions,
   flParams;
 
 type
@@ -151,7 +151,7 @@ type
     N2: TMenuItem;
     N3: TMenuItem;
     Help1: TMenuItem;
-    About1: TMenuItem;
+    miWiki: TMenuItem;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -167,7 +167,6 @@ type
     procedure TreeViewClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -289,9 +288,9 @@ begin
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := 'Hide Panels'
+     miHidePanels.Caption := '_(Hide Panels)'
    else
-    miHidePanels.Caption := 'Show Panels';
+    miHidePanels.Caption := '_(Show Panels)';
 end;
 
 procedure TFormStarSys.miInnerCoreClick(Sender: TObject);
@@ -902,19 +901,10 @@ end;
 //
 procedure TFormStarSys.AsyncTimerTimer;
 begin
-  Caption := 'Ёкзопланетна€ система / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := '_(Stellar system)' +' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
-
-//---------------------------------------------------------
-// About
-//---------------------------------------------------------
-procedure TFormStarSys.About1Click(Sender: TObject);
-begin
-  ShowMessage('јстровьюер экзопланетных систем...'#13#10#13#10 +
-    'основанный на компонентах GLScene!');
-end;
 
 // Exit
 //
