@@ -6,7 +6,7 @@ object FormGalaktika: TFormGalaktika
   Margins.Right = 5
   Margins.Bottom = 5
   Caption = 'Galaktika MW'
-  ClientHeight = 678
+  ClientHeight = 844
   ClientWidth = 1352
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object FormGalaktika: TFormGalaktika
   TextHeight = 30
   object StatusBar: TStatusBar
     Left = 0
-    Top = 649
+    Top = 815
     Width = 1352
     Height = 29
     Margins.Left = 5
@@ -42,7 +42,6 @@ object FormGalaktika: TFormGalaktika
         Text = 'Z:'
         Width = 150
       end>
-    ExplicitTop = 809
   end
   object ControlBar: TControlBar
     Left = 0
@@ -104,14 +103,14 @@ object FormGalaktika: TFormGalaktika
       Caption = 'tbView'
       Images = dmImages.ImageListInterface
       TabOrder = 1
-      object tbShowSolcube: TToolButton
+      object tbSolarcube: TToolButton
         Left = 0
         Top = 0
-        Hint = 'Show solcube'
+        Hint = 'Solarcube'
         ImageIndex = 82
         ParentShowHint = False
         ShowHint = True
-        OnClick = tbShowSolcubeClick
+        OnClick = tbSolarcubeClick
       end
       object tbAddStars: TToolButton
         Left = 40
@@ -122,22 +121,23 @@ object FormGalaktika: TFormGalaktika
         ShowHint = True
         OnClick = ButtonAddStarsClick
       end
-      object tbRotation: TToolButton
+      object tbClearCubes: TToolButton
         Left = 80
+        Top = 0
+        Hint = 'Clear solarcube'
+        ImageIndex = 122
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = ButtonClearClick
+      end
+      object tbRotation: TToolButton
+        Left = 120
         Top = 0
         Hint = 'Rotation'
         ImageIndex = 54
         ParentShowHint = False
         ShowHint = True
-      end
-      object tbClearSolcube: TToolButton
-        Left = 120
-        Top = 0
-        Hint = 'Clear solcube'
-        ImageIndex = 122
-        ParentShowHint = False
-        ShowHint = True
-        OnClick = ButtonClearClick
+        OnClick = tbRotationClick
       end
     end
   end
@@ -145,7 +145,7 @@ object FormGalaktika: TFormGalaktika
     Left = 0
     Top = 57
     Width = 1352
-    Height = 592
+    Height = 758
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -153,7 +153,6 @@ object FormGalaktika: TFormGalaktika
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitHeight = 752
     object tsGalacube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -164,14 +163,14 @@ object FormGalaktika: TFormGalaktika
         Left = 0
         Top = 0
         Width = 973
-        Height = 547
+        Height = 713
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 147.391128540039100000
+        FieldOfView = 154.704254150390600000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
@@ -180,32 +179,18 @@ object FormGalaktika: TFormGalaktika
         Left = 973
         Top = 0
         Width = 371
-        Height = 547
+        Height = 713
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
         Align = alRight
         TabOrder = 1
-        ExplicitHeight = 707
-        object shW: TShape
-          Left = 91
-          Top = 583
-          Width = 50
-          Height = 42
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          ParentShowHint = False
-          Pen.Width = 2
-          ShowHint = True
-        end
         object gbStars: TGroupBox
           Left = 10
           Top = 83
           Width = 353
-          Height = 474
+          Height = 590
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -317,6 +302,19 @@ object FormGalaktika: TFormGalaktika
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Number'
+          end
+          object shW: TShape
+            Left = 91
+            Top = 478
+            Width = 50
+            Height = 42
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Pen.Width = 2
+            ShowHint = True
           end
           object chbO: TCheckBox
             Left = 14
@@ -556,7 +554,7 @@ object FormGalaktika: TFormGalaktika
           object nbAn: TNumberBox
             Left = 244
             Top = 176
-            Width = 80
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -564,7 +562,7 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 100000.000000000000000000
             TabOrder = 14
             Value = 50.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
@@ -572,7 +570,7 @@ object FormGalaktika: TFormGalaktika
           object nbMn: TNumberBox
             Left = 244
             Top = 413
-            Width = 80
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -580,15 +578,15 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 1000000.000000000000000000
             TabOrder = 15
             Value = 7600.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
           object nbKn: TNumberBox
             Left = 244
-            Top = 355
-            Width = 80
+            Top = 349
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -596,7 +594,7 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 1000000.000000000000000000
             TabOrder = 16
             Value = 1200.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
@@ -604,7 +602,7 @@ object FormGalaktika: TFormGalaktika
           object nbGn: TNumberBox
             Left = 244
             Top = 299
-            Width = 80
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -612,15 +610,15 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 1000000.000000000000000000
             TabOrder = 17
             Value = 800.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
           object nbFn: TNumberBox
-            Left = 244
+            Left = 246
             Top = 237
-            Width = 80
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -628,7 +626,7 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 1000000.000000000000000000
             TabOrder = 18
             Value = 300.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
@@ -636,7 +634,7 @@ object FormGalaktika: TFormGalaktika
           object nbBn: TNumberBox
             Left = 244
             Top = 115
-            Width = 80
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -644,7 +642,7 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 100000.000000000000000000
             TabOrder = 19
             Value = 40.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
@@ -652,7 +650,7 @@ object FormGalaktika: TFormGalaktika
           object nbOn: TNumberBox
             Left = 244
             Top = 64
-            Width = 80
+            Width = 93
             Height = 38
             Margins.Left = 5
             Margins.Top = 5
@@ -660,60 +658,60 @@ object FormGalaktika: TFormGalaktika
             Margins.Bottom = 5
             Alignment = taCenter
             Decimal = 0
-            MaxValue = 10000.000000000000000000
+            MaxValue = 100000.000000000000000000
             TabOrder = 20
             Value = 10.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
+          object chbD: TCheckBox
+            Left = 24
+            Top = 477
+            Width = 71
+            Height = 43
+            Hint = 'White Dwaft'
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'D'
+            ParentShowHint = False
+            ShowHint = False
+            TabOrder = 21
+          end
+          object nbWn: TNumberBox
+            Left = 252
+            Top = 482
+            Width = 79
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taCenter
+            Mode = nbmInt64
+            MinValue = 100.000000000000000000
+            MaxValue = 100000.000000000000000000
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 22
+            Value = 100.000000000000000000
+            SpinButtonOptions.ButtonWidth = 30
+          end
         end
-        object SpinEdit: TSpinEdit
-          Left = 238
+        object seNStars: TSpinEdit
+          Left = 210
           Top = 32
-          Width = 99
+          Width = 127
           Height = 41
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          MaxValue = 100000
+          MaxValue = 1000000
           MinValue = 1000
           TabOrder = 1
           Value = 10000
-          OnChange = SpinEditChange
-        end
-        object chbD: TCheckBox
-          Left = 24
-          Top = 583
-          Width = 71
-          Height = 43
-          Hint = 'White Dwaft'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'D'
-          ParentShowHint = False
-          ShowHint = False
-          TabOrder = 2
-        end
-        object nbWn: TNumberBox
-          Left = 252
-          Top = 583
-          Width = 79
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Alignment = taCenter
-          Mode = nbmInt64
-          MinValue = 100.000000000000000000
-          MaxValue = 1000.000000000000000000
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 3
-          Value = 100.000000000000000000
-          SpinButtonOptions.ButtonWidth = 30
+          OnChange = seNStarsChange
         end
         object chbAll: TCheckBox
           Left = 36
@@ -725,34 +723,8 @@ object FormGalaktika: TFormGalaktika
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'All stars'
-          TabOrder = 4
+          TabOrder = 2
           OnClick = chbAllClick
-        end
-        object ButtonAdd: TButton
-          Left = 28
-          Top = 658
-          Width = 113
-          Height = 43
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Add'
-          TabOrder = 5
-          OnClick = ButtonAddStarsClick
-        end
-        object ButtonClear: TButton
-          Left = 224
-          Top = 658
-          Width = 113
-          Height = 43
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Clear'
-          TabOrder = 6
-          OnClick = ButtonClearClick
         end
       end
     end
@@ -783,7 +755,7 @@ object FormGalaktika: TFormGalaktika
         Left = 0
         Top = 0
         Width = 659
-        Height = 547
+        Height = 713
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -951,8 +923,8 @@ object FormGalaktika: TFormGalaktika
   end
   object MainMenu: TMainMenu
     Images = dmImages.ImageListInterface
-    Left = 690
-    Top = 124
+    Left = 620
+    Top = 203
     object miFile: TMenuItem
       Caption = '&File'
       object miOpen: TMenuItem

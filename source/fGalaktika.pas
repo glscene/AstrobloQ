@@ -145,7 +145,7 @@ type
     nbFn: TNumberBox;
     nbBn: TNumberBox;
     nbOn: TNumberBox;
-    SpinEdit: TSpinEdit;
+    seNStars: TSpinEdit;
     dotStars: TGLPoints;
     SpaceTextX: TGLSpaceText;
     SpaceTextY: TGLSpaceText;
@@ -153,21 +153,19 @@ type
     tsDatacat: TTabSheet;
     DBGrid: TDBGrid;
     MemoTable: TMemo;
-    chbD: TCheckBox;
-    shW: TShape;
-    nbWn: TNumberBox;
     ToolButton4: TToolButton;
     miAnalyser: TMenuItem;
     miMonitor: TMenuItem;
     tbView: TToolBar;
-    tbShowSolcube: TToolButton;
+    tbSolarcube: TToolButton;
     tbAddStars: TToolButton;
-    tbClearSolcube: TToolButton;
+    tbClearCubes: TToolButton;
     chbAll: TCheckBox;
-    ButtonAdd: TButton;
-    ButtonClear: TButton;
     tbRotation: TToolButton;
     miParadox: TMenuItem;
+    shW: TShape;
+    chbD: TCheckBox;
+    nbWn: TNumberBox;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -184,13 +182,14 @@ type
     procedure ButtonAddStarsClick(Sender: TObject);
     procedure chbAllClick(Sender: TObject);
     procedure ButtonClearClick(Sender: TObject);
-    procedure SpinEditChange(Sender: TObject);
+    procedure seNStarsChange(Sender: TObject);
     procedure miSaveAsClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAnalyserClick(Sender: TObject);
     procedure miMonitorClick(Sender: TObject);
-    procedure tbShowSolcubeClick(Sender: TObject);
+    procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
+    procedure tbRotationClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -401,7 +400,12 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalaktika.tbShowSolcubeClick(Sender: TObject);
+procedure TFormGalaktika.tbRotationClick(Sender: TObject);
+begin
+  //
+end;
+
+procedure TFormGalaktika.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -416,7 +420,6 @@ begin
     Camera.Position.Y := 1000;
     Camera.Position.Z := 1000;
   end;
-
 end;
 
 // -------------------------------------------------------------
@@ -482,15 +485,15 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TFormGalaktika.SpinEditChange(Sender: TObject);
+procedure TFormGalaktika.seNStarsChange(Sender: TObject);
 begin
-  nbOn.Value := Round(nbO.Value * SpinEdit.Value / 100);
-  nbBn.Value := Round(nbB.Value * SpinEdit.Value / 100);
-  nbAn.Value := Round(nbA.Value * SpinEdit.Value / 100);
-  nbFn.Value := Round(nbF.Value * SpinEdit.Value / 100);
-  nbGn.Value := Round(nbG.Value * SpinEdit.Value / 100);
-  nbKn.Value := Round(nbK.Value * SpinEdit.Value / 100);
-  nbMn.Value := Round(nbM.Value * SpinEdit.Value / 100);
+  nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
+  nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
+  nbAn.Value := Round(nbA.Value * seNStars.Value / 100);
+  nbFn.Value := Round(nbF.Value * seNStars.Value / 100);
+  nbGn.Value := Round(nbG.Value * seNStars.Value / 100);
+  nbKn.Value := Round(nbK.Value * seNStars.Value / 100);
+  nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
 end;
 
 // -------------------------------------------------------------
