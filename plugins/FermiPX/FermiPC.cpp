@@ -4,9 +4,11 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("fcSpace.cpp", FormPX);
-USEFORM("fcData.cpp", Form2);
-USEFORM("fcStarlife.cpp", FormLife);
+USEFORM("vclforms\fcStarlife.cpp", FormLife);
+USEFORM("vclforms\fcAbout.cpp", FormAbout);
+USEFORM("vclforms\fcDataset.cpp", FormDataset);
+USEFORM("vclforms\fcOptions.cpp", FormOptions);
+USEFORM("vclforms\fcSpace.cpp", FormPÑ);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -14,9 +16,8 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormPX), &FormPX);
-		Application->CreateForm(__classid(TForm2), &Form2);
-		Application->CreateForm(__classid(TFormLife), &FormLife);
+		Application->CreateForm(__classid(TFormPÑ), &FormPÑ);
+		Application->CreateForm(__classid(TFormOptions), &FormOptions);
 		Application->Run();
 	}
 	catch (Exception &exception)

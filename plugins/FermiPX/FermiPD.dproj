@@ -125,26 +125,26 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="fdSpace.pas">
-            <Form>frmFermi</Form>
+        <DCCReference Include="vclforms\fdSpace.pas">
+            <Form>FormPD</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="fdData.pas">
-            <Form>FormTables</Form>
+        <DCCReference Include="vclforms\fdDataset.pas">
+            <Form>FormDataset</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="fdAbout.pas">
+        <DCCReference Include="vclforms\fdAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="udExecApps.pas"/>
-        <DCCReference Include="udFindPaths.pas"/>
-        <DCCReference Include="fdSettings.pas">
+        <DCCReference Include="code\udExecApps.pas"/>
+        <DCCReference Include="code\udFindPaths.pas"/>
+        <DCCReference Include="vclforms\fdOptions.pas">
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="udGlobals.pas"/>
-        <DCCReference Include="fdDrake.pas">
+        <DCCReference Include="code\udGlobals.pas"/>
+        <DCCReference Include="vclforms\fdDrake.pas">
             <Form>FormDrake</Form>
             <FormType>dfm</FormType>
         </DCCReference>

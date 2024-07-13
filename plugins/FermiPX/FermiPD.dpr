@@ -2,14 +2,14 @@ program FermiPD;
 
 uses
   Vcl.Forms,
-  fdSpace in 'fdSpace.pas' {frmFermi},
-  fdData in 'fdData.pas' {FormTables},
-  fdAbout in 'fdAbout.pas' {FormAbout},
-  udExecApps in 'udExecApps.pas',
-  udFindPaths in 'udFindPaths.pas',
-  fdSettings in 'fdSettings.pas' {FormSettings},
-  udGlobals in 'udGlobals.pas',
-  fdDrake in 'fdDrake.pas' {FormDrake};
+  fdSpace in 'vclforms\fdSpace.pas' {FormPD},
+  fdDataset in 'vclforms\fdDataset.pas' {FormDataset},
+  fdAbout in 'vclforms\fdAbout.pas' {FormAbout},
+  udExecApps in 'code\udExecApps.pas',
+  udFindPaths in 'code\udFindPaths.pas',
+  fdOptions in 'vclforms\fdOptions.pas' {FormSettings},
+  udGlobals in 'code\udGlobals.pas',
+  fdDrake in 'vclforms\fdDrake.pas' {FormDrake};
 
 {$R *.res}
 
@@ -17,6 +17,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Fermi Paradox Simulator';
-  Application.CreateForm(TfrmFermi, frmFermi);
+  Application.CreateForm(TFormPD, FormPD);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
 end.

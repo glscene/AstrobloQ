@@ -90,7 +90,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsPathway
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -1199,7 +1199,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 434
+          Left = 426
           Top = 53
           Width = 149
           Height = 200
@@ -1544,7 +1544,7 @@ inherited FormSettings: TFormSettings
               Margins.Top = 5
               Margins.Right = 5
               Margins.Bottom = 5
-              Caption = 'Polinet'
+              Caption = 'Polynet'
               TabOrder = 1
             end
             object chbIsGridnet: TCheckBox
