@@ -580,7 +580,6 @@ begin
   try
     IniFile.WriteInteger(FormGalaktika.Name, 'Top', Top);
     IniFile.WriteInteger(FormGalaktika.Name, 'Left', Left);
-    // IniFile.WriteBool(FormGalaktika.Name, 'InitMax', WindowState = wsMaximized);
   finally
     IniFile.Free;
   end;

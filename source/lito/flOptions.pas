@@ -12,6 +12,7 @@ uses
   System.Beacon.Components,
   System.Beacon,
   System.Bluetooth,
+  System.IniFiles,
 
   Vcl.Graphics,
   Vcl.Controls,
@@ -30,10 +31,12 @@ uses
   Vcl.WinXCtrls,
   Vcl.NumberBox,
 
-  fGLForm;
+
+  gnuGettext,
+  flForm;
 
 type
-  TFormOptions = class(TFormGL)
+  TFormOptions = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -87,20 +90,23 @@ type
     CheckBox1: TCheckBox;
     chbHidePlanet: TCheckBox;
     CheckBox3: TCheckBox;
+    rgLanguage: TRadioGroup;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure chbCoreClick(Sender: TObject);
     procedure chbAtmosferaClick(Sender: TObject);
     procedure chbHidePlanetClick(Sender: TObject);
+    procedure rgLanguageClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
-    CurLangID : Word;
-    procedure ReadIniFile; override;
-    procedure WriteIniFile;
   public
-    //
+    CurLangID : Word;
     Node: TTreeNode;
     Nodes: TTreeNodes;
+    procedure ReadIniFile; override;
+    procedure WriteIniFile;
+    function Execute: boolean; virtual;
   end;
 
 var
@@ -138,10 +144,12 @@ begin
     tvOptions.Items[I].StateIndex := I;
   end;
   // 0 - Общие 1- Материал 2 - Планеты 3 - Звёзды
-  tvOptions.Select(tvOptions.Items[2]);
-  tvOptions.FullExpand;
-  tvOptions.Items[2].DropHighlighted := True;
+  tvOptions.Select(tvOptions.Items[0]);
   tvOptionsClick(Self);
+  tvOptions.FullExpand;
+  tvOptions.Items[0].DropHighlighted := True;
+
+  inherited;
 end;
 
 //
@@ -162,6 +170,11 @@ begin
   FormLitosfera.ShowHidePlanet;
 end;
 
+function TFormOptions.Execute: boolean;
+begin
+  Result := ShowModal = mrOk;
+end;
+
 //---------------------------------------------------------
 procedure TFormOptions.tvOptionsClick(Sender: TObject);
 begin
@@ -173,25 +186,71 @@ begin
   end;
 end;
 
+procedure TFormOptions.rgLanguageClick(Sender: TObject);
+begin
+  case rgLanguage.ItemIndex of
+    0: CurLangID := LANG_ENGLISH;
+    1: CurLangID := LANG_RUSSIAN
+    else
+      CurLangID := LANG_ENGLISH;
+  end;
+end;
 
 //------------------------------------------------------------
 procedure TFormOptions.ReadIniFile;
+var
+  IniFile: TIniFile;
 begin
   inherited;
-  //
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    LangID := IniFile.ReadInteger(FormOptions.Name, rgLanguage.Name, 0);
+    case LangID of
+      LANG_ENGLISH:
+        rgLanguage.ItemIndex := 0;
+      LANG_RUSSIAN:
+        rgLanguage.ItemIndex := 1
+    else
+      rgLanguage.ItemIndex := 0;
+    end;
+  finally
+    IniFile.Free;
+  end;
 end;
 
 //------------------------------------------------------------
 procedure TFormOptions.WriteIniFile;
+var
+  IniFile: TIniFile;
 begin
-//
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    IniFile.WriteInteger(FormOptions.Name, rgLanguage.Name, CurLangID);
+  finally
+    IniFile.Free;
+  end;
+  inherited;
 end;
 
 //--------------------------------------------------------------
 procedure TFormOptions.ButtonOKClick(Sender: TObject);
+var
+  FileName: TFileName;
 begin
+  MessageDlg(_('Reload to change language'),
+      mtInformation, [mbOK], 0);
+  FileName := ChangeFileExt(ParamStr(0), '.ini');
+  if FileExists(UpperCase(FileName)) then
+      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
+
   Close;
 end;
 
+
+procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  WriteIniFile;
+  inherited;
+end;
 
 end.

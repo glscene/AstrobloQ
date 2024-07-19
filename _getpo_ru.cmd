@@ -3,7 +3,7 @@ cls
 
 set LANG=C
 
-rem -r ...if applied for all subdirs of astrobloq
+rem -r ...if applied for all subdirs of source dir
 dxgettext -b source --delphi --useignorepo
 
 echo updating Russian translations
@@ -16,7 +16,6 @@ msgmergedx default-old.po ..\..\..\default.po -o default.po
 del default-old.po
 del default-backup.po
 
-rem copy default.po astrobloq.po ...if applied for all projects
 copy default.po galaktika.po
 
 popd

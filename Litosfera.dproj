@@ -138,8 +138,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fGLForm.pas">
-            <Form>FormGL</Form>
+        <DCCReference Include="source\lito\flForm.pas">
+            <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

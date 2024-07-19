@@ -56205,14 +56205,14 @@ object FormAbout: TFormAbout
         Margins.Bottom = 5
         Align = alTop
         Alignment = taCenter
-        Caption = 'Simulator of Habitability and Communications'
+        Caption = 'Modeling bioevolution and communication'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -37
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        ExplicitWidth = 759
+        ExplicitWidth = 711
       end
     end
     object tsTools: TTabSheet

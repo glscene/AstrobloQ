@@ -23,7 +23,7 @@ uses
   uMoveCamera in 'source\uMoveCamera.pas',
   uSkyBodies in 'source\uSkyBodies.pas',
   flAbout in 'source\lito\flAbout.pas' {FormAbout},
-  fGLForm in 'source\fGLForm.pas' {FormGL};
+  flForm in 'source\lito\flForm.pas' {FormI};
 
 {$R *.res}
 
@@ -33,6 +33,6 @@ begin
   Application.CreateForm(TFormLitosfera, FormLitosfera);
   Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TFormOptions, FormOptions);
-  Application.CreateForm(TFormGL, FormGL);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

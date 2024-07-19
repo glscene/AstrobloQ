@@ -21,9 +21,9 @@ uses
   fnLocations in 'source\noo\fnLocations.pas' {FormLocations},
   fnNoosfera in 'source\noo\fnNoosfera.pas' {FormNoosfera},
   fnAbout in 'source\noo\fnAbout.pas' {FormAbout},
-  fGLForm in 'source\fGLForm.pas' {FormGL},
   uGlobals in 'source\uGlobals.pas',
-  Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas';
+  Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas',
+  fGLForm in 'source\fGLForm.pas' {FormGL};
 
 {$R *.res}
 

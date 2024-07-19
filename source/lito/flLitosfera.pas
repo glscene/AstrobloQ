@@ -13,6 +13,7 @@ uses
   System.Types,
   System.Math,
   System.ImageList,
+  System.IniFiles,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -63,11 +64,12 @@ uses
   flStellarSystem,
   flGenExosys,
   flAbout,
-  flOptions;
+  flOptions,
+  flForm;
 
 
 type
-  TFormLitosfera = class(TForm)
+  TFormLitosfera = class(TFormI)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -174,6 +176,8 @@ type
     procedure ShowHidePlanet;
     procedure LoadConstLines;
     procedure LoadConstBounds;
+    procedure ReadIniFile; override;
+    procedure WriteIniFile;
   private
     mx, my,
     dmx, dmy: Integer;
@@ -265,6 +269,7 @@ begin
 
 
   TimeMultiplier := Power(1, 3); // 0 - стоп, быстрое вращение - Power(3, 3);
+  inherited;
 end;
 
 //------------------------------------------------------------------
@@ -317,6 +322,37 @@ begin
     Atmosphere.Visible := True;
   end;
 end;
+
+//------------------------------------------------------------------
+procedure TFormLitosfera.ReadIniFile;
+var
+  IniFile: TIniFile;
+begin
+  inherited;
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    Top := IniFile.ReadInteger(FormLitosfera.Name, 'Top', 100);
+    Left := IniFile.ReadInteger(FormLitosfera.Name, 'Left', 200);
+  finally
+    IniFile.Free;
+  end;
+end;
+
+//------------------------------------------------------------------
+procedure TFormLitosfera.WriteIniFile;
+var
+  IniFile: TIniFile;
+begin
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    IniFile.WriteInteger(FormLitosfera.Name, 'Top', Top);
+    IniFile.WriteInteger(FormLitosfera.Name, 'Left', Left);
+  finally
+    IniFile.Free;
+  end;
+  inherited;
+end;
+
 
 //------------------------------------------------------------------
 // ѕоказать или скрыть все панели с контрольными элементами

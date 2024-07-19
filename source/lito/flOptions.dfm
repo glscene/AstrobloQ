@@ -17,6 +17,7 @@ object FormOptions: TFormOptions
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesigned
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 168
   TextHeight = 30
@@ -73,7 +74,7 @@ object FormOptions: TFormOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPlanets
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -689,9 +690,9 @@ object FormOptions: TFormOptions
           Caption = 'Precision'
         end
         object rgUnits: TRadioGroup
-          Left = 261
+          Left = 107
           Top = 70
-          Width = 356
+          Width = 244
           Height = 296
           Hint = 'https://ru.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072
           Margins.Left = 5
@@ -701,7 +702,7 @@ object FormOptions: TFormOptions
           Caption = 'Units'
           ItemIndex = 0
           Items.Strings = (
-            'Astronomical unit'
+            'Astro units'
             'Light year'
             'Kilolight year'
             'Parsec'
@@ -724,6 +725,20 @@ object FormOptions: TFormOptions
           MinValue = 0
           TabOrder = 1
           Value = 2
+        end
+        object rgLanguage: TRadioGroup
+          Left = 495
+          Top = 158
+          Width = 388
+          Height = 109
+          Caption = 'Language'
+          Columns = 2
+          ItemIndex = 0
+          Items.Strings = (
+            'English'
+            'Russian')
+          TabOrder = 2
+          OnClick = rgLanguageClick
         end
       end
     end

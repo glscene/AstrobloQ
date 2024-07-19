@@ -158,7 +158,6 @@ type
     procedure ReadIniFile; override;
     procedure WriteIniFile;
     function Execute: boolean; virtual;
-
   end;
 
 var
@@ -216,8 +215,9 @@ begin
   end;
 
   tvSettings.Select(tvSettings.Items[1]);
-  tvSettings.Items[1].DropHighlighted := True;
+  tvSettingsClick(Self);
   tvSettings.FullExpand;
+  tvSettings.Items[1].DropHighlighted := True;
 
   trbVelocityChange(Self);
   inherited;
@@ -360,6 +360,7 @@ begin
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
+//========================================================================
 procedure TFormSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;

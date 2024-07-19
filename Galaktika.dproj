@@ -142,10 +142,6 @@
         <DCCReference Include="source\fSettings.pas">
             <Form>FormSettings</Form>
         </DCCReference>
-        <DCCReference Include="source\fGLForm.pas">
-            <Form>FormGL</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="plugins\StarProj\fStarProj.pas">
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
@@ -170,6 +166,10 @@
         </DCCReference>
         <DCCReference Include="source\fParadox.pas">
             <Form>FormParadox</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fGLForm.pas">
+            <Form>FormGL</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

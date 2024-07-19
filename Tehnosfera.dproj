@@ -125,10 +125,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\fGLForm.pas">
-            <Form>FormGL</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="source\teh\ftTehnosfera.pas">
             <Form>FormTehnosfera</Form>
             <FormType>dfm</FormType>
@@ -147,6 +143,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\teh\Teh.BoneUtils.pas"/>
+        <DCCReference Include="source\fGLForm.pas">
+            <Form>FormGL</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

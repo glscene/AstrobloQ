@@ -39,6 +39,7 @@ implementation
 //
 procedure TFormGL.FormCreate(Sender: TObject);
 begin
+  ReadIniFile;
   SetLanguage;
 end;
 
@@ -50,14 +51,8 @@ begin
   LocalePath := ExtractFileDir(ParamStr(0));
   LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
-  ReadIniFile;
-
   if (LangID <> LANG_ENGLISH) then
   begin
-  (*
-    Textdomain('astrobloq');
-    BindTextDomain ('astrobloq', LocalePath);
-  *)
     Textdomain('galaktika');
     BindTextDomain ('galaktika', LocalePath);
     AddDomainForResourceString('language');
@@ -66,19 +61,16 @@ begin
       LANG_RUSSIAN:
       begin
         UseLanguage('ru');
-        Application.HelpFile := UpperCase(LocalePath + 'ru'+ PathDelim+'Astrobloq.chm');
       end
       else
       begin
         UseLanguage('en');
-        Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Astrobloq.chm');
       end;
     end;
   end
   else
   begin
     UseLanguage('en');
-    Application.HelpFile := UpperCase(LocalePath + 'en'+ PathDelim+'Astrobloq.chm');
   end;
   //TP_GlobalIgnoreClass(TTable);
   //TP_GlobalIgnoreClass(TFields);
