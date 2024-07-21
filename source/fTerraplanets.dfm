@@ -5,7 +5,7 @@ object FormTerranets: TFormTerranets
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Terranets'
+  Caption = 'Terraplanets'
   ClientHeight = 780
   ClientWidth = 1251
   Color = clBtnFace
@@ -14,6 +14,7 @@ object FormTerranets: TFormTerranets
   Font.Height = -21
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   PixelsPerInch = 168
   TextHeight = 30
   object ControlBar: TControlBar
@@ -28,9 +29,6 @@ object FormTerranets: TFormTerranets
     Align = alTop
     RowSize = 46
     TabOrder = 0
-    ExplicitLeft = 266
-    ExplicitTop = 98
-    ExplicitWidth = 100
   end
   object StatusBar: TStatusBar
     Left = 0
@@ -42,8 +40,6 @@ object FormTerranets: TFormTerranets
     Margins.Right = 5
     Margins.Bottom = 5
     Panels = <>
-    ExplicitTop = 594
-    ExplicitWidth = 1076
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,7 +52,6 @@ object FormTerranets: TFormTerranets
     Margins.Bottom = 5
     Align = alLeft
     TabOrder = 2
-    ExplicitHeight = 543
     object tvStellarSystems: TTreeView
       Left = 1
       Top = 35
@@ -70,7 +65,7 @@ object FormTerranets: TFormTerranets
       Indent = 33
       TabOrder = 0
     end
-    object stStar: TStaticText
+    object stStellarSystem: TStaticText
       Left = 1
       Top = 1
       Width = 237
@@ -81,8 +76,9 @@ object FormTerranets: TFormTerranets
       Margins.Bottom = 5
       Align = alTop
       Alignment = taCenter
-      Caption = 'Star'
+      Caption = 'Stellar system'
       TabOrder = 1
+      ExplicitWidth = 131
     end
   end
   object PanelRight: TPanel
@@ -96,8 +92,6 @@ object FormTerranets: TFormTerranets
     Margins.Bottom = 5
     Align = alRight
     TabOrder = 3
-    ExplicitLeft = 854
-    ExplicitHeight = 543
     object tvExoplanets: TTreeView
       Left = 1
       Top = 35
@@ -153,9 +147,6 @@ object FormTerranets: TFormTerranets
     PenAsTouch = False
     Align = alClient
     TabOrder = 4
-    ExplicitLeft = 224
-    ExplicitWidth = 655
-    ExplicitHeight = 616
   end
   object GLScene: TGLScene
     Left = 336

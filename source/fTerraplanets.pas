@@ -1,4 +1,4 @@
-unit fTerranets;
+unit fTerraplanets;
 
 interface
 
@@ -33,7 +33,7 @@ type
     GLCadencer: TGLCadencer;
     GLMaterialLibrary: TGLMaterialLibrary;
     chbTerranets: TCheckBox;
-    stStar: TStaticText;
+    stStellarSystem: TStaticText;
     stExoplanets: TStaticText;
     Camera: TGLCamera;
     DummyCube: TGLDummyCube;

@@ -1,8 +1,8 @@
-program Terranets;
+program Terraplanets;
 
 uses
   Vcl.Forms,
-  fTerranets in 'fTerranets.pas' {FormTerranets};
+  fTerraplanets in 'fTerraplanets.pas' {FormTerranets};
 
 {$R *.res}
 

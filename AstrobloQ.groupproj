@@ -18,7 +18,7 @@
         <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="source\Terranets.dproj">
+        <Projects Include="source\Terraplanets.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -74,23 +74,23 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Terranets">
-        <MSBuild Projects="source\Terranets.dproj"/>
+    <Target Name="Terraplanets">
+        <MSBuild Projects="source\Terraplanets.dproj"/>
     </Target>
-    <Target Name="Terranets:Clean">
-        <MSBuild Projects="source\Terranets.dproj" Targets="Clean"/>
+    <Target Name="Terraplanets:Clean">
+        <MSBuild Projects="source\Terraplanets.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Terranets:Make">
-        <MSBuild Projects="source\Terranets.dproj" Targets="Make"/>
+    <Target Name="Terraplanets:Make">
+        <MSBuild Projects="source\Terraplanets.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Noosfera;Tehnosfera;Terranets"/>
+        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Noosfera;Tehnosfera;Terraplanets"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Terranets:Clean"/>
+        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Terraplanets:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Terranets:Make"/>
+        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Terraplanets:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
