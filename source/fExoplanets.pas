@@ -1,4 +1,4 @@
-unit fTerraplanets;
+unit fExoplanets;
 
 interface
 
@@ -18,10 +18,13 @@ uses
   GLS.Cadencer,
   GLS.BaseClasses,
   GLS.Scene,
-  GLS.SceneViewer, Vcl.StdCtrls, GLS.Objects, GLS.Coordinates;
+  GLS.SceneViewer,
+  Vcl.StdCtrls,
+  GLS.Objects,
+  GLS.Coordinates;
 
 type
-  TFormTerranets = class(TForm)
+  TFormExoplanets = class(TForm)
     ControlBar: TControlBar;
     StatusBar: TStatusBar;
     PanelLeft: TPanel;
@@ -32,20 +35,18 @@ type
     GLScene: TGLScene;
     GLCadencer: TGLCadencer;
     GLMaterialLibrary: TGLMaterialLibrary;
-    chbTerranets: TCheckBox;
+    chbTerraplanets: TCheckBox;
     stStellarSystem: TStaticText;
     stExoplanets: TStaticText;
     Camera: TGLCamera;
     DummyCube: TGLDummyCube;
     LightSource: TGLLightSource;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
-  FormTerranets: TFormTerranets;
+  FormExoplanets: TFormExoplanets;
 
 implementation
 

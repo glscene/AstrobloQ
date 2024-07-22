@@ -74,7 +74,7 @@ end;
 
 procedure TFormError.Label2Click(Sender: TObject);
 begin
-  ShellExecute(0, 'open', 'http://sourceforge.net/tracker/?atid=521003&group_id=68377&func=browse',
+  ShellExecute(0, 'open', 'https://gitverse.ru/glscene/AstrobloQ',
     '', '', SW_SHOW);
 end;
 
@@ -87,7 +87,7 @@ begin
   memReport.Lines.SaveToFile(myFileName);
 
   myEmail := 'telegram:https://t.me/glscene=' + memReport.Lines.Strings[0] +
-    '&body=Please type a short story of your bug encounter, and paste the error report below.' +
+    '&body=Please type a short story of your bug encounter, and paste the error report ' +
     #13#10 + Error.ClassName + ', ' + Error.Message;
 
   ShellExecute(0, 'open', PChar(myEmail), '', '', SW_SHOW);

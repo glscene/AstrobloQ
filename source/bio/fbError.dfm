@@ -49,15 +49,15 @@ object FormError: TFormError
     object Label1: TLabel
       Left = 21
       Top = 137
-      Width = 689
+      Width = 595
       Height = 24
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
       Caption = 
-        'STEP THREE: Optional, visit the bug tracking homepage to view mo' +
-        're information:'
+        'STEP THREE: Optional, visit the repository to clone more fresh v' +
+        'ersion:'
     end
     object Label2: TLabel
       Left = 67

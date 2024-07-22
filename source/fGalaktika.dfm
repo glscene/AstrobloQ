@@ -926,7 +926,7 @@ object FormGalaktika: TFormGalaktika
     Left = 620
     Top = 203
     object miFile: TMenuItem
-      Caption = '&File'
+      Caption = 'File'
       object miOpen: TMenuItem
         Caption = 'Open...'
         ImageIndex = 2
@@ -949,7 +949,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miEdit: TMenuItem
-      Caption = '&Edit'
+      Caption = 'Edit'
       object miUndo: TMenuItem
         Caption = 'Cancel'
         ShortCut = 16474
@@ -989,10 +989,14 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miView: TMenuItem
-      Caption = '&View'
+      Caption = 'View'
       object miProjection: TMenuItem
         Caption = 'Star projections...'
         OnClick = miProjectionClick
+      end
+      object Exoplanets1: TMenuItem
+        Caption = 'Exoplanets...'
+        OnClick = Exoplanets1Click
       end
       object miPanelShow: TMenuItem
         Caption = 'Panels'
@@ -1001,7 +1005,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miTools: TMenuItem
-      Caption = '&Tools'
+      Caption = 'Options'
       object miSettings: TMenuItem
         Caption = 'Settings...'
         ImageIndex = 130
@@ -1024,7 +1028,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miHelp: TMenuItem
-      Caption = '&Help'
+      Caption = 'Help'
       object miRuwiki: TMenuItem
         Caption = 'Ruwiki...'
       end
@@ -1051,7 +1055,7 @@ object FormGalaktika: TFormGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaktika MW - %FPS'
+    FormCaption = 'Galaxy MW - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

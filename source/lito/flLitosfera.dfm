@@ -88695,7 +88695,7 @@ object FormLitosfera: TFormLitosfera
     Left = 501
     Top = 56
     object Open1: TMenuItem
-      Caption = '&File'
+      Caption = 'File'
       object miFileOpen: TMenuItem
         Caption = 'Open...'
         OnClick = miFileOpenClick
@@ -88713,7 +88713,7 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object miView: TMenuItem
-      Caption = '&View'
+      Caption = 'View'
       object miViewConstlines: TMenuItem
         Caption = 'Constellines'
         OnClick = miViewConstlinesClick
@@ -88742,7 +88742,7 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object miMonitor: TMenuItem
-      Caption = '&Monitor'
+      Caption = 'Monitor'
       object miSolarSystem: TMenuItem
         Caption = 'Solar system...'
         OnClick = miSolarSystemClick
@@ -88756,9 +88756,9 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object miTools: TMenuItem
-      Caption = '&Tools'
+      Caption = 'Options'
       object miSettings: TMenuItem
-        Caption = 'Options...'
+        Caption = 'Settings...'
         OnClick = miSettingsClick
       end
       object N7: TMenuItem
@@ -88770,7 +88770,7 @@ object FormLitosfera: TFormLitosfera
       end
     end
     object Help1: TMenuItem
-      Caption = '&Help'
+      Caption = 'Help'
       object miHelpWiki: TMenuItem
         Caption = 'Ruwiki...'
         Hint = 'Information'

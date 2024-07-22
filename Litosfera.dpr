@@ -17,22 +17,21 @@ uses
   flParams in 'source\lito\flParams.pas' {FrameParams: TFrame},
   flStellarSystem in 'source\lito\flStellarSystem.pas' {FormStarSys},
   flSolarSystem in 'source\lito\flSolarSystem.pas' {FormSolarSys},
-  flOptions in 'source\lito\flOptions.pas' {FormOptions},
+  flSettings in 'source\lito\flSettings.pas' {FormSettings},
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
   uMoveCamera in 'source\uMoveCamera.pas',
   uSkyBodies in 'source\uSkyBodies.pas',
   flAbout in 'source\lito\flAbout.pas' {FormAbout},
-  flForm in 'source\lito\flForm.pas' {FormI};
+  fForm in 'source\fForm.pas' {FormI};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.Title := 'Litosfera';
   Application.CreateForm(TFormLitosfera, FormLitosfera);
   Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TFormOptions, FormOptions);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

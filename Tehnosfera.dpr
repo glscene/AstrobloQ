@@ -8,7 +8,7 @@ uses
   ftRobot in 'source\teh\ftRobot.pas' {FormLoadSmdMdl},
   ftStarPilot in 'source\teh\ftStarPilot.pas' {FormSpacePilot},
   Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas',
-  fGLForm in 'source\fGLForm.pas' {FormGL};
+  fForm in 'source\fForm.pas' {FormI};
 
 {$R *.res}
 
@@ -16,6 +16,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFormTehnosfera, FormTehnosfera);
-  Application.CreateForm(TFormGL, FormGL);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

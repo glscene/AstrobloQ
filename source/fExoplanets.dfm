@@ -1,11 +1,11 @@
-object FormTerranets: TFormTerranets
+object FormExoplanets: TFormExoplanets
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Terraplanets'
+  Caption = 'Exoplanets'
   ClientHeight = 780
   ClientWidth = 1251
   Color = clBtnFace
@@ -78,7 +78,6 @@ object FormTerranets: TFormTerranets
       Alignment = taCenter
       Caption = 'Stellar system'
       TabOrder = 1
-      ExplicitWidth = 131
     end
   end
   object PanelRight: TPanel
@@ -105,7 +104,7 @@ object FormTerranets: TFormTerranets
       Indent = 33
       TabOrder = 0
     end
-    object chbTerranets: TCheckBox
+    object chbTerraplanets: TCheckBox
       Left = 42
       Top = 571
       Width = 170
@@ -114,7 +113,7 @@ object FormTerranets: TFormTerranets
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Terranets'
+      Caption = 'Terraplanets'
       TabOrder = 1
     end
     object stExoplanets: TStaticText

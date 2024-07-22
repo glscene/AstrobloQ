@@ -2,7 +2,7 @@
 // This unit is part of the Galaktika
 //-------------------------------------
 
-unit fGLForm;
+unit fForm;
 
 (* The fGLForm unit for TGLForm class as parent for all child forms *)
 
@@ -20,7 +20,7 @@ uses
   gnuGettext;
 
 type
-  TFormGL = class(TForm)
+  TFormI = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -30,21 +30,21 @@ type
   end;
 
 var
-  FormGL: TFormGL;
+  FormI: TFormI;
 
 implementation
 
 {$R *.dfm}
 
 //
-procedure TFormGL.FormCreate(Sender: TObject);
+procedure TFormI.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
   SetLanguage;
 end;
 
 //----------------------------------------------------------
-procedure TFormGL.SetLanguage;
+procedure TFormI.SetLanguage;
 var
   LocalePath : TFileName;
 begin
@@ -86,7 +86,7 @@ end;
 
 
 //========================================================================
-procedure TFormGL.ReadIniFile;
+procedure TFormI.ReadIniFile;
 var
   IniFile: TIniFile;
 begin

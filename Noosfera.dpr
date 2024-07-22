@@ -23,7 +23,7 @@ uses
   fnAbout in 'source\noo\fnAbout.pas' {FormAbout},
   uGlobals in 'source\uGlobals.pas',
   Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas',
-  fGLForm in 'source\fGLForm.pas' {FormGL};
+  fForm in 'source\fForm.pas' {FormI};
 
 {$R *.res}
 
@@ -39,6 +39,6 @@ begin
   Application.CreateForm(TFormTehnosfera, FormTehnosfera);
   Application.CreateForm(TFormSpacePilot, FormSpacePilot);
   Application.CreateForm(TFormLocations, FormLocations);
-  Application.CreateForm(TFormGL, FormGL);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

@@ -14,10 +14,10 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
 
-  fGLForm;
+  fForm;
 
 type
-  TFormParadox = class(TFormGL)
+  TFormParadox = class(TFormI)
     tvParadox: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);

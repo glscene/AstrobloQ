@@ -47,7 +47,7 @@ uses
   dImages,
   dDialogs,
   dBase,
-  fGLForm,
+  fForm,
   fAbout,
   fSettings,
   fAnalyser,
@@ -55,12 +55,13 @@ uses
   fParadox,
 
   fStarProj,
+  fExoplanets,
   uGlobals,
 
   gnuGettext;
 
 type
-  TFormGalaktika = class(TFormGL)
+  TFormGalaktika = class(TFormI)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -166,6 +167,7 @@ type
     shW: TShape;
     chbD: TCheckBox;
     nbWn: TNumberBox;
+    Exoplanets1: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -190,11 +192,10 @@ type
     procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
     procedure tbRotationClick(Sender: TObject);
+    procedure Exoplanets1Click(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
-    procedure ReadIniFile; override;
-    procedure WriteIniFile;
   private
     AtStart: Boolean;
     mx, my, dmx, dmy: Integer;
@@ -513,6 +514,20 @@ begin
   FormSettings.Show;
 end;
 
+//------------------------------------------------------------------------
+// Ёкзопланеты и терранеты
+//------------------------------------------------------------------------
+procedure TFormGalaktika.Exoplanets1Click(Sender: TObject);
+begin
+  with TFormExoplanets.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+
 procedure TFormGalaktika.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
@@ -554,36 +569,6 @@ begin
     finally
       Free;
     end;
-end;
-
-//---------------------------------------------------------------------
-procedure TFormGalaktika.ReadIniFile;
-var
-  IniFile: TIniFile;
-begin
-  inherited;
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    Top := IniFile.ReadInteger(FormGalaktika.Name, 'Top', 100);
-    Left := IniFile.ReadInteger(FormGalaktika.Name, 'Left', 200);
-  finally
-    IniFile.Free;
-  end;
-end;
-
-//---------------------------------------------------------------------
-procedure TFormGalaktika.WriteIniFile;
-var
-  IniFile: TIniFile;
-begin
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    IniFile.WriteInteger(FormGalaktika.Name, 'Top', Top);
-    IniFile.WriteInteger(FormGalaktika.Name, 'Left', Left);
-  finally
-    IniFile.Free;
-  end;
-  inherited;
 end;
 
 // -------------------------------------------------------------

@@ -24,7 +24,7 @@ uses
   GLS.SkyDome,
   GLS.Objects,
   GLS.Coordinates,
-  flForm;
+  fForm;
 
 type
   TFormAbout = class(TFormI)

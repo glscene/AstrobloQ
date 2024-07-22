@@ -51,7 +51,7 @@ uses
 
   gnuGettext,
 
-  flOptions,
+  flSettings,
   flParams;
 
 type

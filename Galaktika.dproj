@@ -168,8 +168,12 @@
             <Form>FormParadox</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fGLForm.pas">
-            <Form>FormGL</Form>
+        <DCCReference Include="source\fForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fExoplanets.pas">
+            <Form>FormExoplanets</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

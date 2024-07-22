@@ -18,9 +18,6 @@
         <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="source\Terraplanets.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -74,23 +71,14 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Terraplanets">
-        <MSBuild Projects="source\Terraplanets.dproj"/>
-    </Target>
-    <Target Name="Terraplanets:Clean">
-        <MSBuild Projects="source\Terraplanets.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Terraplanets:Make">
-        <MSBuild Projects="source\Terraplanets.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Noosfera;Tehnosfera;Terraplanets"/>
+        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Noosfera;Tehnosfera"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Terraplanets:Clean"/>
+        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Terraplanets:Make"/>
+        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

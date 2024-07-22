@@ -64,8 +64,8 @@ uses
   flStellarSystem,
   flGenExosys,
   flAbout,
-  flOptions,
-  flForm;
+  flSettings,
+  fForm;
 
 
 type
@@ -666,7 +666,7 @@ begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
   // задание вращения планеты
-  if FormOptions.chbRotate.Checked then
+  if FormSettings.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -931,7 +931,7 @@ end;
 //------------------------------------------------------------------
 procedure TFormLitosfera.miSettingsClick(Sender: TObject);
 begin
-  FormOptions.Show;
+  FormSettings.Show;
 end;
 
 

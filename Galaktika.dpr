@@ -16,7 +16,8 @@ uses
   fParadox in 'source\fParadox.pas' {FormParadox},
   Vcl.Themes,
   Vcl.Styles,
-  fGLForm in 'source\fGLForm.pas' {FormGL};
+  fForm in 'source\fForm.pas' {FormI},
+  fExoplanets in 'source\fExoplanets.pas' {FormExoplanets};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -29,7 +30,7 @@ begin
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TFormGL, FormGL);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.
 

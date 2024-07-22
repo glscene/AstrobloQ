@@ -20,10 +20,10 @@ uses
   Vcl.Imaging.pngimage,
   Vcl.Buttons,
 
-  fGLForm;
+  fForm;
 
 type
-  TFormAbout = class(TFormGL)
+  TFormAbout = class(TFormI)
     Panel1: TPanel;
     PageControl: TPageControl;
     tsInfo: TTabSheet;

@@ -1,4 +1,4 @@
-object FormOptions: TFormOptions
+object FormSettings: TFormSettings
   Left = 0
   Top = 0
   Hint = #1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1079#1074#1077#1079#1076#1099
@@ -7,7 +7,7 @@ object FormOptions: TFormOptions
   Margins.Right = 5
   Margins.Bottom = 5
   BorderStyle = bsDialog
-  Caption = 'Options'
+  Caption = 'Settings'
   ClientHeight = 775
   ClientWidth = 1313
   Color = clBtnFace

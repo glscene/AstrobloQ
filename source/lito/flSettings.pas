@@ -1,4 +1,4 @@
-unit flOptions;
+unit flSettings;
 
 interface
 
@@ -34,10 +34,10 @@ uses
 
 
   gnuGettext,
-  flForm;
+  fForm;
 
 type
-  TFormOptions = class(TFormI)
+  TFormSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -103,15 +103,12 @@ type
   private
   public
     CurLangID : Word;
-    Node: TTreeNode;
-    Nodes: TTreeNodes;
     procedure ReadIniFile; override;
     procedure WriteIniFile;
-    function Execute: boolean; virtual;
   end;
 
 var
-  FormOptions: TFormOptions;
+  FormSettings: TFormSettings;
 
 //================================================
 implementation
@@ -121,7 +118,7 @@ implementation
 uses
   flLitosfera;
 
-procedure TFormOptions.FormCreate(Sender: TObject);
+procedure TFormSettings.FormCreate(Sender: TObject);
 begin
   // спектральные классы звёзд по умолчанию
 	chlbStarClasses.Checked[0] := False;
@@ -131,11 +128,6 @@ begin
  	chlbStarClasses.Checked[4] := True;
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
-
-//  создание новых узлов
-//  Nodes := TTreeNodes.Create (tvSettings);
-//  Node := TTreeNode.Create (Nodes);
-//  Node := nil;
 
   // Заполнение индексов узлов дерева установок
   for var I: Integer := 0 to tvOptions.Items.Count - 1 do
@@ -156,7 +148,7 @@ end;
 //---------------------------------------------------
 // Показать кромку атмосферы
 //---------------------------------------------------
-procedure TFormOptions.chbAtmosferaClick(Sender: TObject);
+procedure TFormSettings.chbAtmosferaClick(Sender: TObject);
 begin
  // FormLitosfera.Atmosphere;
 end;
@@ -164,7 +156,7 @@ end;
 //---------------------------------------------------
 // Показать разрез планеты с корой, мантией и ядром
 //---------------------------------------------------
-procedure TFormOptions.chbCoreClick(Sender: TObject);
+procedure TFormSettings.chbCoreClick(Sender: TObject);
 begin
   with FormLitosfera do
   if chbCore.Checked then
@@ -188,7 +180,7 @@ end;
 //------------------------------------------------------------------
 // Показать или скрыть планету
 //------------------------------------------------------------------
-procedure TFormOptions.chbHidePlanetClick(Sender: TObject);
+procedure TFormSettings.chbHidePlanetClick(Sender: TObject);
 begin
  // FormLitosfera.ShowHidePlanet;
   if chbHidePlanet.Checked then
@@ -205,13 +197,8 @@ begin
   end;
 end;
 
-function TFormOptions.Execute: boolean;
-begin
-  Result := ShowModal = mrOk;
-end;
-
 //---------------------------------------------------------
-procedure TFormOptions.tvOptionsClick(Sender: TObject);
+procedure TFormSettings.tvOptionsClick(Sender: TObject);
 begin
   case tvOptions.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
@@ -221,7 +208,7 @@ begin
   end;
 end;
 
-procedure TFormOptions.rgLanguageClick(Sender: TObject);
+procedure TFormSettings.rgLanguageClick(Sender: TObject);
 begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
@@ -232,14 +219,14 @@ begin
 end;
 
 //------------------------------------------------------------
-procedure TFormOptions.ReadIniFile;
+procedure TFormSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    LangID := IniFile.ReadInteger(FormOptions.Name, rgLanguage.Name, 0);
+    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
@@ -254,13 +241,13 @@ begin
 end;
 
 //------------------------------------------------------------
-procedure TFormOptions.WriteIniFile;
+procedure TFormSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(FormOptions.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;
@@ -268,7 +255,7 @@ begin
 end;
 
 //--------------------------------------------------------------
-procedure TFormOptions.ButtonOKClick(Sender: TObject);
+procedure TFormSettings.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -282,7 +269,7 @@ begin
 end;
 
 
-procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormSettings.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;

@@ -30,16 +30,17 @@ uses
   Vcl.CheckLst,
   Vcl.ColorGrd,
   Vcl.NumberBox,
+  Vcl.Themes,
 
   //
   gnuGettext,
 
   uGlobals,
   dImages,
-  fGLForm;
+  fForm;
 
 type
-  TFormSettings = class(TFormGL)
+  TFormSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -143,6 +144,38 @@ type
     ButtonCalculate: TButton;
     cbxVclStyles: TComboBox;
     Label2: TLabel;
+    grbPlanetShow: TGroupBox;
+    chbRotate: TCheckBox;
+    chbShowAxes: TCheckBox;
+    CheckBox4: TCheckBox;
+    chbCore: TCheckBox;
+    chbAtmosfera: TCheckBox;
+    chbClouds: TCheckBox;
+    CheckBox1: TCheckBox;
+    chbHidePlanet: TCheckBox;
+    CheckBox3: TCheckBox;
+    grbTerraLayers: TGroupBox;
+    LabelIce: TLabel;
+    LabelWater: TLabel;
+    LabelCrust: TLabel;
+    LabelMantle: TLabel;
+    LabelCore: TLabel;
+    nbIce: TNumberBox;
+    nbWater: TNumberBox;
+    nbCrust: TNumberBox;
+    nbMantle: TNumberBox;
+    nbCore: TNumberBox;
+    GroupBox1: TGroupBox;
+    LabelPlanetTilt: TLabel;
+    LabelPlanetDensity: TLabel;
+    LabelPlanetRadius: TLabel;
+    LabelGravityAccel: TLabel;
+    Label6: TLabel;
+    nbTilt: TNumberBox;
+    nbDensity: TNumberBox;
+    nbRadius: TNumberBox;
+    nbGravityAccel: TNumberBox;
+    NumberBox7: TNumberBox;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguageClick(Sender: TObject);
@@ -169,7 +202,6 @@ implementation
 {$R *.dfm}
 
 uses
-  Vcl.Themes,
   fGalaktika;
 
 
@@ -181,11 +213,10 @@ var
 
 begin
   ReadIniFile;
-  // Styles of interface
+  // ¬ключение стилей интерфейса в комбобокс
   for StyleName in TStyleManager.StyleNames do
     cbxVclStyles.Items.Add(StyleName);
   cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
-//  cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.cSystemStyleName);
 
   // —пектральные классы звЄзд по умолчанию
 	chlbStarClasses.Checked[0] := False;
