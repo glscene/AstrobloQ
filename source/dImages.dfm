@@ -19727,8 +19727,8 @@ object dmImages: TdmImages
         Name = 'Pluto'
         Tag = 0
       end>
-    Left = 624
-    Top = 104
+    Left = 632
+    Top = 88
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <
@@ -122580,7 +122580,53 @@ object dmImages: TdmImages
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 620
-    Top = 259
+    Left = 628
+    Top = 251
+  end
+  object VirtPlanetMaps: TVirtualImageList
+    Images = <
+      item
+        CollectionIndex = 0
+        CollectionName = 'starF'
+        Name = 'starF'
+      end
+      item
+        CollectionIndex = 1
+        CollectionName = 'starG'
+        Name = 'starG'
+      end
+      item
+        CollectionIndex = 2
+        CollectionName = 'starK'
+        Name = 'starK'
+      end
+      item
+        CollectionIndex = 3
+        CollectionName = 'starM'
+        Name = 'starM'
+      end
+      item
+        CollectionIndex = 4
+        CollectionName = 'exoEarth'
+        Name = 'exoEarth'
+      end
+      item
+        CollectionIndex = 5
+        CollectionName = 'exoMars'
+        Name = 'exoMars'
+      end
+      item
+        CollectionIndex = 6
+        CollectionName = 'exoEuropa'
+        Name = 'exoEuropa'
+      end
+      item
+        CollectionIndex = 7
+        CollectionName = 'exoAqua'
+        Name = 'exoAqua'
+      end>
+    ImageCollection = PlanetMaps
+    Left = 424
+    Top = 248
   end
 end

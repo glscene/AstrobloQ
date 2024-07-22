@@ -74,7 +74,6 @@ type
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
     sfPlanet: TGLSphere;
-    LightStar: TGLLightSource;
     DirectOpenGL: TGLDirectOpenGL;
     Cadencer: TGLCadencer;
     Timer: TTimer;
@@ -112,9 +111,7 @@ type
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
     miViewHidePanels: TMenuItem;
-    miShowHidePlanet: TMenuItem;
     N3: TMenuItem;
-    miPlanetSkyDome: TMenuItem;
     StatusBar: TStatusBar;
     miSolarSystem: TMenuItem;
     NightLights1: TMenuItem;
@@ -134,6 +131,8 @@ type
     acPlanet: TGLActor;
     miTools: TMenuItem;
     N7: TMenuItem;
+    LensFlare: TGLLensFlare;
+    LightStar: TGLLightSource;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -156,14 +155,14 @@ type
     procedure miHelpWikiClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure miViewHidePanelsClick(Sender: TObject);
-    procedure miShowHidePlanetClick(Sender: TObject);
-    procedure miPlanetSkyDomeClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
     procedure miExoSystemClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miExogenClick(Sender: TObject);
     procedure miGoogleEarthClick(Sender: TObject);
   public
+    DataDir, StarDir, CurrentStar: TFileName;
+    PlanetPath, CatalogName: TFileName;
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
     TimeMultiplier: Single;
@@ -172,17 +171,11 @@ type
     Radius, invAtmosphereHeight: Single;
     eyePos, lightingVector: TGLVector;
     diskNormal, diskRight, diskUp: TGLVector;
-    procedure PlanetCore;
-    procedure ShowHidePlanet;
     procedure LoadConstLines;
     procedure LoadConstBounds;
-    procedure ReadIniFile; override;
-    procedure WriteIniFile;
   private
     mx, my,
     dmx, dmy: Integer;
-    DataDir, StarDir, CurrentStar: TFileName;
-    PlanetPath, CatalogName: TFileName;
     // Цвет атмосферы
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
     // Расчёт цвета атмосферы
@@ -258,101 +251,19 @@ begin
   // Заполнение индексов узлов дерева планет
   for I := 0 to tvPlanets.Items.Count - 1 do
   begin
-//    tvPlanets.Items[I].ImageIndex := I;
+//     tvPlanets.Items[I].ImageIndex := I;
 //    tvPlanets.Items[I].SelectedIndex := I;
 //    tvPlanets.Items[I].StateIndex := I;
+    tvPlanets.Items[I].ExpandedImageIndex := I;
   end;
   (**)
   tvPlanets.Select(tvPlanets.Items[3]);  // goto to Earth
   tvPlanets.FullExpand;
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
-
   TimeMultiplier := Power(1, 3); // 0 - стоп, быстрое вращение - Power(3, 3);
   inherited;
 end;
-
-//------------------------------------------------------------------
-// Показать или скрыть планету
-//------------------------------------------------------------------
-
-procedure TFormLitosfera.ShowHidePlanet;
-begin
-  miShowHidePlanet.Checked := not miShowHidePlanet.Checked;
-  if miShowHidePlanet.Checked then
-  begin
-    miShowHidePlanet.Caption := _('Show planet');
-    sfPlanet.Visible := False;
-    ffPlanet.Visible := False;
-    DirectOpenGL.Visible := False;
-  end
-  else
-  begin
-    miShowHidePlanet.Caption := _('Hide planet');
-    sfPlanet.Visible := True;
-    ffPlanet.Visible := True;
-    DirectOpenGL.Visible := True;
-  end;
-end;
-
-procedure TFormLitosfera.miShowHidePlanetClick(Sender: TObject);
-begin
-  ShowHidePlanet;
-end;
-
-
-//---------------------------------------------------
-// Показать разрез планеты с корой, мантией и ядром
-//---------------------------------------------------
-procedure TFormLitosfera.PlanetCore;
-begin
-  if FormOptions.chbCore.Checked then
-  begin
-    PlanetPath := CurrentStar + tvPlanets.Selected.Text;
-    if FileExists(PlanetPath + '_core.jpg') then
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
-    else
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    sfPlanet.Stop := 180;
-    Atmosphere.Visible := False;
-  end
-  else
-  begin
-    sfPlanet.Stop := 360;
-    Atmosphere.Visible := True;
-  end;
-end;
-
-//------------------------------------------------------------------
-procedure TFormLitosfera.ReadIniFile;
-var
-  IniFile: TIniFile;
-begin
-  inherited;
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    Top := IniFile.ReadInteger(FormLitosfera.Name, 'Top', 100);
-    Left := IniFile.ReadInteger(FormLitosfera.Name, 'Left', 200);
-  finally
-    IniFile.Free;
-  end;
-end;
-
-//------------------------------------------------------------------
-procedure TFormLitosfera.WriteIniFile;
-var
-  IniFile: TIniFile;
-begin
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    IniFile.WriteInteger(FormLitosfera.Name, 'Top', Top);
-    IniFile.WriteInteger(FormLitosfera.Name, 'Left', Left);
-  finally
-    IniFile.Free;
-  end;
-  inherited;
-end;
-
 
 //------------------------------------------------------------------
 // Показать или скрыть все панели с контрольными элементами
@@ -380,8 +291,6 @@ begin
   end;
 end;
 
-
-
 //------------------------------------------------------------------
 //   Выбор узла дерева tvPlanetsClick
 //------------------------------------------------------------------
@@ -400,6 +309,9 @@ begin
 
     // Aктор модель с поддержкой октодеревьев !
     acPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
+
+    // Загрузка карты из VirtPlanetMaps
+//    acPlanet.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[4]);
     acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     // изменяем масштаб отображения планеты
     end
@@ -442,7 +354,7 @@ begin
 
   miHelpWiki.Caption := tvPlanets.Selected.Text + _('in Ruwiki');
 
-  // Земная атмосфера
+  // Показать атмосферу
   if tvPlanets.Selected.Text = 'Earth' then
     DirectOpenGL.Visible := True
   else
@@ -848,25 +760,6 @@ begin
   Handled := True;
 end;
 
-
-//------------------------------------------------------------------
-// Click to Show Planet SkyDome
-//------------------------------------------------------------------
-procedure TFormLitosfera.miPlanetSkyDomeClick(Sender: TObject);
-begin
-  miPlanetSkyDome.Checked := not miPlanetSkyDome.Checked;
-  if miPlanetSkyDome.Checked then
-  begin
-    PlanetSkyDome.Visible := True;
-    StarSkyDome.Visible := False;
-  end
-  else
-  begin
-    PlanetSkyDome.Visible := False;
-    StarSkyDome.Visible := True;
-//    StarSkyDome.Stars.Items[0].Magnitude := -1.0;
-  end;
-end;
 
 //------------------------------------------------------------------
 // Двойной щелчок мыши скрывает панели

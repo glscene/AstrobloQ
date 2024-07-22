@@ -29,7 +29,7 @@ object FormAbout: TFormAbout
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'Galaktika MW'
+    Caption = 'Galaxy MW'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70
@@ -56205,14 +56205,14 @@ object FormAbout: TFormAbout
         Margins.Bottom = 5
         Align = alTop
         Alignment = taCenter
-        Caption = 'Modeling bioevolution and communication'
+        Caption = 'Modeling habitability and communication'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -37
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        ExplicitWidth = 711
+        ExplicitWidth = 687
       end
     end
     object tsTools: TTabSheet

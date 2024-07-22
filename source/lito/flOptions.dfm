@@ -74,7 +74,7 @@ object FormOptions: TFormOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0

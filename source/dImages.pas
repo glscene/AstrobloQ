@@ -10,7 +10,9 @@ uses
   Vcl.Controls,
   Vcl.BaseImageCollection,
   Vcl.ImageCollection,
-  Vcl.VirtualImageList, GLS.BaseClasses, GLS.Material;
+  Vcl.VirtualImageList,
+  GLS.BaseClasses,
+  GLS.Material;
 
 type
   TdmImages = class(TDataModule)
@@ -20,6 +22,7 @@ type
     PlanetMaps: TImageCollection;
     GLPlanetMaps: TGLMaterialLibrary;
     GLMatLib: TGLMaterialLibrary;
+    VirtPlanetMaps: TVirtualImageList;
   private
   public
   end;

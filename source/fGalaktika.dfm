@@ -5,7 +5,7 @@ object FormGalaktika: TFormGalaktika
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaktika MW'
+  Caption = 'Galaxy MW'
   ClientHeight = 844
   ClientWidth = 1352
   Color = clBtnFace

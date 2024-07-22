@@ -19239,7 +19239,7 @@ object FormAbout: TFormAbout
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'Litosfera'
+    Caption = 'Lithosphere'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70

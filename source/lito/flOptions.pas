@@ -13,6 +13,7 @@ uses
   System.Beacon,
   System.Bluetooth,
   System.IniFiles,
+  System.UITypes,
 
   Vcl.Graphics,
   Vcl.Controls,
@@ -152,22 +153,56 @@ begin
   inherited;
 end;
 
-//
-// Показать сечение планеты с ядром
-//
+//---------------------------------------------------
+// Показать кромку атмосферы
+//---------------------------------------------------
 procedure TFormOptions.chbAtmosferaClick(Sender: TObject);
 begin
-  // FormLitosfera.Atmosphere;
+ // FormLitosfera.Atmosphere;
 end;
 
+//---------------------------------------------------
+// Показать разрез планеты с корой, мантией и ядром
+//---------------------------------------------------
 procedure TFormOptions.chbCoreClick(Sender: TObject);
 begin
-  FormLitosfera.PlanetCore;
+  with FormLitosfera do
+  if chbCore.Checked then
+  begin
+    // Переключить невидимую GLFreeForm модель планеты на видимую GLSphere модель и GLDisk
+    PlanetPath := CurrentStar + tvPlanets.Selected.Text;
+    if FileExists(PlanetPath + '_core.jpg') then
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
+    else
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+    sfPlanet.Stop := 180;
+    Atmosphere.Visible := False;
+  end
+  else
+  begin
+    sfPlanet.Stop := 360;
+    Atmosphere.Visible := True;
+  end;
 end;
 
+//------------------------------------------------------------------
+// Показать или скрыть планету
+//------------------------------------------------------------------
 procedure TFormOptions.chbHidePlanetClick(Sender: TObject);
 begin
-  FormLitosfera.ShowHidePlanet;
+ // FormLitosfera.ShowHidePlanet;
+  if chbHidePlanet.Checked then
+  begin
+    FormLitosfera.sfPlanet.Visible := False;
+    FormLitosfera.ffPlanet.Visible := False;
+    FormLitosfera.DirectOpenGL.Visible := False;
+  end
+  else
+  begin
+    FormLitosfera.sfPlanet.Visible := True;
+    FormLitosfera.ffPlanet.Visible := True;
+    FormLitosfera.DirectOpenGL.Visible := True;
+  end;
 end;
 
 function TFormOptions.Execute: boolean;

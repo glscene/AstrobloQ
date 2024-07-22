@@ -6,7 +6,7 @@ object FormLitosfera: TFormLitosfera
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Litosfera'
+  Caption = 'Lithosphere'
   ClientHeight = 837
   ClientWidth = 1524
   Color = clBtnFace
@@ -299,15 +299,9 @@ object FormLitosfera: TFormLitosfera
       Position.Coordinates = {0000803F000000000000803F0000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
       Up.Coordinates = {00000000000000000000803F00000000}
-      object LightStar: TGLLightSource
-        ConstAttenuation = 1.000000000000000000
-        Position.Coordinates = {00D0044600D00446000000000000803F}
-        Specular.Color = {0000803F0000803F0000803F0000803F}
-        SpotCutOff = 180.000000000000000000
-        object LensStar: TGLLensFlare
-          Seed = 1465
-          FlareIsNotOccluded = True
-        end
+      object LensStar: TGLLensFlare
+        Seed = 1465
+        FlareIsNotOccluded = True
       end
     end
     object CameraControler: TGLCamera
@@ -322,7 +316,6 @@ object FormLitosfera: TFormLitosfera
       ObjectsSorting = osNone
       CubeSize = 1000.000000000000000000
       object Atmosphere: TGLAtmosphere
-        Sun = LightStar
         Visible = False
       end
       object sfPlanet: TGLSphere
@@ -409,6 +402,19 @@ object FormLitosfera: TFormLitosfera
         UseBuildList = False
         OnRender = DirectOpenGLRender
         Blend = False
+      end
+    end
+    object LensFlare: TGLLensFlare
+      Size = 100
+      Seed = 1465
+      NumStreaks = 10
+      NumSecs = 25
+      Resolution = 10
+      FlareIsNotOccluded = True
+      Position.Coordinates = {0000A0400000A040000000000000803F}
+      object LightStar: TGLLightSource
+        ConstAttenuation = 1.000000000000000000
+        SpotCutOff = 180.000000000000000000
       end
     end
   end
@@ -88723,10 +88729,6 @@ object FormLitosfera: TFormLitosfera
         Caption = 'Hide panels'
         OnClick = miViewHidePanelsClick
       end
-      object miShowHidePlanet: TMenuItem
-        Caption = 'Hide planet'
-        OnClick = miShowHidePlanetClick
-      end
       object miClearTreeView: TMenuItem
         Caption = 'Clear'
         Enabled = False
@@ -88734,10 +88736,6 @@ object FormLitosfera: TFormLitosfera
       end
       object N6: TMenuItem
         Caption = '-'
-      end
-      object miPlanetSkyDome: TMenuItem
-        Caption = 'Skydome'
-        OnClick = miPlanetSkyDomeClick
       end
       object NightLights1: TMenuItem
         Caption = 'City lights'
