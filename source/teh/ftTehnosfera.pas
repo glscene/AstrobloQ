@@ -44,10 +44,10 @@ uses
   GLS.BaseClasses,
 
   gnugettext,
-  fGLForm;
+  fForm;
 
 type
-  TFormTehnosfera = class(TFormGL)
+  TFormTehnosfera = class(TFormI)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;

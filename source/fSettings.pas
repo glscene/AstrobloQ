@@ -37,7 +37,7 @@ uses
 
   uGlobals,
   dImages,
-  fForm;
+  fForm, System.ImageList, Vcl.ImgList;
 
 type
   TFormSettings = class(TFormI)
@@ -176,6 +176,7 @@ type
     nbRadius: TNumberBox;
     nbGravityAccel: TNumberBox;
     NumberBox7: TNumberBox;
+    ImageList: TImageList;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguageClick(Sender: TObject);
@@ -299,6 +300,8 @@ end;
 
 
 //--------------------------------------------------------------------
+// Чтение секций Инифайла и установка языка интерфейса
+//--------------------------------------------------------------------
 procedure TFormSettings.ReadIniFile;
 var
   IniFile: TIniFile;
@@ -338,6 +341,9 @@ begin
   inherited;
 end;
 
+//----------------------------------------------------------------
+// Цвет фона GLSceneViewer по умолчанию чёрный
+//----------------------------------------------------------------
 procedure TFormSettings.PanelBackgroundClick(Sender: TObject);
 begin
   {

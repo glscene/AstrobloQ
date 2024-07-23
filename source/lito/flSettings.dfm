@@ -74,7 +74,7 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPlanets
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -86,47 +86,6 @@ object FormSettings: TFormSettings
         Caption = 'Material'
         ImageIndex = 4
         TabVisible = False
-        object ListView: TListView
-          Left = 0
-          Top = 0
-          Width = 1008
-          Height = 380
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Align = alTop
-          Columns = <
-            item
-              Caption = 'Model'
-              MaxWidth = 100
-              MinWidth = 100
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Table'
-              MaxWidth = 400
-              MinWidth = 400
-              Width = 400
-            end>
-          GridLines = True
-          RowSelect = True
-          TabOrder = 0
-          ViewStyle = vsReport
-        end
-        object ButtonModifyMat: TButton
-          Left = 254
-          Top = 478
-          Width = 182
-          Height = 42
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Change...'
-          TabOrder = 1
-        end
       end
       object tsStars: TTabSheet
         Margins.Left = 5
@@ -678,57 +637,9 @@ object FormSettings: TFormSettings
         Caption = 'General'
         ImageIndex = 7
         TabVisible = False
-        object LabelPrecision: TLabel
-          Left = 182
-          Top = 421
-          Width = 83
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Precision'
-        end
-        object rgUnits: TRadioGroup
-          Left = 107
-          Top = 70
-          Width = 244
-          Height = 296
-          Hint = 'https://ru.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Units'
-          ItemIndex = 0
-          Items.Strings = (
-            'Astro units'
-            'Light year'
-            'Kilolight year'
-            'Parsec'
-            'Kiloparsec')
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 0
-        end
-        object SpinEditPrecision: TSpinEdit
-          Left = 546
-          Top = 418
-          Width = 71
-          Height = 41
-          Hint = 'Precision'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          MaxValue = 18
-          MinValue = 0
-          TabOrder = 1
-          Value = 2
-        end
         object rgLanguage: TRadioGroup
-          Left = 495
-          Top = 158
+          Left = 299
+          Top = 116
           Width = 388
           Height = 109
           Caption = 'Language'
@@ -737,7 +648,7 @@ object FormSettings: TFormSettings
           Items.Strings = (
             'English'
             'Russian')
-          TabOrder = 2
+          TabOrder = 0
           OnClick = rgLanguageClick
         end
       end

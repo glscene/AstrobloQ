@@ -43,17 +43,12 @@ type
     PanelMiddle: TPanel;
     PageControl: TPageControl;
     tsMaterial: TTabSheet;
-    ListView: TListView;
-    ButtonModifyMat: TButton;
     tvOptions: TTreeView;
     PanelTop: TPanel;
     ImageList: TImageList;
     tsStars: TTabSheet;
     tsPlanets: TTabSheet;
     tsGeneral: TTabSheet;
-    rgUnits: TRadioGroup;
-    SpinEditPrecision: TSpinEdit;
-    LabelPrecision: TLabel;
     grbPlanetGuts: TGroupBox;
     LabelIce: TLabel;
     nbIce: TNumberBox;
