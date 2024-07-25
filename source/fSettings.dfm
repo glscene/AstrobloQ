@@ -1338,7 +1338,7 @@ inherited FormSettings: TFormSettings
           Left = 70
           Top = 42
           Width = 309
-          Height = 169
+          Height = 253
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1346,6 +1346,9 @@ inherited FormSettings: TFormSettings
           Caption = 'Coordinate system'
           ItemIndex = 0
           Items.Strings = (
+            'Equatorial'
+            'Horizontal'
+            'Geocentric'
             'Heliocentric'
             'Galactic'
             'Supergalactic')
@@ -1592,8 +1595,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object CheckListBox1: TCheckListBox
-          Left = 742
-          Top = 341
+          Left = 756
+          Top = 355
           Width = 238
           Height = 141
           Margins.Left = 5
@@ -1741,9 +1744,9 @@ inherited FormSettings: TFormSettings
         end
         object grbTerraLayers: TGroupBox
           Left = 28
-          Top = 341
+          Top = 333
           Width = 309
-          Height = 301
+          Height = 309
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5

@@ -1,5 +1,4 @@
 Gliese_581
-Gliese_581_a
 Gliese_581_b
 Gliese_581_c
 Gliese_581_d

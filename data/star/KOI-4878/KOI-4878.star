@@ -1,2 +1,2 @@
-Kepler-22
-Kepler-22b
+KOI-4878
+KOI-4878.01

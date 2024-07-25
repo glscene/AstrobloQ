@@ -1,2 +1,2 @@
-Kepler-22
-Kepler-22b
+Gliese_504
+Gliese_504b
