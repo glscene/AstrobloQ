@@ -129,7 +129,6 @@
             <Form>FormTehnosfera</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\uGlobals.pas"/>
         <DCCReference Include="source\teh\ftCyborg.pas">
             <Form>FormCyborg</Form>
             <FormType>dfm</FormType>
@@ -147,6 +146,7 @@
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="source\univer\uGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -1,12 +1,11 @@
-program Galaktika;
+program Galaktos;
 
 
 uses
   Vcl.Forms,
-  fGalaktika in 'source\fGalaktika.pas' {FormGalaktika},
+  fGalaktos in 'source\fGalaktos.pas' {FormGalaktika},
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},
-  uGlobals in 'source\uGlobals.pas',
   fSettings in 'source\fSettings.pas' {FormSettings},
   fStarProj in 'plugins\StarProj\fStarProj.pas' {FormProjection},
   dDialogs in 'source\dDialogs.pas' {dmDialogs: TDataModule},
@@ -17,7 +16,8 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   fForm in 'source\fForm.pas' {FormI},
-  fExoplanets in 'source\fExoplanets.pas' {FormExoplanets};
+  fExoplanets in 'source\fExoplanets.pas' {FormExoplanets},
+  uGlobals in 'source\univer\uGlobals.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

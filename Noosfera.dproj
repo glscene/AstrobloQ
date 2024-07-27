@@ -107,8 +107,6 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="source\noo\Noo.Globals.pas"/>
-        <DCCReference Include="source\uMoveCamera.pas"/>
-        <DCCReference Include="source\uSkyBodies.pas"/>
         <DCCReference Include="source\noo\Noo.BoneUtils.pas"/>
         <DCCReference Include="source\teh\ftRobot.pas">
             <Form>FormLoadSmdMdl</Form>
@@ -146,12 +144,14 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\uGlobals.pas"/>
         <DCCReference Include="source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="source\fForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="source\univer\uGlobals.pas"/>
+        <DCCReference Include="source\univer\uMoveCamera.pas"/>
+        <DCCReference Include="source\univer\uSkyBodies.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

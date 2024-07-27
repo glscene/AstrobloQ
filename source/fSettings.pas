@@ -14,6 +14,7 @@ uses
   System.Classes,
   System.IniFiles,
   System.Math,
+  System.ImageList,
 
   Vcl.Graphics,
   Vcl.Controls,
@@ -30,6 +31,7 @@ uses
   Vcl.CheckLst,
   Vcl.ColorGrd,
   Vcl.NumberBox,
+  Vcl.ImgList,
   Vcl.Themes,
 
   //
@@ -37,7 +39,7 @@ uses
 
   uGlobals,
   dImages,
-  fForm, System.ImageList, Vcl.ImgList;
+  fForm;
 
 type
   TFormSettings = class(TFormI)
@@ -203,7 +205,7 @@ implementation
 {$R *.dfm}
 
 uses
-  fGalaktika;
+  fGalaktos;
 
 
 //--------------------------------------------------------------------

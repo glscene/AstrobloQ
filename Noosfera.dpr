@@ -9,8 +9,6 @@ program Noosfera;
 uses
   Forms,
   Noo.Globals in 'source\noo\Noo.Globals.pas',
-  uMoveCamera in 'source\uMoveCamera.pas',
-  uSkyBodies in 'source\uSkyBodies.pas',
   Noo.BoneUtils in 'source\noo\Noo.BoneUtils.pas',
   ftRobot in 'source\teh\ftRobot.pas' {FormLoadSmdMdl},
   ftCyborg in 'source\teh\ftCyborg.pas' {FormCyborg},
@@ -21,9 +19,11 @@ uses
   fnLocations in 'source\noo\fnLocations.pas' {FormLocations},
   fnNoosfera in 'source\noo\fnNoosfera.pas' {FormNoosfera},
   fnAbout in 'source\noo\fnAbout.pas' {FormAbout},
-  uGlobals in 'source\uGlobals.pas',
   Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas',
-  fForm in 'source\fForm.pas' {FormI};
+  fForm in 'source\fForm.pas' {FormI},
+  uGlobals in 'source\univer\uGlobals.pas',
+  uMoveCamera in 'source\univer\uMoveCamera.pas',
+  uSkyBodies in 'source\univer\uSkyBodies.pas';
 
 {$R *.res}
 

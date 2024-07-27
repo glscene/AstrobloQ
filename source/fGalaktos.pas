@@ -1,4 +1,4 @@
-unit fGalaktika;
+unit fGalaktos;
 
 interface
 
@@ -168,6 +168,8 @@ type
     chbD: TCheckBox;
     nbWn: TNumberBox;
     Exoplanets1: TMenuItem;
+    tsSolarcube: TTabSheet;
+    GLSceneViewer1: TGLSceneViewer;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);

@@ -1199,7 +1199,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 378
+          Left = 370
           Top = 53
           Width = 149
           Height = 200

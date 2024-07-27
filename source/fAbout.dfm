@@ -29,7 +29,7 @@ object FormAbout: TFormAbout
     Margins.Bottom = 5
     Align = alTop
     BorderWidth = 10
-    Caption = 'Galaxy MW'
+    Caption = 'Galaktos'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -70
@@ -56197,7 +56197,7 @@ object FormAbout: TFormAbout
       object Label1: TLabel
         Left = 0
         Top = 0
-        Width = 687
+        Width = 1123
         Height = 50
         Margins.Left = 5
         Margins.Top = 5
@@ -56212,6 +56212,7 @@ object FormAbout: TFormAbout
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ExplicitWidth = 687
       end
     end
     object tsTools: TTabSheet

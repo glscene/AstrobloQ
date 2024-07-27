@@ -4,7 +4,7 @@
 
 unit fForm;
 
-(* The fGLForm unit for TGLForm class as parent for all child forms *)
+(* The fForm unit for TFormI class as parent for all child forms *)
 
 interface
 
@@ -53,10 +53,10 @@ begin
 
   if (LangID <> LANG_ENGLISH) then
   begin
-    Textdomain('galaktika');
-    BindTextDomain ('galaktika', LocalePath);
-    AddDomainForResourceString('language');
-    BindTextDomain ('language', LocalePath);
+    Textdomain('galaktos');
+    BindTextDomain ('galaktos', LocalePath);
+//    AddDomainForResourceString('language');
+//    BindTextDomain ('language', LocalePath);
     case LangID of
       LANG_RUSSIAN:
       begin

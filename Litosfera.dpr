@@ -20,10 +20,10 @@ uses
   flSettings in 'source\lito\flSettings.pas' {FormSettings},
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
-  uMoveCamera in 'source\uMoveCamera.pas',
-  uSkyBodies in 'source\uSkyBodies.pas',
   flAbout in 'source\lito\flAbout.pas' {FormAbout},
-  fForm in 'source\fForm.pas' {FormI};
+  fForm in 'source\fForm.pas' {FormI},
+  uMoveCamera in 'source\univer\uMoveCamera.pas',
+  uSkyBodies in 'source\univer\uSkyBodies.pas';
 
 {$R *.res}
 
