@@ -53,8 +53,8 @@ begin
 
   if (LangID <> LANG_ENGLISH) then
   begin
-    Textdomain('galaktos');
-    BindTextDomain ('galaktos', LocalePath);
+    Textdomain('galaktikos');
+    BindTextDomain ('galaktikos', LocalePath);
 //    AddDomainForResourceString('language');
 //    BindTextDomain ('language', LocalePath);
     case LangID of

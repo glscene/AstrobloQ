@@ -3,7 +3,7 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Galaktos.dproj">
+        <Projects Include="Galaktikos.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Litosfera.dproj">
@@ -18,10 +18,10 @@
         <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Galaktox.dproj">
+        <Projects Include="Galaktikox.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Galaktoc.cbproj">
+        <Projects Include="Galaktikoc.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -32,14 +32,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Galaktos">
-        <MSBuild Projects="Galaktos.dproj"/>
+    <Target Name="Galaktikos">
+        <MSBuild Projects="Galaktikos.dproj"/>
     </Target>
-    <Target Name="Galaktos:Clean">
-        <MSBuild Projects="Galaktos.dproj" Targets="Clean"/>
+    <Target Name="Galaktikos:Clean">
+        <MSBuild Projects="Galaktikos.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaktos:Make">
-        <MSBuild Projects="Galaktos.dproj" Targets="Make"/>
+    <Target Name="Galaktikos:Make">
+        <MSBuild Projects="Galaktikos.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Litosfera.dproj"/>
@@ -77,32 +77,32 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaktox">
-        <MSBuild Projects="Galaktox.dproj"/>
+    <Target Name="Galaktikox">
+        <MSBuild Projects="Galaktikox.dproj"/>
     </Target>
-    <Target Name="Galaktox:Clean">
-        <MSBuild Projects="Galaktox.dproj" Targets="Clean"/>
+    <Target Name="Galaktikox:Clean">
+        <MSBuild Projects="Galaktikox.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaktox:Make">
-        <MSBuild Projects="Galaktox.dproj" Targets="Make"/>
+    <Target Name="Galaktikox:Make">
+        <MSBuild Projects="Galaktikox.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaktoc">
-        <MSBuild Projects="Galaktoc.cbproj"/>
+    <Target Name="Galaktikoc">
+        <MSBuild Projects="Galaktikoc.cbproj"/>
     </Target>
-    <Target Name="Galaktoc:Clean">
-        <MSBuild Projects="Galaktoc.cbproj" Targets="Clean"/>
+    <Target Name="Galaktikoc:Clean">
+        <MSBuild Projects="Galaktikoc.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaktoc:Make">
-        <MSBuild Projects="Galaktoc.cbproj" Targets="Make"/>
+    <Target Name="Galaktikoc:Make">
+        <MSBuild Projects="Galaktikoc.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaktos;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktox;Galaktoc"/>
+        <CallTarget Targets="Galaktikos;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktikox;Galaktikoc"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaktos:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktox:Clean;Galaktoc:Clean"/>
+        <CallTarget Targets="Galaktikos:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktikox:Clean;Galaktikoc:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaktos:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktox:Make;Galaktoc:Make"/>
+        <CallTarget Targets="Galaktikos:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktikox:Make;Galaktikoc:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

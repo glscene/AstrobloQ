@@ -3,13 +3,13 @@
 #include <fmx.h>
 #pragma hdrstop
 
-#include "fGalaktoc.h"
+#include "fGalaktikoc.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
-TFormGalaktoc *FormGalaktoc;
+TFormGalaktikoc *FormGalaktikoc;
 //---------------------------------------------------------------------------
-__fastcall TFormGalaktoc::TFormGalaktoc(TComponent* Owner)
+__fastcall TFormGalaktikoc::TFormGalaktikoc(TComponent* Owner)
 	: TForm(Owner)
 {
 }

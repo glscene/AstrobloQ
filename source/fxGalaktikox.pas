@@ -1,4 +1,4 @@
-unit fxGalaktox;
+unit fxGalaktikox;
 
 interface
 
@@ -15,13 +15,13 @@ uses
   FMX.Dialogs;
 
 type
-  TFormGalaktox = class(TForm)
+  TFormGalaktikox = class(TForm)
   private
   public
   end;
 
 var
-  FormGalaktox: TFormGalaktox;
+  FormGalaktikox: TFormGalaktikox;
 
 implementation
 

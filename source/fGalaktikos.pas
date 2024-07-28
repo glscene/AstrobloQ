@@ -1,4 +1,4 @@
-unit fGalaktos;
+unit fGalaktikos;
 
 interface
 
@@ -61,7 +61,7 @@ uses
   gnuGettext;
 
 type
-  TFormGalaktika = class(TFormI)
+  TFormGalaktikos = class(TFormI)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -218,7 +218,7 @@ const
   crSlidezy = 10;
 
 var
-  FormGalaktika: TFormGalaktika;
+  FormGalaktikos: TFormGalaktikos;
 
 // ========================================================
 implementation
@@ -226,7 +226,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormGalaktika.FormCreate(Sender: TObject);
+procedure TFormGalaktikos.FormCreate(Sender: TObject);
 begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
   TP_GlobalIgnoreClass(TStaticText);
@@ -240,13 +240,13 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalaktika.GLAsyncTimerTimer(Sender: TObject);
+procedure TFormGalaktikos.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
 // -----------------------------------------------------------
-procedure TFormGalaktika.GLCadencerProgress(Sender: TObject;
+procedure TFormGalaktikos.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   dcSolcube.Roll(0.001);
@@ -256,7 +256,7 @@ end;
 
 // ------------------------------------------------------------
 //
-procedure TFormGalaktika.MakeRandomStars;
+procedure TFormGalaktikos.MakeRandomStars;
 var
   i: Integer;
   NStars: Integer;
@@ -366,20 +366,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaktika.ButtonClearClick(Sender: TObject);
+procedure TFormGalaktikos.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaktika.ButtonAddStarsClick(Sender: TObject);
+procedure TFormGalaktikos.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaktika.chbAllClick(Sender: TObject);
+procedure TFormGalaktikos.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -391,24 +391,24 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaktika.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaktikos.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalaktika.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaktikos.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormGalaktika.tbRotationClick(Sender: TObject);
+procedure TFormGalaktikos.tbRotationClick(Sender: TObject);
 begin
   //
 end;
 
-procedure TFormGalaktika.tbSolarcubeClick(Sender: TObject);
+procedure TFormGalaktikos.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -426,7 +426,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.miPanelShowClick(Sender: TObject);
+procedure TFormGalaktikos.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
@@ -434,7 +434,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.miOpenClick(Sender: TObject);
+procedure TFormGalaktikos.miOpenClick(Sender: TObject);
 var
   F: TextFile;
   sl, tl: TStringList;
@@ -477,7 +477,7 @@ end;
 // --------------------------------------------------------
 // ѕересчЄт числа классов звЄзд при изменении общего числа
 // --------------------------------------------------------
-procedure TFormGalaktika.miSaveAsClick(Sender: TObject);
+procedure TFormGalaktikos.miSaveAsClick(Sender: TObject);
 begin
   if dmDialogs.SaveTextFileDialog.Execute then
     if FileExists(dmDialogs.SaveTextFileDialog.FileName) then
@@ -488,7 +488,7 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TFormGalaktika.seNStarsChange(Sender: TObject);
+procedure TFormGalaktikos.seNStarsChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
   nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -500,7 +500,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.miAboutClick(Sender: TObject);
+procedure TFormGalaktikos.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -511,7 +511,7 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalaktika.miSettingsClick(Sender: TObject);
+procedure TFormGalaktikos.miSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;
 end;
@@ -519,7 +519,7 @@ end;
 //------------------------------------------------------------------------
 // Ёкзопланеты и терранеты
 //------------------------------------------------------------------------
-procedure TFormGalaktika.Exoplanets1Click(Sender: TObject);
+procedure TFormGalaktikos.Exoplanets1Click(Sender: TObject);
 begin
   with TFormExoplanets.Create(Self) do
     try
@@ -530,7 +530,7 @@ begin
 end;
 
 
-procedure TFormGalaktika.miMonitorClick(Sender: TObject);
+procedure TFormGalaktikos.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -541,7 +541,7 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalaktika.miAnalyserClick(Sender: TObject);
+procedure TFormGalaktikos.miAnalyserClick(Sender: TObject);
 begin
   with TFormAnalyser.Create(Self) do
     try
@@ -552,7 +552,7 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalaktika.miProjectionClick(Sender: TObject);
+procedure TFormGalaktikos.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -563,7 +563,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.miParadoxClick(Sender: TObject);
+procedure TFormGalaktikos.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
     try
@@ -574,7 +574,7 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaktika.miExitClick(Sender: TObject);
+procedure TFormGalaktikos.miExitClick(Sender: TObject);
 begin
   Close();
 end;

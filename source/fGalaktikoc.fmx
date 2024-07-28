@@ -1,9 +1,9 @@
-object FormGalaktoc: TFormGalaktoc
+object FormGalaktikoc: TFormGalaktikoc
   Left = 0
   Top = 0
-  Caption = 'Galaktoc'
-  ClientHeight = 480
-  ClientWidth = 640
+  Caption = 'Galaktikoc'
+  ClientHeight = 404
+  ClientWidth = 604
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480

@@ -1,20 +1,20 @@
 //---------------------------------------------------------------------------
 
-#ifndef fGalaktocH
-#define fGalaktocH
+#ifndef fGalaktikocH
+#define fGalaktikocH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>
 #include <FMX.Forms.hpp>
 //---------------------------------------------------------------------------
-class TFormGalaktoc : public TForm
+class TFormGalaktikoc : public TForm
 {
 __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFormGalaktoc(TComponent* Owner);
+	__fastcall TFormGalaktikoc(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormGalaktoc *FormGalaktoc;
+extern PACKAGE TFormGalaktikoc *FormGalaktikoc;
 //---------------------------------------------------------------------------
 #endif

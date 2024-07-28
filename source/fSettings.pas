@@ -205,7 +205,7 @@ implementation
 {$R *.dfm}
 
 uses
-  fGalaktos;
+  fGalaktikos;
 
 
 //--------------------------------------------------------------------
