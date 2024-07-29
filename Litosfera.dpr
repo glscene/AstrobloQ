@@ -22,8 +22,8 @@ uses
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
   flAbout in 'source\lito\flAbout.pas' {FormAbout},
   fForm in 'source\fForm.pas' {FormI},
-  uMoveCamera in 'source\univer\uMoveCamera.pas',
-  uSkyBodies in 'source\univer\uSkyBodies.pas';
+  uMoveCamera in 'source\ucode\uMoveCamera.pas',
+  uSkyBodies in 'source\ucode\uSkyBodies.pas';
 
 {$R *.res}
 

@@ -1,4 +1,4 @@
-unit fnLocations;
+unit ftLocations;
 (*
  Only things INTERACTIVE with the GLS 3D Display
  need to be on the same page as it
@@ -119,8 +119,8 @@ implementation
 //-------------------------------------------------------------------
 
 uses
-  fnNoosfera,
-  Noo.Globals;
+  ftTehnosfera,
+  Teh.Globals;
 
 {$R *.DFM}
 

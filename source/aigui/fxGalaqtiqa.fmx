@@ -1,0 +1,49 @@
+object FormGalaktis: TFormGalaktis
+  Left = 0
+  Top = 0
+  Caption = 'Galaqtiqa'
+  ClientHeight = 380
+  ClientWidth = 588
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object MainMenu: TMainMenu
+    Left = 256
+    Top = 40
+    object miFile: TMenuItem
+      Text = 'File'
+      object miOpen: TMenuItem
+        Locked = True
+        Text = 'Open...'
+      end
+      object miExit: TMenuItem
+        Locked = True
+        Text = 'Exit'
+        OnClick = miExitClick
+      end
+    end
+    object miView: TMenuItem
+      Text = 'View'
+    end
+    object miOptions: TMenuItem
+      Text = 'Options'
+      object miSettings: TMenuItem
+        Locked = True
+        Text = 'Settings...'
+      end
+    end
+    object miHelp: TMenuItem
+      Text = 'Help'
+      object miWiki: TMenuItem
+        Locked = True
+        Text = 'Wiki...'
+      end
+      object miAbout: TMenuItem
+        Locked = True
+        Text = 'About...'
+      end
+    end
+  end
+end

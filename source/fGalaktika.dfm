@@ -1,11 +1,11 @@
-object FormGalaktikos: TFormGalaktikos
+object FormGalaktika: TFormGalaktika
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaktikos'
+  Caption = 'Galaktika'
   ClientHeight = 844
   ClientWidth = 1352
   Color = clBtnFace
@@ -160,6 +160,7 @@ object FormGalaktikos: TFormGalaktikos
       Margins.Bottom = 5
       Caption = 'Solarcube'
       ImageIndex = 2
+      OnShow = tbSolarcubeClick
       object GLSceneViewer1: TGLSceneViewer
         Left = 0
         Top = 0
@@ -947,8 +948,8 @@ object FormGalaktikos: TFormGalaktikos
   end
   object MainMenu: TMainMenu
     Images = dmImages.ImageListInterface
-    Left = 760
-    Top = 217
+    Left = 616
+    Top = 142
     object miFile: TMenuItem
       Caption = '&File'
       object miOpen: TMenuItem
@@ -1079,7 +1080,7 @@ object FormGalaktikos: TFormGalaktikos
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaktos - %FPS'
+    FormCaption = 'Galaktika - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -1093,7 +1094,7 @@ object FormGalaktikos: TFormGalaktikos
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 546
-    Top = 411
+    Left = 676
+    Top = 355
   end
 end

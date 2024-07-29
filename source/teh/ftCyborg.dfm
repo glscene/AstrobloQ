@@ -225,7 +225,7 @@ object FormCyborg: TFormCyborg
     object Label15: TLabel
       Left = 1
       Top = 704
-      Width = 166
+      Width = 432
       Height = 24
       Margins.Left = 6
       Margins.Top = 6
@@ -237,6 +237,7 @@ object FormCyborg: TFormCyborg
       Color = clGray
       ParentColor = False
       WordWrap = True
+      ExplicitWidth = 166
     end
     object HelpBtn: TSpeedButton
       Left = 322

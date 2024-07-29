@@ -278,7 +278,7 @@ implementation
 {$R *.DFM}
 
 uses
-  uGlobals;
+  Teh.Globals;
 
 procedure TFormLoadSmdMdl.FormCreate(Sender: TObject);
 begin

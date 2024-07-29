@@ -7,14 +7,14 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("source\fGalaktikoc.cpp", FormGalaktikoc);
+USEFORM("source\aigui\fcGalactica.cpp", FormGalaktic);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TFormGalaktikoc), &FormGalaktikoc);
+		Application->CreateForm(__classid(TFormGalaktic), &FormGalaktic);
 		Application->Run();
 	}
 	catch (Exception &exception)

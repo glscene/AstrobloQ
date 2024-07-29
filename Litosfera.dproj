@@ -140,8 +140,8 @@
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\univer\uMoveCamera.pas"/>
-        <DCCReference Include="source\univer\uSkyBodies.pas"/>
+        <DCCReference Include="source\ucode\uMoveCamera.pas"/>
+        <DCCReference Include="source\ucode\uSkyBodies.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

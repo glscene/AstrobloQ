@@ -1,4 +1,4 @@
-unit uGlobals;
+unit Teh.Globals;
 
 interface
 
@@ -17,7 +17,7 @@ const
 
 type
   PrefRecord = record
-    // first line of file serves as Version ID
+    // ≈щЄ раз запись в pof файд, first line of file serves as Version ID
     PHiddenString, PShpPath, PEarthDataPath, PEarthModelPath, PEarthPhotoPath,
       PEarthHRPath: string[255];
     PStartedNameNumber: string[25];
@@ -88,7 +88,7 @@ var
   P_File: PrefFile;
   PathS: string;
 begin
-  PathS := ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof';
+  PathS := ExtractFilePath(ParamStr(0)) + 'Tehnosfera.pof';
   if FileExists(PathS) then
   begin
     AssignFile(P_File, PathS);
@@ -145,7 +145,7 @@ var
 var
   PathS: string;
 begin
-  PathS := ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof';
+  PathS := ExtractFilePath(ParamStr(0)) + 'Tehnosfera.pof';
   GetPreferences;
   AssignFile(P_File, PathS);
   Rewrite(P_File);

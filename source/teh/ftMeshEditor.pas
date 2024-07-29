@@ -1,4 +1,4 @@
-unit fnMeshEditor;
+unit ftMeshEditor;
 (*
   Changing mesh vertex data, normals and striping redundent data.
   Custom cube class declared for vertex point identification.
@@ -179,8 +179,8 @@ implementation
 //===============================================
 
 uses
-  fnMeshData,
-  Noo.Globals;
+  ftMeshData,
+  Teh.Globals;
 
 {$R *.dfm}
 

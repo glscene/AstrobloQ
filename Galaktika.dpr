@@ -1,9 +1,9 @@
-program Galaktikos;
+program Galaktika;
 
 
 uses
   Vcl.Forms,
-  fGalaktikos in 'source\fGalaktikos.pas' {FormGalaktikos},
+  fGalaktika in 'source\fGalaktika.pas' {FormGalaktika},
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},
   fSettings in 'source\fSettings.pas' {FormSettings},
@@ -17,7 +17,7 @@ uses
   Vcl.Styles,
   fForm in 'source\fForm.pas' {FormI},
   fExoplanets in 'source\fExoplanets.pas' {FormExoplanets},
-  uGlobals in 'source\univer\uGlobals.pas';
+  uGlobals in 'source\ucode\uGlobals.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -26,7 +26,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TFormGalaktikos, FormGalaktikos);
+  Application.CreateForm(TFormGalaktika, FormGalaktika);
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TFormSettings, FormSettings);

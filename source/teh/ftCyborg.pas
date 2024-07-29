@@ -124,7 +124,7 @@ var
 implementation
 
 uses
-  uGlobals,
+  Teh.Globals,
   Teh.BoneUtils;
 
 {$R *.DFM}

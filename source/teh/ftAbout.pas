@@ -1,4 +1,4 @@
-unit fnAbout;
+unit ftAbout;
 
 interface
 
