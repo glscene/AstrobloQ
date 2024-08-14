@@ -55,7 +55,7 @@ object frmGalaktika: TfrmGalaktika
     Align = alTop
     RowSize = 46
     TabOrder = 1
-    object tbMain: TToolBar
+    object ToolBarMain: TToolBar
       Left = 19
       Top = 2
       Width = 263
@@ -89,7 +89,7 @@ object frmGalaktika: TfrmGalaktika
         ImageIndex = 3
       end
     end
-    object tbView: TToolBar
+    object ToolBarView: TToolBar
       Left = 306
       Top = 2
       Width = 263
@@ -99,8 +99,8 @@ object frmGalaktika: TfrmGalaktika
       Margins.Right = 5
       Margins.Bottom = 5
       ButtonHeight = 39
-      ButtonWidth = 40
-      Caption = 'tbView'
+      ButtonWidth = 49
+      Caption = 'ToolBarView'
       Images = dmImages.ImageListInterface
       TabOrder = 1
       object tbSolarcube: TToolButton
@@ -113,7 +113,7 @@ object frmGalaktika: TfrmGalaktika
         OnClick = tbSolarcubeClick
       end
       object tbAddStars: TToolButton
-        Left = 40
+        Left = 49
         Top = 0
         Hint = 'Add stars'
         ImageIndex = 38
@@ -122,7 +122,7 @@ object frmGalaktika: TfrmGalaktika
         OnClick = ButtonAddStarsClick
       end
       object tbClearCubes: TToolButton
-        Left = 80
+        Left = 98
         Top = 0
         Hint = 'Clear solarcube'
         ImageIndex = 122
@@ -130,14 +130,14 @@ object frmGalaktika: TfrmGalaktika
         ShowHint = True
         OnClick = ButtonClearClick
       end
-      object tbRotation: TToolButton
-        Left = 120
+      object tbAxes: TToolButton
+        Left = 147
         Top = 0
         Hint = 'Rotation'
         ImageIndex = 54
         ParentShowHint = False
         ShowHint = True
-        OnClick = tbRotationClick
+        OnClick = tbAxesClick
       end
     end
   end
@@ -795,7 +795,7 @@ object frmGalaktika: TfrmGalaktika
   object GLScene: TGLScene
     Left = 163
     Top = 201
-    object dcAxis: TGLDummyCube
+    object dcAxes: TGLDummyCube
       Position.Coordinates = {0000000000007A44000000000000803F}
       CubeSize = 1.000000000000000000
       object ArrowY: TGLArrowLine

@@ -54,7 +54,6 @@ type
     tsDisplay: TTabSheet;
     CheckBoxAxes: TCheckBox;
     CheckBoxCoordinates: TCheckBox;
-    cbxTwoSideLighting: TCheckBox;
     tsMaterial: TTabSheet;
     ListView: TListView;
     ButtonModifyMat: TButton;
@@ -140,7 +139,6 @@ type
     ComboBoxVclStyles: TComboBox;
     Label2: TLabel;
     grbPlanetShow: TGroupBox;
-    chbRotate: TCheckBox;
     chbShowAxes: TCheckBox;
     CheckBox4: TCheckBox;
     chbCore: TCheckBox;
@@ -172,8 +170,8 @@ type
     nbGravityAccel: TNumberBox;
     NumberBox7: TNumberBox;
     ImageList: TImageList;
+    CheckBoxRotate: TCheckBox;
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguageClick(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -284,47 +282,6 @@ begin
   end;
 end;
 
-
-//--------------------------------------------------------------------
-// Reading Inifile sections and setting the interface language
-//--------------------------------------------------------------------
-procedure TfrmSettings.ReadIniFile;
-var
-  IniFile: TIniFile;
-begin
-  inherited;
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
-    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
-    case LangID of
-      LANG_ENGLISH:
-        rgLanguage.ItemIndex := 0;
-      LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1
-    else
-      rgLanguage.ItemIndex := 0;
-    end;
-  finally
-    IniFile.Free;
-  end;
-end;
-
-// --------------------------------------------------------------------
-procedure TfrmSettings.WriteIniFile;
-var
-  IniFile: TIniFile;
-begin
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
-  finally
-    IniFile.Free;
-  end;
-  inherited;
-end;
-
 //-----------------------------------------------------
 procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
 var
@@ -366,7 +323,6 @@ begin
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
-// -----------------------------------------------------------------------
 procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
@@ -377,9 +333,45 @@ begin
   Result := ShowModal = mrOk;
 end;
 
-procedure TfrmSettings.FormClose(Sender: TObject; var Action: TCloseAction);
+//--------------------------------------------------------------------
+// Reading Inifile sections and setting the interface language
+//--------------------------------------------------------------------
+procedure TfrmSettings.ReadIniFile;
+var
+  IniFile: TIniFile;
 begin
-  WriteIniFile;
+  inherited;
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
+    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
+    case LangID of
+      LANG_ENGLISH:
+        rgLanguage.ItemIndex := 0;
+      LANG_RUSSIAN:
+        rgLanguage.ItemIndex := 1
+    else
+      rgLanguage.ItemIndex := 0;
+    end;
+  finally
+    IniFile.Free;
+  end;
+end;
+
+// --------------------------------------------------------------------
+procedure TfrmSettings.WriteIniFile;
+var
+  IniFile: TIniFile;
+begin
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
+  finally
+    IniFile.Free;
+  end;
   inherited;
 end;
 
@@ -396,6 +388,7 @@ begin
     if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
+  WriteIniFile;
   frmSettings.Close;
 end;
 

@@ -3,10 +3,8 @@ inherited frmSettings: TfrmSettings
   Caption = 'Settings'
   ClientHeight = 759
   ClientWidth = 1313
-  StyleElements = [seFont, seClient, seBorder]
-  OnClose = FormClose
-  ExplicitWidth = 1329
-  ExplicitHeight = 798
+  ExplicitWidth = 1337
+  ExplicitHeight = 823
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
@@ -90,7 +88,7 @@ inherited frmSettings: TfrmSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsDisplay
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -207,7 +205,7 @@ inherited frmSettings: TfrmSettings
         end
         object CheckBoxCoordinates: TCheckBox
           Left = 89
-          Top = 173
+          Top = 117
           Width = 230
           Height = 35
           Margins.Left = 5
@@ -219,17 +217,20 @@ inherited frmSettings: TfrmSettings
           State = cbChecked
           TabOrder = 1
         end
-        object cbxTwoSideLighting: TCheckBox
-          Left = 89
-          Top = 109
-          Width = 192
+        object CheckBoxRotate: TCheckBox
+          Left = 519
+          Top = 42
+          Width = 145
           Height = 29
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Twoside lighting'
+          Caption = 'Rotation'
+          Checked = True
+          State = cbChecked
           TabOrder = 2
+          StyleName = 'Windows'
         end
       end
       object tsMaterial: TTabSheet
@@ -1134,7 +1135,7 @@ inherited frmSettings: TfrmSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 330
+          Left = 322
           Top = 53
           Width = 149
           Height = 200
@@ -1149,7 +1150,7 @@ inherited frmSettings: TfrmSettings
           Font.Height = 26
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 26
+          ItemHeight = 30
           Items.Strings = (
             'O'
             'B'
@@ -1557,21 +1558,6 @@ inherited frmSettings: TfrmSettings
           Margins.Bottom = 5
           Caption = 'Show'
           TabOrder = 2
-          object chbRotate: TCheckBox
-            Left = 57
-            Top = 52
-            Width = 145
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Rotation'
-            Checked = True
-            State = cbChecked
-            TabOrder = 0
-            StyleName = 'Windows'
-          end
           object chbShowAxes: TCheckBox
             Left = 57
             Top = 193
@@ -1582,7 +1568,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Axis'
-            TabOrder = 1
+            TabOrder = 0
             StyleName = 'Windows'
           end
           object CheckBox4: TCheckBox
@@ -1595,7 +1581,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Shading'
-            TabOrder = 2
+            TabOrder = 1
             StyleName = 'Windows'
           end
           object chbCore: TCheckBox
@@ -1608,7 +1594,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Core'
-            TabOrder = 3
+            TabOrder = 2
             StyleName = 'Windows'
           end
           object chbAtmosfera: TCheckBox
@@ -1621,7 +1607,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Atmosphere'
-            TabOrder = 4
+            TabOrder = 3
             StyleName = 'Windows'
           end
           object chbClouds: TCheckBox
@@ -1634,7 +1620,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Clouds'
-            TabOrder = 5
+            TabOrder = 4
             StyleName = 'Windows'
           end
           object CheckBox1: TCheckBox
@@ -1647,7 +1633,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Planet grid'
-            TabOrder = 6
+            TabOrder = 5
             StyleName = 'Windows'
           end
           object chbHidePlanet: TCheckBox
@@ -1660,7 +1646,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Hide planet'
-            TabOrder = 7
+            TabOrder = 6
             StyleName = 'Windows'
           end
           object CheckBox3: TCheckBox
@@ -1673,7 +1659,7 @@ inherited frmSettings: TfrmSettings
             Margins.Right = 5
             Margins.Bottom = 5
             Caption = 'Sky grid'
-            TabOrder = 8
+            TabOrder = 7
             StyleName = 'Windows'
           end
         end

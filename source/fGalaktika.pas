@@ -104,7 +104,7 @@ type
     miProjection: TMenuItem;
     ControlBar: TControlBar;
     diskGalaxy: TGLDisk;
-    tbMain: TToolBar;
+    ToolBarMain: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
@@ -113,7 +113,7 @@ type
     svGalacube: TGLSceneViewer;
     LightSol: TGLLightSource;
     GLSimpleNavigation: TGLSimpleNavigation;
-    dcAxis: TGLDummyCube;
+    dcAxes: TGLDummyCube;
     PanelRight: TPanel;
     gbStars: TGroupBox;
     shO: TShape;
@@ -157,12 +157,12 @@ type
     ToolButton4: TToolButton;
     miAnalyser: TMenuItem;
     miMonitor: TMenuItem;
-    tbView: TToolBar;
+    ToolBarView: TToolBar;
     tbSolarcube: TToolButton;
     tbAddStars: TToolButton;
     tbClearCubes: TToolButton;
     chbAll: TCheckBox;
-    tbRotation: TToolButton;
+    tbAxes: TToolButton;
     miParadox: TMenuItem;
     shW: TShape;
     chbD: TCheckBox;
@@ -193,8 +193,8 @@ type
     procedure miMonitorClick(Sender: TObject);
     procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
-    procedure tbRotationClick(Sender: TObject);
     procedure Exoplanets1Click(Sender: TObject);
+    procedure tbAxesClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -224,6 +224,7 @@ implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
+// -----------------------------------------------------------------------
 procedure TfrmGalaktika.FormCreate(Sender: TObject);
 begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
@@ -247,9 +248,20 @@ end;
 procedure TfrmGalaktika.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  dcSolcube.Roll(0.001);
-  dcGalacube.Turn(0.001);
-  dcAxis.Turn(0.001);
+  if frmSettings.CheckBoxRotate.Checked then
+  begin
+//    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
+//    ffPlanet.TurnAngle := ffPlanet.TurnAngle + DeltaTime * TimeMultiplier;
+    dcSolcube.Roll(0.001);
+    dcGalacube.Turn(0.001);
+    dcAxes.Turn(0.001);
+  end
+  else
+  begin
+    dcSolcube.Roll(0);
+    dcGalacube.Turn(0);
+    dcAxes.Turn(0);
+  end;
 end;
 
 // ------------------------------------------------------------
@@ -258,7 +270,6 @@ var
   i: Integer;
   NStars: Integer;
   clrStar: TGLColorVector;
-
 begin
   dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
   dotStars.Size := 5.0;
@@ -400,9 +411,11 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TfrmGalaktika.tbRotationClick(Sender: TObject);
+
+// -----------------------------------------------------------------------
+procedure TfrmGalaktika.tbAxesClick(Sender: TObject);
 begin
-  //
+  dcAxes.Visible := not dcAxes.Visible;
 end;
 
 procedure TfrmGalaktika.tbSolarcubeClick(Sender: TObject);
@@ -429,7 +442,7 @@ procedure TfrmGalaktika.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
-  dcAxis.Visible := not dcAxis.Visible;
+  dcAxes.Visible := not dcAxes.Visible;
 end;
 
 // -------------------------------------------------------------
@@ -523,7 +536,7 @@ begin
     end;
 end;
 
-
+// -----------------------------------------------------------------------
 procedure TfrmGalaktika.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
