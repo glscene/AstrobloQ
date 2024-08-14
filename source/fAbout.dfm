@@ -47,7 +47,7 @@ object FormAbout: TFormAbout
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsInfo
+    ActivePage = tsDevelopers
     Align = alClient
     TabOrder = 1
     object tsInfo: TTabSheet
@@ -63725,8 +63725,8 @@ object FormAbout: TFormAbout
       ImageIndex = 1
       TabVisible = False
       object StaticText1: TStaticText
-        Left = 478
-        Top = 120
+        Left = 480
+        Top = 106
         Width = 137
         Height = 34
         Margins.Left = 5
@@ -63738,7 +63738,7 @@ object FormAbout: TFormAbout
       end
       object StaticText2: TStaticText
         Left = 478
-        Top = 164
+        Top = 150
         Width = 126
         Height = 34
         Margins.Left = 5
@@ -63749,8 +63749,8 @@ object FormAbout: TFormAbout
         TabOrder = 1
       end
       object StaticText3: TStaticText
-        Left = 478
-        Top = 208
+        Left = 480
+        Top = 194
         Width = 139
         Height = 34
         Margins.Left = 5
@@ -63759,6 +63759,18 @@ object FormAbout: TFormAbout
         Margins.Bottom = 5
         Caption = 'Danil Wasilyev'
         TabOrder = 2
+      end
+      object StaticText4: TStaticText
+        Left = 478
+        Top = 238
+        Width = 134
+        Height = 34
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'Sergio Feitoza'
+        TabOrder = 3
       end
     end
   end

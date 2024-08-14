@@ -37,6 +37,7 @@ type
     StaticText3: TStaticText;
     ImageGalaxy: TImage;
     Label1: TLabel;
+    StaticText4: TStaticText;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
