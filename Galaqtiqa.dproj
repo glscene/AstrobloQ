@@ -212,7 +212,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\aigui\fxGalaqtiqa.pas">
+        <DCCReference Include="source\aid\fxGalaqtiqa.pas">
             <Form>FormGalaktis</Form>
             <FormType>fmx</FormType>
         </DCCReference>

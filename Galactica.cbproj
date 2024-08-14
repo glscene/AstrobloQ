@@ -92,8 +92,8 @@
         <AllPackageLibs>rtl.lib;fmx.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
-        <IncludePath>source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>Galactica</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -184,13 +184,13 @@
         <CppCompile Include="Galactica.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="source\aigui\fcGalactica.cpp">
+        <CppCompile Include="source\aic\fcGalactica.cpp">
             <Form>FormGalaktic</Form>
             <FormType>fmx</FormType>
-            <DependentOn>source\aigui\fcGalactica.h</DependentOn>
+            <DependentOn>source\aic\fcGalactica.h</DependentOn>
             <BuildOrder>1</BuildOrder>
         </CppCompile>
-        <FormResources Include="source\aigui\fcGalactica.fmx"/>
+        <FormResources Include="source\aic\fcGalactica.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

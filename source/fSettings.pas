@@ -1,8 +1,7 @@
-//
-// This unit is part of the Galaktika
-//
 unit fSettings;
-
+(*
+  This unit is part of the Galaktika
+*)
 interface
 
 uses
@@ -34,32 +33,26 @@ uses
   Vcl.ImgList,
   Vcl.Themes,
 
-  //
-  gnuGettext,
+  gnuGettext,  // for translation
 
   uGlobals,
   dImages,
   fForm;
 
 type
-  TFormSettings = class(TFormI)
+  TfrmSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
     tvSettings: TTreeView;
     PageControl: TPageControl;
     tsInterface: TTabSheet;
-    LabelData: TLabel;
-    cbDataPath: TComboBox;
-    ButtonBrowsePathData: TButton;
     CheckBoxLoadProject: TCheckBox;
     CheckBoxSaveProject: TCheckBox;
-    cbSplashStart: TCheckBox;
+    CheckBoxSplashStart: TCheckBox;
     rgLanguage: TRadioGroup;
     tsDisplay: TTabSheet;
-    LabelBackground: TLabel;
-    CheckBoxAxis: TCheckBox;
-    PanelBkg: TPanel;
+    CheckBoxAxes: TCheckBox;
     CheckBoxCoordinates: TCheckBox;
     cbxTwoSideLighting: TCheckBox;
     tsMaterial: TTabSheet;
@@ -144,7 +137,7 @@ type
     Label4: TLabel;
     Label5: TLabel;
     ButtonCalculate: TButton;
-    cbxVclStyles: TComboBox;
+    ComboBoxVclStyles: TComboBox;
     Label2: TLabel;
     grbPlanetShow: TGroupBox;
     chbRotate: TCheckBox;
@@ -182,12 +175,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure rgLanguageClick(Sender: TObject);
-    procedure PanelBackgroundClick(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
-    procedure cbxVclStylesChange(Sender: TObject);
+    procedure ComboBoxVclStylesChange(Sender: TObject);
   private
   public
     CurLangID : Word;
@@ -197,7 +189,7 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmSettings: TfrmSettings;
 
 //---------------------------------------------------------------------------
 implementation
@@ -209,19 +201,19 @@ uses
 
 
 //--------------------------------------------------------------------
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
-
+  S: String;
 begin
   ReadIniFile;
-  // Включение стилей интерфейса в комбобокс
+  // Including UI styles in a combobox
   for StyleName in TStyleManager.StyleNames do
-    cbxVclStyles.Items.Add(StyleName);
-  cbxVclStyles.ItemIndex := cbxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
+    ComboBoxVclStyles.Items.Add(StyleName);
+  ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 
-  // Спектральные классы звёзд по умолчанию
+  // Default Spectral Classes of Stars
 	chlbStarClasses.Checked[0] := False;
  	chlbStarClasses.Checked[1] := False;
  	chlbStarClasses.Checked[2] := False;
@@ -230,22 +222,14 @@ begin
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
 
-  // Items:
-  tvSettings.Items[0].Text := _('General');
-  tvSettings.Items[1].Text := _('Interface');
-  tvSettings.Items[2].Text := _('Display');
-  tvSettings.Items[3].Text := _('Material');
-  tvSettings.Items[4].Text := _('Galaxy');
-  tvSettings.Items[5].Text := _('Stars');
-  tvSettings.Items[6].Text := _('Planets');
-  tvSettings.Items[7].Text := _('Pathway');
-
-  // TreeView item indexes
+  // Setting TreeView Icon Indexes
   for I := 0 to tvSettings.Items.Count - 1 do
   begin
     tvSettings.Items[I].ImageIndex := 0;
     tvSettings.Items[I].SelectedIndex := 1;
     tvSettings.Items[I].StateIndex := I;
+    // add parentheses to translate using gnugettext
+    tvSettings.Items[I].Text := _(tvSettings.Items[I].Text);
   end;
 
   tvSettings.Select(tvSettings.Items[1]);
@@ -258,7 +242,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -275,7 +259,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TFormSettings.trbVelocityChange(Sender: TObject);
+procedure TfrmSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   FlightTime: Extended;
@@ -290,7 +274,7 @@ end;
 
 
 //--------------------------------------------------------------------
-procedure TFormSettings.rgLanguageClick(Sender: TObject);
+procedure TfrmSettings.rgLanguageClick(Sender: TObject);
 begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
@@ -302,18 +286,17 @@ end;
 
 
 //--------------------------------------------------------------------
-// Чтение секций Инифайла и установка языка интерфейса
+// Reading Inifile sections and setting the interface language
 //--------------------------------------------------------------------
-procedure TFormSettings.ReadIniFile;
+procedure TfrmSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxis.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxis.Name, True);
-    PanelBkg.Color := IniFile.ReadInteger(FormSettings.Name, PanelBkg.Name, 0);
-    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
+    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
@@ -328,38 +311,22 @@ begin
 end;
 
 // --------------------------------------------------------------------
-procedure TFormSettings.WriteIniFile;
+procedure TfrmSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(FormSettings.Name, CheckBoxAxis.Name, CheckBoxAxis.Checked);
-    IniFile.WriteInteger(FormSettings.Name, PanelBkg.Name, PanelBkg.Color);
-    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;
   inherited;
 end;
 
-//----------------------------------------------------------------
-// Цвет фона GLSceneViewer по умолчанию чёрный
-//----------------------------------------------------------------
-procedure TFormSettings.PanelBackgroundClick(Sender: TObject);
-begin
-  {
-    dmDialogs.ColorDialog.Color := PanelBackground.Color;
-   if dmDialogs.ColorDialog.Execute then
-   begin
-     PanelBackground.Color :=  dmDialogs.ColorDialog.Color;
-     FormGalaktika.ApplyBgColor;
-   end;
-}
-end;
-
 //-----------------------------------------------------
-procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
+procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Nt, Nl : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
@@ -399,8 +366,25 @@ begin
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
-//========================================================================
-procedure TFormSettings.ButtonOkClick(Sender: TObject);
+// -----------------------------------------------------------------------
+procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
+begin
+  TStyleManager.SetStyle(ComboBoxVclStyles.Text);
+end;
+
+function TfrmSettings.Execute: boolean;
+begin
+  Result := ShowModal = mrOk;
+end;
+
+procedure TfrmSettings.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  WriteIniFile;
+  inherited;
+end;
+
+// -----------------------------------------------------------------------
+procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -412,23 +396,7 @@ begin
     if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
-  Close;
-end;
-
-procedure TFormSettings.cbxVclStylesChange(Sender: TObject);
-begin
-  TStyleManager.SetStyle(cbxVclStyles.Text);
-end;
-
-function TFormSettings.Execute: boolean;
-begin
-  Result := ShowModal = mrOk;
-end;
-
-procedure TFormSettings.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  WriteIniFile;
-  inherited;
+  frmSettings.Close;
 end;
 
 end.

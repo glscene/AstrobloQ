@@ -42,7 +42,7 @@ type
     ButtonOK: TButton;
     PanelMiddle: TPanel;
     PageControl: TPageControl;
-    tsMaterial: TTabSheet;
+    tsDisplay: TTabSheet;
     tvOptions: TTreeView;
     PanelTop: TPanel;
     ImageList: TImageList;
@@ -61,12 +61,12 @@ type
     nbCore: TNumberBox;
     LabelCore: TLabel;
     chlbStarClasses: TCheckListBox;
-    grbPlanetShow: TGroupBox;
+    grbShowPlanets: TGroupBox;
     chbRotate: TCheckBox;
-    chbShowAxes: TCheckBox;
+    chbAxes: TCheckBox;
     CheckBox4: TCheckBox;
     chbCore: TCheckBox;
-    GroupBox1: TGroupBox;
+    grbPlanetParams: TGroupBox;
     nbTilt: TNumberBox;
     LabelPlanetTilt: TLabel;
     nbDensity: TNumberBox;
@@ -83,10 +83,11 @@ type
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
     chbClouds: TCheckBox;
-    CheckBox1: TCheckBox;
+    chbCartographicGrid: TCheckBox;
     chbHidePlanet: TCheckBox;
-    CheckBox3: TCheckBox;
     rgLanguage: TRadioGroup;
+    gbShowStars: TGroupBox;
+    chbSkyGrid: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
@@ -95,6 +96,8 @@ type
     procedure chbHidePlanetClick(Sender: TObject);
     procedure rgLanguageClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure chbAxesClick(Sender: TObject);
+    procedure chbCartographicGridClick(Sender: TObject);
   private
   public
     CurLangID : Word;
@@ -115,14 +118,7 @@ uses
 
 procedure TFormSettings.FormCreate(Sender: TObject);
 begin
-  // спектральные классы звЄзд по умолчанию
-	chlbStarClasses.Checked[0] := False;
- 	chlbStarClasses.Checked[1] := False;
- 	chlbStarClasses.Checked[2] := False;
-	chlbStarClasses.Checked[3] := True;
- 	chlbStarClasses.Checked[4] := True;
- 	chlbStarClasses.Checked[5] := True;
- 	chlbStarClasses.Checked[6] := True;
+  inherited;
 
   // «аполнение индексов узлов дерева установок
   for var I: Integer := 0 to tvOptions.Items.Count - 1 do
@@ -137,7 +133,6 @@ begin
   tvOptions.FullExpand;
   tvOptions.Items[0].DropHighlighted := True;
 
-  inherited;
 end;
 
 //---------------------------------------------------
@@ -148,6 +143,24 @@ begin
  // FormLitosfera.Atmosphere;
 end;
 
+// ѕоказакть или скрыть оси планет X, Y, Z
+procedure TFormSettings.chbAxesClick(Sender: TObject);
+begin
+  if chbAxes.Checked then
+  begin
+    FormLitosfera.sfPlanet.ShowAxes := not FormLitosfera.sfPlanet.ShowAxes;
+    FormLitosfera.ffPlanet.ShowAxes := not FormLitosfera.ffPlanet.ShowAxes;
+  end;
+end;
+
+//---------------------------------------------------
+// ѕоказать картографическую сетку планеты
+//---------------------------------------------------
+procedure TFormSettings.chbCartographicGridClick(Sender: TObject);
+begin
+  //
+end;
+
 //---------------------------------------------------
 // ѕоказать разрез планеты с корой, мантией и €дром
 //---------------------------------------------------
@@ -156,7 +169,8 @@ begin
   with FormLitosfera do
   if chbCore.Checked then
   begin
-    // ѕереключить невидимую GLFreeForm модель планеты на видимую GLSphere модель и GLDisk
+    // ѕереключить невидимую модель планеты типа GLFreeForm
+    // на видимую модель планеты типа GLSphere c моделью сечени€ типа GLDisk
     PlanetPath := CurrentStar + tvPlanets.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
@@ -177,7 +191,6 @@ end;
 //------------------------------------------------------------------
 procedure TFormSettings.chbHidePlanetClick(Sender: TObject);
 begin
- // FormLitosfera.ShowHidePlanet;
   if chbHidePlanet.Checked then
   begin
     FormLitosfera.sfPlanet.Visible := False;
@@ -197,7 +210,7 @@ procedure TFormSettings.tvOptionsClick(Sender: TObject);
 begin
   case tvOptions.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsMaterial;
+     1: PageControl.ActivePage := tsDisplay;
      2: PageControl.ActivePage := tsPlanets;
      3: PageControl.ActivePage := tsStars;
   end;

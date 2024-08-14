@@ -104,7 +104,6 @@ type
     miFileSaveAs: TMenuItem;
     SaveDialog: TSaveDialog;
     Atmosphere: TGLAtmosphere;
-    PlanetSkyDome: TGLEarthSkyDome;
     diskMantle: TGLDisk;
     ffPlanet: TGLFreeForm;
     diskRingUp: TGLDisk;
@@ -147,7 +146,7 @@ type
     procedure SceneViewerBeforeRender(Sender: TObject);
     procedure miFileExitClick(Sender: TObject);
     procedure miViewConstlinesClick(Sender: TObject);
-    procedure miViewConstbordersClick(Sender: TObject);
+    procedure miViewConstBordersClick(Sender: TObject);
     procedure tvPlanetsClick(Sender: TObject);
     procedure miFileOpenClick(Sender: TObject);
     procedure miFileSaveAsClick(Sender: TObject);
@@ -159,7 +158,6 @@ type
     procedure miExoSystemClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miExogenClick(Sender: TObject);
-    procedure miGoogleEarthClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -220,7 +218,7 @@ begin
   SetCurrentDir(DataDir);
   StarDir := DataDir + 'star';
 
-  // путь к звёздному каталогу Гиппарха или Hyg
+  // путь к каталогам звёзд Hipparcos, Hyg или DR4 Gaia
   CatalogName := DataDir + '\catalog\hipparcos.stars';
   // более полный каталог звёзд обзора Gaia имеет большой объём
 //  CatalogName := DataDir + '\catalog\gaia_dr3.stars';
@@ -234,7 +232,7 @@ begin
     StarSkyDome.StructureChanged;
   end;
 
-  // смена текущего директория на нашу звезду sun
+  // смена текущего директория на звезду sun
   if DirectoryExists('star\sun') then
         ChDir('star\sun');
   CurrentStar := DataDir + '\star\sun\';
@@ -248,16 +246,16 @@ begin
   acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
   acPlanet.Scale.Scale(0.1);
 
-  // Заполнение индексов узлов дерева планет
+  // Заполнение узлов дерева планет индексами
   for I := 0 to tvPlanets.Items.Count - 1 do
   begin
-//     tvPlanets.Items[I].ImageIndex := I;
+//    tvPlanets.Items[I].ImageIndex := I;
 //    tvPlanets.Items[I].SelectedIndex := I;
 //    tvPlanets.Items[I].StateIndex := I;
     tvPlanets.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-  tvPlanets.Select(tvPlanets.Items[3]);  // goto to Earth
+  tvPlanets.Select(tvPlanets.Items[3]);  // выбираем индекс Земли
   tvPlanets.FullExpand;
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
@@ -324,7 +322,6 @@ begin
     acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     // уменьшение масштаба
     Camera.TagObject := acPlanet;
-
   end;
 
  (*
@@ -363,7 +360,8 @@ end;
 
 
 //----------------------------------------------------------------------
-
+// Генератор создания новых экзопланетных систем
+//----------------------------------------------------------------------
 procedure TFormLitosfera.miExogenClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -431,7 +429,7 @@ begin
     intensity := VectorDotProduct(normal, lightingVector) + 0.1;
     if (PInteger(@intensity)^ > 0) then
     begin
-      // sample on the lit side
+      // sample на дневной стороне
       intensity := intensity * contrib;
       alt := (VectorLength(atmPoint) - cPlanetRadius) * invAtmosphereHeight;
       VectorLerp(cLowAtmColor, cHighAtmColor, alt, altColor);
@@ -441,7 +439,7 @@ begin
     end
     else
     begin
-      // sample on the dark side
+      // sample на ночной стороне
       Result.X := Result.X * decay;
       Result.Y := Result.Y * decay;
       Result.Z := Result.Z * decay;
@@ -641,10 +639,10 @@ end;
 //------------------------------------------------------------------
 // Показать границы созвездий
 //------------------------------------------------------------------
-procedure TFormLitosfera.miViewConstbordersClick(Sender: TObject);
+procedure TFormLitosfera.miViewConstBordersClick(Sender: TObject);
 begin
   ConstBounds.Nodes.Clear;
-  miViewConstborders.Checked := not miViewConstborders.Checked;
+  miViewConstBorders.Checked := not miViewConstBorders.Checked;
   if miViewConstborders.Checked then
   begin
     ConstBordersAlpha := 0.5 - ConstBordersAlpha;
@@ -664,13 +662,6 @@ var
   p : TAffineVector;
 begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
-
-  // задание вращения планеты
-  if FormSettings.chbRotate.Checked then
-  begin
-    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
-    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
-  end;
 
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
@@ -714,6 +705,13 @@ begin
       ClampValue(ConstBounds.LineColor.Alpha + Sign(ConstBordersAlpha -
                  ConstBounds.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstBounds.Visible := (ConstBounds.LineColor.Alpha > 0);
+  end;
+
+ // задание вращения планеты
+  if FormSettings.chbRotate.Checked then
+  begin
+    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
   end;
 end;
 
@@ -852,6 +850,9 @@ begin
     end;
 end;
 
+// -----------------------------------------------------------------
+// Экзопланеты
+// -----------------------------------------------------------------
 procedure TFormLitosfera.miExoSystemClick(Sender: TObject);
 begin
   with TFormStarSys.Create(Self) do
@@ -885,7 +886,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-//  miOpenFile with Planet system
+//  Открыть планетную систему в меню miOpenFile
 //------------------------------------------------------------------
 procedure TFormLitosfera.miFileOpenClick(Sender: TObject);
 var
@@ -936,30 +937,31 @@ end;
 
 
 //------------------------------------------------------------------
-// Справка в вики
+// Получение справки в wiki
 //------------------------------------------------------------------
 procedure TFormLitosfera.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
-  if (tvPlanets.Selected.Level = 0)   then  // Planets, sometimes S + '_(planet)' e.g. ../Mercury_(planet)
-    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text
-/// tvPlanets.Selected.Text must be translated to ru for ruwiki
+/// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
+/// tvPlanets.Selected.Text надо перевести на русский язык для ruwiki
+/// но, однако, некоторые названия звёзд остаются на латинице,
+/// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text + _('Earth')
+  if (tvPlanets.Selected.Level = 0)   then
+  begin
+    if LangID = LANG_RUSSIAN then
+      S :=  'https://ru.ruwiki.ru/wiki/Земля'
+    else
+//      S :=  'https://en.wikipedia.org/wiki/Earth';
+      S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text;
+  end
   else  // Moons
+  begin
     S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
-///    S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text;
-  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-end;
-
-//------------------------------------------------------------------
-// Запуск программы GoogleEarth
-//------------------------------------------------------------------
-procedure TFormLitosfera.miGoogleEarthClick(Sender: TObject);
-var
-  S: String;
-begin
-  S := 'https://earth.google.com/';
+/// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text;
+  end;
+//  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
 end;
 
@@ -979,7 +981,5 @@ initialization
 //------------------------------------------------------------------
 finalization
 //------------------------------------------------------------------
-
-//  return to FormatSettings.DecimalSeparator := ',';
 
 end.

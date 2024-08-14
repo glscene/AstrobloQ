@@ -3,7 +3,7 @@ cls
 
 set LANG=C
 
-rem -r ...if applied for all subdirs of source dir
+rem -r ... applied for all subdirs of source dir
 dxgettext -b source --delphi --useignorepo
 
 echo updating Russian translations

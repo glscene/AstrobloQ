@@ -126,7 +126,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="source\fGalaktika.pas">
-            <Form>FormGalaktika</Form>
+            <Form>frmGalaktika</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dImages.pas">
@@ -139,7 +139,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
         </DCCReference>
         <DCCReference Include="plugins\StarProj\fStarProj.pas">
             <Form>FormProjection</Form>

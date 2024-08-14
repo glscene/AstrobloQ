@@ -280,16 +280,6 @@ object FormLitosfera: TFormLitosfera
         Options = []
       end
     end
-    object PlanetSkyDome: TGLEarthSkyDome
-      Visible = False
-      Bands = <>
-      Stars = <>
-      SunElevation = 75.000000000000000000
-      Turbidity = 15.000000000000000000
-      ExtendedOptions = []
-      Slices = 48
-      Stacks = 24
-    end
     object Camera: TGLCamera
       DepthOfView = 200000.000000000000000000
       FocalLength = 99.545860290527340000

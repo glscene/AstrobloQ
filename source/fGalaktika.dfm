@@ -1,4 +1,4 @@
-object FormGalaktika: TFormGalaktika
+object frmGalaktika: TfrmGalaktika
   Left = 0
   Top = 0
   Margins.Left = 5

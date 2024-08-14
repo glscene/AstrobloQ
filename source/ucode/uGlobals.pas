@@ -34,6 +34,7 @@ type
   PrefFile = file of PrefRecord;
 
 var
+  Started: TDateTime;
   PreRcd: PrefRecord;
   HiddenString, StartedNameNumber: String;
 
@@ -42,7 +43,6 @@ var
 
   GlowUpDowni, Colorreg: Integer;
   PixelScanSize: Byte;
-  Started: TDateTime;
 
   PrintBigChecked, UseThumbnails, AutoDisPlay, VoicesON, DoneBeepOn,
     ErrorBeepOn, bAutoSave: Boolean;
@@ -74,9 +74,7 @@ procedure SetPreferences;
 procedure DoSaver;
 procedure GetPreferences;
 
-// --------------------------------------------------------------------
-implementation
-// --------------------------------------------------------------------
+implementation // ------------------------------------------------------------
 
 procedure DoLoader;
 var

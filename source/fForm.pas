@@ -72,10 +72,8 @@ begin
   begin
     UseLanguage('en');
   end;
-  //TP_GlobalIgnoreClass(TTable);
+  //TP_GlobalIgnoreClass(TTable);  // removed in ignore file
   //TP_GlobalIgnoreClass(TFields);
-  //TP_GlobalIgnoreClass(TListBox);
-  //TP_GlobalIgnoreClass(TGLLibMaterial);
   //TP_GlobalIgnoreClass(TGLMaterialLibrary);
 
   // Uncomment the next line will cause long loading but Action.Category translation
@@ -94,7 +92,7 @@ begin
   with IniFile do
     try
       // use correct argument names
-      LangID := ReadInteger('FormSettings', 'rgLanguage', 0);
+      LangID := ReadInteger('frmSettings', 'rgLanguage', 0);
     finally
       IniFile.Free;
     end;

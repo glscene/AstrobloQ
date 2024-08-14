@@ -18,13 +18,17 @@ uses
   Vcl.Imaging.jpeg,
   Vcl.ComCtrls,
   Vcl.Imaging.pngimage,
-  Vcl.Buttons, GLS.BaseClasses,
+  Vcl.Buttons,
+
+  GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   GLS.SkyDome,
   GLS.Objects,
   GLS.Coordinates,
-  fForm;
+
+  fForm
+  ;
 
 type
   TFormAbout = class(TFormI)

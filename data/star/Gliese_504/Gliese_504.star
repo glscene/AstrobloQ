@@ -1,2 +1,2 @@
-Gliese_504
-Gliese_504b
+GJ_504
+GJ_504b

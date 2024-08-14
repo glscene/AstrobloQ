@@ -1,2 +1,3 @@
-Kepler-22
-Kepler-22b
+Gliese_832
+Gliese_832_b
+Gliese_832_c

@@ -74,16 +74,16 @@ object FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      object tsMaterial: TTabSheet
+      object tsDisplay: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Material'
+        Caption = 'Display'
         ImageIndex = 4
         TabVisible = False
       end
@@ -174,6 +174,32 @@ object FormSettings: TFormSettings
             Margins.Bottom = 5
             Caption = 'Borders'
             TabOrder = 2
+          end
+        end
+        object gbShowStars: TGroupBox
+          Left = 322
+          Top = 240
+          Width = 491
+          Height = 223
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Show stars'
+          TabOrder = 2
+          object chbSkyGrid: TCheckBox
+            Left = 27
+            Top = 81
+            Width = 254
+            Height = 30
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = 'Sky grid'
+            TabOrder = 0
+            StyleName = 'Windows'
+            OnClick = chbCoreClick
           end
         end
       end
@@ -337,7 +363,7 @@ object FormSettings: TFormSettings
             SpinButtonOptions.ButtonWidth = 30
           end
         end
-        object grbPlanetShow: TGroupBox
+        object grbShowPlanets: TGroupBox
           Left = 70
           Top = 324
           Width = 911
@@ -363,7 +389,7 @@ object FormSettings: TFormSettings
             TabOrder = 0
             StyleName = 'Windows'
           end
-          object chbShowAxes: TCheckBox
+          object chbAxes: TCheckBox
             Left = 57
             Top = 193
             Width = 133
@@ -375,6 +401,7 @@ object FormSettings: TFormSettings
             Caption = 'Axis'
             TabOrder = 1
             StyleName = 'Windows'
+            OnClick = chbAxesClick
           end
           object CheckBox4: TCheckBox
             Left = 237
@@ -431,24 +458,24 @@ object FormSettings: TFormSettings
             StyleName = 'Windows'
             OnClick = chbCoreClick
           end
-          object CheckBox1: TCheckBox
+          object chbCartographicGrid: TCheckBox
             Left = 433
             Top = 114
-            Width = 170
+            Width = 212
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Planet grid'
+            Caption = 'Cartographic Grid'
             TabOrder = 6
             StyleName = 'Windows'
-            OnClick = chbCoreClick
+            OnClick = chbCartographicGridClick
           end
           object chbHidePlanet: TCheckBox
             Left = 433
             Top = 55
-            Width = 170
+            Width = 212
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
@@ -459,22 +486,8 @@ object FormSettings: TFormSettings
             StyleName = 'Windows'
             OnClick = chbHidePlanetClick
           end
-          object CheckBox3: TCheckBox
-            Left = 433
-            Top = 184
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Sky grid'
-            TabOrder = 8
-            StyleName = 'Windows'
-            OnClick = chbCoreClick
-          end
         end
-        object GroupBox1: TGroupBox
+        object grbPlanetParams: TGroupBox
           Left = 532
           Top = 5
           Width = 337

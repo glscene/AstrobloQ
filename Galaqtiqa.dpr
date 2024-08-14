@@ -3,7 +3,7 @@ program Galaqtiqa;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxGalaqtiqa in 'source\aigui\fxGalaqtiqa.pas' {FormGalaktis};
+  fxGalaqtiqa in 'source\aid\fxGalaqtiqa.pas' {FormGalaktis};
 
 {$R *.res}
 
