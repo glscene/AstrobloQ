@@ -15,7 +15,10 @@ uses
   Vcl.StdCtrls,
   Vcl.ComCtrls,
   Vcl.ExtCtrls,
-  Vcl.Buttons;
+  Vcl.Buttons,
+
+  gnugettext
+  ;
 
 type
   TFormCreatingGalaxy = class(TForm)
@@ -34,7 +37,7 @@ type
 var
   FormCreatingGalaxy: TFormCreatingGalaxy;
 
-implementation
+implementation //------------------------------------------------------------
 
 {$R *.dfm}
 

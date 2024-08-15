@@ -21,9 +21,7 @@ function BitmapToRegion (hBmp: HBitmap; cTransparentColor:  COLORREF;
 cTolerance: Byte): HRGN;
 
 
-//---------------------------------------------------------------------------
-implementation
-//---------------------------------------------------------------------------
+implementation //--------------------------------------------------------------
 
 function BitmapToRegion (hBmp: HBitmap; cTransparentColor:  COLORREF;
   cTolerance: Byte): HRGN; 
@@ -108,7 +106,7 @@ if (hbm32 <> 0) then
           (*Get how many bytes per row we have for the bitmap
             bits (rounded up to 32 bits) *)
           GetObject(hbm32, sizeof(bm32), @bm32);
-          while (bm32.bmWidthBytes mod 4) <> 0 do 
+          while (bm32.bmWidthBytes mod 4) <> 0 do
             Inc(bm32.bmWidthBytes); 
 
           // Copy the bitmap into the memory DC
@@ -136,7 +134,7 @@ if (hbm32 <> 0) then
           lg := GetGValue(cTransparentColor); 
           lb := GetBValue(cTransparentColor); 
           hr := min($ff, lr + cTolerance); 
-          hg := min($ff, lg + cTolerance); 
+          hg := min($ff, lg + cTolerance);
           hb := min($ff, lb + cTolerance); 
 
           (* Scan each bitmap row from bottom to top (the bitmap 
@@ -164,7 +162,7 @@ if (hbm32 <> 0) then
                     if (b >= lb) and (b <= hb) then 
                     begin 
                       (* This pixel is "transparent" *) 
-                      x0 := x0; 
+                      x0 := x0;
                       break; 
                     end; 
                   end; 
@@ -192,7 +190,7 @@ if (hbm32 <> 0) then
                 if (x0 < pData.rdh.rcBound.left) then 
                   pData.rdh.rcBound.left := x0; 
                 if (y < pData.rdh.rcBound.top) then 
-                  pData.rdh.rcBound.top := y; 
+                  pData.rdh.rcBound.top := y;
                 if (x > pData.rdh.rcBound.right) then 
                   pData.rdh.rcBound.right := x; 
                 if (y+1 > pData.rdh.rcBound.bottom) then 
@@ -220,7 +218,7 @@ if (hbm32 <> 0) then
             end; 
 
             (* Go to next row (remember, the bitmap is inverted vertically) *) 
-            p32 := pByte(LongInt(p32) - LongInt(bm32.bmWidthBytes)); 
+            p32 := pByte(LongInt(p32) - LongInt(bm32.bmWidthBytes));
           end; 
 
           (* Create or extend the region with the remaining rectangles *) 

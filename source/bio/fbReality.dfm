@@ -466,8 +466,8 @@ object fmReality: TfmReality
     end
   end
   object MainMenu1: TMainMenu
-    Left = 574
-    Top = 65522
+    Left = 613
+    Top = 3
     object File1: TMenuItem
       Caption = 'File'
       object menuNewReality: TMenuItem

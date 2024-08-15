@@ -17,8 +17,8 @@ function Pluralize(aString: string): string;
 function RandomPolarity: integer;
 function RandomSwing: single;
 function AdjustValue(const aCurrent, aTarget, aAmount: single): single;
-procedure writeFileBoolean(var aFile: TextFile; aBoolean: boolean);
-function readFileBoolean(var aFile: TextFile): boolean;
+procedure WriteFileBoolean(var aFile: TextFile; aBoolean: boolean);
+function ReadFileBoolean(var aFile: TextFile): boolean;
 function Max(const aNum1, aNum2, aNum3, aNum4: single): single; overload;
 function Max(const aNum1, aNum2: single): single; overload;
 function Max(const aNum1, aNum2, aNum3, aNum4, aNum5: single): single; overload;
@@ -39,7 +39,6 @@ procedure readVector(var aFile: TextFile; var aVector: TAffineVector);
 function AccumulativeSum(n: single; x: integer): single;
 
 type
-
   TStopWatch = class(TObject)
   private
     fStartTick: comp;
@@ -54,8 +53,7 @@ type
     property Timing: boolean read fTiming;
   end;
 
-//=============================================================================
-implementation
+implementation //--------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
 function BoolToYesNoStr(const aBoolean: boolean): string;
@@ -121,7 +119,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure writeFileBoolean(var aFile: TextFile; aBoolean: boolean);
+procedure WriteFileBoolean(var aFile: TextFile; aBoolean: boolean);
 begin
   if aBoolean then
     writeln(aFile, '0')
@@ -130,7 +128,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function readFileBoolean(var aFile: TextFile): boolean;
+function ReadFileBoolean(var aFile: TextFile): boolean;
 var
   i: integer;
 begin

@@ -31,7 +31,7 @@ type
 var
   FormEvents: TFormEvents;
 
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   fbFirstForm;

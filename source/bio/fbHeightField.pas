@@ -82,8 +82,7 @@ type
 var
   FormHeightField: TFormHeightField;
 
-//===================================================
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   fbFirstForm,

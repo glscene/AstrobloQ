@@ -28,7 +28,9 @@ uses
   GLS.VectorGeometry,
   GLS.VectorTypes,
   GLS.Coordinates,
-  GLS.SceneViewer;
+  GLS.SceneViewer,
+
+  gnugettext;
 
 type
   TRefreshMethod = procedure of object;
@@ -105,8 +107,7 @@ type
 var
   FormSpirit: TFormSpirit;
 
-//=============================================================================
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.DFM}
 
@@ -192,7 +193,7 @@ begin
   if not fDeletion and fDead then
   begin
     if OnTop1.Checked then OnTop1.Click;
-    if (MessageDlg('Target is dead. Remove window?',
+    if (MessageDlg(_('Target is dead. Remove window?'),
      mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     fDeletion := true;
   end;
@@ -326,7 +327,7 @@ begin
   begin
     StopViewer;
     cbView.Enabled := false;
-    ShowMessage('Unable to open 3D view for this thing.');
+    ShowMessage(_('Unable to open 3D view for this thing'));
     exit;
   end;
 

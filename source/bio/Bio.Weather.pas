@@ -92,8 +92,7 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-//----------------------------------------------------------
-implementation
+implementation //----------------------------------------------------------
 
 uses
   Bio.Reality,

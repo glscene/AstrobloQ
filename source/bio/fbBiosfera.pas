@@ -92,11 +92,13 @@ uses
   GLS.XCollection,
   GLS.File3DS,
   GLS.SoundFileObjects,
-  Sounds.BASS,
+  GLS.Sounds.BASS,
 
   GLS.AVIRecorder,
   GLS.Coordinates,
-  GLS.BaseClasses;
+  GLS.BaseClasses,
+
+  gnugettext;
 
 const
   cHeightDivision = 10;
@@ -691,7 +693,6 @@ type
     procedure tbShadowsClick(Sender: TObject);
     procedure tbNextKindClick(Sender: TObject);
     procedure tbRestore2Click(Sender: TObject);
-    // ----------------------------------------------------------------------------
   private
     fEnvironment: AIEnvironment;
     fMouseGridX: Integer;
@@ -1006,8 +1007,7 @@ type
 var
   FormBiosfera: TFormBiosfera;
 
-  // ----------------------------------------------------------------------------
-implementation
+implementation //---------------------------------------------------------------
 
 {$R *.DFM}
 
@@ -1052,7 +1052,7 @@ begin
 
   SphereMode := true;
 
-  FormFirst.Construction.AddEvent('Loading files...');
+  FormFirst.Construction.AddEvent(_('Loading files'));
   LoadMaterialLibrary;
   LoadModels;
   GenerateTextureMap;
@@ -1062,13 +1062,13 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    FormFirst.Construction.AddEvent('Activating GLBass...');
+    FormFirst.Construction.AddEvent(_('Activating Bass'));
     GLBass.Active := true;
     if not GLBass.Active then
-      FormFirst.Construction.AddEventFailure(' no sound support!');
+      FormFirst.Construction.AddEventFailure(_(' No sound support!'));
   end;
   LoadSounds;
-  FormFirst.Construction.AddEvent('Generating sound system...');
+  FormFirst.Construction.AddEvent(_('Generating sound system'));
   GenerateSoundSystem(64);
 
   CleanGalaxy;
@@ -2107,7 +2107,7 @@ var
   X: Integer;
 begin
   // create grey stars
-  FormFirst.Construction.AddEvent('Adding stars...');
+  FormFirst.Construction.AddEvent(_('Adding stars'));
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2115,7 +2115,7 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  FormFirst.Construction.AddEventSuccess(' done.');
+  FormFirst.Construction.AddEventSuccess(_(' Done'));
 end;
 
 // ----------------------------------------------------------------------------
@@ -2358,7 +2358,6 @@ begin
       FlyingForwards := true;
     end;
   end;
-
 end;
 
 // ----------------------------------------------------------------------------
@@ -2392,7 +2391,6 @@ begin
         else
           ViewDestination.MoveYNoPoles((Y - mouse_y) / 16);
       end;
-
     camTarget:
       begin
         // rotate/move around target
@@ -2423,7 +2421,6 @@ begin
             ((mouse_y - Y) / 128 * sin(ViewDestination.DirectionH));
         end;
       end;
-
     camAvatar, camFree:
       if (Shift = [ssRight]) or (Shift = [ssRight, ssLeft]) then
       begin
@@ -2437,7 +2434,6 @@ begin
             (Y - mouse_y) / 128;
       end;
   end;
-
   // move tool
   if Tool = tMove then
   begin
@@ -2473,7 +2469,6 @@ begin
       end; // case
     end;
   end;
-
   // store position of mouse
   mouse_x := X;
   mouse_y := Y;
@@ -2488,21 +2483,17 @@ begin
   myInvert := 1;
   if FormFirst.UserSettings.InvertMouseWheel then
     myInvert := -1;
-
   case CameraMode of
     camPlanet, camSatellite:
       begin
         ViewDestination.MoveHeight(myInvert * -1 * WheelDelta / 16);
         // if ViewPosition.HeightAbove < 15 then CameraMode := camAvatar;
       end;
-
     camTarget:
       ViewOffset := ViewOffset - myInvert * WheelDelta / 64;
-
     camAvatar:
       if WheelDelta < 0 then
         CameraMode := camPlanet;
-
     camFree:
       ViewDestination.MoveHeight(myInvert * -1 * WheelDelta / 32);
   end;
@@ -2609,7 +2600,6 @@ begin
       Source.NbLoops := 2;
       Playing := true;
     end;
-
   aSun.Crossover := result;
 end;
 
@@ -2723,7 +2713,7 @@ begin
     exit;
   myMoon := AIMoon(Environment.Things.NewThing(cMoon));
   ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
-  FormFirst.Construction.AddEvent('Added moon.');
+  FormFirst.Construction.AddEvent(_('Added moon'));
   LastAction('Added=moon');
 end;
 
@@ -2734,14 +2724,14 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Maximum four suns!');
+    ShowMessage(_('Maximum four suns!'));
     exit;
   end;
 
   mySun := AISun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
-    ReportUserEvent('Added Sun: ' + mySun.OneLineDisplay);
-  FormFirst.Construction.AddEvent('Added sun.');
+    ReportUserEvent(_('Added sun') + mySun.OneLineDisplay);
+  FormFirst.Construction.AddEvent('Added sun');
   LastAction('Added=sun');
 end;
 
@@ -3801,18 +3791,18 @@ begin
   CameraMode := camPlanet;
 
   // clear everything
-  FormFirst.Construction.AddEvent('Cleaning galaxy...');
+  FormFirst.Construction.AddEvent(_('Cleaning galaxy'));
   CleanGalaxy;
 
   SphereMode := Environment.Space.Spherical;
   tbSpherical.Down := SphereMode;
 
   // build planet
-  FormFirst.Construction.AddEvent('Building planet...');
+  FormFirst.Construction.AddEvent(_('Building planet'));
   BuildFromMap;
 
   // build new things
-  FormFirst.Construction.AddEvent('Adding new things...');
+  FormFirst.Construction.AddEvent(_('Adding new things'));
   CheckCradle;
 end;
 
@@ -4393,8 +4383,8 @@ begin
   fgLandTex.MaterialName := PlanetModel.MaterialLibrary.Materials.
     Items[0].Name;
 
-  FormFirst.Construction.AddEvent('Planet.Map: Height = ' + IntToStr(Height) +
-    ' Width = ' + IntToStr(Width));
+  FormFirst.Construction.AddEvent('Planet.Map' + ': ' + _('Height') + ' = ' +
+     IntToStr(Height) + _('Width') + ' = ' + IntToStr(Width));
 
   // height loop
   // we start at the top of the map and go to the bottom, in width strips
@@ -4581,8 +4571,8 @@ begin
     end;
   end;
 
-  FormFirst.Construction.AddEvent('Planet.Mesh: Triangles = ' +
-    IntToStr(PlanetMesh.TriangleCount) + ' Vertices = ' +
+  FormFirst.Construction.AddEvent('Planet.Mesh: ' + _('Triangles') + ' = ' +
+    IntToStr(PlanetMesh.TriangleCount) + _('Vertices') + ' = ' +
     IntToStr(PlanetMesh.Vertices.Count));
 
   // add mesh to freeform (a freeform holds meshes)
@@ -5575,12 +5565,12 @@ begin
   if Satellites.AmountOfData(AISun) < 4 then
   begin
     mySun := AISun(Environment.Things.NewThing(cSun));
-    ReportUserEvent('Added Sun: ' + mySun.OneLineDisplay);
+    ReportUserEvent('Added sun: ' + mySun.OneLineDisplay);
     FormFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
       (AISatellite(mySun));
   end
   else
-    ShowMessage('Maximum four suns!');
+    ShowMessage(_('Maximum four suns!'));
 end;
 
 // ----------------------------------------------------------------------------
@@ -6052,7 +6042,7 @@ begin
   if not GLBass.Active then
     exit;
 
-  FormFirst.Construction.AddEvent('Generating sound system...');
+  FormFirst.Construction.AddEvent(_('Generating sound system'));
   for i := 0 to aNumberOfSpeakers - 1 do
   begin
     myCrossover := Speakers.NewCrossover;
@@ -6104,7 +6094,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSounds;
 begin
-  FormFirst.Construction.AddUnderlinedEvent('Loading sounds');
+  FormFirst.Construction.AddUnderlinedEvent(_('Loading sounds'));
 
   LoadSound('audio\electronicping.wav'); // 0
   LoadSound('audio\fire.wav'); // 1
@@ -6141,7 +6131,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSound(aFileName: string);
 begin
-  FormFirst.Construction.AddEvent('Loading sound from file ' + aFileName
+  FormFirst.Construction.AddEvent(_('Loading sound from file ') + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
@@ -6937,12 +6927,12 @@ begin
   if not tbTrackLines.Down then
   begin
     TrackLines.Visible := false;
-    FormFirst.Construction.AddEvent('Turned track lines off.');
+    FormFirst.Construction.AddEvent(_('Turned track lines off'));
   end
   else if (CameraMode = camTarget) then
   begin
     TrackLines.Visible := true;
-    FormFirst.Construction.AddEvent('Turned track lines on.');
+    FormFirst.Construction.AddEvent(_('Turned track lines on'));
   end;
 end;
 
@@ -6992,12 +6982,12 @@ begin
   begin
     PredictLines.Visible := false;
     PredictLines.Nodes.Clear;
-    FormFirst.Construction.AddEvent('Turned predict lines off.');
+    FormFirst.Construction.AddEvent(_('Turned predict lines off'));
   end
   else if (CameraMode = camTarget) then
   begin
     PredictLines.Visible := true;
-    FormFirst.Construction.AddEvent('Turned predict lines on.');
+    FormFirst.Construction.AddEvent(_('Turned predict lines on'));
   end;
 end;
 
@@ -7744,7 +7734,7 @@ procedure TFormBiosfera.tbCeaseClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    LastAction('Cease: ' + AIThing(TargetToFollow.Data).OneLineDisplay);
+    LastAction(_('Cease: ') + AIThing(TargetToFollow.Data).OneLineDisplay);
     AIThing(TargetToFollow.Data).Cease;
   end;
 end;
@@ -7817,7 +7807,7 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Maximum four suns!');
+    ShowMessage(_('Maximum four suns!'));
     exit;
   end;
 
@@ -7830,7 +7820,7 @@ begin
     mySun.Position.Velocity.Zero;
     mySun.Position.Acceleration.Zero;
     ReportUserEvent('Added Frozen Sun: ' + mySun.OneLineDisplay);
-    FormFirst.Construction.AddEvent('Added fake sun.');
+    FormFirst.Construction.AddEvent(_('Added fake sun'));
     LastAction('Added=fakesun');
   end;
 end;
@@ -7918,7 +7908,7 @@ procedure TFormBiosfera.tbDieClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    LastAction('Die: ' + AIThing(TargetToFollow.Data).OneLineDisplay);
+    LastAction(_('Die: ') + AIThing(TargetToFollow.Data).OneLineDisplay);
     if (AIThing(TargetToFollow.Data) is AILivingThing) then
       AILivingThing(TargetToFollow.Data).Die;
   end;
@@ -7989,11 +7979,11 @@ begin
   if (TargetToFollow <> nil) then
   begin
     myKind := AIThing(TargetToFollow.Data).Kind;
-    if (MessageDlg('Are you sure you want an extinction of ' +
+    if (MessageDlg(_('Are you sure you want an extinction of ') +
       ThingNamePlural(myKind) + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes)
     then
     begin
-      LastAction('Extinction: ' + ThingNamePlural(myKind));
+      LastAction(_('Extinction: ') + ThingNamePlural(myKind));
       gThings.Tables[myKind].KillEverything;
     end;
   end;
@@ -8804,12 +8794,12 @@ begin
   with GLShadowVolume do
     if tbVolumes.Down then
     begin
-      FormFirst.Construction.AddEvent('Turned shadow volumes on.');
+      FormFirst.Construction.AddEvent(_('Turned shadow volumes on'));
       Options := Options + [svoShowVolumes];
     end
     else
     begin
-      FormFirst.Construction.AddEvent('Turned shadow volumes off.');
+      FormFirst.Construction.AddEvent(_('Turned shadow volumes off'));
       Options := Options - [svoShowVolumes];
     end;
 end;
@@ -8818,12 +8808,12 @@ procedure TFormBiosfera.SetShadowMode(aMode: Boolean);
 begin
   if not aMode then
   begin
-    FormFirst.Construction.AddEvent('Turned shadows off.');
+    FormFirst.Construction.AddEvent(_('Turned shadows off'));
     GLShadowVolume.Mode := svmOff;
   end
   else
   begin
-    FormFirst.Construction.AddEvent('Turned shadows on.');
+    FormFirst.Construction.AddEvent(_('Turned shadows on'));
     GLShadowVolume.Mode := svmDarkening;
   end;
   tbShadows.Down := Environment.Shadows;
@@ -8833,7 +8823,7 @@ procedure TFormBiosfera.tbComplexifyClick(Sender: TObject);
 begin
   if tbComplexify.Down then
   begin
-    FormFirst.Construction.AddEvent('Turned multicast shadows on.');
+    FormFirst.Construction.AddEvent(_('Turned multicast shadows on'));
     ForestCube.MoveTo(GLShadowVolume);
     FruitCube.MoveTo(GLShadowVolume);
     ProxyCube.MoveTo(GLShadowVolume);
@@ -8841,7 +8831,7 @@ begin
   end
   else
   begin
-    FormFirst.Construction.AddEvent('Turned multicast shadows off.');
+    FormFirst.Construction.AddEvent(('Turned multicast shadows off'));
     ForestCube.MoveTo(GalaxyCube);
     FruitCube.MoveTo(GalaxyCube);
     ProxyCube.MoveTo(GalaxyCube);
@@ -9121,7 +9111,7 @@ end;
 procedure TFormBiosfera.tbShowFireClick(Sender: TObject);
 begin
   if tbShowFire.Down then
-    FormFirst.Construction.AddEvent('Disabled fireFX.')
+    FormFirst.Construction.AddEvent('Disabled fireFX')
   else
     FormFirst.Construction.AddEvent('Enabled fireFX.');
   tbShowFire.Enabled := false;

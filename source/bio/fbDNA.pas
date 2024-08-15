@@ -15,9 +15,10 @@ uses
   Vcl.ExtCtrls,
   Vcl.Buttons,
   Bio.DNA,
-  Vcl.Menus;
+  Vcl.Menus,
 
-  /// JvEdit, JvTypedEdit, JvFloatEdit
+  gnugettext
+  ;
 
 type
   TFormDNA = class(TForm)
@@ -68,7 +69,7 @@ type
 var
   FormDNA: TFormDNA;
 
-implementation
+implementation //------------------------------------------------------------
 
 {$R *.dfm}
 
@@ -136,9 +137,9 @@ begin
   if SaveDNADialog.Execute then
   begin
     if DNA.SaveToINI(SaveDNADialog.FileName) then
-      ShowMessage('Save DNA as ' + SaveDNADialog.FileName)
+      ShowMessage(_('Save DNA as') + ' ' + SaveDNADialog.FileName)
     else
-      ShowMessage('Failed to save DNA.');
+      ShowMessage(_('Failed to save DNA'));
     ApplyDNA;
   end;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));

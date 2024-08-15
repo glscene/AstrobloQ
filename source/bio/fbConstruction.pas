@@ -47,8 +47,7 @@ type
 var
   fmConstruction: TfmConstruction;
 
-//============================================================================
-implementation
+implementation //------------------------------------------------------------
 
 uses
   fbFirstForm;

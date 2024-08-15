@@ -203,11 +203,6 @@ begin
   result := '';
 
   case Win32Platform of
-    VER_PLATFORM_WIN32_WINDOWS:
-      begin
-        Platform := 'Windows 95';
-        BuildNumber := Win32BuildNumber and $0000FFFF;
-      end;
     VER_PLATFORM_WIN32_NT:
       begin
         Platform := 'Windows NT';
@@ -330,7 +325,7 @@ begin
 
   myAboutInfo := TAboutInfo.Create(ParamStr(0));
 
-  labVersion.Caption := 'Pre-Release v' + myAboutInfo.FileVersion;
+  labVersion.Caption := 'Release v' + myAboutInfo.FileVersion;
   labDate.Caption := 'Last Build: ' + myAboutInfo.FileBuildDate;
   // EditVer.Text := myAboutInfo.FileVersion + '    ' + myAboutInfo.FileBuildDate;
   // EditOS.Text := myAboutInfo.OSVersion;
@@ -340,7 +335,7 @@ end;
 
 procedure TFormAbout.labBioSphereClick(Sender: TObject);
 begin
-  ShellExecute(0, 'open', 'https://gitflic.ru/project/glscene/terraplanets', '',
+  ShellExecute(0, 'open', 'https://gitflic.ru/project/glscene/astrobloq', '',
     '', SW_SHOW);
 end;
 

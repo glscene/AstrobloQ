@@ -29,7 +29,7 @@ type
 var
   FormEditLine: TFormEditLine;
 
-implementation
+implementation //--------------------------------------------------------------
 
 {$R *.DFM}
 

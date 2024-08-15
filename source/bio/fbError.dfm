@@ -62,14 +62,14 @@ object FormError: TFormError
     object Label2: TLabel
       Left = 67
       Top = 163
-      Width = 353
+      Width = 333
       Height = 24
       Cursor = crHandPoint
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'https://gitflic.ru/project/glscene/terraplanets'
+      Caption = 'https://gitflic.ru/project/glscene/astrobloq'
       Color = clBtnFace
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue

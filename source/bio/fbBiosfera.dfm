@@ -559,7 +559,7 @@ object FormBiosfera: TFormBiosfera
           Margins.Right = 5
           Margins.Bottom = 5
           AutoSize = False
-          Caption = #1059#1090#1080#1083#1080#1090#1099': '
+          Caption = 'Utilities: '
           Color = clInactiveBorder
           ParentColor = False
         end

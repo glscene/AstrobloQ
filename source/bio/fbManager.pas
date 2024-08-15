@@ -107,8 +107,7 @@ type
 var
   FormManager: TFormManager;
 
-//=============================================================================
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   fbReality,

@@ -59,8 +59,7 @@ type
 var
   FormError: TFormError;
 
-//============================================================================
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
@@ -86,7 +85,7 @@ begin
   myFileName := ExtractFilePath(ParamStr(0)) + 'debug.txt';
   memReport.Lines.SaveToFile(myFileName);
 
-  myEmail := 'telegram:https://t.me/glscene=' + memReport.Lines.Strings[0] +
+  myEmail := 'telegram:https://t.me/glscene' + memReport.Lines.Strings[0] +
     '&body=Please type a short story of your bug encounter, and paste the error report ' +
     #13#10 + Error.ClassName + ', ' + Error.Message;
 

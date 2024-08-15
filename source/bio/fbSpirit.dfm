@@ -96,9 +96,8 @@ object FormSpirit: TFormSpirit
         Margins.Right = 6
         Margins.Bottom = 6
         ButtonHeight = 38
-        ButtonWidth = 102
+        ButtonWidth = 87
         Caption = 'tbTools'
-        Images = fmImages.imgIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
@@ -114,7 +113,7 @@ object FormSpirit: TFormSpirit
           OnClick = tbTrackClick
         end
         object tbModify: TToolButton
-          Left = 102
+          Left = 87
           Top = 0
           Margins.Left = 6
           Margins.Top = 6
@@ -126,7 +125,7 @@ object FormSpirit: TFormSpirit
           Style = tbsDropDown
         end
         object tbWindow: TToolButton
-          Left = 233
+          Left = 203
           Top = 0
           Margins.Left = 6
           Margins.Top = 6
@@ -138,7 +137,7 @@ object FormSpirit: TFormSpirit
           Style = tbsDropDown
         end
         object cbView: TCheckBox
-          Left = 364
+          Left = 319
           Top = 0
           Width = 83
           Height = 38
