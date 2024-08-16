@@ -43,9 +43,7 @@ type
     property OnMaximize: TMinimizeEvent read FOnMaximize write FOnMaximize;
   end;
 
-// ===================================
-implementation
-// ===================================
+implementation //------------------------------------------------------------
 
 destructor TMiniForm.Destroy;
 begin

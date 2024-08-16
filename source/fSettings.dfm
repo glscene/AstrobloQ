@@ -3,8 +3,9 @@ inherited frmSettings: TfrmSettings
   Caption = 'Settings'
   ClientHeight = 759
   ClientWidth = 1313
-  ExplicitWidth = 1337
-  ExplicitHeight = 823
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 1329
+  ExplicitHeight = 798
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
@@ -1135,7 +1136,7 @@ inherited frmSettings: TfrmSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 322
+          Left = 314
           Top = 53
           Width = 149
           Height = 200

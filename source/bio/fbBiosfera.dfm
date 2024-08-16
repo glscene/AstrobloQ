@@ -73,9 +73,8 @@ object FormBiosfera: TFormBiosfera
         Margins.Right = 5
         Margins.Bottom = 5
         ButtonHeight = 30
-        ButtonWidth = 94
+        ButtonWidth = 79
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
@@ -112,7 +111,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbWateringCanClick
         end
         object tbSponge: TToolButton
-          Left = 222
+          Left = 207
           Top = 0
           Hint = 'Sponge (Removes Water)'
           Margins.Left = 5
@@ -128,7 +127,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSpongeClick
         end
         object tbSplash: TToolButton
-          Left = 316
+          Left = 286
           Top = 0
           Hint = 'Splash'
           Margins.Left = 5
@@ -142,7 +141,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSplashClick
         end
         object tbIceberg: TToolButton
-          Left = 410
+          Left = 365
           Top = 0
           Margins.Left = 5
           Margins.Top = 5
@@ -155,7 +154,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbIcebergClick
         end
         object ToolButton2: TToolButton
-          Left = 504
+          Left = 444
           Top = 0
           Width = 14
           Margins.Left = 5
@@ -167,7 +166,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object Panel4: TPanel
-          Left = 518
+          Left = 458
           Top = 0
           Width = 170
           Height = 30
@@ -181,7 +180,7 @@ object FormBiosfera: TFormBiosfera
           TabOrder = 2
         end
         object edWater: TEdit
-          Left = 688
+          Left = 628
           Top = 0
           Width = 66
           Height = 30
@@ -198,7 +197,7 @@ object FormBiosfera: TFormBiosfera
           Text = '1'
         end
         object WaterUpDown: TUpDown
-          Left = 754
+          Left = 694
           Top = 0
           Width = 30
           Height = 30
@@ -212,7 +211,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = WaterUpDownClick
         end
         object WaterFastUpDown: TUpDown
-          Left = 784
+          Left = 724
           Top = 0
           Width = 30
           Height = 30
@@ -227,7 +226,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = WaterFastUpDownClick
         end
         object ToolButton3: TToolButton
-          Left = 814
+          Left = 754
           Top = 0
           Width = 14
           Margins.Left = 5
@@ -252,11 +251,12 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 131
         Caption = 'tbAtmosphere'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
         Visible = False
+        ExplicitTop = 159
         object Label4: TLabel
           Left = 0
           Top = 0
@@ -398,7 +398,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 126
         Caption = 'tbGalaxy'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ParentShowHint = False
         ShowCaptions = True
@@ -544,7 +544,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 118
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 3
@@ -755,7 +755,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 125
         Caption = 'tbTools'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 4
@@ -968,7 +968,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 140
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 5
@@ -1206,7 +1206,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 92
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 6
@@ -1849,7 +1849,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 152
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 8
@@ -1960,7 +1960,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 150
         Caption = 'tbDisasters'
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 9
@@ -2090,7 +2090,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 82
         Color = clActiveBorder
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
@@ -2373,7 +2373,7 @@ object FormBiosfera: TFormBiosfera
         ButtonHeight = 30
         ButtonWidth = 109
         EdgeBorders = [ebTop, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
@@ -2653,7 +2653,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 74
         Caption = 'ToolBar1'
         EdgeBorders = [ebLeft, ebTop, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         ShowCaptions = True
         TabOrder = 1
         Wrapable = False
@@ -2776,7 +2776,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 101
         Caption = 'tbFauna'
         EdgeBorders = [ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -3084,6 +3084,8 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 4
       Visible = False
+      ExplicitLeft = -1
+      ExplicitTop = 227
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -3127,7 +3129,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 121
         Caption = 'tbLand'
         EdgeBorders = [ebLeft, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -3352,7 +3354,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 149
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -3683,7 +3685,7 @@ object FormBiosfera: TFormBiosfera
         Font.Height = -16
         Font.Name = 'MS Sans Serif'
         Font.Style = []
-        Images = FormImages.imgIcons
+        Images = FormImages.ImageListIcons
         List = True
         ParentFont = False
         ShowCaptions = True
@@ -3880,8 +3882,8 @@ object FormBiosfera: TFormBiosfera
     end
   end
   object GLScene: TGLScene
-    Left = 750
-    Top = 216
+    Left = 613
+    Top = 378
     object GalaxyCube: TGLDummyCube
       CubeSize = 1.000000000000000000
       object SkyDome: TGLSkyDome
@@ -4370,8 +4372,8 @@ object FormBiosfera: TFormBiosfera
     MaxDeltaTime = 1.000000000000000000
     SleepLength = 5
     OnProgress = GLCadencerProgress
-    Left = 868
-    Top = 216
+    Left = 833
+    Top = 378
   end
   object GLMaterialLibrary: TGLMaterialLibrary
     Left = 1140
@@ -4385,8 +4387,8 @@ object FormBiosfera: TFormBiosfera
   end
   object GLSoundLibrary: TGLSoundLibrary
     Samples = <>
-    Left = 1004
-    Top = 216
+    Left = 1057
+    Top = 364
   end
   object GLPolygonPFXManager1: TGLPolygonPFXManager
     Cadencer = GLCadencer

@@ -150,7 +150,7 @@ object frmGalaktika: TfrmGalaktika
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsSolarcube
+    ActivePage = tsDatacat
     Align = alClient
     TabOrder = 2
     object tsSolarcube: TTabSheet

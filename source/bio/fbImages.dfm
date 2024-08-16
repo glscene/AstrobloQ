@@ -54,9 +54,9 @@ object FormImages: TFormImages
     Align = alClient
     TabOrder = 0
   end
-  object imgIcons: TImageList
-    Left = 12
-    Top = 14
+  object ImageListIcons: TImageList
+    Left = 287
+    Top = 11
     Bitmap = {
       494C01019E009F00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000008002000001002000000000000080

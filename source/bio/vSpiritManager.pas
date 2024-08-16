@@ -19,7 +19,9 @@ uses
   Vcl.StdCtrls,
   Bio.Things,
   fbSpirit,
-  vInterfaceClasses;
+  vInterfaceClasses,
+
+  gnugettext;
 
 type
 
@@ -47,14 +49,14 @@ type
     procedure OnDown(Sender: TObject);
   end;
 
-  // *****************************************************************************
+  // **************************************************************************
   TSpiritList = class(TObjectList)
   private
     fManager: TForm;
     fSpiritBar: TToolBar;
     fForceSpaceAdvance: boolean;
-    // use this to force the space window to advance
-    // procedure NewSpiritWindow(aSpirit: AISpirit);
+    (* use this to force the space window to advance *)
+    /// procedure NewSpiritWindow(aSpirit: AISpirit);
   public
     constructor Create(aManager: TForm; aSpiritBar: TToolBar);
     property Manager: TForm read fManager;
@@ -67,8 +69,7 @@ type
     procedure RemoveSpirit(aSpiritHolder: TSpiritHolder);
   end;
 
-// ============================================================================
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   fbFirstForm,
@@ -100,7 +101,7 @@ begin
   SpiritForm.SpiritHolder := self;
   SpiritForm.Target.AssignTarget(Thing);
   // assign icon to form
-  FormImages.imgIcons.GetIcon(ThingImageIndex(Thing.Kind), SpiritForm.Icon);
+  FormImages.ImageListIcons.GetIcon(ThingImageIndex(Thing.Kind), SpiritForm.Icon);
 end;
 
 procedure TSpiritHolder.CreateSpiritButton(aSpiritBar: TToolBar);
@@ -109,7 +110,7 @@ begin
 
   SpiritButton.Caption := Thing.Name + ' ' + IntToStr(Thing.Handle) +
     '                ';
-  SpiritButton.Hint := 'View ' + Thing.Name + ' ' + IntToStr(Thing.Handle);
+  SpiritButton.Hint := _('View ') + Thing.Name + ' ' + IntToStr(Thing.Handle);
   SpiritButton.ShowHint := true;
   SpiritButton.Down := false;
   SpiritButton.Grouped := false;

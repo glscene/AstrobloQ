@@ -18,7 +18,7 @@ uses
 type
   TFormImages = class(TForm)
     panImages: TPanel;
-    imgIcons: TImageList;
+    ImageListIcons: TImageList;
   private
      
   public

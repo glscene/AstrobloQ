@@ -3,7 +3,7 @@ unit vSplashScreen;
 interface
 
 uses
-  Windows,
+  Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
   System.Classes,
@@ -35,19 +35,19 @@ function BitmapToRegion (hBmp: HBitmap; cTransparentColor:  COLORREF;
   end; 
 
 const                       
-  ALLOC_UNIT = 100; 
+  ALLOC_UNIT = 100;
 var 
   rtnRgn: HRGN; 
   hMemDC: HDC; 
   tmphDC: HDC; 
-  bm: Windows.TBitmap; 
+  bm: Winapi.Windows.TBitmap;
   RGB32BITSBITMAPINFO: TBitmapInfoHeader;
-  RGB32BITSBITMAP: TBitmapInfo; 
+  RGB32BITSBITMAP: TBitmapInfo;
   x, y: Longint;//for variables
   pbits32: Pointer;
   hbm32: HBITMAP;
   holdBMP, holdBMP2: HBITMAP;
-  bm32: Windows.TBitmap; 
+  bm32: Winapi.Windows.TBitmap;
   MaxRects: DWORD;
   hData: Cardinal;
   pData: pRGNDATA;
@@ -111,7 +111,7 @@ if (hbm32 <> 0) then
 
           // Copy the bitmap into the memory DC
           holdBmp2 := HBITMAP(SelectObject(tmphDC, hBmp));
-          Windows.BitBlt(hMemDC, 0, 0, bm.bmWidth, bm.bmHeight, tmphDC, 
+          Winapi.Windows.BitBlt(hMemDC, 0, 0, bm.bmWidth, bm.bmHeight, tmphDC,
             0, 0, SRCCOPY);
 
           (* For better performances, we will use the ExtCreateRegion()
@@ -147,7 +147,7 @@ if (hbm32 <> 0) then
             x := 0; 
             while x < bm.bmWidth do 
             begin 
-              (* Search for a continuous range of "non transparent pixels" *) 
+              (* Search for a continuous range of "non transparent pixels" *)
               x0 := x; 
               p := pCardinal(Cardinal(p32) + (sizeof(Cardinal)* Cardinal(x))); 
               while (x < bm.bmWidth) do 
@@ -175,7 +175,7 @@ if (hbm32 <> 0) then
               begin 
                 (* Add the pixels (x0, y) to (x, y+1) as a new 
                   rectangle in the region *) 
-                if (pData.rdh.nCount >= maxRects) then 
+                if (pData.rdh.nCount >= maxRects) then
                 begin 
                   GlobalUnlock(hData); 
                   maxRects := maxRects + ALLOC_UNIT; 
@@ -184,7 +184,7 @@ if (hbm32 <> 0) then
                   pData := pRGNDATA(GlobalLock(hData));
                 end; 
                 pr := pRECT(@pData.Buffer); 
-                Windows.SetRect(tmpRect, x0, y, x, y+1); 
+                Winapi.Windows.SetRect(tmpRect, x0, y, x, y+1);
                 pRect(Cardinal(pr) + (Cardinal(pData.rdh.nCount) 
                   * SizeOf(TRect)))^ := tmpRect; 
                 if (x0 < pData.rdh.rcBound.left) then 
@@ -197,46 +197,46 @@ if (hbm32 <> 0) then
                   pData.rdh.rcBound.bottom := y+1; 
                 inc(pData.rdh.nCount); 
 
-                (* On Windows98, ExtCreateRegion() may fail if the number
-                  of rectangles is too large (ie: > 4000). Therefore, we have 
-                  to create the region by multiple steps. *) 
-                if (pData.rdh.nCount = 2000) then 
-                begin 
-                  h1 := ExtCreateRegion(nil, sizeof(TRGNDATAHEADER) + 
-                    (sizeof(TRECT) * maxRects), pData^); 
-                  if (rtnRgn <> 0) then 
-                  begin 
-                    CombineRgn(rtnRgn, rtnRgn, h1, RGN_OR); 
-                    DeleteObject(h1); 
-                  end else 
+                (* On Windows8, ExtCreateRegion() may fail if the number
+                  of rectangles is too large (ie: > 4000). Therefore, we have
+                  to create the region by multiple steps. *)
+                if (pData.rdh.nCount = 2000) then
+                begin
+                  h1 := ExtCreateRegion(nil, sizeof(TRGNDATAHEADER) +
+                    (sizeof(TRECT) * maxRects), pData^);
+                  if (rtnRgn <> 0) then
+                  begin
+                    CombineRgn(rtnRgn, rtnRgn, h1, RGN_OR);
+                    DeleteObject(h1);
+                  end else
                     rtnRgn := h1;
-                  pData.rdh.nCount := 0; 
-                  SetRect(pData.rdh.rcBound, MAXLONG, MAXLONG, 0, 0); 
-                end; 
-              end; 
-              Inc(x); 
-            end; 
+                  pData.rdh.nCount := 0;
+                  SetRect(pData.rdh.rcBound, MAXLONG, MAXLONG, 0, 0);
+                end;
+              end;
+              Inc(x);
+            end;
 
-            (* Go to next row (remember, the bitmap is inverted vertically) *) 
+            (* Go to next row (remember, the bitmap is inverted vertically) *)
             p32 := pByte(LongInt(p32) - LongInt(bm32.bmWidthBytes));
-          end; 
+          end;
 
-          (* Create or extend the region with the remaining rectangles *) 
-          h := ExtCreateRegion(NIL, sizeof(TRGNDATAHEADER) + (sizeof(TRECT) * 
-            maxRects), pData^); 
+          (* Create or extend the region with the remaining rectangles *)
+          h := ExtCreateRegion(NIL, sizeof(TRGNDATAHEADER) + (sizeof(TRECT) *
+            maxRects), pData^);
           if (rtnRgn <> 0) then
-          begin 
+          begin
             CombineRgn(rtnRgn, rtnRgn, h, RGN_OR);
-            DeleteObject(h); 
-          end else 
-            rtnRgn := h; 
+            DeleteObject(h);
+          end else
+            rtnRgn := h;
 
-          (* Clean up *) 
-          GlobalFree(hData); 
-          SelectObject(tmphDC, holdBMP2); 
-          DeleteDC(tmphDC); 
-        end; 
-        DeleteObject(SelectObject(hMemDC, holdBmp)); 
+          (* Clean up *)
+          GlobalFree(hData);
+          SelectObject(tmphDC, holdBMP2);
+          DeleteDC(tmphDC);
+        end;
+        DeleteObject(SelectObject(hMemDC, holdBmp));
       end;
       DeleteDC(hMemDC);
     end;

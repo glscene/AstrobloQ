@@ -259,7 +259,6 @@
         <DCCReference Include="source\bio\fbSplash.pas">
             <Form>fmSplash</Form>
         </DCCReference>
-        <DCCReference Include="source\bio\fbMiniForm.pas"/>
         <DCCReference Include="source\bio\fbImages.pas">
             <Form>FormImages</Form>
             <FormType>dfm</FormType>
@@ -270,6 +269,12 @@
             <Form>fmTutorial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="source\bio\dbImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="source\bio\fbMiniForm.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

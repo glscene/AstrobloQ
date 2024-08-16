@@ -21,9 +21,10 @@ uses
   Bio.Reality,
   Contnrs,
   fbManager,
-  fbMiniForm;
+  fbMiniForm,
 
-// JvComponent, JvBaseDlg, JvTipOfDay,
+  gnugettext;
+
 // geTipofDay
 
 const
@@ -180,8 +181,7 @@ type
 var
   fmReality: TfmReality;
 
-// --------------------------------------------------
-implementation
+implementation // --------------------------------------------------
 
 uses
   Bio.Things,
@@ -236,9 +236,9 @@ begin
   labRoundTime.Caption := IntToStr(RealityClock.Interval) + ' ms';
 
   if RealityClock.Enabled then
-    Application.Title := 'BioSphere (Go)'
+    Application.Title := 'Biosfera (Go)'
   else
-    Application.Title := 'BioSphere (Stop)';
+    Application.Title := 'Biosfera (Stop)';
 
   cbCollisions.Checked := Reality.Environment.Things.Collisions;
   cbAI.Checked := Reality.Environment.Things.AI;
@@ -258,7 +258,7 @@ procedure TfmReality.FormShow(Sender: TObject);
 begin
   if FormFirst.UserSettings.TipOfTheDay then
     RealityClock.Enabled := true;
-  FormFirst.Construction.AddEvent('Running...');
+  FormFirst.Construction.AddEvent(_('Running'));
   RefreshAll;
   Align := alTop;
   ManagerForm.Show;
@@ -269,7 +269,7 @@ begin
     ManagerForm.SpaceForm.Width := 1024;
     ManagerForm.SpaceForm.Height := 728;
   end;
-  FormFirst.Construction.AddEvent('Still running...');
+  FormFirst.Construction.AddEvent(_('Still running'));
 end;
 
 procedure TfmReality.menuSetTimeTickingClick(Sender: TObject);
@@ -304,15 +304,15 @@ procedure TfmReality.StartReality;
 begin
   if Reality.TimeIsFlowing then
   begin
-    FormFirst.Construction.AddEvent('Started time flowing.');
-    AddEvent(Reality.Creator + ' started time flowing.');
+    FormFirst.Construction.AddEvent(_('Started time flowing'));
+    AddEvent(Reality.Creator + ' started time flowing');
     RealityClock.Enabled := true;
     ManagerForm.SpaceForm.InformOfStart;
   end
   else
   begin
-    FormFirst.Construction.AddEvent('Ticked time.');
-    AddEvent(Reality.Creator + ' ticked time.');
+    FormFirst.Construction.AddEvent(_('Ticked time'));
+    AddEvent(Reality.Creator + ' ticked time');
     Advance;
   end;
   RefreshAll;
@@ -323,8 +323,8 @@ begin
   RealityClock.Enabled := false;
   ManagerForm.SpaceForm.InformOfStop;
 
-  AddEvent(Reality.Creator + ' stopped time.');
-  FormFirst.Construction.AddEvent('Stopped time.');
+  AddEvent(Reality.Creator + ' stopped time');
+  FormFirst.Construction.AddEvent('Stopped time');
 
   RefreshAll;
 end;
@@ -502,18 +502,21 @@ procedure TfmReality.Load1Click(Sender: TObject);
 begin
   odLoadReality.InitialDir := ExtractFilePath(ParamStr(0)) + '\worlds';
   odLoadReality.FileName := '*.air';
+
+  //(* Load new world
   if odLoadReality.Execute then
   begin
-    if Reality.ValidFile(odLoadReality.FileName) then
+//    if Reality.ValidFile(odLoadReality.FileName) then
     begin
       StopReality;
       fFileName := odLoadReality.FileName;
       fExitInstruction := cInstructionLoadFile;
       Close;
     end
-    else
-      ShowMessage('Invalid file version');
+//    else
+//      ShowMessage(_('Invalid file version'));
   end;
+  (**)
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
 
@@ -522,7 +525,7 @@ begin
   if SaveRealityToFile(FileName) then
     ShowMessage('Reality saved (' + FileName + ')')
   else
-    ShowMessage('Failed to save reality.');
+    ShowMessage('Failed to save reality');
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
 
@@ -569,7 +572,7 @@ begin
     if SaveRealityToFile(sdSaveReality.FileName) then
       ShowMessage('World saved as (' + FileName + ')')
     else
-      ShowMessage('Failed to save world.');
+      ShowMessage('Failed to save world');
   end;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
@@ -694,7 +697,7 @@ end;
 procedure TfmReality.ReloadDNA1Click(Sender: TObject);
 begin
   Reality.Environment.Things.LoadForms;
-  ShowMessage('Base DNAs Reloaded');
+  ShowMessage(_('Base DNAs Reloaded'));
 end;
 
 procedure TfmReality.btn20Click(Sender: TObject);
@@ -709,9 +712,9 @@ begin
   Reality.Environment.Things.Collisions := cbCollisions.Checked;
   RefreshInterface;
   if cbCollisions.Checked then
-    FormFirst.Construction.AddEvent('Turned collisions on.')
+    FormFirst.Construction.AddEvent('Turned collisions on')
   else
-    FormFirst.Construction.AddEvent('Turned collisions off.');
+    FormFirst.Construction.AddEvent('Turned collisions off');
 end;
 
 procedure TfmReality.ipoftheDay1Click(Sender: TObject);

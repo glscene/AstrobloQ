@@ -81,11 +81,12 @@ uses
   fbError in 'source\bio\fbError.pas' {FormError},
   fbTip in 'source\bio\fbTip.pas' {FormTip},
   fbSplash in 'source\bio\fbSplash.pas' {fmSplash},
-  fbMiniForm in 'source\bio\fbMiniForm.pas',
   fbImages in 'source\bio\fbImages.pas' {FormImages},
   Bio.Things in 'source\bio\Bio.Things.pas',
   Bio.Utilities in 'source\bio\Bio.Utilities.pas',
-  fbTutorial in 'source\bio\fbTutorial.pas' {fmTutorial};
+  fbTutorial in 'source\bio\fbTutorial.pas' {fmTutorial},
+  dbImages in 'source\bio\dbImages.pas' {DataModuleImages: TDataModule},
+  fbMiniForm in 'source\bio\fbMiniForm.pas';
 
 {$R *.res}
 
@@ -96,5 +97,6 @@ begin
   Application.CreateForm(TfmSplash, fmSplash);
   Application.CreateForm(TFormImages, FormImages);
   Application.CreateForm(TfmTutorial, fmTutorial);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.
