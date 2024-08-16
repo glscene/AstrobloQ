@@ -40,7 +40,7 @@ uses
   fForm;
 
 type
-  TfrmSettings = class(TFormI)
+  TFormSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -187,7 +187,7 @@ type
   end;
 
 var
-  frmSettings: TfrmSettings;
+  FormSettings: TFormSettings;
 
 //---------------------------------------------------------------------------
 implementation
@@ -199,7 +199,7 @@ uses
 
 
 //--------------------------------------------------------------------
-procedure TfrmSettings.FormCreate(Sender: TObject);
+procedure TFormSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -240,7 +240,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmSettings.tvSettingsClick(Sender: TObject);
+procedure TFormSettings.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -257,7 +257,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmSettings.trbVelocityChange(Sender: TObject);
+procedure TFormSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   FlightTime: Extended;
@@ -272,7 +272,7 @@ end;
 
 
 //--------------------------------------------------------------------
-procedure TfrmSettings.rgLanguageClick(Sender: TObject);
+procedure TFormSettings.rgLanguageClick(Sender: TObject);
 begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
@@ -283,7 +283,7 @@ begin
 end;
 
 //-----------------------------------------------------
-procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
+procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Nt, Nl : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
@@ -323,12 +323,12 @@ begin
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
-procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
+procedure TFormSettings.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
-function TfrmSettings.Execute: boolean;
+function TFormSettings.Execute: boolean;
 begin
   Result := ShowModal = mrOk;
 end;
@@ -336,21 +336,23 @@ end;
 //--------------------------------------------------------------------
 // Reading Inifile sections and setting the interface language
 //--------------------------------------------------------------------
-procedure TfrmSettings.ReadIniFile;
+procedure TFormSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
-    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
+    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
+    CheckBoxAxes.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxRotate.Name, True);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1
+        rgLanguage.ItemIndex := 1;
+      LANG_PORTUGUESE:
+        rgLanguage.ItemIndex := 2
     else
       rgLanguage.ItemIndex := 0;
     end;
@@ -360,15 +362,15 @@ begin
 end;
 
 // --------------------------------------------------------------------
-procedure TfrmSettings.WriteIniFile;
+procedure TFormSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(frmSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
-    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(FormSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(FormSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;
@@ -376,7 +378,7 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TfrmSettings.ButtonOkClick(Sender: TObject);
+procedure TFormSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -389,7 +391,7 @@ begin
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
   WriteIniFile;
-  frmSettings.Close;
+  FormSettings.Close;
 end;
 
 end.

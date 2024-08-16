@@ -1,4 +1,4 @@
-inherited frmSettings: TfrmSettings
+inherited FormSettings: TFormSettings
   HelpContext = 0
   Caption = 'Settings'
   ClientHeight = 759
@@ -1136,7 +1136,7 @@ inherited frmSettings: TfrmSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 314
+          Left = 306
           Top = 53
           Width = 149
           Height = 200
@@ -1151,7 +1151,7 @@ inherited frmSettings: TfrmSettings
           Font.Height = 26
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 30
+          ItemHeight = 26
           Items.Strings = (
             'O'
             'B'

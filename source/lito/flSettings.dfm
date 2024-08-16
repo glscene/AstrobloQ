@@ -199,7 +199,7 @@ object FormSettings: TFormSettings
             Caption = 'Sky grid'
             TabOrder = 0
             StyleName = 'Windows'
-            OnClick = chbCoreClick
+            OnClick = CheckBoxCoreClick
           end
         end
       end
@@ -374,7 +374,7 @@ object FormSettings: TFormSettings
           Margins.Bottom = 5
           Caption = 'Show'
           TabOrder = 1
-          object chbRotate: TCheckBox
+          object CheckBoxRotate: TCheckBox
             Left = 57
             Top = 52
             Width = 145
@@ -389,7 +389,7 @@ object FormSettings: TFormSettings
             TabOrder = 0
             StyleName = 'Windows'
           end
-          object chbAxes: TCheckBox
+          object CheckBoxAxes: TCheckBox
             Left = 57
             Top = 193
             Width = 133
@@ -398,10 +398,10 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Axis'
+            Caption = 'Axes'
             TabOrder = 1
             StyleName = 'Windows'
-            OnClick = chbAxesClick
+            OnClick = CheckBoxAxesClick
           end
           object CheckBox4: TCheckBox
             Left = 237
@@ -416,7 +416,7 @@ object FormSettings: TFormSettings
             TabOrder = 2
             StyleName = 'Windows'
           end
-          object chbCore: TCheckBox
+          object CheckBoxCore: TCheckBox
             Left = 237
             Top = 55
             Width = 170
@@ -428,9 +428,9 @@ object FormSettings: TFormSettings
             Caption = 'Core'
             TabOrder = 3
             StyleName = 'Windows'
-            OnClick = chbCoreClick
+            OnClick = CheckBoxCoreClick
           end
-          object chbAtmosfera: TCheckBox
+          object CheckBoxAtmosfera: TCheckBox
             Left = 55
             Top = 123
             Width = 156
@@ -442,7 +442,7 @@ object FormSettings: TFormSettings
             Caption = 'Atmosphere'
             TabOrder = 4
             StyleName = 'Windows'
-            OnClick = chbAtmosferaClick
+            OnClick = CheckBoxAtmosferaClick
           end
           object chbClouds: TCheckBox
             Left = 237
@@ -456,7 +456,7 @@ object FormSettings: TFormSettings
             Caption = 'Clouds'
             TabOrder = 5
             StyleName = 'Windows'
-            OnClick = chbCoreClick
+            OnClick = CheckBoxCoreClick
           end
           object chbCartographicGrid: TCheckBox
             Left = 433
@@ -472,7 +472,7 @@ object FormSettings: TFormSettings
             StyleName = 'Windows'
             OnClick = chbCartographicGridClick
           end
-          object chbHidePlanet: TCheckBox
+          object CheckBoxHidePlanet: TCheckBox
             Left = 433
             Top = 55
             Width = 212
@@ -481,10 +481,10 @@ object FormSettings: TFormSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Hide planet'
+            Caption = 'Hide'
             TabOrder = 7
             StyleName = 'Windows'
-            OnClick = chbHidePlanetClick
+            OnClick = CheckBoxHidePlanetClick
           end
         end
         object grbPlanetParams: TGroupBox

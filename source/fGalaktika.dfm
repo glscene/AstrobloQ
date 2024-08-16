@@ -1,4 +1,4 @@
-object frmGalaktika: TfrmGalaktika
+object FormGalaktika: TFormGalaktika
   Left = 0
   Top = 0
   Margins.Left = 5
@@ -16,7 +16,6 @@ object frmGalaktika: TfrmGalaktika
   Font.Style = []
   Menu = MainMenu
   Position = poScreenCenter
-  WindowState = wsMaximized
   OnCreate = FormCreate
   PixelsPerInch = 168
   TextHeight = 30

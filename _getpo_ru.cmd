@@ -4,7 +4,7 @@ cls
 set LANG=C
 
 rem -r ... applied for all subdirs of source dir
-dxgettext -b source --delphi --useignorepo
+dxgettext -b source --delphi --useignorepo -r
 
 echo updating Russian translations
 pushd locale\ru\LC_MESSAGES

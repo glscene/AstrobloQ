@@ -62,10 +62,10 @@ type
     LabelCore: TLabel;
     chlbStarClasses: TCheckListBox;
     grbShowPlanets: TGroupBox;
-    chbRotate: TCheckBox;
-    chbAxes: TCheckBox;
+    CheckBoxRotate: TCheckBox;
+    CheckBoxAxes: TCheckBox;
     CheckBox4: TCheckBox;
-    chbCore: TCheckBox;
+    CheckBoxCore: TCheckBox;
     grbPlanetParams: TGroupBox;
     nbTilt: TNumberBox;
     LabelPlanetTilt: TLabel;
@@ -77,26 +77,26 @@ type
     LabelGravityAccel: TLabel;
     NumberBox7: TNumberBox;
     Label6: TLabel;
-    chbAtmosfera: TCheckBox;
+    CheckBoxAtmosfera: TCheckBox;
     GroupBox2: TGroupBox;
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
     chbClouds: TCheckBox;
     chbCartographicGrid: TCheckBox;
-    chbHidePlanet: TCheckBox;
+    CheckBoxHidePlanet: TCheckBox;
     rgLanguage: TRadioGroup;
     gbShowStars: TGroupBox;
     chbSkyGrid: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure chbCoreClick(Sender: TObject);
-    procedure chbAtmosferaClick(Sender: TObject);
-    procedure chbHidePlanetClick(Sender: TObject);
+    procedure CheckBoxCoreClick(Sender: TObject);
+    procedure CheckBoxAtmosferaClick(Sender: TObject);
+    procedure CheckBoxHidePlanetClick(Sender: TObject);
     procedure rgLanguageClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure chbAxesClick(Sender: TObject);
+    procedure CheckBoxAxesClick(Sender: TObject);
     procedure chbCartographicGridClick(Sender: TObject);
   private
   public
@@ -118,7 +118,7 @@ uses
 
 procedure TFormSettings.FormCreate(Sender: TObject);
 begin
-  inherited;
+  ReadIniFile;
 
   // Заполнение индексов узлов дерева установок
   for var I: Integer := 0 to tvOptions.Items.Count - 1 do
@@ -126,6 +126,7 @@ begin
     tvOptions.Items[I].ImageIndex := 0;
     tvOptions.Items[I].SelectedIndex := 1;
     tvOptions.Items[I].StateIndex := I;
+    tvOptions.Items[I].Text := _(tvOptions.Items[I].Text);
   end;
   // 0 - Общие 1- Материал 2 - Планеты 3 - Звёзды
   tvOptions.Select(tvOptions.Items[0]);
@@ -133,20 +134,21 @@ begin
   tvOptions.FullExpand;
   tvOptions.Items[0].DropHighlighted := True;
 
+  inherited;
 end;
 
 //---------------------------------------------------
 // Показать кромку атмосферы
 //---------------------------------------------------
-procedure TFormSettings.chbAtmosferaClick(Sender: TObject);
+procedure TFormSettings.CheckBoxAtmosferaClick(Sender: TObject);
 begin
  // FormLitosfera.Atmosphere;
 end;
 
 // Показакть или скрыть оси планет X, Y, Z
-procedure TFormSettings.chbAxesClick(Sender: TObject);
+procedure TFormSettings.CheckBoxAxesClick(Sender: TObject);
 begin
-  if chbAxes.Checked then
+  if CheckBoxAxes.Checked then
   begin
     FormLitosfera.sfPlanet.ShowAxes := not FormLitosfera.sfPlanet.ShowAxes;
     FormLitosfera.ffPlanet.ShowAxes := not FormLitosfera.ffPlanet.ShowAxes;
@@ -164,10 +166,10 @@ end;
 //---------------------------------------------------
 // Показать разрез планеты с корой, мантией и ядром
 //---------------------------------------------------
-procedure TFormSettings.chbCoreClick(Sender: TObject);
+procedure TFormSettings.CheckBoxCoreClick(Sender: TObject);
 begin
   with FormLitosfera do
-  if chbCore.Checked then
+  if CheckBoxCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
@@ -187,11 +189,11 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Показать или скрыть планету
+// Show or hide planet
 //------------------------------------------------------------------
-procedure TFormSettings.chbHidePlanetClick(Sender: TObject);
+procedure TFormSettings.CheckBoxHidePlanetClick(Sender: TObject);
 begin
-  if chbHidePlanet.Checked then
+  if CheckBoxHidePlanet.Checked then
   begin
     FormLitosfera.sfPlanet.Visible := False;
     FormLitosfera.ffPlanet.Visible := False;
@@ -235,11 +237,15 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
     LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
+    CheckBoxAxes.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxRotate.Name, True);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1
+        rgLanguage.ItemIndex := 1;
+      LANG_PORTUGUESE:
+        rgLanguage.ItemIndex := 2
     else
       rgLanguage.ItemIndex := 0;
     end;
@@ -256,6 +262,8 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
     IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(FormSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(FormSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -267,13 +275,16 @@ procedure TFormSettings.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
+  if CurLangID <> LangID then
+  begin
   MessageDlg(_('Reload to change language'),
       mtInformation, [mbOK], 0);
   FileName := ChangeFileExt(ParamStr(0), '.ini');
   if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-
-  Close;
+  end;
+  WriteIniFile;
+  FormSettings.Close;
 end;
 
 

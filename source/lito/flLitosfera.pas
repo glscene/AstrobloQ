@@ -89,11 +89,11 @@ type
     ConstBounds: TGLLines;
     MainMenu: TMainMenu;
     miView: TMenuItem;
-    Open1: TMenuItem;
+    miOpen: TMenuItem;
     N2: TMenuItem;
     miFileExit: TMenuItem;
     miFileOpen: TMenuItem;
-    Help1: TMenuItem;
+    miHelp: TMenuItem;
     About1: TMenuItem;
     PanelLeft: TPanel;
     tvPlanets: TTreeView;
@@ -164,7 +164,7 @@ type
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
     TimeMultiplier: Single;
-    HighResResourcesLoaded: Boolean;// для карт текстур высокого разрешения
+    HighResResourcesLoaded: Boolean; // for high res textures
     CameraTimeSteps: Single;
     Radius, invAtmosphereHeight: Single;
     eyePos, lightingVector: TGLVector;
@@ -174,9 +174,7 @@ type
   private
     mx, my,
     dmx, dmy: Integer;
-    // Цвет атмосферы
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
-    // Расчёт цвета атмосферы
     function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
     procedure LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
   end;
@@ -218,12 +216,9 @@ begin
   SetCurrentDir(DataDir);
   StarDir := DataDir + 'star';
 
-  // путь к каталогам звёзд Hipparcos, Hyg или DR4 Gaia
+  // Path to Hipparcos, Hyg or Gaia DR4
   CatalogName := DataDir + '\catalog\hipparcos.stars';
-  // более полный каталог звёзд обзора Gaia имеет большой объём
-//  CatalogName := DataDir + '\catalog\gaia_dr3.stars';
-
-  // загрузка каталога в скайдом
+//  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
   begin
     StarSkyDome.Bands.Clear;
@@ -573,7 +568,7 @@ begin
 end;
 
 //--------------------------- Menu Items ---------------------------
-// Показать линии созвездий
+// Show constellation lines
 //------------------------------------------------------------------
 procedure TFormLitosfera.miViewConstlinesClick(Sender: TObject);
 begin
@@ -587,8 +582,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Загрузка линий созвездий из файла
-//------------------------------------------------------------------
+
 procedure TFormLitosfera.LoadConstLines;
 var
   sl, line: TStrings;
@@ -597,8 +591,7 @@ var
 begin
   sl := TStringList.Create;
   line := TStringList.Create;
-  sl.LoadFromFile(DataDir + '\constellation\ConstLinesRey.dat'); // Rey
-//  sl.LoadFromFile(DataDir + '\constellation\ConstLines.dat'); //  SkyChart
+  sl.LoadFromFile(DataDir + '\constellation\ConstLines.dat'); // Rey
   for i := 0 to sl.Count - 1 do
   begin
     line.CommaText := sl[i];
@@ -623,9 +616,9 @@ begin
   sl := TStringList.Create;
   line := TStringList.Create;
 //  sl.LoadFromFile(DataDir + '\constellation\ConstB.cby');  // GaiaSky
-  sl.LoadFromFile(DataDir + '\constellation\ConstBounds.csv');
+  sl.LoadFromFile(DataDir + '\constellation\ConstBorders.csv');
 //  sl.LoadFromFile(DataDir + '\constellation\Constellations.csv'); // Eleanor
-///  sl.LoadFromFile(DataDir + '\constellation\and.txt');  // IAU for Andromeda
+///  sl.LoadFromFile(DataDir + '\constellation\and.txt');  // Polygon of Andromeda
   for i := 0 to sl.Count - 1 do
   begin
     line.CommaText := sl[i];
@@ -708,7 +701,7 @@ begin
   end;
 
  // задание вращения планеты
-  if FormSettings.chbRotate.Checked then
+  if FormSettings.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;

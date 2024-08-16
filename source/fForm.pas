@@ -92,7 +92,7 @@ begin
   with IniFile do
     try
       // use correct argument names
-      LangID := ReadInteger('frmSettings', 'rgLanguage', 0);
+      LangID := ReadInteger('FormSettings', 'rgLanguage', 0);
     finally
       IniFile.Free;
     end;
