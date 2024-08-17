@@ -49,13 +49,15 @@ uses
   GLS.LensFlare,
   GLS.Utils,
 
-  gnuGettext,
-
   flSettings,
-  flParams;
+  flParams,
+
+  fForm,
+  gnuGettext
+  ;
 
 type
-  TFormSolarSys = class(TForm)
+  TFormSolarSys = class(TFormI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
@@ -196,15 +198,10 @@ var
 const
   cOmega = 10;  // angular velocity
 
-//-----------------------------------------------------
-implementation
-//-----------------------------------------------------
+implementation //-----------------------------------------------------
 
 {$R *.dfm}
 
-
-// FormCreate
-//
 procedure TFormSolarSys.FormCreate;
 begin
   PathToData := ExtractFilePath(ParamStr(0))  + 'data';
@@ -273,6 +270,7 @@ begin
 
   // return to sun star dir
   SetCurrentDir(CurrentDir);
+  inherited;   // inheritance for translation
 end;
 
 // FormShow
@@ -906,7 +904,7 @@ end;
 //
 procedure TFormSolarSys.AsyncTimerTimer;
 begin
-  Caption := 'Solar system / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := _('Solar system') + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
@@ -914,7 +912,7 @@ end;
 //
 procedure TFormSolarSys.About1Click(Sender: TObject);
 begin
-  ShowMessage(_('Litosfera!'));
+  ShowMessage('Litosfera!');
 end;
 
 // Exit

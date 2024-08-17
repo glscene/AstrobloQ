@@ -50,10 +50,14 @@ uses
   GLS.Utils,
 
   flSettings,
-  flParams;
+  flParams,
+
+  fForm,
+  gnuGettext
+  ;
 
 type
-  TFormStarSys = class(TForm)
+  TFormStarSys = class(TFormI)  // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
@@ -190,15 +194,10 @@ var
 const
   cOmega = 10;  // angular velocity
 
-//-----------------------------------------------------
-implementation
-//-----------------------------------------------------
+implementation //-----------------------------------------------------
 
 {$R *.dfm}
 
-
-// FormCreate
-//
 procedure TFormStarSys.FormCreate;
 begin
   //GetCurrentDir()
@@ -268,6 +267,7 @@ begin
 
   // return to sun star dir
   SetCurrentDir(CurrentDir);
+  inherited;
 end;
 
 // FormShow
@@ -288,9 +288,9 @@ begin
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := '_(Hide Panels)'
+     miHidePanels.Caption := _('Hide Panels')
    else
-    miHidePanels.Caption := '_(Show Panels)';
+    miHidePanels.Caption := _('Show Panels');
 end;
 
 procedure TFormStarSys.miInnerCoreClick(Sender: TObject);
@@ -901,7 +901,7 @@ end;
 //
 procedure TFormStarSys.AsyncTimerTimer;
 begin
-  Caption := '_(Stellar system)' +' / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := _('Stellar system') + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 

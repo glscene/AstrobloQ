@@ -58,18 +58,19 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  gnuGettext,
   dImages,
   flSolarSystem,
   flStellarSystem,
   flGenExosys,
   flAbout,
   flSettings,
-  fForm;
+  fForm,
+  gnuGettext
+  ;
 
 
 type
-  TFormLitosfera = class(TFormI)
+  TFormLitosfera = class(TFormI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -232,16 +233,16 @@ begin
         ChDir('star\sun');
   CurrentStar := DataDir + '\star\sun\';
 
-  // планетосфера, разрешение текстурирования и наложения карт
+  // Enable textured maps
   sfPlanet.Material.Texture.Disabled := False;
   sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 
-  // планетоид
+  // Planetoid - планетоид
   acPlanet.Material.Texture.Disabled := False;
   acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
   acPlanet.Scale.Scale(0.1);
 
-  // Заполнение узлов дерева планет индексами
+  // Image indices for TreeView
   for I := 0 to tvPlanets.Items.Count - 1 do
   begin
 //    tvPlanets.Items[I].ImageIndex := I;
@@ -250,12 +251,12 @@ begin
     tvPlanets.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-  tvPlanets.Select(tvPlanets.Items[3]);  // выбираем индекс Земли
+  tvPlanets.Select(tvPlanets.Items[3]);  // Earth
   tvPlanets.FullExpand;
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
 
-  TimeMultiplier := Power(1, 3); // 0 - стоп, быстрое вращение - Power(3, 3);
-  inherited;
+  TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
+  inherited;   // should be inheritance for translation
 end;
 
 //------------------------------------------------------------------

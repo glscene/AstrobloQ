@@ -114,7 +114,6 @@ object FormStarSys: TFormStarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     inline FrameParams: TFrameParams
       Left = 1
@@ -777,7 +776,6 @@ object FormStarSys: TFormStarSys
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = SceneViewer
-    FormCaption = 'Stellar System'
     Options = [snoMouseWheelHandled]
     KeyCombinations = <
       item

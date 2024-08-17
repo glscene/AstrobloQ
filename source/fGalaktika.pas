@@ -61,7 +61,7 @@ uses
   gnuGettext;
 
 type
-  TFormGalaktika = class(TFormI)
+  TFormGalaktika = class(TFormI) // not translated when TForm
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -235,7 +235,7 @@ begin
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
-  inherited;
+  inherited;    // inheritance for translation
 end;
 
 // --------------------------------------------------------
