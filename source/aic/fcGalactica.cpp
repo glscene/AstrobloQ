@@ -4,17 +4,34 @@
 #pragma hdrstop
 
 #include "fcGalactica.h"
+#include "fcAbout.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
-TFormGalaktic *FormGalaktic;
+TFormGalactica *FormGalactica;
 //---------------------------------------------------------------------------
-__fastcall TFormGalaktic::TFormGalaktic(TComponent* Owner)
+__fastcall TFormGalactica::TFormGalactica(TComponent* Owner)
 	: TForm(Owner)
 {
 }
+
 //---------------------------------------------------------------------------
-void __fastcall TFormGalaktic::miExitClick(TObject *Sender)
+
+void __fastcall TFormGalactica::miAboutClick(TObject* Sender)
+{
+    TFormAbout* FormAbout;
+    FormAbout = new TFormAbout(this);
+    try {
+        FormAbout->ShowModal();
+    } __finally
+    {
+        FormAbout->Free();
+    }
+}
+
+//---------------------------------------------------------------------------
+void __fastcall TFormGalactica::miExitClick(TObject *Sender)
 {
   Close();
 }

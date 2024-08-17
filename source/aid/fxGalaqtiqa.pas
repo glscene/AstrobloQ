@@ -12,35 +12,56 @@ uses
   FMX.Controls,
   FMX.Forms,
   FMX.Graphics,
-  FMX.Dialogs, FMX.Menus;
+  FMX.Dialogs,
+  FMX.Menus,
+
+  fxAbout,
+  fxSettings;
 
 type
-  TFormGalaktis = class(TForm)
+  TFormGalaqtiqa = class(TForm)
     MainMenu: TMainMenu;
     miFile: TMenuItem;
-    miView: TMenuItem;
-    miOptions: TMenuItem;
-    miHelp: TMenuItem;
     miOpen: TMenuItem;
+    miExit: TMenuItem;
+    miView: TMenuItem;
+    miTools: TMenuItem;
     miSettings: TMenuItem;
+    miHelp: TMenuItem;
     miWiki: TMenuItem;
     miAbout: TMenuItem;
-    miExit: TMenuItem;
     procedure miExitClick(Sender: TObject);
+    procedure miAboutClick(Sender: TObject);
+    procedure miSettingsClick(Sender: TObject);
   private
   public
   end;
 
 var
-  FormGalaktis: TFormGalaktis;
+  FormGalaqtiqa: TFormGalaqtiqa;
 
 implementation
 
 {$R *.fmx}
 
-procedure TFormGalaktis.miExitClick(Sender: TObject);
+procedure TFormGalaqtiqa.miAboutClick(Sender: TObject);
+begin
+  with TFormAbout.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TFormGalaqtiqa.miExitClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFormGalaqtiqa.miSettingsClick(Sender: TObject);
+begin
+  FormSettings.Show;
 end;
 
 end.

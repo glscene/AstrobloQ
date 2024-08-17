@@ -184,13 +184,27 @@
         <CppCompile Include="Galactica.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
+        <CppCompile Include="source\aic\fcAbout.cpp">
+            <Form>FormAbout</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>source\aic\fcAbout.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
         <CppCompile Include="source\aic\fcGalactica.cpp">
-            <Form>FormGalaktic</Form>
+            <Form>FormGalactica</Form>
             <FormType>fmx</FormType>
             <DependentOn>source\aic\fcGalactica.h</DependentOn>
             <BuildOrder>1</BuildOrder>
         </CppCompile>
+        <CppCompile Include="source\aic\fcSettings.cpp">
+            <Form>FormSettings</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>source\aic\fcSettings.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
         <FormResources Include="source\aic\fcGalactica.fmx"/>
+        <FormResources Include="source\aic\fcAbout.fmx"/>
+        <FormResources Include="source\aic\fcSettings.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

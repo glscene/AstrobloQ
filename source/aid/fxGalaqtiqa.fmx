@@ -1,4 +1,4 @@
-object FormGalaktis: TFormGalaktis
+object FormGalaqtiqa: TFormGalaqtiqa
   Left = 0
   Top = 0
   Caption = 'Galaqtiqa'
@@ -13,7 +13,7 @@ object FormGalaktis: TFormGalaktis
     Left = 256
     Top = 40
     object miFile: TMenuItem
-      Text = 'File'
+      Text = '&File'
       object miOpen: TMenuItem
         Locked = True
         Text = 'Open...'
@@ -25,17 +25,18 @@ object FormGalaktis: TFormGalaktis
       end
     end
     object miView: TMenuItem
-      Text = 'View'
+      Text = '&View'
     end
-    object miOptions: TMenuItem
-      Text = 'Options'
+    object miTools: TMenuItem
+      Text = '&Tools'
       object miSettings: TMenuItem
         Locked = True
         Text = 'Settings...'
+        OnClick = miSettingsClick
       end
     end
     object miHelp: TMenuItem
-      Text = 'Help'
+      Text = '&Help'
       object miWiki: TMenuItem
         Locked = True
         Text = 'Wiki...'
@@ -43,6 +44,7 @@ object FormGalaktis: TFormGalaktis
       object miAbout: TMenuItem
         Locked = True
         Text = 'About...'
+        OnClick = miAboutClick
       end
     end
   end

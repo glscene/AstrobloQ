@@ -1,4 +1,4 @@
-object FormGalaktic: TFormGalaktic
+object FormGalactica: TFormGalactica
   Left = 0
   Top = 0
   Caption = 'Galactica'
@@ -13,37 +13,42 @@ object FormGalaktic: TFormGalaktic
     Left = 256
     Top = 40
     object miFile: TMenuItem
-      Text = #1060#1072#1081#1083
+      Text = '&File'
       object miOpen: TMenuItem
         Locked = True
-        Text = #1054#1090#1082#1088#1099#1090#1100'...'
+        Text = 'Open...'
       end
       object miExit: TMenuItem
         Locked = True
-        Text = #1042#1099#1093#1086#1076
+        Text = 'Exit'
         OnClick = miExitClick
       end
     end
     object miView: TMenuItem
-      Text = #1042#1080#1076
+      Text = '&View'
     end
-    object miOptions: TMenuItem
-      Text = #1054#1087#1094#1080#1080
+    object miTools: TMenuItem
+      Text = '&Tools'
       object miSettings: TMenuItem
         Locked = True
-        Text = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+        Text = 'Settings...'
       end
     end
     object miHelp: TMenuItem
-      Text = #1057#1087#1088#1072#1074#1082#1072
+      Text = '&Help'
       object miWiki: TMenuItem
         Locked = True
         Text = 'Wiki...'
       end
       object miAbout: TMenuItem
         Locked = True
-        Text = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Text = 'About...'
+        OnClick = miAboutClick
       end
     end
+  end
+  object Lang: TLang
+    Left = 368
+    Top = 40
   end
 end
