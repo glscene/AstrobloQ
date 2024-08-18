@@ -17,7 +17,8 @@ uses
   Vcl.Styles,
   fExoplanets in 'source\fExoplanets.pas' {FormExoplanets},
   uGlobals in 'source\ucode\uGlobals.pas',
-  fForm in 'source\fForm.pas' {FormI};
+  fForm in 'source\fForm.pas' {FormI},
+  fNewStarcube in 'source\fNewStarcube.pas' {FormNewStarcube};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

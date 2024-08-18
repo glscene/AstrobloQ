@@ -140,7 +140,7 @@ object FormGalaxy: TFormGalaxy
         Style = tbsCheck
       end
       object tbClearCubes: TToolButton
-        Left = 219
+        Left = 196
         Top = 0
         Hint = 'Clear solarcube'
         ImageIndex = 122
@@ -777,8 +777,8 @@ object FormGalaxy: TFormGalaxy
     end
   end
   object GLScene: TGLScene
-    Left = 163
-    Top = 201
+    Left = 271
+    Top = 156
     object dcAxes: TGLDummyCube
       Position.Coordinates = {0000000000007A44000000000000803F}
       CubeSize = 1.000000000000000000
@@ -932,10 +932,17 @@ object FormGalaxy: TFormGalaxy
   end
   object MainMenu: TMainMenu
     Images = dmImages.ImageListInterface
-    Left = 616
-    Top = 142
+    Left = 728
+    Top = 179
     object miFile: TMenuItem
       Caption = '&File'
+      object New1: TMenuItem
+        Caption = 'New...'
+        OnClick = New1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
       object miOpen: TMenuItem
         Caption = 'Open...'
         ImageIndex = 2
@@ -1052,8 +1059,8 @@ object FormGalaxy: TFormGalaxy
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 163
-    Top = 382
+    Left = 537
+    Top = 179
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene

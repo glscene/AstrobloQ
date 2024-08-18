@@ -56,6 +56,7 @@ uses
 
   fStarProj,
   fExoplanets,
+  fNewStarcube,
   uGlobals,
 
   gnuGettext;
@@ -169,6 +170,8 @@ type
     nbWn: TNumberBox;
     Exoplanets1: TMenuItem;
     tbRotation: TToolButton;
+    New1: TMenuItem;
+    N1: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -194,6 +197,7 @@ type
     procedure miParadoxClick(Sender: TObject);
     procedure Exoplanets1Click(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
+    procedure New1Click(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -523,6 +527,16 @@ end;
 procedure TFormGalaxy.miSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;
+end;
+
+procedure TFormGalaxy.New1Click(Sender: TObject);
+begin
+  with TFormNewStarcube.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 //------------------------------------------------------------------------

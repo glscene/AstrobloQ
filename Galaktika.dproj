@@ -176,6 +176,10 @@
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="source\fNewStarcube.pas">
+            <Form>FormNewStarcube</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

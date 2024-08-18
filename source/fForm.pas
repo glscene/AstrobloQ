@@ -17,7 +17,7 @@ uses
   Vcl.Menus,
   Vcl.ExtDlgs,
 
-  gnuGettext;
+  gnuGettext, System.Classes, Vcl.Controls, Vcl.StdCtrls;
 
 type
   TFormI = class(TForm)
