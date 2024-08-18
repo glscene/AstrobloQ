@@ -120,23 +120,33 @@ object FormGalaxy: TFormGalaxy
         ShowHint = True
         OnClick = ButtonAddStarsClick
       end
-      object tbClearCubes: TToolButton
+      object tbAxes: TToolButton
         Left = 98
+        Top = 0
+        Hint = 'Axes'
+        ImageIndex = 103
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = tbAxesClick
+      end
+      object tbRotation: TToolButton
+        Left = 147
+        Top = 0
+        Hint = 'Rotation'
+        Caption = 'tbRotation'
+        ImageIndex = 97
+        ParentShowHint = False
+        ShowHint = True
+        Style = tbsCheck
+      end
+      object tbClearCubes: TToolButton
+        Left = 219
         Top = 0
         Hint = 'Clear solarcube'
         ImageIndex = 122
         ParentShowHint = False
         ShowHint = True
         OnClick = ButtonClearClick
-      end
-      object tbAxes: TToolButton
-        Left = 147
-        Top = 0
-        Hint = 'Rotation'
-        ImageIndex = 54
-        ParentShowHint = False
-        ShowHint = True
-        OnClick = tbAxesClick
       end
     end
   end
@@ -663,7 +673,7 @@ object FormGalaxy: TFormGalaxy
             SpinButtonOptions.ButtonWidth = 30
           end
           object chbD: TCheckBox
-            Left = 24
+            Left = 10
             Top = 477
             Width = 71
             Height = 43

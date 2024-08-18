@@ -168,6 +168,7 @@ type
     chbD: TCheckBox;
     nbWn: TNumberBox;
     Exoplanets1: TMenuItem;
+    tbRotation: TToolButton;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -246,7 +247,8 @@ end;
 procedure TFormGalaxy.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if FormSettings.CheckBoxRotate.Checked then
+  if FormSettings.CheckBoxRotate.Checked and
+     not tbRotation.Down then
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
 //    ffPlanet.TurnAngle := ffPlanet.TurnAngle + DeltaTime * TimeMultiplier;
