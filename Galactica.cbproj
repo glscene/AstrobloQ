@@ -212,8 +212,8 @@
         </CppCompile>
         <FormResources Include="source\aic\fruSettings.fmx"/>
         <FormResources Include="source\aic\fruGalaxy.fmx"/>
-        <FormResources Include="source\aic\fruAbout.fmx"/>
         <FormResources Include="source\aic\fruForm.fmx"/>
+        <FormResources Include="source\aic\fruAbout.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -1,11 +1,11 @@
-object FormGalaktika: TFormGalaktika
+object FormGalaxy: TFormGalaxy
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaktika'
+  Caption = 'Galaxy'
   ClientHeight = 844
   ClientWidth = 1352
   Color = clBtnFace
@@ -149,40 +149,15 @@ object FormGalaktika: TFormGalaktika
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
-    ActivePage = tsDatacat
+    ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    object tsSolarcube: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Caption = 'Solarcube'
-      ImageIndex = 2
-      OnShow = tbSolarcubeClick
-      object GLSceneViewer1: TGLSceneViewer
-        Left = 0
-        Top = 0
-        Width = 1344
-        Height = 713
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Camera = Camera
-        Buffer.BackgroundColor = clBlack
-        FieldOfView = 154.704254150390600000
-        PenAsTouch = False
-        Align = alClient
-        TabOrder = 0
-      end
-    end
     object tsGalacube: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Galacube'
+      Caption = 'Space'
       object svGalacube: TGLSceneViewer
         Left = 0
         Top = 0
@@ -757,7 +732,7 @@ object FormGalaktika: TFormGalaktika
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Caption = 'Datacat'
+      Caption = 'Data'
       ImageIndex = 2
       object DBGrid: TDBGrid
         Left = 700
@@ -1029,7 +1004,7 @@ object FormGalaktika: TFormGalaktika
       end
     end
     object miTools: TMenuItem
-      Caption = '&Options'
+      Caption = '&Tools'
       object miSettings: TMenuItem
         Caption = 'Settings...'
         ImageIndex = 130
@@ -1079,7 +1054,7 @@ object FormGalaktika: TFormGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaktika - %FPS'
+    FormCaption = 'Galaxy - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
