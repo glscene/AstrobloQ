@@ -1,4 +1,4 @@
-unit fxSettings;
+unit fruSettings;
 
 interface
 
@@ -15,10 +15,13 @@ uses
   FMX.Dialogs,
   FMX.Layouts,
   FMX.TreeView,
-  FMX.TabControl;
+  FMX.TabControl,
+
+  fruForm
+  ;
 
 type
-  TFormSettings = class(TForm)
+  TFormSettings = class(TFormI)
     TreeViewSettings: TTreeView;
     tvGeneral: TTreeViewItem;
     tvInterface: TTreeViewItem;
@@ -33,7 +36,7 @@ type
     TabItemPlanets: TTabItem;
     TabItemStars: TTabItem;
     TabItemGalaxy: TTabItem;
-    Lang: TLang;
+    procedure FormCreate(Sender: TObject);
   private
   public
   end;
@@ -44,5 +47,12 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFormSettings.FormCreate(Sender: TObject);
+begin
+  ReadInifile;
+  inherited;
+
+end;
 
 end.

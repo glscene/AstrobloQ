@@ -3,7 +3,7 @@ program Galaktika;
 
 uses
   Vcl.Forms,
-  fGalaktika in 'source\fGalaktika.pas' {FormGalaktika},
+  fGalaxy in 'source\fGalaxy.pas' {FormGalaktika},
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
   fAbout in 'source\fAbout.pas' {FormAbout},
   fSettings in 'source\fSettings.pas' {FormSettings},
@@ -15,9 +15,9 @@ uses
   fParadox in 'source\fParadox.pas' {FormParadox},
   Vcl.Themes,
   Vcl.Styles,
-  fForm in 'source\fForm.pas' {FormI},
   fExoplanets in 'source\fExoplanets.pas' {FormExoplanets},
-  uGlobals in 'source\ucode\uGlobals.pas';
+  uGlobals in 'source\ucode\uGlobals.pas',
+  fForm in 'source\fForm.pas' {FormI};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

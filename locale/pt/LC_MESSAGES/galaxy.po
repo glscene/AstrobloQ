@@ -5,10 +5,12 @@
 #
 #, fuzzy
 msgid ""
-msgstr "Project-Id-Version: \n"
+msgstr ""
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2024-06-02 13:33\n"
-"PO-Revision-Date: 2024-07-27 20:15+0300\n"
-"Last-Translator: Somebody <your.email@address.com>\n"
+"PO-Revision-Date: 2024-08-18 12:25+0300\n"
+"Last-Translator: Somebody <your.email@address."
+"com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
@@ -22,38 +24,30 @@ msgid "About"
 msgstr ""
 
 #. FormAbout..Font.Name
-#: fAbout.dfm:16
 #. FormAbout..PageControl..tsInfo..Label1..Font.Name
-#: fAbout.dfm:56212
 #. FormExoplanets..Font.Name
-#: fExoplanets.dfm:15
 #. FormGalaktika..Font.Name
-#: fGalaxy.dfm:15
 #. FormGalaktika..PageControl1..tsDatacat..DBGrid..TitleFont.Name
-#: fGalaxy.dfm:775
 #. FormSettings..PanelMain..PageControl..tsGalaxy..LabelDs..Font.Name
-#: fSettings.dfm:374
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Font.Name
-#: fSettings.dfm:423
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNs..Font.Name
-#: fSettings.dfm:441
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNt..Font.Name
-#: fSettings.dfm:461
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Font.Name
-#: fSettings.dfm:481
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFb..Font.Name
-#: fSettings.dfm:501
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFn..Font.Name
-#: fSettings.dfm:521
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFt..Font.Name
-#: fSettings.dfm:541
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..LabelDt..Font.Name
-#: fSettings.dfm:561
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFp..Font.Name
-#: fSettings.dfm:581
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Font.Name
-#: fSettings.dfm:600
 #. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Font.Name
+#: fAbout.dfm:16 fAbout.dfm:56212
+#: fExoplanets.dfm:15 fGalaxy.dfm:15
+#: fGalaxy.dfm:775 fSettings.dfm:374
+#: fSettings.dfm:423 fSettings.dfm:441
+#: fSettings.dfm:461 fSettings.dfm:481
+#: fSettings.dfm:501 fSettings.dfm:521
+#: fSettings.dfm:541 fSettings.dfm:561
+#: fSettings.dfm:581 fSettings.dfm:600
 #: fSettings.dfm:1108
 msgid "Segoe UI"
 msgstr ""
@@ -99,9 +93,8 @@ msgid "Analyser"
 msgstr ""
 
 #. FormAnalyser..PageControl..tsAverageDistance..Caption
-#: fAnalyser.dfm:52
 #. FormSettings..PanelMain..PageControl..tsPathway..Caption
-#: fSettings.dfm:1299
+#: fAnalyser.dfm:52 fSettings.dfm:1299
 msgid "Pathway"
 msgstr ""
 
@@ -111,10 +104,9 @@ msgid "Drake formula"
 msgstr ""
 
 #. FormAnalyser..PanelBottom..ButtonOk..Caption
-#: fAnalyser.dfm:136
 #. FormMonitor..PanelBottom..ButtonOk..Caption
-#: fMonitor.dfm:29
 #. FormSettings..PanelBottom..ButtonOk..Caption
+#: fAnalyser.dfm:136 fMonitor.dfm:29
 #: fSettings.dfm:31
 msgid "Ok"
 msgstr ""
@@ -135,9 +127,8 @@ msgid "Galaktika"
 msgstr ""
 
 #. FormGalaktika..ControlBar..ToolBarView..tbSolarcube..Hint
-#: fGalaxy.dfm:108
 #. FormGalaktika..PageControl1..tsSolarcube..Caption
-#: fGalaxy.dfm:160
+#: fGalaxy.dfm:108 fGalaxy.dfm:160
 msgid "Solarcube"
 msgstr ""
 
@@ -152,9 +143,8 @@ msgid "Clear solarcube"
 msgstr ""
 
 #. FormGalaktika..ControlBar..ToolBarView..tbAxes..Hint
-#: fGalaxy.dfm:135
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxRotate..Caption
-#: fSettings.dfm:229
+#: fGalaxy.dfm:135 fSettings.dfm:229
 msgid "Rotation"
 msgstr ""
 
@@ -179,51 +169,44 @@ msgid "Number"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbO..Caption
-#: fGalaxy.dfm:352
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1155
+#: fGalaxy.dfm:352 fSettings.dfm:1155
 msgid "O"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbB..Caption
-#: fGalaxy.dfm:368
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1156
+#: fGalaxy.dfm:368 fSettings.dfm:1156
 msgid "B"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbA..Caption
-#: fGalaxy.dfm:384
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1157
+#: fGalaxy.dfm:384 fSettings.dfm:1157
 msgid "A"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbF..Caption
-#: fGalaxy.dfm:400
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1158
+#: fGalaxy.dfm:400 fSettings.dfm:1158
 msgid "F"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbG..Caption
-#: fGalaxy.dfm:416
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1159
+#: fGalaxy.dfm:416 fSettings.dfm:1159
 msgid "G"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbK..Caption
-#: fGalaxy.dfm:434
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1160
+#: fGalaxy.dfm:434 fSettings.dfm:1160
 msgid "K"
 msgstr ""
 
 #. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbM..Caption
-#: fGalaxy.dfm:452
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1161
+#: fGalaxy.dfm:452 fSettings.dfm:1161
 msgid "M"
 msgstr ""
 
@@ -253,11 +236,9 @@ msgid "MemoTable"
 msgstr ""
 
 #. FormGalaktika..GLScene..dcAxes..SpaceTextX..Font.Name
-#: fGalaxy.dfm:854
 #. FormGalaktika..GLScene..dcAxes..SpaceTextZ..Font.Name
-#: fGalaxy.dfm:869
 #. FormGalaktika..GLScene..dcAxes..SpaceTextY..Font.Name
-#: fGalaxy.dfm:886
+#: fGalaxy.dfm:854 fGalaxy.dfm:869 fGalaxy.dfm:886
 msgid "Arial"
 msgstr ""
 
@@ -302,16 +283,13 @@ msgid "Save as..."
 msgstr ""
 
 #. FormGalaktika..MainMenu..miFile..miN2..Caption
-#: fGalaxy.dfm:967
 #. FormGalaktika..MainMenu..miEdit..miN4..Caption
-#: fGalaxy.dfm:982
 #. FormGalaktika..MainMenu..miEdit..miN3..Caption
-#: fGalaxy.dfm:997
 #. FormGalaktika..MainMenu..miEdit..miN1..Caption
-#: fGalaxy.dfm:1009
 #. FormGalaktika..MainMenu..miTools..miN5..Caption
-#: fGalaxy.dfm:1039
 #. FormGalaktika..MainMenu..miHelp..miN6..Caption
+#: fGalaxy.dfm:967 fGalaxy.dfm:982 fGalaxy.dfm:997
+#: fGalaxy.dfm:1009 fGalaxy.dfm:1039
 #: fGalaxy.dfm:1060
 msgid "-"
 msgstr ""
@@ -502,22 +480,18 @@ msgid "Coordinates"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxRotate..StyleName
-#: fSettings.dfm:233
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbShowAxes..StyleName
-#: fSettings.dfm:1572
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox4..StyleName
-#: fSettings.dfm:1585
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbCore..StyleName
-#: fSettings.dfm:1598
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbAtmosfera..StyleName
-#: fSettings.dfm:1611
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbClouds..StyleName
-#: fSettings.dfm:1624
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox1..StyleName
-#: fSettings.dfm:1637
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbHidePlanet..StyleName
-#: fSettings.dfm:1650
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox3..StyleName
+#: fSettings.dfm:233 fSettings.dfm:1572
+#: fSettings.dfm:1585 fSettings.dfm:1598
+#: fSettings.dfm:1611 fSettings.dfm:1624
+#: fSettings.dfm:1637 fSettings.dfm:1650
 #: fSettings.dfm:1663
 msgid "Windows"
 msgstr ""
@@ -619,8 +593,7 @@ msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Hint
 #: fSettings.dfm:472
-msgid "Number of lithospheres suitable for "
-"life"
+msgid "Number of lithospheres suitable for life"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Caption
@@ -680,8 +653,7 @@ msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Caption
 #: fSettings.dfm:596
-msgid "Average distance between technospheres, "
-"ly"
+msgid "Average distance between technospheres, ly"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Caption
@@ -725,9 +697,8 @@ msgid "General"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..LabelPrecision..Caption
-#: fSettings.dfm:1235
 #. FormSettings..PanelMain..PageControl..tsGeneral..SpinEditPrecision..Hint
-#: fSettings.dfm:1263
+#: fSettings.dfm:1235 fSettings.dfm:1263
 msgid "Precision"
 msgstr ""
 
@@ -912,9 +883,8 @@ msgid "Shading"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbCore..Caption
-#: fSettings.dfm:1596
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..LabelCore..Caption
-#: fSettings.dfm:1735
+#: fSettings.dfm:1596 fSettings.dfm:1735
 msgid "Core"
 msgstr ""
 
@@ -1011,4 +981,3 @@ msgstr ""
 #: fSettings.pas:387
 msgid "Reload to change language"
 msgstr ""
-

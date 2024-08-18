@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcAboutH
-#define fcAboutH
+#ifndef fruAboutH
+#define fruAboutH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>

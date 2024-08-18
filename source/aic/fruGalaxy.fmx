@@ -1,9 +1,9 @@
-object FormGalaqtiqa: TFormGalaqtiqa
+object FormGalactica: TFormGalactica
   Left = 0
   Top = 0
-  Caption = 'Galaqtiqa'
-  ClientHeight = 380
-  ClientWidth = 588
+  Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+  ClientHeight = 404
+  ClientWidth = 604
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -47,5 +47,13 @@ object FormGalaqtiqa: TFormGalaqtiqa
         OnClick = miAboutClick
       end
     end
+  end
+  object Langs: TLang
+    Lang = 'ru'
+    Left = 368
+    Top = 40
+    ResourcesBin = {
+      0800000053006F0075007200630065000D000A00010000000200000072007500
+      00000000}
   end
 end

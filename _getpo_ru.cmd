@@ -16,7 +16,7 @@ msgmergedx default-old.po ..\..\..\default.po -o default.po
 del default-old.po
 del default-backup.po
 
-copy default.po galaktika.po
+copy default.po galaxy.po
 
 popd
 

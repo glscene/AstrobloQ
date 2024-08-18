@@ -15,6 +15,9 @@
         <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Galaxy.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Galaqtiqa.dproj">
             <Dependencies/>
         </Projects>
@@ -65,6 +68,15 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Galaxy">
+        <MSBuild Projects="Galaxy.dproj"/>
+    </Target>
+    <Target Name="Galaxy:Clean">
+        <MSBuild Projects="Galaxy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Galaxy:Make">
+        <MSBuild Projects="Galaxy.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Galaqtiqa">
         <MSBuild Projects="Galaqtiqa.dproj"/>
     </Target>
@@ -84,13 +96,13 @@
         <MSBuild Projects="Galactica.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Tehnosfera;Galaqtiqa;Galactica"/>
+        <CallTarget Targets="Galaktika;Litosfera;Biosfera;Tehnosfera;Galaxy;Galaqtiqa;Galactica"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;Galaqtiqa:Clean;Galactica:Clean"/>
+        <CallTarget Targets="Galaktika:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;Galaxy:Clean;Galaqtiqa:Clean;Galactica:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;Galaqtiqa:Make;Galactica:Make"/>
+        <CallTarget Targets="Galaktika:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;Galaxy:Make;Galaqtiqa:Make;Galactica:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

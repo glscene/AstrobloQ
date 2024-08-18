@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcSettingsH
-#define fcSettingsH
+#ifndef fruSettingsH
+#define fruSettingsH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>
@@ -28,7 +28,6 @@ __published:	// IDE-managed Components
 	TTreeViewItem *tvPlanets;
 	TTreeViewItem *tvStars;
 	TTreeViewItem *tvGalaxy;
-	TLang *Lang;
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormSettings(TComponent* Owner);

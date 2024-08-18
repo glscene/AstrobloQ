@@ -165,6 +165,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <LinkPackageStatics>rtl.lib;fmx.lib</LinkPackageStatics>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
@@ -184,27 +186,34 @@
         <CppCompile Include="Galactica.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="source\aic\fcAbout.cpp">
+        <CppCompile Include="source\aic\fruAbout.cpp">
             <Form>FormAbout</Form>
             <FormType>fmx</FormType>
-            <DependentOn>source\aic\fcAbout.h</DependentOn>
+            <DependentOn>source\aic\fruAbout.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
-        <CppCompile Include="source\aic\fcGalactica.cpp">
+        <CppCompile Include="source\aic\fruForm.cpp">
+            <Form>FormI</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>source\aic\fruForm.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="source\aic\fruGalaxy.cpp">
             <Form>FormGalactica</Form>
             <FormType>fmx</FormType>
-            <DependentOn>source\aic\fcGalactica.h</DependentOn>
+            <DependentOn>source\aic\fruGalaxy.h</DependentOn>
             <BuildOrder>1</BuildOrder>
         </CppCompile>
-        <CppCompile Include="source\aic\fcSettings.cpp">
+        <CppCompile Include="source\aic\fruSettings.cpp">
             <Form>FormSettings</Form>
             <FormType>fmx</FormType>
-            <DependentOn>source\aic\fcSettings.h</DependentOn>
+            <DependentOn>source\aic\fruSettings.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <FormResources Include="source\aic\fcGalactica.fmx"/>
-        <FormResources Include="source\aic\fcAbout.fmx"/>
-        <FormResources Include="source\aic\fcSettings.fmx"/>
+        <FormResources Include="source\aic\fruSettings.fmx"/>
+        <FormResources Include="source\aic\fruGalaxy.fmx"/>
+        <FormResources Include="source\aic\fruAbout.fmx"/>
+        <FormResources Include="source\aic\fruForm.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -231,6 +240,12 @@
                 <Source>
                     <Source Name="MainSource">Galactica.cpp</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">

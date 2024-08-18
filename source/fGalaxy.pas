@@ -1,4 +1,4 @@
-unit fGalaktika;
+unit fGalaxy;
 
 interface
 

@@ -1,9 +1,10 @@
 object FormSettings: TFormSettings
   Left = 0
   Top = 0
-  Caption = 'Settings'
+  Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080
   ClientHeight = 368
   ClientWidth = 580
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -35,12 +36,12 @@ object FormSettings: TFormSettings
         end>
       TextSettings.Trimming = None
       IsSelected = True
-      Size.Width = 61.000000000000000000
+      Size.Width = 59.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'General'
+      Text = #1054#1073#1097#1080#1077
       ExplicitSize.cx = 61.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -50,12 +51,12 @@ object FormSettings: TFormSettings
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 66.000000000000000000
+      Size.Width = 82.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Interface'
+      Text = #1048#1085#1090#1077#1088#1092#1077#1081#1089
       ExplicitSize.cx = 66.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -65,12 +66,12 @@ object FormSettings: TFormSettings
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 58.000000000000000000
+      Size.Width = 67.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Display'
+      Text = #1044#1080#1089#1087#1083#1077#1081
       ExplicitSize.cx = 58.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -80,12 +81,12 @@ object FormSettings: TFormSettings
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 58.000000000000000000
+      Size.Width = 68.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Planets'
+      Text = #1055#1083#1072#1085#1077#1090#1099
       ExplicitSize.cx = 58.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -95,12 +96,12 @@ object FormSettings: TFormSettings
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 46.000000000000000000
+      Size.Width = 60.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Stars'
+      Text = #1047#1074#1105#1079#1076#1099
       ExplicitSize.cx = 46.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -110,12 +111,12 @@ object FormSettings: TFormSettings
         end>
       TextSettings.Trimming = None
       IsSelected = False
-      Size.Width = 55.000000000000000000
+      Size.Width = 74.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Galaxy'
+      Text = #1043#1072#1083#1072#1082#1090#1080#1082#1072
       ExplicitSize.cx = 55.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -133,58 +134,42 @@ object FormSettings: TFormSettings
       IsExpanded = False
       IsSelected = False
       TabOrder = 0
-      Text = 'General'
+      Text = #1054#1073#1097#1080#1077
     end
     object tvInterface: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 1
-      Text = 'Interface'
+      Text = #1048#1085#1090#1077#1088#1092#1077#1081#1089
     end
     object tvDisplay: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 2
-      Text = 'Display'
+      Text = #1044#1080#1089#1087#1083#1077#1081
     end
     object tvPlanets: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 3
-      Text = 'Planets'
+      Text = #1055#1083#1072#1085#1077#1090#1099
     end
     object tvStars: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 4
-      Text = 'Stars'
+      Text = #1047#1074#1105#1079#1076#1099
     end
     object tvGalaxy: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 5
-      Text = 'Galaxy'
+      Text = #1043#1072#1083#1072#1082#1090#1080#1082#1072
     end
-  end
-  object Lang: TLang
-    Left = 297
-    Top = 120
-    ResourcesBin = {
-      3D000000470065006E006500720061006C000D000A0049006E00740065007200
-      66006100630065000D000A0044006900730070006C00610079000D000A005000
-      6C0061006E006500740073000D000A00530074006100720073000D000A004700
-      61006C006100780079000D000A0053006F0075007200630065000D000A000100
-      0000020000007200750066000000470065006E006500720061006C003D001E04
-      31044904380439040D000A0049006E0074006500720066006100630065003D00
-      18043D0442043504400444043504390441040D000A0044006900730070006C00
-      610079003D001404380441043F043B04350439040D000A0050006C0061006E00
-      6500740073003D001F043B0430043D04350442044B040D000A00530074006100
-      720073003D00170432045104370434044B040D000A00470061006C0061007800
-      79003D00130430043B0430043A04420438043A0430040D000A00}
   end
 end

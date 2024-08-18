@@ -3,8 +3,9 @@
 #include <fmx.h>
 #pragma hdrstop
 
-#include "fcGalactica.h"
-#include "fcAbout.h"
+#include "fruGalaxy.h"
+#include "fruAbout.h"
+#include "fruSettings.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -31,9 +32,17 @@ void __fastcall TFormGalactica::miAboutClick(TObject* Sender)
 }
 
 //---------------------------------------------------------------------------
+
+void __fastcall TFormGalactica::miSettingsClick(TObject *Sender)
+{
+   FormSettings->Show();
+}
+
+//---------------------------------------------------------------------------
 void __fastcall TFormGalactica::miExitClick(TObject *Sender)
 {
   Close();
 }
+
 //---------------------------------------------------------------------------
 

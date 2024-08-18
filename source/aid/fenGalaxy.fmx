@@ -1,54 +1,52 @@
-object FormGalactica: TFormGalactica
+object FormGalaqtiqa: TFormGalaqtiqa
   Left = 0
   Top = 0
-  Caption = 'Galactica'
-  ClientHeight = 404
-  ClientWidth = 604
+  Caption = 'Galaxy'
+  ClientHeight = 380
+  ClientWidth = 588
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object MainMenu: TMainMenu
-    Left = 256
-    Top = 40
-    object miFile: TMenuItem
+    Left = 176
+    Top = 56
+    object MenuItemFile: TMenuItem
       Text = '&File'
-      object miOpen: TMenuItem
+      object MenuItemOpen: TMenuItem
         Locked = True
         Text = 'Open...'
       end
-      object miExit: TMenuItem
+      object MenuItemExit: TMenuItem
         Locked = True
         Text = 'Exit'
-        OnClick = miExitClick
+        OnClick = MenuItemExitClick
       end
     end
-    object miView: TMenuItem
+    object MenuItemView: TMenuItem
       Text = '&View'
     end
-    object miTools: TMenuItem
+    object MenuItemTools: TMenuItem
       Text = '&Tools'
-      object miSettings: TMenuItem
+      object MenuItemSettings: TMenuItem
         Locked = True
         Text = 'Settings...'
+        OnClick = MenuItemSettingsClick
       end
     end
-    object miHelp: TMenuItem
+    object MenuItemHelp: TMenuItem
       Text = '&Help'
-      object miWiki: TMenuItem
+      object MenuItemWiki: TMenuItem
         Locked = True
         Text = 'Wiki...'
       end
-      object miAbout: TMenuItem
+      object MenuItemAbout: TMenuItem
         Locked = True
         Text = 'About...'
-        OnClick = miAboutClick
+        OnClick = MenuItemAboutClick
       end
     end
-  end
-  object Lang: TLang
-    Left = 368
-    Top = 40
   end
 end

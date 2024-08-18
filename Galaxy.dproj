@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{09B3E8E1-8543-4D5F-AE5A-9E109EB2A1E6}</ProjectGuid>
+        <ProjectGuid>{FE6B9BEC-036E-4287-B8F0-C19B53C69B8C}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Galaqtiqa</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Galaxy</ProjectName>
         <TargetedPlatforms>32770</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Galaqtiqa.dpr</MainSource>
+        <MainSource>Galaxy.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -87,7 +87,7 @@
         <AUP_READ_PHONE_STATE>true</AUP_READ_PHONE_STATE>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
-        <SanitizedProjectName>Galaqtiqa</SanitizedProjectName>
+        <SanitizedProjectName>Galaxy</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>fmx;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;FireDACCommonDriver;IndyProtocols;IndyIPClient;dbxcds;FmxTeeUI;bindcompfmx;FireDACSqliteDriver;DbxClientDriver;soapmidas;fmxFireDAC;dbexpress;inet;DataSnapCommon;fmxase;dbrtl;FireDACDBXDriver;CustomIPTransport;DBXInterBaseDriver;IndySystem;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;RESTComponents;DBXSqliteDriver;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;DataSnapFireDAC;emsclientfiredac;FireDAC;FireDACDSDriver;xmlrtl;tethering;dsnap;CloudService;DataSnapNativeClient;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -214,20 +214,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\aid\fruGalaxy.pas">
+        <DCCReference Include="source\aid\fenGalaxy.pas">
             <Form>FormGalaqtiqa</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\aid\fruSettings.pas">
+        <DCCReference Include="source\aid\fenSettings.pas">
             <Form>FormSettings</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\aid\fruAbout.pas">
-            <Form>FormAbout</Form>
+        <DCCReference Include="source\aid\fenForm.pas">
+            <Form>FormI</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\aid\fruForm.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="source\aid\fenAbout.pas">
+            <Form>FormAbout</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -248,7 +248,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Galaqtiqa.dpr</Source>
+                    <Source Name="MainSource">Galaxy.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -273,21 +273,21 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\Galaqtiqa.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\Galaxy.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Galaqtiqa.exe</RemoteName>
+                        <RemoteName>Galaxy.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win64\Debug\Galaqtiqa.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win64\Debug\Galaxy.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
-                        <RemoteName>Galaqtiqa.exe</RemoteName>
+                        <RemoteName>Galaxy.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win64\Debug\Galaqtiqa.rsm" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="Win64\Debug\Galaxy.rsm" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win64">
-                        <RemoteName>Galaqtiqa.rsm</RemoteName>
+                        <RemoteName>Galaxy.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

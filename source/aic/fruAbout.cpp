@@ -3,7 +3,7 @@
 #include <fmx.h>
 #pragma hdrstop
 
-#include "fcAbout.h"
+#include "fruAbout.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"

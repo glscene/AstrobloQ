@@ -1,0 +1,176 @@
+object FormSettings: TFormSettings
+  Left = 0
+  Top = 0
+  Caption = 'Settings'
+  ClientHeight = 404
+  ClientWidth = 568
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object TreeViewSettings: TTreeView
+    Align = Left
+    Size.Width = 105.000000000000000000
+    Size.Height = 404.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 101.000000000000000000
+    Viewport.Height = 400.000000000000000000
+    object tvGeneral: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 0
+      Text = #1054#1073#1097#1080#1077
+    end
+    object tvInterface: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 1
+      Text = #1048#1085#1090#1077#1088#1092#1077#1081#1089
+    end
+    object tvDisplay: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 2
+      Text = #1044#1080#1089#1087#1083#1077#1081
+    end
+    object tvPlanets: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 3
+      Text = #1055#1083#1072#1085#1077#1090#1099
+    end
+    object tvStars: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 4
+      Text = #1047#1074#1105#1079#1076#1099
+    end
+    object tvGalaxy: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 5
+      Text = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+    end
+  end
+  object TabControlGeneral: TTabControl
+    Align = Client
+    Size.Width = 463.000000000000000000
+    Size.Height = 404.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 5
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      463s
+      378s
+      463s
+      378s
+      463s
+      378s
+      463s
+      378s
+      463s
+      378s
+      463s
+      378s)
+    object TabItemGeneral: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 59.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1054#1073#1097#1080#1077
+      ExplicitSize.cx = 61.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItemInterface: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 82.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1048#1085#1090#1077#1088#1092#1077#1081#1089
+      ExplicitSize.cx = 66.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItemDisplay: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 67.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1044#1080#1089#1087#1083#1077#1081
+      ExplicitSize.cx = 58.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItemPlanets: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 68.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1055#1083#1072#1085#1077#1090#1099
+      ExplicitSize.cx = 58.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItemStars: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 60.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1047#1074#1105#1079#1076#1099
+      ExplicitSize.cx = 46.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItemGalaxy: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = True
+      Size.Width = 74.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+      ExplicitSize.cx = 55.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+  end
+end
