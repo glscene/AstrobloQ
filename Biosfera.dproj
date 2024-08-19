@@ -275,6 +275,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="source\bio\fbMiniForm.pas"/>
+        <DCCReference Include="source\ucode\GnuGetText.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

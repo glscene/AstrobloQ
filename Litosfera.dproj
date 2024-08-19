@@ -142,6 +142,7 @@
         </DCCReference>
         <DCCReference Include="source\ucode\uMoveCamera.pas"/>
         <DCCReference Include="source\ucode\uSkyBodies.pas"/>
+        <DCCReference Include="source\ucode\GnuGetText.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

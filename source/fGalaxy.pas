@@ -170,7 +170,7 @@ type
     nbWn: TNumberBox;
     Exoplanets1: TMenuItem;
     tbRotation: TToolButton;
-    New1: TMenuItem;
+    miNewStarcube: TMenuItem;
     N1: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
@@ -197,7 +197,7 @@ type
     procedure miParadoxClick(Sender: TObject);
     procedure Exoplanets1Click(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
-    procedure New1Click(Sender: TObject);
+    procedure miNewStarcubeClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -529,7 +529,7 @@ begin
   FormSettings.Show;
 end;
 
-procedure TFormGalaxy.New1Click(Sender: TObject);
+procedure TFormGalaxy.miNewStarcubeClick(Sender: TObject);
 begin
   with TFormNewStarcube.Create(Self) do
     try

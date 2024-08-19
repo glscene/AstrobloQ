@@ -21,7 +21,8 @@ uses
   ftRobot in 'source\teh\ftRobot.pas' {FormLoadSmdMdl},
   ftCETI in 'source\teh\ftCETI.pas' {FormTehnosfera},
   Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas',
-  Teh.Globals in 'source\teh\Teh.Globals.pas';
+  Teh.Globals in 'source\teh\Teh.Globals.pas',
+  GnuGetText in 'source\ucode\GnuGetText.pas';
 
 {$R *.res}
 

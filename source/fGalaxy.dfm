@@ -71,21 +71,24 @@ object FormGalaxy: TFormGalaxy
         Left = 0
         Top = 0
         ImageIndex = 0
-      end
-      object ToolButton2: TToolButton
-        Left = 40
-        Top = 0
-        ImageIndex = 1
+        OnClick = miNewStarcubeClick
       end
       object ToolButton3: TToolButton
-        Left = 80
+        Left = 40
         Top = 0
         ImageIndex = 2
+        OnClick = miOpenClick
       end
       object ToolButton4: TToolButton
-        Left = 120
+        Left = 80
         Top = 0
         ImageIndex = 3
+        OnClick = miSaveAsClick
+      end
+      object ToolButton2: TToolButton
+        Left = 120
+        Top = 0
+        ImageIndex = 1
       end
     end
     object ToolBarView: TToolBar
@@ -936,9 +939,9 @@ object FormGalaxy: TFormGalaxy
     Top = 179
     object miFile: TMenuItem
       Caption = '&File'
-      object New1: TMenuItem
+      object miNewStarcube: TMenuItem
         Caption = 'New...'
-        OnClick = New1Click
+        OnClick = miNewStarcubeClick
       end
       object N1: TMenuItem
         Caption = '-'

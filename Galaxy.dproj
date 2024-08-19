@@ -6,10 +6,10 @@
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Galaxy</ProjectName>
         <TargetedPlatforms>32770</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>Galaxy.dpr</MainSource>
+        <ProjectName Condition="'$(ProjectName)'==''">Galaxy</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>

@@ -23,7 +23,8 @@ uses
   flAbout in 'source\lito\flAbout.pas' {FormAbout},
   fForm in 'source\fForm.pas' {FormI},
   uMoveCamera in 'source\ucode\uMoveCamera.pas',
-  uSkyBodies in 'source\ucode\uSkyBodies.pas';
+  uSkyBodies in 'source\ucode\uSkyBodies.pas',
+  GnuGetText in 'source\ucode\GnuGetText.pas';
 
 {$R *.res}
 
