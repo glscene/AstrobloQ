@@ -9,4 +9,8 @@ object FormI: TFormI
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
+  object Langs: TLang
+    Left = 216
+    Top = 112
+  end
 end

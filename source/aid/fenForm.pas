@@ -17,6 +17,7 @@ uses
 
 type
   TFormI = class(TForm)
+    Langs: TLang;
     procedure FormCreate(Sender: TObject);
   private
   public
