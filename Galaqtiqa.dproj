@@ -214,22 +214,30 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\aid\fruGalaxy.pas">
+        <DCCReference Include="source\astrod\fruGalaqtiqa.pas">
             <Form>FormGalaqtiqa</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\aid\fruSettings.pas">
+        <DCCReference Include="source\astrod\fruSettings.pas">
             <Form>FormSettings</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\aid\fruAbout.pas">
+        <DCCReference Include="source\astrod\fruAbout.pas">
             <Form>FormAbout</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\aid\fruForm.pas">
+        <DCCReference Include="source\astrod\fruForm.pas">
             <Form>FormI</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="source\astrod\Astro.Material.pas"/>
+        <DCCReference Include="source\astrod\fruAstrogen.pas">
+            <Form>FormAstrogen</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="source\lux\LUX.FMX.Material.pas"/>
+        <DCCReference Include="source\lux\LUX.FMX.Types3D.pas"/>
+        <DCCReference Include="source\lux\LUX.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -510,6 +518,12 @@
                 <DeployFile LocalName="Win64\Debug\Galaqtiqa.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>Galaqtiqa.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\Galaqtiqa.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>Galaqtiqa.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

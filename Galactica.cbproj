@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{7E1E84F1-5E97-4C43-B6DC-3C2C07915C4E}</ProjectGuid>
+        <ProjectGuid>{0A0D45EA-8132-4D05-9CB4-1524F04B0F3C}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <MainSource>Galactica.cpp</MainSource>
@@ -92,8 +92,8 @@
         <AllPackageLibs>rtl.lib;fmx.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
-        <IncludePath>source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>source\astroc\;source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>source\astroc\;source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>Galactica</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -186,34 +186,34 @@
         <CppCompile Include="Galactica.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="source\aic\fruAbout.cpp">
+        <CppCompile Include="source\astroc\fruAbout.cpp">
             <Form>FormAbout</Form>
             <FormType>fmx</FormType>
-            <DependentOn>source\aic\fruAbout.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\aic\fruForm.cpp">
-            <Form>FormI</Form>
-            <FormType>fmx</FormType>
-            <DependentOn>source\aic\fruForm.h</DependentOn>
+            <DependentOn>source\astroc\fruAbout.h</DependentOn>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
-        <CppCompile Include="source\aic\fruGalaxy.cpp">
+        <CppCompile Include="source\astroc\fruForm.cpp">
+            <Form>FormI</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>source\astroc\fruForm.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="source\astroc\fruGalactica.cpp">
             <Form>FormGalactica</Form>
             <FormType>fmx</FormType>
-            <DependentOn>source\aic\fruGalaxy.h</DependentOn>
-            <BuildOrder>1</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\aic\fruSettings.cpp">
-            <Form>FormSettings</Form>
-            <FormType>fmx</FormType>
-            <DependentOn>source\aic\fruSettings.h</DependentOn>
+            <DependentOn>source\astroc\fruGalactica.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <FormResources Include="source\aic\fruSettings.fmx"/>
-        <FormResources Include="source\aic\fruGalaxy.fmx"/>
-        <FormResources Include="source\aic\fruForm.fmx"/>
-        <FormResources Include="source\aic\fruAbout.fmx"/>
+        <CppCompile Include="source\astroc\fruSettings.cpp">
+            <Form>FormSettings</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>source\astroc\fruSettings.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <FormResources Include="source\astroc\fruSettings.fmx"/>
+        <FormResources Include="source\astroc\fruGalactica.fmx"/>
+        <FormResources Include="source\astroc\fruForm.fmx"/>
+        <FormResources Include="source\astroc\fruAbout.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

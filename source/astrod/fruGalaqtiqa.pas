@@ -1,4 +1,4 @@
-unit fruGalaxy;
+unit fruGalaqtiqa;
 
 interface
 
@@ -17,25 +17,29 @@ uses
 
   fruAbout,
   fruSettings,
-  fruForm
+  fruForm,
+  fruAstrogen
   ;
 
 type
   TFormGalaqtiqa = class(TFormI)
     MainMenu: TMainMenu;
-    MenuItemFile: TMenuItem;
+    miFile: TMenuItem;
     MenuItemOpen: TMenuItem;
     MenuItemExit: TMenuItem;
-    MenuItemView: TMenuItem;
-    MenuItemTools: TMenuItem;
-    MenuItemSettings: TMenuItem;
-    MenuItemHelp: TMenuItem;
-    MenuItemWiki: TMenuItem;
-    MenuItemAbout: TMenuItem;
+    miView: TMenuItem;
+    miTools: TMenuItem;
+    miSettings: TMenuItem;
+    miHelp: TMenuItem;
+    miWiki: TMenuItem;
+    miAbout: TMenuItem;
+    miDivider1: TMenuItem;
+    miAstrogen: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure MenuItemExitClick(Sender: TObject);
-    procedure MenuItemAboutClick(Sender: TObject);
-    procedure MenuItemSettingsClick(Sender: TObject);
+    procedure miAboutClick(Sender: TObject);
+    procedure miSettingsClick(Sender: TObject);
+    procedure miAstrogenClick(Sender: TObject);
   private
   public
   end;
@@ -43,7 +47,7 @@ type
 var
   FormGalaqtiqa: TFormGalaqtiqa;
 
-implementation
+implementation  //------------------------------------------------------------
 
 {$R *.fmx}
 
@@ -55,10 +59,22 @@ begin
   inherited;
 end;
 
-procedure TFormGalaqtiqa.MenuItemAboutClick(Sender: TObject);
+procedure TFormGalaqtiqa.miAboutClick(Sender: TObject);
 begin
   inherited;
   with TFormAbout.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TFormGalaqtiqa.miAstrogenClick(Sender: TObject);
+begin
+  inherited;
+  // Загрузка генератора звёзд и конструктора экзопланет
+  with TFormAstrogen.Create(Self) do
     try
       ShowModal;
     finally
@@ -72,7 +88,7 @@ begin
   Close;
 end;
 
-procedure TFormGalaqtiqa.MenuItemSettingsClick(Sender: TObject);
+procedure TFormGalaqtiqa.miSettingsClick(Sender: TObject);
 begin
   inherited;
   FormSettings.Show;

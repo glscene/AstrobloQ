@@ -7,20 +7,19 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("source\astroc\fruAbout.cpp", FormAbout);
-USEFORM("source\astroc\fruForm.cpp", FormI);
-USEFORM("source\astroc\fruGalactica.cpp", FormGalactica);
-USEFORM("source\astroc\fruSettings.cpp", FormSettings);
+USEFORM("source\astroc\fenSettings.cpp", FormSettings);
+USEFORM("source\astroc\fenGalaxyc.cpp", FormGalaxyc);
+USEFORM("source\astroc\fenForm.cpp", FormI);
+USEFORM("source\astroc\fenAbout.cpp", FormAbout);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TFormAbout), &FormAbout);
-		Application->CreateForm(__classid(TFormI), &FormI);
-		Application->CreateForm(__classid(TFormGalactica), &FormGalactica);
+		Application->CreateForm(__classid(TFormGalaxyc), &FormGalaxyc);
 		Application->CreateForm(__classid(TFormSettings), &FormSettings);
+		Application->CreateForm(__classid(TFormI), &FormI);
 		Application->Run();
 	}
 	catch (Exception &exception)

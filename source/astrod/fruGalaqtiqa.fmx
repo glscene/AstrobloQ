@@ -1,7 +1,7 @@
 object FormGalaqtiqa: TFormGalaqtiqa
   Left = 0
   Top = 0
-  Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+  Caption = 'Galaqtiqa'
   ClientHeight = 380
   ClientWidth = 588
   Position = ScreenCenter
@@ -13,7 +13,7 @@ object FormGalaqtiqa: TFormGalaqtiqa
   object MainMenu: TMainMenu
     Left = 176
     Top = 56
-    object MenuItemFile: TMenuItem
+    object miFile: TMenuItem
       Text = #1060#1072#1081#1083
       object MenuItemOpen: TMenuItem
         Locked = True
@@ -25,27 +25,36 @@ object FormGalaqtiqa: TFormGalaqtiqa
         OnClick = MenuItemExitClick
       end
     end
-    object MenuItemView: TMenuItem
+    object miView: TMenuItem
       Text = #1042#1080#1076
     end
-    object MenuItemTools: TMenuItem
+    object miTools: TMenuItem
       Text = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
-      object MenuItemSettings: TMenuItem
+      object miSettings: TMenuItem
         Locked = True
         Text = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
-        OnClick = MenuItemSettingsClick
+        OnClick = miSettingsClick
+      end
+      object miDivider1: TMenuItem
+        Locked = True
+        Text = '-'
+      end
+      object miAstrogen: TMenuItem
+        Locked = True
+        Text = #1040#1089#1090#1088#1086#1075#1077#1085'...'
+        OnClick = miAstrogenClick
       end
     end
-    object MenuItemHelp: TMenuItem
+    object miHelp: TMenuItem
       Text = #1057#1087#1088#1072#1074#1082#1072
-      object MenuItemWiki: TMenuItem
+      object miWiki: TMenuItem
         Locked = True
         Text = 'Wiki...'
       end
-      object MenuItemAbout: TMenuItem
+      object miAbout: TMenuItem
         Locked = True
         Text = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
-        OnClick = MenuItemAboutClick
+        OnClick = miAboutClick
       end
     end
   end

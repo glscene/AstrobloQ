@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fruGalaxyH
-#define fruGalaxyH
+#ifndef fruGalacticaH
+#define fruGalacticaH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>

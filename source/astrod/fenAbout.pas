@@ -14,10 +14,11 @@ uses
   FMX.Graphics,
   FMX.Dialogs,
 
-  fenForm;
+  fenForm, System.Math.Vectors, FMX.Controls3D, FMX.Objects3D, FMX.Objects;
 
 type
   TFormAbout = class(TFormI)
+    TextAbout: TText;
     procedure FormCreate(Sender: TObject);
   private
   public

@@ -1,4 +1,4 @@
-﻿unit fenLithosphere;
+﻿unit fruAstrogen;
 
 interface
 
@@ -29,7 +29,7 @@ uses
   Astro.Material;
 
 type
-  TFormLithosphere = class(TForm)
+  TFormAstrogen = class(TForm)
     TabControl1: TTabControl;
     TabItemV: TTabItem;
     Viewport3D1: TViewport3D;
@@ -71,13 +71,13 @@ type
   end;
 
 var
-  FormLithosphere: TFormLithosphere;
+  FormAstrogen: TFormAstrogen;
 
 implementation //--------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TFormLithosphere.FormCreate(Sender: TObject);
+procedure TFormAstrogen.FormCreate(Sender: TObject);
 var
   M: TAstroMaterialSource;
   T: String;
@@ -89,7 +89,7 @@ begin
     Diffuse := TAlphaColors.White;
     Specular := TAlphaColors.White;
     Shininess := 50;
-    Texture.LoadFromFile('..\..\..\data\map\Earth.jpg');
+    Texture.LoadFromFile('..\..\data\map\Earth.jpg');
   end;
 
   M := TAstroMaterialSource.Create(Self);
@@ -97,8 +97,8 @@ begin
   Sphere2.MaterialSource := M;
   Sphere2.TwoSide := True;
 
-  MemoSVC.Lines.LoadFromFile('..\..\..\data\shader\ShaderV.hlsl');
-  MemoSPC.Lines.LoadFromFile('..\..\..\data\shader\ShaderP.hlsl');
+  MemoSVC.Lines.LoadFromFile('..\..\data\shader\ShaderV.hlsl');
+  MemoSPC.Lines.LoadFromFile('..\..\data\shader\ShaderP.hlsl');
 
   with M do
   begin
@@ -107,7 +107,7 @@ begin
     DiffRatio := TAlphaColorF.Create(1, 1, 1);
     SpecRatio := TAlphaColorF.Create(1, 1, 1);
     SpecShiny := 50;
-    DiffImage.LoadFromFile('..\..\..\data\map\Earth.jpg');
+    DiffImage.LoadFromFile('..\..\data\map\Earth.jpg');
 
     ShaderV.Source.Text := MemoSVC.Text;
     for T in ShaderV.Errors.Keys do
@@ -128,13 +128,12 @@ begin
         Add(ShaderP.Errors[T]);
       end;
     end;
-
   end;
 end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormLithosphere.Viewport3D1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormAstrogen.Viewport3D1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
   _MouseS := Shift;
@@ -143,7 +142,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormLithosphere.Viewport3D1MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormAstrogen.Viewport3D1MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Single);
 var
   P: TPointF;
@@ -163,7 +162,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormLithosphere.Viewport3D1MouseUp(Sender: TObject; Button: TMouseButton;
+procedure TFormAstrogen.Viewport3D1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
   Viewport3D1MouseMove(Sender, Shift, X, Y);
@@ -173,7 +172,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormLithosphere.Timer1Timer(Sender: TObject);
+procedure TFormAstrogen.Timer1Timer(Sender: TObject);
 begin
   with Sphere1.RotationAngle do
     Y := Y + 1;

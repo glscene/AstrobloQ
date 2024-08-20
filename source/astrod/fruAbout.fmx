@@ -10,4 +10,12 @@ object FormAbout: TFormAbout
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
+  object TextAbout: TText
+    Position.X = 168.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Galaqtiqa'
+  end
 end

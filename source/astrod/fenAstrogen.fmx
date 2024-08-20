@@ -1,7 +1,7 @@
-object FormLithosphere: TFormLithosphere
+object FormAstrogen: TFormAstrogen
   Left = 0
   Top = 0
-  Caption = 'Lithosphere'
+  Caption = 'Astrogen'
   ClientHeight = 600
   ClientWidth = 800
   Position = ScreenCenter

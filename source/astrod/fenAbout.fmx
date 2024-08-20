@@ -10,4 +10,9 @@ object FormAbout: TFormAbout
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
+  object TextAbout: TText
+    Position.X = 232.000000000000000000
+    Position.Y = 56.000000000000000000
+    Text = 'Galaxy'
+  end
 end
