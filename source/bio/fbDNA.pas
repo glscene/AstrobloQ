@@ -119,7 +119,7 @@ end;
 
 procedure TFormDNA.LoadDNA1Click(Sender: TObject);
 begin
-  OpenDNADialog.InitialDir := ExtractFilePath(ParamStr(0)) + '\data';
+  OpenDNADialog.InitialDir := ExtractFilePath(ParamStr(0)) + '\biodata';
   OpenDNADialog.Filter := '*.ini,*.dna';
   if OpenDNADialog.Execute then
   begin
@@ -132,7 +132,7 @@ end;
 
 procedure TFormDNA.SaveDNA1Click(Sender: TObject);
 begin
-  SaveDNADialog.InitialDir := ExtractFilePath(ParamStr(0)) + '\data';
+  SaveDNADialog.InitialDir := ExtractFilePath(ParamStr(0)) + '\biodata';
   SaveDNADialog.Filter := '*.ini,*.dna';
   if SaveDNADialog.Execute then
   begin

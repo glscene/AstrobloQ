@@ -1081,7 +1081,7 @@ begin
   for i := 0 to cLastThing do
   begin
     myDNA := AIDNA(Forms.Items[i]);
-    myFileName := 'data\' + ThingName(i) + '.ini';
+    myFileName := 'biodata\' + ThingName(i) + '.ini';
     if FileExists(myFileName) then
       myDNA.LoadFromINI(myFileName);
   end;

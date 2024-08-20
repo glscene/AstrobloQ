@@ -9,10 +9,12 @@ uses
 
 const
   SELDIRHELP: INTEGER = 180;
+  ActiveLanguage: Integer = 9; // 9 - LANG_ENGLISH, 25 - LANG_RUSSIAN
+
 
 type
   PrefRecord = record
-    // Запись в .pof файл, первая строка служит как Version ID
+    // Record to .pof, the first line as Version ID
     PHiddenString, PShpPath, PEarthDataPath, PEarthModelPath, PEarthPhotoPath,
       PEarthHRPath: string[255];
     PStartedNameNumber: string[25];
@@ -67,7 +69,7 @@ var
   DotColorArray: array of TColor;
   MarkerIndex, ColorIndex: Integer;
 
-  MMSysHandle: THandle; // для звука
+  MMSysHandle: THandle; // for sound
 
 procedure DoLoader;
 procedure SetPreferences;

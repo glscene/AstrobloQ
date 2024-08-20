@@ -225,7 +225,7 @@ var
   myFile: TextFile;
   i: integer;
 begin
-  AssignFile(myFile, 'data\pops.csv');
+  AssignFile(myFile, 'biodata\pops.csv');
   Rewrite(myFile);
 
   for i := 0 to cLastThing do

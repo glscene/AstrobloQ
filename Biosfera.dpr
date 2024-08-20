@@ -87,7 +87,9 @@ uses
   fbTutorial in 'source\bio\fbTutorial.pas' {fmTutorial},
   dbImages in 'source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm in 'source\bio\fbMiniForm.pas',
-  GnuGetText in 'source\ucode\GnuGetText.pas';
+  GnuGetText in 'source\ucode\GnuGetText.pas',
+  fForm in 'source\fForm.pas' {FormI},
+  uGlobals in 'source\ucode\uGlobals.pas';
 
 {$R *.res}
 
@@ -99,5 +101,6 @@ begin
   Application.CreateForm(TFormImages, FormImages);
   Application.CreateForm(TfmTutorial, fmTutorial);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

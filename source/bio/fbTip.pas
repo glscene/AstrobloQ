@@ -25,12 +25,12 @@ type
     cbxShowTips: TCheckBox;
     Image: TImage;
     lblTitle: TLabel;
-    mbTip: TMemo;
     pnlBottom: TPanel;
     pnlTip: TPanel;
     pnlTipDetails: TPanel;
     status: TStatusBar;
     bPreviousTip: TBitBtn;
+    mbTip: TMemo;
     procedure bNextTipClick(Sender: TObject);
     procedure bRandomTipClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

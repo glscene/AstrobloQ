@@ -154,25 +154,22 @@ object FormTip: TFormTip
         Transparent = True
       end
       object mbTip: TMemo
-        Left = 88
-        Top = 74
-        Width = 556
-        Height = 267
+        Left = 14
+        Top = 87
+        Width = 631
+        Height = 264
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        BorderStyle = bsNone
-        Color = clInfoBk
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -19
-        Font.Name = 'Tahoma'
+        Font.Name = 'Verdana'
         Font.Style = []
         Lines.Strings = (
           'mbTip')
         ParentFont = False
-        ReadOnly = True
         TabOrder = 0
       end
     end

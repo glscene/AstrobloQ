@@ -12,12 +12,15 @@ uses
   Winapi.Windows,
   System.SysUtils,
   System.IniFiles,
+  System.Classes,
   Vcl.Forms,
   Vcl.Graphics,
   Vcl.Menus,
   Vcl.ExtDlgs,
+  Vcl.Controls,
+  Vcl.StdCtrls,
 
-  gnuGettext, System.Classes, Vcl.Controls, Vcl.StdCtrls;
+  gnuGettext;
 
 type
   TFormI = class(TForm)
@@ -32,7 +35,7 @@ type
 var
   FormI: TFormI;
 
-implementation
+implementation //-----------------------------------------------------------
 
 {$R *.dfm}
 
@@ -43,7 +46,7 @@ begin
   SetLanguage;
 end;
 
-//----------------------------------------------------------
+//-------------------------------------------------------------------------
 procedure TFormI.SetLanguage;
 var
   LocalePath : TFileName;
@@ -53,8 +56,8 @@ begin
 
   if (LangID <> LANG_ENGLISH) then
   begin
-    Textdomain('galaktika');
-    BindTextDomain ('galaktika', LocalePath);
+    Textdomain('galaxy');
+    BindTextDomain ('galaxy', LocalePath);
 //    AddDomainForResourceString('language');
 //    BindTextDomain ('language', LocalePath);
     case LangID of

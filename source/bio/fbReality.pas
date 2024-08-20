@@ -23,6 +23,7 @@ uses
   fbManager,
   fbMiniForm,
 
+  uGlobals,
   gnugettext;
 
 // geTipofDay
@@ -197,8 +198,9 @@ uses
   fbTutorial,
   fbKeyboard,
   fbMaximums,
-  fbSettings,
-  fbTip;
+  fbTip,
+  fbSettings
+  ;
 
 {$R *.DFM}
 
@@ -212,6 +214,7 @@ begin
   fExitInstruction := cInstructionExit;
   if FormFirst.UserSettings.TipOfTheDay then
     RealityClock.Enabled := false;
+  inherited;
 end;
 
 // -----------------------------------------------------------------------------
@@ -523,9 +526,9 @@ end;
 procedure TfmReality.menuSaveClick(Sender: TObject);
 begin
   if SaveRealityToFile(FileName) then
-    ShowMessage('Reality saved (' + FileName + ')')
+    ShowMessage(_('Reality saved ') + FileName)
   else
-    ShowMessage('Failed to save reality');
+    ShowMessage(_('Failed to save reality'));
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
 
@@ -537,7 +540,7 @@ begin
   Rewrite(myFile);
   Reality.SaveToFile(myFile);
   FormFirst.UserSettings.WorkingFile := aFileName;
-  writeln(myFile, 'Saved at: ' + DateToStr(Now) + ' ' + TimeToStr(Now));
+  Writeln(myFile, _('Saved at ') + DateToStr(Now) + ' ' + TimeToStr(Now));
   CloseFile(myFile);
   FileName := aFileName;
   result := true;
@@ -570,9 +573,9 @@ begin
   if sdSaveReality.Execute then
   begin
     if SaveRealityToFile(sdSaveReality.FileName) then
-      ShowMessage('World saved as (' + FileName + ')')
+      ShowMessage(_('World saved as ') + FileName)
     else
-      ShowMessage('Failed to save world');
+      ShowMessage(_('Failed to save world'));
   end;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
@@ -728,7 +731,10 @@ var
   myTip: TFormTip;
 begin
   myTip := TFormTip.Create(self);
-  myTip.LoadTipFile(ExtractFilePath(ParamStr(0)) + '\data\tips.txt');
+  if ActiveLanguage = LANG_ENGLISH then
+    myTip.LoadTipFile(ExtractFilePath(ParamStr(0)) + '\biodata\tips.txt')
+  else
+    myTip.LoadTipFile(ExtractFilePath(ParamStr(0)) + '\biodata\tips_ru.txt');
   myTip.cbxShowTips.Checked := FormFirst.UserSettings.TipOfTheDay;
   myTip.RandomTip;
   myTip.ShowModal;
