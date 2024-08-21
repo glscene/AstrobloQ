@@ -175,7 +175,7 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="4">
-                <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..bin\Litosfera.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Litosfera.exe</RemoteName>
                         <Overwrite>true</Overwrite>

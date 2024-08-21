@@ -3,7 +3,7 @@
 msgid ""
 msgstr "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-08-17 11:31+0300\n"
+"PO-Revision-Date: 2024-08-22 00:30+0300\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -13,49 +13,40 @@ msgstr "Project-Id-Version: \n"
 "X-Generator: Poedit 3.4.4\n"
 
 #. FormAbout..Caption
-#: fAbout.dfm:9
 #. FormAbout..Caption
-#: lito/flAbout.dfm:9
+#: fAbout.dfm:9 lito/flAbout.dfm:9
 msgid "About"
 msgstr "О программе"
 
 #. FormAbout..Font.Name
-#: fAbout.dfm:16
 #. FormAbout..PageControl..tsInfo..Label1..Font.Name
-#: fAbout.dfm:56212
 #. FormExoplanets..Font.Name
-#: fExoplanets.dfm:15
-#. FormGalaktika..Font.Name
-#: fGalaxy.dfm:15
-#. FormGalaktika..PageControl1..tsDatacat..DBGrid..TitleFont.Name
-#: fGalaxy.dfm:775
+#. FormGalaxy..Font.Name
+#. FormGalaxy..PageControl1..tsDatacat..DBGrid..TitleFont.Name
+#. FormNewStarcube..Font.Name
 #. FormSettings..PanelMain..PageControl..tsGalaxy..LabelDs..Font.Name
-#: fSettings.dfm:374
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Font.Name
-#: fSettings.dfm:423
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNs..Font.Name
-#: fSettings.dfm:441
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbNt..Font.Name
-#: fSettings.dfm:461
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFl..Font.Name
-#: fSettings.dfm:481
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFb..Font.Name
-#: fSettings.dfm:501
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFn..Font.Name
-#: fSettings.dfm:521
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFt..Font.Name
-#: fSettings.dfm:541
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..LabelDt..Font.Name
-#: fSettings.dfm:561
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..lbFp..Font.Name
-#: fSettings.dfm:581
 #. FormSettings..PanelMain..PageControl..tsGalaxy..grbDrakeFormula..Label4..Font.Name
-#: fSettings.dfm:600
 #. FormSettings..PanelMain..PageControl..tsGalaxy..ButtonCalculate..Font.Name
-#: fSettings.dfm:1108
 #. FormAbout..Font.Name
-#: lito/flAbout.dfm:16
 #. FormSettings..Font.Name
+#: fAbout.dfm:16 fAbout.dfm:56212 fExoplanets.dfm:15
+#: fGalaxy.dfm:15 fGalaxy.dfm:763
+#: fNewStarcube.dfm:15 fSettings.dfm:374
+#: fSettings.dfm:423 fSettings.dfm:441
+#: fSettings.dfm:461 fSettings.dfm:481
+#: fSettings.dfm:501 fSettings.dfm:521
+#: fSettings.dfm:541 fSettings.dfm:561
+#: fSettings.dfm:581 fSettings.dfm:600
+#: fSettings.dfm:1108 lito/flAbout.dfm:16
 #: lito/flSettings.dfm:17
 msgid "Segoe UI"
 msgstr ""
@@ -101,9 +92,8 @@ msgid "Analyser"
 msgstr "Анализатор"
 
 #. FormAnalyser..PageControl..tsAverageDistance..Caption
-#: fAnalyser.dfm:52
 #. FormSettings..PanelMain..PageControl..tsPathway..Caption
-#: fSettings.dfm:1299
+#: fAnalyser.dfm:52 fSettings.dfm:1299
 msgid "Pathway"
 msgstr "Путь"
 
@@ -113,10 +103,9 @@ msgid "Drake formula"
 msgstr "Формула Дрейка"
 
 #. FormAnalyser..PanelBottom..ButtonOk..Caption
-#: fAnalyser.dfm:136
 #. FormMonitor..PanelBottom..ButtonOk..Caption
-#: fMonitor.dfm:29
 #. FormSettings..PanelBottom..ButtonOk..Caption
+#: fAnalyser.dfm:136 fMonitor.dfm:29
 #: fSettings.dfm:31
 msgid "Ok"
 msgstr "ОК"
@@ -131,402 +120,393 @@ msgstr "Экзопланеты"
 msgid "Terraplanets"
 msgstr "Террапланеты"
 
-#. FormGalaktika..Caption
-#: fGalaxy.dfm:8
-msgid "Galaktika"
-msgstr ""
+#. FormGalaxy..Caption
+#. FormSettings..PanelMain..PageControl..tsGalaxy..Caption
+#: fGalaxy.dfm:8 fSettings.dfm:291
+msgid "Galaxy"
+msgstr "Галактика"
 
-#. FormGalaktika..ControlBar..ToolBarView..tbSolarcube..Hint
-#: fGalaxy.dfm:108
-#. FormGalaktika..PageControl1..tsSolarcube..Caption
-#: fGalaxy.dfm:160
+#. FormGalaxy..ControlBar..ToolBarView..tbSolarcube..Hint
+#: fGalaxy.dfm:111
 msgid "Solarcube"
 msgstr "Соларкуб"
 
-#. FormGalaktika..ControlBar..ToolBarView..tbAddStars..Hint
-#: fGalaxy.dfm:117
+#. FormGalaxy..ControlBar..ToolBarView..tbAddStars..Hint
+#: fGalaxy.dfm:120
 msgid "Add stars"
 msgstr "Добавить звёзд"
 
-#. FormGalaktika..ControlBar..ToolBarView..tbClearCubes..Hint
-#: fGalaxy.dfm:126
-msgid "Clear solarcube"
-msgstr "Очистить соларкуб"
+#. FormGalaxy..ControlBar..ToolBarView..tbAxes..Hint
+#. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxAxes..Caption
+#. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxAxes..Caption
+#: fGalaxy.dfm:129 fSettings.dfm:201
+#: lito/flSettings.dfm:401
+msgid "Axes"
+msgstr "Оси"
 
-#. FormGalaktika..ControlBar..ToolBarView..tbAxes..Hint
-#: fGalaxy.dfm:135
+#. FormGalaxy..ControlBar..ToolBarView..tbRotation..Hint
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxRotate..Caption
-#: fSettings.dfm:229
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxRotate..Caption
-#: lito/flSettings.dfm:386
 #. FormSolarSys..PanelRight..cbRotation..Caption
-#: lito/flSolarSystem.dfm:193
 #. FormStarSys..PanelRight..cbRotation..Caption
+#: fGalaxy.dfm:138 fSettings.dfm:229
+#: lito/flSettings.dfm:386
+#: lito/flSolarSystem.dfm:193
 #: lito/flStellarSystem.dfm:193
 msgid "Rotation"
 msgstr "Вращение"
 
-#. FormGalaktika..PageControl1..tsGalacube..Caption
-#: fGalaxy.dfm:185
-msgid "Galacube"
-msgstr "Галакуб"
+#. FormGalaxy..ControlBar..ToolBarView..tbRotation..Caption
+#: fGalaxy.dfm:139
+msgid "tbRotation"
+msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..Caption
-#: fGalaxy.dfm:222
+#. FormGalaxy..ControlBar..ToolBarView..tbClearCubes..Hint
+#: fGalaxy.dfm:148
+msgid "Clear solarcube"
+msgstr "Очистить соларкуб"
+
+#. FormGalaxy..PageControl1..tsGalacube..Caption
+#: fGalaxy.dfm:173
+msgid "Space"
+msgstr ""
+
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..Caption
+#: fGalaxy.dfm:210
 msgid "Spectral classes"
 msgstr "Спектральные классы"
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..Label1..Caption
-#: fGalaxy.dfm:317
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..Label1..Caption
+#: fGalaxy.dfm:305
 msgid "%"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..Label2..Caption
-#: fGalaxy.dfm:328
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..Label2..Caption
+#: fGalaxy.dfm:316
 msgid "Number"
 msgstr "Число"
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbO..Caption
-#: fGalaxy.dfm:352
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbO..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1155
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
+#: fGalaxy.dfm:340 fSettings.dfm:1155
 #: lito/flSettings.dfm:119
 msgid "O"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbB..Caption
-#: fGalaxy.dfm:368
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbB..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1156
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
+#: fGalaxy.dfm:356 fSettings.dfm:1156
 #: lito/flSettings.dfm:120
 msgid "B"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbA..Caption
-#: fGalaxy.dfm:384
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbA..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1157
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
+#: fGalaxy.dfm:372 fSettings.dfm:1157
 #: lito/flSettings.dfm:121
 msgid "A"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbF..Caption
-#: fGalaxy.dfm:400
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbF..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1158
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
+#: fGalaxy.dfm:388 fSettings.dfm:1158
 #: lito/flSettings.dfm:122
 msgid "F"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbG..Caption
-#: fGalaxy.dfm:416
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbG..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1159
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
+#: fGalaxy.dfm:404 fSettings.dfm:1159
 #: lito/flSettings.dfm:123
 msgid "G"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbK..Caption
-#: fGalaxy.dfm:434
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbK..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1160
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
+#: fGalaxy.dfm:422 fSettings.dfm:1160
 #: lito/flSettings.dfm:124
 msgid "K"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbM..Caption
-#: fGalaxy.dfm:452
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbM..Caption
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: fSettings.dfm:1161
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SunRG....Items.Strings
-#: lito/flGenExosys.dfm:281
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CometRG....Items.Strings
-#: lito/flGenExosys.dfm:297
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..DebrisRG....Items.Strings
-#: lito/flGenExosys.dfm:315
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..AsteroidRG....Items.Strings
-#: lito/flGenExosys.dfm:333
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..PlanetsRG....Items.Strings
-#: lito/flGenExosys.dfm:1155
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses....Items.Strings
-#: lito/flSettings.dfm:125
+#: fGalaxy.dfm:440 fSettings.dfm:1161
+#: lito/flGenExosys.dfm:281 lito/flGenExosys.dfm:297
+#: lito/flGenExosys.dfm:315 lito/flGenExosys.dfm:333
+#: lito/flGenExosys.dfm:1155 lito/flSettings.dfm:125
 msgid "M"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Hint
-#: fGalaxy.dfm:695
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Hint
+#: fGalaxy.dfm:683
 msgid "White Dwaft"
 msgstr "Белые карлики"
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Caption
-#: fGalaxy.dfm:700
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Caption
+#: fGalaxy.dfm:688
 msgid "D"
 msgstr ""
 
-#. FormGalaktika..PageControl1..tsGalacube..PanelRight..chbAll..Caption
-#: fGalaxy.dfm:749
+#. FormGalaxy..PageControl1..tsGalacube..PanelRight..chbAll..Caption
+#: fGalaxy.dfm:737
 msgid "All stars"
 msgstr "Все звёзды"
 
-#. FormGalaktika..PageControl1..tsDatacat..Caption
-#: fGalaxy.dfm:760
-msgid "Datacat"
-msgstr "Датакат"
+#. FormGalaxy..PageControl1..tsDatacat..Caption
+#: fGalaxy.dfm:748
+msgid "Data"
+msgstr ""
 
-#. FormGalaktika..PageControl1..tsDatacat..MemoTable....Lines.Strings
-#: fGalaxy.dfm:789
+#. FormGalaxy..PageControl1..tsDatacat..MemoTable....Lines.Strings
+#: fGalaxy.dfm:777
 msgid "MemoTable"
 msgstr ""
 
-#. FormGalaktika..GLScene..dcAxes..SpaceTextX..Font.Name
-#: fGalaxy.dfm:854
-#. FormGalaktika..GLScene..dcAxes..SpaceTextZ..Font.Name
-#: fGalaxy.dfm:869
-#. FormGalaktika..GLScene..dcAxes..SpaceTextY..Font.Name
-#: fGalaxy.dfm:886
+#. FormGalaxy..GLScene..dcAxes..SpaceTextX..Font.Name
+#. FormGalaxy..GLScene..dcAxes..SpaceTextZ..Font.Name
+#. FormGalaxy..GLScene..dcAxes..SpaceTextY..Font.Name
 #. FormGenPlanetsys..WindowsBitmapFontA..Font.Name
+#: fGalaxy.dfm:842 fGalaxy.dfm:857 fGalaxy.dfm:874
 #: lito/flGenExosys.dfm:1978
 msgid "Arial"
 msgstr ""
 
-#. FormGalaktika..GLScene..dcAxes..SpaceTextX....Lines.Strings
-#: fGalaxy.dfm:857
+#. FormGalaxy..GLScene..dcAxes..SpaceTextX....Lines.Strings
+#: fGalaxy.dfm:845
 msgid "X"
 msgstr ""
 
-#. FormGalaktika..GLScene..dcAxes..SpaceTextZ....Lines.Strings
-#: fGalaxy.dfm:872
+#. FormGalaxy..GLScene..dcAxes..SpaceTextZ....Lines.Strings
+#: fGalaxy.dfm:860
 msgid "Z"
 msgstr ""
 
-#. FormGalaktika..GLScene..dcAxes..SpaceTextY....Lines.Strings
-#: fGalaxy.dfm:889
+#. FormGalaxy..GLScene..dcAxes..SpaceTextY....Lines.Strings
+#: fGalaxy.dfm:877
 msgid "Y"
 msgstr ""
 
-#. FormGalaktika..GLScene..dcGalacube..diskGalaxy..Material.LibMaterialName
-#: fGalaxy.dfm:923
+#. FormGalaxy..GLScene..dcGalacube..diskGalaxy..Material.LibMaterialName
+#: fGalaxy.dfm:911
 msgid "Milkyway"
 msgstr ""
 
-#. FormGalaktika..MainMenu..miFile..Caption
-#: fGalaxy.dfm:953
+#. FormGalaxy..MainMenu..miFile..Caption
 #. FormLitosfera..MainMenu..miOpen..Caption
-#: lito/flLitosfera.dfm:88688
+#: fGalaxy.dfm:941 lito/flLitosfera.dfm:88688
 msgid "&File"
 msgstr "&Файл"
 
-#. FormGalaktika..MainMenu..miFile..miOpen..Caption
-#: fGalaxy.dfm:955
-#. FormLitosfera..MainMenu..miOpen..miFileOpen..Caption
-#: lito/flLitosfera.dfm:88690
-#. FormSolarSys..MainMenu..File1..Open1..Caption
-#: lito/flSolarSystem.dfm:850
-#. FormStarSys..MainMenu..File1..Open1..Caption
-#: lito/flStellarSystem.dfm:826
-msgid "Open..."
-msgstr "Открыть..."
+#. FormGalaxy..MainMenu..miFile..miNewStarcube..Caption
+#: fGalaxy.dfm:943
+msgid "New..."
+msgstr ""
 
-#. FormGalaktika..MainMenu..miFile..miSave..Caption
-#: fGalaxy.dfm:960
-#. FormGenPlanetsys..SolarDataPanel..ToolBarGB..BtnPanel..SaveBtn..Caption
-#: lito/flGenExosys.dfm:1366
-#. FormSolarSys..MainMenu..File1..Save1..Caption
-#: lito/flSolarSystem.dfm:854
-#. FormStarSys..MainMenu..File1..Save1..Caption
-#: lito/flStellarSystem.dfm:830
-msgid "Save"
-msgstr "Сохранить"
-
-#. FormGalaktika..MainMenu..miFile..miSaveAs..Caption
-#: fGalaxy.dfm:963
-#. FormLitosfera..MainMenu..miOpen..miFileSaveAs..Caption
-#: lito/flLitosfera.dfm:88694
-#. FormSolarSys..MainMenu..File1..SaveAs1..Caption
-#: lito/flSolarSystem.dfm:857
-msgid "Save as..."
-msgstr "Сохранить как..."
-
-#. FormGalaktika..MainMenu..miFile..miN2..Caption
-#: fGalaxy.dfm:967
-#. FormGalaktika..MainMenu..miEdit..miN4..Caption
-#: fGalaxy.dfm:982
-#. FormGalaktika..MainMenu..miEdit..miN3..Caption
-#: fGalaxy.dfm:997
-#. FormGalaktika..MainMenu..miEdit..miN1..Caption
-#: fGalaxy.dfm:1009
-#. FormGalaktika..MainMenu..miTools..miN5..Caption
-#: fGalaxy.dfm:1039
-#. FormGalaktika..MainMenu..miHelp..miN6..Caption
-#: fGalaxy.dfm:1060
+#. FormGalaxy..MainMenu..miFile..N1..Caption
+#. FormGalaxy..MainMenu..miFile..miN2..Caption
+#. FormGalaxy..MainMenu..miEdit..miN4..Caption
+#. FormGalaxy..MainMenu..miEdit..miN3..Caption
+#. FormGalaxy..MainMenu..miEdit..miN1..Caption
+#. FormGalaxy..MainMenu..miTools..miN5..Caption
+#. FormGalaxy..MainMenu..miHelp..miN6..Caption
 #. FormLitosfera..MainMenu..miOpen..N2..Caption
-#: lito/flLitosfera.dfm:88698
 #. FormLitosfera..MainMenu..miView..N4..Caption
-#: lito/flLitosfera.dfm:88716
 #. FormLitosfera..MainMenu..miView..N6..Caption
-#: lito/flLitosfera.dfm:88728
 #. FormLitosfera..MainMenu..miMonitor..N1..Caption
-#: lito/flLitosfera.dfm:88741
 #. FormLitosfera..MainMenu..miTools..N7..Caption
-#: lito/flLitosfera.dfm:88755
 #. FormLitosfera..MainMenu..miHelp..N3..Caption
-#: lito/flLitosfera.dfm:88771
 #. FormSolarSys..MainMenu..File1..N2..Caption
-#: lito/flSolarSystem.dfm:860
 #. FormSolarSys..MainMenu..Window1..N1..Caption
-#: lito/flSolarSystem.dfm:874
 #. FormSolarSys..MainMenu..Help1..N7..Caption
-#: lito/flSolarSystem.dfm:888
 #. FormStarSys..MainMenu..File1..N2..Caption
-#: lito/flStellarSystem.dfm:836
 #. FormStarSys..MainMenu..Window1..N1..Caption
+#: fGalaxy.dfm:947 fGalaxy.dfm:962 fGalaxy.dfm:977
+#: fGalaxy.dfm:992 fGalaxy.dfm:1004 fGalaxy.dfm:1034
+#: fGalaxy.dfm:1055 lito/flLitosfera.dfm:88698
+#: lito/flLitosfera.dfm:88716
+#: lito/flLitosfera.dfm:88728
+#: lito/flLitosfera.dfm:88741
+#: lito/flLitosfera.dfm:88755
+#: lito/flLitosfera.dfm:88771
+#: lito/flSolarSystem.dfm:860
+#: lito/flSolarSystem.dfm:874
+#: lito/flSolarSystem.dfm:888
+#: lito/flStellarSystem.dfm:836
 #: lito/flStellarSystem.dfm:849
 msgid "-"
 msgstr ""
 
-#. FormGalaktika..MainMenu..miFile..miExit..Caption
-#: fGalaxy.dfm:970
+#. FormGalaxy..MainMenu..miFile..miOpen..Caption
+#. FormLitosfera..MainMenu..miOpen..miFileOpen..Caption
+#. FormSolarSys..MainMenu..File1..Open1..Caption
+#. FormStarSys..MainMenu..File1..Open1..Caption
+#: fGalaxy.dfm:950 lito/flLitosfera.dfm:88690
+#: lito/flSolarSystem.dfm:850
+#: lito/flStellarSystem.dfm:826
+msgid "Open..."
+msgstr "Открыть..."
+
+#. FormGalaxy..MainMenu..miFile..miSave..Caption
+#. FormGenPlanetsys..SolarDataPanel..ToolBarGB..BtnPanel..SaveBtn..Caption
+#. FormSolarSys..MainMenu..File1..Save1..Caption
+#. FormStarSys..MainMenu..File1..Save1..Caption
+#: fGalaxy.dfm:955 lito/flGenExosys.dfm:1366
+#: lito/flSolarSystem.dfm:854
+#: lito/flStellarSystem.dfm:830
+msgid "Save"
+msgstr "Сохранить"
+
+#. FormGalaxy..MainMenu..miFile..miSaveAs..Caption
+#. FormLitosfera..MainMenu..miOpen..miFileSaveAs..Caption
+#. FormSolarSys..MainMenu..File1..SaveAs1..Caption
+#: fGalaxy.dfm:958 lito/flLitosfera.dfm:88694
+#: lito/flSolarSystem.dfm:857
+msgid "Save as..."
+msgstr "Сохранить как..."
+
+#. FormGalaxy..MainMenu..miFile..miExit..Caption
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..BtnPanel..ExitBtn..Caption
-#: lito/flGenExosys.dfm:1394
 #. FormGenPlanetsys..PopupMenuA..Exit1..Caption
-#: lito/flGenExosys.dfm:1952
 #. FormLitosfera..MainMenu..miOpen..miFileExit..Caption
-#: lito/flLitosfera.dfm:88701
 #. FormSolarSys..MainMenu..File1..Exit1..Caption
-#: lito/flSolarSystem.dfm:863
 #. FormStarSys..MainMenu..File1..N3..Caption
+#: fGalaxy.dfm:965 lito/flGenExosys.dfm:1394
+#: lito/flGenExosys.dfm:1952
+#: lito/flLitosfera.dfm:88701
+#: lito/flSolarSystem.dfm:863
 #: lito/flStellarSystem.dfm:839
 msgid "Exit"
 msgstr "Выход"
 
-#. FormGalaktika..MainMenu..miEdit..Caption
-#: fGalaxy.dfm:976
+#. FormGalaxy..MainMenu..miEdit..Caption
+#: fGalaxy.dfm:971
 msgid "&Edit"
 msgstr "&Правка"
 
-#. FormGalaktika..MainMenu..miEdit..miUndo..Caption
-#: fGalaxy.dfm:978
+#. FormGalaxy..MainMenu..miEdit..miUndo..Caption
+#: fGalaxy.dfm:973
 msgid "Cancel"
 msgstr "Отмена"
 
-#. FormGalaktika..MainMenu..miEdit..miCut..Caption
-#: fGalaxy.dfm:985
+#. FormGalaxy..MainMenu..miEdit..miCut..Caption
+#: fGalaxy.dfm:980
 msgid "Cut"
 msgstr "Вырезать"
 
-#. FormGalaktika..MainMenu..miEdit..miCopy..Caption
-#: fGalaxy.dfm:989
+#. FormGalaxy..MainMenu..miEdit..miCopy..Caption
+#: fGalaxy.dfm:984
 msgid "Copy"
 msgstr "Копировать"
 
-#. FormGalaktika..MainMenu..miEdit..miPaste..Caption
-#: fGalaxy.dfm:993
+#. FormGalaxy..MainMenu..miEdit..miPaste..Caption
+#: fGalaxy.dfm:988
 msgid "Insert"
 msgstr "Вставить"
 
-#. FormGalaktika..MainMenu..miEdit..miFind..Caption
-#: fGalaxy.dfm:1000
+#. FormGalaxy..MainMenu..miEdit..miFind..Caption
+#: fGalaxy.dfm:995
 msgid "Find..."
 msgstr "Найти..."
 
-#. FormGalaktika..MainMenu..miEdit..miReplace..Caption
-#: fGalaxy.dfm:1003
+#. FormGalaxy..MainMenu..miEdit..miReplace..Caption
+#: fGalaxy.dfm:998
 msgid "Replace..."
 msgstr "Заменить..."
 
-#. FormGalaktika..MainMenu..miEdit..miGoTo..Caption
-#: fGalaxy.dfm:1006
+#. FormGalaxy..MainMenu..miEdit..miGoTo..Caption
+#: fGalaxy.dfm:1001
 msgid "Go to..."
 msgstr "Перейти к..."
 
-#. FormGalaktika..MainMenu..miEdit..miObject..Caption
-#: fGalaxy.dfm:1012
+#. FormGalaxy..MainMenu..miEdit..miObject..Caption
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..GroupBox6..Caption
-#: lito/flGenExosys.dfm:640
+#: fGalaxy.dfm:1007 lito/flGenExosys.dfm:640
 msgid "Object"
 msgstr "Объект"
 
-#. FormGalaktika..MainMenu..miView..Caption
-#: fGalaxy.dfm:1016
+#. FormGalaxy..MainMenu..miView..Caption
 #. FormLitosfera..MainMenu..miView..Caption
-#: lito/flLitosfera.dfm:88706
+#: fGalaxy.dfm:1011 lito/flLitosfera.dfm:88706
 msgid "&View"
 msgstr "&Вид"
 
-#. FormGalaktika..MainMenu..miView..miProjection..Caption
-#: fGalaxy.dfm:1018
+#. FormGalaxy..MainMenu..miView..miProjection..Caption
+#: fGalaxy.dfm:1013
 msgid "Star projections..."
 msgstr "Проекции звёзд..."
 
-#. FormGalaktika..MainMenu..miView..Exoplanets1..Caption
-#: fGalaxy.dfm:1022
+#. FormGalaxy..MainMenu..miView..Exoplanets1..Caption
+#: fGalaxy.dfm:1017
 msgid "Exoplanets..."
 msgstr "Экзопланеты."
 
-#. FormGalaktika..MainMenu..miView..miPanelShow..Caption
-#: fGalaxy.dfm:1026
+#. FormGalaxy..MainMenu..miView..miPanelShow..Caption
+#: fGalaxy.dfm:1021
 msgid "Panels"
 msgstr "Панели"
 
-#. FormGalaktika..MainMenu..miTools..Caption
-#: fGalaxy.dfm:1032
-msgid "&Options"
-msgstr "&Опции"
+#. FormGalaxy..MainMenu..miTools..Caption
+#. FormLitosfera..MainMenu..miTools..Caption
+#: fGalaxy.dfm:1027 lito/flLitosfera.dfm:88749
+msgid "&Tools"
+msgstr "&Инструменты"
 
-#. FormGalaktika..MainMenu..miTools..miSettings..Caption
-#: fGalaxy.dfm:1034
+#. FormGalaxy..MainMenu..miTools..miSettings..Caption
 #. FormLitosfera..MainMenu..miTools..miSettings..Caption
-#: lito/flLitosfera.dfm:88751
+#: fGalaxy.dfm:1029 lito/flLitosfera.dfm:88751
 msgid "Settings..."
 msgstr "Настройки..."
 
-#. FormGalaktika..MainMenu..miTools..miAnalyser..Caption
-#: fGalaxy.dfm:1042
+#. FormGalaxy..MainMenu..miTools..miAnalyser..Caption
+#: fGalaxy.dfm:1037
 msgid "Analyser..."
 msgstr "Анализатор..."
 
-#. FormGalaktika..MainMenu..miTools..miMonitor..Caption
-#: fGalaxy.dfm:1046
+#. FormGalaxy..MainMenu..miTools..miMonitor..Caption
+#: fGalaxy.dfm:1041
 msgid "Monitor..."
 msgstr "Монитор..."
 
-#. FormGalaktika..MainMenu..miTools..miParadox..Caption
-#: fGalaxy.dfm:1050
+#. FormGalaxy..MainMenu..miTools..miParadox..Caption
+#: fGalaxy.dfm:1045
 msgid "Paradox..."
 msgstr "Парадокс..."
 
-#. FormGalaktika..MainMenu..miHelp..Caption
-#: fGalaxy.dfm:1055
+#. FormGalaxy..MainMenu..miHelp..Caption
 #. FormLitosfera..MainMenu..miHelp..Caption
-#: lito/flLitosfera.dfm:88763
+#: fGalaxy.dfm:1050 lito/flLitosfera.dfm:88763
 msgid "&Help"
 msgstr "&Справка"
 
-#. FormGalaktika..MainMenu..miHelp..miRuwiki..Caption
-#: fGalaxy.dfm:1057
+#. FormGalaxy..MainMenu..miHelp..miRuwiki..Caption
 #. FormLitosfera..MainMenu..miHelp..miHelpWiki..Caption
-#: lito/flLitosfera.dfm:88765
+#: fGalaxy.dfm:1052 lito/flLitosfera.dfm:88765
 msgid "Ruwiki..."
 msgstr ""
 
-#. FormGalaktika..MainMenu..miHelp..miAbout..Caption
-#: fGalaxy.dfm:1063
+#. FormGalaxy..MainMenu..miHelp..miAbout..Caption
 #. FormLitosfera..MainMenu..miHelp..About1..Caption
-#: lito/flLitosfera.dfm:88774
 #. FormSolarSys..MainMenu..Help1..About1..Caption
+#: fGalaxy.dfm:1058 lito/flLitosfera.dfm:88774
 #: lito/flSolarSystem.dfm:891
 msgid "About..."
 msgstr "О программе..."
 
-#. FormGalaktika..GLSimpleNavigation..FormCaption
-#: fGalaxy.dfm:1082
-msgid "Galaktika - %FPS"
+#. FormGalaxy..GLSimpleNavigation..FormCaption
+#: fGalaxy.dfm:1077
+msgid "Galaxy - %FPS"
 msgstr ""
 
 #. FormMonitor..Caption
@@ -534,15 +514,25 @@ msgstr ""
 msgid "Monitor"
 msgstr "Монитор"
 
+#. FormNewStarcube..Caption
+#: fNewStarcube.dfm:8
+msgid "New starcube"
+msgstr ""
+
+#. FormNewStarcube..ButtonOk..Caption
+#. FormSettings..PanelBottom..ButtonOK..Caption
+#: fNewStarcube.dfm:28 lito/flSettings.dfm:49
+msgid "OK"
+msgstr "ОК"
+
 #. FormParadox..Caption
 #: fParadox.dfm:2
 msgid "Paradox"
 msgstr "Парадокс"
 
 #. FormSettings..Caption
-#: fSettings.dfm:3
 #. FormSettings..Caption
-#: lito/flSettings.dfm:10
+#: fSettings.dfm:3 lito/flSettings.dfm:10
 msgid "Settings"
 msgstr "Настройки"
 
@@ -572,39 +562,28 @@ msgid "Show splash"
 msgstr "Показать заставку"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..rgLanguage..Caption
-#: fSettings.dfm:160
 #. FormSettings..PanelMiddle..PageControl..tsGeneral..rgLanguage..Caption
-#: lito/flSettings.dfm:658
+#: fSettings.dfm:160 lito/flSettings.dfm:658
 msgid "Language"
 msgstr "Язык"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..rgLanguage....Items.Strings
-#: fSettings.dfm:164
 #. FormSettings..PanelMiddle..PageControl..tsGeneral..rgLanguage....Items.Strings
-#: lito/flSettings.dfm:662
+#: fSettings.dfm:164 lito/flSettings.dfm:662
 msgid "English"
 msgstr "Английский"
 
 #. FormSettings..PanelMain..PageControl..tsInterface..rgLanguage....Items.Strings
-#: fSettings.dfm:165
 #. FormSettings..PanelMiddle..PageControl..tsGeneral..rgLanguage....Items.Strings
-#: lito/flSettings.dfm:663
+#: fSettings.dfm:165 lito/flSettings.dfm:663
 msgid "Russian"
 msgstr "Русский"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..Caption
-#: fSettings.dfm:189
 #. FormSettings..PanelMiddle..PageControl..tsDisplay..Caption
-#: lito/flSettings.dfm:86
+#: fSettings.dfm:189 lito/flSettings.dfm:86
 msgid "Display"
 msgstr "Дисплей"
-
-#. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxAxes..Caption
-#: fSettings.dfm:201
-#. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxAxes..Caption
-#: lito/flSettings.dfm:401
-msgid "Axes"
-msgstr "Оси"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxCoordinates..Caption
 #: fSettings.dfm:215
@@ -612,41 +591,32 @@ msgid "Coordinates"
 msgstr "Координаты"
 
 #. FormSettings..PanelMain..PageControl..tsDisplay..CheckBoxRotate..StyleName
-#: fSettings.dfm:233
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbShowAxes..StyleName
-#: fSettings.dfm:1572
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox4..StyleName
-#: fSettings.dfm:1585
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbCore..StyleName
-#: fSettings.dfm:1598
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbAtmosfera..StyleName
-#: fSettings.dfm:1611
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbClouds..StyleName
-#: fSettings.dfm:1624
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox1..StyleName
-#: fSettings.dfm:1637
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbHidePlanet..StyleName
-#: fSettings.dfm:1650
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox3..StyleName
-#: fSettings.dfm:1663
 #. FormSettings..PanelMiddle..PageControl..tsStars..gbShowStars..chbSkyGrid..StyleName
-#: lito/flSettings.dfm:201
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxRotate..StyleName
-#: lito/flSettings.dfm:390
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxAxes..StyleName
-#: lito/flSettings.dfm:403
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBox4..StyleName
-#: lito/flSettings.dfm:417
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxCore..StyleName
-#: lito/flSettings.dfm:430
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxAtmosfera..StyleName
-#: lito/flSettings.dfm:444
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..chbClouds..StyleName
-#: lito/flSettings.dfm:458
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..chbCartographicGrid..StyleName
-#: lito/flSettings.dfm:472
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxHidePlanet..StyleName
-#: lito/flSettings.dfm:486
+#: fSettings.dfm:233 fSettings.dfm:1572
+#: fSettings.dfm:1585 fSettings.dfm:1598
+#: fSettings.dfm:1611 fSettings.dfm:1624
+#: fSettings.dfm:1637 fSettings.dfm:1650
+#: fSettings.dfm:1663 lito/flSettings.dfm:201
+#: lito/flSettings.dfm:390 lito/flSettings.dfm:403
+#: lito/flSettings.dfm:417 lito/flSettings.dfm:430
+#: lito/flSettings.dfm:444 lito/flSettings.dfm:458
+#: lito/flSettings.dfm:472 lito/flSettings.dfm:486
 msgid "Windows"
 msgstr ""
 
@@ -669,11 +639,6 @@ msgstr "Таблица"
 #: fSettings.dfm:282
 msgid "Change..."
 msgstr "Изменить..."
-
-#. FormSettings..PanelMain..PageControl..tsGalaxy..Caption
-#: fSettings.dfm:291
-msgid "Galaxy"
-msgstr "Галактика"
 
 #. FormSettings..PanelMain..PageControl..tsGalaxy..LabelRg..Caption
 #: fSettings.dfm:303
@@ -819,58 +784,50 @@ msgid "Calculate"
 msgstr "Вычислить"
 
 #. FormSettings..PanelMain..PageControl..tsStars..Caption
-#: fSettings.dfm:1120
 #. FormSettings..PanelMiddle..PageControl..tsStars..Caption
-#: lito/flSettings.dfm:95
+#: fSettings.dfm:1120 lito/flSettings.dfm:95
 msgid "Stars"
 msgstr "Звёзды"
 
 #. FormSettings..PanelMain..PageControl..tsStars..chlbStarClasses..Font.Name
-#: fSettings.dfm:1151
 #. FormSettings..PanelMiddle..PageControl..tsStars..chlbStarClasses..Font.Name
-#: lito/flSettings.dfm:115
+#: fSettings.dfm:1151 lito/flSettings.dfm:115
 msgid "Tahoma"
 msgstr ""
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..Caption
-#: fSettings.dfm:1176
 #. FormSettings..PanelMiddle..PageControl..tsStars..GroupBox2..Caption
-#: lito/flSettings.dfm:140
+#: fSettings.dfm:1176 lito/flSettings.dfm:140
 msgid "Constellations"
 msgstr "Созвездия"
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..chbConstFigures..Caption
-#: fSettings.dfm:1187
 #. FormSettings..PanelMiddle..PageControl..tsStars..GroupBox2..chbConstFigures..Caption
-#: lito/flSettings.dfm:151
+#: fSettings.dfm:1187 lito/flSettings.dfm:151
 msgid "Figures"
 msgstr "Фигуры"
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..chbConstLines..Caption
-#: fSettings.dfm:1199
 #. FormSettings..PanelMiddle..PageControl..tsStars..GroupBox2..chbConstLines..Caption
-#: lito/flSettings.dfm:163
+#: fSettings.dfm:1199 lito/flSettings.dfm:163
 msgid "Lines"
 msgstr "Линии"
 
 #. FormSettings..PanelMain..PageControl..tsStars..GroupBox2..chbConstBounds..Caption
-#: fSettings.dfm:1213
 #. FormSettings..PanelMiddle..PageControl..tsStars..GroupBox2..chbConstBounds..Caption
-#: lito/flSettings.dfm:175
+#: fSettings.dfm:1213 lito/flSettings.dfm:175
 msgid "Borders"
 msgstr "Границы"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..Caption
-#: fSettings.dfm:1223
 #. FormSettings..PanelMiddle..PageControl..tsGeneral..Caption
-#: lito/flSettings.dfm:650
+#: fSettings.dfm:1223 lito/flSettings.dfm:650
 msgid "General"
 msgstr "Общие"
 
 #. FormSettings..PanelMain..PageControl..tsGeneral..LabelPrecision..Caption
-#: fSettings.dfm:1235
 #. FormSettings..PanelMain..PageControl..tsGeneral..SpinEditPrecision..Hint
-#: fSettings.dfm:1263
+#: fSettings.dfm:1235 fSettings.dfm:1263
 msgid "Precision"
 msgstr "Точность"
 
@@ -985,10 +942,9 @@ msgid "Gridnet"
 msgstr "Гриднет"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..Caption
-#: fSettings.dfm:1511
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SSORG....Items.Strings
-#: lito/flGenExosys.dfm:978
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..Caption
+#: fSettings.dfm:1511 lito/flGenExosys.dfm:978
 #: lito/flSettings.dfm:211
 msgid "Planets"
 msgstr "Планеты"
@@ -1044,10 +1000,9 @@ msgid "Icy"
 msgstr "Ледяной"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..Caption
-#: fSettings.dfm:1559
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..BtnPanel..ShowBtn..Caption
-#: lito/flGenExosys.dfm:1296
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..Caption
+#: fSettings.dfm:1559 lito/flGenExosys.dfm:1296
 #: lito/flSettings.dfm:375
 msgid "Show"
 msgstr "Показать"
@@ -1058,40 +1013,35 @@ msgid "Axis"
 msgstr "Оси"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox4..Caption
-#: fSettings.dfm:1583
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBox4..Caption
-#: lito/flSettings.dfm:415
+#: fSettings.dfm:1583 lito/flSettings.dfm:415
 msgid "Shading"
 msgstr "Затенение"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbCore..Caption
-#: fSettings.dfm:1596
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..LabelCore..Caption
-#: fSettings.dfm:1735
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetGuts..LabelCore..Caption
-#: lito/flSettings.dfm:283
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxCore..Caption
-#: lito/flSettings.dfm:428
 #. FormSolarSys..MainMenu..Window1..miInnerCore..Caption
-#: lito/flSolarSystem.dfm:870
 #. FormStarSys..MainMenu..Window1..miInnerCore..Caption
+#: fSettings.dfm:1596 fSettings.dfm:1735
+#: lito/flSettings.dfm:283 lito/flSettings.dfm:428
+#: lito/flSolarSystem.dfm:870
 #: lito/flStellarSystem.dfm:845
 msgid "Core"
 msgstr "Ядро"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbAtmosfera..Caption
-#: fSettings.dfm:1609
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..OrbitGroupBox..AtmosphereCB..Hint
-#: lito/flGenExosys.dfm:584
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..CheckBoxAtmosfera..Caption
+#: fSettings.dfm:1609 lito/flGenExosys.dfm:584
 #: lito/flSettings.dfm:442
 msgid "Atmosphere"
 msgstr "Атмосфера"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..chbClouds..Caption
-#: fSettings.dfm:1622
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbShowPlanets..chbClouds..Caption
-#: lito/flSettings.dfm:456
+#: fSettings.dfm:1622 lito/flSettings.dfm:456
 msgid "Clouds"
 msgstr "Облака"
 
@@ -1106,44 +1056,38 @@ msgid "Hide planet"
 msgstr "Скрыть планету"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbPlanetShow..CheckBox3..Caption
-#: fSettings.dfm:1661
 #. FormSettings..PanelMiddle..PageControl..tsStars..gbShowStars..chbSkyGrid..Caption
-#: lito/flSettings.dfm:199
+#: fSettings.dfm:1661 lito/flSettings.dfm:199
 msgid "Sky grid"
 msgstr "Сетка небосвода"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..Caption
-#: fSettings.dfm:1675
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetGuts..Caption
-#: lito/flSettings.dfm:223
+#: fSettings.dfm:1675 lito/flSettings.dfm:223
 msgid "Layers"
 msgstr "Слои"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..LabelIce..Caption
-#: fSettings.dfm:1687
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetGuts..LabelIce..Caption
-#: lito/flSettings.dfm:235
+#: fSettings.dfm:1687 lito/flSettings.dfm:235
 msgid "Ice"
 msgstr "Лёд"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..LabelWater..Caption
-#: fSettings.dfm:1699
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetGuts..LabelWater..Caption
-#: lito/flSettings.dfm:247
+#: fSettings.dfm:1699 lito/flSettings.dfm:247
 msgid "Water"
 msgstr "Вода"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..LabelCrust..Caption
-#: fSettings.dfm:1711
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetGuts..LabelCrust..Caption
-#: lito/flSettings.dfm:259
+#: fSettings.dfm:1711 lito/flSettings.dfm:259
 msgid "Crust"
 msgstr "Кора"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..grbTerraLayers..LabelMantle..Caption
-#: fSettings.dfm:1723
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetGuts..LabelMantle..Caption
-#: lito/flSettings.dfm:271
+#: fSettings.dfm:1723 lito/flSettings.dfm:271
 msgid "Mantle"
 msgstr "Мантия"
 
@@ -1153,37 +1097,32 @@ msgid "Params"
 msgstr "Парамс"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..GroupBox1..LabelPlanetTilt..Caption
-#: fSettings.dfm:1839
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetParams..LabelPlanetTilt..Caption
-#: lito/flSettings.dfm:511
+#: fSettings.dfm:1839 lito/flSettings.dfm:511
 msgid "Axis tilt"
 msgstr "Наклон оси"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..GroupBox1..LabelPlanetDensity..Caption
-#: fSettings.dfm:1851
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetParams..LabelPlanetDensity..Caption
-#: lito/flSettings.dfm:523
+#: fSettings.dfm:1851 lito/flSettings.dfm:523
 msgid "Density"
 msgstr "Плотность"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..GroupBox1..LabelPlanetRadius..Caption
-#: fSettings.dfm:1863
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetParams..LabelPlanetRadius..Caption
-#: lito/flSettings.dfm:535
+#: fSettings.dfm:1863 lito/flSettings.dfm:535
 msgid "Radius"
 msgstr "Радиус"
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..GroupBox1..LabelGravityAccel..Caption
-#: fSettings.dfm:1875
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetParams..LabelGravityAccel..Caption
-#: lito/flSettings.dfm:547
+#: fSettings.dfm:1875 lito/flSettings.dfm:547
 msgid "Gravity "
 msgstr "Гравитация "
 
 #. FormSettings..PanelMain..PageControl..tsPlanets..GroupBox1..Label6..Caption
-#: fSettings.dfm:1887
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetParams..Label6..Caption
-#: lito/flSettings.dfm:559
+#: fSettings.dfm:1887 lito/flSettings.dfm:559
 msgid "Temperature"
 msgstr "Температура"
 
@@ -1193,37 +1132,34 @@ msgid "Stellar system generator"
 msgstr ""
 
 #. FormGenPlanetsys..Font.Name
-#: lito/flGenExosys.dfm:15
 #. FormGenPlanetsys..FontDialogA..Font.Name
-#: lito/flGenExosys.dfm:1987
 #. FormLitosfera..Font.Name
-#: lito/flLitosfera.dfm:17
 #. FormSolarSys..Font.Name
-#: lito/flSolarSystem.dfm:15
 #. FormStarSys..Font.Name
+#: lito/flGenExosys.dfm:15 lito/flGenExosys.dfm:1987
+#: lito/flLitosfera.dfm:17 lito/flSolarSystem.dfm:15
 #: lito/flStellarSystem.dfm:15
 msgid "MS Sans Serif"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..Label2..Caption
-#: lito/flGenExosys.dfm:108
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..GroupBox6..MoonsLabel..Caption
-#: lito/flGenExosys.dfm:654
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..MoonsUpDown..Hint
+#: lito/flGenExosys.dfm:108 lito/flGenExosys.dfm:654
 #: lito/flGenExosys.dfm:1135
 msgid "Moons"
 msgstr "Луны"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..Label6..Caption
-#: lito/flGenExosys.dfm:121
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..RingsUpDown..Hint
+#: lito/flGenExosys.dfm:121
 #: lito/flGenExosys.dfm:1108
 msgid "Rings"
 msgstr "Кольца"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CameraDistanceLabel..Hint
-#: lito/flGenExosys.dfm:130
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CameraDistanceUpDown..Hint
+#: lito/flGenExosys.dfm:130
 #: lito/flGenExosys.dfm:1628
 msgid "Camera Distance"
 msgstr ""
@@ -1236,7 +1172,7 @@ msgstr ""
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..Label22..Caption
 #: lito/flGenExosys.dfm:146
 msgid "Camera"
-msgstr ""
+msgstr "Камера"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..TimeLabel..Hint
 #: lito/flGenExosys.dfm:153
@@ -1274,15 +1210,15 @@ msgid "1.00"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SunShineLabel..Hint
-#: lito/flGenExosys.dfm:214
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SunShineTB..Hint
+#: lito/flGenExosys.dfm:214
 #: lito/flGenExosys.dfm:1236
 msgid "Sun Shine Size"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CFLLabel..Hint
-#: lito/flGenExosys.dfm:226
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CFLTrackBar..Hint
+#: lito/flGenExosys.dfm:226
 #: lito/flGenExosys.dfm:1168
 msgid "Focal Length"
 msgstr ""
@@ -1298,8 +1234,8 @@ msgid "Hours of 24"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..LabelLabel..Hint
-#: lito/flGenExosys.dfm:262
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..LabelTB..Hint
+#: lito/flGenExosys.dfm:262
 #: lito/flGenExosys.dfm:1682
 msgid "Label Font Scale"
 msgstr ""
@@ -1310,14 +1246,12 @@ msgid "0.1"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SunRG....Items.Strings
-#: lito/flGenExosys.dfm:280
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CometRG....Items.Strings
-#: lito/flGenExosys.dfm:296
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..DebrisRG....Items.Strings
-#: lito/flGenExosys.dfm:314
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..AsteroidRG....Items.Strings
-#: lito/flGenExosys.dfm:332
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..PlanetsRG....Items.Strings
+#: lito/flGenExosys.dfm:280 lito/flGenExosys.dfm:296
+#: lito/flGenExosys.dfm:314 lito/flGenExosys.dfm:332
 #: lito/flGenExosys.dfm:1154
 msgid "P"
 msgstr ""
@@ -1428,23 +1362,22 @@ msgid "Comets"
 msgstr "Кометы"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SSORG....Items.Strings
-#: lito/flGenExosys.dfm:981
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..DebrisUpDown..Hint
+#: lito/flGenExosys.dfm:981
 #: lito/flGenExosys.dfm:1081
 msgid "Debris"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..PlanetUpDown..Hint
-#: lito/flGenExosys.dfm:1006
 #. FormSettings..PanelMiddle..PageControl..tsPlanets..grbPlanetParams..Caption
-#: lito/flSettings.dfm:499
+#: lito/flGenExosys.dfm:1006 lito/flSettings.dfm:499
 msgid "Planet"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..AsteroidUpDown..Hint
 #: lito/flGenExosys.dfm:1019
 msgid "Asteroid"
-msgstr ""
+msgstr "Астероид"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CometUpDown..Hint
 #: lito/flGenExosys.dfm:1044
@@ -1502,11 +1435,11 @@ msgid "Stop"
 msgstr ""
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..BtnPanel..ClearBtn..Caption
-#: lito/flGenExosys.dfm:1338
 #. FormLitosfera..MainMenu..miView..miClearTreeView..Caption
+#: lito/flGenExosys.dfm:1338
 #: lito/flLitosfera.dfm:88723
 msgid "Clear"
-msgstr ""
+msgstr "Очистить"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..BtnPanel..LoadBtn..Caption
 #: lito/flGenExosys.dfm:1352
@@ -1519,14 +1452,14 @@ msgid "Print"
 msgstr "Печать"
 
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..AS3dsUpDown..Hint
-#: lito/flGenExosys.dfm:1417
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..CS3dsUpDown..Hint
-#: lito/flGenExosys.dfm:1442
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..DS3dsUpDown..Hint
-#: lito/flGenExosys.dfm:1467
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..SS3dsUpDown..Hint
-#: lito/flGenExosys.dfm:1492
 #. FormGenPlanetsys..SolarDataPanel..ToolBarGB..PS3dsUpDown..Hint
+#: lito/flGenExosys.dfm:1417
+#: lito/flGenExosys.dfm:1442
+#: lito/flGenExosys.dfm:1467
+#: lito/flGenExosys.dfm:1492
 #: lito/flGenExosys.dfm:1505
 msgid "S3ds"
 msgstr ""
@@ -1587,8 +1520,8 @@ msgid "Sun"
 msgstr "Солнце"
 
 #. FormGenPlanetsys..GLSceneA..DCComet..CometSprite..Material.LibMaterialName
-#: lito/flGenExosys.dfm:1791
 #. FormGenPlanetsys..CometGLMaterialLibrary......Name
+#: lito/flGenExosys.dfm:1791
 #: lito/flGenExosys.dfm:1959
 msgid "BlueBall"
 msgstr ""
@@ -1729,15 +1662,14 @@ msgid "ToolButton3"
 msgstr ""
 
 #. FormLitosfera..Scene..dcStar..sfPlanet..Material.LibMaterialName
-#: lito/flLitosfera.dfm:312
 #. FormLitosfera..MatLib......Name
-#: lito/flLitosfera.dfm:426
+#: lito/flLitosfera.dfm:312 lito/flLitosfera.dfm:426
 msgid "earthDay"
 msgstr ""
 
 #. FormLitosfera..Scene..dcStar..acPlanet..dcMoon..Moon..Material.LibMaterialName
-#: lito/flLitosfera.dfm:371
 #. FormLitosfera..MatLib......Name
+#: lito/flLitosfera.dfm:371
 #: lito/flLitosfera.dfm:63107
 msgid "moon"
 msgstr ""
@@ -1783,11 +1715,10 @@ msgid "Constelborders"
 msgstr ""
 
 #. FormLitosfera..MainMenu..miView..miViewHidePanels..Caption
-#: lito/flLitosfera.dfm:88719
 #. FormSolarSys..MainMenu..Window1..miHidePanels..Caption
+#: lito/flLitosfera.dfm:88719
 #: lito/flSolarSystem.dfm:877
-#. Скрыть кайму формы
-#: lito/flLitosfera.pas:279
+#: lito/flLitosfera.pas:278
 #: lito/flSolarSystem.pas:294
 msgid "Hide panels"
 msgstr "Скрыть панели"
@@ -1812,11 +1743,6 @@ msgstr ""
 msgid "Stellar system..."
 msgstr "Стеллар система..."
 
-#. FormLitosfera..MainMenu..miTools..Caption
-#: lito/flLitosfera.dfm:88749
-msgid "&Tools"
-msgstr "&Инструменты"
-
 #. FormLitosfera..MainMenu..miTools..miExogen..Caption
 #: lito/flLitosfera.dfm:88758
 msgid "Exosystem generator..."
@@ -1826,11 +1752,6 @@ msgstr "Генератор экзосистем..."
 #: lito/flLitosfera.dfm:88766
 msgid "Information"
 msgstr ""
-
-#. FormSettings..PanelBottom..ButtonOK..Caption
-#: lito/flSettings.dfm:49
-msgid "OK"
-msgstr "ОК"
 
 #. FormSettings..PanelMiddle..PageControl..tsStars..gbShowStars..Caption
 #: lito/flSettings.dfm:188
@@ -1854,29 +1775,29 @@ msgid "Solar system"
 msgstr "Солнечная система"
 
 #. FormSolarSys..PanelRight..FrameParams..Font.Name
-#: lito/flSolarSystem.dfm:131
 #. FormStarSys..PanelRight..FrameParams..Font.Name
+#: lito/flSolarSystem.dfm:131
 #: lito/flStellarSystem.dfm:131
 msgid "Courier"
 msgstr ""
 
 #. FormSolarSys..PanelRight..cbOrbit..Caption
-#: lito/flSolarSystem.dfm:149
 #. FormStarSys..PanelRight..cbOrbit..Caption
+#: lito/flSolarSystem.dfm:149
 #: lito/flStellarSystem.dfm:149
 msgid "Orbits"
 msgstr "Орбиты"
 
 #. FormSolarSys..PanelRight..cbHabitableZone..Caption
-#: lito/flSolarSystem.dfm:164
 #. FormStarSys..PanelRight..cbHabitableZone..Caption
+#: lito/flSolarSystem.dfm:164
 #: lito/flStellarSystem.dfm:164
 msgid "Habzone"
 msgstr "Хабзона"
 
 #. FormSolarSys..PanelRight..MemoInfo....Lines.Strings
-#: lito/flSolarSystem.dfm:181
 #. FormStarSys..PanelRight..MemoInfo....Lines.Strings
+#: lito/flSolarSystem.dfm:181
 #: lito/flStellarSystem.dfm:181
 msgid "Memo1"
 msgstr ""
@@ -1887,8 +1808,8 @@ msgid "Solar System"
 msgstr ""
 
 #. FormSolarSys..MainMenu..File1..Caption
-#: lito/flSolarSystem.dfm:845
 #. FormStarSys..MainMenu..File1..Caption
+#: lito/flSolarSystem.dfm:845
 #: lito/flStellarSystem.dfm:821
 msgid "File"
 msgstr "Файл"
@@ -1899,22 +1820,22 @@ msgid "New"
 msgstr "Новый"
 
 #. FormSolarSys..MainMenu..Window1..Caption
-#: lito/flSolarSystem.dfm:868
 #. FormStarSys..MainMenu..Window1..Caption
+#: lito/flSolarSystem.dfm:868
 #: lito/flStellarSystem.dfm:843
 msgid "View"
 msgstr "Вид"
 
 #. FormSolarSys..MainMenu..Help1..Caption
-#: lito/flSolarSystem.dfm:883
 #. FormStarSys..MainMenu..Help1..Caption
+#: lito/flSolarSystem.dfm:883
 #: lito/flStellarSystem.dfm:858
 msgid "Help"
 msgstr "Справка"
 
 #. FormSolarSys..MainMenu..Help1..miWiki..Caption
-#: lito/flSolarSystem.dfm:885
 #. FormStarSys..MainMenu..Help1..miWiki..Caption
+#: lito/flSolarSystem.dfm:885
 #: lito/flStellarSystem.dfm:860
 msgid "Wiki"
 msgstr ""
@@ -1940,19 +1861,18 @@ msgstr ""
 msgid "&Hide Panels"
 msgstr "&Скрыть панели"
 
-#: fGalaxy.pas:472
+#: fGalaxy.pas:476
 msgid "File not exists"
 msgstr "Файла нет"
 
 #. --------------------------------------------------------
-#: fGalaxy.pas:493
+#: fGalaxy.pas:497
 msgid "File exists. Can not overwrite"
 msgstr "Файл существует. Перезаписать нельзя"
 
 #. -----------------------------------------------------------------------
-#: fSettings.pas:387
 #. --------------------------------------------------------------
-#: lito/flSettings.pas:280
+#: fSettings.pas:387 lito/flSettings.pas:280
 msgid "Reload to change language"
 msgstr "Перегрузите для смены языка"
 
@@ -1962,7 +1882,7 @@ msgstr "Перегрузите для смены языка"
 msgid "Show panels"
 msgstr ""
 
-#: lito/flLitosfera.pas:348
+#: lito/flLitosfera.pas:344
 msgid "in Ruwiki"
 msgstr ""
 

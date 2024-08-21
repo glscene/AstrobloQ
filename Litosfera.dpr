@@ -1,5 +1,5 @@
 (*
-   EarthPlanets - terrestrial exoplanets for near solar stars.
+   Lithosphere - terrestrial exoplanets for near solar stars.
    The atmospheric effect is rendered in DirectOpenGLRender, which essentially
    renders a disk, with color of the vertices computed via ray-tracing. Not that
    the tesselation of the disk has been hand-optimized so as to reduce CPU use

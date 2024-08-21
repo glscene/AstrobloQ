@@ -207,13 +207,14 @@ implementation //-------------------------------------------------------------
 //------------------------------------------------------------------
 procedure TFormLitosfera.FormCreate(Sender: TObject);
 var
-  I, N: Integer;
+  I: Integer;
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  N := Pos('lithosphere', DataDir);
-  Delete(DataDir, N, Length(DataDir));
+  // if using bin directory for exe binary
+  // Delete(DataDir, Pos('bin', DataDir), Length(DataDir));
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir);
+
   StarDir := DataDir + 'star';
 
   // Path to Hipparcos, Hyg or Gaia DR4

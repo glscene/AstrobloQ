@@ -297,7 +297,7 @@ type
     procedure miOptionsClick(Sender: TObject);
     procedure miStarPilotClick(Sender: TObject);
   private
-    DataDir, StarDir, CurrentStar: TFileName;
+    StarDir, CurrentStar: TFileName;
     FileName, CatalogName: TFileName;
 
     MenuVisible, ColorAlltheSame, CapitalsLoaded, EarthLoaded, CitiesLoaded,
@@ -322,10 +322,7 @@ var
   markers: TStringList; // from Private
   markerIndex, ColorIndex: Integer;
 
-  // ----------------------------------------------------------------------
-implementation
-
-// ----------------------------------------------------------------------
+implementation   // -----------------------------------------------------------
 
 {$R *.dfm}
 
@@ -376,8 +373,7 @@ var
 
 begin
   DataPath := ExtractFilePath(ParamStr(0)) + 'data\';
-  SetCurrentDir(DataDir);
-
+  SetCurrentDir(DataPath);
   (*
     if FileExists(ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof') then
     begin
@@ -423,13 +419,13 @@ begin
   MenuVisible := True;
   SkyDome.Bands.Clear;
 
-  // Загрузка и отображение ярких звёзд Йельского каталога
+  // Stars from Yale catalog
   if FileExists(EarthDataPath + 'Yale_BSC.stars') then
     SkyDome.Stars.LoadStarsFile(EarthDataPath + 'Yale_BSC.stars');
   if FileExists(EarthDataPath + 'constellations.dat') then
     LoadConstellationLines;
   timeMultiplier := 1;
-  // Добавление материала облаков в MatLib
+  // Cloud material in MatLib
   if FileExists(EarthModelPath + 'earth_cloud_360.jpg') then
   begin
     MatLib.Materials[3].Material.Texture.Compression := tcStandard;

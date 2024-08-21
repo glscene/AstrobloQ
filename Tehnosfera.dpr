@@ -1,11 +1,7 @@
-program Tehnosfera;
-
 (*
-  Tehnosfera
-  Purpose: Shows exoplanets with technospheres!
+  Tehnosfera - exoplanets with noos and technospheres
 *)
-
-
+program Tehnosfera;
 uses
   Forms,
   ftMeshEditor in 'source\teh\ftMeshEditor.pas' {FormMeshShow},
