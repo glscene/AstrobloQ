@@ -1,22 +1,21 @@
 rem @echo off
 cls
 
-echo updating Russian translations
+dxgettext -b source --delphi --useignorepo - r
 
-echo -r ... applied for all subdirs of source dir
-dxgettext -b source --delphi --useignorepo -r
+echo updating Russian translation
 
-rem copy default.po d:\astrobloq\locale\ru\lc_messages\default.po
-copy default.po d:\astrobloq\bin\locale\ru\lc_messages\default.po
-
-rem pushd locale\ru\LC_MESSAGES
-pushd bin\locale\ru\LC_MESSAGES
-
+pushd locale\ru\LC_MESSAGES
+copy default.po default-backup.po
+ren default.po default-old.po
 echo Merging
-msgmergedx galaxy.po galaxy.po -o default.po
+msgmergedx default-old.po ..\..\..\default.po -o default.po
+del default-old.po
+del default-backup.po
+
+copy default.po galaxy.po
 
 popd
 del default.po
-
 pause
 
