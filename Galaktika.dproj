@@ -126,7 +126,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="source\fGalaxy.pas">
-            <Form>FormGalaxy</Form>
+            <Form>frmGalaxy</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dImages.pas">
@@ -139,7 +139,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
         </DCCReference>
         <DCCReference Include="plugins\StarProj\fStarProj.pas">
             <Form>FormProjection</Form>
@@ -181,6 +181,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\ucode\GnuGetText.pas"/>
+        <DCCReference Include="source\ucode\uSkyBodies.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

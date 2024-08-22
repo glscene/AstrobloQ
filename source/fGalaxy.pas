@@ -54,15 +54,14 @@ uses
   fMonitor,
   fParadox,
 
-  fStarProj,
-  fExoplanets,
   fNewStarcube,
+ // flLitosfera,
   uGlobals,
 
   gnuGettext;
 
 type
-  TFormGalaxy = class(TFormI) // not translated when TForm
+  TfrmGalaxy = class(TFormI) // not translated if TForm
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -168,10 +167,15 @@ type
     shW: TShape;
     chbD: TCheckBox;
     nbWn: TNumberBox;
-    Exoplanets1: TMenuItem;
+    miExoplanets: TMenuItem;
     tbRotation: TToolButton;
     miNewStarcube: TMenuItem;
     N1: TMenuItem;
+    N2: TMenuItem;
+    miLithosphere: TMenuItem;
+    miBiosphere: TMenuItem;
+    miTechnosphere: TMenuItem;
+    N3: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -195,9 +199,12 @@ type
     procedure miMonitorClick(Sender: TObject);
     procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
-    procedure Exoplanets1Click(Sender: TObject);
+    procedure miExoplanetsClick(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
     procedure miNewStarcubeClick(Sender: TObject);
+    procedure miLithosphereClick(Sender: TObject);
+    procedure miBiosphereClick(Sender: TObject);
+    procedure miTechnosphereClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -221,14 +228,19 @@ const
   crSlidezy = 10;
 
 var
-  FormGalaxy: TFormGalaxy;
+  frmGalaxy: TfrmGalaxy;
 
 implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
+uses
+  fStarProj,
+  fExoplanets;
+
+
 // -----------------------------------------------------------------------
-procedure TFormGalaxy.FormCreate(Sender: TObject);
+procedure TfrmGalaxy.FormCreate(Sender: TObject);
 begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
   TP_GlobalIgnoreClass(TStaticText);
@@ -241,17 +253,11 @@ begin
   inherited;    // inheritance for translation
 end;
 
-// --------------------------------------------------------
-procedure TFormGalaxy.GLAsyncTimerTimer(Sender: TObject);
-begin
-  // diskGalaxy.Roll(0.01);
-end;
-
 // -----------------------------------------------------------
-procedure TFormGalaxy.GLCadencerProgress(Sender: TObject;
+procedure TfrmGalaxy.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if FormSettings.CheckBoxRotate.Checked and
+  if frmSettings.CheckBoxRotate.Checked and
      not tbRotation.Down then
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -268,8 +274,14 @@ begin
   end;
 end;
 
+// --------------------------------------------------------
+procedure TfrmGalaxy.GLAsyncTimerTimer(Sender: TObject);
+begin
+  // diskGalaxy.Roll(0.01);
+end;
+
 // ------------------------------------------------------------
-procedure TFormGalaxy.MakeRandomStars;
+procedure TfrmGalaxy.MakeRandomStars;
 var
   i: Integer;
   NStars: Integer;
@@ -378,20 +390,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaxy.ButtonClearClick(Sender: TObject);
+procedure TfrmGalaxy.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaxy.ButtonAddStarsClick(Sender: TObject);
+procedure TfrmGalaxy.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaxy.chbAllClick(Sender: TObject);
+procedure TfrmGalaxy.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -403,13 +415,13 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaxy.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaxy.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalaxy.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaxy.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
@@ -417,12 +429,12 @@ end;
 
 
 // -----------------------------------------------------------------------
-procedure TFormGalaxy.tbAxesClick(Sender: TObject);
+procedure TfrmGalaxy.tbAxesClick(Sender: TObject);
 begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
-procedure TFormGalaxy.tbSolarcubeClick(Sender: TObject);
+procedure TfrmGalaxy.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -442,17 +454,9 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaxy.miPanelShowClick(Sender: TObject);
-begin
-  miPanelShow.Checked := not miPanelShow.Checked;
-  PanelRight.Visible := not PanelRight.Visible;
-  dcAxes.Visible := not dcAxes.Visible;
-end;
-
+//                         File menu
 // -------------------------------------------------------------
-//  Loading tabular data into memo field
-// -------------------------------------------------------------
-procedure TFormGalaxy.miOpenClick(Sender: TObject);
+procedure TfrmGalaxy.miOpenClick(Sender: TObject);
 var
   F: TextFile;
   sl, tl: TStringList;
@@ -490,7 +494,7 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalaxy.miSaveAsClick(Sender: TObject);
+procedure TfrmGalaxy.miSaveAsClick(Sender: TObject);
 begin
   if dmDialogs.SaveTextFileDialog.Execute then
     if FileExists(dmDialogs.SaveTextFileDialog.FileName) then
@@ -501,7 +505,7 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TFormGalaxy.seNStarsChange(Sender: TObject);
+procedure TfrmGalaxy.seNStarsChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
   nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -512,24 +516,13 @@ begin
   nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
 end;
 
-// -------------------------------------------------------------
-procedure TFormGalaxy.miAboutClick(Sender: TObject);
-begin
-  with TFormAbout.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
 //---------------------------------------------------------------------
-procedure TFormGalaxy.miSettingsClick(Sender: TObject);
+procedure TfrmGalaxy.miSettingsClick(Sender: TObject);
 begin
-  FormSettings.Show;
+  frmSettings.Show;
 end;
 
-procedure TFormGalaxy.miNewStarcubeClick(Sender: TObject);
+procedure TfrmGalaxy.miNewStarcubeClick(Sender: TObject);
 begin
   with TFormNewStarcube.Create(Self) do
     try
@@ -540,7 +533,9 @@ begin
 end;
 
 //------------------------------------------------------------------------
-procedure TFormGalaxy.Exoplanets1Click(Sender: TObject);
+//                           View menu
+//------------------------------------------------------------------------
+procedure TfrmGalaxy.miExoplanetsClick(Sender: TObject);
 begin
   with TFormExoplanets.Create(Self) do
     try
@@ -550,30 +545,19 @@ begin
     end;
 end;
 
-// -----------------------------------------------------------------------
-procedure TFormGalaxy.miMonitorClick(Sender: TObject);
+procedure TfrmGalaxy.miLithosphereClick(Sender: TObject);
 begin
-  with TFormMonitor.Create(Self) do
+{
+  with TfrmLitosphere.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
+}
 end;
 
-//---------------------------------------------------------------------
-procedure TFormGalaxy.miAnalyserClick(Sender: TObject);
-begin
-  with TFormAnalyser.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//---------------------------------------------------------------------
-procedure TFormGalaxy.miProjectionClick(Sender: TObject);
+procedure TfrmGalaxy.miBiosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -583,8 +567,57 @@ begin
     end;
 end;
 
-// -------------------------------------------------------------
-procedure TFormGalaxy.miParadoxClick(Sender: TObject);
+procedure TfrmGalaxy.miTechnosphereClick(Sender: TObject);
+begin
+  with TFormProjection.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TfrmGalaxy.miPanelShowClick(Sender: TObject);
+begin
+  miPanelShow.Checked := not miPanelShow.Checked;
+  PanelRight.Visible := not PanelRight.Visible;
+  dcAxes.Visible := not dcAxes.Visible;
+end;
+
+//-----------------------------------------------------------------------
+//                         Tools menu
+//-----------------------------------------------------------------------
+procedure TfrmGalaxy.miMonitorClick(Sender: TObject);
+begin
+  with TFormMonitor.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TfrmGalaxy.miAnalyserClick(Sender: TObject);
+begin
+  with TFormAnalyser.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TfrmGalaxy.miProjectionClick(Sender: TObject);
+begin
+  with TFormProjection.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TfrmGalaxy.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
     try
@@ -595,7 +628,21 @@ begin
 end;
 
 // -------------------------------------------------------------
-procedure TFormGalaxy.miExitClick(Sender: TObject);
+//                                Help menu
+// -------------------------------------------------------------
+procedure TfrmGalaxy.miAboutClick(Sender: TObject);
+begin
+  with TFormAbout.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+
+// -------------------------------------------------------------
+procedure TfrmGalaxy.miExitClick(Sender: TObject);
 begin
   Close();
 end;

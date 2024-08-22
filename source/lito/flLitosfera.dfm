@@ -1,4 +1,4 @@
-object FormLitosfera: TFormLitosfera
+object frmLitosphere: TfrmLitosphere
   Left = 412
   Top = 123
   Cursor = crHelp
@@ -88740,9 +88740,9 @@ object FormLitosfera: TFormLitosfera
       object N1: TMenuItem
         Caption = '-'
       end
-      object miExoSystem: TMenuItem
+      object miStellarSystem: TMenuItem
         Caption = 'Stellar system...'
-        OnClick = miExoSystemClick
+        OnClick = miStellarSystemClick
       end
     end
     object miTools: TMenuItem
@@ -88769,10 +88769,6 @@ object FormLitosfera: TFormLitosfera
       end
       object N3: TMenuItem
         Caption = '-'
-      end
-      object About1: TMenuItem
-        Caption = 'About...'
-        OnClick = About1Click
       end
     end
   end

@@ -37,7 +37,7 @@ uses
   fForm;
 
 type
-  TFormSettings = class(TFormI)
+  TfrmSettingsLito = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -106,7 +106,7 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmSettingsLito: TfrmSettingsLito;
 
 //================================================
 implementation
@@ -116,7 +116,7 @@ implementation
 uses
   flLitosfera;
 
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmSettingsLito.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
 
@@ -138,37 +138,37 @@ begin
 end;
 
 //---------------------------------------------------
-// Показать кромку атмосферы
+// Show rim of atmosphere
 //---------------------------------------------------
-procedure TFormSettings.CheckBoxAtmosferaClick(Sender: TObject);
+procedure TfrmSettingsLito.CheckBoxAtmosferaClick(Sender: TObject);
 begin
  // FormLitosfera.Atmosphere;
 end;
 
-// Показакть или скрыть оси планет X, Y, Z
-procedure TFormSettings.CheckBoxAxesClick(Sender: TObject);
+// Show or hide axes X, Y, Z for a planet
+procedure TfrmSettingsLito.CheckBoxAxesClick(Sender: TObject);
 begin
   if CheckBoxAxes.Checked then
   begin
-    FormLitosfera.sfPlanet.ShowAxes := not FormLitosfera.sfPlanet.ShowAxes;
-    FormLitosfera.ffPlanet.ShowAxes := not FormLitosfera.ffPlanet.ShowAxes;
+    frmLitosphere.sfPlanet.ShowAxes := not frmLitosphere.sfPlanet.ShowAxes;
+    frmLitosphere.ffPlanet.ShowAxes := not frmLitosphere.ffPlanet.ShowAxes;
   end;
 end;
 
 //---------------------------------------------------
-// Показать картографическую сетку планеты
+// Show cartographic grid
 //---------------------------------------------------
-procedure TFormSettings.chbCartographicGridClick(Sender: TObject);
+procedure TfrmSettingsLito.chbCartographicGridClick(Sender: TObject);
 begin
   //
 end;
 
 //---------------------------------------------------
-// Показать разрез планеты с корой, мантией и ядром
+// Show core with mantle
 //---------------------------------------------------
-procedure TFormSettings.CheckBoxCoreClick(Sender: TObject);
+procedure TfrmSettingsLito.CheckBoxCoreClick(Sender: TObject);
 begin
-  with FormLitosfera do
+  with frmLitosphere do
   if CheckBoxCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
@@ -191,24 +191,24 @@ end;
 //------------------------------------------------------------------
 // Show or hide planet
 //------------------------------------------------------------------
-procedure TFormSettings.CheckBoxHidePlanetClick(Sender: TObject);
+procedure TfrmSettingsLito.CheckBoxHidePlanetClick(Sender: TObject);
 begin
   if CheckBoxHidePlanet.Checked then
   begin
-    FormLitosfera.sfPlanet.Visible := False;
-    FormLitosfera.ffPlanet.Visible := False;
-    FormLitosfera.DirectOpenGL.Visible := False;
+    frmLitosphere.sfPlanet.Visible := False;
+    frmLitosphere.ffPlanet.Visible := False;
+    frmLitosphere.DirectOpenGL.Visible := False;
   end
   else
   begin
-    FormLitosfera.sfPlanet.Visible := True;
-    FormLitosfera.ffPlanet.Visible := True;
-    FormLitosfera.DirectOpenGL.Visible := True;
+    frmLitosphere.sfPlanet.Visible := True;
+    frmLitosphere.ffPlanet.Visible := True;
+    frmLitosphere.DirectOpenGL.Visible := True;
   end;
 end;
 
 //---------------------------------------------------------
-procedure TFormSettings.tvOptionsClick(Sender: TObject);
+procedure TfrmSettingsLito.tvOptionsClick(Sender: TObject);
 begin
   case tvOptions.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
@@ -218,7 +218,7 @@ begin
   end;
 end;
 
-procedure TFormSettings.rgLanguageClick(Sender: TObject);
+procedure TfrmSettingsLito.rgLanguageClick(Sender: TObject);
 begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
@@ -229,16 +229,16 @@ begin
 end;
 
 //------------------------------------------------------------
-procedure TFormSettings.ReadIniFile;
+procedure TfrmSettingsLito.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
-    CheckBoxAxes.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxRotate.Name, True);
+    LangID := IniFile.ReadInteger(frmSettingsLito.Name, rgLanguage.Name, 0);
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettingsLito.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmSettingsLito.Name, CheckBoxRotate.Name, True);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
@@ -255,15 +255,15 @@ begin
 end;
 
 //------------------------------------------------------------
-procedure TFormSettings.WriteIniFile;
+procedure TfrmSettingsLito.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
-    IniFile.WriteBool(FormSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(FormSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteInteger(frmSettingsLito.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(frmSettingsLito.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmSettingsLito.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -271,7 +271,7 @@ begin
 end;
 
 //--------------------------------------------------------------
-procedure TFormSettings.ButtonOKClick(Sender: TObject);
+procedure TfrmSettingsLito.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -284,11 +284,11 @@ begin
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
   WriteIniFile;
-  FormSettings.Close;
+  frmSettingsLito.Close;
 end;
 
 
-procedure TFormSettings.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSettingsLito.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;

@@ -1,4 +1,4 @@
-object FormGalaxy: TFormGalaxy
+object frmGalaxy: TfrmGalaxy
   Left = 0
   Top = 0
   Margins.Left = 5
@@ -1009,13 +1009,27 @@ object FormGalaxy: TFormGalaxy
     end
     object miView: TMenuItem
       Caption = '&View'
-      object miProjection: TMenuItem
-        Caption = 'Star projections...'
-        OnClick = miProjectionClick
-      end
-      object Exoplanets1: TMenuItem
+      object miExoplanets: TMenuItem
         Caption = 'Exoplanets...'
-        OnClick = Exoplanets1Click
+        OnClick = miExoplanetsClick
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object miLithosphere: TMenuItem
+        Caption = 'Lithosphere...'
+        OnClick = miLithosphereClick
+      end
+      object miBiosphere: TMenuItem
+        Caption = 'Biosphere...'
+        OnClick = miBiosphereClick
+      end
+      object miTechnosphere: TMenuItem
+        Caption = 'Technosphere...'
+        OnClick = miTechnosphereClick
+      end
+      object N2: TMenuItem
+        Caption = '-'
       end
       object miPanelShow: TMenuItem
         Caption = 'Panels'
@@ -1040,6 +1054,10 @@ object FormGalaxy: TFormGalaxy
       object miMonitor: TMenuItem
         Caption = 'Monitor...'
         OnClick = miMonitorClick
+      end
+      object miProjection: TMenuItem
+        Caption = 'Star projections...'
+        OnClick = miProjectionClick
       end
       object miParadox: TMenuItem
         Caption = 'Paradox...'

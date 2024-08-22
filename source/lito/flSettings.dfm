@@ -1,7 +1,7 @@
-object FormSettings: TFormSettings
+object frmSettingsLito: TfrmSettingsLito
   Left = 0
   Top = 0
-  Hint = #1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080' '#1079#1074#1077#1079#1076#1099
+  Hint = 'Longevity'
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5

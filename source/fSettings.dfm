@@ -1,10 +1,11 @@
-inherited FormSettings: TFormSettings
+inherited frmSettings: TfrmSettings
   HelpContext = 0
   Caption = 'Settings'
   ClientHeight = 759
   ClientWidth = 1313
-  ExplicitWidth = 1337
-  ExplicitHeight = 823
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 1329
+  ExplicitHeight = 798
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
@@ -1135,7 +1136,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 306
+          Left = 290
           Top = 53
           Width = 149
           Height = 200

@@ -26,7 +26,7 @@ type
   TFormAbout = class(TFormI)
     Panel1: TPanel;
     PageControl: TPageControl;
-    tsInfo: TTabSheet;
+    tsStars: TTabSheet;
     tsDevelopers: TTabSheet;
     tsTools: TTabSheet;
     DelphiButton: TSpeedButton;
@@ -38,11 +38,17 @@ type
     ImageGalaxy: TImage;
     Label1: TLabel;
     StaticText4: TStaticText;
+    tsLithosphere: TTabSheet;
+    tsBiosphere: TTabSheet;
+    tsTechnosphere: TTabSheet;
+    ImageLito_ru: TImage;
+    ImageLito_en: TImage;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
     procedure DelphiButtonClick(Sender: TObject);
     procedure ImageGalaxyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
   public
   end;
@@ -58,6 +64,23 @@ procedure TFormAbout.DelphiButtonClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
     'https://github.com/glscene', '', '', SW_SHOW);
+end;
+
+procedure TFormAbout.FormCreate(Sender: TObject);
+begin
+  if FormI.LangID = LANG_ENGLISH then
+  begin
+    ImageLito_en.Visible := True;
+    ImageLito_ru.Visible := False;
+    ImageLito_en.Align := alClient;
+  end
+  else
+  begin
+    ImageLito_en.Visible := False;
+    ImageLito_ru.Visible := True;
+    ImageLito_ru.Align := alClient;
+  end;
+  inherited;
 end;
 
 procedure TFormAbout.GLSImageClick(Sender: TObject);
