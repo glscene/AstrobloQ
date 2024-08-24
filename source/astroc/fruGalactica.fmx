@@ -9,45 +9,6 @@ object FormGalactica: TFormGalactica
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 0
-  object MainMenu: TMainMenu
-    Left = 256
-    Top = 40
-    object miFile: TMenuItem
-      Text = '&File'
-      object miOpen: TMenuItem
-        Locked = True
-        Text = 'Open...'
-      end
-      object miExit: TMenuItem
-        Locked = True
-        Text = 'Exit'
-        OnClick = miExitClick
-      end
-    end
-    object miView: TMenuItem
-      Text = '&View'
-    end
-    object miTools: TMenuItem
-      Text = '&Tools'
-      object miSettings: TMenuItem
-        Locked = True
-        Text = 'Settings...'
-        OnClick = miSettingsClick
-      end
-    end
-    object miHelp: TMenuItem
-      Text = '&Help'
-      object miWiki: TMenuItem
-        Locked = True
-        Text = 'Wiki...'
-      end
-      object miAbout: TMenuItem
-        Locked = True
-        Text = 'About...'
-        OnClick = miAboutClick
-      end
-    end
-  end
   object Langs: TLang
     Lang = 'ru'
     Left = 368
@@ -55,5 +16,51 @@ object FormGalactica: TFormGalactica
     ResourcesBin = {
       0800000053006F0075007200630065000D000A00010000000200000072007500
       00000000}
+  end
+  object MainMenu: TMainMenu
+    Left = 280
+    Top = 136
+    object miFile: TMenuItem
+      Text = #1060#1072#1081#1083
+      object MenuItemOpen: TMenuItem
+        Locked = True
+        Text = #1054#1090#1082#1088#1099#1090#1100'...'
+      end
+      object MenuItemExit: TMenuItem
+        Locked = True
+        Text = #1042#1099#1093#1086#1076
+      end
+    end
+    object miView: TMenuItem
+      Text = #1042#1080#1076
+    end
+    object miTools: TMenuItem
+      Text = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      object miSettings: TMenuItem
+        Locked = True
+        Text = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+        OnClick = miSettingsClick
+      end
+      object miDivider1: TMenuItem
+        Locked = True
+        Text = '-'
+      end
+      object miAstrogen: TMenuItem
+        Locked = True
+        Text = #1040#1089#1090#1088#1086#1075#1077#1085'...'
+      end
+    end
+    object miHelp: TMenuItem
+      Text = #1057#1087#1088#1072#1074#1082#1072
+      object miWiki: TMenuItem
+        Locked = True
+        Text = 'Wiki...'
+      end
+      object miAbout: TMenuItem
+        Locked = True
+        Text = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        OnClick = miAboutClick
+      end
+    end
   end
 end

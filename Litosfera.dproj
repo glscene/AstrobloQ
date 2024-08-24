@@ -138,7 +138,7 @@
         </DCCReference>
         <DCCReference Include="source\ucode\uMoveCamera.pas"/>
         <DCCReference Include="source\ucode\uSkyBodies.pas"/>
-        <DCCReference Include="source\xcode\FMX.GnugetText.pas"/>
+        <DCCReference Include="source\ucode\gnuGettext.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

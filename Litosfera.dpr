@@ -23,7 +23,7 @@ uses
   fForm in 'source\fForm.pas' {FormI},
   uMoveCamera in 'source\ucode\uMoveCamera.pas',
   uSkyBodies in 'source\ucode\uSkyBodies.pas',
-  FMX.GnugetText in 'source\xcode\FMX.GnugetText.pas';
+  gnuGettext in 'source\ucode\gnuGettext.pas';
 
 {$R *.res}
 

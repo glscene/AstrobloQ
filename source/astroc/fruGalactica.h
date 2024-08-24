@@ -12,17 +12,19 @@
 class TFormGalactica : public TForm
 {
 __published:	// IDE-managed Components
+	TLang *Langs;
 	TMainMenu *MainMenu;
 	TMenuItem *miFile;
-	TMenuItem *miOpen;
-	TMenuItem *miExit;
+	TMenuItem *MenuItemOpen;
+	TMenuItem *MenuItemExit;
 	TMenuItem *miView;
 	TMenuItem *miTools;
 	TMenuItem *miSettings;
+	TMenuItem *miDivider1;
+	TMenuItem *miAstrogen;
 	TMenuItem *miHelp;
 	TMenuItem *miWiki;
 	TMenuItem *miAbout;
-	TLang *Langs;
 	void __fastcall miExitClick(TObject *Sender);
 	void __fastcall miAboutClick(TObject *Sender);
 	void __fastcall miSettingsClick(TObject *Sender);
