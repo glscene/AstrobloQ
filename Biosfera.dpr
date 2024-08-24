@@ -87,7 +87,7 @@ uses
   fbTutorial in 'source\bio\fbTutorial.pas' {fmTutorial},
   dbImages in 'source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm in 'source\bio\fbMiniForm.pas',
-  GnuGetText in 'source\ucode\GnuGetText.pas',
+  FMX.GnugetText in 'source\xcode\FMX.GnugetText.pas',
   fForm in 'source\fForm.pas' {FormI},
   uGlobals in 'source\ucode\uGlobals.pas';
 

@@ -44,10 +44,10 @@ uses
   GLS.Color,
   GLS.SpaceText,
 
+  fForm,
   dImages,
   dDialogs,
   dBase,
-  fForm,
   fAbout,
   fSettings,
   fAnalyser,
@@ -55,7 +55,7 @@ uses
   fParadox,
 
   fNewStarcube,
- // flLitosfera,
+ /// flLitosfera,
   uGlobals,
 
   gnuGettext;

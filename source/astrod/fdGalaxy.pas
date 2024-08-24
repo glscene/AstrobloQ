@@ -1,4 +1,4 @@
-unit fenGalaxy;
+unit fdGalaxy;
 
 interface
 
@@ -15,14 +15,14 @@ uses
   FMX.Dialogs,
   FMX.Menus,
 
-  fenForm,
-  fenAbout,
-  fenSettings,
-  fenAstrogen
+  fdForm,
+  fdAbout,
+  fdSettings,
+  fdAstrogen
   ;
 
 type
-  TFormGalaxy = class(TFormI)
+  TFormGalaxy = class(TFormO)
     MainMenu: TMainMenu;
     miFile: TMenuItem;
     miOpen: TMenuItem;
@@ -59,6 +59,8 @@ begin
   inherited;
 end;
 
+//---------------------------------------------------------------------------
+
 procedure TFormGalaxy.miAstrogenClick(Sender: TObject);
 begin
   inherited;
@@ -82,16 +84,18 @@ begin
     end;
 end;
 
-procedure TFormGalaxy.miExitClick(Sender: TObject);
-begin
-  inherited;
-  Close;
-end;
-
 procedure TFormGalaxy.miSettingsClick(Sender: TObject);
 begin
   inherited;
   FormSettings.Show;
+end;
+
+//---------------------------------------------------------------------------
+
+procedure TFormGalaxy.miExitClick(Sender: TObject);
+begin
+  inherited;
+  Close;
 end;
 
 end.

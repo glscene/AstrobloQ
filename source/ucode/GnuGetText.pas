@@ -25,7 +25,7 @@ unit gnugettext;
 //    GetWindowsLanguage uses GetUserPreferredUILanguages (Sept. 2023)
 
 // Information about this file:
-// $LastChangedDate: 2023-11-14 $
+// $LastChangedDate: 2024-08-24 $
 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:

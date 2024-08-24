@@ -915,7 +915,7 @@ begin
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text + _('Earth')
   if (tvPlanets.Selected.Level = 0)   then
   begin
-    if LangID = LANG_RUSSIAN then
+    if ActiveLang = LANG_RUSSIAN then
       S :=  'https://ru.ruwiki.ru/wiki/Земля'
     else
 //      S :=  'https://en.wikipedia.org/wiki/Earth';

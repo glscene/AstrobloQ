@@ -1,4 +1,4 @@
-unit fenAbout;
+unit fdAbout;
 
 interface
 
@@ -8,16 +8,20 @@ uses
   System.UITypes,
   System.Classes,
   System.Variants,
+  System.Math.Vectors,
+  FMX.Controls3D,
+  FMX.Objects3D,
+  FMX.Objects,
   FMX.Types,
   FMX.Controls,
   FMX.Forms,
   FMX.Graphics,
   FMX.Dialogs,
 
-  fenForm, System.Math.Vectors, FMX.Controls3D, FMX.Objects3D, FMX.Objects;
+  fdForm;
 
 type
-  TFormAbout = class(TFormI)
+  TFormAbout = class(TFormO)
     TextAbout: TText;
     procedure FormCreate(Sender: TObject);
   private
@@ -27,7 +31,7 @@ type
 var
   FormAbout: TFormAbout;
 
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 

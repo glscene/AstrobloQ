@@ -1,65 +1,81 @@
 //-------------------------------------
-// This unit is part of the Galaktika
+// This unit is part of the Galaxy
 //-------------------------------------
-unit fForm;
+unit fdForm;
 
-(* The fForm unit for TFormI class as parent for all child forms *)
+// Original form of the Galaxy
 
 interface
 
 uses
   Winapi.Windows,
   System.SysUtils,
-  System.IniFiles,
+  System.Types,
+  System.UITypes,
   System.Classes,
-  Vcl.Forms,
-  Vcl.Graphics,
-  Vcl.Menus,
-  Vcl.ExtDlgs,
-  Vcl.Controls,
-  Vcl.StdCtrls,
+  System.Variants,
+  System.IniFiles,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
 
   gnuGettext;
 
 type
-  TFormI = class(TForm)
+  TFormO = class(TForm)
+    Langs: TLang;
     procedure FormCreate(Sender: TObject);
   private
   public
-    ActiveLang: Word;
+    ActiveLangID: Word;
+    ActiveLang: String;
     procedure ReadIniFile; virtual;
     procedure SetLanguage;
   end;
 
 var
-  FormI: TFormI;
+  FormO: TFormO;
 
-implementation //-----------------------------------------------------------
+implementation //--------------------------------------------------------------
 
-{$R *.dfm}
+{$R *.fmx}
 
-//
-procedure TFormI.FormCreate(Sender: TObject);
+procedure TFormO.FormCreate(Sender: TObject);
 begin
-  ReadIniFile;
-  SetLanguage;
+   ActiveLang := 'en'; // Default language
+   ReadIniFile;
+   SetLanguage;
 end;
 
-//-------------------------------------------------------------------------
-procedure TFormI.SetLanguage;
+procedure TFormO.ReadIniFile;
+var
+  IniFile: TIniFile;
+begin
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  with IniFile do
+    try
+      ActiveLang := ReadString('FormSettings', 'rgLanguage', 'en');
+    finally
+      IniFile.Free;
+    end;
+end;
+
+procedure TFormO.SetLanguage;
 var
   LocalePath : TFileName;
 begin
   LocalePath := ExtractFileDir(ParamStr(0));
   LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
-  if (ActiveLang <> LANG_ENGLISH) then
+  if (ActiveLang <> 'en') then
   begin
     Textdomain('galaxy');
     BindTextDomain ('galaxy', LocalePath);
 //    AddDomainForResourceString('language');
 //    BindTextDomain ('language', LocalePath);
-    case ActiveLang of
+    case ActiveLangID of
       LANG_RUSSIAN: UseLanguage('ru');
       LANG_PORTUGUESE: UseLanguage('pt');
       LANG_SPANISH: UseLanguage('sp');
@@ -81,22 +97,6 @@ begin
   //TP_GlobalIgnoreClass(TAction);
 
   TranslateComponent(Self);
-end;
-
-
-//------------------------------------------------------------------------
-procedure TFormI.ReadIniFile;
-var
-  IniFile: TIniFile;
-begin
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  with IniFile do
-    try
-      // use correct argument names
-      ActiveLang := ReadInteger('frmSettings', 'rgLanguage', 0);
-    finally
-      IniFile.Free;
-    end;
 end;
 
 end.

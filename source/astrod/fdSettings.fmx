@@ -66,7 +66,7 @@ object FormSettings: TFormSettings
     Size.Width = 463.000000000000000000
     Size.Height = 404.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 5
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -87,7 +87,7 @@ object FormSettings: TFormSettings
         item
         end>
       TextSettings.Trimming = None
-      IsSelected = True
+      IsSelected = False
       Size.Width = 61.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -162,7 +162,7 @@ object FormSettings: TFormSettings
         item
         end>
       TextSettings.Trimming = None
-      IsSelected = False
+      IsSelected = True
       Size.Width = 55.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False

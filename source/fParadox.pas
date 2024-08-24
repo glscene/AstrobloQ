@@ -37,7 +37,7 @@ var
   FileName: TFileName;
 begin
   // Load Paradox items
-  case LangID of
+  case ActiveLang of
     LANG_ENGLISH:
       begin
         // en file

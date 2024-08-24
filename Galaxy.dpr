@@ -3,15 +3,16 @@ program Galaxy;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fenGalaxy in 'source\astrod\fenGalaxy.pas' {FormGalaxy},
-  fenSettings in 'source\astrod\fenSettings.pas' {FormSettings},
-  fenForm in 'source\astrod\fenForm.pas' {FormI},
-  fenAbout in 'source\astrod\fenAbout.pas' {FormAbout},
+  fdGalaxy in 'source\astrod\fdGalaxy.pas' {FormGalaxy},
+  fdSettings in 'source\astrod\fdSettings.pas' {FormSettings},
+  fdForm in 'source\astrod\fdForm.pas' {FormO},
+  fdAbout in 'source\astrod\fdAbout.pas' {FormAbout},
   Astro.Material in 'source\astrod\Astro.Material.pas',
-  fenAstrogen in 'source\astrod\fenAstrogen.pas' {FormAstrogen},
+  fdAstrogen in 'source\astrod\fdAstrogen.pas' {FormAstrogen},
   LUX.FMX.Material in 'source\lux\LUX.FMX.Material.pas',
   LUX.FMX.Types3D in 'source\lux\LUX.FMX.Types3D.pas',
-  LUX in 'source\lux\LUX.pas';
+  LUX in 'source\lux\LUX.pas',
+  gnuGettext in 'source\ucode\gnuGettext.pas';
 
 {$R *.res}
 
@@ -19,6 +20,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormGalaxy, FormGalaxy);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TFormO, FormO);
   Application.Run;
 end.

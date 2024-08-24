@@ -1,4 +1,4 @@
-unit fenSettings;
+unit fdSettings;
 
 interface
 
@@ -17,11 +17,10 @@ uses
   FMX.TreeView,
   FMX.TabControl,
 
-  fenForm
-  ;
+  fdForm;
 
 type
-  TFormSettings = class(TFormI)
+  TFormSettings = class(TFormO)
     TreeViewSettings: TTreeView;
     tvGeneral: TTreeViewItem;
     tvInterface: TTreeViewItem;
@@ -44,7 +43,7 @@ type
 var
   FormSettings: TFormSettings;
 
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 

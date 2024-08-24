@@ -189,8 +189,7 @@ type
 var
   frmSettings: TfrmSettings;
 
-//---------------------------------------------------------------------------
-implementation
+implementation //------------------------------------------------------------
 
 {$R *.dfm}
 
@@ -198,7 +197,7 @@ uses
   fGalaxy;
 
 
-//--------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TfrmSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
@@ -343,16 +342,18 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
+    ActiveLang := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
     CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
     CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
-    case LangID of
+    case ActiveLang of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
         rgLanguage.ItemIndex := 1;
       LANG_PORTUGUESE:
-        rgLanguage.ItemIndex := 2
+        rgLanguage.ItemIndex := 2;
+      LANG_SPANISH:
+        rgLanguage.ItemIndex := 3
     else
       rgLanguage.ItemIndex := 0;
     end;
@@ -382,7 +383,7 @@ procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
-  if CurLangID <> LangID then
+  if CurLangID <> ActiveLang then
   begin
     MessageDlg(_('Reload to change language'),
       mtInformation, [mbOK], 0);

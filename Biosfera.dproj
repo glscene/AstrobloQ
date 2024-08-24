@@ -275,7 +275,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="source\bio\fbMiniForm.pas"/>
-        <DCCReference Include="source\ucode\GnuGetText.pas"/>
+        <DCCReference Include="source\xcode\FMX.GnugetText.pas"/>
         <DCCReference Include="source\fForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>

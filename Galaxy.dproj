@@ -214,30 +214,31 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\astrod\fenGalaxy.pas">
+        <DCCReference Include="source\astrod\fdGalaxy.pas">
             <Form>FormGalaxy</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\fenSettings.pas">
+        <DCCReference Include="source\astrod\fdSettings.pas">
             <Form>FormSettings</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\fenForm.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="source\astrod\fdForm.pas">
+            <Form>FormO</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\fenAbout.pas">
+        <DCCReference Include="source\astrod\fdAbout.pas">
             <Form>FormAbout</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="source\astrod\Astro.Material.pas"/>
-        <DCCReference Include="source\astrod\fenAstrogen.pas">
+        <DCCReference Include="source\astrod\fdAstrogen.pas">
             <Form>FormAstrogen</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="source\lux\LUX.FMX.Material.pas"/>
         <DCCReference Include="source\lux\LUX.FMX.Types3D.pas"/>
         <DCCReference Include="source\lux\LUX.pas"/>
+        <DCCReference Include="source\ucode\gnuGettext.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

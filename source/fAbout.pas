@@ -68,7 +68,7 @@ end;
 
 procedure TFormAbout.FormCreate(Sender: TObject);
 begin
-  if FormI.LangID = LANG_ENGLISH then
+  if FormI.ActiveLang = LANG_ENGLISH then
   begin
     ImageLito_en.Visible := True;
     ImageLito_ru.Visible := False;

@@ -150,7 +150,7 @@
         </DCCReference>
         <DCCReference Include="source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="source\teh\Teh.Globals.pas"/>
-        <DCCReference Include="source\ucode\GnuGetText.pas"/>
+        <DCCReference Include="source\xcode\FMX.GnugetText.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

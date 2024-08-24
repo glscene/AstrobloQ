@@ -236,16 +236,18 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    LangID := IniFile.ReadInteger(frmSettingsLito.Name, rgLanguage.Name, 0);
+    ActiveLang := IniFile.ReadInteger(frmSettingsLito.Name, rgLanguage.Name, 0);
     CheckBoxAxes.Checked := IniFile.ReadBool(frmSettingsLito.Name, CheckBoxAxes.Name, True);
     CheckBoxRotate.Checked := IniFile.ReadBool(frmSettingsLito.Name, CheckBoxRotate.Name, True);
-    case LangID of
+    case ActiveLang of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
       LANG_RUSSIAN:
         rgLanguage.ItemIndex := 1;
       LANG_PORTUGUESE:
-        rgLanguage.ItemIndex := 2
+        rgLanguage.ItemIndex := 2;
+      LANG_SPANISH:
+        rgLanguage.ItemIndex := 3
     else
       rgLanguage.ItemIndex := 0;
     end;
@@ -275,7 +277,7 @@ procedure TfrmSettingsLito.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
-  if CurLangID <> LangID then
+  if CurLangID <> ActiveLang then
   begin
   MessageDlg(_('Reload to change language'),
       mtInformation, [mbOK], 0);
