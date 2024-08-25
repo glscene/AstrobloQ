@@ -56,11 +56,13 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      ActiveLang := ReadString('FormSettings', 'rgLanguage', 'en');
+      ActiveLang := ReadString('frmSettings', 'rgLanguage', 'en');
     finally
       IniFile.Free;
     end;
 end;
+
+//--------------------------------------------------------------------------
 
 procedure TFormO.SetLanguage;
 var
@@ -89,12 +91,6 @@ begin
   begin
     UseLanguage('en');
   end;
-  //TP_GlobalIgnoreClass(TTable);  // removed in ignore file
-  //TP_GlobalIgnoreClass(TFields);
-  //TP_GlobalIgnoreClass(TGLMaterialLibrary);
-
-  // Uncomment the next line will cause long loading but Action.Category translation
-  //TP_GlobalIgnoreClass(TAction);
 
   TranslateComponent(Self);
 end;

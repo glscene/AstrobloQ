@@ -1,11 +1,11 @@
-object frmGalaxy: TfrmGalaxy
+object frmGalaktika: TfrmGalaktika
   Left = 0
   Top = 0
   Margins.Left = 5
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaxy'
+  Caption = 'Galaktika'
   ClientHeight = 844
   ClientWidth = 1352
   Color = clBtnFace

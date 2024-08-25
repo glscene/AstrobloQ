@@ -1,4 +1,4 @@
-object FormGalaxy: TFormGalaxy
+object frmGalaxy: TfrmGalaxy
   Left = 0
   Top = 0
   Caption = 'Galaxy'
@@ -8,7 +8,7 @@ object FormGalaxy: TFormGalaxy
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
+  OnCreate = frmCreate
   DesignerMasterStyle = 0
   object MainMenu: TMainMenu
     Left = 176
@@ -18,6 +18,7 @@ object FormGalaxy: TFormGalaxy
       object miOpen: TMenuItem
         Locked = True
         Text = 'Open...'
+        OnClick = miOpenClick
       end
       object miExit: TMenuItem
         Locked = True
@@ -50,11 +51,49 @@ object FormGalaxy: TFormGalaxy
       object miWiki: TMenuItem
         Locked = True
         Text = 'Wiki...'
+        OnClick = miWikiClick
       end
       object miAbout: TMenuItem
         Locked = True
         Text = 'About...'
         OnClick = miAboutClick
+      end
+    end
+  end
+  object tvPlanets: TTreeView
+    Align = Left
+    Size.Width = 145.000000000000000000
+    Size.Height = 380.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 141.000000000000000000
+    Viewport.Height = 376.000000000000000000
+    object TreeViewItemGalaxy: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 0
+      Text = 'Galaxy'
+      object TreeViewItemStar: TTreeViewItem
+        IsChecked = False
+        IsExpanded = False
+        IsSelected = False
+        TabOrder = 0
+        Text = 'Star'
+        object TreeViewItemPlanet: TTreeViewItem
+          IsChecked = False
+          IsExpanded = False
+          IsSelected = False
+          TabOrder = 0
+          Text = 'Planet'
+          object TreeViewItemMoon: TTreeViewItem
+            IsChecked = False
+            IsExpanded = False
+            IsSelected = False
+            TabOrder = 0
+            Text = 'Moon'
+          end
+        end
       end
     end
   end

@@ -207,8 +207,7 @@ var
   I: Integer;
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  // if using bin directory for exe binary
-  // Delete(DataDir, Pos('bin', DataDir), Length(DataDir));
+  // if bin dir for exe Delete(DataDir, Pos('bin', DataDir), Length(DataDir));
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir);
 

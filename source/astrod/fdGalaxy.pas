@@ -14,15 +14,18 @@ uses
   FMX.Graphics,
   FMX.Dialogs,
   FMX.Menus,
+  FMX.Layouts,
+  FMX.TreeView,
 
   fdForm,
   fdAbout,
   fdSettings,
-  fdAstrogen
+  fdAstrogen,
+  ddDialogs
   ;
 
 type
-  TFormGalaxy = class(TFormO)
+  TfrmGalaxy = class(TFormO)
     MainMenu: TMainMenu;
     miFile: TMenuItem;
     miOpen: TMenuItem;
@@ -35,33 +38,83 @@ type
     miAbout: TMenuItem;
     miAstrogen: TMenuItem;
     miDivider1: TMenuItem;
-    procedure FormCreate(Sender: TObject);
+    tvPlanets: TTreeView;
+    TreeViewItemStar: TTreeViewItem;
+    TreeViewItemPlanet: TTreeViewItem;
+    TreeViewItemMoon: TTreeViewItem;
+    TreeViewItemGalaxy: TTreeViewItem;
+    procedure frmCreate(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAstrogenClick(Sender: TObject);
+    procedure miOpenClick(Sender: TObject);
+    procedure miWikiClick(Sender: TObject);
   private
   public
+    DataDir, StarDir, CurrentStar: TFileName;
+    PlanetPath, CatalogName: TFileName;
   end;
 
 var
-  FormGalaxy: TFormGalaxy;
+  frmGalaxy: TfrmGalaxy;
 
 implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TFormGalaxy.FormCreate(Sender: TObject);
+procedure TfrmGalaxy.frmCreate(Sender: TObject);
 var
   I: Integer;
 begin
   ReadInifile;
+  DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(DataDir, Pos('astrobloq', DataDir) + 9, Length(DataDir));
+  DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
+  SetCurrentDir(DataDir);
+
+  StarDir := DataDir + '\star\';
+
   inherited;
 end;
 
+procedure TfrmGalaxy.miSettingsClick(Sender: TObject);
+begin
+  inherited;
+  frmSettings.Show;
+end;
+
+//--------------------------------------------------------------------------
+procedure TfrmGalaxy.miOpenClick(Sender: TObject);
+var
+  I, J: Integer;
+begin
+  dmDialogs.OpenDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
+  dmDialogs.OpenDialog.InitialDir := StarDir;
+  dmDialogs.OpenDialog.DefaultExt := '*.star';
+  if dmDialogs.OpenDialog.Execute then
+  begin  // new star
+///    tvPlanets.LoadFromFile(dmDialogs.OpenDialog.FileName, TEncoding.UTF8);
+    // tvPlanets.Images := dfImages.ImgVirtPlanets; // не загружаются символы
+    CurrentStar := ExtractFilePath(dmDialogs.OpenDialog.FileName);
+
+    // Assigning indices
+    for I := 0 to tvPlanets.Items[I].Count - 1 do
+    begin
+      tvPlanets.Items[I].ImageIndex := I;
+///      tvPlanets.Items[I].SelectedIndex := I;
+///      tvPlanets.Items[I].StateIndex := -1;
+    end;
+    (**)
+///    tvPlanets.Select(tvPlanets.Items[0]);
+///    tvPlanetsClick(Sender);
+  end;
+end;
+
+
 //---------------------------------------------------------------------------
 
-procedure TFormGalaxy.miAstrogenClick(Sender: TObject);
+procedure TfrmGalaxy.miAstrogenClick(Sender: TObject);
 begin
   inherited;
   // Load astrogenerator and exoplanet constructor
@@ -73,26 +126,27 @@ begin
     end;
 end;
 
-procedure TFormGalaxy.miAboutClick(Sender: TObject);
+
+//---------------------------------------------------------------------------
+
+procedure TfrmGalaxy.miWikiClick(Sender: TObject);
 begin
-  inherited;
-  with TFormAbout.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
+  //
 end;
 
-procedure TFormGalaxy.miSettingsClick(Sender: TObject);
+//--------------------------------------------------------------------------
+
+procedure TfrmGalaxy.miAboutClick(Sender: TObject);
 begin
   inherited;
-  FormSettings.Show;
+  FormAbout := TFormAbout.Create(Application);
+  FormAbout.ShowModal;
+  FormAbout.Free;
 end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormGalaxy.miExitClick(Sender: TObject);
+procedure TfrmGalaxy.miExitClick(Sender: TObject);
 begin
   inherited;
   Close;

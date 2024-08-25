@@ -125,8 +125,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\fGalaxy.pas">
-            <Form>frmGalaxy</Form>
+        <DCCReference Include="source\fGalaktika.pas">
+            <Form>frmGalaktika</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dImages.pas">

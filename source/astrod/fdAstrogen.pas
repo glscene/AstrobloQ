@@ -77,6 +77,9 @@ implementation //--------------------------------------------------------------
 
 {$R *.fmx}
 
+uses
+  fdGalaxy;
+
 procedure TFormAstrogen.FormCreate(Sender: TObject);
 var
   M: TAstroMaterialSource;
@@ -89,7 +92,7 @@ begin
     Diffuse := TAlphaColors.White;
     Specular := TAlphaColors.White;
     Shininess := 50;
-    Texture.LoadFromFile('..\..\data\map\Earth.jpg');
+    Texture.LoadFromFile(frmGalaxy.DataDir + '\map\Earth.jpg');
   end;
 
   M := TAstroMaterialSource.Create(Self);
@@ -97,8 +100,8 @@ begin
   Sphere2.MaterialSource := M;
   Sphere2.TwoSide := True;
 
-  MemoSVC.Lines.LoadFromFile('..\..\data\shader\ShaderV.hlsl');
-  MemoSPC.Lines.LoadFromFile('..\..\data\shader\ShaderP.hlsl');
+  MemoSVC.Lines.LoadFromFile(frmGalaxy.DataDir + '\shader\ShaderV.hlsl');
+  MemoSPC.Lines.LoadFromFile(frmGalaxy.DataDir + '\shader\ShaderP.hlsl');
 
   with M do
   begin
@@ -107,7 +110,7 @@ begin
     DiffRatio := TAlphaColorF.Create(1, 1, 1);
     SpecRatio := TAlphaColorF.Create(1, 1, 1);
     SpecShiny := 50;
-    DiffImage.LoadFromFile('..\..\data\map\Earth.jpg');
+    DiffImage.LoadFromFile(frmGalaxy.DataDir + '\map\Earth.jpg');
 
     ShaderV.Source.Text := MemoSVC.Text;
     for T in ShaderV.Errors.Keys do
@@ -150,12 +153,10 @@ begin
   if ssLeft in _MouseS then
   begin
     P := TPointF.Create(X, Y);
-
     with Dummy1.RotationAngle do
       Y := Y + (P.X - _MouseP.X) / 2;
     with Dummy2.RotationAngle do
       X := X - (P.Y - _MouseP.Y) / 2;
-
     _MouseP := P;
   end;
 end;

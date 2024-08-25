@@ -1,4 +1,4 @@
-object FormSettings: TFormSettings
+object frmSettings: TfrmSettings
   Left = 0
   Top = 0
   Caption = 'Settings'
@@ -10,12 +10,13 @@ object FormSettings: TFormSettings
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object TreeViewSettings: TTreeView
+  object tvSettings: TTreeView
     Align = Left
     Size.Width = 105.000000000000000000
     Size.Height = 404.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
+    OnClick = tvSettingsClick
     Viewport.Width = 101.000000000000000000
     Viewport.Height = 400.000000000000000000
     object tvGeneral: TTreeViewItem
@@ -61,7 +62,7 @@ object FormSettings: TFormSettings
       Text = 'Galaxy'
     end
   end
-  object TabControlGeneral: TTabControl
+  object TabControl: TTabControl
     Align = Client
     Size.Width = 463.000000000000000000
     Size.Height = 404.000000000000000000
@@ -82,7 +83,7 @@ object FormSettings: TFormSettings
       378s
       463s
       378s)
-    object TabItemGeneral: TTabItem
+    object tiGeneral: TTabItem
       CustomIcon = <
         item
         end>
@@ -97,7 +98,7 @@ object FormSettings: TFormSettings
       ExplicitSize.cx = 61.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
-    object TabItemInterface: TTabItem
+    object tiInterface: TTabItem
       CustomIcon = <
         item
         end>
@@ -112,7 +113,7 @@ object FormSettings: TFormSettings
       ExplicitSize.cx = 66.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
-    object TabItemDisplay: TTabItem
+    object tiDisplay: TTabItem
       CustomIcon = <
         item
         end>
@@ -127,7 +128,7 @@ object FormSettings: TFormSettings
       ExplicitSize.cx = 58.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
-    object TabItemPlanets: TTabItem
+    object tiPlanets: TTabItem
       CustomIcon = <
         item
         end>
@@ -142,7 +143,7 @@ object FormSettings: TFormSettings
       ExplicitSize.cx = 58.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
-    object TabItemStars: TTabItem
+    object tiStars: TTabItem
       CustomIcon = <
         item
         end>
@@ -157,7 +158,7 @@ object FormSettings: TFormSettings
       ExplicitSize.cx = 46.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
-    object TabItemGalaxy: TTabItem
+    object tiGalaxy: TTabItem
       CustomIcon = <
         item
         end>
@@ -171,6 +172,47 @@ object FormSettings: TFormSettings
       Text = 'Galaxy'
       ExplicitSize.cx = 55.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
+      object rbEnglish: TRadioButton
+        GroupName = 'Languages'
+        IsChecked = True
+        Position.X = 24.000000000000000000
+        Position.Y = 63.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'en'
+      end
+      object rbPortugese: TRadioButton
+        GroupName = 'Languages'
+        Position.X = 225.000000000000000000
+        Position.Y = 63.000000000000000000
+        Size.Width = 88.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'pt'
+      end
+      object rbSpain: TRadioButton
+        GroupName = 'Languages'
+        Position.X = 328.000000000000000000
+        Position.Y = 63.000000000000000000
+        Size.Width = 89.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'sp'
+      end
+      object rbRussian: TRadioButton
+        GroupName = 'Languages'
+        Position.X = 128.000000000000000000
+        Position.Y = 63.000000000000000000
+        Size.Width = 72.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'ru'
+      end
     end
   end
 end

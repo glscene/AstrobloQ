@@ -215,11 +215,11 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="source\astrod\fdGalaxy.pas">
-            <Form>FormGalaxy</Form>
+            <Form>frmGalaxy</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="source\astrod\fdSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="source\astrod\fdForm.pas">
@@ -239,6 +239,11 @@
         <DCCReference Include="source\lux\LUX.FMX.Types3D.pas"/>
         <DCCReference Include="source\lux\LUX.pas"/>
         <DCCReference Include="source\ucode\gnuGettext.pas"/>
+        <DCCReference Include="source\astrod\ddDialogs.pas">
+            <Form>dmDialogs</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
