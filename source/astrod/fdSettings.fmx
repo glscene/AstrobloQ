@@ -172,46 +172,52 @@ object frmSettings: TfrmSettings
       Text = 'Galaxy'
       ExplicitSize.cx = 55.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
-      object rbEnglish: TRadioButton
-        GroupName = 'Languages'
-        IsChecked = True
+      object gbLanguage: TGroupBox
         Position.X = 24.000000000000000000
-        Position.Y = 63.000000000000000000
-        Size.Width = 73.000000000000000000
-        Size.Height = 19.000000000000000000
+        Position.Y = 56.000000000000000000
+        Size.Width = 361.000000000000000000
+        Size.Height = 100.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 3
-        Text = 'en'
-      end
-      object rbPortugese: TRadioButton
-        GroupName = 'Languages'
-        Position.X = 225.000000000000000000
-        Position.Y = 63.000000000000000000
-        Size.Width = 88.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        Text = 'pt'
-      end
-      object rbSpain: TRadioButton
-        GroupName = 'Languages'
-        Position.X = 328.000000000000000000
-        Position.Y = 63.000000000000000000
-        Size.Width = 89.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        Text = 'sp'
-      end
-      object rbRussian: TRadioButton
-        GroupName = 'Languages'
-        Position.X = 128.000000000000000000
-        Position.Y = 63.000000000000000000
-        Size.Width = 72.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
+        Text = 'Language'
         TabOrder = 0
-        Text = 'ru'
+        object ceLanguages: TComboEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 13
+          ItemHeight = 19.000000000000000000
+          Items.Strings = (
+            'en'
+            'ru'
+            'pt'
+            'sp')
+          ItemIndex = 0
+          ListBoxResource = 'combolistboxstyle'
+          Text = 'en'
+          Position.X = 220.000000000000000000
+          Position.Y = 38.000000000000000000
+          HelpType = htKeyword
+          Size.Width = 95.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object cbLanguages: TComboBox
+          Items.Strings = (
+            'en'
+            'ru'
+            'pt'
+            'sp')
+          ItemIndex = 0
+          Position.X = 38.000000000000000000
+          Position.Y = 38.000000000000000000
+          TabOrder = 14
+        end
+      end
+      object ButtonOk: TButton
+        Position.X = 344.000000000000000000
+        Position.Y = 334.000000000000000000
+        TabOrder = 1
+        Text = 'OK'
+        TextSettings.Trimming = None
+        OnClick = ButtonOkClick
       end
     end
   end

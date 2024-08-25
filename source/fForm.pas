@@ -73,13 +73,6 @@ begin
   begin
     UseLanguage('en');
   end;
-  //TP_GlobalIgnoreClass(TTable);  // removed in ignore file
-  //TP_GlobalIgnoreClass(TFields);
-  //TP_GlobalIgnoreClass(TGLMaterialLibrary);
-
-  // Uncomment the next line will cause long loading but Action.Category translation
-  //TP_GlobalIgnoreClass(TAction);
-
   TranslateComponent(Self);
 end;
 

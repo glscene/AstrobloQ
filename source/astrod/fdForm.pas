@@ -29,8 +29,8 @@ type
     procedure FormCreate(Sender: TObject);
   private
   public
-    ActiveLangID: Word;
-    ActiveLang: String;
+    ActiveLangID: Integer;
+    ActiveLangStr: String;
     procedure ReadIniFile; virtual;
     procedure SetLanguage;
   end;
@@ -44,7 +44,7 @@ implementation //--------------------------------------------------------------
 
 procedure TFormO.FormCreate(Sender: TObject);
 begin
-   ActiveLang := 'en'; // Default language
+   ActiveLangStr := 'en'; // Default language
    ReadIniFile;
    SetLanguage;
 end;
@@ -56,7 +56,9 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      ActiveLang := ReadString('frmSettings', 'rgLanguage', 'en');
+      // (frmSettings.Name, gbLanguage.Text, 0)
+      ActiveLangID := ReadInteger('frmSettings', 'gbLanguage', 0);
+      ActiveLangStr := ReadString('frmSettings', 'rgLanguage', 'en');
     finally
       IniFile.Free;
     end;
@@ -71,7 +73,7 @@ begin
   LocalePath := ExtractFileDir(ParamStr(0));
   LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
-  if (ActiveLang <> 'en') then
+  if (ActiveLangStr <> 'en') then
   begin
     Textdomain('galaxy');
     BindTextDomain ('galaxy', LocalePath);

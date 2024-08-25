@@ -38,7 +38,7 @@ implementation //-------------------------------------------------------------
 procedure TFormAbout.FormCreate(Sender: TObject);
 begin
   inherited;
-  ActiveLang := 'en';
+  ActiveLangStr := 'en';
 end;
 
 end.
