@@ -57,8 +57,7 @@ begin
   with IniFile do
     try
       // (frmSettings.Name, gbLanguage.Text, 0)
-      ActiveLangID := ReadInteger('frmSettings', 'gbLanguage', 0);
-      ActiveLangStr := ReadString('frmSettings', 'rgLanguage', 'en');
+      ActiveLangID := ReadInteger('frmSettings', 'ceLanguages', 0);
     finally
       IniFile.Free;
     end;
@@ -73,7 +72,7 @@ begin
   LocalePath := ExtractFileDir(ParamStr(0));
   LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
 
-  if (ActiveLangStr <> 'en') then
+  if (ActiveLangID <> LANG_ENGLISH) then
   begin
     Textdomain('galaxy');
     BindTextDomain ('galaxy', LocalePath);

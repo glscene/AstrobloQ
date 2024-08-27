@@ -40,12 +40,11 @@ type
     tiStars: TTabItem;
     tiGalaxy: TTabItem;
     gbLanguage: TGroupBox;
-    ButtonOk: TButton;
     ceLanguages: TComboEdit;
-    cbLanguages: TComboBox;
+    ButtonOk: TButton;
     procedure FormCreate(Sender: TObject);
-    procedure tvSettingsClick(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
+    procedure tvSettingsClick(Sender: TObject);
   private
   public
     CurLangID : Word;
@@ -64,30 +63,56 @@ implementation // -------------------------------------------------------------
 procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
+
+  for var I: Integer := 0 to TabControl.TabCount - 1 do
+    TabControl.Tabs[I].Visible := False;
+
+  TabControl.Tabs[0].Visible := True;
+  tvSettings.CanFocus := True;
+  TabControl.ActiveTab := tiGeneral;
   inherited;
 end;
 
 procedure TfrmSettings.tvSettingsClick(Sender: TObject);
+var
+  I: Integer;
 begin
-  inherited;
-  // TabControl.Index := tvSettings.Selected.Count;
-  case tvSettings.Selected.Count of
-    // TabControl.ActiveTab := TabItemN;
-    0:
-      TabControl.ActiveTab := tiGeneral;
-    1:
-      TabControl.ActiveTab := tiInterface;
-    2:
-      TabControl.ActiveTab := tiDisplay;
-    3:
-      TabControl.ActiveTab := tiGalaxy;
-    4:
-      TabControl.ActiveTab := tiStars;
-    5:
-      TabControl.ActiveTab := tiPlanets;
+  for I := 0 to TabControl.TabCount - 1 do
+    TabControl.Tabs[I].Visible := False;
+
+  case tvSettings.Selected.Index of
+    0: begin
+         TabControl.Tabs[0].Visible := True;
+         tiGeneral.Visible := True;
+         TabControl.ActiveTab := tiGeneral;
+       end;
+    1: begin
+         TabControl.Tabs[1].Visible := True;
+         tiInterface.Visible := True;
+         TabControl.ActiveTab := tiInterface;
+       end;
+    2: begin
+         TabControl.Tabs[2].Visible := True;
+         tiDisplay.Visible := True;
+         TabControl.ActiveTab := tiDisplay;
+       end;
+    3: begin
+         TabControl.Tabs[3].Visible := True;
+         tiPlanets.Visible := True;
+         TabControl.ActiveTab := tiPlanets;
+       end;
+    4: begin
+        TabControl.Tabs[4].Visible := True;
+        tiStars.Visible := True;
+        TabControl.ActiveTab := tiStars;
+       end;
+    5: begin
+         TabControl.Tabs[5].Visible := True;
+         tiGalaxy.Visible := True;
+         TabControl.ActiveTab := tiGalaxy;
+       end;
   end;
 end;
-
 
 //--------------------------------------------------------------------------
 procedure TfrmSettings.WriteIniFile;
@@ -96,9 +121,13 @@ var
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLangID := cbLanguages.ItemIndex;
-    IniFile.WriteInteger(frmSettings.Name, cbLanguages.Name, ActiveLangID);
-//    IniFile.WriteString(frmSettings.Name, rbRussian.Text, 'ru');
+    case ceLanguages.ItemIndex of
+      0: ActiveLangID := LANG_ENGLISH; // 9
+      1: ActiveLangID := LANG_RUSSIAN; // 25
+      2: ActiveLangID := LANG_PORTUGUESE; // 22
+      3: ActiveLangID := LANG_SPANISH; // 10
+    end;
+    IniFile.WriteInteger(frmSettings.Name, ceLanguages.Name, ActiveLangID);
   finally
     IniFile.Free;
   end;
@@ -116,17 +145,16 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, gbLanguage.Name, 0);
-    cbLanguages.ItemIndex := ActiveLangId;
-    /// CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
-    /// CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
+    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, ceLanguages.Name, 0);
+/// CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
+/// CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
     case ActiveLangId of
-      LANG_ENGLISH: cbLanguages.ItemIndex := 0;
-      LANG_RUSSIAN: cbLanguages.ItemIndex := 1;
-      LANG_PORTUGUESE: cbLanguages.ItemIndex := 2;
-      LANG_SPANISH: cbLanguages.ItemIndex := 3;
+      LANG_ENGLISH: ceLanguages.ItemIndex := 0;
+      LANG_RUSSIAN: ceLanguages.ItemIndex := 1;
+      LANG_PORTUGUESE: ceLanguages.ItemIndex := 2;
+      LANG_SPANISH: ceLanguages.ItemIndex := 3;
     else
-      cbLanguages.ItemIndex := 0;
+      ceLanguages.ItemIndex := 0;
     end;
   finally
     IniFile.Free;

@@ -74,7 +74,7 @@ begin
   SetCurrentDir(DataDir);
 
   StarDir := DataDir + '\star\';
-
+  tvPlanets.ExpandAll;
   inherited;
 end;
 

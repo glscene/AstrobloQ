@@ -2,8 +2,8 @@ object frmSettings: TfrmSettings
   Left = 0
   Top = 0
   Caption = 'Settings'
-  ClientHeight = 404
-  ClientWidth = 568
+  ClientHeight = 412
+  ClientWidth = 576
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -13,12 +13,12 @@ object frmSettings: TfrmSettings
   object tvSettings: TTreeView
     Align = Left
     Size.Width = 105.000000000000000000
-    Size.Height = 404.000000000000000000
+    Size.Height = 412.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 0
+    TabOrder = 1
     OnClick = tvSettingsClick
     Viewport.Width = 101.000000000000000000
-    Viewport.Height = 400.000000000000000000
+    Viewport.Height = 408.000000000000000000
     object tvGeneral: TTreeViewItem
       IsChecked = False
       IsExpanded = False
@@ -64,31 +64,31 @@ object frmSettings: TfrmSettings
   end
   object TabControl: TTabControl
     Align = Client
-    Size.Width = 463.000000000000000000
-    Size.Height = 404.000000000000000000
+    Size.Width = 471.000000000000000000
+    Size.Height = 412.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 5
-    TabOrder = 1
+    TabIndex = 0
+    TabOrder = 2
     TabPosition = PlatformDefault
     Sizes = (
-      463s
-      378s
-      463s
-      378s
-      463s
-      378s
-      463s
-      378s
-      463s
-      378s
-      463s
-      378s)
+      471s
+      386s
+      471s
+      386s
+      471s
+      386s
+      471s
+      386s
+      471s
+      386s
+      471s
+      386s)
     object tiGeneral: TTabItem
       CustomIcon = <
         item
         end>
       TextSettings.Trimming = None
-      IsSelected = False
+      IsSelected = True
       Size.Width = 61.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -97,6 +97,34 @@ object frmSettings: TfrmSettings
       Text = 'General'
       ExplicitSize.cx = 61.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
+      object gbLanguage: TGroupBox
+        Position.X = 24.000000000000000000
+        Position.Y = 56.000000000000000000
+        Size.Width = 162.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Language'
+        TabOrder = 0
+        object ceLanguages: TComboEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 13
+          ItemHeight = 19.000000000000000000
+          Items.Strings = (
+            'en'
+            'ru'
+            'pt'
+            'sp')
+          ItemIndex = 1
+          ListBoxResource = 'combolistboxstyle'
+          Text = 'ru'
+          Position.X = 28.000000000000000000
+          Position.Y = 38.000000000000000000
+          HelpType = htKeyword
+          Size.Width = 95.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
     end
     object tiInterface: TTabItem
       CustomIcon = <
@@ -163,7 +191,7 @@ object frmSettings: TfrmSettings
         item
         end>
       TextSettings.Trimming = None
-      IsSelected = True
+      IsSelected = False
       Size.Width = 55.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -172,53 +200,14 @@ object frmSettings: TfrmSettings
       Text = 'Galaxy'
       ExplicitSize.cx = 55.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
-      object gbLanguage: TGroupBox
-        Position.X = 24.000000000000000000
-        Position.Y = 56.000000000000000000
-        Size.Width = 361.000000000000000000
-        Size.Height = 100.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'Language'
-        TabOrder = 0
-        object ceLanguages: TComboEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          TabOrder = 13
-          ItemHeight = 19.000000000000000000
-          Items.Strings = (
-            'en'
-            'ru'
-            'pt'
-            'sp')
-          ItemIndex = 0
-          ListBoxResource = 'combolistboxstyle'
-          Text = 'en'
-          Position.X = 220.000000000000000000
-          Position.Y = 38.000000000000000000
-          HelpType = htKeyword
-          Size.Width = 95.000000000000000000
-          Size.Height = 22.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object cbLanguages: TComboBox
-          Items.Strings = (
-            'en'
-            'ru'
-            'pt'
-            'sp')
-          ItemIndex = 0
-          Position.X = 38.000000000000000000
-          Position.Y = 38.000000000000000000
-          TabOrder = 14
-        end
-      end
-      object ButtonOk: TButton
-        Position.X = 344.000000000000000000
-        Position.Y = 334.000000000000000000
-        TabOrder = 1
-        Text = 'OK'
-        TextSettings.Trimming = None
-        OnClick = ButtonOkClick
-      end
     end
+  end
+  object ButtonOk: TButton
+    Position.X = 410.000000000000000000
+    Position.Y = 342.000000000000000000
+    TabOrder = 0
+    Text = 'OK'
+    TextSettings.Trimming = None
+    OnClick = ButtonOkClick
   end
 end
