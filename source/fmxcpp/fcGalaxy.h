@@ -23,6 +23,7 @@ __published:	// IDE-managed Components
 	TMenuItem *miWiki;
 	TMenuItem *miAbout;
 	TLang *Langs;
+	TMenuItem *miSolarSystem;
 	void __fastcall miExitClick(TObject *Sender);
 	void __fastcall miAboutClick(TObject *Sender);
 	void __fastcall miSettingsClick(TObject *Sender);

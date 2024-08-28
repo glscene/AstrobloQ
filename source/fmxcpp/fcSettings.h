@@ -10,6 +10,8 @@
 #include <FMX.TreeView.hpp>
 #include <FMX.Types.hpp>
 #include <FMX.TabControl.hpp>
+#include "gnuGettext.hpp"
+
 //---------------------------------------------------------------------------
 class TFormSettings : public TForm
 {

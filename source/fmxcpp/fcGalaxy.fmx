@@ -26,6 +26,10 @@ object FormGalaxyc: TFormGalaxyc
     end
     object miView: TMenuItem
       Text = '&View'
+      object miSolarSystem: TMenuItem
+        Locked = True
+        Text = 'Solar system...'
+      end
     end
     object miTools: TMenuItem
       Text = '&Tools'

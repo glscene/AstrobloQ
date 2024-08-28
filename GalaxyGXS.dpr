@@ -3,17 +3,17 @@ program GalaxyGXS;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxGalaxy in 'source\astrod\fxGalaxy.pas' {frmGalaxy},
-  fxSettings in 'source\astrod\fxSettings.pas' {frmSettings},
-  fxForm in 'source\astrod\fxForm.pas' {FormO},
-  fxAbout in 'source\astrod\fxAbout.pas' {FormAbout},
-  Astro.Material in 'source\astrod\Astro.Material.pas',
-  fxAstrogen in 'source\astrod\fxAstrogen.pas' {FormAstrogen},
-  LUX.FMX.Material in 'source\lux\LUX.FMX.Material.pas',
-  LUX.FMX.Types3D in 'source\lux\LUX.FMX.Types3D.pas',
-  LUX in 'source\lux\LUX.pas',
+  fxGalaxy in 'source\fmxpas\fxGalaxy.pas' {frmGalaxy},
+  fxSettings in 'source\fmxpas\fxSettings.pas' {frmSettings},
+  fxForm in 'source\fmxpas\fxForm.pas' {FormO},
+  fxAbout in 'source\fmxpas\fxAbout.pas' {FormAbout},
+  Astro.Material in 'source\astro\Astro.Material.pas',
+  fxAstrogen in 'source\fmxpas\fxAstrogen.pas' {FormAstrogen},
+  LUX.FMX.Material in 'source\astro\LUX.FMX.Material.pas',
+  LUX.FMX.Types3D in 'source\astro\LUX.FMX.Types3D.pas',
+  LUX in 'source\astro\LUX.pas',
   gnuGettext in 'source\ucode\gnuGettext.pas',
-  dxDialogs in 'source\astrod\dxDialogs.pas' {dmDialogs: TDataModule};
+  dxDialogs in 'source\fmxpas\dxDialogs.pas' {dmDialogs: TDataModule};
 
 {$R *.res}
 

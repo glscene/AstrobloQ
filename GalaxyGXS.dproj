@@ -213,32 +213,32 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\astrod\fxGalaxy.pas">
+        <DCCReference Include="source\fmxpas\fxGalaxy.pas">
             <Form>frmGalaxy</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\fxSettings.pas">
+        <DCCReference Include="source\fmxpas\fxSettings.pas">
             <Form>frmSettings</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\fxForm.pas">
+        <DCCReference Include="source\fmxpas\fxForm.pas">
             <Form>FormO</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\fxAbout.pas">
+        <DCCReference Include="source\fmxpas\fxAbout.pas">
             <Form>FormAbout</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\astrod\Astro.Material.pas"/>
-        <DCCReference Include="source\astrod\fxAstrogen.pas">
+        <DCCReference Include="source\astro\Astro.Material.pas"/>
+        <DCCReference Include="source\fmxpas\fxAstrogen.pas">
             <Form>FormAstrogen</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\lux\LUX.FMX.Material.pas"/>
-        <DCCReference Include="source\lux\LUX.FMX.Types3D.pas"/>
-        <DCCReference Include="source\lux\LUX.pas"/>
+        <DCCReference Include="source\astro\LUX.FMX.Material.pas"/>
+        <DCCReference Include="source\astro\LUX.FMX.Types3D.pas"/>
+        <DCCReference Include="source\astro\LUX.pas"/>
         <DCCReference Include="source\ucode\gnuGettext.pas"/>
-        <DCCReference Include="source\astrod\dxDialogs.pas">
+        <DCCReference Include="source\fmxpas\dxDialogs.pas">
             <Form>dmDialogs</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>

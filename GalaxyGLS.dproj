@@ -181,7 +181,6 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\ucode\uSkyBodies.pas"/>
-        <DCCReference Include="source\ucode\GnuGetText.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

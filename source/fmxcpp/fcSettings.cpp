@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "fcSettings.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"

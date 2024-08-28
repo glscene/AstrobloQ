@@ -5,7 +5,7 @@ object frmGalaktika: TfrmGalaktika
   Margins.Top = 5
   Margins.Right = 5
   Margins.Bottom = 5
-  Caption = 'Galaktika'
+  Caption = 'GalaxyGLS'
   ClientHeight = 844
   ClientWidth = 1352
   Color = clBtnFace
@@ -1092,7 +1092,7 @@ object frmGalaktika: TfrmGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaxy - %FPS'
+    FormCaption = 'GalaxyGLS - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
