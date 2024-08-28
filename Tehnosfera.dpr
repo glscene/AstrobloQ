@@ -18,7 +18,7 @@ uses
   ftCETI in 'source\teh\ftCETI.pas' {FormTehnosfera},
   Teh.BoneUtils in 'source\teh\Teh.BoneUtils.pas',
   Teh.Globals in 'source\teh\Teh.Globals.pas',
-  FMX.GnugetText in 'source\xcode\FMX.GnugetText.pas';
+  GnugetText in 'source\xcode\GnugetText.pas';
 
 {$R *.res}
 

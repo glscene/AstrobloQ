@@ -1,0 +1,39 @@
+object FormAbout: TFormAbout
+  Left = 0
+  Top = 0
+  Caption = 'About'
+  ClientHeight = 324
+  ClientWidth = 512
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object TextAbout: TText
+    Position.X = 168.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'GalaxyGXS'
+  end
+  object TabControl1: TTabControl
+    Position.X = 64.000000000000000000
+    Position.Y = 82.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 200.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    TabPosition = PlatformDefault
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 440.000000000000000000
+    Position.Y = 160.000000000000000000
+    TabOrder = 2
+    Viewport.Width = 46.000000000000000000
+    Viewport.Height = 46.000000000000000000
+  end
+end

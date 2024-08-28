@@ -3,25 +3,22 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Galaxy.dproj">
+        <Projects Include="GalaxyGLS.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GalaxyGXS.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Litosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Galaktika.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Biosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Galaqtiqa.dproj">
+        <Projects Include="Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Galaxyc.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Galactica.cbproj">
+        <Projects Include="GalaxyGXC.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -32,14 +29,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Galaxy">
-        <MSBuild Projects="Galaxy.dproj"/>
+    <Target Name="GalaxyGLS">
+        <MSBuild Projects="GalaxyGLS.dproj"/>
     </Target>
-    <Target Name="Galaxy:Clean">
-        <MSBuild Projects="Galaxy.dproj" Targets="Clean"/>
+    <Target Name="GalaxyGLS:Clean">
+        <MSBuild Projects="GalaxyGLS.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaxy:Make">
-        <MSBuild Projects="Galaxy.dproj" Targets="Make"/>
+    <Target Name="GalaxyGLS:Make">
+        <MSBuild Projects="GalaxyGLS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GalaxyGXS">
+        <MSBuild Projects="GalaxyGXS.dproj"/>
+    </Target>
+    <Target Name="GalaxyGXS:Clean">
+        <MSBuild Projects="GalaxyGXS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GalaxyGXS:Make">
+        <MSBuild Projects="GalaxyGXS.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Litosfera.dproj"/>
@@ -50,15 +56,6 @@
     <Target Name="Litosfera:Make">
         <MSBuild Projects="Litosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaktika">
-        <MSBuild Projects="Galaktika.dproj"/>
-    </Target>
-    <Target Name="Galaktika:Clean">
-        <MSBuild Projects="Galaktika.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Galaktika:Make">
-        <MSBuild Projects="Galaktika.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Biosfera">
         <MSBuild Projects="Biosfera.dproj"/>
     </Target>
@@ -68,41 +65,32 @@
     <Target Name="Biosfera:Make">
         <MSBuild Projects="Biosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaqtiqa">
-        <MSBuild Projects="Galaqtiqa.dproj"/>
+    <Target Name="Tehnosfera">
+        <MSBuild Projects="Tehnosfera.dproj"/>
     </Target>
-    <Target Name="Galaqtiqa:Clean">
-        <MSBuild Projects="Galaqtiqa.dproj" Targets="Clean"/>
+    <Target Name="Tehnosfera:Clean">
+        <MSBuild Projects="Tehnosfera.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaqtiqa:Make">
-        <MSBuild Projects="Galaqtiqa.dproj" Targets="Make"/>
+    <Target Name="Tehnosfera:Make">
+        <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaxyc">
-        <MSBuild Projects="Galaxyc.cbproj"/>
+    <Target Name="GalaxyGXC">
+        <MSBuild Projects="GalaxyGXC.cbproj"/>
     </Target>
-    <Target Name="Galaxyc:Clean">
-        <MSBuild Projects="Galaxyc.cbproj" Targets="Clean"/>
+    <Target Name="GalaxyGXC:Clean">
+        <MSBuild Projects="GalaxyGXC.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaxyc:Make">
-        <MSBuild Projects="Galaxyc.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="Galactica">
-        <MSBuild Projects="Galactica.cbproj"/>
-    </Target>
-    <Target Name="Galactica:Clean">
-        <MSBuild Projects="Galactica.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Galactica:Make">
-        <MSBuild Projects="Galactica.cbproj" Targets="Make"/>
+    <Target Name="GalaxyGXC:Make">
+        <MSBuild Projects="GalaxyGXC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaxy;Litosfera;Galaktika;Biosfera;Galaqtiqa;Galaxyc;Galactica"/>
+        <CallTarget Targets="GalaxyGLS;GalaxyGXS;Litosfera;Biosfera;Tehnosfera;GalaxyGXC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaxy:Clean;Litosfera:Clean;Galaktika:Clean;Biosfera:Clean;Galaqtiqa:Clean;Galaxyc:Clean;Galactica:Clean"/>
+        <CallTarget Targets="GalaxyGLS:Clean;GalaxyGXS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaxy:Make;Litosfera:Make;Galaktika:Make;Biosfera:Make;Galaqtiqa:Make;Galaxyc:Make;Galactica:Make"/>
+        <CallTarget Targets="GalaxyGLS:Make;GalaxyGXS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
