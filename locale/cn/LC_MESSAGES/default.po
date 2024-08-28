@@ -7,7 +7,7 @@
 msgid ""
 msgstr "Project-Id-Version: \n"
 "POT-Creation-Date: 2024-06-02 13:33\n"
-"PO-Revision-Date: 2024-07-27 20:15+0300\n"
+"PO-Revision-Date: 2024-08-28 22:34+0300\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -106,7 +106,7 @@ msgstr ""
 #. FormAbout..PageControl..tsTools..Caption
 #: fAbout.dfm:75456
 msgid "Tools"
-msgstr ""
+msgstr "Gōngjù"
 
 #. FormAbout..PageControl..tsTools..DelphiButton..Hint
 #: fAbout.dfm:75464
@@ -329,7 +329,7 @@ msgstr ""
 #. frmGalaktika..MainMenu..miFile..Caption
 #: fGalaxy.dfm:941
 msgid "&File"
-msgstr ""
+msgstr "&Wénjiàn"
 
 #. frmGalaktika..MainMenu..miFile..miNewStarcube..Caption
 #: fGalaxy.dfm:943
@@ -375,7 +375,7 @@ msgstr ""
 #. frmGalaktika..MainMenu..miFile..miExit..Caption
 #: fGalaxy.dfm:965
 msgid "Exit"
-msgstr ""
+msgstr "Chūkǒu"
 
 #. frmGalaktika..MainMenu..miEdit..Caption
 #: fGalaxy.dfm:971
@@ -425,7 +425,7 @@ msgstr ""
 #. frmGalaktika..MainMenu..miView..Caption
 #: fGalaxy.dfm:1011
 msgid "&View"
-msgstr ""
+msgstr "&Kànfǎ"
 
 #. frmGalaktika..MainMenu..miView..miExoplanets..Caption
 #: fGalaxy.dfm:1013
@@ -455,7 +455,7 @@ msgstr ""
 #. frmGalaktika..MainMenu..miTools..Caption
 #: fGalaxy.dfm:1041
 msgid "&Tools"
-msgstr ""
+msgstr "&Gōngjù"
 
 #. frmGalaktika..MainMenu..miTools..miSettings..Caption
 #: fGalaxy.dfm:1043
@@ -485,7 +485,7 @@ msgstr ""
 #. frmGalaktika..MainMenu..miHelp..Caption
 #: fGalaxy.dfm:1068
 msgid "&Help"
-msgstr ""
+msgstr "&Bāngzhù"
 
 #. frmGalaktika..MainMenu..miHelp..miRuwiki..Caption
 #: fGalaxy.dfm:1070
@@ -621,7 +621,7 @@ msgstr ""
 #. frmSettings..PanelMain..PageControl..tsGalaxy..Caption
 #: fSettings.dfm:292
 msgid "Galaxy"
-msgstr ""
+msgstr "Xīngxì"
 
 #. frmSettings..PanelMain..PageControl..tsGalaxy..LabelRg..Caption
 #: fSettings.dfm:304

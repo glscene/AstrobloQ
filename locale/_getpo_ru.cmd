@@ -1,15 +1,15 @@
 rem @echo off
 cls
 
-dxgettext -b source --delphi --useignorepo - r
+dxgettext -b ..\source --delphi --useignorepo - r
 
 echo updating Russian translation
 
-pushd locale\ru\LC_MESSAGES
+pushd ru\LC_MESSAGES
 copy default.po default-backup.po
 ren default.po default-old.po
 echo Merging
-msgmergedx default-old.po ..\..\..\default.po -o default.po
+msgmergedx default-old.po ..\..\default.po -o default.po
 del default-old.po
 del default-backup.po
 

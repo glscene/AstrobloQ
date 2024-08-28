@@ -3,7 +3,7 @@
 msgid ""
 msgstr "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-08-22 22:59+0300\n"
+"PO-Revision-Date: 2024-08-28 22:49+0300\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -11,6 +11,22 @@ msgstr "Project-Id-Version: \n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.4\n"
+
+#. dmBase..FDConnection......Params.Strings
+#: dBase.dfm:13
+msgid "Database=C:\\Users\\dgoni\\Documents\\Embarcadero\\Studio\\STARS_DB\\DATA\\A_D"
+"elaunay.sqlite"
+msgstr ""
+
+#. dmBase..FDConnection....Params.Strings
+#: dBase.dfm:14
+msgid "DriverID=SQLite"
+msgstr ""
+
+#. dmBase..FDBatchMove..LogFileName
+#: dBase.dfm:25
+msgid "Data.log"
+msgstr ""
 
 #. FormAbout..Caption
 #: fAbout.dfm:9
@@ -23,9 +39,9 @@ msgstr "О программе"
 #: fAbout.dfm:56213
 #. FormExoplanets..Font.Name
 #: fExoplanets.dfm:15
-#. frmGalaxy..Font.Name
+#. frmGalaktika..Font.Name
 #: fGalaxy.dfm:15
-#. frmGalaxy..PageControl1..tsDatacat..DBGrid..TitleFont.Name
+#. frmGalaktika..PageControl1..tsDatacat..DBGrid..TitleFont.Name
 #: fGalaxy.dfm:763
 #. FormNewStarcube..Font.Name
 #: fNewStarcube.dfm:15
@@ -69,42 +85,42 @@ msgid "Modeling habitability and communication"
 msgstr "Моделирование обитаемости и коммуникаций"
 
 #. FormAbout..PageControl..tsLithosphere..Caption
-#: fAbout.dfm:56224
+#: fAbout.dfm:56223
 msgid "Lithosphere"
 msgstr "Литосфера"
 
 #. FormAbout..PageControl..tsBiosphere..Caption
-#: fAbout.dfm:75441
+#: fAbout.dfm:75440
 msgid "Biosphere"
-msgstr ""
+msgstr "Биосфера"
 
 #. FormAbout..PageControl..tsTechnosphere..Caption
-#: fAbout.dfm:75449
+#: fAbout.dfm:75448
 msgid "Technosphere"
 msgstr "Техносфера"
 
 #. FormAbout..PageControl..tsTools..Caption
-#: fAbout.dfm:75457
+#: fAbout.dfm:75456
 msgid "Tools"
 msgstr "Инструменты"
 
 #. FormAbout..PageControl..tsTools..DelphiButton..Hint
-#: fAbout.dfm:75465
+#: fAbout.dfm:75464
 msgid "www.github.com"
 msgstr ""
 
 #. FormAbout..PageControl..tsTools..OGLImage..Hint
-#: fAbout.dfm:75588
+#: fAbout.dfm:75587
 msgid "www.opengl.org"
 msgstr ""
 
 #. FormAbout..PageControl..tsTools..GLSImage..Hint
-#: fAbout.dfm:75647
+#: fAbout.dfm:75646
 msgid "www.glscene.org"
 msgstr ""
 
 #. FormAbout..PageControl..tsDevelopers..Caption
-#: fAbout.dfm:82958
+#: fAbout.dfm:82957
 msgid "Developers"
 msgstr "Разработчики"
 
@@ -144,344 +160,342 @@ msgstr "Экзопланеты"
 msgid "Terraplanets"
 msgstr "Террапланеты"
 
-#. frmGalaxy..Caption
+#. frmGalaktika..Caption
 #: fGalaxy.dfm:8
-#. frmSettings..PanelMain..PageControl..tsGalaxy..Caption
-#: fSettings.dfm:292
-msgid "Galaxy"
-msgstr "Галактика"
+msgid "GalaxyGLS"
+msgstr ""
 
-#. frmGalaxy..ControlBar..ToolBarView..tbSolarcube..Hint
+#. frmGalaktika..ControlBar..ToolBarView..tbSolarcube..Hint
 #: fGalaxy.dfm:111
 msgid "Solarcube"
 msgstr "Соларкуб"
 
-#. frmGalaxy..ControlBar..ToolBarView..tbAddStars..Hint
+#. frmGalaktika..ControlBar..ToolBarView..tbAddStars..Hint
 #: fGalaxy.dfm:120
 msgid "Add stars"
 msgstr "Добавить звёзд"
 
-#. frmGalaxy..ControlBar..ToolBarView..tbAxes..Hint
+#. frmGalaktika..ControlBar..ToolBarView..tbAxes..Hint
 #: fGalaxy.dfm:129
 #. frmSettings..PanelMain..PageControl..tsDisplay..CheckBoxAxes..Caption
 #: fSettings.dfm:202
 msgid "Axes"
 msgstr "Оси"
 
-#. frmGalaxy..ControlBar..ToolBarView..tbRotation..Hint
+#. frmGalaktika..ControlBar..ToolBarView..tbRotation..Hint
 #: fGalaxy.dfm:138
 #. frmSettings..PanelMain..PageControl..tsDisplay..CheckBoxRotate..Caption
 #: fSettings.dfm:230
 msgid "Rotation"
 msgstr "Вращение"
 
-#. frmGalaxy..ControlBar..ToolBarView..tbRotation..Caption
+#. frmGalaktika..ControlBar..ToolBarView..tbRotation..Caption
 #: fGalaxy.dfm:139
 msgid "tbRotation"
 msgstr ""
 
-#. frmGalaxy..ControlBar..ToolBarView..tbClearCubes..Hint
+#. frmGalaktika..ControlBar..ToolBarView..tbClearCubes..Hint
 #: fGalaxy.dfm:148
 msgid "Clear solarcube"
 msgstr "Очистить соларкуб"
 
-#. frmGalaxy..PageControl1..tsGalacube..Caption
+#. frmGalaktika..PageControl1..tsGalacube..Caption
 #: fGalaxy.dfm:173
 msgid "Space"
 msgstr "Космос"
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..Caption
 #: fGalaxy.dfm:210
 msgid "Spectral classes"
 msgstr "Спектральные классы"
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..Label1..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..Label1..Caption
 #: fGalaxy.dfm:305
 msgid "%"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..Label2..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..Label2..Caption
 #: fGalaxy.dfm:316
 msgid "Number"
 msgstr "Число"
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbO..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbO..Caption
 #: fGalaxy.dfm:340
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1156
 msgid "O"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbB..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbB..Caption
 #: fGalaxy.dfm:356
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1157
 msgid "B"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbA..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbA..Caption
 #: fGalaxy.dfm:372
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1158
 msgid "A"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbF..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbF..Caption
 #: fGalaxy.dfm:388
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1159
 msgid "F"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbG..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbG..Caption
 #: fGalaxy.dfm:404
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1160
 msgid "G"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbK..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbK..Caption
 #: fGalaxy.dfm:422
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1161
 msgid "K"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbM..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbM..Caption
 #: fGalaxy.dfm:440
 #. frmSettings..PanelMain..PageControl..tsStars..chlbStarClasses....Items.Strings
 #: fSettings.dfm:1162
 msgid "M"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Hint
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Hint
 #: fGalaxy.dfm:683
 msgid "White Dwaft"
 msgstr "Белые карлики"
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..gbStars..chbD..Caption
 #: fGalaxy.dfm:688
 msgid "D"
 msgstr ""
 
-#. frmGalaxy..PageControl1..tsGalacube..PanelRight..chbAll..Caption
+#. frmGalaktika..PageControl1..tsGalacube..PanelRight..chbAll..Caption
 #: fGalaxy.dfm:737
 msgid "All stars"
 msgstr "Все звёзды"
 
-#. frmGalaxy..PageControl1..tsDatacat..Caption
+#. frmGalaktika..PageControl1..tsDatacat..Caption
 #: fGalaxy.dfm:748
 msgid "Data"
 msgstr "Данные"
 
-#. frmGalaxy..PageControl1..tsDatacat..MemoTable....Lines.Strings
+#. frmGalaktika..PageControl1..tsDatacat..MemoTable....Lines.Strings
 #: fGalaxy.dfm:777
 msgid "MemoTable"
 msgstr ""
 
-#. frmGalaxy..GLScene..dcAxes..SpaceTextX..Font.Name
+#. frmGalaktika..GLScene..dcAxes..SpaceTextX..Font.Name
 #: fGalaxy.dfm:842
-#. frmGalaxy..GLScene..dcAxes..SpaceTextZ..Font.Name
+#. frmGalaktika..GLScene..dcAxes..SpaceTextZ..Font.Name
 #: fGalaxy.dfm:857
-#. frmGalaxy..GLScene..dcAxes..SpaceTextY..Font.Name
+#. frmGalaktika..GLScene..dcAxes..SpaceTextY..Font.Name
 #: fGalaxy.dfm:874
 msgid "Arial"
 msgstr ""
 
-#. frmGalaxy..GLScene..dcAxes..SpaceTextX....Lines.Strings
+#. frmGalaktika..GLScene..dcAxes..SpaceTextX....Lines.Strings
 #: fGalaxy.dfm:845
 msgid "X"
 msgstr ""
 
-#. frmGalaxy..GLScene..dcAxes..SpaceTextZ....Lines.Strings
+#. frmGalaktika..GLScene..dcAxes..SpaceTextZ....Lines.Strings
 #: fGalaxy.dfm:860
 msgid "Z"
 msgstr ""
 
-#. frmGalaxy..GLScene..dcAxes..SpaceTextY....Lines.Strings
+#. frmGalaktika..GLScene..dcAxes..SpaceTextY....Lines.Strings
 #: fGalaxy.dfm:877
 msgid "Y"
 msgstr ""
 
-#. frmGalaxy..GLScene..dcGalacube..diskGalaxy..Material.LibMaterialName
+#. frmGalaktika..GLScene..dcGalacube..diskGalaxy..Material.LibMaterialName
 #: fGalaxy.dfm:911
 msgid "Milkyway"
 msgstr ""
 
-#. frmGalaxy..MainMenu..miFile..Caption
+#. frmGalaktika..MainMenu..miFile..Caption
 #: fGalaxy.dfm:941
 msgid "&File"
 msgstr "&Файл"
 
-#. frmGalaxy..MainMenu..miFile..miNewStarcube..Caption
+#. frmGalaktika..MainMenu..miFile..miNewStarcube..Caption
 #: fGalaxy.dfm:943
 msgid "New..."
 msgstr "Новый..."
 
-#. frmGalaxy..MainMenu..miFile..N1..Caption
+#. frmGalaktika..MainMenu..miFile..N1..Caption
 #: fGalaxy.dfm:947
-#. frmGalaxy..MainMenu..miFile..miN2..Caption
+#. frmGalaktika..MainMenu..miFile..miN2..Caption
 #: fGalaxy.dfm:962
-#. frmGalaxy..MainMenu..miEdit..miN4..Caption
+#. frmGalaktika..MainMenu..miEdit..miN4..Caption
 #: fGalaxy.dfm:977
-#. frmGalaxy..MainMenu..miEdit..miN3..Caption
+#. frmGalaktika..MainMenu..miEdit..miN3..Caption
 #: fGalaxy.dfm:992
-#. frmGalaxy..MainMenu..miEdit..miN1..Caption
+#. frmGalaktika..MainMenu..miEdit..miN1..Caption
 #: fGalaxy.dfm:1004
-#. frmGalaxy..MainMenu..miView..N3..Caption
+#. frmGalaktika..MainMenu..miView..N3..Caption
 #: fGalaxy.dfm:1017
-#. frmGalaxy..MainMenu..miView..N2..Caption
+#. frmGalaktika..MainMenu..miView..N2..Caption
 #: fGalaxy.dfm:1032
-#. frmGalaxy..MainMenu..miTools..miN5..Caption
+#. frmGalaktika..MainMenu..miTools..miN5..Caption
 #: fGalaxy.dfm:1048
-#. frmGalaxy..MainMenu..miHelp..miN6..Caption
+#. frmGalaktika..MainMenu..miHelp..miN6..Caption
 #: fGalaxy.dfm:1073
 msgid "-"
 msgstr ""
 
-#. frmGalaxy..MainMenu..miFile..miOpen..Caption
+#. frmGalaktika..MainMenu..miFile..miOpen..Caption
 #: fGalaxy.dfm:950
 msgid "Open..."
 msgstr "Открыть..."
 
-#. frmGalaxy..MainMenu..miFile..miSave..Caption
+#. frmGalaktika..MainMenu..miFile..miSave..Caption
 #: fGalaxy.dfm:955
 msgid "Save"
 msgstr "Сохранить"
 
-#. frmGalaxy..MainMenu..miFile..miSaveAs..Caption
+#. frmGalaktika..MainMenu..miFile..miSaveAs..Caption
 #: fGalaxy.dfm:958
 msgid "Save as..."
 msgstr "Сохранить как..."
 
-#. frmGalaxy..MainMenu..miFile..miExit..Caption
+#. frmGalaktika..MainMenu..miFile..miExit..Caption
 #: fGalaxy.dfm:965
 msgid "Exit"
 msgstr "Выход"
 
-#. frmGalaxy..MainMenu..miEdit..Caption
+#. frmGalaktika..MainMenu..miEdit..Caption
 #: fGalaxy.dfm:971
 msgid "&Edit"
 msgstr "&Правка"
 
-#. frmGalaxy..MainMenu..miEdit..miUndo..Caption
+#. frmGalaktika..MainMenu..miEdit..miUndo..Caption
 #: fGalaxy.dfm:973
 msgid "Cancel"
 msgstr "Отмена"
 
-#. frmGalaxy..MainMenu..miEdit..miCut..Caption
+#. frmGalaktika..MainMenu..miEdit..miCut..Caption
 #: fGalaxy.dfm:980
 msgid "Cut"
 msgstr "Вырезать"
 
-#. frmGalaxy..MainMenu..miEdit..miCopy..Caption
+#. frmGalaktika..MainMenu..miEdit..miCopy..Caption
 #: fGalaxy.dfm:984
 msgid "Copy"
 msgstr "Копировать"
 
-#. frmGalaxy..MainMenu..miEdit..miPaste..Caption
+#. frmGalaktika..MainMenu..miEdit..miPaste..Caption
 #: fGalaxy.dfm:988
 msgid "Insert"
 msgstr "Вставить"
 
-#. frmGalaxy..MainMenu..miEdit..miFind..Caption
+#. frmGalaktika..MainMenu..miEdit..miFind..Caption
 #: fGalaxy.dfm:995
 msgid "Find..."
 msgstr "Найти..."
 
-#. frmGalaxy..MainMenu..miEdit..miReplace..Caption
+#. frmGalaktika..MainMenu..miEdit..miReplace..Caption
 #: fGalaxy.dfm:998
 msgid "Replace..."
 msgstr "Заменить..."
 
-#. frmGalaxy..MainMenu..miEdit..miGoTo..Caption
+#. frmGalaktika..MainMenu..miEdit..miGoTo..Caption
 #: fGalaxy.dfm:1001
 msgid "Go to..."
 msgstr "Перейти к..."
 
-#. frmGalaxy..MainMenu..miEdit..miObject..Caption
+#. frmGalaktika..MainMenu..miEdit..miObject..Caption
 #: fGalaxy.dfm:1007
 msgid "Object"
 msgstr "Объект"
 
-#. frmGalaxy..MainMenu..miView..Caption
+#. frmGalaktika..MainMenu..miView..Caption
 #: fGalaxy.dfm:1011
 msgid "&View"
 msgstr "&Вид"
 
-#. frmGalaxy..MainMenu..miView..miExoplanets..Caption
+#. frmGalaktika..MainMenu..miView..miExoplanets..Caption
 #: fGalaxy.dfm:1013
 msgid "Exoplanets..."
 msgstr "Экзопланеты."
 
-#. frmGalaxy..MainMenu..miView..miLithosphere..Caption
+#. frmGalaktika..MainMenu..miView..miLithosphere..Caption
 #: fGalaxy.dfm:1020
 msgid "Lithosphere..."
 msgstr "Литосфера..."
 
-#. frmGalaxy..MainMenu..miView..miBiosphere..Caption
+#. frmGalaktika..MainMenu..miView..miBiosphere..Caption
 #: fGalaxy.dfm:1024
 msgid "Biosphere..."
-msgstr ""
+msgstr "Биосфера..."
 
-#. frmGalaxy..MainMenu..miView..miTechnosphere..Caption
+#. frmGalaktika..MainMenu..miView..miTechnosphere..Caption
 #: fGalaxy.dfm:1028
 msgid "Technosphere..."
 msgstr "Техносфера..."
 
-#. frmGalaxy..MainMenu..miView..miPanelShow..Caption
+#. frmGalaktika..MainMenu..miView..miPanelShow..Caption
 #: fGalaxy.dfm:1035
 msgid "Panels"
 msgstr "Панели"
 
-#. frmGalaxy..MainMenu..miTools..Caption
+#. frmGalaktika..MainMenu..miTools..Caption
 #: fGalaxy.dfm:1041
 msgid "&Tools"
 msgstr "&Инструменты"
 
-#. frmGalaxy..MainMenu..miTools..miSettings..Caption
+#. frmGalaktika..MainMenu..miTools..miSettings..Caption
 #: fGalaxy.dfm:1043
 msgid "Settings..."
 msgstr "Настройки..."
 
-#. frmGalaxy..MainMenu..miTools..miAnalyser..Caption
+#. frmGalaktika..MainMenu..miTools..miAnalyser..Caption
 #: fGalaxy.dfm:1051
 msgid "Analyser..."
 msgstr "Анализатор..."
 
-#. frmGalaxy..MainMenu..miTools..miMonitor..Caption
+#. frmGalaktika..MainMenu..miTools..miMonitor..Caption
 #: fGalaxy.dfm:1055
 msgid "Monitor..."
 msgstr "Монитор..."
 
-#. frmGalaxy..MainMenu..miTools..miProjection..Caption
+#. frmGalaktika..MainMenu..miTools..miProjection..Caption
 #: fGalaxy.dfm:1059
 msgid "Star projections..."
 msgstr "Проекции звёзд..."
 
-#. frmGalaxy..MainMenu..miTools..miParadox..Caption
+#. frmGalaktika..MainMenu..miTools..miParadox..Caption
 #: fGalaxy.dfm:1063
 msgid "Paradox..."
 msgstr "Парадокс..."
 
-#. frmGalaxy..MainMenu..miHelp..Caption
+#. frmGalaktika..MainMenu..miHelp..Caption
 #: fGalaxy.dfm:1068
 msgid "&Help"
 msgstr "&Справка"
 
-#. frmGalaxy..MainMenu..miHelp..miRuwiki..Caption
+#. frmGalaktika..MainMenu..miHelp..miRuwiki..Caption
 #: fGalaxy.dfm:1070
 msgid "Ruwiki..."
 msgstr ""
 
-#. frmGalaxy..MainMenu..miHelp..miAbout..Caption
+#. frmGalaktika..MainMenu..miHelp..miAbout..Caption
 #: fGalaxy.dfm:1076
 msgid "About..."
 msgstr "О программе..."
 
-#. frmGalaxy..GLSimpleNavigation..FormCaption
+#. frmGalaktika..GLSimpleNavigation..FormCaption
 #: fGalaxy.dfm:1095
-msgid "Galaxy - %FPS"
+msgid "GalaxyGLS - %FPS"
 msgstr ""
 
 #. FormMonitor..Caption
@@ -599,6 +613,11 @@ msgstr "Таблица"
 #: fSettings.dfm:283
 msgid "Change..."
 msgstr "Изменить..."
+
+#. frmSettings..PanelMain..PageControl..tsGalaxy..Caption
+#: fSettings.dfm:292
+msgid "Galaxy"
+msgstr "Галактика"
 
 #. frmSettings..PanelMain..PageControl..tsGalaxy..LabelRg..Caption
 #: fSettings.dfm:304
@@ -1057,7 +1076,7 @@ msgid "File exists. Can not overwrite"
 msgstr "Файл существует. Перезаписать нельзя"
 
 #. -----------------------------------------------------------------------
-#: fSettings.pas:387
+#: fSettings.pas:388
 msgid "Reload to change language"
 msgstr "Перегрузите для смены языка"
 

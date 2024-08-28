@@ -1,7 +1,7 @@
 object frmGalaxy: TfrmGalaxy
   Left = 0
   Top = 0
-  Caption = 'Galaxy'
+  Caption = 'GalaxyGXS'
   ClientHeight = 380
   ClientWidth = 588
   Position = ScreenCenter
@@ -14,7 +14,7 @@ object frmGalaxy: TfrmGalaxy
     Left = 176
     Top = 56
     object miFile: TMenuItem
-      Text = '&File'
+      Text = 'File'
       object miOpen: TMenuItem
         Locked = True
         Text = 'Open...'
@@ -28,6 +28,10 @@ object frmGalaxy: TfrmGalaxy
     end
     object miView: TMenuItem
       Text = '&View'
+      object miSolarSystem: TMenuItem
+        Locked = True
+        Text = 'Solar system...'
+      end
     end
     object miTools: TMenuItem
       Text = '&Tools'

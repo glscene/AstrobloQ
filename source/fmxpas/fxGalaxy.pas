@@ -21,7 +21,13 @@ uses
   fxAbout,
   fxSettings,
   fxAstrogen,
-  dxDialogs
+  dxDialogs,
+  FMX.Memo.Types,
+  FMX.Controls.Presentation,
+  FMX.ScrollBox,
+  FMX.Memo,
+
+  gnuGettext  // for translation
   ;
 
 type
@@ -43,6 +49,7 @@ type
     TreeViewItemPlanet: TTreeViewItem;
     TreeViewItemMoon: TTreeViewItem;
     TreeViewItemGalaxy: TTreeViewItem;
+    miSolarSystem: TMenuItem;
     procedure frmCreate(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
@@ -54,6 +61,7 @@ type
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
+    procedure ProcessMenu(AMenu: TMenuItem);
   end;
 
 var
@@ -62,6 +70,16 @@ var
 implementation //-------------------------------------------------------------
 
 {$R *.fmx}
+
+procedure TfrmGalaxy.ProcessMenu(AMenu: TMenuItem);
+var
+  I: integer;
+begin
+  for I := 0 to AMenu.ItemsCount - 1 do
+  begin
+    AMenu.Items[I].Text := _(AMenu.Items[I].Text);
+  end;
+end;
 
 procedure TfrmGalaxy.frmCreate(Sender: TObject);
 var
@@ -73,12 +91,11 @@ begin
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir);
 
-(*
-  for I := 0 to MainMenu.ItemsCount - 1 do
-  begin
-///    MainMenu.Items[I].Text := _(MainMenu.Items[I].Text);
-  end;
-*)
+  ProcessMenu(miFile);
+  ProcessMenu(miView);
+  ProcessMenu(miTools);
+  ProcessMenu(miHelp);
+
 
   StarDir := DataDir + '\star\';
   tvPlanets.ExpandAll;
