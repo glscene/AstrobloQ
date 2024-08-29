@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-08-28 22:50+0300\n"
+"PO-Revision-Date: 2024-08-29 15:49+0300\n"
 "Last-Translator: Somebody <your.email@address.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -316,7 +316,7 @@ msgstr "Новый..."
 #. frmGalaktika..MainMenu..miTools..miN5..Caption
 #. frmGalaktika..MainMenu..miHelp..miN6..Caption
 #: fGalaxy.dfm:947 fGalaxy.dfm:962 fGalaxy.dfm:977 fGalaxy.dfm:992 fGalaxy.dfm:1004
-#: fGalaxy.dfm:1017 fGalaxy.dfm:1032 fGalaxy.dfm:1048 fGalaxy.dfm:1073
+#: fGalaxy.dfm:1029 fGalaxy.dfm:1044 fGalaxy.dfm:1060 fGalaxy.dfm:1085
 msgid "-"
 msgstr ""
 
@@ -385,83 +385,103 @@ msgstr "Перейти к..."
 msgid "Object"
 msgstr "Объект"
 
-#. frmGalaktika..MainMenu..miView..Caption
+#. frmGalaktika..MainMenu..miMethod..Caption
 #: fGalaxy.dfm:1011
+msgid "&Method"
+msgstr "&Метод"
+
+#. frmGalaktika..MainMenu..miMethod..miGridding..Caption
+#: fGalaxy.dfm:1013
+msgid "Gridding..."
+msgstr "Гриддинг..."
+
+#. frmGalaktika..MainMenu..miMethod..miInterpolation..Caption
+#: fGalaxy.dfm:1016
+msgid "Interpolation..."
+msgstr "Интерполяция..."
+
+#. frmGalaktika..MainMenu..miMethod..miTetralization..Caption
+#: fGalaxy.dfm:1019
+msgid "Tetralization..."
+msgstr "Тетрализация..."
+
+#. frmGalaktika..MainMenu..miView..Caption
+#: fGalaxy.dfm:1023
 msgid "&View"
 msgstr "&Вид"
 
 #. frmGalaktika..MainMenu..miView..miExoplanets..Caption
-#: fGalaxy.dfm:1013
+#: fGalaxy.dfm:1025
 msgid "Exoplanets..."
 msgstr "Экзопланеты."
 
 #. frmGalaktika..MainMenu..miView..miLithosphere..Caption
-#: fGalaxy.dfm:1020
+#: fGalaxy.dfm:1032
 msgid "Lithosphere..."
 msgstr "Литосфера..."
 
 #. frmGalaktika..MainMenu..miView..miBiosphere..Caption
-#: fGalaxy.dfm:1024
+#: fGalaxy.dfm:1036
 msgid "Biosphere..."
 msgstr "Биосфера..."
 
 #. frmGalaktika..MainMenu..miView..miTechnosphere..Caption
-#: fGalaxy.dfm:1028
+#: fGalaxy.dfm:1040
 msgid "Technosphere..."
 msgstr "Техносфера..."
 
 #. frmGalaktika..MainMenu..miView..miPanelShow..Caption
-#: fGalaxy.dfm:1035
+#: fGalaxy.dfm:1047
 msgid "Panels"
 msgstr "Панели"
 
 #. frmGalaktika..MainMenu..miTools..Caption
-#: fGalaxy.dfm:1041
+#: fGalaxy.dfm:1053
 msgid "&Tools"
 msgstr "&Инструменты"
 
 #. frmGalaktika..MainMenu..miTools..miSettings..Caption
-#: fGalaxy.dfm:1043
+#: fGalaxy.dfm:1055
 msgid "Settings..."
 msgstr "Настройки..."
 
 #. frmGalaktika..MainMenu..miTools..miAnalyser..Caption
-#: fGalaxy.dfm:1051
+#: fGalaxy.dfm:1063
 msgid "Analyser..."
 msgstr "Анализатор..."
 
 #. frmGalaktika..MainMenu..miTools..miMonitor..Caption
-#: fGalaxy.dfm:1055
+#: fGalaxy.dfm:1067
 msgid "Monitor..."
 msgstr "Монитор..."
 
 #. frmGalaktika..MainMenu..miTools..miProjection..Caption
-#: fGalaxy.dfm:1059
+#: fGalaxy.dfm:1071
 msgid "Star projections..."
 msgstr "Проекции звёзд..."
 
 #. frmGalaktika..MainMenu..miTools..miParadox..Caption
-#: fGalaxy.dfm:1063
+#: fGalaxy.dfm:1075
 msgid "Paradox..."
 msgstr "Парадокс..."
 
 #. frmGalaktika..MainMenu..miHelp..Caption
-#: fGalaxy.dfm:1068
+#: fGalaxy.dfm:1080
 msgid "&Help"
 msgstr "&Справка"
 
 #. frmGalaktika..MainMenu..miHelp..miRuwiki..Caption
-#: fGalaxy.dfm:1070
+#: fGalaxy.dfm:1082
 msgid "Ruwiki..."
 msgstr ""
 
 #. frmGalaktika..MainMenu..miHelp..miAbout..Caption
-#: fGalaxy.dfm:1076
+#: fGalaxy.dfm:1088
 msgid "About..."
 msgstr "О программе..."
 
 #. frmGalaktika..GLSimpleNavigation..FormCaption
-#: fGalaxy.dfm:1095
+#: fGalaxy.dfm:1107
 msgid "GalaxyGLS - %FPS"
 msgstr ""
 
@@ -1022,12 +1042,12 @@ msgstr "Гравитация "
 msgid "Temperature"
 msgstr "Температура"
 
-#: fGalaxy.pas:480
+#: fGalaxy.pas:484
 msgid "File not exists"
 msgstr "Файла нет"
 
 #. --------------------------------------------------------
-#: fGalaxy.pas:501
+#: fGalaxy.pas:505
 msgid "File exists. Can not overwrite"
 msgstr "Файл существует. Перезаписать нельзя"
 

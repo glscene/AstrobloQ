@@ -27,7 +27,7 @@ uses
   FMX.ScrollBox,
   FMX.Memo,
 
-  gnuGettext  // for translation
+  gnuGettext, System.Actions, FMX.ActnList, FMX.StdCtrls  // for translation
   ;
 
 type
@@ -42,7 +42,7 @@ type
     miHelp: TMenuItem;
     miWiki: TMenuItem;
     miAbout: TMenuItem;
-    miAstrogen: TMenuItem;
+    miStarsysGen: TMenuItem;
     miDivider1: TMenuItem;
     tvPlanets: TTreeView;
     TreeViewItemStar: TTreeViewItem;
@@ -50,18 +50,31 @@ type
     TreeViewItemMoon: TTreeViewItem;
     TreeViewItemGalaxy: TTreeViewItem;
     miSolarSystem: TMenuItem;
+    Langs: TLang;
+    ActionList: TActionList;
+    acFileOpen: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    Action4: TAction;
+    Action5: TAction;
+    miMethod: TMenuItem;
+    miGridding: TMenuItem;
+    miTetralization: TMenuItem;
+    miInterpolation: TMenuItem;
+    ToolBar1: TToolBar;
+    acFileExit: TAction;
     procedure frmCreate(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miAstrogenClick(Sender: TObject);
+    procedure miStarsysGenClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
     procedure miWikiClick(Sender: TObject);
   private
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
-    procedure ProcessMenu(AMenu: TMenuItem);
+    procedure ProcessMenu(const AMainMenu: TMainMenu; IsAuto: Boolean);
   end;
 
 var
@@ -71,16 +84,49 @@ implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TfrmGalaxy.ProcessMenu(AMenu: TMenuItem);
+procedure TfrmGalaxy.ProcessMenu(const AMainMenu: TMainMenu; IsAuto: Boolean);
 var
-  I: integer;
+  I: Integer;
 begin
-  for I := 0 to AMenu.ItemsCount - 1 do
+  // MainMenu items translations
+  miFile.AutoTranslate := IsAuto;
+  miFile.Text := _(miFile.Text);
+  for I := 0 to miFile.ItemsCount - 1 do
   begin
-    AMenu.Items[I].Text := _(AMenu.Items[I].Text);
+    miFile.Items[I].AutoTranslate := IsAuto;
+    miFile.Items[I].Text := _(miFile.Items[I].Text);
+  end;
+  miMethod.AutoTranslate := IsAuto;
+  miMethod.Text := _(miMethod.Text);
+  for I := 0 to miMethod.ItemsCount - 1 do
+  begin
+    miMethod.Items[I].AutoTranslate := IsAuto;
+    miMethod.Items[I].Text := _(miMethod.Items[I].Text);
+  end;
+  miView.AutoTranslate := IsAuto;
+  miView.Text := _(miView.Text);
+  for I := 0 to miView.ItemsCount - 1 do
+  begin
+    miView.Items[I].AutoTranslate := IsAuto;
+    miView.Items[I].Text := _(miView.Items[I].Text);
+  end;
+  miTools.AutoTranslate := IsAuto;
+  miTools.Text := _(miTools.Text);
+  for I := 0 to miTools.ItemsCount - 1 do
+  begin
+    miTools.Items[I].AutoTranslate := IsAuto;
+    miTools.Items[I].Text := _(miTools.Items[I].Text);
+  end;
+  miHelp.AutoTranslate := IsAuto;
+  miHelp.Text := _(miHelp.Text);
+  for I := 0 to miHelp.ItemsCount - 1 do
+  begin
+    miHelp.Items[I].AutoTranslate := IsAuto;
+    miHelp.Items[I].Text := _(miHelp.Items[I].Text);
   end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaxy.frmCreate(Sender: TObject);
 var
   I: Integer;
@@ -91,11 +137,8 @@ begin
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir);
 
-  ProcessMenu(miFile);
-  ProcessMenu(miView);
-  ProcessMenu(miTools);
-  ProcessMenu(miHelp);
-
+  // MainMenu Translation
+  ProcessMenu(MainMenu, True);
 
   StarDir := DataDir + '\star\';
   tvPlanets.ExpandAll;
@@ -138,7 +181,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-procedure TfrmGalaxy.miAstrogenClick(Sender: TObject);
+procedure TfrmGalaxy.miStarsysGenClick(Sender: TObject);
 begin
   inherited;
   // Load astrogenerator and exoplanet constructor

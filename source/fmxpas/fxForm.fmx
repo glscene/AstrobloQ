@@ -1,7 +1,7 @@
 object FormO: TFormO
   Left = 0
   Top = 0
-  Caption = 'FormI'
+  Caption = 'FormO'
   ClientHeight = 316
   ClientWidth = 472
   FormFactor.Width = 320
@@ -9,9 +9,4 @@ object FormO: TFormO
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object Langs: TLang
-    Lang = 'ru'
-    Left = 216
-    Top = 112
-  end
 end

@@ -25,7 +25,6 @@ uses
 
 type
   TFormO = class(TForm)
-    Langs: TLang;
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -44,7 +43,6 @@ implementation //--------------------------------------------------------------
 
 procedure TFormO.FormCreate(Sender: TObject);
 begin
-   ActiveLangStr := 'en'; // Default language
    ReadIniFile;
    SetLanguage;
 end;
@@ -58,6 +56,13 @@ begin
     try
       // (frmSettings.Name, gbLanguage.Text, 0)
       ActiveLangID := ReadInteger('frmSettings', 'ceLanguages', 0);
+      if ActiveLangID = 9 then
+        ActiveLangStr := 'en'
+        else
+        if ActiveLangID = 25 then
+          ActiveLangStr := 'ru'
+        else
+          ActiveLangStr := 'en' // Default language
     finally
       IniFile.Free;
     end;
@@ -82,6 +87,7 @@ begin
       LANG_RUSSIAN: UseLanguage('ru');
       LANG_PORTUGUESE: UseLanguage('pt');
       LANG_SPANISH: UseLanguage('sp');
+      LANG_CHINESE: UseLanguage('cn')
       else
       begin
         UseLanguage('en');

@@ -1007,6 +1007,18 @@ object frmGalaktika: TfrmGalaktika
         Caption = 'Object'
       end
     end
+    object miMethod: TMenuItem
+      Caption = '&Method'
+      object miGridding: TMenuItem
+        Caption = 'Gridding...'
+      end
+      object miInterpolation: TMenuItem
+        Caption = 'Interpolation...'
+      end
+      object miTetralization: TMenuItem
+        Caption = 'Tetralization...'
+      end
+    end
     object miView: TMenuItem
       Caption = '&View'
       object miExoplanets: TMenuItem

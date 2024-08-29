@@ -221,10 +221,6 @@
             <Form>frmSettings</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="source\fmxpas\fxForm.pas">
-            <Form>FormO</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="source\fmxpas\fxAbout.pas">
             <Form>FormAbout</Form>
             <FormType>fmx</FormType>
@@ -242,6 +238,10 @@
             <Form>dmDialogs</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="source\fmxpas\fxForm.pas">
+            <Form>FormO</Form>
+            <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

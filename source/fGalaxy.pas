@@ -176,6 +176,10 @@ type
     miBiosphere: TMenuItem;
     miTechnosphere: TMenuItem;
     N3: TMenuItem;
+    miMethod: TMenuItem;
+    miGridding: TMenuItem;
+    miInterpolation: TMenuItem;
+    miTetralization: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
