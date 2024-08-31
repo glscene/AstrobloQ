@@ -150,7 +150,7 @@
         </DCCReference>
         <DCCReference Include="source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="source\teh\Teh.Globals.pas"/>
-        <DCCReference Include="source\xcode\GnugetText.pas"/>
+        <DCCReference Include="source\ucode\gnuGettext.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -184,7 +184,7 @@
             </Platforms>
             <Deployment Version="4">
                 <DeployFile LocalName="Bin\Technosphere.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="D:\bin\Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Tehnosfera.exe</RemoteName>
                         <Overwrite>true</Overwrite>

@@ -45,10 +45,8 @@ type
     miStarsysGen: TMenuItem;
     miDivider1: TMenuItem;
     tvPlanets: TTreeView;
-    TreeViewItemStar: TTreeViewItem;
-    TreeViewItemPlanet: TTreeViewItem;
+    tviPlanet: TTreeViewItem;
     TreeViewItemMoon: TTreeViewItem;
-    TreeViewItemGalaxy: TTreeViewItem;
     miSolarSystem: TMenuItem;
     Langs: TLang;
     ActionList: TActionList;
@@ -63,6 +61,8 @@ type
     miInterpolation: TMenuItem;
     ToolBar1: TToolBar;
     acFileExit: TAction;
+    tviPlanetoid: TTreeViewItem;
+    tviStar: TTreeViewItem;
     procedure frmCreate(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);

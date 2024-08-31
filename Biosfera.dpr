@@ -88,7 +88,8 @@ uses
   dbImages in 'source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm in 'source\bio\fbMiniForm.pas',
   fForm in 'source\fForm.pas' {FormI},
-  uGlobals in 'source\ucode\uGlobals.pas';
+  uGlobals in 'source\ucode\uGlobals.pas',
+  gnuGettext in 'source\ucode\gnuGettext.pas';
 
 {$R *.res}
 

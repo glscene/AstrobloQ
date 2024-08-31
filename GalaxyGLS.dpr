@@ -19,7 +19,8 @@ uses
   uGlobals in 'source\ucode\uGlobals.pas',
   fForm in 'source\fForm.pas' {FormI},
   fNewStarcube in 'source\fNewStarcube.pas' {FormNewStarcube},
-  uSkyBodies in 'source\ucode\uSkyBodies.pas';
+  uSkyBodies in 'source\ucode\uSkyBodies.pas',
+  gnuGettext in 'source\ucode\gnuGettext.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

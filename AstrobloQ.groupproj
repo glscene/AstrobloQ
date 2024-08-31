@@ -3,9 +3,6 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="GalaxyGXS.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="GalaxyGLS.dproj">
             <Dependencies/>
         </Projects>
@@ -16,6 +13,9 @@
             <Dependencies/>
         </Projects>
         <Projects Include="Tehnosfera.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GalaxyGXS.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="GalaxyGXC.cbproj">
@@ -29,15 +29,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="GalaxyGXS">
-        <MSBuild Projects="GalaxyGXS.dproj"/>
-    </Target>
-    <Target Name="GalaxyGXS:Clean">
-        <MSBuild Projects="GalaxyGXS.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="GalaxyGXS:Make">
-        <MSBuild Projects="GalaxyGXS.dproj" Targets="Make"/>
-    </Target>
     <Target Name="GalaxyGLS">
         <MSBuild Projects="GalaxyGLS.dproj"/>
     </Target>
@@ -74,6 +65,15 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
     </Target>
+    <Target Name="GalaxyGXS">
+        <MSBuild Projects="GalaxyGXS.dproj"/>
+    </Target>
+    <Target Name="GalaxyGXS:Clean">
+        <MSBuild Projects="GalaxyGXS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GalaxyGXS:Make">
+        <MSBuild Projects="GalaxyGXS.dproj" Targets="Make"/>
+    </Target>
     <Target Name="GalaxyGXC">
         <MSBuild Projects="GalaxyGXC.cbproj"/>
     </Target>
@@ -84,13 +84,13 @@
         <MSBuild Projects="GalaxyGXC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="GalaxyGXS;GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXC"/>
+        <CallTarget Targets="GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXS;GalaxyGXC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GalaxyGXS:Clean;GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXC:Clean"/>
+        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXS:Clean;GalaxyGXC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GalaxyGXS:Make;GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXC:Make"/>
+        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXS:Make;GalaxyGXC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
