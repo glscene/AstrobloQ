@@ -14,7 +14,7 @@ uses
   Bio.Life,
   Bio.Link,
   Bio.Creature,
-  GLS.VectorGeometry;
+  GLScene.VectorGeometry;
 
 const
   cFlockNoPattern = 0;        // fly normally

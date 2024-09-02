@@ -14,8 +14,8 @@ uses
   GLS.Coordinates,
   GLS.VectorLists,
   GLS.VectorFileObjects,
-  GLS.VectorGeometry,
-  GLS.VectorTypes;
+  GLScene.VectorGeometry,
+  GLScene.VectorTypes;
 
 // Loading glTF/glb models with animation
 procedure LoadGLB(QCFilename: string; Actor: TGLActor; LoadReference: Boolean;

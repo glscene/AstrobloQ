@@ -6,7 +6,7 @@ interface
 
 uses
   System.SysUtils,
-  GLS.VectorGeometry,
+  GLScene.VectorGeometry,
   Bio.BaseObject;
 
 const

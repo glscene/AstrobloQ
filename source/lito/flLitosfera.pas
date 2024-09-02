@@ -32,8 +32,8 @@ uses
   Vcl.ToolWin,
 
   GLS.FileJPEG,
-  GLS.VectorTypes,
-  GLS.VectorGeometry,
+  GLScene.VectorTypes,
+  GLScene.VectorGeometry,
   GLS.Material,
   GLS.Cadencer,
   GLS.LensFlare,

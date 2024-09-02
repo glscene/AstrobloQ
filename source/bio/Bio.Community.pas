@@ -16,8 +16,8 @@ uses
   Bio.Link,
   Bio.Creature,
 
-  GLS.VectorTypes,
-  GLS.VectorGeometry;
+  GLScene.VectorTypes,
+  GLScene.VectorGeometry;
 
 const
   cPatternNone = 0;        // fly normally

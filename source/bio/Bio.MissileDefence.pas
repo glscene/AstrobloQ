@@ -5,7 +5,7 @@ interface
 uses
   System.Classes,
   System.SysUtils,
-  GLS.VectorGeometry,
+  GLScene.VectorGeometry,
 
   Bio.BaseObject,
   Bio.Space,

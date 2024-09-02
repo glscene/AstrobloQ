@@ -21,7 +21,7 @@ uses
   Vcl.Dialogs,
   Vcl.Menus,
 
-  GLS.VectorTypes,
+  GLScene.VectorTypes,
   GLS.Scene,
   GLS.Objects,
   GLS.VectorLists,
@@ -36,7 +36,7 @@ uses
   GLS.Cadencer,
   GLS.LensFlare,
   GLSL.TextureShaders,
-  GLS.VectorGeometry,
+  GLScene.VectorGeometry,
   GLSL.MultiMaterialShader,
   GLS.Material,
   GLS.Coordinates,

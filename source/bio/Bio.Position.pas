@@ -12,8 +12,8 @@ uses
   System.SysUtils,
   System.Math,
 
-  GLS.VectorGeometry,
-  GLS.VectorTypes,
+  GLScene.VectorGeometry,
+  GLScene.VectorTypes,
 
   Bio.BaseObject,
   Bio.Coordinates,

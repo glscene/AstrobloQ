@@ -8,7 +8,7 @@ uses
   Vcl.Forms,
   Vcl.ComCtrls,
   Bio.BaseObject,
-  GLS.VectorGeometry;
+  GLScene.VectorGeometry;
 
 const
   cStateChangeTime = 32;

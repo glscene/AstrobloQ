@@ -8,7 +8,7 @@ uses
   Bio.Things,
   Bio.Position,
   Bio.Life,
-  GLS.VectorGeometry;
+  GLScene.VectorGeometry;
 
 const
   cEffectNoise = 0;

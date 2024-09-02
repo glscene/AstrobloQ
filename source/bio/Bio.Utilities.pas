@@ -5,8 +5,8 @@ interface
 uses
   System.SysUtils,
   System.Classes,
-  GLS.VectorTypes,
-  GLS.VectorGeometry;
+  GLScene.VectorTypes,
+  GLScene.VectorGeometry;
 
 function BoolToYesNoStr(const aBoolean: boolean): string;
 function BoolToGender(const aBoolean: boolean): string;

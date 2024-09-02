@@ -10,8 +10,8 @@ uses
   Winapi.OpenGL,
   System.Math,
 
-  GLS.VectorTypes,
-  GLS.VectorGeometry,
+  GLScene.VectorTypes,
+  GLScene.VectorGeometry,
   GLS.VectorFileObjects,
   GLS.Scene,
   GLS.Coordinates,

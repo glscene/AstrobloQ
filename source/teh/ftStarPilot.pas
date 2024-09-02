@@ -21,7 +21,7 @@ uses
 
   GLS.Scene,
   GLS.Objects,
-  GLS.VectorGeometry,
+  GLScene.VectorGeometry,
   GLS.SceneViewer,
   GLS.Cadencer,
   GLS.Texture,

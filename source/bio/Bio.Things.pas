@@ -10,8 +10,8 @@ uses
   System.Contnrs,
   System.SysUtils,
 
-  GLS.VectorGeometry,
-  GLS.VectorTypes,
+  GLScene.VectorGeometry,
+  GLScene.VectorTypes,
   Bio.BaseObject,
   Bio.Grid,
   Bio.Coordinates,

@@ -25,8 +25,8 @@ uses
   Vcl.Menus,
 
   GLS.Scene,
-  GLS.VectorGeometry,
-  GLS.VectorTypes,
+  GLScene.VectorGeometry,
+  GLScene.VectorTypes,
   GLS.Coordinates,
   GLS.SceneViewer,
 

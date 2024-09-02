@@ -7,8 +7,8 @@ interface
 uses
   System.SysUtils,
   System.Math,
-  GLS.VectorTypes,
-  GLS.VectorGeometry,
+  GLScene.VectorTypes,
+  GLScene.VectorGeometry,
 
   Bio.BaseObject,
   Bio.Coordinates;

@@ -81,10 +81,10 @@ uses
   Vcl.Menus,
   Vcl.Imaging.PNGimage,
 
-  GLS.VectorTypes,
+  GLScene.VectorTypes,
   GLS.PersistentClasses,
   GLS.Scene,
-  GLS.VectorGeometry,
+  GLScene.VectorGeometry,
   GLS.Objects,
   GLS.VectorFileObjects,
   GLS.GeomObjects,
