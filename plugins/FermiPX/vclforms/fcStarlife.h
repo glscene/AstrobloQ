@@ -18,13 +18,13 @@
 #include "GLS.SceneViewer.hpp"
 #include "GLS.Texture.hpp"
 #include "GLS.SkyDome.hpp"
-#include "GLS.VectorGeometry.hpp"
+#include "GLScene.VectorGeometry.hpp"
 #include "GLS.Atmosphere.hpp"
 #include "GLS.SimpleNavigation.hpp"
 #include "GLS.Behaviours.hpp"
 #include "Vcl.Imaging.JPeg.hpp"
-#include "GLS.Coordinates.hpp"
-#include "GLS.BaseClasses.hpp"
+#include "GLScene.Coordinates.hpp"
+#include "GLScene.BaseClasses.hpp"
 #include "GLS.Color.hpp"
 
 //---------------------------------------------------------------------------

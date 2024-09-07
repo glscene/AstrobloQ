@@ -22,11 +22,12 @@ uses
   Vcl.Menus,
 
   GLScene.VectorTypes,
+  GLScene.Utils,
+
   GLS.Scene,
   GLS.Objects,
-  GLS.VectorLists,
+  GLScene.VectorLists,
   GLS.SceneViewer,
-  GLS.Utils,
   GLS.SkyDome,
   GLS.Texture,
   GLS.VectorFileObjects,
@@ -39,10 +40,10 @@ uses
   GLScene.VectorGeometry,
   GLSL.MultiMaterialShader,
   GLS.Material,
-  GLS.Coordinates,
+  GLScene.Coordinates,
 
-  GLS.BaseClasses,
-  GLS.TextureFormat,
+  GLScene.BaseClasses,
+  GLScene.TextureFormat,
   GLS.Context,
   GLS.GeomObjects;
 

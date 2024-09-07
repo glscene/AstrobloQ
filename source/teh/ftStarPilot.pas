@@ -26,8 +26,8 @@ uses
   GLS.Cadencer,
   GLS.Texture,
   GLS.Material,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  GLScene.Coordinates,
+  GLScene.BaseClasses;
 
 type
   TFormSpacePilot = class(TForm)

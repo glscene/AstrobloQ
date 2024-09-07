@@ -16,12 +16,12 @@ uses
   Vcl.ExtCtrls,
   GLS.Material,
   GLS.Cadencer,
-  GLS.BaseClasses,
+  GLScene.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   Vcl.StdCtrls,
   GLS.Objects,
-  GLS.Coordinates;
+  GLScene.Coordinates;
 
 type
   TFormExoplanets = class(TForm)

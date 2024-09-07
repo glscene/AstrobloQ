@@ -11,7 +11,7 @@ uses
   Vcl.BaseImageCollection,
   Vcl.ImageCollection,
   Vcl.VirtualImageList,
-  GLS.BaseClasses,
+  GLScene.BaseClasses,
   GLS.Material;
 
 type

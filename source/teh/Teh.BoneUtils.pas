@@ -11,8 +11,8 @@ uses
   System.Math,
 
   GLS.Scene,
-  GLS.Coordinates,
-  GLS.VectorLists,
+  GLScene.Coordinates,
+  GLScene.VectorLists,
   GLS.VectorFileObjects,
   GLScene.VectorGeometry,
   GLScene.VectorTypes;

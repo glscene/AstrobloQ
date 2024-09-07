@@ -37,11 +37,11 @@ uses
   GLS.State,
   GLScene.VectorGeometry,
   GLS.Context,
-  GLS.VectorLists,
+  GLScene.VectorLists,
   GLS.Material,
-  GLS.Coordinates,
+  GLScene.Coordinates,
 
-  GLS.BaseClasses,
+  GLScene.BaseClasses,
 
   gnugettext,
   fForm;
@@ -227,7 +227,7 @@ implementation
 uses
   GLS.Keyboard,
   // GraphicEx,
-  GLS.PersistentClasses,
+  GLScene.PersistentClasses,
   GLS.MeshUtils,
   GLS.FileOBJ,
   GLS.FileSTL,
@@ -915,8 +915,8 @@ end;
 
 procedure TFormTehnosfera.ACConvertToIndexedTrianglesExecute(Sender: TObject);
 var
-  v: TGLAffineVectorList;
-  i: TGLIntegerList;
+  v: TGAffineVectorList;
+  i: TGIntegerList;
   m: TGLMeshObject;
   fg: TFGVertexIndexList;
 begin

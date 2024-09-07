@@ -18,7 +18,7 @@ uses
   Vcl.Menus,
 
   GLS.SceneViewer,
-  GLS.PersistentClasses,
+  GLScene.PersistentClasses,
 
   GLS.Scene,
   GLS.Context,
@@ -29,13 +29,13 @@ uses
   GLS.Extrusion,
   GLScene.VectorGeometry,
   GLScene.VectorTypes,
-  GLS.GeometryBB,
+  GLScene.GeometryBB,
   GLS.File3DS,
   GLS.FileSTL,
 
   GLS.VectorFileObjects,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  GLScene.Coordinates,
+  GLScene.BaseClasses,
   GLS.RenderContextInfo,
   GLS.AsyncTimer,
   GLS.SimpleNavigation,
@@ -47,7 +47,7 @@ uses
   GLS.FileObj,
   GLS.Atmosphere,
   GLS.LensFlare,
-  GLS.Utils,
+  GLScene.Utils,
 
   flSettings,
   flParams,

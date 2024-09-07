@@ -14,7 +14,7 @@ uses
   GLScene.VectorGeometry,
   GLS.VectorFileObjects,
   GLS.Scene,
-  GLS.Coordinates,
+  GLScene.Coordinates,
 
   uSkyBodies;
 

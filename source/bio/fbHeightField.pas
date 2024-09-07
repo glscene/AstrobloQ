@@ -27,9 +27,9 @@ uses
   GLS.Texture,
   GLScene.VectorGeometry,
   GLS.GeomObjects,
-  GLS.Coordinates,
+  GLScene.Coordinates,
   
-  GLS.BaseClasses,
+  GLScene.BaseClasses,
   GLS.Color;
 
 type

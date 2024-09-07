@@ -60,11 +60,11 @@ uses
   Bio.Ant,
   Bio.EvolvingTrees,
   // JVCL, JvEdit, JvTypedEdit,
-  GLS.PersistentClasses,
+  GLScene.PersistentClasses,
   GLScene.VectorTypes,
   GLS.ScreenSaver,
   GLScene.VectorGeometry,
-  GLS.VectorLists,
+  GLScene.VectorLists,
   GLS.Scene,
   GLS.Objects,
   GLS.Texture,
@@ -89,14 +89,13 @@ uses
   GLS.ThorFX,
   GLS.Selection,
   GLS.ProxyObjects,
-  GLS.XCollection,
   GLS.File3DS,
   GLS.SoundFileObjects,
   GLS.Sounds.BASS,
 
   GLS.AVIRecorder,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  GLScene.Coordinates,
+  GLScene.BaseClasses,
 
   gnugettext;
 
@@ -727,7 +726,7 @@ type
     ViewTrackingSpeed: Single; // how fast the camera moves
     fViewZoom: Single; // zoom distance to target
     fViewOffset: Single; // offset from target
-    ViewUp: TGLCoordinates; // TGLCamera.Up
+    ViewUp: TGCoordinates; // TGLCamera.Up
     ViewAdjust: Single;
     FocusObject: TGLBaseSceneObject;
     Prediction: AIPosition; // used to predict positions
@@ -750,8 +749,8 @@ type
     // pointer to mesh data
     PlanetMesh: TGLMeshObject;
     WaterMesh: TGLMeshObject;
-    PlanetVertices: TGLAffineVectorList;
-    WaterVertices: TGLAffineVectorList;
+    PlanetVertices: TGAffineVectorList;
+    WaterVertices: TGAffineVectorList;
     InvalidOctree: Boolean;
     fTool: eTool;
     LastTool: eTool;
@@ -926,19 +925,19 @@ type
 
     // free floating coordinates
     procedure CoordinatesFromPosition(aPosition: AIPosition;
-      aCoordinates: TGLCoordinates); overload;
+      aCoordinates: TGCoordinates); overload;
     procedure CoordinatesFromPosition(aPosition: AIPosition;
-      aDirection: TGLCoordinates; aCoordinates: TGLCoordinates); overload;
+      aDirection: TGCoordinates; aCoordinates: TGCoordinates); overload;
     procedure CoordinatesFromPosition(aPosition: AIPosition;
-      aCoordinates: TGLCoordinates; aFactor: single); overload;
+      aCoordinates: TGCoordinates; aFactor: single); overload;
     procedure CoordinatesFromPosition(aPosition: AIPosition;
-      aCoordinates: TGLCoordinates; aFactor: single;
+      aCoordinates: TGCoordinates; aFactor: single;
       aOffset: TGLVector); overload;
     procedure CoordinatesFromPosition(aPosition: AIPosition;
-      aDirection: TGLCoordinates; aCoordinates: TGLCoordinates;
+      aDirection: TGCoordinates; aCoordinates: TGCoordinates;
       aFactor: single); overload;
     procedure CoordinatesFromPosition(aX, aY, aHeight: single;
-      aCoordinates: TGLCoordinates); overload;
+      aCoordinates: TGCoordinates); overload;
     procedure CoordinatesFromPosition(aOrigin: TAffineVector;
       var aVector: TAffineVector); overload;
     // includes proper flat positioning
@@ -1041,7 +1040,7 @@ begin
   ViewDestination := AIPosition.Create(nil);
   ViewTarget := AIPosition.Create(nil);
   Prediction := AIPosition.Create(nil);
-  ViewUp := TGLCoordinates.Create(nil);
+  ViewUp := TGCoordinates.Create(nil);
   ViewUp.Style := csVector;
   KBStopWatch := TStopWatch.Create;
   PlayTarget := nil;
@@ -3862,7 +3861,7 @@ end;
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
 procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
-  aCoordinates: TGLCoordinates);
+  aCoordinates: TGCoordinates);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3888,7 +3887,7 @@ end;
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
 procedure TFormBiosfera.CoordinatesFromPosition(aX, aY, aHeight: single;
-  aCoordinates: TGLCoordinates);
+  aCoordinates: TGCoordinates);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3940,7 +3939,7 @@ end;
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
 procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
-  aCoordinates: TGLCoordinates; aFactor: single);
+  aCoordinates: TGCoordinates; aFactor: single);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3966,7 +3965,7 @@ end;
 // ----------------------------------------------------------------------------
 // above-globe positioning + offset
 procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
-  aCoordinates: TGLCoordinates; aFactor: single; aOffset: TGLVector);
+  aCoordinates: TGCoordinates; aFactor: single; aOffset: TGLVector);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3993,7 +3992,7 @@ end;
 // ----------------------------------------------------------------------------
 // positioning with direction
 procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
-  aDirection: TGLCoordinates; aCoordinates: TGLCoordinates);
+  aDirection: TGCoordinates; aCoordinates: TGCoordinates);
 var
   myLongitude: single;
   myLatitude: single;
@@ -4022,7 +4021,7 @@ end;
 // ----------------------------------------------------------------------------
 // positioning with direction
 procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
-  aDirection: TGLCoordinates; aCoordinates: TGLCoordinates; aFactor: single);
+  aDirection: TGCoordinates; aCoordinates: TGCoordinates; aFactor: single);
 var
   myLongitude: single;
   myLatitude: single;

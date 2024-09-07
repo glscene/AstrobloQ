@@ -256,7 +256,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 1
         Visible = False
-        ExplicitTop = 159
         object Label4: TLabel
           Left = 0
           Top = 0
@@ -879,7 +878,7 @@ object FormBiosfera: TFormBiosfera
           Left = 927
           Top = 0
           Width = 211
-          Height = 32
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -3084,8 +3083,6 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 4
       Visible = False
-      ExplicitLeft = -1
-      ExplicitTop = 227
       object Panel6: TPanel
         Left = 1
         Top = 1

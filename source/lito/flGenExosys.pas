@@ -82,7 +82,7 @@ uses
   Vcl.Imaging.PNGimage,
 
   GLScene.VectorTypes,
-  GLS.PersistentClasses,
+  GLScene.PersistentClasses,
   GLS.Scene,
   GLScene.VectorGeometry,
   GLS.Objects,
@@ -97,8 +97,8 @@ uses
 
   GLS.BitmapFont,
   GLS.WindowsFont,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  GLScene.Coordinates,
+  GLScene.BaseClasses,
   GLS.Material,
   GLS.Imposter,
   GLS.Color,

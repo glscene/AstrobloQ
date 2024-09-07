@@ -186,11 +186,11 @@
             <DependentOn>vclforms\fcStarlife.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
+        <FormResources Include="vclforms\fcOptions.dfm"/>
+        <FormResources Include="vclforms\fcSpace.dfm"/>
         <FormResources Include="vclforms\fcStarlife.dfm"/>
         <FormResources Include="vclforms\fcAbout.dfm"/>
         <FormResources Include="vclforms\fcDataset.dfm"/>
-        <FormResources Include="vclforms\fcOptions.dfm"/>
-        <FormResources Include="vclforms\fcSpace.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
