@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef fcStarlifeH
-#define fcStarlifeH
+#ifndef fStarlifeH
+#define fStarlifeH
 //---------------------------------------------------------------------------
 #include <tchar.h>
 #include <System.Classes.hpp>
@@ -10,6 +10,7 @@
 #include <Vcl.ExtCtrls.hpp>
 #include <Vcl.Grids.hpp>
 #include <Vcl.Dialogs.hpp>
+#include "Vcl.Imaging.JPeg.hpp"
 
 #include "GLS.Scene.hpp"
 #include "GLS.Objects.hpp"
@@ -22,10 +23,9 @@
 #include "GLS.Atmosphere.hpp"
 #include "GLS.SimpleNavigation.hpp"
 #include "GLS.Behaviours.hpp"
-#include "Vcl.Imaging.JPeg.hpp"
-#include "GLScene.Coordinates.hpp"
-#include "GLScene.BaseClasses.hpp"
 #include "GLScene.Color.hpp"
+#include "GLScene.BaseClasses.hpp"
+#include "GLScene.Coordinates.hpp"
 
 //---------------------------------------------------------------------------
 class TFormLife : public TForm
@@ -33,7 +33,7 @@ class TFormLife : public TForm
   __published: // IDE-managed Components
     TGLScene* GLScene1;
     TGLSkyDome* GLSkyDome1;
-    TGLDummyCube* dcParsec;
+	TGLDummyCube *dcStarbox;
     TGLLensFlare* GLLensFlare1;
     TGLLightSource* GLLightSource1;
     TGLCamera* GLCamera1;
@@ -42,7 +42,7 @@ class TFormLife : public TForm
     TTimer* Timer1;
     TGLSceneViewer* GLSceneViewer1;
     TPanel* Panel1;
-	TButton *ButtonStart;
+    TButton* btnStart;
     TLabel* Label1;
     TCheckBox* chbSpeed10;
     TStaticText* stColor;
@@ -70,12 +70,10 @@ class TFormLife : public TForm
     TCheckBox* chbM;
     TLabel* Label2;
     TLabel* Label3;
-	TButton *ButtonStop;
     void __fastcall FormCreate(TObject* Sender);
-    void __fastcall FormClose(TObject* Sender, TCloseAction &Action);
     void __fastcall GLCadencer1Progress(
         TObject* Sender, const double deltaTime, const double newTime);
-    void __fastcall ButtonStartClick(TObject* Sender);
+    void __fastcall btnStartClick(TObject* Sender);
     void __fastcall Timer1Timer(TObject* Sender);
     void __fastcall chbSpeed10Click(TObject* Sender);
     void __fastcall ShapeOMouseDown(
@@ -94,9 +92,7 @@ class TFormLife : public TForm
         TObject* Sender, TMouseButton Button, TShiftState Shift, int X, int Y);
     void __fastcall chbOClick(TObject* Sender);
 	void __fastcall chbMClick(TObject *Sender);
-	void __fastcall ButtonStopClick(TObject *Sender);
   private: // User declarations
-    TGLAtmosphere* Atmosphere;
   public: // User declarations
     __fastcall TFormLife(TComponent* Owner);
     int time;

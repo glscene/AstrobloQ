@@ -37,7 +37,7 @@ uses
   GLScene.VectorTypes,
   GLScene.VectorGeometry,
   GLScene.Coordinates,
-  GLS.Color,
+  GLScene.Color,
   GLScene.PersistentClasses,
   GLScene.VectorLists,
   GLS.MeshUtils,
@@ -194,8 +194,8 @@ const
 
 var
   // Modifier colors
-  CModColorNormal: TGLColorVector;
-  CModColorSelect: TGLColorVector;
+  CModColorNormal: TGColorVector;
+  CModColorSelect: TGColorVector;
 
 constructor TModifierCube.Create(AOwner: TComponent);
 begin

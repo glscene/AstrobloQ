@@ -26,7 +26,7 @@ uses
   GLScene.VectorLists,
   GLS.Graph,
   GLScene.Coordinates,
-  GLS.Color,
+  GLScene.Color,
 
 
   GLScene.BaseClasses;

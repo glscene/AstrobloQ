@@ -41,7 +41,7 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
   GLS.Material,
-  GLS.Color,
+  GLScene.Color,
   GLS.SpaceText,
 
   fForm,
@@ -289,7 +289,7 @@ procedure TfrmGalaktika.MakeRandomStars;
 var
   i: Integer;
   NStars: Integer;
-  clrStar: TGLColorVector;
+  clrStar: TGColorVector;
 begin
   dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
   dotStars.Size := 5.0;

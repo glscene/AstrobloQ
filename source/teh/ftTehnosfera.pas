@@ -33,7 +33,7 @@ uses
   GLS.VectorFileObjects,
   GLS.Mesh,
   GLS.RenderContextInfo,
-  GLS.Color,
+  GLScene.Color,
   GLS.Cadencer,
   GLS.LensFlare,
   GLSL.TextureShaders,
@@ -319,7 +319,7 @@ type
 
 var
   FormNoosfera: TFormNoosfera;
-  DotColorArray: array of TGLColorVector;
+  DotColorArray: array of TGColorVector;
   markers: TStringList; // from Private
   markerIndex, ColorIndex: Integer;
 
@@ -764,8 +764,8 @@ const
   cAtmosphereRadius: single = 0.55;
   // use value slightly lower than actual radius, for antialiasing effect
   cPlanetRadius: single = 0.495;
-  cLowAtmColor: TGLColorVector = (X: 1; Y: 1; Z: 1; W: 1);
-  cHighAtmColor: TGLColorVector = (X: 0; Y: 0; Z: 1; W: 1);
+  cLowAtmColor: TGColorVector = (X: 1; Y: 1; Z: 1; W: 1);
+  cHighAtmColor: TGColorVector = (X: 0; Y: 0; Z: 1; W: 1);
   cOpacity: single = 5;
   cIntDivTable: array [2 .. 20] of single = (1 / 2, 1 / 3, 1 / 4, 1 / 5, 1 / 6,
     1 / 7, 1 / 8, 1 / 9, 1 / 10, 1 / 11, 1 / 12, 1 / 13, 1 / 14, 1 / 15, 1 / 16,
@@ -777,11 +777,11 @@ var
 
   // -------------------------------------------------------------------
 
-  function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+  function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGColorVector;
   var
     i, n: Integer;
     atmPoint, normal: TGLVector;
-    altColor: TGLColorVector;
+    altColor: TGColorVector;
     alt, rayLength, contrib, decay, intensity, invN: single;
   begin
     Result := clrTransparent;
@@ -824,7 +824,7 @@ var
 // -------------------------------------------------------------------
 
   function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean)
-    : TGLColorVector;
+    : TGColorVector;
   var
     ai1, ai2, pi1, pi2: TGLVector;
     rayVector: TGLVector;

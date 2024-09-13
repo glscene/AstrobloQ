@@ -1,6 +1,6 @@
 unit fSettings;
 (*
-  This unit is part of the Galaktika
+  This unit is part of the Galaxy
 *)
 interface
 

@@ -225,7 +225,7 @@ implementation
 {$R *.dfm}
 
 uses
-  GLS.Keyboard,
+  GLScene.Keyboard,
   // GraphicEx,
   GLScene.PersistentClasses,
   GLS.MeshUtils,
@@ -244,7 +244,7 @@ uses
   GLS.FilePLY,
   GLS.FileGTS,
   GLS.MeshBuilder,
-  GLS.Color,
+  GLScene.Color,
   GLS.RenderContextInfo,
 
   Teh.Globals;
@@ -254,8 +254,8 @@ type
   // Шейдер скрытых линий (реализация для вьюера, *not* generic)
   THiddenLineShader = class(TGLShader)
   private
-    LinesColor: TGLColorVector;
-    BackgroundColor: TGLColorVector;
+    LinesColor: TGColorVector;
+    BackgroundColor: TGColorVector;
     PassCount: Integer;
   public
     procedure DoApply(var rci: TGLRenderContextInfo; Sender: TObject); override;

@@ -101,7 +101,7 @@ uses
   GLScene.BaseClasses,
   GLS.Material,
   GLS.Imposter,
-  GLS.Color,
+  GLScene.Color,
   GLS.FileTGA,
   GLS.HUDObjects,
 
@@ -481,7 +481,7 @@ type
     /// FX : TFireFxDummyCubeBase;
     DebrisDataTmpArray: array of TGLAsteroidData;
     OrbitalElementsDataTmpArray: array of array of array of TOrbitalElementsData;
-    ColorArray: array of TGLColorVector;
+    ColorArray: array of TGColorVector;
     S3dsScaler,
     // SolarScaleDivisor  and SolarDistance SCALE the Planet size and Distance
     // Read from Data as Sun ScaleObjectEdit: Earth Diameter

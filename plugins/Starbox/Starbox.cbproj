@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{0AC7E352-E40C-4525-B5E1-874175EF7B50}</ProjectGuid>
+        <ProjectGuid>{E5B1BB3E-8558-4087-9055-4207484B18C1}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
+        <AppType>Application</AppType>
+        <MainSource>Starbox.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
-        <AppType>Application</AppType>
-        <MainSource>GalaxyGLS.dpr</MainSource>
-        <ProjectName Condition="'$(ProjectName)'==''">GalaxyGLS</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Starbox</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -24,6 +24,11 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64x' and '$(Base)'=='true') or '$(Base_Win64x)'!=''">
+        <Base_Win64x>true</Base_Win64x>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
         <Cfg_1>true</Cfg_1>
         <CfgParent>Base</CfgParent>
@@ -35,8 +40,8 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
-        <Cfg_1_Win64>true</Cfg_1_Win64>
+    <PropertyGroup Condition="('$(Platform)'=='Win64x' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64x)'!=''">
+        <Cfg_1_Win64x>true</Cfg_1_Win64x>
         <CfgParent>Cfg_1</CfgParent>
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
@@ -46,42 +51,53 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
-        <Cfg_2_Win32>true</Cfg_2_Win32>
-        <CfgParent>Cfg_2</CfgParent>
-        <Cfg_2>true</Cfg_2>
-        <Base>true</Base>
-    </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
-        <Cfg_2_Win64>true</Cfg_2_Win64>
+    <PropertyGroup Condition="('$(Platform)'=='Win64x' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64x)'!=''">
+        <Cfg_2_Win64x>true</Cfg_2_Win64x>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <DCC_E>false</DCC_E>
-        <DCC_N>false</DCC_N>
-        <DCC_S>false</DCC_S>
-        <DCC_F>false</DCC_F>
-        <DCC_K>false</DCC_K>
+        <SanitizedProjectName>Starbox</SanitizedProjectName>
+        <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
+        <Multithreaded>true</Multithreaded>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
-        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
-        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>GalaxyGLS</SanitizedProjectName>
-        <Custom_Styles>&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;;&quot;Windows10 Purple|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Purple.vsf&quot;;Amakrits|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Amakrits.vsf;&quot;Aqua Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\AquaGraphite.vsf&quot;;&quot;Golden Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\GoldenGraphite.vsf&quot;;Luna|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Luna.vsf;&quot;Ruby Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\RubyGraphite.vsf&quot;;&quot;Sapphire Kamri|VCLSTYLE|$(BDSCOMMONDIR)\Styles\SapphireKamri.vsf&quot;;&quot;Turquoise Gray|VCLSTYLE|$(BDSCOMMONDIR)\Styles\TurquoiseGray.vsf&quot;</Custom_Styles>
+        <_TCHARMapping>wchar_t</_TCHARMapping>
+        <ProjectType>CppVCLApplication</ProjectType>
+        <AllPackageLibs>rtl.lib;vcl.lib;xmlrtl.lib;vclimg.lib;GLScene_RT.lib;bcbsmp.lib;vclx.lib;VclSmp.lib;vclwinx.lib;bindengine.lib</AllPackageLibs>
+        <ILINK_LibraryPath>source\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>source\;$(IncludePath)</IncludePath>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <DynamicRTL>true</DynamicRTL>
+        <UsePackages>true</UsePackages>
+        <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <BCC_wpar>false</BCC_wpar>
+        <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+        <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>vclwinx;DataSnapServer;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;FmxTeeUI;emsedge;bindcompfmx;DBXFirebirdDriver;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;GR32_DT;Tee;soapmidas;vclactnband;TeeUI;fmxFireDAC;dbexpress;FireDACInfxDriver;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;vcltouch;fmxase;DBXOdbcDriver;dbrtl;FireDACDBXDriver;Skia.Package.FMX;FireDACOracleDriver;fmxdae;TeeDB;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;Skia.Package.VCL;vcldb;vclFireDAC;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;GLScene_Physics_RT;GR32_RT;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;DBXSybaseASEDriver;DBXDb2Driver;GLScene_Sounds_RT;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;FMXTee;DatasnapConnectorsFreePascal;soaprtl;GLScene_RT;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
-        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
-        <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Locale>1033</VerInfo_Locale>
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <PackageImports>adortl;bcbie;bcbsmp;bdertl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CodeSiteExpressPkg;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapIndy10ServerTransport;DataSnapProviderClient;DataSnapServer;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDataSnapDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACIBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx19;frxDB19;frxe19;GLCg_RunTime;GLS_Computing_RunTime;GLS_NGD;GLS_ODE;GLScene_RunTime;GLSS_BASS;GLSS_FMOD;GLSS_OpenAL;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbbde;inetdbxpress;Intraweb;MetropolisUILiveTile;RESTComponents;rtl;soaprtl;svn;Tee;TeeDB;TeeUI;vcl;vclactnband;vcldb;vcldbx;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
+        <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(ModuleName);FileDescription=$(ModuleName);ProductName=$(ModuleName)</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>vclwinx;DataSnapServer;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;FmxTeeUI;emsedge;bindcompfmx;DBXFirebirdDriver;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;Tee;soapmidas;vclactnband;TeeUI;fmxFireDAC;dbexpress;FireDACInfxDriver;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;vcltouch;fmxase;DBXOdbcDriver;dbrtl;FireDACDBXDriver;FireDACOracleDriver;fmxdae;TeeDB;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;Skia.Package.VCL;vcldb;vclFireDAC;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;GR32_RT;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;DBXSybaseASEDriver;DBXDb2Driver;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;FMXTee;DatasnapConnectorsFreePascal;soaprtl;GLScene_RT;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <PackageImports>adortl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapIndy10ServerTransport;DataSnapProviderClient;DataSnapServer;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDataSnapDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACIBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;MetropolisUILiveTile;RESTComponents;rtl;soaprtl;Tee;TeeDB;TeeUI;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64x)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -90,98 +106,81 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
-        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
-        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
         <DCC_Optimize>false</DCC_Optimize>
-        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
-        <DCC_RemoteDebug>true</DCC_RemoteDebug>
-        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
-        <DCC_RangeChecking>true</DCC_RangeChecking>
+        <Defines>_DEBUG;$(Defines)</Defines>
+        <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+        <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+        <DCC_Define>DEBUG</DCC_Define>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <BCC_StackFrames>true</BCC_StackFrames>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <TASM_Debugging>Full</TASM_Debugging>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_EnableCPPExceptions>true</BCC_EnableCPPExceptions>
+        <BCC_DisableFramePtrElimOpt>true</BCC_DisableFramePtrElimOpt>
+        <BCC_DisableSpellChecking>true</BCC_DisableSpellChecking>
+        <CLANG_UnwindTables>true</CLANG_UnwindTables>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_RemoteDebug>false</DCC_RemoteDebug>
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <BT_BuildType>Debug</BT_BuildType>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;xmlrtl.bpi;vclimg.bpi;bcbsmp.bpi;vclx.bpi;VclSmp.bpi;bindengine.bpi</LinkPackageImports>
+        <LinkPackageStatics>GLScene_RT.lib;vclwinx.lib</LinkPackageStatics>
+        <FinalOutputDir>.\bin</FinalOutputDir>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Icon_MainIcon>data\icon\Evoluter.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+    <PropertyGroup Condition="'$(Cfg_1_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
-        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
-        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
-        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
-        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <Defines>NDEBUG;$(Defines)</Defines>
+        <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+    <PropertyGroup Condition="'$(Cfg_2_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <DelphiCompile Include="$(MainSource)">
-            <MainSource>MainSource</MainSource>
-        </DelphiCompile>
-        <DCCReference Include="source\fGalaxy.pas">
-            <Form>frmGalaktika</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\dImages.pas">
-            <Form>dmImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="source\fAbout.pas">
+        <CppCompile Include="source\fAbout.cpp">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fSettings.pas">
-            <Form>frmSettings</Form>
-        </DCCReference>
-        <DCCReference Include="plugins\StarProj\fStarProj.pas">
-            <Form>FormProjection</Form>
+            <DependentOn>source\fAbout.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="source\fProjections.cpp">
+            <Form>FormProjections</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\dDialogs.pas">
-            <Form>dmDialogs</Form>
+            <DependentOn>source\fProjections.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="source\fStarbox.cpp">
+            <Form>FormBox</Form>
             <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="source\dBase.pas">
-            <Form>dmBase</Form>
+            <DependentOn>source\fStarbox.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="source\fStarlife.cpp">
+            <Form>FormLife</Form>
             <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="source\fAnalyser.pas">
-            <Form>FormAnalyser</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fMonitor.pas">
-            <Form>FormMonitor</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fParadox.pas">
-            <Form>FormParadox</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fExoplanets.pas">
-            <Form>FormExoplanets</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\ucode\uGlobals.pas"/>
-        <DCCReference Include="source\fForm.pas">
-            <Form>FormI</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fNewStarcube.pas">
-            <Form>FormNewStarcube</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\ucode\uSkyBodies.pas"/>
-        <DCCReference Include="source\ucode\gnuGettext.pas"/>
+            <DependentOn>source\fStarlife.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Starbox.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <FormResources Include="source\fStarlife.dfm"/>
+        <FormResources Include="source\fStarbox.dfm"/>
+        <FormResources Include="source\fProjections.dfm"/>
+        <FormResources Include="source\fAbout.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -195,27 +194,149 @@
         </BuildConfiguration>
     </ItemGroup>
     <ProjectExtensions>
-        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
-        <Borland.ProjectType>Application</Borland.ProjectType>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppVCLApplication</Borland.ProjectType>
         <BorlandProject>
-            <Delphi.Personality>
+            <CPlusPlusBuilder.Personality>
                 <Source>
-                    <Source Name="MainSource">GalaxyGLS.dpr</Source>
+                    <Source Name="MainSource">Starbox.cpp</Source>
                 </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1049</VersionInfo>
+                    <VersionInfo Name="CodePage">1251</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="UIDeviceFamily"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="UISupportedInterfaceOrientations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                    <VersionInfoKeys Name="CFBundleResourceSpecification"/>
+                    <VersionInfoKeys Name="LSRequiresIPhoneOS"/>
+                    <VersionInfoKeys Name="CFBundleInfoDictionaryVersion"/>
+                    <VersionInfoKeys Name="CFBundleDevelopmentRegion"/>
+                    <VersionInfoKeys Name="package"/>
+                    <VersionInfoKeys Name="label"/>
+                    <VersionInfoKeys Name="versionCode"/>
+                    <VersionInfoKeys Name="versionName"/>
+                    <VersionInfoKeys Name="persistent"/>
+                    <VersionInfoKeys Name="restoreAnyVersion"/>
+                    <VersionInfoKeys Name="installLocation"/>
+                    <VersionInfoKeys Name="largeHeap"/>
+                    <VersionInfoKeys Name="theme"/>
+                </VersionInfoKeys>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
+                </ProjectProperties>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k280.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp280.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
-            </Delphi.Personality>
+            </CPlusPlusBuilder.Personality>
             <Deployment Version="4">
-                <DeployFile LocalName="GalaxyGLS.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>GalaxyGLS.exe</RemoteName>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgstl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgstl.dylib" Class="DependencyModule"/>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin64\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64240.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64240mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64260.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64260mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64280.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64280mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64290.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64290mt.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32240.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32240mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32260.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32260mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32280.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32280mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32290.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32290mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c240.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c240mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c260.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c260mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c280.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c280mt.dll" Class="DependencyModule"/>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c290.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c290mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\bin\Starbox.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName=".\bin\Starbox.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -934,22 +1055,30 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="UWP_DelphiLogo150">
+                <DeployClass Name="UWP_CppLogo150">
                     <Platform Name="Win32">
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win64">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win64x">
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="UWP_DelphiLogo44">
+                <DeployClass Name="UWP_CppLogo44">
                     <Platform Name="Win32">
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win64">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win64x">
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
@@ -1159,6 +1288,7 @@
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSSimARM64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
@@ -1170,11 +1300,12 @@
             <Platforms>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
+                <Platform value="Win64x">False</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
-    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
     <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
     <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
 </Project>

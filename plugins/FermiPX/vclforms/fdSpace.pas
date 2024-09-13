@@ -53,7 +53,7 @@ uses
   GLScene.BaseClasses,
   GLS.SceneViewer,
   GLScene.VectorTypes,
-  GLS.Color,
+  GLScene.Color,
   GLS.Graph,
   GLS.SimpleNavigation,
   GLS.FileJPEG,
@@ -196,7 +196,7 @@ var
 
 const
 // Colors for each star class
-///lightblue: TGLColor = [0, 0.8, 1];  // float lightblue[3] = {0, 0.8, 1};
+///lightblue: TGColor = [0, 0.8, 1];  // float lightblue[3] = {0, 0.8, 1};
 
 (*
 float skyblue[3] = {0.803, 1, 1};

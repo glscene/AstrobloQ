@@ -32,7 +32,7 @@ uses
   VCL.ExtCtrls,
 
   GLS.Texture,
-  GLS.Color;
+  GLScene.Color;
 
 type
   TFormLocations = class(TForm)
