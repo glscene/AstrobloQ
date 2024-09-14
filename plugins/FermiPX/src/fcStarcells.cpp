@@ -8,7 +8,7 @@
 #include <string>
 #pragma hdrstop
 
-#include "fcSpace.h"
+#include "fcStarcells.h"
 #include "fcDataset.h"
 #include "fcStarlife.h"
 #include "fcOptions.h"
@@ -29,7 +29,7 @@
 TFormPÑ *FormPÑ;
 
 int mx, my; // äëÿ õðàíåíèÿ ïîçèöèè
-String prefix = ".\\..\\..\\DATA\\";
+TFileName datapath = ".\\..\\..\\DATA\\";
 
 // Ñòðóêòóðóðû Äåëîíå
 DelaunayBase O_Delaunay;
@@ -77,7 +77,7 @@ DelaunayBase __fastcall TFormPÑ::InitDelaunay(String filename, float color[])
 	FDConnection1->DriverName = "SQLite";
 	FDConnection1->LoginPrompt = false;
 	FDConnection1->Params->DriverID = "SQLite";
-	FDConnection1->Params->Database = prefix + filename;
+	FDConnection1->Params->Database = datapath + filename;
 	FDConnection1->Connected = true;
 
 	// Init struct for DT
@@ -201,7 +201,7 @@ VoronoiBase __fastcall TFormPÑ::InitVoronoi(String filename, float color[])
 	FDConnection1->DriverName = "SQLite";
 	FDConnection1->LoginPrompt = False;
 	FDConnection1->Params->DriverID = "SQLite";
-	FDConnection1->Params->Database = prefix + filename;
+	FDConnection1->Params->Database = datapath + filename;
 	FDConnection1->Connected = True;
 
 	// Init struct for VD
@@ -998,7 +998,7 @@ void __fastcall TFormPÑ::miStartClick(TObject *Sender)
 	// Checking if all files exist
 	ifstream ifile;
 	for (int i = 0; i < 14; i++) {
-		ifile.open((prefix + filenames[i]).c_str());
+		ifile.open((datapath + filenames[i]).c_str());
 		if(!ifile) {
 			ShowMessage(AnsiString("Ôàéë \'") + filenames[i].c_str() \
 			+ AnsiString("\' íå íàéäåí!"));

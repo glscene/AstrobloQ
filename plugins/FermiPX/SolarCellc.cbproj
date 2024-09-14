@@ -4,12 +4,12 @@
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <AppType>Application</AppType>
-        <MainSource>FermiPC.cpp</MainSource>
+        <MainSource>SolarCellc.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1048577</TargetedPlatforms>
-        <ProjectName Condition="'$(ProjectName)'==''">FermiPC</ProjectName>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <ProjectName Condition="'$(ProjectName)'==''">SolarCellc</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -81,9 +81,9 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>vclforms\;gui\;..\LAB1 - Cube and Stars\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>vclforms\;gui\;..\LAB1 - Cube and Stars\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <SanitizedProjectName>FermiPC</SanitizedProjectName>
+        <IncludePath>src\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>src\;vclforms\;gui\;..\LAB1 - Cube and Stars\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <SanitizedProjectName>SolarCellc</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;GLScene_Cg_RT;GLScene_GPU_RT;GLScene_RT;GLScene_Sounds_RT;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
@@ -134,7 +134,7 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <LinkPackageImports>rtl.bpi;vcl.bpi;GLScene_RT.bpi;xmlrtl.bpi;vclimg.bpi;vclx.bpi;dbrtl.bpi;vclFireDAC.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;vcldb.bpi;vclwinx.bpi;FireDACSqliteDriver.bpi;bindengine.bpi</LinkPackageImports>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug</ILINK_LibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -153,44 +153,44 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="FermiPC.cpp">
+        <CppCompile Include="SolarCellc.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="vclforms\fcAbout.cpp">
+        <CppCompile Include="src\fcAbout.cpp">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
-            <DependentOn>vclforms\fcAbout.h</DependentOn>
+            <DependentOn>src\fcAbout.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
-        <CppCompile Include="vclforms\fcDataset.cpp">
+        <CppCompile Include="src\fcDataset.cpp">
             <Form>FormDataset</Form>
             <FormType>dfm</FormType>
-            <DependentOn>vclforms\fcDataset.h</DependentOn>
+            <DependentOn>src\fcDataset.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <CppCompile Include="vclforms\fcOptions.cpp">
+        <CppCompile Include="src\fcOptions.cpp">
             <Form>FormOptions</Form>
             <FormType>dfm</FormType>
-            <DependentOn>vclforms\fcOptions.h</DependentOn>
+            <DependentOn>src\fcOptions.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
-        <CppCompile Include="vclforms\fcSpace.cpp">
+        <CppCompile Include="src\fcSpace.cpp">
             <Form>FormPС</Form>
             <FormType>dfm</FormType>
-            <DependentOn>vclforms\fcSpace.h</DependentOn>
+            <DependentOn>src\fcSpace.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
-        <CppCompile Include="vclforms\fcStarlife.cpp">
+        <CppCompile Include="src\fcStarlife.cpp">
             <Form>FormLife</Form>
             <FormType>dfm</FormType>
-            <DependentOn>vclforms\fcStarlife.h</DependentOn>
+            <DependentOn>src\fcStarlife.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <FormResources Include="vclforms\fcOptions.dfm"/>
-        <FormResources Include="vclforms\fcSpace.dfm"/>
-        <FormResources Include="vclforms\fcStarlife.dfm"/>
-        <FormResources Include="vclforms\fcAbout.dfm"/>
-        <FormResources Include="vclforms\fcDataset.dfm"/>
+        <FormResources Include="src\fcOptions.dfm"/>
+        <FormResources Include="src\fcSpace.dfm"/>
+        <FormResources Include="src\fcStarlife.dfm"/>
+        <FormResources Include="src\fcAbout.dfm"/>
+        <FormResources Include="src\fcDataset.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -221,7 +221,7 @@
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
                 <Source>
-                    <Source Name="MainSource">FermiPC.cpp</Source>
+                    <Source Name="MainSource">SolarCellc.cpp</Source>
                 </Source>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="4">
@@ -289,20 +289,20 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\FermiPC.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>FermiPC.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\FermiPC.tds" Configuration="Debug" Class="DebugSymbols">
-                    <Platform Name="Win32">
-                        <RemoteName>FermiPC.tds</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName=".\Win32\Debug\FermiPS.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName=".\Win32\Debug\FermiPS.tds" Configuration="Debug" Class="DebugSymbols"/>
+                <DeployFile LocalName=".\Win32\Debug\SolarCellc.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>SolarCellc.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\SolarCellc.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>SolarCellc.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -1266,7 +1266,7 @@
             <Platforms>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
-                <Platform value="Win64x">True</Platform>
+                <Platform value="Win64x">False</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

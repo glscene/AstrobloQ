@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Starcells'
   ClientHeight = 480
   ClientWidth = 640
   Position = ScreenCenter
@@ -97,10 +97,14 @@ object Form1: TForm1
         end
         object StrokeCube1: TStrokeCube
           Color = claWhite
-          Width = 10.000000000000000000
-          Height = 10.000000000000000000
-          Depth = 10.000000000000000000
+          Position.X = 0.037722282111644740
+          Position.Y = -0.268857955932617200
+          RotationAngle.X = 156.370910644531300000
+          Width = 10.329031944274900000
+          Height = 10.350443840026860000
+          Depth = 9.999993324279785000
           HitTest = False
+          Quanternion = '(0.978816211223602,0,0,0.204741671681404)'
         end
         object Dummy3: TDummy
           Width = 1.000000000000000000

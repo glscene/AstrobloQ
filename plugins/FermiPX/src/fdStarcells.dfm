@@ -1,55 +1,44 @@
 object FormPD: TFormPD
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
-  Caption = 'FermiPD'
-  ClientHeight = 1078
-  ClientWidth = 1575
+  Caption = 'Starcells'
+  ClientHeight = 616
+  ClientWidth = 900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 23
+  TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 1045
-    Width = 1575
-    Height = 33
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 597
+    Width = 900
+    Height = 19
     Panels = <
       item
         Text = 'Total points:'
-        Width = 438
+        Width = 250
       end
       item
         Text = 'FPS:'
-        Width = 88
+        Width = 50
       end>
+    ExplicitTop = 572
+    ExplicitWidth = 892
   end
   object GLSceneViewer: TGLSceneViewer
-    Left = 324
-    Top = 58
-    Width = 968
-    Height = 987
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 185
+    Top = 33
+    Width = 553
+    Height = 564
     Camera = Camera
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 168.203872680664100000
+    FieldOfView = 159.499740600585900000
     PenAsTouch = False
     Align = alClient
     OnDblClick = GLSceneViewerDblClick
@@ -57,82 +46,59 @@ object FormPD: TFormPD
     TabOrder = 1
   end
   object PanelRight: TPanel
-    Left = 1292
-    Top = 58
-    Width = 283
-    Height = 987
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 738
+    Top = 33
+    Width = 162
+    Height = 564
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 730
+    ExplicitHeight = 539
   end
   object PanelLeft: TPanel
     Left = 0
-    Top = 58
-    Width = 324
-    Height = 987
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 33
+    Width = 185
+    Height = 564
     Align = alLeft
     TabOrder = 3
+    ExplicitHeight = 539
     object PanelTop: TPanel
       Left = 1
       Top = 1
-      Width = 322
-      Height = 72
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 183
+      Height = 41
       Align = alTop
       TabOrder = 0
     end
     object PanelBottom: TPanel
       Left = 1
-      Top = 915
-      Width = 322
-      Height = 71
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 523
+      Width = 183
+      Height = 40
       Align = alBottom
       Caption = 'PanelBottom'
       TabOrder = 1
+      ExplicitTop = 498
     end
     object PageControl1: TPageControl
       Left = 1
-      Top = 73
-      Width = 322
-      Height = 842
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 42
+      Width = 183
+      Height = 481
       ActivePage = tsDatasets
       Align = alClient
       TabOrder = 2
+      ExplicitHeight = 456
       object tsDatasets: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = #1044#1072#1085#1085#1099#1077
         object tvDatasets: TTreeView
           Left = 0
           Top = 0
-          Width = 314
-          Height = 804
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 175
+          Height = 453
           Align = alClient
-          Indent = 33
+          Indent = 19
           TabOrder = 0
           Items.NodeData = {
             070500000009540054007200650065004E006F00640065002B00000000000000
@@ -144,27 +110,20 @@ object FormPD: TFormPD
             FFFFFFFFFF000000000000000000000000000108130430043B04300433044004
             380434040000290000000000000000000000FFFFFFFFFFFFFFFF000000000000
             00000000000000010514044004350439043A04}
+          ExplicitHeight = 428
         end
       end
       object tsModeling: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
         ImageIndex = 1
         object tvModeling: TTreeView
           Left = 0
           Top = 0
-          Width = 314
-          Height = 804
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 175
+          Height = 453
           Align = alClient
           AutoExpand = True
-          Indent = 33
+          Indent = 19
           TabOrder = 0
           Items.NodeData = {
             070400000009540054007200650065004E006F00640065002900000000000000
@@ -189,55 +148,34 @@ object FormPD: TFormPD
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 1575
-    Height = 58
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 900
+    Height = 33
     Align = alTop
-    RowSize = 46
     TabOrder = 4
+    ExplicitLeft = 8
+    ExplicitTop = 8
     object ToolBar1: TToolBar
-      Left = 30
+      Left = 19
       Top = 2
-      Width = 532
-      Height = 42
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      ButtonHeight = 39
-      ButtonWidth = 40
+      Width = 304
+      Height = 22
       Caption = 'ToolBar1'
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
         Top = 0
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'ToolButton1'
         ImageIndex = 0
       end
       object ToolButton2: TToolButton
-        Left = 40
+        Left = 23
         Top = 0
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'ToolButton2'
         ImageIndex = 1
       end
       object ToolButton3: TToolButton
-        Left = 80
+        Left = 46
         Top = 0
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'ToolButton3'
         ImageIndex = 2
       end
@@ -425,64 +363,64 @@ object FormPD: TFormPD
     Left = 382
     Top = 146
     object miFile: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = '&File'
       object miOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100
+        Caption = 'Open...'
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object miExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         OnClick = miExitClick
       end
     end
     object miModeling: TMenuItem
-      Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
+      Caption = '&Mode'
       object miPoints: TMenuItem
-        Caption = #1047#1074#1105#1079#1076#1099
+        Caption = 'Stars'
         RadioItem = True
       end
       object miDelaunay: TMenuItem
-        Caption = #1044#1077#1083#1086#1085#1077
+        Caption = 'Delanet'
         RadioItem = True
       end
       object miVoronoi: TMenuItem
-        Caption = #1042#1086#1088#1086#1085#1086#1081
+        Caption = 'Voronet'
         RadioItem = True
       end
     end
     object miView: TMenuItem
-      Caption = #1042#1080#1076
+      Caption = '&View'
       object miDrake: TMenuItem
-        Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072'..'
+        Caption = 'Drake...'
         OnClick = miDrakeClick
       end
     end
     object miTools: TMenuItem
-      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      Caption = '&Tools'
       object miOptions: TMenuItem
-        Caption = #1054#1087#1094#1080#1080'...'
+        Caption = 'Settings...'
         OnClick = miOptionsClick
       end
     end
     object miHelp: TMenuItem
-      Caption = #1057#1087#1088#1072#1074#1082#1072
+      Caption = '&Help'
       object Content1: TMenuItem
-        Caption = #1042#1080#1082#1080'...'
+        Caption = 'Wiki...'
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miAbout: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'About...'
         OnClick = miAboutClick
       end
     end
   end
   object OpenTextFileDialog1: TOpenTextFileDialog
-    Left = 504
-    Top = 8
+    Left = 248
+    Top = 216
   end
   object FDConnection: TFDConnection
     Params.Strings = (
@@ -499,8 +437,8 @@ object FormPD: TFormPD
     Top = 104
   end
   object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
-    Left = 820
-    Top = 8
+    Left = 508
+    Top = 176
   end
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner

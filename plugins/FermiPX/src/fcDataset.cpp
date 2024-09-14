@@ -6,7 +6,7 @@
 
 #pragma hdrstop
 
-#include "fcSpace.h"
+#include "fcStarcells.h"
 #include "fcDataset.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -20,6 +20,15 @@ __fastcall TFormDataset::TFormDataset(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+void __fastcall TFormDataset::FormCreate(TObject *Sender)
+{
+	RadioGroup1->ItemIndex = 0;
+
+	GetTables();
+	GetTablesData();
+}
+
+//---------------------------------------------------------------------------
 void __fastcall TFormDataset::GetTables()
 {
 	DBname = RadioGroup1->Items->Strings[RadioGroup1->ItemIndex];
@@ -30,10 +39,10 @@ void __fastcall TFormDataset::GetTables()
 	FDConnection1->DriverName = "SQLite";
 	FDConnection1->LoginPrompt = False;
 	FDConnection1->Params->DriverID = "SQLite";
-	FDConnection1->Params->Database = prefix + DBname + ".sqlite";
+	FDConnection1->Params->Database = datapath + DBname + ".sqlite";
 	FDConnection1->Connected = True;
 
-    // Get tables list
+	// Get tables list
 	FDQuery1->Close();
 	FDQuery1->Connection = FDConnection1;
 	FDQuery1->SQL->Clear();
@@ -69,14 +78,6 @@ void __fastcall TFormDataset::GetTablesData()
 	FDQuery2->SQL->Clear();
 	FDQuery2->SQL->Text = "SELECT * FROM " + TableName;
 	FDQuery2->Open();
-}
-//---------------------------------------------------------------------------
-void __fastcall TFormDataset::FormCreate(TObject *Sender)
-{
-	RadioGroup1->ItemIndex = 0;
-
-	GetTables();
-	GetTablesData();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormDataset::RadioGroup1Click(TObject *Sender)

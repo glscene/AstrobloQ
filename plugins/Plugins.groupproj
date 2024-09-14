@@ -3,13 +3,13 @@
         <ProjectGuid>{EB36530C-803F-4068-A899-BEFDE4D9FC61}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="FermiPX\FermiPC.cbproj">
+        <Projects Include="FermiPX\StarCells.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FermiPX\FermiPD.dproj">
+        <Projects Include="FermiPX\StarCellc.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FermiPX\FermiPX.dproj">
+        <Projects Include="FermiPX\StarCellx.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarProj\StarProj.dproj">
@@ -32,32 +32,32 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="FermiPC">
-        <MSBuild Projects="FermiPX\FermiPC.cbproj"/>
+    <Target Name="StarCells">
+        <MSBuild Projects="FermiPX\StarCells.dproj"/>
     </Target>
-    <Target Name="FermiPC:Clean">
-        <MSBuild Projects="FermiPX\FermiPC.cbproj" Targets="Clean"/>
+    <Target Name="StarCells:Clean">
+        <MSBuild Projects="FermiPX\StarCells.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="FermiPC:Make">
-        <MSBuild Projects="FermiPX\FermiPC.cbproj" Targets="Make"/>
+    <Target Name="StarCells:Make">
+        <MSBuild Projects="FermiPX\StarCells.dproj" Targets="Make"/>
     </Target>
-    <Target Name="FermiPD">
-        <MSBuild Projects="FermiPX\FermiPD.dproj"/>
+    <Target Name="StarCellc">
+        <MSBuild Projects="FermiPX\StarCellc.cbproj"/>
     </Target>
-    <Target Name="FermiPD:Clean">
-        <MSBuild Projects="FermiPX\FermiPD.dproj" Targets="Clean"/>
+    <Target Name="StarCellc:Clean">
+        <MSBuild Projects="FermiPX\StarCellc.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="FermiPD:Make">
-        <MSBuild Projects="FermiPX\FermiPD.dproj" Targets="Make"/>
+    <Target Name="StarCellc:Make">
+        <MSBuild Projects="FermiPX\StarCellc.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="FermiPX">
-        <MSBuild Projects="FermiPX\FermiPX.dproj"/>
+    <Target Name="StarCellx">
+        <MSBuild Projects="FermiPX\StarCellx.dproj"/>
     </Target>
-    <Target Name="FermiPX:Clean">
-        <MSBuild Projects="FermiPX\FermiPX.dproj" Targets="Clean"/>
+    <Target Name="StarCellx:Clean">
+        <MSBuild Projects="FermiPX\StarCellx.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="FermiPX:Make">
-        <MSBuild Projects="FermiPX\FermiPX.dproj" Targets="Make"/>
+    <Target Name="StarCellx:Make">
+        <MSBuild Projects="FermiPX\StarCellx.dproj" Targets="Make"/>
     </Target>
     <Target Name="StarProj">
         <MSBuild Projects="StarProj\StarProj.dproj"/>
@@ -96,13 +96,13 @@
         <MSBuild Projects="Starbox\Starbox.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="FermiPC;FermiPD;FermiPX;StarProj;StarsysGen;RandomStars;Starbox"/>
+        <CallTarget Targets="StarCells;StarCellc;StarCellx;StarProj;StarsysGen;RandomStars;Starbox"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FermiPC:Clean;FermiPD:Clean;FermiPX:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
+        <CallTarget Targets="StarCells:Clean;StarCellc:Clean;StarCellx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FermiPC:Make;FermiPD:Make;FermiPX:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
+        <CallTarget Targets="StarCells:Make;StarCellc:Make;StarCellx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

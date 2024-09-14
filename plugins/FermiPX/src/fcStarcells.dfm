@@ -1,121 +1,96 @@
 ﻿object FormPС: TFormPС
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
-  Caption = 'FermiPC'
-  ClientHeight = 779
-  ClientWidth = 1376
+  Caption = #1057#1090#1072#1088#1094#1077#1083#1089
+  ClientHeight = 542
+  ClientWidth = 887
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
   OnMouseWheel = FormMouseWheel
-  PixelsPerInch = 168
-  TextHeight = 23
+  TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 742
-    Width = 1376
-    Height = 37
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 521
+    Width = 887
+    Height = 21
     Panels = <
       item
         Text = 'Total points:'
-        Width = 438
+        Width = 250
       end
       item
         Text = 'FPS:'
-        Width = 88
+        Width = 50
       end>
+    ExplicitTop = 399
+    ExplicitWidth = 778
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 51
-    Width = 1376
-    Height = 691
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 29
+    Width = 887
+    Height = 492
     ActivePage = tsSolarCube
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 778
+    ExplicitHeight = 370
     object tsSolarCube: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = #1057#1086#1083#1072#1088#1082#1091#1073
       object GLSceneViewer1: TGLSceneViewer
         Left = 0
         Top = 0
-        Width = 1106
-        Height = 653
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 729
+        Height = 464
         Camera = GLCamera1
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 162.586807250976600000
+        FieldOfView = 155.675598144531300000
         PenAsTouch = False
         Align = alClient
         OnMouseDown = GLSceneViewer1MouseDown
         OnMouseMove = GLSceneViewer1MouseMove
         TabOrder = 0
+        ExplicitWidth = 628
+        ExplicitHeight = 367
       end
       object Panel1: TPanel
-        Left = 1106
+        Left = 729
         Top = 0
-        Width = 262
-        Height = 653
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 150
+        Height = 464
         Align = alRight
         TabOrder = 1
+        ExplicitLeft = 620
+        ExplicitHeight = 342
         DesignSize = (
-          262
-          653)
+          150
+          464)
         object LabelStarClass: TLabel
-          Left = 36
-          Top = 23
-          Width = 50
-          Height = 23
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 21
+          Top = 13
+          Width = 29
+          Height = 13
           Caption = #1050#1083#1072#1089#1089
         end
         object chlbClass: TCheckListBox
-          Left = 19
-          Top = 56
-          Width = 173
-          Height = 253
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 11
+          Top = 32
+          Width = 99
+          Height = 145
           Anchors = [akTop, akRight]
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = 26
+          Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 26
+          ItemHeight = 15
           Items.Strings = (
             '"A"'
             '"B"'
@@ -133,10 +108,6 @@
       end
     end
     object tsCatalog: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = #1050#1072#1090#1072#1083#1086#1075
       ImageIndex = 1
     end
@@ -144,31 +115,25 @@
   object ControlBar1: TControlBar
     Left = 0
     Top = 0
-    Width = 1376
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 887
+    Height = 29
     Align = alTop
-    RowSize = 46
     TabOrder = 2
+    ExplicitWidth = 778
     object ToolBar1: TToolBar
       Left = 19
       Top = 2
-      Width = 263
-      Height = 88
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      ButtonHeight = 39
-      ButtonWidth = 40
+      Width = 150
+      Height = 22
       Caption = 'ToolBar1'
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
         Top = 0
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'ToolButton1'
         ImageIndex = 0
       end
@@ -232,8 +197,8 @@
     Top = 330
   end
   object MainMenu: TMainMenu
-    Left = 746
-    Top = 168
+    Left = 82
+    Top = 160
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object miStart: TMenuItem
@@ -309,7 +274,7 @@
   end
   object OpenTextFileDialog1: TOpenTextFileDialog
     Left = 250
-    Top = 456
+    Top = 336
   end
   object FDConnection1: TFDConnection
     Params.Strings = (

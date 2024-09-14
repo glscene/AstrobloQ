@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
 	void __fastcall miExitClick(TObject *Sender);
 	void __fastcall miAboutClick(TObject *Sender);
 	void __fastcall miSettingsClick(TObject *Sender);
+	void __fastcall miOpenClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormGalaxyc(TComponent* Owner);

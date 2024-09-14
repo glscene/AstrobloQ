@@ -46,3 +46,9 @@ void __fastcall TFormGalaxyc::miExitClick(TObject *Sender)
 
 //---------------------------------------------------------------------------
 
+void __fastcall TFormGalaxyc::miOpenClick(TObject *Sender)
+{
+ //
+}
+//---------------------------------------------------------------------------
+

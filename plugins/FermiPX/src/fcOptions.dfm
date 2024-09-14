@@ -1,19 +1,14 @@
 object FormOptions: TFormOptions
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = #1054#1087#1094#1080#1080
-  ClientHeight = 776
-  ClientWidth = 1096
+  ClientHeight = 443
+  ClientWidth = 626
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
 end

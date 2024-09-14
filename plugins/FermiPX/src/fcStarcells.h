@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcSpaceH
-#define fcSpaceH
+#ifndef fcStarcellsH
+#define fcStarcellsH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -155,6 +155,6 @@ public:		// User declarations
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFormPÑ *FormPÑ;
-extern String prefix;
+extern TFileName datapath;
 //---------------------------------------------------------------------------
 #endif

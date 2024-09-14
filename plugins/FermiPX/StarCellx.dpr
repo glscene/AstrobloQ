@@ -1,9 +1,9 @@
-program FermiPX;
+program StarCellx;
 
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fFermipx in 'fmxforms\fFermipx.pas' {Form1};
+  fxStarCells in 'srcex\fxStarCells.pas' {Form1};
 
 {$R *.res}
 

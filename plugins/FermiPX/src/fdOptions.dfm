@@ -1,105 +1,78 @@
 object FormSettings: TFormSettings
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Settings'
-  ClientHeight = 971
-  ClientWidth = 1475
+  ClientHeight = 555
+  ClientWidth = 843
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object PanelBottom: TPanel
     Left = 0
-    Top = 910
-    Width = 1475
-    Height = 61
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 520
+    Width = 843
+    Height = 35
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 495
+    ExplicitWidth = 835
   end
   object PanelMiddle: TPanel
     Left = 0
-    Top = 16
-    Width = 1475
-    Height = 894
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 9
+    Width = 843
+    Height = 511
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
+    ExplicitWidth = 835
+    ExplicitHeight = 486
     object PageControl: TPageControl
-      Left = 292
+      Left = 169
       Top = 5
-      Width = 1178
-      Height = 884
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 669
+      Height = 501
       ActivePage = tsGalaxy
       Align = alClient
       Style = tsButtons
       TabOrder = 0
+      ExplicitWidth = 661
+      ExplicitHeight = 476
       object tsInterface: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Interface'
         TabVisible = False
         object LabelProgram: TLabel
           Tag = 1000
-          Left = 70
-          Top = 5
-          Width = 79
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 39
+          Top = 3
+          Width = 46
+          Height = 15
           Alignment = taRightJustify
           Caption = 'Program'
         end
         object LabelData: TLabel
-          Left = -60
-          Top = 123
-          Width = 170
-          Height = 28
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = -34
+          Top = 70
+          Width = 97
+          Height = 16
           Alignment = taRightJustify
           AutoSize = False
           Caption = 'Data'
         end
         object PanelExePath: TPanel
-          Left = 33
-          Top = 44
-          Width = 559
-          Height = 52
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 19
+          Top = 25
+          Width = 319
+          Height = 30
           Alignment = taLeftJustify
           BevelOuter = bvLowered
           Caption = 'FermiPX.exe'
@@ -108,68 +81,48 @@ object FormSettings: TFormSettings
           TabOrder = 0
         end
         object cbDataPath: TComboBox
-          Left = 33
-          Top = 161
-          Width = 536
+          Left = 19
+          Top = 92
+          Width = 306
           Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           TabOrder = 1
         end
         object ButtonBrowsePathData: TButton
-          Left = 579
-          Top = 161
-          Width = 41
-          Height = 44
+          Left = 331
+          Top = 92
+          Width = 23
+          Height = 25
           Hint = 'Browse|Browse the directory'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Caption = '...'
           ParentShowHint = False
           ShowHint = True
           TabOrder = 2
         end
         object CheckBoxLoadProject: TCheckBox
-          Left = 47
-          Top = 282
-          Width = 322
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 27
+          Top = 161
+          Width = 184
+          Height = 17
           Caption = 'Load when starting'
           Checked = True
           State = cbChecked
           TabOrder = 3
         end
         object CheckBoxSaveProject: TCheckBox
-          Left = 350
-          Top = 282
-          Width = 308
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 200
+          Top = 161
+          Width = 176
+          Height = 17
           Caption = 'Save when exiting'
           Checked = True
           State = cbChecked
           TabOrder = 4
         end
         object rgLanguage: TRadioGroup
-          Left = 46
-          Top = 392
-          Width = 740
-          Height = 100
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 26
+          Top = 224
+          Width = 423
+          Height = 57
           Caption = 'Language'
           Columns = 3
           ItemIndex = 0
@@ -180,72 +133,48 @@ object FormSettings: TFormSettings
           TabOrder = 5
         end
         object cbSplashStart: TCheckBox
-          Left = 669
-          Top = 282
-          Width = 229
-          Height = 31
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 382
+          Top = 161
+          Width = 131
+          Height = 18
           Caption = 'Show splash screen'
           TabOrder = 6
         end
       end
       object tsDisplay: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Display'
         ImageIndex = 2
         TabVisible = False
         object LabelBackground: TLabel
-          Left = 312
-          Top = 40
-          Width = 110
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 178
+          Top = 23
+          Width = 64
+          Height = 15
           Caption = 'Background'
         end
         object LabelMapUnits: TLabel
-          Left = 19
-          Top = 256
-          Width = 93
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 11
+          Top = 146
+          Width = 53
+          Height = 15
           Caption = 'Map units'
         end
         object CheckBoxAxes: TCheckBox
-          Left = 19
-          Top = 42
-          Width = 109
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 11
+          Top = 24
+          Width = 62
+          Height = 17
           Caption = 'Axes'
           Checked = True
           State = cbChecked
           TabOrder = 0
         end
         object PanelBackground: TPanel
-          Left = 487
-          Top = 33
-          Width = 43
-          Height = 44
+          Left = 278
+          Top = 19
+          Width = 25
+          Height = 25
           Hint = 'Click to change background colour'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           BevelInner = bvLowered
           BevelOuter = bvLowered
           Color = clWhite
@@ -253,29 +182,21 @@ object FormSettings: TFormSettings
           TabOrder = 1
         end
         object CheckBoxCoordinates: TCheckBox
-          Left = 19
-          Top = 173
-          Width = 230
-          Height = 35
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 11
+          Top = 99
+          Width = 131
+          Height = 20
           Caption = 'Coordinates'
           Checked = True
           State = cbChecked
           TabOrder = 2
         end
         object ComboBoxMapUnits: TComboBox
-          Left = 214
-          Top = 250
-          Width = 278
+          Left = 122
+          Top = 143
+          Width = 159
           Height = 38
           Hint = 'Map units'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           TabOrder = 3
           Text = 'Light Years, ly'
           Items.Strings = (
@@ -284,186 +205,126 @@ object FormSettings: TFormSettings
             'Kiloparsecs, kpc')
         end
         object cbxTwoSideLighting: TCheckBox
-          Left = 19
-          Top = 109
-          Width = 291
-          Height = 29
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 11
+          Top = 62
+          Width = 166
+          Height = 17
           Caption = 'Two Side Lighting'
           TabOrder = 4
         end
         object gbStarColors: TGroupBox
-          Left = 630
-          Top = 40
-          Width = 382
-          Height = 536
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 360
+          Top = 23
+          Width = 218
+          Height = 306
           Caption = 'Star Colors'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -30
+          Font.Height = -17
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
           TabOrder = 5
           object ShapeM: TShape
-            Left = 266
-            Top = 410
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 234
+            Width = 41
+            Height = 20
             Brush.Color = clRed
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object ShapeK: TShape
-            Left = 266
-            Top = 361
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 206
+            Width = 41
+            Height = 20
             Brush.Color = clFuchsia
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object ShapeG: TShape
-            Left = 266
-            Top = 308
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 176
+            Width = 41
+            Height = 20
             Brush.Color = clYellow
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object ShapeF: TShape
-            Left = 268
-            Top = 259
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 153
+            Top = 148
+            Width = 41
+            Height = 20
             Brush.Color = clMoneyGreen
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object ShapeA: TShape
-            Left = 266
-            Top = 212
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Pen.Width = 2
+            Left = 152
+            Top = 121
+            Width = 41
+            Height = 20
             OnMouseDown = ShapeColorMouseDown
           end
           object ShapeO: TShape
-            Left = 266
-            Top = 109
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 62
+            Width = 41
+            Height = 20
             Brush.Color = clBlue
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object ShapeB: TShape
-            Left = 266
-            Top = 158
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 90
+            Width = 41
+            Height = 20
             Brush.Color = clSkyBlue
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object Label4: TLabel
-            Left = 179
-            Top = 60
-            Width = 22
-            Height = 28
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 102
+            Top = 34
+            Width = 12
+            Height = 16
             Caption = '%'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -23
+            Font.Height = -13
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object Label3: TLabel
-            Left = 39
-            Top = 63
-            Width = 51
-            Height = 28
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 22
+            Top = 36
+            Width = 30
+            Height = 16
             Caption = 'Class'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -23
+            Font.Height = -13
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object ShapeW: TShape
-            Left = 266
-            Top = 459
-            Width = 72
-            Height = 35
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 262
+            Width = 41
+            Height = 20
             Brush.Color = clMaroon
-            Pen.Width = 2
             OnMouseDown = ShapeColorMouseDown
           end
           object chbStarColors: TCheckListBox
-            Left = 28
-            Top = 102
-            Width = 114
-            Height = 400
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 16
+            Top = 58
+            Width = 65
+            Height = 229
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -35
+            Font.Height = -20
             Font.Name = 'Segoe UI'
             Font.Style = []
-            ItemHeight = 47
+            ItemHeight = 27
             Items.Strings = (
               'O'
               'B'
@@ -477,20 +338,16 @@ object FormSettings: TFormSettings
             TabOrder = 0
           end
           object ListBox2: TListBox
-            Left = 166
-            Top = 98
-            Width = 90
-            Height = 408
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 95
+            Top = 56
+            Width = 51
+            Height = 233
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -35
+            Font.Height = -20
             Font.Name = 'Segoe UI'
             Font.Style = []
-            ItemHeight = 47
+            ItemHeight = 27
             Items.Strings = (
               '0.1'
               '0.4'
@@ -504,18 +361,14 @@ object FormSettings: TFormSettings
             TabOrder = 1
           end
           object stColor: TStaticText
-            Left = 266
-            Top = 63
-            Width = 55
-            Height = 32
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 152
+            Top = 36
+            Width = 34
+            Height = 20
             Caption = 'Color'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -23
+            Font.Height = -13
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -524,25 +377,17 @@ object FormSettings: TFormSettings
         end
       end
       object tsMaterial: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Material'
         ImageIndex = 4
         TabVisible = False
         DesignSize = (
-          1170
-          874)
+          661
+          491)
         object ListView: TListView
           Left = 0
           Top = 0
-          Width = 1170
-          Height = 380
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 661
+          Height = 217
           Align = alTop
           Columns = <
             item
@@ -562,35 +407,28 @@ object FormSettings: TFormSettings
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
+          ExplicitWidth = 669
         end
         object ButtonModifyMat: TButton
-          Left = 254
-          Top = 478
-          Width = 182
-          Height = 42
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 145
+          Top = 273
+          Width = 104
+          Height = 24
           Caption = 'Modify...'
           TabOrder = 1
         end
         object chlbStarClasses: TCheckListBox
-          Left = 839
-          Top = 478
-          Width = 182
-          Height = 198
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 471
+          Top = 273
+          Width = 104
+          Height = 113
           Anchors = [akTop, akRight]
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = 26
+          Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 30
+          ItemHeight = 17
           Items.Strings = (
             '"O"'
             '"A"'
@@ -606,100 +444,76 @@ object FormSettings: TFormSettings
         end
       end
       object tsGalaxy: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Galaxy'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -7
         Font.Name = 'Segoe UI'
         Font.Style = []
         ImageIndex = 4
         ParentFont = False
         TabVisible = False
         object LabelDiameter: TLabel
-          Left = 70
-          Top = 126
-          Width = 133
-          Height = 31
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 40
+          Top = 72
+          Width = 76
+          Height = 17
           Caption = #1044#1080#1072#1084#1077#1090#1088', Dg'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
         end
         object Label5: TLabel
-          Left = 70
-          Top = 205
-          Width = 135
-          Height = 31
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 40
+          Top = 117
+          Width = 78
+          Height = 17
           Caption = #1058#1086#1083#1097#1080#1085#1072', Hg'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
-          Left = 70
-          Top = 33
-          Width = 165
-          Height = 31
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 40
+          Top = 19
+          Width = 97
+          Height = 17
           Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076', Ns'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
         end
         object Label7: TLabel
-          Left = 86
-          Top = 292
-          Width = 116
-          Height = 31
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 49
+          Top = 167
+          Width = 68
+          Height = 17
           Caption = #1054#1073#1098#1105#1084', Vg '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
         end
         object EditDg: TEdit
-          Left = 350
-          Top = 121
-          Width = 308
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 200
+          Top = 69
+          Width = 176
+          Height = 25
           Alignment = taRightJustify
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
@@ -707,18 +521,14 @@ object FormSettings: TFormSettings
           Text = '100000'
         end
         object EditHg: TEdit
-          Left = 350
-          Top = 200
-          Width = 308
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 200
+          Top = 114
+          Width = 176
+          Height = 25
           Alignment = taRightJustify
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
@@ -726,18 +536,14 @@ object FormSettings: TFormSettings
           Text = '1000'
         end
         object EditNs: TEdit
-          Left = 350
-          Top = 28
-          Width = 308
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 200
+          Top = 16
+          Width = 176
+          Height = 25
           Alignment = taRightJustify
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
@@ -745,39 +551,31 @@ object FormSettings: TFormSettings
           Text = '400000000000'
         end
         object stVolume: TStaticText
-          Left = 350
-          Top = 292
-          Width = 308
-          Height = 48
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 200
+          Top = 167
+          Width = 176
+          Height = 27
           Alignment = taRightJustify
           AutoSize = False
           BorderStyle = sbsSunken
           Caption = '1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
           TabOrder = 3
         end
         object rgUnits: TRadioGroup
-          Left = 711
-          Top = 5
-          Width = 371
-          Height = 352
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 406
+          Top = 3
+          Width = 212
+          Height = 201
           Caption = #1045#1076#1080#1085#1080#1094#1099
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
           ItemIndex = 2
@@ -793,160 +591,104 @@ object FormSettings: TFormSettings
         end
       end
       object tsStars: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Stars'
         ImageIndex = 5
         TabVisible = False
         object ColorGrid1: TColorGrid
-          Left = 420
-          Top = 154
-          Width = 172
-          Height = 172
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 240
+          Top = 88
+          Width = 98
+          Height = 98
           TabOrder = 0
         end
       end
       object tsPlanets: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Planets'
         ImageIndex = 6
         TabVisible = False
         object ListBox1: TListBox
-          Left = 56
-          Top = 112
-          Width = 354
-          Height = 590
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          ItemHeight = 30
+          Left = 32
+          Top = 64
+          Width = 202
+          Height = 337
+          ItemHeight = 17
           TabOrder = 0
         end
         object ComboBox1: TComboBox
-          Left = 630
-          Top = 476
-          Width = 254
+          Left = 360
+          Top = 272
+          Width = 145
           Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           TabOrder = 1
           Text = 'ComboBox1'
         end
         object Memo1: TMemo
-          Left = 588
-          Top = 212
-          Width = 324
-          Height = 156
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 336
+          Top = 121
+          Width = 185
+          Height = 89
           Lines.Strings = (
             'Memo1')
           TabOrder = 2
         end
       end
       object tsGeneral: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'General'
         ImageIndex = 7
         TabVisible = False
         object LabelPrecision: TLabel
-          Left = 294
-          Top = 408
-          Width = 83
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 168
+          Top = 233
+          Width = 48
+          Height = 15
           Caption = 'Precision'
         end
         object gbxCoordinateSys: TGroupBox
-          Left = 294
-          Top = 42
-          Width = 492
-          Height = 296
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 168
+          Top = 24
+          Width = 281
+          Height = 169
           Caption = 'Coordinate system'
           TabOrder = 0
           object chbEquatorial: TCheckBox
-            Left = 56
-            Top = 56
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 32
+            Top = 32
+            Width = 97
+            Height = 17
             Caption = 'Equatorial'
             Checked = True
             State = cbChecked
             TabOrder = 0
           end
           object CheckBox1: TCheckBox
-            Left = 56
-            Top = 112
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 32
+            Top = 64
+            Width = 97
+            Height = 17
             Caption = 'Horizontal'
             TabOrder = 1
           end
           object CheckBox2: TCheckBox
-            Left = 56
-            Top = 170
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 32
+            Top = 97
+            Width = 97
+            Height = 17
             Caption = 'Galactic'
             TabOrder = 2
           end
           object CheckBox3: TCheckBox
-            Left = 56
-            Top = 233
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 32
+            Top = 133
+            Width = 97
+            Height = 17
             Caption = 'Ecliptic'
             TabOrder = 3
           end
           object rgrSystem: TRadioGroup
-            Left = 252
-            Top = 28
-            Width = 226
-            Height = 144
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 144
+            Top = 16
+            Width = 129
+            Height = 82
             Ctl3D = True
             ItemIndex = 0
             Items.Strings = (
@@ -957,114 +699,77 @@ object FormSettings: TFormSettings
           end
         end
         object TrackBar1: TTrackBar
-          Left = 826
-          Top = 126
-          Width = 263
-          Height = 58
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 472
+          Top = 72
+          Width = 150
+          Height = 33
           Min = 1
           Position = 2
           TabOrder = 1
-          ThumbLength = 35
         end
         object PanelScale: TPanel
-          Left = 294
-          Top = 527
-          Width = 548
-          Height = 215
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 168
+          Top = 301
+          Width = 313
+          Height = 123
           BevelInner = bvLowered
           BevelKind = bkFlat
           TabOrder = 2
           object lblScaleX: TLabel
-            Left = 59
-            Top = 44
-            Width = 74
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 33
+            Top = 25
+            Width = 43
+            Height = 15
             Alignment = taRightJustify
             Caption = 'Factor X'
           end
           object Label1: TLabel
-            Left = 59
-            Top = 91
-            Width = 74
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 33
+            Top = 52
+            Width = 43
+            Height = 15
             Alignment = taRightJustify
             Caption = 'Factor Y'
           end
           object Label2: TLabel
-            Left = 59
-            Top = 142
-            Width = 74
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 33
+            Top = 81
+            Width = 43
+            Height = 15
             Alignment = taRightJustify
             Caption = 'Factor Z'
           end
           object Edit1: TEdit
-            Left = 224
-            Top = 28
-            Width = 212
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 128
+            Top = 16
+            Width = 121
+            Height = 23
             TabOrder = 0
             Text = 'Edit1'
           end
           object Edit2: TEdit
-            Left = 224
-            Top = 79
-            Width = 212
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 128
+            Top = 45
+            Width = 121
+            Height = 23
             TabOrder = 1
             Text = 'Edit1'
           end
           object Edit3: TEdit
-            Left = 224
-            Top = 130
-            Width = 212
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 128
+            Top = 74
+            Width = 121
+            Height = 23
             TabOrder = 2
             Text = 'Edit1'
           end
         end
         object SpinEditPrecision: TSpinEdit
-          Left = 466
-          Top = 390
-          Width = 71
-          Height = 41
+          Left = 266
+          Top = 223
+          Width = 41
+          Height = 23
           Hint = 'Precision'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           MaxValue = 18
           MinValue = 0
           TabOrder = 3
@@ -1072,119 +777,77 @@ object FormSettings: TFormSettings
         end
       end
       object tsFlights: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Flights'
         ImageIndex = 8
         TabVisible = False
         object PanelTitle: TPanel
           Left = 0
           Top = 0
-          Width = 1170
-          Height = 874
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 669
+          Height = 499
           Align = alClient
           TabOrder = 0
           object LabelA: TLabel
-            Left = 154
-            Top = 16
-            Width = 55
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 88
+            Top = 9
+            Width = 31
+            Height = 15
             Caption = 'Star A'
           end
           object LabelB: TLabel
-            Left = 635
-            Top = 16
-            Width = 53
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 363
+            Top = 9
+            Width = 30
+            Height = 15
             Caption = 'Star B'
           end
           object LabelDistance: TLabel
-            Left = 165
-            Top = 294
-            Width = 106
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 94
+            Top = 168
+            Width = 60
+            Height = 15
             Caption = 'Distance, ly'
           end
           object LabelVelocity: TLabel
-            Left = 165
-            Top = 378
-            Width = 149
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 94
+            Top = 216
+            Width = 86
+            Height = 15
             Caption = 'Velocity, km/sec'
           end
           object LabelFlightTime: TLabel
-            Left = 165
-            Top = 459
-            Width = 157
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 94
+            Top = 262
+            Width = 90
+            Height = 15
             Caption = 'Flight time, years'
           end
           object SearchBoxA: TSearchBox
-            Left = 98
-            Top = 53
-            Width = 254
-            Height = 40
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 56
+            Top = 30
+            Width = 145
+            Height = 23
             Alignment = taCenter
             AutoSize = False
             TabOrder = 0
             Text = 'Sol'
-            ButtonWidth = 42
           end
           object trbVelocity: TTrackBar
-            Left = 326
-            Top = 369
-            Width = 292
-            Height = 51
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 186
+            Top = 211
+            Width = 167
+            Height = 29
             Max = 299792
             Min = 100
             Position = 30000
             TabOrder = 1
-            ThumbLength = 35
             OnChange = trbVelocityChange
           end
           object stFlightTime: TStaticText
-            Left = 338
-            Top = 459
-            Width = 262
-            Height = 33
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 193
+            Top = 262
+            Width = 150
+            Height = 19
             Alignment = taCenter
             AutoSize = False
             BorderStyle = sbsSunken
@@ -1192,90 +855,61 @@ object FormSettings: TFormSettings
             TabOrder = 2
           end
           object SearchBoxB: TSearchBox
-            Left = 546
-            Top = 53
-            Width = 240
-            Height = 40
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 312
+            Top = 30
+            Width = 137
+            Height = 23
             Alignment = taCenter
             AutoSize = False
             TabOrder = 3
             Text = 'TOI-700'
-            ButtonWidth = 42
           end
           object EditDistance: TEdit
-            Left = 338
-            Top = 289
-            Width = 262
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 193
+            Top = 165
+            Width = 150
+            Height = 23
             Alignment = taCenter
             TabOrder = 4
             Text = '101.4'
           end
           object stTrackBar: TStaticText
-            Left = 628
-            Top = 378
-            Width = 83
-            Height = 34
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 359
+            Top = 216
+            Width = 49
+            Height = 19
             Caption = 'TrackBar'
             TabOrder = 5
           end
           object gbFindPath: TGroupBox
-            Left = 126
-            Top = 128
-            Width = 628
-            Height = 126
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 72
+            Top = 73
+            Width = 359
+            Height = 72
             Caption = 'Find Path'
             TabOrder = 6
             object chbOnTetramesh: TCheckBox
-              Left = 179
-              Top = 37
-              Width = 369
-              Height = 30
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
+              Left = 102
+              Top = 21
+              Width = 211
+              Height = 17
               Caption = 'On Delaunay Tetramesh'
               TabOrder = 0
             end
             object chbAvoidHazards: TCheckBox
-              Left = 179
-              Top = 77
-              Width = 365
-              Height = 30
-              Margins.Left = 5
-              Margins.Top = 5
-              Margins.Right = 5
-              Margins.Bottom = 5
+              Left = 102
+              Top = 44
+              Width = 209
+              Height = 17
               Caption = 'Avoiding Voronet Hazard Cells '
               TabOrder = 1
             end
           end
           object Button1: TButton
-            Left = 700
-            Top = 452
-            Width = 131
-            Height = 43
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 400
+            Top = 258
+            Width = 75
+            Height = 25
             Caption = 'Find'
             ModalResult = 1
             TabOrder = 7
@@ -1286,22 +920,18 @@ object FormSettings: TFormSettings
     object tvOptions: TTreeView
       Left = 5
       Top = 5
-      Width = 287
-      Height = 884
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 164
+      Height = 501
       Align = alLeft
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -23
+      Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       HotTrack = True
       Images = ImageList
-      Indent = 33
+      Indent = 19
       ParentFont = False
       TabOrder = 1
       OnClick = tvOptionsClick
@@ -1320,20 +950,18 @@ object FormSettings: TFormSettings
         0000000000000000000000010750006C0061006E0065007400730000002D0000
         000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000000107
         46006C0069006700680074007300}
+      ExplicitHeight = 476
     end
   end
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 1475
-    Height = 16
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 843
+    Height = 9
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 835
   end
   object ImageList: TImageList
     Left = 57

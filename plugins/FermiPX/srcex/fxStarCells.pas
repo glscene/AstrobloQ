@@ -1,4 +1,4 @@
-unit fFermipx;
+unit fxStarCells;
 
 interface
 
@@ -53,9 +53,7 @@ type
     TabItemSPE: TTabItem;
     MemoSPE: TMemo;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

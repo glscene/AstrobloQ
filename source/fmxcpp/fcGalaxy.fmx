@@ -17,6 +17,7 @@ object FormGalaxyc: TFormGalaxyc
       object miOpen: TMenuItem
         Locked = True
         Text = 'Open...'
+        OnClick = miOpenClick
       end
       object miExit: TMenuItem
         Locked = True

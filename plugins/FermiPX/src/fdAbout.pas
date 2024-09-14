@@ -18,9 +18,9 @@ uses
 
 type
   TFormAbout = class(TForm)
+    Button1: TButton;
     Memo: TMemo;
     Panel1: TPanel;
-    Button1: TButton;
   private
     { Private declarations }
   public
