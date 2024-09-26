@@ -32,8 +32,8 @@ object frmGalaktika: TfrmGalaktika
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 441
-    ExplicitWidth = 765
+    ExplicitTop = 560
+    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -42,7 +42,7 @@ object frmGalaktika: TfrmGalaktika
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 765
+    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -175,8 +175,8 @@ object frmGalaktika: TfrmGalaktika
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 765
-    ExplicitHeight = 408
+    ExplicitWidth = 974
+    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = 'Space'
       object svGalacube: TGLSceneViewer
@@ -190,8 +190,6 @@ object frmGalaktika: TfrmGalaktika
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 553
-        ExplicitHeight = 403
       end
       object PanelRight: TPanel
         Left = 762
@@ -200,8 +198,8 @@ object frmGalaktika: TfrmGalaktika
         Height = 522
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 545
-        ExplicitHeight = 378
+        ExplicitLeft = 754
+        ExplicitHeight = 497
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -601,7 +599,6 @@ object frmGalaktika: TfrmGalaktika
         Lines.Strings = (
           'MemoTable')
         TabOrder = 1
-        ExplicitHeight = 403
       end
     end
   end

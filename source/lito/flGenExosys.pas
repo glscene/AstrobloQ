@@ -82,7 +82,7 @@ uses
   Vcl.Imaging.PNGimage,
 
   GLScene.VectorTypes,
-  GLScene.PersistentClasses,
+  GLS.PersistentClasses,
   GLS.Scene,
   GLScene.VectorGeometry,
   GLS.Objects,
@@ -97,11 +97,11 @@ uses
 
   GLS.BitmapFont,
   GLS.WindowsFont,
-  GLScene.Coordinates,
-  GLScene.BaseClasses,
+  GLS.Coordinates,
+  GLS.BaseClasses,
   GLS.Material,
   GLS.Imposter,
-  GLScene.Color,
+  GLS.Color,
   GLS.FileTGA,
   GLS.HUDObjects,
 
@@ -481,7 +481,7 @@ type
     /// FX : TFireFxDummyCubeBase;
     DebrisDataTmpArray: array of TGLAsteroidData;
     OrbitalElementsDataTmpArray: array of array of array of TOrbitalElementsData;
-    ColorArray: array of TGColorVector;
+    ColorArray: array of TGLColorVector;
     S3dsScaler,
     // SolarScaleDivisor  and SolarDistance SCALE the Planet size and Distance
     // Read from Data as Sun ScaleObjectEdit: Earth Diameter

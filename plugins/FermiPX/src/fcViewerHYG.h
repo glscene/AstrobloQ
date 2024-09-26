@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcHygViewerH
-#define fcHygViewerH
+#ifndef fcViewerHYGH
+#define fcViewerHYGH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -131,16 +131,16 @@ __published:	// IDE-managed Components
 	void __fastcall CheckListBox1ClickCheck(TObject *Sender);
 	void __fastcall Data1Click(TObject *Sender);
 	void __fastcall New1Click(TObject *Sender);
-	void __fastcall Exit2Click(TObject *Sender);
 	void __fastcall Open1Click(TObject *Sender);
 private:
 	TStringList *tl; //
 	TStringList *sl; //
 	int CurrStarID; // Current star;
 	int NumStars; // Number of stars in catalog
-	float X, Y, Z, // Current coordinates for stars
-	 R, G, B; // Current grade of star
+	float x, y, z, // Current coordinates for stars
+	 r, g, b; // Current grade of star
 	TVector3f Color;   // colors of spectral class
+	String spect;
 
 public:
 	__fastcall TFormViewerHYG(TComponent* Owner);

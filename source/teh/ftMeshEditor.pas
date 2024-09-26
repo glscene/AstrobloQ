@@ -36,13 +36,13 @@ uses
   GLS.Cadencer,
   GLScene.VectorTypes,
   GLScene.VectorGeometry,
-  GLScene.Coordinates,
-  GLScene.Color,
-  GLScene.PersistentClasses,
-  GLScene.VectorLists,
+  GLS.Coordinates,
+  GLS.Color,
+  GLS.PersistentClasses,
+  GLS.VectorLists,
   GLS.MeshUtils,
 
-  GLScene.BaseClasses;
+  GLS.BaseClasses;
 
 type
   TMovingAxis = (maAxisX, maAxisY, maAxisZ, maAxisXY, maAxisXZ, maAxisYZ);
@@ -194,8 +194,8 @@ const
 
 var
   // Modifier colors
-  CModColorNormal: TGColorVector;
-  CModColorSelect: TGColorVector;
+  CModColorNormal: TGLColorVector;
+  CModColorSelect: TGLColorVector;
 
 constructor TModifierCube.Create(AOwner: TComponent);
 begin
@@ -207,8 +207,8 @@ begin
   Material.FrontProperties.Diffuse.Color := CModColorNormal;
 end;
 
-procedure GenerateIcosahedron(Vertices: TGAffineVectorList;
-  Indices: TGIntegerList);
+procedure GenerateIcosahedron(Vertices: TGLAffineVectorList;
+  Indices: TGLIntegerList);
 var
   phi, a, b: Single;
 begin
@@ -859,8 +859,8 @@ end;
 
 procedure TFormMeshShow.StripAndRecalc;
 var
-  lTrigList, lNormals: TGAffineVectorList;
-  lIndices: TGIntegerList;
+  lTrigList, lNormals: TGLAffineVectorList;
+  lIndices: TGLIntegerList;
   lObj: TGLMeshObject;
   lStrips: TGPersistentObjectList;
 
@@ -892,7 +892,7 @@ begin
   for i := 0 to lStrips.Count - 1 do
   begin
     lFaceGroup := TFGVertexIndexList.CreateOwned(lObj.FaceGroups);
-    lFaceGroup.VertexIndices := (lStrips[i] as TGIntegerList);
+    lFaceGroup.VertexIndices := (lStrips[i] as TGLIntegerList);
     if i > 0 then
       lFaceGroup.Mode := fgmmTriangleStrip
     else

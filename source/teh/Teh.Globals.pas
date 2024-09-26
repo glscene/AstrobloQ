@@ -9,7 +9,7 @@ uses
 
   Vcl.Graphics,
 
-  GLScene.Color,
+  GLS.Color,
   GLS.Texture;
 
 const
@@ -68,7 +68,7 @@ var
   StillOpen, FilePreviews, Skip32BitNotice, SkipIntroScreen, ScaleBarVisible,
     WarningBeepOn, InfoBeepOn, ConfirmBeepOn, CompletedBeepOn: Boolean;
 
-  DotColorArray: array of TGColorVector;
+  DotColorArray: array of TGLColorVector;
   MarkerIndex, ColorIndex: Integer;
 
   MMSysHandle: THandle;

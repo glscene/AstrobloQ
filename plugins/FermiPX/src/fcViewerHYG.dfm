@@ -163,7 +163,7 @@ object FormViewerHYG: TFormViewerHYG
       end
       object Exit2: TMenuItem
         Caption = 'E&xit'
-        OnClick = Exit2Click
+        OnClick = Exit1Click
       end
     end
     object Mode1: TMenuItem

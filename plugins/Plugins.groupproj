@@ -3,6 +3,9 @@
         <ProjectGuid>{EB36530C-803F-4068-A899-BEFDE4D9FC61}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="FermiPX\ViewerHYG.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="FermiPX\StarCells.dproj">
             <Dependencies/>
         </Projects>
@@ -32,6 +35,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="ViewerHYG">
+        <MSBuild Projects="FermiPX\ViewerHYG.cbproj"/>
+    </Target>
+    <Target Name="ViewerHYG:Clean">
+        <MSBuild Projects="FermiPX\ViewerHYG.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ViewerHYG:Make">
+        <MSBuild Projects="FermiPX\ViewerHYG.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="StarCells">
         <MSBuild Projects="FermiPX\StarCells.dproj"/>
     </Target>
@@ -96,13 +108,13 @@
         <MSBuild Projects="Starbox\Starbox.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarCells;StarCellc;StarCellx;StarProj;StarsysGen;RandomStars;Starbox"/>
+        <CallTarget Targets="ViewerHYG;StarCells;StarCellc;StarCellx;StarProj;StarsysGen;RandomStars;Starbox"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarCells:Clean;StarCellc:Clean;StarCellx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
+        <CallTarget Targets="ViewerHYG:Clean;StarCells:Clean;StarCellc:Clean;StarCellx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarCells:Make;StarCellc:Make;StarCellx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
+        <CallTarget Targets="ViewerHYG:Make;StarCells:Make;StarCellc:Make;StarCellx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

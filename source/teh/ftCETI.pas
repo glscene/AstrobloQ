@@ -37,11 +37,11 @@ uses
   GLS.State,
   GLScene.VectorGeometry,
   GLS.Context,
-  GLScene.VectorLists,
+  GLS.VectorLists,
   GLS.Material,
-  GLScene.Coordinates,
+  GLS.Coordinates,
 
-  GLScene.BaseClasses,
+  GLS.BaseClasses,
 
   gnugettext,
   fForm;
@@ -227,7 +227,7 @@ implementation
 uses
   GLScene.Keyboard,
   // GraphicEx,
-  GLScene.PersistentClasses,
+  GLS.PersistentClasses,
   GLS.MeshUtils,
   GLS.FileOBJ,
   GLS.FileSTL,
@@ -244,7 +244,7 @@ uses
   GLS.FilePLY,
   GLS.FileGTS,
   GLS.MeshBuilder,
-  GLScene.Color,
+  GLS.Color,
   GLS.RenderContextInfo,
 
   Teh.Globals;
@@ -254,8 +254,8 @@ type
   // Шейдер скрытых линий (реализация для вьюера, *not* generic)
   THiddenLineShader = class(TGLShader)
   private
-    LinesColor: TGColorVector;
-    BackgroundColor: TGColorVector;
+    LinesColor: TGLColorVector;
+    BackgroundColor: TGLColorVector;
     PassCount: Integer;
   public
     procedure DoApply(var rci: TGLRenderContextInfo; Sender: TObject); override;
@@ -915,8 +915,8 @@ end;
 
 procedure TFormTehnosfera.ACConvertToIndexedTrianglesExecute(Sender: TObject);
 var
-  v: TGAffineVectorList;
-  i: TGIntegerList;
+  v: TGLAffineVectorList;
+  i: TGLIntegerList;
   m: TGLMeshObject;
   fg: TFGVertexIndexList;
 begin

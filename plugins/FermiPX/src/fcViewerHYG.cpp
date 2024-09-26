@@ -8,7 +8,7 @@
 #include <string>
 #pragma hdrstop
 
-#include "fcHygViewer.h"
+#include "fcViewerHYG.h"
 #include "fcTableGrid.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -66,7 +66,7 @@ DelaunayBase __fastcall TFormViewerHYG::InitDelaunay(String filename, float colo
 	FDQuery1->Close();
 	FDQuery1->Connection = FDConnection1;
 	FDQuery1->SQL->Clear();
-	FDQuery1->SQL->Text = "SELECT X,Y,Z FROM dt_node";
+	FDQuery1->SQL->Text = "SELECT x,y,z FROM dt_node";
 	FDQuery1->Open();
 
 	// Go to last record, count all vertices and go to first record
@@ -81,9 +81,9 @@ DelaunayBase __fastcall TFormViewerHYG::InitDelaunay(String filename, float colo
 	// Init nodes with saved coordinates
 	FDQuery1->First();
 	for (int i = 0; i < dt_struct.nodeCount; i++) {
-		dt_struct.node[i][0] = FDQuery1->FieldByName("X")->AsFloat;
-		dt_struct.node[i][1] = FDQuery1->FieldByName("Y")->AsFloat;
-		dt_struct.node[i][2] = FDQuery1->FieldByName("Z")->AsFloat;
+		dt_struct.node[i][0] = FDQuery1->FieldByName("x")->AsFloat;
+		dt_struct.node[i][1] = FDQuery1->FieldByName("y")->AsFloat;
+		dt_struct.node[i][2] = FDQuery1->FieldByName("z")->AsFloat;
 		FDQuery1->Next();
 	}
 	//-------------------------------------------------------------------------
@@ -190,7 +190,7 @@ VoronoiBase __fastcall TFormViewerHYG::InitVoronoi(String filename, float color[
 	FDQuery1->Close();
 	FDQuery1->Connection = FDConnection1;
 	FDQuery1->SQL->Clear();
-	FDQuery1->SQL->Text = "SELECT X,Y,Z FROM vd_node";
+	FDQuery1->SQL->Text = "SELECT x,y,z FROM vd_node";
 	FDQuery1->Open();
 
 	// Go to last record, count all vertices and go to first record
@@ -205,16 +205,16 @@ VoronoiBase __fastcall TFormViewerHYG::InitVoronoi(String filename, float color[
 	// Init nodes with saved coordinates
 	FDQuery1->First();
 	for (int i = 0; i < vd_struct.nodeCount; i++) {
-		vd_struct.node[i][0] = FDQuery1->FieldByName("X")->AsFloat;
-		vd_struct.node[i][1] = FDQuery1->FieldByName("Y")->AsFloat;
-		vd_struct.node[i][2] = FDQuery1->FieldByName("Z")->AsFloat;
+		vd_struct.node[i][0] = FDQuery1->FieldByName("x")->AsFloat;
+		vd_struct.node[i][1] = FDQuery1->FieldByName("y")->AsFloat;
+		vd_struct.node[i][2] = FDQuery1->FieldByName("z")->AsFloat;
 		FDQuery1->Next();
 	}
 	//-------------------------------------------------------------------------
 	// Getting all edges for current class of stars
 	FDQuery1->Close();
 	FDQuery1->SQL->Clear();
-	FDQuery1->SQL->Text = "SELECT Node1, Node2, X, Y, Z FROM vd_edge";
+	FDQuery1->SQL->Text = "SELECT Node1, Node2, x, y, z FROM vd_edge";
 	FDQuery1->Open();
 
 	// Go to last record, count all edges and go to first record
@@ -234,9 +234,9 @@ VoronoiBase __fastcall TFormViewerHYG::InitVoronoi(String filename, float color[
 		vd_struct.edge[i][1] = FDQuery1->FieldByName("Node2")->AsFloat;
 
 		// Prevent null value instead of float
-		if (FDQuery1->FieldByName("X") && \
-			FDQuery1->FieldByName("Y") &&
-			FDQuery1->FieldByName("Z"))
+		if (FDQuery1->FieldByName("x") && \
+			FDQuery1->FieldByName("y") &&
+			FDQuery1->FieldByName("z"))
 		{
 			vd_struct.edge[i][2] = 0;
 			vd_struct.edge[i][3] = 0;
@@ -244,9 +244,9 @@ VoronoiBase __fastcall TFormViewerHYG::InitVoronoi(String filename, float color[
 		}
 		else
 		{
-			vd_struct.edge[i][2] = FDQuery1->FieldByName("X")->AsFloat;
-			vd_struct.edge[i][3] = FDQuery1->FieldByName("Y")->AsFloat;
-			vd_struct.edge[i][4] = FDQuery1->FieldByName("Z")->AsFloat;
+			vd_struct.edge[i][2] = FDQuery1->FieldByName("x")->AsFloat;
+			vd_struct.edge[i][3] = FDQuery1->FieldByName("y")->AsFloat;
+			vd_struct.edge[i][4] = FDQuery1->FieldByName("z")->AsFloat;
 		}
 		FDQuery1->Next();
 	}
@@ -274,113 +274,113 @@ void __fastcall TFormViewerHYG::DrawPoints()
 				case 0:
 					for (int i = 0; i < A_Delaunay.nodeCount; i++) {
 
-						X = A_Delaunay.node[i][0]*0.05;
-						Y = A_Delaunay.node[i][1]*0.05;
-						Z = A_Delaunay.node[i][2]*0.05;
+						x = A_Delaunay.node[i][0]*0.05;
+						y = A_Delaunay.node[i][1]*0.05;
+						z = A_Delaunay.node[i][2]*0.05;
 
-						R = A_Delaunay.color[0];
-						G = A_Delaunay.color[1];
-						B = A_Delaunay.color[2];
+						r = A_Delaunay.color[0];
+						g = A_Delaunay.color[1];
+						b = A_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 				case 1:
 					for (int i = 0; i < B_Delaunay.nodeCount; i++) {
 
-						X = B_Delaunay.node[i][0]*0.05;
-						Y = B_Delaunay.node[i][1]*0.05;
-						Z = B_Delaunay.node[i][2]*0.05;
+						x = B_Delaunay.node[i][0]*0.05;
+						y = B_Delaunay.node[i][1]*0.05;
+						z = B_Delaunay.node[i][2]*0.05;
 
-						R = B_Delaunay.color[0];
-						G = B_Delaunay.color[1];
-						B = B_Delaunay.color[2];
+						r = B_Delaunay.color[0];
+						g = B_Delaunay.color[1];
+						b = B_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 				case 2:
 					for (int i = 0; i < F_Delaunay.nodeCount; i++) {
 
-						X = F_Delaunay.node[i][0]*0.05;
-						Y = F_Delaunay.node[i][1]*0.05;
-						Z = F_Delaunay.node[i][2]*0.05;
+						x = F_Delaunay.node[i][0]*0.05;
+						y = F_Delaunay.node[i][1]*0.05;
+						z = F_Delaunay.node[i][2]*0.05;
 
-						R = F_Delaunay.color[0];
-						G = F_Delaunay.color[1];
-						B = F_Delaunay.color[2];
+						r = F_Delaunay.color[0];
+						g = F_Delaunay.color[1];
+						b = F_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 				case 3:
 					for (int i = 0; i < G_Delaunay.nodeCount; i++) {
 
-						X = G_Delaunay.node[i][0]*0.05;
-						Y = G_Delaunay.node[i][1]*0.05;
-						Z = G_Delaunay.node[i][2]*0.05;
+						x = G_Delaunay.node[i][0]*0.05;
+						y = G_Delaunay.node[i][1]*0.05;
+						z = G_Delaunay.node[i][2]*0.05;
 
-						R = G_Delaunay.color[0];
-						G = G_Delaunay.color[1];
-						B = G_Delaunay.color[2];
+						r = G_Delaunay.color[0];
+						g = G_Delaunay.color[1];
+						b = G_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 				case 4:
 					for (int i = 0; i < K_Delaunay.nodeCount; i++) {
 
-						X = K_Delaunay.node[i][0]*0.05;
-						Y = K_Delaunay.node[i][1]*0.05;
-						Z = K_Delaunay.node[i][2]*0.05;
+						x = K_Delaunay.node[i][0]*0.05;
+						y = K_Delaunay.node[i][1]*0.05;
+						z = K_Delaunay.node[i][2]*0.05;
 
-						R = K_Delaunay.color[0];
-						G = K_Delaunay.color[1];
-						B = K_Delaunay.color[2];
+						r = K_Delaunay.color[0];
+						g = K_Delaunay.color[1];
+						b = K_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 				case 5:
 					for (int i = 0; i < M_Delaunay.nodeCount; i++) {
 
-						X = M_Delaunay.node[i][0]*0.05;
-						Y = M_Delaunay.node[i][1]*0.05;
-						Z = M_Delaunay.node[i][2]*0.05;
+						x = M_Delaunay.node[i][0]*0.05;
+						y = M_Delaunay.node[i][1]*0.05;
+						z = M_Delaunay.node[i][2]*0.05;
 
-						R = M_Delaunay.color[0];
-						G = M_Delaunay.color[1];
-						B = M_Delaunay.color[2];
+						r = M_Delaunay.color[0];
+						g = M_Delaunay.color[1];
+						b = M_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 				case 6:
 					for (int i = 0; i < O_Delaunay.nodeCount; i++) {
 
-						X = O_Delaunay.node[i][0]*0.05;
-						Y = O_Delaunay.node[i][1]*0.05;
-						Z = O_Delaunay.node[i][2]*0.05;
+						x = O_Delaunay.node[i][0]*0.05;
+						y = O_Delaunay.node[i][1]*0.05;
+						z = O_Delaunay.node[i][2]*0.05;
 
-						R = O_Delaunay.color[0];
-						G = O_Delaunay.color[1];
-						B = O_Delaunay.color[2];
+						r = O_Delaunay.color[0];
+						g = O_Delaunay.color[1];
+						b = O_Delaunay.color[2];
 
 						pointStars->Size = 2;
-						pointStars->Positions->Add(X, Y, Z);
-						pointStars->Colors->AddPoint(R, G, B);
+						pointStars->Positions->Add(x, y, z);
+						pointStars->Colors->AddPoint(r, g, b);
 					}
 					break;
 			}
@@ -402,7 +402,7 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 	//GLPolygon1->Free();
 	//GLPolygon1 = (TGLPolygon *)(GLDummyCube1->AddNewChild(__classid(TGLPolygon)));
 
-	float X1, Y1, Z1, X2, Y2, Z2, R, G, B;
+	float X1, Y1, Z1, X2, Y2, Z2, r, g, b;
 	int NodeIndex1, NodeIndex2, NodeIndex3;
 
 	for(int i = 0; i < CheckListBox1->Items->Count; i++)
@@ -412,9 +412,9 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 			switch (i)
 			{
 				case 0:
-					R = A_Delaunay.color[0];
-					G = A_Delaunay.color[1];
-					B = A_Delaunay.color[2];
+					r = A_Delaunay.color[0];
+					g = A_Delaunay.color[1];
+					b = A_Delaunay.color[2];
 
 					for (int i = 0; i < A_Delaunay.edgeCount; i++) {
 						NodeIndex1 = A_Delaunay.edge[i][0];
@@ -432,14 +432,14 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 1:
-					R = B_Delaunay.color[0];
-					G = B_Delaunay.color[1];
-					B = B_Delaunay.color[2];
+					r = B_Delaunay.color[0];
+					g = B_Delaunay.color[1];
+					b = B_Delaunay.color[2];
 
 					for (int i = 0; i < B_Delaunay.edgeCount; i++) {
 						NodeIndex1 = B_Delaunay.edge[i][0];
@@ -457,14 +457,14 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 2:
-					R = F_Delaunay.color[0];
-					G = F_Delaunay.color[1];
-					B = F_Delaunay.color[2];
+					r = F_Delaunay.color[0];
+					g = F_Delaunay.color[1];
+					b = F_Delaunay.color[2];
 
 					for (int i = 0; i < F_Delaunay.edgeCount; i++) {
 						NodeIndex1 = F_Delaunay.edge[i][0];
@@ -482,14 +482,14 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 3:
-                    R = G_Delaunay.color[0];
-					G = G_Delaunay.color[1];
-					B = G_Delaunay.color[2];
+                    r = G_Delaunay.color[0];
+					g = G_Delaunay.color[1];
+					b = G_Delaunay.color[2];
 
 					for (int i = 0; i < G_Delaunay.edgeCount; i++) {
 						NodeIndex1 = G_Delaunay.edge[i][0];
@@ -507,14 +507,14 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 4:
-                    R = K_Delaunay.color[0];
-					G = K_Delaunay.color[1];
-					B = K_Delaunay.color[2];
+                    r = K_Delaunay.color[0];
+					g = K_Delaunay.color[1];
+					b = K_Delaunay.color[2];
 
 					for (int i = 0; i < K_Delaunay.edgeCount; i++) {
 						NodeIndex1 = K_Delaunay.edge[i][0];
@@ -532,14 +532,14 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 5:
-                    R = M_Delaunay.color[0];
-					G = M_Delaunay.color[1];
-					B = M_Delaunay.color[2];
+                    r = M_Delaunay.color[0];
+					g = M_Delaunay.color[1];
+					b = M_Delaunay.color[2];
 
 					for (int i = 0; i < M_Delaunay.edgeCount; i++) {
 						NodeIndex1 = M_Delaunay.edge[i][0];
@@ -557,14 +557,14 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 6:
-					R = O_Delaunay.color[0];
-					G = O_Delaunay.color[1];
-					B = O_Delaunay.color[2];
+					r = O_Delaunay.color[0];
+					g = O_Delaunay.color[1];
+					b = O_Delaunay.color[2];
 
 					for (int i = 0; i < O_Delaunay.edgeCount; i++) {
 						NodeIndex1 = O_Delaunay.edge[i][0];
@@ -582,7 +582,7 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 
@@ -607,7 +607,7 @@ void __fastcall TFormViewerHYG::DrawDelaunay()
 										O_Delaunay.node[NodeIndex3][2]*0.05);
 
 						GLPolygon1->Material->PolygonMode = pmFill;
-						GLPolygon1->Material->FrontProperties->Diffuse->SetColor(R, G, B, 1);
+						GLPolygon1->Material->FrontProperties->Diffuse->SetColor(r, g, b, 1);
 					} */
 					break;
 			}
@@ -626,7 +626,7 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 	GLLines1 = (TGLLines *)(GLDummyCube1->AddNewChild(__classid(TGLLines)));
 
 	// Temp vars for coordinates and colors values
-	float X, Y, Z, R, G, B;
+	float x, y, z, r, g, b;
 	float X1, Y1, Z1, X2, Y2, Z2;
 	int NodeIndex1, NodeIndex2;
 
@@ -637,9 +637,9 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 			switch (i)
 			{
 				case 0:
-					R = A_Voronoi.color[0];
-					G = A_Voronoi.color[1];
-					B = A_Voronoi.color[2];
+					r = A_Voronoi.color[0];
+					g = A_Voronoi.color[1];
+					b = A_Voronoi.color[2];
 
 					for (int i = 0; i < A_Voronoi.edgeCount; i++) {
 						NodeIndex1 = A_Voronoi.edge[i][0];
@@ -665,14 +665,14 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 1:
-					R = B_Voronoi.color[0];
-					G = B_Voronoi.color[1];
-					B = B_Voronoi.color[2];
+					r = B_Voronoi.color[0];
+					g = B_Voronoi.color[1];
+					b = B_Voronoi.color[2];
 
 					for (int i = 0; i < B_Voronoi.edgeCount; i++) {
 						NodeIndex1 = B_Voronoi.edge[i][0];
@@ -698,14 +698,14 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 2:
-					R = F_Voronoi.color[0];
-					G = F_Voronoi.color[1];
-					B = F_Voronoi.color[2];
+					r = F_Voronoi.color[0];
+					g = F_Voronoi.color[1];
+					b = F_Voronoi.color[2];
 
 					for (int i = 0; i < F_Voronoi.edgeCount; i++) {
 						NodeIndex1 = F_Voronoi.edge[i][0];
@@ -731,14 +731,14 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 3:
-					R = G_Voronoi.color[0];
-					G = G_Voronoi.color[1];
-					B = G_Voronoi.color[2];
+					r = G_Voronoi.color[0];
+					g = G_Voronoi.color[1];
+					b = G_Voronoi.color[2];
 
 					for (int i = 0; i < G_Voronoi.edgeCount; i++) {
 						NodeIndex1 = G_Voronoi.edge[i][0];
@@ -764,14 +764,14 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 4:
-					R = K_Voronoi.color[0];
-					G = K_Voronoi.color[1];
-					B = K_Voronoi.color[2];
+					r = K_Voronoi.color[0];
+					g = K_Voronoi.color[1];
+					b = K_Voronoi.color[2];
 
 					for (int i = 0; i < K_Voronoi.edgeCount; i++) {
 						NodeIndex1 = K_Voronoi.edge[i][0];
@@ -797,14 +797,14 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 5:
-					R = M_Voronoi.color[0];
-					G = M_Voronoi.color[1];
-					B = M_Voronoi.color[2];
+					r = M_Voronoi.color[0];
+					g = M_Voronoi.color[1];
+					b = M_Voronoi.color[2];
 
 					for (int i = 0; i < M_Voronoi.edgeCount; i++) {
 						NodeIndex1 = M_Voronoi.edge[i][0];
@@ -830,14 +830,14 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
 				case 6:
-					R = O_Voronoi.color[0];
-					G = O_Voronoi.color[1];
-					B = O_Voronoi.color[2];
+					r = O_Voronoi.color[0];
+					g = O_Voronoi.color[1];
+					b = O_Voronoi.color[2];
 
 					for (int i = 0; i < O_Voronoi.edgeCount; i++) {
 						NodeIndex1 = O_Voronoi.edge[i][0];
@@ -862,7 +862,7 @@ void __fastcall TFormViewerHYG::DrawVoronoi()
 						GLLines1->Nodes->AddNode(X2, Y2, Z2);
 					}
 					// Set edges color
-					GLLines1->LineColor->SetColor(R, G, B, 1);
+					GLLines1->LineColor->SetColor(r, g, b, 1);
 					// Delete axes of points
 					GLLines1->NodesAspect = lnaInvisible;
 					break;
@@ -891,18 +891,18 @@ __fastcall TFormViewerHYG::TFormViewerHYG(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormViewerHYG::GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button,
-		  TShiftState Shift, int X, int Y)
+		  TShiftState Shift, int x, int y)
 {
-	mx = X; my = Y;
+	mx = x; my = y;
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormViewerHYG::GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift,
-		  int X, int Y)
+		  int x, int y)
 {
 	if (Shift.Contains(ssLeft))
 	{
-		GLCamera1->MoveAroundTarget(my-Y, mx-X);
-		mx = X; my = Y;
+		GLCamera1->MoveAroundTarget(my-y, mx-x);
+		mx = x; my = y;
 	}
 }
 //---------------------------------------------------------------------------
@@ -929,11 +929,7 @@ void __fastcall TFormViewerHYG::GLCadencer1Progress(TObject *Sender, const doubl
 {
 	GLSceneViewer1->Invalidate();
 }
-//---------------------------------------------------------------------------
-void __fastcall TFormViewerHYG::Exit1Click(TObject *Sender)
-{
-	FormViewerHYG->Close();
-}
+
 //---------------------------------------------------------------------------
 void __fastcall TFormViewerHYG::Points1Click(TObject *Sender)
 {
@@ -982,12 +978,12 @@ void __fastcall TFormViewerHYG::Data1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 /*
 int NodeIndex1, NodeIndex2, NodeIndex3, NodeIndex4;
-	float R, G, B;
-	float X, Y, Z, X1, X2, X3, X4, Y1, Y2, Y3, Y4, Z1, Z2, Z3, Z4;
+	float r, g, b;
+	float x, y, z, X1, X2, X3, X4, Y1, Y2, Y3, Y4, Z1, Z2, Z3, Z4;
 
-	R = O_Delaunay.color[0];
-	G = O_Delaunay.color[1];
-	B = O_Delaunay.color[2];
+	r = O_Delaunay.color[0];
+	g = O_Delaunay.color[1];
+	b = O_Delaunay.color[2];
 
 	GLTetrahedron1->Free();
 	GLTetrahedron1 = (TGLTetrahedron *)(GLDummyCube1->AddNewChild(__classid(TGLTetrahedron)));
@@ -1020,14 +1016,14 @@ int NodeIndex1, NodeIndex2, NodeIndex3, NodeIndex4;
 		Y4 = O_Delaunay.node[NodeIndex4][1]*0.05;
 		Z4 = O_Delaunay.node[NodeIndex4][2]*0.05;
 
-		X = (X1 + X2 + X3 + X4) / 4;
-		Y = (Y1 + Y2 + Y3 + Y4) / 4;
-		Z = (Z1 + Z2 + Z3 + Z4) / 4;
+		x = (X1 + X2 + X3 + X4) / 4;
+		y = (Y1 + Y2 + Y3 + Y4) / 4;
+		z = (Z1 + Z2 + Z3 + Z4) / 4;
 
-		GLTetrahedron1->Position->SetPoint(X, Y, Z);
+		GLTetrahedron1->Position->SetPoint(x, y, z);
 
 		//GLTetrahedron1->Material->PolygonMode = pmLines;
-		GLTetrahedron1->Material->FrontProperties->Diffuse->SetColor(R, G, B, 1);
+		GLTetrahedron1->Material->FrontProperties->Diffuse->SetColor(r, g, b, 1);
 }
 
 // Delete all faces from the scene
@@ -1035,11 +1031,11 @@ GLPolygon1->Free();
 GLPolygon1 = (TGLPolygon *)(GLDummyCube1->AddNewChild(__classid(TGLPolygon)));
 
 int NodeIndex1, NodeIndex2, NodeIndex3;
-float R, G, B;
+float r, g, b;
 
-R = O_Delaunay.color[0];
-G = O_Delaunay.color[1];
-B = O_Delaunay.color[2];
+r = O_Delaunay.color[0];
+g = O_Delaunay.color[1];
+b = O_Delaunay.color[2];
 
 for (int i = 0; i < O_Delaunay.faceCount; i++) {
 
@@ -1062,7 +1058,7 @@ for (int i = 0; i < O_Delaunay.faceCount; i++) {
 					O_Delaunay.node[NodeIndex3][2]*0.05);
 
 	GLPolygon1->Material->PolygonMode = pmLines;
-	GLPolygon1->Material->FrontProperties->Diffuse->SetColor(R, G, B, 1);
+	GLPolygon1->Material->FrontProperties->Diffuse->SetColor(r, g, b, 1);
 }
 
 */
@@ -1114,12 +1110,13 @@ void __fastcall TFormViewerHYG::New1Click(TObject *Sender)
 	// Visualization
 	InitDraw();
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TFormViewerHYG::Exit2Click(TObject *Sender)
+//---------------------------------------------------------------------------
+void __fastcall TFormViewerHYG::Exit1Click(TObject *Sender)
 {
-   Close();
+	FormViewerHYG->Close();
 }
+
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewerHYG::Open1Click(TObject *Sender)
@@ -1131,32 +1128,34 @@ void __fastcall TFormViewerHYG::Open1Click(TObject *Sender)
   sl = new TStringList(this);
   tl = new TStringList(this);
   OpenTextFileDialog->InitialDir = ExtractFilePath(Application->ExeName);
-  //OpenTextFileDialog->InitialDir = datapath; // SetCurrentDir(datapath);
- // OpenTextFileDialog->FilterIndex = 1;
+  OpenTextFileDialog->InitialDir = datapath; // ".\\..\\..\\DATA\\";
+  OpenTextFileDialog->FilterIndex = 0;
   if (OpenTextFileDialog->Execute()) {
 	  try {
 		  sl->LoadFromFile(OpenTextFileDialog->FileName);
 		  //... Reading data from hyg.csv catalog
+		  tl->CommaText = sl->IndexOf(0);
+		  for (int i = 1; i <= sl->Count; i++) {
 
-	for (int i = 0; i <= sl->Count; i++)
-	{
-	  tl->CommaText = sl->IndexOf(i);
+			  tl->CommaText = sl->IndexOf(i);
 
-	  X = StrToFloat(tl->CommaText[18]);
-	  Y = StrToFloat(tl->CommaText[19]);
-	  Z = StrToFloat(tl->CommaText[20]);
-	  pointStars->Position->X =  X;
-	  pointStars->Position->Y =  Y;
-	  pointStars->Position->Z =  Z;
-	}
+			 // spect = tl->IndexOf(15);
+			  x = StrToFloat(tl->IndexOf(17)); // not read element of array!!!
+			  y = StrToFloat(tl->IndexOf(18));
+			  z = StrToFloat(tl->IndexOf(19));
+			  g = StrToFloat(tl->IndexOf(22)); // ? Read spectral class color
+
+			  pointStars->Position->X = x;
+			  pointStars->Position->Y = y;
+			  pointStars->Position->Z = z;
+		  }
 	  } catch (...) {
-	  sl->Free();
-      tl->Free();
-	  //...
+		  sl->Free();
+		  tl->Free();
+		  //...
 	  }
   } else
 	  exit;
 }
 //---------------------------------------------------------------------------
-
 

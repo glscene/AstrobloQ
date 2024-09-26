@@ -4,7 +4,7 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("src\fcHygViewer.cpp", FormViewerHYG);
+USEFORM("src\fcViewerHYG.cpp", FormViewerHYG);
 USEFORM("src\fcTableGrid.cpp", Form2);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)

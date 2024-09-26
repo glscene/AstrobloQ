@@ -39,17 +39,17 @@ uses
   GLS.LensFlare,
   GLS.Scene,
   GLS.Objects,
-  GLScene.Coordinates,
+  GLS.Coordinates,
   GLS.SceneViewer,
   GLS.Texture,
   GLS.RenderContextInfo,
-  GLScene.Color,
+  GLS.Color,
   GLS.State,
   GLScene.Utils,
   GLS.Context,
   GLScene.TextureFormat,
   GLSL.TextureShaders,
-  GLScene.BaseClasses,
+  GLS.BaseClasses,
   GLS.Atmosphere,
   GLS.GeomObjects,
   GLS.VectorFileObjects,
@@ -172,8 +172,8 @@ type
   private
     mx, my,
     dmx, dmy: Integer;
-    function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGColorVector;
-    function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGColorVector;
+    function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+    function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
     procedure LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
   end;
 
@@ -186,8 +186,8 @@ const
   cAtmosphereRadius: Single = 0.55;
   // smaller radius is taken to eliminate the effect of overlapping lines
   cPlanetRadius: Single = 0.495;
-  cLowAtmColor: TGColorVector = (X:1; Y:1; Z:1; W:1);
-  cHighAtmColor: TGColorVector = (X:0; Y:0; Z:1; W:1);
+  cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
+  cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
   cIntDivTable: array[2..20] of Single =
     (1 / 2, 1 / 3, 1 / 4, 1 / 5, 1 / 6, 1 / 7, 1 / 8, 1 / 9, 1 / 10,
     1 / 11, 1 / 12, 1 / 13, 1 / 14, 1 / 15, 1 / 16, 1 / 17, 1 / 18, 1 / 19, 1 / 20);
@@ -391,11 +391,11 @@ end;
 
 //------------------------------------------------------------------
 
-function TfrmLitosphere.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGColorVector;
+function TfrmLitosphere.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
   atmPoint, normal: TGLVector;
-  altColor: TGColorVector;
+  altColor: TGLColorVector;
   alt, rayLength, contrib, decay, intensity, invN: Single;
 
 begin
@@ -437,7 +437,7 @@ end;
 
 //------------------------------------------------------------------
 
-function TfrmLitosphere.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGColorVector;
+function TfrmLitosphere.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
   rayVector: TGLVector;

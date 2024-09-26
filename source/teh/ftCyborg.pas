@@ -30,9 +30,9 @@ uses
   GLS.Graph,
   GLScene.VectorTypes,
   GLS.Material,
-  GLScene.Coordinates,
+  GLS.Coordinates,
   
-  GLScene.BaseClasses;
+  GLS.BaseClasses;
 
 type
   TFormCyborg = class(TForm)

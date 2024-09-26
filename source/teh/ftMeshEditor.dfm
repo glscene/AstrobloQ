@@ -1,17 +1,13 @@
 object FormMeshShow: TFormMeshShow
   Left = 122
   Top = 59
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Sculptor'
-  ClientHeight = 697
-  ClientWidth = 1183
+  ClientHeight = 398
+  ClientWidth = 676
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -47,31 +43,20 @@ object FormMeshShow: TFormMeshShow
   OnDestroy = FormDestroy
   OnMouseWheel = FormMouseWheel
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Splitter1: TSplitter
-    Left = 366
+    Left = 209
     Top = 0
-    Width = 5
-    Height = 663
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    MinSize = 53
+    Height = 379
   end
   object Scn: TGLSceneViewer
-    Left = 371
+    Left = 212
     Top = 0
-    Width = 812
-    Height = 663
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 464
+    Height = 379
     Camera = GLCamera1
     BeforeRender = ScnBeforeRender
-    FieldOfView = 162.845504760742200000
+    FieldOfView = 150.438476562500000000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = ScnMouseDown
@@ -81,230 +66,161 @@ object FormMeshShow: TFormMeshShow
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 663
-    Width = 1183
-    Height = 34
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 379
+    Width = 676
+    Height = 19
     Panels = <
       item
-        Width = 350
+        Width = 200
       end
       item
-        Width = 175
+        Width = 100
       end
       item
-        Width = 175
+        Width = 100
       end
       item
-        Width = 175
+        Width = 100
       end
       item
-        Width = 88
+        Width = 50
       end>
   end
   object ControlPanel: TPanel
     Left = 0
     Top = 0
-    Width = 366
-    Height = 663
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 209
+    Height = 379
     Align = alLeft
     BevelInner = bvLowered
     TabOrder = 2
     object PageControl1: TPageControl
       Left = 2
       Top = 2
-      Width = 362
-      Height = 659
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 205
+      Height = 375
       ActivePage = TabSheet3
       Align = alClient
       TabOrder = 0
       object TabSheetControls: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Controls'
         object Label6: TLabel
-          Left = 14
-          Top = 336
-          Width = 156
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 8
+          Top = 192
+          Width = 86
+          Height = 13
           Caption = 'Camera X Position'
         end
         object Label2: TLabel
-          Left = 5
-          Top = 8
-          Width = 123
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 3
+          Top = 5
+          Width = 68
+          Height = 13
           Caption = 'Polygon Mode'
         end
         object GroupBox2: TGroupBox
-          Left = 14
-          Top = 434
-          Width = 296
-          Height = 114
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 8
+          Top = 248
+          Width = 169
+          Height = 65
           Caption = 'Movement Direction'
           TabOrder = 0
           object rbXY: TRadioButton
-            Left = 14
-            Top = 42
-            Width = 198
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 8
+            Top = 24
+            Width = 113
+            Height = 17
             Caption = 'Move on X, Y axis'
             Checked = True
             TabOrder = 0
             TabStop = True
           end
           object rbZY: TRadioButton
-            Left = 14
-            Top = 70
-            Width = 198
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 8
+            Top = 40
+            Width = 113
+            Height = 17
             Caption = 'Move on Z, Y axis'
             TabOrder = 1
           end
         end
         object tbPos: TTrackBar
-          Left = 14
-          Top = 364
-          Width = 296
-          Height = 58
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 8
+          Top = 208
+          Width = 169
+          Height = 33
           Max = 20
           Position = 5
           TabOrder = 1
-          ThumbLength = 35
           OnChange = tbPosChange
         end
         object GroupBox1: TGroupBox
-          Left = 14
-          Top = 140
-          Width = 296
-          Height = 184
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 8
+          Top = 80
+          Width = 169
+          Height = 105
           Caption = 'Axis'
           TabOrder = 2
           object Bevel1: TBevel
-            Left = 14
-            Top = 70
-            Width = 268
-            Height = 4
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 8
+            Top = 40
+            Width = 153
+            Height = 2
             Shape = bsBottomLine
           end
           object Label3: TLabel
-            Left = 14
-            Top = 84
-            Width = 106
-            Height = 24
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 8
+            Top = 48
+            Width = 58
+            Height = 13
             Caption = 'Axis Legend'
           end
           object Label4: TLabel
-            Left = 14
-            Top = 126
-            Width = 55
-            Height = 24
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 8
+            Top = 72
+            Width = 29
+            Height = 13
             Caption = 'X Axis'
             Color = clBtnFace
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clRed
-            Font.Height = -19
+            Font.Height = -11
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentColor = False
             ParentFont = False
           end
           object Label5: TLabel
-            Left = 84
-            Top = 126
-            Width = 53
-            Height = 24
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 48
+            Top = 72
+            Width = 29
+            Height = 13
             Caption = 'Y Axis'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clGreen
-            Font.Height = -19
+            Font.Height = -11
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
           end
           object Label7: TLabel
-            Left = 154
-            Top = 126
-            Width = 53
-            Height = 24
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 88
+            Top = 72
+            Width = 29
+            Height = 13
             Caption = 'Z Axis'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
-            Font.Height = -19
+            Font.Height = -11
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
           end
           object chbShowAxis: TCheckBox
-            Left = 14
-            Top = 28
-            Width = 268
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 8
+            Top = 16
+            Width = 153
+            Height = 17
             Caption = 'Show central axis'
             Checked = True
             State = cbChecked
@@ -313,14 +229,10 @@ object FormMeshShow: TFormMeshShow
           end
         end
         object chbViewPoints: TCheckBox
-          Left = 14
-          Top = 98
-          Width = 212
-          Height = 30
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 8
+          Top = 56
+          Width = 121
+          Height = 17
           Caption = 'View vertex points'
           Checked = True
           State = cbChecked
@@ -328,14 +240,10 @@ object FormMeshShow: TFormMeshShow
           OnClick = chbViewPointsClick
         end
         object cbPolygonMode: TComboBox
-          Left = 14
-          Top = 42
-          Width = 254
+          Left = 8
+          Top = 24
+          Width = 145
           Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Style = csDropDownList
           TabOrder = 4
           OnChange = cbPolygonModeChange
@@ -346,105 +254,69 @@ object FormMeshShow: TFormMeshShow
         end
       end
       object TabSheet2: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Atributes'
         ImageIndex = 1
       end
       object TabSheet3: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Data'
         ImageIndex = 2
         object Label1: TLabel
-          Left = 28
-          Top = 158
-          Width = 74
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 16
+          Top = 90
+          Width = 43
+          Height = 13
           Caption = 'Iterations'
         end
         object TrackBar1: TTrackBar
-          Left = 28
-          Top = 182
-          Width = 198
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 16
+          Top = 104
+          Width = 113
+          Height = 22
           Max = 5
           Position = 3
           TabOrder = 0
-          ThumbLength = 18
+          ThumbLength = 10
           OnChange = TrackBar1Change
         end
         object GroupBox3: TGroupBox
           Left = 0
-          Top = 14
-          Width = 296
-          Height = 142
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Top = 8
+          Width = 169
+          Height = 81
           Caption = 'Mesh Data'
           TabOrder = 1
           object btnVertex: TBitBtn
-            Left = 7
-            Top = 28
-            Width = 131
-            Height = 44
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 4
+            Top = 16
+            Width = 75
+            Height = 25
             Caption = 'Vertex'
             TabOrder = 0
             OnClick = btnVertexClick
           end
           object btnNormals: TBitBtn
-            Left = 7
-            Top = 84
-            Width = 131
-            Height = 44
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 4
+            Top = 48
+            Width = 75
+            Height = 25
             Caption = 'Normals'
             TabOrder = 1
             OnClick = btnNormalsClick
           end
           object btnTextcoords: TBitBtn
-            Left = 138
-            Top = 28
-            Width = 151
-            Height = 44
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 79
+            Top = 16
+            Width = 86
+            Height = 25
             Caption = 'Tex-Coords'
             TabOrder = 2
             OnClick = btnTextcoordsClick
           end
           object btnGroups: TBitBtn
-            Left = 138
-            Top = 84
-            Width = 151
-            Height = 44
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 79
+            Top = 48
+            Width = 86
+            Height = 25
             Caption = 'Triangle Count'
             TabOrder = 3
             OnClick = btnGroupsClick

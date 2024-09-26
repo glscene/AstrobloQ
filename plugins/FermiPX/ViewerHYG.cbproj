@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{D7EB4232-CE1F-4634-A608-A97ED0A0D6B3}</ProjectGuid>
+        <ProjectGuid>{81422391-FF31-4699-9A8B-CBDD7E43208F}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <AppType>Application</AppType>
-        <MainSource>HygViewer.cpp</MainSource>
+        <MainSource>ViewerHYG.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
-        <ProjectName Condition="'$(ProjectName)'==''">HygViewer</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">ViewerHYG</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -81,9 +81,9 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>src\;..\..\..\ViewerHYG\source\;..\AstrobloQ\plugins\HYGViewer\;source\;D:\XYZ_FITiPM\_TO_KM\LABS\2020\ЧерныхЕвгений\L4\FermiPS\;D:\ASTRONOMY\ViewerHYG\;..\LAB1 - Cube and Stars\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>src\;..\..\..\ViewerHYG\source\;..\AstrobloQ\plugins\HYGViewer\;source\;D:\XYZ_FITiPM\_TO_KM\LABS\2020\ЧерныхЕвгений\L4\FermiPS\;D:\ASTRONOMY\ViewerHYG\;..\LAB1 - Cube and Stars\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <SanitizedProjectName>HygViewer</SanitizedProjectName>
+        <IncludePath>src\;..\..\..\ViewerHYG\source\;..\AstrobloQ\plugins\FermiPX\;source\;D:\XYZ_FITiPM\_TO_KM\LABS\2020\ЧерныхЕвгений\L4\FermiPS\;D:\ASTRONOMY\ViewerHYG\;..\LAB1 - Cube and Stars\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>src\;..\..\..\ViewerHYG\source\;..\AstrobloQ\plugins\FermiPX\;source\;D:\XYZ_FITiPM\_TO_KM\LABS\2020\ЧерныхЕвгений\L4\FermiPS\;D:\ASTRONOMY\ViewerHYG\;..\LAB1 - Cube and Stars\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <SanitizedProjectName>ViewerHYG</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;GLScene_Cg_RT;GLScene_GPU_RT;GLScene_RT;GLScene_Sounds_RT;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
@@ -153,22 +153,22 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="HygViewer.cpp">
-            <BuildOrder>0</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="src\fcHygViewer.cpp">
-            <Form>FormViewerHYG</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>src\fcHygViewer.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
-        </CppCompile>
         <CppCompile Include="src\fcTableGrid.cpp">
             <Form>Form2</Form>
             <FormType>dfm</FormType>
             <DependentOn>src\fcTableGrid.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <FormResources Include="src\fcHygViewer.dfm"/>
+        <CppCompile Include="src\fcViewerHYG.cpp">
+            <Form>FormViewerHYG</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>src\fcViewerHYG.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="ViewerHYG.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <FormResources Include="src\fcViewerHYG.dfm"/>
         <FormResources Include="src\fcTableGrid.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -200,7 +200,7 @@
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
                 <Source>
-                    <Source Name="MainSource">HygViewer.cpp</Source>
+                    <Source Name="MainSource">ViewerHYG.cpp</Source>
                 </Source>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="4">
@@ -270,15 +270,15 @@
                 </DeployFile>
                 <DeployFile LocalName=".\Win32\Debug\FermiPS.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName=".\Win32\Debug\FermiPS.tds" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName=".\Win32\Debug\HygViewer.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName=".\Win32\Debug\ViewerHYG.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>HygViewer.exe</RemoteName>
+                        <RemoteName>ViewerHYG.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\HygViewer.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName=".\Win32\Debug\ViewerHYG.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
-                        <RemoteName>HygViewer.tds</RemoteName>
+                        <RemoteName>ViewerHYG.tds</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

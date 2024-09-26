@@ -27,10 +27,10 @@ uses
   GLS.Texture,
   GLScene.VectorGeometry,
   GLS.GeomObjects,
-  GLScene.Coordinates,
+  GLS.Coordinates,
   
-  GLScene.BaseClasses,
-  GLScene.Color;
+  GLS.BaseClasses,
+  GLS.Color;
 
 type
   TFormHeightField = class(TForm)
@@ -72,9 +72,9 @@ type
     mx, my : Integer;
   protected
     procedure HeatFormula(const x, y: Single; var z: Single;
-      var color: TGColorVector; var texPoint: TTexPoint);
+      var color: TGLColorVector; var texPoint: TTexPoint);
     procedure HumidityFormula(const x, y: Single; var z: Single;
-      var color: TGColorVector; var texPoint: TTexPoint);
+      var color: TGLColorVector; var texPoint: TTexPoint);
   public
     procedure Advance;
   end;
@@ -132,7 +132,7 @@ begin
 end;
 
 procedure TFormHeightField.HeatFormula(const x, y: Single; var z: Single;
-  var color: TGColorVector; var texPoint: TTexPoint);
+  var color: TGLColorVector; var texPoint: TTexPoint);
 var
   gridx, gridy: integer;
   myLocation: AIGrid;
@@ -146,7 +146,7 @@ begin
 end;
 
 procedure TFormHeightField.HumidityFormula(const x, y: Single; var z: Single;
-  var color: TGColorVector; var texPoint: TTexPoint);
+  var color: TGLColorVector; var texPoint: TTexPoint);
 var
   gridx, gridy: integer;
   myLocation: AIGrid;

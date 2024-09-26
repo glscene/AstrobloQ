@@ -27,7 +27,7 @@ uses
   GLS.Scene,
   GLScene.VectorGeometry,
   GLScene.VectorTypes,
-  GLScene.Coordinates,
+  GLS.Coordinates,
   GLS.SceneViewer,
 
   gnugettext;

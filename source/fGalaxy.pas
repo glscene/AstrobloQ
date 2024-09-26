@@ -29,19 +29,21 @@ uses
   FireDAC.Stan.Intf,
   FireDAC.Comp.BatchMove,
 
-  GLScene.BaseClasses,
+  GLScene.VectorTypes,
+  GLScene.VectorGeometry,
+  GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   GLS.AsyncTimer,
   GLS.Cadencer,
   GLS.Objects,
   GLS.Graph,
-  GLScene.Coordinates,
+  GLS.Coordinates,
   GLS.GeomObjects,
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
   GLS.Material,
-  GLScene.Color,
+  GLS.Color,
   GLS.SpaceText,
 
   fForm,
@@ -212,11 +214,22 @@ type
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
+    function ReadHygStars: Boolean;
   private
     AtStart: Boolean;
-    mx, my, dmx, dmy: Integer;
-    DataDir, StarDir, CurrentStar: TFileName;
     FileName, CatalogName: TFileName;
+    DataDir, StarDir, CurrentStar: TFileName;
+    mx, my, dmx, dmy: Integer;
+    sl, tl: TStringList;
+
+    x, y, z, g: Single; // Current coordinates of a star
+    spect: string; // Spectral class of stars
+    StarColor: TVector3f;
+
+    NSpectralClass: Byte;
+    RealColor: TColor;
+    RealGLColor: TGLColor;
+
   end;
 
 const
@@ -289,7 +302,7 @@ procedure TfrmGalaktika.MakeRandomStars;
 var
   i: Integer;
   NStars: Integer;
-  clrStar: TGColorVector;
+  clrStar: TGLColorVector;
 begin
   dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
   dotStars.Size := 5.0;
@@ -457,17 +470,60 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------------------
+
+function TfrmGalaktika.ReadHygStars: Boolean;
+var
+  i: Integer;
+
+begin
+  /// NSpectralClass := RadioGroupValue.ItemIndex + 5;
+  tl.Delimiter := ';';
+  tl.DelimitedText := sl[0];
+//  tl.CommaText := sl[0];
+  for i := 1 to sl.Count - 1 do
+  begin
+    tl.DelimitedText := sl[i];
+    spect := tl[15];    // x
+    x := StrToFloat(tl[17]);    // x
+    y := StrToFloat(tl[18]);    // y
+    z := StrToFloat(tl[19]);    // z
+/// g := StrToFloat(tl[22]);    // color
+
+   // NSpectralClass := StrToInt(tl[25]); // One of 7 Class ?
+
+    dotStars.Positions.Add(X, Y, Z);
+    dotStars.Size := 2.0;
+
+    // Stars with random colors
+    StarColor.X := Random();
+    StarColor.Y := Random();
+    StarColor.Z := Random();
+    dotStars.Colors.AddPoint(StarColor);
+
+    // Stars with real spectral class colors
+    ///RealColor := Round(StrToFloat(tl[NSpectralClass]));
+    /// ColorToRGB(RealColor);
+
+    // Srars with materials
+//  dotStars.Material.BackProperties.Ambient.RandomColor;
+//  dotStars.Material.FrontProperties.Diffuse.RandomColor;
+//  dotStars.Material.BackProperties.Specular.RandomColor;
+//  dotStars.Material.BackProperties.Diffuse := RealGLColor;    ???
+//  dotStars.Colors.AddPoint(1, 0.5, 0.5); // Temporarily random colors
+  end;
+end;
+
 // -------------------------------------------------------------
 //                         File menu
 // -------------------------------------------------------------
 procedure TfrmGalaktika.miOpenClick(Sender: TObject);
-var
-  F: TextFile;
-  sl, tl: TStringList;
-
 begin
+
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
+  dotStars.Free();
+  dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
 
   sl := TStringList.Create;
   tl := TStringList.Create;
@@ -476,25 +532,14 @@ begin
   // SetCurrentDir(DataDir);
   dmDialogs.OpenTextFileDialog.InitialDir := DataDir;
   dmDialogs.OpenTextFileDialog.FilterIndex := 1;
-
   if dmDialogs.OpenTextFileDialog.Execute then
-    if FileExists(dmDialogs.OpenTextFileDialog.FileName) then
-      MemoTable.Lines.LoadFromFile(dmDialogs.OpenTextFileDialog.FileName)
-    else
-      raise Exception.Create(_('File not exists'));
-
-  (*
-    if dmDialogs.OpenDialog.Execute() then
-    AssignFile(F, dmDialogs.OpenDialog.FileName)
-    else
-    Exit;
-    try
-    Reset(F);
-    sl.LoadFromFile(dmDialogs.OpenDialog.FileName);
-    finally
-    //
-    end;
-  *)
+  try
+    sl.LoadFromFile(dmDialogs.OpenTextFileDialog.FileName);
+    ReadHygStars;
+  finally
+    sl.Free;
+    tl.Free;
+  end;
 end;
 
 // --------------------------------------------------------
