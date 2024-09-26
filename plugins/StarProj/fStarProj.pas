@@ -23,13 +23,13 @@ uses
   GLS.RenderContextInfo,
   GLS.State,
   GLScene.VectorTypes,
-  GLScene.VectorLists,
+  GLS.VectorLists,
   GLS.Graph,
-  GLScene.Coordinates,
-  GLScene.Color,
+  GLS.Coordinates,
+  GLS.Color,
 
 
-  GLScene.BaseClasses;
+  GLS.BaseClasses;
 
 type
   TFormProjection = class(TForm)

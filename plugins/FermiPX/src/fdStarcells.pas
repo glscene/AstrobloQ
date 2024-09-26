@@ -49,11 +49,11 @@ uses
   GLS.VectorFileObjects,
   GLS.GeomObjects,
   GLS.Objects,
-  GLScene.Coordinates,
-  GLScene.BaseClasses,
+  GLS.Coordinates,
+  GLS.BaseClasses,
   GLS.SceneViewer,
   GLScene.VectorTypes,
-  GLScene.Color,
+  GLS.Color,
   GLS.Graph,
   GLS.SimpleNavigation,
   GLS.FileJPEG,
@@ -196,7 +196,7 @@ var
 
 const
 // Colors for each star class
-///lightblue: TGColor = [0, 0.8, 1];  // float lightblue[3] = {0, 0.8, 1};
+///lightblue: TGLColor = [0, 0.8, 1];  // float lightblue[3] = {0, 0.8, 1};
 
 (*
 float skyblue[3] = {0.803, 1, 1};

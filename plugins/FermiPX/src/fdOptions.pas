@@ -27,7 +27,7 @@ uses
   Vcl.CheckLst,
   Vcl.WinXCtrls,
 
-  GLScene.BaseClasses,
+  GLS.BaseClasses,
   GLS.Material;
 
 type

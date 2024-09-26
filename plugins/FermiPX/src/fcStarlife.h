@@ -25,7 +25,7 @@
 #include "Vcl.Imaging.JPeg.hpp"
 #include "GLScene.Coordinates.hpp"
 #include "GLScene.BaseClasses.hpp"
-#include "GLScene.Color.hpp"
+#include "GLS.Color.hpp"
 
 //---------------------------------------------------------------------------
 class TFormLife : public TForm

@@ -24,7 +24,7 @@
 #include "GLScene.VectorTypes.hpp"
 #include "GLS.Cadencer.hpp"
 #include "GLS.Material.hpp"
-#include "GLScene.Color.hpp"
+#include "GLS.Color.hpp"
 #include "GLS.SimpleNavigation.hpp"
 
 #include "fProjections.h"

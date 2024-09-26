@@ -13,7 +13,7 @@
 
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.Material"
-#pragma link "GLScene.Color"
+#pragma link "GLS.Color"
 
 #pragma link "GLS.SimpleNavigation"
 #pragma link "GLScene.BaseClasses"
