@@ -477,23 +477,23 @@ var
   i: Integer;
 
 begin
-  /// NSpectralClass := RadioGroupValue.ItemIndex + 5;
+  // NSpectralClass := RadioGroupValue.ItemIndex + 5;
+  //tl.CommaText := sl[0];
   tl.Delimiter := ';';
   tl.DelimitedText := sl[0];
-//  tl.CommaText := sl[0];
   for i := 1 to sl.Count - 1 do
   begin
+    //tl.CommaText := sl[i];
     tl.DelimitedText := sl[i];
-    spect := tl[15];    // x
     x := StrToFloat(tl[17]);    // x
     y := StrToFloat(tl[18]);    // y
     z := StrToFloat(tl[19]);    // z
-/// g := StrToFloat(tl[22]);    // color
+    spect := tl[38];            // spect_defign
+   // g := StrToFloat(tl[39]);    // color
+   // NSpectralClass := StrToInt(tl[40]); // linecolor
 
-   // NSpectralClass := StrToInt(tl[25]); // One of 7 Class ?
-
-    dotStars.Positions.Add(X, Y, Z);
-    dotStars.Size := 2.0;
+    dotStars.Positions.Add(x, y, z);
+    dotStars.Size := 2.0;    // size of dots
 
     // Stars with random colors
     StarColor.X := Random();
@@ -519,9 +519,7 @@ end;
 // -------------------------------------------------------------
 procedure TfrmGalaktika.miOpenClick(Sender: TObject);
 begin
-
-  dcSolcube.DeleteChildren();
-  svGalacube.Invalidate();
+//  dcSolcube.DeleteChildren();
   dotStars.Free();
   dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
 
@@ -540,6 +538,7 @@ begin
     sl.Free;
     tl.Free;
   end;
+  svGalacube.Invalidate();
 end;
 
 // --------------------------------------------------------
