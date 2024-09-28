@@ -224,8 +224,10 @@ type
 
     x, y, z, g: Single; // Current coordinates of a star
     spect: string; // Spectral class of stars
-    StarColor: TVector3f;
+    Color: TVector3f;
+    StarColor: TGLColorVector;
 
+    NStars: Integer;
     NSpectralClass: Byte;
     RealColor: TColor;
     RealGLColor: TGLColor;
@@ -267,6 +269,9 @@ begin
 
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
+
+  tbSolarcubeClick(Self);
+  tbAxesClick(Self);
   inherited;    // inheritance for translation
 end;
 
@@ -301,8 +306,6 @@ end;
 procedure TfrmGalaktika.MakeRandomStars;
 var
   i: Integer;
-  NStars: Integer;
-  clrStar: TGLColorVector;
 begin
   dotStars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
   dotStars.Size := 5.0;
@@ -314,10 +317,9 @@ begin
     NStars := Round(nbOn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shO.Brush.Color); // clBlue;
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shO.Brush.Color); // clBlue;
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // B class
@@ -326,10 +328,9 @@ begin
     NStars := Round(nbBn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shB.Brush.Color); // clLightBlue;
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shB.Brush.Color); // clLightBlue;
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // A class
@@ -338,10 +339,9 @@ begin
     NStars := Round(nbAn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shA.Brush.Color); // clCream;
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shA.Brush.Color); // clCream;
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // F class
@@ -350,10 +350,9 @@ begin
     NStars := Round(nbFn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shF.Brush.Color); // clKhaki
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shF.Brush.Color); // clKhaki
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // G class
@@ -362,10 +361,9 @@ begin
     NStars := Round(nbGn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shG.Brush.Color); // clYellow
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shG.Brush.Color); // clYellow
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // K class
@@ -374,10 +372,9 @@ begin
     NStars := Round(nbKn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shK.Brush.Color); // clOrange
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shK.Brush.Color); // clOrange
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // M class
@@ -386,10 +383,9 @@ begin
     NStars := Round(nbMn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shM.Brush.Color); // clRed
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shM.Brush.Color); // clRed
+      dotStars.Colors.Add(StarColor);
     end
   end;
   // D class of white dwarf
@@ -398,10 +394,9 @@ begin
     NStars := Round(nbWn.Value);
     for i := 0 to NStars - 1 do
     begin
-      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500,
-        Random(1000) - 500);
-      clrStar := ConvertWinColor(shW.Brush.Color); // clWhite
-      dotStars.Colors.Add(clrStar);
+      dotStars.Positions.Add(Random(1000) - 500, Random(1000) - 500, Random(1000) - 500);
+      StarColor := ConvertWinColor(shW.Brush.Color); // clWhite
+      dotStars.Colors.Add(StarColor);
     end
   end;
 end;
@@ -444,12 +439,13 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-
 // -----------------------------------------------------------------------
 procedure TfrmGalaktika.tbAxesClick(Sender: TObject);
 begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
+
+//---------------------------------------------------------------------------
 
 procedure TfrmGalaktika.tbSolarcubeClick(Sender: TObject);
 begin
@@ -488,18 +484,43 @@ begin
     x := StrToFloat(tl[17]);    // x
     y := StrToFloat(tl[18]);    // y
     z := StrToFloat(tl[19]);    // z
-    spect := tl[38];            // spect_defign
+    spect := tl[38];            // spect_design
    // g := StrToFloat(tl[39]);    // color
    // NSpectralClass := StrToInt(tl[40]); // linecolor
-
     dotStars.Positions.Add(x, y, z);
-    dotStars.Size := 2.0;    // size of dots
 
-    // Stars with random colors
-    StarColor.X := Random();
-    StarColor.Y := Random();
-    StarColor.Z := Random();
-    dotStars.Colors.AddPoint(StarColor);
+    if ((spect = 'O') and (spect = 'B')) then
+    begin
+      dotStars.Colors.Add(clrWhite);
+    end
+    else if (spect = 'A') then
+    begin
+      dotStars.Colors.Add(clrBlue);
+    end
+    else if (spect = 'F') then
+    begin
+      dotStars.Colors.Add(clrYellowGreen);
+    end
+    else if (spect = 'G') then
+    begin
+      dotStars.Colors.Add(clrYellow);
+    end
+    else if (spect = 'K') then
+    begin
+      dotStars.Colors.Add(clrOrange);
+    end
+    else  // 'M' class
+    begin
+      dotStars.Colors.Add(clrRed);
+    end;
+(*
+    if Mag<8 then
+      dotStars.Size := 7.0;
+    else
+*)
+      dotStars.Size := 5.0;
+
+    dotStars.Style := psSmooth;    // size of dots
 
     // Stars with real spectral class colors
     ///RealColor := Round(StrToFloat(tl[NSpectralClass]));
