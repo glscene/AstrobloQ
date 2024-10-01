@@ -111,7 +111,7 @@ type
     miN2: TMenuItem;
     miAddaPeople: TMenuItem;
     miTools: TMenuItem;
-    miViewer: TMenuItem;
+    miNoosfera: TMenuItem;
     miMeshShow: TMenuItem;
     miHelp: TMenuItem;
     miAbout: TMenuItem;
@@ -273,7 +273,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure CountryColorPanelClick(Sender: TObject);
     procedure miSatelliteLightClick(Sender: TObject);
-    procedure miViewerClick(Sender: TObject);
+    procedure miNoosferaClick(Sender: TObject);
     procedure miMeshShowClick(Sender: TObject);
     procedure miSmdQcClick(Sender: TObject);
     procedure miMdlQcClick(Sender: TObject);
@@ -1962,7 +1962,7 @@ begin
 end;
 
 // Tehnosfera Viewer
-procedure TFormNoosfera.miViewerClick(Sender: TObject);
+procedure TFormNoosfera.miNoosferaClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -2072,16 +2072,18 @@ end;
 procedure TFormNoosfera.ChoiceRGClick(Sender: TObject);
 begin
   MarkersDisplaySelection := ChoiceRG.ItemIndex;
-  { Allows turning it Off ,,
+  (* Allows turning it Off ,,
     changing the Person will Display it
-    NO MATTER WHAT the Display Selection }
-  { If (MarkersDisplaySelection=3) then
-    ptsFlashLocations.Visible:=True else }
+    NO MATTER WHAT the Display Selection *)
+  (* If (MarkersDisplaySelection=3) then
+    ptsFlashLocations.Visible:=True else *)
   ptsFlashLocations.Visible := False;
   GlsGlowLF.Visible := False;
   DrawPoints;
-  { ChoiceRG.Itemindex  MarkersDisplaySelection
-    TemporalFlowDateTime }
+  (*
+   ChoiceRG.Itemindex  MarkersDisplaySelection
+   TemporalFlowDateTime
+  *)
 end;
 
 // -------------------------------------------------------------------
@@ -2212,7 +2214,7 @@ begin
   ColorDialog.Color := CapitolPanel.Color;
   if ColorDialog.Execute then
     CapitolPanel.Color := ColorDialog.Color;
-  Application.ProcessMessages; { hide the dialog }
+  Application.ProcessMessages; // hide the dialog
   If CapitalsLoaded then
     LoadCapitalShapes; // DVDORedraw;
 end;
@@ -2222,7 +2224,7 @@ begin
   ColorDialog.Color := CityPanel.Color;
   if ColorDialog.Execute then
     CityPanel.Color := ColorDialog.Color;
-  Application.ProcessMessages; { hide the dialog }
+  Application.ProcessMessages; // hide the dialog
   If CitiesLoaded then
     LoadCityShapes; // DVDORedraw;
 end;

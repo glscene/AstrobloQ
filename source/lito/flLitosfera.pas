@@ -206,10 +206,10 @@ procedure TfrmLitosphere.FormCreate(Sender: TObject);
 var
   I: Integer;
 begin
-  DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
+  DataDir := LowerCase(ExtractFilePath(ParamStr(0))) + 'data';
   // if bin dir for exe Delete(DataDir, Pos('bin', DataDir), Length(DataDir));
-  DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
-  SetCurrentDir(DataDir);
+  DataDir := IncludeTrailingPathDelimiter(DataDir);
+  SetCurrentDir(DataDir) ;
 
   StarDir := DataDir + 'star';
 

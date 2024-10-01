@@ -862,7 +862,7 @@ var
   lTrigList, lNormals: TGLAffineVectorList;
   lIndices: TGLIntegerList;
   lObj: TGLMeshObject;
-  lStrips: TGPersistentObjectList;
+  lStrips: TGLPersistentObjectList;
 
   lFaceGroup: TFGVertexIndexList;
   i: Integer;

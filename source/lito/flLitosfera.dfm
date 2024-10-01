@@ -2,18 +2,14 @@ object frmLitosphere: TfrmLitosphere
   Left = 412
   Top = 123
   Cursor = crHelp
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Litosfera'
-  ClientHeight = 837
-  ClientWidth = 1524
+  ClientHeight = 478
+  ClientWidth = 871
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   KeyPreview = True
@@ -21,22 +17,17 @@ object frmLitosphere: TfrmLitosphere
   Position = poScreenCenter
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object SceneViewer: TGLSceneViewer
-    Left = 249
-    Top = 51
-    Width = 1275
-    Height = 752
+    Left = 273
+    Top = 29
+    Width = 598
+    Height = 430
     Cursor = crHandPoint
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 150.342361450195300000
+    FieldOfView = 130.311355590820300000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -46,29 +37,21 @@ object frmLitosphere: TfrmLitosphere
   end
   object PanelLeft: TPanel
     Left = 0
-    Top = 51
-    Width = 249
-    Height = 752
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 29
+    Width = 273
+    Height = 430
     Align = alLeft
     TabOrder = 1
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
-      Width = 247
-      Height = 750
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 271
+      Height = 428
       Align = alClient
       AutoExpand = True
       HideSelection = False
       Images = dmImages.VirtPlanetSymbols
-      Indent = 33
+      Indent = 35
       TabOrder = 0
       OnClick = tvPlanetsClick
       Items.NodeData = {
@@ -162,75 +145,76 @@ object frmLitosphere: TfrmLitosphere
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
+      ExplicitWidth = 141
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 803
-    Width = 1524
-    Height = 34
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 459
+    Width = 871
+    Height = 19
     Panels = <
       item
         Text = 'FPS: '
-        Width = 151
+        Width = 86
       end
       item
         Text = 'X:'
-        Width = 151
+        Width = 86
       end
       item
         Text = 'Y:'
-        Width = 151
+        Width = 86
       end
       item
         Text = 'Z:'
-        Width = 151
+        Width = 86
       end>
+    ExplicitTop = 434
+    ExplicitWidth = 863
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 1524
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 871
+    Height = 29
     Align = alTop
-    RowSize = 46
     TabOrder = 3
+    ExplicitWidth = 863
     object ToolBar1: TToolBar
-      Left = 24
+      Left = 19
       Top = 2
-      Width = 272
-      Height = 88
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      ButtonHeight = 39
-      ButtonWidth = 40
+      Width = 155
+      Height = 22
       Caption = 'ToolBar'
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
         Top = 0
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'ToolButton1'
         ImageIndex = 0
       end
       object ToolButton2: TToolButton
-        Left = 40
+        Left = 23
         Top = 0
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'ToolButton2'
         ImageIndex = 1
       end
       object ToolButton3: TToolButton
-        Left = 80
+        Left = 46
         Top = 0
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'ToolButton3'
         ImageIndex = 2
       end

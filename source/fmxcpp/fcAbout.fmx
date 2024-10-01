@@ -15,6 +15,6 @@ object FormAbout: TFormAbout
     Size.Width = 153.000000000000000000
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Galakxy'
+    Text = 'Galaxy'
   end
 end

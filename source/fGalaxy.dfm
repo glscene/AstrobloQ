@@ -175,10 +175,8 @@ object frmGalaktika: TfrmGalaktika
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
     object tsGalacube: TTabSheet
-      Caption = 'Space'
+      Caption = 'Stars'
       object svGalacube: TGLSceneViewer
         Left = 0
         Top = 0
@@ -605,6 +603,17 @@ object frmGalaktika: TfrmGalaktika
   object GLScene: TGLScene
     Left = 271
     Top = 156
+    object Camera: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 80.000000000000000000
+      TargetObject = dcGalacube
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {0050434700606A4700B888470000803F}
+      object Lighting: TGLLightSource
+        ConstAttenuation = 1.000000000000000000
+        SpotCutOff = 180.000000000000000000
+      end
+    end
     object dcAxes: TGLDummyCube
       Position.Coordinates = {0000000000007A44000000000000803F}
       CubeSize = 1.000000000000000000
@@ -701,23 +710,12 @@ object frmGalaktika: TfrmGalaktika
         CharacterRange = stcrAlphaNum
       end
     end
-    object Camera: TGLCamera
-      DepthOfView = 10000.000000000000000000
-      FocalLength = 80.000000000000000000
-      TargetObject = dcGalacube
-      CameraStyle = csInfinitePerspective
-      Position.Coordinates = {0050434700606A4700B888470000803F}
-      object Lighting: TGLLightSource
-        ConstAttenuation = 1.000000000000000000
-        SpotCutOff = 180.000000000000000000
-      end
-    end
     object dcSolcube: TGLDummyCube
       Direction.Coordinates = {000000000000803F0000000000000000}
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1000.000000000000000000
       VisibleAtRunTime = True
-      object dotStars: TGLPoints
+      object Stars: TGLPoints
         NoZWrite = False
         Static = False
       end

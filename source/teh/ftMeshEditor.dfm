@@ -63,6 +63,7 @@ object FormMeshShow: TFormMeshShow
     OnMouseMove = ScnMouseMove
     OnMouseUp = ScnMouseUp
     TabOrder = 0
+    ExplicitWidth = 472
   end
   object StatusBar: TStatusBar
     Left = 0
@@ -243,7 +244,7 @@ object FormMeshShow: TFormMeshShow
           Left = 8
           Top = 24
           Width = 145
-          Height = 32
+          Height = 21
           Style = csDropDownList
           TabOrder = 4
           OnChange = cbPolygonModeChange
