@@ -21,8 +21,8 @@ uses
   Vcl.Dialogs,
   Vcl.Menus,
 
-  GLScene.VectorTypes,
-  GLScene.Utils,
+  Stage.VectorTypes,
+  Stage.Utils,
 
   GLS.Scene,
   GLS.Objects,
@@ -37,13 +37,13 @@ uses
   GLS.Cadencer,
   GLS.LensFlare,
   GLSL.TextureShaders,
-  GLScene.VectorGeometry,
+  Stage.VectorGeometry,
   GLSL.MultiMaterialShader,
   GLS.Material,
   GLS.Coordinates,
 
   GLS.BaseClasses,
-  GLScene.TextureFormat,
+  Stage.TextureFormat,
   GLS.Context,
   GLS.GeomObjects;
 

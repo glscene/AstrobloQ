@@ -6,7 +6,7 @@ interface
 
 uses
   System.SysUtils,
-  GLScene.VectorGeometry,
+  Stage.VectorGeometry,
   Bio.BaseObject;
 
 const

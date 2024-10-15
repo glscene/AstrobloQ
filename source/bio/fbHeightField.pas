@@ -20,12 +20,12 @@ uses
   Vcl.ExtCtrls,
 
   GLS.Scene,
-  GLScene.VectorTypes,
+  Stage.VectorTypes,
   GLS.Graph,
   GLS.SceneViewer,
   GLS.Objects,
   GLS.Texture,
-  GLScene.VectorGeometry,
+  Stage.VectorGeometry,
   GLS.GeomObjects,
   GLS.Coordinates,
   

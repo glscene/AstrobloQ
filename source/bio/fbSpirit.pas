@@ -18,18 +18,19 @@ uses
   Vcl.ComCtrls,
   Vcl.ExtCtrls,
   Vcl.StdCtrls,
-  Bio.Link,
   Vcl.Buttons,
-  ColorGrd,
+  Vcl.ColorGrd,
   Vcl.ToolWin,
   Vcl.Menus,
 
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+
   GLS.Scene,
-  GLScene.VectorGeometry,
-  GLScene.VectorTypes,
   GLS.Coordinates,
   GLS.SceneViewer,
 
+  Bio.Link,
   gnugettext;
 
 type

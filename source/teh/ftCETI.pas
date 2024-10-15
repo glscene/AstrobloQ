@@ -27,15 +27,16 @@ uses
   Vcl.ComCtrls,
   Vcl.ToolWin,
 
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+
   GLS.Cadencer,
   GLS.Texture,
   GLS.Scene,
   GLS.Objects,
-  GLScene.VectorTypes,
   GLS.VectorFileObjects,
   GLS.SceneViewer,
   GLS.State,
-  GLScene.VectorGeometry,
   GLS.Context,
   GLS.VectorLists,
   GLS.Material,
@@ -225,7 +226,7 @@ implementation
 {$R *.dfm}
 
 uses
-  GLScene.Keyboard,
+  Stage.Keyboard,
   // GraphicEx,
   GLS.PersistentClasses,
   GLS.MeshUtils,

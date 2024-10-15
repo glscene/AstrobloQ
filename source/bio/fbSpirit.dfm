@@ -1,18 +1,18 @@
 object FormSpirit: TFormSpirit
   Left = 709
   Top = 182
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Creature Viewer'
-  ClientHeight = 813
-  ClientWidth = 1263
+  ClientHeight = 465
+  ClientWidth = 722
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -46,55 +46,38 @@ object FormSpirit: TFormSpirit
   OnDestroy = FormDestroy
   OnMouseWheel = FormMouseWheel
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 1263
-    Height = 813
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 722
+    Height = 465
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
     object Panel4: TPanel
       Left = 0
       Top = 0
-      Width = 1263
-      Height = 813
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 722
+      Height = 465
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
       object ViewSplitter: TSplitter
         Left = 0
-        Top = 305
-        Width = 1263
-        Height = 3
+        Top = 174
+        Width = 722
+        Height = 2
         Cursor = crVSplit
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Align = alTop
-        MinSize = 42
+        MinSize = 24
         Visible = False
       end
       object tbTools: TToolBar
         Left = 0
         Top = 0
-        Width = 1263
-        Height = 41
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Width = 722
+        Height = 23
         ButtonHeight = 38
         ButtonWidth = 87
         Caption = 'tbTools'
@@ -104,10 +87,6 @@ object FormSpirit: TFormSpirit
         object tbTrack: TToolButton
           Left = 0
           Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
           Caption = 'Track'
           ImageIndex = 37
           OnClick = tbTrackClick
@@ -115,10 +94,6 @@ object FormSpirit: TFormSpirit
         object tbModify: TToolButton
           Left = 87
           Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
           Caption = 'Modify'
           DropdownMenu = ModifyMenu
           ImageIndex = 35
@@ -127,10 +102,6 @@ object FormSpirit: TFormSpirit
         object tbWindow: TToolButton
           Left = 203
           Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
           Caption = 'Window'
           DropdownMenu = WindowMenu
           ImageIndex = 31
@@ -139,12 +110,8 @@ object FormSpirit: TFormSpirit
         object cbView: TCheckBox
           Left = 319
           Top = 0
-          Width = 83
+          Width = 48
           Height = 38
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
           Caption = 'View'
           TabOrder = 0
           OnClick = cbViewClick
@@ -152,13 +119,9 @@ object FormSpirit: TFormSpirit
       end
       object FullDisplay: TMemo
         Left = 0
-        Top = 308
-        Width = 1263
-        Height = 505
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Top = 176
+        Width = 722
+        Height = 289
         Align = alClient
         Color = clWhite
         ParentShowHint = False
@@ -170,13 +133,9 @@ object FormSpirit: TFormSpirit
       end
       object GLSceneTracker: TGLSceneViewer
         Left = 0
-        Top = 41
-        Width = 1263
-        Height = 264
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Top = 23
+        Width = 722
+        Height = 151
         Buffer.BackgroundColor = clBlack
         PenAsTouch = False
         OnMouseEnter = GLSceneTrackerMouseEnter

@@ -2,17 +2,17 @@ object FormCyborg: TFormCyborg
   Left = 126
   Top = 77
   HelpContext = 8000
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   Caption = 'Cyborg'
-  ClientHeight = 729
-  ClientWidth = 1245
+  ClientHeight = 417
+  ClientWidth = 711
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -45,21 +45,16 @@ object FormCyborg: TFormCyborg
   OnCreate = FormCreate
   OnHide = FormHide
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 811
-    Height = 729
+    Width = 463
+    Height = 417
     HelpContext = 8000
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
     Camera = GLCamera1
     Buffer.BackgroundColor = clGray
-    FieldOfView = 164.378494262695300000
+    FieldOfView = 153.029327392578100000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
@@ -67,187 +62,126 @@ object FormCyborg: TFormCyborg
     TabOrder = 0
   end
   object Panel1: TPanel
-    Left = 811
+    Left = 463
     Top = 0
-    Width = 434
-    Height = 729
+    Width = 248
+    Height = 417
     HelpContext = 8000
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
     Align = alRight
     TabOrder = 1
     object Bevel2: TBevel
-      Left = 14
-      Top = 350
-      Width = 407
-      Height = 155
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 8
+      Top = 200
+      Width = 233
+      Height = 89
     end
     object Bevel1: TBevel
-      Left = 14
-      Top = 168
-      Width = 407
-      Height = 169
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 8
+      Top = 96
+      Width = 233
+      Height = 97
     end
     object Label4: TLabel
-      Left = 28
-      Top = 182
-      Width = 115
-      Height = 50
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 16
+      Top = 104
+      Width = 65
+      Height = 26
       Caption = 'Tracked by Spine'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
-      Font.Height = -20
+      Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
       WordWrap = True
     end
     object Label5: TLabel
-      Left = 224
-      Top = 196
-      Width = 14
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 112
+      Width = 7
+      Height = 13
       Caption = 'X'
     end
     object Label6: TLabel
-      Left = 224
-      Top = 238
-      Width = 12
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 136
+      Width = 7
+      Height = 13
       Caption = 'Y'
     end
     object Label7: TLabel
-      Left = 224
-      Top = 280
-      Width = 12
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 160
+      Width = 7
+      Height = 13
       Caption = 'Z'
     end
     object Label8: TLabel
-      Left = 28
-      Top = 364
-      Width = 115
-      Height = 50
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 16
+      Top = 208
+      Width = 65
+      Height = 26
       Caption = 'Tracked by Head'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
-      Font.Height = -20
+      Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
       WordWrap = True
     end
     object Label9: TLabel
-      Left = 224
-      Top = 364
-      Width = 14
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 208
+      Width = 7
+      Height = 13
       Caption = 'X'
     end
     object Label10: TLabel
-      Left = 224
-      Top = 406
-      Width = 12
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 232
+      Width = 7
+      Height = 13
       Caption = 'Y'
     end
     object Label11: TLabel
-      Left = 224
-      Top = 448
-      Width = 12
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 256
+      Width = 7
+      Height = 13
       Caption = 'Z'
     end
     object Label14: TLabel
-      Left = 14
-      Top = 518
-      Width = 176
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 8
+      Top = 296
+      Width = 99
+      Height = 13
       Caption = 'Spine Time Reaction'
     end
     object Label1: TLabel
-      Left = 14
-      Top = 560
-      Width = 173
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 8
+      Top = 320
+      Width = 98
+      Height = 13
       Caption = 'Head Time Reaction'
     end
     object Label15: TLabel
       Left = 1
-      Top = 704
-      Width = 432
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Top = 402
+      Width = 93
+      Height = 13
       Align = alBottom
       Alignment = taCenter
       Caption = 'Place cubes on line'
       Color = clGray
       ParentColor = False
       WordWrap = True
-      ExplicitWidth = 166
     end
     object HelpBtn: TSpeedButton
-      Left = 322
-      Top = 518
-      Width = 41
-      Height = 39
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 184
+      Top = 296
+      Width = 23
+      Height = 22
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
         04000000000000010000120B0000120B00001000000000000000000000000000
@@ -265,15 +199,11 @@ object FormCyborg: TFormCyborg
       OnClick = HelpBtnClick
     end
     object ExitBtn: TSpeedButton
-      Left = 378
-      Top = 518
-      Width = 41
-      Height = 39
+      Left = 216
+      Top = 296
+      Width = 23
+      Height = 22
       Hint = 'Close Form'
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Glyph.Data = {
         DE010000424DDE01000000000000760000002800000024000000120000000100
         0400000000006801000000000000000000001000000000000000000000000000
@@ -295,237 +225,177 @@ object FormCyborg: TFormCyborg
       OnClick = ExitBtnClick
     end
     object CheckBox1: TCheckBox
-      Left = 14
-      Top = 70
-      Width = 267
-      Height = 29
+      Left = 8
+      Top = 40
+      Width = 153
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Caption = 'Skeleton animation'
       TabOrder = 1
       OnClick = CheckBox1Click
     end
     object Button1: TButton
-      Left = 14
-      Top = 14
-      Width = 393
-      Height = 43
+      Left = 8
+      Top = 8
+      Width = 225
+      Height = 25
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Caption = 'Actor+Animations from a .QC File'
       TabOrder = 0
       OnClick = Button1Click
     end
     object cboAnimations: TComboBox
-      Left = 13
-      Top = 113
-      Width = 394
+      Left = 7
+      Top = 65
+      Width = 226
       Height = 32
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       TabOrder = 2
       Text = 'cboAnimations'
       OnChange = cboAnimationsChange
     end
     object TrackBar1: TTrackBar
-      Left = 238
-      Top = 196
-      Width = 169
-      Height = 29
+      Left = 136
+      Top = 112
+      Width = 97
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 20
       Min = -20
       Position = 10
       TabOrder = 3
-      ThumbLength = 21
+      ThumbLength = 12
       OnChange = TrackBar1Change
     end
     object TrackBar2: TTrackBar
-      Left = 238
-      Top = 238
-      Width = 169
-      Height = 29
+      Left = 136
+      Top = 136
+      Width = 97
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 20
       Min = -20
       Position = 10
       TabOrder = 4
-      ThumbLength = 21
+      ThumbLength = 12
       OnChange = TrackBar1Change
     end
     object TrackBar3: TTrackBar
-      Left = 238
-      Top = 280
-      Width = 169
-      Height = 29
+      Left = 136
+      Top = 160
+      Width = 97
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 20
       Min = -20
       Position = 10
       TabOrder = 5
-      ThumbLength = 21
+      ThumbLength = 12
       OnChange = TrackBar1Change
     end
     object TrackBar4: TTrackBar
-      Left = 238
-      Top = 364
-      Width = 169
-      Height = 29
+      Left = 136
+      Top = 208
+      Width = 97
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 20
       Min = -20
       Position = 10
       TabOrder = 6
-      ThumbLength = 21
+      ThumbLength = 12
       OnChange = TrackBar4Change
     end
     object TrackBar5: TTrackBar
-      Left = 238
-      Top = 406
-      Width = 169
-      Height = 29
+      Left = 136
+      Top = 232
+      Width = 97
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 20
       Min = -20
       Position = 10
       TabOrder = 7
-      ThumbLength = 21
+      ThumbLength = 12
       OnChange = TrackBar4Change
     end
     object TrackBar6: TTrackBar
-      Left = 238
-      Top = 448
-      Width = 169
-      Height = 29
+      Left = 136
+      Top = 256
+      Width = 97
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 20
       Min = -20
       Position = 10
       TabOrder = 8
-      ThumbLength = 21
+      ThumbLength = 12
       OnChange = TrackBar4Change
     end
     object Panel2: TPanel
-      Left = 28
-      Top = 238
-      Width = 70
-      Height = 70
+      Left = 16
+      Top = 136
+      Width = 40
+      Height = 40
       Hint = '(Also Try Pressing && moving mouse on panels)'
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Color = 12615680
       TabOrder = 9
       OnMouseMove = Panel2MouseMove
     end
     object Panel3: TPanel
-      Left = 112
-      Top = 238
-      Width = 70
-      Height = 70
+      Left = 64
+      Top = 136
+      Width = 40
+      Height = 40
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Color = 12615680
       TabOrder = 10
       OnMouseMove = Panel2MouseMove
     end
     object Panel4: TPanel
-      Left = 28
-      Top = 420
-      Width = 70
-      Height = 70
+      Left = 16
+      Top = 240
+      Width = 40
+      Height = 40
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Color = 7039951
       TabOrder = 11
       OnMouseMove = Panel2MouseMove
     end
     object Panel5: TPanel
-      Left = 112
-      Top = 420
-      Width = 70
-      Height = 70
+      Left = 64
+      Top = 240
+      Width = 40
+      Height = 40
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Color = 7039951
       TabOrder = 12
       OnMouseMove = Panel2MouseMove
     end
     object TrackBar7: TTrackBar
-      Left = 196
-      Top = 518
-      Width = 99
-      Height = 29
+      Left = 112
+      Top = 296
+      Width = 57
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 100
       Min = 1
       Position = 1
       TabOrder = 13
-      ThumbLength = 21
+      ThumbLength = 12
     end
     object TrackBar8: TTrackBar
-      Left = 196
-      Top = 560
-      Width = 99
-      Height = 29
+      Left = 112
+      Top = 320
+      Width = 57
+      Height = 17
       HelpContext = 8000
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Max = 100
       Min = 1
       Position = 1
       TabOrder = 14
-      ThumbLength = 21
+      ThumbLength = 12
     end
   end
   object GLScene1: TGLScene

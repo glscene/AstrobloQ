@@ -9,7 +9,7 @@
 #pragma link "GLS.Scene"
 #pragma link "GLS.SceneViewer"
 #pragma link "GLS.Objects"
-#pragma link "GLScene.VectorTypes"
+#pragma link "Stage.VectorTypes"
 
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.Material"

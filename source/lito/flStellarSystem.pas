@@ -17,9 +17,13 @@ uses
   Vcl.Imaging.pngimage,
   Vcl.Menus,
 
+
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+  Stage.Utils,
+
   GLS.SceneViewer,
   GLS.PersistentClasses,
-
   GLS.Scene,
   GLS.Context,
   GLS.State,
@@ -27,9 +31,7 @@ uses
   GLS.GeomObjects,
   GLS.Cadencer,
   GLS.Extrusion,
-  GLScene.VectorGeometry,
-  GLScene.VectorTypes,
-  GLScene.GeometryBB,
+  GLS.GeometryBB,
   GLS.File3DS,
   GLS.FileSTL,
 
@@ -42,12 +44,11 @@ uses
   GLS.Material,
   GLS.Color,
   GLS.SkyDome,
-  GLScene.Keyboard,
+  Stage.Keyboard,
   GLS.FireFX,
   GLS.FileObj,
   GLS.Atmosphere,
   GLS.LensFlare,
-  GLScene.Utils,
 
   flSettings,
   flParams,

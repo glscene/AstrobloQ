@@ -21,7 +21,7 @@
 #include "GLS.Scene.hpp"
 #include "GLS.SceneViewer.hpp"
 #include "GLS.Objects.hpp"
-#include "GLScene.VectorTypes.hpp"
+#include "Stage.VectorTypes.hpp"
 #include "GLS.Cadencer.hpp"
 #include "GLS.Material.hpp"
 #include "GLS.Color.hpp"

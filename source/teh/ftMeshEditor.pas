@@ -23,6 +23,9 @@ uses
   Vcl.ComCtrls,
   Vcl.Buttons,
 
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+
   GLS.Scene,
   GLS.VectorFileObjects,
   GLS.SceneViewer,
@@ -34,8 +37,6 @@ uses
   GLS.GeomObjects,
   GLS.Graph,
   GLS.Cadencer,
-  GLScene.VectorTypes,
-  GLScene.VectorGeometry,
   GLS.Coordinates,
   GLS.Color,
   GLS.PersistentClasses,

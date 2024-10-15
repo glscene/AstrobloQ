@@ -29,8 +29,8 @@ uses
   FireDAC.Stan.Intf,
   FireDAC.Comp.BatchMove,
 
-  GLScene.VectorTypes,
-  GLScene.VectorGeometry,
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
   GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,

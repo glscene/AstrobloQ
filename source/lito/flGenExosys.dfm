@@ -1,17 +1,13 @@
 object FormGenPlanetsys: TFormGenPlanetsys
   Left = 30
   Top = 20
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Stellar system generator'
-  ClientHeight = 877
-  ClientWidth = 1316
+  ClientHeight = 501
+  ClientWidth = 752
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -45,22 +41,17 @@ object FormGenPlanetsys: TFormGenPlanetsys
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object GLSceneViewerA: TGLSceneViewer
-    Left = 604
+    Left = 345
     Top = 0
-    Width = 712
-    Height = 843
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 407
+    Height = 482
     Camera = GLCamera
     BeforeRender = GLSceneViewerABeforeRender
     Buffer.BackgroundColor = clBackground
     Buffer.AmbientColor.Color = {9A99193F9A99193F9A99193F0000803F}
-    FieldOfView = 164.010269165039100000
+    FieldOfView = 152.391708374023400000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewerAMouseEnter
     Align = alClient
@@ -73,208 +64,139 @@ object FormGenPlanetsys: TFormGenPlanetsys
   object SolarDataPanel: TPanel
     Left = 0
     Top = 0
-    Width = 604
-    Height = 843
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 345
+    Height = 482
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 797
     object ToolBarGB: TGroupBox
       Left = 1
       Top = 1
-      Width = 602
-      Height = 841
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 343
+      Height = 480
       Align = alClient
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      ExplicitHeight = 795
+      ExplicitWidth = 344
       object Label2: TLabel
-        Left = 35
-        Top = 177
-        Width = 58
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 20
+        Top = 101
+        Width = 32
+        Height = 13
         Caption = 'Moons'
         ParentShowHint = False
         ShowHint = False
       end
       object Label6: TLabel
-        Left = 44
-        Top = 140
-        Width = 48
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 25
+        Top = 80
+        Width = 27
+        Height = 13
         Caption = 'Rings'
         ParentShowHint = False
         ShowHint = False
       end
       object CameraDistanceLabel: TLabel
-        Left = 112
-        Top = 742
-        Width = 45
-        Height = 24
+        Left = 64
+        Top = 424
+        Width = 27
+        Height = 13
         Hint = 'Camera Distance'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '20.00'
       end
       object Label22: TLabel
-        Left = 14
-        Top = 714
-        Width = 66
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 8
+        Top = 408
+        Width = 36
+        Height = 13
         Caption = 'Camera'
       end
       object TimeLabel: TLabel
-        Left = 14
-        Top = 770
-        Width = 93
-        Height = 24
+        Left = 8
+        Top = 440
+        Width = 52
+        Height = 13
         Hint = 'Days Per Frame'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Time Warp'
       end
       object Label9: TLabel
-        Left = 340
-        Top = 704
-        Width = 109
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 194
+        Top = 402
+        Width = 63
+        Height = 13
         Caption = 'Planet Picker'
       end
       object Label7: TLabel
-        Left = 49
-        Top = 219
-        Width = 52
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 28
+        Top = 125
+        Width = 30
+        Height = 13
         Caption = 'S3ds :'
         ParentShowHint = False
         ShowHint = False
       end
       object Label19: TLabel
-        Left = 266
-        Top = 175
-        Width = 105
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 152
+        Top = 100
+        Width = 60
+        Height = 13
         Caption = 'S3ds Scaler:'
         ParentShowHint = False
         ShowHint = False
       end
       object S3dsScalerLabel: TLabel
-        Left = 392
-        Top = 175
-        Width = 35
-        Height = 24
+        Left = 224
+        Top = 100
+        Width = 21
+        Height = 13
         Hint = 'Scale'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '1.00'
       end
       object SunShineLabel: TLabel
-        Left = 476
-        Top = 770
-        Width = 30
-        Height = 24
+        Left = 272
+        Top = 440
+        Width = 18
+        Height = 13
         Hint = 'Sun Shine Size'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '100'
       end
       object CFLLabel: TLabel
-        Left = 14
-        Top = 742
-        Width = 20
-        Height = 24
+        Left = 8
+        Top = 424
+        Width = 12
+        Height = 13
         Hint = 'Focal Length'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '50'
       end
       object S3dsScalerScaleLabel: TLabel
-        Left = 532
-        Top = 175
-        Width = 30
-        Height = 24
+        Left = 304
+        Top = 100
+        Width = 18
+        Height = 13
         Hint = 'Scale Scale'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '100'
       end
       object HourLabel: TLabel
-        Left = 14
-        Top = 798
-        Width = 20
-        Height = 24
+        Left = 8
+        Top = 456
+        Width = 12
+        Height = 13
         Hint = 'Hours of 24'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '24'
       end
       object LabelLabel: TLabel
-        Left = 364
-        Top = 798
-        Width = 25
-        Height = 24
+        Left = 208
+        Top = 456
+        Width = 15
+        Height = 13
         Hint = 'Label Font Scale'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = '0.1'
       end
       object SunRG: TRadioGroup
-        Left = 70
-        Top = 60
-        Width = 44
-        Height = 68
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 40
+        Top = 34
+        Width = 25
+        Height = 39
         ItemIndex = 0
         Items.Strings = (
           'P'
@@ -283,14 +205,10 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object CometRG: TRadioGroup
-        Left = 434
-        Top = 70
-        Width = 44
-        Height = 100
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 248
+        Top = 40
+        Width = 25
+        Height = 57
         ItemIndex = 0
         Items.Strings = (
           'P'
@@ -301,14 +219,10 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object DebrisRG: TRadioGroup
-        Left = 546
-        Top = 70
-        Width = 44
-        Height = 100
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 312
+        Top = 40
+        Width = 25
+        Height = 57
         ItemIndex = 0
         Items.Strings = (
           'P'
@@ -319,14 +233,10 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object AsteroidRG: TRadioGroup
-        Left = 322
-        Top = 70
-        Width = 44
-        Height = 100
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 184
+        Top = 40
+        Width = 25
+        Height = 57
         ItemIndex = 0
         Items.Strings = (
           'P'
@@ -337,255 +247,183 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object OrbitGroupBox: TGroupBox
-        Left = 343
-        Top = 243
-        Width = 250
-        Height = 460
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 196
+        Top = 139
+        Width = 143
+        Height = 263
         Caption = 'Orbit'
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
         object OrbitRotationEdit: TEdit
-          Left = 14
-          Top = 28
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 16
+          Width = 58
+          Height = 21
           Hint = 'OrbitRotation days:'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
         end
         object iConstEdit: TEdit
-          Left = 14
-          Top = 112
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 64
+          Width = 58
+          Height = 21
           Hint = 'iConst: Inclination :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           ParentShowHint = False
           ShowHint = True
           TabOrder = 1
         end
         object aConstEdit: TEdit
-          Left = 14
-          Top = 70
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 40
+          Width = 58
+          Height = 21
           Hint = 'aConst : Distance :1000 Kilometers'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           ParentShowHint = False
           ShowHint = True
           TabOrder = 2
         end
         object eConstEdit: TEdit
-          Left = 14
-          Top = 154
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 88
+          Width = 58
+          Height = 21
           Hint = 'eConst: Eccentricity :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 3
         end
         object eVarEdit: TEdit
-          Left = 126
-          Top = 158
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 90
+          Width = 58
+          Height = 21
           Hint = 'Eccentricity Var:perehelion'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 4
         end
         object EMaxEdit: TEdit
-          Left = 126
-          Top = 200
-          Width = 100
-          Height = 32
+          Left = 72
+          Top = 114
+          Width = 57
+          Height = 21
           Hint = 'Eccentricity Max:aphelion'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 5
         end
         object aVarEdit: TEdit
-          Left = 126
-          Top = 70
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 40
+          Width = 58
+          Height = 21
           Hint = 'Var Distance :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 6
         end
         object wVarEdit: TEdit
-          Left = 126
-          Top = 280
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 160
+          Width = 58
+          Height = 21
           Hint = 'Var Perihelion :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 7
         end
         object wConstEdit: TEdit
-          Left = 14
-          Top = 280
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 160
+          Width = 58
+          Height = 21
           Hint = 'wConst Perihelion :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 8
         end
         object NVarEdit: TEdit
-          Left = 126
-          Top = 238
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 136
+          Width = 58
+          Height = 21
           Hint = 'Var Longitude :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 9
         end
         object NConstEdit: TEdit
-          Left = 14
-          Top = 238
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 136
+          Width = 58
+          Height = 21
           Hint = 'nConst Longitude :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 10
         end
         object MVarEdit: TEdit
-          Left = 126
-          Top = 322
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 184
+          Width = 58
+          Height = 21
           Hint = 'Var Anomaly :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 11
         end
         object MConstEdit: TEdit
-          Left = 14
-          Top = 322
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 184
+          Width = 58
+          Height = 21
           Hint = 'mConst Anomaly :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 12
         end
         object iVarEdit: TEdit
-          Left = 126
-          Top = 112
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 64
+          Width = 58
+          Height = 21
           Hint = 'Var Inclination :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 13
         end
         object AlbedoEdit: TEdit
-          Left = 126
-          Top = 28
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 16
+          Width = 58
+          Height = 21
           Hint = 'Albedo :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 14
         end
         object VelocityEdit: TEdit
-          Left = 14
-          Top = 410
-          Width = 102
-          Height = 32
+          Left = 8
+          Top = 234
+          Width = 58
+          Height = 21
           Hint = 'Velocity :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 15
         end
         object AtmosphereCB: TComboBox
-          Left = 14
-          Top = 368
-          Width = 114
+          Left = 8
+          Top = 210
+          Width = 65
           Height = 32
           Hint = 'Atmosphere'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 16
@@ -600,376 +438,256 @@ object FormGenPlanetsys: TFormGenPlanetsys
             'Plasma')
         end
         object VelocityTypeEdit: TEdit
-          Left = 126
-          Top = 368
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 210
+          Width = 58
+          Height = 21
           Hint = 'Velocity Type'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 17
         end
         object VelocityDirEdit: TEdit
-          Left = 126
-          Top = 410
-          Width = 102
-          Height = 32
+          Left = 72
+          Top = 234
+          Width = 58
+          Height = 21
           Hint = 'Velocity Direction'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           ParentShowHint = False
           ShowHint = True
           TabOrder = 18
         end
       end
       object GroupBox6: TGroupBox
-        Left = 18
-        Top = 242
-        Width = 250
-        Height = 460
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 10
+        Top = 138
+        Width = 143
+        Height = 263
         Caption = 'Object'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
         object MoonsLabel: TLabel
-          Left = 66
-          Top = 240
-          Width = 58
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 39
+          Top = 137
+          Width = 32
+          Height = 13
           Alignment = taRightJustify
           Caption = 'Moons'
         end
         object lbRings: TLabel
-          Left = 66
-          Top = 196
-          Width = 58
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 38
+          Top = 112
+          Width = 33
+          Height = 13
           Alignment = taRightJustify
           Caption = 'Rings :'
         end
         object lbRadius: TLabel
-          Left = 24
-          Top = 68
-          Width = 100
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 15
+          Top = 39
+          Width = 56
+          Height = 13
           Alignment = taRightJustify
           Caption = 'Radius (km)'
         end
         object lbRotation: TLabel
-          Left = 6
-          Top = 110
-          Width = 124
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 4
+          Top = 63
+          Width = 70
+          Height = 13
           Alignment = taRightJustify
           Caption = 'Rotation (hour)'
         end
         object lbAxisTilt: TLabel
-          Left = 54
-          Top = 154
-          Width = 70
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 32
+          Top = 88
+          Width = 39
+          Height = 13
           Alignment = taRightJustify
           Caption = 'Axis Tilt:'
         end
         object Label10: TLabel
-          Left = 70
-          Top = 25
-          Width = 51
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 40
+          Top = 14
+          Width = 28
+          Height = 13
           Caption = 'Name'
         end
         object Label17: TLabel
-          Left = 28
-          Top = 326
-          Width = 96
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 16
+          Top = 186
+          Width = 55
+          Height = 13
           Alignment = taRightJustify
           Caption = 'Doc Index :'
         end
         object nbS3dLabel: TLabel
-          Left = 50
-          Top = 282
-          Width = 74
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 29
+          Top = 161
+          Width = 42
+          Height = 13
           Alignment = taRightJustify
           Caption = 'nbS3ds :'
         end
         object RadiusEdit: TEdit
-          Left = 140
-          Top = 70
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 40
+          Width = 58
+          Height = 21
           Color = clAqua
           TabOrder = 0
         end
         object ObjectRotationEdit: TEdit
-          Left = 140
-          Top = 112
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 64
+          Width = 58
+          Height = 21
           Color = clAqua
           TabOrder = 1
         end
         object AxisTiltEdit: TEdit
-          Left = 140
-          Top = 156
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 89
+          Width = 58
+          Height = 21
           Color = clAqua
           TabOrder = 2
         end
         object nbRingsEdit: TEdit
-          Left = 140
-          Top = 198
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 113
+          Width = 58
+          Height = 21
           TabOrder = 3
         end
         object nbMoonsEdit: TEdit
-          Left = 140
-          Top = 240
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 137
+          Width = 58
+          Height = 21
           TabOrder = 4
         end
         object NameEdit: TEdit
-          Left = 140
-          Top = 28
-          Width = 100
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 16
+          Width = 57
+          Height = 21
           Color = clAqua
           TabOrder = 5
         end
         object DocIndexEdit: TEdit
-          Left = 140
-          Top = 326
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 186
+          Width = 58
+          Height = 21
           TabOrder = 6
         end
         object ScaleObjectEdit: TEdit
-          Left = 140
-          Top = 410
-          Width = 102
-          Height = 32
+          Left = 80
+          Top = 234
+          Width = 58
+          Height = 21
           Hint = 'Scale Object'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 7
         end
         object nbS3dsEdit: TEdit
-          Left = 140
-          Top = 282
-          Width = 102
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 80
+          Top = 161
+          Width = 58
+          Height = 21
           TabOrder = 8
         end
         object nbS3dsCB: TCheckBox
-          Left = 11
-          Top = 282
-          Width = 29
-          Height = 30
+          Left = 6
+          Top = 161
+          Width = 17
+          Height = 17
           Hint = '3Ds Self Textured'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           TabOrder = 9
         end
         object ScaleDistanceEdit: TEdit
-          Left = 9
-          Top = 410
-          Width = 101
-          Height = 32
+          Left = 5
+          Top = 234
+          Width = 58
+          Height = 21
           Hint = 'Scale Distance'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 10
         end
         object RCDTypeEdit: TEdit
-          Left = 14
-          Top = 410
-          Width = 44
-          Height = 32
+          Left = 8
+          Top = 234
+          Width = 25
+          Height = 21
           Hint = 'RCD Type'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 11
           Text = 'RCD'
         end
         object RCDCountEdit: TEdit
-          Left = 60
-          Top = 410
-          Width = 43
-          Height = 32
+          Left = 34
+          Top = 234
+          Width = 25
+          Height = 21
           Hint = 'Count'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 12
           Text = '#'
         end
         object RCDXYSizeEdit: TEdit
-          Left = 109
-          Top = 410
-          Width = 43
-          Height = 32
+          Left = 62
+          Top = 234
+          Width = 25
+          Height = 21
           Hint = 'XY Size'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 13
           Text = 'XYSize'
         end
         object RCDZSizeEdit: TEdit
-          Left = 154
-          Top = 410
-          Width = 44
-          Height = 32
+          Left = 88
+          Top = 234
+          Width = 25
+          Height = 21
           Hint = 'Z Size'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 14
           Text = 'Z'
         end
         object RCDPositionEdit: TEdit
-          Left = 196
-          Top = 410
-          Width = 44
-          Height = 32
+          Left = 112
+          Top = 234
+          Width = 25
+          Height = 21
           Hint = 'Position'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Color = clAqua
           TabOrder = 15
           Text = 'P'
         end
         object MassEdit: TEdit
-          Left = 28
-          Top = 368
-          Width = 102
-          Height = 32
+          Left = 16
+          Top = 210
+          Width = 58
+          Height = 21
           Hint = 'Mass (kg) :'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           TabOrder = 16
         end
         object DensityEdit: TEdit
-          Left = 140
-          Top = 368
-          Width = 102
-          Height = 32
+          Left = 80
+          Top = 210
+          Width = 58
+          Height = 21
           Hint = 'Density: (Comet Count)'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           TabOrder = 17
         end
       end
       object SSORG: TRadioGroup
-        Left = 14
-        Top = 14
-        Width = 576
-        Height = 58
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 8
+        Top = 8
+        Width = 329
+        Height = 33
         Caption = 'Celectial bodies'
         Columns = 5
         ItemIndex = 0
@@ -985,170 +703,118 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object PlanetEdit: TEdit
-        Left = 112
-        Top = 84
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 64
+        Top = 48
+        Width = 33
+        Height = 21
         ParentShowHint = False
         ShowHint = False
         TabOrder = 3
         Text = '0'
       end
       object PlanetUpDown: TUpDown
-        Left = 170
-        Top = 84
-        Width = 28
-        Height = 32
+        Left = 97
+        Top = 48
+        Width = 16
+        Height = 18
         Hint = 'Planet'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = PlanetEdit
         TabOrder = 4
       end
       object AsteroidUpDown: TUpDown
-        Left = 310
-        Top = 84
-        Width = 28
-        Height = 32
+        Left = 177
+        Top = 48
+        Width = 16
+        Height = 18
         Hint = 'Asteroid'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = AsteroidEdit
         TabOrder = 5
       end
       object AsteroidEdit: TEdit
-        Left = 252
-        Top = 84
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 144
+        Top = 48
+        Width = 33
+        Height = 21
         TabOrder = 6
         Text = '0'
       end
       object CometUpDown: TUpDown
-        Left = 422
-        Top = 84
-        Width = 28
-        Height = 32
+        Left = 241
+        Top = 48
+        Width = 16
+        Height = 18
         Hint = 'Comet'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = CometEdit
         TabOrder = 7
       end
       object CometEdit: TEdit
-        Left = 364
-        Top = 84
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 208
+        Top = 48
+        Width = 33
+        Height = 21
         TabOrder = 8
         Text = '0'
       end
       object DebrisEdit: TEdit
-        Left = 476
-        Top = 84
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 272
+        Top = 48
+        Width = 33
+        Height = 21
         TabOrder = 9
         Text = '0'
       end
       object DebrisUpDown: TUpDown
-        Left = 534
-        Top = 84
-        Width = 28
-        Height = 32
+        Left = 305
+        Top = 48
+        Width = 16
+        Height = 18
         Hint = 'Debris'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = DebrisEdit
         TabOrder = 10
       end
       object RingsEdit: TEdit
-        Left = 112
-        Top = 126
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 64
+        Top = 72
+        Width = 33
+        Height = 21
         ParentShowHint = False
         ShowHint = False
         TabOrder = 11
         Text = '0'
       end
       object RingsUpDown: TUpDown
-        Left = 170
-        Top = 126
-        Width = 28
-        Height = 32
+        Left = 97
+        Top = 72
+        Width = 16
+        Height = 18
         Hint = 'Rings'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = RingsEdit
         TabOrder = 12
       end
       object MoonsEdit: TEdit
-        Left = 112
-        Top = 168
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 64
+        Top = 96
+        Width = 33
+        Height = 21
         ParentShowHint = False
         ShowHint = False
         TabOrder = 13
         Text = '0'
       end
       object MoonsUpDown: TUpDown
-        Left = 170
-        Top = 168
-        Width = 28
-        Height = 32
+        Left = 97
+        Top = 96
+        Width = 16
+        Height = 18
         Hint = 'Moons'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = MoonsEdit
         TabOrder = 14
       end
       object PlanetsRG: TRadioGroup
-        Left = 196
-        Top = 70
-        Width = 44
-        Height = 184
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 112
+        Top = 40
+        Width = 25
+        Height = 105
         ItemIndex = 0
         Items.Strings = (
           'P'
@@ -1161,67 +827,51 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object CFLTrackBar: TTrackBar
-        Left = 105
-        Top = 714
-        Width = 175
-        Height = 30
+        Left = 60
+        Top = 408
+        Width = 100
+        Height = 17
         Hint = 'Focal Length'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 10000
         Min = 50
         ParentShowHint = False
         Position = 50
         ShowHint = True
         TabOrder = 16
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = CFLTrackBarChange
       end
       object TimeTrackBar: TTrackBar
-        Left = 105
-        Top = 770
-        Width = 175
-        Height = 30
+        Left = 60
+        Top = 440
+        Width = 100
+        Height = 17
         Hint = 'Day Time Warp'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 729
         ParentShowHint = False
         Position = 1
         ShowHint = True
         TabOrder = 17
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = TimeTrackBarChange
       end
       object PlanetPickerCB: TComboBox
-        Left = 340
-        Top = 728
-        Width = 253
+        Left = 194
+        Top = 416
+        Width = 145
         Height = 32
         Hint = 'Center of the Universe'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 18
         OnChange = PlanetPickerCBChange
       end
       object SunShineCB: TCheckBox
-        Left = 340
-        Top = 770
-        Width = 126
-        Height = 30
+        Left = 194
+        Top = 440
+        Width = 72
+        Height = 17
         Hint = 'Sun Shine On'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'SunShine'
         Checked = True
         State = cbChecked
@@ -1229,168 +879,120 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = SunShineCBClick
       end
       object SunShineTB: TTrackBar
-        Left = 504
-        Top = 770
-        Width = 88
-        Height = 30
+        Left = 288
+        Top = 440
+        Width = 50
+        Height = 17
         Hint = 'Sun Shine Size'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 200
         Min = 1
         Position = 100
         TabOrder = 20
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = SunShineTBChange
       end
       object BtnPanel: TPanel
-        Left = 273
-        Top = 252
-        Width = 63
-        Height = 452
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 156
+        Top = 144
+        Width = 36
+        Height = 258
         TabOrder = 21
         object HelpBtn: TSpeedButton
-          Left = 4
-          Top = 275
-          Width = 57
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 157
+          Width = 33
+          Height = 22
           Caption = '?'
           ParentShowHint = False
           ShowHint = False
           OnClick = HelpBtnClick
         end
         object StoreBtn: TSpeedButton
-          Left = 4
-          Top = 140
-          Width = 57
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 80
+          Width = 33
+          Height = 22
           Caption = 'Store'
           ParentShowHint = False
           ShowHint = False
           OnClick = StoreBtnClick
         end
         object ShowBtn: TSpeedButton
-          Left = 4
-          Top = 95
-          Width = 57
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 54
+          Width = 33
+          Height = 22
           Caption = 'Show'
           ParentShowHint = False
           ShowHint = False
           OnClick = ShowBtnClick
         end
         object RunBtn: TSpeedButton
-          Left = 4
-          Top = 320
-          Width = 57
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 183
+          Width = 33
+          Height = 22
           Caption = 'Run'
           ParentShowHint = False
           ShowHint = False
           OnClick = RunBtnClick
         end
         object StopBtn: TSpeedButton
-          Left = 4
-          Top = 364
-          Width = 57
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 208
+          Width = 33
+          Height = 22
           Caption = 'Stop'
           ParentShowHint = False
           ShowHint = False
           OnClick = StopBtnClick
         end
         object ClearBtn: TSpeedButton
-          Left = 4
-          Top = 5
-          Width = 57
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 3
+          Width = 33
+          Height = 22
           Caption = 'Clear'
           ParentShowHint = False
           ShowHint = False
           OnClick = ClearBtnClick
         end
         object LoadBtn: TSpeedButton
-          Left = 4
-          Top = 51
-          Width = 57
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 29
+          Width = 33
+          Height = 22
           Caption = 'Load'
           ParentShowHint = False
           ShowHint = False
           OnClick = LoadBtnClick
         end
         object SaveBtn: TSpeedButton
-          Left = 4
-          Top = 186
-          Width = 57
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 106
+          Width = 33
+          Height = 22
           Caption = 'Save'
           ParentShowHint = False
           ShowHint = False
           OnClick = SaveBtnClick
         end
         object PrintBtn: TSpeedButton
-          Left = 4
-          Top = 229
-          Width = 57
-          Height = 39
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 131
+          Width = 33
+          Height = 22
           Caption = 'Print'
           ParentShowHint = False
           ShowHint = False
           OnClick = PrintBtnClick
         end
         object ExitBtn: TSpeedButton
-          Left = 4
-          Top = 410
-          Width = 57
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 2
+          Top = 234
+          Width = 33
+          Height = 22
           Caption = 'Exit'
           ParentShowHint = False
           ShowHint = False
@@ -1398,238 +1000,166 @@ object FormGenPlanetsys: TFormGenPlanetsys
         end
       end
       object AS3dsEdit: TEdit
-        Left = 252
-        Top = 126
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 144
+        Top = 72
+        Width = 33
+        Height = 21
         TabOrder = 22
         Text = '0'
       end
       object AS3dsUpDown: TUpDown
-        Left = 310
-        Top = 126
-        Width = 28
-        Height = 32
+        Left = 177
+        Top = 72
+        Width = 16
+        Height = 18
         Hint = 'S3ds'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = AS3dsEdit
         TabOrder = 23
       end
       object CS3dsEdit: TEdit
-        Left = 364
-        Top = 126
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 208
+        Top = 72
+        Width = 33
+        Height = 21
         TabOrder = 24
         Text = '0'
       end
       object CS3dsUpDown: TUpDown
-        Left = 422
-        Top = 126
-        Width = 28
-        Height = 32
+        Left = 241
+        Top = 72
+        Width = 16
+        Height = 18
         Hint = 'S3ds'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = CS3dsEdit
         TabOrder = 25
       end
       object DS3dsEdit: TEdit
-        Left = 476
-        Top = 126
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 272
+        Top = 72
+        Width = 33
+        Height = 21
         TabOrder = 26
         Text = '0'
       end
       object DS3dsUpDown: TUpDown
-        Left = 534
-        Top = 126
-        Width = 28
-        Height = 32
+        Left = 305
+        Top = 72
+        Width = 16
+        Height = 18
         Hint = 'S3ds'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = DS3dsEdit
         TabOrder = 27
       end
       object Edit4: TEdit
-        Left = 14
-        Top = 84
-        Width = 44
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 8
+        Top = 48
+        Width = 25
+        Height = 21
         TabOrder = 31
         Text = '0'
       end
       object SS3dsUpDown: TUpDown
-        Left = 58
-        Top = 84
-        Width = 28
-        Height = 32
+        Left = 33
+        Top = 48
+        Width = 16
+        Height = 18
         Hint = 'S3ds'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = Edit4
         TabOrder = 32
       end
       object PS3dsUpDown: TUpDown
-        Left = 170
-        Top = 210
-        Width = 28
-        Height = 32
+        Left = 97
+        Top = 120
+        Width = 16
+        Height = 18
         Hint = 'S3ds'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Associate = PS3dsEdit
         TabOrder = 34
       end
       object PS3dsEdit: TEdit
-        Left = 112
-        Top = 210
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 64
+        Top = 120
+        Width = 33
+        Height = 21
         ParentShowHint = False
         ShowHint = False
         TabOrder = 35
         Text = '0'
       end
       object PickActiveCB: TCheckBox
-        Left = 308
-        Top = 714
-        Width = 30
-        Height = 30
+        Left = 176
+        Top = 408
+        Width = 17
+        Height = 17
         Hint = 'Mouse Pick Active'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 36
         OnClick = PickActiveCBClick
       end
       object LabelsOnCB: TCheckBox
-        Left = 280
-        Top = 798
-        Width = 30
-        Height = 30
+        Left = 160
+        Top = 456
+        Width = 17
+        Height = 17
         Hint = 'Labels On'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 37
         OnClick = LabelsOnCBClick
       end
       object UseOrbitalElementsCB: TCheckBox
-        Left = 308
-        Top = 770
-        Width = 30
-        Height = 30
+        Left = 176
+        Top = 440
+        Width = 17
+        Height = 17
         Hint = 'Use Orbital Elements'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 38
         OnClick = UseOrbitalElementsCBClick
       end
       object OrbitTrailsOnCB: TCheckBox
-        Left = 280
-        Top = 714
-        Width = 30
-        Height = 30
+        Left = 160
+        Top = 408
+        Width = 17
+        Height = 17
         Hint = 'Orbit Trails On'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 39
         OnClick = OrbitTrailsOnCBClick
       end
       object DocIndexLinkCB: TCheckBox
-        Left = 308
-        Top = 742
-        Width = 30
-        Height = 30
+        Left = 176
+        Top = 424
+        Width = 17
+        Height = 17
         Hint = 'Display Doc Index'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 40
         OnClick = DocIndexLinkCBClick
       end
       object AtmosphereOnCB: TCheckBox
-        Left = 280
-        Top = 742
-        Width = 30
-        Height = 30
+        Left = 160
+        Top = 424
+        Width = 17
+        Height = 17
         Hint = 'Atmosphere On'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 41
         OnClick = AtmosphereOnCBClick
       end
       object S3dsScalerTB: TTrackBar
-        Left = 245
-        Top = 203
-        Width = 175
-        Height = 30
+        Left = 140
+        Top = 116
+        Width = 100
+        Height = 17
         Hint = 'Scaler'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 200
         Min = 1
         Position = 100
         TabOrder = 42
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = S3dsScalerTBChange
       end
       object CameraDistanceUpDown: TUpDown
-        Left = 196
-        Top = 742
-        Width = 72
-        Height = 30
+        Left = 112
+        Top = 424
+        Width = 41
+        Height = 17
         Hint = 'Camera Distance'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Min = -120
         Max = 120
         Orientation = udHorizontal
@@ -1639,68 +1169,52 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = CameraDistanceUpDownClick
       end
       object S3dsScalerScalerTB: TTrackBar
-        Left = 413
-        Top = 203
-        Width = 175
-        Height = 30
+        Left = 236
+        Top = 116
+        Width = 100
+        Height = 17
         Hint = 'Scaler Scaler'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 1000
         Min = 1
         Position = 100
         TabOrder = 44
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = S3dsScalerTBChange
       end
       object HoursTimeTrackBar: TTrackBar
-        Left = 105
-        Top = 798
-        Width = 175
-        Height = 30
+        Left = 60
+        Top = 456
+        Width = 100
+        Height = 17
         Hint = '24 Hr Time Warp'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 24
         Min = 1
         Position = 24
         TabOrder = 45
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = TimeTrackBarChange
       end
       object LabelTB: TTrackBar
-        Left = 413
-        Top = 798
-        Width = 175
-        Height = 30
+        Left = 236
+        Top = 456
+        Width = 100
+        Height = 17
         Hint = 'Label Font Scale'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Max = 2000
         Min = 1
         Position = 100
         TabOrder = 46
-        ThumbLength = 26
+        ThumbLength = 15
         TickStyle = tsNone
         OnChange = LabelTBChange
       end
       object DateTimePicker1: TDateTimePicker
-        Left = 280
-        Top = 798
-        Width = 142
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 160
+        Top = 456
+        Width = 81
+        Height = 21
         Date = 45346.000000000000000000
         Time = 0.830723009261419100
         TabOrder = 47
@@ -1708,15 +1222,11 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = DateTimePicker1Change
       end
       object DatePickerCB: TCheckBox
-        Left = 280
-        Top = 770
-        Width = 30
-        Height = 30
+        Left = 160
+        Top = 440
+        Width = 17
+        Height = 17
         Hint = 'Display Date Picker'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         TabOrder = 48
         OnClick = DatePickerCBClick
       end
@@ -1724,19 +1234,13 @@ object FormGenPlanetsys: TFormGenPlanetsys
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 843
-    Width = 1316
-    Height = 34
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 482
+    Width = 752
+    Height = 19
     Panels = <
       item
-        Width = 150
+        Width = 86
       end>
-    ExplicitTop = 797
-    ExplicitWidth = 1306
   end
   object GLCadencerA: TGLCadencer
     Scene = GLSceneA

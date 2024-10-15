@@ -10,12 +10,13 @@ uses
   System.SysUtils,
   System.Math,
 
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+
   GLS.Scene,
   GLS.Coordinates,
   GLS.VectorLists,
-  GLS.VectorFileObjects,
-  GLScene.VectorGeometry,
-  GLScene.VectorTypes;
+  GLS.VectorFileObjects;
 
 // Loading glTF/glb models with animation
 procedure LoadGLB(QCFilename: string; Actor: TGLActor; LoadReference: Boolean;

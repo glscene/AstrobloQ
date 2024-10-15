@@ -10,8 +10,8 @@ uses
   System.Contnrs,
   System.SysUtils,
 
-  GLScene.VectorGeometry,
-  GLScene.VectorTypes,
+  Stage.VectorGeometry,
+  Stage.VectorTypes,
   Bio.BaseObject,
   Bio.Grid,
   Bio.Coordinates,

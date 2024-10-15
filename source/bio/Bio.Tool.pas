@@ -6,7 +6,7 @@ uses
   System.Classes,
   System.SysUtils,
 
-  GLScene.VectorGeometry,
+  Stage.VectorGeometry,
   Bio.BaseObject,
   Bio.Things,
   Bio.Position,

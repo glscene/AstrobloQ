@@ -11,8 +11,8 @@ uses
   Bio.Coordinates,
   Bio.Position,
 
-  GLScene.VectorTypes,
-  GLScene.VectorGeometry;
+  Stage.VectorTypes,
+  Stage.VectorGeometry;
 
 type
 

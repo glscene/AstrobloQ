@@ -20,7 +20,7 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
 
-  GLScene.VectorGeometry,
+  Stage.VectorGeometry,
   GLS.VectorFileObjects,
   GLS.Scene,
   GLS.Objects,
@@ -28,7 +28,7 @@ uses
   GLS.Cadencer,
   GLS.SceneViewer,
   GLS.Graph,
-  GLScene.VectorTypes,
+  Stage.VectorTypes,
   GLS.Material,
   GLS.Coordinates,
   

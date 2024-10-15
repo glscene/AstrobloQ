@@ -14,7 +14,7 @@ uses
   System.Math,
   GLS.Objects,
   GLS.GeomObjects,
-  GLScene.VectorGeometry,
+  Stage.VectorGeometry,
   GLS.VectorFileObjects;
 
 type
