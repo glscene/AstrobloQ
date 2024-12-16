@@ -1,71 +1,53 @@
 object FormAbout: TFormAbout
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   BorderStyle = bsDialog
   Caption = 'About'
-  ClientHeight = 893
-  ClientWidth = 1131
+  ClientHeight = 510
+  ClientWidth = 642
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1131
-    Height = 113
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 642
+    Height = 65
     Align = alTop
     BorderWidth = 10
-    Caption = 'Galaxy'
+    Caption = 'Galaxy GLS'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -70
+    Font.Height = -40
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 634
   end
   object PageControl: TPageControl
     Left = 0
-    Top = 113
-    Width = 1131
-    Height = 780
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    ActivePage = tsLithosphere
+    Top = 65
+    Width = 642
+    Height = 445
+    ActivePage = tsStars
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 634
+    ExplicitHeight = 420
     object tsStars: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Stars'
       object ImageGalaxy: TImage
         Left = 0
-        Top = 50
-        Width = 1123
-        Height = 685
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Top = 30
+        Width = 634
+        Height = 385
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000054E0000
@@ -56190,47 +56172,35 @@ object FormAbout: TFormAbout
           49454E44AE426082}
         Stretch = True
         OnClick = ImageGalaxyClick
-        ExplicitLeft = 238
-        ExplicitTop = 178
-        ExplicitWidth = 631
-        ExplicitHeight = 517
+        ExplicitTop = 29
+        ExplicitWidth = 642
+        ExplicitHeight = 391
       end
       object Label1: TLabel
         Left = 0
         Top = 0
-        Width = 687
-        Height = 50
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 634
+        Height = 30
         Align = alTop
         Alignment = taCenter
         Caption = 'Modeling habitability and communication'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -37
+        Font.Height = -21
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ExplicitWidth = 387
       end
     end
     object tsLithosphere: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Lithosphere'
       ImageIndex = 3
       object ImageLito_ru: TImage
-        Left = 547
+        Left = 313
         Top = 0
-        Width = 576
-        Height = 735
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 321
+        Height = 415
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000004D90000
@@ -64762,20 +64732,14 @@ object FormAbout: TFormAbout
           000030D5FC3FEE98F2EA7189844B0000000049454E44AE426082}
         Stretch = True
         Visible = False
-        ExplicitLeft = 8
-        ExplicitTop = 14
-        ExplicitWidth = 1123
-        ExplicitHeight = 526
+        ExplicitWidth = 329
+        ExplicitHeight = 420
       end
       object ImageLito_en: TImage
         Left = 0
         Top = 0
-        Width = 547
-        Height = 735
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 313
+        Height = 415
         Align = alLeft
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000004D90000
@@ -75429,43 +75393,27 @@ object FormAbout: TFormAbout
         Stretch = True
         Visible = False
         OnClick = GLSImageClick
-        ExplicitLeft = 14
+        ExplicitHeight = 420
       end
     end
     object tsBiosphere: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Biosphere'
       ImageIndex = 4
     end
     object tsTechnosphere: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Technosphere'
       ImageIndex = 5
     end
     object tsTools: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Tools'
       ImageIndex = 2
-      object DelphiButton: TSpeedButton
-        Left = 675
-        Top = 476
-        Width = 113
-        Height = 58
+      object ButtonAstrobloQ: TSpeedButton
+        Left = 386
+        Top = 272
+        Width = 64
+        Height = 33
         Cursor = crHandPoint
         Hint = 'www.github.com'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Glyph.Data = {
           1E0D0000424D1E0D00000000000036040000280000004B0000001E0000000100
           080000000000E8080000AFB30100AFB301000001000000000000040204000483
@@ -75577,18 +75525,14 @@ object FormAbout: TFormAbout
         ParentShowHint = False
         ShowHint = True
         Spacing = 0
-        OnClick = DelphiButtonClick
+        OnClick = ButtonAstrobloQClick
       end
       object OGLImage: TImage
-        Left = 384
-        Top = 490
+        Left = 219
+        Top = 280
         Width = 100
         Height = 44
         Hint = 'www.opengl.org'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         AutoSize = True
         ParentShowHint = False
         Picture.Data = {
@@ -75639,15 +75583,11 @@ object FormAbout: TFormAbout
         OnClick = OGLImageClick
       end
       object GLSImage: TImage
-        Left = 252
-        Top = 56
-        Width = 631
-        Height = 351
+        Left = 144
+        Top = 32
+        Width = 361
+        Height = 201
         Hint = 'www.glscene.org'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         ParentShowHint = False
         Picture.Data = {
           07544269746D6170968F0300424D968F0300000000003600000028000000A601
@@ -82950,60 +82890,56 @@ object FormAbout: TFormAbout
       end
     end
     object tsDevelopers: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
       object StaticText1: TStaticText
-        Left = 480
-        Top = 106
-        Width = 137
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 274
+        Top = 61
+        Width = 79
+        Height = 19
         Caption = 'Pavel Vassiliev'
         TabOrder = 0
       end
       object StaticText2: TStaticText
-        Left = 478
-        Top = 150
-        Width = 126
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Caption = 'Lev Koptyaev'
+        Left = 273
+        Top = 86
+        Width = 75
+        Height = 19
+        Caption = 'Leo Koptyaev'
         TabOrder = 1
       end
       object StaticText3: TStaticText
-        Left = 480
-        Top = 194
-        Width = 139
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 274
+        Top = 111
+        Width = 80
+        Height = 19
         Caption = 'Danil Wasilyev'
         TabOrder = 2
       end
       object StaticText4: TStaticText
-        Left = 478
-        Top = 238
-        Width = 134
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 273
+        Top = 136
+        Width = 77
+        Height = 19
         Caption = 'Sergio Feitoza'
         TabOrder = 3
+      end
+      object StaticText5: TStaticText
+        Left = 274
+        Top = 161
+        Width = 100
+        Height = 19
+        Caption = 'Alexandr Tsvetkov'
+        TabOrder = 4
+      end
+      object StaticText6: TStaticText
+        Left = 274
+        Top = 186
+        Width = 71
+        Height = 19
+        Caption = 'Anton Dahin'
+        TabOrder = 5
       end
     end
   end

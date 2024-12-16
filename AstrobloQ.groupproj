@@ -3,6 +3,9 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="AstroViewer.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="GalaxyGLS.dproj">
             <Dependencies/>
         </Projects>
@@ -21,6 +24,9 @@
         <Projects Include="GalaxyGXC.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="AсtroViewer.cbproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -29,6 +35,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="AstroViewer">
+        <MSBuild Projects="AstroViewer.dproj"/>
+    </Target>
+    <Target Name="AstroViewer:Clean">
+        <MSBuild Projects="AstroViewer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AstroViewer:Make">
+        <MSBuild Projects="AstroViewer.dproj" Targets="Make"/>
+    </Target>
     <Target Name="GalaxyGLS">
         <MSBuild Projects="GalaxyGLS.dproj"/>
     </Target>
@@ -83,14 +98,23 @@
     <Target Name="GalaxyGXC:Make">
         <MSBuild Projects="GalaxyGXC.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="AсtroViewer">
+        <MSBuild Projects="AсtroViewer.cbproj"/>
+    </Target>
+    <Target Name="AсtroViewer:Clean">
+        <MSBuild Projects="AсtroViewer.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AсtroViewer:Make">
+        <MSBuild Projects="AсtroViewer.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXS;GalaxyGXC"/>
+        <CallTarget Targets="AstroViewer;GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXS;GalaxyGXC;AсtroViewer"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXS:Clean;GalaxyGXC:Clean"/>
+        <CallTarget Targets="AstroViewer:Clean;GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXS:Clean;GalaxyGXC:Clean;AсtroViewer:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXS:Make;GalaxyGXC:Make"/>
+        <CallTarget Targets="AstroViewer:Make;GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXS:Make;GalaxyGXC:Make;AсtroViewer:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

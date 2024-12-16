@@ -34,6 +34,7 @@ del *.spider /s
 rem delete c/cpp files
 
 rem del *.hpp /s
+del *.obj /s
 del *.#00 /s
 del *.pch /s
 del *.tds /s
@@ -43,9 +44,7 @@ del *.ilf /s
 del *.ils /s
 del *.pdi /s
 del *.vlb /s
-
 del *.user /s
-
 
 echo _
 echo ************************************************
@@ -57,11 +56,10 @@ attrib +R "AdvDemos/Q3Demo/Model/animation.cfg"
 rem del *.cfg /s  - there are quake's animations
 attrib -R "AdvDemos/Q3Demo/Model/animation.cfg"
 
-rem del *.res /s
+del *.res /s
+del *.avi /s
 rem del *.ico /s  - some projects have own icos
 rem del *.cur /s  - cursors
-rem del *.obj /s  - obj models and resources for lazarus
-
 
 echo delete all .svn directories with subdirectories and files 
 for /r %1 %%R in (.svn) do if exist "%%R" (rd /s /q "%%R")

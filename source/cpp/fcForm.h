@@ -1,0 +1,31 @@
+//-------------------------------------
+// This unit is part of AstroLibrary
+//-------------------------------------
+
+/* The fcForm unit for TFormC class as parent for all child forms */
+
+//---------------------------------------------------------------------------
+
+#ifndef fcFormH
+#define fcFormH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <System.IniFiles.hpp>
+
+//---------------------------------------------------------------------------
+class TFormC : public TForm
+{
+__published:	// IDE-managed Components
+private:	// User declarations
+public:		// User declarations
+    int LangID;
+    void __fastcall ReadIniFile();
+	__fastcall TFormC(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFormC *FormC;
+//---------------------------------------------------------------------------
+#endif

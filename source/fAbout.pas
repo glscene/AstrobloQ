@@ -29,7 +29,7 @@ type
     tsStars: TTabSheet;
     tsDevelopers: TTabSheet;
     tsTools: TTabSheet;
-    DelphiButton: TSpeedButton;
+    ButtonAstrobloQ: TSpeedButton;
     OGLImage: TImage;
     GLSImage: TImage;
     StaticText1: TStaticText;
@@ -43,10 +43,12 @@ type
     tsTechnosphere: TTabSheet;
     ImageLito_ru: TImage;
     ImageLito_en: TImage;
+    StaticText5: TStaticText;
+    StaticText6: TStaticText;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
-    procedure DelphiButtonClick(Sender: TObject);
+    procedure ButtonAstrobloQClick(Sender: TObject);
     procedure ImageGalaxyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -60,10 +62,10 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormAbout.DelphiButtonClick(Sender: TObject);
+procedure TFormAbout.ButtonAstrobloQClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
-    'https://github.com/glscene', '', '', SW_SHOW);
+    'https://gitverse.ru/glscene/AstrobloQ', '', '', SW_SHOW);
 end;
 
 procedure TFormAbout.FormCreate(Sender: TObject);

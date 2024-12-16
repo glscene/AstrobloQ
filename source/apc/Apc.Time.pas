@@ -1,0 +1,166 @@
+unit Apc.Time;
+
+//
+//    Функции и классы работы со временем
+//
+
+interface
+
+uses
+  System.Math,
+  Apc.Math;
+
+(*-----------------------------------------------------------------------
+ ETminUT: Разница эфемеридного времени и всемирного времени
+          (полиномиальная аппроксимация действительна с 1900 по 1995 год)
+          T:     время в юлианских столетиях с J2000
+                 ( = (JD-2451545.0)/36525.0 )
+          DTSEC: DT=ET-UT in sec (only if VALID=True)
+          VALID: True for times between 1900 and 1995, False otherwise
+-----------------------------------------------------------------------*)
+procedure ETminUT(T: Double; var DTSEC: Double; var VALID: Boolean);
+
+(*-----------------------------------------------------------------------
+ GMST: Среднее звездное время по Гринвичу как модифицированная юлианская дата
+ result:   GMST in [rad]
+-----------------------------------------------------------------------*)
+function GMST(MJD: double): Double;
+
+(*-----------------------------------------------------------------------
+  LMST: местное среднее звездное время
+-----------------------------------------------------------------------*)
+function LMST(MJD, LAMBDA: Double): Double;
+
+(*-----------------------------------------------------------------------
+ MJD: Модифицуированная юлианская дата
+      Функция работает только для дат начиная с 4713 BC.
+      Юлианский календарь использовался до 4 октября 1582 года,
+      Григорианский календарь используется с 15 октября 1582 года поныне.
+-----------------------------------------------------------------------*)
+function MJD(Day, Month, Year: integer; Hour: Double): Double;
+
+(*----------------------------------------------------------------------
+ CalDat: Находит календарную дату для заданного значения
+      модифицированной юлианской даты (MJD).
+      Юлианский календарь использовался до 4 октября 1582 года,
+      Григорианский календарь используется с 15 октября 1582 года поныне.
+----------------------------------------------------------------------*)
+procedure CalDat(MJD: Double; var Day, Month, Year: integer; var Hour: Double);
+
+//==============================================================
+implementation
+//==============================================================
+
+function LongTrunc(X: Double): Double;
+begin
+  LongTrunc := Int(X);
+end;
+
+//----------------------------------------------------------------------
+procedure CalDat(MJD: Double; var Day, Month, Year: integer; var Hour: Double);
+var
+  B, D, F: integer;
+  JD, JD0, C, E: Double;
+begin
+  JD := MJD + 2400000.5;
+  JD0 := Int(JD + 0.5);  // Delphi
+  (* JD0 := Trunc(JD + 0.5); *)  // Standard Pascal
+  (* JD0 := LongTrunc(JD + 0.5); *)
+  if (JD0 < 2299161.0) // calendar:
+  then
+  begin
+    C := JD0 + 1524.0
+  end // -> Julian
+  else
+  begin // -> Gregorian
+    B := Trunc((JD0 - 1867216.25) / 36524.25);
+    C := JD0 + (B - Trunc(B / 4)) + 1525.0
+  end;
+  D := Trunc((C - 122.1) / 365.25);
+  E := 365.0 * D + Trunc(D / 4);
+  F := Trunc((C - E) / 30.6001);
+  Day := Trunc(C - E + 0.5) - Trunc(30.6001 * F);
+  Month := F - 1 - 12 * Trunc(F / 14);
+  Year := D - 4715 - Trunc((7 + Month) / 10);
+  Hour := 24.0 * (JD + 0.5 - JD0);
+end;  // CalDat
+
+//-----------------------------------------------------------------------
+
+procedure ETminUT(T: Double; var DTSEC: Double; var VALID: Boolean);
+begin
+  VALID := ((-1.0 <= T) and (T <= -0.05));
+  if (VALID) then
+  begin
+    DTSEC := ((((-449.50 * T - 783.42) * T - 387.70) * T) + 13.34) * T + 62.14;
+  end;
+end; // ETminUT
+
+
+//------------------------------------------------------------------------
+function GMST(MJD: Double): Double;
+
+const
+  Secs = 86400; // Seconds per day
+var
+  MJD_0, UT, T_0, T, GMST: Double;
+  Modulo: Integer;
+
+begin
+  MJD_0 := floor(MJD);
+  UT := Secs * (MJD - MJD_0); // [s]
+  T_0 := (MJD_0 - 51544.5) / 36525.0;
+  T := (MJD - 51544.5) / 36525.0;
+
+  GMST := 24110.54841 + 8640184.812866 * T_0 + 1.0027379093 * UT + (0.093104 - 6.2E-6 * T) * T * T;
+  // [sec]
+  Modulo := Round(GMST) mod Secs;
+  // c:-> return (pi2/Secs)*Modulo(gmst,Secs);   // [Rad]
+  result := (2 * pi / Secs) * Modulo; // Modulo(gmst,Secs) in [Rad]
+end;
+
+(* ----------------------------------------------------------------------- *)
+function LMST(MJD, LAMBDA: Double): Double;
+var
+  MJD0, T, UT, GMST: Double;
+
+  (*sub*)function Frac(X: Double): Double;
+  begin
+    X := X - Trunc(X);
+    if (X < 0) then
+      X := X + 1;
+    Frac := X
+  end;
+
+begin
+  (* MJD0:=Trunc(MJD); *)       (* Standard Pascal *)
+  MJD0 := Int(MJD); (* Delphi *)
+  (* MJD0:=LongTrunc(MJD); *)  (* ST Pascal plus *)
+  UT := (MJD - MJD0) * 24;
+  T := (MJD0 - 51544.5) / 36525.0;
+  GMST := 6.697374558 + 1.0027379093 * UT + (8640184.812866 + (0.093104 - 6.2E-6 * T) * T) *
+    T / 3600.0;
+  LMST := 24.0 * Frac((GMST - LAMBDA / 15.0) / 24.0);
+end;
+
+(* ----------------------------------------------------------------------- *)
+function MJD(Day, Month, Year: integer; Hour: Double): Double;
+var
+  A: Double;
+  B: integer;
+begin
+  A := 10000.0 * Year + 100.0 * Month + Day;
+  if (Month <= 2) then
+  begin
+    Month := Month + 12;
+    Year := Year - 1
+  end;
+  if (A <= 15821004.1) then
+    B := -2 + Trunc((Year + 4716) / 4) - 1179
+  else
+    B := Trunc(Year / 400) - Trunc(Year / 100) + Trunc(Year / 4);
+  A := 365.0 * Year - 679004.0;
+  MJD := A + B + Trunc(30.6001 * (Month + 1)) + Day + Hour / 24.0;
+end;  // MJD
+
+end.
