@@ -1,6 +1,0 @@
-TOI-700
-TOI-700_b
-TOI-700_c
-TOI-700_d
-TOI-700_e
-TOI-700_System

@@ -1,3 +1,0 @@
-Proxima_Centauri
-Proxima_Centauri_b
-Proxima_Centauri_c
