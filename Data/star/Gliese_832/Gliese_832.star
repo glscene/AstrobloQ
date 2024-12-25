@@ -1,0 +1,3 @@
+Gliese_832
+Gliese_832_b
+Gliese_832_c
