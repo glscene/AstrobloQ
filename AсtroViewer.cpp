@@ -4,15 +4,15 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("source\cpp\fcHipparcos.cpp", FormHipparcos);
-USEFORM("source\cpp\fcHercRussel.cpp", FormHercRussel);
-USEFORM("source\cpp\fcForm.cpp", FormC);
-USEFORM("source\cpp\fcAstroViewer.cpp", FormAstroviewer);
-USEFORM("source\cpp\fcSettings.cpp", FormSettings);
-USEFORM("source\cpp\fcAbout.cpp", FormAbout);
-USEFORM("source\cpp\dcImages.cpp", dmImages); /* TDataModule: File Type */
-USEFORM("source\cpp\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
-USEFORM("source\cpp\dcBase.cpp", dmBase); /* TDataModule: File Type */
+USEFORM("Source\actro\dcBase.cpp", dmBase); /* TDataModule: File Type */
+USEFORM("Source\actro\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
+USEFORM("Source\actro\dcImages.cpp", dmImages); /* TDataModule: File Type */
+USEFORM("Source\actro\fcAbout.cpp", FormAbout);
+USEFORM("Source\actro\fcAstroViewer.cpp", FormAstroviewer);
+USEFORM("Source\actro\fcForm.cpp", FormC);
+USEFORM("Source\actro\fcHercRussel.cpp", FormHercRussel);
+USEFORM("Source\actro\fcHipparcos.cpp", FormHipparcos);
+USEFORM("Source\actro\fcSettings.cpp", FormSettings);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -20,12 +20,10 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormAstroviewer), &FormAstroviewer);
-		Application->CreateForm(__classid(TdmImages), &dmImages);
-		Application->CreateForm(__classid(TdmDialogs), &dmDialogs);
 		Application->CreateForm(__classid(TdmBase), &dmBase);
-		Application->CreateForm(__classid(TFormSettings), &FormSettings);
-		Application->CreateForm(__classid(TFormC), &FormC);
+		Application->CreateForm(__classid(TdmDialogs), &dmDialogs);
+		Application->CreateForm(__classid(TdmImages), &dmImages);
+		Application->CreateForm(__classid(TFormAstroviewer), &FormAstroviewer);
 		Application->Run();
 	}
 	catch (Exception &exception)

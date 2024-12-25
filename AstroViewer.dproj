@@ -127,7 +127,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\delphi\udVsop2013.pas"/>
+        <DCCReference Include="source\astro\udVsop2013.pas"/>
         <DCCReference Include="source\astronomy\astronomy.pas"/>
         <DCCReference Include="source\apc\Apc.DE.pas"/>
         <DCCReference Include="source\apc\Apc.Kepler.pas"/>
@@ -139,68 +139,61 @@
         <DCCReference Include="source\apc\Apc.Spheric.pas"/>
         <DCCReference Include="source\apc\Apc.Sun.pas"/>
         <DCCReference Include="source\apc\Apc.Time.pas"/>
-        <DCCReference Include="source\delphi\fdAbout.pas">
+        <DCCReference Include="source\astro\fdAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="source\delphi\udConstBayers.pas"/>
-        <DCCReference Include="source\delphi\udEphemerides.pas"/>
+        <DCCReference Include="source\astro\udConstBayers.pas"/>
+        <DCCReference Include="source\astro\udEphemerides.pas"/>
         <DCCReference Include="source\sofa\sofa.pas"/>
-        <DCCReference Include="source\delphi\fdCoordinates.pas">
+        <DCCReference Include="source\astro\fdCoordinates.pas">
             <Form>FormCoords</Form>
         </DCCReference>
-        <DCCReference Include="source\delphi\fdPointto.pas">
+        <DCCReference Include="source\astro\fdPointto.pas">
             <Form>FormPointto</Form>
         </DCCReference>
-        <DCCReference Include="source\delphi\fdHercRussel.pas">
+        <DCCReference Include="source\astro\fdHercRussel.pas">
             <Form>FormHercrussel</Form>
         </DCCReference>
-        <DCCReference Include="source\delphi\fdHipparcos.pas">
+        <DCCReference Include="source\astro\fdHipparcos.pas">
             <Form>FormHipparcos</Form>
         </DCCReference>
-        <DCCReference Include="source\delphi\udHygmain.pas"/>
-        <DCCReference Include="source\delphi\udHiputils.pas"/>
-        <DCCReference Include="source\delphi\fdConstPolygons.pas">
+        <DCCReference Include="source\astro\udHygmain.pas"/>
+        <DCCReference Include="source\astro\udHiputils.pas"/>
+        <DCCReference Include="source\astro\fdConstPolygons.pas">
             <Form>FormConstBorders</Form>
         </DCCReference>
-        <DCCReference Include="source\delphi\ddImages.pas">
+        <DCCReference Include="source\astro\ddImages.pas">
             <Form>dmImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\delphi\udGlobals.pas"/>
-        <DCCReference Include="source\delphi\fdSettings.pas">
+        <DCCReference Include="source\astro\udGlobals.pas"/>
+        <DCCReference Include="source\astro\fdSettings.pas">
             <Form>frmSettings</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\delphi\fdAstroViewer.pas">
+        <DCCReference Include="source\astro\fdAstroViewer.pas">
             <Form>frmAstroViewer</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\delphi\udGenRandom.pas"/>
-        <DCCReference Include="source\delphi\udUtils.pas"/>
-        <DCCReference Include="source\delphi\fdMixTextures.pas">
+        <DCCReference Include="source\astro\udGenRandom.pas"/>
+        <DCCReference Include="source\astro\udUtils.pas"/>
+        <DCCReference Include="source\astro\fdMixTextures.pas">
             <Form>FormTexCombine</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\delphi\fdAstromif.pas">
+        <DCCReference Include="source\astro\fdAstromif.pas">
             <Form>FormAstromif</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\delphi\fdForm.pas">
+        <DCCReference Include="source\astro\fdForm.pas">
             <Form>FormI</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\delphi\ddBase.pas">
+        <DCCReference Include="source\astro\ddBase.pas">
             <Form>dmBase</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\delphi\ddDialogs.pas">
+        <DCCReference Include="source\astro\ddDialogs.pas">
             <Form>dmDialogs</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\delphi\GLS.SkyDome.pas"/>
-        <DCCReference Include="source\delphi\gnuGettext.pas"/>
+        <DCCReference Include="source\astro\GLS.SkyDome.pas"/>
+        <DCCReference Include="source\astro\gnuGettext.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

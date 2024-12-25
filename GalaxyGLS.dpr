@@ -20,7 +20,8 @@ uses
   fForm in 'source\fForm.pas' {FormI},
   fNewStarcube in 'source\fNewStarcube.pas' {FormNewStarcube},
   uSkyBodies in 'source\ucode\uSkyBodies.pas',
-  gnuGettext in 'source\ucode\gnuGettext.pas';
+  gnuGettext in 'source\ucode\gnuGettext.pas',
+  Astro.Utils in 'Source\astro\Astro.Utils.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

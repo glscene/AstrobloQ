@@ -35,14 +35,13 @@ var
 
 // Get current path to assets from dir examples
 function GetAssetsPath(): TFileName;
+function GetDataPath(): TFileName;
 
 
 implementation //--------------------------------------------------------------
 
 var
   vLastProjectTargetName: string;
-
-
 
 function GetAssetsPath(): TFileName;
 var
@@ -53,6 +52,19 @@ begin
   N := Pos('addons', Path);
   Delete(Path, N, Length(path));
   Path := IncludeTrailingPathDelimiter(Path) + 'assets';
+  SetCurrentDir(Path);
+  Result := Path;
+end;
+
+function GetDataPath(): TFileName;
+var
+  Path: TFileName;
+  N: Integer;
+begin
+  Path := LowerCase(ExtractFilePath(ParamStr(0)));
+  N := Pos('plugins', Path);
+  Delete(Path, N, Length(path));
+  Path := IncludeTrailingPathDelimiter(Path) + 'data';
   SetCurrentDir(Path);
   Result := Path;
 end;

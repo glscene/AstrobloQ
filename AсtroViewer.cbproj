@@ -92,8 +92,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;..\..\source\sofa\;..\..\source\code\;..\..\source\interface\;D:\GLS\AstroApps\Apclib\apps\cbuilder\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>Source\actro\;source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>Source\actro\;source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;..\..\source\sofa\;..\..\source\code\;..\..\source\interface\;D:\GLS\AstroApps\Apclib\apps\cbuilder\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>AсtroViewer</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -186,6 +186,63 @@
         <CppCompile Include="AсtroViewer.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
+        <CppCompile Include="Source\actro\dcBase.cpp">
+            <Form>dmBase</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+            <DependentOn>Source\actro\dcBase.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\dcDialogs.cpp">
+            <Form>dmDialogs</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+            <DependentOn>Source\actro\dcDialogs.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\dcImages.cpp">
+            <Form>dmImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+            <DependentOn>Source\actro\dcImages.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\fcAbout.cpp">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Source\actro\fcAbout.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\fcAstroViewer.cpp">
+            <Form>FormAstroviewer</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Source\actro\fcAstroViewer.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\fcForm.cpp">
+            <Form>FormC</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Source\actro\fcForm.h</DependentOn>
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\fcHercRussel.cpp">
+            <Form>FormHercRussel</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Source\actro\fcHercRussel.h</DependentOn>
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\fcHipparcos.cpp">
+            <Form>FormHipparcos</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Source\actro\fcHipparcos.h</DependentOn>
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Source\actro\fcSettings.cpp">
+            <Form>FormSettings</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Source\actro\fcSettings.h</DependentOn>
+            <BuildOrder>15</BuildOrder>
+        </CppCompile>
         <CppCompile Include="source\apc\APC_Cheb.cpp">
             <BuildOrder>11</BuildOrder>
         </CppCompile>
@@ -198,84 +255,21 @@
         <None Include="source\astronomy\astronomy.h">
             <BuildOrder>7</BuildOrder>
         </None>
-        <CppCompile Include="source\cpp\dcBase.cpp">
-            <Form>dmBase</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-            <DependentOn>source\cpp\dcBase.h</DependentOn>
-            <BuildOrder>15</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\dcDialogs.cpp">
-            <Form>dmDialogs</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-            <DependentOn>source\cpp\dcDialogs.h</DependentOn>
-            <BuildOrder>14</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\dcImages.cpp">
-            <Form>dmImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-            <DependentOn>source\cpp\dcImages.h</DependentOn>
-            <BuildOrder>9</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\fcAbout.cpp">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\cpp\fcAbout.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\fcAstroViewer.cpp">
-            <Form>FormAstroviewer</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\cpp\fcAstroViewer.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\fcForm.cpp">
-            <Form>FormC</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\cpp\fcForm.h</DependentOn>
-            <BuildOrder>13</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\fcHercRussel.cpp">
-            <Form>FormHercRussel</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\cpp\fcHercRussel.h</DependentOn>
-            <BuildOrder>15</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\fcHipparcos.cpp">
-            <Form>FormHipparcos</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\cpp\fcHipparcos.h</DependentOn>
-            <BuildOrder>6</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\fcSettings.cpp">
-            <Form>FormSettings</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\cpp\fcSettings.h</DependentOn>
-            <BuildOrder>12</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\ucConstbnd.c">
-            <BuildOrder>7</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="source\cpp\ucConstel.c">
-            <BuildOrder>6</BuildOrder>
-        </CppCompile>
         <None Include="source\sofa\sofa.h">
             <BuildOrder>16</BuildOrder>
         </None>
         <None Include="source\sofa\sofam.h">
             <BuildOrder>17</BuildOrder>
         </None>
-        <FormResources Include="source\cpp\fcHipparcos.dfm"/>
-        <FormResources Include="source\cpp\fcHercRussel.dfm"/>
-        <FormResources Include="source\cpp\fcForm.dfm"/>
-        <FormResources Include="source\cpp\fcAstroViewer.dfm"/>
-        <FormResources Include="source\cpp\fcSettings.dfm"/>
-        <FormResources Include="source\cpp\fcAbout.dfm"/>
-        <FormResources Include="source\cpp\dcImages.dfm"/>
-        <FormResources Include="source\cpp\dcDialogs.dfm"/>
-        <FormResources Include="source\cpp\dcBase.dfm"/>
+        <FormResources Include="Source\actro\fcSettings.dfm"/>
+        <FormResources Include="Source\actro\fcHipparcos.dfm"/>
+        <FormResources Include="Source\actro\dcImages.dfm"/>
+        <FormResources Include="Source\actro\dcDialogs.dfm"/>
+        <FormResources Include="Source\actro\dcBase.dfm"/>
+        <FormResources Include="Source\actro\fcHercRussel.dfm"/>
+        <FormResources Include="Source\actro\fcForm.dfm"/>
+        <FormResources Include="Source\actro\fcAstroViewer.dfm"/>
+        <FormResources Include="Source\actro\fcAbout.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -303,6 +297,9 @@
                     <Source Name="MainSource">AсtroViewer.cpp</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GXScene_GBE.bpl">GXScene GBE</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GBComps.bpl">Geoblock - Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -369,7 +366,19 @@
                 <DeployFile LocalName="ApcViewer.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="ApcViewer.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="AсtroViewer.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="AсtroViewer.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>AсtroViewer.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="AсtroViewer.tds" Configuration="Debug" Class="DebugSymbols"/>
+                <DeployFile LocalName="AсtroViewer.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>AсtroViewer.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>

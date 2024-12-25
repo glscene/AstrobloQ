@@ -180,7 +180,7 @@ type
 
 var
   frmAstroViewer: TfrmAstroViewer;
-  DataDir, CurrDir: TFileName;
+  AssetsDir, DataDir, CurrDir: TFileName;
 
 const
   TimeMultiplier = 10.0;
