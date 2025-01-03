@@ -3,7 +3,12 @@
 Астромодель звёздного состава, строения и эволюции Млечного Пути, 
 прогнозирование её обитаемости и сети коммуникаций между техносферами 
 
+![GalaxyGrid](../docs/screenshots/GalaxyGrid.png)
+
+![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
+
 ![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/GalaxyGrid.png)
+
 
 Репозиторий включает проекты:
 
