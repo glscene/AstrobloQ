@@ -5,14 +5,9 @@
 
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
 
-![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/GalaxyGrid.png)
-
-![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/docs/screenshots/GalaxyGrid.png)
-
-
 Репозиторий включает проекты:
 
-Litosfera – литосфера планетыы с гидросферой, атмосферой и недрами
+Litosfera – литосфера планеты с гидросферой, атмосферой и недрами
 Biosfera – биосфера планеты с живыми организмами 
 Noosfera – ноосфера планеты без межзвёздных коммуникаций 
 Tehnosfera - техносфера планеты с межзвёздными коммуникациями    
@@ -20,7 +15,5 @@ Tehnosfera - техносфера планеты с межзвёздными к�
 TerraPlanets - визуализация солнечной системы и инопланетных систем с землеподобными планетами
 
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
-
-![PlanetarySystems](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/PlanetarySystems.png)
 
 © OOO «AstrobloQ», 2020-2025
