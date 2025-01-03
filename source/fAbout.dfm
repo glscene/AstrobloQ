@@ -36,7 +36,7 @@ object FormAbout: TFormAbout
     Top = 65
     Width = 642
     Height = 445
-    ActivePage = tsStars
+    ActivePage = tsLithosphere
     Align = alClient
     TabOrder = 1
     ExplicitWidth = 634
