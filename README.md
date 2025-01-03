@@ -3,8 +3,7 @@
 Астромодель звёздного состава, строения и эволюции Млечного Пути, 
 прогнозирование её обитаемости и сети коммуникаций между техносферами 
 
-![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/docs/screenshots/GalaxyGrid.png)
-(..)
+![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/GalaxyGrid.png)
 
 Репозиторий включает проекты:
 
@@ -15,6 +14,6 @@ Tehnosfera - техносфера планеты с межзвёздными к�
 
 TerraPlanets - визуализация солнечной системы и инопланетных систем с землеподобными планетами
 
-!(docs/screenshots/PlanetarySystems.png)
+![PlanetarySystems](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/PlanetarySystems.png)
 
 © OOO «AstrobloQ», 2020-2025
