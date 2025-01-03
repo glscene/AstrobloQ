@@ -3,11 +3,11 @@
 Астромодель звёздного состава, строения и эволюции Млечного Пути, 
 прогнозирование её обитаемости и сети коммуникаций между техносферами 
 
-![GalaxyGrid](../docs/screenshots/GalaxyGrid.png)
-
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
 
 ![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/GalaxyGrid.png)
+
+![GalaxyGrid](https://gitverse.ru/glscene/AstrobloQ/docs/screenshots/GalaxyGrid.png)
 
 
 Репозиторий включает проекты:
@@ -18,6 +18,8 @@ Noosfera – ноосфера планеты без межзвёздных ко�
 Tehnosfera - техносфера планеты с межзвёздными коммуникациями    
 
 TerraPlanets - визуализация солнечной системы и инопланетных систем с землеподобными планетами
+
+![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 
 ![PlanetarySystems](https://gitverse.ru/glscene/AstrobloQ/content/master/docs/screenshots/PlanetarySystems.png)
 
