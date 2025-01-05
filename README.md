@@ -15,7 +15,8 @@ Noosfera – ноосферы экзопланет без межзвёздных
 ![Noosfera](./docs/screenshots/Noosfera.png)
 Tehnosfera - техносферы экзопланет с межзвёздными коммуникациями    
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
-<center><img border="0" src="./docs/clips/AnimationPlanet2a.gif" width="122" height="64"></center>
+![TerraPlanet](./docs/screenshots/AnimationPlanet2a.gif)
+<img border="0" src="./docs/clips/AnimationPlanet2a.gif" width="122" height="64">
 
 Дополнительная информация о проекте.
 При создании астромодели GalaxyZ используются следующие методы, базы данных и каталоги:
