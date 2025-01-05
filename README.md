@@ -7,10 +7,10 @@
 
 TerraPlanets - визуализация солнечной и экзопланетных систем с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
+![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
 Litosfera – литосферы экзопланет с гидросферами, атмосферами и недрами
 ![Litosfera](./docs/screenshots/Litosfera_ru.png)
-![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 ![Biosfera](./docs/clips/AnimationAsteroid2.gif)
 
 Biosfera – биосферы экзопланет с живыми организмами 
@@ -18,14 +18,13 @@ Biosfera – биосферы экзопланет с живыми органи�
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
 ![Biosfera](./docs/clips/AnimationEcosystemA.gif)
 
-Noosfera – ноосферы экзопланет без межзвёздных коммуникаций 
+Noosfera – ноосферы экзопланет без коммуникаций NotInterStellars
 ![Noosfera](./docs/screenshots/Noosfera.png)
 ![Biosfera](./docs/clips/AnimationLadybug2.gif)
 ![Biosfera](./docs/clips/AnimationFlock.gif)
 
-Tehnosfera - техносферы экзопланет с межзвёздными коммуникациями    
+Tehnosfera - техносферы экзопланет с коммуникациями InterStellars   
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
-![TerraPlanet](./docs/screenshots/AnimationPlanet2a.gif)
 
 Дополнительная информация о проекте.
 При создании астромодели GalaxyZ используются следующие методы, базы данных и каталоги:
