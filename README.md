@@ -8,7 +8,7 @@
 
 TerraPlanets - визуализация солнечной и экзопланетных систем с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
-![SolarSystem](./docs/clips/SolarSystem.mp4)
+![SolarSystem](./docs/clips/SolarSystem.gif)
 ![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
 Litosfera – литосферы экзопланет с гидросферами, атмосферами и недрами
