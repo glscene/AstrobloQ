@@ -3,10 +3,12 @@
 Астромодель звёздного состава, строения и эволюции Млечного Пути, 
 прогнозирование её обитаемости и сети коммуникаций между техносферами 
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
+
 Репозиторий включает проекты:
 
 TerraPlanets - визуализация солнечной и экзопланетных систем с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
+![SolarSystem](./docs/clips/SolarSystem.mp4)
 ![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
 Litosfera – литосферы экзопланет с гидросферами, атмосферами и недрами
