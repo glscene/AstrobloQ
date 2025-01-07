@@ -8,6 +8,7 @@ Astronomy, SOFA (IAU) и графического движка GLXEngine,
 до планет, звёздных систем, галактик и видимой Вселенной. 
 Интерактивная справка устанавливает связь интерфейса со статьями из 
 российской онлайн-энциклопедии https://ru.ruwiki.ru/wiki/Галактика
+
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
 ![GalaxyCETI](./docs/screenshots/GalaxyCETI_ru.png)
 
