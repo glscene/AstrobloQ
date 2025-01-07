@@ -7,8 +7,9 @@ Astronomy, SOFA (IAU) и графического движка GLXEngine,
 начиная от астероидов, комет, малых небесных тел 
 до планет, звёздных систем, галактик и видимой Вселенной. 
 Интерактивная справка устанавливает связь интерфейса со статьями из 
-российской онлайн-энциклопедии https://ru.ruwiki.ru/wiki/Галактика
-
+российской онлайн-энциклопедии 
+![](https://ru.ruwiki.ru/wiki/%D0%93%D0%B0%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0) 
+ 
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
 ![GalaxyCETI](./docs/screenshots/GalaxyCETI_ru.png)
 
