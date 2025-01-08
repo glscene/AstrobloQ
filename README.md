@@ -1,23 +1,23 @@
 # AstrobloQ
 
-Создание виртуальной цифровой модели Вселенной UniversеAI с дополненной реальностью VR/AR и 
-подключением искусственного интеллекта GigaChat к её развитию. 
+Астроплатформа создания виртуальной цифровой модели UniversеAI   
+на основе С++/Delphi графического движка [GLXEngine](https://gitverse.ru/glscene)
+при поддержке её дальнейшего развития AI-ассистентом разработчика ПО 
+[GigaCode](https://gitverse.ru/services/gigacode). 
   
-AstrobloQ разрабатывается на основе 
-С++/Delphi галактического движка [GLXEngine](https://gitverse.ru/glscene)
-c подключением программных C/C++ библиотек 
+AstrobloQ разрабатывается c подключением программных C/C++ библиотек с открытыми исходными кодами 
 [APC](https://gitverse.ru/glscene/AstrobloQ/content/master/source/apc),
 [Astronomy](https://github.com/cosinekitty/astronomy), 
 [SOFA](http://iausofa.org/current_C.html)-
-стандарта фундаментальной астрономии, рекомендованного [IAU, MAC - Международным Астрономическим Союзом](https://rosastronomy.ru/partners/mac-iau/)),
+стандарта фундаментальной астрономии, рекомендованного 
+[IAU, MAC - Международным Астрономическим Союзом](https://rosastronomy.ru/partners/mac-iau/),
 и на базе данных звёздных каталогов [Gaia](https://www.cosmos.esa.int/web/gaia/data) и 
 [HYG](https://github.com/astronexus/HYG-Database).
 
 Коэволюция систем небесных тел и прогнозирование коммуникаций моделируется 
 в масштабе PlanetAI -> StarAI -> GalaxyAI -> UniversеAI. 
-Интерактивная справка устанавливает связь интерфейса со статьями из 
-российской онлайн-энциклопедии Рувики
-[Галактика](https://ru.ruwiki.ru/wiki/Галактика)
+Интерактивная справка обеспечивает связь управляющих элементов интерфейса со статьями из 
+российской онлайн-энциклопедии Рувики [Галактика](https://ru.ruwiki.ru/wiki/Галактика)
  
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
 ![GalaxyCETI](./docs/screenshots/GalaxyCETI_ru.png)
@@ -33,21 +33,21 @@ Litosfera – литосферы экзопланет с гидросферам�
 ![Litosfera](./docs/screenshots/Litosfera_ru.png)
 ![Biosfera](./docs/clips/AnimationAsteroid2.gif)
 
-Biosfera – биосферы экзопланет с живыми организмами 
+Biosfera – биосферы экзопланет с моделями популяций живых организмов 
 ![Biosfera](./docs/screenshots/Biosfera.jpg)
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
 ![Biosfera](./docs/clips/AnimationEcosystemA.gif)
 
-Noosfera – ноосферы экзопланет без коммуникаций NotInterStellars
+Noosfera – ноосферы экзопланет с иноинтеллектом без межзвёздных контактов NotInterStellars
 ![Noosfera](./docs/screenshots/Noosfera.png)
 ![Biosfera](./docs/clips/AnimationLadybug2.gif)
 ![Biosfera](./docs/clips/AnimationFlock.gif)
 
-Tehnosfera - техносферы экзопланет с коммуникациями InterStellars 
+Tehnosfera - техносферы экзопланетных систем с межзвёздными коммуникациями InterStellars 
 и AI (Astro Intelligence & Artificial Intelligence).   
-Дополнительная информация о звёздном составе невидимой за ядром части Галактики, её строения и эволюции, 
-в том числе прогнозирование плотности распределения обитаемости, может быть получена в результате подключения
-к CETI техносфер.  
+Дополнительная информация о звёздном составе и строении невидимой за ядром части Галактики, 
+в том числе оценка плотности распределения обитаемости, может быть получена в результате подключения
+к интергалактической CETI постсингулярных техносфер.  
 
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
 
@@ -66,11 +66,8 @@ Tehnosfera - техносферы экзопланет с коммуникаци
 - численное решение парадокса Ферми-Циолковского для различной плотности распределения техносфер в зонах обитаемости Галактик, связанных глобальной сетью CETI или локальными коммуникационныыми сетями, 
 предлагается для I, II и III типов КЦ по шкале академика РАН Н.С.Кардашёва.
 
-Интегрированная платформа AstrobloQ и галактический движок GLXEngine подготовлены  
-для создания новых версий с помощью искусственного интеллекта GigaChat.  
-
-Администратор программирования и координатор астроплатформы:
-[GLXEngine](https://t.me/glscene)
+Координатор программирования астроплатформы:
+[П.В.Васильев](https://t.me/glscene)
 
 Партнёры и организации: ООО "AstrobloQ"; UniverseCETI; НИУ «БелГУ».  
 
