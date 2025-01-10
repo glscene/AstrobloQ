@@ -2,7 +2,7 @@
 
 Астроплатформа AstrobloQ предназначена для создания виртуальной цифровой модели UniversеAGI
 на основе графического движка [GLXEngine](https://gitverse.ru/glscene)
-с AI-ассистентом разработчика GigaCode](https://gitverse.ru/services/gigacode) 
+с AI-ассистентом разработчика [GigaCode](https://gitverse.ru/services/gigacode) 
   
 AstrobloQ разрабатывается c использованием C/C++/Python/Delphi библиотек с открытым исходным кодом, в том числе 
 [APC](https://gitverse.ru/glscene/AstrobloQ/content/master/source/apc),
