@@ -255,8 +255,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="Planetpos.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Planetpos.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Planetpos.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="Planetpos.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">

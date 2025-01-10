@@ -1,4 +1,4 @@
-program AstroViewer;
+program UniverseAGI;
 
 uses
   Vcl.Forms,
@@ -28,7 +28,7 @@ uses
   ddImages in 'source\astro\ddImages.pas' {dmImages: TDataModule},
   udGlobals in 'source\astro\udGlobals.pas',
   fdSettings in 'source\astro\fdSettings.pas' {frmSettings},
-  fdAstroViewer in 'source\astro\fdAstroViewer.pas' {frmAstroViewer},
+  fdUniverse in 'Source\astro\fdUniverse.pas' {frmUniverse},
   udGenRandom in 'source\astro\udGenRandom.pas',
   udUtils in 'source\astro\udUtils.pas',
   fdMixTextures in 'source\astro\fdMixTextures.pas' {FormTexCombine},
@@ -36,7 +36,6 @@ uses
   fdForm in 'source\astro\fdForm.pas' {FormI},
   ddBase in 'source\astro\ddBase.pas' {dmBase: TDataModule},
   ddDialogs in 'source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
-  GLS.SkyDome in 'source\astro\GLS.SkyDome.pas',
   Vcl.Themes,
   Vcl.Styles,
   gnuGettext in 'source\astro\gnuGettext.pas';
@@ -48,7 +47,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.Title := 'AstroViewer';
   Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TfrmAstroViewer, frmAstroViewer);
+  Application.CreateForm(TfrmUniverse, frmUniverse);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);

@@ -34,7 +34,6 @@ object frmLitosphere: TfrmLitosphere
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 606
   end
   object PanelLeft: TPanel
     Left = 0

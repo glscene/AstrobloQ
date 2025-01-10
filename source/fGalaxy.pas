@@ -60,10 +60,10 @@ uses
  /// flLitosfera,
   uGlobals,
 
-  gnuGettext;
+  gnuGettext, fdForm;
 
 type
-  TfrmGalaktika = class(TFormI) // not translated if TForm
+  TfrmGalaxy = class(TFormI) // not translated if TForm
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -247,7 +247,7 @@ const
   crSlidezy = 10;
 
 var
-  frmGalaktika: TfrmGalaktika;
+  frmGalaxy: TfrmGalaxy;
 
 implementation //-------------------------------------------------------------
 
@@ -259,7 +259,7 @@ uses
 
 
 // -----------------------------------------------------------------------
-procedure TfrmGalaktika.FormCreate(Sender: TObject);
+procedure TfrmGalaxy.FormCreate(Sender: TObject);
 begin
   TP_GlobalIgnoreClassProperty(TAction, 'Category');
   TP_GlobalIgnoreClass(TStaticText);
@@ -276,7 +276,7 @@ begin
 end;
 
 // -----------------------------------------------------------
-procedure TfrmGalaktika.GLCadencerProgress(Sender: TObject;
+procedure TfrmGalaxy.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   if frmSettings.CheckBoxRotate.Checked and
@@ -297,13 +297,13 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TfrmGalaktika.GLAsyncTimerTimer(Sender: TObject);
+procedure TfrmGalaxy.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
 // ------------------------------------------------------------
-procedure TfrmGalaktika.MakeRandomStars;
+procedure TfrmGalaxy.MakeRandomStars;
 var
   i: Integer;
 begin
@@ -402,20 +402,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TfrmGalaktika.ButtonClearClick(Sender: TObject);
+procedure TfrmGalaxy.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TfrmGalaktika.ButtonAddStarsClick(Sender: TObject);
+procedure TfrmGalaxy.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TfrmGalaktika.chbAllClick(Sender: TObject);
+procedure TfrmGalaxy.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -427,27 +427,27 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TfrmGalaktika.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaxy.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TfrmGalaktika.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaxy.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
 // -----------------------------------------------------------------------
-procedure TfrmGalaktika.tbAxesClick(Sender: TObject);
+procedure TfrmGalaxy.tbAxesClick(Sender: TObject);
 begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
 //---------------------------------------------------------------------------
 
-procedure TfrmGalaktika.tbSolarcubeClick(Sender: TObject);
+procedure TfrmGalaxy.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -468,7 +468,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-function TfrmGalaktika.ReadHygStars: Boolean;
+function TfrmGalaxy.ReadHygStars: Boolean;
 var
   i: Integer;
 
@@ -538,7 +538,7 @@ end;
 // -------------------------------------------------------------
 //                         File menu
 // -------------------------------------------------------------
-procedure TfrmGalaktika.miOpenClick(Sender: TObject);
+procedure TfrmGalaxy.miOpenClick(Sender: TObject);
 begin
 //  dcSolcube.DeleteChildren();
   Stars.Free();
@@ -563,7 +563,7 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TfrmGalaktika.miSaveAsClick(Sender: TObject);
+procedure TfrmGalaxy.miSaveAsClick(Sender: TObject);
 begin
   if dmDialogs.SaveTextFileDialog.Execute then
     if FileExists(dmDialogs.SaveTextFileDialog.FileName) then
@@ -574,7 +574,7 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TfrmGalaktika.seNStarsChange(Sender: TObject);
+procedure TfrmGalaxy.seNStarsChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
   nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -586,12 +586,12 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TfrmGalaktika.miSettingsClick(Sender: TObject);
+procedure TfrmGalaxy.miSettingsClick(Sender: TObject);
 begin
   frmSettings.Show;
 end;
 
-procedure TfrmGalaktika.miNewStarcubeClick(Sender: TObject);
+procedure TfrmGalaxy.miNewStarcubeClick(Sender: TObject);
 begin
   with TFormNewStarcube.Create(Self) do
     try
@@ -604,7 +604,7 @@ end;
 //------------------------------------------------------------------------
 //                           View menu
 //------------------------------------------------------------------------
-procedure TfrmGalaktika.miExoplanetsClick(Sender: TObject);
+procedure TfrmGalaxy.miExoplanetsClick(Sender: TObject);
 begin
   with TFormExoplanets.Create(Self) do
     try
@@ -614,7 +614,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaktika.miLithosphereClick(Sender: TObject);
+procedure TfrmGalaxy.miLithosphereClick(Sender: TObject);
 begin
 {
   with TfrmLitosphere.Create(Self) do
@@ -626,7 +626,7 @@ begin
 }
 end;
 
-procedure TfrmGalaktika.miBiosphereClick(Sender: TObject);
+procedure TfrmGalaxy.miBiosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -636,7 +636,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaktika.miTechnosphereClick(Sender: TObject);
+procedure TfrmGalaxy.miTechnosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -646,7 +646,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaktika.miPanelShowClick(Sender: TObject);
+procedure TfrmGalaxy.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
@@ -656,7 +656,7 @@ end;
 //-----------------------------------------------------------------------
 //                         Tools menu
 //-----------------------------------------------------------------------
-procedure TfrmGalaktika.miMonitorClick(Sender: TObject);
+procedure TfrmGalaxy.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -666,7 +666,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaktika.miAnalyserClick(Sender: TObject);
+procedure TfrmGalaxy.miAnalyserClick(Sender: TObject);
 begin
   with TFormAnalyser.Create(Self) do
     try
@@ -676,7 +676,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaktika.miProjectionClick(Sender: TObject);
+procedure TfrmGalaxy.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -686,7 +686,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaktika.miParadoxClick(Sender: TObject);
+procedure TfrmGalaxy.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
     try
@@ -699,7 +699,7 @@ end;
 // -------------------------------------------------------------
 //                                Help menu
 // -------------------------------------------------------------
-procedure TfrmGalaktika.miAboutClick(Sender: TObject);
+procedure TfrmGalaxy.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -711,7 +711,7 @@ end;
 
 
 // -------------------------------------------------------------
-procedure TfrmGalaktika.miExitClick(Sender: TObject);
+procedure TfrmGalaxy.miExitClick(Sender: TObject);
 begin
   Close();
 end;

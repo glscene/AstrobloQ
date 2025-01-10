@@ -1,59 +1,44 @@
 object FormAstromif: TFormAstromif
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Astromif'
-  ClientHeight = 1035
-  ClientWidth = 1442
+  ClientHeight = 591
+  ClientWidth = 819
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 282
-    Height = 1001
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 161
+    Height = 572
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 547
     object PanelBottom: TPanel
       Left = 1
-      Top = 929
-      Width = 280
-      Height = 71
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 531
+      Width = 159
+      Height = 40
       Align = alBottom
       TabOrder = 0
+      ExplicitTop = 506
     end
     object tvConstellations: TTreeView
       Left = 1
       Top = 1
-      Width = 280
-      Height = 928
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 159
+      Height = 530
       Align = alClient
       Color = clWhite
       Images = dmImages.VirtConstelSymbols
-      Indent = 33
+      Indent = 27
       MultiSelect = True
       TabOrder = 1
       Items.NodeData = {
@@ -201,30 +186,27 @@ object FormAstromif: TFormAstromif
         FFFFFFFFFFFFFFFF00000000000000000000000000010656006F006C0061006E
         0073000000310000005700000057000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000109560075006C0070006500630075006C006100}
+      ExplicitHeight = 505
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 1001
-    Width = 1442
-    Height = 34
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 572
+    Width = 819
+    Height = 19
     Panels = <>
+    ExplicitTop = 547
+    ExplicitWidth = 811
   end
   object PanelRight: TPanel
-    Left = 1172
+    Left = 665
     Top = 0
-    Width = 270
-    Height = 1001
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 154
+    Height = 572
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 657
+    ExplicitHeight = 547
   end
   object GLScene: TGLScene
     Left = 178

@@ -64,12 +64,12 @@ uses
   flGenExosys,
   flSettings,
   fForm,
-  gnuGettext
+  gnuGettext, fdForm
   ;
 
 
 type
-  TfrmLitosphere = class(TFormI) // not translated when TForm
+  TfrmLitosphere = class(TFormG) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;

@@ -131,7 +131,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fForm.pas">
-            <Form>FormI</Form>
+            <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\ucode\uMoveCamera.pas"/>
@@ -151,6 +151,10 @@
         <DCCReference Include="source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="source\teh\Teh.Globals.pas"/>
         <DCCReference Include="source\ucode\gnuGettext.pas"/>
+        <DCCReference Include="source\astro\fdForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -185,6 +189,12 @@
             <Deployment Version="5">
                 <DeployFile LocalName="Bin\Technosphere.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Tehnosfera.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>

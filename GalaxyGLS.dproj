@@ -126,7 +126,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="source\fGalaxy.pas">
-            <Form>frmGalaktika</Form>
+            <Form>frmGalaxy</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\dImages.pas">
@@ -173,7 +173,7 @@
         </DCCReference>
         <DCCReference Include="source\ucode\uGlobals.pas"/>
         <DCCReference Include="source\fForm.pas">
-            <Form>FormI</Form>
+            <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fNewStarcube.pas">
@@ -183,6 +183,10 @@
         <DCCReference Include="source\ucode\uSkyBodies.pas"/>
         <DCCReference Include="source\ucode\gnuGettext.pas"/>
         <DCCReference Include="Source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="source\astro\fdForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -1,4 +1,4 @@
-object FormI: TFormI
+object FormG: TFormG
   Left = 392
   Top = 227
   HelpContext = 1

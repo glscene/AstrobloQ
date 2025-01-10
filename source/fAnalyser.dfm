@@ -3,8 +3,6 @@ inherited FormAnalyser: TFormAnalyser
   ClientHeight = 744
   ClientWidth = 1182
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1198
   ExplicitHeight = 783
   TextHeight = 30
@@ -28,7 +26,6 @@ inherited FormAnalyser: TFormAnalyser
       006800770061007900000039000000010000000100000001000000FFFFFFFF00
       000000000000000000000000010D4400720061006B006500200066006F007200
       6D0075006C006100}
-    ExplicitHeight = 647
   end
   object PageControl: TPageControl
     Left = 211
@@ -42,8 +39,6 @@ inherited FormAnalyser: TFormAnalyser
     ActivePage = tsAverageDistance
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 963
-    ExplicitHeight = 617
     object tsAverageDistance: TTabSheet
       Margins.Left = 5
       Margins.Top = 5
@@ -122,8 +117,6 @@ inherited FormAnalyser: TFormAnalyser
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 647
-    ExplicitWidth = 1174
     object ButtonOk: TButton
       Left = 981
       Top = 10

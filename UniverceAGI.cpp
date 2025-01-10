@@ -4,15 +4,15 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("Source\actro\dcBase.cpp", dmBase); /* TDataModule: File Type */
-USEFORM("Source\actro\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
-USEFORM("Source\actro\dcImages.cpp", dmImages); /* TDataModule: File Type */
-USEFORM("Source\actro\fcAbout.cpp", FormAbout);
-USEFORM("Source\actro\fcAstroViewer.cpp", FormAstroviewer);
-USEFORM("Source\actro\fcForm.cpp", FormC);
-USEFORM("Source\actro\fcHercRussel.cpp", FormHercRussel);
-USEFORM("Source\actro\fcHipparcos.cpp", FormHipparcos);
 USEFORM("Source\actro\fcSettings.cpp", FormSettings);
+USEFORM("Source\actro\fcHipparcos.cpp", FormHipparcos);
+USEFORM("Source\actro\dcImages.cpp", dmImages); /* TDataModule: File Type */
+USEFORM("Source\actro\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
+USEFORM("Source\actro\dcBase.cpp", dmBase); /* TDataModule: File Type */
+USEFORM("Source\actro\fcHercRussel.cpp", FormHercRussel);
+USEFORM("Source\actro\fcForm.cpp", FormC);
+USEFORM("Source\actro\fcAstroViewer.cpp", FormAstroviewer);
+USEFORM("Source\actro\fcAbout.cpp", FormAbout);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

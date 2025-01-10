@@ -34,10 +34,11 @@ uses
 
 
   gnuGettext,
-  fForm;
+  fForm,
+  fdForm;
 
 type
-  TfrmSettingsLito = class(TFormI)
+  TfrmSettingsLito = class(TFormG)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;

@@ -254,8 +254,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="Phys.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Phys.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Phys.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="Phys.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">

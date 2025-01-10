@@ -49,9 +49,10 @@ var
   N: Integer;
 begin
   Path := LowerCase(ExtractFilePath(ParamStr(0)));
-  N := Pos('addons', Path);
+//  N := Pos('addons', Path);
+  N := Pos('astrobloq', Path);
   Delete(Path, N, Length(path));
-  Path := IncludeTrailingPathDelimiter(Path) + 'assets';
+  Path := IncludeTrailingPathDelimiter(Path) + 'astrobloq/assets';
   SetCurrentDir(Path);
   Result := Path;
 end;
@@ -62,9 +63,9 @@ var
   N: Integer;
 begin
   Path := LowerCase(ExtractFilePath(ParamStr(0)));
-  N := Pos('plugins', Path);
+  N := Pos('astrobloq', Path);
   Delete(Path, N, Length(path));
-  Path := IncludeTrailingPathDelimiter(Path) + 'data';
+  Path := IncludeTrailingPathDelimiter(Path) + 'astrobloq/data';
   SetCurrentDir(Path);
   Result := Path;
 end;

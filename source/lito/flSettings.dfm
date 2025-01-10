@@ -2,49 +2,36 @@ object frmSettingsLito: TfrmSettingsLito
   Left = 0
   Top = 0
   Hint = 'Longevity'
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   BorderStyle = bsDialog
   Caption = 'Settings'
-  ClientHeight = 775
-  ClientWidth = 1313
+  ClientHeight = 443
+  ClientWidth = 750
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesigned
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object PanelBottom: TPanel
     Left = 0
-    Top = 704
-    Width = 1313
-    Height = 71
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 402
+    Width = 750
+    Height = 41
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
     DesignSize = (
-      1313
-      71)
+      750
+      41)
     object ButtonOK: TButton
-      Left = 1054
-      Top = 2
-      Width = 172
-      Height = 54
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 602
+      Top = 1
+      Width = 99
+      Height = 31
       Anchors = [akTop, akRight]
       Caption = 'OK'
       ModalResult = 1
@@ -54,67 +41,47 @@ object frmSettingsLito: TfrmSettingsLito
   end
   object PanelMiddle: TPanel
     Left = 0
-    Top = 16
-    Width = 1313
-    Height = 688
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 9
+    Width = 750
+    Height = 393
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
     object PageControl: TPageControl
-      Left = 292
+      Left = 169
       Top = 5
-      Width = 1016
-      Height = 678
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 576
+      Height = 383
       ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
       object tsDisplay: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Display'
         ImageIndex = 4
         TabVisible = False
       end
       object tsStars: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Stars'
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
-          1008
-          668)
+          568
+          373)
         object chlbStarClasses: TCheckListBox
-          Left = 71
-          Top = 240
-          Width = 182
-          Height = 223
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 33
+          Top = 137
+          Width = 104
+          Height = 128
           Anchors = [akTop, akRight]
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = 26
+          Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 30
+          ItemHeight = 17
           Items.Strings = (
             'O'
             'B'
@@ -129,73 +96,49 @@ object frmSettingsLito: TfrmSettingsLito
           TabOrder = 0
         end
         object GroupBox2: TGroupBox
-          Left = 56
-          Top = 42
-          Width = 771
-          Height = 113
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 32
+          Top = 24
+          Width = 441
+          Height = 65
           Caption = 'Constellations'
           TabOrder = 1
           object chbConstFigures: TCheckBox
-            Left = 479
-            Top = 42
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 274
+            Top = 24
+            Width = 79
+            Height = 17
             Caption = 'Figures'
             TabOrder = 0
           end
           object chbConstLines: TCheckBox
-            Left = 45
-            Top = 42
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 26
+            Top = 24
+            Width = 79
+            Height = 17
             Caption = 'Lines'
             TabOrder = 1
           end
           object chbConstBounds: TCheckBox
-            Left = 241
-            Top = 42
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 138
+            Top = 24
+            Width = 79
+            Height = 17
             Caption = 'Borders'
             TabOrder = 2
           end
         end
         object gbShowStars: TGroupBox
-          Left = 322
-          Top = 240
-          Width = 491
-          Height = 223
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 184
+          Top = 137
+          Width = 281
+          Height = 128
           Caption = 'Show stars'
           TabOrder = 2
           object chbSkyGrid: TCheckBox
-            Left = 27
-            Top = 81
-            Width = 254
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 15
+            Top = 46
+            Width = 146
+            Height = 17
             Caption = 'Sky grid'
             TabOrder = 0
             StyleName = 'Windows'
@@ -204,185 +147,124 @@ object frmSettingsLito: TfrmSettingsLito
         end
       end
       object tsPlanets: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Planets'
         ImageIndex = 6
         TabVisible = False
         object grbPlanetGuts: TGroupBox
-          Left = 70
-          Top = 5
-          Width = 309
-          Height = 301
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 40
+          Top = 3
+          Width = 177
+          Height = 172
           Caption = 'Layers'
           TabOrder = 0
           object LabelIce: TLabel
-            Left = 42
-            Top = 38
-            Width = 27
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 24
+            Top = 22
+            Width = 15
+            Height = 15
             Alignment = taCenter
             Caption = 'Ice'
           end
           object LabelWater: TLabel
-            Left = 42
-            Top = 94
-            Width = 55
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 24
+            Top = 54
+            Width = 31
+            Height = 15
             Alignment = taCenter
             Caption = 'Water'
           end
           object LabelCrust: TLabel
-            Left = 42
-            Top = 147
-            Width = 48
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 24
+            Top = 84
+            Width = 28
+            Height = 15
             Alignment = taCenter
             Caption = 'Crust'
           end
           object LabelMantle: TLabel
-            Left = 42
-            Top = 198
-            Width = 65
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 24
+            Top = 113
+            Width = 37
+            Height = 15
             Alignment = taCenter
             Caption = 'Mantle'
           end
           object LabelCore: TLabel
-            Left = 42
-            Top = 251
-            Width = 43
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 24
+            Top = 143
+            Width = 25
+            Height = 15
             Alignment = taCenter
             Caption = 'Core'
           end
           object nbIce: TNumberBox
-            Left = 168
-            Top = 22
-            Width = 85
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 96
+            Top = 13
+            Width = 49
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
             TabOrder = 0
             Value = 0.010000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbWater: TNumberBox
-            Left = 168
-            Top = 75
-            Width = 85
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 96
+            Top = 43
+            Width = 49
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
             TabOrder = 1
             Value = 0.090000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbCrust: TNumberBox
-            Left = 168
-            Top = 135
-            Width = 85
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 96
+            Top = 77
+            Width = 49
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
             TabOrder = 2
             Value = 0.100000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbMantle: TNumberBox
-            Left = 168
-            Top = 195
-            Width = 85
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 96
+            Top = 111
+            Width = 49
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
             TabOrder = 3
             Value = 0.600000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbCore: TNumberBox
-            Left = 168
-            Top = 243
-            Width = 85
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 96
+            Top = 139
+            Width = 49
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
             TabOrder = 4
             Value = 0.200000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
         end
         object grbShowPlanets: TGroupBox
-          Left = 70
-          Top = 324
-          Width = 911
-          Height = 287
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 40
+          Top = 185
+          Width = 521
+          Height = 164
           Caption = 'Show'
           TabOrder = 1
           object CheckBoxRotate: TCheckBox
-            Left = 57
-            Top = 52
-            Width = 145
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 33
+            Top = 30
+            Width = 82
+            Height = 16
             Caption = 'Rotation'
             Checked = True
             State = cbChecked
@@ -390,97 +272,69 @@ object frmSettingsLito: TfrmSettingsLito
             StyleName = 'Windows'
           end
           object CheckBoxAxes: TCheckBox
-            Left = 57
-            Top = 193
-            Width = 133
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 33
+            Top = 110
+            Width = 76
+            Height = 17
             Caption = 'Axes'
             TabOrder = 1
             StyleName = 'Windows'
             OnClick = CheckBoxAxesClick
           end
           object CheckBox4: TCheckBox
-            Left = 237
-            Top = 190
-            Width = 183
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 135
+            Top = 109
+            Width = 105
+            Height = 16
             Caption = 'Shading'
             TabOrder = 2
             StyleName = 'Windows'
           end
           object CheckBoxCore: TCheckBox
-            Left = 237
-            Top = 55
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 135
+            Top = 31
+            Width = 98
+            Height = 18
             Caption = 'Core'
             TabOrder = 3
             StyleName = 'Windows'
             OnClick = CheckBoxCoreClick
           end
           object CheckBoxAtmosfera: TCheckBox
-            Left = 55
-            Top = 123
-            Width = 156
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 31
+            Top = 70
+            Width = 90
+            Height = 17
             Caption = 'Atmosphere'
             TabOrder = 4
             StyleName = 'Windows'
             OnClick = CheckBoxAtmosferaClick
           end
           object chbClouds: TCheckBox
-            Left = 237
-            Top = 128
-            Width = 170
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 135
+            Top = 73
+            Width = 98
+            Height = 17
             Caption = 'Clouds'
             TabOrder = 5
             StyleName = 'Windows'
             OnClick = CheckBoxCoreClick
           end
           object chbCartographicGrid: TCheckBox
-            Left = 433
-            Top = 114
-            Width = 212
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 247
+            Top = 65
+            Width = 122
+            Height = 17
             Caption = 'Cartographic Grid'
             TabOrder = 6
             StyleName = 'Windows'
             OnClick = chbCartographicGridClick
           end
           object CheckBoxHidePlanet: TCheckBox
-            Left = 433
-            Top = 55
-            Width = 212
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 247
+            Top = 31
+            Width = 122
+            Height = 18
             Caption = 'Hide'
             TabOrder = 7
             StyleName = 'Windows'
@@ -488,173 +342,120 @@ object frmSettingsLito: TfrmSettingsLito
           end
         end
         object grbPlanetParams: TGroupBox
-          Left = 532
-          Top = 5
-          Width = 337
-          Height = 309
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 304
+          Top = 3
+          Width = 193
+          Height = 176
           Caption = 'Planet'
           TabOrder = 2
           object LabelPlanetTilt: TLabel
-            Left = 19
-            Top = 146
-            Width = 68
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 11
+            Top = 83
+            Width = 39
+            Height = 15
             Alignment = taCenter
             Caption = 'Axis tilt'
           end
           object LabelPlanetDensity: TLabel
-            Left = 19
-            Top = 87
-            Width = 69
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 11
+            Top = 50
+            Width = 39
+            Height = 15
             Alignment = taCenter
             Caption = 'Density'
           end
           object LabelPlanetRadius: TLabel
-            Left = 19
-            Top = 30
-            Width = 62
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 11
+            Top = 17
+            Width = 35
+            Height = 15
             Alignment = taCenter
             Caption = 'Radius'
           end
           object LabelGravityAccel: TLabel
-            Left = 19
-            Top = 209
-            Width = 70
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 11
+            Top = 119
+            Width = 40
+            Height = 15
             Alignment = taCenter
             Caption = 'Gravity '
           end
           object Label6: TLabel
-            Left = 19
-            Top = 257
-            Width = 116
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 11
+            Top = 147
+            Width = 66
+            Height = 15
             Alignment = taCenter
             Caption = 'Temperature'
           end
           object nbTilt: TNumberBox
-            Left = 202
-            Top = 143
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 115
+            Top = 82
+            Width = 65
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MinValue = -90.000000000000000000
             MaxValue = 90.000000000000000000
             TabOrder = 0
             Value = 32.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbDensity: TNumberBox
-            Left = 202
-            Top = 84
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 115
+            Top = 48
+            Width = 65
+            Height = 23
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 30.000000000000000000
             TabOrder = 1
             Value = 5.510000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbRadius: TNumberBox
-            Left = 202
-            Top = 27
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 115
+            Top = 15
+            Width = 65
+            Height = 23
             Alignment = taCenter
             MaxValue = 100000.000000000000000000
             TabOrder = 2
             Value = 6371.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object nbGravityAccel: TNumberBox
-            Left = 202
-            Top = 206
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 115
+            Top = 118
+            Width = 65
+            Height = 23
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
             MaxValue = 100.000000000000000000
             TabOrder = 3
             Value = 9.800000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
           object NumberBox7: TNumberBox
-            Left = 193
-            Top = 254
-            Width = 113
-            Height = 38
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
+            Left = 110
+            Top = 145
+            Width = 65
+            Height = 23
             Alignment = taCenter
             Decimal = 0
             MinValue = -373.000000000000000000
             MaxValue = 1000.000000000000000000
             TabOrder = 4
             Value = 27.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
           end
         end
       end
       object tsGeneral: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'General'
         ImageIndex = 7
         TabVisible = False
         object rgLanguage: TRadioGroup
-          Left = 299
-          Top = 116
-          Width = 388
-          Height = 109
+          Left = 171
+          Top = 66
+          Width = 222
+          Height = 63
           Caption = 'Language'
           Columns = 2
           ItemIndex = 0
@@ -669,17 +470,13 @@ object frmSettingsLito: TfrmSettingsLito
     object tvOptions: TTreeView
       Left = 5
       Top = 5
-      Width = 287
-      Height = 678
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 164
+      Height = 383
       Align = alLeft
       AutoExpand = True
       HotTrack = True
       Images = ImageList
-      Indent = 33
+      Indent = 19
       TabOrder = 1
       OnClick = tvOptionsClick
       Items.NodeData = {
@@ -690,17 +487,16 @@ object frmSettingsLito: TfrmSettingsLito
         2D0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000
         00010750006C0061006E006500740073000000290000000000000000000000FF
         FFFFFFFFFFFFFF00000000000000000000000000010553007400610072007300}
+      ExplicitLeft = 3
+      ExplicitTop = 3
+      ExplicitHeight = 387
     end
   end
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 1313
-    Height = 16
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 750
+    Height = 9
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2

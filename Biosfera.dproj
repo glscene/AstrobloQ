@@ -276,7 +276,7 @@
         </DCCReference>
         <DCCReference Include="source\bio\fbMiniForm.pas"/>
         <DCCReference Include="source\fForm.pas">
-            <Form>FormI</Form>
+            <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\ucode\uGlobals.pas"/>

@@ -253,8 +253,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="Sunset.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Sunset.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Sunset.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="Sunset.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">

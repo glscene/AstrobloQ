@@ -133,12 +133,16 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fForm.pas">
-            <Form>FormI</Form>
+            <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\ucode\uMoveCamera.pas"/>
         <DCCReference Include="source\ucode\uSkyBodies.pas"/>
         <DCCReference Include="source\ucode\gnuGettext.pas"/>
+        <DCCReference Include="source\astro\fdForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -172,6 +176,12 @@
             </Platforms>
             <Deployment Version="5">
                 <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Litosfera.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="TerraPlanets.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">

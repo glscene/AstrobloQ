@@ -237,8 +237,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="PPMcat.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="PPMcat.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="PPMcat.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="PPMcat.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">

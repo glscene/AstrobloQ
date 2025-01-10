@@ -503,6 +503,10 @@ begin
   SetCurrentDir(PathToData  + '\font');
   GLBitmapFont.Glyphs.LoadFromFile('goldfont.bmp');
 
+
+  PathToData := GetDataPath(); //path to 'data';
+  CurrentPath := PathToData;
+  SetCurrentDir(PathToData);
   ConstNames := CurrentPath + '\constellation\ConstNames.dat';
     tvConstellations.LoadFromFile(ConstNames);
 //  ConstNames := CurrentPath + '\constellation\ConstShortNames.dat';

@@ -20,10 +20,11 @@ uses
   flSettings in 'source\lito\flSettings.pas' {frmSettingsLito},
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
   flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
-  fForm in 'source\fForm.pas' {FormI},
+  fForm in 'source\fForm.pas' {FormG},
   uMoveCamera in 'source\ucode\uMoveCamera.pas',
   uSkyBodies in 'source\ucode\uSkyBodies.pas',
-  gnuGettext in 'source\ucode\gnuGettext.pas';
+  gnuGettext in 'source\ucode\gnuGettext.pas',
+  fdForm in 'source\astro\fdForm.pas' {FormI};
 
 {$R *.res}
 
@@ -32,6 +33,7 @@ begin
   Application.CreateForm(TfrmLitosphere, frmLitosphere);
   Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TfrmSettingsLito, frmSettingsLito);
+  Application.CreateForm(TFormG, FormG);
   Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

@@ -1,4 +1,4 @@
-unit fdAstroViewer;
+unit fdUniverse;
 
 interface
 
@@ -59,7 +59,7 @@ uses
   gnugettext;
 
 type
-  TfrmAstroViewer = class(TFormI)
+  TfrmUniverse = class(TFormI)
     GLScene: TGLScene;
     MainMenu: TMainMenu;
     Timer: TTimer;
@@ -170,16 +170,13 @@ type
     ConstellationsAlpha: Single;
   public
     FileName: TFileName;
-    // Загрузить линии созвездий
     procedure LoadConstLines(const aDataPath: TFileName);
-    // Загрузить границы созвездий
     procedure LoadConstBorders(const aDataPath: TFileName);
-    // Загрузить символы Байера для звёзд
     procedure LoadStarBayers(const aDataPath: TFileName);
   end;
 
 var
-  frmAstroViewer: TfrmAstroViewer;
+  frmUniverse: TfrmUniverse;
   AssetsDir, DataDir, CurrDir: TFileName;
 
 const
@@ -191,7 +188,7 @@ implementation //--------------------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmAstroViewer.FormCreate(Sender: TObject);
+procedure TfrmUniverse.FormCreate(Sender: TObject);
 begin
   inherited;
 
@@ -219,7 +216,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmAstroViewer.FormShow(Sender: TObject);
+procedure TfrmUniverse.FormShow(Sender: TObject);
 begin
   // Planets
   tvPlanets.Select(tvPlanets.Items[3]); // show Earth
@@ -236,7 +233,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.LoadConstLines(const aDataPath: TFileName);
+procedure TfrmUniverse.LoadConstLines(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -258,7 +255,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.LoadConstBorders(const aDataPath: TFileName);
+procedure TfrmUniverse.LoadConstBorders(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   SkyPos: TAffineVector;
@@ -279,15 +276,15 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.LoadStarBayers(const aDataPath: TFileName);
+procedure TfrmUniverse.LoadStarBayers(const aDataPath: TFileName);
 begin
   //
 end;
 
 //------------------------------------------------------------------
-// Настройка анимации и вращения планет по орбитам
+// Rotation of celestial bodies on orbits
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.GLCadencerProgress(Sender: TObject;
+procedure TfrmUniverse.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   if frmSettings.CheckBoxRotate.Checked then
@@ -297,7 +294,7 @@ begin
   end;
 
 (*
-  Изменение скорости вращения
+  Changing velocity
   if frmSettings.CheckboxRotate.Checked then
     sfPlanet.TurnAngle := 10 * NewTime
   else
@@ -306,13 +303,13 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvConstellationsClick(Sender: TObject);
+procedure TfrmUniverse.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvConstellationsContextPopup(Sender: TObject;
+procedure TfrmUniverse.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
   tmpNode: TTreeNode;
@@ -323,7 +320,7 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvPlanetsClick(Sender: TObject);
+procedure TfrmUniverse.tvPlanetsClick(Sender: TObject);
 begin
   case tvPlanets.Selected.Index of
      0: begin
@@ -420,12 +417,12 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvZodiacsClick(Sender: TObject);
+procedure TfrmUniverse.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
-procedure TfrmAstroViewer.miConstPolygonsClick(Sender: TObject);
+procedure TfrmUniverse.miConstPolygonsClick(Sender: TObject);
 begin
   with TFormConstBorders.Create(Self) do
   try
@@ -435,7 +432,7 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miTopoCoordinatesClick(Sender: TObject);
+procedure TfrmUniverse.miTopoCoordinatesClick(Sender: TObject);
 begin
   with TFormCoords.Create(Self) do
   try
@@ -445,7 +442,7 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miHercrusselClick(Sender: TObject);
+procedure TfrmUniverse.miHercrusselClick(Sender: TObject);
 begin
   with TFormHercrussel.Create(Self) do
   try
@@ -455,7 +452,7 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miHipparcosClick(Sender: TObject);
+procedure TfrmUniverse.miHipparcosClick(Sender: TObject);
 begin
   with TFormHipparcos.Create(Self) do
   try
@@ -465,13 +462,13 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miOpenClick(Sender: TObject);
+procedure TfrmUniverse.miOpenClick(Sender: TObject);
 begin
   //
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miPointtoClick(Sender: TObject);
+procedure TfrmUniverse.miPointtoClick(Sender: TObject);
 begin
   with TFormPointto.Create(Self) do
   try
@@ -482,13 +479,13 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miSettingsClick(Sender: TObject);
+procedure TfrmUniverse.miSettingsClick(Sender: TObject);
 begin
   frmSettings.Show;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miHelpAboutClick(Sender: TObject);
+procedure TfrmUniverse.miHelpAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
   try
@@ -499,20 +496,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.chbAxiesClick(Sender: TObject);
+procedure TfrmUniverse.chbAxiesClick(Sender: TObject);
 begin
   sfPlanet.ShowAxes := frmSettings.CheckBoxAxes.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.chbPlanetGridClick(Sender: TObject);
+procedure TfrmUniverse.chbPlanetGridClick(Sender: TObject);
 begin
   TorusGreenwich.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
   TorusEquator.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miHelpWikiClick(Sender: TObject);
+procedure TfrmUniverse.miHelpWikiClick(Sender: TObject);
 begin
   // if en then
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
@@ -524,7 +521,7 @@ end;
 
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miExitClick(Sender: TObject);
+procedure TfrmUniverse.miExitClick(Sender: TObject);
 begin
   Close;
 end;

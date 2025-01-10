@@ -37,10 +37,10 @@ uses
 
   uGlobals,
   dImages,
-  fForm;
+  fForm, fdForm;
 
 type
-  TfrmSettings = class(TFormI)
+  TfrmSettings = class(TFormG)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;

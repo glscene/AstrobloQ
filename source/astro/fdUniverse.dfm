@@ -1,7 +1,7 @@
-object frmAstroViewer: TfrmAstroViewer
+object frmUniverse: TfrmUniverse
   Left = 0
   Top = 0
-  Caption = 'AstroViewer'
+  Caption = 'UniverseAGI'
   ClientHeight = 642
   ClientWidth = 930
   Color = clBtnFace
@@ -194,10 +194,10 @@ object frmAstroViewer: TfrmAstroViewer
         ExplicitHeight = 397
       end
       object VirtualImageFigures: TVirtualImage
-        Left = 215
-        Top = 267
-        Width = 176
-        Height = 126
+        Left = 703
+        Top = 408
+        Width = 216
+        Height = 151
         ImageCollection = dmImages.ConstelFigures
         ImageWidth = 0
         ImageHeight = 0
@@ -856,7 +856,7 @@ object frmAstroViewer: TfrmAstroViewer
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = 'AstroViewer - %FPS'
+    FormCaption = 'UniverseAGI - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

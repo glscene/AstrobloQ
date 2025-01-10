@@ -55,11 +55,11 @@ uses
   flParams,
 
   fForm,
-  gnuGettext
+  gnuGettext, fdForm
   ;
 
 type
-  TFormSolarSys = class(TFormI) // not translated when TForm
+  TFormSolarSys = class(TFormG) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

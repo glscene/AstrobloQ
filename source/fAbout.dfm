@@ -21,7 +21,7 @@ object FormAbout: TFormAbout
     Height = 65
     Align = alTop
     BorderWidth = 10
-    Caption = 'Galaxy GLS'
+    Caption = 'GalaxyGLS'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -40

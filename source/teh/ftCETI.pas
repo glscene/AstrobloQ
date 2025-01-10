@@ -45,10 +45,11 @@ uses
   GLS.BaseClasses,
 
   gnugettext,
-  fForm;
+  fForm,
+  fdForm;
 
 type
-  TFormTehnosfera = class(TFormI)
+  TFormTehnosfera = class(TFormG)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;

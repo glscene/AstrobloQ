@@ -14,10 +14,10 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
 
-  fForm;
+  fForm, fdForm;
 
 type
-  TFormParadox = class(TFormI)
+  TFormParadox = class(TFormG)
     tvParadox: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
@@ -28,7 +28,7 @@ type
 var
   FormParadox: TFormParadox;
 
-implementation
+implementation //------------------------------------------------------------
 
 {$R *.dfm}
 

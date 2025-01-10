@@ -252,8 +252,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="Planetrise.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Planetrise.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Planetrise.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="Planetrise.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">

@@ -23,7 +23,7 @@ uses
   fForm;
 
 type
-  TFormAbout = class(TFormI)
+  TFormAbout = class(TFormG)
     Panel1: TPanel;
     PageControl: TPageControl;
     tsStars: TTabSheet;
@@ -70,7 +70,7 @@ end;
 
 procedure TFormAbout.FormCreate(Sender: TObject);
 begin
-  if FormI.ActiveLang = LANG_ENGLISH then
+  if FormG.ActiveLang = LANG_ENGLISH then
   begin
     ImageLito_en.Visible := True;
     ImageLito_ru.Visible := False;

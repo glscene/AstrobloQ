@@ -1,4 +1,4 @@
-object frmGalaktika: TfrmGalaktika
+object frmGalaxy: TfrmGalaxy
   Left = 0
   Top = 0
   Caption = 'GalaxyGLS'
@@ -921,13 +921,13 @@ object frmGalaktika: TfrmGalaktika
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 557
-    Top = 212
+    Left = 269
+    Top = 236
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'GalaxyGLS - %FPS'
+    FormCaption = 'GalaxyAGI - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -941,7 +941,7 @@ object frmGalaktika: TfrmGalaktika
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 676
-    Top = 355
+    Left = 532
+    Top = 243
   end
 end

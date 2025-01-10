@@ -17,10 +17,11 @@ uses
   Vcl.NumberBox,
   Vcl.ExtCtrls,
 
-  fForm;
+  fForm,
+  fdForm;
 
 type
-  TFormAnalyser = class(TFormI)
+  TFormAnalyser = class(TFormG)
     tvAnalyzer: TTreeView;
     PageControl: TPageControl;
     tsAverageDistance: TTabSheet;

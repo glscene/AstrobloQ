@@ -22,7 +22,7 @@ uses
   gnuGettext;
 
 type
-  TFormI = class(TForm)
+  TFormG = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -32,21 +32,21 @@ type
   end;
 
 var
-  FormI: TFormI;
+  FormG: TFormG;
 
 implementation //-----------------------------------------------------------
 
 {$R *.dfm}
 
 //
-procedure TFormI.FormCreate(Sender: TObject);
+procedure TFormG.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
   SetLanguage;
 end;
 
 //-------------------------------------------------------------------------
-procedure TFormI.SetLanguage;
+procedure TFormG.SetLanguage;
 var
   LocalePath : TFileName;
 begin
@@ -78,7 +78,7 @@ end;
 
 
 //------------------------------------------------------------------------
-procedure TFormI.ReadIniFile;
+procedure TFormG.ReadIniFile;
 var
   IniFile: TIniFile;
 begin

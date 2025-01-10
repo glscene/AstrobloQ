@@ -18,10 +18,10 @@ uses
 
   fForm,
 ///  fStarLife,
-  fStarProj;
+  fStarProj, fdForm;
 
 type
-  TFormMonitor = class(TFormI)
+  TFormMonitor = class(TFormG)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     TreeView1: TTreeView;

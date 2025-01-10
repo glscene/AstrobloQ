@@ -54,11 +54,11 @@ uses
   flParams,
 
   fForm,
-  gnuGettext
+  gnuGettext, fdForm
   ;
 
 type
-  TFormStarSys = class(TFormI)  // not translated when TForm
+  TFormStarSys = class(TFormG)  // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
