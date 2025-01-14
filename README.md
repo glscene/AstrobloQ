@@ -47,7 +47,7 @@ Tehnosfera - техносферы экзопланетных систем с м�
 и AI (Astro Intelligence & Artificial Intelligence).   
 Дополнительная информация о звёздном составе и строении невидимой за ядром части Галактики, 
 в том числе оценка плотности распределения зон обитаемости, может быть получена в результате подключения
-к интергалактической CETI постсингулярных техносфер.  
+к галактической CETI техносфер.  
 
 ![Technosphere](./docs/screenshots/Tehnosfera.png)
 
@@ -67,6 +67,5 @@ Tehnosfera - техносферы экзопланетных систем с м�
 [Админ](https://t.me/glscene)
 
 Компании и организации: 
-[AstrobloQ](https://gitflic.ru/company/astrobloq);
-[UniversеAGI](https://gitflic.ru/company/universeagi);
-[UniverseCETI](https://gitverse.ru/universeceti/galaxyceti);
+[GalaxyCETI](https://gitflic.ru/company/galaxyceti);
+[UniversеCETI](https://gitverse.ru/universeceti);
