@@ -66,5 +66,4 @@ Tehnosfera - техносферы экзопланетных систем с м�
 [Админ](https://t.me/glscene)
 
 Компании и организации: 
-[GalaxyCETI](https://gitflic.ru/company/galaxyceti);
 [UniversеCETI](https://gitverse.ru/universeceti);
