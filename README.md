@@ -19,7 +19,6 @@
 российской онлайн-энциклопедии Рувики [Галактика](https://ru.ruwiki.ru/wiki/Галактика)
  
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
-![GalaxyGrid](./docs/clips/GalaxyGrid.gif)
 ![GalaxyCETI](./docs/screenshots/GalaxyCETI_ru.png)
 
 Репозиторий AstrobloQ включает базовые проекты, аддоны и плагины стартапов:
