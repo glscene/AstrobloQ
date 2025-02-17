@@ -7,9 +7,9 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("source\fmxcpp\fcSettings.cpp", FormSettings);
-USEFORM("source\fmxcpp\fcGalaxy.cpp", FormGalaxyc);
-USEFORM("source\fmxcpp\fcAbout.cpp", FormAbout);
+USEFORM("..\source\fmxcpp\fcSettings.cpp", FormSettings);
+USEFORM("..\source\fmxcpp\fcGalaxy.cpp", FormGalaxyc);
+USEFORM("..\source\fmxcpp\fcAbout.cpp", FormAbout);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {

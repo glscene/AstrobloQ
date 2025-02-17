@@ -18,13 +18,13 @@
         <Projects Include="GalaxyGXS.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="GalaxyGXC.cbproj">
+        <Projects Include="Projects\GalaxyGXC.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="UniverseAGI.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="UniverceAGI.cbproj">
+        <Projects Include="Projects\UniverceAGI.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -81,13 +81,13 @@
         <MSBuild Projects="GalaxyGXS.dproj" Targets="Make"/>
     </Target>
     <Target Name="GalaxyGXC">
-        <MSBuild Projects="GalaxyGXC.cbproj"/>
+        <MSBuild Projects="Projects\GalaxyGXC.cbproj"/>
     </Target>
     <Target Name="GalaxyGXC:Clean">
-        <MSBuild Projects="GalaxyGXC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\GalaxyGXC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="GalaxyGXC:Make">
-        <MSBuild Projects="GalaxyGXC.cbproj" Targets="Make"/>
+        <MSBuild Projects="Projects\GalaxyGXC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="UniverseAGI">
         <MSBuild Projects="UniverseAGI.dproj"/>
@@ -99,13 +99,13 @@
         <MSBuild Projects="UniverseAGI.dproj" Targets="Make"/>
     </Target>
     <Target Name="UniverceAGI">
-        <MSBuild Projects="UniverceAGI.cbproj"/>
+        <MSBuild Projects="Projects\UniverceAGI.cbproj"/>
     </Target>
     <Target Name="UniverceAGI:Clean">
-        <MSBuild Projects="UniverceAGI.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\UniverceAGI.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="UniverceAGI:Make">
-        <MSBuild Projects="UniverceAGI.cbproj" Targets="Make"/>
+        <MSBuild Projects="Projects\UniverceAGI.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXS;GalaxyGXC;UniverseAGI;UniverceAGI"/>

@@ -58,7 +58,9 @@ Tehnosfera - техносферы экзопланетных систем с м�
 к галактической CETI техносфер.  
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
 
-## GalaxyAGI & UniverseAGI - виртуальные астромодели Галактики и Вселенной, эволюции звёзд, коэволюции и конволюции небесных тел. 
+## GalaxyAGI & UniverseAGI
+
+Астромодели Галактики и Вселенной, эволюции звёзд, коэволюции и конволюции небесных тел. 
 
 ![GalaxyGrid_ru](./docs/screenshots/GalaxyGrid_ru.png)
 
