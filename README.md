@@ -5,7 +5,7 @@
 Визуализация основана на графическом движке [GLXEngine](https://gitverse.ru/glscene)
 с поддержкой OpenGL, Directx и Vulkan при разработке проектов с AI-ассистентом [GigaCode](https://gitverse.ru/services/gigacode) 
   
-Сборка AstrobloQ осуществляется путём компиляции C/C++/Delphi библиотек с открытым исходным кодом, в том числе 
+Сборка проектов AstrobloQ выполняется путём компиляции C/C++/Delphi с подключением библиотек открытого исходного кода, опенсорс, в том числе 
 [Astronomy](https://github.com/cosinekitty/astronomy), 
 [SOFA](http://iausofa.org/current_C.html)-
 стандарта фундаментальной астрономии, рекомендованного для астрометрии
@@ -18,39 +18,38 @@
 Интерактивная справка обеспечивает связь управляющих элементов интерфейса с соответствующими темами российской онлайн-энциклопедии Рувики
 [Галактика](https://ru.ruwiki.ru/wiki/Галактика)
  
-![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
-![GalaxyCETI](./docs/screenshots/GalaxyCETI_ru.png)
+![GalaxyGrid_ru](./docs/screenshots/AstrobloQ_ru.png)
 
-Репозиторий AstrobloQ включает базовые проекты, аддоны и плагины:
+Репозиторий AstrobloQ содержит базовые проекты, аддоны и плагины:
 
-TerraPlanetc C++ Project
+## TerraPlanetc C++ Project
 
 TerraPlanets - визуализация солнечной и экзопланетных систем с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 ![SolarSystem](./docs/clips/SolarSystem.gif)
 ![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
-LithoSphere C++ Project
+## LithoSphere C++ Project
 
 Litosfera – литосферы экзопланет с гидросферами, атмосферами и недрами
 ![Lithosphere](./docs/screenshots/Litosfera_ru.png)
 ![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
-BioSphere C++ Project
+## BioSphere C++ Project
 
 Biosfera – биосферы экзопланет с моделями популяций живых организмов 
 ![Biosphere](./docs/screenshots/Biosfera.jpg)
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
-NooSphere C++ Project
+## NooSphere C++ Project
 
 Noosfera – ноосферы экзопланет с иноинтеллектом без межзвёздных контактов NotInterStellars
 ![Noosphere](./docs/screenshots/Noosfera.png)
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
-TehnoSphere C++ Project
+## TehnoSphere C++ Project
 
 Tehnosfera - техносферы экзопланетных систем с межзвёздными коммуникациями InterStellars 
 и AI (Astro Intelligence & Artificial Intelligence).   
@@ -59,7 +58,9 @@ Tehnosfera - техносферы экзопланетных систем с м�
 к галактической CETI техносфер.  
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
 
-GalaxyAGI & UniverseAGI - виртуальные астромодели Галактики и Вселенной, эволюции звёзд, коэволюции и конволюции небесных тел. 
+## GalaxyAGI & UniverseAGI - виртуальные астромодели Галактики и Вселенной, эволюции звёзд, коэволюции и конволюции небесных тел. 
+
+![GalaxyGrid_ru](./docs/screenshots/GalaxyGrid_ru.png)
 
 Дополнительная информация по астромодели GalaxyAGI. Используются следующие методы, базы данных и каталоги:
 - галактическая окрестность Солнца со звёздами и планетными системами визуализируется по звёздным каталогам HYG и DR3 Gaia, NASA exoplanets;
@@ -76,5 +77,5 @@ GalaxyAGI & UniverseAGI - виртуальные астромодели Гала
 
 [Админ](https://t.me/glscene)
 
-Астрономические общества, вузы и организации: 
+## Астрономические общества, вузы и организации: 
 [UniversеCETI](https://gitverse.ru/UniverseCETI/GalaxyCETI)
