@@ -15,38 +15,43 @@
 
 Моделирование строения, структуры и состава космических объектов в пространстве и времени 
 осуществляется поэтапно в последовательности PlanetAGI -> StarAGI -> GalaxyAGI -> UniversеAGI. 
-Интерактивная справка обеспечивает связь управляющих элементов интерфейса с соответствующими темами  
-российской онлайн-энциклопедии Рувики [Галактика](https://ru.ruwiki.ru/wiki/Галактика)
+Интерактивная справка обеспечивает связь управляющих элементов интерфейса с соответствующими темами российской онлайн-энциклопедии Рувики
+[Галактика](https://ru.ruwiki.ru/wiki/Галактика)
  
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
 ![GalaxyCETI](./docs/screenshots/GalaxyCETI_ru.png)
 
-Репозиторий AstrobloQ включает базовые проекты, аддоны и плагины стартапов:
+Репозиторий AstrobloQ включает базовые проекты, аддоны и плагины:
 
 TerraPlanetc C++ Project
+
 TerraPlanets - визуализация солнечной и экзопланетных систем с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 ![SolarSystem](./docs/clips/SolarSystem.gif)
 ![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
 LithoSphere C++ Project
+
 Litosfera – литосферы экзопланет с гидросферами, атмосферами и недрами
 ![Lithosphere](./docs/screenshots/Litosfera_ru.png)
 ![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
 BioSphere C++ Project
+
 Biosfera – биосферы экзопланет с моделями популяций живых организмов 
 ![Biosphere](./docs/screenshots/Biosfera.jpg)
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
 NooSphere C++ Project
+
 Noosfera – ноосферы экзопланет с иноинтеллектом без межзвёздных контактов NotInterStellars
 ![Noosphere](./docs/screenshots/Noosfera.png)
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
 TehnoSphere C++ Project
+
 Tehnosfera - техносферы экзопланетных систем с межзвёздными коммуникациями InterStellars 
 и AI (Astro Intelligence & Artificial Intelligence).   
 Дополнительная информация о звёздном составе и строении невидимой за ядром части Галактики, 
@@ -56,8 +61,8 @@ Tehnosfera - техносферы экзопланетных систем с м�
 
 GalaxyAGI & UniverseAGI - виртуальные астромодели Галактики и Вселенной, эволюции звёзд, коэволюции и конволюции небесных тел. 
 
-Дополнительная информация. При создании астромодели GalaxyAGI используются следующие методы, базы данных и каталоги:
-- галактическая окрестность Солнца со звёздами и планетными системами визуализируется по звёздным каталогам HYG и DR3 Gaia;
+Дополнительная информация по астромодели GalaxyAGI. Используются следующие методы, базы данных и каталоги:
+- галактическая окрестность Солнца со звёздами и планетными системами визуализируется по звёздным каталогам HYG и DR3 Gaia, NASA exoplanets;
 - коммуникационные тетрасети Делоне генерируются в Tetgen по известным x, y, z значениям положений звёзд в галактической системе координат и по векторам vx, vy, vz их собственных движений с экстраполяцией в прошлое и будущее на шкале -10; 0; +10 Gyr;
 - полиэдральные пространственные диаграммы Вороного, мозаики со звёздами в центральных узлах ячеек, рассчитываются как двойственные графы тетраэдрализации Делоне;
 - построение униформных решёток GalaxyGrid выполняется по методу NNI, Natural Neighbour Interpolation, с учётом влияния в интерполянте астрофизических характеристик соседних регионов;
@@ -72,4 +77,4 @@ GalaxyAGI & UniverseAGI - виртуальные астромодели Гала
 [Админ](https://t.me/glscene)
 
 Астрономические общества, вузы и организации: 
-[UniversеCETI](https://gitverse.ru/universeceti);
+[UniversеCETI](https://gitverse.ru/UniverseCETI/GalaxyCETI)
