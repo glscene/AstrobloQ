@@ -1,21 +1,21 @@
 # AstrobloQ
 
-Программная платформа AstrobloQ предназначена для создания виртуальной цифровой модели UniversеAGI
-на основе графического движка [GLXEngine](https://gitverse.ru/glscene)
-с AI-ассистентом разработчика [GigaCode](https://gitverse.ru/services/gigacode) 
+Программная платформа AstrobloQ предназначена для создания проектов
+виртуальных моделей солнечной системы, Млечного Пути и Вселенной.
+Визуализация основана на графическом движке [GLXEngine](https://gitverse.ru/glscene)
+с поддержкой OpenGL, Directx и Vulkan при разработке проектов с AI-ассистентом [GigaCode](https://gitverse.ru/services/gigacode) 
   
-Сборка AstrobloQ осуществляется путём компиляции C/C++/Python/Delphi библиотек с открытым исходным кодом, в том числе 
-[APC](https://gitverse.ru/glscene/AstrobloQ/content/master/source/apc),
+Сборка AstrobloQ осуществляется путём компиляции C/C++/Delphi библиотек с открытым исходным кодом, в том числе 
 [Astronomy](https://github.com/cosinekitty/astronomy), 
 [SOFA](http://iausofa.org/current_C.html)-
-стандарта фундаментальной астрономии, рекомендованного 
+стандарта фундаментальной астрономии, рекомендованного для астрометрии
 [IAU, MAC - Международным Астрономическим Союзом](https://rosastronomy.ru/partners/mac-iau/),
-и на базе данных звёздных каталогов [Gaia](https://www.cosmos.esa.int/web/gaia/data) и 
+и на базе данных звёздных каталогов [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data) и 
 [HYG](https://github.com/astronexus/HYG-Database).
 
 Моделирование строения, структуры и состава космических объектов в пространстве и времени 
 осуществляется поэтапно в последовательности PlanetAGI -> StarAGI -> GalaxyAGI -> UniversеAGI. 
-Интерактивная справка обеспечивает связь управляющих элементов интерфейса с соответствующими темами из 
+Интерактивная справка обеспечивает связь управляющих элементов интерфейса с соответствующими темами  
 российской онлайн-энциклопедии Рувики [Галактика](https://ru.ruwiki.ru/wiki/Галактика)
  
 ![GalaxyGrid](./docs/screenshots/GalaxyGrid.png)
@@ -23,38 +23,44 @@
 
 Репозиторий AstrobloQ включает базовые проекты, аддоны и плагины стартапов:
 
+TerraPlanetc C++ Project
 TerraPlanets - визуализация солнечной и экзопланетных систем с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 ![SolarSystem](./docs/clips/SolarSystem.gif)
 ![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
+LithoSphere C++ Project
 Litosfera – литосферы экзопланет с гидросферами, атмосферами и недрами
 ![Lithosphere](./docs/screenshots/Litosfera_ru.png)
 ![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
+BioSphere C++ Project
 Biosfera – биосферы экзопланет с моделями популяций живых организмов 
 ![Biosphere](./docs/screenshots/Biosfera.jpg)
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
+NooSphere C++ Project
 Noosfera – ноосферы экзопланет с иноинтеллектом без межзвёздных контактов NotInterStellars
 ![Noosphere](./docs/screenshots/Noosfera.png)
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
+TehnoSphere C++ Project
 Tehnosfera - техносферы экзопланетных систем с межзвёздными коммуникациями InterStellars 
 и AI (Astro Intelligence & Artificial Intelligence).   
 Дополнительная информация о звёздном составе и строении невидимой за ядром части Галактики, 
 в том числе оценка плотности распределения зон обитаемости, может быть получена в результате подключения
 к галактической CETI техносфер.  
+![Tehnosfera](./docs/screenshots/Tehnosfera.png)
 
-![Technosphere](./docs/screenshots/Tehnosfera.png)
+GalaxyAGI & UniverseAGI - виртуальные астромодели Галактики и Вселенной, эволюции звёзд, коэволюции и конволюции небесных тел. 
 
-Дополнительная информация. При создании универсальной астромодели UniverseAGI используются следующие методы, базы данных и каталоги:
+Дополнительная информация. При создании астромодели GalaxyAGI используются следующие методы, базы данных и каталоги:
 - галактическая окрестность Солнца со звёздами и планетными системами визуализируется по звёздным каталогам HYG и DR3 Gaia;
 - коммуникационные тетрасети Делоне генерируются в Tetgen по известным x, y, z значениям положений звёзд в галактической системе координат и по векторам vx, vy, vz их собственных движений с экстраполяцией в прошлое и будущее на шкале -10; 0; +10 Gyr;
 - полиэдральные пространственные диаграммы Вороного, мозаики со звёздами в центральных узлах ячеек, рассчитываются как двойственные графы тетраэдрализации Делоне;
-- построение униформных решёток GalaxyGrid & UniverseGrid выполняется по методу NNI, Natural Neighbour Interpolation, с учётом влияния в интерполянте астрофизических характеристик соседних регионов;
+- построение униформных решёток GalaxyGrid выполняется по методу NNI, Natural Neighbour Interpolation, с учётом влияния в интерполянте астрофизических характеристик соседних регионов;
 - поиск кратчайшего наиболее безопасного пути между звёздами, задачи коммивояжера, освоения ресурсов и колонизации решаются на 5D графах (x,y,z,t,c) тетрамеша и по алгоритму A* на регулярной решетке GalaxyGrid; 
 - симуляция динамической структуры формирования Галактик осуществляется на базе подходов N-body, гравитационно взаимодействующих партикулярных кластеров и волновых функций;
 - навигация в рамках универсальной модели UniverseAGI возможна в любую точку пространства и времени с посещением как открытых экзопланет, так и неограниченного множества процедурно генерируемых миров;
@@ -65,5 +71,5 @@ Tehnosfera - техносферы экзопланетных систем с м�
 
 [Админ](https://t.me/glscene)
 
-Компании и организации: 
+Астрономические общества, вузы и организации: 
 [UniversеCETI](https://gitverse.ru/universeceti);

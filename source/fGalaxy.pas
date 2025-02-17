@@ -182,6 +182,8 @@ type
     miGridding: TMenuItem;
     miInterpolation: TMenuItem;
     miTetralization: TMenuItem;
+    N4: TMenuItem;
+    ranslator1: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -211,6 +213,8 @@ type
     procedure miLithosphereClick(Sender: TObject);
     procedure miBiosphereClick(Sender: TObject);
     procedure miTechnosphereClick(Sender: TObject);
+    procedure GLSimpleNavigationMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -294,6 +298,13 @@ begin
     dcGalacube.Turn(0);
     dcAxes.Turn(0);
   end;
+end;
+
+procedure TfrmGalaxy.GLSimpleNavigationMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  inherited;
+
 end;
 
 // --------------------------------------------------------

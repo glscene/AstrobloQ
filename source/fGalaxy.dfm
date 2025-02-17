@@ -841,6 +841,12 @@ object frmGalaxy: TfrmGalaxy
       object miTetralization: TMenuItem
         Caption = 'Tetralization...'
       end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object ranslator1: TMenuItem
+        Caption = 'Translator...'
+      end
     end
     object miView: TMenuItem
       Caption = '&View'
@@ -927,7 +933,7 @@ object frmGalaxy: TfrmGalaxy
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'GalaxyAGI - %FPS'
+    FormCaption = 'GalaxyGLS - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -941,6 +947,7 @@ object frmGalaxy: TfrmGalaxy
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
+    OnMouseMove = GLSimpleNavigationMouseMove
     Left = 532
     Top = 243
   end
