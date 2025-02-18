@@ -44,14 +44,14 @@ Biosfera – биосферы экзопланет с моделями попу�
 
 ## NooSphere C++ Project
 
-Noosfera – ноосферы экзопланет с астроинтеллектом не способных к межзвёздным коммуникациям, ContactDisabled 
+Noosfera – ноосферы экзопланет с астроинтеллектом без межзвёздных коммуникаций, ContactDisable 
 ![Noosphere](./docs/screenshots/Noosfera.png)
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
 ## TehnoSphere C++ Project
 
-Tehnosfera - техносферы экзопланетных систем способных к межзвёздным коммуникациям, ContactAbled 
+Tehnosfera - техносферы экзопланетных систем с межзвёздными коммуникациями, ContactAble 
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
 
 ### Астромодели GalaxyAGI Галактики и UniverseAGI Вселенной
