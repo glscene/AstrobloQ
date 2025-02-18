@@ -6,9 +6,9 @@
 
 Визуализация моделей основана на графическом движке [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine) с поддержкой OpenGL, Directx и Vulkan. 
 Сборка путём компиляции C/C++/Delphi проектов выполняется с подключением библиотек открытого исходного кода, в том числе
-пакетов визуальных компонентов [GLXEngine](https://github.com/glscene/GLXEngine):
-[SOFA](http://iausofa.org/current_C.html) - стандарта фундаментальной астрономии, рекомендованного для астрометрии
-[IAU, MAC - Международным Астрономическим Союзом](https://rosastronomy.ru/partners/mac-iau/).
+пакетов визуальных компонентов [GLXEngine](https://github.com/glscene/GLXEngine),
+фундаментальной астрометрической библиотеки [SOFA](http://iausofa.org/current_C.html), рекомендованной
+[IAU, MAC - Международным Астрономическим Союзом](https://iau.org/).
 
 Моделирование строения, структуры и состава космических объектов выполняется в последовательности PlanetAGI -> StarAGI -> GalaxyAGI -> UniversеAGI. 
 AGI - Astro General Intelligence. Интерактивная справка обеспечивает связь управляющих элементов интерфейса с соответствующими темами российской онлайн-энциклопедии Рувики
