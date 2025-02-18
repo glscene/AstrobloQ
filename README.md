@@ -6,7 +6,7 @@
 Для дальнейшего развития AstrobloQ приглашаются программисты и специалисты   
 [Российских астрономических организаций и вузов](https://gitverse.ru/UniverseCETI/GalaxyCETI)
 
-Моделирование и визуализация основаны на графическом движке [GaLaXy Engine](https://gitverse.ru/glscene) с поддержкой OpenGL, Directx и Vulkan. 
+Моделирование и визуализация основаны на графическом движке [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine) с поддержкой OpenGL, Directx и Vulkan. 
 Сборка проектов выполняется путём компиляции C/C++/Delphi с подключением библиотек открытого исходного кода, в том числе
 компонентов [GLXEngine](https://github.com/glscene/GLXEngine);
 [SOFA](http://iausofa.org/current_C.html) - стандарта фундаментальной астрономии, рекомендованного для астрометрии
