@@ -37,7 +37,6 @@ object FormAstromif: TFormAstromif
       Height = 530
       Align = alClient
       Color = clWhite
-      Images = dmImages.VirtConstelSymbols
       Indent = 27
       MultiSelect = True
       TabOrder = 1

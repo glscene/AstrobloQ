@@ -13,18 +13,18 @@ program Litosfera;
 
 uses
   Forms,
-  flLitosfera in 'source\lito\flLitosfera.pas' {frmLitosphere},
-  flParams in 'source\lito\flParams.pas' {FrameParams: TFrame},
-  flStellarSystem in 'source\lito\flStellarSystem.pas' {FormStarSys},
-  flSolarSystem in 'source\lito\flSolarSystem.pas' {FormSolarSys},
-  flSettings in 'source\lito\flSettings.pas' {frmSettingsLito},
-  dImages in 'source\dImages.pas' {dmImages: TDataModule},
-  flGenExosys in 'source\lito\flGenExosys.pas' {FormGenPlanetsys},
-  fForm in 'source\fForm.pas' {FormG},
-  uMoveCamera in 'source\ucode\uMoveCamera.pas',
-  uSkyBodies in 'source\ucode\uSkyBodies.pas',
-  gnuGettext in 'source\ucode\gnuGettext.pas',
-  fdForm in 'source\astro\fdForm.pas' {FormI};
+  flLitosfera in '..\source\lito\flLitosfera.pas' {frmLitosphere},
+  flParams in '..\source\lito\flParams.pas' {FrameParams: TFrame},
+  flStellarSystem in '..\source\lito\flStellarSystem.pas' {FormStarSys},
+  flSolarSystem in '..\source\lito\flSolarSystem.pas' {FormSolarSys},
+  flSettings in '..\source\lito\flSettings.pas' {frmSettingsLito},
+  dImages in '..\source\dImages.pas' {dmImages: TDataModule},
+  flGenExosys in '..\source\lito\flGenExosys.pas' {FormGenPlanetsys},
+  fForm in '..\source\fForm.pas' {FormG},
+  uMoveCamera in '..\source\ucode\uMoveCamera.pas',
+  uSkyBodies in '..\source\ucode\uSkyBodies.pas',
+  gnuGettext in '..\source\ucode\gnuGettext.pas',
+  fdForm in '..\source\astro\fdForm.pas' {FormI};
 
 {$R *.res}
 

@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{74582C24-83BE-4628-B9DF-28AF332780EE}</ProjectGuid>
-        <MainSource>Litosfera.dpr</MainSource>
+        <ProjectGuid>{A3030AB1-5D6D-49B7-ADF6-D8772AD2F26E}</ProjectGuid>
+        <MainSource>Tehnosfera.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
@@ -9,7 +9,7 @@
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>20.2</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Litosfera</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Tehnosfera</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -53,7 +53,7 @@
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>Litosfera</SanitizedProjectName>
+        <SanitizedProjectName>Tehnosfera</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
@@ -65,15 +65,17 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>..\source\EarthScene_Icon.ico</Icon_MainIcon>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UsePackage>vcl;rtl;dbrtl;vclx;vcldb;vcldbx;bdertl;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>EarthScene_Icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UsePackage>vcl;rtl;dbrtl;vclx;vcldb;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -84,6 +86,7 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <Icon_MainIcon>..\source\Source\EarthScene_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -97,49 +100,59 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <Icon_MainIcon>data\icon\Litosfera.ico</Icon_MainIcon>
+        <Icon_MainIcon>..\data\icon\Noosfera.ico</Icon_MainIcon>
+        <DCC_ExeOutput>..\</DCC_ExeOutput>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="source\lito\flLitosfera.pas">
-            <Form>frmLitosphere</Form>
-        </DCCReference>
-        <DCCReference Include="source\lito\flParams.pas">
-            <Form>FrameParams</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="source\lito\flStellarSystem.pas">
-            <Form>FormStarSys</Form>
+        <DCCReference Include="..\source\teh\ftMeshEditor.pas">
+            <Form>FormMeshShow</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\lito\flSolarSystem.pas">
-            <Form>FormSolarSys</Form>
+        <DCCReference Include="..\source\teh\ftMeshData.pas">
+            <Form>FormMeshData</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\lito\flSettings.pas">
-            <Form>frmSettingsLito</Form>
+        <DCCReference Include="..\source\teh\ftStarPilot.pas">
+            <Form>FormSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\dImages.pas">
-            <Form>dmImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="source\lito\flGenExosys.pas">
-            <Form>FormGenPlanetsys</Form>
+        <DCCReference Include="..\source\teh\ftLocations.pas">
+            <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fForm.pas">
+        <DCCReference Include="..\source\teh\ftTehnosfera.pas">
+            <Form>FormNoosfera</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\teh\ftAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\fForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\ucode\uMoveCamera.pas"/>
-        <DCCReference Include="source\ucode\uSkyBodies.pas"/>
-        <DCCReference Include="source\ucode\gnuGettext.pas"/>
-        <DCCReference Include="source\astro\fdForm.pas">
+        <DCCReference Include="..\source\ucode\uMoveCamera.pas"/>
+        <DCCReference Include="..\source\ucode\uSkyBodies.pas"/>
+        <DCCReference Include="..\source\teh\ftCyborg.pas">
+            <Form>FormCyborg</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\teh\ftRobot.pas">
+            <Form>FormLoadSmdMdl</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\teh\ftCETI.pas">
+            <Form>FormTehnosfera</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\teh\Teh.BoneUtils.pas"/>
+        <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
+        <DCCReference Include="..\source\ucode\gnuGettext.pas"/>
+        <DCCReference Include="..\source\astro\fdForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -161,9 +174,12 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Litosfera.dpr</Source>
+                    <Source Name="MainSource">Tehnosfera.dpr</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GXScene_GBE.bpl">GXScene GBE</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GBComps.bpl">Geoblock - Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -175,14 +191,14 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Bin\Technosphere.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Litosfera.exe</RemoteName>
+                        <RemoteName>Tehnosfera.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="TerraPlanets.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -1125,7 +1141,6 @@
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
             </Deployment>
-            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

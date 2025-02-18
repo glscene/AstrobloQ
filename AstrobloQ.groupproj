@@ -3,25 +3,25 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="GalaxyGLS.dproj">
+        <Projects Include="Projects\GalaxyGLS.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Litosfera.dproj">
+        <Projects Include="Projects\Litosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Biosfera.dproj">
+        <Projects Include="Projects\Biosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Tehnosfera.dproj">
+        <Projects Include="Projects\Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="GalaxyGXS.dproj">
+        <Projects Include="Projects\GalaxyGXS.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\GalaxyGXC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="UniverseAGI.dproj">
+        <Projects Include="Projects\UniverseAGI.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\UniverceAGI.cbproj">
@@ -36,49 +36,49 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="GalaxyGLS">
-        <MSBuild Projects="GalaxyGLS.dproj"/>
+        <MSBuild Projects="Projects\GalaxyGLS.dproj"/>
     </Target>
     <Target Name="GalaxyGLS:Clean">
-        <MSBuild Projects="GalaxyGLS.dproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\GalaxyGLS.dproj" Targets="Clean"/>
     </Target>
     <Target Name="GalaxyGLS:Make">
-        <MSBuild Projects="GalaxyGLS.dproj" Targets="Make"/>
+        <MSBuild Projects="Projects\GalaxyGLS.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
-        <MSBuild Projects="Litosfera.dproj"/>
+        <MSBuild Projects="Projects\Litosfera.dproj"/>
     </Target>
     <Target Name="Litosfera:Clean">
-        <MSBuild Projects="Litosfera.dproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Litosfera:Make">
-        <MSBuild Projects="Litosfera.dproj" Targets="Make"/>
+        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Biosfera">
-        <MSBuild Projects="Biosfera.dproj"/>
+        <MSBuild Projects="Projects\Biosfera.dproj"/>
     </Target>
     <Target Name="Biosfera:Clean">
-        <MSBuild Projects="Biosfera.dproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Biosfera:Make">
-        <MSBuild Projects="Biosfera.dproj" Targets="Make"/>
+        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Tehnosfera">
-        <MSBuild Projects="Tehnosfera.dproj"/>
+        <MSBuild Projects="Projects\Tehnosfera.dproj"/>
     </Target>
     <Target Name="Tehnosfera:Clean">
-        <MSBuild Projects="Tehnosfera.dproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Tehnosfera:Make">
-        <MSBuild Projects="Tehnosfera.dproj" Targets="Make"/>
+        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="GalaxyGXS">
-        <MSBuild Projects="GalaxyGXS.dproj"/>
+        <MSBuild Projects="Projects\GalaxyGXS.dproj"/>
     </Target>
     <Target Name="GalaxyGXS:Clean">
-        <MSBuild Projects="GalaxyGXS.dproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\GalaxyGXS.dproj" Targets="Clean"/>
     </Target>
     <Target Name="GalaxyGXS:Make">
-        <MSBuild Projects="GalaxyGXS.dproj" Targets="Make"/>
+        <MSBuild Projects="Projects\GalaxyGXS.dproj" Targets="Make"/>
     </Target>
     <Target Name="GalaxyGXC">
         <MSBuild Projects="Projects\GalaxyGXC.cbproj"/>
@@ -90,13 +90,13 @@
         <MSBuild Projects="Projects\GalaxyGXC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="UniverseAGI">
-        <MSBuild Projects="UniverseAGI.dproj"/>
+        <MSBuild Projects="Projects\UniverseAGI.dproj"/>
     </Target>
     <Target Name="UniverseAGI:Clean">
-        <MSBuild Projects="UniverseAGI.dproj" Targets="Clean"/>
+        <MSBuild Projects="Projects\UniverseAGI.dproj" Targets="Clean"/>
     </Target>
     <Target Name="UniverseAGI:Make">
-        <MSBuild Projects="UniverseAGI.dproj" Targets="Make"/>
+        <MSBuild Projects="Projects\UniverseAGI.dproj" Targets="Make"/>
     </Target>
     <Target Name="UniverceAGI">
         <MSBuild Projects="Projects\UniverceAGI.cbproj"/>

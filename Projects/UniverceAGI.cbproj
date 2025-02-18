@@ -156,6 +156,7 @@
         <LinkPackageImports>rtl.bpi;vcl.bpi;GLScene_RT.bpi;xmlrtl.bpi;vclimg.bpi;vclwinx.bpi;bindengine.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;vclFireDAC.bpi;vcldb.bpi;vclx.bpi;FireDACSqliteDriver.bpi</LinkPackageImports>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <FinalOutputDir>..\</FinalOutputDir>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -262,14 +263,14 @@
             <BuildOrder>17</BuildOrder>
         </None>
         <FormResources Include="..\Source\actro\fcSettings.dfm"/>
-        <FormResources Include="..\Source\actro\fcAbout.dfm"/>
+        <FormResources Include="..\Source\actro\fcHipparcos.dfm"/>
         <FormResources Include="..\Source\actro\dcImages.dfm"/>
         <FormResources Include="..\Source\actro\dcDialogs.dfm"/>
         <FormResources Include="..\Source\actro\dcBase.dfm"/>
-        <FormResources Include="..\Source\actro\fcHipparcos.dfm"/>
         <FormResources Include="..\Source\actro\fcHercRussel.dfm"/>
         <FormResources Include="..\Source\actro\fcForm.dfm"/>
         <FormResources Include="..\Source\actro\fcAstroViewer.dfm"/>
+        <FormResources Include="..\Source\actro\fcAbout.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

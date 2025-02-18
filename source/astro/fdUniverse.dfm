@@ -44,7 +44,7 @@ object frmUniverse: TfrmUniverse
     Top = 27
     Width = 930
     Height = 592
-    ActivePage = tsConstellations
+    ActivePage = tsPlanets
     Align = alClient
     TabOrder = 1
     ExplicitWidth = 922
@@ -219,6 +219,7 @@ object frmUniverse: TfrmUniverse
           Height = 560
           Align = alClient
           Color = clWhite
+          Images = dmImages.VirtConstelSymbols
           Indent = 27
           MultiSelect = True
           TabOrder = 0
@@ -378,6 +379,7 @@ object frmUniverse: TfrmUniverse
         Width = 131
         Height = 222
         Color = clWhite
+        Images = dmImages.VirtConstelSymbols
         Indent = 27
         TabOrder = 1
         OnClick = tvZodiacsClick

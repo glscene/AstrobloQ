@@ -37,33 +37,34 @@ object FormBiosfera: TFormBiosfera
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 1000
     object panTools: TPanel
       Left = 0
       Top = 231
-      Width = 574
+      Width = 1008
       Height = 322
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1008
+      ExplicitWidth = 1000
       object tbWater: TToolBar
         Left = 0
         Top = 56
-        Width = 574
+        Width = 1008
         Height = 29
-        ButtonHeight = 30
-        ButtonWidth = 79
+        ButtonHeight = 19
+        ButtonWidth = 49
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         List = True
         ShowCaptions = True
         TabOrder = 0
         Visible = False
-        ExplicitWidth = 1008
+        ExplicitWidth = 1000
         object Label9: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 19
           AutoSize = False
           Caption = 'Water'
           Color = clInactiveBorder
@@ -83,7 +84,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbWateringCanClick
         end
         object tbSponge: TToolButton
-          Left = 152
+          Left = 122
           Top = 0
           Hint = 'Sponge (Removes Water)'
           Caption = 'Sponge'
@@ -95,7 +96,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSpongeClick
         end
         object tbSplash: TToolButton
-          Left = 231
+          Left = 171
           Top = 0
           Hint = 'Splash'
           Caption = 'Splash'
@@ -105,7 +106,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSplashClick
         end
         object tbIceberg: TToolButton
-          Left = 310
+          Left = 220
           Top = 0
           Caption = 'Iceberg'
           Grouped = True
@@ -114,7 +115,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbIcebergClick
         end
         object ToolButton2: TToolButton
-          Left = 389
+          Left = 269
           Top = 0
           Width = 8
           Caption = 'ToolButton2'
@@ -122,20 +123,20 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object Panel4: TPanel
-          Left = 397
+          Left = 277
           Top = 0
           Width = 97
-          Height = 30
+          Height = 19
           BevelOuter = bvNone
           Caption = 'Pour Rate:'
           Color = clActiveBorder
           TabOrder = 2
         end
         object edWater: TEdit
-          Left = 494
+          Left = 374
           Top = 0
           Width = 38
-          Height = 21
+          Height = 19
           Hint = 'Amount of water that the watering can pours when you use it.'
           Enabled = False
           ParentShowHint = False
@@ -145,20 +146,20 @@ object FormBiosfera: TFormBiosfera
           Text = '1'
         end
         object WaterUpDown: TUpDown
-          Left = 532
+          Left = 412
           Top = 0
           Width = 17
-          Height = 30
+          Height = 19
           Min = 1
           Position = 5
           TabOrder = 1
           OnClick = WaterUpDownClick
         end
         object WaterFastUpDown: TUpDown
-          Left = 549
+          Left = 429
           Top = 0
           Width = 17
-          Height = 30
+          Height = 19
           Min = 1
           Increment = 10
           Position = 5
@@ -166,7 +167,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = WaterFastUpDownClick
         end
         object ToolButton3: TToolButton
-          Left = 566
+          Left = 446
           Top = 0
           Width = 8
           Caption = 'ToolButton3'
@@ -177,10 +178,9 @@ object FormBiosfera: TFormBiosfera
       object tbAtmosphere: TToolBar
         Left = 0
         Top = 85
-        Width = 574
+        Width = 1008
         Height = 29
-        ButtonHeight = 30
-        ButtonWidth = 131
+        ButtonWidth = 85
         Caption = 'tbAtmosphere'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -188,12 +188,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 1
         Visible = False
-        ExplicitWidth = 1008
+        ExplicitWidth = 1000
         object Label4: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Atmosphere'
           Color = clInactiveBorder
@@ -213,7 +213,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbHeatClick
         end
         object tbCold: TToolButton
-          Left = 204
+          Left = 158
           Top = 0
           Hint = 'Cool'
           Caption = 'Cool'
@@ -225,7 +225,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbColdClick
         end
         object tbHumidifier: TToolButton
-          Left = 335
+          Left = 243
           Top = 0
           Hint = 'Humidify'
           Caption = 'Humidify'
@@ -237,7 +237,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbHumidifierClick
         end
         object tbDehumidifier: TToolButton
-          Left = 466
+          Left = 328
           Top = 0
           Hint = 'Dehumidify'
           Caption = 'Dehumidify  '
@@ -249,7 +249,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbDehumidifierClick
         end
         object tbCloud: TToolButton
-          Left = 597
+          Left = 413
           Top = 0
           Hint = 'Cloud'
           Caption = 'Clouds'
@@ -261,7 +261,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCloudClick
         end
         object tbRainCloud: TToolButton
-          Left = 728
+          Left = 498
           Top = 0
           Hint = 'Cloud that is raining.'
           Caption = 'Rain Cloud'
@@ -273,7 +273,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbRainCloudClick
         end
         object tbStormCloud: TToolButton
-          Left = 859
+          Left = 583
           Top = 0
           Hint = 'Cloud that shoots lightning.'
           Caption = 'Storm Cloud'
@@ -288,10 +288,9 @@ object FormBiosfera: TFormBiosfera
       object tbGalaxy: TToolBar
         Left = 0
         Top = 27
-        Width = 574
+        Width = 1008
         Height = 29
-        ButtonHeight = 30
-        ButtonWidth = 126
+        ButtonWidth = 81
         Caption = 'tbGalaxy'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -301,12 +300,12 @@ object FormBiosfera: TFormBiosfera
         ShowHint = False
         TabOrder = 2
         Visible = False
-        ExplicitWidth = 1008
+        ExplicitWidth = 1000
         object Label12: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Satellites'
           Color = clInactiveBorder
@@ -324,7 +323,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBuildSunClick
         end
         object tbBuildMoon: TToolButton
-          Left = 199
+          Left = 154
           Top = 0
           Hint = 'Moon'
           Caption = 'Moon'
@@ -334,7 +333,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBuildMoonClick
         end
         object ToolButton11: TToolButton
-          Left = 325
+          Left = 235
           Top = 0
           Width = 8
           Caption = 'ToolButton11'
@@ -342,7 +341,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object tbFakeSun: TToolButton
-          Left = 333
+          Left = 243
           Top = 0
           Hint = 'Create a sun with only light, no heat.'
           Caption = 'Frozen Sun'
@@ -352,7 +351,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFakeSunClick
         end
         object ToolButton10: TToolButton
-          Left = 459
+          Left = 324
           Top = 0
           Width = 8
           Caption = 'ToolButton10'
@@ -360,7 +359,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object tbAsteroid: TToolButton
-          Left = 467
+          Left = 332
           Top = 0
           Hint = 'Asteroid'
           Caption = 'Asteroids'
@@ -372,7 +371,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAsteroidClick
         end
         object tbMissileDefence: TToolButton
-          Left = 593
+          Left = 413
           Top = 0
           Hint = 'Add a missile defence satellite.'
           Caption = 'Defence'
@@ -384,7 +383,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbMissileDefenceClick
         end
         object ToolButton4: TToolButton
-          Left = 719
+          Left = 494
           Top = 0
           Width = 8
           Caption = 'ToolButton4'
@@ -395,10 +394,9 @@ object FormBiosfera: TFormBiosfera
       object tbSettings: TToolBar
         Left = 0
         Top = 188
-        Width = 574
+        Width = 1008
         Height = 25
-        ButtonHeight = 30
-        ButtonWidth = 118
+        ButtonWidth = 78
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -406,12 +404,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 3
         Visible = False
-        ExplicitWidth = 1008
+        ExplicitWidth = 1000
         object Label18: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Utilities: '
           Color = clInactiveBorder
@@ -430,7 +428,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraLightClick
         end
         object tbShowCursor: TToolButton
-          Left = 191
+          Left = 151
           Top = 0
           Hint = 'Shows a cursor on the planet when you move the mouse.'
           Caption = 'Cursor   '
@@ -442,7 +440,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowCursorClick
         end
         object tbFlashlight: TToolButton
-          Left = 309
+          Left = 229
           Top = 0
           Hint = 'Shines a light on the planet that you are looking at.'
           Caption = 'Flash Light'
@@ -453,7 +451,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFlashlightClick
         end
         object tbStickyFit: TToolButton
-          Left = 427
+          Left = 307
           Top = 0
           Hint = 
             'Sticky fit causes the Space window to stick in its designated de' +
@@ -467,7 +465,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbStickyFitClick
         end
         object tbFullscreen: TToolButton
-          Left = 545
+          Left = 385
           Top = 0
           Hint = 'Press ESC to exit fullscreen mode.'
           Caption = 'Fullscreen'
@@ -478,7 +476,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFullscreenClick
         end
         object ToolButton6: TToolButton
-          Left = 663
+          Left = 463
           Top = 0
           Width = 8
           Caption = 'ToolButton6'
@@ -486,7 +484,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object tbSnapshot: TToolButton
-          Left = 671
+          Left = 471
           Top = 0
           Hint = 'Take a photograph of your world.'
           Caption = 'Snapshot'
@@ -496,16 +494,16 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSnapshotClick
         end
         object cbAutoSnap: TCheckBox
-          Left = 789
+          Left = 549
           Top = 0
           Width = 69
-          Height = 30
+          Height = 22
           Caption = 'AutoSnap'
           TabOrder = 0
           OnClick = cbAutoSnapClick
         end
         object ToolButton9: TToolButton
-          Left = 858
+          Left = 618
           Top = 0
           Width = 8
           Caption = 'ToolButton9'
@@ -513,7 +511,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object tbAVIMovie: TToolButton
-          Left = 866
+          Left = 626
           Top = 0
           Hint = 
             'Start recording an AVI movie. When you close AIPlanet, the movie' +
@@ -526,7 +524,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAVIMovieClick
         end
         object tbAVIDirect: TToolButton
-          Left = 984
+          Left = 704
           Top = 0
           Hint = 'While this button is down, capture a frame.'
           Caption = 'AVI Direct'
@@ -537,7 +535,7 @@ object FormBiosfera: TFormBiosfera
           Visible = False
         end
         object tbAVIFrame: TToolButton
-          Left = 1102
+          Left = 782
           Top = 0
           Hint = 'Capture an extra AVI frame (for when time is stopped).'
           Caption = 'AVI Frame'
@@ -551,10 +549,9 @@ object FormBiosfera: TFormBiosfera
       object tbTools: TToolBar
         Left = 0
         Top = 213
-        Width = 574
+        Width = 1008
         Height = 28
-        ButtonHeight = 30
-        ButtonWidth = 125
+        ButtonWidth = 81
         Caption = 'tbTools'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -562,12 +559,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 4
         Visible = False
-        ExplicitWidth = 1008
+        ExplicitWidth = 1000
         object Label8: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Tools:'
           Color = clInactiveBorder
@@ -584,7 +581,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBallClick
         end
         object tbBeaconBubble: TToolButton
-          Left = 198
+          Left = 154
           Top = 0
           Hint = 'Bubble Beacon'
           Caption = 'Bubble'
@@ -596,7 +593,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBeaconBubbleClick
         end
         object tbBeaconDrain: TToolButton
-          Left = 323
+          Left = 235
           Top = 0
           Hint = 'Drain Beacon'
           Caption = 'Drain'
@@ -606,7 +603,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBeaconDrainClick
         end
         object tbBeaconApple: TToolButton
-          Left = 448
+          Left = 316
           Top = 0
           Hint = 'Apple Beacon'
           Caption = 'ApplePop'
@@ -618,7 +615,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBeaconAppleClick
         end
         object tbBeaconOrange: TToolButton
-          Left = 573
+          Left = 397
           Top = 0
           Hint = 'Pop oranges'
           Caption = 'OrangePop'
@@ -630,7 +627,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBeaconOrangeClick
         end
         object tbPopBeacon: TToolButton
-          Left = 698
+          Left = 478
           Top = 0
           Hint = 'Pop any thing (use edit boxes for kind and rate)'
           Caption = 'AnyPop'
@@ -640,17 +637,17 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbPopBeaconClick
         end
         object Label31: TLabel
-          Left = 823
+          Left = 559
           Top = 0
           Width = 27
-          Height = 13
+          Height = 22
           Caption = 'Kind='
         end
         object cboxThings: TComboBox
-          Left = 851
+          Left = 586
           Top = 0
           Width = 120
-          Height = 30
+          Height = 21
           Style = csDropDownList
           TabOrder = 0
           OnChange = cboxThingsChange
@@ -719,8 +716,7 @@ object FormBiosfera: TFormBiosfera
         Top = 141
         Width = 1008
         Height = 47
-        ButtonHeight = 30
-        ButtonWidth = 140
+        ButtonWidth = 93
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -728,11 +724,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 5
         Visible = False
+        ExplicitWidth = 1000
         object Label17: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Visuals: '
           Color = clInactiveBorder
@@ -751,7 +748,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowSatellitesClick
         end
         object tbShowClouds: TToolButton
-          Left = 213
+          Left = 166
           Top = 0
           Hint = 'Shows clouds in the atmosphere.'
           Caption = #1054#1073#1083#1072#1082#1072
@@ -763,7 +760,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowCloudsClick
         end
         object tbShowWater: TToolButton
-          Left = 353
+          Left = 259
           Top = 0
           Hint = 'Show lakes, seas, and oceans.'
           Caption = #1042#1086#1076#1072
@@ -775,7 +772,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowWaterClick
         end
         object tbShowStars: TToolButton
-          Left = 493
+          Left = 352
           Top = 0
           Hint = 'Shows the starfield in the background.'
           Caption = #1047#1074#1105#1079#1076#1099
@@ -787,7 +784,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowStarsClick
         end
         object tbShowAtmosphere: TToolButton
-          Left = 633
+          Left = 445
           Top = 0
           Hint = 'Show the atmosphere around your planet.'
           Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
@@ -799,7 +796,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowAtmosphereClick
         end
         object tbHighDetail: TToolButton
-          Left = 773
+          Left = 538
           Top = 0
           Hint = 'Use high detail models if available.'
           Caption = 'High Detail'
@@ -810,17 +807,17 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbHighDetailClick
         end
         object Label25: TLabel
-          Left = 913
+          Left = 631
           Top = 0
           Width = 72
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Graphics'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbShadows: TToolButton
-          Left = 985
+          Left = 703
           Top = 0
           Hint = 'Turn shadows on or off.'
           Caption = 'Shadows'
@@ -831,7 +828,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShadowsClick
         end
         object tbComplexify: TToolButton
-          Left = 1125
+          Left = 796
           Top = 0
           Hint = 'Object shadows cast onto other objects.'
           Caption = 'Multicast'
@@ -842,7 +839,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbComplexifyClick
         end
         object tbVolumes: TToolButton
-          Left = 1265
+          Left = 889
           Top = 0
           Hint = 'Shows shadow volumes.'
           Caption = 'Volumes'
@@ -853,7 +850,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbVolumesClick
         end
         object tbSpeeches: TToolButton
-          Left = 1405
+          Left = 982
           Top = 0
           Hint = 'Show text speeches.'
           Caption = 'Speeches'
@@ -865,7 +862,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSpeechesClick
         end
         object tbShowFire: TToolButton
-          Left = 1545
+          Left = 1075
           Top = 0
           Hint = 
             'Prevents fire effects from being created by sun and explosions (' +
@@ -879,7 +876,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbShowFireClick
         end
         object tbSpherical: TToolButton
-          Left = 1685
+          Left = 1168
           Top = 0
           Hint = 'Shape Land as Flat or Spherical'
           Caption = 'Spherical'
@@ -897,8 +894,7 @@ object FormBiosfera: TFormBiosfera
         Top = 241
         Width = 1008
         Height = 48
-        ButtonHeight = 30
-        ButtonWidth = 92
+        ButtonWidth = 66
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -906,11 +902,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 6
         Visible = False
+        ExplicitWidth = 1000
         object Label15: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'New Bot: '
           Color = clInactiveBorder
@@ -930,7 +927,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSpiritGuyClick
         end
         object tbBotSelect: TToolButton
-          Left = 165
+          Left = 139
           Top = 0
           Caption = 'Select'
           Grouped = True
@@ -939,16 +936,16 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBotSelectClick
         end
         object Label5: TLabel
-          Left = 257
+          Left = 205
           Top = 0
           Width = 36
-          Height = 13
+          Height = 22
           Caption = 'Control:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbControlBot: TToolButton
-          Left = 294
+          Left = 241
           Top = 0
           Hint = 'Control Bot'
           Caption = 'Control'
@@ -958,112 +955,112 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbControlBotClick
         end
         object Label2: TLabel
-          Left = 386
+          Left = 307
           Top = 0
           Width = 38
-          Height = 13
+          Height = 22
           Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbGrab: TToolButton
-          Left = 424
+          Left = 345
           Top = 0
           Caption = 'Grab'
           ImageIndex = 12
           OnClick = tbGrabClick
         end
         object tbDrop: TToolButton
-          Left = 516
+          Left = 411
           Top = 0
           Caption = 'Drop'
           ImageIndex = 13
           OnClick = tbDropClick
         end
         object tbKick: TToolButton
-          Left = 608
+          Left = 477
           Top = 0
           Caption = 'Kick'
           ImageIndex = 11
           OnClick = tbKickClick
         end
         object tbEat: TToolButton
-          Left = 700
+          Left = 543
           Top = 0
           Caption = 'Eat'
           ImageIndex = 15
           OnClick = tbEatClick
         end
         object Label6: TLabel
-          Left = 792
+          Left = 609
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbBonk: TToolButton
-          Left = 865
+          Left = 682
           Top = 0
           Caption = 'Bonk'
           ImageIndex = 16
           OnClick = tbBonkClick
         end
         object tbGive: TToolButton
-          Left = 957
+          Left = 748
           Top = 0
           Caption = 'Give'
           ImageIndex = 17
           OnClick = tbGiveClick
         end
         object tbThrow: TToolButton
-          Left = 1049
+          Left = 814
           Top = 0
           Caption = 'Throw'
           ImageIndex = 14
           OnClick = tbThrowClick
         end
         object Label3: TLabel
-          Left = 1141
+          Left = 880
           Top = 0
           Width = 22
-          Height = 13
+          Height = 22
           Caption = 'Use:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbUse1: TToolButton
-          Left = 1163
+          Left = 902
           Top = 0
           Caption = 'Use1 (/)'
           ImageIndex = 127
           OnClick = tbUse1Click
         end
         object tbUse2: TToolButton
-          Left = 1255
+          Left = 968
           Top = 0
           Caption = 'Use2'
           ImageIndex = 128
           OnClick = tbUse2Click
         end
         object tbUse3: TToolButton
-          Left = 1347
+          Left = 1034
           Top = 0
           Caption = 'Use3'
           ImageIndex = 129
           OnClick = tbUse3Click
         end
         object tbUse4: TToolButton
-          Left = 1439
+          Left = 1100
           Top = 0
           Caption = 'Use4'
           ImageIndex = 130
           OnClick = tbUse4Click
         end
         object tbUse5: TToolButton
-          Left = 1531
+          Left = 1166
           Top = 0
           Caption = 'Use5'
           ImageIndex = 131
@@ -1081,6 +1078,7 @@ object FormBiosfera: TFormBiosfera
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         TabOrder = 7
         Visible = False
+        ExplicitWidth = 1000
         object Label1: TLabel
           Left = 0
           Top = 0
@@ -1348,8 +1346,7 @@ object FormBiosfera: TFormBiosfera
         Top = 114
         Width = 1008
         Height = 27
-        ButtonHeight = 30
-        ButtonWidth = 152
+        ButtonWidth = 97
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -1357,11 +1354,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 8
         Visible = False
+        ExplicitWidth = 1000
         object Label32: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Volume'
           Color = clInactiveBorder
@@ -1371,7 +1369,7 @@ object FormBiosfera: TFormBiosfera
           Left = 73
           Top = 0
           Width = 100
-          Height = 30
+          Height = 22
           Position = 10
           TabOrder = 1
           OnChange = tbVolumeChange
@@ -1380,13 +1378,13 @@ object FormBiosfera: TFormBiosfera
           Left = 173
           Top = 0
           Width = 28
-          Height = 13
+          Height = 22
           Caption = 'Trails:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbTrackLines: TToolButton
-          Left = 202
+          Left = 201
           Top = 0
           Caption = 'Tracking Trail'
           ImageIndex = 8
@@ -1394,7 +1392,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbTrackLinesClick
         end
         object tbPredictions: TToolButton
-          Left = 354
+          Left = 298
           Top = 0
           Caption = 'Prediction Trail'
           ImageIndex = 27
@@ -1402,16 +1400,16 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbPredictionsClick
         end
         object cbTrackNewThings: TCheckBox
-          Left = 506
+          Left = 395
           Top = 0
           Width = 112
-          Height = 30
+          Height = 22
           Caption = 'Track New Things'
           TabOrder = 0
           OnClick = cbTrackNewThingsClick
         end
         object tbRestoreParent: TToolButton
-          Left = 618
+          Left = 507
           Top = 0
           Hint = 'Restore the Time and Manager windows.'
           Caption = 'Restore'
@@ -1426,8 +1424,7 @@ object FormBiosfera: TFormBiosfera
         Top = 289
         Width = 1008
         Height = 29
-        ButtonHeight = 30
-        ButtonWidth = 150
+        ButtonWidth = 97
         Caption = 'tbDisasters'
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
@@ -1435,11 +1432,12 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 9
         Visible = False
+        ExplicitWidth = 1000
         object Label34: TLabel
           Left = 0
           Top = 0
           Width = 73
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Disasters:'
           Color = clInactiveBorder
@@ -1456,7 +1454,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbEarthquakeClick
         end
         object ToolButton5: TToolButton
-          Left = 223
+          Left = 170
           Top = 0
           Width = 8
           Caption = 'ToolButton5'
@@ -1464,7 +1462,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object tbLightning: TToolButton
-          Left = 231
+          Left = 178
           Top = 0
           Caption = #1052#1086#1083#1085#1080#1103
           Grouped = True
@@ -1475,7 +1473,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLightningClick
         end
         object tbPlantRemover: TToolButton
-          Left = 381
+          Left = 275
           Top = 0
           Caption = 'Plant Remover'
           Grouped = True
@@ -1484,7 +1482,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbPlantRemoverClick
         end
         object tbLifeKiller: TToolButton
-          Left = 531
+          Left = 372
           Top = 0
           Caption = 'Life Killer'
           Grouped = True
@@ -1493,7 +1491,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLifeKillerClick
         end
         object tbThingCeaser: TToolButton
-          Left = 681
+          Left = 469
           Top = 0
           Hint = 'Remove Things from Land'
           Caption = 'Trash'
@@ -1514,21 +1512,22 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitWidth = 1000
       object tbPlanet: TToolBar
         Left = 0
         Top = 0
-        Width = 574
+        Width = 1008
         Height = 39
         Align = alClient
-        ButtonHeight = 47
-        ButtonWidth = 82
+        ButtonHeight = 36
+        ButtonWidth = 50
         Color = clActiveBorder
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1008
+        ExplicitWidth = 1000
         object tbObjectMenu: TToolButton
           Left = 0
           Top = 0
@@ -1542,7 +1541,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbObjectMenuClick
         end
         object tbGalaxyMenu: TToolButton
-          Left = 82
+          Left = 50
           Top = 0
           Hint = 'Satellites'
           Caption = 'Space'
@@ -1554,7 +1553,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbGalaxyMenuClick
         end
         object tbWaterMenu: TToolButton
-          Left = 164
+          Left = 100
           Top = 0
           Hint = 'Water'
           Caption = 'Water'
@@ -1566,7 +1565,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbWaterMenuClick
         end
         object tbLandMenu: TToolButton
-          Left = 246
+          Left = 150
           Top = 0
           Hint = 'Land'
           Caption = 'Land'
@@ -1578,7 +1577,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLandMenuClick
         end
         object tbAtmosphereMenu: TToolButton
-          Left = 328
+          Left = 200
           Top = 0
           Hint = 'Atmosphere'
           Caption = 'Air'
@@ -1590,7 +1589,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAtmosphereMenuClick
         end
         object tbFaunaMenu: TToolButton
-          Left = 410
+          Left = 250
           Top = 0
           Hint = 'Fauna'
           Caption = 'Plants'
@@ -1602,7 +1601,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFaunaMenuClick
         end
         object tbCreaturesMenu: TToolButton
-          Left = 492
+          Left = 300
           Top = 0
           Hint = 'Creatures'
           Caption = 'Animals'
@@ -1614,7 +1613,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCreaturesMenuClick
         end
         object tbSpiritsMenu: TToolButton
-          Left = 574
+          Left = 350
           Top = 0
           Hint = 'Spirits'
           Caption = 'Bots'
@@ -1626,7 +1625,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSpiritsMenuClick
         end
         object tbToolsMenu: TToolButton
-          Left = 656
+          Left = 400
           Top = 0
           Hint = 'Tools'
           Caption = 'Tools'
@@ -1638,7 +1637,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbToolsMenuClick
         end
         object tbDisastersMenu: TToolButton
-          Left = 738
+          Left = 450
           Top = 0
           Hint = 'Disasters'
           Caption = 'Disasters'
@@ -1650,7 +1649,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbDisastersMenuClick
         end
         object tbCameraMenu: TToolButton
-          Left = 820
+          Left = 500
           Top = 0
           Hint = 'Find'
           Caption = 'Search'
@@ -1662,7 +1661,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraMenuClick
         end
         object tbVisualsMenu: TToolButton
-          Left = 902
+          Left = 550
           Top = 0
           Hint = 'Visuals'
           Caption = 'Visuals'
@@ -1674,7 +1673,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbVisualsMenuClick
         end
         object tbAudioMenu: TToolButton
-          Left = 984
+          Left = 600
           Top = 0
           Hint = 'Audio and Details'
           Caption = 'Audio'
@@ -1686,7 +1685,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAudioMenuClick
         end
         object tbSettingsMenu: TToolButton
-          Left = 1066
+          Left = 650
           Top = 0
           Hint = 'Settings'
           Caption = 'Options'
@@ -1698,7 +1697,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSettingsMenuClick
         end
         object ToolButton7: TToolButton
-          Left = 1148
+          Left = 700
           Top = 0
           Width = 8
           Caption = 'ToolButton7'
@@ -1706,7 +1705,7 @@ object FormBiosfera: TFormBiosfera
           Style = tbsSeparator
         end
         object tbRepeat: TToolButton
-          Left = 1156
+          Left = 708
           Top = 0
           Hint = 'Tool Repeat'
           Caption = 'Repeat'
@@ -1727,25 +1726,25 @@ object FormBiosfera: TFormBiosfera
       BevelOuter = bvNone
       TabOrder = 2
       Visible = False
+      ExplicitWidth = 1000
       object tbObjects: TToolBar
         Left = 176
         Top = 0
-        Width = 398
+        Width = 832
         Height = 48
         Align = alClient
-        ButtonHeight = 30
-        ButtonWidth = 109
+        ButtonWidth = 73
         EdgeBorders = [ebTop, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 832
+        ExplicitWidth = 824
         object Label22: TLabel
           Left = 0
           Top = 0
           Width = 48
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'View:'
           Color = clActiveBorder
@@ -1763,7 +1762,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbMouseViewClick
         end
         object tbTrackWindow: TToolButton
-          Left = 157
+          Left = 121
           Top = 0
           Hint = 'View Selected Object (Double Click)'
           Caption = 'Details'
@@ -1773,17 +1772,17 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbTrackWindowClick
         end
         object Label23: TLabel
-          Left = 266
+          Left = 194
           Top = 0
           Width = 49
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Change:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbHeal: TToolButton
-          Left = 315
+          Left = 243
           Top = 0
           Hint = 'Heal this object (256).'
           Caption = 'Heal'
@@ -1793,7 +1792,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbHealClick
         end
         object tbHarm: TToolButton
-          Left = 424
+          Left = 316
           Top = 0
           Hint = 'Harm this object (-256).'
           Caption = 'Harm'
@@ -1803,7 +1802,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbHarmClick
         end
         object tbDie: TToolButton
-          Left = 533
+          Left = 389
           Top = 0
           Hint = 'Kill this object, if it is living.'
           Caption = 'Die'
@@ -1813,7 +1812,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbDieClick
         end
         object tbCease: TToolButton
-          Left = 642
+          Left = 462
           Top = 0
           Hint = 'Cease this objects existence.'
           Caption = 'Cease'
@@ -1823,7 +1822,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCeaseClick
         end
         object tbExtinction: TToolButton
-          Left = 751
+          Left = 535
           Top = 0
           Hint = 'Kill every kind of this object.'
           Caption = 'Extinction'
@@ -1833,7 +1832,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbExtinctionClick
         end
         object tbJump: TToolButton
-          Left = 860
+          Left = 608
           Top = 0
           Caption = 'Jump'
           ImageIndex = 152
@@ -1842,9 +1841,9 @@ object FormBiosfera: TFormBiosfera
         end
         object Label30: TLabel
           Left = 0
-          Top = 30
+          Top = 22
           Width = 48
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Report:'
           Color = clActiveBorder
@@ -1852,7 +1851,7 @@ object FormBiosfera: TFormBiosfera
         end
         object tbReport: TToolButton
           Left = 48
-          Top = 30
+          Top = 22
           Hint = 'Ask for report from current object.'
           Caption = 'Report'
           ImageIndex = 117
@@ -1861,8 +1860,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbReportClick
         end
         object tbReportAll: TToolButton
-          Left = 157
-          Top = 30
+          Left = 121
+          Top = 22
           Hint = 'Ask for reports from all creatures.'
           Caption = 'Report All'
           ImageIndex = 118
@@ -1871,53 +1870,53 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbReportAllClick
         end
         object Label20: TLabel
-          Left = 266
-          Top = 30
+          Left = 194
+          Top = 22
           Width = 49
-          Height = 30
+          Height = 22
           AutoSize = False
           Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbPerform0: TToolButton
-          Left = 315
-          Top = 30
+          Left = 243
+          Top = 22
           Caption = 'Perform'
           ImageIndex = 126
           OnClick = tbPerform0Click
         end
         object tbPerform1: TToolButton
-          Left = 424
-          Top = 30
+          Left = 316
+          Top = 22
           Caption = 'Perform'
           ImageIndex = 127
           OnClick = tbPerform1Click
         end
         object tbPerform2: TToolButton
-          Left = 533
-          Top = 30
+          Left = 389
+          Top = 22
           Caption = 'Perform'
           ImageIndex = 128
           OnClick = tbPerform2Click
         end
         object tbPerform3: TToolButton
-          Left = 642
-          Top = 30
+          Left = 462
+          Top = 22
           Caption = 'Perform'
           ImageIndex = 129
           OnClick = tbPerform3Click
         end
         object tbPerform4: TToolButton
-          Left = 751
-          Top = 30
+          Left = 535
+          Top = 22
           Caption = 'Perform'
           ImageIndex = 130
           OnClick = tbPerform4Click
         end
         object tbPerform5: TToolButton
-          Left = 860
-          Top = 30
+          Left = 608
+          Top = 22
           Caption = 'Perform'
           ImageIndex = 131
           OnClick = tbPerform5Click
@@ -1929,8 +1928,8 @@ object FormBiosfera: TFormBiosfera
         Width = 118
         Height = 48
         Align = alLeft
-        ButtonHeight = 47
-        ButtonWidth = 74
+        ButtonHeight = 36
+        ButtonWidth = 46
         Caption = 'ToolBar1'
         EdgeBorders = [ebLeft, ebTop, ebBottom]
         Images = FormImages.ImageListIcons
@@ -1951,7 +1950,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSelectClick
         end
         object tbMove: TToolButton
-          Left = 74
+          Left = 46
           Top = 0
           Hint = 'Use the mouse but to drag objects around.'
           Caption = 'Move'
@@ -1993,6 +1992,7 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 3
       Visible = False
+      ExplicitWidth = 1000
       object Panel1: TPanel
         Left = 1
         Top = 1
@@ -2005,7 +2005,7 @@ object FormBiosfera: TFormBiosfera
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 58
+          Width = 57
           Height = 21
           Align = alTop
           BevelOuter = bvNone
@@ -2017,18 +2017,17 @@ object FormBiosfera: TFormBiosfera
       object tbCreatures: TToolBar
         Left = 58
         Top = 1
-        Width = 515
+        Width = 949
         Height = 46
         Align = alClient
-        ButtonHeight = 30
-        ButtonWidth = 101
+        ButtonWidth = 69
         Caption = 'tbFauna'
         EdgeBorders = [ebRight, ebBottom]
         Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 949
+        ExplicitWidth = 941
         object tbBird: TToolButton
           Left = 0
           Top = 0
@@ -2043,7 +2042,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbBirdClick
         end
         object tbFish: TToolButton
-          Left = 101
+          Left = 69
           Top = 0
           Hint = 'Fish'
           Caption = 'Fish'
@@ -2055,7 +2054,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFishClick
         end
         object tbDuck: TToolButton
-          Left = 202
+          Left = 138
           Top = 0
           Hint = 'Duck'
           Caption = 'Duck'
@@ -2067,7 +2066,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbDuckClick
         end
         object tbLadybug: TToolButton
-          Left = 303
+          Left = 207
           Top = 0
           Hint = 'Ladybug'
           Caption = 'LadyBug'
@@ -2079,7 +2078,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLadybugClick
         end
         object tbHawk: TToolButton
-          Left = 404
+          Left = 276
           Top = 0
           Hint = 'Hawk'
           Caption = 'Hawk'
@@ -2091,7 +2090,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbHawkClick
         end
         object tbTurtle: TToolButton
-          Left = 505
+          Left = 345
           Top = 0
           Hint = 'Turtle'
           Caption = 'Turtle'
@@ -2103,7 +2102,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbTurtleClick
         end
         object tbCrab: TToolButton
-          Left = 606
+          Left = 414
           Top = 0
           Hint = 'Crab'
           Caption = 'Crab'
@@ -2115,7 +2114,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCrabClick
         end
         object tbShark: TToolButton
-          Left = 707
+          Left = 483
           Top = 0
           Hint = 'Shark'
           Caption = 'Shark'
@@ -2127,7 +2126,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbSharkClick
         end
         object tbAnt: TToolButton
-          Left = 808
+          Left = 552
           Top = 0
           Hint = 'Ant'
           Caption = 'Ant'
@@ -2139,7 +2138,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAntClick
         end
         object tbGrazer: TToolButton
-          Left = 909
+          Left = 621
           Top = 0
           Hint = 'Grazer'
           Caption = 'Grazer'
@@ -2151,7 +2150,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbGrazerClick
         end
         object tbTrex: TToolButton
-          Left = 1010
+          Left = 690
           Top = 0
           Hint = 'Trex'
           Caption = 'Trex'
@@ -2163,7 +2162,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbTrexClick
         end
         object tbRabbit: TToolButton
-          Left = 1111
+          Left = 759
           Top = 0
           Hint = 'Rabbit'
           Caption = 'Rabbit'
@@ -2175,7 +2174,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbRabbitClick
         end
         object tbTiger: TToolButton
-          Left = 1212
+          Left = 828
           Top = 0
           Hint = 'Tiger'
           Caption = 'Tiger'
@@ -2187,7 +2186,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbTigerClick
         end
         object tbMouse: TToolButton
-          Left = 1313
+          Left = 897
           Top = 0
           Hint = 'Mouse'
           Caption = 'Mouse'
@@ -2199,7 +2198,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbMouseClick
         end
         object tbTerrier: TToolButton
-          Left = 1414
+          Left = 966
           Top = 0
           Hint = 'Terrier'
           Caption = 'Terrier'
@@ -2212,7 +2211,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbTerrierClick
         end
         object tbDolphin: TToolButton
-          Left = 1515
+          Left = 1035
           Top = 0
           Hint = 'Dolphin'
           Caption = 'Dolphin'
@@ -2224,7 +2223,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbDolphinClick
         end
         object tbFox: TToolButton
-          Left = 1616
+          Left = 1104
           Top = 0
           Hint = 'Fox'
           Caption = 'Fox'
@@ -2236,7 +2235,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFoxClick
         end
         object tbCreatureDeath: TToolButton
-          Left = 1717
+          Left = 1173
           Top = 0
           Hint = 'Creature Killer'
           Caption = 'Death'
@@ -2257,6 +2256,7 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 4
       Visible = False
+      ExplicitWidth = 1000
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -2269,7 +2269,7 @@ object FormBiosfera: TFormBiosfera
         object Panel7: TPanel
           Left = 0
           Top = 0
-          Width = 58
+          Width = 57
           Height = 21
           Align = alTop
           BevelOuter = bvNone
@@ -2284,8 +2284,7 @@ object FormBiosfera: TFormBiosfera
         Width = 414
         Height = 46
         Align = alLeft
-        ButtonHeight = 30
-        ButtonWidth = 121
+        ButtonWidth = 80
         Caption = 'tbLand'
         EdgeBorders = [ebLeft, ebBottom]
         Images = FormImages.ImageListIcons
@@ -2306,7 +2305,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbRaiseLandClick
         end
         object tbLowerLand: TToolButton
-          Left = 121
+          Left = 80
           Top = 0
           Hint = 'Lower Land'
           Caption = 'LowerLand'
@@ -2318,7 +2317,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLowerLandClick
         end
         object tbMountain: TToolButton
-          Left = 242
+          Left = 160
           Top = 0
           Hint = 'Mountain'
           Caption = 'Mountain'
@@ -2330,7 +2329,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbMountainClick
         end
         object tbValley: TToolButton
-          Left = 363
+          Left = 240
           Top = 0
           Hint = 'Valley'
           Caption = 'Valley'
@@ -2344,7 +2343,7 @@ object FormBiosfera: TFormBiosfera
         end
         object tbFlattenLand: TToolButton
           Left = 0
-          Top = 30
+          Top = 22
           Hint = 'Flatten'
           Caption = 'Flatten'
           Grouped = True
@@ -2355,8 +2354,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFlattenLandClick
         end
         object tbLandDesert: TToolButton
-          Left = 121
-          Top = 30
+          Left = 80
+          Top = 22
           Hint = 'Land (1.0)'
           Caption = 'Desert'
           Grouped = True
@@ -2367,8 +2366,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLandDesertClick
         end
         object tbLandDirt: TToolButton
-          Left = 242
-          Top = 30
+          Left = 160
+          Top = 22
           Hint = 'Land (2.5)'
           Caption = 'Dirt'
           Grouped = True
@@ -2379,8 +2378,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLandDirtClick
         end
         object tbLandField: TToolButton
-          Left = 363
-          Top = 30
+          Left = 240
+          Top = 22
           Hint = 'Land (5.0)'
           Caption = 'LandField'
           Down = True
@@ -2394,7 +2393,7 @@ object FormBiosfera: TFormBiosfera
         end
         object tbLandGrass: TToolButton
           Left = 0
-          Top = 60
+          Top = 44
           Hint = 'Land (7.5)'
           Caption = 'LandGrass'
           Grouped = True
@@ -2405,8 +2404,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbLandGrassClick
         end
         object tbWaterSea: TToolButton
-          Left = 121
-          Top = 60
+          Left = 80
+          Top = 44
           Hint = 'Land (15.0)'
           Caption = 'Hills'
           Grouped = True
@@ -2426,6 +2425,7 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 5
       Visible = False
+      ExplicitWidth = 1000
       object Panel9: TPanel
         Left = 1
         Top = 1
@@ -2438,7 +2438,7 @@ object FormBiosfera: TFormBiosfera
         object Panel10: TPanel
           Left = 0
           Top = 0
-          Width = 58
+          Width = 57
           Height = 21
           Align = alTop
           BevelOuter = bvNone
@@ -2450,18 +2450,17 @@ object FormBiosfera: TFormBiosfera
       object tbFauna: TToolBar
         Left = 58
         Top = 1
-        Width = 515
+        Width = 949
         Height = 46
         Align = alClient
-        ButtonHeight = 30
-        ButtonWidth = 149
+        ButtonWidth = 96
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = FormImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 949
+        ExplicitWidth = 941
         object tbPlantForest: TToolButton
           Left = 0
           Top = 0
@@ -2476,7 +2475,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbPlantForestClick
         end
         object tbEvolvingTree: TToolButton
-          Left = 149
+          Left = 96
           Top = 0
           Hint = 'Evolving Tree'
           Caption = 'Evolving Tree'
@@ -2488,7 +2487,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbEvolvingTreeClick
         end
         object tbAppleTree: TToolButton
-          Left = 298
+          Left = 192
           Top = 0
           Hint = 'Apple Tree'
           Caption = 'Apple Tree'
@@ -2500,7 +2499,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAppleTreeClick
         end
         object tbOrangeTree: TToolButton
-          Left = 447
+          Left = 288
           Top = 0
           Hint = 'Orange Tree'
           Caption = 'Orange Tree'
@@ -2512,7 +2511,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbOrangeTreeClick
         end
         object tbAquaPlant: TToolButton
-          Left = 596
+          Left = 384
           Top = 0
           Hint = 'Aquatic Plant'
           Caption = 'Aqua Plant'
@@ -2524,7 +2523,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAquaPlantClick
         end
         object tbGrass: TToolButton
-          Left = 745
+          Left = 480
           Top = 0
           Hint = 'Grass'
           Caption = 'Grass'
@@ -2536,7 +2535,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbGrassClick
         end
         object tbFireTree: TToolButton
-          Left = 894
+          Left = 576
           Top = 0
           Hint = 'Fire Tree'
           Caption = 'Fire Tree'
@@ -2548,7 +2547,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFireTreeClick
         end
         object tbApple: TToolButton
-          Left = 1043
+          Left = 672
           Top = 0
           Hint = 'Apple'
           Caption = 'Apples'
@@ -2560,7 +2559,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAppleClick
         end
         object tbEvolvingFruit: TToolButton
-          Left = 1192
+          Left = 768
           Top = 0
           Hint = 'Evolving Fruit'
           Caption = 'Evolving Fruit'
@@ -2572,7 +2571,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbEvolvingFruitClick
         end
         object tbOrange: TToolButton
-          Left = 1341
+          Left = 864
           Top = 0
           Hint = 'Orange'
           Caption = 'Orange'
@@ -2584,7 +2583,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbOrangeClick
         end
         object tbAppleSeed: TToolButton
-          Left = 1490
+          Left = 960
           Top = 0
           Hint = 'Apple Seed'
           Caption = 'Apple Seed'
@@ -2596,7 +2595,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbAppleSeedClick
         end
         object tbOrangeSeed: TToolButton
-          Left = 1639
+          Left = 1056
           Top = 0
           Hint = 'Orange Seed'
           Caption = 'Orange Seed'
@@ -2608,7 +2607,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbOrangeSeedClick
         end
         object tbEvolvingSeed: TToolButton
-          Left = 1788
+          Left = 1152
           Top = 0
           Hint = 'Evolving Seed'
           Caption = 'Evolving Seed'
@@ -2620,7 +2619,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbEvolvingSeedClick
         end
         object tbPlantClearer: TToolButton
-          Left = 1937
+          Left = 1248
           Top = 0
           Hint = 'Plant Clearer'
           Caption = 'Plant Clearer'
@@ -2650,6 +2649,8 @@ object FormBiosfera: TFormBiosfera
         Width = 350
       end>
     OnClick = StatusBarClick
+    ExplicitTop = 632
+    ExplicitWidth = 1000
   end
   object Panel2: TPanel
     Left = 0
@@ -2659,6 +2660,8 @@ object FormBiosfera: TFormBiosfera
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 1000
+    ExplicitHeight = 77
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2668,8 +2671,8 @@ object FormBiosfera: TFormBiosfera
     object GLSceneViewer: TGLSceneViewer
       Left = 0
       Top = 0
-      Width = 574
-      Height = 96
+      Width = 1008
+      Height = 71
       Camera = GLCamera
       Buffer.FogEnvironment.FogColor.Color = {00000000F8FEFE3E0000803F0000803F}
       Buffer.FogEnvironment.FogStart = 1.000000000000000000
@@ -2678,7 +2681,7 @@ object FormBiosfera: TFormBiosfera
       Buffer.FogEnvironment.FogDistance = fdEyePlane
       Buffer.BackgroundColor = clBlack
       Buffer.ContextOptions = [roDoubleBuffer, roStencilBuffer, roRenderToWindow]
-      FieldOfView = 51.282012939453130000
+      FieldOfView = 39.089725494384770000
       PenAsTouch = False
       OnMouseLeave = GLSceneViewerMouseLeave
       OnMouseEnter = GLSceneViewerMouseEnter
@@ -2688,26 +2691,23 @@ object FormBiosfera: TFormBiosfera
       OnMouseMove = GLSceneViewerMouseMove
       OnMouseUp = GLSceneViewerMouseUp
       TabOrder = 0
-      ExplicitWidth = 1008
-      ExplicitHeight = 71
     end
     object panCamera: TPanel
       Left = 0
-      Top = 96
-      Width = 574
+      Top = 71
+      Width = 1008
       Height = 31
       Align = alBottom
       TabOrder = 1
-      ExplicitTop = 71
-      ExplicitWidth = 1008
+      ExplicitTop = 46
+      ExplicitWidth = 1000
       object tbViews: TToolBar
         Left = 1
         Top = 1
-        Width = 572
+        Width = 1006
         Height = 29
         Align = alClient
-        ButtonHeight = 26
-        ButtonWidth = 84
+        ButtonWidth = 64
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -9
@@ -2718,17 +2718,16 @@ object FormBiosfera: TFormBiosfera
         ParentFont = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1006
-        ExplicitHeight = 30
+        ExplicitWidth = 998
         object Label19: TLabel
           Left = 0
           Top = 0
           Width = 39
-          Height = 13
+          Height = 22
           Caption = 'Camera:'
         end
         object tbCameraPlanet: TToolButton
-          Left = 34
+          Left = 39
           Top = 0
           Hint = 'Focus on your planet (P).'
           Caption = 'Planet'
@@ -2740,7 +2739,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraPlanetClick
         end
         object tbFloatCamera: TToolButton
-          Left = 118
+          Left = 103
           Top = 0
           Hint = 'Free floating camera.'
           Caption = 'Free'
@@ -2750,7 +2749,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbFloatCameraClick
         end
         object tbCameraTarget: TToolButton
-          Left = 202
+          Left = 167
           Top = 0
           Hint = 'The camera follows a target (\).'
           Caption = 'Target'
@@ -2762,7 +2761,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraTargetClick
         end
         object tbCameraEyes: TToolButton
-          Left = 286
+          Left = 231
           Top = 0
           Hint = 'Eyes view.'
           Caption = 'Eyes'
@@ -2774,7 +2773,7 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraEyesClick
         end
         object tbCameraGalaxy: TToolButton
-          Left = 370
+          Left = 295
           Top = 0
           Hint = 'View the planet from afar.'
           Caption = 'Space'
@@ -2786,21 +2785,20 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraGalaxyClick
         end
         object tbCameraSatellite: TToolButton
-          Left = 454
+          Left = 359
           Top = 0
           Hint = 'Rotate around the planet from space.'
           Caption = 'Satellite'
           Grouped = True
           ImageIndex = 80
           ParentShowHint = False
-          Wrap = True
           ShowHint = True
           Style = tbsCheck
           OnClick = tbCameraSatelliteClick
         end
         object tbCameraAvatar: TToolButton
-          Left = 0
-          Top = 26
+          Left = 423
+          Top = 0
           Hint = 'Walk around on your planet in first person mode (Tab).'
           Caption = 'Walk'
           Grouped = True
@@ -2811,8 +2809,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbCameraAvatarClick
         end
         object tbZoomIn: TToolButton
-          Left = 84
-          Top = 26
+          Left = 487
+          Top = 0
           Hint = 'Zoom In (+ key or mouse wheel)'
           Caption = 'In'
           ImageIndex = 37
@@ -2821,8 +2819,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbZoomInClick
         end
         object tbZoomOut: TToolButton
-          Left = 168
-          Top = 26
+          Left = 551
+          Top = 0
           Hint = 'Zoom Out (- key or mouse wheel)'
           Caption = 'Out'
           ImageIndex = 139
@@ -2831,8 +2829,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbZoomOutClick
         end
         object tbPriorTarget: TToolButton
-          Left = 252
-          Top = 26
+          Left = 615
+          Top = 0
           Hint = 'Target the previous target to view ([).'
           Caption = 'Prev'
           ImageIndex = 68
@@ -2841,8 +2839,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbPriorTargetClick
         end
         object tbNextTarget: TToolButton
-          Left = 336
-          Top = 26
+          Left = 679
+          Top = 0
           Hint = 'Find the next target to view (]).'
           Caption = 'Next'
           ImageIndex = 69
@@ -2851,8 +2849,8 @@ object FormBiosfera: TFormBiosfera
           OnClick = tbNextTargetClick
         end
         object tbNextKind: TToolButton
-          Left = 420
-          Top = 26
+          Left = 743
+          Top = 0
           Caption = 'Kind'
           ImageIndex = 157
           OnClick = tbNextKindClick
