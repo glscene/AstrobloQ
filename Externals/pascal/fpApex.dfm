@@ -1,61 +1,41 @@
 object FormApex: TFormApex
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'ApexP'
-  ClientHeight = 724
-  ClientWidth = 1182
+  ClientHeight = 431
+  ClientWidth = 695
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object Splitter1: TSplitter
-    Left = 197
-    Top = 51
-    Width = 5
-    Height = 605
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    MinSize = 53
-    ExplicitLeft = 325
-    ExplicitTop = 102
-    ExplicitHeight = 554
+    Left = 113
+    Top = 29
+    Width = 2
+    Height = 363
+    ExplicitHeight = 346
   end
   object PanelLeft: TPanel
     Left = 0
-    Top = 51
-    Width = 197
-    Height = 605
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 29
+    Width = 113
+    Height = 363
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 673
+    ExplicitHeight = 321
     object tvApex: TTreeView
       Left = 1
-      Top = 43
-      Width = 195
-      Height = 513
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 25
+      Width = 111
+      Height = 310
       Align = alClient
-      Indent = 33
+      Indent = 19
       TabOrder = 0
       OnClick = tvApexClick
       Items.NodeData = {
@@ -83,59 +63,43 @@ object FormApex: TFormApex
         FFFFFFFFFFFFFF00000000000000000000000000010A50006C0061006E006500
         7400720069007300650000002B0000000000000000000000FFFFFFFFFFFFFFFF
         000000000000000000000000000106530075006E00730065007400}
-      ExplicitHeight = 581
+      ExplicitHeight = 268
     end
     object PanelTop: TPanel
       Left = 1
       Top = 1
-      Width = 195
-      Height = 42
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 111
+      Height = 24
       Align = alTop
       TabOrder = 1
     end
     object PanelBottom: TPanel
       Left = 1
-      Top = 556
-      Width = 195
-      Height = 48
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 335
+      Width = 111
+      Height = 27
       Align = alBottom
       TabOrder = 2
-      ExplicitTop = 624
+      ExplicitTop = 293
     end
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 1182
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 695
+    Height = 29
     Align = alTop
-    RowSize = 46
     TabOrder = 1
+    ExplicitWidth = 667
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 656
-    Width = 1182
-    Height = 68
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 392
+    Width = 695
+    Height = 39
     Panels = <>
-    ExplicitTop = 0
-    ExplicitWidth = 14
+    ExplicitTop = 350
+    ExplicitWidth = 667
   end
   object MainMenu: TMainMenu
     Left = 368

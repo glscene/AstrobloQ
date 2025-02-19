@@ -47,14 +47,12 @@ object frmSettings: TfrmSettings
     object PageControl: TPageControl
       Left = 169
       Top = 5
-      Width = 508
-      Height = 370
+      Width = 500
+      Height = 345
       ActivePage = tsDisplay
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 500
-      ExplicitHeight = 345
       object tsGeneral: TTabSheet
         Caption = 'General'
         ImageIndex = 7

@@ -21,10 +21,13 @@
         <Projects Include="Projects\GalaxyGXC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\UniverseAGI.dproj">
+        <Projects Include="Projects\PlanetAGI.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\UniverceAGI.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\UniverseAGI.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -89,14 +92,14 @@
     <Target Name="GalaxyGXC:Make">
         <MSBuild Projects="Projects\GalaxyGXC.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="UniverseAGI">
-        <MSBuild Projects="Projects\UniverseAGI.dproj"/>
+    <Target Name="PlanetAGI">
+        <MSBuild Projects="Projects\PlanetAGI.dproj"/>
     </Target>
-    <Target Name="UniverseAGI:Clean">
-        <MSBuild Projects="Projects\UniverseAGI.dproj" Targets="Clean"/>
+    <Target Name="PlanetAGI:Clean">
+        <MSBuild Projects="Projects\PlanetAGI.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="UniverseAGI:Make">
-        <MSBuild Projects="Projects\UniverseAGI.dproj" Targets="Make"/>
+    <Target Name="PlanetAGI:Make">
+        <MSBuild Projects="Projects\PlanetAGI.dproj" Targets="Make"/>
     </Target>
     <Target Name="UniverceAGI">
         <MSBuild Projects="Projects\UniverceAGI.cbproj"/>
@@ -107,14 +110,23 @@
     <Target Name="UniverceAGI:Make">
         <MSBuild Projects="Projects\UniverceAGI.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="UniverseAGI">
+        <MSBuild Projects="Projects\UniverseAGI.dproj"/>
+    </Target>
+    <Target Name="UniverseAGI:Clean">
+        <MSBuild Projects="Projects\UniverseAGI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UniverseAGI:Make">
+        <MSBuild Projects="Projects\UniverseAGI.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXS;GalaxyGXC;UniverseAGI;UniverceAGI"/>
+        <CallTarget Targets="GalaxyGLS;Litosfera;Biosfera;Tehnosfera;GalaxyGXS;GalaxyGXC;PlanetAGI;UniverceAGI;UniverseAGI"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXS:Clean;GalaxyGXC:Clean;UniverseAGI:Clean;UniverceAGI:Clean"/>
+        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Tehnosfera:Clean;GalaxyGXS:Clean;GalaxyGXC:Clean;PlanetAGI:Clean;UniverceAGI:Clean;UniverseAGI:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXS:Make;GalaxyGXC:Make;UniverseAGI:Make;UniverceAGI:Make"/>
+        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Tehnosfera:Make;GalaxyGXS:Make;GalaxyGXC:Make;PlanetAGI:Make;UniverceAGI:Make;UniverseAGI:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

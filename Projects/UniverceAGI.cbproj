@@ -244,24 +244,6 @@
             <DependentOn>..\Source\actro\fcSettings.h</DependentOn>
             <BuildOrder>15</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\source\apc\APC_Cheb.cpp">
-            <BuildOrder>11</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\source\apc\APC_IO.cpp">
-            <BuildOrder>10</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\source\astronomy\astronomy.c">
-            <BuildOrder>8</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\astronomy\astronomy.h">
-            <BuildOrder>7</BuildOrder>
-        </None>
-        <None Include="..\source\sofa\sofa.h">
-            <BuildOrder>16</BuildOrder>
-        </None>
-        <None Include="..\source\sofa\sofam.h">
-            <BuildOrder>17</BuildOrder>
-        </None>
         <FormResources Include="..\Source\actro\fcSettings.dfm"/>
         <FormResources Include="..\Source\actro\fcHipparcos.dfm"/>
         <FormResources Include="..\Source\actro\dcImages.dfm"/>
@@ -364,22 +346,22 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ApcViewer.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="ApcViewer.tds" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName="AсtroViewer.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="AсtroViewer.tds" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName="UniverceAGI.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\UniverceAGI.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>UniverceAGI.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="UniverceAGI.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="..\UniverceAGI.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
                         <RemoteName>UniverceAGI.tds</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ApcViewer.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="ApcViewer.tds" Configuration="Debug" Class="DebugSymbols"/>
+                <DeployFile LocalName="AсtroViewer.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="AсtroViewer.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>

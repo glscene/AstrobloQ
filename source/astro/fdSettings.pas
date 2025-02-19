@@ -114,7 +114,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  fdUniverse;
+  fdPlanet;
 
 
 procedure TfrmSettings.FormCreate(Sender: TObject);

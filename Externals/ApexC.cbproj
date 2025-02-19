@@ -80,9 +80,9 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <ILINK_LibraryPath>cpp\;cbuilder\;..\source\apc\;..\;..\..\source\apc\;D:\GLS\AstroApps\Apclib\demo\cbuilder\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_LibraryPath>apc\;cpp\;cbuilder\;..\source\apc\;..\;..\..\source\apc\;D:\GLS\AstroApps\Apclib\demo\cbuilder\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>ApexC</SanitizedProjectName>
-        <IncludePath>cpp\;cbuilder\;..\source\apc\;..\;..\..\source\apc\;$(IncludePath)</IncludePath>
+        <IncludePath>apc\;cpp\;cbuilder\;..\source\apc\;..\;..\..\source\apc\;$(IncludePath)</IncludePath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bdertl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;FMXComponentEd;FMXComponents;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;GBE3D;GLScene_Cg_RT;GLScene_GPU_RT;GLScene_Physics_RT;GLScene_RT;GLScene_Sounds_RT;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldbx;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
@@ -106,7 +106,6 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <BCC_PCHName_Clang>APC_DE.h</BCC_PCHName_Clang>
         <BCC_EnableBatchCompilation>true</BCC_EnableBatchCompilation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
@@ -157,6 +156,51 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="apc\APC_AOEcat.cpp">
+            <BuildOrder>43</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_Cheb.cpp">
+            <BuildOrder>40</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_DE.cpp">
+            <BuildOrder>41</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_IO.cpp">
+            <BuildOrder>32</BuildOrder>
+        </CppCompile>
+        <None Include="apc\APC_Kepler.cpp">
+            <Exclude>True</Exclude>
+            <BuildOrder>33</BuildOrder>
+        </None>
+        <CppCompile Include="apc\APC_Math.cpp">
+            <BuildOrder>34</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_Moon.cpp">
+            <BuildOrder>35</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_Phys.cpp">
+            <BuildOrder>32</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_Planets.cpp">
+            <BuildOrder>33</BuildOrder>
+        </CppCompile>
+        <None Include="apc\APC_PrecNut.cpp">
+            <Exclude>True</Exclude>
+            <BuildOrder>28</BuildOrder>
+        </None>
+        <None Include="apc\APC_Spheric.cpp">
+            <Exclude>True</Exclude>
+            <BuildOrder>29</BuildOrder>
+        </None>
+        <CppCompile Include="apc\APC_Sun.cpp">
+            <BuildOrder>30</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_Time.cpp">
+            <BuildOrder>40</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="apc\APC_VecMat3D.cpp">
+            <BuildOrder>39</BuildOrder>
+        </CppCompile>
         <CppCompile Include="ApexC.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
@@ -256,93 +300,6 @@
             <DependentOn>cpp\fcСomet.h</DependentOn>
             <BuildOrder>18</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\source\apc\APC_AOEcat.cpp">
-            <BuildOrder>30</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\source\apc\APC_Cheb.cpp">
-            <BuildOrder>33</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_Cheb.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <CppCompile Include="..\source\apc\APC_DE.cpp">
-            <BuildOrder>41</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_DE.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <CppCompile Include="..\source\apc\APC_IO.cpp">
-            <BuildOrder>34</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_IO.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Kepler.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>35</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Kepler.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <CppCompile Include="..\source\apc\APC_Math.cpp">
-            <BuildOrder>42</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_Math.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Moon.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>36</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Moon.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Phys.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>37</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Phys.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <CppCompile Include="..\source\apc\APC_Planets.cpp">
-            <BuildOrder>43</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_Planets.h">
-            <BuildOrder>31</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_PrecNut.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>38</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_PrecNut.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Spheric.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>39</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Spheric.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Sun.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>40</BuildOrder>
-        </None>
-        <None Include="..\source\apc\APC_Sun.h">
-            <BuildOrder>30</BuildOrder>
-        </None>
-        <CppCompile Include="..\source\apc\APC_Time.cpp">
-            <BuildOrder>14</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_Time.h">
-            <BuildOrder>31</BuildOrder>
-        </None>
-        <CppCompile Include="..\source\apc\APC_VecMat3D.cpp">
-            <BuildOrder>15</BuildOrder>
-        </CppCompile>
-        <None Include="..\source\apc\APC_VecMat3D.h">
-            <BuildOrder>32</BuildOrder>
-        </None>
         <FormResources Include="cpp\fcNumint.dfm"/>
         <FormResources Include="cpp\fcOccult.dfm"/>
         <FormResources Include="cpp\fcPhases.dfm"/>
@@ -446,6 +403,18 @@
                 </DeployFile>
                 <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c290mt.dll" Class="DependencyModule">
                     <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\ApexC.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ApexC.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\ApexC.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>ApexC.tds</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

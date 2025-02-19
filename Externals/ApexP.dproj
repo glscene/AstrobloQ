@@ -86,7 +86,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_UnitSearchPath>..\..\source\apc;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>.\apc;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -106,14 +106,6 @@
             <Form>FormApex</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\apc\Apc.DE.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Kepler.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Moon.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Planets.pas"/>
-        <DCCReference Include="..\source\apc\Apc.PrecNut.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Spheric.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Sun.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Time.pas"/>
         <DCCReference Include="pascal\fpCoco.pas">
             <Form>FormCoco</Form>
             <FormType>dfm</FormType>
@@ -174,8 +166,16 @@
             <Form>FormSunset</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\apc\Apc.Math.pas"/>
-        <DCCReference Include="..\source\apc\Apc.Phys.pas"/>
+        <DCCReference Include="apc\Apc.DE.pas"/>
+        <DCCReference Include="apc\Apc.Kepler.pas"/>
+        <DCCReference Include="apc\Apc.Math.pas"/>
+        <DCCReference Include="apc\Apc.Moon.pas"/>
+        <DCCReference Include="apc\Apc.Phys.pas"/>
+        <DCCReference Include="apc\Apc.Planets.pas"/>
+        <DCCReference Include="apc\Apc.PrecNut.pas"/>
+        <DCCReference Include="apc\Apc.Spheric.pas"/>
+        <DCCReference Include="apc\Apc.Sun.pas"/>
+        <DCCReference Include="apc\Apc.Time.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -197,6 +197,9 @@
                     <Source Name="MainSource">ApexP.dpr</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GXScene_GBE.bpl">GXScene GBE</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GBComps.bpl">Geoblock - Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -206,6 +209,12 @@
             <Deployment Version="5">
                 <DeployFile LocalName="ApcTree.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="ApexP.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="ApexP.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ApexP.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>

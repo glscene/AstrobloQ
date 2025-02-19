@@ -1,19 +1,15 @@
 object fmReality: TfmReality
   Left = 18
   Top = 158
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   BorderIcons = [biSystemMenu, biMinimize, biHelp]
   BorderStyle = bsSingle
   Caption = 'Biosfera'
-  ClientHeight = 72
-  ClientWidth = 1897
+  ClientHeight = 41
+  ClientWidth = 1079
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -47,47 +43,35 @@ object fmReality: TfmReality
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 1897
-    Height = 72
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 1079
+    Height = 41
     Align = alTop
     BevelOuter = bvLowered
     BorderWidth = 2
     TabOrder = 0
+    ExplicitWidth = 1071
     object Panel4: TPanel
       Left = 3
       Top = 3
-      Width = 266
-      Height = 66
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 152
+      Height = 35
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
       object btnGo: TBitBtn
-        Left = 4
-        Top = 4
-        Width = 124
-        Height = 54
+        Left = 2
+        Top = 2
+        Width = 71
+        Height = 31
         Hint = 'Start time.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'GO'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -19
+        Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = [fsBold]
         Glyph.Data = {
@@ -111,19 +95,15 @@ object fmReality: TfmReality
         OnClick = btnGoClick
       end
       object btnStop: TBitBtn
-        Left = 140
-        Top = 4
-        Width = 121
-        Height = 54
+        Left = 80
+        Top = 2
+        Width = 69
+        Height = 31
         Hint = 'Stop time.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'STOP'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -19
+        Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = [fsBold]
         Glyph.Data = {
@@ -148,33 +128,25 @@ object fmReality: TfmReality
       end
     end
     object Panel16: TPanel
-      Left = 840
+      Left = 481
       Top = 3
-      Width = 122
-      Height = 66
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 70
+      Height = 35
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
       object radTicking: TRadioButton
-        Left = 7
-        Top = 4
-        Width = 198
-        Height = 29
+        Left = 4
+        Top = 2
+        Width = 113
+        Height = 17
         Hint = 
           'Set time to ticking mode if you want to pause between each round' +
           '.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Ticking'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clInactiveCaption
-        Font.Height = -19
+        Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
@@ -184,19 +156,15 @@ object fmReality: TfmReality
         OnClick = radTickingClick
       end
       object radFlowing: TRadioButton
-        Left = 7
-        Top = 32
-        Width = 198
-        Height = 29
+        Left = 4
+        Top = 18
+        Width = 113
+        Height = 17
         Hint = 'Flowing time mode sets the planet running until you press stop.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Flowing'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clInactiveCaption
-        Font.Height = -19
+        Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
@@ -207,84 +175,60 @@ object fmReality: TfmReality
       end
     end
     object Panel1: TPanel
-      Left = 269
+      Left = 155
       Top = 3
-      Width = 571
-      Height = 66
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 326
+      Height = 35
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 2
       object Panel17: TPanel
         Left = 0
         Top = 0
-        Width = 571
-        Height = 82
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 326
+        Height = 47
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
         object laBspeed: TLabel
-          Left = 25
-          Top = 7
-          Width = 27
-          Height = 20
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 14
+          Top = 4
+          Width = 17
+          Height = 13
           Caption = 'fast'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
-          Font.Height = -16
+          Font.Height = -9
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
         end
         object Label1: TLabel
-          Left = 443
-          Top = 7
-          Width = 31
-          Height = 20
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 253
+          Top = 4
+          Width = 21
+          Height = 13
           Caption = 'slow'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
-          Font.Height = -16
+          Font.Height = -9
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
         end
         object labRoundTime: TLabel
-          Left = 214
-          Top = 33
-          Width = 55
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 122
+          Top = 19
+          Width = 31
+          Height = 13
           Caption = '100ms'
         end
         object trackSpeed: TTrackBar
-          Left = 61
+          Left = 35
           Top = 0
-          Width = 382
-          Height = 37
+          Width = 218
+          Height = 21
           Hint = 'Speed between each clock tick.'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           LineSize = 2
           Max = 200
           Min = 1
@@ -293,21 +237,17 @@ object fmReality: TfmReality
           Position = 50
           ShowHint = True
           TabOrder = 0
-          ThumbLength = 26
+          ThumbLength = 15
           TickMarks = tmTopLeft
           TickStyle = tsNone
           OnChange = trackSpeedChange
         end
         object btn20: TBitBtn
-          Left = 504
-          Top = 11
-          Width = 47
-          Height = 40
+          Left = 288
+          Top = 6
+          Width = 27
+          Height = 23
           Hint = 'Set to default round time of 20ms.'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Caption = '40'
           ParentShowHint = False
           ShowHint = True
@@ -317,80 +257,60 @@ object fmReality: TfmReality
       end
     end
     object Panel3: TPanel
-      Left = 962
+      Left = 551
       Top = 3
-      Width = 688
-      Height = 66
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 393
+      Height = 35
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 3
       object panRealityT: TPanel
         Left = 0
         Top = 0
-        Width = 525
-        Height = 66
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 300
+        Height = 35
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 0
         object panRealityTime: TPanel
           Left = 0
           Top = 0
-          Width = 124
-          Height = 66
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 71
+          Height = 35
           Align = alLeft
           BevelOuter = bvNone
           Caption = 'Time'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clTeal
-          Font.Height = -23
+          Font.Height = -13
           Font.Name = 'Verdana'
           Font.Style = []
           ParentFont = False
           TabOrder = 0
         end
         object panRealityTime1: TPanel
-          Left = 124
+          Left = 71
           Top = 0
-          Width = 175
-          Height = 66
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 100
+          Height = 35
           Align = alLeft
           Alignment = taLeftJustify
           BevelOuter = bvNone
           Caption = 'panRealityTime1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clTeal
-          Font.Height = -19
+          Font.Height = -11
           Font.Name = 'Times New Roman'
           Font.Style = []
           ParentFont = False
           TabOrder = 1
         end
         object cbCollisions: TCheckBox
-          Left = 273
-          Top = 30
-          Width = 260
-          Height = 30
+          Left = 156
+          Top = 17
+          Width = 149
+          Height = 17
           Hint = 'Turn the collision system on or off.'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Caption = 'Collisions'
           ParentShowHint = False
           ShowHint = True
@@ -398,15 +318,11 @@ object fmReality: TfmReality
           OnClick = cbCollisionsClick
         end
         object cbAI: TCheckBox
-          Left = 273
-          Top = 2
-          Width = 246
-          Height = 30
+          Left = 156
+          Top = 1
+          Width = 141
+          Height = 17
           Hint = 'Run ai code for objects.'
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
           Caption = 'Artificial Intelligence'
           ParentShowHint = False
           ShowHint = False
@@ -416,31 +332,24 @@ object fmReality: TfmReality
       end
     end
     object Panel5: TPanel
-      Left = 1756
+      Left = 997
       Top = 3
-      Width = 138
-      Height = 66
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 79
+      Height = 35
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 4
+      ExplicitLeft = 989
       object btnExit: TBitBtn
         Left = 0
-        Top = 4
-        Width = 141
-        Height = 54
+        Top = 2
+        Width = 81
+        Height = 31
         Hint = 'Stop time.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'EXIT'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -19
+        Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = [fsBold]
         Glyph.Data = {

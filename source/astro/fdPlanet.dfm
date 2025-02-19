@@ -1,7 +1,7 @@
 object frmUniverse: TfrmUniverse
   Left = 0
   Top = 0
-  Caption = 'UniverseAGI'
+  Caption = 'PlanetAGI'
   ClientHeight = 642
   ClientWidth = 930
   Color = clBtnFace
@@ -36,8 +36,6 @@ object frmUniverse: TfrmUniverse
       item
         Width = 86
       end>
-    ExplicitTop = 594
-    ExplicitWidth = 922
   end
   object PageControl: TPageControl
     Left = 0
@@ -47,8 +45,6 @@ object frmUniverse: TfrmUniverse
     ActivePage = tsPlanets
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 922
-    ExplicitHeight = 567
     object tsPlanets: TTabSheet
       Caption = 'Planets'
       object GLSceneViewer: TGLSceneViewer
@@ -209,7 +205,6 @@ object frmUniverse: TfrmUniverse
         Height = 562
         Align = alLeft
         TabOrder = 0
-        ExplicitHeight = 537
         object tvConstellations: TTreeView
           Left = 1
           Top = 1
@@ -417,7 +412,6 @@ object frmUniverse: TfrmUniverse
     Height = 27
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 922
     object tbMain: TToolBar
       Left = 19
       Top = 2
@@ -786,11 +780,9 @@ object frmUniverse: TfrmUniverse
       Caption = '&View'
       object miHipparcos: TMenuItem
         Caption = 'Hipparcos...'
-        OnClick = miHipparcosClick
       end
       object miHercrussel: TMenuItem
         Caption = 'Hercshprung Russel...'
-        OnClick = miHercrusselClick
       end
       object miPointto: TMenuItem
         Caption = '&Pointto...'
@@ -853,7 +845,7 @@ object frmUniverse: TfrmUniverse
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = 'UniverseAGI - %FPS'
+    FormCaption = 'PlanetAGI - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

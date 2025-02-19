@@ -9,7 +9,6 @@
 #include "fcHercrussel.h"
 #include "fcAbout.h"
 #include "fcSettings.h"
-#include "astronomy.h"
 
 // #include "fcPointto.h"  // need to be converted from fdPointto.pas
 
