@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcAstroviewerH
-#define fcAstroviewerH
+#ifndef fcLithosphereH
+#define fcLithosphereH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>

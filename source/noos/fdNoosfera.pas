@@ -1,4 +1,4 @@
-unit fdUniverse;
+unit fdNoosfera;
 
 interface
 
@@ -53,9 +53,6 @@ uses
   fdPointto,
   fdConstPolygons,
   fdSettings,
-
-  fdHercRussel,
-  fdHipparcos,
 
   gnugettext;
 
@@ -154,8 +151,6 @@ type
     procedure miHelpAboutClick(Sender: TObject);
     procedure miPointtoClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miHipparcosClick(Sender: TObject);
-    procedure miHercrusselClick(Sender: TObject);
     procedure tvPlanetsClick(Sender: TObject);
     procedure tvConstellationsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
@@ -436,26 +431,6 @@ end;
 procedure TfrmUniverse.miTopoCoordinatesClick(Sender: TObject);
 begin
   with TFormCoords.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
-procedure TfrmUniverse.miHercrusselClick(Sender: TObject);
-begin
-  with TFormHercrussel.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
-procedure TfrmUniverse.miHipparcosClick(Sender: TObject);
-begin
-  with TFormHipparcos.Create(Self) do
   try
     ShowModal;
   finally

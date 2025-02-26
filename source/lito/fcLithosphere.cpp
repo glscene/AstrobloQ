@@ -4,7 +4,7 @@
 #pragma hdrstop
 
 #include "dcImages.h"
-#include "fcAstroViewer.h"
+#include "fcLithosphere.h"
 #include "fcHipparcos.h"
 #include "fcHercrussel.h"
 #include "fcAbout.h"

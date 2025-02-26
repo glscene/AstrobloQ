@@ -1,7 +1,7 @@
 object frmUniverse: TfrmUniverse
   Left = 0
   Top = 0
-  Caption = 'UniverseGLS'
+  Caption = 'Noosphere'
   ClientHeight = 642
   ClientWidth = 930
   Color = clBtnFace
@@ -786,11 +786,9 @@ object frmUniverse: TfrmUniverse
       Caption = '&View'
       object miHipparcos: TMenuItem
         Caption = 'Hipparcos...'
-        OnClick = miHipparcosClick
       end
       object miHercrussel: TMenuItem
         Caption = 'Hercshprung Russel...'
-        OnClick = miHercrusselClick
       end
       object miPointto: TMenuItem
         Caption = '&Pointto...'
@@ -853,7 +851,7 @@ object frmUniverse: TfrmUniverse
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = 'UniverseGLS - %FPS'
+    FormCaption = 'Noosphere - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

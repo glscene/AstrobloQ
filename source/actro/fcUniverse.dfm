@@ -1,7 +1,7 @@
 object FormAstroviewer: TFormAstroviewer
   Left = 0
   Top = 0
-  Caption = #1040#1089#1090#1088#1086#1074#1100#1102#1077#1088
+  Caption = 'UniverseGLC'
   ClientHeight = 510
   ClientWidth = 891
   Color = clBtnFace
@@ -285,6 +285,7 @@ object FormAstroviewer: TFormAstroviewer
           380039005F0013043E043B04350432043A0430040000350000000B0000000B00
           0000FFFFFFFFFFFFFFFF00000000000000000000000000010B39003000330037
           0037005F002104350434043D043004}
+        ExplicitHeight = 421
       end
     end
     object tsConstCharts: TTabSheet
@@ -523,7 +524,7 @@ object FormAstroviewer: TFormAstroviewer
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = #1040#1089#1090#1088#1086#1074#1100#1102#1077#1088' - %FPS'
+    FormCaption = 'UniverseGLC - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

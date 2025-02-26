@@ -65,7 +65,7 @@ const
 procedure OpenHygMain;
 begin
   DataDir := ExtractFilePath(ParamStr(0)) + 'data\';;
-  HygName := DataDir + 'catalog\hyg.csv';
+  HygName := DataDir + 'catalog\hygstars.csv';
   FileMode := 0; // Read only
   Assign(f, HygName);
   Reset(f);

@@ -114,7 +114,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  fdPlanet;
+  fdNoosfera;
 
 
 procedure TfrmSettings.FormCreate(Sender: TObject);

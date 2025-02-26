@@ -211,7 +211,7 @@ begin
   DataDir := IncludeTrailingPathDelimiter(DataDir);
   SetCurrentDir(DataDir) ;
 
-  StarDir := DataDir + 'star';
+  StarDir := DataDir + 'Stars';
 
   // Path to Hipparcos, Hyg or Gaia DR4
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -225,9 +225,9 @@ begin
   end;
 
   // change currect star dir
-  if DirectoryExists('star\sun') then
-        ChDir('star\sun');
-  CurrentStar := DataDir + '\star\sun\';
+  if DirectoryExists('Stars\sun') then
+        ChDir('Stars\sun');
+  CurrentStar := DataDir + '\Stars\sun\';
 
   // Enable textured maps
   sfPlanet.Material.Texture.Disabled := False;

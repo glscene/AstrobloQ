@@ -42,6 +42,7 @@ object frmLitosphere: TfrmLitosphere
     Height = 430
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 405
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
@@ -145,6 +146,7 @@ object frmLitosphere: TfrmLitosphere
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
+      ExplicitHeight = 403
     end
   end
   object StatusBar: TStatusBar
