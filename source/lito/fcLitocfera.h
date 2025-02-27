@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcLithosphereH
-#define fcLithosphereH
+#ifndef fcLitocferaH
+#define fcLitocferaH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>

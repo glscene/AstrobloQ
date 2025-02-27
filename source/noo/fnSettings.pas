@@ -1,4 +1,4 @@
-unit fdSettings;
+unit fnSettings;
 
 interface
 
@@ -6,7 +6,6 @@ uses
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
-  System.UITypes,
   System.Variants,
   System.Classes,
   System.IniFiles,
@@ -34,7 +33,7 @@ uses
   gnugettext;
 
 type
-  TFormSettings = class(TFormI)
+  TfrmSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -108,17 +107,17 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmSettings: TfrmSettings;
 
 implementation //------------------------------------------------------------
 
 
 uses
-  fdUniverse;
+  fnNoosfera;
 {$R *.dfm}
 
 
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -154,7 +153,7 @@ end;
 //-----------------------------------------------------------------
 // Показать линии, границы, фигуры и названия созвездий
 //-----------------------------------------------------------------
-procedure TFormSettings.chbConstellationsClick(Sender: TObject);
+procedure TfrmSettings.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
@@ -170,7 +169,7 @@ end;
 //-----------------------------------------------------------------
 // Изменение стиля интерфейса
 //-----------------------------------------------------------------
-procedure TFormSettings.ComboBoxVclStylesChange(Sender: TObject);
+procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
@@ -178,7 +177,7 @@ end;
 //-----------------------------------------------------------------
 // Изменение активной страницы PageControl
 //-----------------------------------------------------------------
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -193,7 +192,7 @@ begin
   end;
 end;
 
-procedure TFormSettings.rgLanguageClick(Sender: TObject);
+procedure TfrmSettings.rgLanguageClick(Sender: TObject);
 begin
   case rgLanguage.ItemIndex of
     0: CurLangID := LANG_ENGLISH;
@@ -206,16 +205,16 @@ end;
 //--------------------------------------------------------------------
 // Чтение секций Инифайла и установка языка интерфейса
 //--------------------------------------------------------------------
-procedure TFormSettings.ReadIniFile;
+procedure TfrmSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
 //  inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxRotate.Name, True);
-    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
+    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
     case LangID of
       LANG_ENGLISH:
         rgLanguage.ItemIndex := 0;
@@ -232,15 +231,15 @@ end;
 //---------------------------------------------------------
 // Запись опций настройки в файл инициализации
 //---------------------------------------------------------
-procedure TFormSettings.WriteIniFile;
+procedure TfrmSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(FormSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(FormSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
-    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;
@@ -248,7 +247,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormSettings.ButtonOKClick(Sender: TObject);
+procedure TfrmSettings.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -261,7 +260,7 @@ begin
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
   WriteIniFile;
-  FormSettings.Close;
+  frmSettings.Close;
 end;
 
 end.

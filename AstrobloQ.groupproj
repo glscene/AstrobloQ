@@ -9,7 +9,13 @@
         <Projects Include="Projects\Litosfera.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Projects\Litocfera.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Projects\Biosfera.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Biocferax.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Noosfera.dproj">
@@ -18,16 +24,10 @@
         <Projects Include="Projects\Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\GalaxyGXS.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\GalaxyGXC.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\Lithosphere.cbproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Projects\UniverseGLS.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\UniverseGXS.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\UniverseGLC.cbproj">
@@ -59,6 +59,15 @@
     <Target Name="Litosfera:Make">
         <MSBuild Projects="Projects\Litosfera.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Litocfera">
+        <MSBuild Projects="Projects\Litocfera.cbproj"/>
+    </Target>
+    <Target Name="Litocfera:Clean">
+        <MSBuild Projects="Projects\Litocfera.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Litocfera:Make">
+        <MSBuild Projects="Projects\Litocfera.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Biosfera">
         <MSBuild Projects="Projects\Biosfera.dproj"/>
     </Target>
@@ -67,6 +76,15 @@
     </Target>
     <Target Name="Biosfera:Make">
         <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Biocferax">
+        <MSBuild Projects="Projects\Biocferax.cbproj"/>
+    </Target>
+    <Target Name="Biocferax:Clean">
+        <MSBuild Projects="Projects\Biocferax.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Biocferax:Make">
+        <MSBuild Projects="Projects\Biocferax.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Noosfera">
         <MSBuild Projects="Projects\Noosfera.dproj"/>
@@ -86,33 +104,6 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="GalaxyGXS">
-        <MSBuild Projects="Projects\GalaxyGXS.dproj"/>
-    </Target>
-    <Target Name="GalaxyGXS:Clean">
-        <MSBuild Projects="Projects\GalaxyGXS.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="GalaxyGXS:Make">
-        <MSBuild Projects="Projects\GalaxyGXS.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="GalaxyGXC">
-        <MSBuild Projects="Projects\GalaxyGXC.cbproj"/>
-    </Target>
-    <Target Name="GalaxyGXC:Clean">
-        <MSBuild Projects="Projects\GalaxyGXC.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="GalaxyGXC:Make">
-        <MSBuild Projects="Projects\GalaxyGXC.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="Lithosphere">
-        <MSBuild Projects="Projects\Lithosphere.cbproj"/>
-    </Target>
-    <Target Name="Lithosphere:Clean">
-        <MSBuild Projects="Projects\Lithosphere.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Lithosphere:Make">
-        <MSBuild Projects="Projects\Lithosphere.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="UniverseGLS">
         <MSBuild Projects="Projects\UniverseGLS.dproj"/>
     </Target>
@@ -121,6 +112,15 @@
     </Target>
     <Target Name="UniverseGLS:Make">
         <MSBuild Projects="Projects\UniverseGLS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UniverseGXS">
+        <MSBuild Projects="Projects\UniverseGXS.dproj"/>
+    </Target>
+    <Target Name="UniverseGXS:Clean">
+        <MSBuild Projects="Projects\UniverseGXS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UniverseGXS:Make">
+        <MSBuild Projects="Projects\UniverseGXS.dproj" Targets="Make"/>
     </Target>
     <Target Name="UniverseGLC">
         <MSBuild Projects="Projects\UniverseGLC.cbproj"/>
@@ -132,13 +132,13 @@
         <MSBuild Projects="Projects\UniverseGLC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="GalaxyGLS;Litosfera;Biosfera;Noosfera;Tehnosfera;GalaxyGXS;GalaxyGXC;Lithosphere;UniverseGLS;UniverseGLC"/>
+        <CallTarget Targets="GalaxyGLS;Litosfera;Litocfera;Biosfera;Biocferax;Noosfera;Tehnosfera;UniverseGLS;UniverseGXS;UniverseGLC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;GalaxyGXS:Clean;GalaxyGXC:Clean;Lithosphere:Clean;UniverseGLS:Clean;UniverseGLC:Clean"/>
+        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Litocfera:Clean;Biosfera:Clean;Biocferax:Clean;Noosfera:Clean;Tehnosfera:Clean;UniverseGLS:Clean;UniverseGXS:Clean;UniverseGLC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;GalaxyGXS:Make;GalaxyGXC:Make;Lithosphere:Make;UniverseGLS:Make;UniverseGLC:Make"/>
+        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Litocfera:Make;Biosfera:Make;Biocferax:Make;Noosfera:Make;Tehnosfera:Make;UniverseGLS:Make;UniverseGXS:Make;UniverseGLC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

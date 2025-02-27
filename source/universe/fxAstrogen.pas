@@ -78,7 +78,7 @@ implementation //--------------------------------------------------------------
 {$R *.fmx}
 
 uses
-  fxGalaxy;
+  fxUniverse;
 
 procedure TFormAstrogen.FormCreate(Sender: TObject);
 var

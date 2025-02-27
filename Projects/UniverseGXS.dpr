@@ -1,19 +1,19 @@
-program GalaxyGXS;
+program UniverseGXS;
 
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxGalaxy in '..\source\fmxpas\fxGalaxy.pas' {frmGalaxy},
-  fxSettings in '..\source\fmxpas\fxSettings.pas' {frmSettings},
-  fxAbout in '..\source\fmxpas\fxAbout.pas' {FormAbout},
+  fxUniverse in '..\Source\universe\fxUniverse.pas' {frmGalaxy},
+  fxSettings in '..\Source\universe\fxSettings.pas' {frmSettings},
+  fxAbout in '..\Source\universe\fxAbout.pas' {FormAbout},
   Astro.Material in '..\source\astro\Astro.Material.pas',
-  fxAstrogen in '..\source\fmxpas\fxAstrogen.pas' {FormAstrogen},
+  fxAstrogen in '..\Source\universe\fxAstrogen.pas' {FormAstrogen},
   LUX.FMX.Material in '..\source\astro\LUX.FMX.Material.pas',
   LUX.FMX.Types3D in '..\source\astro\LUX.FMX.Types3D.pas',
   LUX in '..\source\astro\LUX.pas',
   gnuGettext in '..\source\ucode\gnuGettext.pas',
-  dxDialogs in '..\source\fmxpas\dxDialogs.pas' {dmDialogs: TDataModule},
-  fxForm in '..\source\fmxpas\fxForm.pas' {FormO};
+  dxDialogs in '..\Source\universe\dxDialogs.pas' {dmDialogs: TDataModule},
+  fxForm in '..\Source\universe\fxForm.pas' {FormO};
 
 {$R *.res}
 

@@ -3,7 +3,7 @@
 #include <fmx.h>
 #pragma hdrstop
 
-#include "fcGalaxy.h"
+#include "fcUniverse.h"
 #include "fcAbout.h"
 #include "fcSettings.h"
 

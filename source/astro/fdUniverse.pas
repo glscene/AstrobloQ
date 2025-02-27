@@ -288,7 +288,7 @@ end;
 procedure TfrmUniverse.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if frmSettings.CheckBoxRotate.Checked then
+  if FormSettings.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -296,7 +296,7 @@ begin
 
 (*
   Changing velocity
-  if frmSettings.CheckboxRotate.Checked then
+  if FormSettings.CheckboxRotate.Checked then
     sfPlanet.TurnAngle := 10 * NewTime
   else
     sfPlanet.TurnAngle := 0;
@@ -482,7 +482,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmUniverse.miSettingsClick(Sender: TObject);
 begin
-  frmSettings.Show;
+  FormSettings.Show;
 end;
 
 //----------------------------------------------------------------------------
@@ -499,14 +499,14 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmUniverse.chbAxiesClick(Sender: TObject);
 begin
-  sfPlanet.ShowAxes := frmSettings.CheckBoxAxes.Checked;
+  sfPlanet.ShowAxes := FormSettings.CheckBoxAxes.Checked;
 end;
 
 //----------------------------------------------------------------------------
 procedure TfrmUniverse.chbPlanetGridClick(Sender: TObject);
 begin
-  TorusGreenwich.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
-  TorusEquator.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
+  TorusGreenwich.Visible := FormSettings.CheckBoxPlanetgrid.Checked;
+  TorusEquator.Visible := FormSettings.CheckBoxPlanetgrid.Checked;
 end;
 
 //----------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-object FormSettings: TFormSettings
+object frmSettings: TfrmSettings
   Left = 0
   Top = 0
   Caption = 'Settings'

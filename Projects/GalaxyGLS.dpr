@@ -16,13 +16,12 @@ uses
   fMonitor in '..\source\fMonitor.pas' {FormMonitor},
   fParadox in '..\source\fParadox.pas' {FormParadox},
   fExoplanets in '..\source\fExoplanets.pas' {FormExoplanets},
-  uGlobals in '..\source\ucode\uGlobals.pas',
+  uGlobals in '..\Source\uGlobals.pas',
   fForm in '..\source\fForm.pas' {FormG},
   fNewStarcube in '..\source\fNewStarcube.pas' {FormNewStarcube},
-  uSkyBodies in '..\source\ucode\uSkyBodies.pas',
-  gnuGettext in '..\source\ucode\gnuGettext.pas',
+  uSkyBodies in '..\Source\uSkyBodies.pas',
   Astro.Utils in '..\Source\astro\Astro.Utils.pas',
-  fdForm in '..\source\astro\fdForm.pas' {FormI};
+  fdForm in '..\Source\fdForm.pas' {FormI};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

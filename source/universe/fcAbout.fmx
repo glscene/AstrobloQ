@@ -2,27 +2,26 @@ object FormAbout: TFormAbout
   Left = 0
   Top = 0
   Caption = 'About'
-  ClientHeight = 324
+  ClientHeight = 352
   ClientWidth = 512
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object TextAbout: TText
-    Position.X = 176.000000000000000000
-    Position.Y = 8.000000000000000000
-    Size.Width = 153.000000000000000000
+    Position.X = 120.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 233.000000000000000000
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Galaxy GXS'
+    Text = 'Universe GXC'
   end
   object TabControl1: TTabControl
     Position.X = 40.000000000000000000
-    Position.Y = 82.000000000000000000
-    Size.Width = 433.000000000000000000
-    Size.Height = 215.000000000000000000
+    Position.Y = 98.000000000000000000
+    Size.Width = 442.000000000000000000
+    Size.Height = 223.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     TabPosition = PlatformDefault
@@ -33,7 +32,7 @@ object FormAbout: TFormAbout
     Position.X = 432.000000000000000000
     Position.Y = 24.000000000000000000
     TabOrder = 2
-    Viewport.Width = 50.000000000000000000
-    Viewport.Height = 50.000000000000000000
+    Viewport.Width = 46.000000000000000000
+    Viewport.Height = 46.000000000000000000
   end
 end

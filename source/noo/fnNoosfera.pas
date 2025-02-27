@@ -1,4 +1,4 @@
-unit fdNoosfera;
+unit fnNoosfera;
 
 interface
 
@@ -52,7 +52,8 @@ uses
   fdCoordinates,
   fdPointto,
   fdConstPolygons,
-  fdSettings,
+
+  fnSettings,
 
   gnugettext;
 

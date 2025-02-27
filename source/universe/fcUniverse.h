@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcGalaxyH
-#define fcGalaxyH
+#ifndef fcUniverseH
+#define fcUniverseH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>

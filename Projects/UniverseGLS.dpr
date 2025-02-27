@@ -23,12 +23,11 @@ uses
   udHiputils in '..\source\astro\udHiputils.pas',
   fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
   ddImages in '..\source\astro\ddImages.pas' {dmImages: TDataModule},
-  fdSettings in '..\source\astro\fdSettings.pas' {frmSettings},
   fdUniverse in '..\Source\astro\fdUniverse.pas' {frmUniverse},
   udGenRandom in '..\source\astro\udGenRandom.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
   fdAstromif in '..\source\astro\fdAstromif.pas' {FormAstromif},
-  fdForm in '..\source\astro\fdForm.pas' {FormI},
+  fdForm in '..\Source\fdForm.pas' {FormI},
   ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
   ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
   Vcl.Themes,
@@ -37,8 +36,9 @@ uses
   astronomy in '..\Externals\astronomy\astronomy.pas',
   fdHercRussel in '..\Source\astro\fdHercRussel.pas' {FormHercrussel},
   fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
-  udGlobals in '..\Source\ucode\udGlobals.pas',
-  udUtils in '..\Source\ucode\udUtils.pas';
+  udGlobals in '..\Source\udGlobals.pas',
+  udUtils in '..\Source\udUtils.pas',
+  fdSettings in '..\Source\astro\fdSettings.pas' {FormSettings};
 
 {$R *.res}
 
@@ -48,11 +48,9 @@ begin
   Application.Title := 'AstroViewer';
   Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TfrmUniverse, frmUniverse);
-  Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);
-  Application.CreateForm(TFormHercrussel, FormHercrussel);
-  Application.CreateForm(TFormHipparcos, FormHipparcos);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
 end.
 

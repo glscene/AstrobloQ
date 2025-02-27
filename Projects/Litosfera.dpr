@@ -21,10 +21,10 @@ uses
   dImages in '..\source\dImages.pas' {dmImages: TDataModule},
   flGenExosys in '..\source\lito\flGenExosys.pas' {FormGenPlanetsys},
   fForm in '..\source\fForm.pas' {FormG},
-  uMoveCamera in '..\source\ucode\uMoveCamera.pas',
-  uSkyBodies in '..\source\ucode\uSkyBodies.pas',
+  uMoveCamera in '..\Source\uMoveCamera.pas',
+  uSkyBodies in '..\Source\uSkyBodies.pas',
   gnuGettext in '..\source\ucode\gnuGettext.pas',
-  fdForm in '..\source\astro\fdForm.pas' {FormI};
+  fdForm in '..\Source\fdForm.pas' {FormI};
 
 {$R *.res}
 

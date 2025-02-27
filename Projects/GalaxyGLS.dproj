@@ -172,7 +172,7 @@
             <Form>FormExoplanets</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\ucode\uGlobals.pas"/>
+        <DCCReference Include="..\Source\uGlobals.pas"/>
         <DCCReference Include="..\source\fForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
@@ -181,10 +181,9 @@
             <Form>FormNewStarcube</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\ucode\uSkyBodies.pas"/>
-        <DCCReference Include="..\source\ucode\gnuGettext.pas"/>
+        <DCCReference Include="..\Source\uSkyBodies.pas"/>
         <DCCReference Include="..\Source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\astro\fdForm.pas">
+        <DCCReference Include="..\Source\fdForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -219,6 +218,12 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
+                <DeployFile LocalName="..\GalaxyGLS.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>GalaxyGLS.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="GalaxyGLS.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="GalaxyGLS.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">

@@ -160,9 +160,6 @@
             <Form>dmImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\fdSettings.pas">
-            <Form>frmSettings</Form>
-        </DCCReference>
         <DCCReference Include="..\Source\astro\fdUniverse.pas">
             <Form>frmUniverse</Form>
         </DCCReference>
@@ -173,7 +170,7 @@
         <DCCReference Include="..\source\astro\fdAstromif.pas">
             <Form>FormAstromif</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\fdForm.pas">
+        <DCCReference Include="..\Source\fdForm.pas">
             <Form>FormI</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\ddBase.pas">
@@ -194,8 +191,11 @@
             <Form>FormHipparcos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\ucode\udGlobals.pas"/>
-        <DCCReference Include="..\Source\ucode\udUtils.pas"/>
+        <DCCReference Include="..\Source\udGlobals.pas"/>
+        <DCCReference Include="..\Source\udUtils.pas"/>
+        <DCCReference Include="..\Source\astro\fdSettings.pas">
+            <Form>FormSettings</Form>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

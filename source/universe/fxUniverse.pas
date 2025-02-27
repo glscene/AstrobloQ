@@ -1,4 +1,4 @@
-unit fxGalaxy;
+unit fxUniverse;
 
 interface
 
