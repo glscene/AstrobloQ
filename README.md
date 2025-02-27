@@ -4,7 +4,7 @@
 Млечного Пути, построения цифровой сцены Галактики и эволюции Вселенной. 
 При разработке стартапов на базе комплекса имеется возможность использовать искусственный интеллект GigaCode и AI-Assistant. 
 
-## Virtual Universe
+## Виртуальная сцена Вселенной
 
 Визуализация моделей основана на графическом движке [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine) с поддержкой OpenGL, Directx и Vulkan. 
 Сборка проектов на C/C++/Delphi выполняктся на основе компиляции открытого исходного кода AstrobloQ c внешними библиотеками 
@@ -18,45 +18,42 @@
 
 ![GalaxyGrid_ru](./docs/screenshots/GalaxyGrid_ru.png)
  
-![GalaxyGrid_ru](./docs/screenshots/AstrobloQ_ru.png)
+## Репозиторий AstrobloQ содержит базовые проекты, аддоны и плагины
 
-### AstrobloQ содержит в репозитории базовые проекты, аддоны и плагины:
-
-## TerraPlanetc C++ Project
-
-Визуализация ближайших к солнцу звёзд с землеподобными планетами
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 ![SolarSystem](./docs/clips/SolarSystem.gif)
 ![Biosfera](./docs/clips/AnimationPlanet2a.gif)
 
-## LithoSphere C++ Project
+### LithoSphere C++ Project
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
 ![Lithosphere](./docs/screenshots/Litosfera_ru.png)
 ![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
-## BioSphere C++ Project
+### BioSphere C++ Project
 
 Биосферы экзопланет с моделями популяций живых организмов 
 ![Biosphere](./docs/screenshots/Biosfera.jpg)
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
-## NooSphere C++ Project
+### NooSphere C++ Project
 
 Ноосферы экзопланет без возможности межзвёздных коммуникаций 
 ![Noosphere](./docs/screenshots/Noosfera.png)
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
-## TehnoSphere C++ Project
+### TehnoSphere C++ Project
 
 Техносферы экзопланет с возможностью межзвёздных коммуникаций
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
 
-## Астромодели Галактики и Вселенной
+## Моделирование Галактики и Вселенной
+
+![GalaxyGrid_ru](./docs/screenshots/AstrobloQ_ru.png)
  
-При построении основных моделей применяются следующие данные и методы вычислений: 
+При построении астромоделей используются следующие данные и методы вычислений: 
 
 - базовыми данными для визуализации являются звёздные каталоги [HYG](https://github.com/astronexus/HYG-Database) и [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data), [NASA exoplanets](https://science.nasa.gov/exoplanets);
 - тетраэдральные сети Делоне GalaxyDelaunay генерируются по известным x, y, z значениям положений звёзд в галактической системе координат и по векторам vx, vy, vz их собственных движений с экстраполяцией в прошлое и будущее на шкале -10; 0; +10 Gyr;
@@ -72,7 +69,7 @@
 - состав невидимой части Галактики за плотными облаками рукавов и ядром прогнозируется исходя из анализа структуры GalaxyCETI;  
 - навигация по модели UniverseCETI может быть выполнена в VR/AR между скоплениями галактик и процедурно генерируемыми космическими объектами.
 
-Координационный комитет AstrobloQ приглашает специалистов и программистов [университетов, вузов и научно-исследовательских организаций](https://gitverse.ru/UniverseCETI/GalaxyCETI)
-принять участие в развитии комплекса стартапов по астрономии, планетологии и космонавтике. 
+Приглашаем специалистов и программистов [университетов, вузов и научно-исследовательских организаций](https://gitverse.ru/UniverseCETI/GalaxyCETI)
+принять участие в развитии комплекса AstrobloQ и разработке стартапов по астрономии, планетологии и космонавтике. 
 
 [Админ](https://t.me/astronoology)
