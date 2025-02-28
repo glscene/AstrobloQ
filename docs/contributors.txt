@@ -1,17 +1,17 @@
-Contributors and Developers 
-of AstrobloQ
+AstrobloQ contributors
 
-===========================
+=================
  
 Pavel Vassiliev
+Vasily Danilov
 Leo Koptyaev
+Evgeny Chernykh
 Anton Dahin
 Alexandr Tsvetkov
-Dave Kerr
+Liz Soboleff
 Eric Grange
-Omar Reis
+Dave Kerr
 Jerome Delauney
 Ivan Lee Herring,
-Nakayama Masanori
-Nelson Chu
+Omar Reis
 Sergio Feitosa
