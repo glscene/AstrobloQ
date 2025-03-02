@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{23E9AF3B-85A5-4EAB-84D1-BA6BE77370FA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Gexobloq.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Gexobloqc.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Gexobloq">
+        <MSBuild Projects="Gexobloq.dproj"/>
+    </Target>
+    <Target Name="Gexobloq:Clean">
+        <MSBuild Projects="Gexobloq.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gexobloq:Make">
+        <MSBuild Projects="Gexobloq.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Gexobloqc">
+        <MSBuild Projects="Gexobloqc.cbproj"/>
+    </Target>
+    <Target Name="Gexobloqc:Clean">
+        <MSBuild Projects="Gexobloqc.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gexobloqc:Make">
+        <MSBuild Projects="Gexobloqc.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Gexobloq;Gexobloqc"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Gexobloq:Clean;Gexobloqc:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Gexobloq:Make;Gexobloqc:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

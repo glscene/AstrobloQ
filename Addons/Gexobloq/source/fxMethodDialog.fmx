@@ -1,0 +1,519 @@
+inherited fmMethodDialog: TfmMethodDialog
+  Caption = 'fmInitialDialog1'
+  ClientHeight = 564
+  ClientWidth = 752
+  DesignerMasterStyle = 0
+  inherited PanelTop: TPanel
+    Size.Width = 752.000000000000000000
+    Size.Height = 209.000000000000000000
+    object PanelInputA: TPanel
+      Align = Client
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Size.Width = 732.000000000000000000
+      Size.Height = 209.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object LabelInputA: TLabel
+        Align = Top
+        Size.Width = 732.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Input'
+        TabOrder = 3
+      end
+      object ToolBarInputA: TToolBar
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 17.000000000000000000
+        Size.Width = 722.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object sbDholes: TSpeedButton
+          StaysPressed = True
+          Align = Left
+          AutoTranslate = False
+          GroupName = 'Input'
+          Images = ImageListInput
+          ImageIndex = 0
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbPoints2D: TSpeedButton
+          Tag = 1
+          StaysPressed = True
+          Align = Left
+          AutoTranslate = False
+          GroupName = 'Input'
+          Images = ImageListInput
+          ImageIndex = 1
+          Position.X = 40.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbPoints3D: TSpeedButton
+          Tag = 2
+          StaysPressed = True
+          Align = Left
+          AutoTranslate = False
+          GroupName = 'Input'
+          Images = ImageListInput
+          ImageIndex = 2
+          Position.X = 80.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbPolygons: TSpeedButton
+          Tag = 3
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 3
+          Position.X = 120.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbTINs: TSpeedButton
+          Tag = 4
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 4
+          Position.X = 160.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbSolids: TSpeedButton
+          Tag = 5
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 5
+          Position.X = 200.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbGrids2D: TSpeedButton
+          Tag = 6
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 6
+          Position.X = 240.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbGrids3D: TSpeedButton
+          Tag = 7
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 7
+          Position.X = 280.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbMeshes2D: TSpeedButton
+          Tag = 8
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 8
+          Position.X = 320.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+        object sbMeshes3D: TSpeedButton
+          Tag = 9
+          Align = Left
+          Images = ImageListInput
+          ImageIndex = 9
+          Position.X = 360.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Trimming = None
+        end
+      end
+      object PanelAttributes: TPanel
+        Align = Client
+        Size.Width = 377.000000000000000000
+        Size.Height = 152.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object LabelAttributesA: TLabel
+          Align = Top
+          Size.Width = 377.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Attributes'
+          TabOrder = 1
+        end
+        object ListBoxAttributesA: TListBox
+          Align = Client
+          Size.Width = 377.000000000000000000
+          Size.Height = 135.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 373.000000000000000000
+          Viewport.Height = 131.000000000000000000
+        end
+      end
+      object PanelModels: TPanel
+        Align = Left
+        Margins.Right = 10.000000000000000000
+        Position.Y = 57.000000000000000000
+        Size.Width = 345.000000000000000000
+        Size.Height = 152.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object LabelModelsA: TLabel
+          Align = Top
+          Size.Width = 345.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Models'
+          TabOrder = 1
+        end
+        object ListBoxInputA: TListBox
+          Align = Client
+          Size.Width = 345.000000000000000000
+          Size.Height = 135.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          Viewport.Width = 341.000000000000000000
+          Viewport.Height = 131.000000000000000000
+        end
+      end
+    end
+  end
+  inherited PanelMiddle: TPanel
+    Position.Y = 209.000000000000000000
+    Size.Width = 752.000000000000000000
+    Size.Height = 240.000000000000000000
+  end
+  inherited PanelBottom: TPanel
+    Size.Width = 752.000000000000000000
+    Size.Height = 115.000000000000000000
+    inherited ButtonOK: TButton
+      Position.X = 304.000000000000000000
+      Position.Y = 72.000000000000000000
+    end
+    inherited ButtonCancel: TButton
+      Position.X = 424.000000000000000000
+      Position.Y = 72.000000000000000000
+    end
+    inherited ButtonHelp: TButton
+      Position.X = 544.000000000000000000
+      Position.Y = 72.000000000000000000
+    end
+    object ToolBar2: TToolBar
+      Position.Y = 17.000000000000000000
+      Size.Width = 752.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object sbMap: TSpeedButton
+        StaysPressed = True
+        Align = Left
+        GroupName = 'Output'
+        Images = ImageListOutput
+        ImageIndex = 0
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+      end
+      object sbPlot: TSpeedButton
+        StaysPressed = True
+        Align = Left
+        GroupName = 'Output'
+        Images = ImageListOutput
+        ImageIndex = 2
+        Margins.Left = 10.000000000000000000
+        Position.X = 110.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+      end
+      object sbTable: TSpeedButton
+        StaysPressed = True
+        Align = Left
+        GroupName = 'Output'
+        Images = ImageListOutput
+        ImageIndex = 1
+        Margins.Left = 10.000000000000000000
+        Position.X = 60.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+      end
+      object LabelEmpty: TLabel
+        Align = Left
+        Position.X = 150.000000000000000000
+        Size.Width = 323.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+      end
+      object EditOutput: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 4
+        Margins.Right = 10.000000000000000000
+        Size.Width = 269.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object LabelOutput: TLabel
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Size.Width = 742.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Output'
+      TabOrder = 1
+    end
+    object ProgressBar: TProgressBar
+      Orientation = Horizontal
+      Position.X = 16.000000000000000000
+      Position.Y = 72.000000000000000000
+      Size.Width = 249.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object ImageListInput: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 64
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap.TransparentColor = 536870912
+        MultiResBitmap = <
+          item
+            Width = 64
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000040000000300806000000A14B7C
+              1F0000000473424954080808087C08648800000517494441546881DD5ADB92E4
+              20083D74ED5FEBA37EF33EB20F8A22A231D3D333A93D55A9EE10E20501014378
+              24029FF3665A3F4BB59DB8E4D9BCEC420FACBFCB5CE83903B176966AE771DDB9
+              0F99BC995808D2076DF986BEE5BEFEDE1ECB299819CCDC3A4E898BF453A7E9C1
+              595A834CCA684008DCFA0881977CAD6F33AE4DDF7FCE66681A168844731EEF77
+              6D84D08637F2070632819941B14F8080B6948DDBAEBA08BE8E414F5ADA010022
+              1AF811490BC0576F8DA8FE274D37138F91EE99809EBC79C40028531172E55BC1
+              9BFCD096082237D24B3D2675BD0FEB0B8496F3E82BB43A53449772BDA7587902
+              23A0FB028D040017931F0747B2807FA641DA097C152B75F7DA0D0052927E810C
+              CC2B1D182995E509E0EE0CDF43D78010FAB502877E696C1D9BC18A77527DEDF4
+              347D35B6D3D51F71EE047768DB4DB22B3DFA8194D8E5CD9910509EE54CCD2CCA
+              6AAB7EEACB7AF5A51DCF340EF03D0258E18E1959958EB19B464AC51FE4EA2853
+              E2EED1DF431780F28C83873FC12ED0D0BBC19DDD418693309B87BE8F00500572
+              C70CEA585ED79C7A50B95FB6316076A6A2F211B3203C3073DFEAEA4544805AED
+              767FB125EEC05C82B4386E835F8778FC10FC1DC5E3B77CA16E7B9CFA56A723C0
+              91594D3E52D9D66E98C5C49752EF4887B4A7D0EF5F85BE9AB74DA6FE3233A03C
+              7F50B45DF8ABDB0630CC65150E575E5F7581FB71C0A96DEBF880A87B7C649A13
+              1EA8244808176AAF771A2C8231850F654777F05DA9AF86CA0D80EDA23C400037
+              CD6D8237B973A19A38C048AEF5B1EBCC83C9CE2E6179129FD32C546225A0089F
+              B60A846C381CAB01EAE86D056D83A59DA5FD35582F2F31C930E00DAD0FDC2456
+              E699A67102281A01C88A65F02004A107664C79BC7E5FBCB07A7714E6B530BE8C
+              7B2BEF43B628FD5F6F6DBB6DD26EA5ABAB3073575FE73D38DBD98E262B3F3C5B
+              D0CCEF9854E8D522A24693FC7D2A28C82A3A2BBF02118DC5CA779DE0DF7356AE
+              CE4D340381D7C9107389AC22BA46D810D8429EAF52EA49A8F2E05D27F815D52F
+              1AB2CF06B543B3363BA4B6F579EF4322B9B93D4F38DFE6040F20C197EB0435A6
+              12B719BCD58661602DD69EEB01BF8921F22CE825313B39B179998C1438761523
+              C1AA0AFB46E1E212438213D8A7F59517CC1A601D9EA00BE34C08F20E30ABEAD5
+              3D8092E35BBA4703FCC8CFA1B18AF0AA368C02584DBE35A08470076C9D9EC56F
+              39C14CA51E105156E1AAAE0E1421E8EAF55DE48C96C3EB36BDD4F5947607CD2C
+              4A6235164464AB1307277B7644A7795BA10870D969EE55A18F9DCF1D80E64A52
+              3501A9E40EEC3CE6D630071A0EAEE2844F4EFED4099A94FA3F48876F44824E3D
+              612D80A18AD2FE3C4060DF8BB35356B1EFA3FCDE566384AEDFBBFE70E1A7E047
+              827AF2E2B5BBD73D7364D286AE25B467EF0CF953D0D5D2551A7C5535B6E9B46E
+              4FD3E4FF03306A400818029D6D5C60D4582644B93C1B4C88FA895008FD8CEF01
+              E883B7B580557D5030D8B6AA07687FA1F912AA806D2DE17731FB00592DBD48DB
+              333FF32E7309A644A051C5065771C22FE0D5223DA2F2F586446B096545E540D3
+              0B579B60FA17170D12847018778F84FB87AF1F44D7006D06DA466D02749209CA
+              892DA09220E5031EA409AFB622BB8131EB8F197A6CAFA18FA90536746E02AEBC
+              0FC0BC0BEC84307D66E6605548B509D643F09A1C9C77C4ADFD0333BB762C5F6A
+              7926228213072BBC0F80BF0BB412960CD82966EEA241AF80099C9F20FF208C4A
+              C7710BF4BEBC7453621BDB2FF281E3B3C29FC33C60B7FCAD0F30BC095C1D473F
+              27F9B1381B90F7D1C17F827F485C69B8A349F1E20000000049454E44AE426082}
+            FileName = 'D:\Gexoblock\Data\Assets\Modelling.bmp'
+          end>
+        Name = 'Models'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'Models'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 16.000000000000000000
+            SourceRect.Right = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 32.000000000000000000
+            SourceRect.Right = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 48.000000000000000000
+            SourceRect.Right = 64.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Top = 16.000000000000000000
+            SourceRect.Bottom = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 16.000000000000000000
+            SourceRect.Top = 16.000000000000000000
+            SourceRect.Right = 32.000000000000000000
+            SourceRect.Bottom = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 32.000000000000000000
+            SourceRect.Top = 16.000000000000000000
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 48.000000000000000000
+            SourceRect.Top = 16.000000000000000000
+            SourceRect.Right = 64.000000000000000000
+            SourceRect.Bottom = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Top = 32.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Models'
+            SourceRect.Left = 16.000000000000000000
+            SourceRect.Top = 32.000000000000000000
+            SourceRect.Right = 32.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end>
+    Left = 66
+    Top = 99
+  end
+  object ImageListOutput: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 32
+        MultiResBitmap.Width = 32
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap.TransparentColor = 536870912
+        MultiResBitmap = <
+          item
+            Width = 32
+            Height = 32
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+              F40000000473424954080808087C08648800000186494441545885CD564992C3
+              200C6C5CF3A970CCBB38EA5D3ECACFD21C0C318B20384066BA4A556C4152B72C
+              622022188119FA353600E0E32836B4B59EBD0BC6A456838804636689E7F9BABA
+              0F8C5A34A9386E0575A650828844FC5E6D0C40369C2A1A667E311528B68F4749
+              BB67D45ADB66F664F7ED38DC20C9383AC0C77105723A3400C0CC62AD05001051
+              3B900A9C73DE0973FE25D4B44ECF1089CFA79BF65C821F2D3266C6AED0FB3CB3
+              2E373AA86E4910D30F00A0325BB8EBFC453F11E0DCB80431985908282C93E9A4
+              7F82045B1E40282C65BD5EF2831224D9EF4A0055FA817912D4A8CFE9F7E3FB12
+              C40DCA03B10435EA1D6062FA93EC037A68AFE045AB46FD9339D19E99C5EE7B16
+              A152C937B0017AF60E289DEB2C9941FB47205F54376C3A965CBAC2F93406C263
+              943EC717B42299CAD2E675BF717948FEB3EED7BA15E2BB5AE88095A3FE184D61
+              A2788C1A012E29D09E000428BBEFB400B21A28BD4B574BFF3C00E7DC9FB6C3DE
+              1A5806F54F690C63163F181FF4FFA56FC1D7F1AED59A8EF9107E01FFF01CDA39
+              CA952A0000000049454E44AE426082}
+            FileName = 'D:\Gexoblock\Data\Assets\Output.bmp'
+          end>
+        Name = 'Output'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'Output'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Output'
+            SourceRect.Left = 16.000000000000000000
+            SourceRect.Right = 32.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Output'
+            SourceRect.Top = 16.000000000000000000
+            SourceRect.Bottom = 32.000000000000000000
+          end>
+      end>
+    Left = 64
+    Top = 161
+  end
+end
