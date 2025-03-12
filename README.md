@@ -28,6 +28,8 @@
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
 ![Lithosphere](./docs/screenshots/Litosfera_ru.png)
+![Biosphere](./docs/clips/AnimationPlanet2a.gif)
+![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
 ### BioSphere C++ Project
 
@@ -35,8 +37,6 @@
 ![Biosphere](./docs/screenshots/Biosfera.jpg)
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
-![Biosphere](./docs/clips/AnimationPlanet2a.gif)
-![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
 ### NooSphere C++ Project
 
@@ -49,6 +49,7 @@
 
 Техносферы экзопланет с космическими коммуникациями
 ![Tehnosfera](./docs/screenshots/Tehnosfera.png)
+![Tehnosfera](./docs/clips/Meteors.gif)
 
 ### Моделирование Галактики и Вселенной
 
