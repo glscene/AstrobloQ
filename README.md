@@ -34,21 +34,21 @@
 ### BioSphere C++ Project
 
 Биосферы экзопланет с моделями популяций живых организмов 
-![Biosphere](./docs/screenshots/Biosfera.jpg)
+<img src="./docs/screenshots/Biosfera.jpg" height="300" width="400">
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
 ### NooSphere C++ Project
 
 Ноосферы экзопланет без космических коммуникаций 
-![Noosphere](./docs/screenshots/Noosfera.png)
+<img src="./docs/screenshots/Noosfera.png" height="300" width="400">
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
 ### TehnoSphere C++ Project
 
 Техносферы экзопланет с космическими коммуникациями
-![Tehnosfera](./docs/screenshots/Tehnosfera.png)
+<img src="./docs/screenshots/Tehnosfera.png" height="300" width="400">
 ![Tehnosfera](./docs/clips/Meteors.gif)
 
 ### Моделирование Галактики и Вселенной
