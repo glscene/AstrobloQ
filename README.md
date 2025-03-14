@@ -21,15 +21,13 @@
  
 ### Репозиторий AstrobloQ содержит групповые проекты, аддоны и плагины
 
-<br>
 <img src="./docs/screenshots/PlanetarySystems.png" height="300" width="400">
 <img src="./docs/clips/SolarSystem.gif" height="300" width="400">
-</br>
 
 ### LithoSphere C++ Project
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
-![Lithosphere](./docs/screenshots/Litosfera_ru.png)
+<img src="./docs/screenshots/Litosfera_ru.png" height="300" width="400">
 ![Biosphere](./docs/clips/AnimationPlanet2a.gif)
 ![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
