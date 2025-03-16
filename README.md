@@ -21,8 +21,9 @@
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
  
 ### Репозиторий AstrobloQ содержит групповые проекты
-[br][/br]
+
 <img src="./docs/screenshots/PlanetarySystems.png" height="300" width="400">
+
 <img src="./Docs/clips/SolarSystem.gif" height="300" width="400">
 
 ### LithoSphere C++ Project
