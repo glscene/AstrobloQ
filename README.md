@@ -29,6 +29,7 @@
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
 <img src="./docs/screenshots/Litosfera_ru.png" height="300" width="400">
+
 ![Biosphere](./docs/clips/AnimationPlanet2a.gif)
 ![Biosphere](./docs/clips/AnimationAsteroid2.gif)
 
@@ -36,6 +37,7 @@
 
 Биосферы экзопланет с моделями популяций живых организмов 
 <img src="./docs/screenshots/Biosfera.jpg" height="300" width="400">
+
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
@@ -43,6 +45,7 @@
 
 Ноосферы экзопланет без космических коммуникаций 
 <img src="./docs/screenshots/Noosfera.png" height="300" width="400">
+
 ![Biosphere](./docs/clips/AnimationLadybug2.gif)
 ![Biosphere](./docs/clips/AnimationFlock.gif)
 
@@ -50,6 +53,7 @@
 
 Техносферы экзопланет с космическими коммуникациями
 <img src="./docs/screenshots/Tehnosfera.png" height="300" width="400">
+
 ![Tehnosfera](./docs/clips/Meteors.gif)
 
 ### Моделирование Галактики и Вселенной
