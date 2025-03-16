@@ -6,8 +6,8 @@
 
 Интерфейс проектируется с применением компонентов VCL/FMX и GLScene/GXScene для языков C++ & Delphi. 
 В расчётах используются в том числе следующие библиотеки: 
-- [SOFA](./externals/sofa), астрометрия на C, рекомендованная Международным Астрономическим Союзом IAU;
-- [Astronomy Engine](./externals/astronomy), пакет утилит астрономии и гравитационных взаимодействий;
+- [SOFA](./Externals/sofa), астрометрия на C, рекомендованная Международным Астрономическим Союзом IAU;
+- [Astronomy Engine](./Externals/astronomy), пакет утилит астрономии и гравитационных взаимодействий;
 - [IVOA](https://www.ivoa.net/astronomers/applications.html), стандарты Международной Виртуальной Обсерватории;
 - [CGAL](https://www.cgal.org/), библиотека алгоритмов по вычислительной геометрии на С++;
 - [OpenCV](https://opencv.org/), алгоритмы компьютерного зрения, обработки и анализа изображений на С++;
@@ -21,9 +21,9 @@
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
  
 ### Репозиторий AstrobloQ содержит групповые проекты
-
+[br][/br]
 <img src="./docs/screenshots/PlanetarySystems.png" height="300" width="400">
-<img src="./docs/clips/SolarSystem.gif" height="300" width="400">
+<img src="./Docs/clips/SolarSystem.gif" height="300" width="400">
 
 ### LithoSphere C++ Project
 
