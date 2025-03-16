@@ -23,8 +23,7 @@
 ### Репозиторий AstrobloQ содержит групповые проекты
 
 <img src="./docs/screenshots/PlanetarySystems.png" height="300" width="400">
-
-<img src="./Docs/clips/SolarSystem.gif" height="300" width="400">
+<img src="./docs/clips/SolarSystem.gif" height="300" width="400">
 
 ### LithoSphere C++ Project
 
