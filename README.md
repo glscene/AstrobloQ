@@ -28,15 +28,15 @@
 ### LithoSphere C++ Project
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
-<img src="./docs/screenshots/Litosfera_ru.png" height="300" width="400">
+![LithoSphere](./docs/screenshots/Litosfera_ru.png)
 
-![Biosphere](./docs/clips/AnimationPlanet2a.gif)
-![Biosphere](./docs/clips/AnimationAsteroid2.gif)
+![LithoSphere](./docs/clips/AnimationPlanet2a.gif)
+![LithoSphere](./docs/clips/AnimationAsteroid2.gif)
 
 ### BioSphere C++ Project
 
 Биосферы экзопланет с моделями популяций живых организмов 
-<img src="./docs/screenshots/Biosfera.jpg" height="300" width="400">
+![Biosphere](./docs/screenshots/Biosfera.jpg)
 
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
@@ -44,21 +44,21 @@
 ### NooSphere C++ Project
 
 Ноосферы экзопланет без космических коммуникаций 
-<img src="./docs/screenshots/Noosfera.png" height="300" width="400">
+![NooSphere](./docs/screenshots/Noosfera.png)
 
-![Biosphere](./docs/clips/AnimationLadybug2.gif)
-![Biosphere](./docs/clips/AnimationFlock.gif)
+![NooSphere](./docs/clips/AnimationLadybug2.gif)
+![NooSphere](./docs/clips/AnimationFlock.gif)
 
 ### TehnoSphere C++ Project
 
 Техносферы экзопланет с космическими коммуникациями
-<img src="./docs/screenshots/Tehnosfera.png" height="300" width="400">
+![TechnoSphere](./docs/screenshots/Tehnosfera.png)
 
-![Tehnosfera](./docs/clips/Meteors.gif)
+![TechnoSphere](./docs/clips/Meteors.gif)
 
 ### Моделирование Галактики и Вселенной
 
-![GalaxyGrid_ru](./docs/screenshots/AstrobloQ_ru.png)
+![GalaxyCETI](./docs/screenshots/AstrobloQ_ru.png)
 
 В комплексе используются следующие данные, звёздные каталоги и методы вычислений: 
 
