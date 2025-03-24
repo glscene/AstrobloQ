@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3D3B587C-5D61-44B1-A04A-FCFA180A12BE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ScatterPlotC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VolumeRenderC.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ScatterPlotC">
+        <MSBuild Projects="ScatterPlotC.cbproj"/>
+    </Target>
+    <Target Name="ScatterPlotC:Clean">
+        <MSBuild Projects="ScatterPlotC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScatterPlotC:Make">
+        <MSBuild Projects="ScatterPlotC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="VolumeRenderC">
+        <MSBuild Projects="VolumeRenderC.cbproj"/>
+    </Target>
+    <Target Name="VolumeRenderC:Clean">
+        <MSBuild Projects="VolumeRenderC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VolumeRenderC:Make">
+        <MSBuild Projects="VolumeRenderC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ScatterPlotC;VolumeRenderC"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ScatterPlotC:Clean;VolumeRenderC:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ScatterPlotC:Make;VolumeRenderC:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
