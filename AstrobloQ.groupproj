@@ -3,34 +3,34 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Projects\GalaxyGLS.dproj">
+        <Projects Include="Projects\Lithosphere.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Litosfera.dproj">
+        <Projects Include="Projects\LithosphereC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Litocfera.cbproj">
+        <Projects Include="Projects\Biosphere.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Biosfera.dproj">
+        <Projects Include="Projects\BiosphereC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Biocferax.cbproj">
+        <Projects Include="Projects\Noosphere.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Noosfera.dproj">
+        <Projects Include="Projects\Technosphere.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Tehnosfera.dproj">
+        <Projects Include="Projects\StellarViewer.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\UniverseGLS.dproj">
+        <Projects Include="Projects\StellarViewerC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\UniverseGXS.dproj">
+        <Projects Include="Projects\VirtualGalaxyScene.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\UniverseGLC.cbproj">
+        <Projects Include="Projects\VirtualGalaxySceneC.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -41,104 +41,104 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="GalaxyGLS">
-        <MSBuild Projects="Projects\GalaxyGLS.dproj"/>
+    <Target Name="Lithosphere">
+        <MSBuild Projects="Projects\Lithosphere.dproj"/>
     </Target>
-    <Target Name="GalaxyGLS:Clean">
-        <MSBuild Projects="Projects\GalaxyGLS.dproj" Targets="Clean"/>
+    <Target Name="Lithosphere:Clean">
+        <MSBuild Projects="Projects\Lithosphere.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="GalaxyGLS:Make">
-        <MSBuild Projects="Projects\GalaxyGLS.dproj" Targets="Make"/>
+    <Target Name="Lithosphere:Make">
+        <MSBuild Projects="Projects\Lithosphere.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Litosfera">
-        <MSBuild Projects="Projects\Litosfera.dproj"/>
+    <Target Name="LithosphereC">
+        <MSBuild Projects="Projects\LithosphereC.cbproj"/>
     </Target>
-    <Target Name="Litosfera:Clean">
-        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Clean"/>
+    <Target Name="LithosphereC:Clean">
+        <MSBuild Projects="Projects\LithosphereC.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Litosfera:Make">
-        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Make"/>
+    <Target Name="LithosphereC:Make">
+        <MSBuild Projects="Projects\LithosphereC.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="Litocfera">
-        <MSBuild Projects="Projects\Litocfera.cbproj"/>
+    <Target Name="Biosphere">
+        <MSBuild Projects="Projects\Biosphere.dproj"/>
     </Target>
-    <Target Name="Litocfera:Clean">
-        <MSBuild Projects="Projects\Litocfera.cbproj" Targets="Clean"/>
+    <Target Name="Biosphere:Clean">
+        <MSBuild Projects="Projects\Biosphere.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Litocfera:Make">
-        <MSBuild Projects="Projects\Litocfera.cbproj" Targets="Make"/>
+    <Target Name="Biosphere:Make">
+        <MSBuild Projects="Projects\Biosphere.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Biosfera">
-        <MSBuild Projects="Projects\Biosfera.dproj"/>
+    <Target Name="BiosphereC">
+        <MSBuild Projects="Projects\BiosphereC.cbproj"/>
     </Target>
-    <Target Name="Biosfera:Clean">
-        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Clean"/>
+    <Target Name="BiosphereC:Clean">
+        <MSBuild Projects="Projects\BiosphereC.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Biosfera:Make">
-        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
+    <Target Name="BiosphereC:Make">
+        <MSBuild Projects="Projects\BiosphereC.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="Biocferax">
-        <MSBuild Projects="Projects\Biocferax.cbproj"/>
+    <Target Name="Noosphere">
+        <MSBuild Projects="Projects\Noosphere.dproj"/>
     </Target>
-    <Target Name="Biocferax:Clean">
-        <MSBuild Projects="Projects\Biocferax.cbproj" Targets="Clean"/>
+    <Target Name="Noosphere:Clean">
+        <MSBuild Projects="Projects\Noosphere.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Biocferax:Make">
-        <MSBuild Projects="Projects\Biocferax.cbproj" Targets="Make"/>
+    <Target Name="Noosphere:Make">
+        <MSBuild Projects="Projects\Noosphere.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Noosfera">
-        <MSBuild Projects="Projects\Noosfera.dproj"/>
+    <Target Name="Technosphere">
+        <MSBuild Projects="Projects\Technosphere.dproj"/>
     </Target>
-    <Target Name="Noosfera:Clean">
-        <MSBuild Projects="Projects\Noosfera.dproj" Targets="Clean"/>
+    <Target Name="Technosphere:Clean">
+        <MSBuild Projects="Projects\Technosphere.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Noosfera:Make">
-        <MSBuild Projects="Projects\Noosfera.dproj" Targets="Make"/>
+    <Target Name="Technosphere:Make">
+        <MSBuild Projects="Projects\Technosphere.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Tehnosfera">
-        <MSBuild Projects="Projects\Tehnosfera.dproj"/>
+    <Target Name="StellarViewer">
+        <MSBuild Projects="Projects\StellarViewer.dproj"/>
     </Target>
-    <Target Name="Tehnosfera:Clean">
-        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Clean"/>
+    <Target Name="StellarViewer:Clean">
+        <MSBuild Projects="Projects\StellarViewer.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Tehnosfera:Make">
-        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Make"/>
+    <Target Name="StellarViewer:Make">
+        <MSBuild Projects="Projects\StellarViewer.dproj" Targets="Make"/>
     </Target>
-    <Target Name="UniverseGLS">
-        <MSBuild Projects="Projects\UniverseGLS.dproj"/>
+    <Target Name="StellarViewerC">
+        <MSBuild Projects="Projects\StellarViewerC.cbproj"/>
     </Target>
-    <Target Name="UniverseGLS:Clean">
-        <MSBuild Projects="Projects\UniverseGLS.dproj" Targets="Clean"/>
+    <Target Name="StellarViewerC:Clean">
+        <MSBuild Projects="Projects\StellarViewerC.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="UniverseGLS:Make">
-        <MSBuild Projects="Projects\UniverseGLS.dproj" Targets="Make"/>
+    <Target Name="StellarViewerC:Make">
+        <MSBuild Projects="Projects\StellarViewerC.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="UniverseGXS">
-        <MSBuild Projects="Projects\UniverseGXS.dproj"/>
+    <Target Name="VirtualGalaxyScene">
+        <MSBuild Projects="Projects\VirtualGalaxyScene.dproj"/>
     </Target>
-    <Target Name="UniverseGXS:Clean">
-        <MSBuild Projects="Projects\UniverseGXS.dproj" Targets="Clean"/>
+    <Target Name="VirtualGalaxyScene:Clean">
+        <MSBuild Projects="Projects\VirtualGalaxyScene.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="UniverseGXS:Make">
-        <MSBuild Projects="Projects\UniverseGXS.dproj" Targets="Make"/>
+    <Target Name="VirtualGalaxyScene:Make">
+        <MSBuild Projects="Projects\VirtualGalaxyScene.dproj" Targets="Make"/>
     </Target>
-    <Target Name="UniverseGLC">
-        <MSBuild Projects="Projects\UniverseGLC.cbproj"/>
+    <Target Name="VirtualGalaxySceneC">
+        <MSBuild Projects="Projects\VirtualGalaxySceneC.cbproj"/>
     </Target>
-    <Target Name="UniverseGLC:Clean">
-        <MSBuild Projects="Projects\UniverseGLC.cbproj" Targets="Clean"/>
+    <Target Name="VirtualGalaxySceneC:Clean">
+        <MSBuild Projects="Projects\VirtualGalaxySceneC.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="UniverseGLC:Make">
-        <MSBuild Projects="Projects\UniverseGLC.cbproj" Targets="Make"/>
+    <Target Name="VirtualGalaxySceneC:Make">
+        <MSBuild Projects="Projects\VirtualGalaxySceneC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="GalaxyGLS;Litosfera;Litocfera;Biosfera;Biocferax;Noosfera;Tehnosfera;UniverseGLS;UniverseGXS;UniverseGLC"/>
+        <CallTarget Targets="Lithosphere;LithosphereC;Biosphere;BiosphereC;Noosphere;Technosphere;StellarViewer;StellarViewerC;VirtualGalaxyScene;VirtualGalaxySceneC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GalaxyGLS:Clean;Litosfera:Clean;Litocfera:Clean;Biosfera:Clean;Biocferax:Clean;Noosfera:Clean;Tehnosfera:Clean;UniverseGLS:Clean;UniverseGXS:Clean;UniverseGLC:Clean"/>
+        <CallTarget Targets="Lithosphere:Clean;LithosphereC:Clean;Biosphere:Clean;BiosphereC:Clean;Noosphere:Clean;Technosphere:Clean;StellarViewer:Clean;StellarViewerC:Clean;VirtualGalaxyScene:Clean;VirtualGalaxySceneC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GalaxyGLS:Make;Litosfera:Make;Litocfera:Make;Biosfera:Make;Biocferax:Make;Noosfera:Make;Tehnosfera:Make;UniverseGLS:Make;UniverseGXS:Make;UniverseGLC:Make"/>
+        <CallTarget Targets="Lithosphere:Make;LithosphereC:Make;Biosphere:Make;BiosphereC:Make;Noosphere:Make;Technosphere:Make;StellarViewer:Make;StellarViewerC:Make;VirtualGalaxyScene:Make;VirtualGalaxySceneC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

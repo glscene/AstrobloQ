@@ -210,7 +210,7 @@ begin
   SetCurrentDir(PathToData);
 
   // Maps as cylindrical textures
-  CurrentDir := PathToData  + '\star\sun\'; //GetCurrentDir()
+  CurrentDir := PathToData  + '\stars\sun\'; //GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');

@@ -3,8 +3,8 @@ object frmLitosphere: TfrmLitosphere
   Top = 123
   Cursor = crHelp
   Caption = 'Litosfera'
-  ClientHeight = 478
-  ClientWidth = 871
+  ClientHeight = 700
+  ClientWidth = 1042
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -21,13 +21,13 @@ object frmLitosphere: TfrmLitosphere
   object SceneViewer: TGLSceneViewer
     Left = 273
     Top = 29
-    Width = 598
-    Height = 430
+    Width = 769
+    Height = 652
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 130.311355590820300000
+    FieldOfView = 146.039337158203100000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -39,15 +39,15 @@ object frmLitosphere: TfrmLitosphere
     Left = 0
     Top = 29
     Width = 273
-    Height = 430
+    Height = 652
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 405
+    ExplicitHeight = 627
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 271
-      Height = 428
+      Height = 650
       Align = alClient
       AutoExpand = True
       HideSelection = False
@@ -146,13 +146,13 @@ object frmLitosphere: TfrmLitosphere
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 403
+      ExplicitHeight = 625
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 459
-    Width = 871
+    Top = 681
+    Width = 1042
     Height = 19
     Panels = <
       item
@@ -171,17 +171,17 @@ object frmLitosphere: TfrmLitosphere
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 434
-    ExplicitWidth = 863
+    ExplicitTop = 656
+    ExplicitWidth = 1034
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 871
+    Width = 1042
     Height = 29
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 863
+    ExplicitWidth = 1034
     object ToolBar1: TToolBar
       Left = 19
       Top = 2

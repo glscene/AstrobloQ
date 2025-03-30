@@ -1,38 +1,29 @@
 object FormAbout: TFormAbout
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   BorderStyle = bsDialog
   Caption = 'About'
-  ClientHeight = 893
-  ClientWidth = 1131
+  ClientHeight = 510
+  ClientWidth = 646
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1131
-    Height = 99
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 646
+    Height = 65
     Align = alTop
     BorderWidth = 10
-    Caption = 'Tehnosfera'
+    Caption = 'Technosphere'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -70
+    Font.Height = -40
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -40,49 +31,38 @@ object FormAbout: TFormAbout
   end
   object PageControl: TPageControl
     Left = 0
-    Top = 99
-    Width = 1131
-    Height = 794
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 65
+    Width = 646
+    Height = 445
     ActivePage = tsInfo
     Align = alClient
     TabOrder = 1
+    ExplicitTop = 57
+    ExplicitWidth = 638
+    ExplicitHeight = 428
     object tsInfo: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Info'
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 1123
-        Height = 749
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 638
+        Height = 415
         Align = alClient
         Caption = 'v. 0.1'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -28
+        Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 630
+        ExplicitHeight = 398
         object ImagePlanets: TImage
           Left = 1
           Top = 1
-          Width = 1121
-          Height = 747
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 636
+          Height = 413
           Align = alClient
           Picture.Data = {
             0A544A504547496D616765A2C80100FFD8FFE000104A46494600010101006000
@@ -3741,31 +3721,21 @@ object FormAbout: TFormAbout
             A28A0028A28A0028A28A0028A28A00FFD9}
           Stretch = True
           OnClick = ImagePlanetsClick
-          ExplicitLeft = 322
-          ExplicitTop = -242
-          ExplicitWidth = 365
-          ExplicitHeight = 517
+          ExplicitWidth = 640
+          ExplicitHeight = 426
         end
       end
     end
     object tsTools: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Instruments'
       ImageIndex = 2
       object DelphiButton: TSpeedButton
-        Left = 675
-        Top = 476
-        Width = 113
-        Height = 58
+        Left = 386
+        Top = 272
+        Width = 64
+        Height = 33
         Cursor = crHandPoint
         Hint = 'www.github.com'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Glyph.Data = {
           1E0D0000424D1E0D00000000000036040000280000004B0000001E0000000100
           080000000000E8080000AFB30100AFB301000001000000000000040204000483
@@ -3880,15 +3850,11 @@ object FormAbout: TFormAbout
         OnClick = DelphiButtonClick
       end
       object OGLImage: TImage
-        Left = 384
-        Top = 490
+        Left = 219
+        Top = 280
         Width = 100
         Height = 44
         Hint = 'www.opengl.org'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         AutoSize = True
         ParentShowHint = False
         Picture.Data = {
@@ -3939,15 +3905,11 @@ object FormAbout: TFormAbout
         OnClick = OGLImageClick
       end
       object GLSImage: TImage
-        Left = 252
-        Top = 56
-        Width = 631
-        Height = 351
+        Left = 144
+        Top = 32
+        Width = 361
+        Height = 201
         Hint = 'www.glscene.org'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         ParentShowHint = False
         Picture.Data = {
           07544269746D6170968F0300424D968F0300000000003600000028000000A601
@@ -11250,58 +11212,38 @@ object FormAbout: TFormAbout
       end
     end
     object tsDevelopers: TTabSheet
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
       object StaticText1: TStaticText
-        Left = 490
-        Top = 28
-        Width = 137
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 280
+        Top = 16
+        Width = 79
+        Height = 19
         Caption = 'Pavel Vassiliev'
         TabOrder = 0
       end
       object StaticText2: TStaticText
-        Left = 490
-        Top = 72
-        Width = 126
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 280
+        Top = 41
+        Width = 74
+        Height = 19
         Caption = 'Lev Koptyaev'
         TabOrder = 1
       end
       object StaticText3: TStaticText
-        Left = 490
-        Top = 116
-        Width = 156
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 280
+        Top = 66
+        Width = 90
+        Height = 19
         Caption = 'Ivan Lee Herring'
         TabOrder = 2
       end
       object StaticText4: TStaticText
-        Left = 490
-        Top = 160
-        Width = 139
-        Height = 34
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 280
+        Top = 91
+        Width = 80
+        Height = 19
         Caption = 'Danil Wasilyev'
         TabOrder = 3
       end
