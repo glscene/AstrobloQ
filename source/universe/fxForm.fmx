@@ -1,0 +1,12 @@
+object FormO: TFormO
+  Left = 0
+  Top = 0
+  Caption = 'FormO'
+  ClientHeight = 316
+  ClientWidth = 472
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+end

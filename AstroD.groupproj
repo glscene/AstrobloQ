@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Projects\Lithosphere.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Biosphere.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Noosphere.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Technosphere.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\AstroViewer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\VirtualMilkyWay.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Lithosphere">
+        <MSBuild Projects="Projects\Lithosphere.dproj"/>
+    </Target>
+    <Target Name="Lithosphere:Clean">
+        <MSBuild Projects="Projects\Lithosphere.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Lithosphere:Make">
+        <MSBuild Projects="Projects\Lithosphere.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Biosphere">
+        <MSBuild Projects="Projects\Biosphere.dproj"/>
+    </Target>
+    <Target Name="Biosphere:Clean">
+        <MSBuild Projects="Projects\Biosphere.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Biosphere:Make">
+        <MSBuild Projects="Projects\Biosphere.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Noosphere">
+        <MSBuild Projects="Projects\Noosphere.dproj"/>
+    </Target>
+    <Target Name="Noosphere:Clean">
+        <MSBuild Projects="Projects\Noosphere.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Noosphere:Make">
+        <MSBuild Projects="Projects\Noosphere.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Technosphere">
+        <MSBuild Projects="Projects\Technosphere.dproj"/>
+    </Target>
+    <Target Name="Technosphere:Clean">
+        <MSBuild Projects="Projects\Technosphere.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Technosphere:Make">
+        <MSBuild Projects="Projects\Technosphere.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AstroViewer">
+        <MSBuild Projects="Projects\AstroViewer.dproj"/>
+    </Target>
+    <Target Name="AstroViewer:Clean">
+        <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AstroViewer:Make">
+        <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VirtualMilkyWay">
+        <MSBuild Projects="Projects\VirtualMilkyWay.dproj"/>
+    </Target>
+    <Target Name="VirtualMilkyWay:Clean">
+        <MSBuild Projects="Projects\VirtualMilkyWay.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VirtualMilkyWay:Make">
+        <MSBuild Projects="Projects\VirtualMilkyWay.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Lithosphere;Biosphere;Noosphere;Technosphere;AstroViewer;VirtualMilkyWay"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Lithosphere:Clean;Biosphere:Clean;Noosphere:Clean;Technosphere:Clean;AstroViewer:Clean;VirtualMilkyWay:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Lithosphere:Make;Biosphere:Make;Noosphere:Make;Technosphere:Make;AstroViewer:Make;VirtualMilkyWay:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -201,17 +201,15 @@ implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
-//------------------------------------------------------------------
 procedure TfrmLitosphere.FormCreate(Sender: TObject);
 var
   I: Integer;
 begin
-  DataDir := LowerCase(ExtractFilePath(ParamStr(0))) + 'data';
-  // if bin dir for exe Delete(DataDir, Pos('bin', DataDir), Length(DataDir));
-  DataDir := IncludeTrailingPathDelimiter(DataDir);
+  DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
+  DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-
-  StarDir := DataDir + 'Stars';
+  StarDir := DataDir + 'stars';
 
   // Path to Hipparcos, Hyg or Gaia DR4
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -296,7 +294,7 @@ begin
     sfPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
 
     // actor model to support octotrees !
-    acPlanet.LoadFromFile(DataDir + 'model\planet.3ds');
+    acPlanet.LoadFromFile(DataDir + '\model\planet.3ds');
 
     // loading maps from VirtPlanetMaps
 //    acPlanet.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[4]);

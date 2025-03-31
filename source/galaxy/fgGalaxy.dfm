@@ -1,7 +1,7 @@
 object frmGalaxy: TfrmGalaxy
   Left = 0
   Top = 0
-  Caption = 'Virtual Galaxy Scene'
+  Caption = 'Virtual Milky Way'
   ClientHeight = 601
   ClientWidth = 982
   Color = clBtnFace
@@ -933,7 +933,7 @@ object frmGalaxy: TfrmGalaxy
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Virtual Galaxy Scene'
+    FormCaption = 'Virtual Milky Way'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

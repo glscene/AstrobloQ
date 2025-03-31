@@ -36,8 +36,9 @@ var
   IsDesignTime: Boolean = False;
   vProjectTargetName: TProjectTargetNameFunc;
 
-// Get a current path to asset
+// Get current paths
 function GetCurrentAssetPath(): TFileName;
+function GetCurrentDataPath(): TFileName;
 
 // Copies the values of Source to Dest (converting word values to integer values)
 procedure WordToIntegerArray(Source: PWordArray; Dest: PIntegerArray;
@@ -177,10 +178,7 @@ function GLStrToFloatDef(const S: string; const Default: Extended)
   : Extended; overload;
 function GLStrToFloatDef(const S: string): Extended; overload;
 
-// ------------------------------------------------------
-implementation
-
-// ------------------------------------------------------
+implementation // ------------------------------------------------------
 
 var
   vSqrt255: TSqrt255Array;
@@ -188,7 +186,36 @@ var
   vInvPerformanceCounterFrequencyReady: Boolean = False;
   vLastProjectTargetName: string;
 
-  // ---------------from Utils -----------------------
+ // ---------------from Utils -----------------------
+
+
+function GetCurrentAssetPath(): TFileName;
+var
+  Path: TFileName;
+  N: Integer;
+begin
+  Path := LowerCase(ExtractFilePath(ParamStr(0)));
+  N := Pos('bin', Path);
+  Delete(Path, N, Length(path));
+  Path := IncludeTrailingPathDelimiter(Path) + 'assets\';
+  SetCurrentDir(Path);
+  Result := Path;
+end;
+
+function GetCurrentDataPath(): TFileName;
+var
+  Path: TFileName;
+  N: Integer;
+begin
+  Path := LowerCase(ExtractFilePath(ParamStr(0)));
+  N := Pos('bin', Path);
+  Delete(Path, N, Length(path));
+  Path := IncludeTrailingPathDelimiter(Path) + 'data\';
+  SetCurrentDir(Path);
+  Result := Path;
+end;
+
+
 procedure WordToIntegerArray(Source: PWordArray; Dest: PIntegerArray;
   Count: Cardinal);
 var
@@ -633,19 +660,6 @@ begin
   finally
     openDialog.Free;
   end;
-end;
-
-function GetCurrentAssetPath(): TFileName;
-var
-  Path: TFileName;
-  N: Integer;
-begin
-  Path := LowerCase(ExtractFilePath(ParamStr(0)));
-  N := Pos('spaceport', Path); // if 'glscene' dirname then N + 7
-  Delete(Path, N, Length(path));
-  Path := IncludeTrailingPathDelimiter(Path) + 'assets';
-  SetCurrentDir(Path);
-  Result := Path;
 end;
 
 procedure RaiseLastOSError;

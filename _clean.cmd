@@ -45,6 +45,9 @@ del *.ils /s
 del *.pdi /s
 del *.vlb /s
 del *.user /s
+del *.lnk /s
+
+
 
 echo _
 echo ************************************************

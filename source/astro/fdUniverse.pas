@@ -57,6 +57,7 @@ uses
   fdHercRussel,
   fdHipparcos,
 
+  udUtils,
   gnugettext;
 
 type
@@ -178,7 +179,7 @@ type
 
 var
   frmUniverse: TfrmUniverse;
-  AssetsDir, DataDir, CurrDir: TFileName;
+  AssetsDir, DataDir, CurrDir, StarDir: TFileName;
 
 const
   TimeMultiplier = 10.0;
@@ -197,7 +198,9 @@ begin
   TP_GlobalIgnoreClass(TFont);
   TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
 
-  DataDir := ExtractFilePath(ParamStr(0)) + 'data\';;
+  DataDir := GetCurrentDataPath();
+
+//  ExtractFilePath(ParamStr(0)) + 'data\';;
   SetCurrentDir(DataDir);
 
   SkyDome.Visible := True;
@@ -211,8 +214,11 @@ begin
     SkyDome.Stars.LoadStarsFile(FileName);
 
   // Load Planet map
-  CurrDir := DataDir + 'map\';
+  CurrDir := DataDir + 'catalog\';
   SetCurrentDir(CurrDir);
+
+  StarDir := DataDir + 'stars\sun\';
+  SetCurrentDir(StarDir);
   sfPlanet.Material.Texture.Disabled := False;
 end;
 
@@ -323,6 +329,7 @@ end;
 //--------------------------------------------------------------------------
 procedure TfrmUniverse.tvPlanetsClick(Sender: TObject);
 begin
+
   case tvPlanets.Selected.Index of
      0: begin
           // FileName : TFileName;
@@ -345,12 +352,22 @@ begin
           TorusEquator.MajorRadius := 6052;
 //          TorusEcliptic.PitchAngle := -23.5;
         end;
-     3: begin
-          sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
-          sfPlanet.Radius := 6371;
-          TorusGreenwich.MajorRadius := 6371;
-          TorusEquator.MajorRadius := 6371;
-          // add Moon as child
+     3: begin // earth
+          case tvPlanets.Selected.ExpandedImageIndex of
+          1: begin
+             // add Moon as child
+             sfPlanet.Material.Texture.Image.LoadFromFile('moon.jpg');
+             sfPlanet.Radius := 6371;
+             TorusGreenwich.MajorRadius := 6371;
+             TorusEquator.MajorRadius := 6371;
+
+             end
+          else
+            sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+            sfPlanet.Radius := 6371;
+            TorusGreenwich.MajorRadius := 6371;
+            TorusEquator.MajorRadius := 6371;
+          end;
         end;
      4: begin
           sfPlanet.Material.Texture.Image.LoadFromFile('mars.jpg');
@@ -358,7 +375,7 @@ begin
           TorusGreenwich.MajorRadius := 3390;
           TorusEquator.MajorRadius := 3390;
         end;
-     5: begin
+     5: begin  // jupiter
           sfPlanet.Material.Texture.Image.LoadFromFile('jupiter.jpg');
           sfPlanet.Radius := 10000; //
           TorusGreenwich.MajorRadius := 10000;
@@ -395,7 +412,15 @@ begin
  //         TorusEcliptic.PitchAngle := -119.3;
           // add Charon as child
         end;
-
+     ///
+     51: begin  // jupiter
+          sfPlanet.Material.Texture.Image.LoadFromFile('io.jpg');
+          sfPlanet.Radius := 10000; //
+          TorusGreenwich.MajorRadius := 10000;
+          TorusEquator.MajorRadius := 10000;
+          // add Io, Europa, Callisto Ganimede as childs
+          //        Camera.ToTarget;
+        end;
   end;
 
  (*

@@ -7,18 +7,14 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("..\Source\bioc\fcSettings.cpp", FormSettings);
-USEFORM("..\Source\bioc\fcBiosfera.cpp", FormBiocferax);
-USEFORM("..\Source\bioc\fcAbout.cpp", FormAbout);
+USEFORM("..\Source\galaxyc\fcSettings.cpp", FormSettings);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TFormBiocferax), &FormBiocferax);
 		Application->CreateForm(__classid(TFormSettings), &FormSettings);
-		Application->CreateForm(__classid(TFormAbout), &FormAbout);
 		Application->Run();
 	}
 	catch (Exception &exception)

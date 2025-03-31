@@ -21,7 +21,7 @@ object FormAbout: TFormAbout
     Height = 65
     Align = alTop
     BorderWidth = 10
-    Caption = 'Virtual Galaxy Scene'
+    Caption = 'Virtual Milky Way'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -40
@@ -29,7 +29,7 @@ object FormAbout: TFormAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 634
+    ExplicitTop = -6
   end
   object PageControl: TPageControl
     Left = 0
@@ -39,6 +39,8 @@ object FormAbout: TFormAbout
     ActivePage = tsStars
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 634
+    ExplicitHeight = 420
     object tsStars: TTabSheet
       Caption = 'Stars'
       object ImageGalaxy: TImage

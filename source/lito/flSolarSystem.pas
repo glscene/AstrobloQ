@@ -55,7 +55,8 @@ uses
   flParams,
 
   fForm,
-  gnuGettext, fdForm
+  gnuGettext,
+  fdForm
   ;
 
 type
@@ -914,7 +915,7 @@ end;
 //
 procedure TFormSolarSys.About1Click(Sender: TObject);
 begin
-  ShowMessage('Litosfera!');
+  ShowMessage('Lithosphere');
 end;
 
 // Exit

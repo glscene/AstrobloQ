@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{FCE9C3E2-FD0F-4841-A63C-C38BA1A20450}</ProjectGuid>
+        <ProjectGuid>{E0BC91B2-A9AD-4FEA-B77E-EA135B45BC8E}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <AppType>Application</AppType>
-        <MainSource>LithosphereC.cpp</MainSource>
+        <MainSource>AstroViewerC.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1048577</TargetedPlatforms>
-        <ProjectName Condition="'$(ProjectName)'==''">LithosphereC</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">AstroViewerC</ProjectName>
         <CC_Suffix Condition="'$(CC_Suffix)'==''">c</CC_Suffix>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -92,9 +92,9 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>..\Source\litoc\;..\Source\astroc\;..\Source\lito\;..\Source\litocpp\;..\source\sofa\;..\Source\actro\;..\source\apc\;..\source\astronomy\;Projects\;Source\actro\;source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>..\Source\litoc\;..\Source\astroc\;..\Source\lito\;..\Source\litocpp\;..\source\sofa\;..\Source\actro\;..\source\apc\;..\source\astronomy\;Projects\;Source\actro\;source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;..\..\source\sofa\;..\..\source\code\;..\..\source\interface\;D:\GLS\AstroApps\Apclib\apps\cbuilder\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <SanitizedProjectName>LithosphereC</SanitizedProjectName>
+        <IncludePath>..\Source\astroc\;..\source\sofa\;..\Source\actro\;..\source\apc\;..\source\astronomy\;Projects\;Source\actro\;source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\Source\astroc\;..\source\sofa\;..\Source\actro\;..\source\apc\;..\source\astronomy\;Projects\;Source\actro\;source\apc\;source\unit\;source\cpp\;source\astronomy\;source\code\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\;D:\XYZ_FITiPM\_GIS_TECH\2024\Магистры\Дахин\Lab3\source\sofa\;D:\ASTROAINET\ApcLibrary\;source\;..\..\Common\;source\interface\;source\sofa\;..\..\;..\..\source\sofa\;..\..\source\code\;..\..\source\interface\;D:\GLS\AstroApps\Apclib\apps\cbuilder\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <SanitizedProjectName>AstroViewerC</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bdertl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;FMXComponentEd;FMXComponents;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;GBE3D;GLScene_Cg_RT;GLScene_GPU_RT;GLScene_Physics_RT;GLScene_RT;GLScene_Sounds_RT;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldbx;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
@@ -151,11 +151,11 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug</ILINK_LibraryPath>
+        <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <LinkPackageImports>rtl.bpi;vcl.bpi;GLScene_RT.bpi;xmlrtl.bpi;vclimg.bpi;vclwinx.bpi;bindengine.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;vclFireDAC.bpi;vcldb.bpi;vclx.bpi;FireDACSqliteDriver.bpi</LinkPackageImports>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <FinalOutputDir>..\bin</FinalOutputDir>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
@@ -184,7 +184,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="LithosphereC.cpp">
+        <CppCompile Include="AstroViewerC.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\Source\astroc\dcBase.cpp">
@@ -214,6 +214,12 @@
             <DependentOn>..\Source\astroc\fcAbout.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
+        <CppCompile Include="..\Source\astroc\fcAstros.cpp">
+            <Form>FormAstroViewer</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\Source\astroc\fcAstros.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
         <CppCompile Include="..\Source\astroc\fcForm.cpp">
             <Form>FormC</Form>
             <FormType>dfm</FormType>
@@ -238,27 +244,15 @@
             <DependentOn>..\Source\astroc\fcSettings.h</DependentOn>
             <BuildOrder>15</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\ucConstbnd.c">
-            <BuildOrder>10</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\Source\astroc\ucConstel.c">
-            <BuildOrder>11</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\Source\litoc\fcLitocfera.cpp">
-            <Form>FormAstroviewer</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>..\Source\litoc\fcLitocfera.h</DependentOn>
-            <BuildOrder>11</BuildOrder>
-        </CppCompile>
+        <FormResources Include="..\Source\astroc\fcAstros.dfm"/>
+        <FormResources Include="..\Source\astroc\fcForm.dfm"/>
         <FormResources Include="..\Source\astroc\fcHercRussel.dfm"/>
         <FormResources Include="..\Source\astroc\fcHipparcos.dfm"/>
         <FormResources Include="..\Source\astroc\fcSettings.dfm"/>
-        <FormResources Include="..\Source\astroc\fcForm.dfm"/>
         <FormResources Include="..\Source\astroc\dcBase.dfm"/>
         <FormResources Include="..\Source\astroc\dcDialogs.dfm"/>
         <FormResources Include="..\Source\astroc\dcImages.dfm"/>
         <FormResources Include="..\Source\astroc\fcAbout.dfm"/>
-        <FormResources Include="..\Source\litoc\fcLitocfera.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -283,7 +277,7 @@
                     <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
                 <Source>
-                    <Source Name="MainSource">LithosphereC.cpp</Source>
+                    <Source Name="MainSource">AstroViewerC.cpp</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -349,15 +343,15 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\bin\LithosphereC.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\AstroViewerC.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>LithosphereC.exe</RemoteName>
+                        <RemoteName>AstroViewerC.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\bin\LithosphereC.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="..\bin\AstroViewerC.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
-                        <RemoteName>LithosphereC.tds</RemoteName>
+                        <RemoteName>AstroViewerC.tds</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
