@@ -41,7 +41,12 @@ __fastcall TFormAstroViewer::TFormAstroViewer(TComponent* Owner) : TFormC(Owner)
 
 void __fastcall TFormAstroViewer::FormCreate(TObject* Sender)
 {
-    // Load map for Planet
+    // Load maps for Planets
+///   BinDir = ExtractFilePath(Application->ExeName); // String str = "1234567890";
+///   String DataPath1 = BinDir.SubString(1,5);  // String s1 = str.substring(1,5), s1 = "12345"
+///   String DataPath2 = BinDir.Delete(2,3);  // String s2 = str.delete(2,3), s2 = "1567890"
+	
+	
     DataDir = ExtractFilePath(ParamStr(0)) + "data\\";
     CurrDir = DataDir + "map\\";
     SetCurrentDir(CurrDir);

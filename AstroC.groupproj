@@ -3,12 +3,6 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Projects\LithosphereC.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\BiosphereC.cbproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Projects\AstroViewerC.cbproj">
             <Dependencies/>
         </Projects>
@@ -23,24 +17,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="LithosphereC">
-        <MSBuild Projects="Projects\LithosphereC.cbproj"/>
-    </Target>
-    <Target Name="LithosphereC:Clean">
-        <MSBuild Projects="Projects\LithosphereC.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="LithosphereC:Make">
-        <MSBuild Projects="Projects\LithosphereC.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="BiosphereC">
-        <MSBuild Projects="Projects\BiosphereC.cbproj"/>
-    </Target>
-    <Target Name="BiosphereC:Clean">
-        <MSBuild Projects="Projects\BiosphereC.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="BiosphereC:Make">
-        <MSBuild Projects="Projects\BiosphereC.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="AstroViewerC">
         <MSBuild Projects="Projects\AstroViewerC.cbproj"/>
     </Target>
@@ -60,13 +36,13 @@
         <MSBuild Projects="Projects\VirtualMilkyWayC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="LithosphereC;BiosphereC;AstroViewerC;VirtualMilkyWayC"/>
+        <CallTarget Targets="AstroViewerC;VirtualMilkyWayC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="LithosphereC:Clean;BiosphereC:Clean;AstroViewerC:Clean;VirtualMilkyWayC:Clean"/>
+        <CallTarget Targets="AstroViewerC:Clean;VirtualMilkyWayC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="LithosphereC:Make;BiosphereC:Make;AstroViewerC:Make;VirtualMilkyWayC:Make"/>
+        <CallTarget Targets="AstroViewerC:Make;VirtualMilkyWayC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
