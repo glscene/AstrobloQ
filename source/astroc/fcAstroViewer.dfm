@@ -39,6 +39,8 @@ object FormAstroViewer: TFormAstroViewer
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    ExplicitLeft = 764
+    ExplicitHeight = 456
     object ButtonMercury: TButton
       Left = 22
       Top = 24
@@ -172,6 +174,7 @@ object FormAstroViewer: TFormAstroViewer
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitHeight = 456
     object tsPlanets: TTabSheet
       Caption = #1055#1083#1072#1085#1077#1090#1099
       ImageIndex = -1
@@ -282,6 +285,7 @@ object FormAstroViewer: TFormAstroViewer
           380039005F0013043E043B04350432043A0430040000350000000B0000000B00
           0000FFFFFFFFFFFFFFFF00000000000000000000000000010B39003000330037
           0037005F002104350434043D043004}
+        ExplicitHeight = 421
       end
     end
     object tsConstCharts: TTabSheet
@@ -471,6 +475,7 @@ object FormAstroViewer: TFormAstroViewer
     Height = 29
     Align = alTop
     TabOrder = 3
+    ExplicitWidth = 883
     object ToolBar1: TToolBar
       Left = 232
       Top = 2

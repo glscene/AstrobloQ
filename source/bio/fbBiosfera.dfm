@@ -2859,8 +2859,8 @@ object FormBiosfera: TFormBiosfera
     end
   end
   object GLScene: TGLScene
-    Left = 613
-    Top = 378
+    Left = 661
+    Top = 234
     object GalaxyCube: TGLDummyCube
       CubeSize = 1.000000000000000000
       object SkyDome: TGLSkyDome
@@ -3349,8 +3349,8 @@ object FormBiosfera: TFormBiosfera
     MaxDeltaTime = 1.000000000000000000
     SleepLength = 5
     OnProgress = GLCadencerProgress
-    Left = 833
-    Top = 378
+    Left = 753
+    Top = 306
   end
   object GLMaterialLibrary: TGLMaterialLibrary
     Left = 1140
@@ -3385,8 +3385,8 @@ object FormBiosfera: TFormBiosfera
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Left = 888
-    Top = 357
+    Left = 848
+    Top = 237
   end
   object AVIRecorder: TGLAVIRecorder
     FPS = 24
@@ -3401,7 +3401,7 @@ object FormBiosfera: TFormBiosfera
     MaxChannels = 32
     MasterVolume = 1.000000000000000000
     Sources = <>
-    Left = 994
-    Top = 373
+    Left = 754
+    Top = 237
   end
 end

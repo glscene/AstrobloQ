@@ -4,7 +4,7 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("..\Source\astroc\fcAstros.cpp", FormAstroViewer);
+USEFORM("..\Source\astroc\fcAstroViewer.cpp", FormAstroViewer);
 USEFORM("..\Source\astroc\fcForm.cpp", FormC);
 USEFORM("..\Source\astroc\fcHercRussel.cpp", FormHercRussel);
 USEFORM("..\Source\astroc\fcHipparcos.cpp", FormHipparcos);

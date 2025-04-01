@@ -1,10 +1,9 @@
-BioSphereW v.2 supposed
+Biosfera v.2 supposed
 ------------------------------
 MAJOR FEATURES:
 -Online servers
 -Visual AI Clients
 -Remote-controlled client AI bots or human
--Online collaboration/development
 
 SECONDARY FEATURES:
 -Scriptable AIs based on OpenAI like ChatGPT
@@ -12,12 +11,12 @@ SECONDARY FEATURES:
 -Dynamically generated interface, worlds and exoplanet maps
 
 ENGINE FEATURES:
--All object definitions stored in text files
+-All object definitions stored in glTF/glb files and animated .gifs with .csv data
 -Multiple terrain types on true 3D terrains and Free Form exoplanets. 
 -Complete visualization of AI operations (senses, path finding, tracking, sight lines, history etc.)
 -completely interactive user interface and Event Scheduler for Cyborgs
--Environmental Constraints
 -Newton Physics for dynamic, skeleton and intelliobjects  
+-Environmental Constraints
 
 
 

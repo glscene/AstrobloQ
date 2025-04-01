@@ -214,10 +214,10 @@
             <DependentOn>..\Source\astroc\fcAbout.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\fcAstros.cpp">
+        <CppCompile Include="..\Source\astroc\fcAstroViewer.cpp">
             <Form>FormAstroViewer</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\Source\astroc\fcAstros.h</DependentOn>
+            <DependentOn>..\Source\astroc\fcAstroViewer.h</DependentOn>
             <BuildOrder>11</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\Source\astroc\fcForm.cpp">
@@ -244,7 +244,7 @@
             <DependentOn>..\Source\astroc\fcSettings.h</DependentOn>
             <BuildOrder>15</BuildOrder>
         </CppCompile>
-        <FormResources Include="..\Source\astroc\fcAstros.dfm"/>
+        <FormResources Include="..\Source\astroc\fcAstroViewer.dfm"/>
         <FormResources Include="..\Source\astroc\fcForm.dfm"/>
         <FormResources Include="..\Source\astroc\fcHercRussel.dfm"/>
         <FormResources Include="..\Source\astroc\fcHipparcos.dfm"/>

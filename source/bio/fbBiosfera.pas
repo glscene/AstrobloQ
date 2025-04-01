@@ -95,9 +95,7 @@ uses
 
   GLS.AVIRecorder,
   GLS.Coordinates,
-  GLS.BaseClasses,
-
-  gnugettext;
+  GLS.BaseClasses;
 
 const
   cHeightDivision = 10;
@@ -1051,7 +1049,7 @@ begin
 
   SphereMode := true;
 
-  FormFirst.Construction.AddEvent(_('Loading files'));
+  FormFirst.Construction.AddEvent('Loading files');
   LoadMaterialLibrary;
   LoadModels;
   GenerateTextureMap;
@@ -1061,13 +1059,13 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    FormFirst.Construction.AddEvent(_('Activating Bass'));
+    FormFirst.Construction.AddEvent('Activating Bass');
     GLBass.Active := true;
     if not GLBass.Active then
-      FormFirst.Construction.AddEventFailure(_(' No sound support!'));
+      FormFirst.Construction.AddEventFailure(' No sound support!');
   end;
   LoadSounds;
-  FormFirst.Construction.AddEvent(_('Generating sound system'));
+  FormFirst.Construction.AddEvent('Generating sound system');
   GenerateSoundSystem(64);
 
   CleanGalaxy;
@@ -2106,7 +2104,7 @@ var
   X: Integer;
 begin
   // create grey stars
-  FormFirst.Construction.AddEvent(_('Adding stars'));
+  FormFirst.Construction.AddEvent('Adding stars');
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2114,7 +2112,7 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  FormFirst.Construction.AddEventSuccess(_(' Done'));
+  FormFirst.Construction.AddEventSuccess(' Done');
 end;
 
 // ----------------------------------------------------------------------------
@@ -2712,7 +2710,7 @@ begin
     exit;
   myMoon := AIMoon(Environment.Things.NewThing(cMoon));
   ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
-  FormFirst.Construction.AddEvent(_('Added moon'));
+  FormFirst.Construction.AddEvent('Added moon');
   LastAction('Added=moon');
 end;
 
@@ -2723,13 +2721,13 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage(_('Maximum four suns!'));
+    ShowMessage('Maximum four suns!');
     exit;
   end;
 
   mySun := AISun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
-    ReportUserEvent(_('Added sun') + mySun.OneLineDisplay);
+    ReportUserEvent('Added sun' + mySun.OneLineDisplay);
   FormFirst.Construction.AddEvent('Added sun');
   LastAction('Added=sun');
 end;
@@ -3790,18 +3788,18 @@ begin
   CameraMode := camPlanet;
 
   // clear everything
-  FormFirst.Construction.AddEvent(_('Cleaning galaxy'));
+  FormFirst.Construction.AddEvent('Cleaning galaxy');
   CleanGalaxy;
 
   SphereMode := Environment.Space.Spherical;
   tbSpherical.Down := SphereMode;
 
   // build planet
-  FormFirst.Construction.AddEvent(_('Building planet'));
+  FormFirst.Construction.AddEvent('Building planet');
   BuildFromMap;
 
   // build new things
-  FormFirst.Construction.AddEvent(_('Adding new things'));
+  FormFirst.Construction.AddEvent('Adding new things');
   CheckCradle;
 end;
 
@@ -4382,8 +4380,8 @@ begin
   fgLandTex.MaterialName := PlanetModel.MaterialLibrary.Materials.
     Items[0].Name;
 
-  FormFirst.Construction.AddEvent('Planet.Map' + ': ' + _('Height') + ' = ' +
-     IntToStr(Height) + _('Width') + ' = ' + IntToStr(Width));
+  FormFirst.Construction.AddEvent('Planet.Map' + ': ' + 'Height' + ' = ' +
+     IntToStr(Height) + 'Width' + ' = ' + IntToStr(Width));
 
   // height loop
   // we start at the top of the map and go to the bottom, in width strips
@@ -4570,8 +4568,8 @@ begin
     end;
   end;
 
-  FormFirst.Construction.AddEvent('Planet.Mesh: ' + _('Triangles') + ' = ' +
-    IntToStr(PlanetMesh.TriangleCount) + _('Vertices') + ' = ' +
+  FormFirst.Construction.AddEvent('Planet.Mesh: ' + 'Triangles' + ' = ' +
+    IntToStr(PlanetMesh.TriangleCount) + 'Vertices' + ' = ' +
     IntToStr(PlanetMesh.Vertices.Count));
 
   // add mesh to freeform (a freeform holds meshes)
@@ -5569,7 +5567,7 @@ begin
       (AISatellite(mySun));
   end
   else
-    ShowMessage(_('Maximum four suns!'));
+    ShowMessage('Maximum four suns!');
 end;
 
 // ----------------------------------------------------------------------------
@@ -6041,7 +6039,7 @@ begin
   if not GLBass.Active then
     exit;
 
-  FormFirst.Construction.AddEvent(_('Generating sound system'));
+  FormFirst.Construction.AddEvent('Generating sound system');
   for i := 0 to aNumberOfSpeakers - 1 do
   begin
     myCrossover := Speakers.NewCrossover;
@@ -6093,7 +6091,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSounds;
 begin
-  FormFirst.Construction.AddUnderlinedEvent(_('Loading sounds'));
+  FormFirst.Construction.AddUnderlinedEvent('Loading sounds');
 
   LoadSound('audio\electronicping.wav'); // 0
   LoadSound('audio\fire.wav'); // 1
@@ -6130,7 +6128,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSound(aFileName: string);
 begin
-  FormFirst.Construction.AddEvent(_('Loading sound from file ') + aFileName
+  FormFirst.Construction.AddEvent('Loading sound from file ' + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
@@ -6926,12 +6924,12 @@ begin
   if not tbTrackLines.Down then
   begin
     TrackLines.Visible := false;
-    FormFirst.Construction.AddEvent(_('Turned track lines off'));
+    FormFirst.Construction.AddEvent('Turned track lines off');
   end
   else if (CameraMode = camTarget) then
   begin
     TrackLines.Visible := true;
-    FormFirst.Construction.AddEvent(_('Turned track lines on'));
+    FormFirst.Construction.AddEvent('Turned track lines on');
   end;
 end;
 
@@ -6981,7 +6979,7 @@ begin
   begin
     PredictLines.Visible := false;
     PredictLines.Nodes.Clear;
-    FormFirst.Construction.AddEvent(_('Turned predict lines off'));
+    FormFirst.Construction.AddEvent('Turned predict lines off');
   end
   else if (CameraMode = camTarget) then
   begin
