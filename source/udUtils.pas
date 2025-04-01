@@ -29,16 +29,19 @@ type
   PSqrt255Array = ^TSqrt255Array;
   TProjectTargetNameFunc = function(): string;
 
+
 const
   FONT_CHARS_COUNT = 2024;
+
 
 var
   IsDesignTime: Boolean = False;
   vProjectTargetName: TProjectTargetNameFunc;
+  vLastProjectTargetName: string;
 
-// Get current paths
-function GetCurrentAssetPath(): TFileName;
-function GetCurrentDataPath(): TFileName;
+
+function GetAssetsPath(): TFileName;
+function GetDataPath(): TFileName;
 
 // Copies the values of Source to Dest (converting word values to integer values)
 procedure WordToIntegerArray(Source: PWordArray; Dest: PIntegerArray;
@@ -184,12 +187,9 @@ var
   vSqrt255: TSqrt255Array;
   vInvPerformanceCounterFrequency: Double;
   vInvPerformanceCounterFrequencyReady: Boolean = False;
-  vLastProjectTargetName: string;
 
- // ---------------from Utils -----------------------
-
-
-function GetCurrentAssetPath(): TFileName;
+//------------------------------------------------------------------------
+function GetAssetsPath(): TFileName;
 var
   Path: TFileName;
   N: Integer;
@@ -202,7 +202,7 @@ begin
   Result := Path;
 end;
 
-function GetCurrentDataPath(): TFileName;
+function GetDataPath(): TFileName;
 var
   Path: TFileName;
   N: Integer;
@@ -215,7 +215,7 @@ begin
   Result := Path;
 end;
 
-
+//------------------------------------------------------------------------
 procedure WordToIntegerArray(Source: PWordArray; Dest: PIntegerArray;
   Count: Cardinal);
 var

@@ -20,8 +20,8 @@ uses
   fForm in '..\source\fForm.pas' {FormG},
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  Astro.Utils in '..\Source\astro\Astro.Utils.pas',
-  fdForm in '..\Source\fdForm.pas' {FormI};
+  fdForm in '..\Source\fdForm.pas' {FormI},
+  udUtils in '..\Source\udUtils.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

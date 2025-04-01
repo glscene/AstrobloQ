@@ -6,6 +6,9 @@
         <Projects Include="Projects\AstroViewer.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Projects\AstroViewer_ru.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Projects\Litosfera.dproj">
             <Dependencies/>
         </Projects>
@@ -40,6 +43,15 @@
     </Target>
     <Target Name="AstroViewer:Make">
         <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AstroViewer_ru">
+        <MSBuild Projects="Projects\AstroViewer_ru.dproj"/>
+    </Target>
+    <Target Name="AstroViewer_ru:Clean">
+        <MSBuild Projects="Projects\AstroViewer_ru.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AstroViewer_ru:Make">
+        <MSBuild Projects="Projects\AstroViewer_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Projects\Litosfera.dproj"/>
@@ -96,13 +108,13 @@
         <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroViewer;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;Universum"/>
+        <CallTarget Targets="AstroViewer;AstroViewer_ru;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;Universum"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroViewer:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;Universum:Clean"/>
+        <CallTarget Targets="AstroViewer:Clean;AstroViewer_ru:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;Universum:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroViewer:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;Universum:Make"/>
+        <CallTarget Targets="AstroViewer:Make;AstroViewer_ru:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;Universum:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

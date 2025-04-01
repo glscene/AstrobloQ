@@ -1,4 +1,4 @@
-unit fdAstroViewer;
+unit fdAstroViewer_ru;
 
 interface
 
@@ -52,7 +52,8 @@ uses
   fdCoordinates,
   fdPointto,
   fdConstPolygons,
-  fdSettings,
+
+  fdSettings_ru,
 
   fdHercRussel,
   fdHipparcos,

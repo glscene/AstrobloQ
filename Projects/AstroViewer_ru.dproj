@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{48147C20-C4A2-4BA0-99B3-4A02060E4FBC}</ProjectGuid>
+        <ProjectGuid>{5D6BB61F-C605-4E15-995A-8A8967D3EB51}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -8,8 +8,8 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Noosfera.dpr</MainSource>
-        <ProjectName Condition="'$(ProjectName)'==''">Noosfera</ProjectName>
+        <MainSource>AstroViewer_ru.dpr</MainSource>
+        <ProjectName Condition="'$(ProjectName)'==''">AstroViewer_ru</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -68,7 +68,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>Noosfera</SanitizedProjectName>
+        <SanitizedProjectName>AstroViewer_ru</SanitizedProjectName>
         <Custom_Styles>&quot;Iceberg Classico|VCLSTYLE|$(BDSCOMMONDIR)\Styles\IcebergClassico.vsf&quot;;&quot;Tablet Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\TabletDark.vsf&quot;;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;;&quot;Cyan Night|VCLSTYLE|$(BDSCOMMONDIR)\Styles\CyanNight.vsf&quot;;&quot;Golden Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\GoldenGraphite.vsf&quot;;Luna|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Luna.vsf;&quot;Smokey Quartz Kamri|VCLSTYLE|$(BDSCOMMONDIR)\Styles\SmokeyQuartzKamri.vsf&quot;</Custom_Styles>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -128,11 +128,22 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\astro\udVsop2013.pas"/>
-        <DCCReference Include="..\Source\astro\fdAbout.pas">
+        <DCCReference Include="..\Externals\apc\Apc.DE.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Kepler.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Math.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Moon.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Phys.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Planets.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.PrecNut.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Spheric.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Sun.pas"/>
+        <DCCReference Include="..\Externals\apc\Apc.Time.pas"/>
+        <DCCReference Include="..\source\astro\fdAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\udConstBayers.pas"/>
         <DCCReference Include="..\source\astro\udEphemerides.pas"/>
+        <DCCReference Include="..\Externals\sofa\sofa.pas"/>
         <DCCReference Include="..\source\astro\fdCoordinates.pas">
             <Form>FormCoords</Form>
         </DCCReference>
@@ -148,12 +159,10 @@
             <Form>dmImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Source\udGlobals.pas"/>
-        <DCCReference Include="..\Source\noo\fnSettings.pas">
-            <Form>frmSettings</Form>
+        <DCCReference Include="..\Source\astro\fdAstroViewer_ru.pas">
+            <Form>frmAstroViewer</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\udGenRandom.pas"/>
-        <DCCReference Include="..\Source\udUtils.pas"/>
         <DCCReference Include="..\source\astro\fdMixTextures.pas">
             <Form>FormTexCombine</Form>
         </DCCReference>
@@ -171,8 +180,19 @@
             <Form>dmDialogs</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Source\noo\fnNoosfera.pas">
-            <Form>frmUniverse</Form>
+        <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
+        <DCCReference Include="..\Source\astro\fdHercRussel.pas">
+            <Form>FormHercrussel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\fdHipparcos.pas">
+            <Form>FormHipparcos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\udGlobals.pas"/>
+        <DCCReference Include="..\Source\udUtils.pas"/>
+        <DCCReference Include="..\Source\astro\fdSettings_ru.pas">
+            <Form>FormSettings</Form>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -192,7 +212,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Noosfera.dpr</Source>
+                    <Source Name="MainSource">AstroViewer_ru.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -202,9 +222,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="..\Noosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\AstroViewer_ru.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Noosfera.exe</RemoteName>
+                        <RemoteName>AstroViewer_ru.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

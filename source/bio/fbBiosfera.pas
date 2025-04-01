@@ -6984,7 +6984,7 @@ begin
   else if (CameraMode = camTarget) then
   begin
     PredictLines.Visible := true;
-    FormFirst.Construction.AddEvent(_('Turned predict lines on'));
+    FormFirst.Construction.AddEvent('Turned predict lines on');
   end;
 end;
 
@@ -7731,7 +7731,7 @@ procedure TFormBiosfera.tbCeaseClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    LastAction(_('Cease: ') + AIThing(TargetToFollow.Data).OneLineDisplay);
+    LastAction('Cease: ' + AIThing(TargetToFollow.Data).OneLineDisplay);
     AIThing(TargetToFollow.Data).Cease;
   end;
 end;
@@ -7804,7 +7804,7 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage(_('Maximum four suns!'));
+    ShowMessage('Maximum four suns!');
     exit;
   end;
 
@@ -7817,7 +7817,7 @@ begin
     mySun.Position.Velocity.Zero;
     mySun.Position.Acceleration.Zero;
     ReportUserEvent('Added Frozen Sun: ' + mySun.OneLineDisplay);
-    FormFirst.Construction.AddEvent(_('Added fake sun'));
+    FormFirst.Construction.AddEvent('Added fake sun');
     LastAction('Added=fakesun');
   end;
 end;
@@ -7905,7 +7905,7 @@ procedure TFormBiosfera.tbDieClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    LastAction(_('Die: ') + AIThing(TargetToFollow.Data).OneLineDisplay);
+    LastAction('Die: ' + AIThing(TargetToFollow.Data).OneLineDisplay);
     if (AIThing(TargetToFollow.Data) is AILivingThing) then
       AILivingThing(TargetToFollow.Data).Die;
   end;
@@ -7976,11 +7976,11 @@ begin
   if (TargetToFollow <> nil) then
   begin
     myKind := AIThing(TargetToFollow.Data).Kind;
-    if (MessageDlg(_('Are you sure you want an extinction of ') +
+    if (MessageDlg('Are you sure you want an extinction of ' +
       ThingNamePlural(myKind) + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes)
     then
     begin
-      LastAction(_('Extinction: ') + ThingNamePlural(myKind));
+      LastAction('Extinction: ' + ThingNamePlural(myKind));
       gThings.Tables[myKind].KillEverything;
     end;
   end;
@@ -8791,12 +8791,12 @@ begin
   with GLShadowVolume do
     if tbVolumes.Down then
     begin
-      FormFirst.Construction.AddEvent(_('Turned shadow volumes on'));
+      FormFirst.Construction.AddEvent('Turned shadow volumes on');
       Options := Options + [svoShowVolumes];
     end
     else
     begin
-      FormFirst.Construction.AddEvent(_('Turned shadow volumes off'));
+      FormFirst.Construction.AddEvent('Turned shadow volumes off');
       Options := Options - [svoShowVolumes];
     end;
 end;
@@ -8805,12 +8805,12 @@ procedure TFormBiosfera.SetShadowMode(aMode: Boolean);
 begin
   if not aMode then
   begin
-    FormFirst.Construction.AddEvent(_('Turned shadows off'));
+    FormFirst.Construction.AddEvent('Turned shadows off');
     GLShadowVolume.Mode := svmOff;
   end
   else
   begin
-    FormFirst.Construction.AddEvent(_('Turned shadows on'));
+    FormFirst.Construction.AddEvent('Turned shadows on');
     GLShadowVolume.Mode := svmDarkening;
   end;
   tbShadows.Down := Environment.Shadows;
@@ -8820,7 +8820,7 @@ procedure TFormBiosfera.tbComplexifyClick(Sender: TObject);
 begin
   if tbComplexify.Down then
   begin
-    FormFirst.Construction.AddEvent(_('Turned multicast shadows on'));
+    FormFirst.Construction.AddEvent('Turned multicast shadows on');
     ForestCube.MoveTo(GLShadowVolume);
     FruitCube.MoveTo(GLShadowVolume);
     ProxyCube.MoveTo(GLShadowVolume);
@@ -8828,7 +8828,7 @@ begin
   end
   else
   begin
-    FormFirst.Construction.AddEvent(('Turned multicast shadows off'));
+    FormFirst.Construction.AddEvent('Turned multicast shadows off');
     ForestCube.MoveTo(GalaxyCube);
     FruitCube.MoveTo(GalaxyCube);
     ProxyCube.MoveTo(GalaxyCube);

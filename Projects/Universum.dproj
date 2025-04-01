@@ -228,22 +228,21 @@
             <Form>FormAstrogen</Form>
         </DCCReference>
         <DCCReference Include="..\Source\universum\Uni.Material.pas"/>
-        <DCCReference Include="..\Source\universum\LUX.FMX.Material.pas"/>
-        <DCCReference Include="..\Source\universum\LUX.FMX.Types3D.pas"/>
         <DCCReference Include="..\Source\universum\fxScatterPlot.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\universum\Lux\LUX.FMX.ScatterPlotFrame.pas">
+        <DCCReference Include="..\externals\lux\LUX.FMX.ScatterPlotFrame.pas">
             <Form>ScatterPlotFrame</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Source\universum\Lux\LUX.pas"/>
-        <DCCReference Include="..\Source\universum\Lux\LUX.D2.pas"/>
-        <DCCReference Include="..\Source\universum\Lux\LUX.D1.pas"/>
-        <DCCReference Include="..\Source\universum\Lux\LUX.FMX.pas"/>
-        <DCCReference Include="..\Source\universum\Lux\LUX.D3.pas"/>
-        <DCCReference Include="..\Source\universum\Lux\LIB.Material.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.D2.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.D1.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.FMX.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.D3.pas"/>
+        <DCCReference Include="..\externals\lux\LIB.Material.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.FMX.Material.pas"/>
+        <DCCReference Include="..\externals\lux\LUX.FMX.Types3D.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

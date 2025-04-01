@@ -182,11 +182,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uSkyBodies.pas"/>
-        <DCCReference Include="..\Source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\Source\fdForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Source\udUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

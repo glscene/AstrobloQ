@@ -17,7 +17,7 @@ uses
   udGenRandom in '..\source\astro\udGenRandom.pas',
   udUtils in '..\Source\udUtils.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
-  fdAstromif in '..\source\astro\fdAstromif.pas' {FormAstromif},
+  fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
   fdForm in '..\Source\fdForm.pas' {FormI},
   ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
   ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},

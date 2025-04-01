@@ -37,7 +37,6 @@ object FormBiosfera: TFormBiosfera
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1000
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -46,7 +45,6 @@ object FormBiosfera: TFormBiosfera
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1000
       object tbWater: TToolBar
         Left = 0
         Top = 56
@@ -188,7 +186,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 1
         Visible = False
-        ExplicitWidth = 1000
         object Label4: TLabel
           Left = 0
           Top = 0
@@ -300,7 +297,6 @@ object FormBiosfera: TFormBiosfera
         ShowHint = False
         TabOrder = 2
         Visible = False
-        ExplicitWidth = 1000
         object Label12: TLabel
           Left = 0
           Top = 0
@@ -404,7 +400,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 3
         Visible = False
-        ExplicitWidth = 1000
         object Label18: TLabel
           Left = 0
           Top = 0
@@ -559,7 +554,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 4
         Visible = False
-        ExplicitWidth = 1000
         object Label8: TLabel
           Left = 0
           Top = 0
@@ -647,7 +641,7 @@ object FormBiosfera: TFormBiosfera
           Left = 586
           Top = 0
           Width = 120
-          Height = 21
+          Height = 22
           Style = csDropDownList
           TabOrder = 0
           OnChange = cboxThingsChange
@@ -724,7 +718,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 5
         Visible = False
-        ExplicitWidth = 1000
         object Label17: TLabel
           Left = 0
           Top = 0
@@ -902,7 +895,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 6
         Visible = False
-        ExplicitWidth = 1000
         object Label15: TLabel
           Left = 0
           Top = 0
@@ -1354,7 +1346,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 8
         Visible = False
-        ExplicitWidth = 1000
         object Label32: TLabel
           Left = 0
           Top = 0
@@ -1432,7 +1423,6 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 9
         Visible = False
-        ExplicitWidth = 1000
         object Label34: TLabel
           Left = 0
           Top = 0
@@ -1512,7 +1502,6 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 1000
       object tbPlanet: TToolBar
         Left = 0
         Top = 0
@@ -1527,7 +1516,6 @@ object FormBiosfera: TFormBiosfera
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1000
         object tbObjectMenu: TToolButton
           Left = 0
           Top = 0
@@ -1726,7 +1714,6 @@ object FormBiosfera: TFormBiosfera
       BevelOuter = bvNone
       TabOrder = 2
       Visible = False
-      ExplicitWidth = 1000
       object tbObjects: TToolBar
         Left = 176
         Top = 0
@@ -1739,7 +1726,6 @@ object FormBiosfera: TFormBiosfera
         List = True
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 824
         object Label22: TLabel
           Left = 0
           Top = 0
@@ -1992,7 +1978,6 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 3
       Visible = False
-      ExplicitWidth = 1000
       object Panel1: TPanel
         Left = 1
         Top = 1
@@ -2027,7 +2012,6 @@ object FormBiosfera: TFormBiosfera
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 941
         object tbBird: TToolButton
           Left = 0
           Top = 0
@@ -2256,7 +2240,6 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 4
       Visible = False
-      ExplicitWidth = 1000
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -2425,7 +2408,6 @@ object FormBiosfera: TFormBiosfera
       Align = alTop
       TabOrder = 5
       Visible = False
-      ExplicitWidth = 1000
       object Panel9: TPanel
         Left = 1
         Top = 1
@@ -2460,7 +2442,6 @@ object FormBiosfera: TFormBiosfera
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 941
         object tbPlantForest: TToolButton
           Left = 0
           Top = 0
@@ -2660,8 +2641,6 @@ object FormBiosfera: TFormBiosfera
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 1000
-    ExplicitHeight = 77
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2699,8 +2678,6 @@ object FormBiosfera: TFormBiosfera
       Height = 31
       Align = alBottom
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 1000
       object tbViews: TToolBar
         Left = 1
         Top = 1
@@ -2718,7 +2695,6 @@ object FormBiosfera: TFormBiosfera
         ParentFont = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 998
         object Label19: TLabel
           Left = 0
           Top = 0

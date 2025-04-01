@@ -9,16 +9,16 @@ uses
   fxAbout in '..\Source\universum\fxAbout.pas' {FormAbout},
   fxAstrogen in '..\Source\universum\fxAstrogen.pas' {FormAstrogen},
   Uni.Material in '..\Source\universum\Uni.Material.pas',
-  LUX.FMX.Material in '..\Source\universum\LUX.FMX.Material.pas',
-  LUX.FMX.Types3D in '..\Source\universum\LUX.FMX.Types3D.pas',
   fxScatterPlot in '..\Source\universum\fxScatterPlot.pas' {FormScatterPlot},
-  LUX.FMX.ScatterPlotFrame in '..\Source\universum\Lux\LUX.FMX.ScatterPlotFrame.pas' {ScatterPlotFrame: TFrame},
-  LUX in '..\Source\universum\Lux\LUX.pas',
-  LUX.D2 in '..\Source\universum\Lux\LUX.D2.pas',
-  LUX.D1 in '..\Source\universum\Lux\LUX.D1.pas',
-  LUX.FMX in '..\Source\universum\Lux\LUX.FMX.pas',
-  LUX.D3 in '..\Source\universum\Lux\LUX.D3.pas',
-  LIB.Material in '..\Source\universum\Lux\LIB.Material.pas';
+  LUX.FMX.ScatterPlotFrame in '..\externals\lux\LUX.FMX.ScatterPlotFrame.pas' {ScatterPlotFrame: TFrame},
+  LUX in '..\externals\lux\LUX.pas',
+  LUX.D2 in '..\externals\lux\LUX.D2.pas',
+  LUX.D1 in '..\externals\lux\LUX.D1.pas',
+  LUX.FMX in '..\externals\lux\LUX.FMX.pas',
+  LUX.D3 in '..\externals\lux\LUX.D3.pas',
+  LIB.Material in '..\externals\lux\LIB.Material.pas',
+  LUX.FMX.Material in '..\externals\lux\LUX.FMX.Material.pas',
+  LUX.FMX.Types3D in '..\externals\lux\LUX.FMX.Types3D.pas';
 
 {$R *.res}
 

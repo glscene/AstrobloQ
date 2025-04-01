@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{5D6BB61F-C605-4E15-995A-8A8967D3EB51}</ProjectGuid>
+        <ProjectGuid>{7CF37446-6FE7-4B32-9659-BA4C4C09511F}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -127,7 +127,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\udVsop2013.pas"/>
         <DCCReference Include="..\Externals\apc\Apc.DE.pas"/>
         <DCCReference Include="..\Externals\apc\Apc.Kepler.pas"/>
         <DCCReference Include="..\Externals\apc\Apc.Math.pas"/>
@@ -166,9 +165,6 @@
         <DCCReference Include="..\source\astro\fdMixTextures.pas">
             <Form>FormTexCombine</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\fdAstromif.pas">
-            <Form>FormAstromif</Form>
-        </DCCReference>
         <DCCReference Include="..\Source\fdForm.pas">
             <Form>FormI</Form>
         </DCCReference>
@@ -192,8 +188,14 @@
         </DCCReference>
         <DCCReference Include="..\Source\udGlobals.pas"/>
         <DCCReference Include="..\Source\udUtils.pas"/>
+        <DCCReference Include="..\source\astro\udVsop2013.pas"/>
         <DCCReference Include="..\Source\astro\fdSettings.pas">
             <Form>FormSettings</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\astro\fdAstromif.pas">
+            <Form>FormAstromif</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -223,7 +225,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="..\Bin\AstroViewer.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\AstroViewer.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>AstroViewer.exe</RemoteName>
                         <Overwrite>true</Overwrite>
