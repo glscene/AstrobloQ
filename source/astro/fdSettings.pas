@@ -114,7 +114,7 @@ implementation //------------------------------------------------------------
 
 
 uses
-  fdUniverse;
+  fdAstroViewer;
 {$R *.dfm}
 
 
@@ -158,13 +158,13 @@ procedure TFormSettings.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
-    frmUniverse.LoadConstLines(CurrDir)
+    frmAstroViewer.LoadConstLines(CurrDir)
   else
-    frmUniverse.LinesConstellations.Nodes.Clear;
+    frmAstroViewer.LinesConstellations.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmUniverse.LoadConstBorders(CurrDir)
+    frmAstroViewer.LoadConstBorders(CurrDir)
   else
-    frmUniverse.LinesConstBorders.Nodes.Clear;
+    frmAstroViewer.LinesConstBorders.Nodes.Clear;
 end;
 
 //-----------------------------------------------------------------

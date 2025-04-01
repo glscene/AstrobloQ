@@ -91,13 +91,11 @@ implementation //--------------------------------------------------------
 
 {$R *.dfm}
 
-//-----------------------------------------------------------------------
-
 procedure TFormAstromif.FormCreate(Sender: TObject);
 begin
   DataDir := ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
-  StarDir := DataDir + '\star';
+  StarDir := DataDir + '\stars';
 
 //  PathToData := GetCurrentDir(); //GetCurrentAssetPath(); // instead of
   CurrentPath := DataDir;
