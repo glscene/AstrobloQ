@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Projects\AstroViewer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Litosfera.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Biosfera.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Noosfera.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Tehnosfera.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Galaktika.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Universum.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AstroViewer">
+        <MSBuild Projects="Projects\AstroViewer.dproj"/>
+    </Target>
+    <Target Name="AstroViewer:Clean">
+        <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AstroViewer:Make">
+        <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Litosfera">
+        <MSBuild Projects="Projects\Litosfera.dproj"/>
+    </Target>
+    <Target Name="Litosfera:Clean">
+        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Litosfera:Make">
+        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Biosfera">
+        <MSBuild Projects="Projects\Biosfera.dproj"/>
+    </Target>
+    <Target Name="Biosfera:Clean">
+        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Biosfera:Make">
+        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Noosfera">
+        <MSBuild Projects="Projects\Noosfera.dproj"/>
+    </Target>
+    <Target Name="Noosfera:Clean">
+        <MSBuild Projects="Projects\Noosfera.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Noosfera:Make">
+        <MSBuild Projects="Projects\Noosfera.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Tehnosfera">
+        <MSBuild Projects="Projects\Tehnosfera.dproj"/>
+    </Target>
+    <Target Name="Tehnosfera:Clean">
+        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Tehnosfera:Make">
+        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Galaktika">
+        <MSBuild Projects="Projects\Galaktika.dproj"/>
+    </Target>
+    <Target Name="Galaktika:Clean">
+        <MSBuild Projects="Projects\Galaktika.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Galaktika:Make">
+        <MSBuild Projects="Projects\Galaktika.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Universum">
+        <MSBuild Projects="Projects\Universum.dproj"/>
+    </Target>
+    <Target Name="Universum:Clean">
+        <MSBuild Projects="Projects\Universum.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Universum:Make">
+        <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AstroViewer;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;Universum"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AstroViewer:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;Universum:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AstroViewer:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;Universum:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -6,7 +6,7 @@
         <Projects Include="Projects\AstroViewerC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\VirtualMilkyWayC.cbproj">
+        <Projects Include="Projects\UniversumC.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,23 +26,23 @@
     <Target Name="AstroViewerC:Make">
         <MSBuild Projects="Projects\AstroViewerC.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="VirtualMilkyWayC">
-        <MSBuild Projects="Projects\VirtualMilkyWayC.cbproj"/>
+    <Target Name="UniversumC">
+        <MSBuild Projects="Projects\UniversumC.cbproj"/>
     </Target>
-    <Target Name="VirtualMilkyWayC:Clean">
-        <MSBuild Projects="Projects\VirtualMilkyWayC.cbproj" Targets="Clean"/>
+    <Target Name="UniversumC:Clean">
+        <MSBuild Projects="Projects\UniversumC.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="VirtualMilkyWayC:Make">
-        <MSBuild Projects="Projects\VirtualMilkyWayC.cbproj" Targets="Make"/>
+    <Target Name="UniversumC:Make">
+        <MSBuild Projects="Projects\UniversumC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroViewerC;VirtualMilkyWayC"/>
+        <CallTarget Targets="AstroViewerC;UniversumC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroViewerC:Clean;VirtualMilkyWayC:Clean"/>
+        <CallTarget Targets="AstroViewerC:Clean;UniversumC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroViewerC:Make;VirtualMilkyWayC:Make"/>
+        <CallTarget Targets="AstroViewerC:Make;UniversumC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
