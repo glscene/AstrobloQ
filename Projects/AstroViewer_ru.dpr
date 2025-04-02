@@ -37,7 +37,7 @@ uses
   fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
   udGlobals in '..\Source\udGlobals.pas',
   udUtils in '..\Source\udUtils.pas',
-  fdSettings_ru in '..\Source\astro\fdSettings_ru.pas' {FormSettings};
+  fdSettings_ru in '..\Source\astro\fdSettings_ru.pas' {frmSettings};
 
 {$R *.res}
 
@@ -49,7 +49,7 @@ begin
   Application.CreateForm(TfrmAstroViewer, frmAstroViewer);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);
-  Application.CreateForm(TFormSettings, FormSettings);
+  Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.
 

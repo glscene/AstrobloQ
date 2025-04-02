@@ -1,4 +1,4 @@
-object FormSettings: TFormSettings
+object frmSettings: TfrmSettings
   Left = 0
   Top = 0
   Caption = 'Settings'
@@ -20,11 +20,13 @@ object FormSettings: TFormSettings
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 360
+    ExplicitWidth = 666
     DesignSize = (
       674
       29)
     object ButtonOK: TButton
-      Left = 543
+      Left = 535
       Top = 3
       Width = 70
       Height = 23
@@ -33,7 +35,7 @@ object FormSettings: TFormSettings
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 551
+      ExplicitLeft = 527
     end
   end
   object PanelMiddle: TPanel
@@ -45,15 +47,19 @@ object FormSettings: TFormSettings
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
+    ExplicitWidth = 666
+    ExplicitHeight = 330
     object PageControl: TPageControl
       Left = 169
       Top = 5
       Width = 500
       Height = 345
-      ActivePage = tsDisplay
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 0
+      ExplicitWidth = 492
+      ExplicitHeight = 320
       object tsGeneral: TTabSheet
         Caption = 'General'
         ImageIndex = 7
@@ -122,55 +128,41 @@ object FormSettings: TFormSettings
           Left = 168
           Top = 254
           Width = 41
-          Height = 23
+          Height = 24
           Hint = 'Precision'
           MaxValue = 18
           MinValue = 0
           TabOrder = 2
           Value = 2
         end
-        object cbSplashStart: TCheckBox
-          Left = 270
-          Top = 256
-          Width = 131
-          Height = 18
-          Caption = 'Start splash'
-          TabOrder = 3
-        end
       end
       object tsInterface: TTabSheet
         Caption = 'Interface'
         TabVisible = False
-        object Label5: TLabel
-          Left = 235
-          Top = 26
+        object lbStyle: TLabel
+          Left = 99
+          Top = 25
           Width = 88
           Height = 15
           Caption = 'Style of interface'
         end
-        object rgLanguage: TRadioGroup
-          Left = 19
-          Top = 3
-          Width = 190
-          Height = 57
-          Caption = 'Language'
-          Columns = 2
-          ItemIndex = 0
-          Items.Strings = (
-            'English'
-            'Russian')
-          TabOrder = 0
-          OnClick = rgLanguageClick
-        end
         object ComboBoxVclStyles: TComboBox
-          Left = 368
-          Top = 25
+          Left = 240
+          Top = 22
           Width = 117
           Height = 23
           Style = csDropDownList
           DropDownCount = 5
-          TabOrder = 1
+          TabOrder = 0
           OnChange = ComboBoxVclStylesChange
+        end
+        object cbSplashStart: TCheckBox
+          Left = 158
+          Top = 280
+          Width = 131
+          Height = 18
+          Caption = 'Start splash'
+          TabOrder = 1
         end
       end
       object tsDisplay: TTabSheet
@@ -538,6 +530,7 @@ object FormSettings: TFormSettings
         00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
         730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
         00000000000106470061006C00610078007900}
+      ExplicitHeight = 320
     end
   end
   object PanelTop: TPanel
@@ -548,6 +541,7 @@ object FormSettings: TFormSettings
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 666
   end
   object ImageList: TImageList
     Left = 79

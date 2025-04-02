@@ -57,8 +57,7 @@ uses
   fdHercRussel,
   fdHipparcos,
 
-  udUtils,
-  gnugettext;
+  udUtils;
 
 type
   TfrmAstroViewer = class(TFormI)
@@ -193,29 +192,21 @@ implementation //--------------------------------------------------------------
 procedure TfrmAstroViewer.FormCreate(Sender: TObject);
 begin
   inherited;
-  TP_GlobalIgnoreClass(TStaticText);
-  TP_GlobalIgnoreClass(TFont);
-  TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
 
-  DataDir := GetDataPath();
-
-//  ExtractFilePath(ParamStr(0)) + 'data\';;
+  DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
   SetCurrentDir(DataDir);
 
-  SkyDome.Visible := True;
-  SkyDome.Bands.Clear;
-
-  // Loadfile hipparcos.stars or Yale_BSC.stars for SkyDome
+  // Catalogs and constellations
   CurrDir := DataDir + 'catalog\';
   SetCurrentDir(CurrDir);
+  // Loading hipparcos.stars for SkyDome
+  SkyDome.Visible := True;
+  SkyDome.Bands.Clear;
   FileName := 'hipparcos.stars';
   if FileExists(FileName) then
     SkyDome.Stars.LoadStarsFile(FileName);
 
-  // Load Planet map
-  CurrDir := DataDir + 'catalog\';
-  SetCurrentDir(CurrDir);
-
+  // Stars with planet maps
   StarDir := DataDir + 'stars\sun\';
   SetCurrentDir(StarDir);
   sfPlanet.Material.Texture.Disabled := False;
@@ -293,7 +284,7 @@ end;
 procedure TfrmAstroViewer.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if FormSettings.CheckBoxRotate.Checked then
+  if frmSettings.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -506,7 +497,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroViewer.miSettingsClick(Sender: TObject);
 begin
-  FormSettings.Show;
+  frmSettings.Show;
 end;
 
 //----------------------------------------------------------------------------
@@ -523,14 +514,14 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroViewer.chbAxiesClick(Sender: TObject);
 begin
-  sfPlanet.ShowAxes := FormSettings.CheckBoxAxes.Checked;
+  sfPlanet.ShowAxes := frmSettings.CheckBoxAxes.Checked;
 end;
 
 //----------------------------------------------------------------------------
 procedure TfrmAstroViewer.chbPlanetGridClick(Sender: TObject);
 begin
-  TorusGreenwich.Visible := FormSettings.CheckBoxPlanetgrid.Checked;
-  TorusEquator.Visible := FormSettings.CheckBoxPlanetgrid.Checked;
+  TorusGreenwich.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
+  TorusEquator.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
 end;
 
 //----------------------------------------------------------------------------

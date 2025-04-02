@@ -30,11 +30,10 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  fdForm,
-  gnugettext;
+  fdForm;
 
 type
-  TFormSettings = class(TFormI)
+  TfrmSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -57,7 +56,6 @@ type
     tsStars: TTabSheet;
     tsPlanets: TTabSheet;
     lbExoplanets: TListBox;
-    rgLanguage: TRadioGroup;
     Memo1: TMemo;
     tsGeneral: TTabSheet;
     gbxCoordinateSys: TGroupBox;
@@ -89,16 +87,14 @@ type
     CheckBox2: TCheckBox;
     CheckBoxCubemap: TCheckBox;
     ComboBoxVclStyles: TComboBox;
-    Label5: TLabel;
+    lbStyle: TLabel;
     cbSplashStart: TCheckBox;
     procedure tvSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure rgLanguageClick(Sender: TObject);
     procedure ComboBoxVclStylesChange(Sender: TObject);
     procedure chbConstellationsClick(Sender: TObject);
   private
-    CurLangID : Word;
     Node: TTreeNode;
     Nodes: TTreeNodes;
     procedure ReadIniFile; override; // from base class
@@ -108,7 +104,7 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmSettings: TfrmSettings;
 
 implementation //------------------------------------------------------------
 
@@ -118,7 +114,7 @@ uses
 {$R *.dfm}
 
 
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -136,8 +132,6 @@ begin
   begin
     tvSettings.Items[i].ImageIndex := 0;
     tvSettings.Items[i].SelectedIndex := 1;
-    // Добавление скобок для перевода тем в gnugettext
-    tvSettings.Items[I].Text := _(tvSettings.Items[I].Text);
   end;
 
   // Выбор начальной темы узла дерева
@@ -154,7 +148,7 @@ end;
 //-----------------------------------------------------------------
 // Показать линии, границы, фигуры и названия созвездий
 //-----------------------------------------------------------------
-procedure TFormSettings.chbConstellationsClick(Sender: TObject);
+procedure TfrmSettings.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
@@ -170,7 +164,7 @@ end;
 //-----------------------------------------------------------------
 // Изменение стиля интерфейса
 //-----------------------------------------------------------------
-procedure TFormSettings.ComboBoxVclStylesChange(Sender: TObject);
+procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
@@ -178,7 +172,7 @@ end;
 //-----------------------------------------------------------------
 // Изменение активной страницы PageControl
 //-----------------------------------------------------------------
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -193,37 +187,18 @@ begin
   end;
 end;
 
-procedure TFormSettings.rgLanguageClick(Sender: TObject);
-begin
-  case rgLanguage.ItemIndex of
-    0: CurLangID := LANG_ENGLISH;
-    1: CurLangID := LANG_RUSSIAN
-    else
-      CurLangID := LANG_ENGLISH;
-  end;
-end;
-
 //--------------------------------------------------------------------
 // Чтение секций Инифайла и установка языка интерфейса
 //--------------------------------------------------------------------
-procedure TFormSettings.ReadIniFile;
+procedure TfrmSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
 //  inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxRotate.Name, True);
-    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
-    case LangID of
-      LANG_ENGLISH:
-        rgLanguage.ItemIndex := 0;
-      LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1
-    else
-      rgLanguage.ItemIndex := 0;
-    end;
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
@@ -232,15 +207,14 @@ end;
 //---------------------------------------------------------
 // Запись опций настройки в файл инициализации
 //---------------------------------------------------------
-procedure TFormSettings.WriteIniFile;
+procedure TfrmSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(FormSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(FormSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
-    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
+    IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -248,20 +222,15 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormSettings.ButtonOKClick(Sender: TObject);
+procedure TfrmSettings.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
-  if CurLangID <> LangID then
-  begin
-    MessageDlg(_('Reload to change language'),
-      mtInformation, [mbOK], 0);
-    FileName := ChangeFileExt(ParamStr(0), '.ini');
-    if FileExists(UpperCase(FileName)) then
-      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-  end;
+  FileName := ChangeFileExt(ParamStr(0), '.ini');
+  if FileExists(UpperCase(FileName)) then
+    DeleteFile(UpperCase(FileName)); // чтобы не дублировать разделы
   WriteIniFile;
-  FormSettings.Close;
+  frmSettings.Close;
 end;
 
 end.

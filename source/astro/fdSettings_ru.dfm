@@ -1,7 +1,7 @@
-object FormSettings: TFormSettings
+object frmSettings: TfrmSettings
   Left = 0
   Top = 0
-  Caption = 'Settings'
+  Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 414
   ClientWidth = 674
   Color = clBtnFace
@@ -26,7 +26,7 @@ object FormSettings: TFormSettings
       674
       29)
     object ButtonOK: TButton
-      Left = 535
+      Left = 527
       Top = 3
       Width = 70
       Height = 23
@@ -35,7 +35,7 @@ object FormSettings: TFormSettings
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 527
+      ExplicitLeft = 519
     end
   end
   object PanelMiddle: TPanel
@@ -54,7 +54,7 @@ object FormSettings: TFormSettings
       Top = 5
       Width = 500
       Height = 345
-      ActivePage = tsDisplay
+      ActivePage = tsInterface
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -67,23 +67,23 @@ object FormSettings: TFormSettings
         object LabelPrecision: TLabel
           Left = 77
           Top = 255
-          Width = 48
+          Width = 52
           Height = 15
-          Caption = 'Precision'
+          Caption = #1058#1086#1095#1085#1086#1089#1090#1100
         end
         object gbxCoordinateSys: TGroupBox
           Left = 168
           Top = 24
           Width = 337
           Height = 201
-          Caption = 'Coordinate system'
+          Caption = #1057#1080#1089#1090#1077#1084#1072' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
           TabOrder = 0
           object rgrSystem: TRadioGroup
             Left = 16
             Top = 24
             Width = 129
             Height = 98
-            Caption = 'System'
+            Caption = #1057#1080#1089#1090#1077#1084#1072
             Ctl3D = True
             ItemIndex = 0
             Items.Strings = (
@@ -98,7 +98,7 @@ object FormSettings: TFormSettings
             Top = 24
             Width = 152
             Height = 161
-            Caption = 'Coordinates'
+            Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099
             Ctl3D = True
             ItemIndex = 0
             Items.Strings = (
@@ -116,7 +116,7 @@ object FormSettings: TFormSettings
           Top = 24
           Width = 131
           Height = 97
-          Caption = 'Units'
+          Caption = #1070#1085#1080#1090#1099
           ItemIndex = 0
           Items.Strings = (
             'Light year'
@@ -128,55 +128,41 @@ object FormSettings: TFormSettings
           Left = 168
           Top = 254
           Width = 41
-          Height = 23
+          Height = 24
           Hint = 'Precision'
           MaxValue = 18
           MinValue = 0
           TabOrder = 2
           Value = 2
         end
-        object cbSplashStart: TCheckBox
-          Left = 270
-          Top = 256
-          Width = 131
-          Height = 18
-          Caption = 'Start splash'
-          TabOrder = 3
-        end
       end
       object tsInterface: TTabSheet
         Caption = 'Interface'
         TabVisible = False
-        object Label5: TLabel
-          Left = 235
-          Top = 26
-          Width = 88
+        object lbStyle: TLabel
+          Left = 75
+          Top = 28
+          Width = 102
           Height = 15
-          Caption = 'Style of interface'
-        end
-        object rgLanguage: TRadioGroup
-          Left = 19
-          Top = 3
-          Width = 190
-          Height = 57
-          Caption = 'Language'
-          Columns = 2
-          ItemIndex = 0
-          Items.Strings = (
-            'English'
-            'Russian')
-          TabOrder = 0
-          OnClick = rgLanguageClick
+          Caption = #1057#1090#1080#1083#1100' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
         end
         object ComboBoxVclStyles: TComboBox
-          Left = 368
+          Left = 248
           Top = 25
           Width = 117
           Height = 23
           Style = csDropDownList
           DropDownCount = 5
-          TabOrder = 1
+          TabOrder = 0
           OnChange = ComboBoxVclStylesChange
+        end
+        object cbSplashStart: TCheckBox
+          Left = 187
+          Top = 280
+          Width = 131
+          Height = 18
+          Caption = #1047#1072#1089#1090#1072#1074#1082#1072
+          TabOrder = 1
         end
       end
       object tsDisplay: TTabSheet
@@ -532,18 +518,18 @@ object FormSettings: TFormSettings
       TabOrder = 1
       OnClick = tvSettingsClick
       Items.NodeData = {
-        070700000009540054007200650065004E006F00640065002D00000000000000
-        00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
-        006500720061006C000000310000000100000001000000FFFFFFFFFFFFFFFF00
-        000000000000000000000000010949006E007400650072006600610063006500
-        00002D0000000200000002000000FFFFFFFFFFFFFFFF02000000000000000000
-        000000010744006900730070006C006100790000002700000003000000030000
-        00FFFFFFFFFFFFFFFF0300000000000000000000000001044400610074006500
-        00002D0000000400000004000000FFFFFFFFFFFFFFFF00000000000000000000
-        000000010750006C0061006E0065007400730000002900000005000000050000
-        00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
-        730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
-        00000000000106470061006C00610078007900}
+        070700000009540054007200650065004E006F00640065002900000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
+        04380435040000310000000100000001000000FFFFFFFFFFFFFFFF0000000000
+        0000000000000000010918043D04420435044004440435043904410400002D00
+        00000200000002000000FFFFFFFFFFFFFFFF0200000000000000000000000001
+        071404380441043F043B04350439040000270000000300000003000000FFFFFF
+        FFFFFFFFFF030000000000000000000000000104140430044204300400002D00
+        00000400000004000000FFFFFFFFFFFFFFFF0000000000000000000000000001
+        071F043B0430043D04350442044B0400002B0000000500000005000000FFFFFF
+        FFFFFFFFFF000000000000000000000000000106170432045104370434044B04
+        0000310000000600000006000000FFFFFFFFFFFFFFFF00000000000000000000
+        0000000109130430043B0430043A04420438043A043004}
       ExplicitHeight = 320
     end
   end

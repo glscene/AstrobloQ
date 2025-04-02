@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{0AC7E352-E40C-4525-B5E1-874175EF7B50}</ProjectGuid>
+        <ProjectGuid>{EB4124FF-C7FC-4264-9C08-424D86368F57}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -126,10 +126,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Source\galaxy\fgGalaxy.pas">
-            <Form>frmGalaxy</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\dImages.pas">
             <Form>dmImages</Form>
             <FormType>dfm</FormType>
@@ -138,9 +134,6 @@
         <DCCReference Include="..\Source\galaxy\fgAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\fSettings.pas">
-            <Form>frmSettings</Form>
         </DCCReference>
         <DCCReference Include="..\plugins\StarProj\fStarProj.pas">
             <Form>FormProjection</Form>
@@ -187,6 +180,14 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\udUtils.pas"/>
+        <DCCReference Include="..\Source\galaxy\fgGalaxy.pas">
+            <Form>frmGalaxy</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\galaxy\fgSettings.pas">
+            <Form>frmSettings</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

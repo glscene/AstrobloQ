@@ -294,7 +294,7 @@ end;
 procedure TfrmAstroViewer.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if FormSettings.CheckBoxRotate.Checked then
+  if frmSettings.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -507,7 +507,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroViewer.miSettingsClick(Sender: TObject);
 begin
-  FormSettings.Show;
+  frmSettings.Show;
 end;
 
 //----------------------------------------------------------------------------
@@ -524,14 +524,14 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroViewer.chbAxiesClick(Sender: TObject);
 begin
-  sfPlanet.ShowAxes := FormSettings.CheckBoxAxes.Checked;
+  sfPlanet.ShowAxes := frmSettings.CheckBoxAxes.Checked;
 end;
 
 //----------------------------------------------------------------------------
 procedure TfrmAstroViewer.chbPlanetGridClick(Sender: TObject);
 begin
-  TorusGreenwich.Visible := FormSettings.CheckBoxPlanetgrid.Checked;
-  TorusEquator.Visible := FormSettings.CheckBoxPlanetgrid.Checked;
+  TorusGreenwich.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
+  TorusEquator.Visible := frmSettings.CheckBoxPlanetgrid.Checked;
 end;
 
 //----------------------------------------------------------------------------

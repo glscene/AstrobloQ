@@ -176,7 +176,6 @@
             <Form>dmDialogs</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\gnuGettext.pas"/>
         <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
         <DCCReference Include="..\Source\astro\fdHercRussel.pas">
             <Form>FormHercrussel</Form>
@@ -190,7 +189,7 @@
         <DCCReference Include="..\Source\udUtils.pas"/>
         <DCCReference Include="..\source\astro\udVsop2013.pas"/>
         <DCCReference Include="..\Source\astro\fdSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\astro\fdAstromif.pas">

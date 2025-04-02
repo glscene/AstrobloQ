@@ -1,4 +1,4 @@
-program Galaktika;
+program Galaktika_ru;
 
 
 uses
@@ -20,8 +20,8 @@ uses
   uSkyBodies in '..\Source\uSkyBodies.pas',
   fdForm in '..\Source\fdForm.pas' {FormI},
   udUtils in '..\Source\udUtils.pas',
-  fgGalaxy in '..\Source\galaxy\fgGalaxy.pas' {frmGalaxy},
-  fgSettings in '..\Source\galaxy\fgSettings.pas' {frmSettings};
+  fgSettings_ru in '..\Source\galaxy\fgSettings_ru.pas' {frmSettings},
+  fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaxy};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -31,8 +31,8 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmGalaxy, frmGalaxy);
   Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TdmBase, dmBase);
+  Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

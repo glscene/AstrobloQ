@@ -24,6 +24,9 @@
         <Projects Include="Projects\Galaktika.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Projects\Galaktika_ru.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Projects\Universum.dproj">
             <Dependencies/>
         </Projects>
@@ -98,6 +101,15 @@
     <Target Name="Galaktika:Make">
         <MSBuild Projects="Projects\Galaktika.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Galaktika_ru">
+        <MSBuild Projects="Projects\Galaktika_ru.dproj"/>
+    </Target>
+    <Target Name="Galaktika_ru:Clean">
+        <MSBuild Projects="Projects\Galaktika_ru.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Galaktika_ru:Make">
+        <MSBuild Projects="Projects\Galaktika_ru.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Universum">
         <MSBuild Projects="Projects\Universum.dproj"/>
     </Target>
@@ -108,13 +120,13 @@
         <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroViewer;AstroViewer_ru;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;Universum"/>
+        <CallTarget Targets="AstroViewer;AstroViewer_ru;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;Galaktika_ru;Universum"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroViewer:Clean;AstroViewer_ru:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;Universum:Clean"/>
+        <CallTarget Targets="AstroViewer:Clean;AstroViewer_ru:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;Galaktika_ru:Clean;Universum:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroViewer:Make;AstroViewer_ru:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;Universum:Make"/>
+        <CallTarget Targets="AstroViewer:Make;AstroViewer_ru:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;Galaktika_ru:Make;Universum:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

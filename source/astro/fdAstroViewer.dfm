@@ -217,6 +217,7 @@ object frmAstroViewer: TfrmAstroViewer
           Height = 560
           Align = alClient
           Color = clWhite
+          Images = dmImages.VirtConstelSymbols
           Indent = 27
           MultiSelect = True
           TabOrder = 0
@@ -375,6 +376,7 @@ object frmAstroViewer: TfrmAstroViewer
         Width = 131
         Height = 222
         Color = clWhite
+        Images = dmImages.VirtConstelSymbols
         Indent = 27
         TabOrder = 1
         OnClick = tvZodiacsClick

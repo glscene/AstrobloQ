@@ -1,4 +1,4 @@
-unit fgGalaxy;
+unit fgGalaxy_ru;
 
 interface
 
@@ -56,7 +56,7 @@ uses
   fgParadox,
   fgAbout,
   fgStarcube,
-  fgSettings,
+  fgSettings_ru,
 
   uGlobals,
   fdForm;
