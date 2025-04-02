@@ -25,7 +25,7 @@
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 ![SolarSystem](./docs/clips/SolarSystem.gif)
 
-### LithoSphere C++ Project
+### Литосфера
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
 ![LithoSphere](./docs/screenshots/Litosfera_ru.png)
@@ -33,7 +33,7 @@
 ![LithoSphere](./docs/clips/AnimationPlanet2a.gif)
 ![LithoSphere](./docs/clips/AnimationAsteroid2.gif)
 
-### BioSphere C++ Project
+### Биосфера
 
 Биосферы экзопланет с моделями популяций живых организмов 
 ![Biosphere](./docs/screenshots/Biosfera.jpg)
@@ -41,7 +41,7 @@
 ![Biosphere](./docs/clips/AnimationDolphin.gif)
 ![Biosphere](./docs/clips/AnimationEcosystemA.gif)
 
-### NooSphere C++ Project
+### Ноосфера
 
 Ноосферы экзопланет без космических коммуникаций 
 ![NooSphere](./docs/screenshots/Noosfera.png)
@@ -49,7 +49,7 @@
 ![NooSphere](./docs/clips/AnimationLadybug2.gif)
 ![NooSphere](./docs/clips/AnimationFlock.gif)
 
-### TehnoSphere C++ Project
+### Техносфера
 
 Техносферы экзопланет с космическими коммуникациями
 ![TechnoSphere](./docs/screenshots/Tehnosfera.png)
@@ -58,7 +58,7 @@
 
 ### Моделирование Галактики и Вселенной
 
-![GalaxyCETI](./docs/screenshots/AstrobloQ_ru.png)
+![AstroViewer](./docs/screenshots/AstrobloQ_ru.png)
 
 В комплексе используются следующие данные, звёздные каталоги и методы вычислений: 
 
