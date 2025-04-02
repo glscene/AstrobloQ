@@ -20,7 +20,9 @@
 
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
  
-### Репозиторий AstrobloQ содержит групповые проекты
+## AstrobloQ содержит групповые проекты
+
+### Астровьюер
 
 ![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
 ![SolarSystem](./docs/clips/SolarSystem.gif)
