@@ -23,8 +23,8 @@ uses
   fForm in '..\source\fForm.pas' {FormG},
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  gnuGettext in '..\source\ucode\gnuGettext.pas',
-  fdForm in '..\Source\fdForm.pas' {FormI};
+  fdForm in '..\Source\fdForm.pas' {FormI},
+  fAbout in '..\Source\fAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -35,5 +35,6 @@ begin
   Application.CreateForm(TfrmSettingsLito, frmSettingsLito);
   Application.CreateForm(TFormG, FormG);
   Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

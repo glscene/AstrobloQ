@@ -23,6 +23,8 @@ uses
 
   Stage.VectorTypes,
   Stage.Utils,
+  Stage.TextureFormat,
+  Stage.VectorGeometry,
 
   GLS.Scene,
   GLS.Objects,
@@ -37,15 +39,16 @@ uses
   GLS.Cadencer,
   GLS.LensFlare,
   GLSL.TextureShaders,
-  Stage.VectorGeometry,
   GLSL.MultiMaterialShader,
   GLS.Material,
   GLS.Coordinates,
 
   GLS.BaseClasses,
-  Stage.TextureFormat,
   GLS.Context,
-  GLS.GeomObjects;
+  GLS.GeomObjects,
+
+  fAbout,
+  udUtils;
 
 type
   TMarkerPosition = class(TObject)
@@ -298,7 +301,7 @@ type
     procedure miOptionsClick(Sender: TObject);
     procedure miStarPilotClick(Sender: TObject);
   private
-    StarDir, CurrentStar: TFileName;
+    Datadir, StarDir, CurrentStar: TFileName;
     FileName, CatalogName: TFileName;
 
     MenuVisible, ColorAlltheSame, CapitalsLoaded, EarthLoaded, CitiesLoaded,
@@ -332,7 +335,6 @@ uses
   // accurate movements left for later... or the astute reader
   uMoveCamera,
   uSkyBodies, // Asteroid as monolith rock
-  ftAbout,
   // ftAllShapeLoader,  // Cities, Countries
   ftMeshEditor,
   ftLocations, // Data input for a planet
@@ -373,8 +375,9 @@ var
   sDate, sDateSmuoosh, sDateFormat, sWhoWhereFormat: String;
 
 begin
-  DataPath := ExtractFilePath(ParamStr(0)) + 'data\';
-  SetCurrentDir(DataPath);
+  DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
+  SetCurrentDir(DataDir);
+
   (*
     if FileExists(ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof') then
     begin
@@ -403,19 +406,19 @@ begin
   ABCreatorFormY := 123;
   Colorreg := 123;
   GlowUpDowni := 20;
-  ShpPath := DataPath + 'EarthShp\';
-  EarthDataPath := DataPath + 'EarthData\';
-  EarthModelPath := DataPath + 'EarthModel\';
-  EarthPhotoPath := DataPath + 'EarthPhoto\';
-  EarthHRPath := DataPath + 'EarthHR\';
+  ShpPath := DataDir + 'EarthShp\';
+  EarthDataPath := DataDir + 'EarthData\';
+  EarthModelPath := DataDir + 'EarthModel\';
+  EarthPhotoPath := DataDir + 'EarthPhoto\';
+  EarthHRPath := DataDir + 'EarthHR\';
   /// StartedNameNumber:='Alle Alle in Free';
 
   DoSaver;
 
   top := FormPlanetY;
   left := FormPlanetX;
-  if FileExists(DataPath + 'EarthGLS.chm') then
-    Application.HelpFile := DataPath + 'EarthGLS.chm'; // not ready yet
+  if FileExists(DataDir + 'EarthGLS.chm') then
+    Application.HelpFile := DataDir + 'EarthGLS.chm'; // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;

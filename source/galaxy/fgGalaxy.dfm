@@ -723,6 +723,7 @@ object frmGalaxy: TfrmGalaxy
       CubeSize = 100000.000000000000000000
       VisibleAtRunTime = True
       object diskGalaxy: TGLDisk
+        Material.MaterialLibrary = dmImages.GLMatLib
         Material.LibMaterialName = 'Milkyway'
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {0000000000000000000080BF00000000}

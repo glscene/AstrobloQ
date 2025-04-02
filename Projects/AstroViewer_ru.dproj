@@ -138,9 +138,6 @@
         <DCCReference Include="..\Externals\apc\Apc.Spheric.pas"/>
         <DCCReference Include="..\Externals\apc\Apc.Sun.pas"/>
         <DCCReference Include="..\Externals\apc\Apc.Time.pas"/>
-        <DCCReference Include="..\source\astro\fdAbout.pas">
-            <Form>FormAbout</Form>
-        </DCCReference>
         <DCCReference Include="..\source\astro\udConstBayers.pas"/>
         <DCCReference Include="..\source\astro\udEphemerides.pas"/>
         <DCCReference Include="..\Externals\sofa\sofa.pas"/>
@@ -193,6 +190,14 @@
         <DCCReference Include="..\Source\udUtils.pas"/>
         <DCCReference Include="..\Source\astro\fdSettings_ru.pas">
             <Form>frmSettings</Form>
+        </DCCReference>
+        <DCCReference Include="..\Source\fAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\fForm.pas">
+            <Form>FormG</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

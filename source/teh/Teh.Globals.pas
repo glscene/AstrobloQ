@@ -40,7 +40,7 @@ var
   PreRcd: PrefRecord;
   HiddenString, StartedNameNumber: String;
 
-  DataPath, ShpPath, EarthDataPath, EarthModelPath, EarthPhotoPath,
+  ShpPath, EarthDataPath, EarthModelPath, EarthPhotoPath,
     EarthHRPath: TFileName;
 
   GlowUpDowni, Colorreg: Integer;

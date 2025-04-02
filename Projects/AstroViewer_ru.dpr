@@ -13,7 +13,6 @@ uses
   Apc.Spheric in '..\Externals\apc\Apc.Spheric.pas',
   Apc.Sun in '..\Externals\apc\Apc.Sun.pas',
   Apc.Time in '..\Externals\apc\Apc.Time.pas',
-  fdAbout in '..\source\astro\fdAbout.pas' {FormAbout},
   udConstBayers in '..\source\astro\udConstBayers.pas',
   udEphemerides in '..\source\astro\udEphemerides.pas',
   sofa in '..\Externals\sofa\sofa.pas',
@@ -37,7 +36,9 @@ uses
   fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
   udGlobals in '..\Source\udGlobals.pas',
   udUtils in '..\Source\udUtils.pas',
-  fdSettings_ru in '..\Source\astro\fdSettings_ru.pas' {frmSettings};
+  fdSettings_ru in '..\Source\astro\fdSettings_ru.pas' {frmSettings},
+  fAbout in '..\Source\fAbout.pas' {FormAbout},
+  fForm in '..\Source\fForm.pas' {FormG};
 
 {$R *.res}
 
@@ -50,6 +51,8 @@ begin
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormAbout, FormAbout);
+  Application.CreateForm(TFormG, FormG);
   Application.Run;
 end.
 

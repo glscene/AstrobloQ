@@ -1,4 +1,4 @@
-unit fgAbout;
+unit fAbout;
 
 interface
 
@@ -35,16 +35,22 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
-    ImageGalaxy: TImage;
-    Label1: TLabel;
     StaticText4: TStaticText;
-    tsLithosphere: TTabSheet;
+    tsLitosfera: TTabSheet;
     tsBiosphere: TTabSheet;
-    tsTechnosphere: TTabSheet;
-    ImageLito_ru: TImage;
-    ImageLito_en: TImage;
+    tsTehnosfera: TTabSheet;
     StaticText5: TStaticText;
     StaticText6: TStaticText;
+    tsNoosfera: TTabSheet;
+    tsGalaktika: TTabSheet;
+    tsUniversum: TTabSheet;
+    ImageGalaxy: TImage;
+    ImageAstro: TImage;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    ImagePlanets: TImage;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
@@ -70,19 +76,8 @@ end;
 
 procedure TFormAbout.FormCreate(Sender: TObject);
 begin
-  if FormG.ActiveLang = LANG_ENGLISH then
-  begin
-    ImageLito_en.Visible := True;
-    ImageLito_ru.Visible := False;
-    ImageLito_en.Align := alClient;
-  end
-  else
-  begin
-    ImageLito_en.Visible := False;
-    ImageLito_ru.Visible := True;
-    ImageLito_ru.Align := alClient;
-  end;
   inherited;
+  //
 end;
 
 procedure TFormAbout.GLSImageClick(Sender: TObject);

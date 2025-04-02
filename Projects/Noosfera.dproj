@@ -128,9 +128,6 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\astro\udVsop2013.pas"/>
-        <DCCReference Include="..\Source\astro\fdAbout.pas">
-            <Form>FormAbout</Form>
-        </DCCReference>
         <DCCReference Include="..\source\astro\udConstBayers.pas"/>
         <DCCReference Include="..\source\astro\udEphemerides.pas"/>
         <DCCReference Include="..\source\astro\fdCoordinates.pas">
@@ -174,6 +171,14 @@
         <DCCReference Include="..\Source\noo\fnNoosfera.pas">
             <Form>frmUniverse</Form>
         </DCCReference>
+        <DCCReference Include="..\Source\fAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\fForm.pas">
+            <Form>FormG</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -202,7 +207,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="..\Noosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Noosfera.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Noosfera.exe</RemoteName>
                         <Overwrite>true</Overwrite>

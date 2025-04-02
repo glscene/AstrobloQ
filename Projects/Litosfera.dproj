@@ -139,9 +139,12 @@
         </DCCReference>
         <DCCReference Include="..\Source\uMoveCamera.pas"/>
         <DCCReference Include="..\Source\uSkyBodies.pas"/>
-        <DCCReference Include="..\source\ucode\gnuGettext.pas"/>
         <DCCReference Include="..\Source\fdForm.pas">
             <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\fAbout.pas">
+            <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

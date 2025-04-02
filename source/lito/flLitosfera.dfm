@@ -2,7 +2,7 @@ object frmLitosphere: TfrmLitosphere
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'Lithosphere'
+  Caption = 'Litosfera'
   ClientHeight = 700
   ClientWidth = 1042
   Color = clBtnFace
@@ -50,9 +50,15 @@ object frmLitosphere: TfrmLitosphere
       Height = 650
       Align = alClient
       AutoExpand = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -18
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
       HideSelection = False
       Images = dmImages.VirtPlanetSymbols
       Indent = 35
+      ParentFont = False
       TabOrder = 0
       OnClick = tvPlanetsClick
       Items.NodeData = {
@@ -267,7 +273,7 @@ object frmLitosphere: TfrmLitosphere
     end
     object Camera: TGLCamera
       DepthOfView = 200000.000000000000000000
-      FocalLength = 99.545860290527340000
+      FocalLength = 99.545860290527350000
       NearPlaneBias = 0.100000001490116100
       TargetObject = dcStar
       CameraStyle = csInfinitePerspective
@@ -88754,6 +88760,10 @@ object frmLitosphere: TfrmLitosphere
       end
       object N3: TMenuItem
         Caption = '-'
+      end
+      object About1: TMenuItem
+        Caption = 'About...'
+        OnClick = About1Click
       end
     end
   end

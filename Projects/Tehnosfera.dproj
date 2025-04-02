@@ -127,10 +127,6 @@
             <Form>FormNoosfera</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\fForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
@@ -153,6 +149,11 @@
         <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
         <DCCReference Include="..\Source\fdForm.pas">
             <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Source\udUtils.pas"/>
+        <DCCReference Include="..\Source\fAbout.pas">
+            <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -187,7 +188,7 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Tehnosfera.exe</RemoteName>
                         <Overwrite>true</Overwrite>

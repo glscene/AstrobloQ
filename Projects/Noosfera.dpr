@@ -3,7 +3,6 @@ program Noosfera;
 uses
   Vcl.Forms,
   udVsop2013 in '..\source\astro\udVsop2013.pas',
-  fdAbout in '..\Source\astro\fdAbout.pas' {FormAbout},
   udConstBayers in '..\source\astro\udConstBayers.pas',
   udEphemerides in '..\source\astro\udEphemerides.pas',
   fdCoordinates in '..\source\astro\fdCoordinates.pas' {FormCoords},
@@ -23,7 +22,9 @@ uses
   ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
-  fnNoosfera in '..\Source\noo\fnNoosfera.pas' {frmUniverse};
+  fnNoosfera in '..\Source\noo\fnNoosfera.pas' {frmUniverse},
+  fAbout in '..\Source\fAbout.pas' {FormAbout},
+  fForm in '..\Source\fForm.pas' {FormG};
 
 {$R *.res}
 

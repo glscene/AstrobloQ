@@ -46,13 +46,15 @@ uses
 
   GLS.SkyDome,
 
+  fAbout,
+
   ddImages,
   fdForm,
-  fdAbout,
   fdCoordinates,
   fdPointto,
   fdConstPolygons,
   fdSettings,
+
 
   fdHercRussel,
   fdHipparcos,

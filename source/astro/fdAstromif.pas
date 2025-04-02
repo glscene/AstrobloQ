@@ -41,7 +41,6 @@ uses
   udUtils,
   udGlobals,
 
-  fdAbout,
   fdMixTextures,
   ddImages;
 
@@ -65,7 +64,6 @@ type
     ConstellationLines: TGLLines;
     ConstellationBorders: TGLLines;
     tvConstellations: TTreeView;
-    procedure miAboutClick(Sender: TObject);
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
@@ -204,18 +202,6 @@ end;
 
 
 //-----------------------------------------------------------------------
-
-procedure TFormAstromif.miAboutClick(Sender: TObject);
-begin
-  // Revived constellations from myths
-  with TFormAbout.Create(nil) do
-    try
-      ///LabelTitle.Caption := 'Astromifs';
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
 
 procedure TFormAstromif.miSettingsClick(Sender: TObject);
 begin

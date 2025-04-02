@@ -47,6 +47,8 @@ uses
   GLS.SpaceText,
 
   fForm,
+  fAbout,
+
   dImages,
   dDialogs,
   dBase,
@@ -54,11 +56,11 @@ uses
   fgAnalyser,
   fgMonitor,
   fgParadox,
-  fgAbout,
   fgStarcube,
   fgSettings,
 
   uGlobals,
+  udUtils,
   fdForm;
 
 type
@@ -550,9 +552,8 @@ begin
 
   sl := TStringList.Create;
   tl := TStringList.Create;
-  DataDir := ExtractFilePath(ParamStr(0));
-  DataDir := DataDir + 'data\catalog';
-  // SetCurrentDir(DataDir);
+  DataDir := GetDataPath() + 'catalog'; //ExtractFilePath(ParamStr(0));
+  SetCurrentDir(DataDir);
   dmDialogs.OpenTextFileDialog.InitialDir := DataDir;
   dmDialogs.OpenTextFileDialog.FilterIndex := 1;
   if dmDialogs.OpenTextFileDialog.Execute then

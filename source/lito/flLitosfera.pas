@@ -63,8 +63,10 @@ uses
   flStellarSystem,
   flGenExosys,
   flSettings,
+
   fForm,
-  gnuGettext, fdForm
+  fdForm,
+  fAbout
   ;
 
 
@@ -131,6 +133,7 @@ type
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
     LightStar: TGLLightSource;
+    About1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -156,6 +159,7 @@ type
     procedure miStellarSystemClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miExogenClick(Sender: TObject);
+    procedure About1Click(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -261,7 +265,7 @@ begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
   if miViewHidePanels.Checked then
   begin
-    miViewHidePanels.Caption := _('Show panels');
+    miViewHidePanels.Caption := 'Show panels';
     PanelLeft.Visible := False;
     StatusBar.Visible := False;
     ControlBar.Visible := False;
@@ -269,7 +273,7 @@ begin
   end
   else
   begin
-    miViewHidePanels.Caption := _('Hide panels');
+    miViewHidePanels.Caption := 'Hide panels';
     PanelLeft.Visible := True;
     StatusBar.Visible := True;
     ControlBar.Visible := True;
@@ -335,7 +339,7 @@ begin
     diskRingDn.Visible := False;
   end;
 
-  miHelpWiki.Caption := tvPlanets.Selected.Text + _('in Ruwiki');
+  miHelpWiki.Caption := tvPlanets.Selected.Text + 'in Ruwiki';
 
   // Show atmosphere
   if tvPlanets.Selected.Text = 'Earth' then
@@ -388,6 +392,17 @@ begin
 end;
 
 //------------------------------------------------------------------
+
+procedure TfrmLitosphere.About1Click(Sender: TObject);
+begin
+  inherited;
+  with TFormAbout.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
 
 function TfrmLitosphere.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var

@@ -47,6 +47,8 @@ uses
   GLS.SpaceText,
 
   fForm,
+  fAbout,
+
   dImages,
   dDialogs,
   dBase,
@@ -54,7 +56,6 @@ uses
   fgAnalyser,
   fgMonitor,
   fgParadox,
-  fgAbout,
   fgStarcube,
   fgSettings_ru,
 

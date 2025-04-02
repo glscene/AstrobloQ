@@ -46,16 +46,17 @@ uses
 
   GLS.SkyDome,
 
+  fAbout,
+
   ddImages,
   fdForm,
-  fdAbout,
   fdCoordinates,
   fdPointto,
   fdConstPolygons,
 
   fnSettings,
 
-  gnugettext;
+  udUtils;
 
 type
   TfrmUniverse = class(TFormI)
@@ -189,20 +190,16 @@ procedure TfrmUniverse.FormCreate(Sender: TObject);
 begin
   inherited;
 
-  TP_GlobalIgnoreClass(TStaticText);
-  TP_GlobalIgnoreClass(TFont);
-  TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
-
-  DataDir := ExtractFilePath(ParamStr(0)) + 'data\';;
+  DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
   SetCurrentDir(DataDir);
 
-  SkyDome.Visible := True;
-  SkyDome.Bands.Clear;
-
-  // Loadfile hipparcos.stars or Yale_BSC.stars for SkyDome
+  // Loadfile hipparcos.stars for SkyDome
   CurrDir := DataDir + 'catalog\';
   SetCurrentDir(CurrDir);
   FileName := 'hipparcos.stars';
+
+  SkyDome.Visible := True;
+  SkyDome.Bands.Clear;
   if FileExists(FileName) then
     SkyDome.Stars.LoadStarsFile(FileName);
 

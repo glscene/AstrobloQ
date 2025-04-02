@@ -6,7 +6,7 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   dImages in '..\source\dImages.pas' {dmImages: TDataModule},
-  fgAbout in '..\Source\galaxy\fgAbout.pas' {FormAbout},
+  fAbout in '..\Source\fAbout.pas' {FormAbout},
   fStarProj in '..\plugins\StarProj\fStarProj.pas' {FormProjection},
   dDialogs in '..\source\dDialogs.pas' {dmDialogs: TDataModule},
   dBase in '..\source\dBase.pas' {dmBase: TDataModule},

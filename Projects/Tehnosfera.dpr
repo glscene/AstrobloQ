@@ -9,7 +9,6 @@ uses
   ftStarPilot in '..\source\teh\ftStarPilot.pas' {FormSpacePilot},
   ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
   ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {FormNoosfera},
-  ftAbout in '..\source\teh\ftAbout.pas' {FormAbout},
   fForm in '..\source\fForm.pas' {FormG},
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
@@ -18,7 +17,9 @@ uses
   ftCETI in '..\source\teh\ftCETI.pas' {FormTehnosfera},
   Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
   Teh.Globals in '..\source\teh\Teh.Globals.pas',
-  fdForm in '..\Source\fdForm.pas' {FormI};
+  fdForm in '..\Source\fdForm.pas' {FormI},
+  udUtils in '..\Source\udUtils.pas',
+  fAbout in '..\Source\fAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -36,5 +37,6 @@ begin
   Application.CreateForm(TFormLoadSmdMdl, FormLoadSmdMdl);
   Application.CreateForm(TFormTehnosfera, FormTehnosfera);
   Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

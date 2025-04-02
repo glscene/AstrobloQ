@@ -46,9 +46,10 @@ uses
 
   GLS.SkyDome,
 
+  fAbout,
+
   ddImages,
   fdForm,
-  fdAbout,
   fdCoordinates,
   fdPointto,
   fdConstPolygons,
@@ -58,8 +59,7 @@ uses
   fdHercRussel,
   fdHipparcos,
 
-  udUtils,
-  gnugettext;
+  udUtils;
 
 type
   TfrmAstroViewer = class(TFormI)
@@ -194,29 +194,21 @@ implementation //--------------------------------------------------------------
 procedure TfrmAstroViewer.FormCreate(Sender: TObject);
 begin
   inherited;
-  TP_GlobalIgnoreClass(TStaticText);
-  TP_GlobalIgnoreClass(TFont);
-  TP_GlobalIgnoreClass(TGLSceneObject);  // otherwise no persistent image on disk
 
-  DataDir := GetDataPath();
-
-//  ExtractFilePath(ParamStr(0)) + 'data\';;
+  DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
   SetCurrentDir(DataDir);
 
-  SkyDome.Visible := True;
-  SkyDome.Bands.Clear;
-
-  // Loadfile hipparcos.stars or Yale_BSC.stars for SkyDome
+  // Звёзды каталога hipparcos.stars для SkyDome
   CurrDir := DataDir + 'catalog\';
   SetCurrentDir(CurrDir);
   FileName := 'hipparcos.stars';
+  SkyDome.Visible := True;
+  SkyDome.Bands.Clear;
+
   if FileExists(FileName) then
     SkyDome.Stars.LoadStarsFile(FileName);
 
-  // Load Planet map
-  CurrDir := DataDir + 'catalog\';
-  SetCurrentDir(CurrDir);
-
+  // Карты планет и астероидов солнечной системы
   StarDir := DataDir + 'stars\sun\';
   SetCurrentDir(StarDir);
   sfPlanet.Material.Texture.Disabled := False;

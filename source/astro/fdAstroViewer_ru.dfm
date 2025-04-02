@@ -36,6 +36,8 @@ object frmAstroViewer: TfrmAstroViewer
       item
         Width = 86
       end>
+    ExplicitTop = 594
+    ExplicitWidth = 922
   end
   object PageControl: TPageControl
     Left = 0
@@ -45,6 +47,8 @@ object frmAstroViewer: TfrmAstroViewer
     ActivePage = tsPlanets
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 922
+    ExplicitHeight = 567
     object tsPlanets: TTabSheet
       Caption = #1055#1083#1072#1085#1077#1090#1099
       object GLSceneViewer: TGLSceneViewer
@@ -171,6 +175,7 @@ object frmAstroViewer: TfrmAstroViewer
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF00000000000000000000000000010000001F0000000000000000000000FF
           FFFFFFFFFFFFFF000000000000000000000000000100}
+        ExplicitHeight = 537
       end
     end
     object tsConstellations: TTabSheet
@@ -413,6 +418,7 @@ object frmAstroViewer: TfrmAstroViewer
     Height = 27
     Align = alTop
     TabOrder = 2
+    ExplicitWidth = 922
     object tbMain: TToolBar
       Left = 19
       Top = 2
