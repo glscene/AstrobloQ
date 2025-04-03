@@ -30,7 +30,7 @@ var
   TexturePath: TFileName;
   IniFile: TIniFile;
 
-  LangID: integer = LANG_RUSSIAN; // or LANG_ENGLISH
+  LanguageID: integer = LANG_RUSSIAN; // or LANG_ENGLISH
   GeneralSection: string = RegSoundCube + 'General';
 
   SplashStart : Boolean;

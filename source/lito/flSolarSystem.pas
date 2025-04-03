@@ -55,7 +55,6 @@ uses
   flParams,
 
   fForm,
-  gnuGettext,
   fdForm
   ;
 
@@ -294,9 +293,9 @@ begin
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := _('Hide panels')
+     miHidePanels.Caption := 'Hide panels'
    else
-    miHidePanels.Caption := _('Show panels');
+    miHidePanels.Caption := 'Show panels';
 end;
 
 procedure TFormSolarSys.miInnerCoreClick(Sender: TObject);
@@ -907,7 +906,7 @@ end;
 //
 procedure TFormSolarSys.AsyncTimerTimer;
 begin
-  Caption := _('Solar system') + ' / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Solar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 

@@ -55,6 +55,7 @@ object FormSpirit: TFormSpirit
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 730
     object Panel4: TPanel
       Left = 0
       Top = 0
@@ -63,6 +64,7 @@ object FormSpirit: TFormSpirit
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 730
       object ViewSplitter: TSplitter
         Left = 0
         Top = 174
@@ -144,6 +146,7 @@ object FormSpirit: TFormSpirit
         OnMouseDown = GLSceneTrackerMouseDown
         OnMouseMove = GLSceneTrackerMouseMove
         TabOrder = 2
+        ExplicitWidth = 730
       end
     end
   end

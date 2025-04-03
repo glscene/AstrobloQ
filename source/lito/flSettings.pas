@@ -32,8 +32,6 @@ uses
   Vcl.WinXCtrls,
   Vcl.NumberBox,
 
-
-  gnuGettext,
   fForm,
   fdForm;
 
@@ -127,7 +125,7 @@ begin
     tvOptions.Items[I].ImageIndex := 0;
     tvOptions.Items[I].SelectedIndex := 1;
     tvOptions.Items[I].StateIndex := I;
-    tvOptions.Items[I].Text := _(tvOptions.Items[I].Text);
+    tvOptions.Items[I].Text := tvOptions.Items[I].Text;
   end;
   // 0 - Общие 1- Материал 2 - Планеты 3 - Звёзды
   tvOptions.Select(tvOptions.Items[0]);
@@ -280,8 +278,6 @@ var
 begin
   if CurLangID <> ActiveLang then
   begin
-  MessageDlg(_('Reload to change language'),
-      mtInformation, [mbOK], 0);
   FileName := ChangeFileExt(ParamStr(0), '.ini');
   if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections

@@ -24,7 +24,8 @@ uses
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
   fdForm in '..\Source\fdForm.pas' {FormI},
-  fAbout in '..\Source\fAbout.pas' {FormAbout};
+  fAbout in '..\Source\fAbout.pas' {FormAbout},
+  udGlobals in '..\Source\udGlobals.pas';
 
 {$R *.res}
 

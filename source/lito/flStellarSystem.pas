@@ -54,7 +54,7 @@ uses
   flParams,
 
   fForm,
-  gnuGettext, fdForm
+  fdForm
   ;
 
 type
@@ -289,9 +289,9 @@ begin
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := _('Hide Panels')
+     miHidePanels.Caption := 'Hide Panels'
    else
-    miHidePanels.Caption := _('Show Panels');
+    miHidePanels.Caption := 'Show Panels';
 end;
 
 procedure TFormStarSys.miInnerCoreClick(Sender: TObject);
@@ -902,7 +902,7 @@ end;
 //
 procedure TFormStarSys.AsyncTimerTimer;
 begin
-  Caption := _('Stellar system') + ' / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Stellar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 

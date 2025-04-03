@@ -15,9 +15,7 @@ uses
   Vcl.ExtCtrls,
   Vcl.Buttons,
   Bio.DNA,
-  Vcl.Menus,
-
-  gnugettext
+  Vcl.Menus
   ;
 
 type
@@ -137,9 +135,9 @@ begin
   if SaveDNADialog.Execute then
   begin
     if DNA.SaveToINI(SaveDNADialog.FileName) then
-      ShowMessage(_('Save DNA as') + ' ' + SaveDNADialog.FileName)
+      ShowMessage('Save DNA as' + ' ' + SaveDNADialog.FileName)
     else
-      ShowMessage(_('Failed to save DNA'));
+      ShowMessage('Failed to save DNA');
     ApplyDNA;
   end;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));

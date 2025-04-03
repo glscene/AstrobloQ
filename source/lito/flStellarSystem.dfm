@@ -32,6 +32,7 @@ object FormStarSys: TFormStarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 674
   end
   object PanelLeft: TPanel
     Left = 0

@@ -19,9 +19,7 @@ uses
   Vcl.StdCtrls,
   Bio.Things,
   fbSpirit,
-  vInterfaceClasses,
-
-  gnugettext;
+  vInterfaceClasses;
 
 type
 
@@ -110,7 +108,7 @@ begin
 
   SpiritButton.Caption := Thing.Name + ' ' + IntToStr(Thing.Handle) +
     '                ';
-  SpiritButton.Hint := _('View ') + Thing.Name + ' ' + IntToStr(Thing.Handle);
+  SpiritButton.Hint := 'View ' + Thing.Name + ' ' + IntToStr(Thing.Handle);
   SpiritButton.ShowHint := true;
   SpiritButton.Down := false;
   SpiritButton.Grouped := false;

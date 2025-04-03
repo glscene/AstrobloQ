@@ -280,7 +280,6 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uGlobals.pas"/>
-        <DCCReference Include="..\source\ucode\gnuGettext.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -29,8 +29,7 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  fdForm,
-  gnugettext;
+  fdForm;
 
 type
   TfrmSettings = class(TFormI)
@@ -135,8 +134,6 @@ begin
   begin
     tvSettings.Items[i].ImageIndex := 0;
     tvSettings.Items[i].SelectedIndex := 1;
-    // Добавление скобок для перевода тем в gnugettext
-    tvSettings.Items[I].Text := _(tvSettings.Items[I].Text);
   end;
 
   // Выбор начальной темы узла дерева
@@ -214,15 +211,6 @@ begin
   try
     CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
     CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
-    LangID := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
-    case LangID of
-      LANG_ENGLISH:
-        rgLanguage.ItemIndex := 0;
-      LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1
-    else
-      rgLanguage.ItemIndex := 0;
-    end;
   finally
     IniFile.Free;
   end;
@@ -239,7 +227,6 @@ begin
   try
     IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
     IniFile.WriteBool(frmSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
-    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;
@@ -251,14 +238,9 @@ procedure TfrmSettings.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
-  if CurLangID <> LangID then
-  begin
-    MessageDlg(_('Reload to change language'),
-      mtInformation, [mbOK], 0);
-    FileName := ChangeFileExt(ParamStr(0), '.ini');
-    if FileExists(UpperCase(FileName)) then
-      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-  end;
+  FileName := ChangeFileExt(ParamStr(0), '.ini');
+  if FileExists(UpperCase(FileName)) then
+    DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
   frmSettings.Close;
 end;

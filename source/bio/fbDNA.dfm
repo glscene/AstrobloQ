@@ -1,58 +1,45 @@
 object FormDNA: TFormDNA
   Left = 531
   Top = 210
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   Caption = 'DNA'
-  ClientHeight = 644
-  ClientWidth = 679
+  ClientHeight = 368
+  ClientWidth = 388
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Menu = MainMenu1
   Position = poOwnerFormCenter
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 679
-    Height = 64
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 388
+    Height = 37
     Align = alTop
     TabOrder = 0
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 119
-      Height = 62
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 68
+      Height = 35
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Organizm'
       TabOrder = 0
     end
     object panID: TPanel
-      Left = 120
+      Left = 69
       Top = 1
-      Width = 558
-      Height = 62
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 318
+      Height = 35
       Align = alClient
       Alignment = taLeftJustify
       BevelOuter = bvNone
@@ -62,25 +49,17 @@ object FormDNA: TFormDNA
   end
   object Panel4: TPanel
     Left = 0
-    Top = 64
-    Width = 679
-    Height = 66
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 37
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
     object Panel5: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 66
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 38
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Mutation'
@@ -89,25 +68,17 @@ object FormDNA: TFormDNA
   end
   object Panel6: TPanel
     Left = 0
-    Top = 130
-    Width = 679
-    Height = 65
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 74
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
     object Panel7: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 65
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 37
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Buoyancy:'
@@ -116,25 +87,17 @@ object FormDNA: TFormDNA
   end
   object Panel12: TPanel
     Left = 0
-    Top = 259
-    Width = 679
-    Height = 64
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 148
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 3
     object Panel13: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 64
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 37
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Preferred Food:'
@@ -143,37 +106,25 @@ object FormDNA: TFormDNA
   end
   object panButtonBar: TPanel
     Left = 0
-    Top = 573
-    Width = 679
-    Height = 71
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 327
+    Width = 388
+    Height = 41
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 4
     object panOKButton: TPanel
-      Left = 496
+      Left = 283
       Top = 1
-      Width = 182
-      Height = 69
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 104
+      Height = 39
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
       object btnOK: TBitBtn
-        Left = 32
-        Top = 14
-        Width = 130
-        Height = 43
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 18
+        Top = 8
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -181,14 +132,10 @@ object FormDNA: TFormDNA
       end
     end
     object btnCancel: TBitBtn
-      Left = 14
-      Top = 14
-      Width = 132
-      Height = 43
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 8
+      Top = 8
+      Width = 75
+      Height = 25
       Kind = bkCancel
       NumGlyphs = 2
       TabOrder = 1
@@ -197,25 +144,17 @@ object FormDNA: TFormDNA
   end
   object Panel3: TPanel
     Left = 0
-    Top = 195
-    Width = 679
-    Height = 64
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 111
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 5
     object Panel8: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 64
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 37
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Bounce:'
@@ -224,25 +163,17 @@ object FormDNA: TFormDNA
   end
   object Panel9: TPanel
     Left = 0
-    Top = 454
-    Width = 679
-    Height = 64
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 259
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 6
     object Panel10: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 64
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 37
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Green:'
@@ -251,25 +182,17 @@ object FormDNA: TFormDNA
   end
   object Panel11: TPanel
     Left = 0
-    Top = 389
-    Width = 679
-    Height = 65
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 222
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 7
     object Panel14: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 65
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 37
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Blue:'
@@ -278,25 +201,17 @@ object FormDNA: TFormDNA
   end
   object Panel15: TPanel
     Left = 0
-    Top = 323
-    Width = 679
-    Height = 66
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 185
+    Width = 388
+    Height = 37
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 8
     object Panel16: TPanel
       Left = 0
       Top = 0
-      Width = 162
-      Height = 66
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 93
+      Height = 38
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Red:'
@@ -305,25 +220,17 @@ object FormDNA: TFormDNA
   end
   object Panel17: TPanel
     Left = 0
-    Top = 501
-    Width = 679
-    Height = 72
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 286
+    Width = 388
+    Height = 41
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 9
     object btnLoadDNA: TBitBtn
-      Left = 18
-      Top = 11
-      Width = 235
-      Height = 44
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 10
+      Top = 6
+      Width = 135
+      Height = 25
       Caption = 'Load DNA'
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -343,14 +250,10 @@ object FormDNA: TFormDNA
       OnClick = LoadDNA1Click
     end
     object btnSaveDNA: TBitBtn
-      Left = 420
-      Top = 16
-      Width = 238
-      Height = 44
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 240
+      Top = 9
+      Width = 136
+      Height = 25
       Caption = 'Save DNA'
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100

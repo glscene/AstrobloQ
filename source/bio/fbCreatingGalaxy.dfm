@@ -1,17 +1,17 @@
 object FormCreatingGalaxy: TFormCreatingGalaxy
   Left = 369
   Top = 158
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   Caption = 'Creating Galaxy'
-  ClientHeight = 515
-  ClientWidth = 708
+  ClientHeight = 294
+  ClientWidth = 405
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -39,17 +39,12 @@ object FormCreatingGalaxy: TFormCreatingGalaxy
     03FFC0000007F0000001FC000000FFC00000FFE00000FFC00000FF800000FE00
     0001F8000000F0000000E0000000C0000000C0000009C000000FC000000FF000
     001FF000003FF800007FFC0000FFFF0001FFFF8007FFFFC03FFFFFF0FFFF}
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 71
-    Width = 708
-    Height = 444
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 41
+    Width = 405
+    Height = 253
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
@@ -57,17 +52,13 @@ object FormCreatingGalaxy: TFormCreatingGalaxy
     object redStatus: TRichEdit
       Left = 10
       Top = 10
-      Width = 688
-      Height = 352
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 393
+      Height = 217
       Align = alClient
       Color = clBlack
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clSilver
-      Font.Height = -11
+      Font.Height = -6
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
@@ -77,24 +68,19 @@ object FormCreatingGalaxy: TFormCreatingGalaxy
     end
     object Panel3: TPanel
       Left = 10
-      Top = 362
-      Width = 688
-      Height = 72
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Top = 202
+      Width = 385
+      Height = 41
       Align = alBottom
       TabOrder = 1
+      ExplicitLeft = 6
+      ExplicitTop = 207
+      ExplicitWidth = 393
       object BitBtn1: TBitBtn
-        Left = 536
-        Top = 14
-        Width = 130
-        Height = 43
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 306
+        Top = 8
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -104,25 +90,17 @@ object FormCreatingGalaxy: TFormCreatingGalaxy
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 708
-    Height = 71
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 405
+    Height = 41
     Align = alTop
     BevelOuter = bvNone
     BorderWidth = 10
     TabOrder = 1
     object pbTextures: TProgressBar
-      Left = 10
-      Top = 10
-      Width = 688
-      Height = 51
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 6
+      Top = 6
+      Width = 393
+      Height = 29
       Align = alClient
       TabOrder = 0
     end

@@ -30,8 +30,7 @@ uses
   GLS.Coordinates,
   GLS.SceneViewer,
 
-  Bio.Link,
-  gnugettext;
+  Bio.Link;
 
 type
   TRefreshMethod = procedure of object;
@@ -194,7 +193,7 @@ begin
   if not fDeletion and fDead then
   begin
     if OnTop1.Checked then OnTop1.Click;
-    if (MessageDlg(_('Target is dead. Remove window?'),
+    if (MessageDlg('Target is dead. Remove window?',
      mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     fDeletion := true;
   end;
@@ -328,7 +327,7 @@ begin
   begin
     StopViewer;
     cbView.Enabled := false;
-    ShowMessage(_('Unable to open 3D view for this thing'));
+    ShowMessage('Unable to open 3D view for this thing');
     exit;
   end;
 

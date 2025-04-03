@@ -21,7 +21,8 @@ uses
   fdForm in '..\Source\fdForm.pas' {FormI},
   udUtils in '..\Source\udUtils.pas',
   fgSettings_ru in '..\Source\galaxy\fgSettings_ru.pas' {frmSettings},
-  fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaxy};
+  fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaxy},
+  udGlobals in '..\Source\udGlobals.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

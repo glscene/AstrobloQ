@@ -33,11 +33,10 @@ uses
   Vcl.ImgList,
   Vcl.Themes,
 
-  gnuGettext,  // for translation
-
   uGlobals,
   dImages,
-  fForm, fdForm;
+  fForm,
+  fdForm;
 
 type
   TfrmSettings = class(TFormG)
@@ -225,8 +224,6 @@ begin
     tvSettings.Items[I].ImageIndex := 0;
     tvSettings.Items[I].SelectedIndex := 1;
     tvSettings.Items[I].StateIndex := I;
-    // add parentheses to translate using gnugettext
-    tvSettings.Items[I].Text := _(tvSettings.Items[I].Text);
   end;
 
   tvSettings.Select(tvSettings.Items[1]);
@@ -383,14 +380,9 @@ procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
-  if CurLangID <> ActiveLang then
-  begin
-    MessageDlg(_('Reload to change language'),
-      mtInformation, [mbOK], 0);
-    FileName := ChangeFileExt(ParamStr(0), '.ini');
-    if FileExists(UpperCase(FileName)) then
-      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-  end;
+  FileName := ChangeFileExt(ParamStr(0), '.ini');
+  if FileExists(UpperCase(FileName)) then
+    DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
   frmSettings.Close;
 end;

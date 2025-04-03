@@ -15,9 +15,7 @@ uses
   Vcl.StdCtrls,
   Vcl.ComCtrls,
   Vcl.ExtCtrls,
-  Vcl.Buttons,
-
-  gnugettext
+  Vcl.Buttons
   ;
 
 type

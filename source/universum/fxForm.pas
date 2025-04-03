@@ -19,9 +19,7 @@ uses
   FMX.Controls,
   FMX.Forms,
   FMX.Graphics,
-  FMX.Dialogs,
-
-  gnuGettext;
+  FMX.Dialogs;
 
 type
   TFormO = class(TForm)
@@ -31,7 +29,6 @@ type
     ActiveLangID: Integer;
     ActiveLangStr: String;
     procedure ReadIniFile; virtual;
-    procedure SetLanguage;
   end;
 
 var
@@ -44,7 +41,6 @@ implementation //--------------------------------------------------------------
 procedure TFormO.FormCreate(Sender: TObject);
 begin
    ReadIniFile;
-   SetLanguage;
 end;
 
 procedure TFormO.ReadIniFile;
@@ -66,40 +62,6 @@ begin
     finally
       IniFile.Free;
     end;
-end;
-
-//--------------------------------------------------------------------------
-
-procedure TFormO.SetLanguage;
-var
-  LocalePath : TFileName;
-begin
-  LocalePath := ExtractFileDir(ParamStr(0));
-  LocalePath := LocalePath + PathDelim + 'locale' + PathDelim;
-
-  if (ActiveLangID <> LANG_ENGLISH) then
-  begin
-    Textdomain('galaxy');
-    BindTextDomain ('galaxy', LocalePath);
-//    AddDomainForResourceString('language');
-//    BindTextDomain ('language', LocalePath);
-    case ActiveLangID of
-      LANG_RUSSIAN: UseLanguage('ru');
-      LANG_PORTUGUESE: UseLanguage('pt');
-      LANG_SPANISH: UseLanguage('sp');
-      LANG_CHINESE: UseLanguage('cn')
-      else
-      begin
-        UseLanguage('en');
-      end;
-    end;
-  end
-  else
-  begin
-    UseLanguage('en');
-  end;
-
-  TranslateComponent(Self);
 end;
 
 end.

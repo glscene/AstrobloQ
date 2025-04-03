@@ -23,8 +23,7 @@ uses
   fbManager,
   fbMiniForm,
 
-  uGlobals,
-  gnugettext;
+  uGlobals;
 
 // geTipofDay
 
@@ -261,7 +260,7 @@ procedure TfmReality.FormShow(Sender: TObject);
 begin
   if FormFirst.UserSettings.TipOfTheDay then
     RealityClock.Enabled := true;
-  FormFirst.Construction.AddEvent(_('Running'));
+  FormFirst.Construction.AddEvent('Running');
   RefreshAll;
   Align := alTop;
   ManagerForm.Show;
@@ -272,7 +271,7 @@ begin
     ManagerForm.SpaceForm.Width := 1024;
     ManagerForm.SpaceForm.Height := 728;
   end;
-  FormFirst.Construction.AddEvent(_('Still running'));
+  FormFirst.Construction.AddEvent('Still running');
 end;
 
 procedure TfmReality.menuSetTimeTickingClick(Sender: TObject);
@@ -307,14 +306,14 @@ procedure TfmReality.StartReality;
 begin
   if Reality.TimeIsFlowing then
   begin
-    FormFirst.Construction.AddEvent(_('Started time flowing'));
+    FormFirst.Construction.AddEvent('Started time flowing');
     AddEvent(Reality.Creator + ' started time flowing');
     RealityClock.Enabled := true;
     ManagerForm.SpaceForm.InformOfStart;
   end
   else
   begin
-    FormFirst.Construction.AddEvent(_('Ticked time'));
+    FormFirst.Construction.AddEvent('Ticked time');
     AddEvent(Reality.Creator + ' ticked time');
     Advance;
   end;
@@ -526,9 +525,9 @@ end;
 procedure TfmReality.menuSaveClick(Sender: TObject);
 begin
   if SaveRealityToFile(FileName) then
-    ShowMessage(_('Reality saved ') + FileName)
+    ShowMessage('Reality saved ' + FileName)
   else
-    ShowMessage(_('Failed to save reality'));
+    ShowMessage('Failed to save reality');
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
 
@@ -540,7 +539,7 @@ begin
   Rewrite(myFile);
   Reality.SaveToFile(myFile);
   FormFirst.UserSettings.WorkingFile := aFileName;
-  Writeln(myFile, _('Saved at ') + DateToStr(Now) + ' ' + TimeToStr(Now));
+  Writeln(myFile, 'Saved at ' + DateToStr(Now) + ' ' + TimeToStr(Now));
   CloseFile(myFile);
   FileName := aFileName;
   result := true;
@@ -573,9 +572,9 @@ begin
   if sdSaveReality.Execute then
   begin
     if SaveRealityToFile(sdSaveReality.FileName) then
-      ShowMessage(_('World saved as ') + FileName)
+      ShowMessage('World saved as ' + FileName)
     else
-      ShowMessage(_('Failed to save world'));
+      ShowMessage('Failed to save world');
   end;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
@@ -700,7 +699,7 @@ end;
 procedure TfmReality.ReloadDNA1Click(Sender: TObject);
 begin
   Reality.Environment.Things.LoadForms;
-  ShowMessage(_('Base DNAs Reloaded'));
+  ShowMessage('Base DNAs Reloaded');
 end;
 
 procedure TfmReality.btn20Click(Sender: TObject);

@@ -6,9 +6,7 @@ uses
   System.SysUtils,
   System.Classes,
   Vcl.Dialogs,
-  Vcl.ExtDlgs,
-
-  gnugettext;
+  Vcl.ExtDlgs;
 
 type
   TdmDialogs = class(TDataModule)
@@ -34,10 +32,7 @@ implementation
 
 procedure TdmDialogs.DataModuleCreate(Sender: TObject);
 begin
-  TP_GlobalIgnoreClass(TOpenDialog);
-  TP_GlobalIgnoreClass(TSaveDialog);
-  TP_GlobalIgnoreClass(TOpenTextFileDialog);
-  TP_GlobalIgnoreClass(TSaveTextFileDialog);
+  //
 end;
 
 end.

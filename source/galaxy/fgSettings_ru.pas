@@ -33,8 +33,6 @@ uses
   Vcl.ImgList,
   Vcl.Themes,
 
-  gnuGettext,  // for translation
-
   uGlobals,
   dImages,
   fForm, fdForm;
@@ -220,8 +218,6 @@ begin
     tvSettings.Items[I].ImageIndex := 0;
     tvSettings.Items[I].SelectedIndex := 1;
     tvSettings.Items[I].StateIndex := I;
-    // add parentheses to translate using gnugettext
-    tvSettings.Items[I].Text := _(tvSettings.Items[I].Text);
   end;
 
   tvSettings.Select(tvSettings.Items[1]);

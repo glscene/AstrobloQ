@@ -19,7 +19,8 @@ uses
   Teh.Globals in '..\source\teh\Teh.Globals.pas',
   fdForm in '..\Source\fdForm.pas' {FormI},
   udUtils in '..\Source\udUtils.pas',
-  fAbout in '..\Source\fAbout.pas' {FormAbout};
+  fAbout in '..\Source\fAbout.pas' {FormAbout},
+  udGlobals in '..\Source\udGlobals.pas';
 
 {$R *.res}
 

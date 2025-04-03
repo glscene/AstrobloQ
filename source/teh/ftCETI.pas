@@ -43,8 +43,6 @@ uses
   GLS.Coordinates,
 
   GLS.BaseClasses,
-
-  gnugettext,
   fForm,
   fdForm;
 
@@ -904,7 +902,7 @@ begin
         '.' + GetVectorFileFormats.FindExtByIndex(SaveDialog.FilterIndex,
         False, True));
     if GetVectorFileFormats.FindFromFileName(SaveDialog.fileName) = nil then
-      ShowMessage(_('File extension not supported'))
+      ShowMessage('File extension not supported')
     else
       FreeForm.SaveToFile(SaveDialog.fileName);
   end;

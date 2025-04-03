@@ -28,7 +28,7 @@ object frmSettingsLito: TfrmSettingsLito
       750
       41)
     object ButtonOK: TButton
-      Left = 602
+      Left = 594
       Top = 1
       Width = 99
       Height = 31
@@ -70,7 +70,7 @@ object frmSettingsLito: TfrmSettingsLito
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = 33
+          Left = 25
           Top = 137
           Width = 104
           Height = 128
@@ -351,7 +351,7 @@ object frmSettingsLito: TfrmSettingsLito
           object LabelPlanetTilt: TLabel
             Left = 11
             Top = 83
-            Width = 39
+            Width = 38
             Height = 15
             Alignment = taCenter
             Caption = 'Axis tilt'
@@ -383,7 +383,7 @@ object frmSettingsLito: TfrmSettingsLito
           object Label6: TLabel
             Left = 11
             Top = 147
-            Width = 66
+            Width = 67
             Height = 15
             Alignment = taCenter
             Caption = 'Temperature'
@@ -487,9 +487,6 @@ object frmSettingsLito: TfrmSettingsLito
         2D0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000
         00010750006C0061006E006500740073000000290000000000000000000000FF
         FFFFFFFFFFFFFF00000000000000000000000000010553007400610072007300}
-      ExplicitLeft = 3
-      ExplicitTop = 3
-      ExplicitHeight = 387
     end
   end
   object PanelTop: TPanel
