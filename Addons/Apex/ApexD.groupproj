@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{61D3BE0B-A81E-4D68-8672-8EAC452F27D2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ApexP.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ApexP">
+        <MSBuild Projects="ApexP.dproj"/>
+    </Target>
+    <Target Name="ApexP:Clean">
+        <MSBuild Projects="ApexP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApexP:Make">
+        <MSBuild Projects="ApexP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ApexP"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ApexP:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ApexP:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

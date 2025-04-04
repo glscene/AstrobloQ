@@ -1,0 +1,84 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{34D46BB1-B6F4-4B95-AAE8-B07CDB10AAC1}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Apex\ApexD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Stellarfon\Stellarfon.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Stellarfon\Stellarfonx.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Stellarfon\source\Midikeys.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Gexobloq\Gexobloq.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ApexD">
+        <MSBuild Projects="Apex\ApexD.dproj"/>
+    </Target>
+    <Target Name="ApexD:Clean">
+        <MSBuild Projects="Apex\ApexD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApexD:Make">
+        <MSBuild Projects="Apex\ApexD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Stellarfon">
+        <MSBuild Projects="Stellarfon\Stellarfon.dproj"/>
+    </Target>
+    <Target Name="Stellarfon:Clean">
+        <MSBuild Projects="Stellarfon\Stellarfon.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Stellarfon:Make">
+        <MSBuild Projects="Stellarfon\Stellarfon.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Stellarfonx">
+        <MSBuild Projects="Stellarfon\Stellarfonx.dproj"/>
+    </Target>
+    <Target Name="Stellarfonx:Clean">
+        <MSBuild Projects="Stellarfon\Stellarfonx.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Stellarfonx:Make">
+        <MSBuild Projects="Stellarfon\Stellarfonx.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Midikeys">
+        <MSBuild Projects="Stellarfon\source\Midikeys.dproj"/>
+    </Target>
+    <Target Name="Midikeys:Clean">
+        <MSBuild Projects="Stellarfon\source\Midikeys.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Midikeys:Make">
+        <MSBuild Projects="Stellarfon\source\Midikeys.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Gexobloq">
+        <MSBuild Projects="Gexobloq\Gexobloq.dproj"/>
+    </Target>
+    <Target Name="Gexobloq:Clean">
+        <MSBuild Projects="Gexobloq\Gexobloq.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gexobloq:Make">
+        <MSBuild Projects="Gexobloq\Gexobloq.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ApexD;Stellarfon;Stellarfonx;Midikeys;Gexobloq"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ApexD:Clean;Stellarfon:Clean;Stellarfonx:Clean;Midikeys:Clean;Gexobloq:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ApexD:Make;Stellarfon:Make;Stellarfonx:Make;Midikeys:Make;Gexobloq:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

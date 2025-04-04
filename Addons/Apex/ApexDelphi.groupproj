@@ -1,0 +1,216 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{61D3BE0B-A81E-4D68-8672-8EAC452F27D2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ApexD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\coco.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\comet.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\control.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\eclipse.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\ecltimer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\foto.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\luna.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\newmoon.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\numint.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\occult.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\orbdet.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\phys.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\planetpos.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\planetrise.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="delphi\sunset.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ApexD">
+        <MSBuild Projects="ApexD.dproj"/>
+    </Target>
+    <Target Name="ApexD:Clean">
+        <MSBuild Projects="ApexD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApexD:Make">
+        <MSBuild Projects="ApexD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="coco">
+        <MSBuild Projects="delphi\coco.dproj"/>
+    </Target>
+    <Target Name="coco:Clean">
+        <MSBuild Projects="delphi\coco.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="coco:Make">
+        <MSBuild Projects="delphi\coco.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="comet">
+        <MSBuild Projects="delphi\comet.dproj"/>
+    </Target>
+    <Target Name="comet:Clean">
+        <MSBuild Projects="delphi\comet.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="comet:Make">
+        <MSBuild Projects="delphi\comet.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="control">
+        <MSBuild Projects="delphi\control.dproj"/>
+    </Target>
+    <Target Name="control:Clean">
+        <MSBuild Projects="delphi\control.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="control:Make">
+        <MSBuild Projects="delphi\control.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="eclipse">
+        <MSBuild Projects="delphi\eclipse.dproj"/>
+    </Target>
+    <Target Name="eclipse:Clean">
+        <MSBuild Projects="delphi\eclipse.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="eclipse:Make">
+        <MSBuild Projects="delphi\eclipse.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ecltimer">
+        <MSBuild Projects="delphi\ecltimer.dproj"/>
+    </Target>
+    <Target Name="ecltimer:Clean">
+        <MSBuild Projects="delphi\ecltimer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ecltimer:Make">
+        <MSBuild Projects="delphi\ecltimer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="foto">
+        <MSBuild Projects="delphi\foto.dproj"/>
+    </Target>
+    <Target Name="foto:Clean">
+        <MSBuild Projects="delphi\foto.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="foto:Make">
+        <MSBuild Projects="delphi\foto.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="luna">
+        <MSBuild Projects="delphi\luna.dproj"/>
+    </Target>
+    <Target Name="luna:Clean">
+        <MSBuild Projects="delphi\luna.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="luna:Make">
+        <MSBuild Projects="delphi\luna.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="newmoon">
+        <MSBuild Projects="delphi\newmoon.dproj"/>
+    </Target>
+    <Target Name="newmoon:Clean">
+        <MSBuild Projects="delphi\newmoon.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="newmoon:Make">
+        <MSBuild Projects="delphi\newmoon.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="numint">
+        <MSBuild Projects="delphi\numint.dproj"/>
+    </Target>
+    <Target Name="numint:Clean">
+        <MSBuild Projects="delphi\numint.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="numint:Make">
+        <MSBuild Projects="delphi\numint.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="occult">
+        <MSBuild Projects="delphi\occult.dproj"/>
+    </Target>
+    <Target Name="occult:Clean">
+        <MSBuild Projects="delphi\occult.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="occult:Make">
+        <MSBuild Projects="delphi\occult.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="orbdet">
+        <MSBuild Projects="delphi\orbdet.dproj"/>
+    </Target>
+    <Target Name="orbdet:Clean">
+        <MSBuild Projects="delphi\orbdet.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="orbdet:Make">
+        <MSBuild Projects="delphi\orbdet.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="phys">
+        <MSBuild Projects="delphi\phys.dproj"/>
+    </Target>
+    <Target Name="phys:Clean">
+        <MSBuild Projects="delphi\phys.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="phys:Make">
+        <MSBuild Projects="delphi\phys.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="planetpos">
+        <MSBuild Projects="delphi\planetpos.dproj"/>
+    </Target>
+    <Target Name="planetpos:Clean">
+        <MSBuild Projects="delphi\planetpos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="planetpos:Make">
+        <MSBuild Projects="delphi\planetpos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="planetrise">
+        <MSBuild Projects="delphi\planetrise.dproj"/>
+    </Target>
+    <Target Name="planetrise:Clean">
+        <MSBuild Projects="delphi\planetrise.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="planetrise:Make">
+        <MSBuild Projects="delphi\planetrise.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="sunset">
+        <MSBuild Projects="delphi\sunset.dproj"/>
+    </Target>
+    <Target Name="sunset:Clean">
+        <MSBuild Projects="delphi\sunset.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="sunset:Make">
+        <MSBuild Projects="delphi\sunset.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ApexD;coco;comet;control;eclipse;ecltimer;foto;luna;newmoon;numint;occult;orbdet;phys;planetpos;planetrise;sunset"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ApexD:Clean;coco:Clean;comet:Clean;control:Clean;eclipse:Clean;ecltimer:Clean;foto:Clean;luna:Clean;newmoon:Clean;numint:Clean;occult:Clean;orbdet:Clean;phys:Clean;planetpos:Clean;planetrise:Clean;sunset:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ApexD:Make;coco:Make;comet:Make;control:Make;eclipse:Make;ecltimer:Make;foto:Make;luna:Make;newmoon:Make;numint:Make;occult:Make;orbdet:Make;phys:Make;planetpos:Make;planetrise:Make;sunset:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
