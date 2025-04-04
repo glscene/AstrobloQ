@@ -10,14 +10,14 @@
 #pragma link "GLS.Objects"
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.SceneViewer"
-#pragma link "GLScene.BaseClasses"
-#pragma link "GLScene.Coordinates"
 
 #pragma link "GLS.LensFlare"
 #pragma link "GLS.SimpleNavigation"
 #pragma link "GLS.SkyDome"
 #pragma link "GLS.Atmosphere"
 
+#pragma link "GLS.BaseClasses"
+#pragma link "GLS.Coordinates"
 #pragma resource "*.dfm"
 TFormLife* FormLife;
 

@@ -18,11 +18,10 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
   Vcl.StdCtrls,
-
-
+  Vcl.Buttons,
   Vcl.ExtCtrls,
-  gnugettext,
-  fForm, Vcl.Buttons;
+
+  fForm;
 
 
 type
@@ -34,7 +33,7 @@ type
 
 
 type
-  TFormSettings = class(TFormI)
+  TfrmSettings = class(TFormI)
     tvSettings: TTreeView;
     PageControl: TPageControl;
     tsGeneral: TTabSheet;
@@ -42,7 +41,6 @@ type
     tsConstellations: TTabSheet;
     tsColorwheels: TTabSheet;
     tsSounds: TTabSheet;
-    rgLanguage: TRadioGroup;
     PanelBottom: TPanel;
     ButtonOk: TButton;
     Edit1: TEdit;
@@ -95,7 +93,6 @@ type
     procedure Button3Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure rgLanguageClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ButtonOkClick(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
@@ -110,7 +107,7 @@ type
 
 
 var
-  FormSettings: TFormSettings;
+  frmSettings: TfrmSettings;
 
 implementation
 
@@ -123,7 +120,7 @@ A TMyRec record is associated with the added item.
 The FName and LName fields are obtained from edit boxes
     Edit1 and Edit2.
 *)
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmSettings.FormCreate(Sender: TObject);
 var
   I: Integer;
   Caps: TMIDIOUTCAPS;
@@ -147,11 +144,11 @@ begin
     tvSettings.Items[I].StateIndex := I;
   end;
   // Items to translate:
-  tvSettings.Items[0].Text := _('General');
-  tvSettings.Items[1].Text := _('Interface');
-  tvSettings.Items[2].Text := _('Constellations');
-  tvSettings.Items[3].Text := _('Colorwheels');
-  tvSettings.Items[4].Text := _('Sounds');
+  tvSettings.Items[0].Text := 'General';
+  tvSettings.Items[1].Text := 'Interface';
+  tvSettings.Items[2].Text := 'Constellations';
+  tvSettings.Items[3].Text := 'Colorwheels';
+  tvSettings.Items[4].Text := 'Sounds';
 
   tvSettings.Select(tvSettings.Items[0]);
   tvSettings.Items[0].DropHighlighted := True;
@@ -162,7 +159,7 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TFormSettings.Button1Click(Sender: TObject);
+procedure TfrmSettings.Button1Click(Sender: TObject);
 var
   I : Integer;
 begin
@@ -190,7 +187,7 @@ After an item containing a TMyRec record has been added, the
 following code retrieves the FName and LName values
 associated with the item and displays the values in a label.
 *)
-procedure TFormSettings.Button2Click(Sender: TObject);
+procedure TfrmSettings.Button2Click(Sender: TObject);
 begin
   inherited;
   if (tvSettings.Selected.Data <> nil) then // Query only works on new nodes.
@@ -199,27 +196,14 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TFormSettings.Button3Click(Sender: TObject);
+procedure TfrmSettings.Button3Click(Sender: TObject);
 begin
   inherited;
   Edit4.Text := IntToStr(tvSettings.Selected.AbsoluteIndex);
 end;
 
-//---------------------------------------------------------------------------
-procedure TFormSettings.rgLanguageClick(Sender: TObject);
-begin
-  inherited;
-  case rgLanguage.ItemIndex of
-    0: CurLangID := LANG_ENGLISH;
-    1: CurLangID := LANG_RUSSIAN;
-    2: CurLangID := LANG_SPANISH;
-    else
-      CurLangID := LANG_ENGLISH;
-  end;
-end;
 
-
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -232,43 +216,33 @@ begin
   end;
 end;
 
-procedure TFormSettings.FormDestroy(Sender: TObject);
+procedure TfrmSettings.FormDestroy(Sender: TObject);
 begin
   inherited;
   Dispose(MyRecPtr);
 end;
 
 //----------------------------------------------------------------------
-procedure TFormSettings.ReadIniFile;
+procedure TfrmSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    LangID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
-    case LangID of
-      LANG_ENGLISH:
-        rgLanguage.ItemIndex := 0;
-      LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1;
-      LANG_SPANISH:
-        rgLanguage.ItemIndex := 2;
-    else
-      rgLanguage.ItemIndex := 0;
-    end;
+    // LanguageID := IniFile.ReadInteger(FormSettings.Name, rgLanguage.Name, 0);
   finally
     IniFile.Free;
   end;
 end;
 
-procedure TFormSettings.WriteIniFile;
+procedure TfrmSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(FormSettings.Name, rgLanguage.Name, CurLangID);
+//    IniFile.WriteInteger(FormSettings.Name, btnBigOctava, ...);
   finally
     IniFile.Free;
   end;
@@ -276,26 +250,21 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TFormSettings.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSettings.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;
 end;
 
 //----------------------------------------------------------------
-procedure TFormSettings.ButtonOkClick(Sender: TObject);
+procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
   inherited;
-  if CurLangID <> LangID then
-  begin
-    MessageDlg(_('Reload to change language'),
-      mtInformation, [mbOK], 0);
-    FileName := ChangeFileExt(ParamStr(0), '.ini');
-    if FileExists(UpperCase(FileName)) then
-      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-  end;
+  FileName := ChangeFileExt(ParamStr(0), '.ini');
+  if FileExists(UpperCase(FileName)) then
+    DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   Close;
  //
 end;

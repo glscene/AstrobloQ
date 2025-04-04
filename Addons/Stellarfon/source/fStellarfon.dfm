@@ -1,4 +1,4 @@
-object FormStellarfon: TFormStellarfon
+object frmStellarfon: TfrmStellarfon
   Left = 0
   Top = 0
   Caption = 'Stellarfon'

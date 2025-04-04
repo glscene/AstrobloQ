@@ -151,12 +151,12 @@
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\udUtils.pas"/>
         <DCCReference Include="..\Source\fAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\udGlobals.pas"/>
+        <DCCReference Include="..\Source\uUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -56,7 +56,7 @@ uses
 
   fnSettings,
 
-  udUtils;
+  uUtils;
 
 type
   TfrmUniverse = class(TFormI)

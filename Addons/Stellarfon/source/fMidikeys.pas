@@ -258,7 +258,7 @@ end;
 
 procedure TFormMidikeys.miOptionsClick(Sender: TObject);
 begin
-  FormSettings.Show;
+  frmSettings.Show;
 { old
   FormOptions.Show;
   if hMidiOut <> 0 then

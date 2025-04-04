@@ -1,4 +1,4 @@
-inherited FormSettings: TFormSettings
+inherited frmSettings: TfrmSettings
   Caption = 'Settings'
   ClientHeight = 665
   ClientWidth = 940
@@ -28,7 +28,6 @@ inherited FormSettings: TFormSettings
       00000000010B43006F006C006F00720077006800650065006C00730000002B00
       0000040000000400000004000000FFFFFFFF0000000000000000000000000001
       0653006F0075006E0064007300}
-    ExplicitHeight = 593
   end
   object PageControl: TPageControl
     Left = 183
@@ -38,8 +37,6 @@ inherited FormSettings: TFormSettings
     ActivePage = tsGeneral
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 749
-    ExplicitHeight = 593
     object tsGeneral: TTabSheet
       Caption = 'General'
       object Edit1: TEdit
@@ -602,21 +599,6 @@ inherited FormSettings: TFormSettings
     object tsInterface: TTabSheet
       Caption = 'Interface'
       ImageIndex = 1
-      object rgLanguage: TRadioGroup
-        Left = 61
-        Top = 84
-        Width = 472
-        Height = 109
-        Caption = 'Language'
-        Columns = 3
-        ItemIndex = 0
-        Items.Strings = (
-          'English'
-          'Russian'
-          'Spanish')
-        TabOrder = 0
-        OnClick = rgLanguageClick
-      end
     end
     object tsConstellations: TTabSheet
       Caption = 'Constellations'
@@ -642,8 +624,6 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 593
-    ExplicitWidth = 932
     object ButtonOk: TButton
       Left = 672
       Top = 8

@@ -127,19 +127,17 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Externals\apc\Apc.DE.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Kepler.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Math.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Moon.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Phys.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Planets.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.PrecNut.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Spheric.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Sun.pas"/>
-        <DCCReference Include="..\Externals\apc\Apc.Time.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Kepler.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Math.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Moon.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Phys.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Planets.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.PrecNut.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Spheric.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Sun.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Time.pas"/>
         <DCCReference Include="..\source\astro\udConstBayers.pas"/>
         <DCCReference Include="..\source\astro\udEphemerides.pas"/>
-        <DCCReference Include="..\Externals\sofa\sofa.pas"/>
         <DCCReference Include="..\source\astro\fdCoordinates.pas">
             <Form>FormCoords</Form>
         </DCCReference>
@@ -173,7 +171,6 @@
             <Form>dmDialogs</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
         <DCCReference Include="..\Source\astro\fdHercRussel.pas">
             <Form>FormHercrussel</Form>
             <FormType>dfm</FormType>
@@ -183,7 +180,6 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\udGlobals.pas"/>
-        <DCCReference Include="..\Source\udUtils.pas"/>
         <DCCReference Include="..\source\astro\udVsop2013.pas"/>
         <DCCReference Include="..\Source\astro\fdSettings.pas">
             <Form>frmSettings</Form>
@@ -201,6 +197,9 @@
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Externals\sofa\sofa.pas"/>
+        <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
+        <DCCReference Include="..\Source\uUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

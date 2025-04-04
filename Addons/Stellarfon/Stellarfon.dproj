@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{2C26BE7E-7AB5-4D46-9F81-C88714C26591}</ProjectGuid>
-        <ProjectVersion>20.2</ProjectVersion>
+        <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -104,7 +104,7 @@
         <DCCReference Include="source\uGlobals.pas"/>
         <DCCReference Include="source\uSound.pas"/>
         <DCCReference Include="source\fStellarfon.pas">
-            <Form>FormStellarfon</Form>
+            <Form>frmStellarfon</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fAbout.pas">
@@ -130,14 +130,14 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\fMidikeys.pas">
             <Form>FormMidikeys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\..\Source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\..\Source\uUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -285,6 +285,16 @@
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\values-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStylesV35">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values-v35</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\values-v35</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>

@@ -19,13 +19,13 @@
 #include "GLS.SceneViewer.hpp"
 #include "GLS.Texture.hpp"
 #include "GLS.SkyDome.hpp"
-#include "GLScene.VectorGeometry.hpp"
+#include "Stage.VectorGeometry.hpp"
 #include "GLS.Atmosphere.hpp"
 #include "GLS.SimpleNavigation.hpp"
 #include "GLS.Behaviours.hpp"
 #include "GLS.Color.hpp"
-#include "GLScene.BaseClasses.hpp"
-#include "GLScene.Coordinates.hpp"
+#include "GLS.BaseClasses.hpp"
+#include "GLS.Coordinates.hpp"
 
 //---------------------------------------------------------------------------
 class TFormLife : public TForm

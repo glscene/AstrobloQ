@@ -59,7 +59,7 @@ uses
   fdHercRussel,
   fdHipparcos,
 
-  udUtils;
+  uUtils;
 
 type
   TfrmAstroViewer = class(TFormI)

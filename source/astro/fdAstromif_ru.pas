@@ -38,7 +38,7 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
-  udUtils,
+  uUtils,
   udGlobals,
 
   fdMixTextures,

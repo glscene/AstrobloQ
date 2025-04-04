@@ -19,10 +19,10 @@ uses
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
   fdForm in '..\Source\fdForm.pas' {FormI},
-  udUtils in '..\Source\udUtils.pas',
   fgSettings_ru in '..\Source\galaxy\fgSettings_ru.pas' {frmSettings},
   fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaxy},
-  udGlobals in '..\Source\udGlobals.pas';
+  udGlobals in '..\Source\udGlobals.pas',
+  uUtils in '..\Source\uUtils.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

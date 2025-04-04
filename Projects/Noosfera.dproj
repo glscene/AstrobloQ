@@ -150,7 +150,6 @@
             <Form>frmSettings</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\udGenRandom.pas"/>
-        <DCCReference Include="..\Source\udUtils.pas"/>
         <DCCReference Include="..\source\astro\fdMixTextures.pas">
             <Form>FormTexCombine</Form>
         </DCCReference>
@@ -179,6 +178,7 @@
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Source\uUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -30,8 +30,8 @@
 #include "fProjections.h"
 #include "fStarLife.h"
 #include "fAbout.h"
-#include "GLScene.BaseClasses.hpp"
-#include "GLScene.Coordinates.hpp"
+#include "GLS.BaseClasses.hpp"
+#include "GLS.Coordinates.hpp"
 
 // ---------------------------------------------------------------------------
 class TFormBox : public TForm {

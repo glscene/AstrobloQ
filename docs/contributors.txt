@@ -4,7 +4,6 @@ AstrobloQ contributors
 =================
  
 Pavel Vassiliev
-Vasily Danilov
 Eric Grange
 Dave Kerr
 Jerome Delauney
@@ -16,5 +15,6 @@ Alexandr Tsvetkov
 Leo Koptyaev
 Elizaveta Soboleva
 Anton Dahin
+Danil Wasilyev
 
 

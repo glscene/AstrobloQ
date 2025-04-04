@@ -62,6 +62,7 @@ object frmUniverse: TfrmUniverse
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 689
       end
       object tvPlanets: TTreeView
         Left = 0
@@ -174,7 +175,6 @@ object frmUniverse: TfrmUniverse
           0064006E00610000001F0000000000000000000000FFFFFFFFFFFFFFFF000000
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF000000000000000000000000000100}
-        ExplicitHeight = 537
       end
     end
     object tsConstellations: TTabSheet

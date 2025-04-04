@@ -57,8 +57,7 @@
         OnMouseDown = GLSceneViewer1MouseDown
         OnMouseMove = GLSceneViewer1MouseMove
         TabOrder = 0
-        ExplicitWidth = 628
-        ExplicitHeight = 367
+        ExplicitWidth = 737
       end
       object Panel1: TPanel
         Left = 729

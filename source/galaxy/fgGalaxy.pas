@@ -60,7 +60,7 @@ uses
   fgSettings,
 
   uGlobals,
-  udUtils,
+  uUtils,
   fdForm;
 
 type
@@ -185,6 +185,7 @@ type
     miTetralization: TMenuItem;
     N4: TMenuItem;
     ranslator1: TMenuItem;
+    GLMatLib: TGLMaterialLibrary;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);

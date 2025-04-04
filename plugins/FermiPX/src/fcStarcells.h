@@ -7,9 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "GLScene.BaseClasses.hpp"
 #include "GLS.Cadencer.hpp"
-#include "GLScene.Coordinates.hpp"
 #include "GLS.Objects.hpp"
 #include "GLS.Scene.hpp"
 #include "GLS.SceneViewer.hpp"
@@ -47,6 +45,8 @@
 #include <System.ImageList.hpp>
 #include <Vcl.ImgList.hpp>
 #include <Vcl.ToolWin.hpp>
+#include "GLS.BaseClasses.hpp"
+#include "GLS.Coordinates.hpp"
 
 //---------------------------------------------------------------------------
 struct DelaunayBase

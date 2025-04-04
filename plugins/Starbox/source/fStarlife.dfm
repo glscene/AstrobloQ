@@ -24,6 +24,7 @@ object FormLife: TFormLife
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 763
   end
   object Panel1: TPanel
     Left = 755

@@ -18,9 +18,9 @@ uses
   Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
   Teh.Globals in '..\source\teh\Teh.Globals.pas',
   fdForm in '..\Source\fdForm.pas' {FormI},
-  udUtils in '..\Source\udUtils.pas',
   fAbout in '..\Source\fAbout.pas' {FormAbout},
-  udGlobals in '..\Source\udGlobals.pas';
+  udGlobals in '..\Source\udGlobals.pas',
+  uUtils in '..\Source\uUtils.pas';
 
 {$R *.res}
 

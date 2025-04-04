@@ -15,8 +15,8 @@
 #include "GLS.Objects.hpp"
 #include <Vcl.Menus.hpp>
 #include <Vcl.Samples.Spin.hpp>
-#include "GLScene.BaseClasses.hpp"
-#include "GLScene.Coordinates.hpp"
+#include "GLS.BaseClasses.hpp"
+#include "GLS.Coordinates.hpp"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {

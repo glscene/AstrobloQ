@@ -21,7 +21,6 @@ type
     ImageListInterface: TImageList;
     PlanetMaps: TImageCollection;
     GLPlanetMaps: TGLMaterialLibrary;
-    GLMatLib: TGLMaterialLibrary;
     VirtPlanetMaps: TVirtualImageList;
   private
   public

@@ -15,8 +15,8 @@
 #pragma link "GLS.Scene"
 #pragma link "GLS.SceneViewer"
 
-#pragma link "GLScene.BaseClasses"
-#pragma link "GLScene.Coordinates"
+#pragma link "GLS.BaseClasses"
+#pragma link "GLS.Coordinates"
 
 #pragma resource "*.dfm"
 TFormProjections *FormProjections;

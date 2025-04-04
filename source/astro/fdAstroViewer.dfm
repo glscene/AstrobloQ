@@ -2,8 +2,8 @@ object frmAstroViewer: TfrmAstroViewer
   Left = 0
   Top = 0
   Caption = 'AstroViewer'
-  ClientHeight = 642
-  ClientWidth = 930
+  ClientHeight = 617
+  ClientWidth = 922
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,8 +17,8 @@ object frmAstroViewer: TfrmAstroViewer
   TextHeight = 15
   object StatusBar: TStatusBar
     Left = 0
-    Top = 619
-    Width = 930
+    Top = 594
+    Width = 922
     Height = 23
     Panels = <
       item
@@ -36,29 +36,29 @@ object frmAstroViewer: TfrmAstroViewer
       item
         Width = 86
       end>
-    ExplicitTop = 594
-    ExplicitWidth = 922
+    ExplicitTop = 644
+    ExplicitWidth = 938
   end
   object PageControl: TPageControl
     Left = 0
     Top = 27
-    Width = 930
-    Height = 592
+    Width = 922
+    Height = 567
     ActivePage = tsPlanets
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 922
-    ExplicitHeight = 567
+    ExplicitWidth = 938
+    ExplicitHeight = 617
     object tsPlanets: TTabSheet
       Caption = 'Planets'
       object GLSceneViewer: TGLSceneViewer
         Left = 241
         Top = 0
-        Width = 681
-        Height = 562
+        Width = 689
+        Height = 587
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 152.023483276367200000
+        FieldOfView = 153.171020507812500000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
@@ -67,7 +67,7 @@ object frmAstroViewer: TfrmAstroViewer
         Left = 0
         Top = 0
         Width = 241
-        Height = 562
+        Height = 587
         Align = alLeft
         AutoExpand = True
         Font.Charset = DEFAULT_CHARSET
@@ -174,7 +174,6 @@ object frmAstroViewer: TfrmAstroViewer
           0064006E00610000001F0000000000000000000000FFFFFFFFFFFFFFFF000000
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF000000000000000000000000000100}
-        ExplicitHeight = 537
       end
     end
     object tsConstellations: TTabSheet
@@ -415,11 +414,11 @@ object frmAstroViewer: TfrmAstroViewer
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 930
+    Width = 922
     Height = 27
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 922
+    ExplicitWidth = 938
     object tbMain: TToolBar
       Left = 19
       Top = 2

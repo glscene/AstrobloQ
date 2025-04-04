@@ -16,8 +16,6 @@
 #pragma link "GLS.Color"
 
 #pragma link "GLS.SimpleNavigation"
-#pragma link "GLScene.BaseClasses"
-#pragma link "GLScene.Coordinates"
 #pragma resource "*.dfm"
 TFormBox* FormBox;
 

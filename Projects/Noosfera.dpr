@@ -14,7 +14,6 @@ uses
   udGlobals in '..\Source\udGlobals.pas',
   fnSettings in '..\Source\noo\fnSettings.pas' {frmSettings},
   udGenRandom in '..\source\astro\udGenRandom.pas',
-  udUtils in '..\Source\udUtils.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
   fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
   fdForm in '..\Source\fdForm.pas' {FormI},
@@ -24,7 +23,8 @@ uses
   Vcl.Styles,
   fnNoosfera in '..\Source\noo\fnNoosfera.pas' {frmUniverse},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
-  fForm in '..\Source\fForm.pas' {FormG};
+  fForm in '..\Source\fForm.pas' {FormG},
+  uUtils in '..\Source\uUtils.pas';
 
 {$R *.res}
 

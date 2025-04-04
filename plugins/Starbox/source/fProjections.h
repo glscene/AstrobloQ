@@ -16,8 +16,8 @@
 #include "GLS.RenderContextInfo.hpp"
 #include <Vcl.ExtCtrls.hpp>
 
-#include "GLScene.BaseClasses.hpp"
-#include "GLScene.Coordinates.hpp"
+#include "GLS.BaseClasses.hpp"
+#include "GLS.Coordinates.hpp"
 
 
 //---------------------------------------------------------------------------
