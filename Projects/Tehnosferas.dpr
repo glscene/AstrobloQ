@@ -17,10 +17,9 @@ uses
   ftCETI in '..\source\teh\ftCETI.pas' {FormTehnosfera},
   Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
   Teh.Globals in '..\source\teh\Teh.Globals.pas',
-  fdForm in '..\Source\fdForm.pas' {FormI},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
-  udGlobals in '..\Source\udGlobals.pas',
-  uUtils in '..\Source\uUtils.pas';
+  uUtils in '..\Source\uUtils.pas',
+  uGlobals in '..\source\uGlobals.pas';
 
 {$R *.res}
 
@@ -33,11 +32,10 @@ begin
   Application.CreateForm(TFormMeshData, FormMeshData);
   Application.CreateForm(TFormSpacePilot, FormSpacePilot);
   Application.CreateForm(TFormLocations, FormLocations);
-  Application.CreateForm(TFormG, FormG);
+  Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TFormCyborg, FormCyborg);
   Application.CreateForm(TFormLoadSmdMdl, FormLoadSmdMdl);
   Application.CreateForm(TFormTehnosfera, FormTehnosfera);
-  Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

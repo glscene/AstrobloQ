@@ -53,12 +53,11 @@ uses
   flSettings,
   flParams,
 
-  fForm,
-  fdForm
+  fForm
   ;
 
 type
-  TFormStarSys = class(TFormG)  // not translated when TForm
+  TFormStarSys = class(TFormI)  // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

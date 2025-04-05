@@ -14,13 +14,11 @@ uses
   fgParadox in '..\Source\galaxy\fgParadox.pas' {FormParadox},
   fgExoplanets in '..\Source\galaxy\fgExoplanets.pas' {FormExoplanets},
   uGlobals in '..\Source\uGlobals.pas',
-  fForm in '..\source\fForm.pas' {FormG},
+  fForm in '..\source\fForm.pas' {FormI},
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  fdForm in '..\Source\fdForm.pas' {FormI},
   fgSettings_ru in '..\Source\galaxy\fgSettings_ru.pas' {frmSettings},
   fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaxy},
-  udGlobals in '..\Source\udGlobals.pas',
   uUtils in '..\Source\uUtils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection};
 

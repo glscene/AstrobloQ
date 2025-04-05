@@ -100,6 +100,6 @@ begin
   Application.CreateForm(TFormImages, FormImages);
   Application.CreateForm(TfmTutorial, fmTutorial);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TFormG, FormG);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

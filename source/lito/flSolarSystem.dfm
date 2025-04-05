@@ -32,6 +32,7 @@ object FormSolarSys: TFormSolarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 656
   end
   object PanelLeft: TPanel
     Left = 0
@@ -83,6 +84,7 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
+      ExplicitWidth = 64
     end
     inline FrameParams: TFrameParams
       Left = 1

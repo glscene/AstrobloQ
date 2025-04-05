@@ -59,8 +59,7 @@ uses
   fgStarcube,
   fgSettings_ru,
 
-  uGlobals,
-  fdForm;
+  uGlobals;
 
 type
   TfrmGalaxy = class(TFormI) // not translated if TForm

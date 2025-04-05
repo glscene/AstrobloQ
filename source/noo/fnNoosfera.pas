@@ -49,7 +49,7 @@ uses
   fAbout,
 
   ddImages,
-  fdForm,
+  fForm,
   fdCoordinates,
   fdPointto,
   fdConstPolygons,

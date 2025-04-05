@@ -147,16 +147,12 @@
         </DCCReference>
         <DCCReference Include="..\source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
-        <DCCReference Include="..\Source\fdForm.pas">
-            <Form>FormI</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\Source\fAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\udGlobals.pas"/>
         <DCCReference Include="..\Source\uUtils.pas"/>
+        <DCCReference Include="..\source\uGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

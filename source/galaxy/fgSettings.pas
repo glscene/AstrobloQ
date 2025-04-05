@@ -35,11 +35,10 @@ uses
 
   uGlobals,
   dImages,
-  fForm,
-  fdForm;
+  fForm;
 
 type
-  TfrmSettings = class(TFormG)
+  TfrmSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -339,21 +338,8 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLang := IniFile.ReadInteger(frmSettings.Name, rgLanguage.Name, 0);
     CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
     CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
-    case ActiveLang of
-      LANG_ENGLISH:
-        rgLanguage.ItemIndex := 0;
-      LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1;
-      LANG_PORTUGUESE:
-        rgLanguage.ItemIndex := 2;
-      LANG_SPANISH:
-        rgLanguage.ItemIndex := 3
-    else
-      rgLanguage.ItemIndex := 0;
-    end;
   finally
     IniFile.Free;
   end;
@@ -368,7 +354,6 @@ begin
   try
     IniFile.WriteBool(frmSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
     IniFile.WriteBool(frmSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
-    IniFile.WriteInteger(frmSettings.Name, rgLanguage.Name, CurLangID);
   finally
     IniFile.Free;
   end;

@@ -153,14 +153,14 @@
             <Form>dmImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Source\astro\fdAstroViewer.pas">
+        <DCCReference Include="..\source\astro\fdAstroVersum.pas">
             <Form>frmAstroViewer</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\udGenRandom.pas"/>
         <DCCReference Include="..\source\astro\fdMixTextures.pas">
             <Form>FormTexCombine</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\fdForm.pas">
+        <DCCReference Include="..\source\fForm.pas">
             <Form>FormI</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\ddBase.pas">
@@ -179,7 +179,6 @@
             <Form>FormHipparcos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\udGlobals.pas"/>
         <DCCReference Include="..\source\astro\udVsop2013.pas"/>
         <DCCReference Include="..\Source\astro\fdSettings.pas">
             <Form>frmSettings</Form>
@@ -193,13 +192,10 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fForm.pas">
-            <Form>FormG</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\Externals\sofa\sofa.pas"/>
         <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
         <DCCReference Include="..\Source\uUtils.pas"/>
+        <DCCReference Include="..\source\uGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

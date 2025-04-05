@@ -155,9 +155,6 @@
         <DCCReference Include="..\Source\astro\fdAstromif_ru.pas">
             <Form>FormAstromif</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\fdForm.pas">
-            <Form>FormI</Form>
-        </DCCReference>
         <DCCReference Include="..\source\astro\ddBase.pas">
             <Form>dmBase</Form>
             <DesignClass>TDataModule</DesignClass>
@@ -174,7 +171,6 @@
             <Form>FormHipparcos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\udGlobals.pas"/>
         <DCCReference Include="..\Source\astro\fdSettings_ru.pas">
             <Form>frmSettings</Form>
         </DCCReference>
@@ -199,6 +195,7 @@
         <DCCReference Include="..\Addons\Apex\apc\Apc.Spheric.pas"/>
         <DCCReference Include="..\Addons\Apex\apc\Apc.Sun.pas"/>
         <DCCReference Include="..\Addons\Apex\apc\Apc.Time.pas"/>
+        <DCCReference Include="..\source\uGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

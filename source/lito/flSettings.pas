@@ -32,11 +32,10 @@ uses
   Vcl.WinXCtrls,
   Vcl.NumberBox,
 
-  fForm,
-  fdForm;
+  fForm;
 
 type
-  TfrmSettingsLito = class(TFormG)
+  TfrmSettingsLito = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -84,7 +83,6 @@ type
     chbClouds: TCheckBox;
     chbCartographicGrid: TCheckBox;
     CheckBoxHidePlanet: TCheckBox;
-    rgLanguage: TRadioGroup;
     gbShowStars: TGroupBox;
     chbSkyGrid: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
@@ -93,7 +91,6 @@ type
     procedure CheckBoxCoreClick(Sender: TObject);
     procedure CheckBoxAtmosferaClick(Sender: TObject);
     procedure CheckBoxHidePlanetClick(Sender: TObject);
-    procedure rgLanguageClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
     procedure chbCartographicGridClick(Sender: TObject);
@@ -217,16 +214,6 @@ begin
   end;
 end;
 
-procedure TfrmSettingsLito.rgLanguageClick(Sender: TObject);
-begin
-  case rgLanguage.ItemIndex of
-    0: CurLangID := LANG_ENGLISH;
-    1: CurLangID := LANG_RUSSIAN
-    else
-      CurLangID := LANG_ENGLISH;
-  end;
-end;
-
 //------------------------------------------------------------
 procedure TfrmSettingsLito.ReadIniFile;
 var
@@ -235,21 +222,8 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLang := IniFile.ReadInteger(frmSettingsLito.Name, rgLanguage.Name, 0);
     CheckBoxAxes.Checked := IniFile.ReadBool(frmSettingsLito.Name, CheckBoxAxes.Name, True);
     CheckBoxRotate.Checked := IniFile.ReadBool(frmSettingsLito.Name, CheckBoxRotate.Name, True);
-    case ActiveLang of
-      LANG_ENGLISH:
-        rgLanguage.ItemIndex := 0;
-      LANG_RUSSIAN:
-        rgLanguage.ItemIndex := 1;
-      LANG_PORTUGUESE:
-        rgLanguage.ItemIndex := 2;
-      LANG_SPANISH:
-        rgLanguage.ItemIndex := 3
-    else
-      rgLanguage.ItemIndex := 0;
-    end;
   finally
     IniFile.Free;
   end;
@@ -262,7 +236,6 @@ var
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(frmSettingsLito.Name, rgLanguage.Name, CurLangID);
     IniFile.WriteBool(frmSettingsLito.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
     IniFile.WriteBool(frmSettingsLito.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
@@ -276,12 +249,9 @@ procedure TfrmSettingsLito.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
-  if CurLangID <> ActiveLang then
-  begin
   FileName := ChangeFileExt(ParamStr(0), '.ini');
   if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-  end;
   WriteIniFile;
   frmSettingsLito.Close;
 end;

@@ -43,11 +43,10 @@ uses
   GLS.Coordinates,
 
   GLS.BaseClasses,
-  fForm,
-  fdForm;
+  fForm;
 
 type
-  TFormTehnosfera = class(TFormG)
+  TFormTehnosfera = class(TFormI)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;

@@ -1,9 +1,10 @@
 //-------------------------------------
-// This unit is part of the Galaktika
+// This unit is part of AstroLibrary
 //-------------------------------------
+
 unit fForm;
 
-(* The fForm unit for TFormI class as parent for all child forms *)
+(* The fdForm unit for TFormI class as parent for all child forms *)
 
 interface
 
@@ -11,46 +12,46 @@ uses
   Winapi.Windows,
   System.SysUtils,
   System.IniFiles,
-  System.Classes,
   Vcl.Forms,
   Vcl.Graphics,
   Vcl.Menus,
-  Vcl.ExtDlgs,
-  Vcl.Controls,
-  Vcl.StdCtrls;
+  Vcl.ExtDlgs;
 
 type
-  TFormG = class(TForm)
+  TFormI = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
-    ActiveLang: Word;
     procedure ReadIniFile; virtual;
   end;
 
 var
-  FormG: TFormG;
+  FormI: TFormI;
 
-implementation //-----------------------------------------------------------
+implementation
 
 {$R *.dfm}
 
+uses
+  uGlobals;
+
 //
-procedure TFormG.FormCreate(Sender: TObject);
+procedure TFormI.FormCreate(Sender: TObject);
 begin
-  ReadIniFile;
+  ReadInifile;
 end;
 
-//------------------------------------------------------------------------
-procedure TFormG.ReadIniFile;
+//----------------------------------------------------------
+
+procedure TFormI.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      // use correct argument names
-      ActiveLang := ReadInteger('frmSettings', 'rgLanguage', 0);
+      // —читываем идентификатор €зыка интерфейса
+      LanguageID := ReadInteger('frmSettings', 'rgLanguage', 0);
     finally
       IniFile.Free;
     end;

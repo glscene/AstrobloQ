@@ -42,7 +42,6 @@ object frmLitosphere: TfrmLitosphere
     Height = 652
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 627
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
@@ -152,7 +151,6 @@ object frmLitosphere: TfrmLitosphere
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 625
     end
   end
   object StatusBar: TStatusBar
@@ -177,8 +175,6 @@ object frmLitosphere: TfrmLitosphere
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 656
-    ExplicitWidth = 1034
   end
   object ControlBar: TControlBar
     Left = 0
@@ -187,7 +183,6 @@ object frmLitosphere: TfrmLitosphere
     Height = 29
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1034
     object ToolBar1: TToolBar
       Left = 19
       Top = 2
@@ -273,7 +268,7 @@ object frmLitosphere: TfrmLitosphere
     end
     object Camera: TGLCamera
       DepthOfView = 200000.000000000000000000
-      FocalLength = 99.545860290527350000
+      FocalLength = 99.545860290527340000
       NearPlaneBias = 0.100000001490116100
       TargetObject = dcStar
       CameraStyle = csInfinitePerspective

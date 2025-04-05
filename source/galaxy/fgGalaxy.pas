@@ -60,8 +60,7 @@ uses
   fgSettings,
 
   uGlobals,
-  uUtils,
-  fdForm;
+  uUtils;
 
 type
   TfrmGalaxy = class(TFormI) // not translated if TForm

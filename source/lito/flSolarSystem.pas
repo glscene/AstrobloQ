@@ -54,12 +54,11 @@ uses
   flSettings,
   flParams,
 
-  fForm,
-  fdForm
+  fForm
   ;
 
 type
-  TFormSolarSys = class(TFormG) // not translated when TForm
+  TFormSolarSys = class(TFormI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

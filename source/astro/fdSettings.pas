@@ -30,7 +30,7 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  fdForm;
+  fForm;
 
 type
   TfrmSettings = class(TFormI)
@@ -111,7 +111,7 @@ implementation //------------------------------------------------------------
 
 
 uses
-  fdAstroViewer;
+  fdAstroVersum;
 {$R *.dfm}
 
 

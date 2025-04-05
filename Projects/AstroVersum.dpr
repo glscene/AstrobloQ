@@ -21,23 +21,22 @@ uses
   udHiputils in '..\source\astro\udHiputils.pas',
   fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
   ddImages in '..\source\astro\ddImages.pas' {dmImages: TDataModule},
-  fdAstroViewer in '..\Source\astro\fdAstroViewer.pas' {frmAstroViewer},
+  fdAstroVersum in '..\source\astro\fdAstroVersum.pas' {frmAstroViewer},
   udGenRandom in '..\source\astro\udGenRandom.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
-  fdForm in '..\Source\fdForm.pas' {FormI},
+  fForm in '..\source\fForm.pas' {FormI},
   ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
   ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
   fdHercRussel in '..\Source\astro\fdHercRussel.pas' {FormHercrussel},
   fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
-  udGlobals in '..\Source\udGlobals.pas',
   udVsop2013 in '..\source\astro\udVsop2013.pas',
   fdSettings in '..\Source\astro\fdSettings.pas' {frmSettings},
   fdAstromif in '..\Source\astro\fdAstromif.pas' {FormAstromif},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
-  fForm in '..\source\fForm.pas' {FormG},
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
-  uUtils in '..\Source\uUtils.pas';
+  uUtils in '..\Source\uUtils.pas',
+  uGlobals in '..\source\uGlobals.pas';
 
 {$R *.res}
 
@@ -51,7 +50,6 @@ begin
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TFormAbout, FormAbout);
-  Application.CreateForm(TFormG, FormG);
   Application.Run;
 end.
 

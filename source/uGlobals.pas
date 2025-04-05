@@ -3,13 +3,44 @@ unit uGlobals;
 interface
 
 uses
+  Winapi.Windows,
   System.SysUtils,
   System.IniFiles,
   System.UITypes;
 
 const
-  SELDIRHELP: INTEGER = 180;
+  //cRegistryKey = 'Software\AstrobloQ';
+  RegSoundCube = PathDelim + 'SOFTWARE' + PathDelim + 'AstrobloQ' + PathDelim;
+
+  CubeSize = 1000;
+
+  cAUkm = 149597870.7; // 1 а.е. в километрах
+  cLYau =     63241;   // число a.e. в 1 световом году
+  cPCau =    206265;   // число a.e. в 1 парсеке
+  cLYpc =    3.2616;   // число парсек в 1 световом году
+
+  // file types to import/export
+  ftTXT = 'txt';  // text
+  ftCSV = 'csv';  // csv
+  ftDAT = 'dat';  // dat
+  ftSQL = 'sqlite';  // sqlite
+  ftTVN = 'tvn';  // treeview nodes
+
+  SeldirHelp: Integer = 180;
   ActiveLanguage: Integer = 9; // 9 - LANG_ENGLISH, 25 - LANG_RUSSIAN
+
+var
+ // ExePath: TFileName;
+  CurrentPath, Catalog: TFileName;
+  ModelPath:   TFileName;
+  TexturePath: TFileName;
+  IniFile: TIniFile;
+
+  LanguageID: integer = LANG_RUSSIAN; // or LANG_ENGLISH
+  GeneralSection: string = RegSoundCube + 'General';
+
+  SplashStart : Boolean;
+  TipOfTheDay : Boolean;
 
 
 type

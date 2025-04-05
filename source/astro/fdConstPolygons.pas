@@ -24,7 +24,7 @@ uses
   GLS.BaseClasses,
   GLS.Scene,
 
-  fdForm;
+  fForm;
 
 type
   TFormConstBorders = class(TFormI)

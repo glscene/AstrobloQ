@@ -36,8 +36,8 @@ object frmAstroViewer: TfrmAstroViewer
       item
         Width = 86
       end>
-    ExplicitTop = 644
-    ExplicitWidth = 938
+    ExplicitTop = 569
+    ExplicitWidth = 914
   end
   object PageControl: TPageControl
     Left = 0
@@ -47,18 +47,18 @@ object frmAstroViewer: TfrmAstroViewer
     ActivePage = tsPlanets
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 938
-    ExplicitHeight = 617
+    ExplicitWidth = 914
+    ExplicitHeight = 542
     object tsPlanets: TTabSheet
       Caption = 'Planets'
       object GLSceneViewer: TGLSceneViewer
         Left = 241
         Top = 0
-        Width = 689
-        Height = 587
+        Width = 673
+        Height = 537
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 153.171020507812500000
+        FieldOfView = 150.775619506835900000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
@@ -67,7 +67,7 @@ object frmAstroViewer: TfrmAstroViewer
         Left = 0
         Top = 0
         Width = 241
-        Height = 587
+        Height = 537
         Align = alLeft
         AutoExpand = True
         Font.Charset = DEFAULT_CHARSET
@@ -174,6 +174,7 @@ object frmAstroViewer: TfrmAstroViewer
           0064006E00610000001F0000000000000000000000FFFFFFFFFFFFFFFF000000
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF000000000000000000000000000100}
+        ExplicitHeight = 512
       end
     end
     object tsConstellations: TTabSheet
@@ -182,8 +183,8 @@ object frmAstroViewer: TfrmAstroViewer
       object VirtualImageChart: TVirtualImage
         Left = 209
         Top = 0
-        Width = 713
-        Height = 562
+        Width = 705
+        Height = 537
         Align = alClient
         ImageWidth = 0
         ImageHeight = 0
@@ -206,14 +207,14 @@ object frmAstroViewer: TfrmAstroViewer
         Left = 0
         Top = 0
         Width = 209
-        Height = 562
+        Height = 537
         Align = alLeft
         TabOrder = 0
         object tvConstellations: TTreeView
           Left = 1
           Top = 1
           Width = 207
-          Height = 560
+          Height = 535
           Align = alClient
           Color = clWhite
           Images = dmImages.VirtConstelSymbols
@@ -418,7 +419,7 @@ object frmAstroViewer: TfrmAstroViewer
     Height = 27
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 938
+    ExplicitWidth = 914
     object tbMain: TToolBar
       Left = 19
       Top = 2

@@ -28,7 +28,7 @@ object frmSettingsLito: TfrmSettingsLito
       750
       41)
     object ButtonOK: TButton
-      Left = 594
+      Left = 586
       Top = 1
       Width = 99
       Height = 31
@@ -53,7 +53,7 @@ object frmSettingsLito: TfrmSettingsLito
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsPlanets
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -70,7 +70,7 @@ object frmSettingsLito: TfrmSettingsLito
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = 25
+          Left = 17
           Top = 137
           Width = 104
           Height = 128
@@ -451,20 +451,6 @@ object frmSettingsLito: TfrmSettingsLito
         Caption = 'General'
         ImageIndex = 7
         TabVisible = False
-        object rgLanguage: TRadioGroup
-          Left = 171
-          Top = 66
-          Width = 222
-          Height = 63
-          Caption = 'Language'
-          Columns = 2
-          ItemIndex = 0
-          Items.Strings = (
-            'English'
-            'Russian')
-          TabOrder = 0
-          OnClick = rgLanguageClick
-        end
       end
     end
     object tvOptions: TTreeView

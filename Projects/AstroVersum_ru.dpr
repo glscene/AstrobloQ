@@ -15,14 +15,12 @@ uses
   udGenRandom in '..\source\astro\udGenRandom.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
   fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
-  fdForm in '..\Source\fdForm.pas' {FormI},
   ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
   ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
   fdHercRussel in '..\Source\astro\fdHercRussel.pas' {FormHercrussel},
   fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
-  udGlobals in '..\Source\udGlobals.pas',
   fdSettings_ru in '..\Source\astro\fdSettings_ru.pas' {frmSettings},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
   fForm in '..\Source\fForm.pas' {FormG},
@@ -38,7 +36,8 @@ uses
   Apc.PrecNut in '..\Addons\Apex\apc\Apc.PrecNut.pas',
   Apc.Spheric in '..\Addons\Apex\apc\Apc.Spheric.pas',
   Apc.Sun in '..\Addons\Apex\apc\Apc.Sun.pas',
-  Apc.Time in '..\Addons\Apex\apc\Apc.Time.pas';
+  Apc.Time in '..\Addons\Apex\apc\Apc.Time.pas',
+  uGlobals in '..\source\uGlobals.pas';
 
 {$R *.res}
 
@@ -52,7 +51,7 @@ begin
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TFormAbout, FormAbout);
-  Application.CreateForm(TFormG, FormG);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.
 

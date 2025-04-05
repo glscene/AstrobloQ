@@ -14,19 +14,19 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-
   Vcl.Menus,
   Vcl.ComCtrls,
   Vcl.ExtCtrls,
+  Vcl.StdCtrls,
+  Vcl.VirtualImage,
+  Vcl.ImgList,
+  Vcl.ToolWin,
+
   GLS.Material,
   GLS.Cadencer,
   GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
-  Vcl.StdCtrls,
-  Vcl.VirtualImage,
-  Vcl.ImgList,
-  Vcl.ToolWin,
 
   Stage.Keyboard,
   GLS.Coordinates,
@@ -38,8 +38,8 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
+  uGlobals,
   uUtils,
-  udGlobals,
 
   fdMixTextures,
   ddImages;

@@ -145,7 +145,6 @@
             <Form>dmImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Source\udGlobals.pas"/>
         <DCCReference Include="..\Source\noo\fnSettings.pas">
             <Form>frmSettings</Form>
         </DCCReference>
@@ -155,9 +154,6 @@
         </DCCReference>
         <DCCReference Include="..\Source\astro\fdAstromif_ru.pas">
             <Form>FormAstromif</Form>
-        </DCCReference>
-        <DCCReference Include="..\Source\fdForm.pas">
-            <Form>FormI</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\ddBase.pas">
             <Form>dmBase</Form>
@@ -179,6 +175,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uUtils.pas"/>
+        <DCCReference Include="..\source\uGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

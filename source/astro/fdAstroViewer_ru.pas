@@ -49,7 +49,7 @@ uses
   fAbout,
 
   ddImages,
-  fdForm,
+  fForm,
   fdCoordinates,
   fdPointto,
   fdConstPolygons,
@@ -543,5 +543,9 @@ procedure TfrmAstroViewer.miExitClick(Sender: TObject);
 begin
   Close;
 end;
+
+initialization
+
+   FormatSettings.DecimalSeparator := '.';
 
 end.

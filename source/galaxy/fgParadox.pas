@@ -14,10 +14,10 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
 
-  fForm, fdForm;
+  fForm;
 
 type
-  TFormParadox = class(TFormG)
+  TFormParadox = class(TFormI)
     tvParadox: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
@@ -37,19 +37,7 @@ var
   FileName: TFileName;
 begin
   // Load Paradox items
-  case ActiveLang of
-    LANG_ENGLISH:
-      begin
-        // en file
-        tvParadox.LoadFromFile(FileName);
-      end;
-    LANG_RUSSIAN:
-      begin
-        // ru file
-        tvParadox.LoadFromFile(FileName);
-        //
-      end;
-  end;
+  tvParadox.LoadFromFile(FileName);
   tvParadox.FullExpand();
 end;
 

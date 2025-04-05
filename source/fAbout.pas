@@ -23,7 +23,7 @@ uses
   fForm;
 
 type
-  TFormAbout = class(TFormG)
+  TFormAbout = class(TFormI)
     Panel1: TPanel;
     PageControl: TPageControl;
     tsStars: TTabSheet;

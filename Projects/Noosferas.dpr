@@ -11,12 +11,10 @@ uses
   udHiputils in '..\source\astro\udHiputils.pas',
   fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
   ddImages in '..\source\astro\ddImages.pas' {dmImages: TDataModule},
-  udGlobals in '..\Source\udGlobals.pas',
   fnSettings in '..\Source\noo\fnSettings.pas' {frmSettings},
   udGenRandom in '..\source\astro\udGenRandom.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
   fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
-  fdForm in '..\Source\fdForm.pas' {FormI},
   ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
   ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
   Vcl.Themes,
@@ -24,7 +22,8 @@ uses
   fnNoosfera in '..\Source\noo\fnNoosfera.pas' {frmUniverse},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
   fForm in '..\Source\fForm.pas' {FormG},
-  uUtils in '..\Source\uUtils.pas';
+  uUtils in '..\Source\uUtils.pas',
+  uGlobals in '..\source\uGlobals.pas';
 
 {$R *.res}
 

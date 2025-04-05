@@ -65,13 +65,12 @@ uses
   flSettings,
 
   fForm,
-  fdForm,
   fAbout
   ;
 
 
 type
-  TfrmLitosphere = class(TFormG) // not translated when TForm
+  TfrmLitosphere = class(TFormI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -927,9 +926,11 @@ begin
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text + _('Earth')
   if (tvPlanets.Selected.Level = 0)   then
   begin
+(*
     if ActiveLang = LANG_RUSSIAN then
       S :=  'https://ru.ruwiki.ru/wiki/Земля'
     else
+*)
 //      S :=  'https://en.wikipedia.org/wiki/Earth';
       S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text;
   end

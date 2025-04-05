@@ -23,9 +23,8 @@ uses
   fForm in '..\source\fForm.pas' {FormG},
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  fdForm in '..\Source\fdForm.pas' {FormI},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
-  udGlobals in '..\Source\udGlobals.pas';
+  uGlobals in '..\source\uGlobals.pas';
 
 {$R *.res}
 
@@ -34,7 +33,6 @@ begin
   Application.CreateForm(TfrmLitosphere, frmLitosphere);
   Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TfrmSettingsLito, frmSettingsLito);
-  Application.CreateForm(TFormG, FormG);
   Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;

@@ -1,45 +1,32 @@
 object FormHercrussel: TFormHercrussel
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Hercshprung-Russel Diagram'
-  ClientHeight = 758
-  ClientWidth = 1103
+  ClientHeight = 433
+  ClientWidth = 630
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 868
-    Height = 758
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 496
+    Height = 433
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
   end
   object PanelRight: TPanel
-    Left = 868
+    Left = 496
     Top = 0
-    Width = 235
-    Height = 758
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 134
+    Height = 433
     Align = alRight
     TabOrder = 1
   end

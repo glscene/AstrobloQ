@@ -1,45 +1,32 @@
 object FormConstBorders: TFormConstBorders
   Left = 0
   Top = 0
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Constellation polygons'
-  ClientHeight = 776
-  ClientWidth = 1183
+  ClientHeight = 443
+  ClientWidth = 676
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -21
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 30
+  TextHeight = 15
   object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 267
-    Height = 776
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 153
+    Height = 443
     Align = alLeft
     TabOrder = 0
     object tvShortNames: TTreeView
       Left = 1
-      Top = 71
-      Width = 265
-      Height = 602
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 41
+      Width = 151
+      Height = 344
       Align = alTop
-      Indent = 33
+      Indent = 19
       TabOrder = 0
       OnClick = tvShortNamesClick
       Items.NodeData = {
@@ -59,54 +46,37 @@ object FormConstBorders: TFormConstBorders
     object PanelNames: TPanel
       Left = 1
       Top = 1
-      Width = 265
-      Height = 70
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 151
+      Height = 40
       Align = alTop
       Caption = 'Name'
       TabOrder = 1
     end
     object CheckBoxData: TCheckBox
-      Left = 56
-      Top = 700
-      Width = 169
-      Height = 29
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 32
+      Top = 400
+      Width = 97
+      Height = 17
       Caption = 'Data'
       TabOrder = 2
       OnClick = CheckBoxDataClick
     end
   end
   object GLSceneViewer1: TGLSceneViewer
-    Left = 267
+    Left = 153
     Top = 0
-    Width = 916
-    Height = 776
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 523
+    Height = 443
     Buffer.BackgroundColor = clBlack
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 826
   end
   object MemoData: TMemo
-    Left = 420
-    Top = 160
-    Width = 606
-    Height = 472
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 240
+    Top = 91
+    Width = 346
+    Height = 270
     Lines.Strings = (
       'Memo1')
     TabOrder = 2

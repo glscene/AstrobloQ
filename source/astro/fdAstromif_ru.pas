@@ -39,7 +39,7 @@ uses
   GLS.VectorFileObjects,
 
   uUtils,
-  udGlobals,
+  uGlobals,
 
   fdMixTextures,
   ddImages;
