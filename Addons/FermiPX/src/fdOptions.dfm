@@ -1,7 +1,7 @@
-object FormSettings: TFormSettings
+object frmOptions: TfrmOptions
   Left = 0
   Top = 0
-  Caption = 'Settings'
+  Caption = 'Options'
   ClientHeight = 555
   ClientWidth = 843
   Color = clBtnFace
@@ -195,7 +195,7 @@ object FormSettings: TFormSettings
           Left = 122
           Top = 143
           Width = 159
-          Height = 38
+          Height = 23
           Hint = 'Map units'
           TabOrder = 3
           Text = 'Light Years, ly'
@@ -418,7 +418,7 @@ object FormSettings: TFormSettings
           TabOrder = 1
         end
         object chlbStarClasses: TCheckListBox
-          Left = 471
+          Left = 463
           Top = 273
           Width = 104
           Height = 113
@@ -876,7 +876,7 @@ object FormSettings: TFormSettings
           object stTrackBar: TStaticText
             Left = 359
             Top = 216
-            Width = 49
+            Width = 50
             Height = 19
             Caption = 'TrackBar'
             TabOrder = 5

@@ -4,11 +4,11 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("src\fcOptions.cpp", FormOptions);
-USEFORM("src\fcSpace.cpp", FormPÑ);
+USEFORM("src\fcStarcells.cpp", FormPÑ);
 USEFORM("src\fcStarlife.cpp", FormLife);
 USEFORM("src\fcAbout.cpp", FormAbout);
 USEFORM("src\fcDataset.cpp", FormDataset);
+USEFORM("src\fcOptions.cpp", FormOptions);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

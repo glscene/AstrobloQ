@@ -1,4 +1,4 @@
-program Biosfera;
+program Biosferus;
 
 uses
   Forms,

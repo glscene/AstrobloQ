@@ -92,7 +92,7 @@ VoronoiBase = record
 end;
 
 type
-  TFormPD = class(TForm)
+  TfrmStarnets = class(TForm)
     StatusBar1: TStatusBar;
     GLSceneViewer: TGLSceneViewer;
     PanelRight: TPanel;
@@ -174,7 +174,7 @@ type
   end;
 
 var
-  FormPD: TFormPD;
+  frmStarnets: TfrmStarnets;
 
   // All Delaunay records
   O_Delaunay,
@@ -214,7 +214,7 @@ implementation
 
 {$R *.dfm}
 
-function TFormPD.GetDataDir(): TFileName;
+function TfrmStarnets.GetDataDir(): TFileName;
 var
   path: TFileName;
 begin
@@ -227,7 +227,7 @@ end;
 
 //-----------------------------------------------
 
-procedure TFormPD.FormCreate(Sender: TObject);
+procedure TfrmStarnets.FormCreate(Sender: TObject);
 begin
   PathToData := GetDataDir(); // путь к данным
   CurrentDir := PathToData + '\image';
@@ -254,7 +254,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormPD.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
+procedure TfrmStarnets.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 begin
 ///  dcGalablock.TurnAngle := dcGalablock.TurnAngle - deltaTime * 10; // timeMultiplier / 29.5;
 
@@ -262,7 +262,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormPD.GLSceneViewerDblClick(Sender: TObject);
+procedure TfrmStarnets.GLSceneViewerDblClick(Sender: TObject);
 begin
   GLSceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -284,13 +284,13 @@ begin
   GLSceneViewer.OnMouseMove := GLSceneViewerMouseMove;
 end;
 
-procedure TFormPD.GLSceneViewerMouseDown(Sender: TObject;
+procedure TfrmStarnets.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
 	 mx := X; my := Y;
 end;
 
-procedure TFormPD.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+procedure TfrmStarnets.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
   begin
@@ -306,13 +306,13 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TFormPD.miOptionsClick(Sender: TObject);
+procedure TfrmStarnets.miOptionsClick(Sender: TObject);
 begin
-  FormSettings.Show;
+  frmOptions.Show;
 end;
 
 //------------------------------------------------------------------
-procedure TFormPD.miAboutClick(Sender: TObject);
+procedure TfrmStarnets.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -322,7 +322,7 @@ begin
     end;
 end;
 
-procedure TFormPD.miDrakeClick(Sender: TObject);
+procedure TfrmStarnets.miDrakeClick(Sender: TObject);
 begin
   with TFormDrake.Create(Self) do
     try
@@ -332,7 +332,7 @@ begin
     end;
 end;
 
-procedure TFormPD.miExitClick(Sender: TObject);
+procedure TfrmStarnets.miExitClick(Sender: TObject);
 begin
   Close;
 end;

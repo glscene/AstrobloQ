@@ -7,7 +7,7 @@
    Catalog of stars is built into the TGLSkyDome, but constellations are rendered
    via a TGLLines, which is filled in the LoadConstLines method.
 *)
-program Litosfera;
+program Litosferus;
 
 
 

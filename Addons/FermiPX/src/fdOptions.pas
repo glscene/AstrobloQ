@@ -31,7 +31,7 @@ uses
   GLS.Material;
 
 type
-  TFormSettings = class(TForm)
+  TfrmOptions = class(TForm)
     PanelBottom: TPanel;
     PanelMiddle: TPanel;
     PageControl: TPageControl;
@@ -142,7 +142,7 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmOptions: TfrmOptions;
   Ns, // number of stars in galaxy
   Dg, // diameter of galaxy
   Hg: Extended; // thickness or height of galaxy
@@ -158,7 +158,7 @@ uses
 
 //-----------------------------------------------------------------
 
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmOptions.FormCreate(Sender: TObject);
 begin
   EditNs.Text := FloatToStr(cNs);
   EditDg.Text := FloatToStr(cDg);
@@ -179,7 +179,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormSettings.FormShow(Sender: TObject);
+procedure TfrmOptions.FormShow(Sender: TObject);
 var
   I: Integer;
 begin
@@ -203,7 +203,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormSettings.rgUnitsClick(Sender: TObject);
+procedure TfrmOptions.rgUnitsClick(Sender: TObject);
 var
   sVolume: String;
 begin
@@ -243,7 +243,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormSettings.ShapeColorMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
+procedure TfrmOptions.ShapeColorMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X,
   Y: Integer);
 begin
   // Allow choosing the star class color
@@ -257,7 +257,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormSettings.trbVelocityChange(Sender: TObject);
+procedure TfrmOptions.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   Ratio, FlightTime: Extended;
@@ -272,7 +272,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormSettings.tvOptionsClick(Sender: TObject);
+procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
   tvOptions.Items[0].DropHighlighted := False;
   case tvOptions.Selected.Index of

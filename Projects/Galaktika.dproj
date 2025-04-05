@@ -135,10 +135,6 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\plugins\StarProj\fStarProj.pas">
-            <Form>FormProjection</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\dDialogs.pas">
             <Form>dmDialogs</Form>
             <FormType>dfm</FormType>
@@ -189,6 +185,10 @@
         </DCCReference>
         <DCCReference Include="..\Source\udGlobals.pas"/>
         <DCCReference Include="..\Source\uUtils.pas"/>
+        <DCCReference Include="..\Addons\StarProj\fStarProj.pas">
+            <Form>FormProjection</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

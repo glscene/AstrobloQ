@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{22135BAC-3B25-4A87-BED1-0F5FFBCB942A}</ProjectGuid>
-        <MainSource>Biosfera.dpr</MainSource>
+        <MainSource>Biosferus.dpr</MainSource>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <ProjectVersion>20.3</ProjectVersion>
@@ -10,7 +10,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <ProjectName Condition="'$(ProjectName)'==''">Biosfera</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Biosferus</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -60,7 +60,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>Biosfera</SanitizedProjectName>
+        <SanitizedProjectName>Biosferus</SanitizedProjectName>
         <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Build>1000</VerInfo_Build>
@@ -299,7 +299,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Biosfera.dpr</Source>
+                    <Source Name="MainSource">Biosferus.dpr</Source>
                 </Source>
                 <Parameters>
                     <Parameters Name="UseLauncher">False</Parameters>
@@ -346,9 +346,9 @@
             </Platforms>
             <Deployment Version="5">
                 <DeployFile LocalName="..\Bin\PlanetAI.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="..\bin\Biosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Biosferus.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Biosfera.exe</RemoteName>
+                        <RemoteName>Biosferus.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

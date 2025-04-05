@@ -1,7 +1,7 @@
 ﻿object FormPС: TFormPС
   Left = 0
   Top = 0
-  Caption = #1057#1090#1072#1088#1094#1077#1083#1089
+  Caption = 'Starnetc'
   ClientHeight = 542
   ClientWidth = 887
   Color = clBtnFace
@@ -29,8 +29,6 @@
         Text = 'FPS:'
         Width = 50
       end>
-    ExplicitTop = 399
-    ExplicitWidth = 778
   end
   object PageControl1: TPageControl
     Left = 0
@@ -40,8 +38,6 @@
     ActivePage = tsSolarCube
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 778
-    ExplicitHeight = 370
     object tsSolarCube: TTabSheet
       Caption = #1057#1086#1083#1072#1088#1082#1091#1073
       object GLSceneViewer1: TGLSceneViewer
@@ -57,7 +53,6 @@
         OnMouseDown = GLSceneViewer1MouseDown
         OnMouseMove = GLSceneViewer1MouseMove
         TabOrder = 0
-        ExplicitWidth = 737
       end
       object Panel1: TPanel
         Left = 729
@@ -66,8 +61,6 @@
         Height = 464
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 620
-        ExplicitHeight = 342
         DesignSize = (
           150
           464)
@@ -89,7 +82,7 @@
           Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 15
+          ItemHeight = 17
           Items.Strings = (
             '"A"'
             '"B"'
@@ -118,7 +111,6 @@
     Height = 29
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 778
     object ToolBar1: TToolBar
       Left = 19
       Top = 2

@@ -7,7 +7,6 @@ uses
   Vcl.Styles,
   dImages in '..\source\dImages.pas' {dmImages: TDataModule},
   fAbout in '..\Source\fAbout.pas' {FormAbout},
-  fStarProj in '..\plugins\StarProj\fStarProj.pas' {FormProjection},
   dDialogs in '..\source\dDialogs.pas' {dmDialogs: TDataModule},
   dBase in '..\source\dBase.pas' {dmBase: TDataModule},
   fgAnalyser in '..\Source\galaxy\fgAnalyser.pas' {FormAnalyser},
@@ -22,7 +21,8 @@ uses
   fgSettings_ru in '..\Source\galaxy\fgSettings_ru.pas' {frmSettings},
   fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaxy},
   udGlobals in '..\Source\udGlobals.pas',
-  uUtils in '..\Source\uUtils.pas';
+  uUtils in '..\Source\uUtils.pas',
+  fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -35,6 +35,7 @@ begin
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormProjection, FormProjection);
   Application.Run;
 end.
 

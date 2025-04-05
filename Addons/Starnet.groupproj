@@ -6,13 +6,13 @@
         <Projects Include="FermiPX\ViewerHYG.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FermiPX\StarCells.dproj">
+        <Projects Include="FermiPX\Starnets.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FermiPX\StarCellc.cbproj">
+        <Projects Include="FermiPX\Starnetc.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FermiPX\StarCellx.dproj">
+        <Projects Include="FermiPX\Starnetx.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarProj\StarProj.dproj">
@@ -44,32 +44,32 @@
     <Target Name="ViewerHYG:Make">
         <MSBuild Projects="FermiPX\ViewerHYG.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="StarCells">
-        <MSBuild Projects="FermiPX\StarCells.dproj"/>
+    <Target Name="Starnets">
+        <MSBuild Projects="FermiPX\Starnets.dproj"/>
     </Target>
-    <Target Name="StarCells:Clean">
-        <MSBuild Projects="FermiPX\StarCells.dproj" Targets="Clean"/>
+    <Target Name="Starnets:Clean">
+        <MSBuild Projects="FermiPX\Starnets.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="StarCells:Make">
-        <MSBuild Projects="FermiPX\StarCells.dproj" Targets="Make"/>
+    <Target Name="Starnets:Make">
+        <MSBuild Projects="FermiPX\Starnets.dproj" Targets="Make"/>
     </Target>
-    <Target Name="StarCellc">
-        <MSBuild Projects="FermiPX\StarCellc.cbproj"/>
+    <Target Name="Starnetc">
+        <MSBuild Projects="FermiPX\Starnetc.cbproj"/>
     </Target>
-    <Target Name="StarCellc:Clean">
-        <MSBuild Projects="FermiPX\StarCellc.cbproj" Targets="Clean"/>
+    <Target Name="Starnetc:Clean">
+        <MSBuild Projects="FermiPX\Starnetc.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="StarCellc:Make">
-        <MSBuild Projects="FermiPX\StarCellc.cbproj" Targets="Make"/>
+    <Target Name="Starnetc:Make">
+        <MSBuild Projects="FermiPX\Starnetc.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="StarCellx">
-        <MSBuild Projects="FermiPX\StarCellx.dproj"/>
+    <Target Name="Starnetx">
+        <MSBuild Projects="FermiPX\Starnetx.dproj"/>
     </Target>
-    <Target Name="StarCellx:Clean">
-        <MSBuild Projects="FermiPX\StarCellx.dproj" Targets="Clean"/>
+    <Target Name="Starnetx:Clean">
+        <MSBuild Projects="FermiPX\Starnetx.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="StarCellx:Make">
-        <MSBuild Projects="FermiPX\StarCellx.dproj" Targets="Make"/>
+    <Target Name="Starnetx:Make">
+        <MSBuild Projects="FermiPX\Starnetx.dproj" Targets="Make"/>
     </Target>
     <Target Name="StarProj">
         <MSBuild Projects="StarProj\StarProj.dproj"/>
@@ -108,13 +108,13 @@
         <MSBuild Projects="Starbox\Starbox.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ViewerHYG;StarCells;StarCellc;StarCellx;StarProj;StarsysGen;RandomStars;Starbox"/>
+        <CallTarget Targets="ViewerHYG;Starnets;Starnetc;Starnetx;StarProj;StarsysGen;RandomStars;Starbox"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ViewerHYG:Clean;StarCells:Clean;StarCellc:Clean;StarCellx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
+        <CallTarget Targets="ViewerHYG:Clean;Starnets:Clean;Starnetc:Clean;Starnetx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ViewerHYG:Make;StarCells:Make;StarCellc:Make;StarCellx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
+        <CallTarget Targets="ViewerHYG:Make;Starnets:Make;Starnetc:Make;Starnetx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -1,7 +1,7 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Tehnosfera;
+program Tehnosferus;
 uses
   Forms,
   ftMeshEditor in '..\source\teh\ftMeshEditor.pas' {FormMeshShow},

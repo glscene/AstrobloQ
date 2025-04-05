@@ -1,7 +1,7 @@
-object FormPD: TFormPD
+object frmStarnets: TfrmStarnets
   Left = 0
   Top = 0
-  Caption = 'Starcells'
+  Caption = 'Starnets'
   ClientHeight = 616
   ClientWidth = 900
   Color = clBtnFace
@@ -152,8 +152,7 @@ object FormPD: TFormPD
     Height = 33
     Align = alTop
     TabOrder = 4
-    ExplicitLeft = 8
-    ExplicitTop = 8
+    ExplicitWidth = 892
     object ToolBar1: TToolBar
       Left = 19
       Top = 2
