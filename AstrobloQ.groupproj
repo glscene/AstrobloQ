@@ -3,22 +3,22 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Projects\AstroViewer.dproj">
+        <Projects Include="Projects\AstroVersum.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\AstroViewer_ru.dproj">
+        <Projects Include="Projects\AstroVersum_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Litosfera.dproj">
+        <Projects Include="Projects\Litosferus.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Biosfera.dproj">
+        <Projects Include="Projects\Biosferus.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Noosfera.dproj">
+        <Projects Include="Projects\Noosferus.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Tehnosfera.dproj">
+        <Projects Include="Projects\Tehnosferus.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Galaktika.dproj">
@@ -38,59 +38,59 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="AstroViewer">
-        <MSBuild Projects="Projects\AstroViewer.dproj"/>
+    <Target Name="AstroVersum">
+        <MSBuild Projects="Projects\AstroVersum.dproj"/>
     </Target>
-    <Target Name="AstroViewer:Clean">
-        <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Clean"/>
+    <Target Name="AstroVersum:Clean">
+        <MSBuild Projects="Projects\AstroVersum.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="AstroViewer:Make">
-        <MSBuild Projects="Projects\AstroViewer.dproj" Targets="Make"/>
+    <Target Name="AstroVersum:Make">
+        <MSBuild Projects="Projects\AstroVersum.dproj" Targets="Make"/>
     </Target>
-    <Target Name="AstroViewer_ru">
-        <MSBuild Projects="Projects\AstroViewer_ru.dproj"/>
+    <Target Name="AstroVersum_ru">
+        <MSBuild Projects="Projects\AstroVersum_ru.dproj"/>
     </Target>
-    <Target Name="AstroViewer_ru:Clean">
-        <MSBuild Projects="Projects\AstroViewer_ru.dproj" Targets="Clean"/>
+    <Target Name="AstroVersum_ru:Clean">
+        <MSBuild Projects="Projects\AstroVersum_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="AstroViewer_ru:Make">
-        <MSBuild Projects="Projects\AstroViewer_ru.dproj" Targets="Make"/>
+    <Target Name="AstroVersum_ru:Make">
+        <MSBuild Projects="Projects\AstroVersum_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Litosfera">
-        <MSBuild Projects="Projects\Litosfera.dproj"/>
+    <Target Name="Litosferus">
+        <MSBuild Projects="Projects\Litosferus.dproj"/>
     </Target>
-    <Target Name="Litosfera:Clean">
-        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Clean"/>
+    <Target Name="Litosferus:Clean">
+        <MSBuild Projects="Projects\Litosferus.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Litosfera:Make">
-        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Make"/>
+    <Target Name="Litosferus:Make">
+        <MSBuild Projects="Projects\Litosferus.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Biosfera">
-        <MSBuild Projects="Projects\Biosfera.dproj"/>
+    <Target Name="Biosferus">
+        <MSBuild Projects="Projects\Biosferus.dproj"/>
     </Target>
-    <Target Name="Biosfera:Clean">
-        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Clean"/>
+    <Target Name="Biosferus:Clean">
+        <MSBuild Projects="Projects\Biosferus.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Biosfera:Make">
-        <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
+    <Target Name="Biosferus:Make">
+        <MSBuild Projects="Projects\Biosferus.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Noosfera">
-        <MSBuild Projects="Projects\Noosfera.dproj"/>
+    <Target Name="Noosferus">
+        <MSBuild Projects="Projects\Noosferus.dproj"/>
     </Target>
-    <Target Name="Noosfera:Clean">
-        <MSBuild Projects="Projects\Noosfera.dproj" Targets="Clean"/>
+    <Target Name="Noosferus:Clean">
+        <MSBuild Projects="Projects\Noosferus.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Noosfera:Make">
-        <MSBuild Projects="Projects\Noosfera.dproj" Targets="Make"/>
+    <Target Name="Noosferus:Make">
+        <MSBuild Projects="Projects\Noosferus.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Tehnosfera">
-        <MSBuild Projects="Projects\Tehnosfera.dproj"/>
+    <Target Name="Tehnosferus">
+        <MSBuild Projects="Projects\Tehnosferus.dproj"/>
     </Target>
-    <Target Name="Tehnosfera:Clean">
-        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Clean"/>
+    <Target Name="Tehnosferus:Clean">
+        <MSBuild Projects="Projects\Tehnosferus.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Tehnosfera:Make">
-        <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Make"/>
+    <Target Name="Tehnosferus:Make">
+        <MSBuild Projects="Projects\Tehnosferus.dproj" Targets="Make"/>
     </Target>
     <Target Name="Galaktika">
         <MSBuild Projects="Projects\Galaktika.dproj"/>
@@ -120,13 +120,13 @@
         <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroViewer;AstroViewer_ru;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;Galaktika_ru;Universum"/>
+        <CallTarget Targets="AstroVersum;AstroVersum_ru;Litosferus;Biosferus;Noosferus;Tehnosferus;Galaktika;Galaktika_ru;Universum"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroViewer:Clean;AstroViewer_ru:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;Galaktika_ru:Clean;Universum:Clean"/>
+        <CallTarget Targets="AstroVersum:Clean;AstroVersum_ru:Clean;Litosferus:Clean;Biosferus:Clean;Noosferus:Clean;Tehnosferus:Clean;Galaktika:Clean;Galaktika_ru:Clean;Universum:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroViewer:Make;AstroViewer_ru:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;Galaktika_ru:Make;Universum:Make"/>
+        <CallTarget Targets="AstroVersum:Make;AstroVersum_ru:Make;Litosferus:Make;Biosferus:Make;Noosferus:Make;Tehnosferus:Make;Galaktika:Make;Galaktika_ru:Make;Universum:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
