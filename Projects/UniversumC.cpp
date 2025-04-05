@@ -7,14 +7,11 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("..\Source\galaxyc\fcSettings.cpp", FormSettings);
-//---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TFormSettings), &FormSettings);
 		Application->Run();
 	}
 	catch (Exception &exception)

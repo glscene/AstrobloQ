@@ -1,4 +1,4 @@
-program Noosferus;
+program Noosferas;
 
 uses
   Vcl.Forms,

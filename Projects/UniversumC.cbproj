@@ -93,8 +93,8 @@
         <AllPackageLibs>rtl.lib;fmx.lib;xmlrtl.lib;vclimg.lib;vcl.lib;GLScene_RT.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
-        <IncludePath>..\Source\bioc\;..\Source\galaxyc\;..\Source\bio\;..\Source\universe\;..\source\fmxcpp\;Projects\;source\fmxcpp\;source\astroc\;source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>..\Source\bioc\;..\Source\galaxyc\;..\Source\bio\;..\Source\universe\;..\source\fmxcpp\;Projects\;source\fmxcpp\;source\astroc\;source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>..\Source\universum\;..\Source\bioc\;..\Source\galaxyc\;..\Source\bio\;..\Source\universe\;..\source\fmxcpp\;Projects\;source\fmxcpp\;source\astroc\;source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\Source\universum\;..\Source\bioc\;..\Source\galaxyc\;..\Source\bio\;..\Source\universe\;..\source\fmxcpp\;Projects\;source\fmxcpp\;source\astroc\;source\aic\;source\aigui\;source\;D:\ASTRONOMY\AstrobloQ\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>UniversumC</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -192,13 +192,6 @@
         <CppCompile Include="UniversumC.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\galaxyc\fcSettings.cpp">
-            <Form>FormSettings</Form>
-            <FormType>fmx</FormType>
-            <DependentOn>..\Source\galaxyc\fcSettings.h</DependentOn>
-            <BuildOrder>3</BuildOrder>
-        </CppCompile>
-        <FormResources Include="..\Source\galaxyc\fcSettings.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
