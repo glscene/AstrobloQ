@@ -9,7 +9,7 @@ uses
   ftStarPilot in '..\source\teh\ftStarPilot.pas' {FormSpacePilot},
   ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
   ftTehnosferas in '..\source\teh\ftTehnosferas.pas' {frmTehnosferas},
-  fForm in '..\source\fForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormG},
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
   ftCyborg in '..\source\teh\ftCyborg.pas' {FormCyborg},

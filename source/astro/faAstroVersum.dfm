@@ -1,4 +1,4 @@
-object frmAstroViewer: TfrmAstroViewer
+object frmAstroVersum: TfrmAstroVersum
   Left = 0
   Top = 0
   Caption = 'AstroVersum'
@@ -44,7 +44,7 @@ object frmAstroViewer: TfrmAstroViewer
     Top = 27
     Width = 922
     Height = 567
-    ActivePage = tsPlanets
+    ActivePage = tsConstellations
     Align = alClient
     TabOrder = 1
     ExplicitWidth = 914
@@ -174,7 +174,8 @@ object frmAstroViewer: TfrmAstroViewer
           0064006E00610000001F0000000000000000000000FFFFFFFFFFFFFFFF000000
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF000000000000000000000000000100}
-        ExplicitHeight = 512
+        ExplicitLeft = -6
+        ExplicitTop = 16
       end
     end
     object tsConstellations: TTabSheet
@@ -186,6 +187,7 @@ object frmAstroViewer: TfrmAstroViewer
         Width = 705
         Height = 537
         Align = alClient
+        ImageCollection = DataModuleImages.ConstelCharts
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = 0
@@ -801,6 +803,10 @@ object frmAstroViewer: TfrmAstroViewer
       object N1: TMenuItem
         Caption = '-'
       end
+      object Astromif1: TMenuItem
+        Caption = 'Astromif...'
+        OnClick = Astromif1Click
+      end
       object miConstPolygons: TMenuItem
         Caption = 'Constellation polygons...'
         OnClick = miConstPolygonsClick
@@ -855,7 +861,7 @@ object frmAstroViewer: TfrmAstroViewer
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = 'AstroViewer'
+    FormCaption = 'AstroVersum'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

@@ -46,7 +46,7 @@ uses
   GLS.Color,
   GLS.SpaceText,
 
-  fForm,
+  fmForm,
   fmAbout,
   fmSettings,
 

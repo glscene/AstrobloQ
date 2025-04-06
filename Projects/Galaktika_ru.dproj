@@ -147,7 +147,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uGlobals.pas"/>
-        <DCCReference Include="..\source\fForm.pas">
+        <DCCReference Include="..\source\fmForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>

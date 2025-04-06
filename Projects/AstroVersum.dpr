@@ -13,30 +13,29 @@ uses
   Apc.Spheric in '..\Addons\Apex\apc\Apc.Spheric.pas',
   Apc.Sun in '..\Addons\Apex\apc\Apc.Sun.pas',
   Apc.Time in '..\Addons\Apex\apc\Apc.Time.pas',
-  udConstBayers in '..\source\astro\udConstBayers.pas',
-  udEphemerides in '..\source\astro\udEphemerides.pas',
-  fdCoordinates in '..\source\astro\fdCoordinates.pas' {FormCoords},
-  fdPointto in '..\source\astro\fdPointto.pas' {FormPointto},
-  udHygmain in '..\source\astro\udHygmain.pas',
-  udHiputils in '..\source\astro\udHiputils.pas',
-  fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
+  uaConstBayers in '..\source\astro\uaConstBayers.pas',
+  uaEphemerides in '..\source\astro\uaEphemerides.pas',
+  faCoordinates in '..\source\astro\faCoordinates.pas' {FormCoords},
+  faPointto in '..\source\astro\faPointto.pas' {FormPointto},
+  uaHygmain in '..\source\astro\uaHygmain.pas',
+  uaHiputils in '..\source\astro\uaHiputils.pas',
+  faConstPolygons in '..\source\astro\faConstPolygons.pas' {FormConstBorders},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  faAstroVersum in '..\source\astro\faAstroVersum.pas' {frmAstroViewer},
-  udGenRandom in '..\source\astro\udGenRandom.pas',
-  fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
-  fForm in '..\source\fForm.pas' {FormI},
+  faAstroVersum in '..\source\astro\faAstroVersum.pas' {frmAstroVersum},
+  faMixTextures in '..\source\astro\faMixTextures.pas' {FormTexCombine},
+  fmForm in '..\source\fmForm.pas' {FormI},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  fdHercRussel in '..\Source\astro\fdHercRussel.pas' {FormHercrussel},
-  fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
-  udVsop2013 in '..\source\astro\udVsop2013.pas',
+  faHercRussel in '..\source\astro\faHercRussel.pas' {FormHercrussel},
+  faHipparcos in '..\source\astro\faHipparcos.pas' {FormHipparcos},
+  uaVsop2013 in '..\source\astro\uaVsop2013.pas',
   faOptions in '..\source\astro\faOptions.pas' {frmOptions},
-  fdAstromif in '..\Source\astro\fdAstromif.pas' {FormAstromif},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
   uUtils in '..\Source\uUtils.pas',
-  uGlobals in '..\source\uGlobals.pas';
+  uGlobals in '..\source\uGlobals.pas',
+  faAstromif in '..\source\astro\faAstromif.pas' {FormAstromif};
 
 {$R *.res}
 
@@ -45,11 +44,10 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.Title := 'AstroViewer';
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmAstroViewer, frmAstroViewer);
+  Application.CreateForm(TfrmAstroVersum, frmAstroVersum);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
 

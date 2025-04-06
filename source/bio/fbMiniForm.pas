@@ -17,7 +17,7 @@ uses
   Vcl.Mask,
   Vcl.Menus,
 
-  fForm;
+  fmForm;
 
 // state flags for automatic handling of minimize events
 type

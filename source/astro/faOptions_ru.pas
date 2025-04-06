@@ -30,7 +30,7 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  fForm;
+  fmForm;
 
 type
   TfrmOptions = class(TFormI)
@@ -151,13 +151,13 @@ procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
-    frmAstroViewer.LoadConstLines(CurrDir)
+    frmAstroVersum.LoadConstLines(CurrDir)
   else
-    frmAstroViewer.LinesConstellations.Nodes.Clear;
+    frmAstroVersum.LinesConstellations.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmAstroViewer.LoadConstBorders(CurrDir)
+    frmAstroVersum.LoadConstBorders(CurrDir)
   else
-    frmAstroViewer.LinesConstBorders.Nodes.Clear;
+    frmAstroVersum.LinesConstBorders.Nodes.Clear;
 end;
 
 //-----------------------------------------------------------------

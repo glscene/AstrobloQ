@@ -11,7 +11,7 @@ uses
   fgParadox in '..\Source\galaxy\fgParadox.pas' {FormParadox},
   fgExoplanets in '..\Source\galaxy\fgExoplanets.pas' {FormExoplanets},
   uGlobals in '..\Source\uGlobals.pas',
-  fForm in '..\source\fForm.pas' {FormI},
+  fmForm in '..\source\fmForm.pas' {FormI},
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
   fgGalaxy in '..\Source\galaxy\fgGalaxy.pas' {frmGalaxy},

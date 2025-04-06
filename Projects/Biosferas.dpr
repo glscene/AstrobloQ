@@ -87,7 +87,7 @@ uses
   fbTutorial in '..\source\bio\fbTutorial.pas' {fmTutorial},
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm in '..\source\bio\fbMiniForm.pas',
-  fForm in '..\source\fForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormG},
   uGlobals in '..\Source\uGlobals.pas';
 
 {$R *.res}

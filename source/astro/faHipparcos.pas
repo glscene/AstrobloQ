@@ -1,4 +1,4 @@
-unit fdHipparcos;
+unit faHipparcos;
 
 interface
 
@@ -17,8 +17,8 @@ uses
   GLS.SceneViewer,
   GLS.BaseClasses,
   GLS.Scene,
-  fdHercRussel,
-  udHygmain;
+  faHercRussel,
+  uaHygmain;
 
 type
   TFormHipparcos = class(TForm)

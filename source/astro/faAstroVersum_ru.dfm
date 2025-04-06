@@ -1,4 +1,4 @@
-object frmAstroViewer: TfrmAstroViewer
+object frmAstroVersum: TfrmAstroVersum
   Left = 0
   Top = 0
   Caption = 'AstroVersum'
@@ -44,7 +44,7 @@ object frmAstroViewer: TfrmAstroViewer
     Top = 27
     Width = 930
     Height = 592
-    ActivePage = tsPlanets
+    ActivePage = tsConstellations
     Align = alClient
     TabOrder = 1
     ExplicitWidth = 922
@@ -62,6 +62,7 @@ object frmAstroViewer: TfrmAstroViewer
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 689
       end
       object tvPlanets: TTreeView
         Left = 0
@@ -175,7 +176,6 @@ object frmAstroViewer: TfrmAstroViewer
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF00000000000000000000000000010000001F0000000000000000000000FF
           FFFFFFFFFFFFFF000000000000000000000000000100}
-        ExplicitHeight = 537
       end
     end
     object tsConstellations: TTabSheet
@@ -187,6 +187,7 @@ object frmAstroViewer: TfrmAstroViewer
         Width = 713
         Height = 562
         Align = alClient
+        ImageCollection = DataModuleImages.ConstelCharts
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = 0
@@ -799,6 +800,10 @@ object frmAstroViewer: TfrmAstroViewer
       end
       object N1: TMenuItem
         Caption = '-'
+      end
+      object N8: TMenuItem
+        Caption = #1040#1089#1090#1088#1086#1084#1080#1092'...'
+        OnClick = N8Click
       end
       object miConstPolygons: TMenuItem
         Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103'...'

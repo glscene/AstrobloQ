@@ -14,7 +14,7 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
 
-  fForm;
+  fmForm;
 
 type
   TFormParadox = class(TFormI)

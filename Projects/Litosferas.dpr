@@ -19,7 +19,7 @@ uses
   flSolarSystem in '..\source\lito\flSolarSystem.pas' {FormSolarSys},
   flOptions in '..\source\lito\flOptions.pas' {frmOptions},
   flGenExosys in '..\source\lito\flGenExosys.pas' {FormGenPlanetsys},
-  fForm in '..\source\fForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormG},
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
   fmAbout in '..\source\fmAbout.pas' {FormAbout},

@@ -49,20 +49,21 @@ uses
   fmAbout,
 
   dmImages,
-  fForm,
-  fdCoordinates,
-  fdPointto,
-  fdConstPolygons,
+  fmForm,
+  faCoordinates,
+  faPointto,
+  faConstPolygons,
 
+  faAstromif_ru,
   faOptions_ru,
 
-  fdHercRussel,
-  fdHipparcos,
+  faHercRussel,
+  faHipparcos,
 
   uUtils;
 
 type
-  TfrmAstroViewer = class(TFormI)
+  TfrmAstroVersum = class(TFormI)
     GLScene: TGLScene;
     MainMenu: TMainMenu;
     Timer: TTimer;
@@ -149,6 +150,7 @@ type
     tvZodiacs: TTreeView;
     VirtualImageFigures: TVirtualImage;
     stZodiacs: TStaticText;
+    N8: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
     procedure miExitClick(Sender: TObject);
@@ -169,6 +171,7 @@ type
     procedure miHelpWikiClick(Sender: TObject);
     procedure tvZodiacsClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
+    procedure N8Click(Sender: TObject);
   private
     ConstellationsAlpha: Single;
   public
@@ -179,7 +182,7 @@ type
   end;
 
 var
-  frmAstroViewer: TfrmAstroViewer;
+  frmAstroVersum: TfrmAstroVersum;
   AssetsDir, DataDir, CurrDir, StarDir: TFileName;
 
 const
@@ -191,7 +194,7 @@ implementation //--------------------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmAstroViewer.FormCreate(Sender: TObject);
+procedure TfrmAstroVersum.FormCreate(Sender: TObject);
 begin
   inherited;
 
@@ -215,7 +218,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmAstroViewer.FormShow(Sender: TObject);
+procedure TfrmAstroVersum.FormShow(Sender: TObject);
 begin
   // Planets
   tvPlanets.Select(tvPlanets.Items[3]); // show Earth
@@ -232,7 +235,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.LoadConstLines(const aDataPath: TFileName);
+procedure TfrmAstroVersum.LoadConstLines(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -254,7 +257,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.LoadConstBorders(const aDataPath: TFileName);
+procedure TfrmAstroVersum.LoadConstBorders(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   SkyPos: TAffineVector;
@@ -275,7 +278,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.LoadStarBayers(const aDataPath: TFileName);
+procedure TfrmAstroVersum.LoadStarBayers(const aDataPath: TFileName);
 begin
   //
 end;
@@ -283,7 +286,7 @@ end;
 //------------------------------------------------------------------
 // Rotation of celestial bodies on orbits
 //------------------------------------------------------------------
-procedure TfrmAstroViewer.GLCadencerProgress(Sender: TObject;
+procedure TfrmAstroVersum.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   if frmOptions.CheckBoxRotate.Checked then
@@ -302,13 +305,13 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvConstellationsClick(Sender: TObject);
+procedure TfrmAstroVersum.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvConstellationsContextPopup(Sender: TObject;
+procedure TfrmAstroVersum.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
   tmpNode: TTreeNode;
@@ -319,7 +322,7 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvPlanetsClick(Sender: TObject);
+procedure TfrmAstroVersum.tvPlanetsClick(Sender: TObject);
 begin
 
   case tvPlanets.Selected.Index of
@@ -435,12 +438,12 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.tvZodiacsClick(Sender: TObject);
+procedure TfrmAstroVersum.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
-procedure TfrmAstroViewer.miConstPolygonsClick(Sender: TObject);
+procedure TfrmAstroVersum.miConstPolygonsClick(Sender: TObject);
 begin
   with TFormConstBorders.Create(Self) do
   try
@@ -450,7 +453,7 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miTopoCoordinatesClick(Sender: TObject);
+procedure TfrmAstroVersum.miTopoCoordinatesClick(Sender: TObject);
 begin
   with TFormCoords.Create(Self) do
   try
@@ -460,7 +463,7 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miHercrusselClick(Sender: TObject);
+procedure TfrmAstroVersum.miHercrusselClick(Sender: TObject);
 begin
   with TFormHercrussel.Create(Self) do
   try
@@ -470,7 +473,7 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miHipparcosClick(Sender: TObject);
+procedure TfrmAstroVersum.miHipparcosClick(Sender: TObject);
 begin
   with TFormHipparcos.Create(Self) do
   try
@@ -480,13 +483,13 @@ begin
   end;
 end;
 
-procedure TfrmAstroViewer.miOpenClick(Sender: TObject);
+procedure TfrmAstroVersum.miOpenClick(Sender: TObject);
 begin
   //
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miPointtoClick(Sender: TObject);
+procedure TfrmAstroVersum.miPointtoClick(Sender: TObject);
 begin
   with TFormPointto.Create(Self) do
   try
@@ -497,13 +500,25 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miOptionsClick(Sender: TObject);
+procedure TfrmAstroVersum.miOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
 
+
+procedure TfrmAstroVersum.N8Click(Sender: TObject);
+begin
+  with TFormAstromif.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miHelpAboutClick(Sender: TObject);
+procedure TfrmAstroVersum.miHelpAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
   try
@@ -514,20 +529,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.chbAxiesClick(Sender: TObject);
+procedure TfrmAstroVersum.chbAxiesClick(Sender: TObject);
 begin
   sfPlanet.ShowAxes := frmOptions.CheckBoxAxes.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.chbPlanetGridClick(Sender: TObject);
+procedure TfrmAstroVersum.chbPlanetGridClick(Sender: TObject);
 begin
   TorusGreenwich.Visible := frmOptions.CheckBoxPlanetgrid.Checked;
   TorusEquator.Visible := frmOptions.CheckBoxPlanetgrid.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miHelpWikiClick(Sender: TObject);
+procedure TfrmAstroVersum.miHelpWikiClick(Sender: TObject);
 begin
   // if en then
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
@@ -539,7 +554,7 @@ end;
 
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroViewer.miExitClick(Sender: TObject);
+procedure TfrmAstroVersum.miExitClick(Sender: TObject);
 begin
   Close;
 end;

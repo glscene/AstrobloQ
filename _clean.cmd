@@ -19,6 +19,9 @@ del *.map /s
 del *.rsm /s
 del *.drc /s
 del *.local /s
+del *.ini /s
+del *.pof /s
+
 
 rem delete more files
 

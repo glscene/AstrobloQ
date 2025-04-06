@@ -16,7 +16,7 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
 
-  fForm,
+  fmForm,
 ///  fStarLife,
   fStarProj;
 

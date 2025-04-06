@@ -20,7 +20,7 @@ uses
   Vcl.Imaging.pngimage,
   Vcl.Buttons,
 
-  fForm;
+  fmForm;
 
 type
   TFormAbout = class(TFormI)

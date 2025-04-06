@@ -127,33 +127,26 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\udVsop2013.pas"/>
-        <DCCReference Include="..\source\astro\udConstBayers.pas"/>
-        <DCCReference Include="..\source\astro\udEphemerides.pas"/>
-        <DCCReference Include="..\source\astro\fdCoordinates.pas">
+        <DCCReference Include="..\source\astro\uaVsop2013.pas"/>
+        <DCCReference Include="..\source\astro\uaConstBayers.pas"/>
+        <DCCReference Include="..\source\astro\uaEphemerides.pas"/>
+        <DCCReference Include="..\source\astro\faCoordinates.pas">
             <Form>FormCoords</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\fdPointto.pas">
+        <DCCReference Include="..\source\astro\faPointto.pas">
             <Form>FormPointto</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\udHygmain.pas"/>
-        <DCCReference Include="..\source\astro\udHiputils.pas"/>
-        <DCCReference Include="..\source\astro\fdConstPolygons.pas">
+        <DCCReference Include="..\source\astro\uaHygmain.pas"/>
+        <DCCReference Include="..\source\astro\uaHiputils.pas"/>
+        <DCCReference Include="..\source\astro\faConstPolygons.pas">
             <Form>FormConstBorders</Form>
         </DCCReference>
         <DCCReference Include="..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faAstroVersum_ru.pas">
-            <Form>frmAstroViewer</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\udGenRandom.pas"/>
-        <DCCReference Include="..\source\astro\fdMixTextures.pas">
+        <DCCReference Include="..\source\astro\faMixTextures.pas">
             <Form>FormTexCombine</Form>
-        </DCCReference>
-        <DCCReference Include="..\Source\astro\fdAstromif_ru.pas">
-            <Form>FormAstromif</Form>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -163,11 +156,11 @@
             <Form>DataModuleDialogs</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Source\astro\fdHercRussel.pas">
+        <DCCReference Include="..\source\astro\faHercRussel.pas">
             <Form>FormHercrussel</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\fdHipparcos.pas">
+        <DCCReference Include="..\source\astro\faHipparcos.pas">
             <Form>FormHipparcos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -178,8 +171,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\fForm.pas">
-            <Form>FormG</Form>
+        <DCCReference Include="..\source\fmForm.pas">
+            <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uUtils.pas"/>
@@ -196,6 +189,14 @@
         <DCCReference Include="..\Addons\Apex\apc\Apc.Sun.pas"/>
         <DCCReference Include="..\Addons\Apex\apc\Apc.Time.pas"/>
         <DCCReference Include="..\source\uGlobals.pas"/>
+        <DCCReference Include="..\source\astro\faAstroVersum_ru.pas">
+            <Form>frmAstroVersum</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\faAstromif_ru.pas">
+            <Form>FormAstromif</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

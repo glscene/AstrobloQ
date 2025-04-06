@@ -127,7 +127,7 @@
             <Form>frmTehnosferas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fForm.pas">
+        <DCCReference Include="..\source\fmForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>

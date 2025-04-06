@@ -49,10 +49,7 @@ uses
   fmAbout,
   dmImages,
 
-  fForm,
-  fdCoordinates,
-  fdPointto,
-  fdConstPolygons,
+  fmForm,
 
   fnOptions,
 
@@ -149,7 +146,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
     procedure miExitClick(Sender: TObject);
-    procedure miTopoCoordinatesClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
     procedure miPointtoClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
@@ -157,7 +153,6 @@ type
     procedure tvConstellationsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
-    procedure miConstPolygonsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure chbPlanetGridClick(Sender: TObject);
     procedure chbAxiesClick(Sender: TObject);
@@ -416,26 +411,6 @@ begin
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
-procedure TfrmNoosferas.miConstPolygonsClick(Sender: TObject);
-begin
-  with TFormConstBorders.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
-procedure TfrmNoosferas.miTopoCoordinatesClick(Sender: TObject);
-begin
-  with TFormCoords.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
 procedure TfrmNoosferas.miOpenClick(Sender: TObject);
 begin
   //
@@ -444,12 +419,6 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmNoosferas.miPointtoClick(Sender: TObject);
 begin
-  with TFormPointto.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
 end;
 
 //----------------------------------------------------------------------------

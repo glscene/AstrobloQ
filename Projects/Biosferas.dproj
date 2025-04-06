@@ -275,7 +275,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbMiniForm.pas"/>
-        <DCCReference Include="..\source\fForm.pas">
+        <DCCReference Include="..\source\fmForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>

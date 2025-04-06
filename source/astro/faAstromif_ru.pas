@@ -1,4 +1,4 @@
-unit fdAstromif;
+unit faAstromif_ru;
 
 interface
 
@@ -14,19 +14,19 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
+
   Vcl.Menus,
   Vcl.ComCtrls,
   Vcl.ExtCtrls,
-  Vcl.StdCtrls,
-  Vcl.VirtualImage,
-  Vcl.ImgList,
-  Vcl.ToolWin,
-
   GLS.Material,
   GLS.Cadencer,
   GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
+  Vcl.StdCtrls,
+  Vcl.VirtualImage,
+  Vcl.ImgList,
+  Vcl.ToolWin,
 
   Stage.Keyboard,
   GLS.Coordinates,
@@ -38,10 +38,10 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
-  uGlobals,
   uUtils,
+  uGlobals,
 
-  fdMixTextures,
+  faMixTextures,
   dmImages;
 
 type
@@ -76,7 +76,7 @@ type
     procedure GLSimpleNavigation1MouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
   private
-    DataDir, StarDir : TFileName;
+    DataDir, StarDir, FileName : TFileName;
     ConstNames, PlanetMap: TFileName;
   public
     procedure HandleKeys(d: Double);
@@ -91,43 +91,6 @@ implementation //--------------------------------------------------------
 
 procedure TFormAstromif.FormCreate(Sender: TObject);
 begin
-  DataDir := ExtractFilePath(ParamStr(0)) + 'data';
-  SetCurrentDir(DataDir);
-  StarDir := DataDir + '\stars';
-
-//  PathToData := GetCurrentDir(); //GetCurrentAssetPath(); // instead of
-  CurrentPath := DataDir;
-  SetCurrentDir(CurrentPath + '\data\cubemap');
-
-  // Skybox stars
-  SkyDome.Visible := True;
-  SkyDome.Bands.Clear;
-
-  PlanetMap := CurrentPath + '\map\earth.jpg';
-
-  sfPlanet.Material.Texture.Disabled := False;
-  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetMap);
-
-  //if FileExists(FileName) then
-//    SkyDome.Stars.LoadStarsFile(FileName);
-  Catalog := CurrentPath + '\catalog\hipparcos.stars';
-  if FileExists(Catalog) then
-  begin
-    SkyDome.Bands.Clear;
-    SkyDome.Stars.Clear;
-    SkyDome.Stars.LoadStarsFile(Catalog);
-    SkyDome.StructureChanged;
-  end;
-
-
-  ConstNames := CurrentPath + '\constellation\ConstNames.dat';
-///    tvConstellations.LoadFromFile(ConstNames);
-  (* // Short names
-  ConstNames := CurrentPath + '\constellation\ConstShortNames.dat';
-    tvConstellations.LoadFromFile(ConstNames);
-  *)
-
-  ffPlanet.Assign(sfPlanet);
 end;
 
 //-----------------------------------------------------------------------
@@ -165,6 +128,40 @@ end;
 
 procedure TFormAstromif.SaveAs1Click(Sender: TObject);
 begin
+  DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
+  SetCurrentDir(DataDir);
+  CurrentPath := DataDir;
+  SetCurrentDir(CurrentPath + '\cubemap');
+  PlanetMap := CurrentPath + '\map\earth.jpg';
+
+  sfPlanet.Material.Texture.Disabled := False;
+  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetMap);
+
+  Catalog := CurrentPath + '\catalog\hipparcos.stars';
+
+   // Skybox stars
+  SkyDome.Visible := True;
+  SkyDome.Bands.Clear;
+  if FileExists(FileName) then
+    SkyDome.Stars.LoadStarsFile(FileName);
+
+  if FileExists(Catalog) then
+  begin
+    SkyDome.Bands.Clear;
+    SkyDome.Stars.Clear;
+    SkyDome.Stars.LoadStarsFile(Catalog);
+    SkyDome.StructureChanged;
+  end;
+
+
+  ConstNames := CurrentPath + '\constellation\ConstNames.dat';
+///    tvConstellations.LoadFromFile(ConstNames);
+  (* // Short names
+  ConstNames := CurrentPath + '\constellation\ConstShortNames.dat';
+    tvConstellations.LoadFromFile(ConstNames);
+  *)
+
+  ffPlanet.Assign(sfPlanet);
   // Save TreeView As...
 end;
 

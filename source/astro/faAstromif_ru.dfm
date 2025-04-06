@@ -20,7 +20,6 @@ object FormAstromif: TFormAstromif
     Height = 572
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 547
     object PanelBottom: TPanel
       Left = 1
       Top = 531
@@ -28,7 +27,6 @@ object FormAstromif: TFormAstromif
       Height = 40
       Align = alBottom
       TabOrder = 0
-      ExplicitTop = 506
     end
     object tvConstellations: TTreeView
       Left = 1
@@ -193,8 +191,6 @@ object FormAstromif: TFormAstromif
     Width = 819
     Height = 19
     Panels = <>
-    ExplicitTop = 547
-    ExplicitWidth = 811
   end
   object PanelRight: TPanel
     Left = 665
@@ -203,8 +199,6 @@ object FormAstromif: TFormAstromif
     Height = 572
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 657
-    ExplicitHeight = 547
   end
   object GLScene: TGLScene
     Left = 178

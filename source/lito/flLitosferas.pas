@@ -64,7 +64,7 @@ uses
   flGenExosys,
   flOptions,
 
-  fForm,
+  fmForm,
   fmAbout
   ;
 

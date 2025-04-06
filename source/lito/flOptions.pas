@@ -32,7 +32,7 @@ uses
   Vcl.WinXCtrls,
   Vcl.NumberBox,
 
-  fForm;
+  fmForm;
 
 type
   TfrmOptions = class(TFormI)

@@ -43,7 +43,7 @@ uses
   GLS.Coordinates,
 
   GLS.BaseClasses,
-  fForm;
+  fmForm;
 
 type
   TFormTehnosfera = class(TFormI)

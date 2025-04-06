@@ -35,7 +35,7 @@ uses
 
   uGlobals,
   dmImages,
-  fForm;
+  fmForm;
 
 type
   TfrmSettings = class(TFormI)

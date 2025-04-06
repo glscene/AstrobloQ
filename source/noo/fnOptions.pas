@@ -29,7 +29,7 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  fForm;
+  fmForm;
 
 type
   TfrmOptions = class(TFormI)

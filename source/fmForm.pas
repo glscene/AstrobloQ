@@ -2,7 +2,7 @@
 // This unit is part of AstroLibrary
 //-------------------------------------
 
-unit fForm;
+unit fmForm;
 
 (* The fdForm unit for TFormI class as parent for all child forms *)
 
@@ -50,7 +50,6 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      // —читываем идентификатор €зыка интерфейса
       LanguageID := ReadInteger('frmSettings', 'rgLanguage', 0);
     finally
       IniFile.Free;

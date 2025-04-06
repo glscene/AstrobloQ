@@ -54,7 +54,7 @@ uses
   flOptions,
   flParams,
 
-  fForm
+  fmForm
   ;
 
 type

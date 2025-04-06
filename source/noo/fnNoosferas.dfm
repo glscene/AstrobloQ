@@ -58,6 +58,7 @@ object frmNoosferas: TfrmNoosferas
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 689
       end
       object tvPlanets: TTreeView
         Left = 0
@@ -789,11 +790,9 @@ object frmNoosferas: TfrmNoosferas
       end
       object miConstPolygons: TMenuItem
         Caption = 'Constellation polygons...'
-        OnClick = miConstPolygonsClick
       end
       object miTopoCoordinates: TMenuItem
         Caption = 'Coordinates...'
-        OnClick = miTopoCoordinatesClick
       end
     end
     object miOptions: TMenuItem

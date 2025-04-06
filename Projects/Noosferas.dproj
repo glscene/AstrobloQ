@@ -127,30 +127,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\udVsop2013.pas"/>
-        <DCCReference Include="..\source\astro\udConstBayers.pas"/>
-        <DCCReference Include="..\source\astro\udEphemerides.pas"/>
-        <DCCReference Include="..\source\astro\fdCoordinates.pas">
-            <Form>FormCoords</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\fdPointto.pas">
-            <Form>FormPointto</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\udHygmain.pas"/>
-        <DCCReference Include="..\source\astro\udHiputils.pas"/>
-        <DCCReference Include="..\source\astro\fdConstPolygons.pas">
-            <Form>FormConstBorders</Form>
-        </DCCReference>
         <DCCReference Include="..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\noo\fnOptions.pas">
             <Form>frmOptions</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\udGenRandom.pas"/>
-        <DCCReference Include="..\source\astro\fdMixTextures.pas">
-            <Form>FormTexCombine</Form>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -167,7 +149,7 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\fForm.pas">
+        <DCCReference Include="..\source\fmForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>

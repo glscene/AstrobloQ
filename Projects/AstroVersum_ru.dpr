@@ -2,28 +2,25 @@ program AstroVersum_ru;
 
 uses
   Vcl.Forms,
-  udVsop2013 in '..\source\astro\udVsop2013.pas',
-  udConstBayers in '..\source\astro\udConstBayers.pas',
-  udEphemerides in '..\source\astro\udEphemerides.pas',
-  fdCoordinates in '..\source\astro\fdCoordinates.pas' {FormCoords},
-  fdPointto in '..\source\astro\fdPointto.pas' {FormPointto},
-  udHygmain in '..\source\astro\udHygmain.pas',
-  udHiputils in '..\source\astro\udHiputils.pas',
-  fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
-  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  faAstroVersum_ru in '..\source\astro\faAstroVersum_ru.pas' {frmAstroViewer},
-  udGenRandom in '..\source\astro\udGenRandom.pas',
-  fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
-  fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
-  dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
-  dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
-  fdHercRussel in '..\Source\astro\fdHercRussel.pas' {FormHercrussel},
-  fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
+  uaVsop2013 in '..\source\astro\uaVsop2013.pas',
+  uaConstBayers in '..\source\astro\uaConstBayers.pas',
+  uaEphemerides in '..\source\astro\uaEphemerides.pas',
+  faCoordinates in '..\source\astro\faCoordinates.pas' {FormCoords},
+  faPointto in '..\source\astro\faPointto.pas' {FormPointto},
+  uaHygmain in '..\source\astro\uaHygmain.pas',
+  uaHiputils in '..\source\astro\uaHiputils.pas',
+  faConstPolygons in '..\source\astro\faConstPolygons.pas' {FormConstBorders},
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  faMixTextures in '..\source\astro\faMixTextures.pas' {FormTexCombine},
+  dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
+  dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
+  faHercRussel in '..\source\astro\faHercRussel.pas' {FormHercrussel},
+  faHipparcos in '..\source\astro\faHipparcos.pas' {FormHipparcos},
   faOptions_ru in '..\source\astro\faOptions_ru.pas' {frmOptions},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
-  fForm in '..\Source\fForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormI},
   uUtils in '..\Source\uUtils.pas',
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
@@ -37,7 +34,9 @@ uses
   Apc.Spheric in '..\Addons\Apex\apc\Apc.Spheric.pas',
   Apc.Sun in '..\Addons\Apex\apc\Apc.Sun.pas',
   Apc.Time in '..\Addons\Apex\apc\Apc.Time.pas',
-  uGlobals in '..\source\uGlobals.pas';
+  uGlobals in '..\source\uGlobals.pas',
+  faAstroVersum_ru in '..\source\astro\faAstroVersum_ru.pas' {frmAstroVersum},
+  faAstromif_ru in '..\source\astro\faAstromif_ru.pas' {FormAstromif};
 
 {$R *.res}
 
@@ -45,13 +44,11 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'AstroViewer';
+  Application.CreateForm(TfrmAstroVersum, frmAstroVersum);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmAstroViewer, frmAstroViewer);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormAbout, FormAbout);
-  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.
 

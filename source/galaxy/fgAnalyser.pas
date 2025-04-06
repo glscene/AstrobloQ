@@ -17,7 +17,7 @@ uses
   Vcl.NumberBox,
   Vcl.ExtCtrls,
 
-  fForm;
+  fmForm;
 
 type
   TFormAnalyser = class(TFormI)

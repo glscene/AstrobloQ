@@ -1,4 +1,4 @@
-unit fdConstPolygons;
+unit faConstPolygons;
 
 interface
 
@@ -24,7 +24,8 @@ uses
   GLS.BaseClasses,
   GLS.Scene,
 
-  fForm;
+  uUtils,
+  fmForm;
 
 type
   TFormConstBorders = class(TFormI)
@@ -40,7 +41,7 @@ type
     procedure tvShortNamesClick(Sender: TObject);
     procedure CheckBoxDataClick(Sender: TObject);
   private
-    DataDir, FileName: TFileName;
+    DataDir, CurrentPath, FileName: TFileName;
     procedure InsertFileInMemo(Memo: TMemo; AFileName: string;
       ReplaceSel: Boolean);
   public
@@ -56,8 +57,10 @@ implementation //-------------------------------------------------------------
 procedure TFormConstBorders.FormCreate(Sender: TObject);
 begin
   // Определяем путь к известной папке с файлами
-  DataDir := ExtractFilePath(ParamStr(0)) + 'data';
+  DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
+  CurrentPath := DataDir;
+
   // Для текстовых файлов
   FileName := DataDir + '\constellation\boundary\and.txt';
   MemoData.Lines.LoadFromFile(FileName);
