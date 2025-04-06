@@ -104,7 +104,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\lito\flLitosfera.pas">
+        <DCCReference Include="..\source\lito\flLitosferas.pas">
             <Form>frmLitosphere</Form>
         </DCCReference>
         <DCCReference Include="..\source\lito\flParams.pas">
@@ -120,14 +120,9 @@
             <Form>FormSolarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\lito\flSettings.pas">
-            <Form>frmSettingsLito</Form>
+        <DCCReference Include="..\source\lito\flOptions.pas">
+            <Form>frmOptions</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\dImages.pas">
-            <Form>dmImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\lito\flGenExosys.pas">
             <Form>FormGenPlanetsys</Form>
@@ -139,11 +134,16 @@
         </DCCReference>
         <DCCReference Include="..\Source\uMoveCamera.pas"/>
         <DCCReference Include="..\Source\uSkyBodies.pas"/>
-        <DCCReference Include="..\Source\fAbout.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\uGlobals.pas"/>
+        <DCCReference Include="..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

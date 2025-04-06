@@ -19,7 +19,7 @@ uses
   Vcl.VirtualImage,
 
 
-  ddImages,
+  dmImages,
   GLS.SceneViewer,
   GLS.BaseClasses,
   GLS.Scene,

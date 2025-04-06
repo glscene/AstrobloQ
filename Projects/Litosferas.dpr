@@ -13,27 +13,27 @@ program Litosferas;
 
 uses
   Forms,
-  flLitosfera in '..\source\lito\flLitosfera.pas' {frmLitosphere},
+  flLitosferas in '..\source\lito\flLitosferas.pas' {frmLitosphere},
   flParams in '..\source\lito\flParams.pas' {FrameParams: TFrame},
   flStellarSystem in '..\source\lito\flStellarSystem.pas' {FormStarSys},
   flSolarSystem in '..\source\lito\flSolarSystem.pas' {FormSolarSys},
-  flSettings in '..\source\lito\flSettings.pas' {frmSettingsLito},
-  dImages in '..\source\dImages.pas' {dmImages: TDataModule},
+  flOptions in '..\source\lito\flOptions.pas' {frmOptions},
   flGenExosys in '..\source\lito\flGenExosys.pas' {FormGenPlanetsys},
   fForm in '..\source\fForm.pas' {FormG},
   uMoveCamera in '..\Source\uMoveCamera.pas',
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  fAbout in '..\Source\fAbout.pas' {FormAbout},
-  uGlobals in '..\source\uGlobals.pas';
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  uGlobals in '..\source\uGlobals.pas',
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TfrmLitosphere, frmLitosphere);
-  Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TfrmSettingsLito, frmSettingsLito);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TFormAbout, FormAbout);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.

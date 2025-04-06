@@ -47,17 +47,17 @@ uses
   GLS.SpaceText,
 
   fForm,
-  fAbout,
+  fmAbout,
+  fmSettings_ru,
 
-  dImages,
-  dDialogs,
-  dBase,
+  dmImages,
+  dmDialogs,
+  dmBase,
 
   fgAnalyser,
   fgMonitor,
   fgParadox,
   fgStarcube,
-  fgSettings_ru,
 
   uGlobals;
 
@@ -554,11 +554,11 @@ begin
   DataDir := ExtractFilePath(ParamStr(0));
   DataDir := DataDir + 'data\catalog';
   // SetCurrentDir(DataDir);
-  dmDialogs.OpenTextFileDialog.InitialDir := DataDir;
-  dmDialogs.OpenTextFileDialog.FilterIndex := 1;
-  if dmDialogs.OpenTextFileDialog.Execute then
+  DataModuleDialogs.OpenTextFileDialog.InitialDir := DataDir;
+  DataModuleDialogs.OpenTextFileDialog.FilterIndex := 1;
+  if DataModuleDialogs.OpenTextFileDialog.Execute then
   try
-    sl.LoadFromFile(dmDialogs.OpenTextFileDialog.FileName);
+    sl.LoadFromFile(DataModuleDialogs.OpenTextFileDialog.FileName);
     ReadHygStars;
   finally
     sl.Free;
@@ -570,11 +570,11 @@ end;
 // --------------------------------------------------------
 procedure TfrmGalaxy.miSaveAsClick(Sender: TObject);
 begin
-  if dmDialogs.SaveTextFileDialog.Execute then
-    if FileExists(dmDialogs.SaveTextFileDialog.FileName) then
+  if DataModuleDialogs.SaveTextFileDialog.Execute then
+    if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
       raise Exception.Create('File exists. Can not overwrite')
     else
-      MemoTable.Lines.SaveToFile(dmDialogs.SaveTextFileDialog.FileName);
+      MemoTable.Lines.SaveToFile(DataModuleDialogs.SaveTextFileDialog.FileName);
   // Edit1.Text := SaveTextFileDialog.Encodings[SaveTextFileDialog.EncodingIndex];
 end;
 

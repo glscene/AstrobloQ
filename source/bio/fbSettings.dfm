@@ -1,96 +1,71 @@
 object FormSettings: TFormSettings
   Left = 324
   Top = 109
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Settings'
-  ClientHeight = 648
-  ClientWidth = 432
+  ClientHeight = 370
+  ClientWidth = 247
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Position = poOwnerFormCenter
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Label3: TLabel
-    Left = 21
-    Top = 21
-    Width = 157
-    Height = 24
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 12
+    Top = 12
+    Width = 95
+    Height = 13
     Caption = 'Program settings'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
   end
   object Label1: TLabel
-    Left = 21
-    Top = 138
-    Width = 64
-    Height = 24
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 12
+    Top = 79
+    Width = 39
+    Height = 13
     Caption = 'Splash'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 21
-    Top = 301
-    Width = 81
-    Height = 24
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 12
+    Top = 172
+    Width = 52
+    Height = 13
     Caption = 'Interface'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
   end
   object cbLoadOnStartup: TCheckBox
-    Left = 81
-    Top = 56
-    Width = 323
-    Height = 30
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 32
+    Width = 185
+    Height = 17
     Caption = 'Load planet on start'
     TabOrder = 0
     OnClick = cbLoadOnStartupClick
   end
   object cbAutosave: TCheckBox
-    Left = 81
-    Top = 91
-    Width = 264
-    Height = 30
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 52
+    Width = 151
+    Height = 17
     Caption = 'Autosave on exit'
     Enabled = False
     TabOrder = 1
@@ -98,37 +73,28 @@ object FormSettings: TFormSettings
   end
   object panButtonBar: TPanel
     Left = 0
-    Top = 576
-    Width = 432
-    Height = 72
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 329
+    Width = 247
+    Height = 41
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 2
+    ExplicitTop = 304
+    ExplicitWidth = 239
     object panOKButton: TPanel
-      Left = 249
+      Left = 142
       Top = 1
-      Width = 182
-      Height = 70
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 104
+      Height = 39
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 134
       object btnOK: TBitBtn
-        Left = 18
-        Top = 14
-        Width = 131
-        Height = 44
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 10
+        Top = 8
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -136,119 +102,83 @@ object FormSettings: TFormSettings
     end
   end
   object cbSplashStart: TCheckBox
-    Left = 81
-    Top = 180
-    Width = 323
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 103
+    Width = 185
+    Height = 18
     Caption = 'Show at start'
     TabOrder = 3
     OnClick = cbSplashStartClick
   end
   object cbSplashExit: TCheckBox
-    Left = 81
-    Top = 215
-    Width = 323
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 123
+    Width = 185
+    Height = 18
     Caption = 'Show on exit'
     TabOrder = 4
     OnClick = cbSplashExitClick
   end
   object cbInvertMouse: TCheckBox
-    Left = 81
-    Top = 336
-    Width = 323
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 192
+    Width = 185
+    Height = 18
     Caption = 'Invert First Person Mouse'
     TabOrder = 5
     OnClick = cbInvertMouseClick
   end
   object cbInvertPlanet: TCheckBox
-    Left = 81
-    Top = 369
-    Width = 323
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 211
+    Width = 185
+    Height = 18
     Caption = 'Invert Planet Mouse'
     TabOrder = 6
     OnClick = cbInvertPlanetClick
   end
   object cbAuto3DView: TCheckBox
-    Left = 81
-    Top = 404
-    Width = 327
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 231
+    Width = 187
+    Height = 18
     Caption = 'Auto 3D View In Object Windows'
     TabOrder = 7
     OnClick = cbAuto3DViewClick
   end
   object cbInvertMouseWheel: TCheckBox
-    Left = 81
-    Top = 439
-    Width = 330
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 251
+    Width = 189
+    Height = 18
     Caption = 'Invert Mousewheel Zoom'
     TabOrder = 8
     OnClick = cbInvertMouseWheelClick
   end
   object cbTipOfTheDay: TCheckBox
-    Left = 81
-    Top = 252
-    Width = 323
-    Height = 32
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 144
+    Width = 185
+    Height = 18
     Caption = 'Show help at start'
     TabOrder = 9
     OnClick = cbTipOfTheDayClick
   end
   object cbRememberView: TCheckBox
-    Left = 81
-    Top = 476
-    Width = 334
-    Height = 30
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Left = 46
+    Top = 272
+    Width = 191
+    Height = 17
     Caption = 'Remember size of 3D'
     TabOrder = 10
     OnClick = cbRememberViewClick
   end
   object cbAdvancedMode: TCheckBox
-    Left = 81
-    Top = 511
-    Width = 334
-    Height = 30
+    Left = 46
+    Top = 292
+    Width = 191
+    Height = 17
     Hint = 'Show advanced controls in the menus.'
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
     Caption = 'Advanced mode'
     ParentShowHint = False
     ShowHint = True

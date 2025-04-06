@@ -51,7 +51,7 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
-  flSettings,
+  flOptions,
   flParams,
 
   fForm

@@ -42,7 +42,7 @@ uses
   uGlobals,
 
   fdMixTextures,
-  ddImages;
+  dmImages;
 
 type
   TFormAstromif = class(TForm)

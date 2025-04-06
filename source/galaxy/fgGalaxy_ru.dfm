@@ -32,8 +32,6 @@ object frmGalaxy: TfrmGalaxy
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 560
-    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -42,13 +40,12 @@ object frmGalaxy: TfrmGalaxy
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
       Width = 150
       Height = 22
-      Images = dmImages.ImageListInterface
+      Images = DataModuleImages.ImageListInterface
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
@@ -97,7 +94,7 @@ object frmGalaxy: TfrmGalaxy
       Height = 22
       ButtonWidth = 28
       Caption = 'ToolBarView'
-      Images = dmImages.ImageListInterface
+      Images = DataModuleImages.ImageListInterface
       TabOrder = 1
       object tbSolarcube: TToolButton
         Left = 0
@@ -175,8 +172,6 @@ object frmGalaxy: TfrmGalaxy
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = 'Stars'
       object svGalacube: TGLSceneViewer
@@ -199,8 +194,6 @@ object frmGalaxy: TfrmGalaxy
         Height = 522
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 754
-        ExplicitHeight = 497
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -758,7 +751,6 @@ object frmGalaxy: TfrmGalaxy
     end
   end
   object MainMenu: TMainMenu
-    Images = dmImages.ImageListInterface
     Left = 728
     Top = 179
     object miFile: TMenuItem

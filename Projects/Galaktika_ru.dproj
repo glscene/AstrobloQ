@@ -126,24 +126,9 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\dImages.pas">
-            <Form>dmImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\Source\fAbout.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\dDialogs.pas">
-            <Form>dmDialogs</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\dBase.pas">
-            <Form>dmBase</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\Source\galaxy\fgAnalyser.pas">
             <Form>FormAnalyser</Form>
@@ -171,7 +156,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uSkyBodies.pas"/>
-        <DCCReference Include="..\Source\galaxy\fgSettings_ru.pas">
+        <DCCReference Include="..\source\fmSettings_ru.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -183,6 +168,21 @@
         <DCCReference Include="..\Addons\StarProj\fStarProj.pas">
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\dmBase.pas">
+            <Form>DataModuleBase</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\dmDialogs.pas">
+            <Form>DataModuleDialogs</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

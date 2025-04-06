@@ -52,7 +52,6 @@ type
     tviPlanet: TTreeViewItem;
     TreeViewItemMoon: TTreeViewItem;
     miSolarSystem: TMenuItem;
-    Langs: TLang;
     ActionList: TActionList;
     acFileOpen: TAction;
     Action2: TAction;

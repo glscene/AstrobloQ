@@ -123,8 +123,8 @@
             <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftTehnosfera.pas">
-            <Form>FormNoosfera</Form>
+        <DCCReference Include="..\source\teh\ftTehnosferas.pas">
+            <Form>frmTehnosferas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fForm.pas">
@@ -147,12 +147,31 @@
         </DCCReference>
         <DCCReference Include="..\source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
-        <DCCReference Include="..\Source\fAbout.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uUtils.pas"/>
         <DCCReference Include="..\source\uGlobals.pas"/>
+        <DCCReference Include="..\source\dmBase.pas">
+            <Form>DataModuleBase</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\dmDialogs.pas">
+            <Form>DataModuleDialogs</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\teh\ftOptions.pas">
+            <Form>frmOptions</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

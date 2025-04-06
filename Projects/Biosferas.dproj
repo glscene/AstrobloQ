@@ -178,7 +178,7 @@
         <DCCReference Include="..\source\bio\Bio.MatingSingle.pas"/>
         <DCCReference Include="..\source\bio\Bio.FireTree.pas"/>
         <DCCReference Include="..\source\bio\Bio.MissileDefence.pas"/>
-        <DCCReference Include="..\source\bio\fbBiosfera.pas">
+        <DCCReference Include="..\source\bio\fbBiosferas.pas">
             <Form>FormBiosfera</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbAbout.pas">

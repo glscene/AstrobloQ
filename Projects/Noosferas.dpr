@@ -10,17 +10,16 @@ uses
   udHygmain in '..\source\astro\udHygmain.pas',
   udHiputils in '..\source\astro\udHiputils.pas',
   fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
-  ddImages in '..\source\astro\ddImages.pas' {dmImages: TDataModule},
-  fnSettings in '..\Source\noo\fnSettings.pas' {frmSettings},
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  fnOptions in '..\source\noo\fnOptions.pas' {frmOptions},
   udGenRandom in '..\source\astro\udGenRandom.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
-  fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
-  ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
-  ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
+  dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
+  dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
-  fnNoosfera in '..\Source\noo\fnNoosfera.pas' {frmUniverse},
-  fAbout in '..\Source\fAbout.pas' {FormAbout},
+  fnNoosferas in '..\source\noo\fnNoosferas.pas' {frmNoosferas},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fForm in '..\Source\fForm.pas' {FormG},
   uUtils in '..\Source\uUtils.pas',
   uGlobals in '..\source\uGlobals.pas';
@@ -31,11 +30,11 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'AstroViewer';
-  Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TdmBase, dmBase);
-  Application.CreateForm(TdmDialogs, dmDialogs);
-  Application.CreateForm(TfrmUniverse, frmUniverse);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TDataModuleBase, DataModuleBase);
+  Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
+  Application.CreateForm(TfrmNoosferas, frmNoosferas);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.Run;
 end.
 

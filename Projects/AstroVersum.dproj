@@ -149,11 +149,11 @@
         <DCCReference Include="..\source\astro\fdConstPolygons.pas">
             <Form>FormConstBorders</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\ddImages.pas">
-            <Form>dmImages</Form>
+        <DCCReference Include="..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\fdAstroVersum.pas">
+        <DCCReference Include="..\source\astro\faAstroVersum.pas">
             <Form>frmAstroViewer</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\udGenRandom.pas"/>
@@ -163,12 +163,12 @@
         <DCCReference Include="..\source\fForm.pas">
             <Form>FormI</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\ddBase.pas">
-            <Form>dmBase</Form>
+        <DCCReference Include="..\source\dmBase.pas">
+            <Form>DataModuleBase</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\ddDialogs.pas">
-            <Form>dmDialogs</Form>
+        <DCCReference Include="..\source\dmDialogs.pas">
+            <Form>DataModuleDialogs</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\Source\astro\fdHercRussel.pas">
@@ -180,15 +180,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\udVsop2013.pas"/>
-        <DCCReference Include="..\Source\astro\fdSettings.pas">
-            <Form>frmSettings</Form>
+        <DCCReference Include="..\source\astro\faOptions.pas">
+            <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\astro\fdAstromif.pas">
             <Form>FormAstromif</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\fAbout.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>

@@ -10,19 +10,19 @@ uses
   udHygmain in '..\source\astro\udHygmain.pas',
   udHiputils in '..\source\astro\udHiputils.pas',
   fdConstPolygons in '..\source\astro\fdConstPolygons.pas' {FormConstBorders},
-  ddImages in '..\source\astro\ddImages.pas' {dmImages: TDataModule},
-  fdAstroViewer_ru in '..\Source\astro\fdAstroViewer_ru.pas' {frmAstroViewer},
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  faAstroVersum_ru in '..\source\astro\faAstroVersum_ru.pas' {frmAstroViewer},
   udGenRandom in '..\source\astro\udGenRandom.pas',
   fdMixTextures in '..\source\astro\fdMixTextures.pas' {FormTexCombine},
   fdAstromif_ru in '..\Source\astro\fdAstromif_ru.pas' {FormAstromif},
-  ddBase in '..\source\astro\ddBase.pas' {dmBase: TDataModule},
-  ddDialogs in '..\source\astro\ddDialogs.pas' {dmDialogs: TDataModule},
+  dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
+  dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
   fdHercRussel in '..\Source\astro\fdHercRussel.pas' {FormHercrussel},
   fdHipparcos in '..\source\astro\fdHipparcos.pas' {FormHipparcos},
-  fdSettings_ru in '..\Source\astro\fdSettings_ru.pas' {frmSettings},
-  fAbout in '..\Source\fAbout.pas' {FormAbout},
+  faOptions_ru in '..\source\astro\faOptions_ru.pas' {frmOptions},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fForm in '..\Source\fForm.pas' {FormG},
   uUtils in '..\Source\uUtils.pas',
   sofa in '..\Externals\sofa\sofa.pas',
@@ -45,11 +45,11 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'AstroViewer';
-  Application.CreateForm(TdmImages, dmImages);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmAstroViewer, frmAstroViewer);
-  Application.CreateForm(TdmBase, dmBase);
-  Application.CreateForm(TdmDialogs, dmDialogs);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TDataModuleBase, DataModuleBase);
+  Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormAbout, FormAbout);
   Application.CreateForm(TFormI, FormI);
   Application.Run;

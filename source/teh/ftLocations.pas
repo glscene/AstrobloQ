@@ -119,7 +119,7 @@ implementation
 //-------------------------------------------------------------------
 
 uses
-  ftTehnosfera,
+  ftTehnosferas,
   Teh.Globals;
 
 {$R *.DFM}
@@ -374,10 +374,10 @@ begin
   cbTypes.Items.Add('6: Scientific Visualization [clrLime]');
   cbTypes.Items.Add('7: Others [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  FormNoosfera.cbTypes.Clear;
+  frmTehnosferas.cbTypes.Clear;
   //  EarthForm.cbTypes.Items.Add(S);
-  FormNoosfera.cbTypes.Items := cbTypes.Items; // copied items to main form
-  FormNoosfera.cbTypes.ItemIndex := 0;
+  frmTehnosferas.cbTypes.Items := cbTypes.Items; // copied items to main form
+  frmTehnosferas.cbTypes.ItemIndex := 0;
 end;
 
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);

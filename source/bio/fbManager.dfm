@@ -1,20 +1,16 @@
 object FormManager: TFormManager
   Left = 470
   Top = 107
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Align = alLeft
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Monitors'
-  ClientHeight = 928
-  ClientWidth = 270
+  ClientHeight = 530
+  ClientWidth = 154
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OnActivate = FormActivate
@@ -22,17 +18,12 @@ object FormManager: TFormManager
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel3: TPanel
     Left = 0
     Top = 0
-    Width = 270
-    Height = 394
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 154
+    Height = 225
     Align = alTop
     BevelOuter = bvLowered
     BorderWidth = 10
@@ -40,27 +31,22 @@ object FormManager: TFormManager
     object Panel2: TPanel
       Left = 11
       Top = 11
-      Width = 248
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 140
+      Height = 25
       Align = alTop
       BevelOuter = bvLowered
       Caption = 'Reality'
       Color = clActiveBorder
       TabOrder = 0
+      ExplicitLeft = 6
+      ExplicitTop = 6
+      ExplicitWidth = 142
     end
     object ToolBar1: TToolBar
       Left = 11
-      Top = 55
-      Width = 248
-      Height = 328
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 36
+      Width = 140
+      Height = 178
       Align = alClient
       ButtonHeight = 30
       ButtonWidth = 185
@@ -69,14 +55,14 @@ object FormManager: TFormManager
       List = True
       ShowCaptions = True
       TabOrder = 1
+      ExplicitLeft = 6
+      ExplicitTop = 31
+      ExplicitWidth = 142
+      ExplicitHeight = 188
       object tbTime: TToolButton
         Left = 0
         Top = 0
         Hint = 'Time'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Time                          '
         Down = True
         ImageIndex = 38
@@ -89,10 +75,6 @@ object FormManager: TFormManager
         Left = 0
         Top = 30
         Hint = 'Space View'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Space'
         ImageIndex = 63
         ParentShowHint = False
@@ -104,10 +86,6 @@ object FormManager: TFormManager
       object tbPopulations: TToolButton
         Left = 0
         Top = 60
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Population'
         ImageIndex = 117
         Wrap = True
@@ -117,10 +95,6 @@ object FormManager: TFormManager
       object tbHeightField: TToolButton
         Left = 0
         Top = 90
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Temperature'
         ImageIndex = 77
         Wrap = True
@@ -130,10 +104,6 @@ object FormManager: TFormManager
       object tbHumidityMap: TToolButton
         Left = 0
         Top = 120
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Humidity'
         ImageIndex = 57
         Wrap = True
@@ -143,10 +113,6 @@ object FormManager: TFormManager
       object tbConstruction: TToolButton
         Left = 0
         Top = 150
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Construction'
         ImageIndex = 40
         Wrap = True
@@ -157,10 +123,6 @@ object FormManager: TFormManager
         Left = 0
         Top = 180
         Hint = 'Lists Window'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Lists'
         ImageIndex = 26
         ParentShowHint = False
@@ -173,10 +135,6 @@ object FormManager: TFormManager
         Left = 0
         Top = 210
         Hint = 'Events Window'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Events'
         ImageIndex = 30
         ParentShowHint = False
@@ -188,13 +146,9 @@ object FormManager: TFormManager
   end
   object panSpirits: TPanel
     Left = 0
-    Top = 394
-    Width = 270
-    Height = 534
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 225
+    Width = 154
+    Height = 305
     Align = alClient
     BevelOuter = bvLowered
     BorderWidth = 10
@@ -202,57 +156,50 @@ object FormManager: TFormManager
     object Panel1: TPanel
       Left = 11
       Top = 11
-      Width = 248
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 140
+      Height = 25
       Align = alTop
       BevelOuter = bvLowered
       Caption = 'Views'
       Color = clInactiveBorder
       TabOrder = 0
+      ExplicitLeft = 6
+      ExplicitTop = 6
+      ExplicitWidth = 142
     end
     object tbSpirits: TToolBar
       Left = 11
-      Top = 55
-      Width = 248
-      Height = 420
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 36
+      Width = 140
+      Height = 255
       Align = alClient
-      ButtonHeight = 39
-      ButtonWidth = 75
+      ButtonWidth = 43
       Caption = 'tbSpirits'
       EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
       List = True
       ShowCaptions = True
       TabOrder = 1
+      ExplicitLeft = 6
+      ExplicitTop = 31
+      ExplicitWidth = 142
+      ExplicitHeight = 240
     end
     object Panel4: TPanel
       Left = 11
-      Top = 475
-      Width = 248
-      Height = 48
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 291
+      Width = 140
+      Height = 28
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
+      ExplicitLeft = 6
+      ExplicitTop = 271
+      ExplicitWidth = 142
       object btnAddThing: TBitBtn
         Left = 0
         Top = 0
-        Width = 215
-        Height = 44
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 123
+        Height = 25
         Caption = 'View Target'
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
