@@ -59,6 +59,7 @@ uses
   GLS.SkyDome,
 
   dmImages,
+
   flSolarSystem,
   flStellarSystem,
   flGenExosys,
@@ -116,7 +117,7 @@ type
     NightLights1: TMenuItem;
     N4: TMenuItem;
     miStellarSystem: TMenuItem;
-    miSettings: TMenuItem;
+    miOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
     ControlBar: TControlBar;
@@ -133,6 +134,7 @@ type
     LensFlare: TGLLensFlare;
     LightStar: TGLLightSource;
     About1: TMenuItem;
+    miSettings: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -156,7 +158,7 @@ type
     procedure miViewHidePanelsClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
     procedure miStellarSystemClick(Sender: TObject);
-    procedure miSettingsClick(Sender: TObject);
+    procedure miOptionsClick(Sender: TObject);
     procedure miExogenClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
   public
@@ -821,11 +823,10 @@ end;
 //------------------------------------------------------------------
 procedure TfrmLitosphere.TimerTimer(Sender: TObject);
 begin
-//  Caption := Format('Geosfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
+//  Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
   StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
   SceneViewer.ResetPerformanceMonitor;
 end;
-
 
 //------------------------------------------------------------------
 // Solar system
@@ -906,7 +907,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miSettingsClick(Sender: TObject);
+procedure TfrmLitosphere.miOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;

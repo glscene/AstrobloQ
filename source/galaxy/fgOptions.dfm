@@ -1,13 +1,12 @@
-inherited FormSettings: TFormSettings
+inherited frmOption: TfrmOption
   HelpContext = 0
-  Caption = 'Settings'
+  Caption = 'Options'
   ClientHeight = 759
   ClientWidth = 1313
-  Font.Height = -19
   StyleElements = [seFont, seClient, seBorder]
   ExplicitWidth = 1329
   ExplicitHeight = 798
-  TextHeight = 25
+  TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
     Top = 687
@@ -19,11 +18,9 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 662
-    ExplicitWidth = 1305
     object ButtonOk: TButton
-      Left = 1079
-      Top = 10
+      Left = 703
+      Top = -926
       Width = 131
       Height = 44
       Margins.Left = 5
@@ -47,8 +44,6 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 1305
-    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -79,7 +74,6 @@ inherited FormSettings: TFormSettings
         0000000000000000000000010750006C0061006E0065007400730000002D0000
         000000000000000000FFFFFFFFFFFFFFFF070000000000000000000000000107
         5000610074006800770061007900}
-      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -104,8 +98,8 @@ inherited FormSettings: TFormSettings
         object Label2: TLabel
           Left = 495
           Top = 88
-          Width = 140
-          Height = 25
+          Width = 155
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -156,7 +150,7 @@ inherited FormSettings: TFormSettings
           Left = 700
           Top = 85
           Width = 239
-          Height = 33
+          Height = 38
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -280,8 +274,8 @@ inherited FormSettings: TFormSettings
         object LabelRg: TLabel
           Left = 42
           Top = 44
-          Width = 113
-          Height = 25
+          Width = 123
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -291,8 +285,8 @@ inherited FormSettings: TFormSettings
         object LabelNs: TLabel
           Left = 42
           Top = 138
-          Width = 194
-          Height = 25
+          Width = 215
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -302,8 +296,8 @@ inherited FormSettings: TFormSettings
         object LabelLs: TLabel
           Left = 42
           Top = 187
-          Width = 147
-          Height = 25
+          Width = 163
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -313,8 +307,8 @@ inherited FormSettings: TFormSettings
         object LabelLt: TLabel
           Left = 42
           Top = 232
-          Width = 231
-          Height = 25
+          Width = 255
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -324,8 +318,8 @@ inherited FormSettings: TFormSettings
         object LabelHg: TLabel
           Left = 42
           Top = 98
-          Width = 138
-          Height = 25
+          Width = 152
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -335,8 +329,8 @@ inherited FormSettings: TFormSettings
         object LabelVg: TLabel
           Left = 658
           Top = 34
-          Width = 193
-          Height = 25
+          Width = 213
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -366,8 +360,8 @@ inherited FormSettings: TFormSettings
         object Label5: TLabel
           Left = 658
           Top = 135
-          Width = 288
-          Height = 25
+          Width = 319
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -378,7 +372,7 @@ inherited FormSettings: TFormSettings
           Left = 385
           Top = 32
           Width = 150
-          Height = 33
+          Height = 38
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -964,7 +958,7 @@ inherited FormSettings: TFormSettings
           Left = 385
           Top = 80
           Width = 150
-          Height = 33
+          Height = 38
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1212,8 +1206,8 @@ inherited FormSettings: TFormSettings
         object LabelPrecision: TLabel
           Left = 644
           Top = 387
-          Width = 77
-          Height = 25
+          Width = 83
+          Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1245,7 +1239,7 @@ inherited FormSettings: TFormSettings
           Left = 886
           Top = 376
           Width = 71
-          Height = 36
+          Height = 41
           Hint = 'Precision'
           Margins.Left = 5
           Margins.Top = 5
@@ -1299,8 +1293,8 @@ inherited FormSettings: TFormSettings
           object LabelStarI: TLabel
             Left = 75
             Top = 70
-            Width = 42
-            Height = 25
+            Width = 47
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1310,8 +1304,8 @@ inherited FormSettings: TFormSettings
           object LabelStarII: TLabel
             Left = 566
             Top = 70
-            Width = 47
-            Height = 25
+            Width = 53
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1321,8 +1315,8 @@ inherited FormSettings: TFormSettings
           object LabelDistance: TLabel
             Left = 409
             Top = 195
-            Width = 72
-            Height = 25
+            Width = 80
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1332,8 +1326,8 @@ inherited FormSettings: TFormSettings
           object LabelVelocity: TLabel
             Left = 409
             Top = 281
-            Width = 66
-            Height = 25
+            Width = 72
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1343,8 +1337,8 @@ inherited FormSettings: TFormSettings
           object LabelFlightTime: TLabel
             Left = 404
             Top = 362
-            Width = 89
-            Height = 25
+            Width = 98
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1416,7 +1410,7 @@ inherited FormSettings: TFormSettings
             Left = 512
             Top = 192
             Width = 262
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1428,8 +1422,8 @@ inherited FormSettings: TFormSettings
           object stTrackBar: TStaticText
             Left = 802
             Top = 281
-            Width = 77
-            Height = 29
+            Width = 83
+            Height = 34
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1506,7 +1500,7 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          ItemHeight = 25
+          ItemHeight = 30
           Items.Strings = (
             'All'
             'Terrain'
@@ -1526,7 +1520,7 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          ItemHeight = 25
+          ItemHeight = 30
           Items.Strings = (
             'Gaseous'
             'Watery'
@@ -1664,8 +1658,8 @@ inherited FormSettings: TFormSettings
           object LabelIce: TLabel
             Left = 42
             Top = 38
-            Width = 24
-            Height = 25
+            Width = 27
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1676,8 +1670,8 @@ inherited FormSettings: TFormSettings
           object LabelWater: TLabel
             Left = 42
             Top = 94
-            Width = 50
-            Height = 25
+            Width = 55
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1688,8 +1682,8 @@ inherited FormSettings: TFormSettings
           object LabelCrust: TLabel
             Left = 42
             Top = 147
-            Width = 44
-            Height = 25
+            Width = 48
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1700,8 +1694,8 @@ inherited FormSettings: TFormSettings
           object LabelMantle: TLabel
             Left = 42
             Top = 198
-            Width = 59
-            Height = 25
+            Width = 65
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1712,8 +1706,8 @@ inherited FormSettings: TFormSettings
           object LabelCore: TLabel
             Left = 42
             Top = 251
-            Width = 40
-            Height = 25
+            Width = 43
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1725,7 +1719,7 @@ inherited FormSettings: TFormSettings
             Left = 168
             Top = 22
             Width = 85
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1741,7 +1735,7 @@ inherited FormSettings: TFormSettings
             Left = 168
             Top = 75
             Width = 85
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1757,7 +1751,7 @@ inherited FormSettings: TFormSettings
             Left = 168
             Top = 135
             Width = 85
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1773,7 +1767,7 @@ inherited FormSettings: TFormSettings
             Left = 168
             Top = 195
             Width = 85
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1789,7 +1783,7 @@ inherited FormSettings: TFormSettings
             Left = 168
             Top = 243
             Width = 85
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1816,8 +1810,8 @@ inherited FormSettings: TFormSettings
           object LabelPlanetTilt: TLabel
             Left = 19
             Top = 146
-            Width = 61
-            Height = 25
+            Width = 68
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1828,8 +1822,8 @@ inherited FormSettings: TFormSettings
           object LabelPlanetDensity: TLabel
             Left = 19
             Top = 106
-            Width = 62
-            Height = 25
+            Width = 69
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1840,8 +1834,8 @@ inherited FormSettings: TFormSettings
           object LabelPlanetRadius: TLabel
             Left = 19
             Top = 47
-            Width = 56
-            Height = 25
+            Width = 62
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1852,8 +1846,8 @@ inherited FormSettings: TFormSettings
           object LabelGravityAccel: TLabel
             Left = 19
             Top = 209
-            Width = 64
-            Height = 25
+            Width = 70
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1864,8 +1858,8 @@ inherited FormSettings: TFormSettings
           object Label6: TLabel
             Left = 19
             Top = 257
-            Width = 106
-            Height = 25
+            Width = 116
+            Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1877,7 +1871,7 @@ inherited FormSettings: TFormSettings
             Left = 202
             Top = 143
             Width = 113
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1894,7 +1888,7 @@ inherited FormSettings: TFormSettings
             Left = 202
             Top = 95
             Width = 113
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1910,7 +1904,7 @@ inherited FormSettings: TFormSettings
             Left = 202
             Top = 36
             Width = 113
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1925,7 +1919,7 @@ inherited FormSettings: TFormSettings
             Left = 202
             Top = 206
             Width = 113
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -1942,7 +1936,7 @@ inherited FormSettings: TFormSettings
             Left = 193
             Top = 254
             Width = 113
-            Height = 33
+            Height = 38
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5

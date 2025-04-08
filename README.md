@@ -21,45 +21,45 @@
  
 ## AstrobloQ содержит групповые проекты
 
-### Астровьюер
+### AstroVersum
 
-![PlanetarySystems](./docs/screenshots/PlanetarySystems.png)
-![SolarSystem](./docs/clips/SolarSystem.gif)
+![AstroVersum](./docs/screenshots/PlanetarySystems.png)
+![AstroVersum](./docs/clips/SolarSystem.gif)
 
-### Литосфера
+### Litosferas
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
-![LithoSphere](./docs/screenshots/Litosfera_ru.png)
+![Litosferas](./docs/screenshots/Litosfera_ru.png)
 
-![LithoSphere](./docs/clips/AnimationPlanet2a.gif)
-![LithoSphere](./docs/clips/AnimationAsteroid2.gif)
+![Litosferas](./docs/clips/AnimationPlanet2a.gif)
+![Litosferas](./docs/clips/AnimationAsteroid2.gif)
 
-### Биосфера
+### Biosferas
 
 Биосферы экзопланет с моделями популяций живых организмов 
-![Biosphere](./docs/screenshots/Biosfera.jpg)
+![Biosferas](./docs/screenshots/Biosfera.jpg)
 
-![Biosphere](./docs/clips/AnimationDolphin.gif)
-![Biosphere](./docs/clips/AnimationEcosystemA.gif)
+![Biosferas](./docs/clips/AnimationDolphin.gif)
+![Biosferas](./docs/clips/AnimationEcosystemA.gif)
 
-### Ноосфера
+### Noosferas
 
 Ноосферы экзопланет без космических коммуникаций 
-![NooSphere](./docs/screenshots/Noosfera.png)
+![Noosferas](./docs/screenshots/Noosfera.png)
 
-![NooSphere](./docs/clips/AnimationLadybug2.gif)
-![NooSphere](./docs/clips/AnimationFlock.gif)
+![Noosferas](./docs/clips/AnimationLadybug2.gif)
+![Noosferas](./docs/clips/AnimationFlock.gif)
 
-### Техносфера
+### Tehnosferas
 
 Техносферы экзопланет с космическими коммуникациями
-![TechnoSphere](./docs/screenshots/Tehnosfera.png)
+![Tehnosferas](./docs/screenshots/Tehnosferas.png)
 
-![TechnoSphere](./docs/clips/Meteors.gif)
+![Tehnosferas](./docs/clips/Meteors.gif)
 
-### Моделирование Галактики и Вселенной
+### Galaktika
 
-![AstroViewer](./docs/screenshots/AstrobloQ_ru.png)
+![Galaktika](./docs/screenshots/AstrobloQ_ru.png)
 
 В комплексе используются следующие данные, звёздные каталоги и методы вычислений: 
 

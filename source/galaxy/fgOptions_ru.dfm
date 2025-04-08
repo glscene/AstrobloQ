@@ -1,6 +1,6 @@
-inherited FormSettings: TFormSettings
+inherited frmOptions: TfrmOptions
   HelpContext = 0
-  Caption = 'Settings'
+  Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 759
   ClientWidth = 1313
   Font.Height = -19
@@ -65,20 +65,20 @@ inherited FormSettings: TFormSettings
       TabOrder = 0
       OnClick = tvSettingsClick
       Items.NodeData = {
-        070800000009540054007200650065004E006F00640065002D00000000000000
-        00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
-        006500720061006C000000310000000000000000000000FFFFFFFFFFFFFFFF01
-        000000000000000000000000010949006E007400650072006600610063006500
-        00002D0000000000000000000000FFFFFFFFFFFFFFFF02000000000000000000
-        000000010744006900730070006C006100790000002F00000000000000000000
-        00FFFFFFFFFFFFFFFF0300000000000000000000000001084D00610074006500
-        7200690061006C0000002B0000000000000000000000FFFFFFFFFFFFFFFF0400
-        00000000000000000000000106470061006C0061007800790000002900000000
-        00000000000000FFFFFFFFFFFFFFFF0500000000000000000000000001055300
-        740061007200730000002D0000000000000000000000FFFFFFFFFFFFFFFF0600
-        0000000000000000000000010750006C0061006E0065007400730000002D0000
-        000000000000000000FFFFFFFFFFFFFFFF070000000000000000000000000107
-        5000610074006800770061007900}
+        070800000009540054007200650065004E006F00640065002900000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
+        04380435040000310000000000000000000000FFFFFFFFFFFFFFFF0100000000
+        0000000000000000010918043D04420435044004440435043904410400002D00
+        00000000000000000000FFFFFFFFFFFFFFFF0200000000000000000000000001
+        071404380441043F043B043504390400002F0000000000000000000000FFFFFF
+        FFFFFFFFFF0300000000000000000000000001081C0430044204350440043804
+        30043B040000310000000000000000000000FFFFFFFFFFFFFFFF040000000000
+        000000000000000109130430043B0430043A04420438043A04300400002B0000
+        000000000000000000FFFFFFFFFFFFFFFF050000000000000000000000000106
+        170432045104370434044B0400002D0000000000000000000000FFFFFFFFFFFF
+        FFFF0600000000000000000000000001071F043B0430043D04350442044B0400
+        00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
+        000001041F04430442043804}
       ExplicitHeight = 660
     end
     object PageControl: TPageControl
@@ -90,7 +90,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPlanets
+      ActivePage = tsGalaxy
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -102,7 +102,7 @@ inherited FormSettings: TFormSettings
         Caption = 'Interface'
         TabVisible = False
         object Label2: TLabel
-          Left = 495
+          Left = 271
           Top = 88
           Width = 140
           Height = 25
@@ -153,7 +153,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 2
         end
         object ComboBoxVclStyles: TComboBox
-          Left = 700
+          Left = 540
           Top = 85
           Width = 239
           Height = 33
@@ -184,8 +184,14 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Axes'
+          Caption = #1054#1089#1080
           Checked = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           State = cbChecked
           TabOrder = 0
         end
@@ -198,7 +204,7 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Coordinates'
+          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099
           Checked = True
           State = cbChecked
           TabOrder = 1
@@ -212,8 +218,14 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Rotation'
+          Caption = #1042#1088#1072#1097#1077#1085#1080#1077
           Checked = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           State = cbChecked
           TabOrder = 2
           StyleName = 'Windows'
@@ -278,74 +290,74 @@ inherited FormSettings: TFormSettings
         ImageIndex = 4
         TabVisible = False
         object LabelRg: TLabel
-          Left = 42
-          Top = 44
-          Width = 113
+          Left = 20
+          Top = 90
+          Width = 60
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Galaxy radius'
+          Caption = #1056#1072#1076#1080#1091#1089
         end
         object LabelNs: TLabel
-          Left = 42
-          Top = 138
-          Width = 194
+          Left = 20
+          Top = 188
+          Width = 105
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Number of galaxy stars'
+          Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076
         end
         object LabelLs: TLabel
-          Left = 42
-          Top = 187
-          Width = 147
+          Left = 20
+          Top = 230
+          Width = 290
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Longevity of stars'
+          Caption = #1055#1088#1086#1076#1086#1083#1078#1080#1090#1077#1083#1100#1085#1086#1089#1090#1100' '#1078#1080#1079#1085#1080' '#1079#1074#1105#1079#1076
         end
         object LabelLt: TLabel
-          Left = 42
-          Top = 232
-          Width = 231
+          Left = 20
+          Top = 275
+          Width = 336
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Longevity of technospheres'
+          Caption = #1055#1088#1086#1076#1086#1083#1078#1080#1090#1077#1083#1100#1085#1086#1089#1090#1100' '#1078#1080#1079#1085#1080' '#1090#1077#1093#1085#1086#1089#1092#1077#1088
         end
         object LabelHg: TLabel
-          Left = 42
-          Top = 98
-          Width = 138
+          Left = 20
+          Top = 142
+          Width = 133
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Galaxy thickness'
+          Caption = #1058#1086#1083#1097#1080#1085#1072' '#1076#1080#1089#1082#1072
         end
         object LabelVg: TLabel
-          Left = 658
-          Top = 34
-          Width = 193
+          Left = 644
+          Top = 74
+          Width = 105
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Volume of Galaxy, ly^3'
+          Caption = #1054#1073#1098#1105#1084', ly^3'
         end
         object LabelDs: TLabel
-          Left = 658
-          Top = 179
+          Left = 681
+          Top = 219
           Width = 25
           Height = 30
           Hint = 'Distance between stars'
@@ -364,19 +376,36 @@ inherited FormSettings: TFormSettings
           ShowHint = True
         end
         object Label5: TLabel
-          Left = 658
-          Top = 135
-          Width = 288
+          Left = 644
+          Top = 175
+          Width = 269
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Average distance between stars, ly'
+          Caption = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1079#1074#1105#1079#1076#1072#1084#1080', ly'
+        end
+        object LabelTitle: TLabel
+          Left = 170
+          Top = 5
+          Width = 579
+          Height = 38
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1059#1089#1088#1077#1076#1085#1105#1085#1085#1099#1077' '#1087#1072#1088#1072#1084#1077#1090#1088#1099' '#1076#1080#1089#1082#1072' '#1043#1072#1083#1072#1082#1090#1080#1082#1080
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -28
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
         object nbRg: TNumberBox
-          Left = 385
-          Top = 32
+          Left = 447
+          Top = 73
           Width = 150
           Height = 33
           Margins.Left = 5
@@ -395,14 +424,14 @@ inherited FormSettings: TFormSettings
         end
         object grbDrakeFormula: TGroupBox
           Left = 20
-          Top = 340
+          Top = 364
           Width = 1025
           Height = 235
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Drake formula for technospheres'
+          Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1090#1077#1093#1085#1086#1089#1092#1077#1088' '#1089' '#1082#1086#1084#1084#1091#1085#1080#1082#1072#1094#1080#1103#1084#1080
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -415,7 +444,7 @@ inherited FormSettings: TFormSettings
             Top = 54
             Width = 34
             Height = 38
-            Hint = 'Number of stars'
+            Hint = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -455,7 +484,7 @@ inherited FormSettings: TFormSettings
             Top = 49
             Width = 31
             Height = 38
-            Hint = 'Number of lithospheres suitable for life'
+            Hint = #1063#1080#1089#1083#1086' '#1087#1083#1072#1085#1077#1090' '#1089' '#1083#1080#1090#1086#1089#1092#1077#1088#1072#1084#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -475,7 +504,7 @@ inherited FormSettings: TFormSettings
             Top = 49
             Width = 32
             Height = 38
-            Hint = 'Fraction of biospheres among lithospheres'
+            Hint = #1044#1086#1083#1103' '#1073#1080#1086#1089#1092#1077#1088' '#1089#1088#1077#1076#1080' '#1083#1080#1090#1086#1089#1092#1077#1088
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -495,7 +524,7 @@ inherited FormSettings: TFormSettings
             Top = 50
             Width = 32
             Height = 38
-            Hint = 'Fraction of noospheres among biospheres'
+            Hint = #1044#1086#1083#1103' '#1085#1086#1086#1089#1092#1077#1088' '#1074' '#1073#1080#1086#1089#1092#1077#1088#1072#1093
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -515,7 +544,7 @@ inherited FormSettings: TFormSettings
             Top = 50
             Width = 26
             Height = 38
-            Hint = 'Fraction of technospheres among noospheres'
+            Hint = #1044#1086#1083#1103' '#1090#1077#1093#1085#1086#1089#1092#1077#1088' '#1074' '#1085#1086#1086#1089#1092#1077#1088#1072#1093
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -535,7 +564,7 @@ inherited FormSettings: TFormSettings
             Top = 168
             Width = 32
             Height = 38
-            Hint = 'Distance between technospheres'
+            Hint = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1090#1077#1093#1085#1086#1089#1092#1077#1088#1072#1084#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -555,7 +584,7 @@ inherited FormSettings: TFormSettings
             Top = 50
             Width = 32
             Height = 38
-            Hint = 'Fraction of stars with planetary systems'
+            Hint = #1044#1086#1083#1103' '#1079#1074#1105#1079#1076' '#1089' '#1087#1083#1072#1085#1077#1090#1072#1084#1080
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
@@ -571,15 +600,15 @@ inherited FormSettings: TFormSettings
             ShowHint = True
           end
           object Label4: TLabel
-            Left = 22
+            Left = 177
             Top = 178
-            Width = 411
+            Width = 350
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Average distance between technospheres, ly'
+            Caption = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1090#1077#1093#1085#1086#1089#1092#1077#1088#1072#1084#1080', ly'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -21
@@ -843,8 +872,8 @@ inherited FormSettings: TFormSettings
           end
         end
         object StaticTextRg: TStaticText
-          Left = 327
-          Top = 40
+          Left = 389
+          Top = 81
           Width = 29
           Height = 34
           Margins.Left = 5
@@ -861,8 +890,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 2
         end
         object StaticTextNs: TStaticText
-          Left = 327
-          Top = 136
+          Left = 389
+          Top = 177
           Width = 30
           Height = 34
           Margins.Left = 5
@@ -879,8 +908,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 3
         end
         object StaticTextLt: TStaticText
-          Left = 327
-          Top = 232
+          Left = 389
+          Top = 273
           Width = 23
           Height = 34
           Hint = 'Longevity of technospheres'
@@ -900,8 +929,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 4
         end
         object EditLt: TEdit
-          Left = 385
-          Top = 224
+          Left = 447
+          Top = 265
           Width = 153
           Height = 38
           Margins.Left = 5
@@ -920,8 +949,8 @@ inherited FormSettings: TFormSettings
           TextHint = 'Avarage life time for civilisation'
         end
         object EditLs: TEdit
-          Left = 385
-          Top = 176
+          Left = 447
+          Top = 217
           Width = 150
           Height = 38
           Margins.Left = 5
@@ -940,8 +969,8 @@ inherited FormSettings: TFormSettings
           TextHint = 'Mean lifitime for planet'
         end
         object StaticTextLs: TStaticText
-          Left = 327
-          Top = 180
+          Left = 389
+          Top = 221
           Width = 24
           Height = 34
           Hint = 'Longevity of stars'
@@ -961,8 +990,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 7
         end
         object nbHg: TNumberBox
-          Left = 385
-          Top = 80
+          Left = 447
+          Top = 121
           Width = 150
           Height = 33
           Margins.Left = 5
@@ -980,8 +1009,8 @@ inherited FormSettings: TFormSettings
           NegativeValueColor = clRed
         end
         object StaticTextHg: TStaticText
-          Left = 327
-          Top = 92
+          Left = 389
+          Top = 133
           Width = 32
           Height = 34
           Margins.Left = 5
@@ -998,8 +1027,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 9
         end
         object StaticTextVg: TStaticText
-          Left = 658
-          Top = 74
+          Left = 676
+          Top = 120
           Width = 30
           Height = 34
           Margins.Left = 5
@@ -1016,8 +1045,8 @@ inherited FormSettings: TFormSettings
           TabOrder = 10
         end
         object EditVg: TEdit
-          Left = 749
-          Top = 74
+          Left = 735
+          Top = 114
           Width = 246
           Height = 39
           Hint = 'Number os noospheres'
@@ -1038,8 +1067,8 @@ inherited FormSettings: TFormSettings
           Text = '1'
         end
         object EditNs: TEdit
-          Left = 385
-          Top = 127
+          Left = 447
+          Top = 168
           Width = 153
           Height = 38
           Margins.Left = 5
@@ -1058,8 +1087,8 @@ inherited FormSettings: TFormSettings
           Text = '400000000000'
         end
         object EditDs: TEdit
-          Left = 749
-          Top = 175
+          Left = 735
+          Top = 215
           Width = 246
           Height = 39
           Margins.Left = 5
@@ -1087,7 +1116,7 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Calculate'
+          Caption = #1042#1099#1095#1080#1089#1083#1080#1090#1100
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -23
@@ -1121,7 +1150,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 162
+          Left = 178
           Top = 53
           Width = 149
           Height = 200
@@ -1497,26 +1526,6 @@ inherited FormSettings: TFormSettings
         Caption = 'Planets'
         ImageIndex = 7
         TabVisible = False
-        object chlbPlanetsize: TCheckListBox
-          Left = 756
-          Top = 41
-          Width = 239
-          Height = 224
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          ItemHeight = 25
-          Items.Strings = (
-            'All'
-            'Terrain'
-            'Superterrain'
-            'Cold Neptunian'
-            'Hot Neptunian'
-            'Hot Jovian'
-            'Cold Jovian')
-          TabOrder = 0
-        end
         object CheckListBox1: TCheckListBox
           Left = 756
           Top = 355
@@ -1532,7 +1541,7 @@ inherited FormSettings: TFormSettings
             'Watery'
             'Rocky'
             'Icy')
-          TabOrder = 1
+          TabOrder = 0
         end
         object grbPlanetShow: TGroupBox
           Left = 28
@@ -1544,7 +1553,7 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Show'
-          TabOrder = 2
+          TabOrder = 1
           object chbShowAxes: TCheckBox
             Left = 57
             Top = 193
@@ -1660,7 +1669,7 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Layers'
-          TabOrder = 3
+          TabOrder = 2
           object LabelIce: TLabel
             Left = 42
             Top = 38
@@ -1812,7 +1821,7 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Params'
-          TabOrder = 4
+          TabOrder = 3
           object LabelPlanetTilt: TLabel
             Left = 19
             Top = 146
@@ -1955,6 +1964,26 @@ inherited FormSettings: TFormSettings
             Value = 27.000000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
+        end
+        object chlbPlanetsize: TCheckListBox
+          Left = 740
+          Top = 57
+          Width = 239
+          Height = 224
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          ItemHeight = 25
+          Items.Strings = (
+            'All'
+            'Terrain'
+            'Superterrain'
+            'Cold Neptunian'
+            'Hot Neptunian'
+            'Hot Jovian'
+            'Cold Jovian')
+          TabOrder = 4
         end
       end
     end

@@ -9,13 +9,13 @@ object frmOptions: TfrmOptions
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poDesigned
+  Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
-  TextHeight = 15
+  TextHeight = 21
   object PanelBottom: TPanel
     Left = 0
     Top = 402
@@ -30,7 +30,7 @@ object frmOptions: TfrmOptions
       750
       41)
     object ButtonOK: TButton
-      Left = 570
+      Left = 562
       Top = 1
       Width = 99
       Height = 31
@@ -39,6 +39,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
+      ExplicitLeft = 554
     end
   end
   object PanelMiddle: TPanel
@@ -57,12 +58,10 @@ object frmOptions: TfrmOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsGeneral
+      ActivePage = tsStars
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 568
-      ExplicitHeight = 358
       object tsDisplay: TTabSheet
         Caption = 'Display'
         ImageIndex = 4
@@ -76,7 +75,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = 1
+          Left = 40
           Top = 137
           Width = 104
           Height = 128
@@ -102,7 +101,7 @@ object frmOptions: TfrmOptions
           TabOrder = 0
         end
         object GroupBox2: TGroupBox
-          Left = 32
+          Left = 40
           Top = 24
           Width = 441
           Height = 65
@@ -134,7 +133,7 @@ object frmOptions: TfrmOptions
           end
         end
         object gbShowStars: TGroupBox
-          Left = 184
+          Left = 208
           Top = 137
           Width = 281
           Height = 128
@@ -166,40 +165,40 @@ object frmOptions: TfrmOptions
           object LabelIce: TLabel
             Left = 24
             Top = 22
-            Width = 15
-            Height = 15
+            Width = 19
+            Height = 21
             Alignment = taCenter
             Caption = 'Ice'
           end
           object LabelWater: TLabel
             Left = 24
             Top = 54
-            Width = 31
-            Height = 15
+            Width = 41
+            Height = 21
             Alignment = taCenter
             Caption = 'Water'
           end
           object LabelCrust: TLabel
             Left = 24
             Top = 84
-            Width = 28
-            Height = 15
+            Width = 37
+            Height = 21
             Alignment = taCenter
             Caption = 'Crust'
           end
           object LabelMantle: TLabel
             Left = 24
             Top = 113
-            Width = 37
-            Height = 15
+            Width = 48
+            Height = 21
             Alignment = taCenter
             Caption = 'Mantle'
           end
           object LabelCore: TLabel
             Left = 24
             Top = 143
-            Width = 25
-            Height = 15
+            Width = 33
+            Height = 21
             Alignment = taCenter
             Caption = 'Core'
           end
@@ -207,7 +206,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 13
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -218,7 +217,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 43
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -229,7 +228,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 77
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -240,7 +239,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 111
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -251,7 +250,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 139
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -357,40 +356,40 @@ object frmOptions: TfrmOptions
           object LabelPlanetTilt: TLabel
             Left = 11
             Top = 83
-            Width = 38
-            Height = 15
+            Width = 50
+            Height = 21
             Alignment = taCenter
             Caption = 'Axis tilt'
           end
           object LabelPlanetDensity: TLabel
             Left = 11
             Top = 50
-            Width = 39
-            Height = 15
+            Width = 52
+            Height = 21
             Alignment = taCenter
             Caption = 'Density'
           end
           object LabelPlanetRadius: TLabel
             Left = 11
             Top = 17
-            Width = 35
-            Height = 15
+            Width = 47
+            Height = 21
             Alignment = taCenter
             Caption = 'Radius'
           end
           object LabelGravityAccel: TLabel
             Left = 11
             Top = 119
-            Width = 40
-            Height = 15
+            Width = 54
+            Height = 21
             Alignment = taCenter
             Caption = 'Gravity '
           end
           object Label6: TLabel
             Left = 11
             Top = 147
-            Width = 67
-            Height = 15
+            Width = 87
+            Height = 21
             Alignment = taCenter
             Caption = 'Temperature'
           end
@@ -398,7 +397,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 82
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MinValue = -90.000000000000000000
@@ -410,7 +409,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 48
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 30.000000000000000000
@@ -421,7 +420,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 15
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             MaxValue = 100000.000000000000000000
             TabOrder = 2
@@ -431,7 +430,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 118
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -443,7 +442,7 @@ object frmOptions: TfrmOptions
             Left = 110
             Top = 145
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MinValue = -373.000000000000000000
@@ -479,6 +478,7 @@ object frmOptions: TfrmOptions
         2D0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000
         00010750006C0061006E006500740073000000290000000000000000000000FF
         FFFFFFFFFFFFFF00000000000000000000000000010553007400610072007300}
+      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel

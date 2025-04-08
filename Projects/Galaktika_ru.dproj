@@ -156,12 +156,12 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uSkyBodies.pas"/>
-        <DCCReference Include="..\source\fmSettings_ru.pas">
-            <Form>frmSettings</Form>
+        <DCCReference Include="..\source\galaxy\fgOptions_ru.pas">
+            <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\galaxy\fgGalaxy_ru.pas">
-            <Form>frmGalaxy</Form>
+            <Form>frmGalaktika</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Source\uUtils.pas"/>
@@ -183,6 +183,10 @@
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\fmSettings_ru.pas">
+            <Form>FormSettings</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

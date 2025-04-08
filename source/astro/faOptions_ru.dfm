@@ -2,29 +2,31 @@ object frmOptions: TfrmOptions
   Left = 0
   Top = 0
   Caption = #1054#1087#1094#1080#1080
-  ClientHeight = 414
-  ClientWidth = 674
+  ClientHeight = 448
+  ClientWidth = 688
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
-  TextHeight = 15
+  TextHeight = 21
   object PanelBottom: TPanel
     Left = 0
-    Top = 385
-    Width = 674
+    Top = 419
+    Width = 688
     Height = 29
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 360
+    ExplicitWidth = 666
     DesignSize = (
-      674
+      688
       29)
     object ButtonOK: TButton
-      Left = 503
+      Left = 509
       Top = 3
       Width = 70
       Height = 23
@@ -33,35 +35,46 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
+      ExplicitLeft = 487
     end
   end
   object PanelMiddle: TPanel
     Left = 0
     Top = 30
-    Width = 674
-    Height = 355
+    Width = 688
+    Height = 389
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 1
+    ExplicitWidth = 666
+    ExplicitHeight = 330
     object PageControl: TPageControl
       Left = 169
       Top = 5
-      Width = 500
-      Height = 345
-      ActivePage = tsInterface
+      Width = 514
+      Height = 379
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
+      ExplicitWidth = 500
+      ExplicitHeight = 345
       object tsGeneral: TTabSheet
-        Caption = 'General'
+        Caption = #1054#1073#1097#1080#1077
         ImageIndex = 7
         TabVisible = False
         object LabelPrecision: TLabel
           Left = 77
           Top = 255
-          Width = 52
-          Height = 15
+          Width = 66
+          Height = 21
           Caption = #1058#1086#1095#1085#1086#1089#1090#1100
         end
         object gbxCoordinateSys: TGroupBox
@@ -121,7 +134,7 @@ object frmOptions: TfrmOptions
           Left = 168
           Top = 254
           Width = 41
-          Height = 24
+          Height = 32
           Hint = 'Precision'
           MaxValue = 18
           MinValue = 0
@@ -130,22 +143,34 @@ object frmOptions: TfrmOptions
         end
       end
       object tsInterface: TTabSheet
-        Caption = 'Interface'
+        Caption = #1048#1085#1090#1077#1088#1092#1077#1081#1089
         TabVisible = False
         object lbStyle: TLabel
           Left = 75
           Top = 28
-          Width = 102
-          Height = 15
+          Width = 131
+          Height = 21
           Caption = #1057#1090#1080#1083#1100' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
         end
         object ComboBoxVclStyles: TComboBox
           Left = 248
           Top = 25
           Width = 117
-          Height = 23
+          Height = 29
           Style = csDropDownList
           DropDownCount = 5
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
           OnChange = ComboBoxVclStylesChange
         end
@@ -159,32 +184,44 @@ object frmOptions: TfrmOptions
         end
       end
       object tsDisplay: TTabSheet
-        Caption = 'Display'
+        Caption = #1044#1080#1089#1087#1083#1077#1081
         ImageIndex = 2
         TabVisible = False
         object CheckBoxAxes: TCheckBox
-          Left = 11
+          Left = 75
           Top = 23
           Width = 62
           Height = 18
-          Caption = 'Axes'
+          Caption = #1054#1089#1080
           Checked = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           State = cbChecked
           TabOrder = 0
         end
         object CheckBoxRotate: TCheckBox
-          Left = 195
+          Left = 251
           Top = 22
-          Width = 83
+          Width = 126
           Height = 20
-          Caption = 'Rotation'
+          Caption = #1042#1088#1072#1097#1077#1085#1080#1077
           Checked = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           State = cbChecked
           TabOrder = 1
         end
       end
       object tsDatatime: TTabSheet
-        Caption = 'Datatime'
+        Caption = #1061#1088#1086#1085#1086#1083#1086#1075#1080#1103
         ImageIndex = 3
         TabVisible = False
         object PanelScale: TPanel
@@ -196,26 +233,26 @@ object frmOptions: TfrmOptions
           BevelKind = bkFlat
           TabOrder = 0
           object lblScaleX: TLabel
-            Left = 33
+            Left = 21
             Top = 25
-            Width = 43
-            Height = 15
+            Width = 55
+            Height = 21
             Alignment = taRightJustify
             Caption = 'Factor X'
           end
           object Label1: TLabel
-            Left = 33
+            Left = 21
             Top = 52
-            Width = 43
-            Height = 15
+            Width = 55
+            Height = 21
             Alignment = taRightJustify
             Caption = 'Factor Y'
           end
           object Label2: TLabel
-            Left = 33
+            Left = 21
             Top = 81
-            Width = 43
-            Height = 15
+            Width = 55
+            Height = 21
             Alignment = taRightJustify
             Caption = 'Factor Z'
           end
@@ -223,7 +260,7 @@ object frmOptions: TfrmOptions
             Left = 128
             Top = 16
             Width = 121
-            Height = 23
+            Height = 29
             TabOrder = 0
             Text = 'Edit1'
           end
@@ -231,7 +268,7 @@ object frmOptions: TfrmOptions
             Left = 128
             Top = 45
             Width = 121
-            Height = 23
+            Height = 29
             TabOrder = 1
             Text = 'Edit1'
           end
@@ -239,7 +276,7 @@ object frmOptions: TfrmOptions
             Left = 128
             Top = 74
             Width = 121
-            Height = 23
+            Height = 29
             TabOrder = 2
             Text = 'Edit1'
           end
@@ -249,14 +286,20 @@ object frmOptions: TfrmOptions
           Top = 40
           Width = 225
           Height = 17
-          Caption = 'Universal time (UT)'
+          Caption = #1052#1080#1088#1086#1074#1086#1077' '#1074#1088#1077#1084#1103' (UT)'
           Checked = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           State = cbChecked
           TabOrder = 1
         end
       end
       object tsPlanets: TTabSheet
-        Caption = 'Planets'
+        Caption = #1055#1083#1072#1085#1077#1090#1099
         ImageIndex = 6
         TabVisible = False
         object lbExoplanets: TListBox
@@ -264,14 +307,13 @@ object frmOptions: TfrmOptions
           Top = 152
           Width = 202
           Height = 121
-          ItemHeight = 15
+          ItemHeight = 21
           Items.Strings = (
-            'Aquaworld'
-            'Icyworld'
-            'Desert'
-            'Earthlike'
-            'SuperEarth'
-            'Captured'
+            #1040#1082#1074#1072#1084#1080#1088
+            #1040#1081#1089#1073#1077#1088#1075
+            #1055#1091#1089#1090#1099#1085#1103
+            #1058#1077#1088#1088#1072#1084#1080#1088
+            #1057#1091#1087#1077#1088#1090#1077#1088#1088#1072
             ''
             ''
             '')
@@ -291,20 +333,20 @@ object frmOptions: TfrmOptions
           Top = 19
           Width = 126
           Height = 25
-          Caption = 'Planetgrid'
+          Caption = #1043#1077#1086#1089#1077#1090#1082#1072
           TabOrder = 2
         end
       end
       object tsStars: TTabSheet
-        Caption = 'Stars'
+        Caption = #1047#1074#1105#1079#1076#1099
         ImageIndex = 5
         TabVisible = False
         object gbStarColors: TGroupBox
           Left = 104
-          Top = 73
+          Top = 89
           Width = 218
           Height = 260
-          Caption = 'Star colors'
+          Caption = #1062#1074#1077#1090' '#1079#1074#1077#1079#1076
           TabOrder = 0
           object ShapeM: TShape
             Left = 152
@@ -443,15 +485,15 @@ object frmOptions: TfrmOptions
           Left = 24
           Top = 3
           Width = 441
-          Height = 64
-          Caption = 'Constellations'
+          Height = 70
+          Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
           TabOrder = 1
           object chbConstFigures: TCheckBox
             Left = 208
             Top = 24
             Width = 79
             Height = 17
-            Caption = 'Figures'
+            Caption = #1060#1080#1075#1091#1088#1099
             TabOrder = 0
             OnClick = chbConstellationsClick
           end
@@ -460,16 +502,16 @@ object frmOptions: TfrmOptions
             Top = 24
             Width = 79
             Height = 17
-            Caption = 'Lines'
+            Caption = #1051#1080#1085#1080#1080
             TabOrder = 1
             OnClick = chbConstellationsClick
           end
           object chbConstBounds: TCheckBox
             Left = 102
             Top = 24
-            Width = 79
+            Width = 92
             Height = 17
-            Caption = 'Borders'
+            Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
             OnClick = chbConstellationsClick
           end
@@ -478,14 +520,14 @@ object frmOptions: TfrmOptions
             Top = 24
             Width = 79
             Height = 17
-            Caption = 'Names'
+            Caption = #1053#1072#1079#1074#1072#1085#1080#1103
             TabOrder = 3
             OnClick = chbConstellationsClick
           end
         end
       end
       object tsGalaxy: TTabSheet
-        Caption = 'Galaxy'
+        Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
         ImageIndex = 4
         TabVisible = False
         object CheckBoxCubemap: TCheckBox
@@ -493,7 +535,7 @@ object frmOptions: TfrmOptions
           Top = 32
           Width = 98
           Height = 17
-          Caption = 'Cubemap'
+          Caption = #1050#1091#1073#1082#1072#1088#1090#1072
           TabOrder = 0
         end
       end
@@ -502,7 +544,7 @@ object frmOptions: TfrmOptions
       Left = 5
       Top = 5
       Width = 164
-      Height = 345
+      Height = 379
       Align = alLeft
       AutoExpand = True
       HotTrack = True
@@ -523,12 +565,13 @@ object frmOptions: TfrmOptions
         FFFFFFFFFF000000000000000000000000000106170432045104370434044B04
         0000310000000600000006000000FFFFFFFFFFFFFFFF00000000000000000000
         0000000109130430043B0430043A04420438043A043004}
+      ExplicitHeight = 320
     end
   end
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 674
+    Width = 688
     Height = 30
     Align = alTop
     BevelOuter = bvNone

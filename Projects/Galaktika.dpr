@@ -14,13 +14,14 @@ uses
   fmForm in '..\source\fmForm.pas' {FormI},
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  fgGalaxy in '..\Source\galaxy\fgGalaxy.pas' {frmGalaxy},
-  fmSettings in '..\source\fmSettings.pas' {frmSettings},
+  fgGalaxy in '..\Source\galaxy\fgGalaxy.pas' {frmGalaktika},
   uUtils in '..\Source\uUtils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule};
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  fgOptions in '..\source\galaxy\fgOptions.pas' {frmOption},
+  fmSettings in '..\source\fmSettings.pas' {FormSettings};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -28,12 +29,11 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmGalaxy, frmGalaxy);
-  Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormProjection, FormProjection);
+  Application.CreateForm(TfrmGalaktika, frmGalaktika);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TfrmOption, frmOption);
   Application.Run;
 end.
 

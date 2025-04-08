@@ -1,4 +1,4 @@
-unit fmSettings;
+unit fgOptions_ru;
 (*
   This unit is part of the Galaxy
 *)
@@ -38,7 +38,7 @@ uses
   fmForm;
 
 type
-  TFormSettings = class(TFormI)
+  TfrmOptions = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -86,7 +86,6 @@ type
     chbIsPolynet: TCheckBox;
     chbIsGridnet: TCheckBox;
     tsPlanets: TTabSheet;
-    chlbPlanetsize: TCheckListBox;
     CheckListBox1: TCheckListBox;
     RadioGroup1: TRadioGroup;
     LabelRg: TLabel;
@@ -168,6 +167,8 @@ type
     NumberBox7: TNumberBox;
     ImageList: TImageList;
     CheckBoxRotate: TCheckBox;
+    chlbPlanetsize: TCheckListBox;
+    LabelTitle: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -176,25 +177,22 @@ type
     procedure ComboBoxVclStylesChange(Sender: TObject);
   private
   public
+    CurLangID : Word;
     procedure ReadIniFile; override;
     procedure WriteIniFile;
     function Execute: boolean; virtual;
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmOptions: TfrmOptions;
 
 implementation //------------------------------------------------------------
 
 {$R *.dfm}
 
-{
-uses
-  fgGalaxy;
-}
 
 //---------------------------------------------------------------------------
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -233,7 +231,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+procedure TfrmOptions.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -250,7 +248,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TFormSettings.trbVelocityChange(Sender: TObject);
+procedure TfrmOptions.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   FlightTime: Extended;
@@ -265,7 +263,7 @@ end;
 
 
 //-----------------------------------------------------
-procedure TFormSettings.ButtonCalculateClick(Sender: TObject);
+procedure TfrmOptions.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Nt, Nl : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
@@ -305,12 +303,12 @@ begin
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
-procedure TFormSettings.ComboBoxVclStylesChange(Sender: TObject);
+procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
-function TFormSettings.Execute: boolean;
+function TfrmOptions.Execute: boolean;
 begin
   Result := ShowModal = mrOk;
 end;
@@ -318,29 +316,29 @@ end;
 //--------------------------------------------------------------------
 // Reading Inifile sections and setting the interface language
 //--------------------------------------------------------------------
-procedure TFormSettings.ReadIniFile;
+procedure TfrmOptions.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(FormSettings.Name, CheckBoxRotate.Name, True);
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
 end;
 
 // --------------------------------------------------------------------
-procedure TFormSettings.WriteIniFile;
+procedure TfrmOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(FormSettings.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(FormSettings.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -348,7 +346,7 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormSettings.ButtonOkClick(Sender: TObject);
+procedure TfrmOptions.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -356,7 +354,7 @@ begin
   if FileExists(UpperCase(FileName)) then
     DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
-  FormSettings.Close;
+  frmOptions.Close;
 end;
 
 end.

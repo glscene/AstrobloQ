@@ -34,7 +34,6 @@ object frmLitosphere: TfrmLitosphere
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 777
   end
   object PanelLeft: TPanel
     Left = 0
@@ -152,6 +151,7 @@ object frmLitosphere: TfrmLitosphere
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
+      ExplicitHeight = 625
     end
   end
   object StatusBar: TStatusBar
@@ -88739,7 +88739,10 @@ object frmLitosphere: TfrmLitosphere
       Caption = '&Tools'
       object miSettings: TMenuItem
         Caption = 'Settings...'
-        OnClick = miSettingsClick
+      end
+      object miOptions: TMenuItem
+        Caption = 'Options...'
+        OnClick = miOptionsClick
       end
       object N7: TMenuItem
         Caption = '-'

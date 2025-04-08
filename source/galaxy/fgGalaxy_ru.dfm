@@ -1,19 +1,19 @@
-object frmGalaxy: TfrmGalaxy
+object frmGalaktika: TfrmGalaktika
   Left = 0
   Top = 0
-  Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+  Caption = 'Galaktika'
   ClientHeight = 601
   ClientWidth = 982
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
-  TextHeight = 15
+  TextHeight = 21
   object StatusBar: TStatusBar
     Left = 0
     Top = 585
@@ -178,22 +178,22 @@ object frmGalaxy: TfrmGalaxy
         Left = 0
         Top = 0
         Width = 762
-        Height = 522
+        Height = 516
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 145.917984008789100000
+        FieldOfView = 145.545028686523400000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762
         Top = 0
         Width = 212
-        Height = 522
+        Height = 516
         Align = alRight
         TabOrder = 1
+        ExplicitHeight = 522
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -253,15 +253,15 @@ object frmGalaxy: TfrmGalaxy
           object Label1: TLabel
             Left = 107
             Top = 23
-            Width = 10
-            Height = 15
+            Width = 13
+            Height = 21
             Caption = '%'
           end
           object Label2: TLabel
             Left = 139
             Top = 23
-            Width = 35
-            Height = 15
+            Width = 44
+            Height = 21
             Caption = #1063#1080#1089#1083#1086
           end
           object shW: TShape
@@ -364,7 +364,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 87
             Top = 37
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -376,7 +376,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 88
             Top = 67
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -388,7 +388,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 88
             Top = 101
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -400,7 +400,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 88
             Top = 136
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -412,7 +412,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 88
             Top = 172
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -424,7 +424,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 88
             Top = 203
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -436,7 +436,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 88
             Top = 236
             Width = 46
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -448,7 +448,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 139
             Top = 101
             Width = 54
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 100000.000000000000000000
@@ -459,7 +459,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 139
             Top = 236
             Width = 54
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 1000000.000000000000000000
@@ -470,7 +470,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 139
             Top = 199
             Width = 54
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 1000000.000000000000000000
@@ -481,7 +481,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 139
             Top = 171
             Width = 54
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 1000000.000000000000000000
@@ -492,7 +492,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 141
             Top = 135
             Width = 53
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 1000000.000000000000000000
@@ -503,7 +503,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 139
             Top = 66
             Width = 54
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 100000.000000000000000000
@@ -514,7 +514,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 139
             Top = 37
             Width = 54
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MaxValue = 100000.000000000000000000
@@ -536,7 +536,7 @@ object frmGalaxy: TfrmGalaxy
             Left = 144
             Top = 275
             Width = 45
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmInt64
             MinValue = 100.000000000000000000
@@ -551,7 +551,7 @@ object frmGalaxy: TfrmGalaxy
           Left = 120
           Top = 18
           Width = 73
-          Height = 24
+          Height = 32
           MaxValue = 1000000
           MinValue = 1000
           TabOrder = 1
@@ -580,7 +580,7 @@ object frmGalaxy: TfrmGalaxy
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -12
+        TitleFont.Height = -16
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = []
       end
@@ -588,11 +588,12 @@ object frmGalaxy: TfrmGalaxy
         Left = 0
         Top = 0
         Width = 377
-        Height = 522
+        Height = 516
         Align = alLeft
         Lines.Strings = (
           'MemoTable')
         TabOrder = 1
+        ExplicitHeight = 522
       end
     end
   end
@@ -751,8 +752,8 @@ object frmGalaxy: TfrmGalaxy
     end
   end
   object MainMenu: TMainMenu
-    Left = 728
-    Top = 179
+    Left = 648
+    Top = 107
     object miFile: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object miNewStarcube: TMenuItem
@@ -875,8 +876,12 @@ object frmGalaxy: TfrmGalaxy
       Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
-        ImageIndex = 130
         OnClick = miSettingsClick
+      end
+      object miOptions: TMenuItem
+        Caption = #1054#1087#1094#1080#1080'...'
+        ImageIndex = 130
+        OnClick = miOptionsClick
       end
       object miN5: TMenuItem
         Caption = '-'
