@@ -174,8 +174,6 @@ object frmAstroVersum: TfrmAstroVersum
           0064006E00610000001F0000000000000000000000FFFFFFFFFFFFFFFF000000
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF000000000000000000000000000100}
-        ExplicitLeft = -6
-        ExplicitTop = 16
       end
     end
     object tsConstellations: TTabSheet
@@ -212,6 +210,7 @@ object frmAstroVersum: TfrmAstroVersum
         Height = 537
         Align = alLeft
         TabOrder = 0
+        ExplicitHeight = 512
         object tvConstellations: TTreeView
           Left = 1
           Top = 1
@@ -370,6 +369,7 @@ object frmAstroVersum: TfrmAstroVersum
             FFFFFFFFFFFFFFFF00000000000000000000000000010656006F006C0061006E
             0073000000310000005700000057000000FFFFFFFFFFFFFFFF00000000000000
             0000000000000109560075006C0070006500630075006C006100}
+          ExplicitHeight = 510
         end
       end
       object tvZodiacs: TTreeView

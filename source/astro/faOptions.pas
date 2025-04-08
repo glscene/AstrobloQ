@@ -110,10 +110,10 @@ var
 implementation //------------------------------------------------------------
 
 
-uses
-  faAstroVersum;
-
 {$R *.dfm}
+
+ uses
+  faAstroVersum;
 
 
 procedure TfrmOptions.FormCreate(Sender: TObject);

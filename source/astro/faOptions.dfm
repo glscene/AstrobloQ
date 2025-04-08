@@ -26,7 +26,7 @@ object frmOptions: TfrmOptions
       674
       29)
     object ButtonOK: TButton
-      Left = 503
+      Left = 495
       Top = 3
       Width = 70
       Height = 23
@@ -35,7 +35,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 495
+      ExplicitLeft = 487
     end
   end
   object PanelMiddle: TPanel
@@ -54,7 +54,7 @@ object frmOptions: TfrmOptions
       Top = 5
       Width = 500
       Height = 345
-      ActivePage = tsInterface
+      ActivePage = tsDisplay
       Align = alClient
       Style = tsButtons
       TabOrder = 0

@@ -199,7 +199,7 @@ begin
   inherited;
 
   DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
-  SetCurrentDir(DataDir);
+  //SetCurrentDir(DataDir);
 
   // Catalogs and constellations
   CurrDir := DataDir + 'catalog\';
