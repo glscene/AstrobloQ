@@ -175,6 +175,8 @@ object frmGalaktika: TfrmGalaktika
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 974
+    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = 'Stars'
       object svGalacube: TGLSceneViewer
@@ -197,7 +199,7 @@ object frmGalaktika: TfrmGalaktika
         Align = alRight
         TabOrder = 1
         ExplicitLeft = 754
-        ExplicitHeight = 497
+        ExplicitHeight = 491
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -597,7 +599,6 @@ object frmGalaktika: TfrmGalaktika
         Lines.Strings = (
           'MemoTable')
         TabOrder = 1
-        ExplicitHeight = 522
       end
     end
   end
@@ -935,7 +936,7 @@ object frmGalaktika: TfrmGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaxy'
+    FormCaption = 'Galaktika'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

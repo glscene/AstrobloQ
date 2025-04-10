@@ -165,6 +165,12 @@ type
     LabelPlanets: TLabel;
     ButtonCalculate: TButton;
     Button1: TButton;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label6: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -279,8 +285,8 @@ begin
   Ls := StrToInt64(EditLs.Text);
   Ratio := Lc/Ls;
 *)
-  // Number of technospheres
-  Nt := Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
+  // Number of stars with exoplanets
+  Nt := {1 Earth +} Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
   EditNt.Text := FloatToStr(Nt);
 
   // Calculating volume of galaxy cylinder

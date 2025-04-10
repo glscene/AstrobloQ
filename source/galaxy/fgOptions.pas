@@ -40,7 +40,6 @@ uses
 type
   TfrmOption = class(TFormI)
     PanelBottom: TPanel;
-    ButtonOk: TButton;
     PanelMain: TPanel;
     tvSettings: TTreeView;
     PageControl: TPageControl;
@@ -90,9 +89,7 @@ type
     CheckListBox1: TCheckListBox;
     RadioGroup1: TRadioGroup;
     LabelRg: TLabel;
-    StaticTextRg: TStaticText;
     LabelNs: TLabel;
-    StaticTextNs: TStaticText;
     lbNs: TLabel;
     lbNt: TLabel;
     nbFn: TNumberBox;
@@ -106,22 +103,17 @@ type
     stEqual: TStaticText;
     lbFl: TLabel;
     lbFb: TLabel;
-    StaticTextLt: TStaticText;
     EditLt: TEdit;
     EditLs: TEdit;
-    StaticTextLs: TStaticText;
     lbFn: TLabel;
     LabelLs: TLabel;
     LabelLt: TLabel;
     nbFt: TNumberBox;
     lbFt: TLabel;
     nbHg: TNumberBox;
-    StaticTextHg: TStaticText;
     LabelHg: TLabel;
-    LabelDt: TLabel;
     EditDt: TEdit;
     LabelVg: TLabel;
-    StaticTextVg: TStaticText;
     EditVg: TEdit;
     nbFp: TNumberBox;
     lbFp: TLabel;
@@ -129,7 +121,6 @@ type
     EditNs: TEdit;
     nbNs: TNumberBox;
     EditDs: TEdit;
-    LabelDs: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     ButtonCalculate: TButton;
@@ -168,6 +159,19 @@ type
     NumberBox7: TNumberBox;
     ImageList: TImageList;
     CheckBoxRotate: TCheckBox;
+    ButtonOk: TButton;
+    LabelTitle: TLabel;
+    LabelRc: TLabel;
+    NumberBoxRc: TNumberBox;
+    Button1: TButton;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label7: TLabel;
+    StaticText1: TStaticText;
+    StaticText2: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -189,7 +193,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  fgGalaxy;
+  fgGalaktika;
 
 //---------------------------------------------------------------------------
 procedure TfrmOption.FormCreate(Sender: TObject);

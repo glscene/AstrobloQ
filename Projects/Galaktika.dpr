@@ -14,7 +14,7 @@ uses
   fmForm in '..\source\fmForm.pas' {FormI},
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
-  fgGalaxy in '..\Source\galaxy\fgGalaxy.pas' {frmGalaktika},
+  fgGalaktika in '..\source\galaxy\fgGalaktika.pas' {frmGalaktika},
   uUtils in '..\Source\uUtils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},

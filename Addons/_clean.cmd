@@ -59,6 +59,7 @@ attrib +R "AdvDemos/Q3Demo/Model/animation.cfg"
 rem del *.cfg /s  - there are quake's animations
 attrib -R "AdvDemos/Q3Demo/Model/animation.cfg"
 
+del *.ini /s
 del *.res /s
 del *.avi /s
 rem del *.ico /s  - some projects have own icos
