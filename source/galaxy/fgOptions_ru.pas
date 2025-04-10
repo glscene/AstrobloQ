@@ -89,9 +89,7 @@ type
     CheckListBox1: TCheckListBox;
     RadioGroup1: TRadioGroup;
     LabelRg: TLabel;
-    StaticTextRg: TStaticText;
     LabelNs: TLabel;
-    StaticTextNs: TStaticText;
     lbNs: TLabel;
     lbNt: TLabel;
     nbFn: TNumberBox;
@@ -105,22 +103,17 @@ type
     stEqual: TStaticText;
     lbFl: TLabel;
     lbFb: TLabel;
-    StaticTextLt: TStaticText;
     EditLt: TEdit;
     EditLs: TEdit;
-    StaticTextLs: TStaticText;
     lbFn: TLabel;
     LabelLs: TLabel;
     LabelLt: TLabel;
     nbFt: TNumberBox;
     lbFt: TLabel;
     nbHg: TNumberBox;
-    StaticTextHg: TStaticText;
     LabelHg: TLabel;
-    LabelDt: TLabel;
     EditDt: TEdit;
     LabelVg: TLabel;
-    StaticTextVg: TStaticText;
     EditVg: TEdit;
     nbFp: TNumberBox;
     lbFp: TLabel;
@@ -128,10 +121,8 @@ type
     EditNs: TEdit;
     nbNs: TNumberBox;
     EditDs: TEdit;
-    LabelDs: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    ButtonCalculate: TButton;
     ComboBoxVclStyles: TComboBox;
     Label2: TLabel;
     grbPlanetShow: TGroupBox;
@@ -154,21 +145,26 @@ type
     nbCrust: TNumberBox;
     nbMantle: TNumberBox;
     nbCore: TNumberBox;
-    GroupBox1: TGroupBox;
-    LabelPlanetTilt: TLabel;
-    LabelPlanetDensity: TLabel;
-    LabelPlanetRadius: TLabel;
-    LabelGravityAccel: TLabel;
-    Label6: TLabel;
+    GroupBoxParams: TGroupBox;
+    LabelTilt: TLabel;
+    LabelDensity: TLabel;
+    LabelRadius: TLabel;
+    LabelGravity: TLabel;
+    LabelTemperature: TLabel;
     nbTilt: TNumberBox;
     nbDensity: TNumberBox;
     nbRadius: TNumberBox;
-    nbGravityAccel: TNumberBox;
-    NumberBox7: TNumberBox;
+    nbGravity: TNumberBox;
+    nbTemperature: TNumberBox;
     ImageList: TImageList;
     CheckBoxRotate: TCheckBox;
     chlbPlanetsize: TCheckListBox;
     LabelTitle: TLabel;
+    LabelRc: TLabel;
+    NumberBoxRc: TNumberBox;
+    LabelPlanets: TLabel;
+    ButtonCalculate: TButton;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -265,7 +261,7 @@ end;
 //-----------------------------------------------------
 procedure TfrmOptions.ButtonCalculateClick(Sender: TObject);
 var
-  Ns, Nt, Nl : Extended;
+  Ns, Nt, Np : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
   Ds, // Distance between stars
   Dt: Extended; // Distance between technospheres
@@ -274,7 +270,7 @@ begin
   Ns := nbNs.Value;
   EditNs.Text := FloatToStr(Ns);
   Fp := nbFp.Value;
-  Nl := nbNl.Value;
+  Np := nbNl.Value;
   Fb := nbFb.Value;
   Fn := nbFn.Value;
   Ft := nbFt.Value;
@@ -284,7 +280,7 @@ begin
   Ratio := Lc/Ls;
 *)
   // Number of technospheres
-  Nt := Round(Ns*Fp*Nl*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
+  Nt := Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
   EditNt.Text := FloatToStr(Nt);
 
   // Calculating volume of galaxy cylinder
@@ -296,10 +292,10 @@ begin
   // Distance betweem stars
   EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
 
-  // Average distance betweem galaxy technospheres
-  Ratio := Vg/Nt;
+  // Average distance betweem exoplanet systems
+  Ratio := Np*Vg/Nt;
   Dt := Power(Ratio, 1/3);
-  // Distance betweem technospheres
+  // Output of distance betweem exoplanet systems
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 

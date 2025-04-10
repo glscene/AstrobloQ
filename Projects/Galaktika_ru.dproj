@@ -160,7 +160,7 @@
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgGalaxy_ru.pas">
+        <DCCReference Include="..\source\galaxy\fgGalaktika_ru.pas">
             <Form>frmGalaktika</Form>
             <FormType>dfm</FormType>
         </DCCReference>

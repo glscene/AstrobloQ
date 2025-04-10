@@ -19,6 +19,8 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 662
+    ExplicitWidth = 1305
     object ButtonOk: TButton
       Left = 1079
       Top = 10
@@ -45,6 +47,8 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 1305
+    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -61,15 +65,18 @@ inherited FormSettings: TFormSettings
       TabOrder = 0
       OnClick = tvSettingsClick
       Items.NodeData = {
-        070500000009540054007200650065004E006F00640065003100000000000000
-        00000000FFFFFFFFFFFFFFFF01000000000000000000000000010949006E0074
-        0065007200660061006300650000002D0000000000000000000000FFFFFFFFFF
-        FFFFFF02000000000000000000000000010744006900730070006C0061007900
-        00002F0000000000000000000000FFFFFFFFFFFFFFFF03000000000000000000
-        00000001084D006100740065007200690061006C000000290000000000000000
-        000000FFFFFFFFFFFFFFFF050000000000000000000000000105530074006100
-        7200730000002D0000000000000000000000FFFFFFFFFFFFFFFF070000000000
-        0000000000000001075000610074006800770061007900}
+        070600000009540054007200650065004E006F00640065002900000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
+        04380435040000310000000000000000000000FFFFFFFFFFFFFFFF0100000000
+        0000000000000000010918043D04420435044004440435043904410400002D00
+        00000000000000000000FFFFFFFFFFFFFFFF0200000000000000000000000001
+        071404380441043F043B043504390400002F0000000000000000000000FFFFFF
+        FFFFFFFFFF0300000000000000000000000001081C0430044204350440043804
+        30043B0400002B0000000000000000000000FFFFFFFFFFFFFFFF050000000000
+        000000000000000106170432045104370434044B040000330000000000000000
+        000000FFFFFFFFFFFFFFFF07000000000000000000000000010A220440043004
+        35043A0442043E04400438044F04}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -90,6 +97,8 @@ inherited FormSettings: TFormSettings
       ParentFont = False
       Style = tsButtons
       TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -100,13 +109,13 @@ inherited FormSettings: TFormSettings
         object Label2: TLabel
           Left = 271
           Top = 88
-          Width = 140
+          Width = 194
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Style of interface'
+          Caption = #1057#1090#1080#1083#1100' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
         end
         object CheckBoxLoadProject: TCheckBox
           Left = 47
@@ -117,13 +126,13 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Loading at start'
+          Caption = #1047#1072#1075#1088#1091#1079#1082#1072' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
           Checked = True
           State = cbChecked
           TabOrder = 0
         end
         object CheckBoxSaveProject: TCheckBox
-          Left = 351
+          Left = 335
           Top = 226
           Width = 269
           Height = 30
@@ -131,21 +140,21 @@ inherited FormSettings: TFormSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Save on exit'
+          Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
           Checked = True
           State = cbChecked
           TabOrder = 1
         end
         object CheckBoxSplashStart: TCheckBox
           Left = 669
-          Top = 226
+          Top = 225
           Width = 256
           Height = 31
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Show splash'
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1089#1090#1072#1074#1082#1091
           TabOrder = 2
         end
         object ComboBoxVclStyles: TComboBox
@@ -259,7 +268,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 178
+          Left = 170
           Top = 53
           Width = 149
           Height = 200

@@ -15,7 +15,7 @@ uses
   fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   uSkyBodies in '..\Source\uSkyBodies.pas',
   fgOptions_ru in '..\source\galaxy\fgOptions_ru.pas' {frmOptions},
-  fgGalaxy_ru in '..\Source\galaxy\fgGalaxy_ru.pas' {frmGalaktika},
+  fgGalaktika_ru in '..\source\galaxy\fgGalaktika_ru.pas' {frmGalaktika},
   uUtils in '..\Source\uUtils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
