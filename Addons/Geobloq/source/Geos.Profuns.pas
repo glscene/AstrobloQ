@@ -5,7 +5,7 @@
 {! The unit includes procedures and functions, that
    implement some calculation routines}
 
-unit uProfuns;
+unit Geos.Profuns;
 
 interface
 
@@ -32,8 +32,6 @@ type
 const
   Epsilon: double = 0.00001;
 
-// Получить путь к данным из плагина
-function GetDataDirFromPlugins(): TFileName;
 // Сменить таблицу модели
 function ChangeModelTable(DirSource, DirDest: string; AFileName: TFileName): string;
 // Очистить массив
@@ -112,25 +110,7 @@ procedure GetHistogram(var f: array of integer; Lo, Hi, MaxData, MaxClass: integ
 //Round to chosen digits by method
 function RoundToEx(Value, Precision: Currency; Method: Integer): Currency;
 
-//======================================================================
-implementation
-//======================================================================
-
-function GetDataDirFromPlugins(): TFileName;
-var
-  DataDir: TFileName;
-  N: Integer;
-  Len: Integer;
-begin
-  DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  N := Pos('plugins', DataDir);
-  Len := Length(DataDir);
-  Delete(DataDir, N, Len);
-  DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
-  SetCurrentDir(DataDir);
-  Result := DataDir;
-end;
-
+implementation //============================================================
 
 function ChangeModelTable(DirSource, DirDest: string; AFileName: TFileName): string;
 var

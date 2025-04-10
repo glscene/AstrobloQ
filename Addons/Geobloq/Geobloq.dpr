@@ -1,4 +1,4 @@
-program Gexobloq;
+program Geobloq;
 
 {$R 'Gexoblock.res' 'bin\Gexoblock.rc'}
 
@@ -20,7 +20,7 @@ uses
   fxMethodDialog in 'source\fxMethodDialog.pas' {fmMethodDialog},
   fxMethodDualDialog in 'source\fxMethodDualDialog.pas' {fmMethodDualDialog},
   fxInterpolation in 'source\fxInterpolation.pas' {fmMethodInterpolation},
-  fxGexobloq in 'source\fxGexobloq.pas' {fmGexobloq},
+  fxGeobloq in 'source\fxGeobloq.pas' {frmGeobloq},
   fxGridGeneration in 'source\fxGridGeneration.pas' {fmMethodGridGeneration},
   uxCommon in 'source\uxCommon.pas',
   dxImages in 'source\dxImages.pas' {dmImages: TDataModule},
@@ -35,14 +35,15 @@ uses
   uDiscoCore in 'source\uDiscoCore.pas',
   uDiscoMetric in 'source\uDiscoMetric.pas',
   uDiscoPoly in 'source\uDiscoPoly.pas',
-  uProfuns in 'source\uProfuns.pas',
+  Geos.Profuns in 'source\Geos.Profuns.pas',
   uSorting in 'source\uSorting.pas',
   uSuperblock in 'source\uSuperblock.pas',
   uxClosestPointInt in 'source\uxClosestPointInt.pas',
   uxKriging in 'source\uxKriging.pas',
   uxTetraMesh in 'source\uxTetraMesh.pas',
   uxVariograms in 'source\uxVariograms.pas',
-  uObjects3D in 'source\uObjects3D.pas';
+  uObjects3D in 'source\uObjects3D.pas',
+  uxUtils in '..\..\source\uxUtils.pas';
 
 {$R *.res}
 
@@ -71,6 +72,6 @@ begin
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TfmGexobloq, fmGexobloq);
+  Application.CreateForm(TfrmGeobloq, frmGeobloq);
   Application.Run;
 end.

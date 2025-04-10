@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcGexobloqH
-#define fcGexobloqH
+#ifndef fcGeobloqH
+#define fcGeobloqH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>
@@ -12,16 +12,16 @@
 #include <System.Math.Vectors.hpp>
 #include <FMX.Objects3D.hpp>
 //---------------------------------------------------------------------------
-class TFormGexobloq : public TForm3D
+class TfrmGeobloq : public TForm3D
 {
 __published:	// IDE-managed Components
 	TCamera *Camera1;
 	TCube *Cube1;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFormGexobloq(TComponent* Owner);
+	__fastcall TfrmGeobloq(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormGexobloq *FormGexobloq;
+extern PACKAGE TfrmGeobloq *frmGeobloq;
 //---------------------------------------------------------------------------
 #endif

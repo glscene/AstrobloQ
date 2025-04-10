@@ -67,9 +67,7 @@ type
   end;
 
 
-//===================================================
-implementation
-//===================================================
+implementation //===================================================
 
 {$R *.fmx}
 
@@ -96,14 +94,13 @@ begin
   FaceModel.HitTest := False;
   FaceModel.TwoSide := True;
 
-  PathExe := ExtractFilePath(ParamStr(0));
-  Delete(PathExe, Length(PathExe) - 4, 4);
-  FileName := PathExe + 'Data' + PathDelim + 'Assets' + PathDelim + 'CubeMaps';
+//  PathExe := ExtractFilePath(ParamStr(0)); Delete(PathExe, Length(PathExe) - 4, 4);
+  FileName := PathAssets + 'cubemap';
   SetCurrentDir(FileName);
-  LightMaterialSource.Texture.LoadFromFile('desert_negx.png');
-  FileName := PathExe + 'Data' + PathDelim + 'Assets' + PathDelim + 'Textures';
+  LightMaterialSource.Texture.LoadFromFile('hills_negx.bmp');
+  FileName := PathAssets + 'texture';
   SetCurrentDir(FileName);
-  TextureMaterialSource.Texture.LoadFromFile('Rainbow.png');
+  TextureMaterialSource.Texture.LoadFromFile('core.jpg');
 ///  ColorMaterialSource.Color() := RandSeed;
 end;
 

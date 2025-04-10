@@ -42,22 +42,17 @@ type
     LabelDataAnalysis: TLabel;
     LabelModelVisualization: TLabel;
     LabelMineralReserveEstimation: TLabel;
-    Langs: TLang;
     LabelOS: TLabel;
     LabelArchitecture: TLabel;
     procedure FormShow(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
   fmHelpAbout: TfmHelpAbout;
 
-//==================================================================
-implementation
-//==================================================================
+implementation //========================================================
 
 {$R *.fmx}
 
@@ -66,9 +61,6 @@ var
   S: String;
 begin
   inherited;
-  Langs.Lang := CurLang;
-  Caption := TransManually(Caption, Langs);
-  TextTitle.Text := TransManually(TextTitle.Text, Langs);
   //-------------------- OS ------------------------------
   LabelOS.Text := TOSVersion.ToString;
   //-------------------- CPU ------------------------------

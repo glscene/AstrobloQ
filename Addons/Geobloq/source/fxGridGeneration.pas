@@ -28,7 +28,6 @@ uses
 
 type
   TfmMethodGridGeneration = class(TfmMethodDialog)
-    Langs: TLang;
     gbModelSize: TGroupBox;
     Image1: TImage;
     Image2: TImage;
@@ -48,9 +47,7 @@ implementation //------------------------------------------------------------
 procedure TfmMethodGridGeneration.FormCreate(Sender: TObject);
 begin
   inherited;
-  Langs.Lang := CurLang;
-  Caption := TransManually(Caption, Langs);
-
+ //
 end;
 
 //---------------------------------------------------------------------------

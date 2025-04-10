@@ -3,13 +3,13 @@
 #include <fmx.h>
 #pragma hdrstop
 
-#include "fcGexobloq.h"
+#include "fcGeobloq.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
-TFormGexobloq *FormGexobloq;
+TfrmGeobloq *frmGeobloq;
 //---------------------------------------------------------------------------
-__fastcall TFormGexobloq::TFormGexobloq(TComponent* Owner)
+__fastcall TfrmGeobloq::TfrmGeobloq(TComponent* Owner)
 	: TForm3D(Owner)
 {
 }

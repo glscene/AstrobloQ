@@ -7,14 +7,14 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("fcGexobloq.cpp", FormGexobloq);
+USEFORM("src\fcGeobloq.cpp", frmGeobloq);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TFormGexobloq), &FormGexobloq);
+		Application->CreateForm(__classid(TfrmGeobloq), &frmGeobloq);
 		Application->Run();
 	}
 	catch (Exception &exception)

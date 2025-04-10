@@ -1,13 +1,13 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{7CE0F4BC-6B1B-4278-81FF-9DF52AA0DD98}</ProjectGuid>
-        <ProjectVersion>20.2</ProjectVersion>
+        <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
-        <MainSource>Gexobloqc.cpp</MainSource>
+        <MainSource>Geobloqc.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64x</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Gexobloqc</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Geobloqc</ProjectName>
         <TargetedPlatforms>1048579</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
@@ -92,9 +92,9 @@
         <AllPackageLibs>rtl.lib;fmx.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
-        <IncludePath>D:\ASTRONOMY\AstrobloQ\Addons\Gexobloq\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>D:\ASTRONOMY\AstrobloQ\Addons\Gexobloq\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <SanitizedProjectName>Gexobloqc</SanitizedProjectName>
+        <IncludePath>src\;D:\ASTRONOMY\AstrobloQ\Addons\Gexobloq\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>src\;D:\ASTRONOMY\AstrobloQ\Addons\Gexobloq\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <SanitizedProjectName>Geobloqc</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bdertl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;Execute;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;FMXComponentEd;FMXComponents;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;GLScene_Cg_RT;GLScene_GPU_RT;GLScene_Physics_RT;GLScene_RT;GLScene_Sounds_RT;GXScene_DTRT;GXScene_GBE_DTRT;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;inetstn;RESTBackendComponents;RESTComponents;rtl;Skia;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldbx;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
@@ -184,16 +184,16 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="fcGexobloq.cpp">
-            <Form>FormGexobloq</Form>
-            <FormType>fmx</FormType>
-            <DependentOn>fcGexobloq.h</DependentOn>
-            <BuildOrder>1</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="Gexobloqc.cpp">
+        <CppCompile Include="Geobloqc.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <FormResources Include="fcGexobloq.fmx"/>
+        <CppCompile Include="src\fcGeobloq.cpp">
+            <Form>frmGeobloq</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>src\fcGeobloq.h</DependentOn>
+            <BuildOrder>1</BuildOrder>
+        </CppCompile>
+        <FormResources Include="src\fcGeobloq.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -218,12 +218,9 @@
                     <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
                 <Source>
-                    <Source Name="MainSource">Gexobloqc.cpp</Source>
+                    <Source Name="MainSource">Geobloqc.cpp</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GXScene_GBE.bpl">GXScene GBE</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GBComps.bpl">Geoblock - Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -296,9 +293,15 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win64x\Debug\Gexobloqc.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName=".\bin\Geobloqc.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64x">
-                        <RemoteName>Gexobloqc.exe</RemoteName>
+                        <RemoteName>Geobloqc.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\bin\Geobloqc.pdb" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64x">
+                        <RemoteName>Geobloqc.pdb</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -413,6 +416,16 @@
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\values-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStylesV35">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values-v35</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\values-v35</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>

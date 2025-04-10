@@ -33,7 +33,7 @@ uses
   FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef,
 //  FireDAC.Phys.SQLiteWrapper.Stat,
-  FireDAC.Stan.ExprFuncs;
+  FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat;
 
 type
   TdmBase = class(TDataModule)

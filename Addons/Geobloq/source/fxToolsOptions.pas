@@ -34,7 +34,6 @@ type
     ListBox: TListBox;
     ButtonEn: TButton;
     ButtonRu: TButton;
-    Langs: TLang;
     procedure FormCreate(Sender: TObject);
     procedure ListBoxChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -66,22 +65,7 @@ end;
 procedure TfmToolsOptions.FormShow(Sender: TObject);
 begin
   inherited;
-  Langs.Lang := CurLang;
-  Caption := TransManually(Caption, Langs);
-
-{
-  Langs.Resources.LoadFromFile('..\Gexoblock.lng');
-  for i := 0 to Langs.Resources.Count - 1 do
-  begin
-    Item := TListBoxItem.Create(Self);
-    Item.AutoTranslate := True;
-    Item.Parent := ListBox;
-    Item.Text := Langs.Resources[i];
-    if Langs.Lang = Item.Text then
-      ListBox.ItemIndex := ListBox.Count - 1;
-  end;
-}
-
+  //
 end;
 
 procedure TfmToolsOptions.ListBoxChange(Sender: TObject);

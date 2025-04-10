@@ -3,10 +3,10 @@
         <ProjectGuid>{23E9AF3B-85A5-4EAB-84D1-BA6BE77370FA}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Gexobloq.dproj">
+        <Projects Include="Geobloq\Geobloq.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Gexobloqc.cbproj">
+        <Projects Include="Geobloq\Geobloqc.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -17,32 +17,32 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Gexobloq">
-        <MSBuild Projects="Gexobloq.dproj"/>
+    <Target Name="Geobloq">
+        <MSBuild Projects="Geobloq\Geobloq.dproj"/>
     </Target>
-    <Target Name="Gexobloq:Clean">
-        <MSBuild Projects="Gexobloq.dproj" Targets="Clean"/>
+    <Target Name="Geobloq:Clean">
+        <MSBuild Projects="Geobloq\Geobloq.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Gexobloq:Make">
-        <MSBuild Projects="Gexobloq.dproj" Targets="Make"/>
+    <Target Name="Geobloq:Make">
+        <MSBuild Projects="Geobloq\Geobloq.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Gexobloqc">
-        <MSBuild Projects="Gexobloqc.cbproj"/>
+    <Target Name="Geobloqc">
+        <MSBuild Projects="Geobloq\Geobloqc.cbproj"/>
     </Target>
-    <Target Name="Gexobloqc:Clean">
-        <MSBuild Projects="Gexobloqc.cbproj" Targets="Clean"/>
+    <Target Name="Geobloqc:Clean">
+        <MSBuild Projects="Geobloq\Geobloqc.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Gexobloqc:Make">
-        <MSBuild Projects="Gexobloqc.cbproj" Targets="Make"/>
+    <Target Name="Geobloqc:Make">
+        <MSBuild Projects="Geobloq\Geobloqc.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Gexobloq;Gexobloqc"/>
+        <CallTarget Targets="Geobloq;Geobloqc"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Gexobloq:Clean;Gexobloqc:Clean"/>
+        <CallTarget Targets="Geobloq:Clean;Geobloqc:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Gexobloq:Make;Gexobloqc:Make"/>
+        <CallTarget Targets="Geobloq:Make;Geobloqc:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

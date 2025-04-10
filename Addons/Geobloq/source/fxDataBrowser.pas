@@ -59,9 +59,7 @@ type
 var
   fmFileDataBrowser: TfmFileDataBrowser;
 
-//============================================================
-implementation
-//============================================================
+implementation //============================================================
 
 {$R *.fmx}
 
@@ -85,7 +83,7 @@ procedure TfmFileDataBrowser.FormCreate(Sender: TObject);
 
 begin
   inherited;
-  FillFilesTreeView(TreeView, PathDataBase);
+  FillFilesTreeView(TreeView, DirBase);
 end;
 
 //===========================================================================

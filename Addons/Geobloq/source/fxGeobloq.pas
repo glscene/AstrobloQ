@@ -2,7 +2,7 @@
 // This unit is part of the Gexoblock System, http://sourceforge.net/projects/geoblock
 //---------------------------------------------------------------------------
 
-unit fxGexobloq;
+unit fxGeobloq;
 
 interface
 
@@ -63,7 +63,7 @@ uses
   frxShowScene;
 
 type
-  TfmGexobloq = class(TfmInitialForm)
+  TfrmGeobloq = class(TfmInitialForm)
     Layer3D1: TLayer3D;
     Layout3D1: TLayout3D;
     Light1: TLight;
@@ -118,7 +118,6 @@ type
     miTools: TMenuItem;
     miWindow: TMenuItem;
     miToolsOptions: TMenuItem;
-    Langs: TLang;
     MenuItem1: TMenuItem;
     MenuItem3: TMenuItem;
     acFileImport: TAction;
@@ -177,12 +176,11 @@ type
     procedure ReadIniFile; override;
     procedure WriteIniFile;
   private
-    procedure TranslateMainMenu;
     procedure DefaultLayout;
   end;
 
 var
-  fmGexobloq: TfmGexobloq;
+  frmGeobloq: TfrmGeobloq;
 
 implementation //-------------------------------------------------------------
 
@@ -192,87 +190,39 @@ uses
   fxHelpAbout,
   fxToolsOptions;
 
-procedure TfmGexobloq.DefaultLayout;
+procedure TfrmGeobloq.DefaultLayout;
 begin
   PanelCenter.Visible := True;
   PanelRight.Visible := True;
 end;
 
-procedure TfmGexobloq.FormCreate(Sender: TObject);
+procedure TfrmGeobloq.FormCreate(Sender: TObject);
 begin
   inherited;
   ReadIniFile;
-  TranslateMainMenu;
   with FrameDataBrowser do
   begin
     ReadDBFiles;
     ///BuildTree(TreeViewData, qTree);
   end;
-
  /// Application.OnHint      := OnApplicationHint(Sender);
 end;
 
-procedure TfmGexobloq.FormShow(Sender: TObject);
+procedure TfrmGeobloq.FormShow(Sender: TObject);
 begin
   inherited;
   DefaultLayout;
 end;
 
-procedure TfmGexobloq.TranslateMainMenu;
-var
-  I : Integer;
-begin
-  //LoadLangFromStrings(Langs.LangStr[CurLang]); to switch in runtime
-  Langs.Lang := CurLang;
-  Caption := Translate(Caption);
-
-  miFile.Text := Translate(miFile.Text);
-  for I := 0 to miFile.ItemsCount - 1 do
-    miFile.Items[I].Text := Translate(miFile.Items[I].Text);
-
-  miEdit.Text := Translate(miEdit.Text);
-  for I := 0 to miEdit.ItemsCount - 1 do
-    miEdit.Items[I].Text := Translate(miEdit.Items[I].Text);
-
-  miMethod.Text := Translate(miMethod.Text);
-  for I := 0 to miMethod.ItemsCount - 1 do
-    miMethod.Items[I].Text := Translate(miMethod.Items[I].Text);
-
-  miDraw.Text := Translate(miDraw.Text);
-  for I := 0 to miDraw.ItemsCount - 1 do
-    miDraw.Items[I].Text := Translate(miDraw.Items[I].Text);
-
-  miView.Text := Translate(miView.Text);
-  for I := 0 to miView.ItemsCount - 1 do
-    miView.Items[I].Text := Translate(miView.Items[I].Text);
-
-  miAnalyse.Text := Translate(miAnalyse.Text);
-  for I := 0 to miAnalyse.ItemsCount - 1 do
-    miAnalyse.Items[I].Text := Translate(miAnalyse.Items[I].Text);
-
-  miTools.Text := Translate(miTools.Text);
-  for I := 0 to miTools.ItemsCount - 1 do
-    miTools.Items[I].Text := Translate(miTools.Items[I].Text);
-
-  miWindow.Text := Translate(miWindow.Text);
-  for I := 0 to miWindow.ItemsCount - 1 do
-    miTools.Items[I].Text := Translate(miWindow.Items[I].Text);
-
-  miHelp.Text := Translate(miHelp.Text);
-  for I := 0 to miHelp.ItemsCount - 1 do
-    miHelp.Items[I].Text := Translate(miHelp.Items[I].Text);
-end;
-
 
 //----------------- Actions ---------------------\\
-
-procedure TfmGexobloq.acFileExitCanActionExec(Sender: TCustomAction;
+procedure TfrmGeobloq.acFileExitCanActionExec(Sender: TCustomAction;
   var CanExec: Boolean);
 begin
   Application.Terminate;
 end;
 
-procedure TfmGexobloq.acMethodGridGenerationExecute(Sender: TObject);
+procedure TfrmGeobloq.acMethodGridGenerationExecute(Sender: TObject);
 begin
   with TfmMethodGridGeneration.Create(Self) do
   try
@@ -282,7 +232,7 @@ begin
   end;
 end;
 
-procedure TfmGexobloq.acMethodInterpolationExecute(Sender: TObject);
+procedure TfrmGeobloq.acMethodInterpolationExecute(Sender: TObject);
 begin
   with TfmMethodInterpolation.Create(Self) do
   try
@@ -292,7 +242,7 @@ begin
   end;
 end;
 
-procedure TfmGexobloq.acMethodPitOptimizationExecute(Sender: TObject);
+procedure TfrmGeobloq.acMethodPitOptimizationExecute(Sender: TObject);
 begin
   with TfmMethodPitOptimization.Create(Self) do
   try
@@ -302,12 +252,12 @@ begin
   end;
 end;
 
-procedure TfmGexobloq.acSaveAsExecute(Sender: TObject);
+procedure TfrmGeobloq.acSaveAsExecute(Sender: TObject);
 begin
   //Save As
 end;
 
-procedure TfmGexobloq.acToolsOptionsExecute(Sender: TObject);
+procedure TfrmGeobloq.acToolsOptionsExecute(Sender: TObject);
 begin
   with TfmToolsOptions.Create(Self) do
   try
@@ -320,7 +270,7 @@ end;
 
 //_______________________ Help ________________________\\
 
-procedure TfmGexobloq.acHelpAboutExecute(Sender: TObject);
+procedure TfrmGeobloq.acHelpAboutExecute(Sender: TObject);
 begin
   with TfmHelpAbout.Create(Self) do
     try
@@ -343,7 +293,7 @@ end;
 }
 
 
-procedure TfmGexobloq.ReadIniFile;
+procedure TfrmGeobloq.ReadIniFile;
 var
   StyleID: integer;
 begin
@@ -351,7 +301,7 @@ begin
   StyleID := 0;
   PathExe := ExtractFilePath(ParamStr(0));
   SetCurrentDir(PathExe);
-  IniFile := TIniFile.Create(PathExe + 'Gexoblock.ini');
+  IniFile := TIniFile.Create(PathExe + 'Geobloq.ini');
   with IniFile do
     try
       Top := ReadInteger(Name, 'Top', 100);
@@ -377,27 +327,27 @@ begin
 end;
 
 
-procedure TfmGexobloq.sbCenterClick(Sender: TObject);
+procedure TfrmGeobloq.sbCenterClick(Sender: TObject);
 begin
   FrameShowTable.Visible := not FrameShowTable.Visible;
 end;
 
 
-procedure TfmGexobloq.cbMultiViewChange(Sender: TObject);
+procedure TfrmGeobloq.cbMultiViewChange(Sender: TObject);
 begin
   FrameDataBrowser.TreeViewData.ShowCheckboxes := cbMultiView.IsChecked;
 end;
 
-procedure TfmGexobloq.sbMultiViewClick(Sender: TObject);
+procedure TfrmGeobloq.sbMultiViewClick(Sender: TObject);
 begin
 ///
 end;
 
-procedure TfmGexobloq.WriteIniFile;
+procedure TfrmGeobloq.WriteIniFile;
 begin
   PathExe := ExtractFilePath(ParamStr(0));
   SetCurrentDir(PathExe);
-  IniFile := TIniFile.Create(PathExe + 'Gexoblock.ini');
+  IniFile := TIniFile.Create(PathExe + 'Geobloq.ini');
   with IniFile do
     try
       WriteInteger(Name, 'Top', Top);
@@ -415,7 +365,7 @@ begin
   inherited;
 end;
 
-procedure TfmGexobloq.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmGeobloq.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   try
     //fmViewProjectManager.SaveToFile(ExpandPath(DirProject) + 'Gexoblock.prj');

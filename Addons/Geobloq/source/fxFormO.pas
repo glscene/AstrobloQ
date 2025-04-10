@@ -32,9 +32,6 @@ type
     procedure ReadIniFile; virtual;
     procedure WriteIniFile;
     // translate a text,which is not in the autotranslation process of TLang
-    function TransManually(sOriginal: string; aLang: TLang): string; virtual;
-    procedure LoadTranslationsFromFile(aLangCode: string; aFileName: string;
-      aLang: TLang); virtual;
   end;
 
 var
@@ -43,39 +40,6 @@ var
 implementation // ------------------------------------------------------------
 
 {$R *.fmx}
-
-function TfmInitialForm.TransManually(sOriginal: string; aLang: TLang): string;
-begin
-  // first check, if the selected language has a mapping
-  if aLang.Resources.IndexOf(aLang.Lang) >= 0 then
-  begin
-    // get the resource stringlist of the current language and get the translation
-    result := aLang.LangStr[aLang.Lang].Values[sOriginal];
-    if result = '' then
-    begin
-      // text not found in mapping - keep original text
-      result := sOriginal;
-    end;
-  end
-  else
-  begin // language not found: must be the default language
-    result := sOriginal;
-  end;
-end;
-
-procedure TfmInitialForm.LoadTranslationsFromFile(aLangCode: string;
-  aFileName: string; aLang: TLang);
-var
-  TranStrings: TStrings;
-begin
-  if (aLangCode <> '') and (FileExists(aFileName)) and (Assigned(aLang))
-  then
-  begin
-    TranStrings := TStringList.Create;
-    TranStrings.LoadFromFile(aFileName);
-    aLang.Resources.AddObject(aLangCode, TranStrings);
-  end;
-end;
 
 { TfmInitialForm }
 

@@ -3,13 +3,13 @@
         <ProjectGuid>{54CC98A5-EB55-47D1-ACF5-08809ABA8602}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
-        <MainSource>Gexobloq.dpr</MainSource>
+        <MainSource>Geobloq.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>2</TargetedPlatforms>
         <AppType>Application</AppType>
-        <ProjectName Condition="'$(ProjectName)'==''">Gexobloq</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Geobloq</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -69,7 +69,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>Gexobloq</SanitizedProjectName>
+        <SanitizedProjectName>Geobloq</SanitizedProjectName>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
@@ -255,8 +255,8 @@
         <DCCReference Include="source\fxInterpolation.pas">
             <Form>fmMethodInterpolation</Form>
         </DCCReference>
-        <DCCReference Include="source\fxGexobloq.pas">
-            <Form>fmGexobloq</Form>
+        <DCCReference Include="source\fxGeobloq.pas">
+            <Form>frmGeobloq</Form>
         </DCCReference>
         <DCCReference Include="source\fxGridGeneration.pas">
             <Form>fmMethodGridGeneration</Form>
@@ -290,7 +290,7 @@
         <DCCReference Include="source\uDiscoCore.pas"/>
         <DCCReference Include="source\uDiscoMetric.pas"/>
         <DCCReference Include="source\uDiscoPoly.pas"/>
-        <DCCReference Include="source\uProfuns.pas"/>
+        <DCCReference Include="source\Geos.Profuns.pas"/>
         <DCCReference Include="source\uSorting.pas"/>
         <DCCReference Include="source\uSuperblock.pas"/>
         <DCCReference Include="source\uxClosestPointInt.pas"/>
@@ -298,6 +298,7 @@
         <DCCReference Include="source\uxTetraMesh.pas"/>
         <DCCReference Include="source\uxVariograms.pas"/>
         <DCCReference Include="source\uObjects3D.pas"/>
+        <DCCReference Include="..\..\source\uxUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -351,12 +352,9 @@
                     <VersionInfoKeys Name="CFBundleExecutable"/>
                 </VersionInfoKeys>
                 <Source>
-                    <Source Name="MainSource">Gexobloq.dpr</Source>
+                    <Source Name="MainSource">Geobloq.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GLXEngine_DTRT.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GXScene_GBE.bpl">GXScene GBE</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Bpl\GBComps.bpl">Geoblock - Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -385,20 +383,20 @@
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png" Configuration="Debug" Class="UWP_DelphiLogo150"/>
                 <DeployFile LocalName="Bin\Gexoblock.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="Bin\Gexoblock.rsm" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName="Bin\Gexobloq.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win64">
-                        <RemoteName>Gexobloq.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Bin\Gexobloq.rsm" Configuration="Debug" Class="DebugSymbols">
-                    <Platform Name="Win64">
-                        <RemoteName>Gexobloq.rsm</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="D:\Geoblock\Bin\Gexoblock.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="D:\_Geoblock\Resources\Logo\GeoblockLogo.png" Configuration="Debug" Class="UWP_DelphiLogo150"/>
+                <DeployFile LocalName="bin\Geobloq.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>Geobloq.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="bin\Geobloq.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>Geobloq.rsm</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>

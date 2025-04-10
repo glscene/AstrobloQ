@@ -1,4 +1,4 @@
-object FormGexobloq: TFormGexobloq
+object frmGeobloq: TfrmGeobloq
   Left = 0
   Top = 0
   Camera = Camera1
@@ -16,13 +16,13 @@ object FormGexobloq: TFormGexobloq
     Target = Cube1
     Position.X = 1.862574100494385000
     Position.Y = -4.501384735107422000
-    Position.Z = -5.000000953674316000
+    Position.Z = -5.000000000000000000
     RotationAngle.X = -2.266433715820313000
     RotationAngle.Y = 19.262695312500000000
     RotationAngle.Z = -0.723548889160156300
     Width = 1.163870334625244000
     Height = 1.113328337669373000
-    Depth = 1.000003099441528000
+    Depth = 1.000000000000000000
     Quanternion = 
       '(-0.0184408314526081,0.167276874184608,-0.0132559295743704,0.985' +
       '647201538086)'

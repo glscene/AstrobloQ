@@ -12,10 +12,10 @@ uses
   System.Math,
   FMX.StdCtrls, // there is Vcl.Dialogs.TTaskDialog.ProgressBar
 
-
+  Geos.Profuns,
   uxGlobals,
   uxCommon,
-  uProfuns,
+
   uInterpol,
   uSuperblock;
 

@@ -58,41 +58,32 @@ const
   Seed:      integer = 1000;
 
 const
-  RegGexoblock = '\SOFTWARE\Gexoblock\';
+  RegGexoblock = '\SOFTWARE\Geobloq\';
 
 var
-  GeneralSection: string = '\SOFTWARE\Gexoblock\General';
+  GeneralSection: string = '\SOFTWARE\Geobloq\General';
   // That must not be declared as const
   DBext:     string = '.sqlite';
   PrjExt:    string = '.prj';
   ParExt:    string = '.par';
   TextExt:   string = '.txt';
   PlugExt:   string = '*.gpl';
-  CurLang:   string = 'ru';  //Current default is 'en', localized is 'ru' etc.
-  LangID: integer;
-
 
 var
-  //Paths for Gexoblock
-  PathApp:  TFileName = '';  //..\Gexoblock\
-  PathExe:  TFileName = '';  //..\Gexoblock\bin\
+  //Paths
+  PathAstrobloQ:  TFileName = '';
+  PathAddons:  TFileName = '';
+  PathAssets: TFileName = '';
+  PathExe:  TFileName = '';  //e.g...Geobloq\bin\
+  DirBase:  TFileName = PathDelim + 'Base' + PathDelim;
 
-  PathDataBase: TFileName = '';
-
-  PathDataAssets: TFileName = '';
-  PathDataReference: TFileName = '';
 
   DirProjects: TFileName = 'Data'+ PathDelim;
-
-  DirDataBase:    TFileName = 'Data'+ PathDelim + 'Base' + PathDelim;
-
-  DirAssets:   TFileName = 'Data'+ PathDelim + 'Assets' + PathDelim;
-
   DirReference: TFileName = 'Data'+ PathDelim + 'Reference' + PathDelim;
   DirReports:  TFileName = 'Data'+ PathDelim + 'Reports' + PathDelim;
   DirFiles: TFileName = 'Data'+ PathDelim + 'Files' + PathDelim;
   DirLegends: TFileName = 'Data'+ PathDelim + 'Legends' + PathDelim;
-  DirDataSQL:   TFileName = 'Data'+ PathDelim + 'Sql' + PathDelim;
+  DirSQL:   TFileName = 'Data'+ PathDelim + 'Sql' + PathDelim;
 
   //Reports Directory
   DirPicture: TFileName = 'Reports' + PathDelim + 'Picture' + PathDelim;
@@ -248,12 +239,8 @@ var
   Precision: integer = -2;
 
 function SlashSep(const Path, S: string): string;
-function ExpandPath(Path: TFileName): TFileName;
 
-
-//=========================================================================
-implementation
-//=========================================================================
+implementation //==========================================================
 
 
 function SlashSep(const Path, S: string): string;
@@ -262,49 +249,6 @@ begin
     Result := Path + S
   else
     Result := Path + PathDelim + S;
-end;
-
-//================================================================\\
-function ExpandPath(Path: TFileName): TFileName;
-begin
-  if PathApp = '' then
-    Exit;
-  Result := Path;
-  if Pos('Gexoblock', Result) <> 0 then
-    Result := PathApp
-  else if Pos(DirPlugins, Result) <> 0 then
-    Result := SlashSep(PathApp, DirPlugins)
-
-  else if Pos(DirProjects, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirProjects)
-  else if Pos(DirFiles, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirFiles)
-  else if Pos(DirLegends, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirLegends)
-  else if Pos(DirDataSQL, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirDataSQL)
-  else if Pos(DirPicture, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirPicture)
-  else if Pos(DirAssets, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirAssets)
-  else if Pos(DirReports, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirReports)
-  else if Pos(DirExpVar, Result) <> 0 then
- //Geostat Directories
-    Result := SlashSep(PathDataBase, DirExpVar)
-  else if Pos(DirFitVar, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirFitVar)
-  else if Pos(DirHisto, Result) <> 0 then
-    Result := SlashSep(PathDataBase, DirHisto)
-  //Reference Directory
-  else if Pos(DirReference, Result) <> 0 then
-    Result := PathDataReference;
-
-  try
-    if not DirectoryExists(Result) then
-      ForceDirectories(Result);
-  finally
-  end;
 end;
 
 

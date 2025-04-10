@@ -42,8 +42,6 @@ uses
 {! Initialization of general registry}
 procedure InitGeneralRegistry;
 procedure InitCursors;
-{! Initialization of interface languages}
-procedure InitLanguage;
 
 function IndexOf(Str: string; Items: TStrings): integer;
 
@@ -100,13 +98,12 @@ function ReadPolygon(TablePolyFace, TablePolyVert: TFDTable;
 
 function AverageColor(Colors: array of TColor): TColor;
 
-//==========================================================================\\
-implementation
-//==========================================================================\\
+
+implementation //==========================================================
 
 uses
   uxGlobals,
-  uProfuns;
+  Geos.Profuns;
 
 procedure InitGeneralRegistry;
 var
@@ -117,69 +114,26 @@ begin
   GeneralSection := RegGexoblock + 'General';
   FileVersion := GetFileVersion(ParamStr(0));
   PathExe := ExtractFilePath(ParamStr(0));
-  PathApp := PathExe;
-  System.Delete(PathApp, Pos('BIN', Uppercase(PathApp)), 4); //Delete 'Bin\' Subdir
-  PathDataAssets := PathApp + DirAssets;
-  PathDataBase := PathApp + DirDataBase; //Default DataBase directory
-  PathDataReference := PathApp + DirReference; //Default Reference directory
   RegIni := TRegistryIniFile.Create(GeneralSection);
   try
     with RegIni do
     begin
       if not RegIni.SectionExists(GeneralSection) then
       begin
-        WriteString(GeneralSection, 'PathApp', PathApp);  //Don't translate the strings
-        WriteString(GeneralSection, 'PathDataBase', PathDataBase);
+        WriteString(GeneralSection, 'PathExe', PathExe);  //Don't translate the strings
+        WriteString(GeneralSection, 'DirBase', DirBase);
         WriteInteger(GeneralSection, 'FileVersion', FileVersion);
-        WriteString(GeneralSection, 'Licensee', 'Getos Ltd.');
-        WriteInteger(GeneralSection, 'Language', 9); //LANG_ENGLISH, Default installation
-        LangID := 9; //LANG_ENGLISH;
-        //WriteInteger(GeneralSection,'Language', 25); // LANG_RUSSIAN, Russian localization
-        //Language := 25; //LANG_RUSSIAN;
       end
       else
       begin
-        PathApp  := ReadString(GeneralSection, 'PathApp', PathApp);
-        PathDataBase := ReadString(GeneralSection, 'DataBasePath', PathDataBase);
-        LangID := ReadInteger(GeneralSection, 'Language', 25); //LANG_RUSSIAN
+        PathExe  := ReadString(GeneralSection, 'PathExe', PathExe);
+        DirBase := ReadString(GeneralSection, 'DirBase', DirBase);
       end;
     end;
   finally
     RegIni.Free;
   end;
 end; //InitGeneralRegistry
-
-procedure InitLanguage;
-begin
-  case LangID of
-    7: //LANG_GERMAN:
-    begin
-//?      Application.HelpFile := UpperCase(PathApp + 'Help' + PathDelim + 'de'+PathDelim + 'Geoblock.chm');
-      PathDataReference := PathApp +'Help'+ PathDelim + 'de' + PathDelim + 'Reference';
-    end;
-    9: //LANG_ENGLISH
-    begin
-//?      Application.HelpFile := UpperCase(PathApp +'Help'+PathDelim+'en'+PathDelim +'Geoblock.chm');
-      PathDataReference := PathApp +'Help'+PathDelim+'en'+ PathDelim + 'Reference';
-    end;
-    10: // LANG_SPANISH:
-    begin
-//?      Application.HelpFile := UpperCase(PathApp + 'Help'+PathDelim+'es'+PathDelim + 'Geoblock.chm');
-      PathDataReference := PathApp +'Help'+PathDelim+'es'+ PathDelim + 'Reference';
-    end;
-    25: //LANG_RUSSIAN
-    begin
-//?      Application.HelpFile := UpperCase(PathApp  +'Help'+PathDelim+'ru'+PathDelim+'Geoblock.chm');
-      PathDataReference := PathApp +'Help'+PathDelim+'ru'+ PathDelim+ 'Reference';
-    end
-    else   //DEFAULT ENGLISH LANGUAGE
-    begin
-//?    Application.HelpFile := UpperCase(PathApp + 'Help' + PathDelim +'en' +PathDelim + 'Geoblock.chm');
-      PathDataReference := PathApp +'Help'+ PathDelim + 'en' + PathDelim + 'Reference';
-    end;
-  end;
-  //LoadNewResourceModule(Language);//when using ITE, ENU for English USA
-end;
 
 procedure InitCursors;
 begin

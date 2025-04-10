@@ -26,7 +26,6 @@ uses
 
 type
   TfmMethodPitOptimization = class(TfmInitialDialog)
-    Langs: TLang;
     Panel1: TPanel;
     LabelMethod: TLabel;
     rbFloatingCone: TRadioButton;
@@ -53,8 +52,7 @@ implementation
 procedure TfmMethodPitOptimization.FormShow(Sender: TObject);
 begin
   inherited;
-  Langs.Lang := CurLang;
-  Caption := TransManually(Caption, Langs);
+  //
 end;
 
 end.

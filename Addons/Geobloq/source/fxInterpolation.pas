@@ -56,7 +56,6 @@ type
     ButtonOptions: TButton;
     CheckBoxOpenCL: TCheckBox;
     CheckBoxVariance: TCheckBox;
-    Langs: TLang;
     EditExtraValue: TEdit;
     lbExtraValue: TLabel;
     procedure FormShow(Sender: TObject);
@@ -96,8 +95,7 @@ end;
 procedure TfmMethodInterpolation.FormShow(Sender: TObject);
 begin
   inherited;
-  Langs.Lang := CurLang;
-  Caption := TransManually(Caption, Langs);
+  //
 end;
 
 

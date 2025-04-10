@@ -20,6 +20,7 @@ uses
   FireDAC.Comp.Client,
 
   uxGlobals,
+  uxUtils,
   dxBase;
 
 type
@@ -51,9 +52,7 @@ type
 var
   FrameDataBrowser : TFrameDataBrowser;
 
-//==============================================
-implementation
-//==============================================
+implementation //=============================================================
 
 {$R *.fmx}
 
@@ -108,7 +107,6 @@ begin
 
 ///  dmBase.FDConnection.GetTableNames(ADatabase,..)
   dmBase.FDTable.TableName := ATable;
-
   dmBase.FDConnection.Connected := True;
   dmBase.FDTable.Active := True;
 ///  TGrid.Title := ATable;
@@ -235,19 +233,22 @@ end;
 
 procedure TFrameDataBrowser.ReadDBFiles;
 var
-  I, n: Integer;
+  I, N: Integer;
   Bool: Boolean;
   aItem : TTreeViewItem;
 begin
   try
     slFiles := TStringList.Create;
-    PathExe := GetCurrentDir();
-    Delete(PathExe,Length(PathExe) - 2, 3);
+    PathExe :=  GetCurrentDir();
+    N := Length(PathExe);
+    Delete(PathExe, N - Length('bin'), 4);
+    PathAssets := GetAssetsPath();
+    PathAstrobloQ := GetAstrobloqPath();
 
-    PathDataBase := PathExe + DirDataBase;
+    DirBase := PathExe + DirBase;
 
-    Bool:= SetCurrentDir(PathDataBase);
-    n := GetFileList(PathDataBase);
+    Bool:= SetCurrentDir(DirBase);
+    n := GetFileList(DirBase);
 
 /// to Add a first root node use TreeViewData.Items[0].AddObject(nil) ;
     TreeViewData.BeginUpdate;
