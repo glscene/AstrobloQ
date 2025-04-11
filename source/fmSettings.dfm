@@ -4,9 +4,8 @@ inherited FormSettings: TFormSettings
   ClientHeight = 759
   ClientWidth = 1313
   Font.Height = -19
-  StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 1329
-  ExplicitHeight = 798
+  ExplicitWidth = 1337
+  ExplicitHeight = 823
   TextHeight = 25
   object PanelBottom: TPanel
     Left = 0

@@ -1,18 +1,18 @@
 object fmLists: TfmLists
   Left = 103
   Top = 136
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Lists'
-  ClientHeight = 1114
-  ClientWidth = 1840
+  ClientHeight = 637
+  ClientWidth = 1051
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -43,86 +43,72 @@ object fmLists: TfmLists
   WindowState = wsMaximized
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel15: TPanel
     Left = 0
     Top = 0
-    Width = 1840
-    Height = 1114
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 1051
+    Height = 637
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel15'
     TabOrder = 0
     object Splitter2: TSplitter
-      Left = 1315
+      Left = 298
       Top = 0
-      Width = 12
-      Height = 1042
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 7
+      Height = 320
       Align = alRight
       Beveled = True
-      MinSize = 42
+      MinSize = 24
+      ExplicitLeft = 751
+      ExplicitHeight = 595
     end
     object Panel7: TPanel
       Left = 0
       Top = 0
-      Width = 1315
-      Height = 1042
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 298
+      Height = 320
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 0
+      ExplicitWidth = 751
+      ExplicitHeight = 595
       object panCultureName: TPanel
         Left = 10
         Top = 10
-        Width = 1295
-        Height = 43
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Width = 278
+        Height = 24
         Align = alTop
         BevelOuter = bvNone
         Caption = 'THINGS'
         Color = clBtnShadow
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -20
+        Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsUnderline]
         ParentFont = False
         TabOrder = 0
+        ExplicitLeft = 6
+        ExplicitTop = 6
+        ExplicitWidth = 740
       end
       object lbThings: TListBox
         Left = 10
-        Top = 53
-        Width = 1295
-        Height = 883
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Top = 34
+        Width = 278
+        Height = 221
         Align = alClient
         Color = clCream
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -22
+        Font.Height = -13
         Font.Name = 'SimSun'
         Font.Style = []
-        ItemHeight = 22
+        ItemHeight = 13
         Items.Strings = (
           'one'
           'two'
@@ -133,131 +119,94 @@ object fmLists: TfmLists
       end
       object Panel3: TPanel
         Left = 10
-        Top = 936
-        Width = 1295
-        Height = 96
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Top = 530
+        Width = 731
+        Height = 55
         Align = alBottom
         BevelOuter = bvNone
         Color = clBtnShadow
         TabOrder = 2
+        ExplicitLeft = 6
+        ExplicitTop = 535
+        ExplicitWidth = 740
         object btnDelete: TBitBtn
-          Left = 182
-          Top = 7
-          Width = 132
-          Height = 43
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 104
+          Top = 4
+          Width = 75
+          Height = 25
           Caption = 'Delete'
           Enabled = False
           TabOrder = 0
           OnClick = btnDeleteClick
         end
         object btnView: TBitBtn
-          Left = 326
-          Top = 7
-          Width = 130
-          Height = 43
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 186
+          Top = 4
+          Width = 75
+          Height = 25
           Caption = 'View'
           TabOrder = 1
           OnClick = btnViewClick
         end
         object btnTrack: TBitBtn
-          Left = 469
-          Top = 7
-          Width = 132
-          Height = 43
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 268
+          Top = 4
+          Width = 75
+          Height = 25
           Caption = 'Track'
           TabOrder = 2
           OnClick = btnTrackClick
         end
         object btnRefreshAll: TBitBtn
           Left = 0
-          Top = 7
-          Width = 174
-          Height = 43
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Top = 4
+          Width = 99
+          Height = 25
           Caption = 'Refresh'
           TabOrder = 3
           OnClick = btnRefreshAllClick
         end
         object cbAutoRefresh: TCheckBox
-          Left = 4
-          Top = 63
-          Width = 170
-          Height = 29
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 2
+          Top = 36
+          Width = 97
+          Height = 17
           Caption = 'Auto Refresh'
           TabOrder = 4
         end
         object cbPlants: TCheckBox
-          Left = 186
-          Top = 63
-          Width = 114
-          Height = 29
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 106
+          Top = 36
+          Width = 65
+          Height = 17
           Caption = 'Plants'
           TabOrder = 5
         end
         object cbCreatures: TCheckBox
-          Left = 284
-          Top = 63
-          Width = 177
-          Height = 29
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 162
+          Top = 36
+          Width = 101
+          Height = 17
           Caption = 'Creatures'
           Checked = True
           State = cbChecked
           TabOrder = 6
         end
         object cbClouds: TCheckBox
-          Left = 410
-          Top = 63
-          Width = 109
-          Height = 29
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 234
+          Top = 36
+          Width = 63
+          Height = 17
           Caption = 'Clouds'
           TabOrder = 7
         end
       end
     end
     object Panel20: TPanel
-      Left = 1327
+      Left = 758
       Top = 0
-      Width = 513
-      Height = 1042
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 293
+      Height = 595
       Align = alRight
       BevelOuter = bvNone
       BorderWidth = 10
@@ -265,26 +214,21 @@ object fmLists: TfmLists
       TabOrder = 1
       object ToolBar1: TToolBar
         Left = 10
-        Top = 826
-        Width = 493
-        Height = 206
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Top = 192
+        Width = 273
+        Height = 118
         Align = alBottom
         ButtonHeight = 32
         ButtonWidth = 114
         Caption = 'ToolBar1'
         ShowCaptions = True
         TabOrder = 0
+        ExplicitLeft = 6
+        ExplicitTop = 472
+        ExplicitWidth = 281
         object tbReality: TToolButton
           Left = 0
           Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
           Caption = 'Reality'
           ImageIndex = 12
           OnClick = tbRealityClick
@@ -292,54 +236,36 @@ object fmLists: TfmLists
         object tbSpace: TToolButton
           Left = 114
           Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
           Caption = 'Space'
           ImageIndex = 10
+          Wrap = True
           OnClick = tbSpaceClick
         end
         object tbEnvironment: TToolButton
-          Left = 228
-          Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 0
+          Top = 32
           Caption = 'Environment'
           ImageIndex = 11
           OnClick = tbEnvironmentClick
         end
         object tbExistents: TToolButton
-          Left = 342
-          Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 114
+          Top = 32
           Caption = 'Existents'
           ImageIndex = 4
+          Wrap = True
           OnClick = tbExistentsClick
         end
         object tbAttachments: TToolButton
-          Left = 456
-          Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 0
+          Top = 64
           Caption = 'Attachments'
           ImageIndex = 1
           OnClick = tbAttachmentsClick
         end
         object tbReferences: TToolButton
-          Left = 570
-          Top = 0
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 114
+          Top = 64
           Caption = 'References'
           ImageIndex = 0
           Wrap = True
@@ -347,66 +273,44 @@ object fmLists: TfmLists
         end
         object tbGrids: TToolButton
           Left = 0
-          Top = 32
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Top = 96
           Caption = 'Grids'
           ImageIndex = 3
           OnClick = tbGridsClick
         end
         object tbCradle: TToolButton
           Left = 114
-          Top = 32
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Top = 96
           Caption = 'Cradle'
           ImageIndex = 5
+          Wrap = True
           OnClick = tbCradleClick
         end
         object tbPurgatory: TToolButton
-          Left = 228
-          Top = 32
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 0
+          Top = 128
           Caption = 'Purgatory'
           ImageIndex = 6
           OnClick = tbPurgatoryClick
         end
         object tbTrash: TToolButton
-          Left = 342
-          Top = 32
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 114
+          Top = 128
           Caption = 'Trash'
           ImageIndex = 14
+          Wrap = True
           OnClick = tbTrashClick
         end
         object tbEventQueue: TToolButton
-          Left = 456
-          Top = 32
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 0
+          Top = 160
           Caption = 'EventQueue'
           ImageIndex = 14
           OnClick = tbEventQueueClick
         end
         object tbEventRound: TToolButton
-          Left = 570
-          Top = 32
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 114
+          Top = 160
           Caption = 'EventRound'
           ImageIndex = 13
           Wrap = True
@@ -414,66 +318,44 @@ object fmLists: TfmLists
         end
         object tbThings: TToolButton
           Left = 0
-          Top = 64
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Top = 192
           Caption = 'Things'
           ImageIndex = 9
           OnClick = tbThingsClick
         end
         object tbFruits: TToolButton
           Left = 114
-          Top = 64
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Top = 192
           Caption = 'Fruits'
           ImageIndex = 10
+          Wrap = True
           OnClick = tbFruitsClick
         end
         object tbPrey: TToolButton
-          Left = 228
-          Top = 64
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 0
+          Top = 224
           Caption = 'Prey'
           ImageIndex = 11
           OnClick = tbPreyClick
         end
         object tbPredators: TToolButton
-          Left = 342
-          Top = 64
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 114
+          Top = 224
           Caption = 'Predators'
           ImageIndex = 12
+          Wrap = True
           OnClick = tbPredatorsClick
         end
         object tbColliders: TToolButton
-          Left = 456
-          Top = 64
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 0
+          Top = 256
           Caption = 'Colliders'
           ImageIndex = 14
           OnClick = tbCollidersClick
         end
         object tb3DView: TToolButton
-          Left = 570
-          Top = 64
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 114
+          Top = 256
           Caption = '3DView'
           ImageIndex = 13
           OnClick = tb3DViewClick
@@ -482,17 +364,13 @@ object fmLists: TfmLists
       object redView: TRichEdit
         Left = 10
         Top = 10
-        Width = 493
-        Height = 816
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Width = 273
+        Height = 182
         Align = alClient
         Color = clBlack
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clSilver
-        Font.Height = -11
+        Font.Height = -6
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         Lines.Strings = (
@@ -508,38 +386,26 @@ object fmLists: TfmLists
     end
     object Panel1: TPanel
       Left = 0
-      Top = 1042
-      Width = 1840
-      Height = 72
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Top = 595
+      Width = 1051
+      Height = 42
       Align = alBottom
       Color = clBtnShadow
       TabOrder = 2
       object Panel2: TPanel
-        Left = 1657
+        Left = 947
         Top = 1
-        Width = 182
-        Height = 70
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Width = 104
+        Height = 40
         Align = alRight
         BevelOuter = bvNone
         Color = clBtnShadow
         TabOrder = 0
         object btnClose: TBitBtn
-          Left = 25
-          Top = 14
-          Width = 130
-          Height = 43
-          Margins.Left = 6
-          Margins.Top = 6
-          Margins.Right = 6
-          Margins.Bottom = 6
+          Left = 14
+          Top = 8
+          Width = 75
+          Height = 25
           Caption = 'Close'
           TabOrder = 0
           OnClick = btnCloseClick

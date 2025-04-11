@@ -131,8 +131,6 @@
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\uMoveCamera.pas"/>
-        <DCCReference Include="..\Source\uSkyBodies.pas"/>
         <DCCReference Include="..\source\teh\ftCyborg.pas">
             <Form>FormCyborg</Form>
             <FormType>dfm</FormType>
@@ -147,12 +145,7 @@
         </DCCReference>
         <DCCReference Include="..\source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
-        <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\uUtils.pas"/>
-        <DCCReference Include="..\source\uGlobals.pas"/>
+        <DCCReference Include="..\source\umUtils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -172,6 +165,13 @@
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\fmAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\umCamera.pas"/>
+        <DCCReference Include="..\source\umGlobals.pas"/>
+        <DCCReference Include="..\source\umSkyBodies.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

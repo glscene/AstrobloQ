@@ -184,7 +184,7 @@ end;
 procedure TfmLists.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   CanClose := false;
-  FormFirst.RealityForm.ManagerForm.DropLists;
+  frmFirst.RealityForm.ManagerForm.DropLists;
 end;
 
 procedure TfmLists.FormShow(Sender: TObject);
@@ -224,7 +224,7 @@ begin
   if not (lbThings.ItemIndex = -1) then
   begin
     myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
-    FormFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
+    frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
   end;
 end;
 
@@ -235,7 +235,7 @@ begin
   if not (lbThings.ItemIndex = -1) then
   begin
     myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
-    FormFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
+    frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
   end;
 end;
 
@@ -251,7 +251,7 @@ begin
   if not (lbThings.ItemIndex = -1) then
   begin
     myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
-    FormFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(myThing);
+    frmFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(myThing);
   end;
 end;
 
@@ -353,7 +353,7 @@ end;
 procedure TfmLists.tb3DViewClick(Sender: TObject);
 begin
   redView.Clear;
-  FormFirst.RealityForm.ManagerForm.SpaceForm.FullDisplay(redView.Lines);
+  frmFirst.RealityForm.ManagerForm.SpaceForm.FullDisplay(redView.Lines);
 end;
 
 procedure TfmLists.tbCollidersClick(Sender: TObject);

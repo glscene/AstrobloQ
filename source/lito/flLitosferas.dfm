@@ -88730,10 +88730,6 @@ object frmLitosphere: TfrmLitosphere
       object N1: TMenuItem
         Caption = '-'
       end
-      object miStellarSystem: TMenuItem
-        Caption = 'Stellar system...'
-        OnClick = miStellarSystemClick
-      end
     end
     object miTools: TMenuItem
       Caption = '&Tools'
@@ -88746,10 +88742,6 @@ object frmLitosphere: TfrmLitosphere
       end
       object N7: TMenuItem
         Caption = '-'
-      end
-      object miExogen: TMenuItem
-        Caption = 'Exosystem generator...'
-        OnClick = miExogenClick
       end
     end
     object miHelp: TMenuItem

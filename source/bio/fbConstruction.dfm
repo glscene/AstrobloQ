@@ -1,18 +1,18 @@
 object fmConstruction: TfmConstruction
   Left = 506
   Top = 118
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Construction'
-  ClientHeight = 776
-  ClientWidth = 708
+  ClientHeight = 443
+  ClientWidth = 405
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -43,17 +43,12 @@ object fmConstruction: TfmConstruction
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 708
-    Height = 776
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 405
+    Height = 443
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
@@ -61,17 +56,13 @@ object fmConstruction: TfmConstruction
     object redStatus: TRichEdit
       Left = 5
       Top = 5
-      Width = 698
-      Height = 711
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 403
+      Height = 426
       Align = alClient
       Color = clBlack
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clSilver
-      Font.Height = -11
+      Font.Height = -6
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
@@ -81,25 +72,20 @@ object fmConstruction: TfmConstruction
     end
     object Panel3: TPanel
       Left = 5
-      Top = 716
-      Width = 698
-      Height = 55
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Top = 406
+      Width = 395
+      Height = 32
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitLeft = 3
+      ExplicitTop = 409
+      ExplicitWidth = 399
       object BitBtn1: TBitBtn
-        Left = 539
-        Top = 4
-        Width = 132
-        Height = 44
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 308
+        Top = 2
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0

@@ -145,16 +145,16 @@
         <DCCReference Include="..\source\noo\fnNoosferas.pas">
             <Form>frmNoosferas</Form>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\fmForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\uUtils.pas"/>
-        <DCCReference Include="..\source\uGlobals.pas"/>
+        <DCCReference Include="..\source\umUtils.pas"/>
+        <DCCReference Include="..\source\fmAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\umGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

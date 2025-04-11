@@ -60,7 +60,7 @@ uses
   faHercRussel,
   faHipparcos,
 
-  uUtils;
+  umUtils;
 
 type
   TfrmAstroVersum = class(TFormI)

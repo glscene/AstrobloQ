@@ -1,18 +1,18 @@
 object FormHeightField: TFormHeightField
   Left = 343
   Top = 207
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Height field'
-  ClientHeight = 524
-  ClientWidth = 904
+  ClientHeight = 299
+  ClientWidth = 517
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Position = poOwnerFormCenter
@@ -20,20 +20,15 @@ object FormHeightField: TFormHeightField
   OnCreate = FormCreate
   OnMouseWheel = FormMouseWheel
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object GLSceneViewer: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 904
-    Height = 466
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 517
+    Height = 266
     Camera = Camera
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 155.776901245117200000
+    FieldOfView = 138.793518066406300000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = GLSceneViewerMouseDown
@@ -42,48 +37,34 @@ object FormHeightField: TFormHeightField
   end
   object Panel3: TPanel
     Left = 0
-    Top = 466
-    Width = 904
-    Height = 58
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 266
+    Width = 517
+    Height = 33
     Align = alBottom
     TabOrder = 1
     object LabelOpacity: TLabel
-      Left = 504
-      Top = 18
-      Width = 63
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 288
+      Top = 10
+      Width = 36
+      Height = 13
       Caption = 'Opacity'
       Enabled = False
     end
     object Panel4: TPanel
-      Left = 750
+      Left = 437
       Top = 1
-      Width = 153
-      Height = 56
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 87
+      Height = 31
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 429
+      ExplicitHeight = 32
       object btnRun: TBitBtn
-        Left = 5
-        Top = 11
-        Width = 132
-        Height = 43
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 3
+        Top = 6
+        Width = 75
+        Height = 25
         Caption = 'Close'
         Kind = bkOK
         NumGlyphs = 2
@@ -92,14 +73,10 @@ object FormHeightField: TFormHeightField
       end
     end
     object cbGrid: TCheckBox
-      Left = 18
-      Top = 14
-      Width = 109
-      Height = 29
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 10
+      Top = 8
+      Width = 63
+      Height = 17
       Caption = 'Grid'
       Checked = True
       State = cbChecked
@@ -107,14 +84,10 @@ object FormHeightField: TFormHeightField
       OnClick = cbGridClick
     end
     object cbAxis: TCheckBox
-      Left = 105
-      Top = 14
-      Width = 85
-      Height = 29
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 60
+      Top = 8
+      Width = 49
+      Height = 17
       Caption = 'Axis'
       Checked = True
       State = cbChecked
@@ -122,31 +95,22 @@ object FormHeightField: TFormHeightField
       OnClick = cbAxisClick
     end
     object tbAlpha: TTrackBar
-      Left = 630
-      Top = 7
-      Width = 113
-      Height = 43
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 360
+      Top = 4
+      Width = 65
+      Height = 25
       Enabled = False
       Max = 100
       Position = 100
       TabOrder = 3
-      ThumbLength = 35
       TickStyle = tsNone
       OnChange = tbAlphaChange
     end
     object cbColorMode: TComboBox
-      Left = 308
-      Top = 11
-      Width = 188
+      Left = 176
+      Top = 6
+      Width = 107
       Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       ItemIndex = 0
       TabOrder = 4
       Text = 'Ambient'
@@ -159,14 +123,10 @@ object FormHeightField: TFormHeightField
         'None')
     end
     object cbLighting: TCheckBox
-      Left = 202
-      Top = 12
-      Width = 85
-      Height = 29
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 115
+      Top = 7
+      Width = 49
+      Height = 16
       Caption = 'Light'
       Checked = True
       State = cbChecked

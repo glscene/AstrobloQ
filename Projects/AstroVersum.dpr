@@ -30,12 +30,12 @@ uses
   faHipparcos in '..\source\astro\faHipparcos.pas' {FormHipparcos},
   uaVsop2013 in '..\source\astro\uaVsop2013.pas',
   faOptions in '..\source\astro\faOptions.pas' {frmOptions},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
-  uUtils in '..\Source\uUtils.pas',
-  uGlobals in '..\source\uGlobals.pas',
-  faAstromif in '..\source\astro\faAstromif.pas' {FormAstromif};
+  umUtils in '..\source\umUtils.pas',
+  faAstromif in '..\source\astro\faAstromif.pas' {FormAstromif},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  umGlobals in '..\source\umGlobals.pas';
 
 {$R *.res}
 
@@ -48,6 +48,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
 

@@ -3,9 +3,8 @@ inherited frmOption: TfrmOption
   Caption = 'Options'
   ClientHeight = 759
   ClientWidth = 1313
-  StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 1329
-  ExplicitHeight = 798
+  ExplicitWidth = 1337
+  ExplicitHeight = 823
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0

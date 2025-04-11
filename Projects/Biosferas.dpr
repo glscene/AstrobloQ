@@ -70,7 +70,7 @@ uses
   fbSettings in '..\source\bio\fbSettings.pas' {FormSettings},
   fbSpirit in '..\source\bio\fbSpirit.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm in '..\source\bio\fbFirstForm.pas' {FormFirst},
+  fbFirstForm in '..\source\bio\fbFirstForm.pas' {frmFirst},
   vSpiritManager in '..\source\bio\vSpiritManager.pas',
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
   fbPopulations in '..\source\bio\fbPopulations.pas' {FormPopulations},
@@ -87,19 +87,15 @@ uses
   fbTutorial in '..\source\bio\fbTutorial.pas' {fmTutorial},
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm in '..\source\bio\fbMiniForm.pas',
-  fmForm in '..\source\fmForm.pas' {FormG},
-  uGlobals in '..\Source\uGlobals.pas';
+  umGlobals in '..\source\umGlobals.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.Title := 'BioSphere';
-  Application.CreateForm(TFormFirst, FormFirst);
+  Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfmSplash, fmSplash);
   Application.CreateForm(TFormImages, FormImages);
-  Application.CreateForm(TfmTutorial, fmTutorial);
-  Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.

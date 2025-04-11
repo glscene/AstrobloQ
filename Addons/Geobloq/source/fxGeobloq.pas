@@ -63,7 +63,7 @@ uses
   frxShowScene;
 
 type
-  TfrmGeobloq = class(TfmInitialForm)
+  TfrmGeobloq = class(TfmInitialForm) // TForm
     Layer3D1: TLayer3D;
     Layout3D1: TLayout3D;
     Light1: TLight;
@@ -199,7 +199,7 @@ end;
 procedure TfrmGeobloq.FormCreate(Sender: TObject);
 begin
   inherited;
-  ReadIniFile;
+//  ReadIniFile;
   with FrameDataBrowser do
   begin
     ReadDBFiles;

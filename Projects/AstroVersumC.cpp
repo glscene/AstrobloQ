@@ -10,7 +10,7 @@ USEFORM("..\Source\astroc\fcForm.cpp", FormC);
 USEFORM("..\Source\astroc\fcSettings.cpp", FormSettings);
 USEFORM("..\Source\astroc\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
 USEFORM("..\Source\astroc\dcBase.cpp", dmBase); /* TDataModule: File Type */
-USEFORM("..\Source\astroc\fcAstroViewer.cpp", FormAstroViewer);
+USEFORM("..\source\astroc\fcAstroVersum.cpp", FormAstroViewer);
 USEFORM("..\Source\astroc\fcAbout.cpp", FormAbout);
 USEFORM("..\Source\astroc\dcImages.cpp", dmImages); /* TDataModule: File Type */
 //---------------------------------------------------------------------------

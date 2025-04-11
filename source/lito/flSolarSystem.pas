@@ -21,6 +21,7 @@ uses
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.Utils,
+  Stage.Keyboard,
 
   GLS.SceneViewer,
   GLS.PersistentClasses,
@@ -45,7 +46,6 @@ uses
   GLS.Material,
   GLS.Color,
   GLS.SkyDome,
-  Stage.Keyboard,
   GLS.FireFX,
   GLS.FileObj,
   GLS.Atmosphere,

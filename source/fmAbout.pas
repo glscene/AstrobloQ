@@ -32,15 +32,9 @@ type
     ButtonAstrobloQ: TSpeedButton;
     OGLImage: TImage;
     GLSImage: TImage;
-    StaticText1: TStaticText;
-    StaticText2: TStaticText;
-    StaticText3: TStaticText;
-    StaticText4: TStaticText;
     tsLitosfera: TTabSheet;
     tsBiosphere: TTabSheet;
     tsTehnosfera: TTabSheet;
-    StaticText5: TStaticText;
-    StaticText6: TStaticText;
     tsNoosfera: TTabSheet;
     tsGalaktika: TTabSheet;
     tsUniversum: TTabSheet;
@@ -51,6 +45,7 @@ type
     Image3: TImage;
     Image4: TImage;
     ImagePlanets: TImage;
+    Memo1: TMemo;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);

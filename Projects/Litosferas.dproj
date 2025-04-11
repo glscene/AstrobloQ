@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{74582C24-83BE-4628-B9DF-28AF332780EE}</ProjectGuid>
+        <ProjectGuid>{2719CBD7-89C7-4313-96C3-EB6F4059D0E1}</ProjectGuid>
         <MainSource>Litosferas.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -104,17 +104,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\lito\flLitosferas.pas">
-            <Form>frmLitosphere</Form>
-        </DCCReference>
         <DCCReference Include="..\source\lito\flParams.pas">
             <Form>FrameParams</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\lito\flStellarSystem.pas">
-            <Form>FormStarSys</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\lito\flSolarSystem.pas">
             <Form>FormSolarSys</Form>
@@ -124,25 +117,23 @@
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\lito\flGenExosys.pas">
-            <Form>FormGenPlanetsys</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\fmForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\uMoveCamera.pas"/>
-        <DCCReference Include="..\Source\uSkyBodies.pas"/>
-        <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\uGlobals.pas"/>
         <DCCReference Include="..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\lito\flLitosferas.pas">
+            <Form>frmLitosphere</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\umGlobals.pas"/>
+        <DCCReference Include="..\source\fmAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

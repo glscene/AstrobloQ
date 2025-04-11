@@ -231,7 +231,7 @@
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
         <DCCReference Include="..\source\bio\fbFirstForm.pas">
-            <Form>FormFirst</Form>
+            <Form>frmFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vSpiritManager.pas"/>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>
@@ -275,11 +275,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbMiniForm.pas"/>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormG</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\uGlobals.pas"/>
+        <DCCReference Include="..\source\umGlobals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

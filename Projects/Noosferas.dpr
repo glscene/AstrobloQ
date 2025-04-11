@@ -9,10 +9,10 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   fnNoosferas in '..\source\noo\fnNoosferas.pas' {frmNoosferas},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fmForm in '..\source\fmForm.pas' {FormG},
-  uUtils in '..\Source\uUtils.pas',
-  uGlobals in '..\source\uGlobals.pas';
+  umUtils in '..\source\umUtils.pas',
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  umGlobals in '..\source\umGlobals.pas';
 
 {$R *.res}
 
@@ -25,6 +25,7 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmNoosferas, frmNoosferas);
   Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
 

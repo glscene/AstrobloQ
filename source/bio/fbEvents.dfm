@@ -1,19 +1,15 @@
 object FormEvents: TFormEvents
   Left = 698
   Top = 171
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Align = alRight
   BorderIcons = [biSystemMenu]
   Caption = 'Events'
-  ClientHeight = 775
-  ClientWidth = 502
+  ClientHeight = 443
+  ClientWidth = 287
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -42,17 +38,12 @@ object FormEvents: TFormEvents
     00018000000180000001FC00001FFC00001FFE00001FFC00000FF800000FF800
     001FF800003FFC180C7FFE380EFFFFF80FFFFFF80FFFFFF80FFFFFFFFFFF}
   OnCloseQuery = FormCloseQuery
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel22: TPanel
     Left = 0
     Top = 0
-    Width = 502
-    Height = 742
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 287
+    Height = 424
     Align = alClient
     BevelOuter = bvNone
     Color = clBtnShadow
@@ -60,17 +51,13 @@ object FormEvents: TFormEvents
     object redEvents: TRichEdit
       Left = 0
       Top = 0
-      Width = 502
-      Height = 742
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 295
+      Height = 449
       Align = alClient
       Color = clInactiveCaptionText
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -6
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
@@ -81,13 +68,9 @@ object FormEvents: TFormEvents
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 742
-    Width = 502
-    Height = 33
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 424
+    Width = 287
+    Height = 19
     Panels = <>
   end
 end

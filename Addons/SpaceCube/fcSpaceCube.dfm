@@ -1,7 +1,7 @@
 object FormScene: TFormScene
   Left = 0
   Top = 263
-  Caption = 'SpaceCube'
+  Caption = 'StarCube'
   ClientHeight = 577
   ClientWidth = 931
   Color = clBtnFace
@@ -25,6 +25,8 @@ object FormScene: TFormScene
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 744
+    ExplicitHeight = 552
   end
   object PanelRight: TPanel
     Left = 752
@@ -33,6 +35,8 @@ object FormScene: TFormScene
     Height = 577
     Align = alRight
     TabOrder = 1
+    ExplicitLeft = 744
+    ExplicitHeight = 552
     object ClassGroup: TRadioGroup
       Left = 6
       Top = 7
@@ -230,7 +234,7 @@ object FormScene: TFormScene
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
-    FormCaption = 'SpaceCube - %FPS'
+    FormCaption = 'StarCube'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

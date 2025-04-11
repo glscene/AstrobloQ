@@ -31,34 +31,27 @@ object FormManager: TFormManager
     object Panel2: TPanel
       Left = 11
       Top = 11
-      Width = 140
+      Width = 132
       Height = 25
       Align = alTop
       BevelOuter = bvLowered
       Caption = 'Reality'
       Color = clActiveBorder
       TabOrder = 0
-      ExplicitLeft = 6
-      ExplicitTop = 6
-      ExplicitWidth = 142
     end
     object ToolBar1: TToolBar
       Left = 11
       Top = 36
-      Width = 140
+      Width = 132
       Height = 178
       Align = alClient
-      ButtonHeight = 30
-      ButtonWidth = 185
+      ButtonHeight = 19
+      ButtonWidth = 113
       Caption = 'ToolBar1'
       EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
       List = True
       ShowCaptions = True
       TabOrder = 1
-      ExplicitLeft = 6
-      ExplicitTop = 31
-      ExplicitWidth = 142
-      ExplicitHeight = 188
       object tbTime: TToolButton
         Left = 0
         Top = 0
@@ -73,7 +66,7 @@ object FormManager: TFormManager
       end
       object tbSpace: TToolButton
         Left = 0
-        Top = 30
+        Top = 19
         Hint = 'Space View'
         Caption = 'Space'
         ImageIndex = 63
@@ -85,7 +78,7 @@ object FormManager: TFormManager
       end
       object tbPopulations: TToolButton
         Left = 0
-        Top = 60
+        Top = 38
         Caption = 'Population'
         ImageIndex = 117
         Wrap = True
@@ -94,7 +87,7 @@ object FormManager: TFormManager
       end
       object tbHeightField: TToolButton
         Left = 0
-        Top = 90
+        Top = 57
         Caption = 'Temperature'
         ImageIndex = 77
         Wrap = True
@@ -103,7 +96,7 @@ object FormManager: TFormManager
       end
       object tbHumidityMap: TToolButton
         Left = 0
-        Top = 120
+        Top = 76
         Caption = 'Humidity'
         ImageIndex = 57
         Wrap = True
@@ -112,7 +105,7 @@ object FormManager: TFormManager
       end
       object tbConstruction: TToolButton
         Left = 0
-        Top = 150
+        Top = 95
         Caption = 'Construction'
         ImageIndex = 40
         Wrap = True
@@ -121,7 +114,7 @@ object FormManager: TFormManager
       end
       object tbLists: TToolButton
         Left = 0
-        Top = 180
+        Top = 114
         Hint = 'Lists Window'
         Caption = 'Lists'
         ImageIndex = 26
@@ -133,7 +126,7 @@ object FormManager: TFormManager
       end
       object tbEvents: TToolButton
         Left = 0
-        Top = 210
+        Top = 133
         Hint = 'Events Window'
         Caption = 'Events'
         ImageIndex = 30
@@ -156,22 +149,19 @@ object FormManager: TFormManager
     object Panel1: TPanel
       Left = 11
       Top = 11
-      Width = 140
+      Width = 132
       Height = 25
       Align = alTop
       BevelOuter = bvLowered
       Caption = 'Views'
       Color = clInactiveBorder
       TabOrder = 0
-      ExplicitLeft = 6
-      ExplicitTop = 6
-      ExplicitWidth = 142
     end
     object tbSpirits: TToolBar
       Left = 11
       Top = 36
-      Width = 140
-      Height = 255
+      Width = 132
+      Height = 230
       Align = alClient
       ButtonWidth = 43
       Caption = 'tbSpirits'
@@ -179,22 +169,15 @@ object FormManager: TFormManager
       List = True
       ShowCaptions = True
       TabOrder = 1
-      ExplicitLeft = 6
-      ExplicitTop = 31
-      ExplicitWidth = 142
-      ExplicitHeight = 240
     end
     object Panel4: TPanel
       Left = 11
-      Top = 291
-      Width = 140
+      Top = 266
+      Width = 132
       Height = 28
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 6
-      ExplicitTop = 271
-      ExplicitWidth = 142
       object btnAddThing: TBitBtn
         Left = 0
         Top = 0

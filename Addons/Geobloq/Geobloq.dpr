@@ -1,6 +1,6 @@
 program Geobloq;
 
-{$R 'Gexoblock.res' 'bin\Gexoblock.rc'}
+{$R 'Geobloq.res' 'bin\Geobloq.rc'}
 
 uses
   FMX.Forms,
@@ -69,9 +69,9 @@ begin
   Application.Initialize;
   AppExcept := TAppExcept.Create;
   Application.OnException:= AppExcept.ExceptionsControl;
+  Application.CreateForm(TfrmGeobloq, frmGeobloq);
   Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TdmDialogs, dmDialogs);
   Application.CreateForm(TdmImages, dmImages);
-  Application.CreateForm(TfrmGeobloq, frmGeobloq);
   Application.Run;
 end.

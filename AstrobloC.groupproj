@@ -12,10 +12,10 @@
         <Projects Include="Addons\FermiPX\ViewerHYG.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Addons\FermiPX\Starnetc.cbproj">
+        <Projects Include="Addons\Starbox\GenStarc.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Addons\Starbox\GenStarc.cbproj">
+        <Projects Include="Addons\FermiPX\Starnetc.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -53,15 +53,6 @@
     <Target Name="ViewerHYG:Make">
         <MSBuild Projects="Addons\FermiPX\ViewerHYG.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="Starnetc">
-        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj"/>
-    </Target>
-    <Target Name="Starnetc:Clean">
-        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Starnetc:Make">
-        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="GenStarc">
         <MSBuild Projects="Addons\Starbox\GenStarc.cbproj"/>
     </Target>
@@ -71,14 +62,23 @@
     <Target Name="GenStarc:Make">
         <MSBuild Projects="Addons\Starbox\GenStarc.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="Starnetc">
+        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj"/>
+    </Target>
+    <Target Name="Starnetc:Clean">
+        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Starnetc:Make">
+        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroVersumC;StarCube;ViewerHYG;Starnetc;GenStarc"/>
+        <CallTarget Targets="AstroVersumC;StarCube;ViewerHYG;GenStarc;Starnetc"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroVersumC:Clean;StarCube:Clean;ViewerHYG:Clean;Starnetc:Clean;GenStarc:Clean"/>
+        <CallTarget Targets="AstroVersumC:Clean;StarCube:Clean;ViewerHYG:Clean;GenStarc:Clean;Starnetc:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroVersumC:Make;StarCube:Make;ViewerHYG:Make;Starnetc:Make;GenStarc:Make"/>
+        <CallTarget Targets="AstroVersumC:Make;StarCube:Make;ViewerHYG:Make;GenStarc:Make;Starnetc:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

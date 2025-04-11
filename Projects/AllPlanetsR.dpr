@@ -1,0 +1,39 @@
+(*
+   Lithosphere - terrestrial exoplanets for near solar stars.
+   The atmospheric effect is rendered in DirectOpenGLRender, which essentially
+   renders a disk, with color of the vertices computed via ray-tracing. Not that
+   the tesselation of the disk has been hand-optimized so as to reduce CPU use
+   while retaining quality.
+   Catalog of stars is built into the TGLSkyDome, but constellations are rendered
+   via a TGLLines, which is filled in the LoadConstLines method.
+*)
+program AllPlanetsR;
+
+
+
+uses
+  Forms,
+  fmAllPlanetsR in '..\source\fmAllPlanetsR.pas' {frmAllplanets},
+  fmParamsR in '..\source\fmParamsR.pas' {FrameParams: TFrame},
+  fmStarSystemR in '..\source\fmStarSystemR.pas' {FormStarSys},
+  fmSolarSystemR in '..\source\fmSolarSystemR.pas' {FormSolarSys},
+  fmOptionsR in '..\source\fmOptionsR.pas' {frmOptions},
+  fmGenExosysR in '..\source\fmGenExosysR.pas' {FormGenPlanetsys},
+  fmForm in '..\source\fmForm.pas' {FormG},
+  umCamera in '..\source\umCamera.pas',
+  umSkyBodies in '..\source\umSkyBodies.pas',
+  umGlobals in '..\source\umGlobals.pas',
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  fmAboutR in '..\source\fmAboutR.pas' {FormAbout};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TfrmAllplanets, frmAllplanets);
+  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TFormAbout, FormAbout);
+  Application.Run;
+end.

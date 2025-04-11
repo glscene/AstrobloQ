@@ -93,8 +93,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>..\..\FermiPX\Sources\Interface\;..\..\GalaxiLS\Sources\;..\;Interface\;Sources\;Sources\Interface\;..\FermiPC\;..\FermiPX\;..\LAB1 - Cube and Stars\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>..\..\FermiPX\Sources\Interface\;..\..\GalaxiLS\Sources\;..\;Interface\;Sources\;Sources\Interface\;..\FermiPC\;..\FermiPX\;..\LAB1 - Cube and Stars\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>..\;..\FermiPX\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\;..\FermiPX\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>StarCube</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -149,7 +149,6 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <LinkPackageImports>rtl.bpi;vcl.bpi;GLScene_RT.bpi;xmlrtl.bpi;vclimg.bpi;vclx.bpi;dbrtl.bpi;vclFireDAC.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;vcldb.bpi;vclwinx.bpi;FireDACSqliteDriver.bpi;TeeDB.bpi;TeeUI.bpi;Tee.bpi;bindengine.bpi</LinkPackageImports>
@@ -221,10 +220,10 @@
                     <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k270.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp270.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
                 <Source>
                     <Source Name="MainSource">StarCube.cpp</Source>

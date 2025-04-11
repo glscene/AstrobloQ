@@ -43,6 +43,7 @@ del *.ild /s
 del *.ilf /s
 del *.ils /s
 del *.pdi /s
+del *.pdb /s
 del *.vlb /s
 del *.user /s
 del *.lnk /s

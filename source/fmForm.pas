@@ -33,7 +33,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uGlobals;
+  umGlobals;
 
 //
 procedure TFormI.FormCreate(Sender: TObject);

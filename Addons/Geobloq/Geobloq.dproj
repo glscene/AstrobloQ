@@ -184,7 +184,7 @@
         <DCC_DcuOutput>.\lib</DCC_DcuOutput>
         <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
         <BT_BuildType>Debug</BT_BuildType>
-        <Icon_MainIcon>bin\Gexoblock.ico</Icon_MainIcon>
+        <Icon_MainIcon>bin\Geobloq.ico</Icon_MainIcon>
         <DCC_UnitSearchPath>.\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_ExeOutput>.\bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -216,8 +216,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <RcCompile Include="bin\Gexoblock.rc">
-            <Form>Gexoblock.res</Form>
+        <RcCompile Include="bin\Geobloq.rc">
+            <Form>Geobloq.res</Form>
         </RcCompile>
         <DCCReference Include="source\fxFormO.pas">
             <Form>fmInitialForm</Form>

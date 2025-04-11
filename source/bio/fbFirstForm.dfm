@@ -1,18 +1,14 @@
-object FormFirst: TFormFirst
+object frmFirst: TfrmFirst
   Left = 317
   Top = 229
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   BorderStyle = bsNone
   Caption = 'Artificial Reality'
-  ClientHeight = 168
-  ClientWidth = 398
+  ClientHeight = 96
+  ClientWidth = 227
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   FormStyle = fsStayOnTop
@@ -46,17 +42,12 @@ object FormFirst: TFormFirst
   OnDestroy = FormDestroy
   OnPaint = FormPaint
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object imgSplash: TImage
     Left = 0
     Top = 0
-    Width = 398
-    Height = 168
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 227
+    Height = 96
     Align = alClient
     Picture.Data = {
       0A544A504547496D6167656F630000FFD8FFE000104A46494600010101006000
@@ -856,7 +847,6 @@ object FormFirst: TFormFirst
       028A28A005E9D290F5A28A0028A28A0028A28A0028A28A0028A28A0028A28A00
       28A28A0070FBB9EF48DC31FAD145002514514005145140051451401FFFD9}
     Transparent = True
-    ExplicitWidth = 463
   end
   object ShowTimer: TTimer
     Enabled = False

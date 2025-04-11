@@ -38,7 +38,7 @@ inherited fmToolsOptions: TfmToolsOptions
         IsExpanded = False
         IsSelected = False
         TabOrder = 1
-        Text = 'Language'
+        Text = 'Interface'
       end
     end
     object ListBox: TListBox
@@ -62,7 +62,7 @@ inherited fmToolsOptions: TfmToolsOptions
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      Text = 'En'
+      Text = 'Splash'
       TextSettings.Trimming = None
     end
     object ButtonRu: TButton
@@ -72,7 +72,7 @@ inherited fmToolsOptions: TfmToolsOptions
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      Text = 'Ru'
+      Text = 'Display'
       TextSettings.Trimming = None
     end
   end

@@ -23,7 +23,7 @@ uses
   fbManager,
   fbMiniForm,
 
-  uGlobals;
+  umGlobals;
 
 // geTipofDay
 
@@ -211,7 +211,7 @@ begin
   OnMinimize := MyMinimize;
   OnMaximize := MyMaximize;
   fExitInstruction := cInstructionExit;
-  if FormFirst.UserSettings.TipOfTheDay then
+  if frmFirst.UserSettings.TipOfTheDay then
     RealityClock.Enabled := false;
   inherited;
 end;
@@ -244,8 +244,8 @@ begin
 
   cbCollisions.Checked := Reality.Environment.Things.Collisions;
   cbAI.Checked := Reality.Environment.Things.AI;
-  cbCollisions.Visible := FormFirst.UserSettings.AdvancedMode;
-  cbAI.Visible := FormFirst.UserSettings.AdvancedMode;
+  cbCollisions.Visible := frmFirst.UserSettings.AdvancedMode;
+  cbAI.Visible := frmFirst.UserSettings.AdvancedMode;
 
   RefreshTickers;
 end;
@@ -258,9 +258,9 @@ end;
 
 procedure TfmReality.FormShow(Sender: TObject);
 begin
-  if FormFirst.UserSettings.TipOfTheDay then
+  if frmFirst.UserSettings.TipOfTheDay then
     RealityClock.Enabled := true;
-  FormFirst.Construction.AddEvent('Running');
+  frmFirst.Construction.AddEvent('Running');
   RefreshAll;
   Align := alTop;
   ManagerForm.Show;
@@ -271,7 +271,7 @@ begin
     ManagerForm.SpaceForm.Width := 1024;
     ManagerForm.SpaceForm.Height := 728;
   end;
-  FormFirst.Construction.AddEvent('Still running');
+  frmFirst.Construction.AddEvent('Still running');
 end;
 
 procedure TfmReality.menuSetTimeTickingClick(Sender: TObject);
@@ -306,14 +306,14 @@ procedure TfmReality.StartReality;
 begin
   if Reality.TimeIsFlowing then
   begin
-    FormFirst.Construction.AddEvent('Started time flowing');
+    frmFirst.Construction.AddEvent('Started time flowing');
     AddEvent(Reality.Creator + ' started time flowing');
     RealityClock.Enabled := true;
     ManagerForm.SpaceForm.InformOfStart;
   end
   else
   begin
-    FormFirst.Construction.AddEvent('Ticked time');
+    frmFirst.Construction.AddEvent('Ticked time');
     AddEvent(Reality.Creator + ' ticked time');
     Advance;
   end;
@@ -326,7 +326,7 @@ begin
   ManagerForm.SpaceForm.InformOfStop;
 
   AddEvent(Reality.Creator + ' stopped time');
-  FormFirst.Construction.AddEvent('Stopped time');
+  frmFirst.Construction.AddEvent('Stopped time');
 
   RefreshAll;
 end;
@@ -428,7 +428,7 @@ var
   FormIntro: TFormIntro;
 begin
   FormIntro := TFormIntro.Create(self);
-  FormIntro.Monitors := FormFirst.Monitors;
+  FormIntro.Monitors := frmFirst.Monitors;
   FormIntro.ShowModal;
   FormIntro.Free;
 end;
@@ -538,7 +538,7 @@ begin
   AssignFile(myFile, aFileName);
   Rewrite(myFile);
   Reality.SaveToFile(myFile);
-  FormFirst.UserSettings.WorkingFile := aFileName;
+  frmFirst.UserSettings.WorkingFile := aFileName;
   Writeln(myFile, 'Saved at ' + DateToStr(Now) + ' ' + TimeToStr(Now));
   CloseFile(myFile);
   FileName := aFileName;
@@ -618,7 +618,7 @@ var
   myFormSettings: TFormSettings;
 begin
   myFormSettings := TFormSettings.Create(self);
-  myFormSettings.UserSettings := FormFirst.UserSettings;
+  myFormSettings.UserSettings := frmFirst.UserSettings;
   myFormSettings.ShowModal;
   myFormSettings.Free;
 end;
@@ -661,8 +661,8 @@ begin
     FFileName := aFileName;
     if Reality.LoadReality(aFileName) then
     begin
-      FormFirst.UserSettings.WorkingFile := fFileName;
-      FormFirst.UserSettings.SaveToRegistry;
+      frmFirst.UserSettings.WorkingFile := fFileName;
+      frmFirst.UserSettings.SaveToRegistry;
     end;
   end;
   FManagerForm := TFormManager.Create(self);
@@ -674,9 +674,9 @@ end;
 procedure TfmReality.ShutDown;
 begin
   // if autosave on exit, then save
-  if FormFirst.UserSettings.AutoSave then
+  if frmFirst.UserSettings.AutoSave then
   begin
-    FormFirst.UserSettings.WorkingFile := FileName;
+    frmFirst.UserSettings.WorkingFile := FileName;
     SaveRealityToFile(FileName);
   end;
   FManagerForm.Free;
@@ -714,9 +714,9 @@ begin
   Reality.Environment.Things.Collisions := cbCollisions.Checked;
   RefreshInterface;
   if cbCollisions.Checked then
-    FormFirst.Construction.AddEvent('Turned collisions on')
+    frmFirst.Construction.AddEvent('Turned collisions on')
   else
-    FormFirst.Construction.AddEvent('Turned collisions off');
+    frmFirst.Construction.AddEvent('Turned collisions off');
 end;
 
 procedure TfmReality.ipoftheDay1Click(Sender: TObject);
@@ -734,12 +734,12 @@ begin
     myTip.LoadTipFile(ExtractFilePath(ParamStr(0)) + '\biodata\tips.txt')
   else
     myTip.LoadTipFile(ExtractFilePath(ParamStr(0)) + '\biodata\tips_ru.txt');
-  myTip.cbxShowTips.Checked := FormFirst.UserSettings.TipOfTheDay;
+  myTip.cbxShowTips.Checked := frmFirst.UserSettings.TipOfTheDay;
   myTip.RandomTip;
   myTip.ShowModal;
   Application.ProcessMessages;
-  FormFirst.UserSettings.TipOfTheDay := myTip.cbxShowTips.Checked;
-  FormFirst.UserSettings.SaveToRegistry;
+  frmFirst.UserSettings.TipOfTheDay := myTip.cbxShowTips.Checked;
+  frmFirst.UserSettings.SaveToRegistry;
   myTip.Free;
 end;
 
@@ -748,9 +748,9 @@ begin
   Reality.Environment.Things.AI := cbAI.Checked;
   RefreshInterface;
   if cbAI.Checked then
-    FormFirst.Construction.AddEvent('Turned BioSphere on.')
+    frmFirst.Construction.AddEvent('Turned BioSphere on.')
   else
-    FormFirst.Construction.AddEvent('Turned BioSphere off.');
+    frmFirst.Construction.AddEvent('Turned BioSphere off.');
 end;
 
 procedure TfmReality.AAsteroids1Click(Sender: TObject);

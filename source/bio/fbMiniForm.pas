@@ -15,9 +15,7 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
   Vcl.Mask,
-  Vcl.Menus,
-
-  fmForm;
+  Vcl.Menus;
 
 // state flags for automatic handling of minimize events
 type
@@ -30,7 +28,7 @@ type
   TMinimizeEvent = procedure(Sender: TObject; var state: TMiniState) of object;
 
 type
-  TMiniForm = class(TFormI)
+  TMiniForm = class(TForm)
   private
     FOnMinimize: TMinimizeEvent;
     FOnMaximize: TMinimizeEvent;

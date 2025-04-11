@@ -36,13 +36,13 @@ object FormAbout: TFormAbout
     Top = 65
     Width = 642
     Height = 445
-    ActivePage = tsLitosfera
+    ActivePage = tsDevelopers
     Align = alClient
     TabOrder = 1
     ExplicitWidth = 634
     ExplicitHeight = 420
     object tsStars: TTabSheet
-      Caption = 'AstroViewer'
+      Caption = 'AstroVersum'
       object ImageAstro: TImage
         Left = 0
         Top = 0
@@ -22074,7 +22074,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsLitosfera: TTabSheet
-      Caption = 'Litosfera'
+      Caption = 'Litosferas'
       ImageIndex = 3
       object ImagePlanets: TImage
         Left = 0
@@ -25745,7 +25745,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsBiosphere: TTabSheet
-      Caption = 'Biosfera'
+      Caption = 'Biosferas'
       ImageIndex = 4
       object Image1: TImage
         Left = 0
@@ -49204,7 +49204,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsNoosfera: TTabSheet
-      Caption = 'Noosfera'
+      Caption = 'Noosferas'
       ImageIndex = 6
       object Image2: TImage
         Left = 0
@@ -75051,7 +75051,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsTehnosfera: TTabSheet
-      Caption = 'Tehnosfera'
+      Caption = 'Tehnosferas'
       ImageIndex = 5
       object Image3: TImage
         Left = 0
@@ -87526,53 +87526,20 @@ object FormAbout: TFormAbout
       Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
-      object StaticText1: TStaticText
-        Left = 274
-        Top = 61
-        Width = 79
-        Height = 19
-        Caption = 'Pavel Vassiliev'
+      object Memo1: TMemo
+        Left = 0
+        Top = 0
+        Width = 634
+        Height = 415
+        Align = alClient
+        Alignment = taCenter
+        Lines.Strings = (
+          'Pavel Vassiliev'
+          'Leo Kaptyaev'
+          'Danil Wasilyev'
+          'Elizaveta Soboleva'
+          'Anton Dahin')
         TabOrder = 0
-      end
-      object StaticText2: TStaticText
-        Left = 273
-        Top = 86
-        Width = 75
-        Height = 19
-        Caption = 'Leo Koptyaev'
-        TabOrder = 1
-      end
-      object StaticText3: TStaticText
-        Left = 274
-        Top = 111
-        Width = 80
-        Height = 19
-        Caption = 'Danil Wasilyev'
-        TabOrder = 2
-      end
-      object StaticText4: TStaticText
-        Left = 273
-        Top = 136
-        Width = 77
-        Height = 19
-        Caption = 'Sergio Feitoza'
-        TabOrder = 3
-      end
-      object StaticText5: TStaticText
-        Left = 274
-        Top = 161
-        Width = 100
-        Height = 19
-        Caption = 'Alexandr Tsvetkov'
-        TabOrder = 4
-      end
-      object StaticText6: TStaticText
-        Left = 274
-        Top = 186
-        Width = 71
-        Height = 19
-        Caption = 'Anton Dahin'
-        TabOrder = 5
       end
     end
     object tsGalaktika: TTabSheet

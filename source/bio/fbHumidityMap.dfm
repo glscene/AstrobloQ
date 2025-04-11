@@ -1,23 +1,22 @@
 object FormHumidityMap: TFormHumidityMap
   Left = 269
   Top = 193
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Humidity Map'
-  ClientHeight = 484
-  ClientWidth = 939
+  ClientHeight = 277
+  ClientWidth = 537
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Position = poOwnerFormCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
 end

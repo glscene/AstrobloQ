@@ -72,6 +72,7 @@ object FormConstBorders: TFormConstBorders
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 531
   end
   object MemoData: TMemo
     Left = 240

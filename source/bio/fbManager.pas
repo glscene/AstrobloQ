@@ -121,13 +121,13 @@ procedure TFormManager.FormCreate(Sender: TObject);
 begin
   FStarted := false;
 
-  FormFirst.Construction.AddEvent('Creating fEventsForm...');
+  frmFirst.Construction.AddEvent('Creating fEventsForm...');
   FEventsForm := TFormEvents.Create(self);
 
-  FormFirst.Construction.AddEvent('Creating SpiritList...');
+  frmFirst.Construction.AddEvent('Creating SpiritList...');
   FSpiritWindows := TSpiritList.Create(self, tbSpirits);
 
-  FormFirst.Construction.AddEvent('Creating f3DEnvironment...');
+  frmFirst.Construction.AddEvent('Creating f3DEnvironment...');
   FSpaceForm := TFormBiosfera.Create(self);
 end;
 
@@ -270,7 +270,7 @@ var
 begin
   if not Assigned(fListsForm) then
   begin
-    FormFirst.Construction.AddEvent('Creating fListForm...');
+    frmFirst.Construction.AddEvent('Creating fListForm...');
     fListsForm := TfmLists.Create(self);
     fListsForm.Reality := gReality;
   end;
@@ -278,10 +278,10 @@ begin
   tbLists.Down := true;
   ListsForm.Show;
 
-  myMonitor := FormFirst.Monitors - 1;  // last monitor
+  myMonitor := frmFirst.Monitors - 1;  // last monitor
 
-  ListsForm.Left := FormFirst.Screen.Monitors[myMonitor].Left;
-  ListsForm.Top := FormFirst.Screen.Monitors[myMonitor].Top;
+  ListsForm.Left := frmFirst.Screen.Monitors[myMonitor].Left;
+  ListsForm.Top := frmFirst.Screen.Monitors[myMonitor].Top;
 end;
 
 procedure TFormManager.DropLists;
@@ -294,13 +294,13 @@ end;
 procedure TFormManager.PopConstruction;
 begin
   tbConstruction.Down := true;
-  FormFirst.Construction.Show;
+  frmFirst.Construction.Show;
 end;
 
 procedure TFormManager.DropConstruction;
 begin
   tbConstruction.Down := false;
-  FormFirst.Construction.Visible := false;
+  frmFirst.Construction.Visible := false;
 end;
 
 procedure TFormManager.tbEventsClick(Sender: TObject);
@@ -329,9 +329,9 @@ procedure TFormManager.FormShow(Sender: TObject);
 begin
   panSpirits.Left := panSpirits.Left + 1;
 
-  if FormFirst.UserSettings.RememberView then
+  if frmFirst.UserSettings.RememberView then
   begin
-    if FormFirst.UserSettings.ViewAligned then
+    if frmFirst.UserSettings.ViewAligned then
     begin
       SpaceForm.Align := alClient;
       SpaceForm.tbStickyFit.Down := true;
@@ -340,8 +340,8 @@ begin
     begin
       SpaceForm.Align := alNone;
       SpaceForm.tbStickyFit.Down := false;
-      SpaceForm.Width := FormFirst.UserSettings.ViewSizeX;
-      SpaceForm.Height := FormFirst.UserSettings.ViewSizeY;
+      SpaceForm.Width := frmFirst.UserSettings.ViewSizeX;
+      SpaceForm.Height := frmFirst.UserSettings.ViewSizeY;
     end;
   end;
 
@@ -352,8 +352,8 @@ begin
   SpaceForm.Height := SpaceForm.Height + 1;
   SpaceForm.Height := SpaceForm.Height - 1;
 
-  if not fStarted and FormFirst.UserSettings.TipOfTheDay then
-    FormFirst.RealityForm.ShowTipOfTheDay;
+  if not fStarted and frmFirst.UserSettings.TipOfTheDay then
+    frmFirst.RealityForm.ShowTipOfTheDay;
   fStarted := true;
 end;
 
@@ -368,7 +368,7 @@ end;
 procedure TFormManager.tbTimeClick(Sender: TObject);
 begin
   tbTime.Down := true;
-  FormFirst.RealityForm.Show;
+  frmFirst.RealityForm.Show;
 end;
 
 procedure TFormManager.tbConstructionClick(Sender: TObject);
@@ -383,7 +383,7 @@ procedure TFormManager.PopPopulations;
 begin
   if not Assigned(fPopulations) then
   begin
-    FormFirst.Construction.AddEvent('Creating Populations...');
+    frmFirst.Construction.AddEvent('Creating Populations...');
     fPopulations := TFormPopulations.Create(self);
   end;
 
@@ -410,7 +410,7 @@ procedure TFormManager.PopHeightField;
 begin
   if not Assigned(FHeightField) then
   begin
-    FormFirst.Construction.AddEvent('Creating Height Field...');
+    frmFirst.Construction.AddEvent('Creating Height Field...');
     FHeightField := TFormHeightField.Create(self);
   end;
 
@@ -441,7 +441,7 @@ procedure TFormManager.PopHumidityMap;
 begin
   if not Assigned(fHumidityMap) then
   begin
-    FormFirst.Construction.AddEvent('Creating Humidity Map...');
+    frmFirst.Construction.AddEvent('Creating Humidity Map...');
     fHumidityMap := TFormHumidityMap.Create(self);
   end;
 
@@ -492,7 +492,7 @@ end;
 
 procedure TFormManager.Verify;
 begin
-  FormFirst.RealityForm.Show;
+  frmFirst.RealityForm.Show;
   BigRestore;
 end;
 

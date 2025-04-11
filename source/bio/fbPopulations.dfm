@@ -1,34 +1,29 @@
 object FormPopulations: TFormPopulations
   Left = 338
   Top = 179
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Polulation'
-  ClientHeight = 582
-  ClientWidth = 780
+  ClientHeight = 333
+  ClientWidth = 446
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object PopGraph: TChart
     Left = 0
     Top = 0
-    Width = 780
-    Height = 477
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 446
+    Height = 273
     BackWall.Brush.Style = bsClear
     LeftWall.Color = clWhite
     Legend.LegendStyle = lsSeries
@@ -36,7 +31,7 @@ object FormPopulations: TFormPopulations
       'Populations')
     Title.Visible = False
     Chart3DPercent = 10
-    View3DOptions.FontZoom = 140
+    View3DOptions.FontZoom = 80
     View3DOptions.Perspective = 0
     Align = alClient
     TabOrder = 0
@@ -60,58 +55,38 @@ object FormPopulations: TFormPopulations
   end
   object Panel3: TPanel
     Left = 0
-    Top = 477
-    Width = 780
-    Height = 105
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 273
+    Width = 446
+    Height = 60
     Align = alBottom
     TabOrder = 1
     object Label1: TLabel
-      Left = 28
-      Top = 63
-      Width = 89
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 16
+      Top = 36
+      Width = 51
+      Height = 13
       Caption = 'Crop Rate:'
     end
     object Label2: TLabel
-      Left = 263
-      Top = 63
-      Width = 113
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 150
+      Top = 36
+      Width = 66
+      Height = 13
       Caption = 'Refresh Rate:'
     end
     object Panel4: TPanel
-      Left = 589
+      Left = 337
       Top = 1
-      Width = 190
-      Height = 103
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 108
+      Height = 58
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
       object btnRun: TBitBtn
-        Left = 42
-        Top = 42
-        Width = 132
-        Height = 43
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 24
+        Top = 24
+        Width = 75
+        Height = 25
         Caption = 'Close'
         Kind = bkOK
         NumGlyphs = 2
@@ -120,14 +95,10 @@ object FormPopulations: TFormPopulations
       end
     end
     object cb3DGraph: TCheckBox
-      Left = 123
-      Top = 14
-      Width = 135
-      Height = 29
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 70
+      Top = 8
+      Width = 77
+      Height = 17
       Caption = '3-D Graph'
       Checked = True
       State = cbChecked
@@ -135,28 +106,20 @@ object FormPopulations: TFormPopulations
       OnClick = cb3DGraphClick
     end
     object cbCrop: TCheckBox
-      Left = 25
-      Top = 14
-      Width = 88
-      Height = 29
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 14
+      Top = 8
+      Width = 51
+      Height = 17
       Caption = 'Crop'
       Checked = True
       State = cbChecked
       TabOrder = 2
     end
     object cbHiddenRefresh: TCheckBox
-      Left = 266
-      Top = 14
-      Width = 237
-      Height = 29
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 152
+      Top = 8
+      Width = 135
+      Height = 17
       Caption = 'Refresh When Hidden'
       Checked = True
       State = cbChecked

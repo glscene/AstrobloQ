@@ -61,8 +61,6 @@ uses
   dmImages,
 
   flSolarSystem,
-  flStellarSystem,
-  flGenExosys,
   flOptions,
 
   fmForm,
@@ -116,7 +114,6 @@ type
     miSolarSystem: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
-    miStellarSystem: TMenuItem;
     miOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
@@ -127,7 +124,6 @@ type
     ToolButton3: TToolButton;
     N1: TMenuItem;
     miMonitor: TMenuItem;
-    miExogen: TMenuItem;
     acPlanet: TGLActor;
     miTools: TMenuItem;
     N7: TMenuItem;
@@ -157,9 +153,7 @@ type
     procedure miHelpWikiClick(Sender: TObject);
     procedure miViewHidePanelsClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
-    procedure miStellarSystemClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
-    procedure miExogenClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
@@ -347,37 +341,6 @@ begin
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
-end;
-
-
-//---------------------------------------------------------------------
-// Generator of exoplanet systems
-//----------------------------------------------------------------------
-procedure TfrmLitosphere.miExogenClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  Cadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenPlanetsys.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
- (*
-  // New exoplanet system
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
-  Timer.Enabled := True;
-  Cadencer.Enabled := True;
 end;
 
 
@@ -834,19 +797,6 @@ end;
 procedure TfrmLitosphere.miSolarSystemClick(Sender: TObject);
 begin
   with TFormSolarSys.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-// -----------------------------------------------------------------
-// Exosolar system
-// -----------------------------------------------------------------
-procedure TfrmLitosphere.miStellarSystemClick(Sender: TObject);
-begin
-  with TFormStarSys.Create(Self) do
     try
       ShowModal;
     finally
