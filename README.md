@@ -2,7 +2,7 @@
 
 Программный комплекс AstrobloQ предназначен для решения астрономических задач, 
 построения виртуальной модели Галактики и её эволюции. 
-В разработке применяются кросс-платформенные компоненты [GLScene/GXScene](https://gitverse.ru/glscene/GLXEngine/) 
+В разработке применяются кросс-платформенные компоненты [GLScene/GXScene](https://gitflic.ru/project/glscene/glxengine) 
 для языков Delphi & C++ с встроенным CyberAI и возможностью подключения внешнего помощника AI-Assistant. 
 В параллельных вычислениях используются в том числе библиотеки: 
 - [SOFA](./Externals/sofa), астрометрия на C, рекомендованная Международным Астрономическим Союзом IAU;
@@ -21,41 +21,41 @@
  
 ## AstrobloQ содержит групповые проекты
 
-### AstroVersum
+### Astroversum
 
-![AstroVersum](./docs/screenshots/PlanetarySystems.png)
-![AstroVersum](./docs/clips/SolarSystem.gif)
+![Astroversum](./docs/screenshots/PlanetarySystems.png)
+![Astroversum](./docs/clips/SolarSystem.gif)
 
-### Litosferas
+### Litosfera
 
 Литосферы экзопланет с гидросферами, атмосферами и недрами
-![Litosferas](./docs/screenshots/Litosfera_ru.png)
+![Litosfera](./docs/screenshots/Litosfera_ru.png)
 
-![Litosferas](./docs/clips/AnimationPlanet2a.gif)
-![Litosferas](./docs/clips/AnimationAsteroid2.gif)
+![Litosfera](./docs/clips/AnimationPlanet2a.gif)
+![Litosfera](./docs/clips/AnimationAsteroid2.gif)
 
-### Biosferas
+### Biosfera
 
 Биосферы экзопланет с моделями популяций живых организмов 
-![Biosferas](./docs/screenshots/Biosfera.jpg)
+![Biosfera](./docs/screenshots/Biosfera.jpg)
 
-![Biosferas](./docs/clips/AnimationDolphin.gif)
-![Biosferas](./docs/clips/AnimationEcosystemA.gif)
+![Biosfera](./docs/clips/AnimationDolphin.gif)
+![Biosfera](./docs/clips/AnimationEcosystemA.gif)
 
-### Noosferas
+### Noosfera
 
 Ноосферы экзопланет без космических коммуникаций 
-![Noosferas](./docs/screenshots/Noosfera.png)
+![Noosfera](./docs/screenshots/Noosfera.png)
 
-![Noosferas](./docs/clips/AnimationLadybug2.gif)
-![Noosferas](./docs/clips/AnimationFlock.gif)
+![Noosfera](./docs/clips/AnimationLadybug2.gif)
+![Noosfera](./docs/clips/AnimationFlock.gif)
 
-### Tehnosferas
+### Tehnosfera
 
 Техносферы экзопланет с космическими коммуникациями
-![Tehnosferas](./docs/screenshots/Tehnosferas.png)
+![Tehnosfera](./docs/screenshots/Tehnosferas.png)
 
-![Tehnosferas](./docs/clips/Meteors.gif)
+![Tehnosfera](./docs/clips/Meteors.gif)
 
 ### Galaktika
 
