@@ -113,7 +113,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
  uses
-  faAstroVersum;
+  faAstroverus;
 
 
 procedure TfrmOptions.FormCreate(Sender: TObject);
@@ -154,13 +154,13 @@ procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
-    frmAstroVersum.LoadConstLines(CurrDir)
+    frmAstroverus.LoadConstLines(CurrDir)
   else
-    frmAstroVersum.LinesConstellations.Nodes.Clear;
+    frmAstroverus.LinesConstellations.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmAstroVersum.LoadConstBorders(CurrDir)
+    frmAstroverus.LoadConstBorders(CurrDir)
   else
-    frmAstroVersum.LinesConstBorders.Nodes.Clear;
+    frmAstroverus.LinesConstBorders.Nodes.Clear;
 end;
 
 //-----------------------------------------------------------------

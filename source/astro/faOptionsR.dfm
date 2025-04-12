@@ -2,8 +2,8 @@ object frmOptions: TfrmOptions
   Left = 0
   Top = 0
   Caption = #1054#1087#1094#1080#1080
-  ClientHeight = 473
-  ClientWidth = 823
+  ClientHeight = 448
+  ClientWidth = 815
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,19 +14,17 @@ object frmOptions: TfrmOptions
   TextHeight = 21
   object PanelBottom: TPanel
     Left = 0
-    Top = 444
-    Width = 823
+    Top = 419
+    Width = 815
     Height = 29
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 419
-    ExplicitWidth = 815
     DesignSize = (
-      823
+      815
       29)
     object ButtonOK: TButton
-      Left = 612
+      Left = 596
       Top = 3
       Width = 70
       Height = 23
@@ -35,14 +33,13 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 604
     end
   end
   object PanelMiddle: TPanel
     Left = 0
     Top = 30
-    Width = 823
-    Height = 414
+    Width = 815
+    Height = 389
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
@@ -53,19 +50,15 @@ object frmOptions: TfrmOptions
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitWidth = 815
-    ExplicitHeight = 389
     object PageControl: TPageControl
       Left = 169
       Top = 5
-      Width = 649
-      Height = 404
+      Width = 641
+      Height = 379
       ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 641
-      ExplicitHeight = 379
       object tsGeneral: TTabSheet
         Caption = #1054#1073#1097#1080#1077
         ImageIndex = 7
@@ -132,8 +125,8 @@ object frmOptions: TfrmOptions
           Items.Strings = (
             #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076
             #1055#1072#1088#1089#1077#1082
-            #1040#1089#1090#1088#1086#1102#1085#1080#1090
-            #1050#1080#1083#1086#1084#1077#1090#1088#1099)
+            #1040#1089#1090#1088#1086#1077#1076#1080#1085#1080#1094#1072
+            #1050#1080#1083#1086#1084#1077#1090#1088)
           TabOrder = 1
         end
         object SpinEditPrecision: TSpinEdit
@@ -167,7 +160,7 @@ object frmOptions: TfrmOptions
         object ComboBoxVclStyles: TComboBox
           Left = 248
           Top = 25
-          Width = 117
+          Width = 193
           Height = 29
           Style = csDropDownList
           DropDownCount = 5
@@ -546,18 +539,18 @@ object frmOptions: TfrmOptions
         end
       end
     end
-    object tvSettings: TTreeView
+    object tvOptions: TTreeView
       Left = 5
       Top = 5
       Width = 164
-      Height = 404
+      Height = 379
       Align = alLeft
       AutoExpand = True
       HotTrack = True
       Images = ImageList
       Indent = 19
       TabOrder = 1
-      OnClick = tvSettingsClick
+      OnClick = tvOptionsClick
       Items.NodeData = {
         070700000009540054007200650065004E006F00640065002900000000000000
         00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
@@ -571,18 +564,16 @@ object frmOptions: TfrmOptions
         FFFFFFFFFF000000000000000000000000000106170432045104370434044B04
         0000310000000600000006000000FFFFFFFFFFFFFFFF00000000000000000000
         0000000109130430043B0430043A04420438043A043004}
-      ExplicitHeight = 379
     end
   end
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 823
+    Width = 815
     Height = 30
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 815
   end
   object ImageList: TImageList
     Left = 79

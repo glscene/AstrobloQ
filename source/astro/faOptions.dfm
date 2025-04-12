@@ -1,7 +1,7 @@
 object frmOptions: TfrmOptions
   Left = 0
   Top = 0
-  Caption = 'Settings'
+  Caption = 'Options'
   ClientHeight = 414
   ClientWidth = 674
   Color = clBtnFace
@@ -20,13 +20,11 @@ object frmOptions: TfrmOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 360
-    ExplicitWidth = 666
     DesignSize = (
       674
       29)
     object ButtonOK: TButton
-      Left = 495
+      Left = 479
       Top = 3
       Width = 70
       Height = 23
@@ -47,8 +45,6 @@ object frmOptions: TfrmOptions
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 666
-    ExplicitHeight = 330
     object PageControl: TPageControl
       Left = 169
       Top = 5
@@ -58,8 +54,6 @@ object frmOptions: TfrmOptions
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 492
-      ExplicitHeight = 320
       object tsGeneral: TTabSheet
         Caption = 'General'
         ImageIndex = 7
@@ -530,7 +524,6 @@ object frmOptions: TfrmOptions
         00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
         730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
         00000000000106470061006C00610078007900}
-      ExplicitHeight = 320
     end
   end
   object PanelTop: TPanel
@@ -541,7 +534,6 @@ object frmOptions: TfrmOptions
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 666
   end
   object ImageList: TImageList
     Left = 79

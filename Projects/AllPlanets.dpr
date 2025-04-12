@@ -24,12 +24,15 @@ uses
   fmGenExosystem in '..\source\fmGenExosystem.pas' {FormGenPlanetsys},
   umCamera in '..\source\umCamera.pas',
   umGlobals in '..\source\umGlobals.pas',
-  umSkyBodies in '..\source\umSkyBodies.pas';
+  umSkyBodies in '..\source\umSkyBodies.pas',
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  TStyleManager.TrySetStyle('Glow');
   Application.CreateForm(TfrmAllplanets, frmAllplanets);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormI, FormI);

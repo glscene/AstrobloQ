@@ -46,7 +46,7 @@ type
     lblScaleX: TLabel;
     Label1: TLabel;
     Label2: TLabel;
-    tvSettings: TTreeView;
+    tvOptions: TTreeView;
     PanelTop: TPanel;
     Edit1: TEdit;
     Edit2: TEdit;
@@ -89,7 +89,7 @@ type
     ComboBoxVclStyles: TComboBox;
     lbStyle: TLabel;
     cbSplashStart: TCheckBox;
-    procedure tvSettingsClick(Sender: TObject);
+    procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure ComboBoxVclStylesChange(Sender: TObject);
@@ -111,8 +111,9 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  faAstroVersumR;
+  faAstroverusR;
 
+//-------------------------------------------------------------
 procedure TfrmOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
@@ -127,19 +128,19 @@ begin
   ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 
   // Заполнение тем TreeView индексами
-  for I := 0 to tvSettings.Items.Count - 1 do
+  for I := 0 to tvOptions.Items.Count - 1 do
   begin
-    tvSettings.Items[i].ImageIndex := 0;
-    tvSettings.Items[i].SelectedIndex := 1;
+    tvOptions.Items[i].ImageIndex := 0;
+    tvOptions.Items[i].SelectedIndex := 1;
   end;
 
   // Выбор начальной темы узла дерева
-  tvSettings.Items[1].Selected := True;
-  tvSettingsClick(Self);
+  tvOptions.Items[1].Selected := True;
+  tvOptionsClick(Self);
   // Подсветка темы узла после клика !
-  tvSettings.Items[1].DropHighlighted := True;
+  tvOptions.Items[1].DropHighlighted := True;
   // Раскрываем все узлы дерева
-  tvSettings.FullExpand;
+  tvOptions.FullExpand;
   // В конце (!) наследование из fdForm
   inherited;
 end;
@@ -151,17 +152,17 @@ procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
-    frmAstroVersum.LoadConstLines(CurrDir)
+    frmAstroverus.LoadConstLines(CurrDir)
   else
-    frmAstroVersum.LinesConstellations.Nodes.Clear;
+    frmAstroverus.LinesConstellations.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmAstroVersum.LoadConstBorders(CurrDir)
+    frmAstroverus.LoadConstBorders(CurrDir)
   else
-    frmAstroVersum.LinesConstBorders.Nodes.Clear;
+    frmAstroverus.LinesConstBorders.Nodes.Clear;
 end;
 
 //-----------------------------------------------------------------
-// Изменение стиля интерфейса
+// Изменение стиля интерфейса, например тёмная тема
 //-----------------------------------------------------------------
 procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
@@ -171,11 +172,10 @@ end;
 //-----------------------------------------------------------------
 // Изменение активной страницы PageControl
 //-----------------------------------------------------------------
-procedure TfrmOptions.tvSettingsClick(Sender: TObject);
+procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
-  inherited;
-  tvSettings.Items[1].DropHighlighted := False;
-  case tvSettings.Selected.Index of
+  tvOptions.Items[1].DropHighlighted := False;
+  case tvOptions.Selected.Index of
      0: PageControl.ActivePage := tsGeneral;
      1: PageControl.ActivePage := tsInterface;
      2: PageControl.ActivePage := tsDisplay;
@@ -187,7 +187,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-// Чтение секций Инифайла и установка языка интерфейса
+// Чтение секций Инифайла
 //--------------------------------------------------------------------
 procedure TfrmOptions.ReadIniFile;
 var

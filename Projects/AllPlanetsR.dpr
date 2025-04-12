@@ -24,12 +24,15 @@ uses
   umSkyBodies in '..\source\umSkyBodies.pas',
   umGlobals in '..\source\umGlobals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAboutR in '..\source\fmAboutR.pas' {FormAbout};
+  fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  TStyleManager.TrySetStyle('Windows10');
   Application.CreateForm(TfrmAllplanets, frmAllplanets);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormI, FormI);

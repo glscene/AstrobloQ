@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{5D6BB61F-C605-4E15-995A-8A8967D3EB51}</ProjectGuid>
+        <ProjectGuid>{7CF37446-6FE7-4B32-9659-BA4C4C09511F}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -8,8 +8,8 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>AstroVersumR.dpr</MainSource>
-        <ProjectName Condition="'$(ProjectName)'==''">AstroVersumR</ProjectName>
+        <MainSource>Astroverus.dpr</MainSource>
+        <ProjectName Condition="'$(ProjectName)'==''">Astroverus</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -68,7 +68,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>AstroVersumR</SanitizedProjectName>
+        <SanitizedProjectName>Astroverus</SanitizedProjectName>
         <Custom_Styles>&quot;Iceberg Classico|VCLSTYLE|$(BDSCOMMONDIR)\Styles\IcebergClassico.vsf&quot;;&quot;Tablet Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\TabletDark.vsf&quot;;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;;&quot;Cyan Night|VCLSTYLE|$(BDSCOMMONDIR)\Styles\CyanNight.vsf&quot;;&quot;Golden Graphite|VCLSTYLE|$(BDSCOMMONDIR)\Styles\GoldenGraphite.vsf&quot;;Luna|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Luna.vsf;&quot;Smokey Quartz Kamri|VCLSTYLE|$(BDSCOMMONDIR)\Styles\SmokeyQuartzKamri.vsf&quot;</Custom_Styles>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -127,9 +127,17 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\uaVsop2013.pas"/>
-        <DCCReference Include="..\source\astro\uaConstBayers.pas"/>
-        <DCCReference Include="..\source\astro\uaEphemerides.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Kepler.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Math.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Moon.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Phys.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Planets.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.PrecNut.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Spheric.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Sun.pas"/>
+        <DCCReference Include="..\Addons\Apex\apc\Apc.Time.pas"/>
+        <DCCReference Include="..\source\astro\Astro.ConstBayers.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
         <DCCReference Include="..\source\astro\faCoordinates.pas">
             <Form>FormCoords</Form>
         </DCCReference>
@@ -145,8 +153,14 @@
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\source\astro\faAstroverus.pas">
+            <Form>frmAstroverus</Form>
+        </DCCReference>
         <DCCReference Include="..\source\astro\faMixTextures.pas">
             <Form>FormTexCombine</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\fmForm.pas">
+            <Form>FormI</Form>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -164,35 +178,19 @@
             <Form>FormHipparcos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faOptionsR.pas">
+        <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
+        <DCCReference Include="..\source\astro\faOptions.pas">
             <Form>frmOptions</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umUtils.pas"/>
         <DCCReference Include="..\Externals\sofa\sofa.pas"/>
         <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.DE.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Kepler.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Math.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Moon.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Phys.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Planets.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.PrecNut.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Spheric.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Sun.pas"/>
-        <DCCReference Include="..\Addons\Apex\apc\Apc.Time.pas"/>
-        <DCCReference Include="..\source\astro\faAstroVersumR.pas">
-            <Form>frmAstroVersum</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faAstromif_ru.pas">
+        <DCCReference Include="..\source\umUtils.pas"/>
+        <DCCReference Include="..\source\astro\faAstromif.pas">
             <Form>FormAstromif</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmAboutR.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -215,7 +213,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">AstroVersumR.dpr</Source>
+                    <Source Name="MainSource">Astroverus.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -225,9 +223,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\AstroVersumR.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Astroverus.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>AstroVersumR.exe</RemoteName>
+                        <RemoteName>Astroverus.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

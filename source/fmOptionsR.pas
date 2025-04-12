@@ -31,6 +31,7 @@ uses
   Vcl.CheckLst,
   Vcl.WinXCtrls,
   Vcl.NumberBox,
+  Vcl.Themes,
 
   fmForm;
 
@@ -85,6 +86,11 @@ type
     CheckBoxHidePlanet: TCheckBox;
     gbShowStars: TGroupBox;
     chbSkyGrid: TCheckBox;
+    tsInterface: TTabSheet;
+    cbSplashStart: TCheckBox;
+    ComboBoxVclStyles: TComboBox;
+    lbStyle: TLabel;
+    rgUnits: TRadioGroup;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
@@ -110,23 +116,39 @@ implementation //================================================
 uses
   fmAllPlanetsR;
 
+//-------------------------------------------------------------
 procedure TfrmOptions.FormCreate(Sender: TObject);
+var
+  I: Integer;
+  StyleName: string;
+
 begin
+  // Загрузка сохранённых опций интерфейса
   ReadIniFile;
 
+  // Включение стилей интерфейса в комбобокс
+  for StyleName in TStyleManager.StyleNames do
+    ComboBoxVclStyles.Items.Add(StyleName);
+  ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
+
   // Заполнение индексов узлов дерева установок
-  for var I: Integer := 0 to tvOptions.Items.Count - 1 do
+  for I := 0 to tvOptions.Items.Count - 1 do
   begin
     tvOptions.Items[I].ImageIndex := 0;
     tvOptions.Items[I].SelectedIndex := 1;
     tvOptions.Items[I].StateIndex := I;
-    tvOptions.Items[I].Text := tvOptions.Items[I].Text;
   end;
-  // 0 - Общие 1- Материал 2 - Планеты 3 - Звёзды
-  tvOptions.Select(tvOptions.Items[0]);
+
+  // Выбор начальной темы узла дерева
+  tvOptions.Items[1].Selected := True;
   tvOptionsClick(Self);
+  // Подсветка темы узла после клика !
+  tvOptions.Items[1].DropHighlighted := True;
+  // Раскрываем все узлы дерева
   tvOptions.FullExpand;
-  tvOptions.Items[0].DropHighlighted := True;
+
+//  tvOptions.Select(tvOptions.Items[0]);
+//  tvOptionsClick(Self);
 
   inherited;
 end;
@@ -204,11 +226,13 @@ end;
 //---------------------------------------------------------
 procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
+  tvOptions.Items[1].DropHighlighted := False;
   case tvOptions.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsDisplay;
-     2: PageControl.ActivePage := tsPlanets;
-     3: PageControl.ActivePage := tsStars;
+     1: PageControl.ActivePage := tsInterface;
+     2: PageControl.ActivePage := tsDisplay;
+     3: PageControl.ActivePage := tsPlanets;
+     4: PageControl.ActivePage := tsStars;
   end;
 end;
 
