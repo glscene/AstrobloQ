@@ -1,14 +1,13 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Tehnosferas;
+program Tehnosfera;
 uses
   Forms,
   ftMeshEditor in '..\source\teh\ftMeshEditor.pas' {FormMeshShow},
   ftMeshData in '..\source\teh\ftMeshData.pas' {FormMeshData},
   ftStarPilot in '..\source\teh\ftStarPilot.pas' {FormSpacePilot},
-  ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
-  ftTehnosferas in '..\source\teh\ftTehnosferas.pas' {frmTehnosferas},
+  ftLocationsR in '..\source\teh\ftLocationsR.pas' {FormLocations},
   fmForm in '..\source\fmForm.pas' {FormG},
   ftCyborg in '..\source\teh\ftCyborg.pas' {FormCyborg},
   ftRobot in '..\source\teh\ftRobot.pas' {FormLoadSmdMdl},
@@ -23,7 +22,8 @@ uses
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   umCamera in '..\source\umCamera.pas',
   umGlobals in '..\source\umGlobals.pas',
-  umSkyBodies in '..\source\umSkyBodies.pas';
+  umSkyBodies in '..\source\umSkyBodies.pas',
+  ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {frmTehnosfera};
 
 {$R *.res}
 
@@ -31,19 +31,7 @@ begin
   Application.Initialize;
 
   Application.Title := 'Tehnosfera';
-  Application.CreateForm(TfrmTehnosferas, frmTehnosferas);
-  Application.CreateForm(TFormMeshShow, FormMeshShow);
-  Application.CreateForm(TFormMeshData, FormMeshData);
-  Application.CreateForm(TFormSpacePilot, FormSpacePilot);
-  Application.CreateForm(TFormLocations, FormLocations);
-  Application.CreateForm(TFormI, FormI);
-  Application.CreateForm(TFormCyborg, FormCyborg);
-  Application.CreateForm(TFormLoadSmdMdl, FormLoadSmdMdl);
-  Application.CreateForm(TFormTehnosfera, FormTehnosfera);
-  Application.CreateForm(TDataModuleBase, DataModuleBase);
-  Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TfrmTehnosfera, frmTehnosfera);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

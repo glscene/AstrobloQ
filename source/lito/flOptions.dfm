@@ -30,7 +30,7 @@ object frmOptions: TfrmOptions
       750
       41)
     object ButtonOK: TButton
-      Left = 538
+      Left = 530
       Top = 1
       Width = 99
       Height = 31
@@ -39,7 +39,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 554
+      ExplicitLeft = 522
     end
   end
   object PanelMiddle: TPanel
@@ -58,10 +58,12 @@ object frmOptions: TfrmOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsStars
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
+      ExplicitWidth = 568
+      ExplicitHeight = 358
       object tsDisplay: TTabSheet
         Caption = 'Display'
         ImageIndex = 4
@@ -75,7 +77,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = 16
+          Left = 8
           Top = 137
           Width = 104
           Height = 128
@@ -86,7 +88,7 @@ object frmOptions: TfrmOptions
           Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 17
+          ItemHeight = 15
           Items.Strings = (
             'O'
             'B'
@@ -99,6 +101,7 @@ object frmOptions: TfrmOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
+          ExplicitLeft = 0
         end
         object GroupBox2: TGroupBox
           Left = 40
@@ -478,6 +481,7 @@ object frmOptions: TfrmOptions
         2D0000000000000000000000FFFFFFFFFFFFFFFF000000000000000000000000
         00010750006C0061006E006500740073000000290000000000000000000000FF
         FFFFFFFFFFFFFF00000000000000000000000000010553007400610072007300}
+      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel

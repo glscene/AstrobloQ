@@ -110,7 +110,7 @@ implementation //------------------------------------------------------------
 
 
 uses
-  ftTehnosferas;
+  ftTehnosfera;
 {$R *.dfm}
 
 

@@ -36,13 +36,11 @@ object FormAbout: TFormAbout
     Top = 65
     Width = 642
     Height = 445
-    ActivePage = tsDevelopers
+    ActivePage = tsGalaktika
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 634
-    ExplicitHeight = 420
     object tsStars: TTabSheet
-      Caption = 'AstroVersum'
+      Caption = 'Astroversum'
       object ImageAstro: TImage
         Left = 0
         Top = 0
@@ -22074,7 +22072,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsLitosfera: TTabSheet
-      Caption = 'Litosferas'
+      Caption = 'Litosfera'
       ImageIndex = 3
       object ImagePlanets: TImage
         Left = 0
@@ -25745,7 +25743,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsBiosphere: TTabSheet
-      Caption = 'Biosferas'
+      Caption = 'Biosfera'
       ImageIndex = 4
       object Image1: TImage
         Left = 0
@@ -49204,7 +49202,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsNoosfera: TTabSheet
-      Caption = 'Noosferas'
+      Caption = 'Noosfera'
       ImageIndex = 6
       object Image2: TImage
         Left = 0
@@ -75051,7 +75049,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsTehnosfera: TTabSheet
-      Caption = 'Tehnosferas'
+      Caption = 'Tehnosfera'
       ImageIndex = 5
       object Image3: TImage
         Left = 0
@@ -87540,6 +87538,8 @@ object FormAbout: TFormAbout
           'Elizaveta Soboleva'
           'Anton Dahin')
         TabOrder = 0
+        ExplicitWidth = 626
+        ExplicitHeight = 390
       end
     end
     object tsGalaktika: TTabSheet

@@ -2,7 +2,7 @@ object FormAbout: TFormAbout
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'About'
+  Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
   ClientHeight = 510
   ClientWidth = 642
   Color = clBtnFace
@@ -36,13 +36,11 @@ object FormAbout: TFormAbout
     Top = 65
     Width = 642
     Height = 445
-    ActivePage = tsGalaktika
+    ActivePage = tsStars
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 634
-    ExplicitHeight = 420
     object tsStars: TTabSheet
-      Caption = 'AstroVersum'
+      Caption = #1040#1089#1090#1088#1086#1074#1077#1088#1089#1091#1084
       object ImageAstro: TImage
         Left = 0
         Top = 0
@@ -22074,7 +22072,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsLitosfera: TTabSheet
-      Caption = 'Litosferas'
+      Caption = #1051#1080#1090#1086#1089#1092#1077#1088#1072
       ImageIndex = 3
       object ImagePlanets: TImage
         Left = 0
@@ -25745,7 +25743,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsBiosphere: TTabSheet
-      Caption = 'Biosferas'
+      Caption = #1041#1080#1086#1089#1092#1077#1088#1072
       ImageIndex = 4
       object Image1: TImage
         Left = 0
@@ -49204,7 +49202,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsNoosfera: TTabSheet
-      Caption = 'Noosferas'
+      Caption = #1053#1086#1086#1089#1092#1077#1088#1072
       ImageIndex = 6
       object Image2: TImage
         Left = 0
@@ -75051,7 +75049,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsTehnosfera: TTabSheet
-      Caption = 'Tehnosferas'
+      Caption = #1058#1077#1093#1085#1086#1089#1092#1077#1088#1072
       ImageIndex = 5
       object Image3: TImage
         Left = 0
@@ -87523,7 +87521,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsDevelopers: TTabSheet
-      Caption = 'Developers'
+      Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
       ImageIndex = 1
       TabVisible = False
       object Memo1: TMemo
@@ -87540,12 +87538,10 @@ object FormAbout: TFormAbout
           'Elizaveta Soboleva'
           'Anton Dahin')
         TabOrder = 0
-        ExplicitWidth = 626
-        ExplicitHeight = 390
       end
     end
     object tsGalaktika: TTabSheet
-      Caption = 'Galaktika'
+      Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
       ImageIndex = 7
       object ImageGalaxy: TImage
         Left = 0
@@ -143682,7 +143678,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsUniversum: TTabSheet
-      Caption = 'Universum'
+      Caption = #1059#1085#1080#1074#1077#1088#1089#1091#1084
       ImageIndex = 8
       object Image4: TImage
         Left = 0
@@ -185381,7 +185377,7 @@ object FormAbout: TFormAbout
       end
     end
     object tsTools: TTabSheet
-      Caption = 'Tools'
+      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       ImageIndex = 2
       object ButtonAstrobloQ: TSpeedButton
         Left = 386

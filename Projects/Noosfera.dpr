@@ -1,4 +1,4 @@
-program Noosferas;
+program Noosfera;
 
 uses
   Vcl.Forms,
@@ -8,7 +8,7 @@ uses
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Vcl.Themes,
   Vcl.Styles,
-  fnNoosferas in '..\source\noo\fnNoosferas.pas' {frmNoosferas},
+  fnNoosfera in '..\source\noo\fnNoosfera.pas' {frmNoosfera},
   fmForm in '..\source\fmForm.pas' {FormG},
   umUtils in '..\source\umUtils.pas',
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
@@ -23,9 +23,8 @@ begin
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TfrmNoosferas, frmNoosferas);
+  Application.CreateForm(TfrmNoosfera, frmNoosfera);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
 

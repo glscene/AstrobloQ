@@ -1,4 +1,4 @@
-unit flLitosferas;
+unit flLitosfera;
 
 interface
 
@@ -69,7 +69,7 @@ uses
 
 
 type
-  TfrmLitosphere = class(TFormI) // not translated when TForm
+  TfrmLitosfera = class(TFormI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -177,7 +177,7 @@ type
   end;
 
 var
-  frmLitosphere: TfrmLitosphere;
+  frmLitosfera: TfrmLitosfera;
 
 const
   cOpacity: Single = 5;
@@ -200,7 +200,7 @@ implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmLitosphere.FormCreate(Sender: TObject);
+procedure TfrmLitosfera.FormCreate(Sender: TObject);
 var
   I: Integer;
 begin
@@ -255,7 +255,7 @@ end;
 //------------------------------------------------------------------
 // Show/Hide panels
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miViewHidePanelsClick(Sender: TObject);
+procedure TfrmLitosfera.miViewHidePanelsClick(Sender: TObject);
 begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
   if miViewHidePanels.Checked then
@@ -264,7 +264,7 @@ begin
     PanelLeft.Visible := False;
     StatusBar.Visible := False;
     ControlBar.Visible := False;
-    frmLitosphere.BorderStyle := bsNone;
+    frmLitosfera.BorderStyle := bsNone;
   end
   else
   begin
@@ -272,14 +272,14 @@ begin
     PanelLeft.Visible := True;
     StatusBar.Visible := True;
     ControlBar.Visible := True;
-    frmLitosphere.BorderStyle := bsSizeable;
+    frmLitosfera.BorderStyle := bsSizeable;
   end;
 end;
 
 //------------------------------------------------------------------
 //   Select nodes of tvPlanetsClick
 //------------------------------------------------------------------
-procedure TfrmLitosphere.tvPlanetsClick(Sender: TObject);
+procedure TfrmLitosfera.tvPlanetsClick(Sender: TObject);
 begin
   PlanetPath := CurrentStar + tvPlanets.Selected.Text;
 
@@ -347,7 +347,7 @@ end;
 //------------------------------------------------------------------
 // City lights
 //------------------------------------------------------------------
-procedure TfrmLitosphere.SceneViewerBeforeRender(Sender: TObject);
+procedure TfrmLitosfera.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // если нет мультитекстурирования и combiner то без света городов
@@ -357,7 +357,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.About1Click(Sender: TObject);
+procedure TfrmLitosfera.About1Click(Sender: TObject);
 begin
   inherited;
   with TFormAbout.Create(Self) do
@@ -368,7 +368,7 @@ begin
   end;
 end;
 
-function TfrmLitosphere.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TfrmLitosfera.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
   atmPoint, normal: TGLVector;
@@ -414,7 +414,7 @@ end;
 
 //------------------------------------------------------------------
 
-function TfrmLitosphere.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TfrmLitosfera.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
   rayVector: TGLVector;
@@ -445,7 +445,7 @@ end;
 //------------------------------------------------------------------
 // DirectOpenGLRender for atmosphere
 //------------------------------------------------------------------
-procedure TfrmLitosphere.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TfrmLitosfera.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
   cSlices = 60;
 var
@@ -539,7 +539,7 @@ end;
 //--------------------------- Menu Items ---------------------------
 // Show constellation lines
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miViewConstlinesClick(Sender: TObject);
+procedure TfrmLitosfera.miViewConstlinesClick(Sender: TObject);
 begin
   ConstLines.Nodes.Clear;
   miViewConstlines.Checked := not miViewConstlines.Checked;
@@ -552,7 +552,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.LoadConstLines;
+procedure TfrmLitosfera.LoadConstLines;
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -576,7 +576,7 @@ end;
 //------------------------------------------------------------------
 // Load constellation borders
 //------------------------------------------------------------------
-procedure TfrmLitosphere.LoadConstBorders;
+procedure TfrmLitosfera.LoadConstBorders;
 var
   sl, line: TStrings;
   skypos: TAffineVector;
@@ -601,7 +601,7 @@ end;
 //------------------------------------------------------------------
 // Show constallation borders
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miViewConstBordersClick(Sender: TObject);
+procedure TfrmLitosfera.miViewConstBordersClick(Sender: TObject);
 begin
   ConstBounds.Nodes.Clear;
   miViewConstBorders.Checked := not miViewConstBorders.Checked;
@@ -617,7 +617,7 @@ end;
 //------------------------------------------------------------------
 // Cadencer
 //------------------------------------------------------------------
-procedure TfrmLitosphere.CadencerProgress(Sender: TObject; const deltaTime,
+procedure TfrmLitosfera.CadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   d : Double;
@@ -678,7 +678,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.SceneViewerMouseDown(Sender: TObject;
+procedure TfrmLitosfera.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := x;
@@ -687,7 +687,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TfrmLitosphere.SceneViewerMouseMove(Sender: TObject;
+procedure TfrmLitosfera.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -703,7 +703,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TfrmLitosfera.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   f: Single;
@@ -719,7 +719,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.SceneViewerDblClick(Sender: TObject);
+procedure TfrmLitosfera.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -737,7 +737,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
+procedure TfrmLitosfera.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
   if FileExists(FileName) then
   begin
@@ -748,7 +748,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmLitosfera.FormKeyPress(Sender: TObject; var Key: Char);
 
 begin
   case Key of
@@ -784,7 +784,7 @@ end;
 //------------------------------------------------------------------
 //  FPS
 //------------------------------------------------------------------
-procedure TfrmLitosphere.TimerTimer(Sender: TObject);
+procedure TfrmLitosfera.TimerTimer(Sender: TObject);
 begin
 //  Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
   StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
@@ -794,7 +794,7 @@ end;
 //------------------------------------------------------------------
 // Solar system
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miSolarSystemClick(Sender: TObject);
+procedure TfrmLitosfera.miSolarSystemClick(Sender: TObject);
 begin
   with TFormSolarSys.Create(Self) do
     try
@@ -807,7 +807,7 @@ end;
 //------------------------------------------------------------------
 // Clear tvPlanets
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miClearTreeViewClick(Sender: TObject);
+procedure TfrmLitosfera.miClearTreeViewClick(Sender: TObject);
 begin
   tvPlanets.Items.Clear;
 end;
@@ -815,7 +815,7 @@ end;
 //------------------------------------------------------------------
 //  Open miOpenFile
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miFileOpenClick(Sender: TObject);
+procedure TfrmLitosfera.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
 begin
@@ -844,7 +844,7 @@ end;
 //------------------------------------------------------------------
 // miFileSaveAs Planet system
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miFileSaveAsClick(Sender: TObject);
+procedure TfrmLitosfera.miFileSaveAsClick(Sender: TObject);
 begin
   SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
   SaveDialog.InitialDir := StarDir;
@@ -857,7 +857,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miOptionsClick(Sender: TObject);
+procedure TfrmLitosfera.miOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
@@ -866,7 +866,7 @@ end;
 //------------------------------------------------------------------
 // Help in wiki
 //------------------------------------------------------------------
-procedure TfrmLitosphere.miHelpWikiClick(Sender: TObject);
+procedure TfrmLitosfera.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
@@ -897,7 +897,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmLitosphere.miFileExitClick(Sender: TObject);
+procedure TfrmLitosfera.miFileExitClick(Sender: TObject);
 begin
   Close;
 end;

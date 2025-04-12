@@ -2,7 +2,7 @@ object frmAllplanets: TfrmAllplanets
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'Litosferas'
+  Caption = 'AllPlanets'
   ClientHeight = 700
   ClientWidth = 1042
   Color = clBtnFace
@@ -88675,31 +88675,31 @@ object frmAllplanets: TfrmAllplanets
     Left = 501
     Top = 56
     object miOpen: TMenuItem
-      Caption = '&File'
+      Caption = '&'#1060#1072#1081#1083
       object miFileOpen: TMenuItem
-        Caption = 'Open...'
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
         OnClick = miFileOpenClick
       end
       object miFileSaveAs: TMenuItem
-        Caption = 'Save as...'
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
         OnClick = miFileSaveAsClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object miFileExit: TMenuItem
-        Caption = 'Exit'
+        Caption = #1042#1099#1093#1086#1076
         OnClick = miFileExitClick
       end
     end
     object miView: TMenuItem
-      Caption = '&View'
+      Caption = '&'#1042#1080#1076
       object miViewConstlines: TMenuItem
-        Caption = 'Constellines'
+        Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
         OnClick = miViewConstlinesClick
       end
       object miViewConstborders: TMenuItem
-        Caption = 'Constelborders'
+        Caption = #1043#1088#1072#1085#1080#1094#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
         OnClick = miViewConstbordersClick
       end
       object N4: TMenuItem
@@ -88710,7 +88710,7 @@ object frmAllplanets: TfrmAllplanets
         OnClick = miViewHidePanelsClick
       end
       object miClearTreeView: TMenuItem
-        Caption = 'Clear'
+        Caption = #1054#1095#1080#1089#1090#1080#1090#1100
         Enabled = False
         OnClick = miClearTreeViewClick
       end
@@ -88718,42 +88718,42 @@ object frmAllplanets: TfrmAllplanets
         Caption = '-'
       end
       object NightLights1: TMenuItem
-        Caption = 'City lights'
+        Caption = #1057#1074#1077#1090' '#1075#1086#1088#1086#1076#1086#1074
       end
     end
     object miMonitor: TMenuItem
-      Caption = '&Monitor'
+      Caption = '&'#1052#1086#1085#1080#1090#1086#1088
       object miSolarSystem: TMenuItem
-        Caption = 'Solar system...'
+        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSolarSystemClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miStellarSystem: TMenuItem
-        Caption = 'Stellar system...'
+        Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miStellarSystemClick
       end
     end
     object miTools: TMenuItem
-      Caption = '&Tools'
+      Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
-        Caption = 'Settings...'
+        Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
       end
       object miOptions: TMenuItem
-        Caption = 'Options...'
+        Caption = #1054#1087#1094#1080#1080'...'
         OnClick = miOptionsClick
       end
       object N7: TMenuItem
         Caption = '-'
       end
       object miExogen: TMenuItem
-        Caption = 'Exosystem generator...'
+        Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090'...'
         OnClick = miExogenClick
       end
     end
     object miHelp: TMenuItem
-      Caption = '&Help'
+      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
       object miHelpWiki: TMenuItem
         Caption = 'Ruwiki...'
         Hint = 'Information'
@@ -88764,7 +88764,7 @@ object frmAllplanets: TfrmAllplanets
         Caption = '-'
       end
       object About1: TMenuItem
-        Caption = 'About...'
+        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
         OnClick = About1Click
       end
     end

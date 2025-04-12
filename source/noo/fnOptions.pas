@@ -111,7 +111,7 @@ implementation //------------------------------------------------------------
 
 
 uses
-  fnNoosferas;
+  fnNoosfera;
 {$R *.dfm}
 
 
@@ -153,13 +153,13 @@ procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
-    frmNoosferas.LoadConstLines(CurrDir)
+    frmNoosfera.LoadConstLines(CurrDir)
   else
-    frmNoosferas.LinesConstellations.Nodes.Clear;
+    frmNoosfera.LinesConstellations.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmNoosferas.LoadConstBorders(CurrDir)
+    frmNoosfera.LoadConstBorders(CurrDir)
   else
-    frmNoosferas.LinesConstBorders.Nodes.Clear;
+    frmNoosfera.LinesConstBorders.Nodes.Clear;
 end;
 
 //-----------------------------------------------------------------

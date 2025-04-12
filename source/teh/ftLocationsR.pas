@@ -1,4 +1,4 @@
-unit ftLocations;
+unit ftLocationsR;
 (*
  Only things INTERACTIVE with the GLS 3D Display
  need to be on the same page as it
@@ -114,9 +114,7 @@ type
 var
   FormLocations: TFormLocations;
 
-//-------------------------------------------------------------------
-implementation
-//-------------------------------------------------------------------
+implementation //----------------------------------------------------------
 
 uses
   ftTehnosfera,

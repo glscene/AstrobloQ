@@ -108,7 +108,7 @@ implementation //================================================
 {$R *.dfm}
 
 uses
-  flLitosferas;
+  flLitosfera;
 
 procedure TfrmOptions.FormCreate(Sender: TObject);
 begin
@@ -136,17 +136,14 @@ end;
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
- // FormLitosfera.Atmosphere;
+ // frmLitosfera.Atmosfera := CheckBoxAtmosfera.Checked;;
 end;
 
 // Show or hide axes X, Y, Z for a planet
 procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
 begin
-  if CheckBoxAxes.Checked then
-  begin
-    frmLitosphere.sfPlanet.ShowAxes := not frmLitosphere.sfPlanet.ShowAxes;
-    frmLitosphere.ffPlanet.ShowAxes := not frmLitosphere.ffPlanet.ShowAxes;
-  end;
+  frmLitosfera.sfPlanet.ShowAxes := CheckBoxAxes.Checked;
+  frmLitosfera.ffPlanet.ShowAxes := CheckBoxAxes.Checked;
 end;
 
 //---------------------------------------------------
@@ -162,8 +159,7 @@ end;
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
 begin
-  with frmLitosphere do
-  if CheckBoxCore.Checked then
+  with frmLitosfera do
   begin
     // ѕереключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечени€ типа GLDisk
@@ -172,13 +168,9 @@ begin
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    sfPlanet.Stop := 180;
-    Atmosphere.Visible := False;
-  end
-  else
-  begin
-    sfPlanet.Stop := 360;
-    Atmosphere.Visible := True;
+    sfPlanet.Stop := 180; // or  sfPlanet.Stop := 360;
+    Atmosphere.Visible := CheckBoxCore.Checked;
+    sfCore.Visible := CheckBoxCore.Checked;
   end;
 end;
 
@@ -187,18 +179,9 @@ end;
 //------------------------------------------------------------------
 procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
 begin
-  if CheckBoxHidePlanet.Checked then
-  begin
-    frmLitosphere.sfPlanet.Visible := False;
-    frmLitosphere.ffPlanet.Visible := False;
-    frmLitosphere.DirectOpenGL.Visible := False;
-  end
-  else
-  begin
-    frmLitosphere.sfPlanet.Visible := True;
-    frmLitosphere.ffPlanet.Visible := True;
-    frmLitosphere.DirectOpenGL.Visible := True;
-  end;
+  frmLitosfera.sfPlanet.Visible := CheckBoxHidePlanet.Checked;
+  frmLitosfera.ffPlanet.Visible := CheckBoxHidePlanet.Checked;
+  frmLitosfera.DirectOpenGL.Visible := CheckBoxHidePlanet.Checked;
 end;
 
 //---------------------------------------------------------

@@ -1,4 +1,4 @@
-program Biosferas;
+program Biosfera;
 
 uses
   Forms,
@@ -52,7 +52,7 @@ uses
   Bio.MatingSingle in '..\source\bio\Bio.MatingSingle.pas',
   Bio.FireTree in '..\source\bio\Bio.FireTree.pas',
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
-  fbBiosferas in '..\source\bio\fbBiosferas.pas' {FormBiosfera},
+  fbBiosfera in '..\source\bio\fbBiosfera.pas' {FormBiosfera},
   fbAbout in '..\source\bio\fbAbout.pas' {FormAbout},
   fbConstruction in '..\source\bio\fbConstruction.pas' {fmConstruction},
   fbCreatingGalaxy in '..\source\bio\fbCreatingGalaxy.pas' {FormCreatingGalaxy},

@@ -1,8 +1,8 @@
-object frmLitosphere: TfrmLitosphere
+object frmLitosfera: TfrmLitosfera
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'Litosferas'
+  Caption = 'Litosfera'
   ClientHeight = 700
   ClientWidth = 1042
   Color = clBtnFace

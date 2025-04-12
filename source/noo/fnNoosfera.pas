@@ -1,4 +1,4 @@
-unit fnNoosferas;
+unit fnNoosfera;
 
 interface
 
@@ -56,7 +56,7 @@ uses
   umUtils;
 
 type
-  TfrmNoosferas = class(TFormI)
+  TfrmNoosfera = class(TFormI)
     GLScene: TGLScene;
     MainMenu: TMainMenu;
     Timer: TTimer;
@@ -169,7 +169,7 @@ type
   end;
 
 var
-  frmNoosferas: TfrmNoosferas;
+  frmNoosfera: TfrmNoosfera;
   AssetsDir, DataDir, CurrDir: TFileName;
 
 const
@@ -181,7 +181,7 @@ implementation //--------------------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmNoosferas.FormCreate(Sender: TObject);
+procedure TfrmNoosfera.FormCreate(Sender: TObject);
 begin
   inherited;
 
@@ -205,7 +205,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmNoosferas.FormShow(Sender: TObject);
+procedure TfrmNoosfera.FormShow(Sender: TObject);
 begin
   // Planets
   tvPlanets.Select(tvPlanets.Items[3]); // show Earth
@@ -222,7 +222,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmNoosferas.LoadConstLines(const aDataPath: TFileName);
+procedure TfrmNoosfera.LoadConstLines(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -244,7 +244,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmNoosferas.LoadConstBorders(const aDataPath: TFileName);
+procedure TfrmNoosfera.LoadConstBorders(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   SkyPos: TAffineVector;
@@ -265,7 +265,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmNoosferas.LoadStarBayers(const aDataPath: TFileName);
+procedure TfrmNoosfera.LoadStarBayers(const aDataPath: TFileName);
 begin
   //
 end;
@@ -273,7 +273,7 @@ end;
 //------------------------------------------------------------------
 // Rotation of celestial bodies on orbits
 //------------------------------------------------------------------
-procedure TfrmNoosferas.GLCadencerProgress(Sender: TObject;
+procedure TfrmNoosfera.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   if frmOptions.CheckBoxRotate.Checked then
@@ -292,13 +292,13 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.tvConstellationsClick(Sender: TObject);
+procedure TfrmNoosfera.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.tvConstellationsContextPopup(Sender: TObject;
+procedure TfrmNoosfera.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
   tmpNode: TTreeNode;
@@ -309,7 +309,7 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TfrmNoosferas.tvPlanetsClick(Sender: TObject);
+procedure TfrmNoosfera.tvPlanetsClick(Sender: TObject);
 begin
   case tvPlanets.Selected.Index of
      0: begin
@@ -406,29 +406,29 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.tvZodiacsClick(Sender: TObject);
+procedure TfrmNoosfera.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
-procedure TfrmNoosferas.miOpenClick(Sender: TObject);
+procedure TfrmNoosfera.miOpenClick(Sender: TObject);
 begin
   //
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.miPointtoClick(Sender: TObject);
+procedure TfrmNoosfera.miPointtoClick(Sender: TObject);
 begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.miSettingsClick(Sender: TObject);
+procedure TfrmNoosfera.miSettingsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.miHelpAboutClick(Sender: TObject);
+procedure TfrmNoosfera.miHelpAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
   try
@@ -439,20 +439,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.chbAxiesClick(Sender: TObject);
+procedure TfrmNoosfera.chbAxiesClick(Sender: TObject);
 begin
   sfPlanet.ShowAxes := frmOptions.CheckBoxAxes.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.chbPlanetGridClick(Sender: TObject);
+procedure TfrmNoosfera.chbPlanetGridClick(Sender: TObject);
 begin
   TorusGreenwich.Visible := frmOptions.CheckBoxPlanetgrid.Checked;
   TorusEquator.Visible := frmOptions.CheckBoxPlanetgrid.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.miHelpWikiClick(Sender: TObject);
+procedure TfrmNoosfera.miHelpWikiClick(Sender: TObject);
 begin
   // if en then
   miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
@@ -464,7 +464,7 @@ end;
 
 
 //----------------------------------------------------------------------------
-procedure TfrmNoosferas.miExitClick(Sender: TObject);
+procedure TfrmNoosfera.miExitClick(Sender: TObject);
 begin
   Close;
 end;

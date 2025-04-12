@@ -7,7 +7,7 @@
    Catalog of stars is built into the TGLSkyDome, but constellations are rendered
    via a TGLLines, which is filled in the LoadConstLines method.
 *)
-program Litosferas;
+program Litosfera;
 
 
 
@@ -18,7 +18,7 @@ uses
   flOptions in '..\source\lito\flOptions.pas' {frmOptions},
   fmForm in '..\source\fmForm.pas' {FormG},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  flLitosferas in '..\source\lito\flLitosferas.pas' {frmLitosphere},
+  flLitosfera in '..\source\lito\flLitosfera.pas' {frmLitosfera},
   umGlobals in '..\source\umGlobals.pas',
   fmAbout in '..\source\fmAbout.pas' {FormAbout};
 
@@ -26,7 +26,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmLitosphere, frmLitosphere);
+  Application.CreateForm(TfrmLitosfera, frmLitosfera);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.Run;
 end.
