@@ -1,17 +1,13 @@
 object FormIntro: TFormIntro
   Left = 372
   Top = 165
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Readme'
-  ClientHeight = 707
-  ClientWidth = 656
+  ClientHeight = 404
+  ClientWidth = 375
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -41,64 +37,52 @@ object FormIntro: TFormIntro
     0FFFE0000FFFF0010FFFF8039FFFFC00FFFFFE00FFFFFF10FFFFFFB9FFFF}
   Position = poScreenCenter
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 656
-    Height = 72
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 375
+    Height = 41
     Align = alTop
     Caption = 'Biosfera'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
-    Font.Height = -28
+    Font.Height = -16
     Font.Name = 'Lucida Sans'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 367
   end
   object Panel2: TPanel
     Left = 0
-    Top = 72
-    Width = 656
-    Height = 563
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 41
+    Width = 375
+    Height = 322
     Align = alClient
     BorderWidth = 10
     TabOrder = 1
+    ExplicitWidth = 367
+    ExplicitHeight = 297
     object Panel5: TPanel
       Left = 11
-      Top = 419
-      Width = 634
-      Height = 133
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Top = 235
+      Width = 353
+      Height = 76
       Align = alBottom
       TabOrder = 0
+      ExplicitTop = 210
+      ExplicitWidth = 345
       object redStats: TRichEdit
         Left = 1
         Top = 1
-        Width = 632
-        Height = 131
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 351
+        Height = 74
         Align = alClient
         Color = clNavy
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWhite
-        Font.Height = -11
+        Font.Height = -6
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         Lines.Strings = (
@@ -108,25 +92,22 @@ object FormIntro: TFormIntro
         ReadOnly = True
         ScrollBars = ssBoth
         TabOrder = 0
+        ExplicitWidth = 343
       end
     end
     object redIntro: TRichEdit
       Left = 11
       Top = 11
-      Width = 634
-      Height = 408
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 353
+      Height = 224
       Align = alClient
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -6
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       Lines.Strings = (
-        'Welcome to BioSphere!'
+        'Welcome to Biosfera!'
         
           '----------------------------------------------------------------' +
           '-------'
@@ -244,7 +225,6 @@ object FormIntro: TFormIntro
         ''
         'Terence McKenna:'
         'What we are going to find is, we are partners, '
-        ''
         'actors, in the cosmic drama that involves the Earth'
         'at one polarity, and machines at the other polarity,'
         'as the expression of the will of the Earth toward'
@@ -320,36 +300,27 @@ object FormIntro: TFormIntro
   end
   object Panel3: TPanel
     Left = 0
-    Top = 635
-    Width = 656
-    Height = 72
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 363
+    Width = 375
+    Height = 41
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 338
+    ExplicitWidth = 367
     object Panel4: TPanel
-      Left = 464
+      Left = 265
       Top = 1
-      Width = 191
-      Height = 70
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 109
+      Height = 39
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 257
       object btnRun: TBitBtn
-        Left = 32
-        Top = 11
-        Width = 131
-        Height = 43
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 18
+        Top = 6
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0

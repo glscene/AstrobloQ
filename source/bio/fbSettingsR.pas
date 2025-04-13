@@ -1,4 +1,4 @@
-unit fbSettings;
+unit fbSettingsR;
 
 interface
 
@@ -59,7 +59,7 @@ var
 implementation //=============================================================
 
 uses
-  fbFirstForm;
+  fbFirstFormR;
 
 {$R *.dfm}
 

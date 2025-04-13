@@ -21,6 +21,9 @@
         <Projects Include="Projects\Biosfera.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Projects\BiosferaR.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Projects\Noosfera.dproj">
             <Dependencies/>
         </Projects>
@@ -31,9 +34,6 @@
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\GalaktikaR.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\UniVersum.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -98,6 +98,15 @@
     <Target Name="Biosfera:Make">
         <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
     </Target>
+    <Target Name="BiosferaR">
+        <MSBuild Projects="Projects\BiosferaR.dproj"/>
+    </Target>
+    <Target Name="BiosferaR:Clean">
+        <MSBuild Projects="Projects\BiosferaR.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BiosferaR:Make">
+        <MSBuild Projects="Projects\BiosferaR.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Noosfera">
         <MSBuild Projects="Projects\Noosfera.dproj"/>
     </Target>
@@ -134,23 +143,14 @@
     <Target Name="GalaktikaR:Make">
         <MSBuild Projects="Projects\GalaktikaR.dproj" Targets="Make"/>
     </Target>
-    <Target Name="UniVersum">
-        <MSBuild Projects="Projects\UniVersum.dproj"/>
-    </Target>
-    <Target Name="UniVersum:Clean">
-        <MSBuild Projects="Projects\UniVersum.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="UniVersum:Make">
-        <MSBuild Projects="Projects\UniVersum.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Astroverus;AstroverusR;AllPlanets;AllPlanetsR;Litosfera;Biosfera;Noosfera;Tehnosfera;Galaktika;GalaktikaR;UniVersum"/>
+        <CallTarget Targets="Astroverus;AstroverusR;AllPlanets;AllPlanetsR;Litosfera;Biosfera;BiosferaR;Noosfera;Tehnosfera;Galaktika;GalaktikaR"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Astroverus:Clean;AstroverusR:Clean;AllPlanets:Clean;AllPlanetsR:Clean;Litosfera:Clean;Biosfera:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;GalaktikaR:Clean;UniVersum:Clean"/>
+        <CallTarget Targets="Astroverus:Clean;AstroverusR:Clean;AllPlanets:Clean;AllPlanetsR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;Tehnosfera:Clean;Galaktika:Clean;GalaktikaR:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Astroverus:Make;AstroverusR:Make;AllPlanets:Make;AllPlanetsR:Make;Litosfera:Make;Biosfera:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;GalaktikaR:Make;UniVersum:Make"/>
+        <CallTarget Targets="Astroverus:Make;AstroverusR:Make;AllPlanets:Make;AllPlanetsR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;Tehnosfera:Make;Galaktika:Make;GalaktikaR:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

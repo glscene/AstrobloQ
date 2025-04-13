@@ -27,7 +27,7 @@ public
   function IsPrey: boolean; override;
 end;
 
-implementation
+implementation  //-------------------------------------------------------------
 
 uses
   Bio.Reality,

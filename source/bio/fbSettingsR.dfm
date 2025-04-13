@@ -1,7 +1,7 @@
 object FormSettings: TFormSettings
   Left = 324
   Top = 109
-  Caption = 'Settings'
+  Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080
   ClientHeight = 370
   ClientWidth = 247
   Color = clBtnFace
@@ -16,9 +16,9 @@ object FormSettings: TFormSettings
   object Label3: TLabel
     Left = 12
     Top = 12
-    Width = 95
+    Width = 144
     Height = 13
-    Caption = 'Program settings'
+    Caption = #1059#1089#1090#1072#1072#1085#1086#1074#1082#1080' '#1087#1088#1086#1075#1088#1072#1084#1084#1099
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -29,9 +29,9 @@ object FormSettings: TFormSettings
   object Label1: TLabel
     Left = 12
     Top = 79
-    Width = 39
+    Width = 57
     Height = 13
-    Caption = 'Splash'
+    Caption = #1047#1072#1089#1090#1072#1074#1082#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -42,9 +42,9 @@ object FormSettings: TFormSettings
   object Label2: TLabel
     Left = 12
     Top = 172
-    Width = 52
+    Width = 67
     Height = 13
-    Caption = 'Interface'
+    Caption = #1048#1085#1090#1077#1088#1092#1077#1081#1089
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -57,16 +57,16 @@ object FormSettings: TFormSettings
     Top = 32
     Width = 185
     Height = 17
-    Caption = 'Load planet on start'
+    Caption = #1055#1083#1072#1085#1077#1090#1072' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
     TabOrder = 0
     OnClick = cbLoadOnStartupClick
   end
   object cbAutosave: TCheckBox
     Left = 46
-    Top = 52
-    Width = 151
+    Top = 55
+    Width = 181
     Height = 17
-    Caption = 'Autosave on exit'
+    Caption = #1040#1074#1090#1086#1089#1086#1093#1088#1072#1085#1077#1085#1080#1077' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
     Enabled = False
     TabOrder = 1
     OnClick = cbAutosaveClick
@@ -106,7 +106,7 @@ object FormSettings: TFormSettings
     Top = 103
     Width = 185
     Height = 18
-    Caption = 'Show at start'
+    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
     TabOrder = 3
     OnClick = cbSplashStartClick
   end
@@ -115,7 +115,7 @@ object FormSettings: TFormSettings
     Top = 123
     Width = 185
     Height = 18
-    Caption = 'Show on exit'
+    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
     TabOrder = 4
     OnClick = cbSplashExitClick
   end
@@ -160,7 +160,7 @@ object FormSettings: TFormSettings
     Top = 144
     Width = 185
     Height = 18
-    Caption = 'Show help at start'
+    Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1087#1088#1072#1074#1082#1091' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
     TabOrder = 9
     OnClick = cbTipOfTheDayClick
   end
@@ -169,7 +169,7 @@ object FormSettings: TFormSettings
     Top = 272
     Width = 191
     Height = 17
-    Caption = 'Remember size of 3D'
+    Caption = #1047#1072#1087#1086#1084#1085#1080#1090#1100' '#1088#1072#1079#1084#1077#1088' 3D'
     TabOrder = 10
     OnClick = cbRememberViewClick
   end

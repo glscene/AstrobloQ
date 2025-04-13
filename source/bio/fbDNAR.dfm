@@ -1,0 +1,313 @@
+object FormDNA: TFormDNA
+  Left = 531
+  Top = 210
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
+  Caption = 'DNA'
+  ClientHeight = 368
+  ClientWidth = 388
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Menu = MainMenu1
+  Position = poOwnerFormCenter
+  OnShow = FormShow
+  TextHeight = 13
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 388
+    Height = 37
+    Align = alTop
+    TabOrder = 0
+    ExplicitWidth = 380
+    object Panel1: TPanel
+      Left = 1
+      Top = 1
+      Width = 68
+      Height = 35
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = #1054#1088#1075#1072#1085#1080#1079#1084
+      TabOrder = 0
+    end
+    object panID: TPanel
+      Left = 69
+      Top = 1
+      Width = 318
+      Height = 35
+      Align = alClient
+      Alignment = taLeftJustify
+      BevelOuter = bvNone
+      Caption = 'ID'
+      TabOrder = 1
+      ExplicitWidth = 310
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 37
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitWidth = 380
+    object Panel5: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = #1052#1091#1090#1072#1094#1080#1080
+      TabOrder = 0
+    end
+  end
+  object Panel6: TPanel
+    Left = 0
+    Top = 74
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitWidth = 380
+    object Panel7: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = #1055#1083#1072#1074#1091#1095#1077#1089#1090#1100':'
+      TabOrder = 0
+    end
+  end
+  object Panel12: TPanel
+    Left = 0
+    Top = 148
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 3
+    ExplicitWidth = 380
+    object Panel13: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = #1055#1080#1097#1072':'
+      TabOrder = 0
+    end
+  end
+  object panButtonBar: TPanel
+    Left = 0
+    Top = 327
+    Width = 388
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvLowered
+    TabOrder = 4
+    ExplicitTop = 302
+    ExplicitWidth = 380
+    object panOKButton: TPanel
+      Left = 283
+      Top = 1
+      Width = 104
+      Height = 39
+      Align = alRight
+      BevelOuter = bvNone
+      TabOrder = 0
+      ExplicitLeft = 275
+      object btnOK: TBitBtn
+        Left = 18
+        Top = 8
+        Width = 75
+        Height = 25
+        Kind = bkOK
+        NumGlyphs = 2
+        TabOrder = 0
+        OnClick = btnOKClick
+      end
+    end
+    object btnCancel: TBitBtn
+      Left = 8
+      Top = 8
+      Width = 75
+      Height = 25
+      Kind = bkCancel
+      NumGlyphs = 2
+      TabOrder = 1
+      OnClick = btnCancelClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 111
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 5
+    ExplicitWidth = 380
+    object Panel8: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = 'Bounce:'
+      TabOrder = 0
+    end
+  end
+  object Panel9: TPanel
+    Left = 0
+    Top = 259
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 6
+    ExplicitWidth = 380
+    object Panel10: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = 'Green:'
+      TabOrder = 0
+    end
+  end
+  object Panel11: TPanel
+    Left = 0
+    Top = 222
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 7
+    ExplicitWidth = 380
+    object Panel14: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = 'Blue:'
+      TabOrder = 0
+    end
+  end
+  object Panel15: TPanel
+    Left = 0
+    Top = 185
+    Width = 388
+    Height = 37
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 8
+    ExplicitWidth = 380
+    object Panel16: TPanel
+      Left = 0
+      Top = 0
+      Width = 93
+      Height = 37
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = 'Red:'
+      TabOrder = 0
+    end
+  end
+  object Panel17: TPanel
+    Left = 0
+    Top = 286
+    Width = 388
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvLowered
+    TabOrder = 9
+    ExplicitTop = 261
+    ExplicitWidth = 380
+    object btnLoadDNA: TBitBtn
+      Left = 10
+      Top = 6
+      Width = 135
+      Height = 25
+      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' DNA'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF0033333333B333
+        333B33FF33337F3333F73BB3777BB7777BB3377FFFF77FFFF77333B000000000
+        0B3333777777777777333330FFFFFFFF07333337F33333337F333330FFFFFFFF
+        07333337F3FF3FFF7F333330F00F000F07333337F77377737F333330FFFFFFFF
+        07333FF7F3FFFF3F7FFFBBB0F0000F0F0BB37777F7777373777F3BB0FFFFFFFF
+        0BBB3777F3FF3FFF77773330F00F000003333337F773777773333330FFFF0FF0
+        33333337F3FF7F37F3333330F08F0F0B33333337F7737F77FF333330FFFF003B
+        B3333337FFFF77377FF333B000000333BB33337777777F3377FF3BB3333BB333
+        3BB33773333773333773B333333B3333333B7333333733333337}
+      NumGlyphs = 2
+      TabOrder = 0
+      OnClick = LoadDNA1Click
+    end
+    object btnSaveDNA: TBitBtn
+      Left = 240
+      Top = 9
+      Width = 136
+      Height = 25
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' DNA'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000130B0000130B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333330070
+        7700333333337777777733333333008088003333333377F73377333333330088
+        88003333333377FFFF7733333333000000003FFFFFFF77777777000000000000
+        000077777777777777770FFFFFFF0FFFFFF07F3333337F3333370FFFFFFF0FFF
+        FFF07F3FF3FF7FFFFFF70F00F0080CCC9CC07F773773777777770FFFFFFFF039
+        99337F3FFFF3F7F777F30F0000F0F09999937F7777373777777F0FFFFFFFF999
+        99997F3FF3FFF77777770F00F000003999337F773777773777F30FFFF0FF0339
+        99337F3FF7F3733777F30F08F0F0337999337F7737F73F7777330FFFF0039999
+        93337FFFF7737777733300000033333333337777773333333333}
+      NumGlyphs = 2
+      TabOrder = 1
+      OnClick = SaveDNA1Click
+    end
+  end
+  object OpenDNADialog: TOpenDialog
+    Left = 191
+    Top = 118
+  end
+  object SaveDNADialog: TSaveDialog
+    Left = 182
+    Top = 37
+  end
+  object MainMenu1: TMainMenu
+    Left = 460
+    Top = 6
+    object File1: TMenuItem
+      Caption = '&'#1060#1072#1081#1083
+      object LoadDNA1: TMenuItem
+        Caption = '&'#1047#1072#1075#1088#1091#1079#1080#1090#1100' DNA'
+        OnClick = LoadDNA1Click
+      end
+      object SaveDNA1: TMenuItem
+        Caption = '&'#1057#1086#1093#1088#1072#1085#1080#1090#1100' DNA'
+        OnClick = SaveDNA1Click
+      end
+    end
+  end
+end

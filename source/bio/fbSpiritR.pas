@@ -1,0 +1,450 @@
+unit fbSpiritR;
+
+interface
+
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
+  System.Contnrs,
+  System.Math,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ComCtrls,
+  Vcl.ExtCtrls,
+  Vcl.StdCtrls,
+  Vcl.Buttons,
+  Vcl.ColorGrd,
+  Vcl.ToolWin,
+  Vcl.Menus,
+
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+
+  GLS.Scene,
+  GLS.Coordinates,
+  GLS.SceneViewer,
+
+  Bio.Link;
+
+type
+  TRefreshMethod = procedure of object;
+
+  TFormSpirit = class(TForm)
+    Panel2: TPanel;
+    Panel4: TPanel;
+    tbTools: TToolBar;
+    tbTrack: TToolButton;
+    FullDisplay: TMemo;
+    tbModify: TToolButton;
+    ModifyMenu: TPopupMenu;
+    Stop1: TMenuItem;
+    Kill1: TMenuItem;
+    Heal1: TMenuItem;
+    Reposition1: TMenuItem;
+    tbWindow: TToolButton;
+    WindowMenu: TPopupMenu;
+    Refresh1: TMenuItem;
+    Close1: TMenuItem;
+    Scrollbars1: TMenuItem;
+    OnTop1: TMenuItem;
+    Die1: TMenuItem;
+    GLSceneTracker: TGLSceneViewer;
+    cbView: TCheckBox;
+    ViewSplitter: TSplitter;
+    LockCamera1: TMenuItem;
+    Wordwrap1: TMenuItem;
+    menuDNA: TMenuItem;
+    procedure FormShow(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure tbTrackClick(Sender: TObject);
+    procedure Heal1Click(Sender: TObject);
+    procedure Kill1Click(Sender: TObject);
+    procedure Close1Click(Sender: TObject);
+    procedure Refresh1Click(Sender: TObject);
+    procedure Scrollbars1Click(Sender: TObject);
+    procedure OnTop1Click(Sender: TObject);
+    procedure Stop1Click(Sender: TObject);
+    procedure Die1Click(Sender: TObject);
+    procedure GLSceneTrackerMouseDown(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure GLSceneTrackerMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure FormMouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
+    procedure cbViewClick(Sender: TObject);
+    procedure LockCamera1Click(Sender: TObject);
+    procedure Wordwrap1Click(Sender: TObject);
+    procedure GLSceneTrackerMouseEnter(Sender: TObject);
+    procedure menuDNAClick(Sender: TObject);
+    procedure Reposition1Click(Sender: TObject);
+  private
+    fTarget: AILink;
+    fSpiritHolder: pointer;
+    tempString: TStringList;
+    fDead: boolean;
+    fDeletion: boolean;
+    mx, my : Integer;
+    myCamera: TGLCamera;
+    LockCamera: boolean;
+    procedure StartViewer;
+    procedure StopViewer;
+  public
+    procedure RefreshAll;
+    procedure Advance;
+    property Target: AILink read fTarget;
+    property SpiritHolder: pointer read fSpiritHolder write fSpiritHolder;
+    property Deletion: boolean read fDeletion;
+  end;
+
+var
+  FormSpirit: TFormSpirit;
+
+implementation //-------------------------------------------------------------
+
+{$R *.DFM}
+
+uses
+  Bio.Utilities,
+  Bio.Globals,
+  Bio.Things,
+  Bio.Life,
+  Bio.DNA,
+
+  fbFirstFormR,
+  fbEditLineR,
+  fbRealityR,
+  fbImagesR,
+  fbManagerR,
+  fbDNAR,
+  fbPositionR,
+  vSpiritManagerR,
+  vInterfaceClasses;
+
+procedure TFormSpirit.Advance;
+begin
+  if Target.ValidTarget then
+  begin
+    LockWindowUpdate(FullDisplay.Handle);
+    tempString.Clear;
+    AIThing(Target.Target).FullDisplay(tempString);
+    FullDisplay.Lines.Clear;
+    FullDisplay.Lines.Add(tempString.Text);
+    LockWindowUpdate(0);
+  end
+  else
+  begin
+    if not fDead then
+    begin
+      FullDisplay.Lines.Add('DEAD');
+      Caption := Caption + ' Dead';
+    end;
+    fDead := true;
+    StopViewer;
+    cbView.Enabled := false;
+  end;
+
+  if GLSceneTracker.Visible then
+  begin
+//    if myCamera.DistanceToTarget > 5 then
+//      myCamera.AdjustDistanceToTarget(0.98);
+    // sets the camera to rotate properly around top of target
+    myCamera.Up := myCamera.TargetObject.Position;
+    if LockCamera then
+      myCamera.MoveAroundTarget(-25, 0);
+  end;
+end;
+
+procedure TFormSpirit.RefreshAll;
+var
+  myThing: AIThing;
+begin
+  if Target.ValidTarget then
+  begin
+    myThing := Target.Target;
+//    panName.Caption := myThing.Name + ' ' + IntToStr(myThing.Handle);
+    Caption := myThing.Name + ' ' + IntToStr(myThing.Handle);
+  end;
+end;
+
+procedure TFormSpirit.FormShow(Sender: TObject);
+begin
+  if Target.ValidTarget then
+  begin
+    if (myCamera=nil)
+    and frmFirst.UserSettings.Auto3DView
+    and (Target.Target.Crossover<>nil) then
+      StartViewer;
+    menuDNA.Enabled := Target.Target.HasDNA;
+  end;
+
+  RefreshAll;
+  Advance;
+end;
+
+procedure TFormSpirit.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if not fDeletion and fDead then
+  begin
+    if OnTop1.Checked then OnTop1.Click;
+    if (MessageDlg('Target is dead. Remove window?',
+     mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    fDeletion := true;
+  end;
+
+  CanClose := false;
+  TSpiritHolder(SpiritHolder).Hide;
+end;
+
+procedure TFormSpirit.FormCreate(Sender: TObject);
+begin
+  fTarget := gEnvironment.References.NewLink(gReality);
+  tempString := TStringList.Create;
+  fDead := false;
+  fDeletion := false;
+  LockCamera := false;
+end;
+
+procedure TFormSpirit.FormDestroy(Sender: TObject);
+begin
+  gEnvironment.References.Remove(fTarget);
+  tempString.Free;
+
+  if myCamera<>nil then
+///   fmFirstForm.RealityForm.ManagerForm.SpaceForm.GLScene.CurrentCamera.Remove(myCamera, false);
+end;
+
+procedure TFormSpirit.tbTrackClick(Sender: TObject);
+begin
+  if Target.ValidTarget then
+    frmFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(Target.Target);
+end;
+
+procedure TFormSpirit.Heal1Click(Sender: TObject);
+var
+  myThing: AIThing;
+begin
+  if Target.ValidTarget then
+  begin
+    myThing := Target.Target;
+    if myThing is AILivingThing then
+      AILivingThing(myThing).Health := AILivingThing(myThing).Health + 256;
+  end;
+end;
+
+procedure TFormSpirit.Kill1Click(Sender: TObject);
+var
+  myThing: AIThing;
+begin
+  if Target.ValidTarget then
+  begin
+    myThing := Target.Target;
+    myThing.Cease;
+  end;
+end;
+
+procedure TFormSpirit.Close1Click(Sender: TObject);
+begin
+  fDeletion := true;
+  Close;
+end;
+
+procedure TFormSpirit.Refresh1Click(Sender: TObject);
+begin
+  Advance;
+end;
+
+procedure TFormSpirit.Scrollbars1Click(Sender: TObject);
+begin
+  Scrollbars1.Checked := not Scrollbars1.Checked;
+
+  if Scrollbars1.Checked then
+    FullDisplay.ScrollBars := ssBoth
+  else
+    FullDisplay.ScrollBars := ssNone;
+end;
+
+procedure TFormSpirit.OnTop1Click(Sender: TObject);
+begin
+  OnTop1.Checked := not OnTop1.Checked;
+
+  if OnTop1.Checked then
+    FormStyle := fsStayOnTop
+  else
+    FormStyle := fsNormal;
+end;
+
+procedure TFormSpirit.Stop1Click(Sender: TObject);
+var
+  myThing: AIThing;
+begin
+  if Target.ValidTarget then
+  begin
+    myThing := Target.Target;
+    myThing.Position.Velocity.Zero;
+    myThing.Position.Acceleration.Zero;
+  end;
+end;
+
+procedure TFormSpirit.Die1Click(Sender: TObject);
+var
+  myThing: AIThing;
+begin
+  if Target.ValidTarget then
+  begin
+    myThing := Target.Target;
+    if myThing is AILivingThing then
+      AILivingThing(myThing).Die;
+  end;
+end;
+
+procedure TFormSpirit.StartViewer;
+var
+  myCrossover: TCrossover;
+begin
+  // enable view
+  GLSceneTracker.Visible := true;
+  // enable splitter
+  ViewSplitter.Visible := true;
+
+  // already started?
+  if myCamera <> nil then
+    exit;
+
+  // trackable target?
+  if not Target.ValidTarget then
+    exit;
+
+  // must have visual crossover
+  myCrossover := TCrossover(Target.Target.Crossover);
+  if myCrossover=nil then
+  begin
+    StopViewer;
+    cbView.Enabled := false;
+    ShowMessage('Unable to open 3D view for this thing');
+    exit;
+  end;
+
+  // create a camera
+///  myCamera := TGLCamera(fmFirstForm.RealityForm.ManagerForm.SpaceForm.GLScene.CurrentCamera.AddNewChild(TGLCamera));
+  myCamera.NearPlaneBias := 0.001;
+
+  GLSceneTracker.Camera := myCamera;
+
+  // track the target
+  myCamera.TargetObject := TGLBaseSceneObject(myCrossover.SubVisuals.Items[0]);
+  // position the camera above the target
+  myCamera.Position := myCamera.TargetObject.Position;
+  myCamera.Position.AddScaledVector(0.5, myCamera.TargetObject.Position.AsAffineVector);
+  myCamera.MoveAroundTarget(0,0.1);
+
+  cbView.Checked := true;
+end;
+
+procedure TFormSpirit.StopViewer;
+begin
+  ViewSplitter.Visible := false;
+  GLSceneTracker.Visible := false;
+  cbView.Checked := false;
+end;
+
+procedure TFormSpirit.GLSceneTrackerMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+   mx:=x; my:=y;
+end;
+
+procedure TFormSpirit.GLSceneTrackerMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  if not GLSceneTracker.Visible then exit;
+
+   if Shift<>[] then begin
+      myCamera.MoveAroundTarget(my-y, mx-x);
+      mx:=x; my:=y;
+   end;
+end;
+
+procedure TFormSpirit.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+  WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
+begin
+  if not GLSceneTracker.Visible then exit;
+
+	myCamera.AdjustDistanceToTarget(Power(1.1, WheelDelta/-512));
+end;
+
+procedure TFormSpirit.cbViewClick(Sender: TObject);
+begin
+  if cbView.Checked then
+    StartViewer
+  else
+    StopViewer;
+end;
+
+procedure TFormSpirit.LockCamera1Click(Sender: TObject);
+begin
+  LockCamera1.Checked := not LockCamera1.Checked;
+  LockCamera := LockCamera1.Checked;
+end;
+
+procedure TFormSpirit.Wordwrap1Click(Sender: TObject);
+begin
+  Wordwrap1.Checked := not Wordwrap1.Checked;
+
+  FullDisplay.WordWrap := Wordwrap1.Checked;
+end;
+
+procedure TFormSpirit.GLSceneTrackerMouseEnter(Sender: TObject);
+begin
+  GLSceneTracker.SetFocus;
+end;
+
+procedure TFormSpirit.menuDNAClick(Sender: TObject);
+var
+  myfmDNA: TFormDNA;
+  myThing: AIThing;
+begin
+  // make sure our target has DNA
+  if not Target.ValidTarget then exit;
+  myThing := Target.Target;
+  if not (myThing.HasDNA) then exit;
+  // stop reality (in case target dies)
+  frmFirst.RealityForm.StopReality;
+  // edit DNA
+  myfmDNA := TFormDNA.Create(self);
+  myfmDNA.DNA := AIDNA(myThing.GetDNA);
+  myfmDNA.panID.Caption := myThing.Name + ' ' + IntToStr(myThing.Handle);
+  myfmDNA.ShowModal;
+  myfmDNA.Free;
+  // refresh
+  Advance;
+end;
+
+procedure TFormSpirit.Reposition1Click(Sender: TObject);
+var
+  myFormPosition: TFormPosition;
+  myThing: AIThing;
+begin
+  // make sure our target has Position
+  if not Target.ValidTarget then exit;
+  myThing := Target.Target;
+  // stop reality (in case target dies)
+  frmFirst.RealityForm.StopReality;
+  // edit Position
+  myFormPosition := TFormPosition.Create(self);
+  myFormPosition.Position := myThing.Position;
+  myFormPosition.panID.Caption := myThing.Name + ' ' + IntToStr(myThing.Handle);
+  myFormPosition.ShowModal;
+  myFormPosition.Free;
+  // refresh
+  Advance;
+end;
+
+end.
