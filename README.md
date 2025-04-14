@@ -21,10 +21,18 @@
  
 ## AstrobloQ содержит групповые проекты
 
-### Astroversum
+### Allplanets
 
-![Astroversum](./docs/screenshots/PlanetarySystems.png)
-![Astroversum](./docs/clips/SolarSystem.gif)
+Экзопланеты всех типов, включая землеподобные 
+![Allplanets](./docs/screenshots/Noosfera.png)
+
+![Allplanets](./docs/clips/AnimationLadybug2.gif)
+![Allplanets](./docs/clips/AnimationFlock.gif)
+
+### Astrosfera
+
+![Astrosfera](./docs/screenshots/PlanetarySystems.png)
+![Astrosfera](./docs/clips/SolarSystem.gif)
 
 ### Litosfera
 
@@ -47,14 +55,6 @@
 Техносферы экзопланет с космическими коммуникациями
 ![Tehnosfera](./docs/screenshots/Tehnosferas.png)
 ![Tehnosfera](./docs/clips/Meteors.gif)
-
-### Allplanets
-
-Экзопланеты всех типов, включая землеподобные 
-![Allplanets](./docs/screenshots/Noosfera.png)
-
-![Allplanets](./docs/clips/AnimationLadybug2.gif)
-![Allplanets](./docs/clips/AnimationFlock.gif)
 
 ### Galaktika
 
