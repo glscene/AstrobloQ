@@ -12,7 +12,7 @@ uses
   GLS.RenderContextInfo,
   GLS.Color,
 
-  uaHygmain;
+  Astro.ReadHyg;
 
 // Реализация функции вычисления десятичного логарифма
 function logd(x: double): double;

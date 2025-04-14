@@ -343,7 +343,7 @@ uses
   umSkyBodies, // Asteroid as monolith rock
   // ftAllShapeLoader,  // Cities, Countries
   ftMeshEditor,
-  ftLocationsR, // Data input for a planet
+  ftLocations, // Data input for a planet
 
   ftCETI,
   ftRobot,

@@ -108,11 +108,6 @@
         <DCCReference Include="..\source\fmAllPlanetsR.pas">
             <Form>frmAllplanets</Form>
         </DCCReference>
-        <DCCReference Include="..\source\fmParamsR.pas">
-            <Form>FrameParams</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
         <DCCReference Include="..\source\fmStarSystemR.pas">
             <Form>FormStarSys</Form>
             <FormType>dfm</FormType>
@@ -129,10 +124,6 @@
             <Form>FormGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormG</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\umCamera.pas"/>
         <DCCReference Include="..\source\umSkyBodies.pas"/>
         <DCCReference Include="..\source\umGlobals.pas"/>
@@ -144,6 +135,15 @@
         <DCCReference Include="..\source\fmAboutR.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\fmForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\fmParamsR.pas">
+            <Form>FrameParamsR</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

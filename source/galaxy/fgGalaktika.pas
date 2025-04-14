@@ -59,7 +59,7 @@ uses
   fgAnalyser,
   fgMonitor,
   fgParadox,
-  fgStarcube,
+  fgAstrocube,
 
   umGlobals,
   umUtils;
@@ -593,7 +593,7 @@ end;
 
 procedure TfrmGalaktika.miNewStarcubeClick(Sender: TObject);
 begin
-  with TFormNewStarcube.Create(Self) do
+  with TFormAstrocube.Create(Self) do
     try
       ShowModal;
     finally

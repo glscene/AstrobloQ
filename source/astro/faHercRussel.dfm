@@ -29,8 +29,6 @@ object FormHercrussel: TFormHercrussel
     Height = 433
     Align = alRight
     TabOrder = 1
-    ExplicitLeft = 488
-    ExplicitHeight = 408
   end
   object GLScene1: TGLScene
     Left = 56

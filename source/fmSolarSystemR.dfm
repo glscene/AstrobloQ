@@ -19,17 +19,16 @@ object FormSolarSys: TFormSolarSys
   object SceneViewer: TGLSceneViewer
     Left = 195
     Top = 0
-    Width = 648
-    Height = 535
+    Width = 406
+    Height = 510
     Camera = Camera
     Buffer.FogEnvironment.FogColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
     Buffer.FogEnvironment.FogStart = 10.000000000000000000
     Buffer.FogEnvironment.FogEnd = 1000.000000000000000000
     Buffer.FogEnvironment.FogDistance = fdEyePlane
     Buffer.BackgroundColor = clBackground
-    FieldOfView = 139.005325317382800000
+    FieldOfView = 127.549285888671900000
     PenAsTouch = False
-    Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
   end
@@ -55,60 +54,37 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
-      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
-    Left = 843
+    Left = 736
     Top = 0
-    Width = 136
+    Width = 243
     Height = 535
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 835
-    ExplicitHeight = 510
     object Splitter1: TSplitter
       Left = 1
-      Top = 131
-      Width = 134
+      Top = 18
+      Width = 241
       Height = 20
       Cursor = crVSplit
       Align = alTop
       AutoSnap = False
       MinSize = 120
       ExplicitTop = 81
+      ExplicitWidth = 134
     end
     object stPickObject: TStaticText
       Left = 1
       Top = 1
-      Width = 134
+      Width = 241
       Height = 17
       Align = alTop
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-    end
-    inline FrameParams: TFrameParams
-      Left = 1
-      Top = 18
-      Width = 134
-      Height = 113
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
-      Align = alTop
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 18
-      ExplicitWidth = 134
-      ExplicitHeight = 113
+      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -118,7 +94,7 @@ object FormSolarSys: TFormSolarSys
       Caption = 'Orbits'
       Checked = True
       State = cbChecked
-      TabOrder = 2
+      TabOrder = 1
       OnClick = cbOrbitClick
     end
     object cbHabitableZone: TCheckBox
@@ -129,19 +105,18 @@ object FormSolarSys: TFormSolarSys
       Caption = 'Habzone'
       Checked = True
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 2
       OnClick = cbHabitableZoneClick
     end
     object MemoInfo: TMemo
       Left = 1
       Top = 404
-      Width = 134
+      Width = 241
       Height = 130
       Align = alBottom
       Lines.Strings = (
         'Memo1')
-      TabOrder = 4
-      ExplicitTop = 379
+      TabOrder = 3
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -151,8 +126,17 @@ object FormSolarSys: TFormSolarSys
       Caption = 'Rotation'
       Checked = True
       State = cbChecked
-      TabOrder = 5
+      TabOrder = 4
       OnClick = cbRotationClick
+    end
+    inline FrameParamsR: TFrameParamsR
+      Left = -539
+      Top = 56
+      Width = 595
+      Height = 427
+      TabOrder = 5
+      ExplicitLeft = -539
+      ExplicitTop = 56
     end
   end
   object StatusBarSol: TStatusBar

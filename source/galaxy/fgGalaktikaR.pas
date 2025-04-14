@@ -54,10 +54,10 @@ uses
   dmDialogs,
   dmBase,
 
-  fgAnalyser,
-  fgMonitor,
-  fgParadox,
-  fgStarcube,
+  fgAnalyserR,
+  fgMonitorR,
+  fgParadoxR,
+  fgAstrocubeR,
   fgOptionsR,
 
   umGlobals;
@@ -262,7 +262,7 @@ implementation //-------------------------------------------------------------
 
 uses
   fStarProj,
-  fgExoplanets;
+  fgExoplanetsR;
 
 
 // -----------------------------------------------------------------------

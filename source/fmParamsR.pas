@@ -15,7 +15,7 @@ uses
   GLS.GeomObjects;
 
 type
-  TFrameParams = class(TFrame)
+  TFrameParamsR = class(TFrame)
     procedure edKeyPress(Sender: TObject; var Key: Char);
     procedure edChange(Sender: TObject);
   public
@@ -23,8 +23,7 @@ type
     procedure ShowParams;
   end;
 
-//============================================================================
-implementation
+implementation //===========================================================
 
 uses
   fmSolarSystemR;
@@ -33,7 +32,7 @@ uses
 
 // ShowParams
 //
-procedure TFrameParams.ShowParams;
+procedure TFrameParamsR.ShowParams;
 
   procedure addLabel(x, y: integer; cap: string);
   var
@@ -124,7 +123,7 @@ end;
 
 // edKeyPress
 //
-procedure TFrameParams.edKeyPress;
+procedure TFrameParamsR.edKeyPress;
 begin
   case Key of
     '0' .. '9', ',', '-', #13, #8:
@@ -136,7 +135,7 @@ end;
 
 // edChange
 //
-procedure TFrameParams.edChange;
+procedure TFrameParamsR.edChange;
 var
   param: PPropInfo;
   i: integer;

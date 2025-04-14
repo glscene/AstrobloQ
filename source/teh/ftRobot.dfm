@@ -2,17 +2,17 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
   Left = 204
   Top = 96
   HelpContext = 8500
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   Caption = 'Robot'
-  ClientHeight = 596
-  ClientWidth = 752
+  ClientHeight = 341
+  ClientWidth = 430
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -45,48 +45,31 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 729
-    Height = 603
+    Width = 417
+    Height = 345
     HelpContext = 8500
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
     ActivePage = TabSheet1
     TabOrder = 0
     object TabSheet1: TTabSheet
       HelpContext = 8500
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Caption = 'mdl'
       object FileNameLabel: TLabel
-        Left = 112
-        Top = 14
-        Width = 82
-        Height = 24
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 64
+        Top = 8
+        Width = 44
+        Height = 13
         Caption = 'FileName'
       end
       object MDLoadBtn: TSpeedButton
-        Left = 56
+        Left = 32
         Top = 0
-        Width = 43
-        Height = 41
+        Width = 25
+        Height = 23
         Hint = 'locate .mdl'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
           04000000000000010000120B0000120B00001000000000000000000000000000
@@ -104,14 +87,10 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
         OnClick = MDLoadBtnClick
       end
       object PrintBtn: TSpeedButton
-        Left = 14
+        Left = 8
         Top = 0
-        Width = 41
-        Height = 41
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Width = 23
+        Height = 23
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
           04000000000000010000130B0000130B00001000000000000000000000000000
@@ -129,80 +108,56 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
         OnClick = PrintBtnClick
       end
       object LBSequenz: TListBox
-        Left = 434
-        Top = 266
-        Width = 267
-        Height = 267
+        Left = 248
+        Top = 152
+        Width = 153
+        Height = 153
         Hint = 'Sequence'
         HelpContext = 8500
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
-        ItemHeight = 24
+        ItemHeight = 13
         TabOrder = 0
       end
       object LBBones: TListBox
-        Left = 14
-        Top = 266
-        Width = 407
-        Height = 267
+        Left = 8
+        Top = 152
+        Width = 233
+        Height = 153
         Hint = 'dem Bones'
         HelpContext = 8500
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
-        ItemHeight = 24
+        ItemHeight = 13
         TabOrder = 1
       end
       object LBMDL: TListBox
-        Left = 14
-        Top = 42
-        Width = 407
-        Height = 211
+        Left = 8
+        Top = 24
+        Width = 233
+        Height = 121
         Hint = 'Header'
         HelpContext = 8500
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
-        ItemHeight = 24
+        ItemHeight = 13
         TabOrder = 2
       end
       object LBBoneController: TListBox
-        Left = 434
-        Top = 4
-        Width = 267
-        Height = 252
+        Left = 248
+        Top = 2
+        Width = 153
+        Height = 144
         Hint = 'Bone Controller'
         HelpContext = 8500
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
-        ItemHeight = 24
+        ItemHeight = 13
         TabOrder = 3
       end
     end
     object TabSheet2: TTabSheet
       HelpContext = 8500
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
       Caption = 'qc'
       ImageIndex = 1
       object QcPrintBtn: TSpeedButton
-        Left = 14
+        Left = 8
         Top = 0
-        Width = 41
-        Height = 41
+        Width = 23
+        Height = 23
         Hint = 'print'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
           04000000000000010000130B0000130B00001000000000000000000000000000
@@ -220,15 +175,11 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
         OnClick = QcPrintBtnClick
       end
       object QcLoadBtn: TSpeedButton
-        Left = 56
+        Left = 32
         Top = 0
-        Width = 43
-        Height = 41
+        Width = 25
+        Height = 23
         Hint = 'load .qc'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
           04000000000000010000120B0000120B00001000000000000000000000000000
@@ -246,26 +197,18 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
         OnClick = QcLoadBtnClick
       end
       object QcFileNameLabel: TLabel
-        Left = 154
-        Top = 14
-        Width = 82
-        Height = 24
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 88
+        Top = 8
+        Width = 44
+        Height = 13
         Caption = 'FileName'
       end
       object QcSaveBtn: TSpeedButton
-        Left = 102
+        Left = 58
         Top = 0
-        Width = 44
-        Height = 41
+        Width = 25
+        Height = 23
         Hint = 'save .qc'
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
           04000000000000010000130B0000130B00001000000000000000000000000000
@@ -283,18 +226,14 @@ object FormLoadSmdMdl: TFormLoadSmdMdl
         OnClick = QcSaveBtnClick
       end
       object RichEdit1: TRichEdit
-        Left = 14
-        Top = 56
-        Width = 687
-        Height = 477
+        Left = 8
+        Top = 32
+        Width = 393
+        Height = 273
         HelpContext = 8500
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -6
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False

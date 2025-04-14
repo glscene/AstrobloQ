@@ -4,7 +4,6 @@ inherited frmOptions: TfrmOptions
   ClientHeight = 759
   ClientWidth = 1313
   Font.Height = -19
-  StyleElements = [seFont, seClient, seBorder]
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 25
@@ -77,7 +76,6 @@ inherited frmOptions: TfrmOptions
         FFFF0600000000000000000000000001071F043B0430043D04350442044B0400
         00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
         000001041F04430442043804}
-      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -264,7 +262,6 @@ inherited frmOptions: TfrmOptions
               Width = 400
             end>
           GridLines = True
-          Items.ItemData = {050000000000000000}
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
@@ -1138,7 +1135,7 @@ inherited frmOptions: TfrmOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 154
+          Left = 138
           Top = 53
           Width = 149
           Height = 200

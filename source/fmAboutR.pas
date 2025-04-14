@@ -26,7 +26,7 @@ type
   TFormAbout = class(TFormI)
     Panel1: TPanel;
     PageControl: TPageControl;
-    tsStars: TTabSheet;
+    tsAstrosfera: TTabSheet;
     tsDevelopers: TTabSheet;
     tsTools: TTabSheet;
     ButtonAstrobloQ: TSpeedButton;
@@ -41,11 +41,11 @@ type
     ImageGalaxy: TImage;
     ImageAstro: TImage;
     Image1: TImage;
-    Image2: TImage;
     Image3: TImage;
     Image4: TImage;
-    ImagePlanets: TImage;
     Memo1: TMemo;
+    Image2: TImage;
+    ImagePlanets: TImage;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);

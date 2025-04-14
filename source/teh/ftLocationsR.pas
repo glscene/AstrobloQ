@@ -117,7 +117,7 @@ var
 implementation //----------------------------------------------------------
 
 uses
-  ftTehnosfera,
+  ftTehnosferaR,
   Teh.Globals;
 
 {$R *.DFM}

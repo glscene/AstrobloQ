@@ -1,13 +1,13 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{5A868737-E493-4A63-A8BC-67F6DD4928F9}</ProjectGuid>
+        <ProjectGuid>{A17C4DFB-82FE-4608-BF6F-A004B5F6EC8A}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <ProjectName Condition="'$(ProjectName)'==''">Universum</ProjectName>
-        <TargetedPlatforms>32787</TargetedPlatforms>
+        <TargetedPlatforms>32770</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>Universum.dpr</MainSource>
     </PropertyGroup>
@@ -87,7 +87,7 @@
         <AUP_READ_PHONE_STATE>true</AUP_READ_PHONE_STATE>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
-        <SanitizedProjectName>Universum</SanitizedProjectName>
+        <SanitizedProjectName>UniVersum</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>fmx;emshosting;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;FireDACCommonDriver;IndyProtocols;IndyIPClient;dbxcds;FmxTeeUI;emsedge;bindcompfmx;FireDACSqliteDriver;DbxClientDriver;soapmidas;fmxFireDAC;dbexpress;inet;DataSnapCommon;fmxase;dbrtl;FireDACDBXDriver;CustomIPTransport;DBXInterBaseDriver;IndySystem;bindcomp;FireDACCommon;emsserverresource;inetstn;IndyCore;RESTBackendComponents;bindcompdbx;rtl;RESTComponents;DBXSqliteDriver;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;DataSnapFireDAC;emsclientfiredac;FireDAC;FireDACDSDriver;xmlrtl;tethering;dsnap;CloudService;DataSnapNativeClient;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -192,6 +192,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -212,23 +214,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Source\universum\fxUniversum.pas">
-            <Form>frmUniverse</Form>
+        <DCCReference Include="..\Source\univer\fxUniversum.pas">
+            <Form>frmUniversum</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\universum\fxSettings.pas">
+        <DCCReference Include="..\Source\univer\fxSettings.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\universum\fxForm.pas">
-            <Form>FormO</Form>
-        </DCCReference>
-        <DCCReference Include="..\Source\universum\fxAbout.pas">
+        <DCCReference Include="..\Source\univer\fxAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\universum\fxAstrogen.pas">
+        <DCCReference Include="..\Source\univer\fxAstrogen.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\universum\Uni.Material.pas"/>
-        <DCCReference Include="..\Source\universum\fxScatterPlot.pas">
+        <DCCReference Include="..\Source\univer\Uni.Material.pas"/>
+        <DCCReference Include="..\Source\univer\fxScatterPlot.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
         <DCCReference Include="..\externals\lux\LUX.FMX.ScatterPlotFrame.pas">
@@ -243,6 +242,11 @@
         <DCCReference Include="..\externals\lux\LIB.Material.pas"/>
         <DCCReference Include="..\externals\lux\LUX.FMX.Material.pas"/>
         <DCCReference Include="..\externals\lux\LUX.FMX.Types3D.pas"/>
+        <DCCReference Include="..\Source\univer\fxForm.pas">
+            <Form>FormX</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -263,6 +267,12 @@
                 <Source>
                     <Source Name="MainSource">Universum.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
@@ -280,9 +290,21 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\Universum.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\UniVersum.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
+                        <RemoteName>UniVersum.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\Universum.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
                         <RemoteName>Universum.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\Universum.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>Universum.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1238,9 +1260,9 @@
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
             </Deployment>
             <Platforms>
-                <Platform value="Android">True</Platform>
+                <Platform value="Android">False</Platform>
                 <Platform value="Android64">True</Platform>
-                <Platform value="Win32">True</Platform>
+                <Platform value="Win32">False</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>

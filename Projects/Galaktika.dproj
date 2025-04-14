@@ -126,30 +126,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Source\galaxy\fgAnalyser.pas">
-            <Form>FormAnalyser</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgMonitor.pas">
-            <Form>FormMonitor</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgParadox.pas">
-            <Form>FormParadox</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgExoplanets.pas">
-            <Form>FormExoplanets</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormI</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgStarcube.pas">
-            <Form>FormNewStarcube</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\galaxy\fgGalaktika.pas">
             <Form>frmGalaktika</Form>
             <FormType>dfm</FormType>
@@ -188,6 +164,30 @@
         </DCCReference>
         <DCCReference Include="..\source\umGlobals.pas"/>
         <DCCReference Include="..\source\umSkyBodies.pas"/>
+        <DCCReference Include="..\source\fmForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgAstrocube.pas">
+            <Form>FormAstrocube</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgExoplanets.pas">
+            <Form>FormExoplanets</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgMonitor.pas">
+            <Form>FormMonitor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgParadox.pas">
+            <Form>FormParadox</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgAnalyser.pas">
+            <Form>FormAnalyser</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

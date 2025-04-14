@@ -5,12 +5,6 @@ uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgAnalyser in '..\Source\galaxy\fgAnalyser.pas' {FormAnalyser},
-  fgMonitor in '..\Source\galaxy\fgMonitor.pas' {FormMonitor},
-  fgParadox in '..\Source\galaxy\fgParadox.pas' {FormParadox},
-  fgExoplanets in '..\Source\galaxy\fgExoplanets.pas' {FormExoplanets},
-  fmForm in '..\source\fmForm.pas' {FormI},
-  fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
   fgGalaktika in '..\source\galaxy\fgGalaktika.pas' {frmGalaktika},
   umUtils in '..\source\umUtils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
@@ -21,7 +15,13 @@ uses
   fmSettings in '..\source\fmSettings.pas' {FormSettings},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   umGlobals in '..\source\umGlobals.pas',
-  umSkyBodies in '..\source\umSkyBodies.pas';
+  umSkyBodies in '..\source\umSkyBodies.pas',
+  fmForm in '..\source\fmForm.pas' {FormI},
+  fgAstrocube in '..\source\galaxy\fgAstrocube.pas' {FormAstrocube},
+  fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
+  fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
+  fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
+  fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -34,7 +34,6 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmOption, frmOption);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
 

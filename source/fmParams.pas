@@ -23,8 +23,7 @@ type
     procedure ShowParams;
   end;
 
-//============================================================================
-implementation
+implementation //============================================================
 
 uses
   fmSolarSystem;

@@ -7,7 +7,6 @@ uses
   ftMeshEditor in '..\source\teh\ftMeshEditor.pas' {FormMeshShow},
   ftMeshData in '..\source\teh\ftMeshData.pas' {FormMeshData},
   ftStarPilot in '..\source\teh\ftStarPilot.pas' {FormSpacePilot},
-  ftLocationsR in '..\source\teh\ftLocationsR.pas' {FormLocations},
   fmForm in '..\source\fmForm.pas' {FormG},
   ftCyborg in '..\source\teh\ftCyborg.pas' {FormCyborg},
   ftRobot in '..\source\teh\ftRobot.pas' {FormLoadSmdMdl},
@@ -23,7 +22,8 @@ uses
   umCamera in '..\source\umCamera.pas',
   umGlobals in '..\source\umGlobals.pas',
   umSkyBodies in '..\source\umSkyBodies.pas',
-  ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {frmTehnosfera};
+  ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {frmTehnosfera},
+  ftLocations in '..\source\teh\ftLocations.pas' {FormLocations};
 
 {$R *.res}
 

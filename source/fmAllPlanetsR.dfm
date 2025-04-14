@@ -9,7 +9,7 @@ object frmAllplanets: TfrmAllplanets
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -19
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   KeyPreview = True
@@ -17,7 +17,7 @@ object frmAllplanets: TfrmAllplanets
   Position = poScreenCenter
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
-  TextHeight = 13
+  TextHeight = 24
   object SceneViewer: TGLSceneViewer
     Left = 273
     Top = 29
@@ -34,6 +34,8 @@ object frmAllplanets: TfrmAllplanets
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitLeft = 278
+    ExplicitTop = 40
   end
   object PanelLeft: TPanel
     Left = 0

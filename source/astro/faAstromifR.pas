@@ -41,11 +41,12 @@ uses
   umUtils,
   umGlobals,
 
-  faMixTextures,
+  fmForm,
+  faMixTexturesR,
   dmImages;
 
 type
-  TFormAstromif = class(TForm)
+  TFormAstromif = class(TFormI)
     PanelLeft: TPanel;
     StatusBar1: TStatusBar;
     PanelRight: TPanel;

@@ -32,12 +32,9 @@ uses
 
 begin
   Application.Initialize;
-  TStyleManager.TrySetStyle('Glow');
+ // TStyleManager.TrySetStyle('Glow');
   Application.CreateForm(TfrmAllplanets, frmAllplanets);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TFormAbout, FormAbout);
-  Application.CreateForm(TFormGenPlanetsys, FormGenPlanetsys);
   Application.Run;
 end.

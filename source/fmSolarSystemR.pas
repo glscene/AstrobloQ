@@ -52,10 +52,8 @@ uses
   GLS.LensFlare,
 
   fmOptionsR,
-  fmParamsR,
 
-  fmForm
-  ;
+  fmParamsR, fmForm;
 
 type
   TFormSolarSys = class(TFormI) // not translated when TForm
@@ -148,7 +146,6 @@ type
     miWiki: TMenuItem;
     About1: TMenuItem;
     stPickObject: TStaticText;
-    FrameParams: TFrameParams;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
     cbHabitableZone: TCheckBox;
@@ -160,6 +157,7 @@ type
     Deimos: TGLFreeForm;
     StatusBarSol: TStatusBar;
     JupiterRing: TGLDisk;
+    FrameParamsR: TFrameParamsR;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -395,7 +393,7 @@ begin
     PickObject := TGLBaseSceneObject(Node.Data);
     stPickObject.Caption := PickObject.Name;
     MemoInfo.Text := PickObject.Name + ': ' + PickObject.ClassName;
-    FrameParams.ShowParams;
+    FrameParamsR.ShowParams;
   end;
 end;
 

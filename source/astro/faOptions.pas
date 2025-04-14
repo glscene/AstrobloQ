@@ -113,7 +113,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
  uses
-  faAstroverus;
+  faAstrosfera;
 
 
 procedure TfrmOptions.FormCreate(Sender: TObject);
@@ -148,19 +148,19 @@ begin
 end;
 
 //-----------------------------------------------------------------
-// Показать линии, границы, фигуры и названия созвездий
+// Show lines, borders, figures and names of constellations
 //-----------------------------------------------------------------
 procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
   CurrDir := DataDir + 'constellation\';
   if chbConstLines.Checked then
-    frmAstroverus.LoadConstLines(CurrDir)
+    frmAstrosfera.LoadConstLines(CurrDir)
   else
-    frmAstroverus.LinesConstellations.Nodes.Clear;
+    frmAstrosfera.LinesConstellations.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmAstroverus.LoadConstBorders(CurrDir)
+    frmAstrosfera.LoadConstBorders(CurrDir)
   else
-    frmAstroverus.LinesConstBorders.Nodes.Clear;
+    frmAstrosfera.LinesConstBorders.Nodes.Clear;
 end;
 
 //-----------------------------------------------------------------

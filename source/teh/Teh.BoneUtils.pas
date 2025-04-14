@@ -29,9 +29,7 @@ procedure RotateBone(Ac: TGLActor; BoneIndex: integer; aa, bb, cc: single;
   SlowerCoeff: single; Maxaa, Minaa, Maxbb, Minbb, Maxcc, Mincc: single);
 function GetBoneIndexByName(Ac: TGLActor; BoneName: string): integer;
 
-// ----------------------------------------------------------------------
-implementation
-// ----------------------------------------------------------------------
+implementation // -----------------------------------------------------------
 
 function Get_String_From1_From2_To1(st: string;
   From1, From2, To1: string): string;

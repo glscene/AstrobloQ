@@ -119,10 +119,6 @@
             <Form>FormSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftLocationsR.pas">
-            <Form>FormLocations</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\fmForm.pas">
             <Form>FormG</Form>
             <FormType>dfm</FormType>
@@ -170,6 +166,10 @@
         <DCCReference Include="..\source\umSkyBodies.pas"/>
         <DCCReference Include="..\source\teh\ftTehnosfera.pas">
             <Form>frmTehnosfera</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\teh\ftLocations.pas">
+            <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

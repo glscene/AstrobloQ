@@ -18,7 +18,7 @@ uses
   GLS.BaseClasses,
   GLS.Scene,
   faHercRussel,
-  uaHygmain;
+  Astro.ReadHyg;
 
 type
   TFormHipparcos = class(TForm)

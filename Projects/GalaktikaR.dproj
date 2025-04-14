@@ -126,27 +126,19 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Source\galaxy\fgAnalyser.pas">
-            <Form>FormAnalyser</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgMonitor.pas">
+        <DCCReference Include="..\source\galaxy\fgMonitorR.pas">
             <Form>FormMonitor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgParadox.pas">
+        <DCCReference Include="..\source\galaxy\fgParadoxR.pas">
             <Form>FormParadox</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgExoplanets.pas">
+        <DCCReference Include="..\source\galaxy\fgExoplanetsR.pas">
             <Form>FormExoplanets</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormI</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Source\galaxy\fgStarcube.pas">
+        <DCCReference Include="..\source\galaxy\fgAstrocubeR.pas">
             <Form>FormNewStarcube</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -188,6 +180,14 @@
         </DCCReference>
         <DCCReference Include="..\source\umGlobals.pas"/>
         <DCCReference Include="..\source\umSkyBodies.pas"/>
+        <DCCReference Include="..\source\fmForm.pas">
+            <Form>FormI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgAnalyserR.pas">
+            <Form>FormAnalyser</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

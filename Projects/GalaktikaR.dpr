@@ -5,12 +5,10 @@ uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgAnalyser in '..\Source\galaxy\fgAnalyser.pas' {FormAnalyser},
-  fgMonitor in '..\Source\galaxy\fgMonitor.pas' {FormMonitor},
-  fgParadox in '..\Source\galaxy\fgParadox.pas' {FormParadox},
-  fgExoplanets in '..\Source\galaxy\fgExoplanets.pas' {FormExoplanets},
-  fmForm in '..\source\fmForm.pas' {FormI},
-  fgStarcube in '..\Source\galaxy\fgStarcube.pas' {FormNewStarcube},
+  fgMonitorR in '..\source\galaxy\fgMonitorR.pas' {FormMonitor},
+  fgParadoxR in '..\source\galaxy\fgParadoxR.pas' {FormParadox},
+  fgExoplanetsR in '..\source\galaxy\fgExoplanetsR.pas' {FormExoplanets},
+  fgAstrocubeR in '..\source\galaxy\fgAstrocubeR.pas' {FormNewStarcube},
   fgOptionsR in '..\source\galaxy\fgOptionsR.pas' {frmOptions},
   fgGalaktikaR in '..\source\galaxy\fgGalaktikaR.pas' {frmGalaktika},
   umUtils in '..\source\umUtils.pas',
@@ -21,7 +19,9 @@ uses
   fmSettingsR in '..\source\fmSettingsR.pas' {FormSettings},
   fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
   umGlobals in '..\source\umGlobals.pas',
-  umSkyBodies in '..\source\umSkyBodies.pas';
+  umSkyBodies in '..\source\umSkyBodies.pas',
+  fmForm in '..\source\fmForm.pas' {FormI},
+  fgAnalyserR in '..\source\galaxy\fgAnalyserR.pas' {FormAnalyser};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -34,6 +34,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TFormAnalyser, FormAnalyser);
   Application.Run;
 end.
 

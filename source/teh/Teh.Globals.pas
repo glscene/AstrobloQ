@@ -17,7 +17,7 @@ const
 
 type
   PrefRecord = record
-    // ≈щЄ раз запись в pof файд, first line of file serves as Version ID
+    // Writing in pof file, first line of file serves as Version ID
     PHiddenString, PShpPath, PEarthDataPath, PEarthModelPath, PEarthPhotoPath,
       PEarthHRPath: string[255];
     PStartedNameNumber: string[25];
@@ -49,24 +49,27 @@ var
   Started: TDateTime;
 
   PrintBigChecked, UseThumbnails, AutoDisPlay, VoicesON, DoneBeepOn,
-    ErrorBeepOn, bAutoSave: Boolean;
+  ErrorBeepOn, bAutoSave: Boolean;
+
   CurrentColor: TColor;
 
   FormPlanetX, FormPlanetY, FormCyborgX, FormCyborgY, FormLoadSmdMdlX,
-    FormLoadSmdMdlY, FormTehnosferaX, FormTehnosferaY, ABCreatorFormX,
-    ABCreatorFormY, AboutFormX, AboutFormY, AboutHolographicsX,
-    AboutHolographicsY, MessageX, MessageY, HoloFormY, HoloFormX,
-    SystemInfoFormX, SystemInfoFormY: Integer;
+  FormLoadSmdMdlY, FormTehnosferaX, FormTehnosferaY, ABCreatorFormX,
+  ABCreatorFormY, AboutFormX, AboutFormY, AboutHolographicsX,
+  AboutHolographicsY, MessageX, MessageY, HoloFormY, HoloFormX,
+  SystemInfoFormX, SystemInfoFormY: Integer;
 
 var
   ThumbColor, MapBordersColor, MapGridsColor, MapDatasColor,
-    MapBacksColor: TColor;
+  MapBacksColor: TColor;
+
   EditingColor, ClassStartPanelColor, BackgroundColor, HighlightColor,
-    EditColor: TColor; // ,  CurrentColor
+  EditColor: TColor; // ,  CurrentColor
+
   SelectionRadius: Integer;
 
   StillOpen, FilePreviews, Skip32BitNotice, SkipIntroScreen, ScaleBarVisible,
-    WarningBeepOn, InfoBeepOn, ConfirmBeepOn, CompletedBeepOn: Boolean;
+  WarningBeepOn, InfoBeepOn, ConfirmBeepOn, CompletedBeepOn: Boolean;
 
   DotColorArray: array of TGLColorVector;
   MarkerIndex, ColorIndex: Integer;
@@ -79,9 +82,7 @@ procedure SetPreferences;
 procedure DoSaver;
 procedure GetPreferences;
 
-// --------------------------------------------------------------------
-implementation
-// --------------------------------------------------------------------
+implementation // ---------------------------------------------------------
 
 procedure DoLoader;
 var
@@ -107,7 +108,6 @@ procedure SetPreferences;
 begin // after loading
   with PreRcd do
   begin
-
     EarthDataPath := PEarthDataPath;
     ShpPath := PShpPath;
     EarthModelPath := PEarthModelPath;
@@ -188,7 +188,6 @@ begin // before saving
     PMapGridsColor := MapGridsColor;
     PMapDatasColor := MapDatasColor;
     PMapBacksColor := MapBacksColor;
-
   end;
 end;
 

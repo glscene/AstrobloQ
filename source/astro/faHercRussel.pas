@@ -23,7 +23,7 @@ uses
   GLS.SceneViewer,
 
   fmForm,
-  uaHygmain,
+  Astro.ReadHyg,
   uaHiputils;
 
 type

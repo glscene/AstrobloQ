@@ -20,7 +20,6 @@ object FormAstromif: TFormAstromif
     Height = 572
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 547
     object PanelBottom: TPanel
       Left = 1
       Top = 531
@@ -185,7 +184,6 @@ object FormAstromif: TFormAstromif
         FFFFFFFFFFFFFFFF00000000000000000000000000010656006F006C0061006E
         0073000000310000005700000057000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000109560075006C0070006500630075006C006100}
-      ExplicitHeight = 505
     end
   end
   object StatusBar1: TStatusBar

@@ -9,15 +9,15 @@ object frmAllplanets: TfrmAllplanets
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
   Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
-  TextHeight = 13
+  TextHeight = 17
   object SceneViewer: TGLSceneViewer
     Left = 273
     Top = 29
@@ -34,6 +34,8 @@ object frmAllplanets: TfrmAllplanets
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitWidth = 761
+    ExplicitHeight = 627
   end
   object PanelLeft: TPanel
     Left = 0

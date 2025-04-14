@@ -13,30 +13,28 @@ program AllPlanetsR;
 
 uses
   Forms,
+  Vcl.Themes,
+  Vcl.Styles,
   fmAllPlanetsR in '..\source\fmAllPlanetsR.pas' {frmAllplanets},
-  fmParamsR in '..\source\fmParamsR.pas' {FrameParams: TFrame},
   fmStarSystemR in '..\source\fmStarSystemR.pas' {FormStarSys},
   fmSolarSystemR in '..\source\fmSolarSystemR.pas' {FormSolarSys},
   fmOptionsR in '..\source\fmOptionsR.pas' {frmOptions},
   fmGenExosysR in '..\source\fmGenExosysR.pas' {FormGenPlanetsys},
-  fmForm in '..\source\fmForm.pas' {FormG},
   umCamera in '..\source\umCamera.pas',
   umSkyBodies in '..\source\umSkyBodies.pas',
   umGlobals in '..\source\umGlobals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
-  Vcl.Themes,
-  Vcl.Styles;
+  fmForm in '..\source\fmForm.pas' {FormI},
+  fmParamsR in '..\source\fmParamsR.pas' {FrameParamsR: TFrame};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  TStyleManager.TrySetStyle('Windows10');
+//  TStyleManager.TrySetStyle('Windows10');
   Application.CreateForm(TfrmAllplanets, frmAllplanets);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.

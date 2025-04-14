@@ -1,0 +1,164 @@
+object frmUniversum: TfrmUniversum
+  Left = 0
+  Top = 0
+  Caption = 'Universum'
+  ClientHeight = 380
+  ClientWidth = 588
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = frmCreate
+  DesignerMasterStyle = 0
+  object MainMenu: TMainMenu
+    Left = 176
+    Top = 56
+    object miFile: TMenuItem
+      Text = '&'#1060#1072#1081#1083
+      object miOpen: TMenuItem
+        Action = acFileOpen
+        Locked = True
+        Text = #1054#1090#1082#1088#1099#1090#1100'...'
+        ImageIndex = -1
+      end
+      object miExit: TMenuItem
+        Action = acFileExit
+        Locked = True
+        Text = #1042#1099#1093#1086#1076
+        ImageIndex = -1
+      end
+    end
+    object miMethod: TMenuItem
+      Text = '&'#1052#1077#1090#1086#1076
+      object miGridding: TMenuItem
+        Locked = True
+        Text = #1043#1088#1080#1076#1076#1080#1085#1075'...'
+      end
+      object miTetralization: TMenuItem
+        Locked = True
+        Text = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
+      end
+      object miInterpolation: TMenuItem
+        Locked = True
+        Text = 'Interpolation...'
+      end
+    end
+    object miView: TMenuItem
+      Text = '&'#1042#1080#1076
+      object miSolarSystem: TMenuItem
+        Locked = True
+        Text = 'Solar system...'
+      end
+      object miScatterPlot: TMenuItem
+        Locked = True
+        Text = 'Scatter Plot...'
+        OnClick = miScatterPlotClick
+      end
+      object miStarsysGen: TMenuItem
+        Locked = True
+        Text = 'Starsys Generator...'
+        OnClick = miStarsysGenClick
+      end
+      object miVolumeRender: TMenuItem
+        Locked = True
+        Text = 'Volume Render...'
+        OnClick = miVolumeRenderClick
+      end
+    end
+    object miTools: TMenuItem
+      Text = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      object miSettings: TMenuItem
+        Locked = True
+        Text = #1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
+        OnClick = miSettingsClick
+      end
+      object miDivider1: TMenuItem
+        Locked = True
+        Text = '-'
+      end
+    end
+    object miHelp: TMenuItem
+      Text = '&'#1057#1087#1088#1072#1074#1082#1072
+      object miWiki: TMenuItem
+        Locked = True
+        Text = 'Wiki...'
+        OnClick = miWikiClick
+      end
+      object miAbout: TMenuItem
+        Locked = True
+        Text = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        OnClick = miAboutClick
+      end
+    end
+  end
+  object tvPlanets: TTreeView
+    Align = Left
+    Position.Y = 40.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 340.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Viewport.Width = 141.000000000000000000
+    Viewport.Height = 336.000000000000000000
+    object tviStar: TTreeViewItem
+      IsChecked = False
+      IsExpanded = False
+      IsSelected = False
+      TabOrder = 0
+      Text = 'Star'
+      object tviPlanet: TTreeViewItem
+        IsChecked = False
+        IsExpanded = False
+        IsSelected = False
+        TabOrder = 0
+        Text = 'Planet'
+        object TreeViewItemMoon: TTreeViewItem
+          IsChecked = False
+          IsExpanded = False
+          IsSelected = False
+          TabOrder = 0
+          Text = 'Moon'
+        end
+      end
+      object tviPlanetoid: TTreeViewItem
+        IsChecked = False
+        IsExpanded = False
+        IsSelected = False
+        TabOrder = 1
+        Text = 'Planetoid'
+      end
+    end
+  end
+  object ToolBar1: TToolBar
+    Size.Width = 588.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+  end
+  object ActionList: TActionList
+    Left = 280
+    Top = 56
+    object acFileOpen: TAction
+      Category = 'File'
+      Text = 'Open...'
+      OnExecute = miOpenClick
+    end
+    object Action2: TAction
+      Text = 'Action2'
+    end
+    object Action3: TAction
+      Text = 'Action3'
+    end
+    object Action4: TAction
+      Text = 'Action4'
+    end
+    object Action5: TAction
+      Text = 'Action5'
+    end
+    object acFileExit: TAction
+      Category = 'File'
+      Text = 'Exit'
+      OnExecute = miExitClick
+    end
+  end
+end

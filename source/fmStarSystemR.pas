@@ -140,7 +140,6 @@ type
     Save1: TMenuItem;
     SaveAs1: TMenuItem;
     stPickObject: TStaticText;
-    FrameParams: TFrameParams;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
     cbHabitableZone: TCheckBox;
@@ -391,7 +390,7 @@ begin
     PickObject := TGLBaseSceneObject(Node.Data);
     stPickObject.Caption := PickObject.Name;
     MemoInfo.Text := PickObject.Name + ': ' + PickObject.ClassName;
-    FrameParams.ShowParams;
+///    FrameParams.ShowParams;
   end;
 end;
 
