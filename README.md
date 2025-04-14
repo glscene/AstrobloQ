@@ -42,20 +42,19 @@
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
 ![Biosfera](./docs/clips/AnimationEcosystemA.gif)
 
-### Noosfera
-
-Ноосферы экзопланет без космических коммуникаций 
-![Noosfera](./docs/screenshots/Noosfera.png)
-
-![Noosfera](./docs/clips/AnimationLadybug2.gif)
-![Noosfera](./docs/clips/AnimationFlock.gif)
-
 ### Tehnosfera
 
 Техносферы экзопланет с космическими коммуникациями
 ![Tehnosfera](./docs/screenshots/Tehnosferas.png)
-
 ![Tehnosfera](./docs/clips/Meteors.gif)
+
+### Allplanets
+
+Экзопланеты всех типов, включая землеподобные 
+![Allplanets](./docs/screenshots/Noosfera.png)
+
+![Allplanets](./docs/clips/AnimationLadybug2.gif)
+![Allplanets](./docs/clips/AnimationFlock.gif)
 
 ### Galaktika
 
