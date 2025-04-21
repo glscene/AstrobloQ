@@ -298,7 +298,7 @@
         <DCCReference Include="source\uxTetraMesh.pas"/>
         <DCCReference Include="source\uxVariograms.pas"/>
         <DCCReference Include="source\uObjects3D.pas"/>
-        <DCCReference Include="..\..\source\uxUtils.pas"/>
+        <DCCReference Include="..\..\source\univer\Uni.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

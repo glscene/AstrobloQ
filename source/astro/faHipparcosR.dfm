@@ -16,23 +16,23 @@ object FormHipparcos: TFormHipparcos
   object LabelStars: TLabel
     Left = 360
     Top = 24
-    Width = 134
+    Width = 121
     Height = 15
-    Caption = 'Stars without coordinates'
+    Caption = #1047#1074#1105#1079#1076#1099' '#1073#1077#1079' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
   end
   object Label1: TLabel
     Left = 360
     Top = 56
-    Width = 135
+    Width = 124
     Height = 15
-    Caption = 'Stars without movements'
+    Caption = #1047#1074#1105#1079#1076#1099' '#1073#1077#1079' '#1089#1076#1074#1080#1078#1077#1085#1080#1081
   end
   object Label2: TLabel
     Left = 360
     Top = 88
-    Width = 112
+    Width = 134
     Height = 15
-    Caption = 'Stars without parallax'
+    Caption = #1047#1074#1105#1079#1076#1099' '#1073#1077#1079' '#1087#1072#1088#1072#1083#1083#1072#1082#1089#1086#1074
   end
   object starsNoCoord: TStaticText
     Left = 536

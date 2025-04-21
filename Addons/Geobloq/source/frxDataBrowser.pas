@@ -20,7 +20,7 @@ uses
   FireDAC.Comp.Client,
 
   uxGlobals,
-  uxUtils,
+  Uni.Utils,
   dxBase;
 
 type

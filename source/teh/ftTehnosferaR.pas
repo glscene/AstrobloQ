@@ -114,7 +114,6 @@ type
     miN2: TMenuItem;
     miAddaPeople: TMenuItem;
     miTools: TMenuItem;
-    miNoosfera: TMenuItem;
     miMeshShow: TMenuItem;
     miHelp: TMenuItem;
     miAbout: TMenuItem;
@@ -217,6 +216,7 @@ type
     N6: TMenuItem;
     N7: TMenuItem;
     miStarPilot: TMenuItem;
+    N8: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -276,7 +276,6 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure CountryColorPanelClick(Sender: TObject);
     procedure miSatelliteLightClick(Sender: TObject);
-    procedure miNoosferaClick(Sender: TObject);
     procedure miMeshShowClick(Sender: TObject);
     procedure miSmdQcClick(Sender: TObject);
     procedure miMdlQcClick(Sender: TObject);
@@ -381,17 +380,17 @@ var
   sDate, sDateSmuoosh, sDateFormat, sWhoWhereFormat: String;
 
 begin
-  DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
+  DataDir :=  ExtractFilePath(ParamStr(0)) + 'tehdata\'; // not GetDataPath();
   SetCurrentDir(DataDir);
 
-  (*
-    if FileExists(ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof') then
-    begin
+  if FileExists('EarthGLS.pof') then
+  begin
     DoLoader;
-    end
-    else
-    begin
-  *)
+  end
+  else
+  begin
+  end;
+
   FormPlanetX := 0;
   FormPlanetY := 0;
   FormCyborgX := 123;
@@ -1957,56 +1956,32 @@ procedure TfrmTehnosfera.miMeshShowClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormMeshShow.ShowModal;
-  (*
-    with TFormMeshShow.Create(Self) do
-    try
+  //FormMeshShow.ShowModal;
+  with TFormMeshShow.Create(Self) do
+  try
     ShowModal;
-    finally
+  finally
     Free;
-    end;
-  *)
+  end;
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
 
 // Tehnosfera Viewer
-procedure TfrmTehnosfera.miNoosferaClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  Cadencer.Enabled := False;
-  FormTehnosfera.ShowModal;
-  (*
-    with TFormTehnosfera.Create(Self) do
-    try
-    ShowModal;
-    finally
-    Free;
-    end;
-  *)
-  Timer.Enabled := True;
-  Cadencer.Enabled := True;
-  (*
-    FormTehnosfera in 'fTehnosfera.pas',
-    FormSmdQc in 'fmSmdQc.pas',
-    FormSmdLoadMdl in 'fmSmdLoadMdl.pas' ,
-  *)
-end;
 
 // SmdQc
 procedure TfrmTehnosfera.miSmdQcClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormCyborg.ShowModal;
-  (*
-    with TFormCyborg.Create(Self) do
-    try
+  // FormCyborg.ShowModal;
+  with TFormCyborg.Create(Self) do
+  try
     ShowModal;
-    finally
+  finally
     Free;
-    end;
-  *)
+  end;
+
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
@@ -2017,15 +1992,15 @@ procedure TfrmTehnosfera.miMdlQcClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormLoadSmdMdl.ShowModal;
-  (*
-    with TFormLoadSmdMdl.Create(Self) do
-    try
+//  FormLoadSmdMdl.ShowModal;
+
+  with TFormLoadSmdMdl.Create(Self) do
+  try
     ShowModal;
-    finally
+  finally
     Free;
-    end;
-  *)
+  end;
+
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
@@ -2035,15 +2010,15 @@ procedure TfrmTehnosfera.miStarPilotClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormSpacePilot.ShowModal;
-  (*
+//  FormSpacePilot.ShowModal;
+
     with TFormSpacePilot.Create(Self) do
     try
-    ShowModal;
+      ShowModal;
     finally
-    Free;
+      Free;
     end;
-  *)
+
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
@@ -2070,10 +2045,6 @@ begin
     finally
       Free;
     end;
-  (*
-    ShowMessage('A freeware program based on Earth Advdemo...'#13#10#13#10 +
-    'to shows GLScene users and developers around the world!');
-  *)
 end;
 
 // ==============================================================
@@ -2161,7 +2132,7 @@ begin
           lblType.Caption := 'Others';
       else
         lblType.Caption := 'Undecided Dabbler';
-      end; { Case }
+      end; // Case
       lblTypeName.Caption := TMarkerPosition(markers.Objects[i]).TypeName;
       GlowUpDown.Position := TMarkerPosition(markers.Objects[i]).Glow;
       { ptsSizeUpDown.Position:=TMarkerPosition(markers.Objects[i]).Glow; }

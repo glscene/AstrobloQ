@@ -15,10 +15,10 @@ type
  PosAng: вычисляет угол положения по заданным направлениям
 
    X,Y,Z      Координаты планеты относительно наблюдателя
-   DX,DY,DZ   Direction vector
-   PosAng     Position angle (0<=PosAng<360deg)
+   DX,DY,DZ   Вектор направления
+   PosAng     Позиционный угол (0<=PosAng<360deg)
 
- Both vectors must be given in a common coordinate system
+ Оба вектора должны быть заданы в единой координатной системе
  (e.g. mean equator and equinox of date)
 -----------------------------------------------------------------------*)
 function PosAng(X, Y, Z, DX, DY, DZ: Double): Double;
@@ -41,13 +41,13 @@ procedure Shape(Planet: PlanetType; var R_EQU, FL: Double);
 
    Planet   Имя планеты
    SYSTEM   System of rotation (I, II or III)
-   T        Time in Julian centuries since J2000  (ET or TDB/TDT)
-   A        Right ascension of the axis of rotation
-   D        Declination of the axis of rotation
-   W        Orientation of the prime meridian with respect to the
+   T        Время Time по Юлианскому календарю с даты J2000  (ET или TDB/TDT)
+   A        Прямое восхождение, Right ascension, оси вращения
+   D        Склонение, Declination, оси вращения
+   W        Ориентация of the prime meridian with respect to the
             intersection of the Earth's equator of J2000 and the
             planetary equator of date
-   SENSE    Sense of rotation (Direct or Retrograde)
+   SENSE    Sense of rotation (прямое или ретроградное)
 -----------------------------------------------------------------------*)
 procedure Orient(Planet: PlanetType; SYSTEM: SystemType; T: Double; var A, D, W: Double;
   var SENSE: RotationType);
@@ -61,7 +61,7 @@ procedure Orient(Planet: PlanetType; SYSTEM: SystemType; T: Double; var A, D, W:
    W        Orientation of the prime meridian with respect to the
             intersection of the Earth's equator of J2000 and the
             planetary equator of date
-   SENSE    Sense of rotation (Direct or Retrograde)
+   SENSE    Sense of rotation (прямое или ретроградное)
    FLATT    Geometric flattening of the planet
    AX,AY,AZ Rotation axis unit vector (J2000)
    LONG     Planetographic longitude of the Earth (deg)
@@ -106,9 +106,7 @@ function Bright(Planet: PlanetType; R, DELTA, PHI, Dec, DLONG: Double): Double;
 -----------------------------------------------------------------------*)
 procedure Illum(X, Y, Z, XE, YE, ZE: Double; var R, D, ELONG, PHI, K: Double);
 
-//===================================================================
-implementation
-//===================================================================
+implementation //=======================================================
 
 function PosAng(X, Y, Z, DX, DY, DZ: Double): Double;
 var

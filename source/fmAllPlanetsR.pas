@@ -284,7 +284,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-//   Select nodes of tvPlanetsClick
+//   Выбор узлов деревьев просмотра планет, звёзд и созвездий tvPlanetsClick
 //------------------------------------------------------------------
 procedure TfrmAllplanets.tvPlanetsClick(Sender: TObject);
 begin
@@ -328,7 +328,8 @@ begin
 
 *)
   // Planet rings
-  if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
+
+  if (tvPlanets.Selected.Text = 'Сатурн') or (tvPlanets.Selected.Text = 'Уран') then
   begin
     diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
     diskRingUp.Visible := True;
@@ -368,15 +369,7 @@ begin
     finally
       Free;
     end;
- (*
-  // New exoplanet system
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
+
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;

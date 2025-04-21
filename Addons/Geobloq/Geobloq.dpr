@@ -43,7 +43,7 @@ uses
   uxTetraMesh in 'source\uxTetraMesh.pas',
   uxVariograms in 'source\uxVariograms.pas',
   uObjects3D in 'source\uObjects3D.pas',
-  uxUtils in '..\..\source\uxUtils.pas';
+  Uni.Utils in '..\..\source\univer\Uni.Utils.pas';
 
 {$R *.res}
 

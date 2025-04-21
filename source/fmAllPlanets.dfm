@@ -34,8 +34,6 @@ object frmAllplanets: TfrmAllplanets
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 761
-    ExplicitHeight = 627
   end
   object PanelLeft: TPanel
     Left = 0
