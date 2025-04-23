@@ -11,14 +11,14 @@
 #pragma package(smart_init)
 
 /*
-TFileName GetAssetsPath();
+TFileName GetAstrobloQPath();
 {
   TFileName Path
   int N;
   Path = LowerCase(ExtractFilePath(ParamStr(0)));
-  N = Pos('bin', Path);
+  N = Pos('AstrobloQ', Path);
   Delete(Path, N, Length(path));
-  Path = IncludeTrailingPathDelimiter(Path) + 'assets\\';
+  Path = IncludeTrailingPathDelimiter(Path);
   SetCurrentDir(Path);
   Result = Path;
 }
@@ -26,17 +26,3 @@ TFileName GetAssetsPath();
 */
 
 
-/*
-TFileName GetDataPath();
-{
-  TFileName Path;
-  int N;
-  Path = LowerCase(ExtractFilePath(ParamStr(0)));
-  N = Pos('bin', Path);
-  Delete(Path, N, Length(path));
-  Path = IncludeTrailingPathDelimiter(Path) + 'data\\';
-  SetCurrentDir(Path);
-  Result = Path;
-}
-
-*/
