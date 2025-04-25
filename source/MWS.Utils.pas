@@ -1,7 +1,7 @@
 //
 // AstroLibrary
 //
-unit umUtils;
+unit MWS.Utils;
 
 (* Miscellaneous support utilities & classes for localization *)
 

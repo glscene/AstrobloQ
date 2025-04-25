@@ -55,7 +55,7 @@ type
     constructor Create(AOwner: TComponent); override;
   end;
 
-  TFormMeshShow = class(TForm)
+  TfrmSculptor = class(TForm)
     Scn: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -174,7 +174,7 @@ type
   end;
 
 var
-  FormMeshShow: TFormMeshShow;
+  frmSculptor: TfrmSculptor;
 
 implementation // ===============================================
 
@@ -275,7 +275,7 @@ end;
   end;
 *)
 
-function TFormMeshShow.MouseWorldPos(X, Y: Integer): TGLVector;
+function TfrmSculptor.MouseWorldPos(X, Y: Integer): TGLVector;
 var
   v: TGLVector;
 begin
@@ -330,12 +330,12 @@ begin
     SetVector(Result, NullVector);
 end;
 
-procedure TFormMeshShow.FormShow(Sender: TObject);
+procedure TfrmSculptor.FormShow(Sender: TObject);
 begin
   Application.OnHint := ShowHint;
 end;
 
-procedure TFormMeshShow.FormCreate(Sender: TObject);
+procedure TfrmSculptor.FormCreate(Sender: TObject);
 begin
   top := HoloFormY;
   left := HoloFormX;
@@ -393,17 +393,17 @@ begin
   cbPolygonMode.ItemIndex := CLinePolyMode;
 end;
 
-function TFormMeshShow.GetPolygonMode: TGLPolygonMode;
+function TfrmSculptor.GetPolygonMode: TGLPolygonMode;
 begin
   Result := GLFreeForm1.Material.PolygonMode;
 end;
 
-procedure TFormMeshShow.SetPolygonMode(const Value: TGLPolygonMode);
+procedure TfrmSculptor.SetPolygonMode(const Value: TGLPolygonMode);
 begin
   GLFreeForm1.Material.PolygonMode := Value;
 end;
 
-procedure TFormMeshShow.cbPolygonModeChange(Sender: TObject);
+procedure TfrmSculptor.cbPolygonModeChange(Sender: TObject);
 begin
   // GLFreeForm1.Material.FrontProperties.
   PolygonMode := TGLPolygonMode(cbPolygonMode.ItemIndex);
@@ -415,30 +415,30 @@ begin
   }
 end;
 
-procedure TFormMeshShow.ShowHint(Sender: TObject);
+procedure TfrmSculptor.ShowHint(Sender: TObject);
 begin
   // HintPanel.Caption := GetLongHint(Application.Hint);
   StatusBar.Panels[0].Text := Application.Hint;
 end;
 
-procedure TFormMeshShow.Exit1Click(Sender: TObject);
+procedure TfrmSculptor.Exit1Click(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFormMeshShow.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSculptor.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  HoloFormY := FormMeshShow.top;
-  HoloFormX := FormMeshShow.left;
+  HoloFormY := frmSculptor.top;
+  HoloFormX := frmSculptor.left;
 end;
 
-procedure TFormMeshShow.FormDestroy(Sender: TObject);
+procedure TfrmSculptor.FormDestroy(Sender: TObject);
 begin
   FModifierList.Clear;
   FreeAndNil(FModifierList);
 end;
 
-procedure TFormMeshShow.ScnMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmSculptor.ScnMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 var
   lObj: TGLBaseSceneObject;
@@ -519,7 +519,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.ScnMouseMove(Sender: TObject; Shift: TShiftState;
+procedure TfrmSculptor.ScnMouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 var
   { vec1,
@@ -672,14 +672,14 @@ begin
 
 end;
 
-procedure TFormMeshShow.TrackBar1Change(Sender: TObject);
+procedure TfrmSculptor.TrackBar1Change(Sender: TObject);
 begin
   GLFreeForm1.MeshObjects.Clear;
   BuildGeosphere(GLFreeForm1, TrackBar1.Position);
   GLFreeForm1.StructureChanged;
 end;
 
-procedure TFormMeshShow.Open1Click(Sender: TObject);
+procedure TfrmSculptor.Open1Click(Sender: TObject);
 var
   F: TextFile;
   S: string;
@@ -694,7 +694,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.Save1Click(Sender: TObject);
+procedure TfrmSculptor.Save1Click(Sender: TObject);
 var
   F: TextFile;
   { I: integer;
@@ -709,7 +709,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.ViewControlPanelClick(Sender: TObject);
+procedure TfrmSculptor.ViewControlPanelClick(Sender: TObject);
 begin
   ViewControlPanel.Checked := (not ViewControlPanel.Checked);
   If ViewControlPanel.Checked then
@@ -728,24 +728,24 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.Contents1Click(Sender: TObject);
+procedure TfrmSculptor.Contents1Click(Sender: TObject);
 begin
   Application.HelpCommand(HELP_CONTENTS, 0);
 end;
 
-procedure TFormMeshShow.OnHelp1Click(Sender: TObject);
+procedure TfrmSculptor.OnHelp1Click(Sender: TObject);
 begin
   Application.HelpCommand(HELP_HELPONHELP, 0);
 end;
 
-procedure TFormMeshShow.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TfrmSculptor.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 begin
   GLCamera1.AdjustDistanceToTarget(PowerSingle(1.1, WheelDelta / 120));
   UpdateGizmo;
 end;
 
-procedure TFormMeshShow.UpdateGizmo;
+procedure TfrmSculptor.UpdateGizmo;
 var
   absDir: TGLVector;
 begin
@@ -772,7 +772,7 @@ begin
   StatusBar.Panels[3].Text := Format('Z: %.2f', [SelectedObject.Position.Z]);
 end;
 
-procedure TFormMeshShow.ScnMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TfrmSculptor.ScnMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Pick := nil;
@@ -788,7 +788,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.SetVertexModifiers;
+procedure TfrmSculptor.SetVertexModifiers;
   procedure ScaleVector(var V1, V2: TVector3f);
   begin
     V1.X := V1.X * V2.X;
@@ -827,7 +827,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.ShowModifierStatus(const aObj: TModifierCube);
+procedure TfrmSculptor.ShowModifierStatus(const aObj: TModifierCube);
 begin
   if aObj = nil then
     StatusBar.Panels[0].Text := ''
@@ -836,7 +836,7 @@ begin
       [aObj.FVectorIndex]);
 end;
 
-procedure TFormMeshShow.ChangeMeshVector(const aObj: TModifierCube;
+procedure TfrmSculptor.ChangeMeshVector(const aObj: TModifierCube;
   const aPos: TVector4f);
 var
   lVIndex, lMIndex: Integer;
@@ -855,7 +855,7 @@ begin
   GLFreeForm1.StructureChanged;
 end;
 
-procedure TFormMeshShow.StripAndRecalc;
+procedure TfrmSculptor.StripAndRecalc;
 var
   lTrigList, lNormals: TGLAffineVectorList;
   lIndices: TGLIntegerList;
@@ -905,7 +905,7 @@ begin
   lIndices.Free;
 end;
 
-procedure TFormMeshShow.chbViewPointsClick(Sender: TObject);
+procedure TfrmSculptor.chbViewPointsClick(Sender: TObject);
 var
   i: Integer;
 begin
@@ -918,22 +918,22 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.chbShowAxisClick(Sender: TObject);
+procedure TfrmSculptor.chbShowAxisClick(Sender: TObject);
 begin
   dcModifiers.ShowAxes := TCheckBox(Sender).Checked;
 end;
 
-procedure TFormMeshShow.tbPosChange(Sender: TObject);
+procedure TfrmSculptor.tbPosChange(Sender: TObject);
 begin
   GLCamera1.Position.Z := tbPos.Position;
 end;
 
-procedure TFormMeshShow.ScnBeforeRender(Sender: TObject);
+procedure TfrmSculptor.ScnBeforeRender(Sender: TObject);
 begin
   glEnable(GL_NORMALIZE);
 end;
 
-procedure TFormMeshShow.btnVertexClick(Sender: TObject);
+procedure TfrmSculptor.btnVertexClick(Sender: TObject);
 var
   i, j: Integer;
   lList: TStringList;
@@ -957,7 +957,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.btnNormalsClick(Sender: TObject);
+procedure TfrmSculptor.btnNormalsClick(Sender: TObject);
 var
   i, j: Integer;
   lList: TStringList;
@@ -981,7 +981,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.btnTextcoordsClick(Sender: TObject);
+procedure TfrmSculptor.btnTextcoordsClick(Sender: TObject);
 var
   i, j: Integer;
   lList: TStringList;
@@ -1005,7 +1005,7 @@ begin
   end;
 end;
 
-procedure TFormMeshShow.btnGroupsClick(Sender: TObject);
+procedure TfrmSculptor.btnGroupsClick(Sender: TObject);
 var
   i: Integer;
   lList: TStringList;

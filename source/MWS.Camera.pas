@@ -1,7 +1,7 @@
-unit umCamera;
+unit MWS.Camera;
 
 (*
-  Коллекция объектов графики OpenGL
+  Camera objects for moving and vibration
 *)
 
 interface
@@ -16,14 +16,14 @@ uses
   GLS.Scene,
   GLS.Coordinates,
 
-  umSkyBodies;
+  MWS.SkyBodies;
 
 type
   TGLVec = array [0 .. 3] of GLFloat;
   TGLSpeedMatrix = array [0 .. 15] of GLFloat;
 
   // Перемещение камеры с помощью матрицы трансформации
-  TMovingCamera = class(tObject)
+  TGLMovingCamera = class(tObject)
   private
   protected
   public
@@ -58,7 +58,7 @@ type
   end; // record
 
   // Реализация вибрации и гироскопических эффектов
-  TRealMovingCamera = class(TMovingCamera)
+  TGLRealMovingCamera = class(TGLMovingCamera)
   protected
     Vibx, Viby, Vibz: single;
   public
@@ -70,13 +70,9 @@ type
     procedure GyroYaw(const Moment: single); // V rotation
   end; // class
 
-implementation // ========================================================
+implementation //------------------------------------------------------------
 
-
-(* ***********************************************************************
-  // CAMERA OBJECT
-  *********************************************************************** *)
-procedure TMovingCamera.Accelerate(const au, av, an: single);
+procedure TGLMovingCamera.Accelerate(const au, av, an: single);
 begin
   sx := sx + au * ux + av * vx + an * nx;
   sy := sy + au * uy + av * vy + an * ny;
@@ -84,7 +80,7 @@ begin
 end;
 
 // dx, dy and dz must have been computed beforehand
-procedure TMovingCamera.Apply;
+procedure TGLMovingCamera.Apply;
 begin
   SceneObject.Position.SetVector(x, y, z);
   SceneObject.Direction.SetVector(nx, ny, nz);
@@ -92,7 +88,7 @@ begin
 end;
 
 // Z directed along the speed vector, X and Y are in the ship's horizontal plane
-procedure TMovingCamera.ApplyFrontView;
+procedure TGLMovingCamera.ApplyFrontView;
 var
   { sx1,sy1,sz1, } s: single;
 begin
@@ -117,18 +113,18 @@ begin
   glMultMatrixf(@SpeedMatrix);
 end;
 
-procedure TMovingCamera.ComputeSpeed;
+procedure TGLMovingCamera.ComputeSpeed;
 begin
-  Speed := sqrt(sqr(sx) + sqr(sy) + sqr(sz));
+  Speed := Sqrt(Sqr(sx) + Sqr(sy) + Sqr(sz));
 end;
 
-constructor TMovingCamera.Create;
+constructor TGLMovingCamera.Create;
 begin
   inherited Create;
   ResetAttitude;
 end;
 
-procedure TMovingCamera.GoThatWay;
+procedure TGLMovingCamera.GoThatWay;
 begin
   sx := nx * Speed;
   sy := ny * Speed;
@@ -136,7 +132,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.Move(const du, dv, dn: single);
+procedure TGLMovingCamera.Move(const du, dv, dn: single);
 begin
   x := x + (du * ux + dv * vx + dn * nx);
   y := y + (du * uy + dv * vy + dn * ny);
@@ -144,7 +140,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.Pitch(const Angle: single);
+procedure TGLMovingCamera.Pitch(const Angle: single);
 var
   tempx, tempy, tempz: single;
   cosine, sine: double;
@@ -163,7 +159,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.ResetAttitude;
+procedure TGLMovingCamera.ResetAttitude;
 begin
   ux := 1;
   uy := 0;
@@ -177,7 +173,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.Roll(const Angle: single);
+procedure TGLMovingCamera.Roll(const Angle: single);
 var
   tempx, tempy, tempz: single;
   cosine, sine: double;
@@ -196,7 +192,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.Translate(const dx, dy, dz: single);
+procedure TGLMovingCamera.Translate(const dx, dy, dz: single);
 begin
   x := x + dx;
   y := y + dy;
@@ -204,13 +200,13 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.UpdateAll(const Time: double);
+procedure TGLMovingCamera.UpdateAll(const Time: double);
 begin
   UpdatePosition(Time);
   UpdateAttitude(Time);
 end;
 
-procedure TMovingCamera.UpdateAttitude(const Time: double);
+procedure TGLMovingCamera.UpdateAttitude(const Time: double);
 begin
   Pitch(ru * Time);
   Yaw(rv * Time);
@@ -218,13 +214,13 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.UpdatePosition(const Time: double);
+procedure TGLMovingCamera.UpdatePosition(const Time: double);
 begin
   Translate(sx * Time, sy * Time, sz * Time);
 end;
 
 //----------------------------------------------------------------
-procedure TMovingCamera.Yaw(const Angle: single);
+procedure TGLMovingCamera.Yaw(const Angle: single);
 var
   tempx, tempy, tempz: single;
   cosine, sine: double;
@@ -243,7 +239,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TRealMovingCamera.Apply;
+procedure TGLRealMovingCamera.Apply;
 begin
   with SceneObject do
   begin
@@ -259,7 +255,7 @@ begin
 end;
 
 // Input axis: U
-procedure TRealMovingCamera.GyroPitch(const Moment: single);
+procedure TGLRealMovingCamera.GyroPitch(const Moment: single);
 var
   dWu, dWv, dWn: single; // Rotation acceleration
   Ini, Ino, Inr: single; // Inertia along input, output and rotor axes
@@ -288,7 +284,7 @@ begin
 end;
 
 // Input axis: N
-procedure TRealMovingCamera.GyroRoll(const Moment: single);
+procedure TGLRealMovingCamera.GyroRoll(const Moment: single);
 var
   dWu, dWv, dWn: single; // Rotation acceleration
   Ini, Ino, Inr: single; // Inertia along input, output and rotor axes
@@ -317,7 +313,7 @@ begin
 end;
 
 // Input axis: V
-procedure TRealMovingCamera.GyroYaw(const Moment: single);
+procedure TGLRealMovingCamera.GyroYaw(const Moment: single);
 var
   dWu, dWv, dWn: single; // Rotation acceleration
   Ini, Ino, Inr: single; // Inertia along input, output and rotor axes
@@ -346,7 +342,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-procedure TRealMovingCamera.Vibrate(const Vibration: single);
+procedure TGLRealMovingCamera.Vibrate(const Vibration: single);
 begin
   Vibx := random * 2 * Vibration - Vibration;
   Viby := random * 2 * Vibration - Vibration;
@@ -354,7 +350,7 @@ begin
 end;
 
 //----------------------------------------------------------------
-destructor TMovingCamera.Destroy;
+destructor TGLMovingCamera.Destroy;
 begin
   inherited Destroy;
 end;

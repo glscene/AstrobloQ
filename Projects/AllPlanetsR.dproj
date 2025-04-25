@@ -124,9 +124,9 @@
             <Form>FormGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umCamera.pas"/>
-        <DCCReference Include="..\source\umSkyBodies.pas"/>
-        <DCCReference Include="..\source\umGlobals.pas"/>
+        <DCCReference Include="..\source\MWS.Camera.pas"/>
+        <DCCReference Include="..\source\MWS.SkyBodies.pas"/>
+        <DCCReference Include="..\source\Space.Globals.pas"/>
         <DCCReference Include="..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>

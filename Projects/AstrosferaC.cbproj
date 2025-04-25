@@ -215,7 +215,7 @@
             <BuildOrder>10</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\source\astroc\fcAstrosfera.cpp">
-            <Form>FormAstroViewer</Form>
+            <Form>frmAstroViewer</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\source\astroc\fcAstrosfera.h</DependentOn>
             <BuildOrder>11</BuildOrder>

@@ -184,7 +184,7 @@
         </DCCReference>
         <DCCReference Include="..\Externals\sofa\sofa.pas"/>
         <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
-        <DCCReference Include="..\source\umUtils.pas"/>
+        <DCCReference Include="..\source\MWS.Utils.pas"/>
         <DCCReference Include="..\source\astro\faAstromif.pas">
             <Form>FormAstromif</Form>
             <FormType>dfm</FormType>
@@ -193,7 +193,7 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umGlobals.pas"/>
+        <DCCReference Include="..\source\Space.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

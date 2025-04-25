@@ -47,8 +47,7 @@ uses
   GLS.Context,
   GLS.GeomObjects,
 
-  fmAbout,
-  umUtils;
+  fmAbout;
 
 type
   TMarkerPosition = class(TObject)
@@ -338,8 +337,8 @@ implementation   // -----------------------------------------------------------
 uses
   Teh.Globals,
   // accurate movements left for later... or the astute reader
-  umCamera,
-  umSkyBodies, // Asteroid as monolith rock
+  MWS.Camera,
+  MWS.SkyBodies, // Asteroid as monolith rock
   // ftAllShapeLoader,  // Cities, Countries
   ftMeshEditorR,
   ftLocationsR, // Data input for a planet

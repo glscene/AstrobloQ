@@ -3,8 +3,9 @@ inherited frmOption: TfrmOption
   Caption = 'Options'
   ClientHeight = 759
   ClientWidth = 1313
-  ExplicitWidth = 1337
-  ExplicitHeight = 823
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 1329
+  ExplicitHeight = 798
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
@@ -76,7 +77,6 @@ inherited frmOption: TfrmOption
         0000000000000000000000010750006C0061006E0065007400730000002D0000
         000000000000000000FFFFFFFFFFFFFFFF070000000000000000000000000107
         5000610074006800770061007900}
-      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -1148,7 +1148,7 @@ inherited frmOption: TfrmOption
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 154
+          Left = 146
           Top = 53
           Width = 149
           Height = 200

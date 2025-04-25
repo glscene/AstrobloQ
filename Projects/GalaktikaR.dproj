@@ -150,7 +150,7 @@
             <Form>frmGalaktika</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umUtils.pas"/>
+        <DCCReference Include="..\source\MWS.Utils.pas"/>
         <DCCReference Include="..\Addons\StarProj\fStarProj.pas">
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
@@ -178,8 +178,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umGlobals.pas"/>
-        <DCCReference Include="..\source\umSkyBodies.pas"/>
+        <DCCReference Include="..\source\Space.Globals.pas"/>
+        <DCCReference Include="..\source\MWS.SkyBodies.pas"/>
         <DCCReference Include="..\source\fmForm.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>

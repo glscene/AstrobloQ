@@ -48,7 +48,7 @@ uses
   GLS.GeomObjects,
 
   fmAbout,
-  umUtils;
+  MWS.Utils;
 
 type
   TMarkerPosition = class(TObject)
@@ -339,8 +339,8 @@ implementation   // -----------------------------------------------------------
 uses
   Teh.Globals,
   // accurate movements left for later... or the astute reader
-  umCamera,
-  umSkyBodies, // Asteroid as monolith rock
+  MWS.Camera,
+  MWS.SkyBodies, // Asteroid as monolith rock
   // ftAllShapeLoader,  // Cities, Countries
   ftMeshEditor,
   ftLocations, // Data input for a planet
@@ -381,17 +381,17 @@ var
   sDate, sDateSmuoosh, sDateFormat, sWhoWhereFormat: String;
 
 begin
-  DataDir := GetDataPath(); // ExtractFilePath(ParamStr(0)) + 'data\';;
+  DataDir :=  ExtractFilePath(ParamStr(0)) + 'tehdata\'; // not GetDataPath();
   SetCurrentDir(DataDir);
 
-  (*
-    if FileExists(ExtractFilePath(ParamStr(0)) + 'EarthGLS.pof') then
-    begin
+  if FileExists('EarthGLS.pof') then
+  begin
     DoLoader;
-    end
-    else
-    begin
-  *)
+  end
+  else
+  begin
+  end;
+
   FormPlanetX := 0;
   FormPlanetY := 0;
   FormCyborgX := 123;
@@ -1957,15 +1957,7 @@ procedure TfrmTehnosfera.miMeshShowClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  FormMeshShow.ShowModal;
-  (*
-    with TFormMeshShow.Create(Self) do
-    try
-    ShowModal;
-    finally
-    Free;
-    end;
-  *)
+  frmSculptor.ShowModal;
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;

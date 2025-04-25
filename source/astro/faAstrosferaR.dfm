@@ -62,6 +62,7 @@ object frmAstrosfera: TfrmAstrosfera
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 689
       end
       object tvPlanets: TTreeView
         Left = 0
@@ -171,7 +172,6 @@ object frmAstrosfera: TfrmAstrosfera
           000000000000FFFFFFFFFFFFFFFF00000000000000000000000000010000001F
           0000000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000000
           0100}
-        ExplicitHeight = 537
       end
     end
     object tsConstellations: TTabSheet

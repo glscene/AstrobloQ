@@ -141,7 +141,6 @@
         </DCCReference>
         <DCCReference Include="..\source\teh\Teh.BoneUtils.pas"/>
         <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
-        <DCCReference Include="..\source\umUtils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -165,9 +164,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umCamera.pas"/>
-        <DCCReference Include="..\source\umGlobals.pas"/>
-        <DCCReference Include="..\source\umSkyBodies.pas"/>
+        <DCCReference Include="..\source\MWS.Camera.pas"/>
+        <DCCReference Include="..\source\MWS.SkyBodies.pas"/>
         <DCCReference Include="..\source\teh\ftTehnosferaR.pas">
             <Form>frmTehnosfera</Form>
             <FormType>dfm</FormType>

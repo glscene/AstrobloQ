@@ -1,4 +1,4 @@
-object FormMeshShow: TFormMeshShow
+object frmSculptor: TfrmSculptor
   Left = 122
   Top = 59
   Caption = 'Sculptor'
@@ -63,7 +63,6 @@ object FormMeshShow: TFormMeshShow
     OnMouseMove = ScnMouseMove
     OnMouseUp = ScnMouseUp
     TabOrder = 0
-    ExplicitWidth = 472
   end
   object StatusBar: TStatusBar
     Left = 0
@@ -86,6 +85,8 @@ object FormMeshShow: TFormMeshShow
       item
         Width = 50
       end>
+    ExplicitTop = 354
+    ExplicitWidth = 668
   end
   object ControlPanel: TPanel
     Left = 0
@@ -95,6 +96,7 @@ object FormMeshShow: TFormMeshShow
     Align = alLeft
     BevelInner = bvLowered
     TabOrder = 2
+    ExplicitHeight = 354
     object PageControl1: TPageControl
       Left = 2
       Top = 2
@@ -103,6 +105,7 @@ object FormMeshShow: TFormMeshShow
       ActivePage = TabSheet3
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 350
       object TabSheetControls: TTabSheet
         Caption = 'Controls'
         object Label6: TLabel

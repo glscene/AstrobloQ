@@ -2,8 +2,8 @@ object FormI: TFormI
   Left = 392
   Top = 227
   HelpContext = 1
-  ClientHeight = 535
-  ClientWidth = 787
+  ClientHeight = 542
+  ClientWidth = 798
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

@@ -275,7 +275,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbMiniFormR.pas"/>
-        <DCCReference Include="..\source\umGlobals.pas"/>
+        <DCCReference Include="..\source\Space.Globals.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

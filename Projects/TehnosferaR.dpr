@@ -14,15 +14,13 @@ uses
   ftCETI in '..\source\teh\ftCETI.pas' {FormTehnosfera},
   Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
   Teh.Globals in '..\source\teh\Teh.Globals.pas',
-  umUtils in '..\source\umUtils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   ftOptionsR in '..\source\teh\ftOptionsR.pas' {frmOptions},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
-  umCamera in '..\source\umCamera.pas',
-  umGlobals in '..\source\umGlobals.pas',
-  umSkyBodies in '..\source\umSkyBodies.pas',
+  MWS.Camera in '..\source\MWS.Camera.pas',
+  MWS.SkyBodies in '..\source\MWS.SkyBodies.pas',
   ftTehnosferaR in '..\source\teh\ftTehnosferaR.pas' {frmTehnosfera};
 
 {$R *.res}

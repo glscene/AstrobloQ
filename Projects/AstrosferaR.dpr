@@ -19,7 +19,7 @@ uses
   faHercRusselR in '..\source\astro\faHercRusselR.pas' {FormHercrussel},
   faHipparcosR in '..\source\astro\faHipparcosR.pas' {FormHipparcos},
   faOptionsR in '..\source\astro\faOptionsR.pas' {frmOptions},
-  umUtils in '..\source\umUtils.pas',
+  MWS.Utils in '..\source\MWS.Utils.pas',
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
   Apc.DE in '..\Addons\Apex\apc\Apc.DE.pas',
@@ -35,7 +35,7 @@ uses
   faAstrosferaR in '..\source\astro\faAstrosferaR.pas' {frmAstrosfera},
   faAstromifR in '..\source\astro\faAstromifR.pas' {FormAstromif},
   fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
-  umGlobals in '..\source\umGlobals.pas',
+  Space.Globals in '..\source\Space.Globals.pas',
   fmForm in '..\source\fmForm.pas' {FormI};
 
 {$R *.res}

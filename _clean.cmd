@@ -21,7 +21,7 @@ del *.drc /s
 del *.local /s
 del *.ini /s
 del *.pof /s
-
+del *.dsv /s
 
 rem delete more files
 

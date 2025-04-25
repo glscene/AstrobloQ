@@ -1,74 +1,67 @@
+unit Space.ReadCSV;
+
 (*
+  CSV parser for Free. Fields as String, Integer or Extended.
+  Usage:
 
-# TObject - TgxDataSourceCSV
-CSV parser for Free. Fields as String, Integer or Extended.
-
-# Usage:
-```
-  var Source: TgxDataSourceCSV;
-
-  Source := TgxDataSourceCSV.Create;
+  begin
+  var Source: TspDataSourceCSV;
+  Source := TspDataSourceCSV.Create;
   try
-    Source.SetDelimiter(Char(59));
+    Source.SetDelimiter(Char(59));  // this is ;
     Source.LoadFromFile(FileName);
-
     while not Source.Eof do
     begin
-
       ShowMessage(Source.FieldByNameAsString('RA'));
-
       Source.Next;
     end;
   finally
     Source.Free;
   end;
   end;
-  
 *)
-
-unit uDataSourceCSV;
 
 interface
 
 uses
-  System.Classes, 
-  System.SysUtils, 
-  Winapi.Windows;
+  Winapi.Windows,
+  System.Classes,
+  System.SysUtils;
 
 type
-  TgxDataSourceCSV = class(TObject)
-    protected
-      _columns: TStringList;
-      _rows: TStringList;
-      _delimiter: Char;
-      _index: Integer;
-      _feof: Boolean;
-      _date_separator: Char;
-    public
-      constructor Create();
-      procedure LoadFromFile(const FileName: ShortString);
-      procedure SetDelimiter(const Character: Char);
-      procedure SetDateSeparator(const Separator: Char);
-      procedure First;
-      function GetTotal(): Integer;
-      function GetRowString(): String;
-      function FieldByNameAsString(Column: ShortString): String;
-      function FieldByNameAsInteger(Column: ShortString): Integer;
-      function FieldByNameAsFloat(Column: ShortString): Extended;
-      function FieldByNameAsDate(Column: ShortString): TDate;
-      function FieldByNameAsTime(Column: ShortString): TTime;
-      function FieldByNameAsDateTime(Column: ShortString): TDateTime;
-      procedure Next;
-      property Eof: Boolean read _feof;
-      property Count: Integer read GetTotal;
-    private
-      function GetColumnIndex(Column: ShortString): Integer;
-    published
+  TspDataSourceCSV = class(TObject)
+  protected
+    _columns: TStringList;
+    _rows: TStringList;
+    _delimiter: Char;
+    _index: Integer;
+    _feof: Boolean;
+    _date_separator: Char;
+  public
+    constructor Create();
+    procedure LoadFromFile(const FileName: ShortString);
+    procedure SetDelimiter(const Character: Char);
+    procedure SetDateSeparator(const Separator: Char);
+    procedure First;
+    function GetTotal(): Integer;
+    function GetRowString(): String;
+    function FieldByNameAsString(Column: ShortString): String;
+    function FieldByNameAsInteger(Column: ShortString): Integer;
+    function FieldByNameAsFloat(Column: ShortString): Extended;
+    function FieldByNameAsDate(Column: ShortString): TDate;
+    function FieldByNameAsTime(Column: ShortString): TTime;
+    function FieldByNameAsDateTime(Column: ShortString): TDateTime;
+    procedure Next;
+    property Eof: Boolean read _feof;
+    property Count: Integer read GetTotal;
+  private
+    function GetColumnIndex(Column: ShortString): Integer;
+  published
   end;
 
-implementation //-------------------------------------------
+implementation // -------------------------------------------
 
-constructor TgxDataSourceCSV.Create;
+constructor TspDataSourceCSV.Create;
 begin
   Self._columns := TStringList.Create;
   Self._rows := TStringList.Create;
@@ -78,9 +71,9 @@ begin
   Self._date_separator := '-';
 end;
 
-procedure TgxDataSourceCSV.LoadFromFile(const FileName: ShortString);
+procedure TspDataSourceCSV.LoadFromFile(const FileName: ShortString);
 var
-  loadedFile,Row: TStringList;
+  loadedFile, Row: TStringList;
   I: Integer;
 begin
   loadedFile := TStringList.Create;
@@ -92,7 +85,7 @@ begin
   Row.Delimiter := Self._delimiter;
   Row.DelimitedText := loadedFile.Strings[0]; // first row is column names
 
-  for I := 0 to Row.Count -1 do
+  for I := 0 to Row.Count - 1 do
   begin
     Self._columns.Add(Row.Strings[I]);
   end;
@@ -107,32 +100,32 @@ begin
   Self._feof := False;
 end;
 
-procedure TgxDataSourceCSV.SetDelimiter(const Character: Char);
+procedure TspDataSourceCSV.SetDelimiter(const Character: Char);
 begin
   Self._delimiter := Character;
 end;
 
-procedure TgxDataSourceCSV.SetDateSeparator(const Separator: Char);
+procedure TspDataSourceCSV.SetDateSeparator(const Separator: Char);
 begin
   Self._date_separator := Separator;
 end;
 
-procedure TgxDataSourceCSV.First;
+procedure TspDataSourceCSV.First;
 begin
   Self._index := 0;
 end;
 
-function TgxDataSourceCSV.GetTotal: Integer;
+function TspDataSourceCSV.GetTotal: Integer;
 begin
   Result := Self._rows.Count;
 end;
 
-function TgxDataSourceCSV.GetRowString: String;
+function TspDataSourceCSV.GetRowString: String;
 begin
   Result := Self._rows.Strings[Self._index];
 end;
 
-function TgxDataSourceCSV.GetColumnIndex(Column: ShortString): Integer;
+function TspDataSourceCSV.GetColumnIndex(Column: ShortString): Integer;
 var
   ColumnIndex: Integer;
 begin
@@ -143,7 +136,7 @@ begin
     raise Exception.Create('Error: Column "' + Column + '" not found !');
 end;
 
-function TgxDataSourceCSV.FieldByNameAsString(Column: ShortString): String;
+function TspDataSourceCSV.FieldByNameAsString(Column: ShortString): String;
 var
   ColumnIndex: Integer;
   Row: TStringList;
@@ -156,7 +149,7 @@ begin
   Result := Row.Strings[ColumnIndex];
 end;
 
-function TgxDataSourceCSV.FieldByNameAsInteger(Column: ShortString): Integer;
+function TspDataSourceCSV.FieldByNameAsInteger(Column: ShortString): Integer;
 var
   ColumnIndex: Integer;
   Row: TStringList;
@@ -169,7 +162,7 @@ begin
   Result := StrToIntDef(Row.Strings[ColumnIndex], 0);
 end;
 
-function TgxDataSourceCSV.FieldByNameAsFloat(Column: ShortString): Extended;
+function TspDataSourceCSV.FieldByNameAsFloat(Column: ShortString): Extended;
 var
   ColumnIndex: Integer;
   Row: TStringList;
@@ -182,7 +175,7 @@ begin
   Result := StrToFloatDef(Row.Strings[ColumnIndex], 0);
 end;
 
-function TgxDataSourceCSV.FieldByNameAsDate(Column: ShortString): TDate;
+function TspDataSourceCSV.FieldByNameAsDate(Column: ShortString): TDate;
 var
   ColumnIndex: Integer;
   Row: TStringList;
@@ -199,7 +192,7 @@ begin
   Result := StrToDate(Row.Strings[ColumnIndex], MySettings);
 end;
 
-function TgxDataSourceCSV.FieldByNameAsTime(Column: ShortString): TTime;
+function TspDataSourceCSV.FieldByNameAsTime(Column: ShortString): TTime;
 var
   ColumnIndex: Integer;
   Row: TStringList;
@@ -212,7 +205,7 @@ begin
   Result := StrToTime(Row.Strings[ColumnIndex]);
 end;
 
-function TgxDataSourceCSV.FieldByNameAsDateTime(Column: ShortString): TDateTime;
+function TspDataSourceCSV.FieldByNameAsDateTime(Column: ShortString): TDateTime;
 var
   ColumnIndex: Integer;
   Row: TStringList;
@@ -229,7 +222,7 @@ begin
   Result := StrToDateTime(Row.Strings[ColumnIndex], MySettings);
 end;
 
-procedure TgxDataSourceCSV.Next;
+procedure TspDataSourceCSV.Next;
 begin
   Inc(Self._index);
   if Self._index = Self._rows.Count then

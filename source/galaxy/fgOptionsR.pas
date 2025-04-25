@@ -33,7 +33,7 @@ uses
   Vcl.ImgList,
   Vcl.Themes,
 
-  umGlobals,
+  Space.Globals,
   dmImages,
   fmForm;
 

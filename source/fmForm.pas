@@ -28,12 +28,9 @@ type
 var
   FormI: TFormI;
 
-implementation
+implementation //----------------------------------------------------------
 
 {$R *.dfm}
-
-uses
-  umGlobals;
 
 //
 procedure TFormI.FormCreate(Sender: TObject);
@@ -50,7 +47,7 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      LanguageID := ReadInteger('frmSettings', 'rgLanguage', 0);
+      FormI.Height := ReadInteger('frmSettings', 'FormHeight', 200);
     finally
       IniFile.Free;
     end;

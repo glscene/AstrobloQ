@@ -11,15 +11,15 @@ uses
   fgAstrocubeR in '..\source\galaxy\fgAstrocubeR.pas' {FormNewStarcube},
   fgOptionsR in '..\source\galaxy\fgOptionsR.pas' {frmOptions},
   fgGalaktikaR in '..\source\galaxy\fgGalaktikaR.pas' {frmGalaktika},
-  umUtils in '..\source\umUtils.pas',
+  MWS.Utils in '..\source\MWS.Utils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmSettingsR in '..\source\fmSettingsR.pas' {FormSettings},
   fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
-  umGlobals in '..\source\umGlobals.pas',
-  umSkyBodies in '..\source\umSkyBodies.pas',
+  Space.Globals in '..\source\Space.Globals.pas',
+  MWS.SkyBodies in '..\source\MWS.SkyBodies.pas',
   fmForm in '..\source\fmForm.pas' {FormI},
   fgAnalyserR in '..\source\galaxy\fgAnalyserR.pas' {FormAnalyser};
 

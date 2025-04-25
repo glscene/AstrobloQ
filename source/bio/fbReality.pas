@@ -23,7 +23,7 @@ uses
   fbManager,
   fbMiniForm,
 
-  umGlobals;
+  Space.Globals;
 
 // geTipofDay
 

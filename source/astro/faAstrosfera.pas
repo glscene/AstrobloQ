@@ -59,7 +59,7 @@ uses
   faHercRussel,
   faHipparcos,
 
-  umUtils;
+  MWS.Utils;
 
 type
   TfrmAstrosfera = class(TFormI)

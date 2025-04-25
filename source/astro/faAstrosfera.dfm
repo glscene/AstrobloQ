@@ -60,6 +60,7 @@ object frmAstrosfera: TfrmAstrosfera
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 696
       end
       object tvPlanets: TTreeView
         Left = 0
@@ -172,7 +173,6 @@ object frmAstrosfera: TfrmAstrosfera
           0064006E00610000001F0000000000000000000000FFFFFFFFFFFFFFFF000000
           00000000000000000000010000001F0000000000000000000000FFFFFFFFFFFF
           FFFF000000000000000000000000000100}
-        ExplicitHeight = 523
       end
     end
     object tsConstellations: TTabSheet
@@ -182,7 +182,7 @@ object frmAstrosfera: TfrmAstrosfera
         Left = 209
         Top = 0
         Width = 720
-        Height = 548
+        Height = 546
         Align = alClient
         ImageCollection = DataModuleImages.ConstelCharts
         ImageWidth = 0
@@ -206,14 +206,15 @@ object frmAstrosfera: TfrmAstrosfera
         Left = 0
         Top = 0
         Width = 209
-        Height = 548
+        Height = 546
         Align = alLeft
         TabOrder = 0
+        ExplicitHeight = 548
         object tvConstellations: TTreeView
           Left = 1
           Top = 1
           Width = 207
-          Height = 546
+          Height = 544
           Align = alClient
           Color = clWhite
           Images = DataModuleImages.VirtConstelSymbols
@@ -418,7 +419,7 @@ object frmAstrosfera: TfrmAstrosfera
     Height = 27
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 929
+    ExplicitWidth = 945
     object tbMain: TToolBar
       Left = 19
       Top = 2

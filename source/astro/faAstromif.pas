@@ -38,8 +38,8 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
-  umGlobals,
-  umUtils,
+  Space.Globals,
+  MWS.Utils,
 
   faMixTextures,
   dmImages;

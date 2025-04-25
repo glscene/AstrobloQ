@@ -4,6 +4,7 @@ inherited frmOptions: TfrmOptions
   ClientHeight = 759
   ClientWidth = 1313
   Font.Height = -19
+  StyleElements = [seFont, seClient, seBorder]
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 25
@@ -1135,7 +1136,7 @@ inherited frmOptions: TfrmOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 138
+          Left = 130
           Top = 53
           Width = 149
           Height = 200

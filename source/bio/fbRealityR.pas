@@ -25,7 +25,7 @@ uses
   fbManagerR,
   fbMiniFormR,
 
-  umGlobals;
+  Space.Globals;
 
 // geTipofDay
 

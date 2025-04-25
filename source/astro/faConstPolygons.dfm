@@ -20,7 +20,6 @@ object FormConstBorders: TFormConstBorders
     Height = 443
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 418
     object tvShortNames: TTreeView
       Left = 1
       Top = 41
@@ -72,7 +71,6 @@ object FormConstBorders: TFormConstBorders
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 531
   end
   object MemoData: TMemo
     Left = 240

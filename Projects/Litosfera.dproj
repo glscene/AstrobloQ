@@ -130,7 +130,7 @@
             <Form>frmLitosfera</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\umGlobals.pas"/>
+        <DCCReference Include="..\source\Space.Globals.pas"/>
         <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>

@@ -36,12 +36,6 @@
         <Projects Include="Projects\GalaktikaR.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Universum.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\UniversumR.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -149,32 +143,14 @@
     <Target Name="GalaktikaR:Make">
         <MSBuild Projects="Projects\GalaktikaR.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Universum">
-        <MSBuild Projects="Projects\Universum.dproj"/>
-    </Target>
-    <Target Name="Universum:Clean">
-        <MSBuild Projects="Projects\Universum.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Universum:Make">
-        <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="UniversumR">
-        <MSBuild Projects="Projects\UniversumR.dproj"/>
-    </Target>
-    <Target Name="UniversumR:Clean">
-        <MSBuild Projects="Projects\UniversumR.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="UniversumR:Make">
-        <MSBuild Projects="Projects\UniversumR.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AllPlanets;AllPlanetsR;Astrosfera;AstrosferaR;Litosfera;Biosfera;BiosferaR;Tehnosfera;TehnosferaR;Galaktika;GalaktikaR;Universum;UniversumR"/>
+        <CallTarget Targets="AllPlanets;AllPlanetsR;Astrosfera;AstrosferaR;Litosfera;Biosfera;BiosferaR;Tehnosfera;TehnosferaR;Galaktika;GalaktikaR"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AllPlanets:Clean;AllPlanetsR:Clean;Astrosfera:Clean;AstrosferaR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Tehnosfera:Clean;TehnosferaR:Clean;Galaktika:Clean;GalaktikaR:Clean;Universum:Clean;UniversumR:Clean"/>
+        <CallTarget Targets="AllPlanets:Clean;AllPlanetsR:Clean;Astrosfera:Clean;AstrosferaR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Tehnosfera:Clean;TehnosferaR:Clean;Galaktika:Clean;GalaktikaR:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AllPlanets:Make;AllPlanetsR:Make;Astrosfera:Make;AstrosferaR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Tehnosfera:Make;TehnosferaR:Make;Galaktika:Make;GalaktikaR:Make;Universum:Make;UniversumR:Make"/>
+        <CallTarget Targets="AllPlanets:Make;AllPlanetsR:Make;Astrosfera:Make;AstrosferaR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Tehnosfera:Make;TehnosferaR:Make;Galaktika:Make;GalaktikaR:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

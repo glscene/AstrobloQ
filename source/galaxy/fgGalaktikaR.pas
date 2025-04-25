@@ -60,7 +60,7 @@ uses
   fgAstrocubeR,
   fgOptionsR,
 
-  umGlobals;
+  Space.Globals;
 
 type
   TfrmGalaktika = class(TFormI) // not translated if TForm

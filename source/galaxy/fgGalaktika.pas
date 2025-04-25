@@ -61,8 +61,8 @@ uses
   fgParadox,
   fgAstrocube,
 
-  umGlobals,
-  umUtils;
+  Space.Globals,
+  MWS.Utils;
 
 type
   TfrmGalaktika = class(TFormI) // not translated if TForm

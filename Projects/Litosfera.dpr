@@ -19,7 +19,7 @@ uses
   fmForm in '..\source\fmForm.pas' {FormG},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   flLitosfera in '..\source\lito\flLitosfera.pas' {frmLitosfera},
-  umGlobals in '..\source\umGlobals.pas',
+  Space.Globals in '..\source\Space.Globals.pas',
   fmAbout in '..\source\fmAbout.pas' {FormAbout};
 
 {$R *.res}

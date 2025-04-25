@@ -31,10 +31,10 @@ uses
   faOptions in '..\source\astro\faOptions.pas' {frmOptions},
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
-  umUtils in '..\source\umUtils.pas',
+  MWS.Utils in '..\source\MWS.Utils.pas',
   faAstromif in '..\source\astro\faAstromif.pas' {FormAstromif},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
-  umGlobals in '..\source\umGlobals.pas',
+  Space.Globals in '..\source\Space.Globals.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}
