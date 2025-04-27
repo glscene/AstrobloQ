@@ -38,7 +38,7 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
-  MWS.Utils,
+  Astro.Utils,
   Space.Globals,
 
   fmForm,

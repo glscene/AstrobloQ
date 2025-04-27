@@ -19,8 +19,8 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   ftOptionsR in '..\source\teh\ftOptionsR.pas' {frmOptions},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
-  MWS.Camera in '..\source\MWS.Camera.pas',
-  MWS.SkyBodies in '..\source\MWS.SkyBodies.pas',
+  Astro.Camera in '..\source\astro\Astro.Camera.pas',
+  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   ftTehnosferaR in '..\source\teh\ftTehnosferaR.pas' {frmTehnosfera};
 
 {$R *.res}

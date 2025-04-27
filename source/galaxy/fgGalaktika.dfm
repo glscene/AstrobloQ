@@ -42,7 +42,7 @@ object frmGalaktika: TfrmGalaktika
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 990
+    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -190,7 +190,6 @@ object frmGalaktika: TfrmGalaktika
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762

@@ -24,7 +24,7 @@ uses
   GLS.BaseClasses,
   GLS.Scene,
 
-  MWS.Utils,
+  Astro.Utils,
   fmForm;
 
 type

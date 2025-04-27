@@ -31,7 +31,7 @@ uses
   faOptions in '..\source\astro\faOptions.pas' {frmOptions},
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
-  MWS.Utils in '..\source\MWS.Utils.pas',
+  Astro.Utils in '..\source\astro\Astro.Utils.pas',
   faAstromif in '..\source\astro\faAstromif.pas' {FormAstromif},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   Space.Globals in '..\source\Space.Globals.pas',

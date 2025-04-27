@@ -1,4 +1,4 @@
-unit MWS.SkyBodies;
+unit Astro.SkyBodies;
 
 (*-----------------------------------------------------------------------------
   Objects for multiple planets, moons, asteroids with their individual properties.

@@ -1,17 +1,19 @@
 inherited frmOptions: TfrmOptions
   HelpContext = 0
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
-  ClientHeight = 759
-  ClientWidth = 1313
+  ClientHeight = 745
+  ClientWidth = 1297
   Font.Height = -19
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 1329
-  ExplicitHeight = 798
+  ExplicitLeft = 4
+  ExplicitTop = 4
+  ExplicitWidth = 1313
+  ExplicitHeight = 784
   TextHeight = 25
   object PanelBottom: TPanel
     Left = 0
-    Top = 687
-    Width = 1313
+    Top = 673
+    Width = 1297
     Height = 72
     Margins.Left = 5
     Margins.Top = 5
@@ -39,19 +41,21 @@ inherited frmOptions: TfrmOptions
   object PanelMain: TPanel
     Left = 0
     Top = 0
-    Width = 1313
-    Height = 687
+    Width = 1297
+    Height = 673
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 1305
+    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
       Width = 218
-      Height = 685
+      Height = 671
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -77,12 +81,13 @@ inherited frmOptions: TfrmOptions
         FFFF0600000000000000000000000001071F043B0430043D04350442044B0400
         00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
         000001041F04430442043804}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
       Top = 1
-      Width = 1093
-      Height = 685
+      Width = 1077
+      Height = 671
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -241,7 +246,7 @@ inherited frmOptions: TfrmOptions
         object ListView: TListView
           Left = 0
           Top = 0
-          Width = 1085
+          Width = 1069
           Height = 380
           Margins.Left = 5
           Margins.Top = 5
@@ -266,6 +271,7 @@ inherited frmOptions: TfrmOptions
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
+          ExplicitWidth = 1085
         end
         object ButtonModifyMat: TButton
           Left = 254
@@ -1122,8 +1128,8 @@ inherited frmOptions: TfrmOptions
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
-          1085
-          675)
+          1069
+          661)
         object ColorGrid1: TColorGrid
           Left = 784
           Top = 53
@@ -1136,7 +1142,7 @@ inherited frmOptions: TfrmOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 130
+          Left = 106
           Top = 53
           Width = 149
           Height = 200
@@ -1164,6 +1170,7 @@ inherited frmOptions: TfrmOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
+          ExplicitLeft = 122
         end
         object GroupBox2: TGroupBox
           Left = 56
@@ -1303,14 +1310,16 @@ inherited frmOptions: TfrmOptions
         object PanelTitle: TPanel
           Left = 0
           Top = 0
-          Width = 1085
-          Height = 675
+          Width = 1069
+          Height = 661
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
+          ExplicitWidth = 1085
+          ExplicitHeight = 675
           object LabelStarI: TLabel
             Left = 75
             Top = 70

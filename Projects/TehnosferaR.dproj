@@ -164,8 +164,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\MWS.Camera.pas"/>
-        <DCCReference Include="..\source\MWS.SkyBodies.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
+        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\teh\ftTehnosferaR.pas">
             <Form>frmTehnosfera</Form>
             <FormType>dfm</FormType>

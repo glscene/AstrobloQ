@@ -22,9 +22,9 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fmGenExosystem in '..\source\fmGenExosystem.pas' {FormGenPlanetsys},
-  MWS.Camera in '..\source\MWS.Camera.pas',
+  Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Space.Globals in '..\source\Space.Globals.pas',
-  MWS.SkyBodies in '..\source\MWS.SkyBodies.pas',
+  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
   Space.ReadCSV in '..\source\Space.ReadCSV.pas';

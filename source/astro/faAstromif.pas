@@ -39,7 +39,7 @@ uses
   GLS.VectorFileObjects,
 
   Space.Globals,
-  MWS.Utils,
+  Astro.Utils,
 
   faMixTextures,
   dmImages;

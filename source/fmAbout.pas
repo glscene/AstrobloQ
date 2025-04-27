@@ -26,7 +26,6 @@ type
   TFormAbout = class(TFormI)
     Panel1: TPanel;
     PageControl: TPageControl;
-    tsAstrosfera: TTabSheet;
     tsDevelopers: TTabSheet;
     tsTools: TTabSheet;
     ButtonAstrobloQ: TSpeedButton;
@@ -35,11 +34,10 @@ type
     tsLitosfera: TTabSheet;
     tsBiosphere: TTabSheet;
     tsTehnosfera: TTabSheet;
-    tsAllplanets: TTabSheet;
+    tsAllTerranets: TTabSheet;
     tsGalaktika: TTabSheet;
     tsUniversum: TTabSheet;
     ImageGalaxy: TImage;
-    ImageAstro: TImage;
     Image1: TImage;
     Image3: TImage;
     Image4: TImage;

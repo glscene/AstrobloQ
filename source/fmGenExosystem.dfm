@@ -60,6 +60,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
     OnMouseDown = GLSceneViewerAMouseDown
     OnMouseUp = GLSceneViewerAMouseUp
     TabOrder = 1
+    ExplicitWidth = 415
   end
   object SolarDataPanel: TPanel
     Left = 0

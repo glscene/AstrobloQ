@@ -229,7 +229,6 @@ begin
   tvSettings.Items[1].DropHighlighted := True;
 
   trbVelocityChange(Self);
-  inherited;
 end;
 
 //--------------------------------------------------------------------

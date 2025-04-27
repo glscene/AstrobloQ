@@ -54,13 +54,14 @@ uses
   dmDialogs,
   dmBase,
 
+  Space.Globals,
+
   fgAnalyserR,
   fgMonitorR,
   fgParadoxR,
   fgAstrocubeR,
-  fgOptionsR,
-
-  Space.Globals;
+  fgOptionsR
+  ;
 
 type
   TfrmGalaktika = class(TFormI) // not translated if TForm

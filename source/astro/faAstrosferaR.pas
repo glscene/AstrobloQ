@@ -60,7 +60,7 @@ uses
   faHercRusselR,
   faHipparcosR,
 
-  MWS.Utils;
+  Astro.Utils;
 
 type
   TfrmAstrosfera = class(TFormI)

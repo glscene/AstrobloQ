@@ -510,7 +510,7 @@ var
 implementation
 
 uses
-  MWS.SkyBodies; // Debris Field Asteroid maker initially was in uOglObjects
+  Astro.SkyBodies; // Debris Field Asteroid maker initially was in uOglObjects
   /// SpudVCFrm;  {Orbit Elements Input AND Version Convertor}
 
 var

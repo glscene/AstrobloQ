@@ -19,7 +19,7 @@ uses
   faHercRusselR in '..\source\astro\faHercRusselR.pas' {FormHercrussel},
   faHipparcosR in '..\source\astro\faHipparcosR.pas' {FormHipparcos},
   faOptionsR in '..\source\astro\faOptionsR.pas' {frmOptions},
-  MWS.Utils in '..\source\MWS.Utils.pas',
+  Astro.Utils in '..\source\astro\Astro.Utils.pas',
   sofa in '..\Externals\sofa\sofa.pas',
   astronomy in '..\Externals\astronomy\astronomy.pas',
   Apc.DE in '..\Addons\Apex\apc\Apc.DE.pas',

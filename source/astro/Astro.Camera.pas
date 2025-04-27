@@ -1,4 +1,4 @@
-unit MWS.Camera;
+unit Astro.Camera;
 
 (*
   Camera objects for moving and vibration
@@ -16,7 +16,7 @@ uses
   GLS.Scene,
   GLS.Coordinates,
 
-  MWS.SkyBodies;
+  Astro.SkyBodies;
 
 type
   TGLVec = array [0 .. 3] of GLFloat;

@@ -167,7 +167,7 @@
         <DCCReference Include="..\source\astro\faOptionsR.pas">
             <Form>frmOptions</Form>
         </DCCReference>
-        <DCCReference Include="..\source\MWS.Utils.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\Externals\sofa\sofa.pas"/>
         <DCCReference Include="..\Externals\astronomy\astronomy.pas"/>
         <DCCReference Include="..\Addons\Apex\apc\Apc.DE.pas"/>

@@ -62,7 +62,7 @@ uses
   fgAstrocube,
 
   Space.Globals,
-  MWS.Utils;
+  Astro.Utils;
 
 type
   TfrmGalaktika = class(TFormI) // not translated if TForm
@@ -273,7 +273,6 @@ begin
 
   tbSolarcubeClick(Self);
   tbAxesClick(Self);
-  inherited;    // inheritance for translation
 end;
 
 // -----------------------------------------------------------

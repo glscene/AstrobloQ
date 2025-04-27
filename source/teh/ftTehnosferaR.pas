@@ -337,8 +337,8 @@ implementation   // -----------------------------------------------------------
 uses
   Teh.Globals,
   // accurate movements left for later... or the astute reader
-  MWS.Camera,
-  MWS.SkyBodies, // Asteroid as monolith rock
+  Astro.Camera,
+  Astro.SkyBodies, // Asteroid as monolith rock
   // ftAllShapeLoader,  // Cities, Countries
   ftMeshEditorR,
   ftLocationsR, // Data input for a planet
