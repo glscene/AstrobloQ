@@ -6,6 +6,9 @@
         <Projects Include="Apex\ApexD.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Geobloq\Geobloq.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Stellarfon\Stellarfon.dproj">
             <Dependencies/>
         </Projects>
@@ -13,9 +16,6 @@
             <Dependencies/>
         </Projects>
         <Projects Include="Stellarfon\source\Midikeys.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Gexobloq\Gexobloq.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -34,6 +34,15 @@
     </Target>
     <Target Name="ApexD:Make">
         <MSBuild Projects="Apex\ApexD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Geobloq">
+        <MSBuild Projects="Geobloq\Geobloq.dproj"/>
+    </Target>
+    <Target Name="Geobloq:Clean">
+        <MSBuild Projects="Geobloq\Geobloq.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Geobloq:Make">
+        <MSBuild Projects="Geobloq\Geobloq.dproj" Targets="Make"/>
     </Target>
     <Target Name="Stellarfon">
         <MSBuild Projects="Stellarfon\Stellarfon.dproj"/>
@@ -62,23 +71,14 @@
     <Target Name="Midikeys:Make">
         <MSBuild Projects="Stellarfon\source\Midikeys.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Gexobloq">
-        <MSBuild Projects="Gexobloq\Gexobloq.dproj"/>
-    </Target>
-    <Target Name="Gexobloq:Clean">
-        <MSBuild Projects="Gexobloq\Gexobloq.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Gexobloq:Make">
-        <MSBuild Projects="Gexobloq\Gexobloq.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ApexD;Stellarfon;Stellarfonx;Midikeys;Gexobloq"/>
+        <CallTarget Targets="ApexD;Geobloq;Stellarfon;Stellarfonx;Midikeys"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ApexD:Clean;Stellarfon:Clean;Stellarfonx:Clean;Midikeys:Clean;Gexobloq:Clean"/>
+        <CallTarget Targets="ApexD:Clean;Geobloq:Clean;Stellarfon:Clean;Stellarfonx:Clean;Midikeys:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ApexD:Make;Stellarfon:Make;Stellarfonx:Make;Midikeys:Make;Gexobloq:Make"/>
+        <CallTarget Targets="ApexD:Make;Geobloq:Make;Stellarfon:Make;Stellarfonx:Make;Midikeys:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -137,7 +137,7 @@
             <Form>FormMidikeys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\..\Source\uUtils.pas"/>
+        <DCCReference Include="..\..\source\MWS.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

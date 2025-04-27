@@ -13,7 +13,7 @@ uses
   fForm in 'source\fForm.pas' {FormI},
   fSettings in 'source\fSettings.pas' {frmSettings},
   fMidikeys in 'source\fMidikeys.pas' {FormMidikeys},
-  uUtils in '..\..\Source\uUtils.pas';
+  MWS.Utils in '..\..\source\MWS.Utils.pas';
 
 {$R *.res}
 

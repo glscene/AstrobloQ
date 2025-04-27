@@ -70,7 +70,7 @@ uses
   fGLInfosD,
   fMidikeys,
 
-  uUtils,
+  MWS.Utils,
   uGlobals,
   fForm;
 
