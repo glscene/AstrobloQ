@@ -124,7 +124,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormG</Form>
+            <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\teh\ftCyborgR.pas">

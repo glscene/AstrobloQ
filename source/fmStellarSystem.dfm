@@ -1,4 +1,4 @@
-object FormStarSys: TFormStarSys
+object FormStellarSys: TFormStellarSys
   Left = 193
   Top = 128
   Caption = 'Stellar system'
@@ -7,7 +7,7 @@ object FormStarSys: TFormStarSys
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Menu = MainMenu
@@ -15,7 +15,7 @@ object FormStarSys: TFormStarSys
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  TextHeight = 24
+  TextHeight = 13
   object SceneViewer: TGLSceneViewer
     Left = 195
     Top = 0
@@ -42,6 +42,7 @@ object FormStarSys: TFormStarSys
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
+    ExplicitHeight = 519
     object TreeView: TTreeView
       Left = 4
       Top = 4
@@ -54,6 +55,7 @@ object FormStarSys: TFormStarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 511
     end
   end
   object PanelRight: TPanel
@@ -63,9 +65,11 @@ object FormStarSys: TFormStarSys
     Height = 544
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 853
+    ExplicitHeight = 519
     object Splitter1: TSplitter
       Left = 1
-      Top = 29
+      Top = 18
       Width = 134
       Height = 20
       Cursor = crVSplit
@@ -78,12 +82,11 @@ object FormStarSys: TFormStarSys
       Left = 1
       Top = 1
       Width = 134
-      Height = 28
+      Height = 17
       Align = alTop
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -115,7 +118,8 @@ object FormStarSys: TFormStarSys
       Align = alBottom
       Lines.Strings = (
         'Memo1')
-      TabOrder = 4
+      TabOrder = 3
+      ExplicitTop = 389
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -125,7 +129,7 @@ object FormStarSys: TFormStarSys
       Caption = 'Rotation'
       Checked = True
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 4
       OnClick = cbRotationClick
     end
   end
@@ -135,6 +139,19 @@ object FormStarSys: TFormStarSys
     Width = 997
     Height = 19
     Panels = <>
+    ExplicitTop = 519
+    ExplicitWidth = 989
+  end
+  inline FrameParams: TFrameParams
+    Left = 632
+    Top = 410
+    Width = 185
+    Height = 119
+    TabOrder = 4
+    ExplicitLeft = 632
+    ExplicitTop = 410
+    ExplicitWidth = 185
+    ExplicitHeight = 119
   end
   object Scene: TGLScene
     Left = 24
@@ -175,7 +192,7 @@ object FormStarSys: TFormStarSys
         Stacks = 32
         EffectsData = {
           0458434F4C02010201060A54474C424669726546580201020006064669726546
-          5802000200060D4669726546584D616E61676572}
+          58020002001200000000}
       end
       object HabitableZone: TGLDisk
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}

@@ -24,7 +24,7 @@ uses
 
   fmForm,
   Astro.ReadHyg,
-  uaHiputils;
+  Astro.Utils;
 
 type
   TFormHercrussel = class(TFormI)

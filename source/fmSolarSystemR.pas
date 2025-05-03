@@ -51,9 +51,9 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
+  fmForm,
   fmOptionsR,
-
-  fmParamsR, fmForm;
+  frParamsR;
 
 type
   TFormSolarSys = class(TFormI) // not translated when TForm

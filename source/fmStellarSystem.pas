@@ -1,4 +1,4 @@
-unit fmStarSystem;
+unit fmStellarSystem;
 
 interface
 
@@ -51,13 +51,13 @@ uses
   GLS.LensFlare,
 
   fmOptions,
-  fmParams,
+  frParams,
 
   fmForm
   ;
 
 type
-  TFormStarSys = class(TFormI)  // not translated when TForm
+  TFormStellarSys = class(TFormI)  // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
@@ -140,7 +140,6 @@ type
     Save1: TMenuItem;
     SaveAs1: TMenuItem;
     stPickObject: TStaticText;
-    FrameParams: TFrameParams;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
     cbHabitableZone: TCheckBox;
@@ -156,6 +155,7 @@ type
     N3: TMenuItem;
     Help1: TMenuItem;
     miWiki: TMenuItem;
+    FrameParams: TFrameParams;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -190,7 +190,7 @@ type
   end;
 
 var
-  FormStarSys: TFormStarSys;
+  FormStellarSys: TFormStellarSys;
 const
   cOmega = 10;  // angular velocity
 
@@ -198,9 +198,9 @@ implementation //-----------------------------------------------------
 
 {$R *.dfm}
 
-procedure TFormStarSys.FormCreate;
+procedure TFormStellarSys.FormCreate;
 begin
-  //GetCurrentDir()
+  //GetCurrentDir()  from settings
   PathToData := ExtractFilePath(ParamStr(0))  + 'data';
   SetCurrentDir(PathToData);
 
@@ -272,7 +272,7 @@ end;
 
 // FormShow
 //
-procedure TFormStarSys.FormShow(Sender: TObject);
+procedure TFormStellarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
@@ -282,7 +282,7 @@ end;
 
 // Hide Panels
 //
-procedure TFormStarSys.miHidePanelsClick(Sender: TObject);
+procedure TFormStellarSys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
@@ -293,7 +293,7 @@ begin
     miHidePanels.Caption := 'Show Panels';
 end;
 
-procedure TFormStarSys.miInnerCoreClick(Sender: TObject);
+procedure TFormStellarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   TreeViewClick(Self);
@@ -303,14 +303,14 @@ end;
 
 // Open File dialog
 //
-procedure TFormStarSys.Open1Click(Sender: TObject);
+procedure TFormStellarSys.Open1Click(Sender: TObject);
 begin
   //
 end;
 
 // CadencerProgress
 //
-procedure TFormStarSys.CadencerProgress(Sender: TObject;
+procedure TFormStellarSys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
@@ -353,7 +353,7 @@ end;
 
 // Show Orbit Lines
 //
-procedure TFormStarSys.cbOrbitClick(Sender: TObject);
+procedure TFormStellarSys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
@@ -369,7 +369,7 @@ end;
 
 // Rotate Solar System
 //
-procedure TFormStarSys.cbRotationClick(Sender: TObject);
+procedure TFormStellarSys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
@@ -377,14 +377,14 @@ end;
 
 // Show Habitable Zone
 //
-procedure TFormStarSys.cbHabitableZoneClick(Sender: TObject);
+procedure TFormStellarSys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
 // TreeViewChange
 //
-procedure TFormStarSys.TreeViewChange(Sender: TObject; Node: TTreeNode);
+procedure TFormStellarSys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
   begin
@@ -397,7 +397,7 @@ end;
 
 // TreeViewClick
 //
-procedure TFormStarSys.TreeViewClick(Sender: TObject);
+procedure TFormStellarSys.TreeViewClick(Sender: TObject);
 var
   i: integer;
 begin
@@ -751,7 +751,7 @@ end;
 
 // MouseDown
 //
-procedure TFormStarSys.SceneViewerMouseDown;
+procedure TFormStellarSys.SceneViewerMouseDown;
 begin
   newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
@@ -765,7 +765,7 @@ end;
 
 // GetObjects
 //
-procedure TFormStarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
+procedure TFormStellarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
   Node: TTreeNode;
@@ -785,7 +785,7 @@ end;
 //
 // UpdateTreeView
 //
-procedure TFormStarSys.UpdateTreeView;
+procedure TFormStellarSys.UpdateTreeView;
 
 begin
   TreeView.Items.Clear;
@@ -794,7 +794,7 @@ end;
 
 // AddBBox
 //
-procedure TFormStarSys.AddBBox;
+procedure TFormStellarSys.AddBBox;
 const
   c = 0.5;
   d = 0.3;
@@ -857,7 +857,7 @@ end;
 
 // UpdateBBox
 //
-procedure TFormStarSys.UpdateBBox;
+procedure TFormStellarSys.UpdateBBox;
 var
   v1, v2: TVector3f;
 
@@ -886,7 +886,7 @@ end;
 
 // Sys_doglRender
 //
-procedure TFormStarSys.Sys_doglRender;
+procedure TFormStellarSys.Sys_doglRender;
 begin
   if PickObject <> nil then
   begin
@@ -899,7 +899,7 @@ end;
 
 // AsyncTimerTimer
 //
-procedure TFormStarSys.AsyncTimerTimer;
+procedure TFormStellarSys.AsyncTimerTimer;
 begin
   Caption := 'Stellar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
@@ -908,14 +908,14 @@ end;
 
 // Exit
 //
-procedure TFormStarSys.Exit1Click(Sender: TObject);
+procedure TFormStellarSys.Exit1Click(Sender: TObject);
 begin
   Exit;
 end;
 
 // Form Close
 //
-procedure TFormStarSys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormStellarSys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
 end;

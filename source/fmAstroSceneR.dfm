@@ -2,8 +2,8 @@ object frmAllplanets: TfrmAllplanets
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'AllPlanetsR'
-  ClientHeight = 700
+  Caption = 'AstroSceneR'
+  ClientHeight = 696
   ClientWidth = 1042
   Color = clBtnFace
   DoubleBuffered = True
@@ -22,12 +22,12 @@ object frmAllplanets: TfrmAllplanets
     Left = 273
     Top = 29
     Width = 769
-    Height = 652
+    Height = 648
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 146.039337158203100000
+    FieldOfView = 145.841857910156300000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -39,15 +39,15 @@ object frmAllplanets: TfrmAllplanets
     Left = 0
     Top = 29
     Width = 273
-    Height = 652
+    Height = 648
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 627
+    ExplicitHeight = 623
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 271
-      Height = 650
+      Height = 646
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
@@ -56,6 +56,7 @@ object frmAllplanets: TfrmAllplanets
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
+      Images = DataModuleImages.VirtPlanetSymbols
       Indent = 35
       ParentFont = False
       TabOrder = 0
@@ -146,11 +147,12 @@ object frmAllplanets: TfrmAllplanets
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
+      ExplicitHeight = 621
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 681
+    Top = 677
     Width = 1042
     Height = 19
     Panels = <
@@ -170,7 +172,7 @@ object frmAllplanets: TfrmAllplanets
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 656
+    ExplicitTop = 652
     ExplicitWidth = 1034
   end
   object ControlBar: TControlBar

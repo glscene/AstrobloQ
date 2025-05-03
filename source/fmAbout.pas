@@ -34,16 +34,22 @@ type
     tsLitosfera: TTabSheet;
     tsBiosphere: TTabSheet;
     tsTehnosfera: TTabSheet;
-    tsAllTerranets: TTabSheet;
+    tsAstroScene: TTabSheet;
     tsGalaktika: TTabSheet;
     tsUniversum: TTabSheet;
     ImageGalaxy: TImage;
     Image1: TImage;
     Image3: TImage;
     Image4: TImage;
-    Memo1: TMemo;
+    MemoTeam: TMemo;
     Image2: TImage;
     ImagePlanets: TImage;
+    PanelAllPlanets: TPanel;
+    PanelLitosfera: TPanel;
+    PanelBiosfera: TPanel;
+    PanelTehnosfera: TPanel;
+    PanelGalaktika: TPanel;
+    PanelUniverse: TPanel;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
@@ -57,7 +63,7 @@ type
 var
   FormAbout: TFormAbout;
 
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 

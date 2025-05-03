@@ -21,7 +21,8 @@ uses
   fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
   fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
   fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
-  fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser};
+  fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser},
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

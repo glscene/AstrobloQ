@@ -1,4 +1,4 @@
-unit fmAllPlanets;
+unit fmAstroSceneR;
 
 interface
 
@@ -31,6 +31,8 @@ uses
   Vcl.CheckLst,
   Vcl.ToolWin,
 
+  dmImages,
+
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.TextureFormat,
@@ -47,8 +49,8 @@ uses
   GLS.RenderContextInfo,
   GLS.Color,
   GLS.State,
-  GLS.FileJPEG,
   GLS.Context,
+  GLS.FileJPEG,
   GLSL.TextureShaders,
   GLS.BaseClasses,
   GLS.Atmosphere,
@@ -59,15 +61,13 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  dmImages,
+  fmSolarSystemR,
+  fmStellarSystemR,
+  fmGenExosysR,
+  fmOptionsR,
+  fmAboutR,
 
-  fmSolarSystem,
-  fmStarSystem,
-  fmOptions,
-  fmGenExosystem,
-
-  fmForm,
-  fmAbout
+  fmForm
   ;
 
 
@@ -284,7 +284,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-//   Select nodes of tvPlanetsClick
+//   Выбор узлов деревьев просмотра планет, звёзд и созвездий tvPlanetsClick
 //------------------------------------------------------------------
 procedure TfrmAllplanets.tvPlanetsClick(Sender: TObject);
 begin
@@ -328,7 +328,8 @@ begin
 
 *)
   // Planet rings
-  if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
+
+  if (tvPlanets.Selected.Text = 'Сатурн') or (tvPlanets.Selected.Text = 'Уран') then
   begin
     diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
     diskRingUp.Visible := True;
@@ -368,15 +369,7 @@ begin
     finally
       Free;
     end;
- (*
-  // New exoplanet system
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
+
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;

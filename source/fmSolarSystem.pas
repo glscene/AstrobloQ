@@ -52,9 +52,8 @@ uses
   GLS.LensFlare,
 
   fmOptions,
-  fmParams,
-
-  fmForm
+  fmForm,
+  frParams
   ;
 
 type
@@ -148,7 +147,6 @@ type
     miWiki: TMenuItem;
     About1: TMenuItem;
     stPickObject: TStaticText;
-    FrameParams: TFrameParams;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
     cbHabitableZone: TCheckBox;
@@ -160,6 +158,7 @@ type
     Deimos: TGLFreeForm;
     StatusBarSol: TStatusBar;
     JupiterRing: TGLDisk;
+    FrameParams: TFrameParams;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);

@@ -88721,16 +88721,6 @@ object frmLitosfera: TfrmLitosfera
         Caption = 'City lights'
       end
     end
-    object miMonitor: TMenuItem
-      Caption = '&Monitor'
-      object miSolarSystem: TMenuItem
-        Caption = 'Solar system...'
-        OnClick = miSolarSystemClick
-      end
-      object N1: TMenuItem
-        Caption = '-'
-      end
-    end
     object miTools: TMenuItem
       Caption = '&Tools'
       object miSettings: TMenuItem

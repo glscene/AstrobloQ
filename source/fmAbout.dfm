@@ -3,8 +3,8 @@ object FormAbout: TFormAbout
   Top = 0
   BorderStyle = bsDialog
   Caption = 'About'
-  ClientHeight = 510
-  ClientWidth = 642
+  ClientHeight = 620
+  ClientWidth = 732
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object FormAbout: TFormAbout
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 642
+    Width = 732
     Height = 65
     Align = alTop
     BorderWidth = 10
@@ -29,23 +29,23 @@ object FormAbout: TFormAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 634
+    ExplicitWidth = 724
   end
   object PageControl: TPageControl
     Left = 0
     Top = 65
-    Width = 642
-    Height = 445
-    ActivePage = tsAllTerranets
+    Width = 732
+    Height = 555
+    ActivePage = tsAstroScene
     Align = alClient
     TabOrder = 1
-    object tsAllTerranets: TTabSheet
-      Caption = 'AllTerranets'
+    object tsAstroScene: TTabSheet
+      Caption = 'AstroScene'
       object ImagePlanets: TImage
         Left = 0
-        Top = 0
-        Width = 634
-        Height = 415
+        Top = 41
+        Width = 724
+        Height = 484
         Align = alClient
         Picture.Data = {
           0A544A504547496D616765A2C80100FFD8FFE000104A46494600010101006000
@@ -3708,15 +3708,31 @@ object FormAbout: TFormAbout
         ExplicitWidth = 640
         ExplicitHeight = 426
       end
+      object PanelAllPlanets: TPanel
+        Left = 0
+        Top = 0
+        Width = 724
+        Height = 41
+        Align = alTop
+        Caption = 'Planets, moons, asteroids and exoplanets'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        ExplicitWidth = 716
+      end
     end
     object tsLitosfera: TTabSheet
       Caption = 'Litosfera'
       ImageIndex = 3
       object Image2: TImage
         Left = 0
-        Top = 0
-        Width = 634
-        Height = 415
+        Top = 41
+        Width = 724
+        Height = 484
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000037E0000
@@ -29555,15 +29571,30 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
+      object PanelLitosfera: TPanel
+        Left = 0
+        Top = 0
+        Width = 724
+        Height = 41
+        Align = alTop
+        Caption = 'Astrogeology and mineral resources'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
     end
     object tsBiosphere: TTabSheet
       Caption = 'Biosfera'
       ImageIndex = 4
       object Image1: TImage
         Left = 0
-        Top = 0
-        Width = 634
-        Height = 415
+        Top = 41
+        Width = 724
+        Height = 484
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000031F0000
@@ -53014,15 +53045,30 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
+      object PanelBiosfera: TPanel
+        Left = 0
+        Top = 0
+        Width = 724
+        Height = 41
+        Align = alTop
+        Caption = 'Astrobiology and living organizms'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
     end
     object tsTehnosfera: TTabSheet
       Caption = 'Tehnosfera'
       ImageIndex = 5
       object Image3: TImage
         Left = 0
-        Top = 0
-        Width = 634
-        Height = 415
+        Top = 41
+        Width = 724
+        Height = 484
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000033B0000
@@ -65486,24 +65532,45 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
+      object PanelTehnosfera: TPanel
+        Left = 0
+        Top = 0
+        Width = 724
+        Height = 41
+        Align = alTop
+        Caption = 'Technospheres and communications'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
     end
     object tsDevelopers: TTabSheet
       Caption = 'Developers'
       ImageIndex = 1
       TabVisible = False
-      object Memo1: TMemo
+      object MemoTeam: TMemo
         Left = 0
         Top = 0
-        Width = 634
-        Height = 415
+        Width = 724
+        Height = 525
         Align = alClient
         Alignment = taCenter
         Lines.Strings = (
+          'Developers:'
           'Pavel Vassiliev'
           'Leo Kaptyaev'
-          'Danil Wasilyev'
+          'Danil Vasin'
           'Elizaveta Soboleva'
-          'Anton Dahin')
+          ''
+          'Contributors:'
+          'Alexandr Tsvetkov'
+          'Eugeniy Chernyh'
+          'Anton Dahin'
+          'Arseniy Medvedev')
         TabOrder = 0
       end
     end
@@ -65512,9 +65579,9 @@ object FormAbout: TFormAbout
       ImageIndex = 7
       object ImageGalaxy: TImage
         Left = 0
-        Top = 0
-        Width = 634
-        Height = 415
+        Top = 41
+        Width = 724
+        Height = 484
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000054E0000
@@ -121643,15 +121710,30 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
+      object PanelGalaktika: TPanel
+        Left = 0
+        Top = 0
+        Width = 724
+        Height = 41
+        Align = alTop
+        Caption = 'Galaxy and evolution of habitability'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
     end
     object tsUniversum: TTabSheet
       Caption = 'Universum'
       ImageIndex = 8
       object Image4: TImage
         Left = 0
-        Top = 0
-        Width = 634
-        Height = 415
+        Top = 41
+        Width = 724
+        Height = 484
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000004D60000
@@ -163341,6 +163423,21 @@ object FormAbout: TFormAbout
         ExplicitTop = 29
         ExplicitWidth = 642
         ExplicitHeight = 391
+      end
+      object PanelUniverse: TPanel
+        Left = 0
+        Top = 0
+        Width = 724
+        Height = 41
+        Align = alTop
+        Caption = 'Metagalaxy and the Universe'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
       end
     end
     object tsTools: TTabSheet

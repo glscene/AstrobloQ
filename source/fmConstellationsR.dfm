@@ -1,9 +1,9 @@
-object FormAstromif: TFormAstromif
+object FormConstellations: TFormConstellations
   Left = 0
   Top = 0
-  Caption = 'Astromif'
-  ClientHeight = 591
-  ClientWidth = 819
+  Caption = 'Constellations'
+  ClientHeight = 647
+  ClientWidth = 987
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,32 +12,52 @@ object FormAstromif: TFormAstromif
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 15
+  object VirtualImageChart: TVirtualImage
+    Left = 209
+    Top = 0
+    Width = 624
+    Height = 628
+    Align = alClient
+    ImageCollection = DataModuleImages.ConstelCharts
+    ImageWidth = 0
+    ImageHeight = 0
+    ImageIndex = 0
+    ImageName = 'AND'
+    ExplicitWidth = 613
+    ExplicitHeight = 397
+  end
   object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 161
-    Height = 572
+    Width = 209
+    Height = 628
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 603
     object PanelBottom: TPanel
       Left = 1
-      Top = 531
-      Width = 159
+      Top = 587
+      Width = 207
       Height = 40
       Align = alBottom
       TabOrder = 0
+      ExplicitTop = 562
     end
     object tvConstellations: TTreeView
       Left = 1
       Top = 1
-      Width = 159
-      Height = 530
+      Width = 207
+      Height = 586
       Align = alClient
       Color = clWhite
+      Images = DataModuleImages.VirtConstelSymbols
       Indent = 27
       MultiSelect = True
       TabOrder = 1
+      OnClick = tvConstellationsClick
+      OnContextPopup = tvConstellationsContextPopup
       Items.NodeData = {
         075800000009540054007200650065004E006F00640065003100000000000000
         00000000FFFFFFFFFFFFFFFF00000000000000000000000000010941006E0064
@@ -87,9 +107,9 @@ object FormAstromif: TFormAstromif
         FFFF00000000000000000000000000010F43006F0072006F006E006100200042
         006F007200650061006C006900730000002B0000001B0000001B000000FFFFFF
         FFFFFFFFFF00000000000000000000000000010643006F007200760075007300
-        00002B0000001C0000001C000000FFFFFFFFFFFFFFFF00000000000000000000
-        00000001064300720061007400650072000000270000001D0000001D000000FF
-        FFFFFFFFFFFFFF00000000000000000000000000010443007200750078000000
+        0000270000001D0000001D000000FFFFFFFFFFFFFFFF00000000000000000000
+        0000000104430072007500780000002B0000001C0000001C000000FFFFFFFFFF
+        FFFFFF0000000000000000000000000001064300720061007400650072000000
         2B0000001E0000001E000000FFFFFFFFFFFFFFFF000000000000000000000000
         0001064300790067006E00750073000000310000001F0000001F000000FFFFFF
         FFFFFFFFFF000000000000000000000000000109440065006C00700068006900
@@ -183,26 +203,78 @@ object FormAstromif: TFormAstromif
         FFFFFFFFFFFFFFFF00000000000000000000000000010656006F006C0061006E
         0073000000310000005700000057000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000109560075006C0070006500630075006C006100}
+      ExplicitHeight = 561
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 572
-    Width = 819
+    Top = 628
+    Width = 987
     Height = 19
     Panels = <>
+    ExplicitTop = 603
+    ExplicitWidth = 979
   end
   object PanelRight: TPanel
-    Left = 665
+    Left = 833
     Top = 0
     Width = 154
-    Height = 572
+    Height = 628
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 825
+    ExplicitHeight = 603
+    object VirtualImageFigures: TVirtualImage
+      Left = 1
+      Top = 476
+      Width = 152
+      Height = 151
+      Align = alBottom
+      ImageWidth = 0
+      ImageHeight = 0
+      ImageIndex = 0
+      ImageName = 'andromeda'
+      ExplicitLeft = -62
+      ExplicitTop = 408
+      ExplicitWidth = 216
+    end
+    object tvZodiacs: TTreeView
+      Left = 1
+      Top = 1
+      Width = 152
+      Height = 304
+      Align = alTop
+      Color = clWhite
+      Images = DataModuleImages.VirtConstelSymbols
+      Indent = 27
+      TabOrder = 0
+      OnClick = tvZodiacsClick
+      Items.NodeData = {
+        070C00000009540054007200650065004E006F00640065002900000006000000
+        06000000FFFFFFFFFFFFFFFF0000000000000000000000000001054100720069
+        006500730000002B0000004D0000004D000000FFFFFFFFFFFFFFFF0000000000
+        0000000000000000010654006100750072007500730000002B00000025000000
+        25000000FFFFFFFFFFFFFFFF000000000000000000000000000106470065006D
+        0069006E00690000002B0000000B0000000B000000FFFFFFFFFFFFFFFF000000
+        000000000000000000000106430061006E006300650072000000250000002D00
+        00002D000000FFFFFFFFFFFFFFFF0000000000000000000000000001034C0065
+        006F000000290000005500000055000000FFFFFFFFFFFFFFFF00000000000000
+        000000000000010556006900720067006F000000290000003000000030000000
+        FFFFFFFFFFFFFFFF0000000000000000000000000001054C0069006200720061
+        0000002D0000004800000048000000FFFFFFFFFFFFFFFF000000000000000000
+        000000000107530063006F007200700069006F00000035000000470000004700
+        0000FFFFFFFFFFFFFFFF00000000000000000000000000010B53006100670067
+        0069007400610072006900750073000000310000000F0000000F000000FFFFFF
+        FFFFFFFFFF000000000000000000000000000109430061007000720069006300
+        6F0072006E0000002F0000000300000003000000FFFFFFFFFFFFFFFF00000000
+        00000000000000000001084100710075006100720069007500730000002B0000
+        004100000041000000FFFFFFFFFFFFFFFF000000000000000000000000000106
+        500069007300630065007300}
+    end
   end
   object GLScene: TGLScene
-    Left = 178
-    Top = 64
+    Left = 298
+    Top = 72
     object SkyDome: TGLSkyDome
       Visible = False
       Bands = <
@@ -268,29 +340,5 @@ object FormAstromif: TFormAstromif
     OnProgress = GLCadencerProgress
     Left = 296
     Top = 200
-  end
-  object GLSimpleNavigation1: TGLSimpleNavigation
-    Form = Owner
-    FormCaption = 'Astromif - %FPS'
-    KeyCombinations = <
-      item
-        ShiftState = [ssLeft, ssRight]
-        Action = snaZoom
-      end
-      item
-        ShiftState = [ssLeft]
-        Action = snaMoveAroundTarget
-      end
-      item
-        ShiftState = [ssRight]
-        Action = snaMoveAroundTarget
-      end>
-    OnMouseMove = GLSimpleNavigation1MouseMove
-    Left = 606
-    Top = 214
-  end
-  object OpenDialog: TOpenDialog
-    Left = 321
-    Top = 340
   end
 end

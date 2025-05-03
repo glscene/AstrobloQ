@@ -1,4 +1,4 @@
-unit fmStarSystemR;
+unit fmStellarSystemR;
 
 interface
 
@@ -50,10 +50,10 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
+  fmForm,
   fmOptionsR,
-  fmParamsR,
+  frParamsR
 
-  fmForm
   ;
 
 type

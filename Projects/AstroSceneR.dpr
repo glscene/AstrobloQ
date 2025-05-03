@@ -7,7 +7,7 @@
    Catalog of stars is built into the TGLSkyDome, but constellations are rendered
    via a TGLLines, which is filled in the LoadConstLines method.
 *)
-program AllPlanetsR;
+program AstroSceneR;
 
 
 
@@ -15,18 +15,28 @@ uses
   Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fmAllPlanetsR in '..\source\fmAllPlanetsR.pas' {frmAllplanets},
-  fmStarSystemR in '..\source\fmStarSystemR.pas' {FormStarSys},
-  fmSolarSystemR in '..\source\fmSolarSystemR.pas' {FormSolarSys},
+  fmAstroSceneR in '..\source\fmAstroSceneR.pas' {frmAllplanets},
   fmOptionsR in '..\source\fmOptionsR.pas' {frmOptions},
   fmGenExosysR in '..\source\fmGenExosysR.pas' {FormGenPlanetsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
-  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Space.Globals in '..\source\Space.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
   fmForm in '..\source\fmForm.pas' {FormI},
-  fmParamsR in '..\source\fmParamsR.pas' {FrameParamsR: TFrame};
+  frParamsR in '..\source\frParamsR.pas' {FrameParamsR: TFrame},
+  fmStellarSystemR in '..\source\fmStellarSystemR.pas' {FormStarSys},
+  fmSolarSystemR in '..\source\fmSolarSystemR.pas' {FormSolarSys},
+  fmConstellationsR in '..\source\fmConstellationsR.pas' {FormConstellations},
+  Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
+  Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
+  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
+  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
+  fmMixTextures in '..\source\fmMixTextures.pas' {FormTexCombine},
+  dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
+  dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
+  Space.ReadCSV in '..\source\Space.ReadCSV.pas';
 
 {$R *.res}
 
@@ -34,7 +44,9 @@ begin
   Application.Initialize;
 //  TStyleManager.TrySetStyle('Windows10');
   Application.CreateForm(TfrmAllplanets, frmAllplanets);
-  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TDataModuleBase, DataModuleBase);
+  Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.Run;
 end.

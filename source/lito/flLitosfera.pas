@@ -60,7 +60,6 @@ uses
 
   dmImages,
 
-  flSolarSystem,
   flOptions,
 
   fmForm,
@@ -111,7 +110,6 @@ type
     miViewHidePanels: TMenuItem;
     N3: TMenuItem;
     StatusBar: TStatusBar;
-    miSolarSystem: TMenuItem;
     NightLights1: TMenuItem;
     N4: TMenuItem;
     miOptions: TMenuItem;
@@ -122,8 +120,6 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
-    N1: TMenuItem;
-    miMonitor: TMenuItem;
     acPlanet: TGLActor;
     miTools: TMenuItem;
     N7: TMenuItem;
@@ -152,7 +148,6 @@ type
     procedure miClearTreeViewClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
     procedure miViewHidePanelsClick(Sender: TObject);
-    procedure miSolarSystemClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
   public
@@ -651,7 +646,7 @@ begin
       CameraControler.Position.AsVector, 0.05);
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
-  // постепенное появление/исчезновение линий созвездий
+  // appear/disappear constellation lines
   if ConstLines.LineColor.Alpha <> ConstLinesAlpha then
   begin
     ConstLines.LineColor.Alpha :=
@@ -659,7 +654,7 @@ begin
                  ConstLines.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
   end;
-  // постепенное появление/исчезновение границ созвездий
+  // appear/disappear constellation borders
   if ConstBounds.LineColor.Alpha <> ConstBordersAlpha then
   begin
     ConstBounds.LineColor.Alpha :=
@@ -789,19 +784,6 @@ begin
 //  Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
   StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
   SceneViewer.ResetPerformanceMonitor;
-end;
-
-//------------------------------------------------------------------
-// Solar system
-//------------------------------------------------------------------
-procedure TfrmLitosfera.miSolarSystemClick(Sender: TObject);
-begin
-  with TFormSolarSys.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 //------------------------------------------------------------------

@@ -7,7 +7,7 @@ object FormStarSys: TFormStarSys
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -19
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Menu = MainMenu
@@ -15,7 +15,7 @@ object FormStarSys: TFormStarSys
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  TextHeight = 13
+  TextHeight = 24
   object SceneViewer: TGLSceneViewer
     Left = 195
     Top = 0
@@ -66,7 +66,7 @@ object FormStarSys: TFormStarSys
     TabOrder = 2
     object Splitter1: TSplitter
       Left = 1
-      Top = 131
+      Top = 29
       Width = 134
       Height = 20
       Cursor = crVSplit
@@ -79,34 +79,12 @@ object FormStarSys: TFormStarSys
       Left = 1
       Top = 1
       Width = 134
-      Height = 17
+      Height = 28
       Align = alTop
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
-    end
-    inline FrameParams: TFrameParams
-      Left = 1
-      Top = 18
-      Width = 134
-      Height = 113
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
-      Align = alTop
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 29
-      ExplicitWidth = 236
-      ExplicitHeight = 113
+      ExplicitWidth = 107
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -116,7 +94,7 @@ object FormStarSys: TFormStarSys
       Caption = 'Orbits'
       Checked = True
       State = cbChecked
-      TabOrder = 2
+      TabOrder = 1
       OnClick = cbOrbitClick
     end
     object cbHabitableZone: TCheckBox
@@ -127,7 +105,7 @@ object FormStarSys: TFormStarSys
       Caption = 'Habzone'
       Checked = True
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 2
       OnClick = cbHabitableZoneClick
     end
     object MemoInfo: TMemo
@@ -148,7 +126,7 @@ object FormStarSys: TFormStarSys
       Caption = 'Rotation'
       Checked = True
       State = cbChecked
-      TabOrder = 5
+      TabOrder = 3
       OnClick = cbRotationClick
     end
   end

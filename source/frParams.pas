@@ -1,4 +1,4 @@
-unit fmParams;
+unit frParams;
 
 interface
 
@@ -23,7 +23,7 @@ type
     procedure ShowParams;
   end;
 
-implementation //============================================================
+implementation //-------------------------------------------------------------
 
 uses
   fmSolarSystem;

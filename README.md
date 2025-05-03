@@ -18,24 +18,24 @@
 
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
  
-## В AstrobloQ включены следующие субпроекты:
+## AstrobloQ включает следующие разделы:
 
-### Allplanets
+### AstroScene
 
-Экзопланеты всех типов, в том числе землеподобные 
-![Allplanets](./docs/screenshots/Noosfera.png)
+Звёзды и экзопланеты всех типов, в том числе терранеты 
+![AstroScene](./docs/screenshots/Noosfera.png)
 
-![Allplanets](./docs/clips/AnimationLadybug2.gif)
-![Allplanets](./docs/clips/AnimationFlock.gif)
+![AstroScene](./docs/clips/AnimationLadybug2.gif)
+![AstroScene](./docs/clips/AnimationFlock.gif)
 
-### Astrosfera
-
-![Astrosfera](./docs/screenshots/PlanetarySystems.png)
-![Astrosfera](./docs/clips/SolarSystem.gif)
+![AstroScene](./docs/screenshots/PlanetarySystems.png)
+![AstroScene](./docs/clips/SolarSystem.gif)
 
 ### Litosfera
 
-Литосферы экзопланет с гидросферами, атмосферами и недрами
+Литосферы экзопланет с гидросферами, атмосферами и недрами.
+Оценка минеральных ресурсов
+
 ![Litosfera](./docs/screenshots/Litosfera_ru.png)
 
 ![Litosfera](./docs/clips/AnimationPlanet2a.gif)
@@ -43,7 +43,8 @@
 
 ### Biosfera
 
-Биосферы экзопланет с эволюцией живых организмов 
+Биосферы экзопланет. Астробиология и симуляция колоний живых организмов.
+ 
 ![Biosfera](./docs/screenshots/Biosfera.jpg)
 
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
@@ -51,7 +52,7 @@
 
 ### Tehnosfera
 
-Техносферы экзопланет с космическими коммуникациями
+Техносферы экзопланет и сети космических коммуникаций
 ![Tehnosfera](./docs/screenshots/Tehnosferas.png)
 ![Tehnosfera](./docs/clips/Meteors.gif)
 

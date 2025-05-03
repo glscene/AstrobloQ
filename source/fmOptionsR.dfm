@@ -24,13 +24,11 @@ object frmOptions: TfrmOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 377
-    ExplicitWidth = 742
     DesignSize = (
       750
       41)
     object ButtonOK: TButton
-      Left = 506
+      Left = 490
       Top = 1
       Width = 99
       Height = 31
@@ -39,7 +37,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 514
+      ExplicitLeft = 498
     end
   end
   object PanelMiddle: TPanel
@@ -51,8 +49,6 @@ object frmOptions: TfrmOptions
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 742
-    ExplicitHeight = 368
     object PageControl: TPageControl
       Left = 169
       Top = 5
@@ -140,7 +136,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = 50
+          Left = 34
           Top = 137
           Width = 104
           Height = 128
@@ -550,7 +546,6 @@ object frmOptions: TfrmOptions
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 742
   end
   object ImageList: TImageList
     Left = 427

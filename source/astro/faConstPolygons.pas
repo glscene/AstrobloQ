@@ -28,7 +28,7 @@ uses
   fmForm;
 
 type
-  TFormConstBorders = class(TFormI)
+  TFormConstPolygons = class(TFormI)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;
@@ -48,13 +48,13 @@ type
   end;
 
 var
-  FormConstBorders: TFormConstBorders;
+  FormConstPolygons: TFormConstPolygons;
 
 implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
-procedure TFormConstBorders.FormCreate(Sender: TObject);
+procedure TFormConstPolygons.FormCreate(Sender: TObject);
 begin
   // ќпредел€ем путь к известной папке с файлами
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
@@ -85,7 +85,7 @@ ReplaceSel - если вы хотите заменить уже выбранный в Memo текст,
 то передайте в параметр ReplaceSel TRUE.
 FALSE используетс€ дл€ простой вставки текста;
 *)
-procedure TFormConstBorders.InsertFileInMemo(Memo: TMemo; AFileName: string;
+procedure TFormConstPolygons.InsertFileInMemo(Memo: TMemo; AFileName: string;
   ReplaceSel: Boolean);
 var
   Stream: TMemoryStream;
@@ -93,10 +93,9 @@ var
 begin
   Stream := TMemoryStream.Create;
   try
-    // «агружаем текст из файла...
+    // Loading text from file...
     Stream.LoadFromFile(AFileName);
 
-    // ƒобавл€ем в конец текста терминирующий ноль...
 (*
     Stream.Seek(0, 2);
     NullTerminator := #0;
@@ -111,7 +110,7 @@ begin
   end;
 end;
 
-procedure TFormConstBorders.tvShortNamesClick(Sender: TObject);
+procedure TFormConstPolygons.tvShortNamesClick(Sender: TObject);
 begin
   //
   FileName := DataDir + '\constellation\boundary\'+
@@ -120,13 +119,13 @@ begin
   MemoData.Lines.LoadFromFile(FileName);
 end;
 
-procedure TFormConstBorders.Button1Click(Sender: TObject);
+procedure TFormConstPolygons.Button1Click(Sender: TObject);
 begin
   tvShortNames.HideSelection := False;
 end;
 
 
-procedure TFormConstBorders.CheckBoxDataClick(Sender: TObject);
+procedure TFormConstPolygons.CheckBoxDataClick(Sender: TObject);
 begin
   MemoData.Visible := CheckBoxData.Checked;
 end;

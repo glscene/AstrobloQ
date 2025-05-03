@@ -1,4 +1,4 @@
-unit fmAllPlanetsR;
+unit fmAstroScene;
 
 interface
 
@@ -31,8 +31,6 @@ uses
   Vcl.CheckLst,
   Vcl.ToolWin,
 
-  dmImages,
-
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.TextureFormat,
@@ -49,8 +47,8 @@ uses
   GLS.RenderContextInfo,
   GLS.Color,
   GLS.State,
-  GLS.Context,
   GLS.FileJPEG,
+  GLS.Context,
   GLSL.TextureShaders,
   GLS.BaseClasses,
   GLS.Atmosphere,
@@ -61,13 +59,22 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  fmSolarSystemR,
-  fmStarSystemR,
-  fmGenExosysR,
-  fmOptionsR,
-  fmAboutR,
+  dmImages,
 
-  fmForm
+  fmSolarSystem,
+  fmStellarSystem,
+  fmConstellations,
+  fmOptions,
+  fmGenExosystem,
+
+  fmForm,
+  fmAbout,
+
+  faConstPolygons,
+  faCoordinates,
+  faPointto,
+  faHipparcos,
+  faHercRussel
   ;
 
 
@@ -89,7 +96,7 @@ type
     CameraControler: TGLCamera;
     StarSkyDome: TGLSkyDome;
     ConstLines: TGLLines;
-    ConstBounds: TGLLines;
+    ConstBorders: TGLLines;
     MainMenu: TMainMenu;
     miView: TMenuItem;
     miOpen: TMenuItem;
@@ -99,9 +106,6 @@ type
     miHelp: TMenuItem;
     PanelLeft: TPanel;
     tvPlanets: TTreeView;
-    miClearTreeView: TMenuItem;
-    miViewConstlines: TMenuItem;
-    miViewConstborders: TMenuItem;
     OpenDialog: TOpenDialog;
     miFileSaveAs: TMenuItem;
     SaveDialog: TSaveDialog;
@@ -111,31 +115,43 @@ type
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
-    miViewHidePanels: TMenuItem;
     N3: TMenuItem;
     StatusBar: TStatusBar;
     miSolarSystem: TMenuItem;
-    NightLights1: TMenuItem;
     N4: TMenuItem;
     miStellarSystem: TMenuItem;
-    miOptions: TMenuItem;
+    miToolsOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
     ControlBar: TControlBar;
-    ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
-    N1: TMenuItem;
-    miMonitor: TMenuItem;
     miExogen: TMenuItem;
     acPlanet: TGLActor;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
     LightStar: TGLLightSource;
-    About1: TMenuItem;
-    miSettings: TMenuItem;
+    miHelpAbout: TMenuItem;
+    miToolsSettings: TMenuItem;
+    PolygonAndromeda: TGLPolygon;
+    TorusGreenwich: TGLTorus;
+    TorusEquator: TGLTorus;
+    dcArrows: TGLDummyCube;
+    ArrowLineX: TGLArrowLine;
+    Arrow_X: TGLArrowLine;
+    ArrowLineY: TGLArrowLine;
+    Arrow_Y: TGLArrowLine;
+    ArrowLineZ: TGLArrowLine;
+    Arrow_Z: TGLArrowLine;
+    tbPlanets: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    miHipparcos: TMenuItem;
+    miHertsRussel: TMenuItem;
+    miPointTo: TMenuItem;
+    miConstPolygons: TMenuItem;
+    miCoordinates: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -149,19 +165,22 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure SceneViewerBeforeRender(Sender: TObject);
     procedure miFileExitClick(Sender: TObject);
-    procedure miViewConstlinesClick(Sender: TObject);
-    procedure miViewConstBordersClick(Sender: TObject);
     procedure tvPlanetsClick(Sender: TObject);
     procedure miFileOpenClick(Sender: TObject);
     procedure miFileSaveAsClick(Sender: TObject);
     procedure miClearTreeViewClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
-    procedure miViewHidePanelsClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
     procedure miStellarSystemClick(Sender: TObject);
-    procedure miOptionsClick(Sender: TObject);
+    procedure miToolsOptionsClick(Sender: TObject);
     procedure miExogenClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
+    procedure miHelpAboutClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure miHipparcosClick(Sender: TObject);
+    procedure miHertsRusselClick(Sender: TObject);
+    procedure miPointToClick(Sender: TObject);
+    procedure miConstPolygonsClick(Sender: TObject);
+    procedure miCoordinatesClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -173,9 +192,11 @@ type
     Radius, invAtmosphereHeight: Single;
     eyePos, lightingVector: TGLVector;
     diskNormal, diskRight, diskUp: TGLVector;
-    procedure LoadConstLines;
-    procedure LoadConstBorders;
+    procedure LoadConstLines(const aDataPath: TFileName);
+    procedure LoadConstBorders(const aDataPath: TFileName);
+    procedure LoadStarBayers(const aDataPath: TFileName);
   private
+    ConstellationsAlpha: Single;
     mx, my,
     dmx, dmy: Integer;
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
@@ -207,6 +228,9 @@ implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
+//---------------------------------------------------------------------
+// Initializations on FormCreate
+//----------------------------------------------------------------------
 procedure TfrmAllplanets.FormCreate(Sender: TObject);
 var
   I: Integer;
@@ -260,31 +284,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Show/Hide panels
-//------------------------------------------------------------------
-procedure TfrmAllplanets.miViewHidePanelsClick(Sender: TObject);
-begin
-  miViewHidePanels.Checked := not miViewHidePanels.Checked;
-  if miViewHidePanels.Checked then
-  begin
-    miViewHidePanels.Caption := 'Show panels';
-    PanelLeft.Visible := False;
-    StatusBar.Visible := False;
-    ControlBar.Visible := False;
-    frmAllplanets.BorderStyle := bsNone;
-  end
-  else
-  begin
-    miViewHidePanels.Caption := 'Hide panels';
-    PanelLeft.Visible := True;
-    StatusBar.Visible := True;
-    ControlBar.Visible := True;
-    frmAllplanets.BorderStyle := bsSizeable;
-  end;
-end;
-
-//------------------------------------------------------------------
-//   ¬ыбор узлов деревьев просмотра планет, звЄзд и созвездий tvPlanetsClick
+//   Select nodes of tvPlanetsClick
 //------------------------------------------------------------------
 procedure TfrmAllplanets.tvPlanetsClick(Sender: TObject);
 begin
@@ -328,8 +328,7 @@ begin
 
 *)
   // Planet rings
-
-  if (tvPlanets.Selected.Text = '—атурн') or (tvPlanets.Selected.Text = '”ран') then
+  if (tvPlanets.Selected.Text = 'Saturn') or (tvPlanets.Selected.Text = 'Uranus') then
   begin
     diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
     diskRingUp.Visible := True;
@@ -369,7 +368,15 @@ begin
     finally
       Free;
     end;
-
+ (*
+  // New exoplanet system
+  with TFormNewSystem.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+*)
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
@@ -381,14 +388,15 @@ end;
 procedure TfrmAllplanets.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
-  // если нет мультитекстурировани€ и combiner то без света городов
+  // if not multitexturing and combiner then without nightcity lights
   MatLib.Materials[0].Shader := TexCombiner;
   MatLib.Materials[0].Texture2Name := 'earthNight';
 end;
 
 //------------------------------------------------------------------
-
-procedure TfrmAllplanets.About1Click(Sender: TObject);
+//
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miHelpAboutClick(Sender: TObject);
 begin
   inherited;
   with TFormAbout.Create(Self) do
@@ -399,6 +407,9 @@ begin
   end;
 end;
 
+//------------------------------------------------------------------
+// Atmosphere rim
+//------------------------------------------------------------------
 function TfrmAllplanets.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
@@ -474,7 +485,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// DirectOpenGLRender for atmosphere
+// DirectOpenGLRender for atmosphere rim
 //------------------------------------------------------------------
 procedure TfrmAllplanets.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
@@ -567,31 +578,20 @@ begin
   FreeMem(pColor);
 end;
 
-//--------------------------- Menu Items ---------------------------
-// Show constellation lines
 //------------------------------------------------------------------
-procedure TfrmAllplanets.miViewConstlinesClick(Sender: TObject);
-begin
-  ConstLines.Nodes.Clear;
-  miViewConstlines.Checked := not miViewConstlines.Checked;
-  if miViewConstLines.Checked then
-  begin
-    ConstLinesAlpha := 0.5 - ConstLinesAlpha;
-    LoadConstLines;
-  end;
-end;
-
+// Loading constellation lines
 //------------------------------------------------------------------
-
-procedure TfrmAllplanets.LoadConstLines;
+procedure TfrmAllplanets.LoadConstLines(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
   i: Integer;
 begin
+  ConstLines.Nodes.Clear;
+  ConstLinesAlpha := 0.5 - ConstLinesAlpha;
   sl := TStringList.Create;
   line := TStringList.Create;
-  sl.LoadFromFile(DataDir + '\constellation\ConstLines.dat'); // Rey
+  sl.LoadFromFile(aDataPath + 'ConstLines.dat'); // Rey
   for i := 0 to sl.Count - 1 do
   begin
     line.CommaText := sl[i];
@@ -605,43 +605,39 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Load constellation borders
+// Loading constellation borders
 //------------------------------------------------------------------
-procedure TfrmAllplanets.LoadConstBorders;
+procedure TfrmAllplanets.LoadConstBorders(const aDataPath: TFileName);
 var
-  sl, line: TStrings;
-  skypos: TAffineVector;
+  sl,                        // all string lines in A file
+  line: TStrings;            // a line of strings
+  skypos: TAffineVector;     // position of star on skydome
   i: Integer;
 begin
+  ConstBorders.Nodes.Clear;
+  ConstBordersAlpha := 0.5 - ConstBordersAlpha;
+
   sl := TStringList.Create;
   line := TStringList.Create;
-//  sl.LoadFromFile(DataDir + '\constellation\ConstB.cby');  // GaiaSky
-  sl.LoadFromFile(DataDir + '\constellation\ConstBorders.csv');
-//  sl.LoadFromFile(DataDir + '\constellation\Constellations.csv'); // Eleanor
-///  sl.LoadFromFile(DataDir + '\constellation\and.txt');  // Polygon of Andromeda
+//  sl.LoadFromFile(aDataPath + 'ConstB.cby');  // GaiaSky
+  sl.LoadFromFile(aDataPath + 'ConstBorders.csv');
+//  sl.LoadFromFile(aDataPath + 'Constellations.csv'); // Eleanor
+///  sl.LoadFromFile(aDataPath + 'and.txt');  // Polygon of Andromeda
   for i := 0 to sl.Count - 1 do
   begin
-    line.CommaText := sl[i];
-    skypos := LonLatToPos(StrToFloatDef(line[0], 0), StrToFloatDef(line[1], 0));
-    ConstBounds.AddNode(skypos);
+    line.CommaText := sl[i + 1];
+    skypos := LonLatToPos(StrToFloat(line[0]), StrToFloat(line[1]));
+    ConstBorders.AddNode(skypos);
   end;
   sl.Free;
   line.Free;
+ // ConstLines.Nodes.Clear;
 end;
 
 //------------------------------------------------------------------
-// Show constallation borders
-//------------------------------------------------------------------
-procedure TfrmAllplanets.miViewConstBordersClick(Sender: TObject);
+procedure TfrmAllplanets.LoadStarBayers(const aDataPath: TFileName);
 begin
-  ConstBounds.Nodes.Clear;
-  miViewConstBorders.Checked := not miViewConstBorders.Checked;
-  if miViewConstborders.Checked then
-  begin
-    ConstBordersAlpha := 0.5 - ConstBordersAlpha;
-    LoadConstBorders;
-  end;
- // ConstLines.Nodes.Clear;
+  //
 end;
 
 
@@ -682,7 +678,8 @@ begin
       CameraControler.Position.AsVector, 0.05);
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
-  // постепенное по€вление/исчезновение линий созвездий
+
+  // Constellation lines
   if ConstLines.LineColor.Alpha <> ConstLinesAlpha then
   begin
     ConstLines.LineColor.Alpha :=
@@ -690,16 +687,16 @@ begin
                  ConstLines.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
   end;
-  // постепенное по€вление/исчезновение границ созвездий
-  if ConstBounds.LineColor.Alpha <> ConstBordersAlpha then
+
+  // Constellation borders
+  if ConstBorders.LineColor.Alpha <> ConstBordersAlpha then
   begin
-    ConstBounds.LineColor.Alpha :=
-      ClampValue(ConstBounds.LineColor.Alpha + Sign(ConstBordersAlpha -
-                 ConstBounds.LineColor.Alpha) * deltaTime, 0, 0.5);
-    ConstBounds.Visible := (ConstBounds.LineColor.Alpha > 0);
+    ConstBorders.LineColor.Alpha :=
+      ClampValue(ConstBorders.LineColor.Alpha + Sign(ConstBordersAlpha -
+                 ConstBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
+    ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
   end;
 
- // Rotations
   if frmOptions.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -747,9 +744,46 @@ begin
   Handled := True;
 end;
 
+//------------------------------------------------------------------
+// Form Show
+//------------------------------------------------------------------
+procedure TfrmAllplanets.FormShow(Sender: TObject);
+begin
+  // Planets
+  tvPlanets.Select(tvPlanets.Items[3]); // show Earth
+  tvPlanetsClick(Self);
+  miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
+end;
 
 //------------------------------------------------------------------
+// Herts Russel diagram
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miHertsRusselClick(Sender: TObject);
+begin
+  with TFormHercRussel.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
 
+//------------------------------------------------------------------
+// Hipparcos viewer
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miHipparcosClick(Sender: TObject);
+begin
+  with TFormHipparcos.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//------------------------------------------------------------------
+//  Scene Viewer
+//------------------------------------------------------------------
 procedure TfrmAllplanets.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
@@ -767,7 +801,8 @@ begin
 end;
 
 //------------------------------------------------------------------
-
+//
+//------------------------------------------------------------------
 procedure TfrmAllplanets.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
   if FileExists(FileName) then
@@ -778,7 +813,8 @@ begin
 end;
 
 //------------------------------------------------------------------
-
+//
+//------------------------------------------------------------------
 procedure TfrmAllplanets.FormKeyPress(Sender: TObject; var Key: Char);
 
 begin
@@ -840,7 +876,7 @@ end;
 // -----------------------------------------------------------------
 procedure TfrmAllplanets.miStellarSystemClick(Sender: TObject);
 begin
-  with TFormStarSys.Create(Self) do
+  with TFormStellarSys(Self) do
     try
       ShowModal;
     finally
@@ -901,11 +937,52 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAllplanets.miOptionsClick(Sender: TObject);
+// Polygons for constellations
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miConstPolygonsClick(Sender: TObject);
+begin
+  with TFormConstPolygons.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//------------------------------------------------------------------
+// Coordinates on Planet surface
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miCoordinatesClick(Sender: TObject);
+begin
+  with TFormCoords.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+
+//------------------------------------------------------------------
+// Tools Options
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miToolsOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
 
+//------------------------------------------------------------------
+// PointToOrbit
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miPointToClick(Sender: TObject);
+begin
+  with TFormPointto.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
 
 //------------------------------------------------------------------
 // Help in wiki
@@ -914,6 +991,8 @@ procedure TfrmAllplanets.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
+  miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
+
 /// ѕланеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
 /// tvPlanets.Selected.Text надо перевести на русский €зык дл€ ruwiki
 /// но, однако, некоторые названи€ звЄзд остаютс€ на латинице,

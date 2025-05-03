@@ -32,8 +32,6 @@ object frmGalaktika: TfrmGalaktika
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 560
-    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -42,7 +40,6 @@ object frmGalaktika: TfrmGalaktika
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -175,8 +172,6 @@ object frmGalaktika: TfrmGalaktika
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = 'Stars'
       object svGalacube: TGLSceneViewer
@@ -198,8 +193,6 @@ object frmGalaktika: TfrmGalaktika
         Height = 516
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 754
-        ExplicitHeight = 491
         object gbStars: TGroupBox
           Left = 6
           Top = 47

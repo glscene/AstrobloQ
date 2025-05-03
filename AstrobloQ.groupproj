@@ -3,16 +3,10 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Projects\AllPlanets.dproj">
+        <Projects Include="Projects\AstroScene.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\AllPlanetsR.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\Astrosfera.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\AstrosferaR.dproj">
+        <Projects Include="Projects\AstroSceneR.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Litosfera.dproj">
@@ -44,41 +38,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="AllPlanets">
-        <MSBuild Projects="Projects\AllPlanets.dproj"/>
+    <Target Name="AstroScene">
+        <MSBuild Projects="Projects\AstroScene.dproj"/>
     </Target>
-    <Target Name="AllPlanets:Clean">
-        <MSBuild Projects="Projects\AllPlanets.dproj" Targets="Clean"/>
+    <Target Name="AstroScene:Clean">
+        <MSBuild Projects="Projects\AstroScene.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="AllPlanets:Make">
-        <MSBuild Projects="Projects\AllPlanets.dproj" Targets="Make"/>
+    <Target Name="AstroScene:Make">
+        <MSBuild Projects="Projects\AstroScene.dproj" Targets="Make"/>
     </Target>
-    <Target Name="AllPlanetsR">
-        <MSBuild Projects="Projects\AllPlanetsR.dproj"/>
+    <Target Name="AstroSceneR">
+        <MSBuild Projects="Projects\AstroSceneR.dproj"/>
     </Target>
-    <Target Name="AllPlanetsR:Clean">
-        <MSBuild Projects="Projects\AllPlanetsR.dproj" Targets="Clean"/>
+    <Target Name="AstroSceneR:Clean">
+        <MSBuild Projects="Projects\AstroSceneR.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="AllPlanetsR:Make">
-        <MSBuild Projects="Projects\AllPlanetsR.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Astrosfera">
-        <MSBuild Projects="Projects\Astrosfera.dproj"/>
-    </Target>
-    <Target Name="Astrosfera:Clean">
-        <MSBuild Projects="Projects\Astrosfera.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Astrosfera:Make">
-        <MSBuild Projects="Projects\Astrosfera.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="AstrosferaR">
-        <MSBuild Projects="Projects\AstrosferaR.dproj"/>
-    </Target>
-    <Target Name="AstrosferaR:Clean">
-        <MSBuild Projects="Projects\AstrosferaR.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="AstrosferaR:Make">
-        <MSBuild Projects="Projects\AstrosferaR.dproj" Targets="Make"/>
+    <Target Name="AstroSceneR:Make">
+        <MSBuild Projects="Projects\AstroSceneR.dproj" Targets="Make"/>
     </Target>
     <Target Name="Litosfera">
         <MSBuild Projects="Projects\Litosfera.dproj"/>
@@ -144,13 +120,13 @@
         <MSBuild Projects="Projects\GalaktikaR.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AllPlanets;AllPlanetsR;Astrosfera;AstrosferaR;Litosfera;Biosfera;BiosferaR;Tehnosfera;TehnosferaR;Galaktika;GalaktikaR"/>
+        <CallTarget Targets="AstroScene;AstroSceneR;Litosfera;Biosfera;BiosferaR;Tehnosfera;TehnosferaR;Galaktika;GalaktikaR"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AllPlanets:Clean;AllPlanetsR:Clean;Astrosfera:Clean;AstrosferaR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Tehnosfera:Clean;TehnosferaR:Clean;Galaktika:Clean;GalaktikaR:Clean"/>
+        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Tehnosfera:Clean;TehnosferaR:Clean;Galaktika:Clean;GalaktikaR:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AllPlanets:Make;AllPlanetsR:Make;Astrosfera:Make;AstrosferaR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Tehnosfera:Make;TehnosferaR:Make;Galaktika:Make;GalaktikaR:Make"/>
+        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Tehnosfera:Make;TehnosferaR:Make;Galaktika:Make;GalaktikaR:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -8,7 +8,7 @@ uses
   ftMeshDataR in '..\source\teh\ftMeshDataR.pas' {FormMeshData},
   ftStarPilotR in '..\source\teh\ftStarPilotR.pas' {FormSpacePilot},
   ftLocationsR in '..\source\teh\ftLocationsR.pas' {FormLocations},
-  fmForm in '..\source\fmForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormI},
   ftCyborgR in '..\source\teh\ftCyborgR.pas' {FormCyborg},
   ftRobotR in '..\source\teh\ftRobotR.pas' {FormLoadSmdMdl},
   ftCETI in '..\source\teh\ftCETI.pas' {FormTehnosfera},

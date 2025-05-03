@@ -2,8 +2,8 @@ object frmAllplanets: TfrmAllplanets
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'AllPlanets'
-  ClientHeight = 700
+  Caption = 'AstroScene'
+  ClientHeight = 696
   ClientWidth = 1042
   Color = clBtnFace
   DoubleBuffered = True
@@ -17,37 +17,37 @@ object frmAllplanets: TfrmAllplanets
   Position = poScreenCenter
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
+  OnShow = FormShow
   TextHeight = 17
   object SceneViewer: TGLSceneViewer
     Left = 273
-    Top = 29
+    Top = 49
     Width = 769
-    Height = 652
+    Height = 628
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 146.039337158203100000
+    FieldOfView = 144.820159912109400000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
-    OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
   end
   object PanelLeft: TPanel
     Left = 0
-    Top = 29
+    Top = 49
     Width = 273
-    Height = 652
+    Height = 628
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 627
+    ExplicitHeight = 603
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 271
-      Height = 650
+      Height = 626
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
@@ -56,6 +56,7 @@ object frmAllplanets: TfrmAllplanets
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
+      Images = DataModuleImages.VirtPlanetSymbols
       Indent = 35
       ParentFont = False
       TabOrder = 0
@@ -151,12 +152,12 @@ object frmAllplanets: TfrmAllplanets
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 625
+      ExplicitHeight = 601
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 681
+    Top = 677
     Width = 1042
     Height = 19
     Panels = <
@@ -176,23 +177,23 @@ object frmAllplanets: TfrmAllplanets
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 656
+    ExplicitTop = 652
     ExplicitWidth = 1034
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
     Width = 1042
-    Height = 29
+    Height = 49
     Align = alTop
     TabOrder = 3
     ExplicitWidth = 1034
-    object ToolBar1: TToolBar
+    object tbPlanets: TToolBar
       Left = 19
       Top = 2
-      Width = 155
+      Width = 150
       Height = 22
-      Caption = 'ToolBar'
+      Images = DataModuleImages.ImageListInterface
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
@@ -202,7 +203,8 @@ object frmAllplanets: TfrmAllplanets
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton1'
-        ImageIndex = 0
+        ImageIndex = 2
+        ImageName = 'Andromeda'
       end
       object ToolButton2: TToolButton
         Left = 23
@@ -212,7 +214,8 @@ object frmAllplanets: TfrmAllplanets
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton2'
-        ImageIndex = 1
+        ImageIndex = 6
+        ImageName = 'Antlia'
       end
       object ToolButton3: TToolButton
         Left = 46
@@ -222,7 +225,19 @@ object frmAllplanets: TfrmAllplanets
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton3'
-        ImageIndex = 2
+        ImageIndex = 4
+        ImageName = 'Apus'
+      end
+      object ToolButton4: TToolButton
+        Left = 69
+        Top = 0
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton4'
+        ImageIndex = 14
+        ImageName = 'Aquarius'
       end
     end
   end
@@ -259,7 +274,7 @@ object frmAllplanets: TfrmAllplanets
         SplineMode = lsmSegments
         Options = []
       end
-      object ConstBounds: TGLLines
+      object ConstBorders: TGLLines
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {0000000000000000000080BF00000000}
         AntiAliased = True
@@ -268,6 +283,9 @@ object frmAllplanets: TfrmAllplanets
         Nodes = <>
         NodesAspect = lnaInvisible
         Options = []
+      end
+      object PolygonAndromeda: TGLPolygon
+        Nodes = <>
       end
     end
     object Camera: TGLCamera
@@ -301,11 +319,96 @@ object frmAllplanets: TfrmAllplanets
       object sfPlanet: TGLSphere
         Material.LibMaterialName = 'earthDay'
         Direction.Coordinates = {000000000000803F0000000000000000}
+        RollAngle = 23.600000381469730000
         TurnAngle = -150.000000000000000000
-        Up.Coordinates = {00000000000000800000803F00000000}
+        Up.Coordinates = {8DFACC3E00000000BF966A3F00000000}
         Radius = 0.500000000000000000
         Slices = 64
         Stacks = 64
+        object dcArrows: TGLDummyCube
+          Visible = False
+          CubeSize = 1.000000000000000000
+          object ArrowLineX: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+            Direction.Coordinates = {0000803F000000000000000000000000}
+            Position.Coordinates = {00007A4500000000000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object Arrow_X: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+            Direction.Coordinates = {000080BF000000000000000000000000}
+            Position.Coordinates = {00007AC500000000000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object ArrowLineY: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+            Direction.Coordinates = {000000000000803F0000000000000000}
+            Position.Coordinates = {0000000000007A45000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Up.Coordinates = {00000000000000000000803F00000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object Arrow_Y: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+            Direction.Coordinates = {00000000000080BF0000000000000000}
+            Position.Coordinates = {0000000000007AC5000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Up.Coordinates = {00000000000000000000803F00000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object ArrowLineZ: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+            Position.Coordinates = {000000000000000000007A450000803F}
+            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object Arrow_Z: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+            Direction.Coordinates = {0000000000000000000080BF00000000}
+            Position.Coordinates = {000000000000000000007AC50000803F}
+            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Stacks = 8
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+        end
         object diskRingDn: TGLDisk
           Material.Texture.Disabled = False
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
@@ -347,6 +450,29 @@ object frmAllplanets: TfrmAllplanets
           Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
           Radius = 0.200000002980232200
           Slices = 64
+        end
+        object TorusGreenwich: TGLTorus
+          Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
+          Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+          Direction.Coordinates = {0000803F000000002EBD3BB300000000}
+          TurnAngle = 90.000000000000000000
+          MajorRadius = 6371.000000000000000000
+          MinorRadius = 50.000000000000000000
+          Rings = 256
+          StopAngle = 360.000000000000000000
+          Parts = [toSides, toStartDisk, toStopDisk]
+        end
+        object TorusEquator: TGLTorus
+          Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+          Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+          Direction.Coordinates = {3A69BCB3000080BF7719C1A500000000}
+          Up.Coordinates = {BBF46E3201F03B190000803F00000000}
+          MajorRadius = 6371.000000000000000000
+          MinorRadius = 50.000000000000000000
+          Rings = 256
+          StopAngle = 360.000000000000000000
+          Parts = [toSides, toStartDisk, toStopDisk]
         end
       end
       object acPlanet: TGLActor
@@ -88694,61 +88820,56 @@ object frmAllplanets: TfrmAllplanets
     end
     object miView: TMenuItem
       Caption = '&View'
-      object miViewConstlines: TMenuItem
-        Caption = 'Constellines'
-        OnClick = miViewConstlinesClick
-      end
-      object miViewConstborders: TMenuItem
-        Caption = 'Constelborders'
-        OnClick = miViewConstbordersClick
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object miViewHidePanels: TMenuItem
-        Caption = 'Hide panels'
-        OnClick = miViewHidePanelsClick
-      end
-      object miClearTreeView: TMenuItem
-        Caption = 'Clear'
-        Enabled = False
-        OnClick = miClearTreeViewClick
-      end
-      object N6: TMenuItem
-        Caption = '-'
-      end
-      object NightLights1: TMenuItem
-        Caption = 'City lights'
-      end
-    end
-    object miMonitor: TMenuItem
-      Caption = '&Monitor'
       object miSolarSystem: TMenuItem
         Caption = 'Solar system...'
         OnClick = miSolarSystemClick
-      end
-      object N1: TMenuItem
-        Caption = '-'
       end
       object miStellarSystem: TMenuItem
         Caption = 'Stellar system...'
         OnClick = miStellarSystemClick
       end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object miHipparcos: TMenuItem
+        Caption = 'Hipparcos...'
+        OnClick = miHipparcosClick
+      end
+      object miPointTo: TMenuItem
+        Caption = 'PointTo...'
+        OnClick = miPointToClick
+      end
+      object miConstPolygons: TMenuItem
+        Caption = 'Const Polygons...'
+        OnClick = miConstPolygonsClick
+      end
+      object miCoordinates: TMenuItem
+        Caption = 'Coordinates...'
+        OnClick = miCoordinatesClick
+      end
+      object N6: TMenuItem
+        Caption = '-'
+      end
     end
     object miTools: TMenuItem
       Caption = '&Tools'
-      object miSettings: TMenuItem
+      object miToolsSettings: TMenuItem
         Caption = 'Settings...'
       end
-      object miOptions: TMenuItem
+      object miToolsOptions: TMenuItem
         Caption = 'Options...'
-        OnClick = miOptionsClick
+        OnClick = miToolsOptionsClick
       end
       object N7: TMenuItem
         Caption = '-'
       end
       object miExogen: TMenuItem
-        Caption = 'Exosystem generator...'
+        Caption = 'Exoplanet generator...'
+        OnClick = miExogenClick
+      end
+      object miHertsRussel: TMenuItem
+        Caption = 'HertsRussel...'
+        OnClick = miHertsRusselClick
       end
     end
     object miHelp: TMenuItem
@@ -88762,14 +88883,14 @@ object frmAllplanets: TfrmAllplanets
       object N3: TMenuItem
         Caption = '-'
       end
-      object About1: TMenuItem
+      object miHelpAbout: TMenuItem
         Caption = 'About...'
-        OnClick = About1Click
+        OnClick = miHelpAboutClick
       end
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 524
+    Left = 532
     Top = 297
   end
   object SaveDialog: TSaveDialog

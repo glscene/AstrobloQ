@@ -7,7 +7,7 @@ uses
   ftMeshEditor in '..\source\teh\ftMeshEditor.pas' {frmSculptor},
   ftMeshData in '..\source\teh\ftMeshData.pas' {FormMeshData},
   ftStarPilot in '..\source\teh\ftStarPilot.pas' {FormSpacePilot},
-  fmForm in '..\source\fmForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormI},
   ftCyborg in '..\source\teh\ftCyborg.pas' {FormCyborg},
   ftRobot in '..\source\teh\ftRobot.pas' {FormLoadSmdMdl},
   ftCETI in '..\source\teh\ftCETI.pas' {FormTehnosfera},
@@ -23,7 +23,8 @@ uses
   Space.Globals in '..\source\Space.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {frmTehnosfera},
-  ftLocations in '..\source\teh\ftLocations.pas' {FormLocations};
+  ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}
 

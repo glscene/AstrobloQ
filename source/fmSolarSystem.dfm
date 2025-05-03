@@ -32,7 +32,6 @@ object FormSolarSys: TFormSolarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 656
   end
   object PanelLeft: TPanel
     Left = 0
@@ -66,7 +65,7 @@ object FormSolarSys: TFormSolarSys
     TabOrder = 2
     object Splitter1: TSplitter
       Left = 1
-      Top = 131
+      Top = 18
       Width = 134
       Height = 20
       Cursor = crVSplit
@@ -84,29 +83,6 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
-    end
-    inline FrameParams: TFrameParams
-      Left = 1
-      Top = 18
-      Width = 134
-      Height = 113
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
-      Align = alTop
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Courier'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 18
-      ExplicitWidth = 134
-      ExplicitHeight = 113
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -116,7 +92,7 @@ object FormSolarSys: TFormSolarSys
       Caption = 'Orbits'
       Checked = True
       State = cbChecked
-      TabOrder = 2
+      TabOrder = 1
       OnClick = cbOrbitClick
     end
     object cbHabitableZone: TCheckBox
@@ -127,7 +103,7 @@ object FormSolarSys: TFormSolarSys
       Caption = 'Habzone'
       Checked = True
       State = cbChecked
-      TabOrder = 3
+      TabOrder = 2
       OnClick = cbHabitableZoneClick
     end
     object MemoInfo: TMemo
@@ -138,7 +114,7 @@ object FormSolarSys: TFormSolarSys
       Align = alBottom
       Lines.Strings = (
         'Memo1')
-      TabOrder = 4
+      TabOrder = 3
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -148,7 +124,7 @@ object FormSolarSys: TFormSolarSys
       Caption = 'Rotation'
       Checked = True
       State = cbChecked
-      TabOrder = 5
+      TabOrder = 4
       OnClick = cbRotationClick
     end
   end
@@ -158,6 +134,17 @@ object FormSolarSys: TFormSolarSys
     Width = 979
     Height = 18
     Panels = <>
+  end
+  inline FrameParams: TFrameParams
+    Left = 632
+    Top = 410
+    Width = 185
+    Height = 119
+    TabOrder = 4
+    ExplicitLeft = 632
+    ExplicitTop = 410
+    ExplicitWidth = 185
+    ExplicitHeight = 119
   end
   object Scene: TGLScene
     Left = 254

@@ -21,7 +21,8 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmForm in '..\source\fmForm.pas' {FormI},
   fgAnalyserR in '..\source\galaxy\fgAnalyserR.pas' {FormAnalyser},
-  Space.Globals in '..\source\Space.Globals.pas';
+  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

@@ -109,12 +109,12 @@ type
 var
   frmOptions: TfrmOptions;
 
-implementation //================================================
+implementation //-----------------------------------------------------------
 
 {$R *.dfm}
 
 uses
-  fmAllPlanetsR;
+  fmAstroSceneR;
 
 //-------------------------------------------------------------
 procedure TfrmOptions.FormCreate(Sender: TObject);
@@ -154,25 +154,27 @@ begin
 end;
 
 //---------------------------------------------------
-// Show rim of atmosphere
+// Показать кайму атмосферы
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
- // FormLitosfera.Atmosphere;
+ // frmAllPlanets.Atmosphere;
 end;
 
-// Show or hide axes X, Y, Z for a planet
+//---------------------------------------------------
+// Показать или скрыть оси X, Y, Z небесного тела
+//---------------------------------------------------
 procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
 begin
   if CheckBoxAxes.Checked then
   begin
-    frmAllplanets.sfPlanet.ShowAxes := not frmAllplanets.sfPlanet.ShowAxes;
-    frmAllplanets.ffPlanet.ShowAxes := not frmAllplanets.ffPlanet.ShowAxes;
+    frmAllPlanets.sfPlanet.ShowAxes := not frmAllplanets.sfPlanet.ShowAxes;
+    frmAllPlanets.ffPlanet.ShowAxes := not frmAllplanets.ffPlanet.ShowAxes;
   end;
 end;
 
 //---------------------------------------------------
-// Show cartographic grid
+// Показать картографическую сетку
 //---------------------------------------------------
 procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
 begin
@@ -180,7 +182,7 @@ begin
 end;
 
 //---------------------------------------------------
-// Show core with mantle
+// Показать разрез с ядром и мантией
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
 begin
@@ -205,7 +207,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Показать или скрыть планету
+// Показать или скрыть небесное тело
 //------------------------------------------------------------------
 procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
 begin
@@ -224,6 +226,8 @@ begin
 end;
 
 //---------------------------------------------------------
+// Выбор страниц опций
+//---------------------------------------------------------
 procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
   tvOptions.Items[1].DropHighlighted := False;
@@ -236,6 +240,8 @@ begin
   end;
 end;
 
+//------------------------------------------------------------
+// Чтение установок из ини файла
 //------------------------------------------------------------
 procedure TfrmOptions.ReadIniFile;
 var
@@ -252,6 +258,8 @@ begin
 end;
 
 //------------------------------------------------------------
+// Запись установок в ини файл
+//------------------------------------------------------------
 procedure TfrmOptions.WriteIniFile;
 var
   IniFile: TIniFile;
@@ -267,6 +275,8 @@ begin
 end;
 
 //--------------------------------------------------------------
+// Изменение и запись в файл при нажатии на кнопку ОК
+//--------------------------------------------------------------
 procedure TfrmOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
@@ -279,6 +289,9 @@ begin
 end;
 
 
+//--------------------------------------------------------------
+// Запись при закрытии формы
+//--------------------------------------------------------------
 procedure TfrmOptions.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;

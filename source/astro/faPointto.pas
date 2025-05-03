@@ -55,13 +55,12 @@ type
 var
   FormPointto: TFormPointto;
 
-implementation
+implementation //------------------------------------------------------------
 
 {$R *.DFM}
 
 procedure TFormPointto.FormCreate(Sender: TObject);
 begin
-  DataDir := ExtractFilePath(ParamStr(0)) + 'data\';;
   DataDir := DataDir + 'map\';
   SetCurrentDir(DataDir);
 

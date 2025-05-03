@@ -13,10 +13,8 @@ program Litosfera;
 
 uses
   Forms,
-  flParams in '..\source\lito\flParams.pas' {FrameParams: TFrame},
-  flSolarSystem in '..\source\lito\flSolarSystem.pas' {FormSolarSys},
   flOptions in '..\source\lito\flOptions.pas' {frmOptions},
-  fmForm in '..\source\fmForm.pas' {FormG},
+  fmForm in '..\source\fmForm.pas' {FormI},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   flLitosfera in '..\source\lito\flLitosfera.pas' {frmLitosfera},
   Space.Globals in '..\source\Space.Globals.pas',

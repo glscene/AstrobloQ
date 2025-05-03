@@ -30,8 +30,6 @@ const
   ActiveLanguage: Integer = 9; // 9 - LANG_ENGLISH, 25 - LANG_RUSSIAN
 
 var
- // ExePath: TFileName;
-  CurrentPath, Catalog: TFileName;
   ModelPath:   TFileName;
   TexturePath: TFileName;
   IniFile: TIniFile;
