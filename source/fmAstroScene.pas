@@ -152,6 +152,12 @@ type
     miPointTo: TMenuItem;
     miConstPolygons: TMenuItem;
     miCoordinates: TMenuItem;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
+    ToolButton10: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -253,9 +259,9 @@ begin
   end;
 
   // change currect star dir
-  if DirectoryExists('Stars\sun') then
-        ChDir('Stars\sun');
-  CurrentStar := DataDir + '\Stars\sun\';
+  if DirectoryExists('stars\sun') then
+        ChDir('stars\sun');
+  CurrentStar := DataDir + '\stars\sun\';
 
   // Enable textured maps
   sfPlanet.Material.Texture.Disabled := False;

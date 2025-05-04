@@ -4,7 +4,7 @@ object frmAllplanets: TfrmAllplanets
   Cursor = crHelp
   Caption = 'AstroScene'
   ClientHeight = 696
-  ClientWidth = 1042
+  ClientWidth = 1100
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -21,33 +21,35 @@ object frmAllplanets: TfrmAllplanets
   TextHeight = 17
   object SceneViewer: TGLSceneViewer
     Left = 273
-    Top = 49
-    Width = 769
-    Height = 628
+    Top = 57
+    Width = 827
+    Height = 620
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 144.820159912109400000
+    FieldOfView = 144.394729614257800000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 769
   end
   object PanelLeft: TPanel
     Left = 0
-    Top = 49
+    Top = 57
     Width = 273
-    Height = 628
+    Height = 620
     Align = alLeft
     TabOrder = 1
+    ExplicitTop = 49
     ExplicitHeight = 603
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 271
-      Height = 626
+      Height = 618
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
@@ -158,7 +160,7 @@ object frmAllplanets: TfrmAllplanets
   object StatusBar: TStatusBar
     Left = 0
     Top = 677
-    Width = 1042
+    Width = 1100
     Height = 19
     Panels = <
       item
@@ -183,17 +185,19 @@ object frmAllplanets: TfrmAllplanets
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 1042
-    Height = 49
+    Width = 1100
+    Height = 57
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1034
+    ExplicitWidth = 1042
     object tbPlanets: TToolBar
       Left = 19
       Top = 2
-      Width = 150
-      Height = 22
-      Images = DataModuleImages.ImageListInterface
+      Width = 502
+      Height = 48
+      ButtonHeight = 45
+      ButtonWidth = 49
+      Images = DataModuleImages.VirtPlanetSymbols
       TabOrder = 0
       object ToolButton1: TToolButton
         Left = 0
@@ -203,41 +207,83 @@ object frmAllplanets: TfrmAllplanets
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton1'
-        ImageIndex = 2
-        ImageName = 'Andromeda'
+        ImageIndex = 0
+        ImageName = '0_Sun'
       end
       object ToolButton2: TToolButton
-        Left = 23
+        Left = 49
         Top = 0
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton2'
-        ImageIndex = 6
-        ImageName = 'Antlia'
+        ImageIndex = 1
+        ImageName = '1_Mercury'
       end
       object ToolButton3: TToolButton
-        Left = 46
+        Left = 98
         Top = 0
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton3'
-        ImageIndex = 4
-        ImageName = 'Apus'
+        ImageIndex = 2
+        ImageName = '2_Venus'
       end
       object ToolButton4: TToolButton
-        Left = 69
+        Left = 147
         Top = 0
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'ToolButton4'
-        ImageIndex = 14
-        ImageName = 'Aquarius'
+        ImageIndex = 3
+        ImageName = '3_Earth'
+      end
+      object ToolButton5: TToolButton
+        Left = 196
+        Top = 0
+        Caption = 'ToolButton5'
+        ImageIndex = 4
+        ImageName = '4_Mars'
+      end
+      object ToolButton6: TToolButton
+        Left = 245
+        Top = 0
+        Caption = 'ToolButton6'
+        ImageIndex = 5
+        ImageName = '5_Jupiter'
+      end
+      object ToolButton7: TToolButton
+        Left = 294
+        Top = 0
+        Caption = 'ToolButton7'
+        ImageIndex = 6
+        ImageName = '6_Saturn'
+      end
+      object ToolButton8: TToolButton
+        Left = 343
+        Top = 0
+        Caption = 'ToolButton8'
+        ImageIndex = 7
+        ImageName = '7_Uranus'
+      end
+      object ToolButton9: TToolButton
+        Left = 392
+        Top = 0
+        Caption = 'ToolButton9'
+        ImageIndex = 8
+        ImageName = '8_Neptune'
+      end
+      object ToolButton10: TToolButton
+        Left = 441
+        Top = 0
+        Caption = 'ToolButton10'
+        ImageIndex = 9
+        ImageName = '9_Pluto'
       end
     end
   end
@@ -319,9 +365,8 @@ object frmAllplanets: TfrmAllplanets
       object sfPlanet: TGLSphere
         Material.LibMaterialName = 'earthDay'
         Direction.Coordinates = {000000000000803F0000000000000000}
-        RollAngle = 23.600000381469730000
         TurnAngle = -150.000000000000000000
-        Up.Coordinates = {8DFACC3E00000000BF966A3F00000000}
+        Up.Coordinates = {00000000000000000000803F00000000}
         Radius = 0.500000000000000000
         Slices = 64
         Stacks = 64
@@ -332,7 +377,7 @@ object frmAllplanets: TfrmAllplanets
             Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
             Direction.Coordinates = {0000803F000000000000000000000000}
             Position.Coordinates = {00007A4500000000000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Scale.Coordinates = {0000C8420000C8420000484400000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
             TopRadius = 0.050000000745058060
@@ -345,7 +390,7 @@ object frmAllplanets: TfrmAllplanets
             Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
             Direction.Coordinates = {000080BF000000000000000000000000}
             Position.Coordinates = {00007AC500000000000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Scale.Coordinates = {0000C8420000C8420000484400000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
             TopRadius = 0.050000000745058060
@@ -358,7 +403,7 @@ object frmAllplanets: TfrmAllplanets
             Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
             Direction.Coordinates = {000000000000803F0000000000000000}
             Position.Coordinates = {0000000000007A45000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Scale.Coordinates = {0000C8420000C8420000484400000000}
             Up.Coordinates = {00000000000000000000803F00000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
@@ -372,7 +417,7 @@ object frmAllplanets: TfrmAllplanets
             Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
             Direction.Coordinates = {00000000000080BF0000000000000000}
             Position.Coordinates = {0000000000007AC5000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Scale.Coordinates = {0000C8420000C8420000484400000000}
             Up.Coordinates = {00000000000000000000803F00000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
@@ -385,7 +430,7 @@ object frmAllplanets: TfrmAllplanets
           object ArrowLineZ: TGLArrowLine
             Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
             Position.Coordinates = {000000000000000000007A450000803F}
-            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            Scale.Coordinates = {0000C8420000C8420000484400000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
             TopRadius = 0.050000000745058060
@@ -398,7 +443,7 @@ object frmAllplanets: TfrmAllplanets
             Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
             Direction.Coordinates = {0000000000000000000080BF00000000}
             Position.Coordinates = {000000000000000000007AC50000803F}
-            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            Scale.Coordinates = {0000C8420000C8420000484400000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
             Stacks = 8

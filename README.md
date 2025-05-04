@@ -43,18 +43,18 @@
 
 ### Biosfera
 
-Биосферы экзопланет. Астробиология и симуляция колоний живых организмов.
+Биосферы экзопланет и симуляция живых организмов.
  
 ![Biosfera](./docs/screenshots/Biosfera.jpg)
 
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
 ![Biosfera](./docs/clips/AnimationEcosystemA.gif)
 
-### Tehnosfera
+### Noosfera
 
-Техносферы экзопланет и сети космических коммуникаций
-![Tehnosfera](./docs/screenshots/Tehnosferas.png)
-![Tehnosfera](./docs/clips/Meteors.gif)
+Ноосферы экзопланет с межзвёздными коммуникациями
+![Noosfera](./docs/screenshots/Tehnosferas.png)
+![Noosfera](./docs/clips/Meteors.gif)
 
 ### Galaktika
 

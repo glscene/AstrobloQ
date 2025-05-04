@@ -3725,8 +3725,8 @@ object FormAbout: TFormAbout
         ExplicitWidth = 716
       end
     end
-    object tsLitosfera: TTabSheet
-      Caption = 'Litosfera'
+    object tsTerrasfera: TTabSheet
+      Caption = 'Terrasfera'
       ImageIndex = 3
       object Image2: TImage
         Left = 0
@@ -29571,7 +29571,7 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
-      object PanelLitosfera: TPanel
+      object PanelTerrasfera: TPanel
         Left = 0
         Top = 0
         Width = 724
@@ -53061,8 +53061,8 @@ object FormAbout: TFormAbout
         TabOrder = 0
       end
     end
-    object tsTehnosfera: TTabSheet
-      Caption = 'Tehnosfera'
+    object tsNoosfera: TTabSheet
+      Caption = 'Noosfera'
       ImageIndex = 5
       object Image3: TImage
         Left = 0
@@ -65532,13 +65532,13 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
-      object PanelTehnosfera: TPanel
+      object PanelNoosfera: TPanel
         Left = 0
         Top = 0
         Width = 724
         Height = 41
         Align = alTop
-        Caption = 'Technospheres and communications'
+        Caption = 'Noospheres and cosmic civilizations'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24

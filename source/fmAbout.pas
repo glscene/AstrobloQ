@@ -31,9 +31,9 @@ type
     ButtonAstrobloQ: TSpeedButton;
     OGLImage: TImage;
     GLSImage: TImage;
-    tsLitosfera: TTabSheet;
+    tsTerrasfera: TTabSheet;
     tsBiosphere: TTabSheet;
-    tsTehnosfera: TTabSheet;
+    tsNoosfera: TTabSheet;
     tsAstroScene: TTabSheet;
     tsGalaktika: TTabSheet;
     tsUniversum: TTabSheet;
@@ -45,9 +45,9 @@ type
     Image2: TImage;
     ImagePlanets: TImage;
     PanelAllPlanets: TPanel;
-    PanelLitosfera: TPanel;
+    PanelTerrasfera: TPanel;
     PanelBiosfera: TPanel;
-    PanelTehnosfera: TPanel;
+    PanelNoosfera: TPanel;
     PanelGalaktika: TPanel;
     PanelUniverse: TPanel;
     procedure ImageGLSClick(Sender: TObject);
