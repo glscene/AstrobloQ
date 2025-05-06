@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcAstrosferaH
-#define fcAstrosferaH
+#ifndef fcAstroSceneH
+#define fcAstroSceneH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -30,7 +30,7 @@
 
 
 //---------------------------------------------------------------------------
-class TFormAstroViewer : public TFormC
+class TfrmAstroScene : public TFormC
 {
 __published:	// IDE-managed Components
 	TGLSceneViewer *GLSceneViewer;
@@ -147,9 +147,11 @@ private:	// User declarations
 	TFileName CurrDir;
 	TFileName FileName;
 public:		// User declarations
-	__fastcall TFormAstroViewer(TComponent* Owner);
+	__fastcall TfrmAstroScene(TComponent* Owner);
+	__fastcall TFileName GetDataPath();
+	void __fastcall LoadPlanetMap(const String& fileName);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormAstroViewer *FormAstroViewer;
+extern PACKAGE TfrmAstroScene *frmAstroScene;
 //---------------------------------------------------------------------------
 #endif

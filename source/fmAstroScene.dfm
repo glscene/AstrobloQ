@@ -3,8 +3,8 @@ object frmAllplanets: TfrmAllplanets
   Top = 123
   Cursor = crHelp
   Caption = 'AstroScene'
-  ClientHeight = 696
-  ClientWidth = 1100
+  ClientHeight = 754
+  ClientWidth = 1167
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -22,34 +22,34 @@ object frmAllplanets: TfrmAllplanets
   object SceneViewer: TGLSceneViewer
     Left = 273
     Top = 57
-    Width = 827
-    Height = 620
+    Width = 894
+    Height = 678
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 144.394729614257800000
+    FieldOfView = 147.270706176757800000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 769
+    ExplicitWidth = 827
+    ExplicitHeight = 620
   end
   object PanelLeft: TPanel
     Left = 0
     Top = 57
     Width = 273
-    Height = 620
+    Height = 678
     Align = alLeft
     TabOrder = 1
-    ExplicitTop = 49
-    ExplicitHeight = 603
+    ExplicitHeight = 595
     object tvPlanets: TTreeView
       Left = 1
       Top = 1
       Width = 271
-      Height = 618
+      Height = 676
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
@@ -154,13 +154,13 @@ object frmAllplanets: TfrmAllplanets
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 601
+      ExplicitLeft = -4
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 677
-    Width = 1100
+    Top = 735
+    Width = 1167
     Height = 19
     Panels = <
       item
@@ -180,16 +180,16 @@ object frmAllplanets: TfrmAllplanets
         Width = 86
       end>
     ExplicitTop = 652
-    ExplicitWidth = 1034
+    ExplicitWidth = 1092
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 1100
+    Width = 1167
     Height = 57
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1042
+    ExplicitWidth = 1092
     object tbPlanets: TToolBar
       Left = 19
       Top = 2
