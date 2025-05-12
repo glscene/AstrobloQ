@@ -98,7 +98,7 @@ type
     miFileOpen: TMenuItem;
     miHelp: TMenuItem;
     PanelLeft: TPanel;
-    tvPlanets: TTreeView;
+    tvMoons: TTreeView;
     miClearTreeView: TMenuItem;
     miViewConstlines: TMenuItem;
     miViewConstborders: TMenuItem;
@@ -136,6 +136,8 @@ type
     LightStar: TGLLightSource;
     About1: TMenuItem;
     miSettings: TMenuItem;
+    PanelRight: TPanel;
+    tvAsteroids: TTreeView;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -151,7 +153,7 @@ type
     procedure miFileExitClick(Sender: TObject);
     procedure miViewConstlinesClick(Sender: TObject);
     procedure miViewConstBordersClick(Sender: TObject);
-    procedure tvPlanetsClick(Sender: TObject);
+    procedure tvMoonsClick(Sender: TObject);
     procedure miFileOpenClick(Sender: TObject);
     procedure miFileSaveAsClick(Sender: TObject);
     procedure miClearTreeViewClick(Sender: TObject);
@@ -243,17 +245,17 @@ begin
   acPlanet.Scale.Scale(0.1);
 
   // Image indices for TreeView
-  for I := 0 to tvPlanets.Items.Count - 1 do
+  for I := 0 to tvMoons.Items.Count - 1 do
   begin
-//    tvPlanets.Items[I].ImageIndex := I;
-//    tvPlanets.Items[I].SelectedIndex := I;
-//    tvPlanets.Items[I].StateIndex := I;
-    tvPlanets.Items[I].ExpandedImageIndex := I;
+//    tvMoons.Items[I].ImageIndex := I;
+//    tvMoons.Items[I].SelectedIndex := I;
+//    tvMoons.Items[I].StateIndex := I;
+    tvMoons.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-  tvPlanets.Select(tvPlanets.Items[3]);  // Earth
-  tvPlanets.FullExpand;
-  miHelpWiki.Caption := tvPlanets.Selected.Text + ' in ' + 'Wikipedia...';
+  tvMoons.Select(tvMoons.Items[3]);  // Earth
+  tvMoons.FullExpand;
+  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
 
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
   inherited;   // should be inheritance for translation
@@ -284,17 +286,17 @@ begin
 end;
 
 //------------------------------------------------------------------
-//   Выбор узлов деревьев просмотра планет, звёзд и созвездий tvPlanetsClick
+//   Выбор узлов деревьев просмотра планет, звёзд и созвездий tvMoonsClick
 //------------------------------------------------------------------
-procedure TfrmAllplanets.tvPlanetsClick(Sender: TObject);
+procedure TfrmAllplanets.tvMoonsClick(Sender: TObject);
 begin
-  PlanetPath := CurrentStar + tvPlanets.Selected.Text;
+  PlanetPath := CurrentStar + tvMoons.Selected.Text;
 
 //  From LibMaterial or virtualimage collection
-///  tvPlanets.Images := dfImages.ImgVirtPlanets;
+///  tvMoons.Images := dfImages.ImgVirtPlanets;
 
   // Selection planet.3ds
-  if tvPlanets.Selected.StateIndex = -1 then
+  if tvMoons.Selected.StateIndex = -1 then
   begin
     sfPlanet.Visible := True;
     sfPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
@@ -329,7 +331,7 @@ begin
 *)
   // Planet rings
 
-  if (tvPlanets.Selected.Text = 'Сатурн') or (tvPlanets.Selected.Text = 'Уран') then
+  if (tvMoons.Selected.Text = 'Сатурн') or (tvMoons.Selected.Text = 'Уран') then
   begin
     diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
     diskRingUp.Visible := True;
@@ -342,10 +344,10 @@ begin
     diskRingDn.Visible := False;
   end;
 
-  miHelpWiki.Caption := tvPlanets.Selected.Text + 'in Ruwiki';
+  miHelpWiki.Caption := tvMoons.Selected.Text + 'in Ruwiki';
 
   // Show atmosphere
-  if tvPlanets.Selected.Text = 'Earth' then
+  if tvMoons.Selected.Text = 'Earth' then
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
@@ -757,11 +759,19 @@ begin
   begin
     WindowState := wsNormal;
     PanelLeft.Visible := True;
+    PanelRight.Visible := True;
+    ControlBar.Visible := True;
+    BorderStyle := bsSizeable;
+
   end
   else
   begin
     WindowState := wsMaximized;
     PanelLeft.Visible := False;
+    PanelRight.Visible := False;
+    ControlBar.Visible := False;
+    BorderStyle := bsNone;
+
   end;
   SceneViewer.OnMouseMove := SceneViewerMouseMove;
 end;
@@ -849,11 +859,11 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Clear tvPlanets
+// Clear tvMoons
 //------------------------------------------------------------------
 procedure TfrmAllplanets.miClearTreeViewClick(Sender: TObject);
 begin
-  tvPlanets.Items.Clear;
+  tvMoons.Items.Clear;
 end;
 
 //------------------------------------------------------------------
@@ -868,20 +878,20 @@ begin
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
   begin  // new star
-    tvPlanets.LoadFromFile(OpenDialog.FileName, TEncoding.UTF8);
-    // tvPlanets.Images := dfImages.ImgVirtPlanets; // не загружаются символы
+    tvMoons.LoadFromFile(OpenDialog.FileName, TEncoding.UTF8);
+    // tvMoons.Images := dfImages.ImgVirtPlanets; // не загружаются символы
     CurrentStar := ExtractFilePath(OpenDialog.FileName);
 
     // Assigning indices
-    for I := 0 to tvPlanets.Items.Count - 1 do
+    for I := 0 to tvMoons.Items.Count - 1 do
     begin
-      tvPlanets.Items[I].ImageIndex := I; // and may be .Item[J] ?
-      tvPlanets.Items[I].SelectedIndex := I;
-      tvPlanets.Items[I].StateIndex := -1;
+      tvMoons.Items[I].ImageIndex := I; // and may be .Item[J] ?
+      tvMoons.Items[I].SelectedIndex := I;
+      tvMoons.Items[I].StateIndex := -1;
     end;
     (**)
-    tvPlanets.Select(tvPlanets.Items[0]);
-    tvPlanetsClick(Sender);
+    tvMoons.Select(tvMoons.Items[0]);
+    tvMoonsClick(Sender);
   end;
 end;
 
@@ -895,7 +905,7 @@ begin
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
   begin
-    tvPlanets.SaveToFile(SaveDialog.FileName);
+    tvMoons.SaveToFile(SaveDialog.FileName);
     CurrentStar := GetCurrentDir();
   end;
 end;
@@ -915,11 +925,11 @@ var
   S: String;
 begin
 /// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
-/// tvPlanets.Selected.Text надо перевести на русский язык для ruwiki
+/// tvMoons.Selected.Text надо перевести на русский язык для ruwiki
 /// но, однако, некоторые названия звёзд остаются на латинице,
 /// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
-/// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text + _('Earth')
-  if (tvPlanets.Selected.Level = 0)   then
+/// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
+  if (tvMoons.Selected.Level = 0)   then
   begin
 (*
     if ActiveLang = LANG_RUSSIAN then
@@ -927,12 +937,12 @@ begin
     else
 *)
 //      S :=  'https://en.wikipedia.org/wiki/Earth';
-      S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text;
+      S :=  'https://en.wikipedia.org/wiki/' + tvMoons.Selected.Text;
   end
   else  // Moons
   begin
-    S :=  'https://en.wikipedia.org/wiki/' + tvPlanets.Selected.Text + '_(moon)';
-/// S :=  'https://ru.ruwiki.ru/wiki/' + tvPlanets.Selected.Text;
+    S :=  'https://en.wikipedia.org/wiki/' + tvMoons.Selected.Text + '_(moon)';
+/// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text;
   end;
 //  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);

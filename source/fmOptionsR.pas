@@ -191,7 +191,7 @@ begin
   begin
     // ѕереключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечени€ типа GLDisk
-    PlanetPath := CurrentStar + tvPlanets.Selected.Text;
+    PlanetPath := CurrentStar + tvMoons.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else

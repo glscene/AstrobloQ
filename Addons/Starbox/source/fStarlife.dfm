@@ -24,7 +24,6 @@ object FormLife: TFormLife
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 763
   end
   object Panel1: TPanel
     Left = 755
@@ -33,8 +32,6 @@ object FormLife: TFormLife
     Height = 660
     Align = alRight
     TabOrder = 1
-    ExplicitLeft = 747
-    ExplicitHeight = 635
     object Label1: TLabel
       Left = 19
       Top = 76
@@ -384,7 +381,7 @@ object FormLife: TFormLife
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
-    FormCaption = #1069#1082#1086#1083#1102#1094#1080#1103' '#1089#1082#1086#1087#1083#1077#1085#1080#1103' '#1079#1074#1105#1079#1076' - %FPS'
+    FormCaption = #1069#1074#1086#1083#1102#1094#1080#1103' '#1089#1082#1086#1087#1083#1077#1085#1080#1103' '#1079#1074#1105#1079#1076' - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

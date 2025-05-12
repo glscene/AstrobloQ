@@ -36,11 +36,11 @@ object FormAbout: TFormAbout
     Top = 65
     Width = 749
     Height = 552
-    ActivePage = tsAstroScene
+    ActivePage = tsBiosphere
     Align = alClient
     TabOrder = 1
     object tsAstroScene: TTabSheet
-      Caption = #1040#1089#1090#1088#1086#1057#1094#1077#1085#1072
+      Caption = 'AstroScene'
       object ImagePlanets: TImage
         Left = 0
         Top = 41

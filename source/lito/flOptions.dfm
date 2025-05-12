@@ -30,7 +30,7 @@ object frmOptions: TfrmOptions
       750
       41)
     object ButtonOK: TButton
-      Left = 522
+      Left = 514
       Top = 1
       Width = 99
       Height = 31
@@ -39,7 +39,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 514
+      ExplicitLeft = 506
     end
   end
   object PanelMiddle: TPanel
@@ -77,7 +77,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = 0
+          Left = -8
           Top = 137
           Width = 104
           Height = 128
@@ -88,7 +88,7 @@ object frmOptions: TfrmOptions
           Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 17
+          ItemHeight = 15
           Items.Strings = (
             'O'
             'B'
@@ -299,9 +299,9 @@ object frmOptions: TfrmOptions
           end
           object CheckBoxCore: TCheckBox
             Left = 135
-            Top = 31
+            Top = 24
             Width = 98
-            Height = 18
+            Height = 25
             Caption = 'Core'
             TabOrder = 3
             StyleName = 'Windows'

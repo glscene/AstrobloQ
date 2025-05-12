@@ -155,12 +155,6 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="src\fcAbout.cpp">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>src\fcAbout.h</DependentOn>
-            <BuildOrder>5</BuildOrder>
-        </CppCompile>
         <CppCompile Include="src\fcDataset.cpp">
             <Form>FormDataset</Form>
             <FormType>dfm</FormType>
@@ -190,7 +184,6 @@
         </CppCompile>
         <FormResources Include="src\fcStarcells.dfm"/>
         <FormResources Include="src\fcStarlife.dfm"/>
-        <FormResources Include="src\fcAbout.dfm"/>
         <FormResources Include="src\fcDataset.dfm"/>
         <FormResources Include="src\fcOptions.dfm"/>
         <BuildConfiguration Include="Base">

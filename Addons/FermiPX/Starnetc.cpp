@@ -6,7 +6,6 @@
 //---------------------------------------------------------------------------
 USEFORM("src\fcStarcells.cpp", FormPÑ);
 USEFORM("src\fcStarlife.cpp", FormLife);
-USEFORM("src\fcAbout.cpp", FormAbout);
 USEFORM("src\fcDataset.cpp", FormDataset);
 USEFORM("src\fcOptions.cpp", FormOptions);
 //---------------------------------------------------------------------------
@@ -16,8 +15,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormPÑ), &FormPÑ);
-		Application->CreateForm(__classid(TFormOptions), &FormOptions);
+		Application->CreateForm(__classid(TFormLife), &FormLife);
 		Application->Run();
 	}
 	catch (Exception &exception)

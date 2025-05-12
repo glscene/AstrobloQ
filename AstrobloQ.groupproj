@@ -24,10 +24,10 @@
         <Projects Include="Projects\NoosferaR.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Galaktika.dproj">
+        <Projects Include="Projects\Galaxeti.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\GalaktikaR.dproj">
+        <Projects Include="Projects\GalaxetiR.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -101,32 +101,32 @@
     <Target Name="NoosferaR:Make">
         <MSBuild Projects="Projects\NoosferaR.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaktika">
-        <MSBuild Projects="Projects\Galaktika.dproj"/>
+    <Target Name="Galaxeti">
+        <MSBuild Projects="Projects\Galaxeti.dproj"/>
     </Target>
-    <Target Name="Galaktika:Clean">
-        <MSBuild Projects="Projects\Galaktika.dproj" Targets="Clean"/>
+    <Target Name="Galaxeti:Clean">
+        <MSBuild Projects="Projects\Galaxeti.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaktika:Make">
-        <MSBuild Projects="Projects\Galaktika.dproj" Targets="Make"/>
+    <Target Name="Galaxeti:Make">
+        <MSBuild Projects="Projects\Galaxeti.dproj" Targets="Make"/>
     </Target>
-    <Target Name="GalaktikaR">
-        <MSBuild Projects="Projects\GalaktikaR.dproj"/>
+    <Target Name="GalaxetiR">
+        <MSBuild Projects="Projects\GalaxetiR.dproj"/>
     </Target>
-    <Target Name="GalaktikaR:Clean">
-        <MSBuild Projects="Projects\GalaktikaR.dproj" Targets="Clean"/>
+    <Target Name="GalaxetiR:Clean">
+        <MSBuild Projects="Projects\GalaxetiR.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="GalaktikaR:Make">
-        <MSBuild Projects="Projects\GalaktikaR.dproj" Targets="Make"/>
+    <Target Name="GalaxetiR:Make">
+        <MSBuild Projects="Projects\GalaxetiR.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene;AstroSceneR;Litosfera;Biosfera;BiosferaR;Noosfera;NoosferaR;Galaktika;GalaktikaR"/>
+        <CallTarget Targets="AstroScene;AstroSceneR;Litosfera;Biosfera;BiosferaR;Noosfera;NoosferaR;Galaxeti;GalaxetiR"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;NoosferaR:Clean;Galaktika:Clean;GalaktikaR:Clean"/>
+        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;NoosferaR:Clean;Galaxeti:Clean;GalaxetiR:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;NoosferaR:Make;Galaktika:Make;GalaktikaR:Make"/>
+        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;NoosferaR:Make;Galaxeti:Make;GalaxetiR:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

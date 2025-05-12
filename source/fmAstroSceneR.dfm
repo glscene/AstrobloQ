@@ -4,7 +4,7 @@ object frmAllplanets: TfrmAllplanets
   Cursor = crHelp
   Caption = 'AstroSceneR'
   ClientHeight = 696
-  ClientWidth = 1042
+  ClientWidth = 1302
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -19,9 +19,9 @@ object frmAllplanets: TfrmAllplanets
   OnKeyPress = FormKeyPress
   TextHeight = 24
   object SceneViewer: TGLSceneViewer
-    Left = 273
+    Left = 233
     Top = 29
-    Width = 769
+    Width = 879
     Height = 648
     Cursor = crHandPoint
     Camera = Camera
@@ -38,16 +38,16 @@ object frmAllplanets: TfrmAllplanets
   object PanelLeft: TPanel
     Left = 0
     Top = 29
-    Width = 273
+    Width = 233
     Height = 648
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 623
-    object tvPlanets: TTreeView
+    object tvMoons: TTreeView
       Left = 1
       Top = 1
-      Width = 271
+      Width = 231
       Height = 646
+      Hint = #1051#1091#1085#1099
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
@@ -60,7 +60,7 @@ object frmAllplanets: TfrmAllplanets
       Indent = 35
       ParentFont = False
       TabOrder = 0
-      OnClick = tvPlanetsClick
+      OnClick = tvMoonsClick
       Items.NodeData = {
         071900000009540054007200650065004E006F00640065002B00000000000000
         00000000FFFFFFFFFFFFFFFF00000000000000000000000000010621043E043B
@@ -147,13 +147,14 @@ object frmAllplanets: TfrmAllplanets
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
+      ExplicitWidth = 271
       ExplicitHeight = 621
     end
   end
   object StatusBar: TStatusBar
     Left = 0
     Top = 677
-    Width = 1042
+    Width = 1302
     Height = 19
     Panels = <
       item
@@ -178,7 +179,7 @@ object frmAllplanets: TfrmAllplanets
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 1042
+    Width = 1302
     Height = 29
     Align = alTop
     TabOrder = 3
@@ -220,6 +221,66 @@ object frmAllplanets: TfrmAllplanets
         Caption = 'ToolButton3'
         ImageIndex = 2
       end
+    end
+  end
+  object PanelRight: TPanel
+    Left = 1112
+    Top = 29
+    Width = 190
+    Height = 648
+    Align = alRight
+    TabOrder = 4
+    object tvAsteroids: TTreeView
+      Left = 1
+      Top = 1
+      Width = 188
+      Height = 646
+      Hint = #1040#1089#1090#1077#1088#1086#1080#1076#1099
+      Align = alClient
+      AutoExpand = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -18
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      HideSelection = False
+      Images = DataModuleImages.VirtPlanetSymbols
+      Indent = 35
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      OnClick = tvMoonsClick
+      Items.NodeData = {
+        071000000009540054007200650065004E006F00640065002B00000009000000
+        09000000FFFFFFFFFFFFFFFF0000000000000000000100000001061F043B0443
+        0442043E043D040000290000000A0000000A000000FFFFFFFFFFFFFFFF000000
+        0000000000000000000001052504300440043E043D0400002B0000000B000000
+        0B000000FFFFFFFFFFFFFFFF0000000000000000000000000001062604350440
+        043504400430040000270000000B0000000B000000FFFFFFFFFFFFFFFF000000
+        0000000000000000000001042D0440043804410400002B0000000B0000000B00
+        0000FFFFFFFFFFFFFFFF0000000000000000000000000001062504300443043C
+        0435044F040000290000000B0000000B00000001000000FFFFFFFF0000000000
+        0000000000000000010512043504410442043004000025000000F3000000F300
+        000001000000FFFFFFFF00000000000000000000000000010318043404300400
+        0027000000B1010000B101000001000000FFFFFFFF0000000000000000000000
+        000001042D0440043E04410400002B000000B7030000B703000001000000FFFF
+        FFFF0000000000000000000000000001061304300441043F0440043004000031
+        000000540600005406000001000000FFFFFFFF00000000000000000000000000
+        0109130435043E0433044004300444043E044104000031000000120700001207
+        000001000000FFFFFFFF0000000000000000000000000001092D043F0438043C
+        0435044204380443044104000027000000CE070000CE07000001000000FFFFFF
+        FF0000000000000000000000000001044B005900320036000000290000000F08
+        00000F08000001000000FFFFFFFF000000000000000000000000000105110443
+        0445044304410400002F000000531000005310000001000000FFFFFFFF000000
+        0000000000000000000001082204300443044204300442043804410400002F00
+        0000A1120000A112000001000000FFFFFFFF0000000000000000000000000001
+        081A0430044104420430043B0438044F0400002D000000591900005919000001
+        000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
+        3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
+        0000000000000001052104350434043D043004}
+      ExplicitWidth = 253
+      ExplicitHeight = 621
     end
   end
   object Scene: TGLScene

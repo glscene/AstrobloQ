@@ -47,7 +47,7 @@ TFileName __fastcall TfrmAstroScene::GetDataPath()
 	if (N > 0)
 		Path = Path.SubString(0, N - 1);
 
-	Path = IncludeTrailingPathDelimiter(Path) + "data\\";
+	Path = IncludeTrailingPathDelimiter(Path) + "data\\map\\";
 	SetCurrentDir(Path);
 	return Path;
 }
@@ -55,7 +55,7 @@ TFileName __fastcall TfrmAstroScene::GetDataPath()
 //---------------------------------------------------------------------------
 void __fastcall TfrmAstroScene::LoadPlanetMap(const String &fileName)
 {
-	String imagePath = GetDataPath() + "map\\" + fileName;
+	String imagePath = GetDataPath() + fileName;
 	if (FileExists(imagePath)) {
 		sfPlanet->Material->Texture->Image->LoadFromFile(imagePath);
 	} else {
@@ -66,26 +66,21 @@ void __fastcall TfrmAstroScene::LoadPlanetMap(const String &fileName)
 //---------------------------------------------------------------------------
 void __fastcall TfrmAstroScene::FormCreate(TObject* Sender)
 {
-/*
-	String DataDir = GetDataPath();
-	String PlanetImagesPath = DataDir + "map\\";
-	SetCurrentDir(PlanetImagesPath);
+	DataDir = GetDataPath();
+	SetCurrentDir(DataDir);
 
 	try {
 		sfPlanet->Material->Texture->Disabled = false;
 		LoadPlanetMap("earth.jpg");
 		sfPlanet->Radius = 6371;
 	} catch (Exception &e) {
-		ShowMessage("Ошибка при инициализации: " + e.Message);
+		ShowMessage("Error of initialization: " + e.Message);
 	}
-*/
 
-    // Получаем путь к исполняемому файлу
+/*  // Вариант с BinDir. Получаем путь к исполняемому файлу
 	String BinDir = ExtractFilePath(ParamStr(0));
-
 	// Путь к папке с картами
-	String DataDir = BinDir + "..\\data\\map\\";
-
+	DataDir = BinDir + "..\\data\\map\\";
 	// Устанавливаем рабочую директорию
 	SetCurrentDir(DataDir);
 
@@ -95,19 +90,19 @@ void __fastcall TfrmAstroScene::FormCreate(TObject* Sender)
 	sfPlanet->Radius = 6371;
 
 	// Символы планет и лун солнечной системы
-	///  tvPlanets->Images = dmImages->VirtualSymbolPlanets; // не работает
+	///  tvPlanets->Images = dmImages->VirtualSymbolPlanets; // ?
 	// Символы 88 созвездий
 	///  tvConstellations->Images = dmImages->VirtualSymbolConsts;
-
+*/
 	chbGridClick(this);
-    chbPlanetClick(this);
+	chbPlanetClick(this);
 }
 
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmAstroScene::miPointtoClick(TObject* Sender)
 {
-    /*
+	/*
   TFormPointto*  FormPointto;
   FormPointto = new TFormPointto(this);
   try {
@@ -246,7 +241,7 @@ void __fastcall TfrmAstroScene::chbPlanetClick(TObject* Sender)
 {
     ///    sfPlanet->Visible = chbPlanet->Checked;
     if (chbPlanet->Checked)
-        sfPlanet->Material->PolygonMode = pmFill;
+		sfPlanet->Material->PolygonMode = pmFill;
     else
         sfPlanet->Material->PolygonMode = pmLines;
 }
@@ -274,7 +269,7 @@ void __fastcall TfrmAstroScene::miSettingsClick(TObject* Sender)
 
 void __fastcall TfrmAstroScene::miAboutClick(TObject* Sender)
 {
-    TFormAbout* FormAbout;
+	TFormAbout* FormAbout;
     FormAbout = new TFormAbout(this);
     try {
         FormAbout->ShowModal();

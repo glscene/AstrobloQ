@@ -3,19 +3,25 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="Projects\AstroSceneC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Addons\StarProj\StarViewerC.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Addons\SpaceCube\StarCube.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Addons\FermiPX\ViewerHYG.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Addons\Starbox\Starbox.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Addons\Starbox\GenStarc.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Addons\FermiPX\Starnetc.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Projects\AstroSceneC.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,6 +32,24 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="AstroSceneC">
+        <MSBuild Projects="Projects\AstroSceneC.cbproj"/>
+    </Target>
+    <Target Name="AstroSceneC:Clean">
+        <MSBuild Projects="Projects\AstroSceneC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AstroSceneC:Make">
+        <MSBuild Projects="Projects\AstroSceneC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarViewerC">
+        <MSBuild Projects="Addons\StarProj\StarViewerC.cbproj"/>
+    </Target>
+    <Target Name="StarViewerC:Clean">
+        <MSBuild Projects="Addons\StarProj\StarViewerC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarViewerC:Make">
+        <MSBuild Projects="Addons\StarProj\StarViewerC.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="StarCube">
         <MSBuild Projects="Addons\SpaceCube\StarCube.cbproj"/>
     </Target>
@@ -43,6 +67,15 @@
     </Target>
     <Target Name="ViewerHYG:Make">
         <MSBuild Projects="Addons\FermiPX\ViewerHYG.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Starbox">
+        <MSBuild Projects="Addons\Starbox\Starbox.cbproj"/>
+    </Target>
+    <Target Name="Starbox:Clean">
+        <MSBuild Projects="Addons\Starbox\Starbox.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Starbox:Make">
+        <MSBuild Projects="Addons\Starbox\Starbox.cbproj" Targets="Make"/>
     </Target>
     <Target Name="GenStarc">
         <MSBuild Projects="Addons\Starbox\GenStarc.cbproj"/>
@@ -62,23 +95,14 @@
     <Target Name="Starnetc:Make">
         <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="AstroSceneC">
-        <MSBuild Projects="Projects\AstroSceneC.cbproj"/>
-    </Target>
-    <Target Name="AstroSceneC:Clean">
-        <MSBuild Projects="Projects\AstroSceneC.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="AstroSceneC:Make">
-        <MSBuild Projects="Projects\AstroSceneC.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarCube;ViewerHYG;GenStarc;Starnetc;AstroSceneC"/>
+        <CallTarget Targets="AstroSceneC;StarViewerC;StarCube;ViewerHYG;Starbox;GenStarc;Starnetc"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarCube:Clean;ViewerHYG:Clean;GenStarc:Clean;Starnetc:Clean;AstroSceneC:Clean"/>
+        <CallTarget Targets="AstroSceneC:Clean;StarViewerC:Clean;StarCube:Clean;ViewerHYG:Clean;Starbox:Clean;GenStarc:Clean;Starnetc:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarCube:Make;ViewerHYG:Make;GenStarc:Make;Starnetc:Make;AstroSceneC:Make"/>
+        <CallTarget Targets="AstroSceneC:Make;StarViewerC:Make;StarCube:Make;ViewerHYG:Make;Starbox:Make;GenStarc:Make;Starnetc:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

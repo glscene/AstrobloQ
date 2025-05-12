@@ -63,7 +63,7 @@ void __fastcall TFormScene::FormCreate(TObject* Sender)
 // Получение данных для Тетраэдров Делоне
 DelaunayBase __fastcall TFormScene::InitDelaunay(String starClass)
 {
-    //========================= ПОЛУЧЕНИЕ NODE.CSV
+	//======== ПОЛУЧЕНИЕ NODE.CSV
     DelaunayBase dt_struct;
     String path = "";
     unsigned char FX, FY, FZ;
@@ -83,7 +83,7 @@ DelaunayBase __fastcall TFormScene::InitDelaunay(String starClass)
 
     dt_struct.nodeCount = S1->Count;
 
-    dt_struct.node = new double*[dt_struct.nodeCount]; // DT_node
+	dt_struct.node = new double*[dt_struct.nodeCount]; // DT_node
     for (int i = 0; i < dt_struct.nodeCount; ++i)
         dt_struct.node[i] = new double[3];
 
@@ -111,7 +111,7 @@ DelaunayBase __fastcall TFormScene::InitDelaunay(String starClass)
             FNode2 = i;
     }
 
-    dt_struct.edgeCount = S1->Count;
+	dt_struct.edgeCount = S1->Count;
 
     dt_struct.edge = new int*[dt_struct.edgeCount]; // DT_edge
     for (int i = 0; i < dt_struct.edgeCount; ++i) {
@@ -131,14 +131,15 @@ DelaunayBase __fastcall TFormScene::InitDelaunay(String starClass)
 
     return dt_struct;
 }
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // Получение данных для полиэдров Вороного
+//-----------------------------------------------------------------------
 VoronoiBase __fastcall TFormScene::InitVoronoi(String starClass)
 {
-    VoronoiBase vd_struct;
-    String path = "";
+	VoronoiBase vd_struct;
+	String path = "";
 
-    //========================= ПОЛУЧЕНИЕ NODE.CSV
+	//================= ПОЛУЧЕНИЕ NODE.CSV
     unsigned char FX, FY, FZ;
 
     path = datapath + "/Voronoi/" + starClass + "/node.csv";
@@ -194,7 +195,7 @@ VoronoiBase __fastcall TFormScene::InitVoronoi(String starClass)
 
     vd_struct.edge = new double*[vd_struct.edgeCount]; // VD_edge
     for (int i = 0; i < vd_struct.edgeCount; ++i) {
-        vd_struct.edge[i] = new double[5];
+		vd_struct.edge[i] = new double[5];
     }
 
     for (int i = 1; i < vd_struct.edgeCount; i++) {
@@ -216,12 +217,12 @@ VoronoiBase __fastcall TFormScene::InitVoronoi(String starClass)
         } catch (...) {
         }
     }
-
-    return vd_struct;
+	return vd_struct;
 }
-//---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
 // Отрисовка звёзд
+//---------------------------------------------------------------------------
 void __fastcall TFormScene::DrawPoints()
 {
     bool fileLoaded = LoadFiles->Enabled;
@@ -250,7 +251,7 @@ void __fastcall TFormScene::DrawPoints()
                 }
             }
         }
-    } else {
+	} else {
         int selectedStarClass = ClassGroup->ItemIndex - 1;
         for (int j = 0; j < STARS[selectedStarClass].delaunay.nodeCount; j++) {
             try {
@@ -266,19 +267,21 @@ void __fastcall TFormScene::DrawPoints()
         }
     }
 }
+
 //---------------------------------------------------------------------------
 // Отрисовка тетраэдров Делоне
+//---------------------------------------------------------------------------
 void __fastcall TFormScene::DrawDelaunay()
 {
-    bool fileLoaded = LoadFiles->Enabled;
-    if (fileLoaded)
-        return;
+	bool fileLoaded = LoadFiles->Enabled;
+	if (fileLoaded)
+		return;
 
-    GLLines1->Free();
-    GLLines1 = (TGLLines*)(GLDummyCube1->AddNewChild(__classid(TGLLines)));
-    GLLines1->NodesAspect = lnaInvisible;
+	GLLines1->Free();
+	GLLines1 = (TGLLines*)(GLDummyCube1->AddNewChild(__classid(TGLLines)));
+	GLLines1->NodesAspect = lnaInvisible;
 
-    float X1, Y1, Z1, X2, Y2, Z2, R, G, B;
+	float X1, Y1, Z1, X2, Y2, Z2, R, G, B;
     int NodeIndex1, NodeIndex2, NodeIndex3;
     GLLines1->LineColor->SetColor(255, 255, 255, 0.4);
 
@@ -306,7 +309,7 @@ void __fastcall TFormScene::DrawDelaunay()
     } else {
         int selectedStarClass = ClassGroup->ItemIndex - 1;
         for (int j = 0; j < STARS[selectedStarClass].delaunay.edgeCount; j++) {
-            try {
+			try {
                 NodeIndex1 = STARS[selectedStarClass].delaunay.edge[j][0];
                 NodeIndex2 = STARS[selectedStarClass].delaunay.edge[j][1];
 
@@ -362,7 +365,7 @@ void __fastcall TFormScene::DrawVoronoi()
                     Y1 = STARS[i].voronoi.node[NodeIndex1][1] * MULTICOEF;
                     Z1 = STARS[i].voronoi.node[NodeIndex1][2] * MULTICOEF;
 
-                    if (NodeIndex2 == -1) {
+					if (NodeIndex2 == -1) {
                         X2 = STARS[i].voronoi.edge[j][2];
                         Y2 = STARS[i].voronoi.edge[j][3];
                         Z2 = STARS[i].voronoi.edge[j][4];
@@ -390,7 +393,7 @@ void __fastcall TFormScene::DrawVoronoi()
                 Y1 = STARS[selectedStarClass].voronoi.node[NodeIndex1][1] *
                      MULTICOEF;
                 Z1 = STARS[selectedStarClass].voronoi.node[NodeIndex1][2] *
-                     MULTICOEF;
+					 MULTICOEF;
 
                 if (NodeIndex2 == -1) {
                     X2 = STARS[selectedStarClass].voronoi.edge[j][2];
@@ -474,7 +477,7 @@ void __fastcall TFormScene::clbMethodsClickCheck(TObject* Sender)
     GLLines2->Free();
     GLLines2 = (TGLLines*)(GLDummyCube1->AddNewChild(__classid(TGLLines)));
     VoxelDummy->Free();
-    VoxelDummy =
+	VoxelDummy =
         (TGLDummyCube*)(GLDummyCube1->AddNewChild(__classid(TGLDummyCube)));
     InitDraw();
 }

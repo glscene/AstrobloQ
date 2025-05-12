@@ -1,7 +1,7 @@
-object frmGalaktika: TfrmGalaktika
+object frmGalaxeti: TfrmGalaxeti
   Left = 0
   Top = 0
-  Caption = 'Galaktika'
+  Caption = 'Galaxeti'
   ClientHeight = 601
   ClientWidth = 982
   Color = clBtnFace
@@ -205,7 +205,7 @@ object frmGalaktika: TfrmGalaktika
           Top = 47
           Width = 201
           Height = 338
-          Caption = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1077' '#1082#1083#1072#1089#1089#1099
+          Caption = 'Spectral classes'
           TabOrder = 0
           object shO: TShape
             Left = 48
@@ -266,9 +266,9 @@ object frmGalaktika: TfrmGalaktika
           object Label2: TLabel
             Left = 139
             Top = 23
-            Width = 44
+            Width = 58
             Height = 21
-            Caption = #1063#1080#1089#1083#1086
+            Caption = 'Number'
           end
           object shW: TShape
             Left = 52
@@ -569,7 +569,7 @@ object frmGalaktika: TfrmGalaktika
           Top = 18
           Width = 76
           Height = 17
-          Caption = #1042#1089#1077' '#1079#1074#1105#1079#1076#1099
+          Caption = 'All stars'
           TabOrder = 2
           OnClick = chbAllClick
         end
@@ -757,40 +757,40 @@ object frmGalaktika: TfrmGalaktika
     end
   end
   object MainMenu: TMainMenu
-    Left = 648
-    Top = 107
+    Left = 728
+    Top = 179
     object miFile: TMenuItem
-      Caption = '&'#1060#1072#1081#1083
+      Caption = '&File'
       object miNewStarcube: TMenuItem
-        Caption = #1053#1086#1074#1099#1081'...'
+        Caption = 'New...'
         OnClick = miNewStarcubeClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        Caption = 'Open...'
         ImageIndex = 2
         OnClick = miOpenClick
       end
       object miSave: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        Caption = 'Save'
       end
       object miSaveAs: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1089#1094#1077#1085#1091' '#1082#1072#1082'...'
+        Caption = 'Save as...'
         OnClick = miSaveAsClick
       end
       object miN2: TMenuItem
         Caption = '-'
       end
       object miExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         ImageIndex = 14
         OnClick = miExitClick
       end
     end
     object miEdit: TMenuItem
-      Caption = '&'#1055#1088#1072#1074#1082#1072
+      Caption = '&Edit'
       object miUndo: TMenuItem
         Caption = 'Cancel'
         ShortCut = 16474
@@ -830,27 +830,27 @@ object frmGalaktika: TfrmGalaktika
       end
     end
     object miMethod: TMenuItem
-      Caption = '&'#1052#1077#1090#1086#1076
+      Caption = '&Method'
       object miGridding: TMenuItem
-        Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
+        Caption = 'Gridding...'
       end
       object miInterpolation: TMenuItem
-        Caption = #1048#1085#1090#1077#1088#1087#1086#1083#1103#1094#1080#1103'...'
+        Caption = 'Interpolation...'
       end
       object miTetralization: TMenuItem
-        Caption = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
+        Caption = 'Tetralization...'
       end
       object N4: TMenuItem
         Caption = '-'
       end
       object ranslator1: TMenuItem
-        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
+        Caption = 'Translator...'
       end
     end
     object miView: TMenuItem
-      Caption = '&'#1042#1080#1076
+      Caption = '&View'
       object miExoplanets: TMenuItem
-        Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
+        Caption = 'Exoplanets...'
         OnClick = miExoplanetsClick
       end
       object N3: TMenuItem
@@ -878,13 +878,13 @@ object frmGalaktika: TfrmGalaktika
       end
     end
     object miTools: TMenuItem
-      Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      Caption = '&Tools'
       object miSettings: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+        Caption = 'Settings...'
         OnClick = miSettingsClick
       end
       object miOptions: TMenuItem
-        Caption = #1054#1087#1094#1080#1080'...'
+        Caption = 'Options...'
         ImageIndex = 130
         OnClick = miOptionsClick
       end
@@ -892,11 +892,11 @@ object frmGalaktika: TfrmGalaktika
         Caption = '-'
       end
       object miAnalyser: TMenuItem
-        Caption = #1040#1085#1072#1083#1080#1079#1072#1090#1086#1088'...'
+        Caption = 'Analyser...'
         OnClick = miAnalyserClick
       end
       object miMonitor: TMenuItem
-        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
+        Caption = 'Monitor...'
         OnClick = miMonitorClick
       end
       object miProjection: TMenuItem
@@ -904,12 +904,12 @@ object frmGalaktika: TfrmGalaktika
         OnClick = miProjectionClick
       end
       object miParadox: TMenuItem
-        Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1062'...'
+        Caption = 'Paradox...'
         OnClick = miParadoxClick
       end
     end
     object miHelp: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = '&Help'
       object miRuwiki: TMenuItem
         Caption = 'Ruwiki...'
       end
@@ -917,7 +917,7 @@ object frmGalaktika: TfrmGalaktika
         Caption = '-'
       end
       object miAbout: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'About...'
         OnClick = miAboutClick
       end
     end
@@ -936,7 +936,7 @@ object frmGalaktika: TfrmGalaktika
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'Galaktika'
+    FormCaption = 'Galaxceti'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -950,7 +950,6 @@ object frmGalaktika: TfrmGalaktika
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    OnMouseMove = GLSimpleNavigationMouseMove
     Left = 532
     Top = 243
   end

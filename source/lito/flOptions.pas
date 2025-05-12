@@ -179,7 +179,6 @@ end;
 //------------------------------------------------------------------
 procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
 begin
-  frmLitosfera.sfPlanet.Visible := CheckBoxHidePlanet.Checked;
   frmLitosfera.ffPlanet.Visible := CheckBoxHidePlanet.Checked;
   frmLitosfera.DirectOpenGL.Visible := CheckBoxHidePlanet.Checked;
 end;

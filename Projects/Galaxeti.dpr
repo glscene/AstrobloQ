@@ -1,27 +1,27 @@
-program GalaktikaR;
+program Galaxeti;
 
 
 uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgMonitorR in '..\source\galaxy\fgMonitorR.pas' {FormMonitor},
-  fgParadoxR in '..\source\galaxy\fgParadoxR.pas' {FormParadox},
-  fgExoplanetsR in '..\source\galaxy\fgExoplanetsR.pas' {FormExoplanets},
-  fgAstrocubeR in '..\source\galaxy\fgAstrocubeR.pas' {FormNewStarcube},
-  fgOptionsR in '..\source\galaxy\fgOptionsR.pas' {frmOptions},
-  fgGalaktikaR in '..\source\galaxy\fgGalaktikaR.pas' {frmGalaktika},
+  fgGalaxeti in '..\source\galaxy\fgGalaxeti.pas' {frmGalaxeti},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmSettingsR in '..\source\fmSettingsR.pas' {FormSettings},
-  fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
+  fgOptions in '..\source\galaxy\fgOptions.pas' {frmOption},
+  fmSettings in '..\source\fmSettings.pas' {FormSettings},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  Space.Globals in '..\source\Space.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmForm in '..\source\fmForm.pas' {FormI},
-  fgAnalyserR in '..\source\galaxy\fgAnalyserR.pas' {FormAnalyser},
-  Space.Globals in '..\source\Space.Globals.pas',
+  fgAstrocube in '..\source\galaxy\fgAstrocube.pas' {FormAstrocube},
+  fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
+  fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
+  fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
+  fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}
@@ -30,11 +30,11 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmGalaktika, frmGalaktika);
+  Application.CreateForm(TfrmGalaxeti, frmGalaxeti);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TfrmOption, frmOption);
   Application.Run;
 end.
 

@@ -25,8 +25,6 @@ object FormScene: TFormScene
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 744
-    ExplicitHeight = 552
   end
   object PanelRight: TPanel
     Left = 752
@@ -35,8 +33,6 @@ object FormScene: TFormScene
     Height = 577
     Align = alRight
     TabOrder = 1
-    ExplicitLeft = 744
-    ExplicitHeight = 552
     object ClassGroup: TRadioGroup
       Left = 6
       Top = 7

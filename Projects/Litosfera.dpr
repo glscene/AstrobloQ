@@ -26,5 +26,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmLitosfera, frmLitosfera);
   Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormAbout, FormAbout);
   Application.Run;
 end.
