@@ -1,4 +1,4 @@
-inherited fmMethodGridGeneration: TfmMethodGridGeneration
+inherited FormMethodGridGeneration: TFormMethodGridGeneration
   Caption = 'Grid Generation'
   ClientWidth = 568
   Position = ScreenCenter

@@ -1,4 +1,4 @@
-inherited fmHelpAbout: TfmHelpAbout
+inherited FormHelpAbout: TFormHelpAbout
   Caption = 'About'
   ClientHeight = 476
   ClientWidth = 604

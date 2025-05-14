@@ -1,4 +1,4 @@
-inherited fmMethodInterpolation: TfmMethodInterpolation
+inherited FormMethodInterpolation: TFormMethodInterpolation
   Caption = 'Interpolation'
   ClientHeight = 496
   ClientWidth = 780
@@ -100,7 +100,7 @@ inherited fmMethodInterpolation: TfmMethodInterpolation
         inherited SpeedButton6: TSpeedButton
           Visible = False
         end
-        inherited SpeedButton7: TSpeedButton
+        inherited SpeedButton8: TSpeedButton
           Position.X = 40.000000000000000000
         end
         inherited SpeedButton9: TSpeedButton

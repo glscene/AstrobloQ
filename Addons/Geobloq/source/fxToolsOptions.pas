@@ -26,7 +26,7 @@ uses
   uxGlobals;
 
 type
-  TfmToolsOptions = class(TfmInitialDialog)
+  TFormToolsOptions = class(TfmInitialDialog)
     TreeView: TTreeView;
     TreeViewItem1: TTreeViewItem;
     TreeViewItem2: TTreeViewItem;
@@ -42,7 +42,7 @@ type
   end;
 
 var
-  fmToolsOptions: TfmToolsOptions;
+  FormToolsOptions: TFormToolsOptions;
 
 //==============================================================================
 implementation
@@ -50,7 +50,7 @@ implementation
 
 {$R *.fmx}
 
-procedure TfmToolsOptions.FormCreate(Sender: TObject);
+procedure TFormToolsOptions.FormCreate(Sender: TObject);
 var
   i: integer;
   Item: TListBoxItem;
@@ -62,13 +62,13 @@ begin
   Item.AutoTranslate := True;
 end;
 
-procedure TfmToolsOptions.FormShow(Sender: TObject);
+procedure TFormToolsOptions.FormShow(Sender: TObject);
 begin
   inherited;
   //
 end;
 
-procedure TfmToolsOptions.ListBoxChange(Sender: TObject);
+procedure TFormToolsOptions.ListBoxChange(Sender: TObject);
 begin
 {
   if ListBox.Selected <> nil then

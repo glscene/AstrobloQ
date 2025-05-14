@@ -44,7 +44,7 @@ uses
   OpenCL.GL;
 
 type
-  TfmMethodInterpolation = class(TfmMethodDualDialog)
+  TFormMethodInterpolation = class(TfmMethodDualDialog)
     Panel4: TPanel;
     LabelMethod: TLabel;
     rbIDW: TRadioButton;
@@ -76,7 +76,7 @@ type
   end;
 
 var
-  fmMethodInterpolation: TfmMethodInterpolation;
+  FormMethodInterpolation: TFormMethodInterpolation;
 
 
 implementation //-------------------------------------------------------------
@@ -84,7 +84,7 @@ implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TfmMethodInterpolation.FormCreate(Sender: TObject);
+procedure TFormMethodInterpolation.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
   ReadGridParameters;
@@ -92,14 +92,14 @@ begin
   inherited;
 end;
 
-procedure TfmMethodInterpolation.FormShow(Sender: TObject);
+procedure TFormMethodInterpolation.FormShow(Sender: TObject);
 begin
   inherited;
   //
 end;
 
 
-procedure TfmMethodInterpolation.Interpolate(TablePoints, TableNodes: TFDTable);
+procedure TFormMethodInterpolation.Interpolate(TablePoints, TableNodes: TFDTable);
 var
   OldCursor: TCursor;
   // Vars for Points and Nodes
@@ -627,22 +627,22 @@ begin
 end;
 
 
-procedure TfmMethodInterpolation.ReadGridParameters;
+procedure TFormMethodInterpolation.ReadGridParameters;
 begin
 
 end;
 
-procedure TfmMethodInterpolation.ReadIniFile;
+procedure TFormMethodInterpolation.ReadIniFile;
 begin
 
 end;
 
-procedure TfmMethodInterpolation.UpdateAttributeListB;
+procedure TFormMethodInterpolation.UpdateAttributeListB;
 begin
 
 end;
 
-procedure TfmMethodInterpolation.WriteIniFile;
+procedure TFormMethodInterpolation.WriteIniFile;
 begin
 
 end;

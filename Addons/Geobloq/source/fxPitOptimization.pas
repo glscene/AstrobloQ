@@ -25,7 +25,7 @@ uses
   uxGlobals;
 
 type
-  TfmMethodPitOptimization = class(TfmInitialDialog)
+  TFormMethodPitOptimization = class(TfmInitialDialog)
     Panel1: TPanel;
     LabelMethod: TLabel;
     rbFloatingCone: TRadioButton;
@@ -43,13 +43,13 @@ type
   end;
 
 var
-  fmMethodPitOptimization: TfmMethodPitOptimization;
+  FormMethodPitOptimization: TFormMethodPitOptimization;
 
 implementation
 
 {$R *.fmx}
 
-procedure TfmMethodPitOptimization.FormShow(Sender: TObject);
+procedure TFormMethodPitOptimization.FormShow(Sender: TObject);
 begin
   inherited;
   //

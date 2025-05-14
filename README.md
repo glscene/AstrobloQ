@@ -56,9 +56,9 @@
 ![Noosfera](./docs/screenshots/Tehnosferas.png)
 ![Noosfera](./docs/clips/Meteors.gif)
 
-### Galaktika
+### Galaxeti
 
-![Galaktika](./docs/screenshots/AstrobloQ_ru.png)
+![Galaxeti](./docs/screenshots/AstrobloQ_ru.png)
 
 При построении виртуальной модели Галактики используются следующие данные, звёздные каталоги и методы вычислений: 
 
@@ -82,4 +82,4 @@
 По лицензии MPL 2.0 графический движок [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/) можно свободно использовать
 в [научных организациях](https://gitverse.ru/UniverseCETI/GalaxyCETI/) и образовании.
 
-[Админ](https://t.me/astronoology)
+[Admin](https://t.me/astronoology)

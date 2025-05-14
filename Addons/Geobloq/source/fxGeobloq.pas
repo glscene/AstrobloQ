@@ -222,9 +222,10 @@ begin
   Application.Terminate;
 end;
 
+//---------------------------------------------------------------\\
 procedure TfrmGeobloq.acMethodGridGenerationExecute(Sender: TObject);
 begin
-  with TfmMethodGridGeneration.Create(Self) do
+  with TFormMethodGridGeneration.Create(Self) do
   try
     ShowModal;
   finally
@@ -234,7 +235,7 @@ end;
 
 procedure TfrmGeobloq.acMethodInterpolationExecute(Sender: TObject);
 begin
-  with TfmMethodInterpolation.Create(Self) do
+  with TFormMethodInterpolation.Create(Self) do
   try
     ShowModal;
   finally
@@ -242,9 +243,10 @@ begin
   end;
 end;
 
+//===========================================================\\
 procedure TfrmGeobloq.acMethodPitOptimizationExecute(Sender: TObject);
 begin
-  with TfmMethodPitOptimization.Create(Self) do
+  with TFormMethodPitOptimization.Create(Self) do
   try
     ShowModal;
   finally
@@ -252,6 +254,7 @@ begin
   end;
 end;
 
+//-------------------------------------------------------\\
 procedure TfrmGeobloq.acSaveAsExecute(Sender: TObject);
 begin
   //Save As
@@ -259,7 +262,7 @@ end;
 
 procedure TfrmGeobloq.acToolsOptionsExecute(Sender: TObject);
 begin
-  with TfmToolsOptions.Create(Self) do
+  with TFormToolsOptions.Create(Self) do
   try
     ShowModal;
   finally
@@ -272,7 +275,7 @@ end;
 
 procedure TfrmGeobloq.acHelpAboutExecute(Sender: TObject);
 begin
-  with TfmHelpAbout.Create(Self) do
+  with TFormHelpAbout.Create(Self) do
     try
       ShowModal;
     finally
@@ -280,17 +283,17 @@ begin
     end;
 end;
 
-{
-procedure TfmGexoblock.HelpContentsExecute(Sender: TObject);
+(*
+procedure TfrmGexoblock.HelpContentsExecute(Sender: TObject);
 begin
   Application.HelpShowTableOfContents;
 end;
 
-procedure TfmGexoblock.HelpGlossaryExecute(Sender: TObject);
+procedure TfrmGexoblock.HelpGlossaryExecute(Sender: TObject);
 begin
   Application.HelpContext(HelpGlossary.HelpContext);
 end;
-}
+*)
 
 
 procedure TfrmGeobloq.ReadIniFile;

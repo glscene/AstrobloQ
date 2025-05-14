@@ -1,4 +1,4 @@
-inherited fmToolsOptions: TfmToolsOptions
+inherited FormToolsOptions: TFormToolsOptions
   Caption = 'Options'
   ClientHeight = 368
   ClientWidth = 496

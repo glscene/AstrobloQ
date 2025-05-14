@@ -33,7 +33,7 @@ uses
   fxDialogO;
 
 type
-  TfmHelpAbout = class(TfmInitialDialog)
+  TFormHelpAbout = class(TfmInitialDialog)
     TextTitle: TText;
     LabelSF: TLabel;
     Label4: TLabel;
@@ -50,13 +50,13 @@ type
   end;
 
 var
-  fmHelpAbout: TfmHelpAbout;
+  FormHelpAbout: TFormHelpAbout;
 
 implementation //========================================================
 
 {$R *.fmx}
 
-procedure TfmHelpAbout.FormShow(Sender: TObject);
+procedure TFormHelpAbout.FormShow(Sender: TObject);
 var
   S: String;
 begin

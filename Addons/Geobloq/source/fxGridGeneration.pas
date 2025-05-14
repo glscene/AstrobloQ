@@ -27,7 +27,7 @@ uses
 
 
 type
-  TfmMethodGridGeneration = class(TfmMethodDialog)
+  TFormMethodGridGeneration = class(TfmMethodDialog)
     gbModelSize: TGroupBox;
     Image1: TImage;
     Image2: TImage;
@@ -38,13 +38,13 @@ type
   end;
 
 var
-  fmMethodGridGeneration: TfmMethodGridGeneration;
+  FormMethodGridGeneration: TFormMethodGridGeneration;
 
 implementation //------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TfmMethodGridGeneration.FormCreate(Sender: TObject);
+procedure TFormMethodGridGeneration.FormCreate(Sender: TObject);
 begin
   inherited;
  //

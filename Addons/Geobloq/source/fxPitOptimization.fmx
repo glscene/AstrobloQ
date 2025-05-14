@@ -1,4 +1,4 @@
-inherited fmMethodPitOptimization: TfmMethodPitOptimization
+inherited FormMethodPitOptimization: TFormMethodPitOptimization
   Caption = 'Pit Optimization'
   ClientHeight = 288
   Position = ScreenCenter

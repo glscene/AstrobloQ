@@ -226,10 +226,10 @@
             <Form>fmInitialDialog</Form>
         </DCCReference>
         <DCCReference Include="source\fxHelpAbout.pas">
-            <Form>fmHelpAbout</Form>
+            <Form>FormHelpAbout</Form>
         </DCCReference>
         <DCCReference Include="source\fxToolsOptions.pas">
-            <Form>fmToolsOptions</Form>
+            <Form>FormToolsOptions</Form>
         </DCCReference>
         <DCCReference Include="source\dxBase.pas">
             <Form>dmBase</Form>
@@ -253,13 +253,13 @@
             <Form>fmMethodDualDialog</Form>
         </DCCReference>
         <DCCReference Include="source\fxInterpolation.pas">
-            <Form>fmMethodInterpolation</Form>
+            <Form>FormMethodInterpolation</Form>
         </DCCReference>
         <DCCReference Include="source\fxGeobloq.pas">
             <Form>frmGeobloq</Form>
         </DCCReference>
         <DCCReference Include="source\fxGridGeneration.pas">
-            <Form>fmMethodGridGeneration</Form>
+            <Form>FormMethodGridGeneration</Form>
         </DCCReference>
         <DCCReference Include="source\uxCommon.pas"/>
         <DCCReference Include="source\dxImages.pas">
@@ -270,7 +270,7 @@
             <Form>fmMethodAssayGeneration</Form>
         </DCCReference>
         <DCCReference Include="source\fxPitOptimization.pas">
-            <Form>fmMethodPitOptimization</Form>
+            <Form>FormMethodPitOptimization</Form>
         </DCCReference>
         <DCCReference Include="source\frxShowScene.pas">
             <Form>FrameShowScene</Form>
