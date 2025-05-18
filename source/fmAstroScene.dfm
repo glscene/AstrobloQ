@@ -588,9 +588,17 @@ object frmAllplanets: TfrmAllplanets
         end
       end
       object acPlanet: TGLActor
+        Visible = False
         Interval = 100
         MaterialLibrary = MatLib
         LightmapLibrary = MatLib
+      end
+      object ffPlanet: TGLFreeForm
+        Material.MaterialLibrary = MatLib
+        Direction.Coordinates = {00000000000080BF0000000000000000}
+        Up.Coordinates = {00000000000000000000803F00000000}
+        Visible = False
+        MaterialLibrary = MatLib
         object dcMoon: TGLDummyCube
           Up.Coordinates = {FC9D7FB10000803F0000000000000000}
           CubeSize = 1.000000000000000000
@@ -607,13 +615,6 @@ object frmAllplanets: TfrmAllplanets
             Stacks = 32
           end
         end
-      end
-      object ffPlanet: TGLFreeForm
-        Material.MaterialLibrary = MatLib
-        Direction.Coordinates = {00000000000080BF0000000000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
-        Visible = False
-        MaterialLibrary = MatLib
       end
       object DirectOpenGL: TGLDirectOpenGL
         Visible = False
