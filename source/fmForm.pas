@@ -47,7 +47,7 @@ begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      //Settings.Param := ReadInteger('frmSettings', 'Param', 200);
+      //Options.Param := ReadInteger('frmOptions', 'Param', 200);
     finally
       IniFile.Free;
     end;

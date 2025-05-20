@@ -9,9 +9,6 @@
         <Projects Include="Projects\AstroSceneR.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Litosfera.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Projects\Biosfera.dproj">
             <Dependencies/>
         </Projects>
@@ -55,15 +52,6 @@
     </Target>
     <Target Name="AstroSceneR:Make">
         <MSBuild Projects="Projects\AstroSceneR.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Litosfera">
-        <MSBuild Projects="Projects\Litosfera.dproj"/>
-    </Target>
-    <Target Name="Litosfera:Clean">
-        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Litosfera:Make">
-        <MSBuild Projects="Projects\Litosfera.dproj" Targets="Make"/>
     </Target>
     <Target Name="Biosfera">
         <MSBuild Projects="Projects\Biosfera.dproj"/>
@@ -120,13 +108,13 @@
         <MSBuild Projects="Projects\GalaxetiR.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene;AstroSceneR;Litosfera;Biosfera;BiosferaR;Noosfera;NoosferaR;Galaxeti;GalaxetiR"/>
+        <CallTarget Targets="AstroScene;AstroSceneR;Biosfera;BiosferaR;Noosfera;NoosferaR;Galaxeti;GalaxetiR"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Litosfera:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;NoosferaR:Clean;Galaxeti:Clean;GalaxetiR:Clean"/>
+        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;NoosferaR:Clean;Galaxeti:Clean;GalaxetiR:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Litosfera:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;NoosferaR:Make;Galaxeti:Make;GalaxetiR:Make"/>
+        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;NoosferaR:Make;Galaxeti:Make;GalaxetiR:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

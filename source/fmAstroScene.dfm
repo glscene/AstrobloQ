@@ -34,6 +34,8 @@ object frmAllplanets: TfrmAllplanets
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 791
+    ExplicitHeight = 648
   end
   object PanelLeft: TPanel
     Left = 0
@@ -88963,12 +88965,14 @@ object frmAllplanets: TfrmAllplanets
       object N6: TMenuItem
         Caption = '-'
       end
+      object ClearTreeView1: TMenuItem
+        Caption = 'Clear TreeView'
+        Enabled = False
+        OnClick = ClearTreeView1Click
+      end
     end
     object miTools: TMenuItem
       Caption = '&Tools'
-      object miToolsSettings: TMenuItem
-        Caption = 'Settings...'
-      end
       object miToolsOptions: TMenuItem
         Caption = 'Options...'
         OnClick = miToolsOptionsClick

@@ -131,7 +131,6 @@ type
     LensFlare: TGLLensFlare;
     LightStar: TGLLightSource;
     miHelpAbout: TMenuItem;
-    miToolsSettings: TMenuItem;
     PolygonAndromeda: TGLPolygon;
     TorusGreenwich: TGLTorus;
     TorusEquator: TGLTorus;
@@ -160,6 +159,7 @@ type
     ToolButton10: TToolButton;
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
+    ClearTreeView1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -189,6 +189,7 @@ type
     procedure miPointToClick(Sender: TObject);
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miCoordinatesClick(Sender: TObject);
+    procedure ClearTreeView1Click(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -210,6 +211,7 @@ type
     function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
     function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
     procedure LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
+    procedure ReadIniFile; override; // from base class
   end;
 
 var
@@ -283,12 +285,19 @@ begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-  tvMoons.Select(tvMoons.Items[3]);  // Earth
-  tvMoons.FullExpand;
-  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
+end;
 
+//------------------------------------------------------------------
+// Form Show
+//------------------------------------------------------------------
+procedure TfrmAllplanets.FormShow(Sender: TObject);
+begin
+  // Planets
+  tvMoons.Select(tvMoons.Items[3]); // show Earth
+  tvMoons.FullExpand;
+  tvMoonsClick(Self);
+  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
-  inherited;   // should be inheritance for translation
 end;
 
 //------------------------------------------------------------------
@@ -399,20 +408,6 @@ begin
   // if not multitexturing and combiner then without nightcity lights
   MatLib.Materials[0].Shader := TexCombiner;
   MatLib.Materials[0].Texture2Name := 'earthNight';
-end;
-
-//------------------------------------------------------------------
-//
-//------------------------------------------------------------------
-procedure TfrmAllplanets.miHelpAboutClick(Sender: TObject);
-begin
-  inherited;
-  with TFormAbout.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
 end;
 
 //------------------------------------------------------------------
@@ -687,7 +682,7 @@ begin
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
 
-  // Constellation lines
+  // Show constellation lines
   if ConstLines.LineColor.Alpha <> ConstLinesAlpha then
   begin
     ConstLines.LineColor.Alpha :=
@@ -696,7 +691,7 @@ begin
     ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
   end;
 
-  // Constellation borders
+  // Show constellation borders
   if ConstBorders.LineColor.Alpha <> ConstBordersAlpha then
   begin
     ConstBorders.LineColor.Alpha :=
@@ -705,15 +700,24 @@ begin
     ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
   end;
 
-  if frmOptions.CheckBoxRotate.Checked then
+ // Rotations
+ // if frmOptions.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
   end;
+
 end;
 
 //------------------------------------------------------------------
+// Clear tvMoons
+//------------------------------------------------------------------
+procedure TfrmAllplanets.ClearTreeView1Click(Sender: TObject);
+begin
+//  tvMoons.Items.Clear;
+end;
 
+//------------------------------------------------------------------
 procedure TfrmAllplanets.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -722,7 +726,6 @@ begin
 end;
 
 //-----------------------------------------------------------------
-
 procedure TfrmAllplanets.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -750,17 +753,6 @@ begin
     CameraControler.AdjustDistanceToTarget(f);
   end;
   Handled := True;
-end;
-
-//------------------------------------------------------------------
-// Form Show
-//------------------------------------------------------------------
-procedure TfrmAllplanets.FormShow(Sender: TObject);
-begin
-  // Planets
-  tvMoons.Select(tvMoons.Items[3]); // show Earth
-  tvMoonsClick(Self);
-  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
 end;
 
 //------------------------------------------------------------------
@@ -982,7 +974,13 @@ end;
 //------------------------------------------------------------------
 procedure TfrmAllplanets.miToolsOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+//  frmOptions.Show;
+  with TfrmOptions.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 //------------------------------------------------------------------
@@ -1007,12 +1005,12 @@ var
 begin
   miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
 
-/// ѕланеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
-/// tvMoons.Selected.Text надо перевести на русский €зык дл€ ruwiki
-/// но, однако, некоторые названи€ звЄзд остаютс€ на латинице,
-/// например, https://ru.ruwiki.ru/wiki/GJ_1002. „то делать?
+/// Planets -> S + '_(planet)' e.g. ../Mercury_(planet)
+/// tvMoons.Selected.Text should translated for ruwiki
+/// but some starnames are on english,
+/// e.g., https://ru.ruwiki.ru/wiki/GJ_1002. ?
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
-  if (tvMoons.Selected.Level = 0)   then
+  if (tvMoons.Selected.Level = 0) then
   begin
 (*
     if ActiveLang = LANG_RUSSIAN then
@@ -1029,6 +1027,37 @@ begin
   end;
 //  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
   ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+end;
+
+
+//------------------------------------------------------------------
+// About
+//------------------------------------------------------------------
+procedure TfrmAllplanets.miHelpAboutClick(Sender: TObject);
+begin
+  inherited;
+  with TFormAbout.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//--------------------------------------------------------------------
+// Reading settings from ini file
+//--------------------------------------------------------------------
+procedure TfrmAllplanets.ReadIniFile;
+var
+  IniFile: TIniFile;
+begin
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+//    chbAxes.Checked := IniFile.ReadBool(frmOptions.Name, chbAxes.Name, True);
+//    chbRotate.Checked := IniFile.ReadBool(frmOptions.Name, chbRotate.Name, True);
+  finally
+    IniFile.Free;
+  end;
 end;
 
 

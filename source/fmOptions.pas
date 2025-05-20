@@ -41,13 +41,12 @@ type
     PageControl: TPageControl;
     tsInterface: TTabSheet;
     tsDisplay: TTabSheet;
-    CheckBoxAxes: TCheckBox;
     tsDatatime: TTabSheet;
     PanelScale: TPanel;
     lblScaleX: TLabel;
     Label1: TLabel;
     Label2: TLabel;
-    tvSettings: TTreeView;
+    tvOptions: TTreeView;
     PanelTop: TPanel;
     Edit1: TEdit;
     Edit2: TEdit;
@@ -78,7 +77,6 @@ type
     chbSysTime: TCheckBox;
     SpinEditPrecision: TSpinEdit;
     LabelPrecision: TLabel;
-    CheckBoxRotate: TCheckBox;
     GroupBoxConstallations: TGroupBox;
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
@@ -89,15 +87,14 @@ type
     lbStyle: TLabel;
     cbSplashStart: TCheckBox;
     grbShowPlanets: TGroupBox;
-    chbRotation: TCheckBox;
-    chbAxis: TCheckBox;
+    chbRotate: TCheckBox;
+    chbAxes: TCheckBox;
     chbShading: TCheckBox;
-    CheckBoxCore: TCheckBox;
-    CheckBoxAtmosfera: TCheckBox;
+    chbCore: TCheckBox;
+    chbAtmosfera: TCheckBox;
     chbClouds: TCheckBox;
-    chbCartographicGrid: TCheckBox;
     chbHide: TCheckBox;
-    CheckBoxPlanetgrid: TCheckBox;
+    chbPlanetgrid: TCheckBox;
     gbShowStars: TGroupBox;
     chbSkyGrid: TCheckBox;
     grbPlanetGuts: TGroupBox;
@@ -122,20 +119,20 @@ type
     nbRadius: TNumberBox;
     nbGravityAccel: TNumberBox;
     NumberBox7: TNumberBox;
-    procedure tvSettingsClick(Sender: TObject);
+    procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure ComboBoxVclStylesChange(Sender: TObject);
     procedure chbConstellationsClick(Sender: TObject);
-    procedure chbAxisClick(Sender: TObject);
-    procedure CheckBoxPlanetgridClick(Sender: TObject);
+    procedure chbAxesClick(Sender: TObject);
+    procedure chbPlanetGridClick(Sender: TObject);
     procedure chbHideClick(Sender: TObject);
-    procedure chbRotationClick(Sender: TObject);
+    procedure chbRotateClick(Sender: TObject);
+    procedure chbCoreClick(Sender: TObject);
   private
     CurrDir: TFileName;
     Node: TTreeNode;
     Nodes: TTreeNodes;
-    procedure ReadIniFile; override; // from base class
     procedure WriteIniFile;
   public
     //
@@ -169,23 +166,41 @@ begin
   ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 
   // Fill items with indices for TreeView
-  for I := 0 to tvSettings.Items.Count - 1 do
+  for I := 0 to tvOptions.Items.Count - 1 do
   begin
-    tvSettings.Items[i].ImageIndex := 0;
-    tvSettings.Items[i].SelectedIndex := 1;
+    tvOptions.Items[i].ImageIndex := 0;
+    tvOptions.Items[i].SelectedIndex := 1;
+    tvOptions.Items[i].StateIndex := 0;
   end;
 
   // Initial highlighted item
-  tvSettings.Items[1].Selected := True;
-  tvSettingsClick(Self);
-  tvSettings.Items[1].DropHighlighted := True;
-  tvSettings.FullExpand;
+  tvOptions.Items[1].Selected := True;
+  tvOptionsClick(Self);
+  tvOptions.Items[1].DropHighlighted := True;
+  tvOptions.FullExpand;
   inherited;
 end;
 
-//-----------------------------------------------------------------
-// Change interface style
-//-----------------------------------------------------------------
+//---------------------------------------------------
+// Show the planet core with mantle
+//---------------------------------------------------
+procedure TfrmOptions.chbCoreClick(Sender: TObject);
+begin
+  with frmAllPlanets do
+  begin
+    // Make ffPlanet unvisible and
+    // instead use visible sfPlanet with GLDisk
+    PlanetPath := CurrentStar + tvMoons.Selected.Text;
+    if FileExists(PlanetPath + '_core.jpg') then
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
+    else
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+    sfPlanet.Stop := 180; // or  sfPlanet.Stop := 360;
+    Atmosphere.Visible := chbCore.Checked;
+    sfCore.Visible := chbCore.Checked;
+  end;
+end;
+
 procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
@@ -194,20 +209,20 @@ end;
 //-----------------------------------------------------------------
 // Show axis for celestial bodies
 //-----------------------------------------------------------------
-procedure TfrmOptions.chbAxisClick(Sender: TObject);
+procedure TfrmOptions.chbAxesClick(Sender: TObject);
 begin
-  CheckBoxAxes.Checked := not CheckBoxAxes.Checked;
-  frmAllPlanets.sfPlanet.ShowAxes := CheckBoxAxes.Checked;
+//  chbAxes.Checked := not chbAxes.Checked;
+//  frmAllPlanets.sfPlanet.ShowAxes := chbAxes.Checked;
 end;
 
 //-----------------------------------------------------------------
 // Show lines, borders, figures and names of constellations
 //-----------------------------------------------------------------
 
-procedure TfrmOptions.CheckBoxPlanetGridClick(Sender: TObject);
+procedure TfrmOptions.chbPlanetGridClick(Sender: TObject);
 begin
-  frmAllPlanets.TorusGreenwich.Visible := frmOptions.CheckBoxPlanetgrid.Checked;
-  frmAllPlanets.TorusEquator.Visible := frmOptions.CheckBoxPlanetgrid.Checked;
+  frmAllPlanets.TorusGreenwich.Visible := frmOptions.chbPlanetgrid.Checked;
+  frmAllPlanets.TorusEquator.Visible := frmOptions.chbPlanetgrid.Checked;
 end;
 
 //-----------------------------------------------------------------
@@ -225,6 +240,7 @@ begin
     frmAllPlanets.LoadConstBorders(CurrDir)
   else
     frmAllPlanets.ConstBorders.Nodes.Clear;
+  // Also Figures
 end;
 
 //------------------------------------------------------------------
@@ -233,6 +249,7 @@ end;
 procedure TfrmOptions.chbHideClick(Sender: TObject);
 begin
   frmAllplanets.PanelLeft.Visible := chbHide.Checked;
+  frmAllplanets.PanelRight.Visible := chbHide.Checked;
   frmAllplanets.StatusBar.Visible := chbHide.Checked;
   frmAllplanets.ControlBar.Visible := chbHide.Checked;
   frmAllplanets.sfPlanet.Visible := chbHide.Checked;
@@ -247,19 +264,20 @@ end;
 //------------------------------------------------------------------
 // Planet rotations
 //------------------------------------------------------------------
-procedure TfrmOptions.chbRotationClick(Sender: TObject);
+procedure TfrmOptions.chbRotateClick(Sender: TObject);
 begin
-  //
+  chbRotate.Checked := not chbRotate.Checked;
+  frmAllplanets.Cadencer.Enabled := chbRotate.Checked;
 end;
 
 //-----------------------------------------------------------------
 // Active page of PageControl
 //-----------------------------------------------------------------
-procedure TfrmOptions.tvSettingsClick(Sender: TObject);
+procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
   inherited;
-  tvSettings.Items[1].DropHighlighted := False;
-  case tvSettings.Selected.Index of
+  tvOptions.Items[1].DropHighlighted := False;
+  case tvOptions.Selected.Index of
      0: PageControl.ActivePage := tsGeneral;
      1: PageControl.ActivePage := tsInterface;
      2: PageControl.ActivePage := tsDisplay;
@@ -267,22 +285,6 @@ begin
      4: PageControl.ActivePage := tsPlanets;
      5: PageControl.ActivePage := tsStars;
      6: PageControl.ActivePage := tsGalaxy;
-  end;
-end;
-
-//--------------------------------------------------------------------
-// Reading settings from ini file
-//--------------------------------------------------------------------
-procedure TfrmOptions.ReadIniFile;
-var
-  IniFile: TIniFile;
-begin
-  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
-  finally
-    IniFile.Free;
   end;
 end;
 
@@ -295,8 +297,8 @@ var
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(frmOptions.Name, chbAxes.Name, chbAxes.Checked);
+    IniFile.WriteBool(frmOptions.Name, chbRotate.Name, chbRotate.Checked);
   finally
     IniFile.Free;
   end;

@@ -49,6 +49,5 @@ begin
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TfrmOptions, frmOptions);
   Application.Run;
 end.

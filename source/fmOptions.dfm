@@ -26,7 +26,7 @@ object frmOptions: TfrmOptions
       811
       29)
     object ButtonOK: TButton
-      Left = 536
+      Left = 504
       Top = 3
       Width = 70
       Height = 23
@@ -35,6 +35,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
+      ExplicitLeft = 496
     end
   end
   object PanelMiddle: TPanel
@@ -168,26 +169,6 @@ object frmOptions: TfrmOptions
         Caption = 'Display'
         ImageIndex = 2
         TabVisible = False
-        object CheckBoxAxes: TCheckBox
-          Left = 11
-          Top = 23
-          Width = 62
-          Height = 18
-          Caption = 'Axes'
-          Checked = True
-          State = cbChecked
-          TabOrder = 0
-        end
-        object CheckBoxRotate: TCheckBox
-          Left = 195
-          Top = 22
-          Width = 83
-          Height = 20
-          Caption = 'Rotation'
-          Checked = True
-          State = cbChecked
-          TabOrder = 1
-        end
       end
       object tsDatatime: TTabSheet
         Caption = 'Datatime'
@@ -267,9 +248,9 @@ object frmOptions: TfrmOptions
         TabVisible = False
         object lbExoplanets: TListBox
           Left = 34
-          Top = 470
+          Top = 398
           Width = 202
-          Height = 46
+          Height = 91
           ItemHeight = 15
           Items.Strings = (
             'Aquaworld'
@@ -285,12 +266,12 @@ object frmOptions: TfrmOptions
         end
         object grbShowPlanets: TGroupBox
           Left = 34
-          Top = 263
+          Top = 231
           Width = 559
           Height = 130
           Caption = 'Show'
           TabOrder = 1
-          object chbRotation: TCheckBox
+          object chbRotate: TCheckBox
             Left = 31
             Top = 20
             Width = 82
@@ -300,9 +281,9 @@ object frmOptions: TfrmOptions
             State = cbChecked
             TabOrder = 0
             StyleName = 'Windows'
-            OnClick = chbRotationClick
+            OnClick = chbRotateClick
           end
-          object chbAxis: TCheckBox
+          object chbAxes: TCheckBox
             Left = 135
             Top = 24
             Width = 76
@@ -310,27 +291,28 @@ object frmOptions: TfrmOptions
             Caption = 'Axes'
             TabOrder = 1
             StyleName = 'Windows'
-            OnClick = chbAxisClick
+            OnClick = chbAxesClick
           end
           object chbShading: TCheckBox
-            Left = 135
-            Top = 104
+            Left = 246
+            Top = 93
             Width = 105
             Height = 21
             Caption = 'Shading'
             TabOrder = 2
             StyleName = 'Windows'
           end
-          object CheckBoxCore: TCheckBox
-            Left = 31
-            Top = 96
+          object chbCore: TCheckBox
+            Left = 246
+            Top = 22
             Width = 98
             Height = 27
             Caption = 'Core'
             TabOrder = 3
             StyleName = 'Windows'
+            OnClick = chbCoreClick
           end
-          object CheckBoxAtmosfera: TCheckBox
+          object chbAtmosfera: TCheckBox
             Left = 31
             Top = 64
             Width = 90
@@ -348,34 +330,25 @@ object frmOptions: TfrmOptions
             TabOrder = 5
             StyleName = 'Windows'
           end
-          object chbCartographicGrid: TCheckBox
-            Left = 247
-            Top = 63
-            Width = 122
-            Height = 27
-            Caption = 'Cartographic Grid'
-            TabOrder = 6
-            StyleName = 'Windows'
-          end
           object chbHide: TCheckBox
-            Left = 247
-            Top = 26
-            Width = 122
+            Left = 31
+            Top = 96
+            Width = 98
             Height = 23
             Caption = 'Hide'
-            TabOrder = 7
+            TabOrder = 6
             StyleName = 'Windows'
             OnClick = chbHideClick
           end
-          object CheckBoxPlanetgrid: TCheckBox
+          object chbPlanetgrid: TCheckBox
             Left = 246
-            Top = 102
+            Top = 62
             Width = 126
             Height = 25
             Caption = 'Planetgrid'
-            TabOrder = 8
+            TabOrder = 7
             StyleName = 'Windows'
-            OnClick = CheckBoxPlanetgridClick
+            OnClick = chbPlanetGridClick
           end
         end
         object grbPlanetGuts: TGroupBox
@@ -811,7 +784,7 @@ object frmOptions: TfrmOptions
         end
       end
     end
-    object tvSettings: TTreeView
+    object tvOptions: TTreeView
       Left = 5
       Top = 5
       Width = 158
@@ -822,7 +795,7 @@ object frmOptions: TfrmOptions
       Images = ImageList
       Indent = 19
       TabOrder = 1
-      OnClick = tvSettingsClick
+      OnClick = tvOptionsClick
       Items.NodeData = {
         070700000009540054007200650065004E006F00640065002D00000000000000
         00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
@@ -836,6 +809,7 @@ object frmOptions: TfrmOptions
         00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
         730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
         00000000000106470061006C00610078007900}
+      ExplicitHeight = 529
     end
   end
   object PanelTop: TPanel
