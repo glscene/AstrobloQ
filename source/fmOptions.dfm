@@ -26,7 +26,7 @@ object frmOptions: TfrmOptions
       811
       29)
     object ButtonOK: TButton
-      Left = 504
+      Left = 496
       Top = 3
       Width = 70
       Height = 23
@@ -35,7 +35,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 496
+      ExplicitLeft = 488
     end
   end
   object PanelMiddle: TPanel
@@ -169,6 +169,14 @@ object frmOptions: TfrmOptions
         Caption = 'Display'
         ImageIndex = 2
         TabVisible = False
+        object CheckBoxCubemap: TCheckBox
+          Left = 231
+          Top = 40
+          Width = 98
+          Height = 17
+          Caption = 'Cubemap'
+          TabOrder = 0
+        end
       end
       object tsDatatime: TTabSheet
         Caption = 'Datatime'
@@ -312,14 +320,17 @@ object frmOptions: TfrmOptions
             StyleName = 'Windows'
             OnClick = chbCoreClick
           end
-          object chbAtmosfera: TCheckBox
+          object chbAtmosphere: TCheckBox
             Left = 31
             Top = 64
-            Width = 90
+            Width = 98
             Height = 23
             Caption = 'Atmosphere'
+            Checked = True
+            State = cbChecked
             TabOrder = 4
             StyleName = 'Windows'
+            OnClick = chbAtmosphereClick
           end
           object chbClouds: TCheckBox
             Left = 135
@@ -345,7 +356,7 @@ object frmOptions: TfrmOptions
             Top = 62
             Width = 126
             Height = 25
-            Caption = 'Planetgrid'
+            Caption = 'Planet grid'
             TabOrder = 7
             StyleName = 'Windows'
             OnClick = chbPlanetGridClick
@@ -774,14 +785,6 @@ object frmOptions: TfrmOptions
         Caption = 'Galaxy'
         ImageIndex = 4
         TabVisible = False
-        object CheckBoxCubemap: TCheckBox
-          Left = 159
-          Top = 32
-          Width = 98
-          Height = 17
-          Caption = 'Cubemap'
-          TabOrder = 0
-        end
       end
     end
     object tvOptions: TTreeView

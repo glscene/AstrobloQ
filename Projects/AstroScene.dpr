@@ -11,8 +11,8 @@ program AstroScene;
 
 uses
   Forms,
-  fmAstroScene in '..\source\fmAstroScene.pas' {frmAllplanets},
-  fmForm in '..\source\fmForm.pas' {FormI: TDataModule},
+  fmAstroScene in '..\source\fmAstroScene.pas' {frmAstroScene},
+  fmFormI in '..\source\fmFormI.pas' {frmI: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fmGenExosystem in '..\source\fmGenExosystem.pas' {FormGenPlanetsys},
@@ -45,9 +45,10 @@ uses
 begin
   Application.Initialize;
   //TStyleManager.TrySetStyle('Glow');
-  Application.CreateForm(TfrmAllplanets, frmAllplanets);
+  Application.CreateForm(TfrmAstroScene, frmAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.Run;
 end.

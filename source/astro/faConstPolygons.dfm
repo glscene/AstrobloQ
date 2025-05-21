@@ -72,8 +72,7 @@ object FormConstPolygons: TFormConstPolygons
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 515
-    ExplicitHeight = 418
+    ExplicitWidth = 531
   end
   object MemoData: TMemo
     Left = 240

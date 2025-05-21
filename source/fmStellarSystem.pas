@@ -53,11 +53,11 @@ uses
   fmOptions,
   frParams,
 
-  fmForm
+  fmFormI
   ;
 
 type
-  TFormStellarSys = class(TFormI)  // not translated when TForm
+  TFormStellarSys = class(TfrmI)  // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

@@ -7,7 +7,7 @@ uses
   fnMeshEditor in '..\source\noo\fnMeshEditor.pas' {frmMeshEditor},
   fnMeshData in '..\source\noo\fnMeshData.pas' {FormMeshData},
   fnSpacePilot in '..\source\noo\fnSpacePilot.pas' {frmSpacePilot},
-  fmForm in '..\source\fmForm.pas' {FormI},
+  fmFormI in '..\source\fmFormI.pas' {frmI},
   fnCyborg in '..\source\noo\fnCyborg.pas' {frmCyborg},
   fnRobot in '..\source\noo\fnRobot.pas' {frmRobot},
   Noo.BoneUtils in '..\source\noo\Noo.BoneUtils.pas',

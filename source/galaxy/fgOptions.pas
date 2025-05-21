@@ -35,10 +35,10 @@ uses
 
   Space.Globals,
   dmImages,
-  fmForm;
+  fmFormI;
 
 type
-  TfrmOption = class(TFormI)
+  TfrmOption = class(TfrmI)
     PanelBottom: TPanel;
     PanelMain: TPanel;
     tvSettings: TTreeView;
@@ -193,7 +193,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  fgGalaxeti;
+  fgGalaxceti;
 
 //---------------------------------------------------------------------------
 procedure TfrmOption.FormCreate(Sender: TObject);

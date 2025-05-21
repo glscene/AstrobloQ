@@ -34,6 +34,7 @@ object frmAllplanets: TfrmAllplanets
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitWidth = 887
   end
   object PanelLeft: TPanel
     Left = 0
@@ -147,8 +148,6 @@ object frmAllplanets: TfrmAllplanets
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
-      ExplicitWidth = 271
-      ExplicitHeight = 621
     end
   end
   object StatusBar: TStatusBar
@@ -279,8 +278,6 @@ object frmAllplanets: TfrmAllplanets
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
-      ExplicitWidth = 253
-      ExplicitHeight = 621
     end
   end
   object Scene: TGLScene

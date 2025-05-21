@@ -123,8 +123,8 @@
             <Form>frmLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="..\source\fmFormI.pas">
+            <Form>frmI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\noo\fnCyborgR.pas">

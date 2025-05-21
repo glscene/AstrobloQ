@@ -1,4 +1,4 @@
-object frmAllplanets: TfrmAllplanets
+object frmAstroScene: TfrmAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
@@ -34,8 +34,6 @@ object frmAllplanets: TfrmAllplanets
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 791
-    ExplicitHeight = 648
   end
   object PanelLeft: TPanel
     Left = 0
@@ -157,7 +155,6 @@ object frmAllplanets: TfrmAllplanets
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 646
     end
   end
   object StatusBar: TStatusBar
@@ -192,7 +189,6 @@ object frmAllplanets: TfrmAllplanets
     Height = 57
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1319
     object tbPlanets: TToolBar
       Left = 19
       Top = 2

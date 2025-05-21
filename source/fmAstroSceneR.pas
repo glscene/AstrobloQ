@@ -67,12 +67,12 @@ uses
   fmOptionsR,
   fmAboutR,
 
-  fmForm
+  fmFormI
   ;
 
 
 type
-  TfrmAllplanets = class(TFormI) // not translated when TForm
+  TfrmAllplanets = class(TfrmI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;

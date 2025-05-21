@@ -33,10 +33,10 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  fmForm;
+  fmFormI;
 
 type
-  TfrmOptions = class(TFormI)
+  TfrmOptions = class(TfrmI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;

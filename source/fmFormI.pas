@@ -2,7 +2,7 @@
 // This unit is part of AstroLibrary
 //-------------------------------------
 
-unit fmForm;
+unit fmFormI;
 
 (* The fdForm unit for TFormI class as parent for all child forms *)
 
@@ -18,7 +18,7 @@ uses
   Vcl.ExtDlgs;
 
 type
-  TFormI = class(TForm)
+  TfrmI = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -26,21 +26,21 @@ type
   end;
 
 var
-  FormI: TFormI;
+  frmI: TfrmI;
 
 implementation //----------------------------------------------------------
 
 {$R *.dfm}
 
 //
-procedure TFormI.FormCreate(Sender: TObject);
+procedure TfrmI.FormCreate(Sender: TObject);
 begin
   ReadInifile;
 end;
 
 //----------------------------------------------------------
 
-procedure TFormI.ReadIniFile;
+procedure TfrmI.ReadIniFile;
 var
   IniFile: TIniFile;
 begin

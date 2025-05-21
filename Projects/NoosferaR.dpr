@@ -8,7 +8,7 @@ uses
   fnMeshDataR in '..\source\noo\fnMeshDataR.pas' {frmMeshData},
   fnSpacePilotR in '..\source\noo\fnSpacePilotR.pas' {frmSpacePilot},
   fnLocationsR in '..\source\noo\fnLocationsR.pas' {frmLocations},
-  fmForm in '..\source\fmForm.pas' {FormI},
+  fmFormI in '..\source\fmFormI.pas' {frmI},
   fnCyborgR in '..\source\noo\fnCyborgR.pas' {frmCyborg},
   fnRobotR in '..\source\noo\fnRobotR.pas' {frmLoadModel},
   fnCETInetR in '..\source\noo\fnCETInetR.pas' {FormCETI},

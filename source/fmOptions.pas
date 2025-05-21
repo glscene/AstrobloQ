@@ -31,10 +31,10 @@ uses
   Vcl.Themes,
 
   Space.Globals,
-  fmForm;
+  fmFormI;
 
 type
-  TfrmOptions = class(TFormI)
+  TfrmOptions = class(TfrmI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -82,21 +82,20 @@ type
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
     CheckBox2: TCheckBox;
-    CheckBoxCubemap: TCheckBox;
     ComboBoxVclStyles: TComboBox;
     lbStyle: TLabel;
     cbSplashStart: TCheckBox;
     grbShowPlanets: TGroupBox;
     chbRotate: TCheckBox;
     chbAxes: TCheckBox;
-    chbShading: TCheckBox;
     chbCore: TCheckBox;
-    chbAtmosfera: TCheckBox;
+    chbAtmosphere: TCheckBox;
     chbClouds: TCheckBox;
     chbHide: TCheckBox;
     chbPlanetgrid: TCheckBox;
-    gbShowStars: TGroupBox;
+    chbShading: TCheckBox;
     chbSkyGrid: TCheckBox;
+    gbShowStars: TGroupBox;
     grbPlanetGuts: TGroupBox;
     LabelIce: TLabel;
     LabelWater: TLabel;
@@ -119,16 +118,18 @@ type
     nbRadius: TNumberBox;
     nbGravityAccel: TNumberBox;
     NumberBox7: TNumberBox;
+    CheckBoxCubemap: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ButtonOKClick(Sender: TObject);
     procedure ComboBoxVclStylesChange(Sender: TObject);
     procedure chbConstellationsClick(Sender: TObject);
     procedure chbAxesClick(Sender: TObject);
-    procedure chbPlanetGridClick(Sender: TObject);
-    procedure chbHideClick(Sender: TObject);
     procedure chbRotateClick(Sender: TObject);
     procedure chbCoreClick(Sender: TObject);
+    procedure chbPlanetGridClick(Sender: TObject);
+    procedure chbHideClick(Sender: TObject);
+    procedure ButtonOKClick(Sender: TObject);
+    procedure chbAtmosphereClick(Sender: TObject);
   private
     CurrDir: TFileName;
     Node: TTreeNode;
@@ -182,37 +183,48 @@ begin
 end;
 
 //---------------------------------------------------
-// Show the planet core with mantle
+// Styles of Interface
 //---------------------------------------------------
-procedure TfrmOptions.chbCoreClick(Sender: TObject);
-begin
-  with frmAllPlanets do
-  begin
-    // Make ffPlanet unvisible and
-    // instead use visible sfPlanet with GLDisk
-    PlanetPath := CurrentStar + tvMoons.Selected.Text;
-    if FileExists(PlanetPath + '_core.jpg') then
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
-    else
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    sfPlanet.Stop := 180; // or  sfPlanet.Stop := 360;
-    Atmosphere.Visible := chbCore.Checked;
-    sfCore.Visible := chbCore.Checked;
-  end;
-end;
-
 procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
+//---------------------------------------------------
+// Show the planet core with mantle
+//---------------------------------------------------
+procedure TfrmOptions.chbCoreClick(Sender: TObject);
+begin
+  with frmAstroScene do
+  begin
+    // Make ffPlanet invisible and replace it with sfPlanet and glDisks visible
+    PlanetPath := CurrentStar + tvMoons.Selected.Text;
+    if FileExists(PlanetPath + '_core.jpg') then
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
+    else
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+    sfCore.Visible := chbCore.Checked;
+    if sfCore.Visible then
+      sfPlanet.Stop := 180
+    else
+      sfPlanet.Stop := 360;
+  end;
+end;
+
 //-----------------------------------------------------------------
-// Show axis for celestial bodies
+// Show atmosphere
+//-----------------------------------------------------------------
+procedure TfrmOptions.chbAtmosphereClick(Sender: TObject);
+begin
+  frmAstroScene.DirectOpenGL.Visible := chbAtmosphere.Checked;
+end;
+
+//-----------------------------------------------------------------
+// Show axes for celestial bodies
 //-----------------------------------------------------------------
 procedure TfrmOptions.chbAxesClick(Sender: TObject);
 begin
-//  chbAxes.Checked := not chbAxes.Checked;
-//  frmAllPlanets.sfPlanet.ShowAxes := chbAxes.Checked;
+  frmAstroScene.sfPlanet.ShowAxes := chbAxes.Checked;
 end;
 
 //-----------------------------------------------------------------
@@ -221,8 +233,8 @@ end;
 
 procedure TfrmOptions.chbPlanetGridClick(Sender: TObject);
 begin
-  frmAllPlanets.TorusGreenwich.Visible := frmOptions.chbPlanetgrid.Checked;
-  frmAllPlanets.TorusEquator.Visible := frmOptions.chbPlanetgrid.Checked;
+  frmAstroScene.TorusGreenwich.Visible := chbPlanetgrid.Checked;
+  frmAstroScene.TorusEquator.Visible := chbPlanetgrid.Checked;
 end;
 
 //-----------------------------------------------------------------
@@ -230,16 +242,16 @@ end;
 //-----------------------------------------------------------------
 procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
-  CurrDir := frmAllPlanets.DataDir + '\constellation\';
+  CurrDir := frmAstroScene.DataDir + '\constellation\';
   SetCurrentDir(CurrDir);
   if chbConstLines.Checked then
-    frmAllPlanets.LoadConstLines(CurrDir)
+    frmAstroScene.LoadConstLines(CurrDir)
   else
-    frmAllPlanets.ConstLines.Nodes.Clear;
+    frmAstroScene.ConstLines.Nodes.Clear;
   if chbConstBounds.Checked then
-    frmAllPlanets.LoadConstBorders(CurrDir)
+    frmAstroScene.LoadConstBorders(CurrDir)
   else
-    frmAllPlanets.ConstBorders.Nodes.Clear;
+    frmAstroScene.ConstBorders.Nodes.Clear;
   // Also Figures
 end;
 
@@ -248,16 +260,16 @@ end;
 //------------------------------------------------------------------
 procedure TfrmOptions.chbHideClick(Sender: TObject);
 begin
-  frmAllplanets.PanelLeft.Visible := chbHide.Checked;
-  frmAllplanets.PanelRight.Visible := chbHide.Checked;
-  frmAllplanets.StatusBar.Visible := chbHide.Checked;
-  frmAllplanets.ControlBar.Visible := chbHide.Checked;
-  frmAllplanets.sfPlanet.Visible := chbHide.Checked;
+  frmAstroScene.PanelLeft.Visible := chbHide.Checked;
+  frmAstroScene.PanelRight.Visible := chbHide.Checked;
+  frmAstroScene.StatusBar.Visible := chbHide.Checked;
+  frmAstroScene.ControlBar.Visible := chbHide.Checked;
+  frmAstroScene.sfPlanet.Visible := chbHide.Checked;
   (*
   if chbHide.Checked then
-    frmAllplanets.BorderStyle := bsNone
+    frmAstroScene.BorderStyle := bsNone
   else
-    frmAllplanets.BorderStyle := bsSizeable;
+    frmAstroScene.BorderStyle := bsSizeable;
   *)
 end;
 
@@ -266,8 +278,7 @@ end;
 //------------------------------------------------------------------
 procedure TfrmOptions.chbRotateClick(Sender: TObject);
 begin
-  chbRotate.Checked := not chbRotate.Checked;
-  frmAllplanets.Cadencer.Enabled := chbRotate.Checked;
+  frmAstroScene.Cadencer.Enabled := chbRotate.Checked;
 end;
 
 //-----------------------------------------------------------------

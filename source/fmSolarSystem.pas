@@ -52,12 +52,12 @@ uses
   GLS.LensFlare,
 
   fmOptions,
-  fmForm,
+  fmFormI,
   frParams
   ;
 
 type
-  TFormSolarSys = class(TFormI) // not translated when TForm
+  TFormSolarSys = class(TfrmI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

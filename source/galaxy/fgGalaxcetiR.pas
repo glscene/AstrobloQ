@@ -1,4 +1,4 @@
-unit fgGalaxeti;
+unit fgGalaxcetiR;
 
 interface
 
@@ -46,26 +46,25 @@ uses
   GLS.Color,
   GLS.SpaceText,
 
-  fmForm,
-  fmAbout,
-  fmSettings,
-
-  fgOptions,
+  fmFormI,
+  fmAboutR,
+  fmSettingsR,
 
   dmImages,
   dmDialogs,
   dmBase,
 
-  fgAnalyser,
-  fgMonitor,
-  fgParadox,
-  fgAstrocube,
-
   Space.Globals,
-  Astro.Utils;
+
+  fgAnalyserR,
+  fgMonitorR,
+  fgParadoxR,
+  fgAstrocubeR,
+  fgOptionsR
+  ;
 
 type
-  TfrmGalaxeti = class(TFormI) // not translated if TForm
+  TfrmGalaxceti = class(TfrmI)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -217,6 +216,8 @@ type
     procedure miLithosphereClick(Sender: TObject);
     procedure miBiosphereClick(Sender: TObject);
     procedure miTechnosphereClick(Sender: TObject);
+    procedure GLSimpleNavigationMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
     procedure miSettingsClick(Sender: TObject);
   public
     MousePoint: TPoint;
@@ -254,7 +255,7 @@ const
   crSlidezy = 10;
 
 var
-  frmGalaxeti: TfrmGalaxeti;
+  frmGalaxceti: TfrmGalaxceti;
 
 implementation //-------------------------------------------------------------
 
@@ -262,24 +263,25 @@ implementation //-------------------------------------------------------------
 
 uses
   fStarProj,
-  fgExoplanets;
+  fgExoplanetsR;
 
 
 // -----------------------------------------------------------------------
-procedure TfrmGalaxeti.FormCreate(Sender: TObject);
+procedure TfrmGalaxceti.FormCreate(Sender: TObject);
 begin
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
 
   tbSolarcubeClick(Self);
   tbAxesClick(Self);
+  inherited;    // inheritance for translation
 end;
 
 // -----------------------------------------------------------
-procedure TfrmGalaxeti.GLCadencerProgress(Sender: TObject;
+procedure TfrmGalaxceti.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if frmOption.CheckBoxRotate.Checked and
+  if frmOptions.CheckBoxRotate.Checked and
      not tbRotation.Down then
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -296,14 +298,21 @@ begin
   end;
 end;
 
+procedure TfrmGalaxceti.GLSimpleNavigationMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  inherited;
+
+end;
+
 // --------------------------------------------------------
-procedure TfrmGalaxeti.GLAsyncTimerTimer(Sender: TObject);
+procedure TfrmGalaxceti.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
 // ------------------------------------------------------------
-procedure TfrmGalaxeti.MakeRandomStars;
+procedure TfrmGalaxceti.MakeRandomStars;
 var
   i: Integer;
 begin
@@ -402,20 +411,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TfrmGalaxeti.ButtonClearClick(Sender: TObject);
+procedure TfrmGalaxceti.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TfrmGalaxeti.ButtonAddStarsClick(Sender: TObject);
+procedure TfrmGalaxceti.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TfrmGalaxeti.chbAllClick(Sender: TObject);
+procedure TfrmGalaxceti.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -427,27 +436,27 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TfrmGalaxeti.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaxceti.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TfrmGalaxeti.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaxceti.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
 // -----------------------------------------------------------------------
-procedure TfrmGalaxeti.tbAxesClick(Sender: TObject);
+procedure TfrmGalaxceti.tbAxesClick(Sender: TObject);
 begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
 //---------------------------------------------------------------------------
 
-procedure TfrmGalaxeti.tbSolarcubeClick(Sender: TObject);
+procedure TfrmGalaxceti.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -468,7 +477,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-function TfrmGalaxeti.ReadHygStars: Boolean;
+function TfrmGalaxceti.ReadHygStars: Boolean;
 var
   i: Integer;
 
@@ -538,7 +547,7 @@ end;
 // -------------------------------------------------------------
 //                         File menu
 // -------------------------------------------------------------
-procedure TfrmGalaxeti.miOpenClick(Sender: TObject);
+procedure TfrmGalaxceti.miOpenClick(Sender: TObject);
 begin
 //  dcSolcube.DeleteChildren();
   Stars.Free();
@@ -546,8 +555,9 @@ begin
 
   sl := TStringList.Create;
   tl := TStringList.Create;
-  DataDir := GetDataPath() + 'catalog'; //ExtractFilePath(ParamStr(0));
-  SetCurrentDir(DataDir);
+  DataDir := ExtractFilePath(ParamStr(0));
+  DataDir := DataDir + 'data\catalog';
+  // SetCurrentDir(DataDir);
   DataModuleDialogs.OpenTextFileDialog.InitialDir := DataDir;
   DataModuleDialogs.OpenTextFileDialog.FilterIndex := 1;
   if DataModuleDialogs.OpenTextFileDialog.Execute then
@@ -562,7 +572,7 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TfrmGalaxeti.miSaveAsClick(Sender: TObject);
+procedure TfrmGalaxceti.miSaveAsClick(Sender: TObject);
 begin
   if DataModuleDialogs.SaveTextFileDialog.Execute then
     if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
@@ -573,7 +583,7 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TfrmGalaxeti.seNStarsChange(Sender: TObject);
+procedure TfrmGalaxceti.seNStarsChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
   nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -585,14 +595,14 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TfrmGalaxeti.miOptionsClick(Sender: TObject);
+procedure TfrmGalaxceti.miOptionsClick(Sender: TObject);
 begin
-  frmOption.Show;
+  frmOptions.Show;
 end;
 
-procedure TfrmGalaxeti.miNewStarcubeClick(Sender: TObject);
+procedure TfrmGalaxceti.miNewStarcubeClick(Sender: TObject);
 begin
-  with TFormAstrocube.Create(Self) do
+  with TFormNewStarcube.Create(Self) do
     try
       ShowModal;
     finally
@@ -603,7 +613,7 @@ end;
 //------------------------------------------------------------------------
 //                           View menu
 //------------------------------------------------------------------------
-procedure TfrmGalaxeti.miExoplanetsClick(Sender: TObject);
+procedure TfrmGalaxceti.miExoplanetsClick(Sender: TObject);
 begin
   with TFormExoplanets.Create(Self) do
     try
@@ -613,7 +623,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaxeti.miLithosphereClick(Sender: TObject);
+procedure TfrmGalaxceti.miLithosphereClick(Sender: TObject);
 begin
 {
   with TfrmLitosphere.Create(Self) do
@@ -625,7 +635,7 @@ begin
 }
 end;
 
-procedure TfrmGalaxeti.miBiosphereClick(Sender: TObject);
+procedure TfrmGalaxceti.miBiosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -635,7 +645,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaxeti.miTechnosphereClick(Sender: TObject);
+procedure TfrmGalaxceti.miTechnosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -645,7 +655,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaxeti.miSettingsClick(Sender: TObject);
+procedure TfrmGalaxceti.miSettingsClick(Sender: TObject);
 begin
   with TFormSettings.Create(Self) do
     try
@@ -656,7 +666,7 @@ begin
 end;
 
 
-procedure TfrmGalaxeti.miPanelShowClick(Sender: TObject);
+procedure TfrmGalaxceti.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
@@ -666,7 +676,7 @@ end;
 //-----------------------------------------------------------------------
 //                         Tools menu
 //-----------------------------------------------------------------------
-procedure TfrmGalaxeti.miMonitorClick(Sender: TObject);
+procedure TfrmGalaxceti.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -676,7 +686,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaxeti.miAnalyserClick(Sender: TObject);
+procedure TfrmGalaxceti.miAnalyserClick(Sender: TObject);
 begin
   with TFormAnalyser.Create(Self) do
     try
@@ -686,7 +696,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaxeti.miProjectionClick(Sender: TObject);
+procedure TfrmGalaxceti.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -696,7 +706,7 @@ begin
     end;
 end;
 
-procedure TfrmGalaxeti.miParadoxClick(Sender: TObject);
+procedure TfrmGalaxceti.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
     try
@@ -709,7 +719,7 @@ end;
 // -------------------------------------------------------------
 //                                Help menu
 // -------------------------------------------------------------
-procedure TfrmGalaxeti.miAboutClick(Sender: TObject);
+procedure TfrmGalaxceti.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
@@ -721,7 +731,7 @@ end;
 
 
 // -------------------------------------------------------------
-procedure TfrmGalaxeti.miExitClick(Sender: TObject);
+procedure TfrmGalaxceti.miExitClick(Sender: TObject);
 begin
   Close();
 end;

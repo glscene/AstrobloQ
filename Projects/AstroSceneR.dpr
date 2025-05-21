@@ -22,7 +22,7 @@ uses
   Space.Globals in '..\source\Space.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
-  fmForm in '..\source\fmForm.pas' {FormI},
+  fmFormI in '..\source\fmFormI.pas' {frmI},
   frParamsR in '..\source\frParamsR.pas' {FrameParamsR: TFrame},
   fmStellarSystemR in '..\source\fmStellarSystemR.pas' {FormStarSys},
   fmSolarSystemR in '..\source\fmSolarSystemR.pas' {FormSolarSys},

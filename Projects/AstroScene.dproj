@@ -106,10 +106,10 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\fmAstroScene.pas">
-            <Form>frmAllplanets</Form>
+            <Form>frmAstroScene</Form>
         </DCCReference>
-        <DCCReference Include="..\source\fmForm.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="..\source\fmFormI.pas">
+            <Form>frmI</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
