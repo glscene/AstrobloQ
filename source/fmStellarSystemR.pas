@@ -57,7 +57,7 @@ uses
   ;
 
 type
-  TFormStarSys = class(TfrmI)
+  TFormStarSys = class(TFormI)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

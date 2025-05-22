@@ -38,7 +38,7 @@ uses
   fmFormI;
 
 type
-  TFormSettings = class(TfrmI)
+  TFormSettings = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;

@@ -17,7 +17,7 @@ uses
   fmFormI;
 
 type
-  TFormParadox = class(TfrmI)
+  TFormParadox = class(TFormI)
     tvParadox: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);

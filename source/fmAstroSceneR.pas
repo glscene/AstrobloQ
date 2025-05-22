@@ -72,7 +72,7 @@ uses
 
 
 type
-  TfrmAllplanets = class(TfrmI) // not translated when TForm
+  TfrmAllplanets = class(TFormI)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -393,7 +393,7 @@ end;
 procedure TfrmAllplanets.About1Click(Sender: TObject);
 begin
   inherited;
-  with TFormAbout.Create(Self) do
+  with TFrmAbout.Create(Self) do
   try
     ShowModal;
   finally

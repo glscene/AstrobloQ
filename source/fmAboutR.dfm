@@ -1,4 +1,4 @@
-object FormAbout: TFormAbout
+object FrmAbout: TFrmAbout
   Left = 0
   Top = 0
   BorderStyle = bsDialog
@@ -29,7 +29,6 @@ object FormAbout: TFormAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 741
   end
   object PageControl: TPageControl
     Left = 0

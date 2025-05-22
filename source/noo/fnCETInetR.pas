@@ -46,7 +46,7 @@ uses
   fmFormI;
 
 type
-  TFormCETI = class(TfrmI)
+  TFormCETI = class(TFormI)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;

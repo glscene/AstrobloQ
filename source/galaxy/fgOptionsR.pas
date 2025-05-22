@@ -38,7 +38,7 @@ uses
   fmFormI;
 
 type
-  TfrmOptions = class(TfrmI)
+  TFormOptions = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -186,7 +186,7 @@ type
   end;
 
 var
-  frmOptions: TfrmOptions;
+  FormOptions: TFormOptions;
 
 implementation //------------------------------------------------------------
 
@@ -194,7 +194,7 @@ implementation //------------------------------------------------------------
 
 
 //---------------------------------------------------------------------------
-procedure TfrmOptions.FormCreate(Sender: TObject);
+procedure TFormOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -232,7 +232,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmOptions.tvSettingsClick(Sender: TObject);
+procedure TFormOptions.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -249,7 +249,7 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmOptions.trbVelocityChange(Sender: TObject);
+procedure TFormOptions.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   FlightTime: Extended;
@@ -264,7 +264,7 @@ end;
 
 
 //-----------------------------------------------------
-procedure TfrmOptions.ButtonCalculateClick(Sender: TObject);
+procedure TFormOptions.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Nt, Np : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
@@ -304,12 +304,12 @@ begin
   EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
-procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
+procedure TFormOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
-function TfrmOptions.Execute: boolean;
+function TFormOptions.Execute: boolean;
 begin
   Result := ShowModal = mrOk;
 end;
@@ -317,29 +317,29 @@ end;
 //--------------------------------------------------------------------
 // Reading Inifile sections and setting the interface language
 //--------------------------------------------------------------------
-procedure TfrmOptions.ReadIniFile;
+procedure TFormOptions.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
+    CheckBoxAxes.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
 end;
 
 // --------------------------------------------------------------------
-procedure TfrmOptions.WriteIniFile;
+procedure TFormOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -347,7 +347,7 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TfrmOptions.ButtonOkClick(Sender: TObject);
+procedure TFormOptions.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -355,7 +355,7 @@ begin
   if FileExists(UpperCase(FileName)) then
     DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
-  frmOptions.Close;
+  FormOptions.Close;
 end;
 
 end.

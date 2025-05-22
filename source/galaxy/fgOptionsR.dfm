@@ -1,4 +1,4 @@
-inherited frmOptions: TfrmOptions
+inherited FormOptions: TFormOptions
   HelpContext = 0
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 745
@@ -21,8 +21,8 @@ inherited frmOptions: TfrmOptions
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 662
-    ExplicitWidth = 1305
+    ExplicitTop = 648
+    ExplicitWidth = 1289
     object ButtonOk: TButton
       Left = 1079
       Top = 10
@@ -49,8 +49,8 @@ inherited frmOptions: TfrmOptions
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 1305
-    ExplicitHeight = 662
+    ExplicitWidth = 1289
+    ExplicitHeight = 648
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -81,7 +81,7 @@ inherited frmOptions: TfrmOptions
         FFFF0600000000000000000000000001071F043B0430043D04350442044B0400
         00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
         000001041F04430442043804}
-      ExplicitHeight = 660
+      ExplicitHeight = 646
     end
     object PageControl: TPageControl
       Left = 219
@@ -92,12 +92,12 @@ inherited frmOptions: TfrmOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsPathway
       Align = alClient
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1085
-      ExplicitHeight = 660
+      ExplicitWidth = 1069
+      ExplicitHeight = 646
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -271,7 +271,6 @@ inherited frmOptions: TfrmOptions
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
-          ExplicitWidth = 1085
         end
         object ButtonModifyMat: TButton
           Left = 254
@@ -460,7 +459,7 @@ inherited frmOptions: TfrmOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1086#1094#1077#1085#1082#1080' '#1095#1080#1089#1083#1072' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090
+          Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1095#1080#1089#1083#1072' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -1170,7 +1169,6 @@ inherited frmOptions: TfrmOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
-          ExplicitLeft = 122
         end
         object GroupBox2: TGroupBox
           Left = 56
@@ -1318,62 +1316,60 @@ inherited frmOptions: TfrmOptions
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 1085
-          ExplicitHeight = 675
           object LabelStarI: TLabel
             Left = 75
             Top = 70
-            Width = 42
+            Width = 68
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Star I'
+            Caption = #1047#1074#1077#1079#1076#1072' I'
           end
           object LabelStarII: TLabel
             Left = 566
             Top = 70
-            Width = 47
+            Width = 73
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Star II'
+            Caption = #1047#1074#1077#1079#1076#1072' II'
           end
           object LabelDistance: TLabel
-            Left = 409
+            Left = 393
             Top = 195
-            Width = 72
+            Width = 100
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Distance'
+            Caption = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077
           end
           object LabelVelocity: TLabel
             Left = 409
             Top = 281
-            Width = 66
+            Width = 81
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Velocity'
+            Caption = #1057#1082#1086#1088#1086#1089#1090#1100
           end
           object LabelFlightTime: TLabel
             Left = 404
             Top = 362
-            Width = 89
+            Width = 120
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Flight time'
+            Caption = #1042#1088#1077#1084#1103' '#1087#1086#1083#1105#1090#1072
           end
           object SearchBoxA: TSearchBox
             Left = 181
@@ -1422,7 +1418,7 @@ inherited frmOptions: TfrmOptions
             TabOrder = 2
           end
           object SearchBoxB: TSearchBox
-            Left = 644
+            Left = 660
             Top = 67
             Width = 197
             Height = 40
@@ -1470,7 +1466,7 @@ inherited frmOptions: TfrmOptions
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Shortest path'
+            Caption = #1050#1088#1072#1090#1095#1072#1081#1096#1080#1081' '#1087#1091#1090#1100
             TabOrder = 6
             object chbIsTetranet: TCheckBox
               Left = 31

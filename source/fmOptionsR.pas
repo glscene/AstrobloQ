@@ -36,7 +36,7 @@ uses
   fmFormI;
 
 type
-  TfrmOptions = class(TfrmI)
+  TfrmOptions = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;

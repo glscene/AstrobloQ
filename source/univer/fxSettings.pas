@@ -27,7 +27,7 @@ uses
   fxForm;
 
 type
-  TfrmSettings = class(TFormX)
+  TFormSettings = class(TFormX)
     tvSettings: TTreeView;
     tvGeneral: TTreeViewItem;
     tvInterface: TTreeViewItem;
@@ -42,8 +42,6 @@ type
     tiPlanets: TTabItem;
     tiStars: TTabItem;
     tiGalaxy: TTabItem;
-    gbLanguage: TGroupBox;
-    ceLanguages: TComboEdit;
     ButtonOk: TButton;
     procedure FormCreate(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
@@ -56,14 +54,14 @@ type
   end;
 
 var
-  frmSettings: TfrmSettings;
+  FormSettings: TFormSettings;
 
 implementation // -------------------------------------------------------------
 
 {$R *.fmx}
 
 
-procedure TfrmSettings.FormCreate(Sender: TObject);
+procedure TFormSettings.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
 
@@ -76,7 +74,7 @@ begin
   inherited;
 end;
 
-procedure TfrmSettings.tvSettingsClick(Sender: TObject);
+procedure TFormSettings.tvSettingsClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -118,19 +116,13 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TfrmSettings.WriteIniFile;
+procedure TFormSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    case ceLanguages.ItemIndex of
-      0: ActiveLangID := LANG_ENGLISH; // 9
-      1: ActiveLangID := LANG_RUSSIAN; // 25
-      2: ActiveLangID := LANG_PORTUGUESE; // 22
-      3: ActiveLangID := LANG_SPANISH; // 10
-    end;
-    IniFile.WriteInteger(frmSettings.Name, ceLanguages.Name, ActiveLangID);
+    IniFile.WriteInteger(FormSettings.Name, 'English', 9);
   finally
     IniFile.Free;
   end;
@@ -140,7 +132,7 @@ end;
 
 //--------------------------------------------------------------------------
 
-procedure TfrmSettings.ReadIniFile;
+procedure TFormSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 
@@ -148,17 +140,7 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, ceLanguages.Name, 0);
-/// CheckBoxAxes.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxAxes.Name, True);
-/// CheckBoxRotate.Checked := IniFile.ReadBool(frmSettings.Name, CheckBoxRotate.Name, True);
-    case ActiveLangId of
-      LANG_ENGLISH: ceLanguages.ItemIndex := 0;
-      LANG_RUSSIAN: ceLanguages.ItemIndex := 1;
-      LANG_PORTUGUESE: ceLanguages.ItemIndex := 2;
-      LANG_SPANISH: ceLanguages.ItemIndex := 3;
-    else
-      ceLanguages.ItemIndex := 0;
-    end;
+    ActiveLangId := IniFile.ReadInteger(FormSettings.Name, 'English', 9);
   finally
     IniFile.Free;
   end;
@@ -166,20 +148,19 @@ end;
 
 //-------------------------------------------------------------------------
 
-procedure TfrmSettings.ButtonOkClick(Sender: TObject);
+procedure TFormSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
   if CurLangID <> ActiveLangID then
   begin
-///    MessageDlg(_('Reload to change language'),  mtInformation, [mbOK], 0);
     FileName := ChangeFileExt(ParamStr(0), '.ini');
     if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   end;
   // Write settings
   WriteIniFile;
-  frmSettings.Close;
+  FormSettings.Close;
 end;
 
 

@@ -4,7 +4,7 @@
 
 unit fmFormI;
 
-(* The fdForm unit for TFormI class as parent for all child forms *)
+(* The fmForm unit for TFormI class as parent for all child forms *)
 
 interface
 
@@ -18,7 +18,7 @@ uses
   Vcl.ExtDlgs;
 
 type
-  TfrmI = class(TForm)
+  TFormI = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -26,21 +26,21 @@ type
   end;
 
 var
-  frmI: TfrmI;
+  FormI: TFormI;
 
 implementation //----------------------------------------------------------
 
 {$R *.dfm}
 
 //
-procedure TfrmI.FormCreate(Sender: TObject);
+procedure TFormI.FormCreate(Sender: TObject);
 begin
   ReadInifile;
 end;
 
 //----------------------------------------------------------
 
-procedure TfrmI.ReadIniFile;
+procedure TFormI.ReadIniFile;
 var
   IniFile: TIniFile;
 begin

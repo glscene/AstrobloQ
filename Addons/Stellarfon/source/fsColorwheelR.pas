@@ -1,4 +1,4 @@
-unit fColorwheel;
+unit fsColorwheelR;
 
 // The unit is part of the AstrobloQ
 
@@ -23,7 +23,7 @@ uses
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
 
-  fForm;
+  fmFormI;
 
 type
   TFormColorwheel = class(TFormI)
@@ -41,7 +41,7 @@ type
 var
   FormColorwheel: TFormColorwheel;
 
-implementation
+implementation  //----------------------------------------------------------
 
 {$R *.dfm}
 

@@ -2045,7 +2045,7 @@ end;
 // -------------------------------------------------------------------
 procedure TfrmNoosfera.miAboutClick(Sender: TObject);
 begin
-  with TFormAbout.CReate(Self) do
+  with TFrmAbout.CReate(Self) do
     try
       ShowModal;
     finally

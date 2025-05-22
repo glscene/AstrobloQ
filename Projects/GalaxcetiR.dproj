@@ -129,10 +129,10 @@
             <Form>FormNewStarcube</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgOptionsR.pas">
-            <Form>frmOptions</Form>
+            <Form>FormOptions</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgGalaxcetiR.pas">
-            <Form>frmGalaxceti</Form>
+            <Form>FormGalaxceti</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\Addons\StarProj\fStarProj.pas">
@@ -150,15 +150,12 @@
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmSettingsR.pas">
-            <Form>FormSettings</Form>
-        </DCCReference>
         <DCCReference Include="..\source\fmAboutR.pas">
-            <Form>FormAbout</Form>
+            <Form>FrmAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\fmFormI.pas">
-            <Form>frmI</Form>
+            <Form>FormI</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgAnalyserR.pas">
             <Form>FormAnalyser</Form>

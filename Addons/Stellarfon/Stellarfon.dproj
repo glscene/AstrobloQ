@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{2C26BE7E-7AB5-4D46-9F81-C88714C26591}</ProjectGuid>
+        <ProjectGuid>{D29E616B-9555-4F22-B6D6-A67108ED6FA0}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -86,6 +86,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UnitSearchPath>..\..\source\astro;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -103,41 +104,36 @@
         </DelphiCompile>
         <DCCReference Include="source\uGlobals.pas"/>
         <DCCReference Include="source\uSound.pas"/>
-        <DCCReference Include="source\fStellarfon.pas">
-            <Form>frmStellarfon</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fAbout.pas">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="source\fColorwheel.pas">
-            <Form>FormColorwheel</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="source\uConstellations.pas"/>
         <DCCReference Include="source\dImages.pas">
             <Form>dmImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="source\fGLInfosD.pas">
-            <Form>FormInfos</Form>
+        <DCCReference Include="source\fsStellarfon.pas">
+            <Form>FormStellarfon</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fForm.pas">
+        <DCCReference Include="..\..\source\fmFormI.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fSettings.pas">
+        <DCCReference Include="source\fsSettings.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="source\fMidikeys.pas">
+        <DCCReference Include="source\fsMidikeys.pas">
             <Form>FormMidikeys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\..\source\MWS.Utils.pas"/>
+        <DCCReference Include="source\fsColorwheel.pas">
+            <Form>FormColorwheel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="source\fsAbout.pas">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

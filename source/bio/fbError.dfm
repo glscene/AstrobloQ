@@ -115,8 +115,8 @@ object FormError: TFormError
     object memReport: TMemo
       Left = 6
       Top = 6
-      Width = 609
-      Height = 229
+      Width = 601
+      Height = 204
       Align = alClient
       Color = clBlack
       Font.Charset = DEFAULT_CHARSET

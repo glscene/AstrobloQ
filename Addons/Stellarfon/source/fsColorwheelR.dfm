@@ -1,9 +1,9 @@
 object FormColorwheel: TFormColorwheel
   Left = 0
   Top = 0
-  Caption = 'Colorwheel'
-  ClientHeight = 443
-  ClientWidth = 622
+  Caption = #1050#1074#1080#1085#1090#1086#1074#1099#1077' '#1082#1088#1091#1075#1080
+  ClientHeight = 602
+  ClientWidth = 758
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,11 +15,11 @@ object FormColorwheel: TFormColorwheel
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 622
-    Height = 443
+    Width = 758
+    Height = 602
     Camera = GLCamera1
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 140.283218383789100000
+    FieldOfView = 150.231964111328100000
     PenAsTouch = False
     Align = alClient
     TabOrder = 0

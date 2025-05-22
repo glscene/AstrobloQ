@@ -56,8 +56,8 @@ object fmConstruction: TfmConstruction
     object redStatus: TRichEdit
       Left = 5
       Top = 5
-      Width = 403
-      Height = 426
+      Width = 395
+      Height = 401
       Align = alClient
       Color = clBlack
       Font.Charset = RUSSIAN_CHARSET

@@ -27,7 +27,7 @@ uses
   ;
 
 type
-  TFormAbout = class(TFormX)
+  TFrmAbout = class(TFormX)
     TextAbout: TText;
     TabControl1: TTabControl;
     Memo1: TMemo;
@@ -37,13 +37,13 @@ type
   end;
 
 var
-  FormAbout: TFormAbout;
+  FrmAbout: TFrmAbout;
 
 implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TFormAbout.FormCreate(Sender: TObject);
+procedure TFrmAbout.FormCreate(Sender: TObject);
 begin
   inherited;
   // TabControl

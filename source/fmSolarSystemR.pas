@@ -56,7 +56,7 @@ uses
   frParamsR;
 
 type
-  TFormSolarSys = class(TfrmI)
+  TFormSolarSys = class(TFormI)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

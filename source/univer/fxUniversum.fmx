@@ -1,4 +1,4 @@
-object frmUniversum: TfrmUniversum
+object FormUniversum: TFormUniversum
   Left = 0
   Top = 0
   Caption = 'Universum'

@@ -1,4 +1,4 @@
-object frmGalaxeti: TfrmGalaxeti
+object FormGalaxeti: TFormGalaxeti
   Left = 0
   Top = 0
   Caption = 'GalaxCETI'
@@ -879,10 +879,6 @@ object frmGalaxeti: TfrmGalaxeti
     end
     object miTools: TMenuItem
       Caption = '&Tools'
-      object miSettings: TMenuItem
-        Caption = 'Settings...'
-        OnClick = miSettingsClick
-      end
       object miOptions: TMenuItem
         Caption = 'Options...'
         ImageIndex = 130

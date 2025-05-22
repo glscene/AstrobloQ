@@ -150,7 +150,7 @@ object FormAbout: TFormAbout
     Top = 49
     Width = 611
     Height = 384
-    ActivePage = tsOpenGL
+    ActivePage = tsDevelopers
     Align = alClient
     TabOrder = 1
     ExplicitWidth = 603
@@ -22130,7 +22130,7 @@ object FormAbout: TFormAbout
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          0000}
+          00000000000000000000000000000000}
       end>
     Left = 362
     Top = 248

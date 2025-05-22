@@ -28,7 +28,7 @@ uses
   fmFormI;
 
 type
-  TFormConstPolygons = class(TfrmI)
+  TFormConstPolygons = class(TFormI)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;

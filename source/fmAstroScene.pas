@@ -79,7 +79,7 @@ uses
 
 
 type
-  TfrmAstroScene = class(TfrmI) // not translated when TForm
+  TFormAstroScene = class(TFormI) // not translated when TForm
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -215,7 +215,7 @@ type
   end;
 
 var
-  frmAstroScene: TfrmAstroScene;
+  FormAstroScene: TFormAstroScene;
 
 const
   cOpacity: Single = 5;
@@ -241,7 +241,7 @@ implementation //-------------------------------------------------------------
 //---------------------------------------------------------------------
 // Initializations on FormCreate
 //----------------------------------------------------------------------
-procedure TfrmAstroScene.FormCreate(Sender: TObject);
+procedure TFormAstroScene.FormCreate(Sender: TObject);
 var
   I: Integer;
 begin
@@ -290,7 +290,7 @@ end;
 //------------------------------------------------------------------
 // Form Show
 //------------------------------------------------------------------
-procedure TfrmAstroScene.FormShow(Sender: TObject);
+procedure TFormAstroScene.FormShow(Sender: TObject);
 begin
   // Planets
   tvMoons.Select(tvMoons.Items[3]); // show Earth
@@ -303,7 +303,7 @@ end;
 //------------------------------------------------------------------
 //   Select nodes of tvPlanetsClick
 //------------------------------------------------------------------
-procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
+procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 begin
   PlanetPath := CurrentStar + tvMoons.Selected.Text;
 
@@ -371,7 +371,7 @@ end;
 //---------------------------------------------------------------------
 // Generator of exoplanet systems
 //----------------------------------------------------------------------
-procedure TfrmAstroScene.miExogenClick(Sender: TObject);
+procedure TFormAstroScene.miExogenClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -402,7 +402,7 @@ end;
 //------------------------------------------------------------------
 // City lights
 //------------------------------------------------------------------
-procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
+procedure TFormAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // if not multitexturing and combiner then without nightcity lights
@@ -413,7 +413,7 @@ end;
 //------------------------------------------------------------------
 // Atmosphere rim
 //------------------------------------------------------------------
-function TfrmAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TFormAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
   atmPoint, normal: TGLVector;
@@ -459,7 +459,7 @@ end;
 
 //------------------------------------------------------------------
 
-function TfrmAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TFormAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
   rayVector: TGLVector;
@@ -490,7 +490,7 @@ end;
 //------------------------------------------------------------------
 // DirectOpenGLRender for atmosphere rim
 //------------------------------------------------------------------
-procedure TfrmAstroScene.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TFormAstroScene.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
   cSlices = 60;
 var
@@ -584,7 +584,7 @@ end;
 //------------------------------------------------------------------
 // Loading constellation lines
 //------------------------------------------------------------------
-procedure TfrmAstroScene.LoadConstLines(const aDataPath: TFileName);
+procedure TFormAstroScene.LoadConstLines(const aDataPath: TFileName);
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -610,7 +610,7 @@ end;
 //------------------------------------------------------------------
 // Loading constellation borders
 //------------------------------------------------------------------
-procedure TfrmAstroScene.LoadConstBorders(const aDataPath: TFileName);
+procedure TFormAstroScene.LoadConstBorders(const aDataPath: TFileName);
 var
   sl,                        // all string lines in A file
   line: TStrings;            // a line of strings
@@ -638,7 +638,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroScene.LoadStarBayers(const aDataPath: TFileName);
+procedure TFormAstroScene.LoadStarBayers(const aDataPath: TFileName);
 begin
   //
 end;
@@ -647,7 +647,7 @@ end;
 //------------------------------------------------------------------
 // Cadencer
 //------------------------------------------------------------------
-procedure TfrmAstroScene.CadencerProgress(Sender: TObject; const deltaTime,
+procedure TFormAstroScene.CadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   d : Double;
@@ -701,7 +701,7 @@ begin
   end;
 
  // Rotations
-  if frmOptions.chbRotate.Checked then
+  if FormOptions.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -712,13 +712,13 @@ end;
 //------------------------------------------------------------------
 // Clear tvMoons
 //------------------------------------------------------------------
-procedure TfrmAstroScene.ClearTreeView1Click(Sender: TObject);
+procedure TFormAstroScene.ClearTreeView1Click(Sender: TObject);
 begin
 //  tvMoons.Items.Clear;
 end;
 
 //------------------------------------------------------------------
-procedure TfrmAstroScene.SceneViewerMouseDown(Sender: TObject;
+procedure TFormAstroScene.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := x;
@@ -726,7 +726,7 @@ begin
 end;
 
 //-----------------------------------------------------------------
-procedure TfrmAstroScene.SceneViewerMouseMove(Sender: TObject;
+procedure TFormAstroScene.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -742,7 +742,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   f: Single;
@@ -758,7 +758,7 @@ end;
 //------------------------------------------------------------------
 // Herts Russel diagram
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miHertsRusselClick(Sender: TObject);
+procedure TFormAstroScene.miHertsRusselClick(Sender: TObject);
 begin
   with TFormHercRussel.Create(Self) do
   try
@@ -771,7 +771,7 @@ end;
 //------------------------------------------------------------------
 // Hipparcos viewer
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miHipparcosClick(Sender: TObject);
+procedure TFormAstroScene.miHipparcosClick(Sender: TObject);
 begin
   with TFormHipparcos.Create(Self) do
   try
@@ -784,7 +784,7 @@ end;
 //------------------------------------------------------------------
 //  Scene Viewer
 //------------------------------------------------------------------
-procedure TfrmAstroScene.SceneViewerDblClick(Sender: TObject);
+procedure TFormAstroScene.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -809,7 +809,7 @@ end;
 //------------------------------------------------------------------
 //
 //------------------------------------------------------------------
-procedure TfrmAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
+procedure TFormAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
   if FileExists(FileName) then
   begin
@@ -821,7 +821,7 @@ end;
 //------------------------------------------------------------------
 //
 //------------------------------------------------------------------
-procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
 
 begin
   case Key of
@@ -857,7 +857,7 @@ end;
 //------------------------------------------------------------------
 //  FPS
 //------------------------------------------------------------------
-procedure TfrmAstroScene.TimerTimer(Sender: TObject);
+procedure TFormAstroScene.TimerTimer(Sender: TObject);
 begin
 //  Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
   StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
@@ -867,7 +867,7 @@ end;
 //------------------------------------------------------------------
 // Solar system
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miSolarSystemClick(Sender: TObject);
+procedure TFormAstroScene.miSolarSystemClick(Sender: TObject);
 begin
   with TFormSolarSys.Create(Self) do
     try
@@ -880,7 +880,7 @@ end;
 // -----------------------------------------------------------------
 // Exosolar system
 // -----------------------------------------------------------------
-procedure TfrmAstroScene.miStellarSystemClick(Sender: TObject);
+procedure TFormAstroScene.miStellarSystemClick(Sender: TObject);
 begin
   with TFormStellarSys(Self) do
     try
@@ -893,7 +893,7 @@ end;
 //------------------------------------------------------------------
 // Clear tvPlanets
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miClearTreeViewClick(Sender: TObject);
+procedure TFormAstroScene.miClearTreeViewClick(Sender: TObject);
 begin
   tvMoons.Items.Clear;
 end;
@@ -901,7 +901,7 @@ end;
 //------------------------------------------------------------------
 //  Open miOpenFile
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miFileOpenClick(Sender: TObject);
+procedure TFormAstroScene.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
 begin
@@ -930,7 +930,7 @@ end;
 //------------------------------------------------------------------
 // miFileSaveAs Planet system
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miFileSaveAsClick(Sender: TObject);
+procedure TFormAstroScene.miFileSaveAsClick(Sender: TObject);
 begin
   SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
   SaveDialog.InitialDir := StarDir;
@@ -945,7 +945,7 @@ end;
 //------------------------------------------------------------------
 // Polygons for constellations
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miConstPolygonsClick(Sender: TObject);
+procedure TFormAstroScene.miConstPolygonsClick(Sender: TObject);
 begin
   with TFormConstPolygons.Create(Self) do
   try
@@ -958,7 +958,7 @@ end;
 //------------------------------------------------------------------
 // Coordinates on Planet surface
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miCoordinatesClick(Sender: TObject);
+procedure TFormAstroScene.miCoordinatesClick(Sender: TObject);
 begin
   with TFormCoords.Create(Self) do
   try
@@ -972,9 +972,9 @@ end;
 //------------------------------------------------------------------
 // Tools Options
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miToolsOptionsClick(Sender: TObject);
+procedure TFormAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+  FormOptions.Show;
 (*
   with TfrmOptions.Create(Self) do
   try
@@ -988,7 +988,7 @@ end;
 //------------------------------------------------------------------
 // PointToOrbit
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miPointToClick(Sender: TObject);
+procedure TFormAstroScene.miPointToClick(Sender: TObject);
 begin
   with TFormPointto.Create(Self) do
   try
@@ -1001,7 +1001,7 @@ end;
 //------------------------------------------------------------------
 // Help in wiki
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
+procedure TFormAstroScene.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 begin
@@ -1035,10 +1035,10 @@ end;
 //------------------------------------------------------------------
 // About
 //------------------------------------------------------------------
-procedure TfrmAstroScene.miHelpAboutClick(Sender: TObject);
+procedure TFormAstroScene.miHelpAboutClick(Sender: TObject);
 begin
   inherited;
-  with TFormAbout.Create(Self) do
+  with TFrmAbout.Create(Self) do
   try
     ShowModal;
   finally
@@ -1049,7 +1049,7 @@ end;
 //--------------------------------------------------------------------
 // Reading settings from ini file
 //--------------------------------------------------------------------
-procedure TfrmAstroScene.ReadIniFile;
+procedure TFormAstroScene.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
@@ -1065,7 +1065,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmAstroScene.miFileExitClick(Sender: TObject);
+procedure TFormAstroScene.miFileExitClick(Sender: TObject);
 begin
   Close;
 end;

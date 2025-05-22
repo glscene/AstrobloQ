@@ -23,7 +23,7 @@ uses
   fmFormI;
 
 type
-  TFormAbout = class(TfrmI)
+  TFrmAbout = class(TFormI)
     PanelAstrobloQ: TPanel;
     PageControl: TPageControl;
     tsDevelopers: TTabSheet;
@@ -61,43 +61,43 @@ type
   end;
 
 var
-  FormAbout: TFormAbout;
+  FrmAbout: TFrmAbout;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormAbout.ButtonAstrobloQClick(Sender: TObject);
+procedure TFrmAbout.ButtonAstrobloQClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
     'https://gitverse.ru/glscene/AstrobloQ', '', '', SW_SHOW);
 end;
 
-procedure TFormAbout.FormCreate(Sender: TObject);
+procedure TFrmAbout.FormCreate(Sender: TObject);
 begin
   inherited;
   //
 end;
 
-procedure TFormAbout.GLSImageClick(Sender: TObject);
+procedure TFrmAbout.GLSImageClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
    'https://gitflic.ru/project/glscene/glscene/', '', '', SW_SHOW);
 end;
 
-procedure TFormAbout.ImageGLSClick(Sender: TObject);
+procedure TFrmAbout.ImageGLSClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
     'https://gitverse.ru/glscene/GLScene', '', '', SW_SHOW);
 end;
 
-procedure TFormAbout.ImageGalaxyClick(Sender: TObject);
+procedure TFrmAbout.ImageGalaxyClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
    'https://gitflic.ru/project/glscene/astrobloq/', '', '', SW_SHOW);
 end;
 
-procedure TFormAbout.OGLImageClick(Sender: TObject);
+procedure TFrmAbout.OGLImageClick(Sender: TObject);
 begin
    ShellExecute(0, 'open',
     'https://www.opengl.org/', '', '', SW_SHOW);

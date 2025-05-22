@@ -1,4 +1,4 @@
-object frmSettings: TfrmSettings
+object FormSettings: TFormSettings
   Left = 0
   Top = 0
   Caption = 'Settings'
@@ -97,34 +97,6 @@ object frmSettings: TfrmSettings
       Text = 'General'
       ExplicitSize.cx = 61.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
-      object gbLanguage: TGroupBox
-        Position.X = 24.000000000000000000
-        Position.Y = 56.000000000000000000
-        Size.Width = 162.000000000000000000
-        Size.Height = 100.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'Language'
-        TabOrder = 0
-        object ceLanguages: TComboEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          TabOrder = 13
-          ItemHeight = 19.000000000000000000
-          Items.Strings = (
-            'en'
-            'ru'
-            'pt'
-            'sp')
-          ItemIndex = 1
-          ListBoxResource = 'combolistboxstyle'
-          Text = 'ru'
-          Position.X = 28.000000000000000000
-          Position.Y = 38.000000000000000000
-          HelpType = htKeyword
-          Size.Width = 95.000000000000000000
-          Size.Height = 22.000000000000000000
-          Size.PlatformDefault = False
-        end
-      end
     end
     object tiInterface: TTabItem
       CustomIcon = <

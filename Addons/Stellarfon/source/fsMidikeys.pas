@@ -1,4 +1,4 @@
-unit fMidikeys;
+unit fsMidikeys;
 
 // The unit is part of the AstrobloQ
 
@@ -138,10 +138,10 @@ var
   Instrum: Integer;
   Velocity: Integer = 127;
 
-implementation
+implementation //-----------------------------------------------------------
 
 uses
-  fSettings;
+  fsSettings;
 
 {$R *.dfm}
 

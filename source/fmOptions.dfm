@@ -1,4 +1,4 @@
-object frmOptions: TfrmOptions
+object FormOptions: TFormOptions
   Left = 0
   Top = 0
   Caption = 'Options'
@@ -20,13 +20,11 @@ object frmOptions: TfrmOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 569
-    ExplicitWidth = 803
     DesignSize = (
       811
       29)
     object ButtonOK: TButton
-      Left = 496
+      Left = 488
       Top = 3
       Width = 70
       Height = 23
@@ -35,7 +33,6 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 488
     end
   end
   object PanelMiddle: TPanel
@@ -47,8 +44,6 @@ object frmOptions: TfrmOptions
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 803
-    ExplicitHeight = 539
     object PageControl: TPageControl
       Left = 163
       Top = 5
@@ -58,8 +53,6 @@ object frmOptions: TfrmOptions
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 635
-      ExplicitHeight = 529
       object tsGeneral: TTabSheet
         Caption = 'General'
         ImageIndex = 7
@@ -297,6 +290,8 @@ object frmOptions: TfrmOptions
             Width = 76
             Height = 23
             Caption = 'Axes'
+            Checked = True
+            State = cbChecked
             TabOrder = 1
             StyleName = 'Windows'
             OnClick = chbAxesClick
@@ -812,7 +807,6 @@ object frmOptions: TfrmOptions
         00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
         730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
         00000000000106470061006C00610078007900}
-      ExplicitHeight = 529
     end
   end
   object PanelTop: TPanel
@@ -823,7 +817,6 @@ object frmOptions: TfrmOptions
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 803
   end
   object ImageList: TImageList
     Left = 79

@@ -21,7 +21,7 @@ uses
   fStarProj;
 
 type
-  TFormMonitor = class(TfrmI)
+  TFormMonitor = class(TFormI)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     TreeView1: TTreeView;

@@ -1,4 +1,4 @@
-object frmStellarfon: TfrmStellarfon
+object FormStellarfon: TFormStellarfon
   Left = 0
   Top = 0
   Caption = 'Stellarfon'
@@ -30,7 +30,6 @@ object frmStellarfon: TfrmStellarfon
     OnMouseMove = GLSceneViewer1MouseMove
     OnMouseUp = GLSceneViewer1MouseUp
     TabOrder = 0
-    ExplicitWidth = 792
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -72,9 +71,9 @@ object frmStellarfon: TfrmStellarfon
       Width = 143
       Height = 518
       Align = alClient
-      Images = dmImages.VirtualImageList
       Indent = 19
       TabOrder = 0
+      ExplicitHeight = 493
     end
     object PanelConstellations: TPanel
       Left = 1

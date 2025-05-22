@@ -4,16 +4,14 @@ uses
   Vcl.Forms,
   uGlobals in 'source\uGlobals.pas',
   uSound in 'source\uSound.pas',
-  fStellarfon in 'source\fStellarfon.pas' {frmStellarfon},
-  fAbout in 'source\fAbout.pas' {FormAbout},
-  fColorwheel in 'source\fColorwheel.pas' {FormColorwheel},
   uConstellations in 'source\uConstellations.pas',
   dImages in 'source\dImages.pas' {dmImages: TDataModule},
-  fGLInfosD in 'source\fGLInfosD.pas' {FormInfos},
-  fForm in 'source\fForm.pas' {FormI},
-  fSettings in 'source\fSettings.pas' {frmSettings},
-  fMidikeys in 'source\fMidikeys.pas' {FormMidikeys},
-  MWS.Utils in '..\..\source\MWS.Utils.pas';
+  fsStellarfon in 'source\fsStellarfon.pas' {FormStellarfon},
+  fmFormI in '..\..\source\fmFormI.pas' {FormI},
+  fsSettings in 'source\fsSettings.pas' {frmSettings},
+  fsMidikeys in 'source\fsMidikeys.pas' {FormMidikeys},
+  fsColorwheel in 'source\fsColorwheel.pas' {FormColorwheel},
+  fsAbout in 'source\fsAbout.pas' {FormAbout};
 
 {$R *.res}
 
@@ -22,8 +20,8 @@ begin
   Application.MainFormOnTaskbar := True;
 
   //InitLanguage;
-  Application.CreateForm(TfrmStellarfon, frmStellarfon);
   Application.CreateForm(TdmImages, dmImages);
+  Application.CreateForm(TFormStellarfon, FormStellarfon);
   Application.CreateForm(TFormI, FormI);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;

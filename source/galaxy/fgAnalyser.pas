@@ -20,7 +20,7 @@ uses
   fmFormI;
 
 type
-  TFormAnalyser = class(TfrmI)
+  TFormAnalyser = class(TFormI)
     tvAnalyzer: TTreeView;
     PageControl: TPageControl;
     tsAverageDistance: TTabSheet;

@@ -1,4 +1,4 @@
-unit fStellarfon;
+unit fsStellarfonR;
 
 // The unit is part of the AstrobloQ
 
@@ -64,22 +64,21 @@ uses
   GLS.RenderContextInfo,
 
   dImages,
-  fAbout,
-  fSettings,
-  fColorwheel,
-  fGLInfosD,
-  fMidikeys,
+  fsAboutR,
+  fsSettingsR,
+  fsMidikeysR,
+  fsColorwheelR,
 
-  MWS.Utils,
+  Astro.Utils,
   uGlobals,
-  fForm;
+  fmFormI;
 
 type
   TPianoKeySet = set of 0 .. 87;
   TGuitarKeySet = set of 0 .. 149;
 
 type
-  TfrmStellarfon = class(TFormI)
+  TFormStellarfon = class(TFormI)
     MainMenu: TMainMenu;
     miFile: TMenuItem;
     miNew: TMenuItem;
@@ -110,7 +109,6 @@ type
     N2: TMenuItem;
     miAbout: TMenuItem;
     miTools: TMenuItem;
-    miCalculate: TMenuItem;
     miSettings: TMenuItem;
     GLSceneViewer1: TGLSceneViewer;
     GLScene: TGLScene;
@@ -294,7 +292,7 @@ type
   end;
 
 var
-  frmStellarfon: TfrmStellarfon;
+  FormStellarfon: TFormStellarfon;
   BlackKeySet: TPianoKeySet;
   NutKeySet: TGuitarKeySet;
   PickDown: TGLCustomSceneObject;
@@ -311,7 +309,7 @@ implementation
 // ----------------------------------------
 // Define key sizes ans set for black keys
 // ----------------------------------------
-procedure TfrmStellarfon.SetPianoKeySizes;
+procedure TFormStellarfon.SetPianoKeySizes;
 begin
   NPianoKeys := 88;
 
@@ -337,7 +335,7 @@ end;
 // ----------------------------------------------------------------------------------
 // Make 88 keys for 3 notes in 0 octave + 84 notes in 7 octavas + 1 note for octava 8
 // ----------------------------------------------------------------------------------
-procedure TfrmStellarfon.MakePianoKeys(Sender: TObject);
+procedure TFormStellarfon.MakePianoKeys(Sender: TObject);
 var
   i: Integer;
   CurrentX: Single;
@@ -388,7 +386,7 @@ end;
 // --------------------------------------
 // Define guitar key sizes
 // --------------------------------------
-procedure TfrmStellarfon.SetGuitarKeySizes;
+procedure TFormStellarfon.SetGuitarKeySizes;
 begin
   NGuitarKeys := 150;
 
@@ -418,7 +416,7 @@ end;
 // ---------------------------------------------------
 //          Make 150 guitar keys
 // ---------------------------------------------------
-procedure TfrmStellarfon.MakeGuitarKeys(Sender: TObject);
+procedure TFormStellarfon.MakeGuitarKeys(Sender: TObject);
 var
   i, j, k, NumString: Integer; // current string number
 
@@ -453,7 +451,7 @@ begin
 end;
 
 //---------------------------------------------------------------
-procedure TfrmStellarfon.chbKeyboardClick(Sender: TObject);
+procedure TFormStellarfon.chbKeyboardClick(Sender: TObject);
 begin
   dcPianoKeys.Visible := chbKeyboard.Checked;
   dcGuitarKeys.Visible := chbKeyboard.Checked;
@@ -461,7 +459,7 @@ begin
 end;
 
 //---------------------------------------------------------------
-function TfrmStellarfon.LoadTexture(Matname, Filename: string): TGLLibMaterial;
+function TFormStellarfon.LoadTexture(Matname, Filename: string): TGLLibMaterial;
 begin
   Result := GLMatLibTextures.AddTextureMaterial(Matname, Filename);
   Result.Material.Texture.Disabled := False;
@@ -469,7 +467,7 @@ begin
 end;
 
 //---------------------------------------------------------------
-procedure TfrmStellarfon.FormCreate(Sender: TObject);
+procedure TFormStellarfon.FormCreate(Sender: TObject);
 begin
   PathToData := GetAssetsPath(); //path to 'assets';
 
@@ -526,14 +524,14 @@ begin
 end;
 
 // -----------------------------------------------------------------------------------------
-procedure TfrmStellarfon.FormMouseWheel(Sender: TObject; Shift: TShiftState; WheelDelta: Integer;
+procedure TFormStellarfon.FormMouseWheel(Sender: TObject; Shift: TShiftState; WheelDelta: Integer;
   MousePos: TPoint; var Handled: Boolean);
 begin
   Camera1.AdjustDistanceToTarget(Power(1.1, WheelDelta / 120));
 end;
 
 // ----------------------------------------------------------------------------------------
-procedure TfrmStellarfon.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
+procedure TFormStellarfon.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 var
   speed : Single;
   MyString: String;
@@ -582,7 +580,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormStellarfon.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 var
   PickedObject: TGLCustomSceneObject;
@@ -616,7 +614,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.GLSceneViewer1MouseUp(Sender: TObject; Button: TMouseButton;
+procedure TFormStellarfon.GLSceneViewer1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Button = TMouseButton.mbRight then // check if the mouse button is still pressed
@@ -640,7 +638,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+procedure TFormStellarfon.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   if (ssLeft in Shift) then
     Camera1.MoveAroundTarget(my - Y, mx - X);
@@ -649,13 +647,13 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-procedure TfrmStellarfon.miSettingsClick(Sender: TObject);
+procedure TFormStellarfon.miSettingsClick(Sender: TObject);
 begin
   frmSettings.Show;
 end;
 
 // ------------------------------------------------------------------------------
-procedure TfrmStellarfon.miAboutClick(Sender: TObject);
+procedure TFormStellarfon.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(nil) do
     try
@@ -667,7 +665,7 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-procedure TfrmStellarfon.rgKeyboardColorsClick(Sender: TObject);
+procedure TFormStellarfon.rgKeyboardColorsClick(Sender: TObject);
 begin
   if rgKeyboardColors.ItemIndex <> 2 then
   begin
@@ -690,7 +688,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.TimerTimer(Sender: TObject);
+procedure TFormStellarfon.TimerTimer(Sender: TObject);
 begin
   StatusBar1.Panels[0].Text := Format('FPS:  %.1f ', [GLSceneViewer1.FramesPerSecond]);
   // Format('%d particles, %.1f FPS', [GLParticles1.Count, GLSceneViewer1.FramesPerSecond]);
@@ -699,7 +697,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.miMidikeysClick(Sender: TObject);
+procedure TFormStellarfon.miMidikeysClick(Sender: TObject);
 begin
   with TFormMidikeys.Create(nil) do
     try
@@ -712,7 +710,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.miColorwheelClick(Sender: TObject);
+procedure TFormStellarfon.miColorwheelClick(Sender: TObject);
 begin
   with TFormColorwheel.Create(nil) do
     try
@@ -724,7 +722,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.ReadIniFile;
+procedure TFormStellarfon.ReadIniFile;
 var
   StyleID: integer;
 begin
@@ -746,7 +744,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-procedure TfrmStellarfon.WriteIniFile;
+procedure TFormStellarfon.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
@@ -760,9 +758,9 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-procedure TfrmStellarfon.miExitClick(Sender: TObject);
+procedure TFormStellarfon.miExitClick(Sender: TObject);
 begin
-  frmStellarfon.Close;
+  FormStellarfon.Close;
 end;
 
 end.

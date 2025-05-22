@@ -79,6 +79,7 @@ inherited FormSettings: TFormSettings
         0000000000000000000000010750006C0061006E0065007400730000002D0000
         000000000000000000FFFFFFFFFFFFFFFF070000000000000000000000000107
         5000610074006800770061007900}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -93,6 +94,8 @@ inherited FormSettings: TFormSettings
       Align = alClient
       Style = tsButtons
       TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5

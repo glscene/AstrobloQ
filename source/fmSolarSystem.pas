@@ -57,7 +57,7 @@ uses
   ;
 
 type
-  TFormSolarSys = class(TfrmI) // not translated when TForm
+  TFormSolarSys = class(TFormI)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

@@ -3,8 +3,8 @@ program Universum;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxUniversum in '..\Source\univer\fxUniversum.pas' {frmUniversum},
-  fxSettings in '..\Source\univer\fxSettings.pas' {frmSettings},
+  fxUniversum in '..\Source\univer\fxUniversum.pas' {FormUniversum},
+  fxSettings in '..\Source\univer\fxSettings.pas' {FormSettings},
   fxAbout in '..\Source\univer\fxAbout.pas' {FormAbout},
   fxAstrogen in '..\Source\univer\fxAstrogen.pas' {FormAstrogen},
   Uni.Material in '..\Source\univer\Uni.Material.pas',
@@ -25,8 +25,8 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmUniversum, frmUniversum);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormUniversum, FormUniversum);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormX, FormX);
   Application.Run;
 end.

@@ -1,4 +1,4 @@
-object frmUniversum: TfrmUniversum
+object FormUniversum: TFormUniversum
   Left = 0
   Top = 0
   Caption = 'Universum'
@@ -47,21 +47,21 @@ object frmUniversum: TfrmUniversum
       Text = '&'#1042#1080#1076
       object miSolarSystem: TMenuItem
         Locked = True
-        Text = 'Solar system...'
+        Text = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
       end
       object miScatterPlot: TMenuItem
         Locked = True
-        Text = 'Scatter Plot...'
+        Text = #1056#1072#1089#1089#1077#1103#1085#1085#1099#1077' '#1090#1086#1095#1082#1080'...'
         OnClick = miScatterPlotClick
       end
       object miStarsysGen: TMenuItem
         Locked = True
-        Text = 'Starsys Generator...'
+        Text = #1043#1077#1085#1077#1088#1072#1090#1086#1088' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090'...'
         OnClick = miStarsysGenClick
       end
       object miVolumeRender: TMenuItem
         Locked = True
-        Text = 'Volume Render...'
+        Text = #1054#1073#1098#1105#1084#1085#1099#1081' '#1088#1077#1085#1076#1077#1088'...'
         OnClick = miVolumeRenderClick
       end
     end

@@ -76,6 +76,7 @@ inherited FormSettings: TFormSettings
         000000000000000106170432045104370434044B040000330000000000000000
         000000FFFFFFFFFFFFFFFF07000000000000000000000000010A220440043004
         35043A0442043E04400438044F04}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -267,7 +268,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 138
+          Left = 130
           Top = 53
           Width = 149
           Height = 200

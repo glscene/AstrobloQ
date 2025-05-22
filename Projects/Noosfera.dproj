@@ -120,7 +120,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmFormI.pas">
-            <Form>frmI</Form>
+            <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\noo\fnCyborg.pas">
@@ -150,7 +150,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FormAbout</Form>
+            <Form>FrmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>

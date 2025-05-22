@@ -27,14 +27,14 @@ uses
   Astro.Utils;
 
 type
-  TFormHercrussel = class(TfrmI)
+  TFormHercrussel = class(TFormI)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLMaterialLibrary1: TGLMaterialLibrary;
     PanelRight: TPanel;
     procedure FormCreate(Sender: TObject);
   private
-    // Процедура пересчета B-V и Mag в экранные координаты x, y
+    // Recalculation of B-V and Mag into screen coordinates x, y
     procedure XY(B_V, Mag: single; var x, y: integer);
   public
     GLCanvas: TGLCanvas;

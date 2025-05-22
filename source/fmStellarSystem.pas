@@ -57,7 +57,7 @@ uses
   ;
 
 type
-  TFormStellarSys = class(TfrmI)  // not translated when TForm
+  TFormStellarSys = class(TFormI)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

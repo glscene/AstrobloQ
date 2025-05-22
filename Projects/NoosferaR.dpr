@@ -8,7 +8,7 @@ uses
   fnMeshDataR in '..\source\noo\fnMeshDataR.pas' {frmMeshData},
   fnSpacePilotR in '..\source\noo\fnSpacePilotR.pas' {frmSpacePilot},
   fnLocationsR in '..\source\noo\fnLocationsR.pas' {frmLocations},
-  fmFormI in '..\source\fmFormI.pas' {frmI},
+  fmFormI in '..\source\fmFormI.pas' {FormI},
   fnCyborgR in '..\source\noo\fnCyborgR.pas' {frmCyborg},
   fnRobotR in '..\source\noo\fnRobotR.pas' {frmLoadModel},
   fnCETInetR in '..\source\noo\fnCETInetR.pas' {FormCETI},
@@ -20,7 +20,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fnNoosferaR in '..\source\noo\fnNoosferaR.pas' {frmNoosfera},
-  fmAboutR in '..\source\fmAboutR.pas' {FormAbout};
+  fmAboutR in '..\source\fmAboutR.pas' {FrmAbout};
 
 {$R *.res}
 

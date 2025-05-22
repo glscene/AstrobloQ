@@ -28,6 +28,7 @@ inherited frmSettings: TfrmSettings
       00000000010B43006F006C006F00720077006800650065006C00730000002B00
       0000040000000400000004000000FFFFFFFF0000000000000000000000000001
       0653006F0075006E0064007300}
+    ExplicitHeight = 593
   end
   object PageControl: TPageControl
     Left = 183
@@ -37,6 +38,8 @@ inherited frmSettings: TfrmSettings
     ActivePage = tsGeneral
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 749
+    ExplicitHeight = 593
     object tsGeneral: TTabSheet
       Caption = 'General'
       object Edit1: TEdit
@@ -624,6 +627,8 @@ inherited frmSettings: TfrmSettings
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 593
+    ExplicitWidth = 932
     object ButtonOk: TButton
       Left = 672
       Top = 8

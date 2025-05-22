@@ -1,4 +1,4 @@
-unit fSettings;
+unit fsSettingsR;
 
 // The unit is part of the AstrobloQ
 
@@ -21,7 +21,7 @@ uses
   Vcl.Buttons,
   Vcl.ExtCtrls,
 
-  fForm;
+  fmFormI;
 
 
 type

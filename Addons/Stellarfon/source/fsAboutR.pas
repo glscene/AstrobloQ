@@ -1,4 +1,4 @@
-unit fAbout;
+unit fsAboutR;
 
 // The unit is part of the AstrobloQ
 

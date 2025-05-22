@@ -27,6 +27,12 @@
         <Projects Include="Projects\GalaxcetiR.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Projects\Universum.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\UniversumR.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -107,14 +113,32 @@
     <Target Name="GalaxcetiR:Make">
         <MSBuild Projects="Projects\GalaxcetiR.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Universum">
+        <MSBuild Projects="Projects\Universum.dproj"/>
+    </Target>
+    <Target Name="Universum:Clean">
+        <MSBuild Projects="Projects\Universum.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Universum:Make">
+        <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UniversumR">
+        <MSBuild Projects="Projects\UniversumR.dproj"/>
+    </Target>
+    <Target Name="UniversumR:Clean">
+        <MSBuild Projects="Projects\UniversumR.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UniversumR:Make">
+        <MSBuild Projects="Projects\UniversumR.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene;AstroSceneR;Biosfera;BiosferaR;Noosfera;NoosferaR;Galaxceti;GalaxcetiR"/>
+        <CallTarget Targets="AstroScene;AstroSceneR;Biosfera;BiosferaR;Noosfera;NoosferaR;Galaxceti;GalaxcetiR;Universum;UniversumR"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;NoosferaR:Clean;Galaxceti:Clean;GalaxcetiR:Clean"/>
+        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Biosfera:Clean;BiosferaR:Clean;Noosfera:Clean;NoosferaR:Clean;Galaxceti:Clean;GalaxcetiR:Clean;Universum:Clean;UniversumR:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;NoosferaR:Make;Galaxceti:Make;GalaxcetiR:Make"/>
+        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Biosfera:Make;BiosferaR:Make;Noosfera:Make;NoosferaR:Make;Galaxceti:Make;GalaxcetiR:Make;Universum:Make;UniversumR:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

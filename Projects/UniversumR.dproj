@@ -217,13 +217,13 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\univer\fxUniversumR.pas">
-            <Form>frmUniversum</Form>
+            <Form>FormUniversum</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxOptionsR.pas">
-            <Form>frmSettings</Form>
+        <DCCReference Include="..\source\univer\fxSettingsR.pas">
+            <Form>FormSettings</Form>
         </DCCReference>
         <DCCReference Include="..\source\univer\fxAboutR.pas">
-            <Form>FormAbout</Form>
+            <Form>FrmAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\univer\fxAstrogenR.pas">
             <Form>FormAstrogen</Form>

@@ -9,17 +9,16 @@ uses
   fgParadoxR in '..\source\galaxy\fgParadoxR.pas' {FormParadox},
   fgExoplanetsR in '..\source\galaxy\fgExoplanetsR.pas' {FormExoplanets},
   fgAstrocubeR in '..\source\galaxy\fgAstrocubeR.pas' {FormNewStarcube},
-  fgOptionsR in '..\source\galaxy\fgOptionsR.pas' {frmOptions},
-  fgGalaxcetiR in '..\source\galaxy\fgGalaxcetiR.pas' {frmGalaxceti},
+  fgOptionsR in '..\source\galaxy\fgOptionsR.pas' {FormOptions},
+  fgGalaxcetiR in '..\source\galaxy\fgGalaxcetiR.pas' {FormGalaxceti},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmSettingsR in '..\source\fmSettingsR.pas' {FormSettings},
-  fmAboutR in '..\source\fmAboutR.pas' {FormAbout},
+  fmAboutR in '..\source\fmAboutR.pas' {FrmAbout},
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  fmFormI in '..\source\fmFormI.pas' {frmI},
+  fmFormI in '..\source\fmFormI.pas' {FormI},
   fgAnalyserR in '..\source\galaxy\fgAnalyserR.pas' {FormAnalyser},
   Space.Globals in '..\source\Space.Globals.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
@@ -30,12 +29,12 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmGalaxceti, frmGalaxceti);
+  Application.CreateForm(TFormGalaxceti, FormGalaxceti);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmI, frmI);
+  Application.CreateForm(TFormOptions, FormOptions);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.
 

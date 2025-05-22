@@ -124,11 +124,11 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAboutR.pas">
-            <Form>FormAbout</Form>
+            <Form>FrmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmFormI.pas">
-            <Form>frmI</Form>
+            <Form>FormI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\frParamsR.pas">

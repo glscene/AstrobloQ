@@ -11,17 +11,17 @@ program AstroScene;
 
 uses
   Forms,
-  fmAstroScene in '..\source\fmAstroScene.pas' {frmAstroScene},
-  fmFormI in '..\source\fmFormI.pas' {frmI: TDataModule},
+  fmAstroScene in '..\source\fmAstroScene.pas' {FormAstroScene},
+  fmFormI in '..\source\fmFormI.pas' {FormI: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  fmAbout in '..\source\fmAbout.pas' {FrmAbout},
   fmGenExosystem in '..\source\fmGenExosystem.pas' {FormGenPlanetsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
   Space.ReadCSV in '..\source\Space.ReadCSV.pas',
-  fmOptions in '..\source\fmOptions.pas' {frmOptions},
+  fmOptions in '..\source\fmOptions.pas' {FormOptions},
   Space.Globals in '..\source\Space.Globals.pas',
   fmSolarSystem in '..\source\fmSolarSystem.pas' {FormSolarSys},
   frParams in '..\source\frParams.pas' {FrameParams: TFrame},
@@ -45,10 +45,11 @@ uses
 begin
   Application.Initialize;
   //TStyleManager.TrySetStyle('Glow');
-  Application.CreateForm(TfrmAstroScene, frmAstroScene);
+  Application.CreateForm(TFormAstroScene, FormAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormOptions, FormOptions);
+  Application.CreateForm(TFormI, FormI);
   Application.Run;
 end.
