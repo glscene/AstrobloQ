@@ -41,4 +41,4 @@ OBAFGKM спектральных классов Гарвардской шкал�
 играющего на акустической или электрогитаре. 
 Планируется дополнить StellarFon другими 3D моделями музыкальных инструментов.
 
-![StellarFon](./docs/clips/StellarFon.png)
+![StellarFon](docs/clips/StellarFon.png)
