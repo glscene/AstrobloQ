@@ -63,7 +63,7 @@ uses
   GLS.Texture,
   GLS.RenderContextInfo,
 
-  dImages,
+  dmImages,
   fsAbout,
   fsSettings,
   fsColorwheel,
@@ -76,6 +76,17 @@ uses
 type
   TPianoKeySet = set of 0 .. 87;
   TGuitarKeySet = set of 0 .. 149;
+
+type
+  TGLPianoKeyboard = class(TGLMeshObject)
+   // Methods
+   // Properties of the components
+  end;
+
+  TGLGuitarKeyboard = class(TGLMeshObject)
+   // Methods
+   // Properties of the components
+  end;
 
 type
   TFormStellarfon = class(TFormI)
@@ -303,7 +314,7 @@ var
 const
   SelectionColor: TGLColorVector = (X: 0.243; Y: 0.243; Z: 0.243; W: 1.000);
 
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
@@ -468,6 +479,8 @@ begin
 end;
 
 //---------------------------------------------------------------
+// FormCreate
+//---------------------------------------------------------------
 procedure TFormStellarfon.FormCreate(Sender: TObject);
 begin
   PathToData := GetAssetsPath(); //path to 'assets';
@@ -521,7 +534,7 @@ begin
   rgKeyboardColorsClick(nil);  // if conmment then white gridlines
   rgKeyboardColors.Enabled := chbKeyboard.Checked;
   chbKeyboardClick(Self);
-  inherited;   // if not inherited then without translations from fGLForm
+  inherited;
 end;
 
 // -----------------------------------------------------------------------------------------

@@ -16,9 +16,9 @@ object FormStellarfon: TFormStellarfon
   OnMouseWheel = FormMouseWheel
   TextHeight = 15
   object GLSceneViewer1: TGLSceneViewer
-    Left = 145
+    Left = 201
     Top = 0
-    Width = 784
+    Width = 728
     Height = 552
     Camera = Camera1
     Buffer.BackgroundColor = clBlack
@@ -59,30 +59,32 @@ object FormStellarfon: TFormStellarfon
   object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 145
+    Width = 201
     Height = 552
     Align = alLeft
     Caption = ' '
     TabOrder = 2
-    ExplicitHeight = 527
     object tvConstellations: TTreeView
       Left = 1
       Top = 33
-      Width = 143
+      Width = 199
       Height = 518
       Align = alClient
-      Indent = 19
+      Images = DataModuleImages.VirtConstelSymbols
+      Indent = 27
       TabOrder = 0
+      ExplicitWidth = 143
       ExplicitHeight = 493
     end
     object PanelConstellations: TPanel
       Left = 1
       Top = 1
-      Width = 143
+      Width = 199
       Height = 32
       Align = alTop
       Caption = 'Constellations'
       TabOrder = 1
+      ExplicitWidth = 143
     end
   end
   object PanelRight: TPanel

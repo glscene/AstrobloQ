@@ -25,11 +25,9 @@ uses
 type
   TFormMidikeys = class(TForm)
     mnuMain: TMainMenu;
-    mniFile: TMenuItem;
     mniOptions: TMenuItem;
     miOptions: TMenuItem;
     mniReleaseMIDIOutDev: TMenuItem;
-    Exit1: TMenuItem;
     panKeyboard: TPanel;
     btnWhiteC1: TBitBtn;
     btnWhiteD1: TBitBtn;
@@ -122,9 +120,7 @@ type
     procedure cmbInstrumClick(Sender: TObject);
     procedure trkVelocityChange(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

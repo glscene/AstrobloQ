@@ -8,10 +8,12 @@ uses
   fsAboutR in 'source\fsAboutR.pas' {FormAbout},
   fsColorwheelR in 'source\fsColorwheelR.pas' {FormColorwheel},
   uConstellations in 'source\uConstellations.pas',
-  dImages in 'source\dImages.pas' {dmImages: TDataModule},
   fsSettingsR in 'source\fsSettingsR.pas' {frmSettings},
   fsMidikeysR in 'source\fsMidikeysR.pas' {FormMidikeys},
-  fmFormI in '..\..\source\fmFormI.pas' {FormI};
+  fmFormI in '..\..\source\fmFormI.pas' {FormI},
+  dmImages in '..\..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  dmBase in '..\..\source\dmBase.pas' {DataModuleBase: TDataModule},
+  dmDialogs in '..\..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule};
 
 {$R *.res}
 
@@ -21,8 +23,10 @@ begin
 
   //InitLanguage;
   Application.CreateForm(TFormStellarfon, FormStellarfon);
-  Application.CreateForm(TdmImages, dmImages);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
+  Application.CreateForm(TDataModuleBase, DataModuleBase);
+  Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.Run;
 end.

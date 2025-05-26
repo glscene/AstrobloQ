@@ -876,7 +876,6 @@ object FormMidikeys: TFormMidikeys
     Top = 184
     Width = 237
     Height = 81
-    Caption = ' Settings '
     TabOrder = 5
     object lblInstrum: TLabel
       Left = 8

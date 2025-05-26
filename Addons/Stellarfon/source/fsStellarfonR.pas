@@ -63,7 +63,7 @@ uses
   GLS.Texture,
   GLS.RenderContextInfo,
 
-  dImages,
+  dmImages,
   fsAboutR,
   fsSettingsR,
   fsMidikeysR,

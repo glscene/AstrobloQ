@@ -53,8 +53,6 @@ object FormStellarfon: TFormStellarfon
         Text = 'Z:'
         Width = 100
       end>
-    ExplicitTop = 527
-    ExplicitWidth = 1096
   end
   object PanelLeft: TPanel
     Left = 0
@@ -70,10 +68,12 @@ object FormStellarfon: TFormStellarfon
       Width = 191
       Height = 518
       Align = alClient
-      Indent = 19
+      CheckBoxes = True
+      CheckStyles = [csExclusion]
+      Indent = 27
       TabOrder = 0
-      ExplicitWidth = 143
-      ExplicitHeight = 493
+      ExplicitLeft = -4
+      ExplicitTop = 28
     end
     object PanelConstellations: TPanel
       Left = 1
@@ -83,7 +83,6 @@ object FormStellarfon: TFormStellarfon
       Align = alTop
       Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
       TabOrder = 1
-      ExplicitWidth = 143
     end
   end
   object PanelRight: TPanel
@@ -94,8 +93,6 @@ object FormStellarfon: TFormStellarfon
     Align = alRight
     Caption = ' '
     TabOrder = 3
-    ExplicitLeft = 921
-    ExplicitHeight = 527
     object TreeView2: TTreeView
       Left = 1
       Top = 1
@@ -248,7 +245,7 @@ object FormStellarfon: TFormStellarfon
         Caption = '-'
       end
       object miMidikeys: TMenuItem
-        Caption = 'Midikeys...'
+        Caption = #1052#1080#1076#1080#1082#1083#1072#1074#1080#1088'...'
         OnClick = miMidikeysClick
       end
       object miColorwheel: TMenuItem
@@ -274,21 +271,9 @@ object FormStellarfon: TFormStellarfon
   object GLScene: TGLScene
     Left = 609
     Top = 42
-    object SkyBox: TGLSkyBox
-      MatNameTop = 'Top'
-      MatNameBottom = 'Bottom'
-      MatNameLeft = 'Left'
-      MatNameRight = 'Right'
-      MatNameFront = 'Front'
-      MatNameBack = 'Back'
-      MatNameClouds = 'Clouds'
-      CloudsPlaneOffset = 0.200000002980232200
-      CloudsPlaneSize = 32.000000000000000000
-    end
     object SkyDome: TGLSkyDome
       Direction.Coordinates = {000000000000803F0000000000000000}
       Up.Coordinates = {0000000000000000FFFF7FBF00000000}
-      Visible = False
       Bands = <
         item
           StartColor.Color = {0000803F0000803F0000803F0000803F}
@@ -316,6 +301,17 @@ object FormStellarfon: TFormStellarfon
         NoZWrite = False
         Static = False
       end
+    end
+    object SkyBox: TGLSkyBox
+      MatNameTop = 'Top'
+      MatNameBottom = 'Bottom'
+      MatNameLeft = 'Left'
+      MatNameRight = 'Right'
+      MatNameFront = 'Front'
+      MatNameBack = 'Back'
+      MatNameClouds = 'Clouds'
+      CloudsPlaneOffset = 0.200000002980232200
+      CloudsPlaneSize = 32.000000000000000000
     end
     object dcCamera: TGLDummyCube
       CubeSize = 1.000000000000000000

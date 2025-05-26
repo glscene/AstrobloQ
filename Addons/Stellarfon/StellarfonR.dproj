@@ -117,11 +117,6 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="source\uConstellations.pas"/>
-        <DCCReference Include="source\dImages.pas">
-            <Form>dmImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="source\fsSettingsR.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
@@ -133,6 +128,21 @@
         <DCCReference Include="..\..\source\fmFormI.pas">
             <Form>FormI</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\..\source\dmBase.pas">
+            <Form>DataModuleBase</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\..\source\dmDialogs.pas">
+            <Form>DataModuleDialogs</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

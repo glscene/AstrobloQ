@@ -3,7 +3,7 @@ object FormMidikeys: TFormMidikeys
   Top = 105
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'Midikeys'
+  Caption = #1052#1080#1076#1080#1082#1083#1072#1074#1080#1088
   ClientHeight = 273
   ClientWidth = 477
   Color = clBtnFace
@@ -725,7 +725,7 @@ object FormMidikeys: TFormMidikeys
     Top = 152
     Width = 113
     Height = 25
-    Caption = 'Repeat'
+    Caption = #1055#1086#1074#1090#1086#1088
     TabOrder = 2
   end
   object btnNext: TBitBtn
@@ -733,7 +733,7 @@ object FormMidikeys: TFormMidikeys
     Top = 152
     Width = 113
     Height = 25
-    Caption = 'Next >>'
+    Caption = #1044#1072#1083#1077#1077' >>'
     TabOrder = 3
   end
   object ComboBox1: TComboBox
@@ -749,14 +749,14 @@ object FormMidikeys: TFormMidikeys
     Top = 152
     Width = 217
     Height = 113
-    Caption = ' Statistics '
+    Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
     TabOrder = 6
     object lblPlayed: TLabel
       Left = 17
       Top = 38
-      Width = 89
+      Width = 65
       Height = 13
-      Caption = 'Played note count:'
+      Caption = #1055#1086#1076#1089#1095#1105#1090' '#1085#1086#1090':'
     end
     object lblCorrect: TLabel
       Left = 13
@@ -867,7 +867,7 @@ object FormMidikeys: TFormMidikeys
       Top = 82
       Width = 57
       Height = 21
-      Caption = 'Reset'
+      Caption = #1057#1073#1088#1086#1089
       TabOrder = 8
     end
   end
@@ -876,21 +876,20 @@ object FormMidikeys: TFormMidikeys
     Top = 184
     Width = 237
     Height = 81
-    Caption = ' Settings '
     TabOrder = 5
     object lblInstrum: TLabel
       Left = 8
       Top = 16
-      Width = 52
+      Width = 64
       Height = 13
-      Caption = 'Instrument:'
+      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090':'
     end
     object lblVelocity: TLabel
       Left = 8
       Top = 40
-      Width = 40
+      Width = 58
       Height = 13
-      Caption = 'Velocity:'
+      Caption = #1043#1088#1086#1084#1082#1086#1089#1090#1100':'
     end
     object lblVelocityValue: TLabel
       Left = 210
@@ -901,9 +900,9 @@ object FormMidikeys: TFormMidikeys
       Caption = '127'
     end
     object cmbInstrum: TComboBox
-      Left = 68
+      Left = 88
       Top = 13
-      Width = 161
+      Width = 141
       Height = 21
       Style = csDropDownList
       TabOrder = 0
@@ -1039,9 +1038,9 @@ object FormMidikeys: TFormMidikeys
         '127. Gunshot')
     end
     object trkVelocity: TTrackBar
-      Left = 64
+      Left = 82
       Top = 36
-      Width = 145
+      Width = 127
       Height = 25
       Max = 127
       PageSize = 8
@@ -1055,24 +1054,16 @@ object FormMidikeys: TFormMidikeys
   object mnuMain: TMainMenu
     Left = 295
     Top = 70
-    object mniFile: TMenuItem
-      Caption = '&File'
-      object Exit1: TMenuItem
-        Caption = 'E&xit'
-        ShortCut = 32883
-        OnClick = Exit1Click
-      end
-    end
     object mniOptions: TMenuItem
-      Caption = 'Tools'
+      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       object miOptions: TMenuItem
-        Caption = 'Settings...'
+        Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
         ShortCut = 120
         OnClick = miOptionsClick
       end
       object mniReleaseMIDIOutDev: TMenuItem
         AutoCheck = True
-        Caption = '&Release MIDI Output Device'
+        Caption = '&'#1054#1090#1082#1083#1102#1095#1080#1090#1100' MIDI '#1074#1099#1093#1086#1076
         ShortCut = 123
         OnClick = mniReleaseMIDIOutDevClick
       end
