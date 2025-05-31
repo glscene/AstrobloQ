@@ -103,13 +103,13 @@ procedure TFormConstellations.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
-  SetCurrentDir(DataDir + '\cubemap');
-  PlanetMap := DataDir + '\map\earth.jpg';
+  SetCurrentDir(DataDir + 'cubemap');
+  PlanetMap := DataDir + 'map\earth.jpg';
 
   sfPlanet.Material.Texture.Disabled := False;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetMap);
 
-  CatalogDir := DataDir + '\catalog\hipparcos.stars';
+  CatalogDir := DataDir + 'catalog\hipparcos.stars';
 
    // Skybox stars
   SkyDome.Visible := True;
@@ -125,10 +125,10 @@ begin
     SkyDome.StructureChanged;
   end;
 
-  ConstNames := DataDir + '\constellation\ConstNames.dat';
+  ConstNames := DataDir + 'constellation\ConstNames.dat';
 ///    tvConstellations.LoadFromFile(ConstNames);
   (* // Short names
-  ConstNames := DataDir + '\constellation\ConstShortNames.dat';
+  ConstNames := DataDir + 'constellation\ConstShortNames.dat';
     tvConstellations.LoadFromFile(ConstNames);
   *)
 

@@ -88941,6 +88941,14 @@ object FormAstroScene: TFormAstroScene
         Caption = 'Stellar system...'
         OnClick = miStellarSystemClick
       end
+      object Constellations1: TMenuItem
+        Caption = 'Constellations...'
+        OnClick = Constellations1Click
+      end
+      object miConstPolygons: TMenuItem
+        Caption = 'Const Polygons...'
+        OnClick = miConstPolygonsClick
+      end
       object N4: TMenuItem
         Caption = '-'
       end
@@ -88951,10 +88959,6 @@ object FormAstroScene: TFormAstroScene
       object miPointTo: TMenuItem
         Caption = 'PointTo...'
         OnClick = miPointToClick
-      end
-      object miConstPolygons: TMenuItem
-        Caption = 'Const Polygons...'
-        OnClick = miConstPolygonsClick
       end
       object miCoordinates: TMenuItem
         Caption = 'Coordinates...'

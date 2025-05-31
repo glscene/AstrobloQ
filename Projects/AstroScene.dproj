@@ -122,7 +122,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmGenExosystem.pas">
-            <Form>FormGenPlanetsys</Form>
+            <Form>FrmGenPlanetsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
@@ -157,7 +157,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmConstellations.pas">
-            <Form>FormConstellations</Form>
+            <Form>FrmConstellations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>

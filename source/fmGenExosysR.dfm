@@ -1,9 +1,9 @@
 object FormGenPlanetsys: TFormGenPlanetsys
   Left = 30
   Top = 20
-  Caption = 'Stellar system generator'
-  ClientHeight = 501
-  ClientWidth = 752
+  Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1090#1086#1088' '#1079#1074#1105#1079#1076#1085#1099#1093' '#1089#1080#1089#1090#1077#1084
+  ClientHeight = 590
+  ClientWidth = 944
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -43,15 +43,15 @@ object FormGenPlanetsys: TFormGenPlanetsys
   OnShow = FormShow
   TextHeight = 13
   object GLSceneViewerA: TGLSceneViewer
-    Left = 345
+    Left = 393
     Top = 0
-    Width = 407
-    Height = 482
+    Width = 551
+    Height = 571
     Camera = GLCamera
     BeforeRender = GLSceneViewerABeforeRender
     Buffer.BackgroundColor = clBackground
     Buffer.AmbientColor.Color = {9A99193F9A99193F9A99193F0000803F}
-    FieldOfView = 152.391708374023400000
+    FieldOfView = 159.426910400390600000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewerAMouseEnter
     Align = alClient
@@ -60,26 +60,28 @@ object FormGenPlanetsys: TFormGenPlanetsys
     OnMouseDown = GLSceneViewerAMouseDown
     OnMouseUp = GLSceneViewerAMouseUp
     TabOrder = 1
-    ExplicitWidth = 415
+    ExplicitWidth = 503
+    ExplicitHeight = 539
   end
   object SolarDataPanel: TPanel
     Left = 0
     Top = 0
-    Width = 345
-    Height = 482
+    Width = 393
+    Height = 571
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 457
+    ExplicitHeight = 539
     object ToolBarGB: TGroupBox
       Left = 1
       Top = 1
-      Width = 343
-      Height = 480
+      Width = 391
+      Height = 569
       Align = alClient
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      ExplicitHeight = 455
+      ExplicitWidth = 362
+      ExplicitHeight = 537
       object Label2: TLabel
         Left = 20
         Top = 101
@@ -89,41 +91,41 @@ object FormGenPlanetsys: TFormGenPlanetsys
         ParentShowHint = False
         ShowHint = False
       end
-      object Label6: TLabel
-        Left = 25
+      object LabelRings: TLabel
+        Left = 19
         Top = 80
-        Width = 27
+        Width = 37
         Height = 13
-        Caption = 'Rings'
+        Caption = #1050#1086#1083#1100#1094#1072
         ParentShowHint = False
         ShowHint = False
       end
       object CameraDistanceLabel: TLabel
-        Left = 64
-        Top = 424
+        Left = 78
+        Top = 496
         Width = 27
         Height = 13
         Hint = 'Camera Distance'
         Caption = '20.00'
       end
-      object Label22: TLabel
-        Left = 8
-        Top = 408
-        Width = 36
+      object LabelCamera: TLabel
+        Left = 22
+        Top = 480
+        Width = 39
         Height = 13
-        Caption = 'Camera'
+        Caption = #1050#1072#1084#1077#1088#1072
       end
       object TimeLabel: TLabel
-        Left = 8
-        Top = 440
+        Left = 22
+        Top = 512
         Width = 52
         Height = 13
         Hint = 'Days Per Frame'
         Caption = 'Time Warp'
       end
       object Label9: TLabel
-        Left = 194
-        Top = 402
+        Left = 208
+        Top = 474
         Width = 63
         Height = 13
         Caption = 'Planet Picker'
@@ -155,16 +157,16 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Caption = '1.00'
       end
       object SunShineLabel: TLabel
-        Left = 272
-        Top = 440
+        Left = 286
+        Top = 512
         Width = 18
         Height = 13
         Hint = 'Sun Shine Size'
         Caption = '100'
       end
       object CFLLabel: TLabel
-        Left = 8
-        Top = 424
+        Left = 22
+        Top = 496
         Width = 12
         Height = 13
         Hint = 'Focal Length'
@@ -179,16 +181,16 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Caption = '100'
       end
       object HourLabel: TLabel
-        Left = 8
-        Top = 456
+        Left = 22
+        Top = 528
         Width = 12
         Height = 13
         Hint = 'Hours of 24'
         Caption = '24'
       end
       object LabelLabel: TLabel
-        Left = 208
-        Top = 456
+        Left = 222
+        Top = 528
         Width = 15
         Height = 13
         Hint = 'Label Font Scale'
@@ -248,12 +250,12 @@ object FormGenPlanetsys: TFormGenPlanetsys
         TabOrder = 28
         OnClick = PlanetsRGClick
       end
-      object OrbitGroupBox: TGroupBox
-        Left = 196
+      object GroupBoxOrbit: TGroupBox
+        Left = 236
         Top = 139
         Width = 143
         Height = 263
-        Caption = 'Orbit'
+        Caption = #1054#1088#1073#1080#1090#1072
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
@@ -460,12 +462,12 @@ object FormGenPlanetsys: TFormGenPlanetsys
           TabOrder = 18
         end
       end
-      object GroupBox6: TGroupBox
+      object GroupBoxObject: TGroupBox
         Left = 10
         Top = 138
         Width = 143
         Height = 263
-        Caption = 'Object'
+        Caption = #1054#1073#1098#1077#1082#1090
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
@@ -687,18 +689,18 @@ object FormGenPlanetsys: TFormGenPlanetsys
       end
       object SSORG: TRadioGroup
         Left = 8
-        Top = 8
-        Width = 329
+        Top = 3
+        Width = 378
         Height = 33
-        Caption = 'Celectial bodies'
+        Caption = #1053#1077#1073#1077#1089#1085#1099#1077' '#1090#1077#1083#1072
         Columns = 5
         ItemIndex = 0
         Items.Strings = (
-          'Star'
-          'Planets'
-          'Asteroids'
-          'Comets'
-          'Debris')
+          #1047#1074#1077#1079#1076#1072
+          #1055#1083#1072#1085#1077#1090#1099
+          #1040#1089#1090#1077#1088#1086#1080#1076#1099
+          #1050#1086#1084#1077#1090#1099
+          #1054#1073#1083#1086#1084#1082#1080)
         ParentShowHint = False
         ShowHint = False
         TabOrder = 2
@@ -829,8 +831,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PlanetsRGClick
       end
       object CFLTrackBar: TTrackBar
-        Left = 60
-        Top = 408
+        Left = 74
+        Top = 480
         Width = 100
         Height = 17
         Hint = 'Focal Length'
@@ -845,8 +847,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = CFLTrackBarChange
       end
       object TimeTrackBar: TTrackBar
-        Left = 60
-        Top = 440
+        Left = 74
+        Top = 512
         Width = 100
         Height = 17
         Hint = 'Day Time Warp'
@@ -860,8 +862,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = TimeTrackBarChange
       end
       object PlanetPickerCB: TComboBox
-        Left = 194
-        Top = 416
+        Left = 208
+        Top = 488
         Width = 145
         Height = 21
         Hint = 'Center of the Universe'
@@ -869,8 +871,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = PlanetPickerCBChange
       end
       object SunShineCB: TCheckBox
-        Left = 194
-        Top = 440
+        Left = 208
+        Top = 512
         Width = 72
         Height = 17
         Hint = 'Sun Shine On'
@@ -881,8 +883,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = SunShineCBClick
       end
       object SunShineTB: TTrackBar
-        Left = 288
-        Top = 440
+        Left = 302
+        Top = 512
         Width = 50
         Height = 17
         Hint = 'Sun Shine Size'
@@ -1089,8 +1091,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Text = '0'
       end
       object PickActiveCB: TCheckBox
-        Left = 176
-        Top = 408
+        Left = 190
+        Top = 480
         Width = 17
         Height = 17
         Hint = 'Mouse Pick Active'
@@ -1098,8 +1100,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = PickActiveCBClick
       end
       object LabelsOnCB: TCheckBox
-        Left = 160
-        Top = 456
+        Left = 174
+        Top = 528
         Width = 17
         Height = 17
         Hint = 'Labels On'
@@ -1107,8 +1109,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = LabelsOnCBClick
       end
       object UseOrbitalElementsCB: TCheckBox
-        Left = 176
-        Top = 440
+        Left = 190
+        Top = 512
         Width = 17
         Height = 17
         Hint = 'Use Orbital Elements'
@@ -1116,8 +1118,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = UseOrbitalElementsCBClick
       end
       object OrbitTrailsOnCB: TCheckBox
-        Left = 160
-        Top = 408
+        Left = 174
+        Top = 480
         Width = 17
         Height = 17
         Hint = 'Orbit Trails On'
@@ -1125,8 +1127,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = OrbitTrailsOnCBClick
       end
       object DocIndexLinkCB: TCheckBox
-        Left = 176
-        Top = 424
+        Left = 190
+        Top = 496
         Width = 17
         Height = 17
         Hint = 'Display Doc Index'
@@ -1134,8 +1136,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnClick = DocIndexLinkCBClick
       end
       object AtmosphereOnCB: TCheckBox
-        Left = 160
-        Top = 424
+        Left = 174
+        Top = 496
         Width = 17
         Height = 17
         Hint = 'Atmosphere On'
@@ -1157,8 +1159,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = S3dsScalerTBChange
       end
       object CameraDistanceUpDown: TUpDown
-        Left = 112
-        Top = 424
+        Left = 126
+        Top = 496
         Width = 41
         Height = 17
         Hint = 'Camera Distance'
@@ -1185,8 +1187,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = S3dsScalerTBChange
       end
       object HoursTimeTrackBar: TTrackBar
-        Left = 60
-        Top = 456
+        Left = 74
+        Top = 528
         Width = 100
         Height = 17
         Hint = '24 Hr Time Warp'
@@ -1199,8 +1201,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = TimeTrackBarChange
       end
       object LabelTB: TTrackBar
-        Left = 236
-        Top = 456
+        Left = 250
+        Top = 528
         Width = 100
         Height = 17
         Hint = 'Label Font Scale'
@@ -1213,8 +1215,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = LabelTBChange
       end
       object DateTimePicker1: TDateTimePicker
-        Left = 160
-        Top = 456
+        Left = 174
+        Top = 528
         Width = 81
         Height = 21
         Date = 45346.000000000000000000
@@ -1224,8 +1226,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
         OnChange = DateTimePicker1Change
       end
       object DatePickerCB: TCheckBox
-        Left = 160
-        Top = 440
+        Left = 174
+        Top = 512
         Width = 17
         Height = 17
         Hint = 'Display Date Picker'
@@ -1236,8 +1238,8 @@ object FormGenPlanetsys: TFormGenPlanetsys
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 482
-    Width = 752
+    Top = 571
+    Width = 944
     Height = 19
     Panels = <
       item
@@ -1342,21 +1344,21 @@ object FormGenPlanetsys: TFormGenPlanetsys
     Left = 680
     Top = 80
     object DisplayToolbar1: TMenuItem
-      Caption = 'Display Toolbar'
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1058#1091#1083#1073#1072#1088
       Checked = True
       OnClick = DisplayToolbar1Click
     end
     object FullScreen1: TMenuItem
-      Caption = 'FullScreen'
+      Caption = #1055#1086#1083#1085#1099#1081' '#1101#1082#1088#1072#1085
       OnClick = FullScreen1Click
     end
     object DisplayFPS1: TMenuItem
-      Caption = 'Display FPS'
+      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' FPS'
       Checked = True
       OnClick = DisplayFPS1Click
     end
     object TextureLoading1: TMenuItem
-      Caption = 'Texture Loading'
+      Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1090#1077#1082#1089#1090#1091#1088#1091
       object PlanetsLoadFakeTexture: TMenuItem
         Caption = 'Planets: Load Fake Texture'
         OnClick = PlanetsLoadFakeTextureClick
@@ -1387,7 +1389,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
       end
     end
     object MoonScaling1: TMenuItem
-      Caption = 'Moon Scaling'
+      Caption = #1052#1072#1089#1096#1090#1072#1073' '#1051#1091#1085#1099
       object MoonScalex0: TMenuItem
         Caption = 'x 0'
         RadioItem = True
@@ -1406,7 +1408,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
       end
     end
     object SunScaling1: TMenuItem
-      Caption = 'Sun Scaling'
+      Caption = #1052#1072#1089#1096#1090#1072#1073' '#1057#1086#1083#1085#1094#1072
       object SunScale20: TMenuItem
         Caption = 'x 20'
         RadioItem = True
@@ -1425,7 +1427,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
       end
     end
     object OrbitTrails1: TMenuItem
-      Caption = 'Orbit Trails'
+      Caption = #1061#1074#1086#1089#1090' '#1086#1088#1073#1080#1090#1099
       object OrbitTrails36: TMenuItem
         Caption = '36'
         RadioItem = True
@@ -1449,15 +1451,15 @@ object FormGenPlanetsys: TFormGenPlanetsys
       end
     end
     object SelectFontMenu: TMenuItem
-      Caption = 'Select Font'
+      Caption = #1042#1099#1073#1086#1088' '#1096#1088#1080#1092#1090#1072
       OnClick = SelectFontMenuClick
     end
     object SpudVersionConvertor1: TMenuItem
-      Caption = 'Spud Version Convertor'
+      Caption = #1050#1086#1085#1074#1077#1088#1090#1086#1088' Spud'
       OnClick = SpudVersionConvertor1Click
     end
     object Exit1: TMenuItem
-      Caption = 'Exit'
+      Caption = #1042#1099#1093#1086#1076
       OnClick = ExitBtnClick
     end
   end

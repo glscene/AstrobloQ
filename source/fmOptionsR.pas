@@ -168,8 +168,8 @@ procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
 begin
   if CheckBoxAxes.Checked then
   begin
-    frmAllPlanets.sfPlanet.ShowAxes := not frmAllplanets.sfPlanet.ShowAxes;
-    frmAllPlanets.ffPlanet.ShowAxes := not frmAllplanets.ffPlanet.ShowAxes;
+    FormAstroScene.sfPlanet.ShowAxes := not FormAstroScene.sfPlanet.ShowAxes;
+    FormAstroScene.ffPlanet.ShowAxes := not FormAstroScene.ffPlanet.ShowAxes;
   end;
 end;
 
@@ -186,7 +186,7 @@ end;
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
 begin
-  with frmAllplanets do
+  with FormAstroScene do
   if CheckBoxCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
@@ -213,15 +213,15 @@ procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
 begin
   if CheckBoxHidePlanet.Checked then
   begin
-    frmAllplanets.sfPlanet.Visible := False;
-    frmAllplanets.ffPlanet.Visible := False;
-    frmAllplanets.DirectOpenGL.Visible := False;
+    FormAstroScene.sfPlanet.Visible := False;
+    FormAstroScene.ffPlanet.Visible := False;
+    FormAstroScene.DirectOpenGL.Visible := False;
   end
   else
   begin
-    frmAllplanets.sfPlanet.Visible := True;
-    frmAllplanets.ffPlanet.Visible := True;
-    frmAllplanets.DirectOpenGL.Visible := True;
+    FormAstroScene.sfPlanet.Visible := True;
+    FormAstroScene.ffPlanet.Visible := True;
+    FormAstroScene.DirectOpenGL.Visible := True;
   end;
 end;
 
@@ -258,7 +258,7 @@ begin
 end;
 
 //------------------------------------------------------------
-// Запись установок в ини файл
+// Запись установок в инифайл
 //------------------------------------------------------------
 procedure TfrmOptions.WriteIniFile;
 var

@@ -1,4 +1,4 @@
-object FormConstellations: TFormConstellations
+object FrmConstellations: TFrmConstellations
   Left = 0
   Top = 0
   Caption = 'Constellations'

@@ -1,4 +1,4 @@
-object frmAllplanets: TfrmAllplanets
+object FormAstroScene: TFormAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
@@ -34,7 +34,6 @@ object frmAllplanets: TfrmAllplanets
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 887
   end
   object PanelLeft: TPanel
     Left = 0
@@ -43,6 +42,7 @@ object frmAllplanets: TfrmAllplanets
     Height = 648
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 623
     object tvMoons: TTreeView
       Left = 1
       Top = 1
@@ -148,6 +148,7 @@ object frmAllplanets: TfrmAllplanets
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
+      ExplicitHeight = 621
     end
   end
   object StatusBar: TStatusBar
@@ -173,7 +174,7 @@ object frmAllplanets: TfrmAllplanets
         Width = 86
       end>
     ExplicitTop = 652
-    ExplicitWidth = 1034
+    ExplicitWidth = 1294
   end
   object ControlBar: TControlBar
     Left = 0
@@ -182,7 +183,7 @@ object frmAllplanets: TfrmAllplanets
     Height = 29
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1034
+    ExplicitWidth = 1294
     object ToolBar1: TToolBar
       Left = 19
       Top = 2
@@ -229,6 +230,8 @@ object frmAllplanets: TfrmAllplanets
     Height = 648
     Align = alRight
     TabOrder = 4
+    ExplicitLeft = 1104
+    ExplicitHeight = 623
     object tvAsteroids: TTreeView
       Left = 1
       Top = 1
@@ -278,6 +281,7 @@ object frmAllplanets: TfrmAllplanets
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
+      ExplicitHeight = 621
     end
   end
   object Scene: TGLScene
@@ -88802,7 +88806,7 @@ object frmAllplanets: TfrmAllplanets
         Caption = '-'
       end
       object miExogen: TMenuItem
-        Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090'...'
+        Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
         OnClick = miExogenClick
       end
     end

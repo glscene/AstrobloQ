@@ -243,9 +243,9 @@ type
     SolarDataPanel: TPanel;
     ToolBarGB: TGroupBox;
     Label2: TLabel;
-    Label6: TLabel;
+    LabelRings: TLabel;
     CameraDistanceLabel: TLabel;
-    Label22: TLabel;
+    LabelCamera: TLabel;
     TimeLabel: TLabel;
     Label9: TLabel;
     Label7: TLabel;
@@ -260,14 +260,14 @@ type
     CometRG: TRadioGroup;
     DebrisRG: TRadioGroup;
     AsteroidRG: TRadioGroup;
-    OrbitGroupBox: TGroupBox;
+    GroupBoxOrbit: TGroupBox;
     OrbitRotationEdit: TEdit;
     iConstEdit: TEdit;
     aConstEdit: TEdit;
     eConstEdit: TEdit;
     eVarEdit: TEdit;
     EMaxEdit: TEdit;
-    GroupBox6: TGroupBox;
+    GroupBoxObject: TGroupBox;
     MoonsLabel: TLabel;
     lbRings: TLabel;
     lbRadius: TLabel;
@@ -2398,7 +2398,7 @@ begin
   ScaleDistanceEdit.Visible :=
     ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0));
   ScaleObjectEdit.Visible := ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0));
-  { everytjing else has these 2 }
+  // everytjing else has these 2
   MassEdit.Visible := (not((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)));
   DensityEdit.Visible := (not((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)));
   // Базовые объекты имеют S3ds orbiters
@@ -2410,7 +2410,7 @@ begin
   // только планета: Moons and Rings DO NOT have 3ds Anything
   nbS3dLabel.Visible := (not((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 1)
     ) or ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 2)));
-  // Only the S3ds object can set the Texture available CB
+  // только S3ds объект может set Texture available CB
   nbS3dsCB.Visible := ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 1)) or
     ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 3)) or
     ((SSORG.ItemIndex = 2) and (AsteroidRG.ItemIndex = 1)) or
@@ -2418,7 +2418,7 @@ begin
     ((SSORG.ItemIndex = 4) and (DebrisRG.ItemIndex = 1));
 
   // Солнце Sun не имеет орбиты, но имеет S3ds
-  OrbitGroupBox.Visible := ((SSORG.ItemIndex > 0) or ((SSORG.ItemIndex = 0) and
+  GroupBoxOrbit.Visible := ((SSORG.ItemIndex > 0) or ((SSORG.ItemIndex = 0) and
     (SunRG.ItemIndex = 1)));
   // показать только планеты с лунами и кольцами
   nbMoonsEdit.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));

@@ -200,7 +200,7 @@ type
   end;
 
 type
-  TFormGenPlanetsys = class(TForm)
+  TFrmGenPlanetsys = class(TForm)
     GLSceneViewerA: TGLSceneViewer;
     GLCadencerA: TGLCadencer;
     GLMaterialLibraryA: TGLMaterialLibrary;
@@ -504,7 +504,7 @@ type
   end;
 
 var
-  FormGenPlanetsys: TFormGenPlanetsys;
+  FrmGenPlanetsys: TFrmGenPlanetsys;
 
 //=============================================================================
 implementation
@@ -518,7 +518,7 @@ var
 
 {$R *.DFM}
 
-procedure TFormGenPlanetsys.FormCreate(Sender: TObject);
+procedure TFrmGenPlanetsys.FormCreate(Sender: TObject);
 begin
   { top := ABCreatorFormY;
     left := ABCreatorFormX; }
@@ -566,14 +566,14 @@ begin
   ClearBtnClick(Sender);
 end;
 
-procedure TFormGenPlanetsys.FormShow(Sender: TObject);
+procedure TFrmGenPlanetsys.FormShow(Sender: TObject);
 begin
   dmx := 1;
   dmy := 1; // To get the Flare to Display at Startup
   GLSceneViewerA.SetFocus;
 end;
 
-procedure TFormGenPlanetsys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFrmGenPlanetsys.FormClose(Sender: TObject; var Action: TCloseAction);
 var
   j: Integer;
 begin
@@ -613,17 +613,17 @@ begin
     ABCreatorFormX := ABCreatorForm.left; }
 end;
 
-procedure TFormGenPlanetsys.ExitBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.ExitBtnClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFormGenPlanetsys.HelpBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.HelpBtnClick(Sender: TObject);
 begin
   Application.HelpContext(2000);
 end;
 
-procedure TFormGenPlanetsys.ClearBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.ClearBtnClick(Sender: TObject);
 var
   j: Integer;
 begin
@@ -700,7 +700,7 @@ begin
   Running := True;
 end;
 
-procedure TFormGenPlanetsys.ClearData;
+procedure TFrmGenPlanetsys.ClearData;
 var
   DCCenter: TGLBaseSceneObject;
 begin
@@ -745,7 +745,7 @@ begin
   DebrisUpDown.Position := 0;
 end;
 
-procedure TFormGenPlanetsys.ClearDataEdits;
+procedure TFrmGenPlanetsys.ClearDataEdits;
 begin
   NameEdit.Text := 'Star';
   RadiusEdit.Text := '10000';
@@ -792,15 +792,14 @@ begin
 end;
 
 //----------------------------------------------------------
-procedure TFormGenPlanetsys.LoadBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.LoadBtnClick(Sender: TObject);
 begin
 //  SetCurrentDir(Application.ExeName);
   OpenDialog.Filter := 'Universal Definition(*.spud)|*.spud';
   OpenDialog.InitialDir := ExtractFilePath(EarthModelPath);
   if OpenDialog.Execute then
   begin
-    // на быстрых машинах обычно не видно
-    FormGenPlanetsys.Caption := 'Загрузка';
+    FrmGenPlanetsys.Caption := 'Загрузка';
 ///   FormABCreator.ProcessMessages; // при авто-создании форм
     ClearBtnClick(Sender);
     EarthModelPath := ExtractFilePath(OpenDialog.filename);
@@ -819,7 +818,7 @@ end;
   GetTurnAngle   FRotation.Y;
   GetRollAngle    FRotation.Z; }
 
-procedure TFormGenPlanetsys.CreateGLSolarSystem(filename: string);
+procedure TFrmGenPlanetsys.CreateGLSolarSystem(filename: string);
 var
   RingType, LevelCount, Level2Count, i, j, k: Integer;
   CheckVersionDataTmp: TVersionData;
@@ -855,7 +854,7 @@ begin
   GLSceneA.BeginUpdate;
   PlanetsLoaded := False;
   CometSprite.Visible := False;
-  // Очистить и освободиться от всех дочерних объектов dcSolarSystem
+  // Clear from all children objects dcSolarSystem
   DCSolarSystem.DeleteChildren;
   for j := dcComet.Count - 1 downto 1 do
   begin
@@ -869,7 +868,7 @@ begin
   Assignfile(F, filename);
   reset(F, 1);
   BlockRead(F, CheckVersionDataTmp, sizeof(TVersionData));
-  // проверка Version for Changes to Perform
+  // check Version for Changes to Perform
   (*
     if ((VersionDataTmp.MajorVersion = CheckVersionDataTmp.MajorVersion) and
     (VersionDataTmp.MinorVersion = CheckVersionDataTmp.MinorVersion)) then
@@ -900,7 +899,7 @@ begin
   SetLength(AsteroidDataTmpArray, SystemDataTmp.NbAsteroid);
   SetLength(CometDataTmpArray, SystemDataTmp.NbComet);
   SetLength(DebrisDataTmpArray, SystemDataTmp.NbDebris);
-  // ------- Загрузка и создание Солнца Sun ---------------------------------
+  // ------- Loading and make Sun ----------------------
   BlockRead(F, SunDataTmp, sizeof(TGLStarData));
   SolarScaleDivisor := SunDataTmp.StarSysScale;
   SolarDistance := SunDataTmp.StarDistanceScale;
@@ -930,7 +929,7 @@ begin
     end
     else
     begin
-      // Установка цвета материала сферы Sphere
+      // Setting the color material of Sphere
       Material.FrontProperties.Diffuse.Color := clrYellow;
     end;
     // Make a Sun Flare.. Made it Permanent
@@ -1004,7 +1003,7 @@ begin
       begin
         If FileExists(EarthModelPath + S3dsDataTmpArray[0, 0, j].Name + '.jpg')
         then
-        begin { Create the matlib }
+        begin // Create the matlib
           GLMaterialLibraryA.AddTextureMaterial(S3dsDataTmpArray[0, 0, j].Name,
             EarthModelPath + S3dsDataTmpArray[0, 0, j].Name + '.jpg');
           Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1013,10 +1012,10 @@ begin
           Material.Texture.Disabled := False;
         end
         else
-        begin { Set some  kinda Color to the FFS3ds }
+        begin // Set some  kinda Color to the FFS3ds
           If ((S3dsLoadFakeTexture.Checked) and
             (FileExists(EarthModelPath + 'allfake.jpg'))) then  // ?
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial
               (S3dsDataTmpArray[0, 0, j].Name, EarthModelPath + 'allfake.jpg');
             Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1151,7 +1150,7 @@ begin
           TurnAngle := 24 / RingDataTmpArray[i, j].ObjectRotation;
           If FileExists(EarthModelPath + PlanetDataTmpArray[i].Name + '-' +
             RingDataTmpArray[i, j].Name + '.jpg') then
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial(RingDataTmpArray[i, j].Name,
               EarthModelPath + PlanetDataTmpArray[i].Name + '-' +
               RingDataTmpArray[i, j].Name + '.jpg');
@@ -1161,7 +1160,7 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the Ring }
+          begin // Set some  kinda Color to the Ring
             Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
               ]; { 0..10 }
             Material.BackProperties.Diffuse.Color :=
@@ -1182,8 +1181,8 @@ begin
           ExtraData := RingDataTmpArray[i, j];
           Name := 'SP' + RingDataTmpArray[i, j].Name;
           Tag := 6;
-          Hint := Inttostr(i) + ',' + Inttostr(j);
-          { Radius and Distance }
+          Hint := IntToStr(i) + ',' + IntToStr(j);
+          // Radius and Distance
           Radius := RingDataTmpArray[i, j].Radius / (SolarScaleDivisor);
           // InnerRadius:=RingDataTmpArray[i,j].EMin/(SolarScaleDivisor);
           // OuterRadius:=RingDataTmpArray[i,j].EMax/(SolarScaleDivisor);
@@ -1236,7 +1235,7 @@ begin
           ExtraData := RingDataTmpArray[i, j];
           Name := 'FF' + RingDataTmpArray[i, j].Name;
           Tag := 6;
-          Hint := Inttostr(i) + ',' + Inttostr(j);
+          Hint := IntToStr(i) + ',' + IntToStr(j);
           Temp := TGLMeshObject.CreateOwned((FFRing As TGLRingFreeForm)
             { MasterAsteroidF }.MeshObjects);
           // 0.2,1,-1     Defaults
@@ -1263,7 +1262,7 @@ begin
           TurnAngle := 24 / RingDataTmpArray[i, j].ObjectRotation;
           If FileExists(EarthModelPath + PlanetDataTmpArray[i].Name + '-' +
             RingDataTmpArray[i, j].Name + '.jpg') then
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial(RingDataTmpArray[i, j].Name,
               EarthModelPath + PlanetDataTmpArray[i].Name + '-' +
               RingDataTmpArray[i, j].Name + '.jpg');
@@ -1273,15 +1272,14 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the Ring }
-            Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-              ]; { 0..10 }
+          begin // Set some  kinda Color to the Ring
+            Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
             Material.BackProperties.Diffuse.Color :=
               Material.FrontProperties.Diffuse.Color;
           end;
           Material.FaceCulling := fcNoCull;
-          { Material.BackProperties:=Material.FrontProperties; }
-        end; { with FF }
+          // Material.BackProperties := Material.FrontProperties;
+        end; // with FF
         DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
           .AddChild(FFRing);
         X := 0;
@@ -1329,7 +1327,6 @@ begin
             Scale.Y := FFRing.Scale.Y * Proxyscale;
             Scale.z := FFRing.Scale.z * Proxyscale;
             // randomize position
-
             a := Random * 2 * pi;
             b := Random * pi - pi / 2;
             SinCosine(a, s, c);
@@ -1389,7 +1386,7 @@ begin
           TurnAngle := 24 / RingDataTmpArray[i, j].ObjectRotation;
           If FileExists(EarthModelPath + PlanetDataTmpArray[i].Name + '-' +
             RingDataTmpArray[i, j].Name + '.jpg') then
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial(RingDataTmpArray[i, j].Name,
               EarthModelPath + PlanetDataTmpArray[i].Name + '-' +
               RingDataTmpArray[i, j].Name + '.jpg');
@@ -1399,15 +1396,14 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the Ring }
-            Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-              ]; { 0..10 }
+          begin // Set some  kinda Color to the Ring
+            Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
             Material.BackProperties.Diffuse.Color :=
               Material.FrontProperties.Diffuse.Color;
           end;
           Material.FaceCulling := fcNoCull;
-          { Material.BackProperties:=Material.FrontProperties; }
-        end; { with FF }
+          // Material.BackProperties:=Material.FrontProperties;
+        end; // with FF
         DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
           .AddChild(FFRing);
         X := 0;
@@ -1438,10 +1434,10 @@ begin
             Position.SetPoint(0, 0, -Proxyi);
             AddNewChild(TGLFreeForm);
           end;
-      end; { FFRing Eccentricty }
+      end; // FFRing Eccentricty
 
-    end; { TGLRing }
-    // ----------- Load & Create Moon ------------------------------------------
+    end; // TGLRing
+    // ----------- Load & Create Moon --------------------------------
     SetLength(MoonDataTmpArray[i], PlanetDataTmpArray[i].nbMoons);
     for j := 0 to PlanetDataTmpArray[i].nbMoons - 1 do
     begin
@@ -1485,10 +1481,10 @@ begin
           Material.Texture.Disabled := False;
         end
         else
-        begin { Set some  kinda Color to the Sphere }
+        begin // Set some  kinda Color to the Sphere
           If ((MoonsLoadFakeTexture.Checked) and
             (FileExists(EarthModelPath + 'allfake.jpg'))) then
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial(MoonDataTmpArray[i, j].Name,
               EarthModelPath + 'allfake.jpg');
             Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1497,8 +1493,7 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-            Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-              ]; { 0..10 }
+            Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
         end;
       end;
 
@@ -1512,7 +1507,7 @@ begin
       z := 0;
       DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
         .Children[0].Translate(X, Y, z);
-    end; { Moon }
+    end; // Moon
 
     // ----------- Load & Create FFS3ds ------------------------------------------
     SetLength(S3dsDataTmpArray[1, i], PlanetDataTmpArray[i].nbS3ds);
@@ -1527,8 +1522,7 @@ begin
       inc(Level2Count);
       If (not(FileExists(S3dsDataTmpArray[1, i, j].Name + '.3ds'))) then
       begin
-        ShowMessage(S3dsDataTmpArray[1, i, j].Name + '.3ds' +
-          ' не найден');
+        ShowMessage(S3dsDataTmpArray[1, i, j].Name + '.3ds' + ' not found');
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
@@ -1580,10 +1574,10 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the FFS3ds }
+          begin // Set some  kinda Color to the FFS3ds
             If ((S3dsLoadFakeTexture.Checked) and
               (FileExists(EarthModelPath + 'allfake.jpg'))) then
-            begin { Create the matlib }
+            begin // Create the matlib
               GLMaterialLibraryA.AddTextureMaterial
                 (S3dsDataTmpArray[1, i, j].Name,
                 EarthModelPath + 'allfake.jpg');
@@ -1593,8 +1587,7 @@ begin
               Material.Texture.Disabled := False;
             end
             else
-              Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-                ]; { 0..10 }
+              Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
           end;
         end;
       end;
@@ -1628,7 +1621,7 @@ begin
       ExtraData := AsteroidDataTmpArray[i];
       Name := 'SP' + AsteroidDataTmpArray[i].Name;
       Tag := 3;
-      Hint := IntToStr(i); // +','+inttostr(j);
+      Hint := IntToStr(i); // +',' + inttostr(j);
       Radius := (AsteroidDataTmpArray[i].Radius) / (SolarScaleDivisor);
       Stacks := 32;
       Slices := 32;
@@ -1641,7 +1634,7 @@ begin
       PitchAngle := AsteroidDataTmpArray[i].AxisTilt;
       TurnAngle := 24 / AsteroidDataTmpArray[i].ObjectRotation;
       If FileExists(EarthModelPath + AsteroidDataTmpArray[i].Name + '.jpg') then
-      begin { Create the matlib }
+      begin // Create the matlib
         GLMaterialLibraryA.AddTextureMaterial(AsteroidDataTmpArray[i].Name,
           EarthModelPath + AsteroidDataTmpArray[i].Name + '.jpg');
 
@@ -1651,10 +1644,10 @@ begin
         Material.Texture.Disabled := False;
       end
       else
-      begin { Set some  kinda Color to the Sphere }
+      begin // Set some kinda Color to the Sphere
         If ((AsteroidsLoadFakeTexture.Checked) and
           (FileExists(EarthModelPath + 'allfake.jpg'))) then
-        begin { Create the matlib }
+        begin // Create the matlib
           GLMaterialLibraryA.AddTextureMaterial(AsteroidDataTmpArray[i].Name,
             EarthModelPath + 'allfake.jpg');
           Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1663,8 +1656,7 @@ begin
           Material.Texture.Disabled := False;
         end
         else
-          Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-            ]; { 0..10 }
+          Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
       end;
 
       DCSolarSystem.Children[LevelCount].AddChild(SPAsteroid);
@@ -1690,8 +1682,7 @@ begin
       inc(Level2Count);
       If (not(FileExists(S3dsDataTmpArray[2, i, j].Name + '.3ds'))) then
       begin
-        ShowMessage(S3dsDataTmpArray[2, i, j].Name + '.3ds' +
-          ' не найден');
+        ShowMessage(S3dsDataTmpArray[2, i, j].Name + '.3ds' + ' not found');
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
@@ -1923,11 +1914,10 @@ begin
       inc(Level2Count);
       if (not(FileExists(S3dsDataTmpArray[3, i, j].Name + '.3ds'))) then
       begin
-        ShowMessage(S3dsDataTmpArray[3, i, j].Name + '.3ds' +
-          ' не найден');
+        ShowMessage(S3dsDataTmpArray[3, i, j].Name + '.3ds' + ' not found');
         Closefile(F);
         GLSceneA.EndUpdate;
-        exit;
+        Exit();
       end;
       FFS3ds := TGLS3ds.Create(self);
       with (FFS3ds As TGLS3ds) do
@@ -1989,8 +1979,7 @@ begin
               Material.Texture.Disabled := False;
             end
             else
-              Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-                ]; { 0..10 }
+              Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
           end;
         end;
       end;
@@ -2048,9 +2037,8 @@ begin
         Material.Texture.Disabled := False;
       end
       else
-      begin { Set some  kinda Color to the Sphere }
-        Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-          ]; { 0..10 }
+      begin // Set some  kinda Color to the Sphere
+        Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
       end;
 
       DCSolarSystem.Children[LevelCount].AddChild(SPDebris);
@@ -2154,7 +2142,7 @@ begin
         b := Random * pi - pi / 2;
         SinCos(a, s, c);
         SinCos(b, sb, cb);
-        // широкий круг
+        // wide circle
         Position.X := c * cb * (DebrisDataTmpArray[i].RCDPosition) * Random * 2;
         Position.Y := s * cb * (DebrisDataTmpArray[i].RCDPosition) *
           Random - Random;
@@ -2162,11 +2150,11 @@ begin
           - Random;
         DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
           .Children[Proxyi].Translate(X, Y, z);
-        // рандомизация ориентации
+        // random orientation
         RollAngle := Random(360);
         TransformationChanged;
-      end; { with Proxy }
-    end; { for Proxy }
+      end; // with Proxy
+    end; // for Proxy
     // for i:=0 to 1 do begin {Test loop}end;
 
     // ----------- Load & Create FFS3ds ------------------------------------------
@@ -2225,7 +2213,7 @@ begin
         begin
           If FileExists(EarthModelPath + S3dsDataTmpArray[4, i, j].Name + '.jpg')
           then
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial
               (S3dsDataTmpArray[4, i, j].Name, EarthModelPath + S3dsDataTmpArray
               [4, i, j].Name + '.jpg');
@@ -2235,10 +2223,10 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the FFS3ds }
+          begin // Set some  kinda Color to the FFS3ds
             If ((S3dsLoadFakeTexture.Checked) and
               (FileExists(EarthModelPath + 'allfake.jpg'))) then
-            begin { Create the matlib }
+            begin // Create the matlib
               GLMaterialLibraryA.AddTextureMaterial
                 (S3dsDataTmpArray[4, i, j].Name,
                 EarthModelPath + 'allfake.jpg');
@@ -2248,8 +2236,7 @@ begin
               Material.Texture.Disabled := False;
             end
             else
-              Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-                ]; { 0..10 }
+              Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)]; // 0..10
           end;
         end;
       end; { FFS3ds }
@@ -2334,7 +2321,7 @@ end;
 *)
 
 { --------------------------------------------------- }
-procedure TFormGenPlanetsys.SaveBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.SaveBtnClick(Sender: TObject);
 begin
   SaveDialog.Filter := 'Universal Definition(*.spud)|*.spud';
   SaveDialog.InitialDir := ExtractFilePath(EarthModelPath);
@@ -2345,7 +2332,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.SaveGLSolarSystem(filename: string);
+procedure TFrmGenPlanetsys.SaveGLSolarSystem(filename: string);
 var
   i, j: Integer;
   F: file;
@@ -2390,18 +2377,18 @@ begin
   Closefile(F);
 end;
 
-procedure TFormGenPlanetsys.PlanetsRGClick(Sender: TObject);
+procedure TFrmGenPlanetsys.PlanetsRGClick(Sender: TObject);
 var
   tempbool: Boolean;
 begin
-  // только солнце sun имеет масштаб scale
+  // only sun has scale
   ScaleDistanceEdit.Visible :=
     ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0));
   ScaleObjectEdit.Visible := ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0));
   { everytjing else has these 2 }
   MassEdit.Visible := (not((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)));
   DensityEdit.Visible := (not((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)));
-  // Базовые объекты имеют S3ds orbiters
+  // base objects have S3ds orbiters
   nbS3dsEdit.Visible := ((SSORG.ItemIndex = 0) and (SunRG.ItemIndex = 0)) or
     ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0)) or
     ((SSORG.ItemIndex = 2) and (AsteroidRG.ItemIndex = 0)) or
@@ -2417,15 +2404,15 @@ begin
     ((SSORG.ItemIndex = 3) and (CometRG.ItemIndex = 1)) or
     ((SSORG.ItemIndex = 4) and (DebrisRG.ItemIndex = 1));
 
-  // Солнце Sun не имеет орбиты, но имеет S3ds
+  // Sun don't has orbit but has S3ds
   OrbitGroupBox.Visible := ((SSORG.ItemIndex > 0) or ((SSORG.ItemIndex = 0) and
     (SunRG.ItemIndex = 1)));
-  // показать только планеты с лунами и кольцами
+  // show planets, moons and rings only
   nbMoonsEdit.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
   MoonsLabel.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
   nbRingsEdit.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
   lbRings.Visible := ((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 0));
-  // Только кометы, дебрис и планеты: Rings REQUIRE more data
+  // Only comets, debries and planets: Rings REQUIRE more data
 
   tempbool := (((SSORG.ItemIndex = 1) and (PlanetsRG.ItemIndex = 1)) or
     ((SSORG.ItemIndex = 3) and (CometRG.ItemIndex = 0)) or
@@ -2439,7 +2426,7 @@ end;
 
 //------------------------------------------------------------
 //
-procedure TFormGenPlanetsys.StoreBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.StoreBtnClick(Sender: TObject);
 begin
   // GLCadencer1.Enabled:=False;
   case SSORG.ItemIndex of
@@ -3324,7 +3311,7 @@ end;
 
 //------------------------------------------------------------------------
 
-procedure TFormGenPlanetsys.ShowBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.ShowBtnClick(Sender: TObject);
 begin // a Brainiac could Get Save and Set the data...
   nbS3dsCB.Checked := False; { S3dsTex }
   case SSORG.ItemIndex of
@@ -4366,7 +4353,7 @@ end;
 {
   Сохранение в текстовый файл
   и вызов System to Open THAT... для печати }
-procedure TFormGenPlanetsys.PrintBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.PrintBtnClick(Sender: TObject);
 var
   i, j: Integer;
   F: TextFile;
@@ -5204,7 +5191,7 @@ begin
   ShellExecute(0, 'open', PChar(EarthModelPath + 'Spud.txt'), '', '', SW_SHOW);
 end;
 
-procedure TFormGenPlanetsys.PickActiveCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.PickActiveCBClick(Sender: TObject);
 { var i,Proxyi:Integer; }
 begin
   (* If (PickActiveCB.Checked) then
@@ -5223,7 +5210,7 @@ begin
     Children[0].children[Proxyi].Visible:=True; *)
 end;
 
-procedure TFormGenPlanetsys.SunShineCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.SunShineCBClick(Sender: TObject);
 begin
   { If (PickActiveCB.Checked) then
     begin
@@ -5235,19 +5222,19 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.GLSceneViewerABeforeRender(Sender: TObject);
+procedure TFrmGenPlanetsys.GLSceneViewerABeforeRender(Sender: TObject);
 begin
   If SunShineCB.Checked then
     SunShineFlare.PreRender(Sender as TGLSceneBuffer);
 end;
 
-procedure TFormGenPlanetsys.SunShineTBChange(Sender: TObject);
+procedure TFrmGenPlanetsys.SunShineTBChange(Sender: TObject);
 begin
   SunShineFlare.Size := SunShineTB.Position;
   SunShineLabel.Caption := Inttostr(SunShineTB.Position);
 end;
 
-procedure TFormGenPlanetsys.LabelTBChange(Sender: TObject);
+procedure TFrmGenPlanetsys.LabelTBChange(Sender: TObject);
 var
   Temp: Double;
 begin
@@ -5262,7 +5249,7 @@ end;
   This could be done automatically with some code
   that uses the Bounding box of the 3ds object
   and scales that to fit the desired 'diameter' }
-procedure TFormGenPlanetsys.S3dsScalerTBChange(Sender: TObject);
+procedure TFrmGenPlanetsys.S3dsScalerTBChange(Sender: TObject);
 var
   Scale, i, j: Integer;
 begin
@@ -5366,7 +5353,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TFormGenPlanetsys.TimeTrackBarChange(Sender: TObject);
+procedure TFrmGenPlanetsys.TimeTrackBarChange(Sender: TObject);
 begin
   SolarTimeMultiplier := (HoursTimeTrackBar.Position / 24) *
     TimeTrackBar.Position;
@@ -5376,7 +5363,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TFormGenPlanetsys.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFrmGenPlanetsys.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     #27:
@@ -5392,7 +5379,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TFormGenPlanetsys.PlanetPickerCBChange(Sender: TObject);
+procedure TFrmGenPlanetsys.PlanetPickerCBChange(Sender: TObject);
 begin
   If PlanetPickerCB.ItemIndex > 0 then
   begin
@@ -5410,7 +5397,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TFormGenPlanetsys.RunBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.RunBtnClick(Sender: TObject);
 begin { Running selects action inside Cadencer }
   // Allow camera movement without moving planets
   Running := True; // Cadencer Always running, Timer Toggled as FPS
@@ -5418,7 +5405,7 @@ begin { Running selects action inside Cadencer }
     Timer1.Enabled:=True; }
 end;
 
-procedure TFormGenPlanetsys.TimerATimer(Sender: TObject);
+procedure TFrmGenPlanetsys.TimerATimer(Sender: TObject);
 begin
   { Caption:=Format('%d Comet particles, %.1f FPS',
     [GLCometParticles.Count-1, GLSceneViewerA.FramesPerSecond]); }
@@ -5429,7 +5416,7 @@ begin
   GLSceneViewerA.ResetPerformanceMonitor;
 end;
 
-procedure TFormGenPlanetsys.StopBtnClick(Sender: TObject);
+procedure TFrmGenPlanetsys.StopBtnClick(Sender: TObject);
 begin
   { GLCadencer1.Enabled:=False;
     Timer1.Enabled:=False; }
@@ -5440,7 +5427,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TFormGenPlanetsys.GLCadencerAProgress(Sender: TObject;
+procedure TFrmGenPlanetsys.GLCadencerAProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   i, j, kometcount: Integer;
@@ -5614,7 +5601,7 @@ begin
             { .children[0] }.TurnAngle +
               (365 / S3dsDataTmpArray[2, i, j].OrbitRotation) * deltaTime *
               SolarTimeMultiplier;
-            { Rotate Sphere }
+            // Rotate Sphere
             DCSolarSystem.Children[i + SystemDataTmp.NbPlanet].Children[0]
               .Children[j].Children[0].TurnAngle := DCSolarSystem.Children
               [i + SystemDataTmp.NbPlanet].Children[0].Children[j].Children[0]
@@ -5731,8 +5718,8 @@ begin
           end;
         end; // Debris
       End;
-    end; { Loaded }
-  end; { Running }
+    end; // Loaded
+  end; // Running
   // honour camera movements
   if (dmy <> 0) or (dmx <> 0) then
   begin
@@ -5744,7 +5731,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.AddToTrail(const p: TGLVector);
+procedure TFrmGenPlanetsys.AddToTrail(const p: TGLVector);
 var
   i, k: Integer;
 begin
@@ -5762,7 +5749,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.GLSceneViewerAMouseDown(Sender: TObject;
+procedure TFrmGenPlanetsys.GLSceneViewerAMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
   s, ss: String;
@@ -5879,7 +5866,7 @@ end;
   The 'Case' statments could set the RadioGroups and Call 'Show' button
   to Display the data...
   still dont know what DocIndex will do... }
-procedure TFormGenPlanetsys.DataDisplayer(Switch, Spec, Species, SubSpecies,
+procedure TFrmGenPlanetsys.DataDisplayer(Switch, Spec, Species, SubSpecies,
   Spec3ds: Integer);
 var
   s1, s: String;
@@ -5891,7 +5878,7 @@ Begin
         Inttostr(Spec3ds));
     1:
       Begin
-        Case Spec of { Base Type }
+        Case Spec of // Base Type
           0:
             begin
               s1 := PickedObjA.Name;
@@ -5979,12 +5966,12 @@ Begin
   end;
 end;
 
-procedure TFormGenPlanetsys.GLSceneViewerAMouseEnter(Sender: TObject);
+procedure TFrmGenPlanetsys.GLSceneViewerAMouseEnter(Sender: TObject);
 begin
   GLSceneViewerA.SetFocus; // GLSceneViewer.Focused;
 end;
 
-procedure TFormGenPlanetsys.GLSceneViewerAMouseMove(Sender: TObject;
+procedure TFrmGenPlanetsys.GLSceneViewerAMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if ((ssLeft in Shift) and (ssCtrl in Shift)) then
@@ -6011,20 +5998,20 @@ begin
   my := Y;
 end;
 
-procedure TFormGenPlanetsys.CFLTrackBarChange(Sender: TObject);
+procedure TFrmGenPlanetsys.CFLTrackBarChange(Sender: TObject);
 begin
   CameraFocalLength := CFLTrackBar.Position;
   GLCamera.FocalLength := CameraFocalLength;
   CFLLabel.Caption := Inttostr(Round(GLCamera.FocalLength));
 end;
 
-procedure TFormGenPlanetsys.GLSceneViewerAMouseUp(Sender: TObject;
+procedure TFrmGenPlanetsys.GLSceneViewerAMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   PickedObj := nil;
 end;
 
-procedure TFormGenPlanetsys.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFrmGenPlanetsys.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   F: Single;
@@ -6041,7 +6028,7 @@ begin { Going away or Not too close: WheelDelta Value is 120 or -120 }
   Handled := True;
 end;
 
-procedure TFormGenPlanetsys.CameraDistanceUpDownClick(Sender: TObject;
+procedure TFrmGenPlanetsys.CameraDistanceUpDownClick(Sender: TObject;
   Button: TUDBtnType);
 var
   WheelDeltas: Integer;
@@ -6060,13 +6047,13 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.DisplayToolbar1Click(Sender: TObject);
+procedure TFrmGenPlanetsys.DisplayToolbar1Click(Sender: TObject);
 begin
   DisplayToolbar1.Checked := (not DisplayToolbar1.Checked);
   ToggleToolbarDisplay;
 end;
 
-procedure TFormGenPlanetsys.ToggleToolbarDisplay;
+procedure TFrmGenPlanetsys.ToggleToolbarDisplay;
 Begin
   If DisplayToolbar1.Checked then
   begin // SolarOrbPanel
@@ -6102,7 +6089,7 @@ Begin
   end;
 End;
 
-procedure TFormGenPlanetsys.DisplayFPS1Click(Sender: TObject);
+procedure TFrmGenPlanetsys.DisplayFPS1Click(Sender: TObject);
 begin
   DisplayFPS1.Checked := (not DisplayFPS1.Checked);
   If DisplayFPS1.Checked then
@@ -6116,7 +6103,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.FullScreen1Click(Sender: TObject);
+procedure TFrmGenPlanetsys.FullScreen1Click(Sender: TObject);
 begin { fig FullScreen ? }
   GLSceneViewerA.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -6133,64 +6120,64 @@ begin { fig FullScreen ? }
   GLSceneViewerA.OnMouseMove := GLSceneViewerAMouseMove;
 end;
 
-procedure TFormGenPlanetsys.GLSceneViewerADblClick(Sender: TObject);
+procedure TFrmGenPlanetsys.GLSceneViewerADblClick(Sender: TObject);
 begin
   FullScreen1Click(Sender);
 end;
 
-procedure TFormGenPlanetsys.PlanetsLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.PlanetsLoadFakeTextureClick(Sender: TObject);
 begin
   PlanetsLoadFakeTexture.Checked := (not PlanetsLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.RingsLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.RingsLoadFakeTextureClick(Sender: TObject);
 begin
   RingsLoadFakeTexture.Checked := (not RingsLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.MoonsLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.MoonsLoadFakeTextureClick(Sender: TObject);
 begin
   MoonsLoadFakeTexture.Checked := (not MoonsLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.S3dsLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.S3dsLoadFakeTextureClick(Sender: TObject);
 begin
   S3dsLoadFakeTexture.Checked := (not S3dsLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.AsteroidsLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.AsteroidsLoadFakeTextureClick(Sender: TObject);
 begin
   AsteroidsLoadFakeTexture.Checked := (not AsteroidsLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.CometsLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.CometsLoadFakeTextureClick(Sender: TObject);
 begin
   CometsLoadFakeTexture.Checked := (not CometsLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.DebrisLoadFakeTextureClick(Sender: TObject);
+procedure TFrmGenPlanetsys.DebrisLoadFakeTextureClick(Sender: TObject);
 begin
   DebrisLoadFakeTexture.Checked := (not DebrisLoadFakeTexture.Checked);
 end;
 
-procedure TFormGenPlanetsys.DocIndexLinkCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.DocIndexLinkCBClick(Sender: TObject);
 begin
   { DocIndexLinkCB.Checked := (not DocIndexLinkCB.Checked); }
 end;
 
-procedure TFormGenPlanetsys.AtmosphereOnCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.AtmosphereOnCBClick(Sender: TObject);
 begin
   { Cant really 'Focus' on a Planet so Atmosphere is kinda a waste }
   { AtmosphereOnCB.Checked := (not AtmosphereOnCB.Checked); }
 end;
 
-procedure TFormGenPlanetsys.UseOrbitalElementsCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.UseOrbitalElementsCBClick(Sender: TObject);
 begin
   { UseOrbitalElementsCB.Checked := (not UseOrbitalElementsCB.Checked); }
 
 end;
 
-procedure TFormGenPlanetsys.LabelsOnCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.LabelsOnCBClick(Sender: TObject);
 begin { HUDLabel }
   GLFlatTextLabel.Visible := LabelsOnCB.Checked;
   { LabelsOnCB.Checked := (not LabelsOnCB.Checked); }
@@ -6203,7 +6190,7 @@ begin { HUDLabel }
     component. Default character scale is 1 font pixel = 1 space unit. }
 end;
 
-procedure TFormGenPlanetsys.SelectFontMenuClick(Sender: TObject);
+procedure TFrmGenPlanetsys.SelectFontMenuClick(Sender: TObject);
 begin
   FontDialogA.Font := WindowsBitmapFontA.Font;
   FontDialogA.Font.Color := GLFlatTextLabel.ModulateColor.AsWinColor;
@@ -6214,7 +6201,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.OrbitTrailsOnCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.OrbitTrailsOnCBClick(Sender: TObject);
 var
   i: Integer;
 begin { Clear at start AND End }
@@ -6224,18 +6211,18 @@ begin { Clear at start AND End }
   { OrbitTrailsOnCB.Checked := (not OrbitTrailsOnCB.Checked); }
 end;
 
-procedure TFormGenPlanetsys.DatePickerCBClick(Sender: TObject);
+procedure TFrmGenPlanetsys.DatePickerCBClick(Sender: TObject);
 begin
   DateTimePicker1.Visible := (DatePickerCB.Checked);
 end;
 
-procedure TFormGenPlanetsys.DateTimePicker1Change(Sender: TObject);
+procedure TFrmGenPlanetsys.DateTimePicker1Change(Sender: TObject);
 begin
   ShowMessage(Datetostr(DateTimePicker1.Date));
   OrbitalTime := DateTimePicker1.Date;
 end;
 
-procedure TFormGenPlanetsys.MoonScalex0Click(Sender: TObject);
+procedure TFrmGenPlanetsys.MoonScalex0Click(Sender: TObject);
 begin
   MoonScale := 0;
   Case MoonScale of
@@ -6248,7 +6235,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.MoonScalex10Click(Sender: TObject);
+procedure TFrmGenPlanetsys.MoonScalex10Click(Sender: TObject);
 begin
   MoonScale := 10;
   Case MoonScale of
@@ -6261,7 +6248,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.MoonScalex50Click(Sender: TObject);
+procedure TFrmGenPlanetsys.MoonScalex50Click(Sender: TObject);
 begin
   MoonScale := 50;
   Case MoonScale of
@@ -6274,7 +6261,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.SunScale20Click(Sender: TObject);
+procedure TFrmGenPlanetsys.SunScale20Click(Sender: TObject);
 begin
   SunScale := 20;
   Case SunScale of
@@ -6287,7 +6274,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.SunScale200Click(Sender: TObject);
+procedure TFrmGenPlanetsys.SunScale200Click(Sender: TObject);
 begin
   SunScale := 200;
   Case SunScale of
@@ -6300,7 +6287,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.SunScale2000Click(Sender: TObject);
+procedure TFrmGenPlanetsys.SunScale2000Click(Sender: TObject);
 begin
   SunScale := 2000;
   Case SunScale of
@@ -6313,7 +6300,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.OrbitTrails36Click(Sender: TObject);
+procedure TFrmGenPlanetsys.OrbitTrails36Click(Sender: TObject);
 begin
   MaxLines := 36;
   Case MaxLines of
@@ -6328,7 +6315,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.OrbitTrails360Click(Sender: TObject);
+procedure TFrmGenPlanetsys.OrbitTrails360Click(Sender: TObject);
 begin
   MaxLines := 360;
   Case MaxLines of
@@ -6343,7 +6330,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.OrbitTrails1000Click(Sender: TObject);
+procedure TFrmGenPlanetsys.OrbitTrails1000Click(Sender: TObject);
 begin
   MaxLines := 1000;
   Case MaxLines of
@@ -6358,7 +6345,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.OrbitTrails3600Click(Sender: TObject);
+procedure TFrmGenPlanetsys.OrbitTrails3600Click(Sender: TObject);
 begin
   MaxLines := 3600;
   Case MaxLines of
@@ -6373,7 +6360,7 @@ begin
   end;
 end;
 
-procedure TFormGenPlanetsys.SpudVersionConvertor1Click(Sender: TObject);
+procedure TFrmGenPlanetsys.SpudVersionConvertor1Click(Sender: TObject);
 begin
   ///HoloSpudVCForm.Show;
 end;

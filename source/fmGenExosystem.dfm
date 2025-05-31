@@ -1,9 +1,9 @@
-object FormGenPlanetsys: TFormGenPlanetsys
+object FrmGenPlanetsys: TFrmGenPlanetsys
   Left = 30
   Top = 20
   Caption = 'Stellar system generator'
-  ClientHeight = 501
-  ClientWidth = 752
+  ClientHeight = 582
+  ClientWidth = 900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -45,13 +45,13 @@ object FormGenPlanetsys: TFormGenPlanetsys
   object GLSceneViewerA: TGLSceneViewer
     Left = 345
     Top = 0
-    Width = 407
-    Height = 482
+    Width = 555
+    Height = 563
     Camera = GLCamera
     BeforeRender = GLSceneViewerABeforeRender
     Buffer.BackgroundColor = clBackground
     Buffer.AmbientColor.Color = {9A99193F9A99193F9A99193F0000803F}
-    FieldOfView = 152.391708374023400000
+    FieldOfView = 159.572052001953100000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewerAMouseEnter
     Align = alClient
@@ -60,25 +60,27 @@ object FormGenPlanetsys: TFormGenPlanetsys
     OnMouseDown = GLSceneViewerAMouseDown
     OnMouseUp = GLSceneViewerAMouseUp
     TabOrder = 1
-    ExplicitWidth = 415
+    ExplicitWidth = 408
+    ExplicitHeight = 482
   end
   object SolarDataPanel: TPanel
     Left = 0
     Top = 0
     Width = 345
-    Height = 482
+    Height = 563
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 457
     object ToolBarGB: TGroupBox
       Left = 1
       Top = 1
       Width = 343
-      Height = 480
+      Height = 561
       Align = alClient
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      ExplicitWidth = 344
+      ExplicitHeight = 455
       object Label2: TLabel
         Left = 20
         Top = 101
@@ -717,7 +719,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 97
         Top = 48
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'Planet'
         Associate = PlanetEdit
         TabOrder = 4
@@ -726,7 +728,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 177
         Top = 48
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'Asteroid'
         Associate = AsteroidEdit
         TabOrder = 5
@@ -743,7 +745,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 241
         Top = 48
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'Comet'
         Associate = CometEdit
         TabOrder = 7
@@ -768,7 +770,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 305
         Top = 48
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'Debris'
         Associate = DebrisEdit
         TabOrder = 10
@@ -787,7 +789,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 97
         Top = 72
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'Rings'
         Associate = RingsEdit
         TabOrder = 12
@@ -806,7 +808,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 97
         Top = 96
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'Moons'
         Associate = MoonsEdit
         TabOrder = 14
@@ -862,7 +864,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 194
         Top = 416
         Width = 145
-        Height = 32
+        Height = 21
         Hint = 'Center of the Universe'
         TabOrder = 18
         OnChange = PlanetPickerCBChange
@@ -1012,7 +1014,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 177
         Top = 72
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'S3ds'
         Associate = AS3dsEdit
         TabOrder = 23
@@ -1029,7 +1031,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 241
         Top = 72
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'S3ds'
         Associate = CS3dsEdit
         TabOrder = 25
@@ -1046,7 +1048,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 305
         Top = 72
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'S3ds'
         Associate = DS3dsEdit
         TabOrder = 27
@@ -1063,7 +1065,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 33
         Top = 48
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'S3ds'
         Associate = Edit4
         TabOrder = 32
@@ -1072,7 +1074,7 @@ object FormGenPlanetsys: TFormGenPlanetsys
         Left = 97
         Top = 120
         Width = 16
-        Height = 18
+        Height = 21
         Hint = 'S3ds'
         Associate = PS3dsEdit
         TabOrder = 34
@@ -1235,13 +1237,15 @@ object FormGenPlanetsys: TFormGenPlanetsys
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 482
-    Width = 752
+    Top = 563
+    Width = 900
     Height = 19
     Panels = <
       item
         Width = 86
       end>
+    ExplicitTop = 457
+    ExplicitWidth = 744
   end
   object GLCadencerA: TGLCadencer
     Scene = GLSceneA

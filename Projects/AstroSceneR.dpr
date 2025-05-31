@@ -15,7 +15,7 @@ uses
   Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fmAstroSceneR in '..\source\fmAstroSceneR.pas' {frmAllplanets},
+  fmAstroSceneR in '..\source\fmAstroSceneR.pas' {FormAstroScene},
   fmOptionsR in '..\source\fmOptionsR.pas' {frmOptions},
   fmGenExosysR in '..\source\fmGenExosysR.pas' {FormGenPlanetsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
@@ -43,7 +43,7 @@ uses
 begin
   Application.Initialize;
 //  TStyleManager.TrySetStyle('Windows10');
-  Application.CreateForm(TfrmAllplanets, frmAllplanets);
+  Application.CreateForm(TFormAstroScene, FormAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);

@@ -106,7 +106,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\fmAstroSceneR.pas">
-            <Form>frmAllplanets</Form>
+            <Form>FormAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmOptionsR.pas">
             <Form>frmOptions</Form>

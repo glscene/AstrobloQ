@@ -70,8 +70,8 @@ uses
   fmFormI,
   fmAbout,
 
-  faConstPolygons,
   faCoordinates,
+  faConstPolygons,
   faPointto,
   faHipparcos,
   faHercRussel
@@ -160,6 +160,7 @@ type
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
     ClearTreeView1: TMenuItem;
+    Constellations1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -190,6 +191,7 @@ type
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miCoordinatesClick(Sender: TObject);
     procedure ClearTreeView1Click(Sender: TObject);
+    procedure Constellations1Click(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -367,36 +369,6 @@ begin
     DirectOpenGL.Visible := False;
 end;
 
-
-//---------------------------------------------------------------------
-// Generator of exoplanet systems
-//----------------------------------------------------------------------
-procedure TFormAstroScene.miExogenClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  Cadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenPlanetsys.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
- (*
-  // New exoplanet system
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
-  Timer.Enabled := True;
-  Cadencer.Enabled := True;
-end;
 
 
 //------------------------------------------------------------------
@@ -642,6 +614,7 @@ procedure TFormAstroScene.LoadStarBayers(const aDataPath: TFileName);
 begin
   //
 end;
+
 
 
 //------------------------------------------------------------------
@@ -943,7 +916,20 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Polygons for constellations
+// View Constellations
+//------------------------------------------------------------------
+procedure TFormAstroScene.Constellations1Click(Sender: TObject);
+begin
+  with TFrmConstellations.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//------------------------------------------------------------------
+// View Polygons for constellations
 //------------------------------------------------------------------
 procedure TFormAstroScene.miConstPolygonsClick(Sender: TObject);
 begin
@@ -956,11 +942,24 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Coordinates on Planet surface
+// View Coordinates on Planet surface
 //------------------------------------------------------------------
 procedure TFormAstroScene.miCoordinatesClick(Sender: TObject);
 begin
   with TFormCoords.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//------------------------------------------------------------------
+// View PointToOrbit
+//------------------------------------------------------------------
+procedure TFormAstroScene.miPointToClick(Sender: TObject);
+begin
+  with TFormPointto.Create(Self) do
   try
     ShowModal;
   finally
@@ -985,18 +984,38 @@ begin
 *)
 end;
 
-//------------------------------------------------------------------
-// PointToOrbit
-//------------------------------------------------------------------
-procedure TFormAstroScene.miPointToClick(Sender: TObject);
+
+//---------------------------------------------------------------------
+// Tools Generator of exoplanet systems
+//----------------------------------------------------------------------
+procedure TFormAstroScene.miExogenClick(Sender: TObject);
 begin
-  with TFormPointto.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
+  Timer.Enabled := False;
+  Cadencer.Enabled := False;
+(*
+  if FileExists(AppPath + 'EarthAbcde.exe') then
+    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
+*)
+  with TFrmGenPlanetsys.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+ (*
+  // New exoplanet system
+  with TFrmNewSystem.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+*)
+  Timer.Enabled := True;
+  Cadencer.Enabled := True;
 end;
+
+
 
 //------------------------------------------------------------------
 // Help in wiki
@@ -1033,7 +1052,7 @@ end;
 
 
 //------------------------------------------------------------------
-// About
+// Help About
 //------------------------------------------------------------------
 procedure TFormAstroScene.miHelpAboutClick(Sender: TObject);
 begin
