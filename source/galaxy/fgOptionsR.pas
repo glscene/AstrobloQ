@@ -192,6 +192,8 @@ implementation //------------------------------------------------------------
 
 {$R *.dfm}
 
+uses
+  fgGalaxysetiR;
 
 //---------------------------------------------------------------------------
 procedure TFormOptions.FormCreate(Sender: TObject);

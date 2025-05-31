@@ -134,11 +134,6 @@ type
     PanelRight: TPanel;
     Window1: TMenuItem;
     miHidePanels: TMenuItem;
-    File1: TMenuItem;
-    New1: TMenuItem;
-    Open1: TMenuItem;
-    Save1: TMenuItem;
-    SaveAs1: TMenuItem;
     stPickObject: TStaticText;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
@@ -151,10 +146,6 @@ type
     StatusBarStar: TStatusBar;
     miInnerCore: TMenuItem;
     N1: TMenuItem;
-    N2: TMenuItem;
-    N3: TMenuItem;
-    Help1: TMenuItem;
-    miWiki: TMenuItem;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -166,7 +157,6 @@ type
     procedure cbOrbitClick(Sender: TObject);
     procedure cbRotationClick(Sender: TObject);
     procedure cbHabitableZoneClick(Sender: TObject);
-    procedure Open1Click(Sender: TObject);
     procedure TreeViewClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
@@ -299,13 +289,6 @@ begin
   SceneViewer.Invalidate;
 end;
 
-
-// Open File dialog
-//
-procedure TFormStarSys.Open1Click(Sender: TObject);
-begin
-  //
-end;
 
 // CadencerProgress
 //

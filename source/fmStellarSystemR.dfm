@@ -32,7 +32,6 @@ object FormStarSys: TFormStarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 674
   end
   object PanelLeft: TPanel
     Left = 0
@@ -43,6 +42,7 @@ object FormStarSys: TFormStarSys
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
+    ExplicitHeight = 519
     object TreeView: TTreeView
       Left = 4
       Top = 4
@@ -55,6 +55,7 @@ object FormStarSys: TFormStarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 511
     end
   end
   object PanelRight: TPanel
@@ -64,6 +65,8 @@ object FormStarSys: TFormStarSys
     Height = 544
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 853
+    ExplicitHeight = 519
     object Splitter1: TSplitter
       Left = 1
       Top = 29
@@ -84,7 +87,6 @@ object FormStarSys: TFormStarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -117,6 +119,7 @@ object FormStarSys: TFormStarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 4
+      ExplicitTop = 389
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -136,6 +139,8 @@ object FormStarSys: TFormStarSys
     Width = 997
     Height = 19
     Panels = <>
+    ExplicitTop = 519
+    ExplicitWidth = 989
   end
   object Scene: TGLScene
     Left = 24
@@ -747,47 +752,19 @@ object FormStarSys: TFormStarSys
   object MainMenu: TMainMenu
     Left = 358
     Top = 32
-    object File1: TMenuItem
-      Caption = 'File'
-      object New1: TMenuItem
-        Caption = '&New'
-      end
-      object Open1: TMenuItem
-        Caption = 'Open...'
-        OnClick = Open1Click
-      end
-      object Save1: TMenuItem
-        Caption = 'Save'
-      end
-      object SaveAs1: TMenuItem
-        Caption = 'Save &As...'
-      end
-      object N2: TMenuItem
-        Caption = '-'
-      end
-      object N3: TMenuItem
-        Caption = 'Exit'
-      end
-    end
     object Window1: TMenuItem
-      Caption = 'View'
+      Caption = #1042#1080#1076
       object miInnerCore: TMenuItem
-        Caption = 'Core'
+        Caption = #1056#1072#1079#1088#1077#1079
         OnClick = miInnerCoreClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miHidePanels: TMenuItem
-        Caption = '&Hide Panels'
+        Caption = '&'#1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
         Checked = True
         OnClick = miHidePanelsClick
-      end
-    end
-    object Help1: TMenuItem
-      Caption = 'Help'
-      object miWiki: TMenuItem
-        Caption = 'Wiki'
       end
     end
   end

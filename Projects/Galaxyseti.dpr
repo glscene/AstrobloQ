@@ -1,11 +1,11 @@
-program Galaxceti;
+program Galaxyseti;
 
 
 uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgGalaxceti in '..\source\galaxy\fgGalaxceti.pas' {FormGalaxeti},
+  fgGalaxyseti in '..\source\galaxy\fgGalaxyseti.pas' {FormGalaxyseti},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
@@ -30,7 +30,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormGalaxeti, FormGalaxeti);
+  Application.CreateForm(TFormGalaxyseti, FormGalaxyseti);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);

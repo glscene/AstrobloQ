@@ -193,7 +193,7 @@ implementation //------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  fgGalaxceti;
+  fgGalaxyseti;
 
 //---------------------------------------------------------------------------
 procedure TfrmOption.FormCreate(Sender: TObject);

@@ -1,7 +1,7 @@
-object FormGalaxceti: TFormGalaxceti
+object FormGalaxyseti: TFormGalaxyseti
   Left = 0
   Top = 0
-  Caption = 'GalaxCETIr'
+  Caption = 'Galaxyseti'
   ClientHeight = 601
   ClientWidth = 982
   Color = clBtnFace
@@ -204,54 +204,54 @@ object FormGalaxceti: TFormGalaxceti
           Left = 6
           Top = 47
           Width = 201
-          Height = 330
-          Caption = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1077' '#1082#1083#1072#1089#1089#1099
+          Height = 338
+          Caption = 'Spectral classes'
           TabOrder = 0
           object shO: TShape
             Left = 48
-            Top = 39
+            Top = 31
             Width = 29
             Height = 24
             Brush.Color = clHotLight
           end
           object shB: TShape
             Left = 48
-            Top = 69
+            Top = 61
             Width = 29
             Height = 24
             Brush.Color = clSkyBlue
           end
           object shA: TShape
             Left = 48
-            Top = 103
+            Top = 95
             Width = 29
             Height = 24
             Brush.Color = clCream
           end
           object shG: TShape
             Left = 48
-            Top = 174
+            Top = 166
             Width = 29
             Height = 24
             Brush.Color = clYellow
           end
           object shK: TShape
             Left = 48
-            Top = 207
+            Top = 199
             Width = 29
             Height = 24
             Brush.Color = clOrange
           end
           object shF: TShape
             Left = 48
-            Top = 137
+            Top = 129
             Width = 29
             Height = 24
             Brush.Color = clKhaki
           end
           object shM: TShape
             Left = 48
-            Top = 240
+            Top = 232
             Width = 29
             Height = 24
             Brush.Color = clRed
@@ -265,14 +265,14 @@ object FormGalaxceti: TFormGalaxceti
           end
           object Label2: TLabel
             Left = 139
-            Top = 18
-            Width = 44
+            Top = 23
+            Width = 58
             Height = 21
-            Caption = #1063#1080#1089#1083#1086
+            Caption = 'Number'
           end
           object shW: TShape
             Left = 52
-            Top = 281
+            Top = 273
             Width = 29
             Height = 24
             ParentShowHint = False
@@ -280,7 +280,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbO: TCheckBox
             Left = 8
-            Top = 42
+            Top = 34
             Width = 34
             Height = 17
             Caption = 'O'
@@ -292,7 +292,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbB: TCheckBox
             Left = 8
-            Top = 76
+            Top = 68
             Width = 34
             Height = 17
             Caption = 'B'
@@ -304,7 +304,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbA: TCheckBox
             Left = 8
-            Top = 110
+            Top = 102
             Width = 34
             Height = 17
             Caption = 'A'
@@ -316,7 +316,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbF: TCheckBox
             Left = 8
-            Top = 143
+            Top = 135
             Width = 34
             Height = 17
             Caption = 'F'
@@ -328,7 +328,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbG: TCheckBox
             Left = 8
-            Top = 177
+            Top = 169
             Width = 34
             Height = 17
             Caption = 'G'
@@ -342,7 +342,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbK: TCheckBox
             Left = 8
-            Top = 217
+            Top = 209
             Width = 34
             Height = 17
             Caption = 'K'
@@ -356,7 +356,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbM: TCheckBox
             Left = 8
-            Top = 245
+            Top = 237
             Width = 34
             Height = 17
             Caption = 'M'
@@ -368,7 +368,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbO: TNumberBox
             Left = 87
-            Top = 45
+            Top = 37
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -380,7 +380,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbB: TNumberBox
             Left = 88
-            Top = 75
+            Top = 67
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -392,7 +392,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbA: TNumberBox
             Left = 88
-            Top = 109
+            Top = 101
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -404,7 +404,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbF: TNumberBox
             Left = 88
-            Top = 144
+            Top = 136
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -416,7 +416,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbG: TNumberBox
             Left = 88
-            Top = 180
+            Top = 172
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -428,7 +428,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbK: TNumberBox
             Left = 88
-            Top = 211
+            Top = 203
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -440,7 +440,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbM: TNumberBox
             Left = 88
-            Top = 244
+            Top = 236
             Width = 46
             Height = 29
             Alignment = taCenter
@@ -452,7 +452,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbAn: TNumberBox
             Left = 139
-            Top = 109
+            Top = 101
             Width = 54
             Height = 29
             Alignment = taCenter
@@ -463,7 +463,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbMn: TNumberBox
             Left = 139
-            Top = 244
+            Top = 236
             Width = 54
             Height = 29
             Alignment = taCenter
@@ -474,7 +474,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbKn: TNumberBox
             Left = 139
-            Top = 207
+            Top = 199
             Width = 54
             Height = 29
             Alignment = taCenter
@@ -485,7 +485,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbGn: TNumberBox
             Left = 139
-            Top = 179
+            Top = 171
             Width = 54
             Height = 29
             Alignment = taCenter
@@ -496,7 +496,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbFn: TNumberBox
             Left = 141
-            Top = 143
+            Top = 135
             Width = 53
             Height = 29
             Alignment = taCenter
@@ -507,7 +507,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbBn: TNumberBox
             Left = 139
-            Top = 74
+            Top = 66
             Width = 54
             Height = 29
             Alignment = taCenter
@@ -518,7 +518,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbOn: TNumberBox
             Left = 139
-            Top = 45
+            Top = 37
             Width = 54
             Height = 29
             Alignment = taCenter
@@ -529,7 +529,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object chbD: TCheckBox
             Left = 6
-            Top = 281
+            Top = 273
             Width = 40
             Height = 24
             Hint = 'White Dwaft'
@@ -540,7 +540,7 @@ object FormGalaxceti: TFormGalaxceti
           end
           object nbWn: TNumberBox
             Left = 144
-            Top = 283
+            Top = 275
             Width = 45
             Height = 29
             Alignment = taCenter
@@ -554,8 +554,8 @@ object FormGalaxceti: TFormGalaxceti
           end
         end
         object seNStars: TSpinEdit
-          Left = 136
-          Top = 15
+          Left = 120
+          Top = 18
           Width = 73
           Height = 32
           MaxValue = 1000000
@@ -567,9 +567,9 @@ object FormGalaxceti: TFormGalaxceti
         object chbAll: TCheckBox
           Left = 21
           Top = 18
-          Width = 109
-          Height = 23
-          Caption = #1042#1089#1077' '#1079#1074#1105#1079#1076#1099
+          Width = 76
+          Height = 17
+          Caption = 'All stars'
           TabOrder = 2
           OnClick = chbAllClick
         end
@@ -757,40 +757,40 @@ object FormGalaxceti: TFormGalaxceti
     end
   end
   object MainMenu: TMainMenu
-    Left = 648
-    Top = 107
+    Left = 728
+    Top = 179
     object miFile: TMenuItem
-      Caption = '&'#1060#1072#1081#1083
+      Caption = '&File'
       object miNewStarcube: TMenuItem
-        Caption = #1053#1086#1074#1099#1081'...'
+        Caption = 'New...'
         OnClick = miNewStarcubeClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        Caption = 'Open...'
         ImageIndex = 2
         OnClick = miOpenClick
       end
       object miSave: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        Caption = 'Save'
       end
       object miSaveAs: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1089#1094#1077#1085#1091' '#1082#1072#1082'...'
+        Caption = 'Save as...'
         OnClick = miSaveAsClick
       end
       object miN2: TMenuItem
         Caption = '-'
       end
       object miExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         ImageIndex = 14
         OnClick = miExitClick
       end
     end
     object miEdit: TMenuItem
-      Caption = '&'#1055#1088#1072#1074#1082#1072
+      Caption = '&Edit'
       object miUndo: TMenuItem
         Caption = 'Cancel'
         ShortCut = 16474
@@ -830,27 +830,27 @@ object FormGalaxceti: TFormGalaxceti
       end
     end
     object miMethod: TMenuItem
-      Caption = '&'#1052#1077#1090#1086#1076
+      Caption = '&Method'
       object miGridding: TMenuItem
-        Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
+        Caption = 'Gridding...'
       end
       object miInterpolation: TMenuItem
-        Caption = #1048#1085#1090#1077#1088#1087#1086#1083#1103#1094#1080#1103'...'
+        Caption = 'Interpolation...'
       end
       object miTetralization: TMenuItem
-        Caption = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
+        Caption = 'Tetralization...'
       end
       object N4: TMenuItem
         Caption = '-'
       end
       object ranslator1: TMenuItem
-        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
+        Caption = 'Translator...'
       end
     end
     object miView: TMenuItem
-      Caption = '&'#1042#1080#1076
+      Caption = '&View'
       object miExoplanets: TMenuItem
-        Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
+        Caption = 'Exoplanets...'
         OnClick = miExoplanetsClick
       end
       object N3: TMenuItem
@@ -878,12 +878,9 @@ object FormGalaxceti: TFormGalaxceti
       end
     end
     object miTools: TMenuItem
-      Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
-      object miSettings: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
-      end
+      Caption = '&Tools'
       object miOptions: TMenuItem
-        Caption = #1054#1087#1094#1080#1080'...'
+        Caption = 'Options...'
         ImageIndex = 130
         OnClick = miOptionsClick
       end
@@ -891,11 +888,11 @@ object FormGalaxceti: TFormGalaxceti
         Caption = '-'
       end
       object miAnalyser: TMenuItem
-        Caption = #1040#1085#1072#1083#1080#1079#1072#1090#1086#1088'...'
+        Caption = 'Analyser...'
         OnClick = miAnalyserClick
       end
       object miMonitor: TMenuItem
-        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
+        Caption = 'Monitor...'
         OnClick = miMonitorClick
       end
       object miProjection: TMenuItem
@@ -903,12 +900,12 @@ object FormGalaxceti: TFormGalaxceti
         OnClick = miProjectionClick
       end
       object miParadox: TMenuItem
-        Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1062'...'
+        Caption = 'Paradox...'
         OnClick = miParadoxClick
       end
     end
     object miHelp: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = '&Help'
       object miRuwiki: TMenuItem
         Caption = 'Ruwiki...'
       end
@@ -916,7 +913,7 @@ object FormGalaxceti: TFormGalaxceti
         Caption = '-'
       end
       object miAbout: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'About...'
         OnClick = miAboutClick
       end
     end
@@ -935,7 +932,7 @@ object FormGalaxceti: TFormGalaxceti
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'GalaxCETIr'
+    FormCaption = 'Galaxyseti'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -949,7 +946,6 @@ object FormGalaxceti: TFormGalaxceti
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    OnMouseMove = GLSimpleNavigationMouseMove
     Left = 532
     Top = 243
   end

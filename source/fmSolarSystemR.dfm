@@ -32,7 +32,6 @@ object FormSolarSys: TFormSolarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 645
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -65,6 +65,8 @@ object FormSolarSys: TFormSolarSys
     Height = 535
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 824
+    ExplicitHeight = 510
     object Splitter1: TSplitter
       Left = 1
       Top = 18
@@ -86,7 +88,6 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -119,6 +120,7 @@ object FormSolarSys: TFormSolarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
+      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -785,55 +787,19 @@ object FormSolarSys: TFormSolarSys
   object MainMenu: TMainMenu
     Left = 358
     Top = 32
-    object File1: TMenuItem
-      Caption = 'File'
-      object New1: TMenuItem
-        Caption = 'New'
-      end
-      object Open1: TMenuItem
-        Caption = 'Open...'
-        OnClick = Open1Click
-      end
-      object Save1: TMenuItem
-        Caption = 'Save'
-      end
-      object SaveAs1: TMenuItem
-        Caption = 'Save as...'
-      end
-      object N2: TMenuItem
-        Caption = '-'
-      end
-      object Exit1: TMenuItem
-        Caption = 'Exit'
-        OnClick = Exit1Click
-      end
-    end
     object Window1: TMenuItem
-      Caption = 'View'
+      Caption = #1042#1080#1076
       object miInnerCore: TMenuItem
-        Caption = 'Core'
+        Caption = #1056#1072#1079#1088#1077#1079
         OnClick = miInnerCoreClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miHidePanels: TMenuItem
-        Caption = 'Hide panels'
+        Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
         Checked = True
         OnClick = miHidePanelsClick
-      end
-    end
-    object Help1: TMenuItem
-      Caption = 'Help'
-      object miWiki: TMenuItem
-        Caption = 'Wiki'
-      end
-      object N7: TMenuItem
-        Caption = '-'
-      end
-      object About1: TMenuItem
-        Caption = 'About...'
-        OnClick = About1Click
       end
     end
   end

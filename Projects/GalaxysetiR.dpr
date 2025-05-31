@@ -1,4 +1,4 @@
-program GalaxcetiR;
+program GalaxysetiR;
 
 
 uses
@@ -10,7 +10,7 @@ uses
   fgExoplanetsR in '..\source\galaxy\fgExoplanetsR.pas' {FormExoplanets},
   fgAstrocubeR in '..\source\galaxy\fgAstrocubeR.pas' {FormNewStarcube},
   fgOptionsR in '..\source\galaxy\fgOptionsR.pas' {FormOptions},
-  fgGalaxcetiR in '..\source\galaxy\fgGalaxcetiR.pas' {FormGalaxceti},
+  fgGalaxysetiR in '..\source\galaxy\fgGalaxysetiR.pas' {FormGalaxyseti},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
@@ -29,7 +29,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFormGalaxceti, FormGalaxceti);
+  Application.CreateForm(TFormGalaxyseti, FormGalaxyseti);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);

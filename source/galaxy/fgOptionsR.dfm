@@ -5,8 +5,6 @@ inherited FormOptions: TFormOptions
   ClientWidth = 1297
   Font.Height = -19
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1313
   ExplicitHeight = 784
   TextHeight = 25
@@ -92,7 +90,7 @@ inherited FormOptions: TFormOptions
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPathway
+      ActivePage = tsGalaxy
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -459,7 +457,7 @@ inherited FormOptions: TFormOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1095#1080#1089#1083#1072' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090
+          Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1090#1077#1093#1085#1086#1089#1092#1077#1088
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -1141,7 +1139,7 @@ inherited FormOptions: TFormOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 106
+          Left = 98
           Top = 53
           Width = 149
           Height = 200
@@ -1316,6 +1314,8 @@ inherited FormOptions: TFormOptions
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
+          ExplicitWidth = 1061
+          ExplicitHeight = 636
           object LabelStarI: TLabel
             Left = 75
             Top = 70

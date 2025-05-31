@@ -27,6 +27,9 @@
         <Projects Include="Starbox\Starbox.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="StarProj\StarViewerC.cbproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -107,14 +110,23 @@
     <Target Name="Starbox:Make">
         <MSBuild Projects="Starbox\Starbox.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="StarViewerC">
+        <MSBuild Projects="StarProj\StarViewerC.cbproj"/>
+    </Target>
+    <Target Name="StarViewerC:Clean">
+        <MSBuild Projects="StarProj\StarViewerC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarViewerC:Make">
+        <MSBuild Projects="StarProj\StarViewerC.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ViewerHYG;Starnets;Starnetc;Starnetx;StarProj;StarsysGen;RandomStars;Starbox"/>
+        <CallTarget Targets="ViewerHYG;Starnets;Starnetc;Starnetx;StarProj;StarsysGen;RandomStars;Starbox;StarViewerC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ViewerHYG:Clean;Starnets:Clean;Starnetc:Clean;Starnetx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean"/>
+        <CallTarget Targets="ViewerHYG:Clean;Starnets:Clean;Starnetc:Clean;Starnetx:Clean;StarProj:Clean;StarsysGen:Clean;RandomStars:Clean;Starbox:Clean;StarViewerC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ViewerHYG:Make;Starnets:Make;Starnetc:Make;Starnetx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make"/>
+        <CallTarget Targets="ViewerHYG:Make;Starnets:Make;Starnetc:Make;Starnetx:Make;StarProj:Make;StarsysGen:Make;RandomStars:Make;Starbox:Make;StarViewerC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
