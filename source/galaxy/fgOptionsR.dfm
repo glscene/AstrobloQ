@@ -19,8 +19,6 @@ inherited FormOptions: TFormOptions
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 648
-    ExplicitWidth = 1289
     object ButtonOk: TButton
       Left = 1079
       Top = 10
@@ -47,8 +45,6 @@ inherited FormOptions: TFormOptions
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 1289
-    ExplicitHeight = 648
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -79,7 +75,6 @@ inherited FormOptions: TFormOptions
         FFFF0600000000000000000000000001071F043B0430043D04350442044B0400
         00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
         000001041F04430442043804}
-      ExplicitHeight = 646
     end
     object PageControl: TPageControl
       Left = 219
@@ -94,8 +89,6 @@ inherited FormOptions: TFormOptions
       Align = alClient
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1069
-      ExplicitHeight = 646
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -457,7 +450,7 @@ inherited FormOptions: TFormOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1060#1086#1088#1084#1091#1083#1072' '#1044#1088#1077#1081#1082#1072' '#1076#1083#1103' '#1090#1077#1093#1085#1086#1089#1092#1077#1088
+          Caption = #1059#1088#1072#1074#1085#1077#1085#1080#1077' '#1044#1088#1077#1081#1082#1072
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -1139,7 +1132,7 @@ inherited FormOptions: TFormOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 98
+          Left = 90
           Top = 53
           Width = 149
           Height = 200
@@ -1314,8 +1307,6 @@ inherited FormOptions: TFormOptions
           Margins.Bottom = 5
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 1061
-          ExplicitHeight = 636
           object LabelStarI: TLabel
             Left = 75
             Top = 70

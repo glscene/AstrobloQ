@@ -1,4 +1,4 @@
-unit fgGalaxyseti;
+unit fgGalaxyCETI;
 
 interface
 
@@ -64,7 +64,7 @@ uses
   Astro.Utils;
 
 type
-  TFormGalaxyseti = class(TFormI)
+  TFormGalaxyCETI = class(TFormI)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -251,7 +251,7 @@ const
   crSlidezy = 10;
 
 var
-  FormGalaxyseti: TFormGalaxyseti;
+  FormGalaxyCETI: TFormGalaxyCETI;
 
 implementation //-------------------------------------------------------------
 
@@ -263,7 +263,7 @@ uses
 
 
 // -----------------------------------------------------------------------
-procedure TFormGalaxyseti.FormCreate(Sender: TObject);
+procedure TFormGalaxyCETI.FormCreate(Sender: TObject);
 begin
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
@@ -273,7 +273,7 @@ begin
 end;
 
 // -----------------------------------------------------------
-procedure TFormGalaxyseti.GLCadencerProgress(Sender: TObject;
+procedure TFormGalaxyCETI.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   if frmOption.CheckBoxRotate.Checked and
@@ -294,13 +294,13 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalaxyseti.GLAsyncTimerTimer(Sender: TObject);
+procedure TFormGalaxyCETI.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
 // ------------------------------------------------------------
-procedure TFormGalaxyseti.MakeRandomStars;
+procedure TFormGalaxyCETI.MakeRandomStars;
 var
   i: Integer;
   Edge, Edge05: Integer;
@@ -403,20 +403,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaxyseti.ButtonClearClick(Sender: TObject);
+procedure TFormGalaxyCETI.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaxyseti.ButtonAddStarsClick(Sender: TObject);
+procedure TFormGalaxyCETI.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaxyseti.chbAllClick(Sender: TObject);
+procedure TFormGalaxyCETI.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -428,27 +428,27 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaxyseti.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaxyCETI.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalaxyseti.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TFormGalaxyCETI.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaxyseti.tbAxesClick(Sender: TObject);
+procedure TFormGalaxyCETI.tbAxesClick(Sender: TObject);
 begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormGalaxyseti.tbSolarcubeClick(Sender: TObject);
+procedure TFormGalaxyCETI.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -469,7 +469,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-function TFormGalaxyseti.ReadHygStars: Boolean;
+function TFormGalaxyCETI.ReadHygStars: Boolean;
 var
   i: Integer;
 
@@ -539,7 +539,7 @@ end;
 // -------------------------------------------------------------
 //                         File menu
 // -------------------------------------------------------------
-procedure TFormGalaxyseti.miOpenClick(Sender: TObject);
+procedure TFormGalaxyCETI.miOpenClick(Sender: TObject);
 begin
 //  dcSolcube.DeleteChildren();
   Stars.Free();
@@ -563,7 +563,7 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalaxyseti.miSaveAsClick(Sender: TObject);
+procedure TFormGalaxyCETI.miSaveAsClick(Sender: TObject);
 begin
   if DataModuleDialogs.SaveTextFileDialog.Execute then
     if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
@@ -574,7 +574,7 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TFormGalaxyseti.seNStarsChange(Sender: TObject);
+procedure TFormGalaxyCETI.seNStarsChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
   nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -586,12 +586,12 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalaxyseti.miOptionsClick(Sender: TObject);
+procedure TFormGalaxyCETI.miOptionsClick(Sender: TObject);
 begin
   frmOption.Show;
 end;
 
-procedure TFormGalaxyseti.miNewStarcubeClick(Sender: TObject);
+procedure TFormGalaxyCETI.miNewStarcubeClick(Sender: TObject);
 begin
   with TFormAstrocube.Create(Self) do
     try
@@ -604,7 +604,7 @@ end;
 //------------------------------------------------------------------------
 //                           View menu
 //------------------------------------------------------------------------
-procedure TFormGalaxyseti.miExoplanetsClick(Sender: TObject);
+procedure TFormGalaxyCETI.miExoplanetsClick(Sender: TObject);
 begin
   with TFormExoplanets.Create(Self) do
     try
@@ -614,7 +614,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyseti.miLithosphereClick(Sender: TObject);
+procedure TFormGalaxyCETI.miLithosphereClick(Sender: TObject);
 begin
 {
   with TfrmLitosphere.Create(Self) do
@@ -626,7 +626,7 @@ begin
 }
 end;
 
-procedure TFormGalaxyseti.miBiosphereClick(Sender: TObject);
+procedure TFormGalaxyCETI.miBiosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -636,7 +636,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyseti.miTechnosphereClick(Sender: TObject);
+procedure TFormGalaxyCETI.miTechnosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -646,7 +646,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyseti.miPanelShowClick(Sender: TObject);
+procedure TFormGalaxyCETI.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
@@ -656,7 +656,7 @@ end;
 //-----------------------------------------------------------------------
 //                         Tools menu
 //-----------------------------------------------------------------------
-procedure TFormGalaxyseti.miMonitorClick(Sender: TObject);
+procedure TFormGalaxyCETI.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -666,7 +666,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyseti.miAnalyserClick(Sender: TObject);
+procedure TFormGalaxyCETI.miAnalyserClick(Sender: TObject);
 begin
   with TFormAnalyser.Create(Self) do
     try
@@ -676,7 +676,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyseti.miProjectionClick(Sender: TObject);
+procedure TFormGalaxyCETI.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -686,7 +686,7 @@ begin
     end;
 end;
 
-procedure TFormGalaxyseti.miParadoxClick(Sender: TObject);
+procedure TFormGalaxyCETI.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
     try
@@ -699,7 +699,7 @@ end;
 // -------------------------------------------------------------
 //                                Help menu
 // -------------------------------------------------------------
-procedure TFormGalaxyseti.miAboutClick(Sender: TObject);
+procedure TFormGalaxyCETI.miAboutClick(Sender: TObject);
 begin
   with TFrmAbout.Create(Self) do
     try
@@ -711,7 +711,7 @@ end;
 
 
 // -------------------------------------------------------------
-procedure TFormGalaxyseti.miExitClick(Sender: TObject);
+procedure TFormGalaxyCETI.miExitClick(Sender: TObject);
 begin
   Close();
 end;

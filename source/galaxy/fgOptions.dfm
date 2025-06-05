@@ -18,8 +18,6 @@ inherited frmOption: TfrmOption
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 662
-    ExplicitWidth = 1305
     object ButtonOk: TButton
       Left = 703
       Top = -926
@@ -46,8 +44,6 @@ inherited frmOption: TfrmOption
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 1305
-    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -92,8 +88,6 @@ inherited frmOption: TfrmOption
       Align = alClient
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1085
-      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -443,7 +437,7 @@ inherited frmOption: TfrmOption
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Drake formula for technospheres'
+          Caption = 'Drake'#39's Equation'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -1149,7 +1143,7 @@ inherited frmOption: TfrmOption
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 114
+          Left = 106
           Top = 53
           Width = 149
           Height = 200
