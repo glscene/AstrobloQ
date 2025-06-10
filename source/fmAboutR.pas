@@ -35,7 +35,7 @@ type
     tsBiosphere: TTabSheet;
     tsTehnosfera: TTabSheet;
     tsAstroScene: TTabSheet;
-    tsGalaktika: TTabSheet;
+    tsGalaqtium: TTabSheet;
     tsUniversum: TTabSheet;
     ImageGalaxy: TImage;
     Image1: TImage;

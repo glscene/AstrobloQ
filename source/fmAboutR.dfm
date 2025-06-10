@@ -29,13 +29,14 @@ object FrmAbout: TFrmAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 741
   end
   object PageControl: TPageControl
     Left = 0
     Top = 65
     Width = 749
     Height = 552
-    ActivePage = tsBiosphere
+    ActivePage = tsUniversum
     Align = alClient
     TabOrder = 1
     object tsAstroScene: TTabSheet
@@ -3721,7 +3722,6 @@ object FrmAbout: TFrmAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 733
       end
     end
     object tsLitosfera: TTabSheet
@@ -53058,6 +53058,7 @@ object FrmAbout: TFrmAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 733
       end
     end
     object tsTehnosfera: TTabSheet
@@ -65574,8 +65575,8 @@ object FrmAbout: TFrmAbout
         TabOrder = 0
       end
     end
-    object tsGalaktika: TTabSheet
-      Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+    object tsGalaqtium: TTabSheet
+      Caption = #1043#1072#1083#1072#1082#1090#1080#1091#1084
       ImageIndex = 7
       object ImageGalaxy: TImage
         Left = 0

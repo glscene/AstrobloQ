@@ -29,13 +29,14 @@ object FrmAbout: TFrmAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 724
   end
   object PageControl: TPageControl
     Left = 0
     Top = 65
     Width = 732
     Height = 555
-    ActivePage = tsAstroScene
+    ActivePage = tsLitosfera
     Align = alClient
     TabOrder = 1
     object tsAstroScene: TTabSheet
@@ -3721,10 +3722,11 @@ object FrmAbout: TFrmAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 716
       end
     end
-    object tsTerrasfera: TTabSheet
-      Caption = 'Terrasfera'
+    object tsLitosfera: TTabSheet
+      Caption = 'Litosfera'
       ImageIndex = 3
       object Image2: TImage
         Left = 0
@@ -53059,8 +53061,8 @@ object FrmAbout: TFrmAbout
         TabOrder = 0
       end
     end
-    object tsNoosfera: TTabSheet
-      Caption = 'Noosfera'
+    object tsTehnosfera: TTabSheet
+      Caption = 'Tehnosfera'
       ImageIndex = 5
       object Image3: TImage
         Left = 0
@@ -65536,7 +65538,7 @@ object FrmAbout: TFrmAbout
         Width = 724
         Height = 41
         Align = alTop
-        Caption = 'Noospheres and cosmic civilizations'
+        Caption = 'Tehnosferas of cosmic civilizations'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -65572,8 +65574,8 @@ object FrmAbout: TFrmAbout
         TabOrder = 0
       end
     end
-    object tsGalaktika: TTabSheet
-      Caption = 'Galaktika'
+    object tsGalaqtium: TTabSheet
+      Caption = 'Galaqtium'
       ImageIndex = 7
       object ImageGalaxy: TImage
         Left = 0

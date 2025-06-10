@@ -31,11 +31,11 @@ type
     ButtonAstrobloQ: TSpeedButton;
     OGLImage: TImage;
     GLSImage: TImage;
-    tsTerrasfera: TTabSheet;
+    tsLitosfera: TTabSheet;
     tsBiosphere: TTabSheet;
-    tsNoosfera: TTabSheet;
+    tsTehnosfera: TTabSheet;
     tsAstroScene: TTabSheet;
-    tsGalaktika: TTabSheet;
+    tsGalaqtium: TTabSheet;
     tsUniversum: TTabSheet;
     ImageGalaxy: TImage;
     Image1: TImage;

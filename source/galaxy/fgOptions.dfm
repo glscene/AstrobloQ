@@ -1143,7 +1143,7 @@ inherited frmOption: TfrmOption
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 106
+          Left = 98
           Top = 53
           Width = 149
           Height = 200

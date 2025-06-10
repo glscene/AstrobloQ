@@ -24,7 +24,7 @@
 
 Звёзды с экзопланетными системами
 
-![AstroScene](./docs/screenshots/Noosfera.png)
+![AstroScene](./docs/clips/Noosfera.png)
 
 ![AstroScene](./docs/clips/AnimationLadybug2.gif)
 ![AstroScene](./docs/clips/AnimationFlock.gif)
@@ -33,7 +33,7 @@
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
 
-![Litosfera](./docs/screenshots/Litosfera_ru.png)
+![Litosfera](./docs/clips/Litosfera_ru.png)
 
 ![Litosfera](./docs/clips/AnimationPlanet2a.gif)
 ![Litosfera](./docs/clips/AnimationAsteroid2.gif)
@@ -42,22 +42,22 @@
 
 Биосферы экзопланет
  
-![Biosfera](./docs/screenshots/Biosfera.jpg)
+![Biosfera](./docs/clips/Biosfera.jpg)
 
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
 ![Biosfera](./docs/clips/AnimationEcosystemA.gif)
 
-### Noosfera
+### Tehnosfera
 
-Ноосферы экзопланет
-![Noosfera](./docs/screenshots/Tehnosferas.png)
-![Noosfera](./docs/clips/Meteors.gif)
+Техносферы экзопланет
+![Tehnosfera](./docs/clips/Tehnosferas.png)
+![Tehnosfera](./docs/clips/Meteors.gif)
 
-### GalaxyCETI
+### GalaQtium
 
-![GalaxyCETI](./docs/screenshots/AstrobloQ_ru.png)
+![GalaQtium](./docs/clips/AstrobloQ_ru.png)
 
-При построении модели GalaxyCETI используются следующие звёздные каталоги и методы вычислений: 
+При построении модели эволюции используются следующие звёздные каталоги и методы вычислений: 
 
 - входными данными служат каталоги [HYG](https://github.com/astronexus/HYG-Database), [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data), [Earthlike Terraplanets](https://phl.upr.edu/hwc);
 - строение, структура и состав объектов в системах "SolarSystem" -> "Galaxy" -> "Universe" моделируются с заданной точностью в разных масштабах; 
