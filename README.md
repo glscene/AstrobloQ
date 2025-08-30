@@ -28,7 +28,7 @@
 ![Tehnosfera](./docs/clips/Meteors.gif)
 
 
-![AstroScene](./docs/screenshots/PlanetarySystems.png)
+![AstroScene](./docs/clips/PlanetarySystems.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
 ![Litosfera](./docs/clips/Litosfera_ru.png)
