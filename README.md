@@ -26,8 +26,8 @@
 
 ![AstroScene](./docs/clips/Noosfera.png)
 
-![AstroScene](./docs/clips/AnimationLadybug2.gif)
-![AstroScene](./docs/clips/AnimationFlock.gif)
+![Tehnosfera](./docs/clips/Meteors.gif)
+
 
 ![AstroScene](./docs/screenshots/PlanetarySystems.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
@@ -45,12 +45,15 @@
 
 ![Biosfera](./docs/clips/AnimationDolphin.gif)
 ![Biosfera](./docs/clips/AnimationEcosystemA.gif)
+![AstroScene](./docs/clips/AnimationLadybug2.gif)
+![AstroScene](./docs/clips/AnimationFlock.gif)
+
 
 ### Tehnosfera
 
 Техносферы экзопланет
 ![Tehnosfera](./docs/clips/Tehnosferas.png)
-![Tehnosfera](./docs/clips/Meteors.gif)
+
 
 ### GalaQtium
 
