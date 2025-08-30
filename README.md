@@ -54,7 +54,7 @@
 ![Tehnosfera](./docs/clips/Tehnosferas.png)
 
 
-### GalaQtium
+### Galaqtium
 
 ![GalaQtium](./docs/clips/AstrobloQ_ru.png)
 ![GalaQtium](./docs/clips/Noostages_ru.jpg)
