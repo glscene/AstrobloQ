@@ -1,4 +1,4 @@
-# AstrobloQ
+# [AstrobloQ](https://gitverse.ru/glscene/AstrobloQ/)
 
 Построение модели нооэволюции Млечного Пути и численного решения парадокса Ферми. 
 В разработке применяются кросс-платформенные компоненты [GLScene/GXScene](https://gitflic.ru/project/glscene/glxengine) 
