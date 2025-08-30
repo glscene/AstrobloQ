@@ -18,13 +18,12 @@
 
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
  
-## AstrobloQ включает следующие проекты:
 
 ### AstroScene
 
 Звёзды с экзопланетными системами
 
-![AstroScene](./docs/clips/Noosfera.png)
+![Noonet](./docs/clips/Noosfera.png)
 
 ![Tehnosfera](./docs/clips/Meteors.gif)
 
