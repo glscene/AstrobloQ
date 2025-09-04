@@ -4,12 +4,12 @@
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <AppType>Application</AppType>
-        <MainSource>Starbox.cpp</MainSource>
+        <MainSource>StarboxС.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
-        <ProjectName Condition="'$(ProjectName)'==''">Starbox</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">StarboxС</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -58,7 +58,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>Starbox</SanitizedProjectName>
+        <SanitizedProjectName>StarboxС</SanitizedProjectName>
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <Multithreaded>true</Multithreaded>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
@@ -176,7 +176,7 @@
             <DependentOn>source\fStarlife.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
-        <CppCompile Include="Starbox.cpp">
+        <CppCompile Include="StarboxС.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
         <FormResources Include="source\fStarlife.dfm"/>
@@ -201,7 +201,7 @@
         <BorlandProject>
             <CPlusPlusBuilder.Personality>
                 <Source>
-                    <Source Name="MainSource">Starbox.cpp</Source>
+                    <Source Name="MainSource">StarboxС.cpp</Source>
                 </Source>
                 <VersionInfo>
                     <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
@@ -339,6 +339,18 @@
                 </DeployFile>
                 <DeployFile LocalName=".\bin\Starbox.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName=".\bin\Starbox.tds" Configuration="Debug" Class="DebugSymbols"/>
+                <DeployFile LocalName=".\bin\StarboxС.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>StarboxС.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\bin\StarboxС.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>StarboxС.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
