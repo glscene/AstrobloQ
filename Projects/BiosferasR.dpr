@@ -1,4 +1,4 @@
-program BiosferaR;
+program BiosferasR;
 
 uses
   Forms,
@@ -52,7 +52,6 @@ uses
   Bio.MatingSingle in '..\source\bio\Bio.MatingSingle.pas',
   Bio.FireTree in '..\source\bio\Bio.FireTree.pas',
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
-  fbBiosferaR in '..\source\bio\fbBiosferaR.pas' {FormBiosfera},
   fbAboutR in '..\source\bio\fbAboutR.pas' {FormAbout},
   fbConstructionR in '..\source\bio\fbConstructionR.pas' {fmConstruction},
   fbCreatingGalaxyR in '..\source\bio\fbCreatingGalaxyR.pas' {FormCreatingGalaxy},
@@ -87,7 +86,8 @@ uses
   fbTutorialR in '..\source\bio\fbTutorialR.pas' {fmTutorial},
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniFormR in '..\source\bio\fbMiniFormR.pas',
-  Space.Globals in '..\source\Space.Globals.pas';
+  Space.Globals in '..\source\Space.Globals.pas',
+  fbBiosferasR in '..\source\bio\fbBiosferasR.pas' {FormBiosfera};
 
 {$R *.res}
 
@@ -97,5 +97,6 @@ begin
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfmSplash, fmSplash);
   Application.CreateForm(TFormImages, FormImages);
+  Application.CreateForm(TFormBiosfera, FormBiosfera);
   Application.Run;
 end.

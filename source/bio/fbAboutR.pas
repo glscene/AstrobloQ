@@ -82,7 +82,7 @@ type
 var
   FormAbout: TFormAbout;
 
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   WinTypes,
@@ -90,7 +90,7 @@ uses
   ShellApi;
 
 {$R *.DFM}
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 function TInfoItem.DisplayValue: string;
 begin
@@ -102,7 +102,7 @@ begin
   result := Copy(fDisplayName + '                    ', 1, 19) + '= ' + fValue;
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 constructor TAboutInfo.Create(const aFile: string);
 begin
@@ -112,7 +112,7 @@ begin
   GetFileDetails(aFile);
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 destructor TAboutInfo.Destroy;
 begin
@@ -121,7 +121,7 @@ begin
   inherited Destroy;
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 procedure TAboutInfo.LoadInfoItems;
 const
@@ -147,7 +147,7 @@ begin
   end;
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 procedure TAboutInfo.GetFileDetails(const sFile: string);
 var
@@ -178,7 +178,7 @@ begin
 
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 function TAboutInfo.FileVersion: string;
 begin
@@ -186,7 +186,7 @@ begin
     + '.' + IntToStr(fBuild);
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 function TAboutInfo.FileVersionNoBuild: string;
 begin
@@ -194,7 +194,7 @@ begin
     IntToStr(fRelease);
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 function TAboutInfo.OSVersion: string;
 var
   Platform: string;
@@ -202,46 +202,19 @@ var
 begin
   result := '';
 
-  case Win32Platform of
-    VER_PLATFORM_WIN32_NT:
-      begin
-        Platform := 'Windows NT';
-        BuildNumber := Win32BuildNumber;
-      end;
-  else
-    begin
-      Platform := 'Windows';
-      BuildNumber := 0;
-    end;
-  end;
-
-  if (Win32Platform = VER_PLATFORM_WIN32_WINDOWS) or
-    (Win32Platform = VER_PLATFORM_WIN32_NT) then
-  begin
-    if Win32CSDVersion = '' then
-      result := Format('%s %d.%d (Build %d)', [Platform, Win32MajorVersion,
-        Win32MinorVersion, BuildNumber])
-    else
-      result := Format('%s %d.%d (Build %d: %s)', [Platform, Win32MajorVersion,
-        Win32MinorVersion, BuildNumber, Win32CSDVersion]);
-  end
-  else
-    result := Format('%s %d.%d', [Platform, Win32MajorVersion,
-      Win32MinorVersion])
+  Platform := 'Windows';
+  BuildNumber := 0;
+  result := Format('%s %d.%d', [Platform, Win32MajorVersion, Win32MinorVersion])
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 function TAboutInfo.ReadVersionInfo(sProgram: string;
   Major, Minor, Release, Build: pWord): Boolean;
 var
   i: integer;
   Info: PVSFixedFileInfo;
-{$IFDEF VER120}
-  InfoSize: Cardinal;
-{$ELSE}
   InfoSize: UINT;
-{$ENDIF}
   nHwnd: DWORD;
   BufferSize: DWORD;
   Buffer: Pointer;
@@ -307,26 +280,26 @@ begin
   // result := True; // added to avoid false versions ???
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 procedure TFormAbout.Button1Click(Sender: TObject);
 begin
   ModalResult := mrOK;
 end;
 
-{ ******************************************************************** }
+//-------------------------------------------------------------------------
 
 procedure TFormAbout.FormShow(Sender: TObject);
 var
   myAboutInfo: TAboutInfo;
 begin
   // Image1.Picture.Icon := Application.Icon;
-  Caption := 'About ' + Application.Title;
+  Caption := 'О программе ' + Application.Title;
 
   myAboutInfo := TAboutInfo.Create(ParamStr(0));
 
-  labVersion.Caption := 'Release v' + myAboutInfo.FileVersion;
-  labDate.Caption := 'Last Build: ' + myAboutInfo.FileBuildDate;
+  labVersion.Caption := 'Релиз v' + myAboutInfo.FileVersion;
+  labDate.Caption := 'Сборка: ' + myAboutInfo.FileBuildDate;
   // EditVer.Text := myAboutInfo.FileVersion + '    ' + myAboutInfo.FileBuildDate;
   // EditOS.Text := myAboutInfo.OSVersion;
 
@@ -335,7 +308,7 @@ end;
 
 procedure TFormAbout.labBioSphereClick(Sender: TObject);
 begin
-  ShellExecute(0, 'open', 'https://gitflic.ru/project/glscene/astrobloq', '',
+  ShellExecute(0, 'open', 'https://gitverse.ru/glscene/astrobloq', '',
     '', SW_SHOW);
 end;
 

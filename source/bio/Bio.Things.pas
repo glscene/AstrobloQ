@@ -202,9 +202,7 @@ end;
 function ThingName(aKind: integer): string;
 function ThingNamePlural(aKind: integer): string;
 
-//=========================================
-implementation
-//=========================================
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Reality,

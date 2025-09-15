@@ -1,4 +1,4 @@
-unit fbBiosfera;
+unit fbBiosferasR;
 
 interface
 
@@ -9,6 +9,7 @@ uses
   System.Types,
   System.UITypes,
   System.Contnrs,
+
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Menus,
@@ -21,7 +22,6 @@ uses
   Vcl.Dialogs,
   Vcl.Imaging.Jpeg,
 
-  // AIPlanet
   Bio.Environment,
   Bio.Satellites,
   Bio.Space,
@@ -59,11 +59,13 @@ uses
   Bio.MissileDefence,
   Bio.Ant,
   Bio.EvolvingTrees,
-  // JVCL, JvEdit, JvTypedEdit,
-  GLS.PersistentClasses,
+
   Stage.VectorTypes,
-  GLS.ScreenSaver,
   Stage.VectorGeometry,
+  Stage.Keyboard,
+
+  GLS.PersistentClasses,
+  GLS.ScreenSaver,
   GLS.VectorLists,
   GLS.Scene,
   GLS.Objects,
@@ -74,7 +76,6 @@ uses
   GLS.Color,
   GLS.ShadowVolume,
   GLS.Octree,
-  Stage.Keyboard,
   GLS.FireFX,
   GLS.SkyDome,
   GLS.Mesh,
@@ -92,7 +93,6 @@ uses
   GLS.File3DS,
   GLS.SoundFileObjects,
   GLS.Sounds.BASS,
-
   GLS.AVIRecorder,
   GLS.Coordinates,
   GLS.BaseClasses;
@@ -1009,10 +1009,10 @@ implementation //---------------------------------------------------------------
 {$R *.DFM}
 
 uses
-  fbSatellite,
-  fbFirstForm,
-  fbImages,
-  fbPhotograph,
+  fbSatelliteR,
+  fbFirstFormR,
+  fbImagesR,
+  fbPhotographR,
   Bio.Globals,
   Bio.Reality,
   Bio.Life;
@@ -1049,7 +1049,7 @@ begin
 
   SphereMode := true;
 
-  frmFirst.Construction.AddEvent('Loading files');
+  frmFirst.Construction.AddEvent('Загрузка файлов');
   LoadMaterialLibrary;
   LoadModels;
   GenerateTextureMap;
@@ -1059,13 +1059,13 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    frmFirst.Construction.AddEvent('Activating Bass');
+    frmFirst.Construction.AddEvent('Активизация Bass');
     GLBass.Active := true;
     if not GLBass.Active then
-      frmFirst.Construction.AddEventFailure(' No sound support!');
+      frmFirst.Construction.AddEventFailure(' Звук не поддерживается!');
   end;
   LoadSounds;
-  frmFirst.Construction.AddEvent('Generating sound system');
+  frmFirst.Construction.AddEvent('Генерация звуковой системы');
   GenerateSoundSystem(64);
 
   CleanGalaxy;
@@ -1182,8 +1182,8 @@ begin
   if ToolIsActive and ValidCursor then
     ApplyUserInterface; // use tool
 
-  CheckPurgatory; // remove nonexistant things from view
-  CheckTrash; // remove nonexistant things from view
+  CheckPurgatory; // удаление nonexistant things from view
+  CheckTrash; // удаление nonexistant things from view
   latestThing := CheckCradle; // add new things to view
   if cbTrackNewThings.Checked then
     if not(latestThing = nil)
@@ -1340,7 +1340,7 @@ begin
       end;
   end;
 
-  frmFirst.Construction.AddEvent('Changed Camera Mode = ' +
+  frmFirst.Construction.AddEvent('Смена режима камеры = ' +
     CameraModeString(CameraMode));
 end;
 
@@ -1582,7 +1582,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.AvatarCamera;
 begin
-  // place the view target in front of the destination
+  // установка видимой цели перед движением к ней
   ViewDestination.Velocity.Zero;
   ViewDestination.Acceleration.Zero;
   ViewDestination.Fuel;
@@ -1653,7 +1653,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.CheckKeys;
 begin
-  // press ESC to leave fullscreen
+  // нажмите ESC чтобы выйти из полноэкранного режима
   if not StatusBar.Visible and isKeyDown(VK_ESCAPE) then
   begin
     panMenus.Visible := true;
@@ -1666,7 +1666,7 @@ begin
       StickyFit;
   end;
 
-  // switch to walking mode
+  // переключение на режим хотьбы
   if isKeyDown(VK_SPACE) then
     frmFirst.RealityForm.FlipOnOffSwitch;
 
@@ -1674,7 +1674,7 @@ begin
   if isKeyDown(VK_TAB) then
     CameraMode := camAvatar;
 
-  // chase next target
+  // выбор следующей цели
   if isKeyDown(VK_SHIFT) then
   begin
     if isKeyDown('1') then
@@ -1802,7 +1802,7 @@ begin
     KBStopWatch.Go;
   end;
 
-  // planet mode
+  // режим показа планеты
   if isKeyDown('p') then
     CameraMode := camPlanet;
 
@@ -1861,7 +1861,7 @@ begin
 
   if (CameraMode = camAvatar) or (CameraMode = camFree) then
   begin
-    // move forward
+    // движение вперёд
     if isKeyDown(VK_UP) or isKeyDown('w') then
     begin
       if isKeyDown(VK_SHIFT) then
@@ -1987,15 +1987,15 @@ end;
 procedure TFormBiosfera.LoadTexture(aTexName: string; aFile: string);
 begin
   // Loading aTexName texture from aFile...
-  frmFirst.Construction.AddEvent('Loading texture ' + aTexName +
-    ' from file: ' + aFile + '...');
+  frmFirst.Construction.AddEvent('Загрузка текстуры ' + aTexName +
+    ' из файла: ' + aFile + '...');
   if FileExists(aFile) then
   begin
     with GLMaterialLibrary.AddTextureMaterial(aTexName, aFile) do
       Material.FrontProperties.Emission.Color := clrGray40;
     // Material.FrontProperties.Emission.Color:=clrGray60;
     // done.
-    frmFirst.Construction.AddEventSuccess(' done.');
+    frmFirst.Construction.AddEventSuccess(' выполнена.');
   end
   else
   begin
@@ -2003,14 +2003,14 @@ begin
       imgDefaultTexture.Picture.Bitmap) do
       Material.FrontProperties.Emission.Color := clrGray50;
     // not found.
-    frmFirst.Construction.AddEventFailure(' not found!');
+    frmFirst.Construction.AddEventFailure(' не обнаружена!');
   end;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadMaterialLibrary;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Loading material library:');
+  frmFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки материалов:');
   LoadTexture('landtex', 'textures\alltex.bmp');
   LoadTexture('sun', 'textures\sunfire.bmp');
   LoadTexture('moon', 'textures\moonshine.bmp');
@@ -2026,22 +2026,23 @@ end;
 procedure TFormBiosfera.LoadModel(aFreeForm: TGLFreeForm; aFile: string);
 begin
   // Loading model aFile...
-  frmFirst.Construction.AddEvent('Loading model from file: ' + aFile
+  frmFirst.Construction.AddEvent('Загрузка модели из файла: ' + aFile
     + '...');
   if FileExists(aFile) then
   begin
     aFreeForm.LoadFromFile(aFile);
-    frmFirst.Construction.AddEventSuccess(' done.');
+    frmFirst.Construction.AddEventSuccess(' выполнена.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' not found!');
+    frmFirst.Construction.AddEventFailure(' не найден!');
   aFreeForm.BuildSilhouetteConnectivityData;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadModels;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Loading models library:');
+  frmFirst.Construction.AddUnderlinedEvent('Загрузка моделей:');
+
   LoadModel(AppleTreeModel, 'models\newtree.3ds');
   LoadModel(OrangeTreeModel, 'models\orangetree.3ds');
   LoadModel(AppleModel, 'models\fruit.3ds');
@@ -2104,7 +2105,8 @@ var
   X: Integer;
 begin
   // create grey stars
-  frmFirst.Construction.AddEvent('Adding stars');
+  frmFirst.Construction.AddEvent('Загрузка звёзд');
+  // Случайные звёзды на небосводе
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2112,7 +2114,9 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  frmFirst.Construction.AddEventSuccess(' Done');
+  // Звёзды из каталога hyg.csv
+  // need to download ...
+  frmFirst.Construction.AddEventSuccess(' выполнена');
 end;
 
 // ----------------------------------------------------------------------------
@@ -2238,7 +2242,7 @@ var
   myCount: Integer;
 begin
   myCount := Environment.Things.Purgatory.Count;
-  // remove things in purgatory
+  // удаление объектов в частилище (purgatory)
   if not(myCount = 0) then
   begin
     for i := 0 to myCount - 1 do
@@ -2709,7 +2713,7 @@ begin
   if not Environment.Things.CanAdd(cMoon) then
     exit;
   myMoon := AIMoon(Environment.Things.NewThing(cMoon));
-  ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
+  ReportUserEvent('Добавление луны: ' + myMoon.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added moon');
   LastAction('Added=moon');
 end;
@@ -2721,13 +2725,13 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Maximum four suns!');
+    ShowMessage('Максимально четыре солнца!');
     exit;
   end;
 
   mySun := AISun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
-    ReportUserEvent('Added sun' + mySun.OneLineDisplay);
+    ReportUserEvent('Добавление солнца' + mySun.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added sun');
   LastAction('Added=sun');
 end;
@@ -5567,7 +5571,7 @@ begin
       (AISatellite(mySun));
   end
   else
-    ShowMessage('Maximum four suns!');
+    ShowMessage('Максимум четыре солнца!');
 end;
 
 // ----------------------------------------------------------------------------
@@ -6039,7 +6043,7 @@ begin
   if not GLBass.Active then
     exit;
 
-  frmFirst.Construction.AddEvent('Generating sound system');
+  frmFirst.Construction.AddEvent('Генерация звуковой системы');
   for i := 0 to aNumberOfSpeakers - 1 do
   begin
     myCrossover := Speakers.NewCrossover;
@@ -6091,7 +6095,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSounds;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Loading sounds');
+  frmFirst.Construction.AddUnderlinedEvent('Загрузка звуков');
 
   LoadSound('audio\electronicping.wav'); // 0
   LoadSound('audio\fire.wav'); // 1
@@ -6128,15 +6132,15 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSound(aFileName: string);
 begin
-  frmFirst.Construction.AddEvent('Loading sound from file ' + aFileName
+  frmFirst.Construction.AddEvent('Загрузка звука из файла ' + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
     GLSoundLibrary.Samples.Add.LoadFromFile(aFileName);
-    frmFirst.Construction.AddEventSuccess(' done.');
+    frmFirst.Construction.AddEventSuccess(' выполнена.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' not found!');
+    frmFirst.Construction.AddEventFailure(' не найдена!');
 end;
 
 procedure TFormBiosfera.tbPriorTargetClick(Sender: TObject);

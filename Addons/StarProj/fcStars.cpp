@@ -73,7 +73,10 @@ void __fastcall TForm1::Timer1Timer(TObject* Sender) {
 
 //---------------------------------------------------------------------------
 void __fastcall TForm1::GLCadencer1Progress(TObject* Sender, const double deltaTime, const double newTime) {
+
+  // include star moving with vx,vy,vz from file hyg.csv
   GLSceneViewer1->Invalidate();
+
 }
 
 //---------------------------------------------------------------------------

@@ -54,36 +54,30 @@ type
   HControl3D = class helper for TControl3D
   private
   protected
-    /// // アクセス
     function GetAbsolMatrix: TMatrix3D;
     procedure SetAbsoluteMatrix(const AbsoluteMatrix_: TMatrix3D); virtual;
     function GetLocalMatrix: TMatrix3D; virtual;
     procedure SetLocalMatrix(const LocalMatrix_: TMatrix3D); virtual;
-    /// // メソッド
     procedure RecalcFamilyAbsolute;
     procedure RecalcChildrenAbsolute;
   public
-    /// // プロパティ
     property AbsoluteMatrix: TMatrix3D read GetAbsolMatrix
       write SetAbsoluteMatrix;
     property LocalMatrix: TMatrix3D read GetLocalMatrix write SetLocalMatrix;
-    /// // メソッド
     procedure RenderInternalTo(const Context_: TContext3D);
   end;
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HCustomMesh
+  // HCustomMesh
 
   HCustomMesh = class helper for TCustomMesh
   private
   protected
-    /// // アクセス
     function GetMeshData: TMeshData;
   public
-    /// // プロパティ
     property MeshData: TMeshData read GetMeshData;
   end;
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TTrueViewport3D
+  // TTrueViewport3D
 
   TTrueViewport3D = class(TViewport3D)
   private
@@ -91,17 +85,15 @@ type
     _DrawOK: Boolean;
     _RenderingList: TList<TControl3D>;
   protected
-    /// // メソッド
     procedure Paint; override;
     procedure Resize; override;
   public
     constructor Create(Owner_: TComponent); override;
     destructor Destroy; override;
-    /// // メソッド
     procedure RebuildRenderingList;
   end;
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TTensorShape
+  // TTensorShape
 
   TTensorShape = class(TControl3D)
   private
@@ -123,12 +115,10 @@ type
     procedure SetColorY(const ColorY_: TAlphaColor);
     function GetColorZ: TAlphaColor;
     procedure SetColorZ(const ColorZ_: TAlphaColor);
-    /// // メソッド
     procedure Render; override;
   public
     constructor Create(Owner_: TComponent); override;
     destructor Destroy; override;
-    /// // プロパティ
     property MeshData: TMeshData read _MeshData write SetMeshData;
     property AxisLeng: Single read _AxisLeng write SetAxisLeng;
     property ColorX: TAlphaColor read GetColorX write SetColorX;
@@ -287,13 +277,7 @@ begin
   end;
 end;
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HControl3D
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
-
-/// //////////////////////////////////////////////////////////////////// アクセス
+// HControl3D
 
 function HControl3D.GetAbsolMatrix: TMatrix3D;
 begin
@@ -343,8 +327,6 @@ begin
   Repaint;
 end;
 
-/// //////////////////////////////////////////////////////////////////// メソッド
-
 procedure HControl3D.RecalcFamilyAbsolute;
 begin
   RecalcAbsolute;
@@ -375,30 +357,15 @@ begin
   TempContext := nil;
 end;
 
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
-
-// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HCustomMesh
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
-
-/// //////////////////////////////////////////////////////////////////// アクセス
+// HCustomMesh
 
 function HCustomMesh.GetMeshData: TMeshData;
 begin
   Result := Data;
 end;
 
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TTrueViewport3D
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
-
-/// //////////////////////////////////////////////////////////////////// メソッド
+// TTrueViewport3D
 
 procedure TTrueViewport3D.Paint;
 var
@@ -470,10 +437,8 @@ begin
   FreeAndNil(_Bitmap);
 
   with Context do
-    _Bitmap := TBitmap.Create(Width, Height);
+    _Bitmap := TBitmap.Create;  // old _Bitmap := TBitmap.Create(Width, Height);
 end;
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
 constructor TTrueViewport3D.Create(Owner_: TComponent);
 begin
@@ -492,8 +457,6 @@ begin
 
   inherited;
 end;
-
-/// //////////////////////////////////////////////////////////////////// メソッド
 
 procedure TTrueViewport3D.RebuildRenderingList;
 var
@@ -526,13 +489,7 @@ begin
   end;
 end;
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TTensorShape
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
-
-/// //////////////////////////////////////////////////////////////////// アクセス
+// TTensorShape
 
 procedure TTensorShape.SetMeshData(const MeshData_: TMeshData);
 begin
@@ -581,8 +538,6 @@ begin
   Repaint;
 end;
 
-/// //////////////////////////////////////////////////////////////////// メソッド
-
 procedure TTensorShape.Render;
 begin
   with Context do
@@ -597,8 +552,6 @@ begin
       _MaterialZ.Material, AbsoluteOpacity);
   end;
 end;
-
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
 constructor TTensorShape.Create(Owner_: TComponent);
 begin
@@ -629,8 +582,6 @@ begin
 
   inherited;
 end;
-
-/// //////////////////////////////////////////////////////////////////// メソッド
 
 procedure TTensorShape.MakeShape;
 var
@@ -681,8 +632,6 @@ begin
 
   Repaint;
 end;
-
-// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
 
 function GapFit(const P0_, P1_: TPoint3D): TMatrix3D;
 var

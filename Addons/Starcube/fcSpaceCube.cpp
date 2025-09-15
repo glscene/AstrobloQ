@@ -24,7 +24,7 @@
 #pragma link "GLS.Mesh"
 #pragma link "GLS.SimpleNavigation"
 #pragma resource "*.dfm"
-TFormScene* FormScene;
+TFormStarcube* FormStarcube;
 
 int mx, my; // vars for saving position
 
@@ -52,16 +52,16 @@ float COLORS[7][3] = { { 0, 0.8, 1 }, { 0.803, 1, 1 }, { 1, 1, 1 },
 
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::FormCreate(TObject* Sender)
+void __fastcall TFormStarcube::FormCreate(TObject* Sender)
 {
-    // Указываем путь для файлов
-    datapath = ".\\..\\..\\DATA\\";
-    // Разделитель float . (для CSV)
+	// Указываем путь к файлам данных
+	datapath = ".\\..\\..\\DATA\\";
+	// Разделитель float . (для CSV)
     FormatSettings.DecimalSeparator = '.';
 }
 
 // Получение данных для Тетраэдров Делоне
-DelaunayBase __fastcall TFormScene::InitDelaunay(String starClass)
+DelaunayBase __fastcall TFormStarcube::InitDelaunay(String starClass)
 {
 	//======== ПОЛУЧЕНИЕ NODE.CSV
     DelaunayBase dt_struct;
@@ -134,7 +134,7 @@ DelaunayBase __fastcall TFormScene::InitDelaunay(String starClass)
 //-----------------------------------------------------------------------
 // Получение данных для полиэдров Вороного
 //-----------------------------------------------------------------------
-VoronoiBase __fastcall TFormScene::InitVoronoi(String starClass)
+VoronoiBase __fastcall TFormStarcube::InitVoronoi(String starClass)
 {
 	VoronoiBase vd_struct;
 	String path = "";
@@ -223,7 +223,7 @@ VoronoiBase __fastcall TFormScene::InitVoronoi(String starClass)
 //---------------------------------------------------------------------------
 // Отрисовка звёзд
 //---------------------------------------------------------------------------
-void __fastcall TFormScene::DrawPoints()
+void __fastcall TFormStarcube::DrawPoints()
 {
     bool fileLoaded = LoadFiles->Enabled;
     if (fileLoaded)
@@ -271,7 +271,7 @@ void __fastcall TFormScene::DrawPoints()
 //---------------------------------------------------------------------------
 // Отрисовка тетраэдров Делоне
 //---------------------------------------------------------------------------
-void __fastcall TFormScene::DrawDelaunay()
+void __fastcall TFormStarcube::DrawDelaunay()
 {
 	bool fileLoaded = LoadFiles->Enabled;
 	if (fileLoaded)
@@ -339,7 +339,7 @@ void __fastcall TFormScene::DrawDelaunay()
 }
 //---------------------------------------------------------------------------
 // Отрисовка полиэдров Вороного
-void __fastcall TFormScene::DrawVoronoi()
+void __fastcall TFormStarcube::DrawVoronoi()
 {
     bool fileLoaded = LoadFiles->Enabled;
     if (fileLoaded)
@@ -420,7 +420,7 @@ void __fastcall TFormScene::DrawVoronoi()
 }
 
 // Общая функция выбора отрисовки
-void __fastcall TFormScene::InitDraw()
+void __fastcall TFormStarcube::InitDraw()
 {
 
     switch (MODE) {
@@ -435,40 +435,40 @@ void __fastcall TFormScene::InitDraw()
     }
 }
 //---------------------------------------------------------------------------
-__fastcall TFormScene::TFormScene(TComponent* Owner) : TForm(Owner) {}
+__fastcall TFormStarcube::TFormStarcube(TComponent* Owner) : TForm(Owner) {}
 //---------------------------------------------------------------------------
-void __fastcall TFormScene::GLCadencer1Progress(
+void __fastcall TFormStarcube::GLCadencer1Progress(
     TObject* Sender, const double deltaTime, const double newTime)
 {
     GLSceneViewer1->Invalidate();
 }
 //---------------------------------------------------------------------------
 // Старт загрузки файлов
-void __fastcall TFormScene::clbSpectrasClickCheck(TObject* Sender)
+void __fastcall TFormStarcube::clbSpectrasClickCheck(TObject* Sender)
 {
     // Init draw method on each checkbox selecting
     InitDraw();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormScene::Data1Click(TObject* Sender)
+void __fastcall TFormStarcube::Data1Click(TObject* Sender)
 {
     FormTable->Show();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::ClassGroupClick(TObject* Sender)
+void __fastcall TFormStarcube::ClassGroupClick(TObject* Sender)
 {
     InitDraw();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::Panel2Click(TObject* Sender)
+void __fastcall TFormStarcube::Panel2Click(TObject* Sender)
 {
     ClassGroup->ItemIndex = ((TPanel*)(Sender))->Tag;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::clbMethodsClickCheck(TObject* Sender)
+void __fastcall TFormStarcube::clbMethodsClickCheck(TObject* Sender)
 {
     GLPoints1->Free();
     GLPoints1 = (TGLPoints*)(GLDummyCube1->AddNewChild(__classid(TGLPoints)));
@@ -483,7 +483,7 @@ void __fastcall TFormScene::clbMethodsClickCheck(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::LoadFilesClick(TObject* Sender)
+void __fastcall TFormStarcube::LoadFilesClick(TObject* Sender)
 {
     LoadFiles->Caption = "Загрузка...";
 
@@ -505,7 +505,7 @@ void __fastcall TFormScene::LoadFilesClick(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::allClear()
+void __fastcall TFormStarcube::allClear()
 {
     StarItem->Checked = false;
     StarItem->Default = false;
@@ -525,7 +525,7 @@ void __fastcall TFormScene::allClear()
         (TGLDummyCube*)(GLDummyCube1->AddNewChild(__classid(TGLDummyCube)));
 }
 
-void __fastcall TFormScene::StarItemClick(TObject* Sender)
+void __fastcall TFormStarcube::StarItemClick(TObject* Sender)
 {
     allClear();
     MODE = 0;
@@ -535,7 +535,7 @@ void __fastcall TFormScene::StarItemClick(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::DelaunayItemClick(TObject* Sender)
+void __fastcall TFormStarcube::DelaunayItemClick(TObject* Sender)
 {
     allClear();
     MODE = 1;
@@ -545,7 +545,7 @@ void __fastcall TFormScene::DelaunayItemClick(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormScene::VoronoiItemClick(TObject* Sender)
+void __fastcall TFormStarcube::VoronoiItemClick(TObject* Sender)
 {
     allClear();
     MODE = 2;
@@ -556,9 +556,9 @@ void __fastcall TFormScene::VoronoiItemClick(TObject* Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TFormScene::N8Click(TObject *Sender)
+void __fastcall TFormStarcube::N8Click(TObject *Sender)
 {
-	FormScene->Close();
+	FormStarcube->Close();
 }
 //---------------------------------------------------------------------------
 

@@ -25,7 +25,7 @@ uses
   fbListsR,
   fbSpiritR,
   vInterfaceClasses,
-  fbBiosferaR,
+  fbBiosferasR,
   vSpiritManagerR,
   fbPopulationsR,
   fbHeightFieldR,

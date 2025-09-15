@@ -4,8 +4,7 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("fcTableStars.cpp", FormTable);
-USEFORM("fcSpaceCube.cpp", FormScene);
+USEFORM("fcSpaceCube.cpp", FormStarcube);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -13,7 +12,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormScene), &FormScene);
+		Application->CreateForm(__classid(TFormStarcube), &FormStarcube);
 		Application->Run();
 	}
 	catch (Exception &exception)

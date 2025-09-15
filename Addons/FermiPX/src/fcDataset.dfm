@@ -44,6 +44,7 @@ object FormDataset: TFormDataset
       'O_Voronoi')
     TabOrder = 0
     OnClick = RadioGroup1Click
+    ExplicitLeft = 528
   end
   object DBGrid1: TDBGrid
     Left = 8
@@ -70,6 +71,7 @@ object FormDataset: TFormDataset
     Columns = 5
     TabOrder = 2
     OnClick = RadioGroup2Click
+    ExplicitWidth = 514
   end
   object FDConnection1: TFDConnection
     Left = 208

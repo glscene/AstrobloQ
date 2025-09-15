@@ -64,7 +64,7 @@ struct VoronoiBase
 };
 
 
-class TFormScene : public TForm
+class TFormStarcube : public TForm
 {
 __published:	// IDE-managed Components
 	TGLSceneViewer *GLSceneViewer1;
@@ -125,10 +125,10 @@ private:	// User declarations
     TPoint *Star;
 public:		// User declarations
 
-	__fastcall TFormScene(TComponent* Owner);
+	__fastcall TFormStarcube(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormScene *FormScene;
+extern PACKAGE TFormStarcube *FormStarcube;
 extern String datapath;
 //---------------------------------------------------------------------------
 #endif

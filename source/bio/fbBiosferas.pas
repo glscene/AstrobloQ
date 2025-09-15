@@ -1,4 +1,4 @@
-unit fbBiosferaR;
+unit fbBiosferas;
 
 interface
 
@@ -1009,10 +1009,10 @@ implementation //---------------------------------------------------------------
 {$R *.DFM}
 
 uses
-  fbSatelliteR,
-  fbFirstFormR,
-  fbImagesR,
-  fbPhotographR,
+  fbSatellite,
+  fbFirstForm,
+  fbImages,
+  fbPhotograph,
   Bio.Globals,
   Bio.Reality,
   Bio.Life;
@@ -1049,7 +1049,7 @@ begin
 
   SphereMode := true;
 
-  frmFirst.Construction.AddEvent('Загрузка файлов');
+  frmFirst.Construction.AddEvent('Loading files');
   LoadMaterialLibrary;
   LoadModels;
   GenerateTextureMap;
@@ -1059,13 +1059,13 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    frmFirst.Construction.AddEvent('Активизация Bass');
+    frmFirst.Construction.AddEvent('Activating Bass');
     GLBass.Active := true;
     if not GLBass.Active then
-      frmFirst.Construction.AddEventFailure(' Звук не поддерживается!');
+      frmFirst.Construction.AddEventFailure(' No sound support!');
   end;
   LoadSounds;
-  frmFirst.Construction.AddEvent('Генерация звуковой системы');
+  frmFirst.Construction.AddEvent('Generating sound system');
   GenerateSoundSystem(64);
 
   CleanGalaxy;
@@ -1182,8 +1182,8 @@ begin
   if ToolIsActive and ValidCursor then
     ApplyUserInterface; // use tool
 
-  CheckPurgatory; // удаление nonexistant things from view
-  CheckTrash; // удаление nonexistant things from view
+  CheckPurgatory; // remove nonexistant things from view
+  CheckTrash; // remove nonexistant things from view
   latestThing := CheckCradle; // add new things to view
   if cbTrackNewThings.Checked then
     if not(latestThing = nil)
@@ -1340,7 +1340,7 @@ begin
       end;
   end;
 
-  frmFirst.Construction.AddEvent('Смена режима камеры = ' +
+  frmFirst.Construction.AddEvent('Changed Camera Mode = ' +
     CameraModeString(CameraMode));
 end;
 
@@ -1987,15 +1987,15 @@ end;
 procedure TFormBiosfera.LoadTexture(aTexName: string; aFile: string);
 begin
   // Loading aTexName texture from aFile...
-  frmFirst.Construction.AddEvent('Загрузка текстуры ' + aTexName +
-    ' из файла: ' + aFile + '...');
+  frmFirst.Construction.AddEvent('Loading texture ' + aTexName +
+    ' from file: ' + aFile + '...');
   if FileExists(aFile) then
   begin
     with GLMaterialLibrary.AddTextureMaterial(aTexName, aFile) do
       Material.FrontProperties.Emission.Color := clrGray40;
     // Material.FrontProperties.Emission.Color:=clrGray60;
     // done.
-    frmFirst.Construction.AddEventSuccess(' выполнена.');
+    frmFirst.Construction.AddEventSuccess(' done.');
   end
   else
   begin
@@ -2003,14 +2003,14 @@ begin
       imgDefaultTexture.Picture.Bitmap) do
       Material.FrontProperties.Emission.Color := clrGray50;
     // not found.
-    frmFirst.Construction.AddEventFailure(' не обнаружена!');
+    frmFirst.Construction.AddEventFailure(' not found!');
   end;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadMaterialLibrary;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки материалов:');
+  frmFirst.Construction.AddUnderlinedEvent('Loading material library:');
   LoadTexture('landtex', 'textures\alltex.bmp');
   LoadTexture('sun', 'textures\sunfire.bmp');
   LoadTexture('moon', 'textures\moonshine.bmp');
@@ -2031,7 +2031,7 @@ begin
   if FileExists(aFile) then
   begin
     aFreeForm.LoadFromFile(aFile);
-    frmFirst.Construction.AddEventSuccess(' выполнена.');
+    frmFirst.Construction.AddEventSuccess(' done.');
   end
   else
     frmFirst.Construction.AddEventFailure(' not found!');
@@ -2104,7 +2104,7 @@ var
   X: Integer;
 begin
   // create grey stars
-  frmFirst.Construction.AddEvent('Загрузка звёзд');
+  frmFirst.Construction.AddEvent('Adding stars');
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2112,7 +2112,7 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  frmFirst.Construction.AddEventSuccess(' выполнена');
+  frmFirst.Construction.AddEventSuccess(' Done');
 end;
 
 // ----------------------------------------------------------------------------
@@ -2709,7 +2709,7 @@ begin
   if not Environment.Things.CanAdd(cMoon) then
     exit;
   myMoon := AIMoon(Environment.Things.NewThing(cMoon));
-  ReportUserEvent('Добавление луны: ' + myMoon.OneLineDisplay);
+  ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added moon');
   LastAction('Added=moon');
 end;
@@ -2721,13 +2721,13 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Максимально четыре солнца!');
+    ShowMessage('Maximum four suns!');
     exit;
   end;
 
   mySun := AISun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
-    ReportUserEvent('Добавление солнца' + mySun.OneLineDisplay);
+    ReportUserEvent('Added sun' + mySun.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added sun');
   LastAction('Added=sun');
 end;
@@ -5567,7 +5567,7 @@ begin
       (AISatellite(mySun));
   end
   else
-    ShowMessage('Максимум четыре солнца!');
+    ShowMessage('Maximum four suns!');
 end;
 
 // ----------------------------------------------------------------------------
@@ -6039,7 +6039,7 @@ begin
   if not GLBass.Active then
     exit;
 
-  frmFirst.Construction.AddEvent('Генерация звуковой системы');
+  frmFirst.Construction.AddEvent('Generating sound system');
   for i := 0 to aNumberOfSpeakers - 1 do
   begin
     myCrossover := Speakers.NewCrossover;
@@ -6091,7 +6091,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSounds;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Загрузка звуков');
+  frmFirst.Construction.AddUnderlinedEvent('Loading sounds');
 
   LoadSound('audio\electronicping.wav'); // 0
   LoadSound('audio\fire.wav'); // 1
@@ -6128,15 +6128,15 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSound(aFileName: string);
 begin
-  frmFirst.Construction.AddEvent('Загрузка звука из файла ' + aFileName
+  frmFirst.Construction.AddEvent('Loading sound from file ' + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
     GLSoundLibrary.Samples.Add.LoadFromFile(aFileName);
-    frmFirst.Construction.AddEventSuccess(' выполнена.');
+    frmFirst.Construction.AddEventSuccess(' done.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' не найдена!');
+    frmFirst.Construction.AddEventFailure(' not found!');
 end;
 
 procedure TFormBiosfera.tbPriorTargetClick(Sender: TObject);
