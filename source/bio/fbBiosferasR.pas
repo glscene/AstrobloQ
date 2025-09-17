@@ -125,7 +125,7 @@ type
     GLSceneViewer: TGLSceneViewer;
     GLMaterialLibrary: TGLMaterialLibrary;
 
-    PlanetModel: TGLFreeForm;      // Planet sphere using TGLFreeForm
+    PlanetModel: TGLFreeForm;      // Planet sphere using TGLFreeForm !
     MoonModel: TGLFreeForm;
     SunModel: TGLFreeForm;
     AsteroidModel: TGLFreeForm;
@@ -1059,10 +1059,10 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    frmFirst.Construction.AddEvent('Активизация Bass');
+    frmFirst.Construction.AddEvent('Активация Bass');
     GLBass.Active := true;
     if not GLBass.Active then
-      frmFirst.Construction.AddEventFailure(' Звук не поддерживается!');
+      frmFirst.Construction.AddEventFailure(' Нет поддержки звука!');
   end;
   LoadSounds;
   frmFirst.Construction.AddEvent('Генерация звуковой системы');
@@ -1182,8 +1182,8 @@ begin
   if ToolIsActive and ValidCursor then
     ApplyUserInterface; // use tool
 
-  CheckPurgatory; // удаление nonexistant things from view
-  CheckTrash; // удаление nonexistant things from view
+  CheckPurgatory; // remove nonexistant things from view
+  CheckTrash; // remove nonexistant things from view
   latestThing := CheckCradle; // add new things to view
   if cbTrackNewThings.Checked then
     if not(latestThing = nil)
@@ -1582,7 +1582,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.AvatarCamera;
 begin
-  // установка видимой цели перед движением к ней
+  // place the view target in front of the destination
   ViewDestination.Velocity.Zero;
   ViewDestination.Acceleration.Zero;
   ViewDestination.Fuel;
@@ -1653,7 +1653,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.CheckKeys;
 begin
-  // нажмите ESC чтобы выйти из полноэкранного режима
+  // press ESC to leave fullscreen
   if not StatusBar.Visible and isKeyDown(VK_ESCAPE) then
   begin
     panMenus.Visible := true;
@@ -1666,7 +1666,7 @@ begin
       StickyFit;
   end;
 
-  // переключение на режим хотьбы
+  // switch to walking mode
   if isKeyDown(VK_SPACE) then
     frmFirst.RealityForm.FlipOnOffSwitch;
 
@@ -1674,7 +1674,7 @@ begin
   if isKeyDown(VK_TAB) then
     CameraMode := camAvatar;
 
-  // выбор следующей цели
+  // chase next target
   if isKeyDown(VK_SHIFT) then
   begin
     if isKeyDown('1') then
@@ -1802,7 +1802,7 @@ begin
     KBStopWatch.Go;
   end;
 
-  // режим показа планеты
+  // planet mode
   if isKeyDown('p') then
     CameraMode := camPlanet;
 
@@ -1861,7 +1861,7 @@ begin
 
   if (CameraMode = camAvatar) or (CameraMode = camFree) then
   begin
-    // движение вперёд
+    // move forward
     if isKeyDown(VK_UP) or isKeyDown('w') then
     begin
       if isKeyDown(VK_SHIFT) then
@@ -1995,7 +1995,7 @@ begin
       Material.FrontProperties.Emission.Color := clrGray40;
     // Material.FrontProperties.Emission.Color:=clrGray60;
     // done.
-    frmFirst.Construction.AddEventSuccess(' выполнена.');
+    frmFirst.Construction.AddEventSuccess(' сделано.');
   end
   else
   begin
@@ -2003,7 +2003,7 @@ begin
       imgDefaultTexture.Picture.Bitmap) do
       Material.FrontProperties.Emission.Color := clrGray50;
     // not found.
-    frmFirst.Construction.AddEventFailure(' не обнаружена!');
+    frmFirst.Construction.AddEventFailure(' не найдено!');
   end;
 end;
 
@@ -2031,18 +2031,17 @@ begin
   if FileExists(aFile) then
   begin
     aFreeForm.LoadFromFile(aFile);
-    frmFirst.Construction.AddEventSuccess(' выполнена.');
+    frmFirst.Construction.AddEventSuccess(' сделано.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' не найден!');
+    frmFirst.Construction.AddEventFailure(' не найдено!');
   aFreeForm.BuildSilhouetteConnectivityData;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadModels;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Загрузка моделей:');
-
+  frmFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки моделей:');
   LoadModel(AppleTreeModel, 'models\newtree.3ds');
   LoadModel(OrangeTreeModel, 'models\orangetree.3ds');
   LoadModel(AppleModel, 'models\fruit.3ds');
@@ -2100,13 +2099,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
+// Load random stars or from catalog
+// ----------------------------------------------------------------------------
 procedure TFormBiosfera.AddStars;
 var
   X: Integer;
 begin
   // create grey stars
-  frmFirst.Construction.AddEvent('Загрузка звёзд');
-  // Случайные звёзды на небосводе
+  frmFirst.Construction.AddEvent('Добавление звёзд');
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2114,9 +2114,7 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  // Звёзды из каталога hyg.csv
-  // need to download ...
-  frmFirst.Construction.AddEventSuccess(' выполнена');
+  frmFirst.Construction.AddEventSuccess(' Done');
 end;
 
 // ----------------------------------------------------------------------------
@@ -2242,7 +2240,7 @@ var
   myCount: Integer;
 begin
   myCount := Environment.Things.Purgatory.Count;
-  // удаление объектов в частилище (purgatory)
+  // remove things in purgatory
   if not(myCount = 0) then
   begin
     for i := 0 to myCount - 1 do
@@ -2713,7 +2711,7 @@ begin
   if not Environment.Things.CanAdd(cMoon) then
     exit;
   myMoon := AIMoon(Environment.Things.NewThing(cMoon));
-  ReportUserEvent('Добавление луны: ' + myMoon.OneLineDisplay);
+  ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added moon');
   LastAction('Added=moon');
 end;
@@ -2725,13 +2723,13 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Максимально четыре солнца!');
+    ShowMessage('Максимум четыре солнца!');
     exit;
   end;
 
   mySun := AISun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
-    ReportUserEvent('Добавление солнца' + mySun.OneLineDisplay);
+    ReportUserEvent('Added sun' + mySun.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added sun');
   LastAction('Added=sun');
 end;
@@ -5571,7 +5569,7 @@ begin
       (AISatellite(mySun));
   end
   else
-    ShowMessage('Максимум четыре солнца!');
+    ShowMessage('Maximum four suns!');
 end;
 
 // ----------------------------------------------------------------------------
@@ -5847,7 +5845,7 @@ begin
         StrToInt(myFormPhotograph.edThumbHeight.Text));
       SkyDome.Visible := tbShowStars.Down;
     end;
-    ShowMessage('Photograph saved (' + myFormPhotograph.edPhotograph.Text + ')');
+    ShowMessage('Сохранение фото (' + myFormPhotograph.edPhotograph.Text + ')');
   end;
   myFormPhotograph.Free;
 end;
@@ -6132,15 +6130,15 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.LoadSound(aFileName: string);
 begin
-  frmFirst.Construction.AddEvent('Загрузка звука из файла ' + aFileName
+  frmFirst.Construction.AddEvent('Загрузка звуков из файла ' + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
     GLSoundLibrary.Samples.Add.LoadFromFile(aFileName);
-    frmFirst.Construction.AddEventSuccess(' выполнена.');
+    frmFirst.Construction.AddEventSuccess(' сделано.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' не найдена!');
+    frmFirst.Construction.AddEventFailure(' не найдено!');
 end;
 
 procedure TFormBiosfera.tbPriorTargetClick(Sender: TObject);

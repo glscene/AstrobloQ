@@ -218,8 +218,7 @@ public
   procedure LoadFromFile(var aFile: TextFile);
 end;
 
-//=============================================================================
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Globals,

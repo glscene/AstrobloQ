@@ -1,4 +1,4 @@
-# [AstrobloQ](https://gitverse.ru/glscene/AstrobloQ/)
+# AstrobloQ
 
 Построение модели нооэволюции Млечного Пути и численного решения парадокса Ферми. 
 В разработке применяются кросс-платформенные компоненты [GLScene/GXScene](https://gitflic.ru/project/glscene/glxengine) 
@@ -12,7 +12,7 @@
 - [PostGIS](https://postgis.net/), расширение PostgreSQL для работы с пространственными данными;
 - [OpenCL](https://www.khronos.org/opencl/), стандарт параллельных вычислений в гетерогенных системах.
 
-Графика основана на движке [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/) с поддержкой OpenGL и Vulkan. 
+Для визуализации используется графический движок [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/). 
 Интерактивная справка связывает интерфейс со статьями российской онлайн-энциклопедии Рувики
 [Галактика](https://ru.ruwiki.ru/wiki/Галактика)
 

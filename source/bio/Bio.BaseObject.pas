@@ -84,9 +84,7 @@ type
 
   AIKind = class of AIBaseObject;
 
-// =====================================
-implementation
-// =====================================
+implementation // -------------------------------------------------------------
 
 uses
   Bio.Utilities;

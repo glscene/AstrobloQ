@@ -38,14 +38,15 @@ public
   procedure Fuel; override;
 end;
 
-implementation
+implementation //-----------------------------------------------------------
 
 uses
   Bio.Reality,
   Bio.Globals,
   Bio.Trees,
   Bio.Bird,
-  Bio.Vibes, Bio.Utilities;
+  Bio.Vibes,
+  Bio.Utilities;
 
 // ----------------------------------------------------------------------------
 constructor AITiger.Create(aParent: pointer);

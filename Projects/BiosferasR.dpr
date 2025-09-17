@@ -97,6 +97,5 @@ begin
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfmSplash, fmSplash);
   Application.CreateForm(TFormImages, FormImages);
-  Application.CreateForm(TFormBiosfera, FormBiosfera);
   Application.Run;
 end.
