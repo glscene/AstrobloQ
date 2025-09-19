@@ -30,7 +30,7 @@ type
 AIMap = array of array of AIGrid;
 
 // ============================================================================
-AISpace = class(AIBaseObject)
+AISpace = class(TaiBaseObject)
 private
   fWidth: integer;      // width of the map (grids)
   fHeight: integer;     // height of the map (grids)
@@ -137,7 +137,7 @@ public
 
   function LandAtPosition(aX, aY: single): single;
   function WaterAtPosition(aX, aY: single): single;
-  function FindWithHandle(aHandle: integer): AIBaseObject;
+  function FindWithHandle(aHandle: integer): TaiBaseObject;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
@@ -749,7 +749,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.FindWithHandle(aHandle: integer): AIBaseObject;
+function AISpace.FindWithHandle(aHandle: integer): TaiBaseObject;
 var
   myWidth: integer;
   myHeight: integer;

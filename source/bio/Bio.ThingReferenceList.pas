@@ -17,7 +17,8 @@ uses
 type
 
 // ----------------------------------------------------------------------------
-AIThingReferenceList = class(AIReferenceList)
+
+AIThingReferenceList = class(TaiReferenceList)
 public
   procedure FullDisplay(aList: TStrings); override;
 
@@ -40,7 +41,7 @@ public
   function NearestThing(aGrabber: pointer; aPosition: AIPosition; aRange: single): pointer; overload;
   function NearestOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer; overload;
   function NearestOfKind(aKind: integer; aPosition: AIPosition): pointer; overload;
-  function NearestOfClass(aClass: AIBaseClass; aPosition: AIPosition; aRange: single): pointer;
+  function NearestOfClass(aClass: TaiBaseClass; aPosition: AIPosition; aRange: single): pointer;
   function NearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
   function NearestAvailableUnderwaterThing(aPosition: AIPosition; aNotKind: integer): pointer;
   function NearestAvailableNotUnderwaterThing(aPosition: AIPosition): pointer;
@@ -70,7 +71,7 @@ end;
 AIThingTables = array of AIThingReferenceList;
 AILocationTables = array of array of AIThingReferenceList;
 
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Things,
@@ -427,7 +428,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestOfClass(aClass: AIBaseClass; aPosition: AIPosition; aRange: single): pointer;
+function AIThingReferenceList.NearestOfClass(aClass: TaiBaseClass; aPosition: AIPosition; aRange: single): pointer;
 var
   myThing: AIThing;
   closest: single;

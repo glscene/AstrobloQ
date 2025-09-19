@@ -9,9 +9,6 @@
         <Projects Include="Stellarfonx.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="source\Midikeys.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -38,23 +35,14 @@
     <Target Name="Stellarfonx:Make">
         <MSBuild Projects="Stellarfonx.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Midikeys">
-        <MSBuild Projects="source\Midikeys.dproj"/>
-    </Target>
-    <Target Name="Midikeys:Clean">
-        <MSBuild Projects="source\Midikeys.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Midikeys:Make">
-        <MSBuild Projects="source\Midikeys.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Stellarfon;Stellarfonx;Midikeys"/>
+        <CallTarget Targets="Stellarfon;Stellarfonx"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Stellarfon:Clean;Stellarfonx:Clean;Midikeys:Clean"/>
+        <CallTarget Targets="Stellarfon:Clean;Stellarfonx:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Stellarfon:Make;Stellarfonx:Make;Midikeys:Make"/>
+        <CallTarget Targets="Stellarfon:Make;Stellarfonx:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

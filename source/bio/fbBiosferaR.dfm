@@ -641,7 +641,7 @@ object FormBiosfera: TFormBiosfera
           Left = 559
           Top = 0
           Width = 27
-          Height = 22
+          Height = 13
           Caption = 'Kind='
         end
         object cboxThings: TComboBox
@@ -940,7 +940,7 @@ object FormBiosfera: TFormBiosfera
           Left = 211
           Top = 0
           Width = 45
-          Height = 22
+          Height = 13
           Caption = #1050#1086#1085#1090#1088#1086#1083':'
           Color = clInactiveBorder
           ParentColor = False
@@ -959,7 +959,7 @@ object FormBiosfera: TFormBiosfera
           Left = 325
           Top = 0
           Width = 34
-          Height = 22
+          Height = 13
           Caption = #1040#1082#1094#1080#1080':'
           Color = clInactiveBorder
           ParentColor = False
@@ -1027,7 +1027,7 @@ object FormBiosfera: TFormBiosfera
           Left = 915
           Top = 0
           Width = 22
-          Height = 22
+          Height = 13
           Caption = 'Use:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1379,7 +1379,7 @@ object FormBiosfera: TFormBiosfera
           Left = 173
           Top = 0
           Width = 28
-          Height = 22
+          Height = 13
           Caption = 'Trails:'
           Color = clInactiveBorder
           ParentColor = False
@@ -2661,8 +2661,6 @@ object FormBiosfera: TFormBiosfera
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 1543
-    ExplicitHeight = 159
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2724,7 +2722,7 @@ object FormBiosfera: TFormBiosfera
           Left = 0
           Top = 0
           Width = 42
-          Height = 22
+          Height = 13
           Caption = #1050#1072#1084#1077#1088#1072':'
         end
         object tbCameraPlanet: TToolButton

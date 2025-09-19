@@ -30,7 +30,7 @@ uses
 type
 
 // ============================================================================
-AIEnvironment = class(AIBaseObject)
+AIEnvironment = class(TaiBaseObject)
 private
   fName: string;
   fThings: AIThingList;
@@ -67,12 +67,10 @@ public
   procedure Snip(aHandle: integer); overload;
   procedure Snip(aThing: AIThing); overload;
   procedure FullDisplay(aList: TStrings); override;
-  function FindWithHandle(aHandle: integer): AIBaseObject;
+  function FindWithHandle(aHandle: integer): TaiBaseObject;
 end;
 
-//=============================================================================
-implementation
-//=============================================================================
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -188,11 +186,11 @@ begin
 
   if Things.Cradle.Count > 0 then
     for i := 0 to Things.Cradle.Count - 1 do
-      result := result + #13#10 + 'Born: ' + AIBaseObject(Things.Cradle.Items[i]).OneLineDisplay;
+      result := result + #13#10 + 'Born: ' + TaiBaseObject(Things.Cradle.Items[i]).OneLineDisplay;
 
   if Things.Purgatory.Count > 0 then
     for i := 0 to Things.Purgatory.Count - 1 do
-      result := result + #13#10 + 'Died: ' + AIBaseObject(Things.Purgatory.Items[i]).OneLineDisplay;
+      result := result + #13#10 + 'Died: ' + TaiBaseObject(Things.Purgatory.Items[i]).OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
@@ -235,7 +233,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.FindWithHandle(aHandle: integer): AIBaseObject;
+function AIEnvironment.FindWithHandle(aHandle: integer): TaiBaseObject;
 begin
   result := gThings.FindWithHandle(aHandle);
   if not Assigned(result) then

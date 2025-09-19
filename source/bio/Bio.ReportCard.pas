@@ -42,7 +42,7 @@ public
 end;
 
 // *****************************************************************************
-AIReportList = class(TActiveList)
+AIReportList = class(TaiActiveList)
 public
   procedure AddReport(aKind: integer; aSuccess: boolean; aValue: integer; aEffort: integer);
   procedure FullDisplay(aList: TStrings);
@@ -56,10 +56,8 @@ public
   procedure LoadFromFile(var aFile: TextFile);
 end;
 
-//=============================================================================
-implementation
+implementation // -------------------------------------------------------------
 
-// ----------------------------------------------------------------------------
 procedure AIReportList.AddReport(aKind: integer; aSuccess: boolean; aValue: integer; aEffort: integer);
 var
   myReport: AIReportCard;

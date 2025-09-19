@@ -25,7 +25,7 @@ const
 type
 
 // ============================================================================
-AIReality =  Class(AIBaseObject)
+AIReality =  Class(TaiBaseObject)
 private
   fCreator: string;
 

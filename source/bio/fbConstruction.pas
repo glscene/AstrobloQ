@@ -32,7 +32,7 @@ type
   private
      
   public
-    StopWatch: TStopWatch;
+    StopWatch: TaiStopWatch;
     DebugFile: TextFile;
     Logfile: boolean;
     procedure AddEvent(aString: string);
@@ -56,7 +56,7 @@ uses
 
 procedure TfmConstruction.FormCreate(Sender: TObject);
 begin
-  StopWatch := TStopWatch.Create;
+  StopWatch := TaiStopWatch.Create;
 
   // open a logfile, if possible
   logfile := true;

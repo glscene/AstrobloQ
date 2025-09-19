@@ -77,7 +77,7 @@ AIThing = class;
 AIClass = class of AIThing;
 
 // ============================================================================
-AIThing = class(AIBaseObject)
+AIThing = class(TaiBaseObject)
 private
   FKind: integer;
   FPosition: AIPosition;
@@ -130,7 +130,7 @@ public
 end;
 
 // ----------------------------------------------------------------------------
-AIThingList = class(AIBaseContainer)
+AIThingList = class(TaiBaseContainer)
 private
   fMaximums:  AIIntegerList;          // maximum amounts
   fCounters:  AIIntegerList;          // counters
@@ -139,7 +139,7 @@ private
   fPurgatory: AIThingReferenceList;   // list of things condemned to deletion
   fTrash:     AIThingReferenceList;   // list of things to delete
   fTables:    AIThingTables;          // handy lists sorted by thing Kind
-  fForms:     AIBaseContainer;        // a base model of each things DNA
+  fForms:     TaiBaseContainer;        // a base model of each things DNA
   fFruits:    AIThingReferenceList;   // list of all fruits
   fPrey:      AIThingReferenceList;   // list of all prey
   fPredators: AIThingReferenceList;   // list of all predators
@@ -173,7 +173,7 @@ public
   property Colliders: AIThingReferenceList read fColliders;
   property Tangibles: AIThingReferenceList read fTangibles;
   property Tables:    AIThingTables read fTables;
-  property Forms:     AIBaseContainer read fForms;
+  property Forms:     TaiBaseContainer read fForms;
   property Maximums:  AIIntegerList read fMaximums;
   property Counters:  AIIntegerList read fCounters;
   property Collisions: boolean read fCollisions write fCollisions;
@@ -256,7 +256,7 @@ begin
   fPrey :=      AIThingReferenceList.Create(self);
   fColliders := AIThingReferenceList.Create(self);
   fTangibles := AIThingReferenceList.Create(self);
-  fForms :=     AIBaseContainer.Create(self);
+  fForms :=     TaiBaseContainer.Create(self);
   fCollisions := true;
   fAI := true;
   SetLength(fMaximums, 64); // saved

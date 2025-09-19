@@ -70,7 +70,7 @@ type
 AIHeightArray = array of single;
 
 // ============================================================================
-AIGrid = class(AIBaseObject)
+AIGrid = class(TaiBaseObject)
 private
   // Atmosphere
   fTemperature: single;   // temperature of atmosphere

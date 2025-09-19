@@ -7,13 +7,14 @@ uses
   Winapi.Messages,
   System.SysUtils,
   System.Classes,
+  System.ImageList,
+
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.ImgList,
-  Vcl.ExtCtrls,
-  System.ImageList;
+  Vcl.ExtCtrls;
 
 type
   TFormImages = class(TForm)
@@ -28,7 +29,7 @@ type
 var
   FormImages: TFormImages;
 
-implementation
+implementation //------------------------------------------------------------
 
 uses
   fbFirstForm;

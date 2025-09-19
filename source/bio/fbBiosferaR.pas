@@ -1,4 +1,4 @@
-unit fbBiosferasR;
+unit fbBiosferaR;
 
 interface
 
@@ -741,7 +741,7 @@ type
     ValidCursor: Boolean;
     CursorGlow: Single;
     CursorGlowRate: Single;
-    KBStopWatch: TStopWatch;
+    KBStopWatch: TaiStopWatch;
     WaterWaves: Single;
     WaterWaveRate: Single;
     // pointer to mesh data
@@ -1040,7 +1040,7 @@ begin
   Prediction := AIPosition.Create(nil);
   ViewUp := TGLCoordinates.Create(nil);
   ViewUp.Style := csVector;
-  KBStopWatch := TStopWatch.Create;
+  KBStopWatch := TaiStopWatch.Create;
   PlayTarget := nil;
 
   ViewPosition.SetProperties(1000, 0, 0);

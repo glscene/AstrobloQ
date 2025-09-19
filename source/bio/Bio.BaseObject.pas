@@ -5,15 +5,16 @@ interface
 uses
   System.SysUtils,
   System.Classes,
-  System.Contnrs;
+  System.Contnrs,
+  Bio.Utilities;
 
 type
 
-  AIBaseObject = class;
-  AIBaseClass = class of AIBaseObject;
+  TaiBaseObject = class;
+  TaiBaseClass = class of TaiBaseObject;
 
-  // ===========================================================================
-  TActiveList = class(TObjectList)
+  // -------------------------------------------------------------------------
+  TaiActiveList = class(TObjectList)
   private
     fActiveItem: Pointer;
   public
@@ -36,7 +37,7 @@ type
 
   // ============================================================================
 
-  AIBaseObject = class(TObject)
+  TaiBaseObject = class(TObject)
   private
     fHandle: integer;
     fParentHandle: integer;
@@ -57,7 +58,7 @@ type
 
   // ============================================================================
 
-  AIBaseContainer = class(TActiveList)
+  TaiBaseContainer = class(TaiActiveList)
   private
     fParentHandle: integer;
     fParentPointer: Pointer;
@@ -66,13 +67,13 @@ type
     destructor Destroy; override;
     property ParentHandle: integer read fParentHandle;
     property ParentPointer: Pointer read fParentPointer write fParentPointer;
-    function FindWithHandle(aHandle: integer): AIBaseObject;
+    function FindWithHandle(aHandle: integer): TaiBaseObject;
     procedure FullDisplay(aStrings: TStrings); virtual;
   end;
 
   // ============================================================================
 
-  AIReferenceList = class(TActiveList)
+  TaiReferenceList = class(TaiActiveList)
   private
     fParentPointer: Pointer;
   public
@@ -82,27 +83,23 @@ type
     procedure FullDisplay(aStrings: TStrings); virtual;
   end;
 
-  AIKind = class of AIBaseObject;
+  AIKind = class of TaiBaseObject;
 
 implementation // -------------------------------------------------------------
 
-uses
-  Bio.Utilities;
-
-// -----------------------------------------------------------------------------
-constructor TActiveList.Create(aValue: boolean);
+constructor TaiActiveList.Create(aValue: boolean);
 begin
   inherited Create(aValue);
 end;
 
 // ----------------------------------------------------------------------------
-destructor TActiveList.Destroy;
+destructor TaiActiveList.Destroy;
 begin
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.Next: boolean;
+function TaiActiveList.Next: boolean;
 var
   myIndex: integer;
 begin
@@ -116,7 +113,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.First: boolean;
+function TaiActiveList.First: boolean;
 begin
   if Count > 0 then
   begin
@@ -131,7 +128,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.SetFirstActive: boolean;
+function TaiActiveList.SetFirstActive: boolean;
 begin
   if Count > 0 then
   begin
@@ -146,7 +143,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.SetNextActive: boolean;
+function TaiActiveList.SetNextActive: boolean;
 var
   myIndex: integer;
 begin
@@ -160,7 +157,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.SetLastActive: boolean;
+function TaiActiveList.SetLastActive: boolean;
 begin
   if Count > 0 then
   begin
@@ -175,7 +172,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.SetPriorActive: boolean;
+function TaiActiveList.SetPriorActive: boolean;
 var
   myIndex: LongInt;
 begin
@@ -189,7 +186,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.SetNextOrFirstActive: boolean;
+function TaiActiveList.SetNextOrFirstActive: boolean;
 begin
   result := SetNextActive;
 
@@ -198,7 +195,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.SetPriorOrLastActive: boolean;
+function TaiActiveList.SetPriorOrLastActive: boolean;
 begin
   result := SetPriorActive;
 
@@ -207,7 +204,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.PositionAtIndex(anIndex: LongInt): boolean;
+function TaiActiveList.PositionAtIndex(anIndex: LongInt): boolean;
 begin
   result := False;
   if ((anIndex > -1) and (anIndex < Count)) then
@@ -218,19 +215,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.IndexOfActiveItem: LongInt;
+function TaiActiveList.IndexOfActiveItem: LongInt;
 begin
   result := IndexOf(fActiveItem);
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.ActiveItemIndex: LongInt;
+function TaiActiveList.ActiveItemIndex: LongInt;
 begin
   result := IndexOf(ActiveItem);
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIBaseObject.Create(aParent: Pointer);
+constructor TaiBaseObject.Create(aParent: Pointer);
 begin
   inherited Create;
 
@@ -240,34 +237,34 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIBaseObject.Destroy;
+destructor TaiBaseObject.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-function AIBaseObject.OneLineDisplay: string;
+function TaiBaseObject.OneLineDisplay: string;
 begin
   result := 'UNDEFINED';
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBaseObject.SaveToFile(var aFile: TextFile);
+procedure TaiBaseObject.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fHandle);
   writeln(aFile, fParentHandle);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBaseObject.LoadFromFile(var aFile: TextFile);
+procedure TaiBaseObject.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fHandle);
   readln(aFile, fParentHandle);
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIBaseContainer.Create(aParent: Pointer);
+constructor TaiBaseContainer.Create(aParent: Pointer);
 begin
   inherited Create(True); // does own objects
 
@@ -275,23 +272,23 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIBaseContainer.Destroy;
+destructor TaiBaseContainer.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBaseContainer.FullDisplay(aStrings: TStrings);
+procedure TaiBaseContainer.FullDisplay(aStrings: TStrings);
 var
   i: integer;
 begin
   for i := 0 to Count - 1 do
-    aStrings.AddObject(AIBaseObject(Items[i]).OneLineDisplay, Items[i]);
+    aStrings.AddObject(TaiBaseObject(Items[i]).OneLineDisplay, Items[i]);
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIReferenceList.Create(aParent: Pointer);
+constructor TaiReferenceList.Create(aParent: Pointer);
 begin
   inherited Create(False); // doesnt own objects
 
@@ -299,51 +296,51 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIReferenceList.Destroy;
+destructor TaiReferenceList.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReferenceList.FullDisplay(aStrings: TStrings);
+procedure TaiReferenceList.FullDisplay(aStrings: TStrings);
 var
   i: integer;
 begin
   for i := 0 to Count - 1 do
-    aStrings.AddObject(AIBaseObject(Items[i]).OneLineDisplay, Items[i]);
+    aStrings.AddObject(TaiBaseObject(Items[i]).OneLineDisplay, Items[i]);
 end;
 
 // ----------------------------------------------------------------------------
-function TActiveList.OneLineDisplay: string;
+function TaiActiveList.OneLineDisplay: string;
 var
   i: integer;
 begin
   result := '';
   for i := 0 to Count - 1 do
   begin
-    result := result + AIBaseObject(Items[i]).OneLineDisplay + #13#10;
+    result := result + TaiBaseObject(Items[i]).OneLineDisplay + #13#10;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-function AIBaseContainer.FindWithHandle(aHandle: integer): AIBaseObject;
+function TaiBaseContainer.FindWithHandle(aHandle: integer): TaiBaseObject;
 var
   i: integer;
 begin
   result := nil;
   for i := 0 to Count - 1 do
   begin
-    if AIBaseObject(Items[i]).Handle = aHandle then
+    if TaiBaseObject(Items[i]).Handle = aHandle then
     begin
-      result := AIBaseObject(Items[i]);
+      result := TaiBaseObject(Items[i]);
       break;
     end;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBaseObject.FullDisplay(aList: TStrings);
+procedure TaiBaseObject.FullDisplay(aList: TStrings);
 begin
   aList.Add('Handle: ' + IntToStr(Handle));
   aList.Add('Pointer: ' + PtrToStr(self));

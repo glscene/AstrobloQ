@@ -1,4 +1,4 @@
-unit fbBiosferas;
+unit fbBiosfera;
 
 interface
 
@@ -59,11 +59,13 @@ uses
   Bio.MissileDefence,
   Bio.Ant,
   Bio.EvolvingTrees,
-  // JVCL, JvEdit, JvTypedEdit,
-  GLS.PersistentClasses,
+
   Stage.VectorTypes,
-  GLS.ScreenSaver,
   Stage.VectorGeometry,
+  Stage.Keyboard,
+
+  GLS.PersistentClasses,
+  GLS.ScreenSaver,
   GLS.VectorLists,
   GLS.Scene,
   GLS.Objects,
@@ -74,7 +76,6 @@ uses
   GLS.Color,
   GLS.ShadowVolume,
   GLS.Octree,
-  Stage.Keyboard,
   GLS.FireFX,
   GLS.SkyDome,
   GLS.Mesh,
@@ -741,7 +742,7 @@ type
     ValidCursor: Boolean;
     CursorGlow: Single;
     CursorGlowRate: Single;
-    KBStopWatch: TStopWatch;
+    KBStopWatch: TaiStopWatch;
     WaterWaves: Single;
     WaterWaveRate: Single;
     // pointer to mesh data
@@ -1040,7 +1041,7 @@ begin
   Prediction := AIPosition.Create(nil);
   ViewUp := TGLCoordinates.Create(nil);
   ViewUp.Style := csVector;
-  KBStopWatch := TStopWatch.Create;
+  KBStopWatch := TaiStopWatch.Create;
   PlayTarget := nil;
 
   ViewPosition.SetProperties(1000, 0, 0);

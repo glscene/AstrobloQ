@@ -1,18 +1,18 @@
 object FormImages: TFormImages
   Left = 950
   Top = 511
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Images'
-  ClientHeight = 437
-  ClientWidth = 645
+  ClientHeight = 250
+  ClientWidth = 369
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -40,17 +40,12 @@ object FormImages: TFormImages
     0000000000000000000000000000000000000000000000000000000000000000
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000000000000000000000000000000000000000}
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object panImages: TPanel
     Left = 0
     Top = 0
-    Width = 645
-    Height = 437
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 369
+    Height = 250
     Align = alClient
     TabOrder = 0
   end

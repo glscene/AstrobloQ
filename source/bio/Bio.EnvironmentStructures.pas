@@ -22,7 +22,7 @@ end;
 AISpatialArray = array of AISpatialEvent;
 
 // ----------------------------------------------------------------------------
-AIEventList = class(AIBaseObject)
+AIEventList = class(TaiBaseObject)
 private
   fFull: boolean;
   fActiveIndex: integer;
@@ -136,7 +136,7 @@ begin
   begin
     writeln(aFile, fEvents[i].Kind);
     writeln(aFile, fEvents[i].Modifier);
-    writeln(aFile, AIBaseObject(fEvents[i].Target).Handle);
+    writeln(aFile, TaiBaseObject(fEvents[i].Target).Handle);
   end;
 end;
 

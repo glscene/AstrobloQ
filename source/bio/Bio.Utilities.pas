@@ -34,12 +34,12 @@ function Cap(const aNumber, aCap: integer): integer;
 function VectorToString(aVect: TGLVector): string; overload;
 function VectorToString(aVect: TAffineVector): string; overload;
 procedure LimitVector(var aVect: TAffineVector; const aMax: single);
-procedure writeVector(var aFile: TextFile; var aVector: TAffineVector);
-procedure readVector(var aFile: TextFile; var aVector: TAffineVector);
+procedure WriteVector(var aFile: TextFile; var aVector: TAffineVector);
+procedure ReadVector(var aFile: TextFile; var aVector: TAffineVector);
 function AccumulativeSum(n: single; x: integer): single;
 
 type
-  TStopWatch = class(TObject)
+  TaiStopWatch = class(TObject)
   private
     fStartTick: comp;
     fEndTick: comp;
@@ -55,7 +55,6 @@ type
 
 implementation //--------------------------------------------------------------
 
-// ----------------------------------------------------------------------------
 function BoolToYesNoStr(const aBoolean: boolean): string;
 begin
   if aBoolean then
@@ -139,7 +138,7 @@ begin
     result := false;
 end;
 
-constructor TStopWatch.Create;
+constructor TaiStopWatch.Create;
 begin
   inherited Create;
 
@@ -148,24 +147,24 @@ begin
   fEndTick := 0;
 end;
 
-procedure TStopWatch.Go;
+procedure TaiStopWatch.Go;
 begin
   fTiming := true;
   fStartTick := ClockTime;
 end;
 
-procedure TStopWatch.Stop;
+procedure TaiStopWatch.Stop;
 begin
   fEndTick := ClockTime;
   fTiming := false;
 end;
 
-function TStopWatch.Timer: comp;
+function TaiStopWatch.Timer: comp;
 begin
   result := (fEndTick - fStartTick);
 end;
 
-function TStopWatch.CurrentTime: comp;
+function TaiStopWatch.CurrentTime: comp;
 begin
   result := (ClockTime - fStartTick);
 end;

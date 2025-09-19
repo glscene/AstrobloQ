@@ -26,7 +26,7 @@ type
 
   eCamera = (camPlanet, camAvatar, camSatellite, camTarget, camFree, camEyes);
 
-  // *****************************************************************************
+  // -------------------------------------------------------------------------
   TDynamicToolButton = class(TToolButton)
   public
     procedure SetLinkToolBar(AToolBar: TToolBar);
@@ -74,8 +74,8 @@ type
     property ChangeTime: integer read fChangeTime write fChangeTime;
   end;
 
-  // *****************************************************************************
-  TCrossoverList = class(TActiveList)
+  // -------------------------------------------------------------------------
+  TCrossoverList = class(TaiActiveList)
   public
     constructor Create;
 
@@ -90,20 +90,18 @@ type
     function SetReverseCrossoverByKind(aKind: integer): boolean;
   end;
 
-  // *****************************************************************************
-  TGridCrossoverList = class(TCrossoverList)
-  public
-    function NewGridCrossover(aNormals: integer): TGridCrossover;
-    function FindCrossoverByVertexIndex(aIndex: integer): TGridCrossover;
-  end;
+// ----------------------------------------------------------------------------
+TGridCrossoverList = class(TCrossoverList)
+public
+  function NewGridCrossover(aNormals: integer): TGridCrossover;
+  function FindCrossoverByVertexIndex(aIndex: integer): TGridCrossover;
+end;
 
 function OppositeTool(aTool: eTool): eTool;
 function ThingImageIndex(aKind: integer): integer;
 function CameraModeString(const aMode: eCamera): string;
 
-// ------------------------------------------------
-implementation
-// ------------------------------------------------
+implementation // ------------------------------------------------
 
 uses
   Bio.Things;

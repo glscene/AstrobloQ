@@ -32,8 +32,8 @@ public
   function Valid: boolean;
   function ValidLeft: boolean;
 
-  procedure AssignLeftObject(aObject: AIBaseObject);
-  procedure AssignRightObject(aObject: AIBaseObject);
+  procedure AssignLeftObject(aObject: TaiBaseObject);
+  procedure AssignRightObject(aObject: TaiBaseObject);
 
   function ValidRight: boolean;
 
@@ -71,8 +71,8 @@ public
 
   procedure Disconnect;
 
-  procedure AssignOrigin(aObject: AIBaseObject);
-  procedure AssignTarget(aObject: AIBaseObject); virtual;
+  procedure AssignOrigin(aObject: TaiBaseObject);
+  procedure AssignTarget(aObject: TaiBaseObject); virtual;
   function OneLineDisplayRight: string;
   function OneLineDisplayBoth: string;
 end;
@@ -88,7 +88,7 @@ public
 end;
 
 // ============================================================================
-TLinkContainer = class(AIBaseContainer)
+TLinkContainer = class(TaiBaseContainer)
 protected
   procedure RemoveAllLinksWithRightHandle(aHandle: int64);
   procedure RemoveAllLinksWithLeftHandle(aHandle: int64);
@@ -99,9 +99,9 @@ public
   function NextWithRightHandle(aHandle: int64): boolean;
   function NextWithLeftHandle(aHandle: int64): boolean;
 
-  procedure SetObjectPointers(aContainer: AIBaseContainer); virtual;
-  procedure SetLeftObjectPointers(aContainer: AIBaseContainer);
-  procedure SetRightObjectPointers(aContainer: AIBaseContainer);
+  procedure SetObjectPointers(aContainer: TaiBaseContainer); virtual;
+  procedure SetLeftObjectPointers(aContainer: TaiBaseContainer);
+  procedure SetRightObjectPointers(aContainer: TaiBaseContainer);
 
   procedure NeutralizeAllLinksWithRightHandle(aHandle: int64);
   procedure NeutralizeAllLinksWithLeftHandle(aHandle: int64);
@@ -116,8 +116,8 @@ end;
 // ============================================================================
 AILinkContainer = class(TLinkContainer)
 public
-  function NewLink(aLeftObject: AIBaseObject): AILink; overload;
-  function NewLink(aLeftObject: AIBaseObject; aRightObject: AIBaseObject): AILink; overload;
+  function NewLink(aLeftObject: TaiBaseObject): AILink; overload;
+  function NewLink(aLeftObject: TaiBaseObject; aRightObject: TaiBaseObject): AILink; overload;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
@@ -126,7 +126,7 @@ AIAttachmentContainer = class(AILinkContainer)
 public
   function NewAttachment(aLeftObject: AIThing): AIAttachment;
   procedure DetachAllWithHandle(aHandle: int64);
-  procedure SetObjectPointers(aContainer: AIBaseContainer); override;
+  procedure SetObjectPointers(aContainer: TaiBaseContainer); override;
 end;
 
 implementation
@@ -176,14 +176,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.AssignLeftObject(aObject: AIBaseObject);
+procedure TLinkObject.AssignLeftObject(aObject: TaiBaseObject);
 begin
   fLeftObjectPointer := aObject;
   fLeftHandle := aObject.Handle;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.AssignRightObject(aObject: AIBaseObject);
+procedure TLinkObject.AssignRightObject(aObject: TaiBaseObject);
 begin
   fRightObjectPointer := aObject;
   fRightHandle := aObject.Handle;
@@ -346,7 +346,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILinkContainer.NewLink(aLeftObject: AIBaseObject; aRightObject: AIBaseObject): AILink;
+function AILinkContainer.NewLink(aLeftObject: TaiBaseObject; aRightObject: TaiBaseObject): AILink;
 begin
   result := AILink.Create;
   result.LeftObjectPointer := aLeftObject;
@@ -357,7 +357,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILinkContainer.NewLink(aLeftObject: AIBaseObject): AILink;
+function AILinkContainer.NewLink(aLeftObject: TaiBaseObject): AILink;
 begin
   result := AILink.Create;
   result.LeftObjectPointer := aLeftObject;
@@ -408,14 +408,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.AssignOrigin(aObject: AIBaseObject);
+procedure AILink.AssignOrigin(aObject: TaiBaseObject);
 begin
   if not (aObject = nil) then
     AssignLeftObject(aObject);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.AssignTarget(aObject: AIBaseObject);
+procedure AILink.AssignTarget(aObject: TaiBaseObject);
 begin
   if not (aObject = nil) then
     AssignRightObject(aObject);
@@ -503,7 +503,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkContainer.SetLeftObjectPointers(aContainer: AIBaseContainer);
+procedure TLinkContainer.SetLeftObjectPointers(aContainer: TaiBaseContainer);
 var mySearch: TLinkObject;
     myPointer: pointer;
 begin
@@ -518,7 +518,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkContainer.SetRightObjectPointers(aContainer: AIBaseContainer);
+procedure TLinkContainer.SetRightObjectPointers(aContainer: TaiBaseContainer);
 var mySearch: TLinkObject;
     myPointer: pointer;
 begin
@@ -533,7 +533,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkContainer.SetObjectPointers(aContainer: AIBaseContainer);
+procedure TLinkContainer.SetObjectPointers(aContainer: TaiBaseContainer);
 var
   mySearch: TLinkObject;
   myPointer: pointer;
@@ -616,7 +616,7 @@ end;
 function AILink.OneLineDisplayRight: string;
 begin
   if ValidRight then
-    result := AIBaseObject(RightObjectPointer).OneLineDisplay
+    result := TaiBaseObject(RightObjectPointer).OneLineDisplay
   else
     result := 'Empty';
 end;
@@ -643,7 +643,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAttachmentContainer.SetObjectPointers(aContainer: AIBaseContainer);
+procedure AIAttachmentContainer.SetObjectPointers(aContainer: TaiBaseContainer);
 var
   mySearch: AIAttachment;
   myPointer: pointer;

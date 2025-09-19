@@ -71,8 +71,6 @@ object fmConstruction: TfmConstruction
       ReadOnly = True
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitWidth = 387
-      ExplicitHeight = 376
     end
     object Panel3: TPanel
       Left = 5
