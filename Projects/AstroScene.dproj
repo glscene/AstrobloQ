@@ -118,11 +118,11 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FrmAbout</Form>
+            <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmGenExosystem.pas">
-            <Form>FrmGenPlanetsys</Form>
+        <DCCReference Include="..\source\fmGenStarsys.pas">
+            <Form>frmGenStarsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
@@ -133,8 +133,8 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\Space.Globals.pas"/>
-        <DCCReference Include="..\source\fmSolarSystem.pas">
-            <Form>FormSolarSys</Form>
+        <DCCReference Include="..\source\fmSolarsys.pas">
+            <Form>frmSolarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\frParams.pas">
@@ -142,8 +142,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmStellarSystem.pas">
-            <Form>FormStellarSys</Form>
+        <DCCReference Include="..\source\fmStarsys.pas">
+            <Form>frmStarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
@@ -156,8 +156,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmConstellations.pas">
-            <Form>FrmConstellations</Form>
+        <DCCReference Include="..\source\fmConstells.pas">
+            <Form>frmConstells</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
@@ -188,6 +188,10 @@
             <Form>FormCoords</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\fmSettings.pas">
+            <Form>FormSettings</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -209,10 +213,10 @@
                     <Source Name="MainSource">AstroScene.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp370.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k370.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp370.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Platforms>

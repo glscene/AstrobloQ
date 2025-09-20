@@ -1,29 +1,26 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Tehnosfera;
+program Tehnosfera_ru;
 uses
   Forms,
-  ftMeshEditor in '..\source\teh\ftMeshEditor.pas' {frmMeshEditor},
-  ftMeshData in '..\source\teh\ftMeshData.pas' {FormMeshData},
-  ftSpacePilot in '..\source\teh\ftSpacePilot.pas' {frmSpacePilot},
+  ftMeshEditor_ru in '..\source\teh\ftMeshEditor_ru.pas' {frmMeshEditor},
+  ftMeshData_ru in '..\source\teh\ftMeshData_ru.pas' {frmMeshData},
+  ftSpacePilot_ru in '..\source\teh\ftSpacePilot_ru.pas' {frmSpacePilot},
+  ftLocations_ru in '..\source\teh\ftLocations_ru.pas' {FormLocations},
   fmFormI in '..\source\fmFormI.pas' {FormI},
-  ftCyborg in '..\source\teh\ftCyborg.pas' {frmCyborg},
-  ftRobot in '..\source\teh\ftRobot.pas' {frmRobot},
+  ftCyborg_ru in '..\source\teh\ftCyborg_ru.pas' {frmCyborg},
+  ftRobot_ru in '..\source\teh\ftRobot_ru.pas' {frmLoadModel},
+  ftCETInet_ru in '..\source\teh\ftCETInet_ru.pas' {FormCETI},
   Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
   Teh.Globals in '..\source\teh\Teh.Globals.pas',
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {frmAbout},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
-  Space.Globals in '..\source\Space.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {FormTehnosfera},
-  ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
-  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  ftCETInet in '..\source\teh\ftCETInet.pas' {FormCETI};
+  ftTehnosfera_ru in '..\source\teh\ftTehnosfera_ru.pas' {FormTehnosfera},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout};
 
 {$R *.res}
 
@@ -32,14 +29,15 @@ begin
 
   Application.Title := 'Tehnosfera';
   Application.CreateForm(TFormTehnosfera, FormTehnosfera);
+  Application.CreateForm(TFormLocations, FormLocations);
+  Application.CreateForm(TFormCETI, FormCETI);
+  Application.CreateForm(TfrmMeshData, frmMeshData);
+  Application.CreateForm(TfrmLoadModel, frmLoadModel);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmMeshEditor, frmMeshEditor);
-  Application.CreateForm(TfrmCyborg, frmCyborg);
-  Application.CreateForm(TFormCETI, FormCETI);
-  Application.CreateForm(TfrmRobot, frmRobot);
   Application.CreateForm(TfrmSpacePilot, frmSpacePilot);
-  Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TfrmCyborg, frmCyborg);
   Application.Run;
 end.

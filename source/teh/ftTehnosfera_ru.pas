@@ -1,4 +1,4 @@
-unit ftTehnosfera;
+unit ftTehnosfera_ru;
 
 interface
 
@@ -47,8 +47,7 @@ uses
   GLS.Context,
   GLS.GeomObjects,
 
-  fmAbout,
-  Astro.Utils;
+  fmAbout_ru;
 
 type
   TMarkerPosition = class(TObject)
@@ -114,7 +113,6 @@ type
     miN2: TMenuItem;
     miAddaPeople: TMenuItem;
     miTools: TMenuItem;
-    miNoosfera: TMenuItem;
     miMeshEditor: TMenuItem;
     miHelp: TMenuItem;
     miAbout: TMenuItem;
@@ -165,8 +163,8 @@ type
     CountryColorPanel: TPanel;
     GlsGlowLF: TGLLensFlare;
     miSatelliteLight: TMenuItem;
-    miSmdQc: TMenuItem;
-    miMdlQc: TMenuItem;
+    miCyborg: TMenuItem;
+    miRobot: TMenuItem;
     miConstellationLines: TMenuItem;
     miStars: TMenuItem;
     miSunFlare: TMenuItem;
@@ -217,6 +215,8 @@ type
     N6: TMenuItem;
     N7: TMenuItem;
     miSpacePilot: TMenuItem;
+    N8: TMenuItem;
+    miCETInet: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -276,10 +276,9 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure CountryColorPanelClick(Sender: TObject);
     procedure miSatelliteLightClick(Sender: TObject);
-    procedure miNoosferaClick(Sender: TObject);
     procedure miMeshEditorClick(Sender: TObject);
-    procedure miSmdQcClick(Sender: TObject);
-    procedure miMdlQcClick(Sender: TObject);
+    procedure miCyborgClick(Sender: TObject);
+    procedure miRobotClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure miSpinSolarSystemClick(Sender: TObject);
     procedure miStarsClick(Sender: TObject);
@@ -300,6 +299,7 @@ type
     procedure miCoreClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miSpacePilotClick(Sender: TObject);
+    procedure miCETInetClick(Sender: TObject);
   private
     Datadir, StarDir, CurrentStar: TFileName;
     FileName, CatalogName: TFileName;
@@ -337,18 +337,18 @@ implementation   // -----------------------------------------------------------
 {$R *.dfm}
 
 uses
-  Astro.Camera,
-  Astro.SkyBodies, // Asteroid as monolith rock
   Teh.Globals,
   // accurate movements left for later... or the astute reader
-  // ftAllShapeLoader,  // Cities, Countries
-  ftMeshEditor,
-  ftLocations, // Data input for a planet
+  Astro.Camera,
+  Astro.SkyBodies, // Asteroid as monolith rock
+  // fnAllShapeLoader,  // Cities, Countries
+  ftMeshEditor_ru,
+  ftLocations_ru, // Ввод общих данных о планете
 
-  ftCETInet,
-  ftRobot,
-  ftSpacePilot, // 5000
-  ftCyborg; // 8000 ...
+  ftCETInet_ru,
+  ftRobot_ru,
+  ftSpacePilot_ru, // 5000
+  ftCyborg_ru; // 8000 ...
 
 // ----- TMarkerPosition.GetCartesian ------------------------------------------
 (*
@@ -384,7 +384,7 @@ begin
   DataDir :=  ExtractFilePath(ParamStr(0)) + 'noodata\'; // not GetDataPath();
   SetCurrentDir(DataDir);
 
-  if FileExists('Tehnofera.pof') then
+  if FileExists('Noosfera.pof') then
   begin
     DoLoader;
   end
@@ -419,8 +419,8 @@ begin
 
   top := FormPlanetY;
   left := FormPlanetX;
-  if FileExists(DataDir + 'Tehnofera.chm') then
-    Application.HelpFile := DataDir + 'Tehnofera.chm'; // not ready yet
+  if FileExists(DataDir + 'Noosfera.chm') then
+    Application.HelpFile := DataDir + 'Noosfera.chm'; // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;
@@ -1287,27 +1287,23 @@ end;
 
 procedure TFormTehnosfera.miSpinThePlanetClick(Sender: TObject);
 begin
-  miSpinThePlanet.Checked := not miSpinThePlanet.Checked;
+  miSpinThePlanet.Checked := (not miSpinThePlanet.Checked);
   Cadencer.Enabled := miSpinThePlanet.Checked; // on autocheck
 end;
 
 procedure TFormTehnosfera.miSpinSolarSystemClick(Sender: TObject);
 begin
-  miSpinSolarSystem.Checked := not miSpinSolarSystem.Checked;
+  miSpinSolarSystem.Checked := (not miSpinSolarSystem.Checked);
 end;
 
-// ------------------------------------------------------------
-// Show the stars
-// ------------------------------------------------------------
+// -------------------------------------------------------------------
+
 procedure TFormTehnosfera.miStarsClick(Sender: TObject);
 begin
-  miStars.Checked := not miStars.Checked;
+  miStars.Checked := (not miStars.Checked);
   SkyDome.Visible := miStars.Checked;
 end;
 
-// ------------------------------------------------------------
-// Show the sun flare
-// ------------------------------------------------------------
 procedure TFormTehnosfera.miSunFlareClick(Sender: TObject);
 begin
   miSunFlare.Checked := (not miSunFlare.Checked);
@@ -1328,18 +1324,12 @@ begin
   GlsGlowLF.Visible := False;
 end;
 
-// ------------------------------------------------------------
-// Show the constellation lines
-// ------------------------------------------------------------
 procedure TFormTehnosfera.miConstellationLinesClick(Sender: TObject);
 begin
   miConstellationLines.Checked := (not miConstellationLines.Checked);
   constellationsAlpha := 0.5 - constellationsAlpha;
 end;
 
-// ------------------------------------------------------------
-// Show clouds
-// ------------------------------------------------------------
 procedure TFormTehnosfera.miCloudsClick(Sender: TObject);
 begin
   miClouds.Checked := not miClouds.Checked;
@@ -1361,9 +1351,8 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-// ------------------------------------------------------------
-// Show the flip plap lands
-// ------------------------------------------------------------
+// -------------------------------------------------------------------
+
 procedure TFormTehnosfera.miFlipFlopLandClick(Sender: TObject);
   procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
@@ -1400,9 +1389,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------
-// High resolution
-// ------------------------------------------------------------
 procedure TFormTehnosfera.miHighResolutionClick(Sender: TObject);
   procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
@@ -1449,9 +1435,6 @@ begin
   miHighResolution.Checked := highResResourcesLoaded;
 end;
 
-// ------------------------------------------------------------
-// Show country borders
-// ------------------------------------------------------------
 procedure TFormTehnosfera.miCountriesClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'country.dat') then
@@ -1720,9 +1703,6 @@ begin
     showmessage(ShpPath + 'CAPITALS.dat missing');
 end;
 
-// ------------------------------------------------------------
-// Display Capitals
-// ------------------------------------------------------------
 procedure TFormTehnosfera.DisplayCapitals(Show: Boolean);
 begin
   If (not Show) then
@@ -1748,6 +1728,7 @@ begin
 end;
 
 // -------------------------------------------------------------------
+
 function TFormTehnosfera.LoadCapitalShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
@@ -1810,6 +1791,7 @@ begin
 end;
 
 // -------------------------------------------------------------------
+
 procedure TFormTehnosfera.DisplayCities(Show: Boolean);
 begin
   If (not Show) then
@@ -1900,6 +1882,7 @@ begin
 end;
 
 // -------------------------------------------------------------------
+
 procedure TFormTehnosfera.FlowTimerTimer(Sender: TObject);
 begin
   { Every 'tick' of time Cycle the display according to GLS Start Date
@@ -1923,10 +1906,6 @@ begin
   DrawPoints;
 end;
 
-
-// ------------------------------------------------------------
-// Display planet core
-// ------------------------------------------------------------
 procedure TFormTehnosfera.miCoreClick(Sender: TObject);
 begin
   miCore.Checked := not miCore.Checked;
@@ -1975,91 +1954,82 @@ begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
   frmMeshEditor.ShowModal;
+(*
+  with TfrmMeshEditor.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
   Timer.Enabled := True;
   Cadencer.Enabled := True;
+*)
 end;
 
-// Tehnofera Viewer
-procedure TFormTehnosfera.miNoosferaClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  Cadencer.Enabled := False;
-  FormCETI.ShowModal;
-  (*
-    with TFormTehnofera.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-  *)
-  Timer.Enabled := True;
-  Cadencer.Enabled := True;
-  (*
-    FormTehnofera in 'ftTehnofera.pas',
-    FormSmdQc in 'fmSmdQc.pas',
-    FormSmdLoadMdl in 'fmSmdLoadMdl.pas' ,
-  *)
-end;
-
-// SmdQc
-procedure TFormTehnosfera.miSmdQcClick(Sender: TObject);
+//
+procedure TFormTehnosfera.miCyborgClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
   frmCyborg.ShowModal;
-  (*
-    with TFormCyborg.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-  *)
+(*
+  with TFormCyborg.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+*)
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
 
 // -------------------------------------------------------------------
-// Robot
-//--------------------------------------------------------------------
-procedure TFormTehnosfera.miMdlQcClick(Sender: TObject);
+procedure TFormTehnosfera.miRobotClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
-  frmRobot.ShowModal;
-  (*
-    with TFormRobot.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-  *)
+  frmLoadModel.ShowModal;
+(*
+  with TFormLoadModel.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+*)
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
 
-// StarPilot
+// -------------------------------------------------------------------
+// Астропилот
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.miSpacePilotClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
   frmSpacePilot.ShowModal;
-  (*
+(*
     with TFormSpacePilot.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
-  *)
+*)
   Timer.Enabled := True;
   Cadencer.Enabled := True;
 end;
 
-// ==============================================================
+procedure TFormTehnosfera.miCETInetClick(Sender: TObject);
+begin
+  //
+end;
 
+// -------------------------------------------------------------------
+// Справочный контент
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.miContentsClick(Sender: TObject);
 begin
   Application.HelpCommand(HELP_CONTENTS, 0);
@@ -2071,7 +2041,8 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
+// О программе
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.miAboutClick(Sender: TObject);
 begin
   with TFrmAbout.CReate(Self) do
@@ -2080,14 +2051,11 @@ begin
     finally
       Free;
     end;
-  (*
-    ShowMessage('A freeware program based on Earth Advdemo...'#13#10#13#10 +
-    'to shows GLScene users and developers around the world!');
-  *)
 end;
 
-// ==============================================================
-
+// -------------------------------------------------------------------
+// Дисплей точек на сфера
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.ChoiceRGClick(Sender: TObject);
 begin
   MarkersDisplaySelection := ChoiceRG.ItemIndex;
@@ -2097,7 +2065,7 @@ begin
   (* If (MarkersDisplaySelection=3) then
     ptsFlashLocations.Visible:=True else *)
   ptsFlashLocations.Visible := False;
-  GlsGlowLF.Visible := False;
+  GLSGlowLF.Visible := False;
   DrawPoints;
   (*
    ChoiceRG.Itemindex  MarkersDisplaySelection
@@ -2171,10 +2139,10 @@ begin
           lblType.Caption := 'Others';
       else
         lblType.Caption := 'Undecided Dabbler';
-      end; { Case }
+      end; // Case
       lblTypeName.Caption := TMarkerPosition(markers.Objects[i]).TypeName;
       GlowUpDown.Position := TMarkerPosition(markers.Objects[i]).Glow;
-      { ptsSizeUpDown.Position:=TMarkerPosition(markers.Objects[i]).Glow; }
+      // ptsSizeUpDown.Position:=TMarkerPosition(markers.Objects[i]).Glow;
       ptsFlashLocations.Size := ptsSizeUpDown.Position;
       GlsGlowLF.Size := GlowUpDown.Position;
       lblGLSGlow.Caption := IntToStr(TMarkerPosition(markers.Objects[i]).Glow);
@@ -2199,8 +2167,8 @@ begin
 
       ptsFlashLocations.Positions.Add(TMarkerPosition(markers.Objects[i])
         .GetCartesian(Earth.Radius));
-      { Lensflare Z test OFF }
-      { +(ptsFlashLocations.Size/1000) }
+      // Lensflare Z test OFF
+      // +(ptsFlashLocations.Size/1000)
       GlsGlowLF.Position.X := TMarkerPosition(markers.Objects[i])
         .GetCartesian(Earth.Radius { +0.1 } ).X;
       GlsGlowLF.Position.Y := TMarkerPosition(markers.Objects[i])
@@ -2217,7 +2185,8 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
+// Страны
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.CountryColorPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CountryColorPanel.Color;
@@ -2249,7 +2218,8 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
+// Скрыть панель
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.PeopleColorPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := PeopleColorPanel.Color;
@@ -2293,19 +2263,24 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
+//
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   ptsFlashLocations.Size := ptsSizeUpDown.Position;
 end;
 
 // -------------------------------------------------------------------
-
+// Глабальные настройки и установки
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.miSettingsClick(Sender: TObject);
 begin
-  // fOptions with TreeView and Pages
+  // fmSettings with TreeView and Pages
 end;
 
+// -------------------------------------------------------------------
+// Выход
+// -------------------------------------------------------------------
 procedure TFormTehnosfera.miExitClick(Sender: TObject);
 begin
   Close;

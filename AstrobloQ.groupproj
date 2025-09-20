@@ -6,31 +6,31 @@
         <Projects Include="Projects\AstroScene.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\AstroSceneR.dproj">
+        <Projects Include="Projects\AstroScene_ru.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Biosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\BiosferaR.dproj">
+        <Projects Include="Projects\Biosfera_ru.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Tehnosfera.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\TehnosferaR.dproj">
+        <Projects Include="Projects\Tehnosfera_ru.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Galaqtium.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\GalaqtiumR.dproj">
+        <Projects Include="Projects\Galaqtium_ru.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Universum.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\UniversumR.dproj">
+        <Projects Include="Projects\Universum_ru.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -50,14 +50,14 @@
     <Target Name="AstroScene:Make">
         <MSBuild Projects="Projects\AstroScene.dproj" Targets="Make"/>
     </Target>
-    <Target Name="AstroSceneR">
-        <MSBuild Projects="Projects\AstroSceneR.dproj"/>
+    <Target Name="AstroScene_ru">
+        <MSBuild Projects="Projects\AstroScene_ru.dproj"/>
     </Target>
-    <Target Name="AstroSceneR:Clean">
-        <MSBuild Projects="Projects\AstroSceneR.dproj" Targets="Clean"/>
+    <Target Name="AstroScene_ru:Clean">
+        <MSBuild Projects="Projects\AstroScene_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="AstroSceneR:Make">
-        <MSBuild Projects="Projects\AstroSceneR.dproj" Targets="Make"/>
+    <Target Name="AstroScene_ru:Make">
+        <MSBuild Projects="Projects\AstroScene_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Biosfera">
         <MSBuild Projects="Projects\Biosfera.dproj"/>
@@ -68,14 +68,14 @@
     <Target Name="Biosfera:Make">
         <MSBuild Projects="Projects\Biosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="BiosferaR">
-        <MSBuild Projects="Projects\BiosferaR.dproj"/>
+    <Target Name="Biosfera_ru">
+        <MSBuild Projects="Projects\Biosfera_ru.dproj"/>
     </Target>
-    <Target Name="BiosferaR:Clean">
-        <MSBuild Projects="Projects\BiosferaR.dproj" Targets="Clean"/>
+    <Target Name="Biosfera_ru:Clean">
+        <MSBuild Projects="Projects\Biosfera_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="BiosferaR:Make">
-        <MSBuild Projects="Projects\BiosferaR.dproj" Targets="Make"/>
+    <Target Name="Biosfera_ru:Make">
+        <MSBuild Projects="Projects\Biosfera_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Tehnosfera">
         <MSBuild Projects="Projects\Tehnosfera.dproj"/>
@@ -86,14 +86,14 @@
     <Target Name="Tehnosfera:Make">
         <MSBuild Projects="Projects\Tehnosfera.dproj" Targets="Make"/>
     </Target>
-    <Target Name="TehnosferaR">
-        <MSBuild Projects="Projects\TehnosferaR.dproj"/>
+    <Target Name="Tehnosfera_ru">
+        <MSBuild Projects="Projects\Tehnosfera_ru.dproj"/>
     </Target>
-    <Target Name="TehnosferaR:Clean">
-        <MSBuild Projects="Projects\TehnosferaR.dproj" Targets="Clean"/>
+    <Target Name="Tehnosfera_ru:Clean">
+        <MSBuild Projects="Projects\Tehnosfera_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="TehnosferaR:Make">
-        <MSBuild Projects="Projects\TehnosferaR.dproj" Targets="Make"/>
+    <Target Name="Tehnosfera_ru:Make">
+        <MSBuild Projects="Projects\Tehnosfera_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Galaqtium">
         <MSBuild Projects="Projects\Galaqtium.dproj"/>
@@ -104,14 +104,14 @@
     <Target Name="Galaqtium:Make">
         <MSBuild Projects="Projects\Galaqtium.dproj" Targets="Make"/>
     </Target>
-    <Target Name="GalaqtiumR">
-        <MSBuild Projects="Projects\GalaqtiumR.dproj"/>
+    <Target Name="Galaqtium_ru">
+        <MSBuild Projects="Projects\Galaqtium_ru.dproj"/>
     </Target>
-    <Target Name="GalaqtiumR:Clean">
-        <MSBuild Projects="Projects\GalaqtiumR.dproj" Targets="Clean"/>
+    <Target Name="Galaqtium_ru:Clean">
+        <MSBuild Projects="Projects\Galaqtium_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="GalaqtiumR:Make">
-        <MSBuild Projects="Projects\GalaqtiumR.dproj" Targets="Make"/>
+    <Target Name="Galaqtium_ru:Make">
+        <MSBuild Projects="Projects\Galaqtium_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Universum">
         <MSBuild Projects="Projects\Universum.dproj"/>
@@ -122,23 +122,23 @@
     <Target Name="Universum:Make">
         <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
     </Target>
-    <Target Name="UniversumR">
-        <MSBuild Projects="Projects\UniversumR.dproj"/>
+    <Target Name="Universum_ru">
+        <MSBuild Projects="Projects\Universum_ru.dproj"/>
     </Target>
-    <Target Name="UniversumR:Clean">
-        <MSBuild Projects="Projects\UniversumR.dproj" Targets="Clean"/>
+    <Target Name="Universum_ru:Clean">
+        <MSBuild Projects="Projects\Universum_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="UniversumR:Make">
-        <MSBuild Projects="Projects\UniversumR.dproj" Targets="Make"/>
+    <Target Name="Universum_ru:Make">
+        <MSBuild Projects="Projects\Universum_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene;AstroSceneR;Biosfera;BiosferaR;Tehnosfera;TehnosferaR;Galaqtium;GalaqtiumR;Universum;UniversumR"/>
+        <CallTarget Targets="AstroScene;AstroScene_ru;Biosfera;Biosfera_ru;Tehnosfera;Tehnosfera_ru;Galaqtium;Galaqtium_ru;Universum;Universum_ru"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene:Clean;AstroSceneR:Clean;Biosfera:Clean;BiosferaR:Clean;Tehnosfera:Clean;TehnosferaR:Clean;Galaqtium:Clean;GalaqtiumR:Clean;Universum:Clean;UniversumR:Clean"/>
+        <CallTarget Targets="AstroScene:Clean;AstroScene_ru:Clean;Biosfera:Clean;Biosfera_ru:Clean;Tehnosfera:Clean;Tehnosfera_ru:Clean;Galaqtium:Clean;Galaqtium_ru:Clean;Universum:Clean;Universum_ru:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene:Make;AstroSceneR:Make;Biosfera:Make;BiosferaR:Make;Tehnosfera:Make;TehnosferaR:Make;Galaqtium:Make;GalaqtiumR:Make;Universum:Make;UniversumR:Make"/>
+        <CallTarget Targets="AstroScene:Make;AstroScene_ru:Make;Biosfera:Make;Biosfera_ru:Make;Tehnosfera:Make;Tehnosfera_ru:Make;Galaqtium:Make;Galaqtium_ru:Make;Universum:Make;Universum_ru:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
