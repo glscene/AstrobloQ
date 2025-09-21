@@ -54,32 +54,28 @@ object fmLists: TfmLists
     Caption = 'Panel15'
     TabOrder = 0
     object Splitter2: TSplitter
-      Left = 298
+      Left = 751
       Top = 0
       Width = 7
-      Height = 320
+      Height = 595
       Align = alRight
       Beveled = True
       MinSize = 24
-      ExplicitLeft = 751
-      ExplicitHeight = 595
     end
     object Panel7: TPanel
       Left = 0
       Top = 0
-      Width = 298
-      Height = 320
+      Width = 751
+      Height = 595
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 0
-      ExplicitWidth = 751
-      ExplicitHeight = 595
       object panCultureName: TPanel
         Left = 10
         Top = 10
-        Width = 278
+        Width = 731
         Height = 24
         Align = alTop
         BevelOuter = bvNone
@@ -99,8 +95,8 @@ object fmLists: TfmLists
       object lbThings: TListBox
         Left = 10
         Top = 34
-        Width = 278
-        Height = 221
+        Width = 731
+        Height = 496
         Align = alClient
         Color = clCream
         Font.Charset = DEFAULT_CHARSET
@@ -214,7 +210,7 @@ object fmLists: TfmLists
       TabOrder = 1
       object ToolBar1: TToolBar
         Left = 10
-        Top = 192
+        Top = 467
         Width = 273
         Height = 118
         Align = alBottom
@@ -365,7 +361,7 @@ object fmLists: TfmLists
         Left = 10
         Top = 10
         Width = 273
-        Height = 182
+        Height = 457
         Align = alClient
         Color = clBlack
         Font.Charset = RUSSIAN_CHARSET

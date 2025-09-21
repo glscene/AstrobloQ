@@ -100,7 +100,7 @@ procedure TFormHeightField.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropHeightField;
+  FormFirst.RealityForm.ManagerForm.DropHeightField;
 end;
 
 procedure TFormHeightField.btnRunClick(Sender: TObject);

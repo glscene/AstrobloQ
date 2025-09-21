@@ -178,7 +178,7 @@ begin
   if Target.ValidTarget then
   begin
     if (myCamera=nil)
-    and frmFirst.UserSettings.Auto3DView
+    and FormFirst.UserSettings.Auto3DView
     and (Target.Target.Crossover<>nil) then
       StartViewer;
     menuDNA.Enabled := Target.Target.HasDNA;
@@ -223,7 +223,7 @@ end;
 procedure TFormSpirit.tbTrackClick(Sender: TObject);
 begin
   if Target.ValidTarget then
-    frmFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(Target.Target);
+    FormFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(Target.Target);
 end;
 
 procedure TFormSpirit.Heal1Click(Sender: TObject);
@@ -415,7 +415,7 @@ begin
   myThing := Target.Target;
   if not (myThing.HasDNA) then exit;
   // stop reality (in case target dies)
-  frmFirst.RealityForm.StopReality;
+  FormFirst.RealityForm.StopReality;
   // edit DNA
   myfmDNA := TFormDNA.Create(self);
   myfmDNA.DNA := AIDNA(myThing.GetDNA);
@@ -435,7 +435,7 @@ begin
   if not Target.ValidTarget then exit;
   myThing := Target.Target;
   // stop reality (in case target dies)
-  frmFirst.RealityForm.StopReality;
+  FormFirst.RealityForm.StopReality;
   // edit Position
   myFormPosition := TFormPosition.Create(self);
   myFormPosition.Position := myThing.Position;

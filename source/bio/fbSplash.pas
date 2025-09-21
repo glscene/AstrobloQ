@@ -17,7 +17,7 @@ uses
   Vcl.Buttons,
   Vcl.ComCtrls,
 
-  vSplashScreen;
+  vSplashScreen, Vcl.Imaging.pngimage;
 
 type
   TfmSplash = class(TForm)
@@ -45,7 +45,7 @@ type
 var
   fmSplash: TfmSplash;
 
-implementation
+implementation //-----------------------------------------------------------
 
 uses
   fbAbout;

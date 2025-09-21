@@ -53,7 +53,6 @@ object fmReality: TfmReality
     BevelOuter = bvLowered
     BorderWidth = 2
     TabOrder = 0
-    ExplicitWidth = 1071
     object Panel4: TPanel
       Left = 3
       Top = 3
@@ -339,7 +338,6 @@ object fmReality: TfmReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 4
-      ExplicitLeft = 989
       object btnExit: TBitBtn
         Left = 0
         Top = 2

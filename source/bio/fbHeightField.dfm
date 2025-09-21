@@ -42,6 +42,8 @@ object FormHeightField: TFormHeightField
     Height = 33
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 241
+    ExplicitWidth = 509
     object LabelOpacity: TLabel
       Left = 288
       Top = 10
@@ -51,15 +53,14 @@ object FormHeightField: TFormHeightField
       Enabled = False
     end
     object Panel4: TPanel
-      Left = 437
+      Left = 429
       Top = 1
       Width = 87
       Height = 31
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 429
-      ExplicitHeight = 32
+      ExplicitLeft = 421
       object btnRun: TBitBtn
         Left = 3
         Top = 6
@@ -110,7 +111,7 @@ object FormHeightField: TFormHeightField
       Left = 176
       Top = 6
       Width = 107
-      Height = 32
+      Height = 21
       ItemIndex = 0
       TabOrder = 4
       Text = 'Ambient'

@@ -55,7 +55,8 @@ object FormSpirit: TFormSpirit
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 730
+    ExplicitWidth = 714
+    ExplicitHeight = 440
     object Panel4: TPanel
       Left = 0
       Top = 0
@@ -64,7 +65,8 @@ object FormSpirit: TFormSpirit
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 730
+      ExplicitWidth = 714
+      ExplicitHeight = 440
       object ViewSplitter: TSplitter
         Left = 0
         Top = 174
@@ -80,12 +82,13 @@ object FormSpirit: TFormSpirit
         Top = 0
         Width = 722
         Height = 23
-        ButtonHeight = 38
-        ButtonWidth = 87
+        ButtonHeight = 27
+        ButtonWidth = 57
         Caption = 'tbTools'
         List = True
         ShowCaptions = True
         TabOrder = 0
+        ExplicitWidth = 714
         object tbTrack: TToolButton
           Left = 0
           Top = 0
@@ -94,7 +97,7 @@ object FormSpirit: TFormSpirit
           OnClick = tbTrackClick
         end
         object tbModify: TToolButton
-          Left = 87
+          Left = 57
           Top = 0
           Caption = 'Modify'
           DropdownMenu = ModifyMenu
@@ -102,7 +105,7 @@ object FormSpirit: TFormSpirit
           Style = tbsDropDown
         end
         object tbWindow: TToolButton
-          Left = 203
+          Left = 143
           Top = 0
           Caption = 'Window'
           DropdownMenu = WindowMenu
@@ -110,10 +113,10 @@ object FormSpirit: TFormSpirit
           Style = tbsDropDown
         end
         object cbView: TCheckBox
-          Left = 319
+          Left = 229
           Top = 0
           Width = 48
-          Height = 38
+          Height = 27
           Caption = 'View'
           TabOrder = 0
           OnClick = cbViewClick
@@ -132,6 +135,8 @@ object FormSpirit: TFormSpirit
         ShowHint = False
         TabOrder = 1
         WordWrap = False
+        ExplicitWidth = 714
+        ExplicitHeight = 264
       end
       object GLSceneTracker: TGLSceneViewer
         Left = 0
@@ -146,7 +151,6 @@ object FormSpirit: TFormSpirit
         OnMouseDown = GLSceneTrackerMouseDown
         OnMouseMove = GLSceneTrackerMouseMove
         TabOrder = 2
-        ExplicitWidth = 730
       end
     end
   end

@@ -129,14 +129,14 @@ end;
 
 procedure TfmConstruction.BitBtn1Click(Sender: TObject);
 begin
-  frmFirst.RealityForm.ManagerForm.DropConstruction;
+  FormFirst.RealityForm.ManagerForm.DropConstruction;
 end;
 
 procedure TfmConstruction.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropConstruction;
+  FormFirst.RealityForm.ManagerForm.DropConstruction;
 end;
 
 end.

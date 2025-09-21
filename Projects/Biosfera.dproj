@@ -231,7 +231,7 @@
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
         <DCCReference Include="..\source\bio\fbFirstForm.pas">
-            <Form>frmFirst</Form>
+            <Form>FormFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vSpiritManager.pas"/>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>

@@ -15,6 +15,7 @@ object FormPopulations: TFormPopulations
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
@@ -43,7 +44,6 @@ object FormPopulations: TFormPopulations
       19)
     ColorPaletteIndex = 13
     object Series1: TLineSeries
-      HoverElement = [heCurrent]
       Brush.BackColor = clDefault
       Pointer.InflateMargins = True
       Pointer.Style = psRectangle

@@ -1,8 +1,8 @@
-object frmFirst: TfrmFirst
+object FormFirst: TFormFirst
   Left = 317
   Top = 229
   BorderStyle = bsNone
-  Caption = 'Artificial Reality'
+  Caption = 'Biosfera Simulator'
   ClientHeight = 96
   ClientWidth = 227
   Color = clBtnFace

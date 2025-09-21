@@ -70,7 +70,7 @@ uses
   fbSettings in '..\source\bio\fbSettings.pas' {FormSettings},
   fbSpirit in '..\source\bio\fbSpirit.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm in '..\source\bio\fbFirstForm.pas' {frmFirst},
+  fbFirstForm in '..\source\bio\fbFirstForm.pas' {FormFirst},
   vSpiritManager in '..\source\bio\vSpiritManager.pas',
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
   fbPopulations in '..\source\bio\fbPopulations.pas' {FormPopulations},
@@ -94,7 +94,7 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'BioSphere';
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfmSplash, fmSplash);
   Application.CreateForm(TFormImages, FormImages);
   Application.Run;
