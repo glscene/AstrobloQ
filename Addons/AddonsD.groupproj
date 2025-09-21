@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{34D46BB1-B6F4-4B95-AAE8-B07CDB10AAC1}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Apex\ApexD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="LandFlight\LandTexture.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarsysGen\StarsysGen.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarProj\StarProj.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FermiPX\Starnets.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FermiPX\Starnetx.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ApexD">
+        <MSBuild Projects="Apex\ApexD.dproj"/>
+    </Target>
+    <Target Name="ApexD:Clean">
+        <MSBuild Projects="Apex\ApexD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApexD:Make">
+        <MSBuild Projects="Apex\ApexD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LandTexture">
+        <MSBuild Projects="LandFlight\LandTexture.dproj"/>
+    </Target>
+    <Target Name="LandTexture:Clean">
+        <MSBuild Projects="LandFlight\LandTexture.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LandTexture:Make">
+        <MSBuild Projects="LandFlight\LandTexture.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarsysGen">
+        <MSBuild Projects="StarsysGen\StarsysGen.dproj"/>
+    </Target>
+    <Target Name="StarsysGen:Clean">
+        <MSBuild Projects="StarsysGen\StarsysGen.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarsysGen:Make">
+        <MSBuild Projects="StarsysGen\StarsysGen.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarProj">
+        <MSBuild Projects="StarProj\StarProj.dproj"/>
+    </Target>
+    <Target Name="StarProj:Clean">
+        <MSBuild Projects="StarProj\StarProj.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarProj:Make">
+        <MSBuild Projects="StarProj\StarProj.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Starnets">
+        <MSBuild Projects="FermiPX\Starnets.dproj"/>
+    </Target>
+    <Target Name="Starnets:Clean">
+        <MSBuild Projects="FermiPX\Starnets.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Starnets:Make">
+        <MSBuild Projects="FermiPX\Starnets.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Starnetx">
+        <MSBuild Projects="FermiPX\Starnetx.dproj"/>
+    </Target>
+    <Target Name="Starnetx:Clean">
+        <MSBuild Projects="FermiPX\Starnetx.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Starnetx:Make">
+        <MSBuild Projects="FermiPX\Starnetx.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ApexD;LandTexture;StarsysGen;StarProj;Starnets;Starnetx"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ApexD:Clean;LandTexture:Clean;StarsysGen:Clean;StarProj:Clean;Starnets:Clean;Starnetx:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ApexD:Make;LandTexture:Make;StarsysGen:Make;StarProj:Make;Starnets:Make;Starnetx:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
