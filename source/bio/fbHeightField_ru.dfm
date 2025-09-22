@@ -6,7 +6,7 @@ object FormHeightField: TFormHeightField
   Margins.Right = 2
   Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = 'Height field'
+  Caption = #1056#1077#1083#1100#1077#1092
   ClientHeight = 299
   ClientWidth = 517
   Color = clBtnFace
@@ -15,7 +15,7 @@ object FormHeightField: TFormHeightField
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  Position = poOwnerFormCenter
+  Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnMouseWheel = FormMouseWheel
@@ -42,6 +42,8 @@ object FormHeightField: TFormHeightField
     Height = 33
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 241
+    ExplicitWidth = 509
     object LabelOpacity: TLabel
       Left = 288
       Top = 10
@@ -58,6 +60,7 @@ object FormHeightField: TFormHeightField
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 421
       object btnRun: TBitBtn
         Left = 3
         Top = 6

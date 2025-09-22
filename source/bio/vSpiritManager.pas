@@ -99,7 +99,7 @@ begin
   SpiritForm.SpiritHolder := self;
   SpiritForm.Target.AssignTarget(Thing);
   // assign icon to form
-  FormImages.ImageListIcons.GetIcon(ThingImageIndex(Thing.Kind), SpiritForm.Icon);
+  frmImages.ImageListIcons.GetIcon(ThingImageIndex(Thing.Kind), SpiritForm.Icon);
 end;
 
 procedure TSpiritHolder.CreateSpiritButton(aSpiritBar: TToolBar);
@@ -176,11 +176,11 @@ begin
       // check to see if spaceform is not visible
       // if the spiritform is in 3d mode, then the spaceform needs to advance
       // so advance it only once per round
-      if not fForceSpaceAdvance and not FormFirst.RealityForm.ManagerForm.
+      if not fForceSpaceAdvance and not frmFirst.RealityForm.ManagerForm.
         SpaceForm.Visible and mySpiritHolder.SpiritForm.GLSceneTracker.Visible
       then
       begin
-        FormFirst.RealityForm.ManagerForm.SpaceForm.Advance;
+        frmFirst.RealityForm.ManagerForm.SpaceForm.Advance;
         fForceSpaceAdvance := true; // do not advance more than once per round
       end;
     end;

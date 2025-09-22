@@ -17,7 +17,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TfrmTutorial = class(TForm)
+  TFormTutorial = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
     redIntro: TRichEdit;
@@ -31,7 +31,7 @@ type
   end;
 
 var
-  frmTutorial: TfrmTutorial;
+  FormTutorial: TFormTutorial;
 
 implementation
 

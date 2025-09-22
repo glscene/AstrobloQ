@@ -15,6 +15,7 @@ object FormPopulations: TFormPopulations
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow

@@ -6,19 +6,20 @@ object fmTutorial: TfmTutorial
   Margins.Right = 2
   Margins.Bottom = 2
   Caption = 'Tutorial'
-  ClientHeight = 544
-  ClientWidth = 429
+  ClientHeight = 603
+  ClientWidth = 440
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 429
+    Width = 440
     Height = 41
     Align = alTop
     Caption = 'Tutorial'
@@ -34,8 +35,8 @@ object fmTutorial: TfmTutorial
   object Panel2: TPanel
     Left = 0
     Top = 41
-    Width = 429
-    Height = 462
+    Width = 440
+    Height = 521
     Align = alClient
     BorderWidth = 10
     TabOrder = 1
@@ -44,8 +45,8 @@ object fmTutorial: TfmTutorial
     object redIntro: TRichEdit
       Left = 11
       Top = 11
-      Width = 407
-      Height = 440
+      Width = 418
+      Height = 499
       Align = alClient
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -53,24 +54,20 @@ object fmTutorial: TfmTutorial
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       Lines.Strings = (
-        
-          'Your planet is a habitat for artificial intelligence to live on.' +
-          '  '
+        'Your planet is a habitat biosphere with leaving creatures.  '
         
           'To create a planet, you will need water, land, a sun, and food. ' +
           ' When you start'
         
           'a new reality, your planet is covered in water.  You will have t' +
           'o clear some'
-        
-          'water away, to make land.   After this is done, you should add s' +
-          'ome trees.'
-        ''
+        'water away, to make land.  '
+        'After this is done, you may add some trees.'
         ''
         'First Steps:'
         '---------------------------'
         ''
-        '1) Click on the Galaxy Menu'
+        '1) Click on the Cosmic Menu'
         '- add a Sun'
         '- add a moon'
         ''
@@ -92,27 +89,29 @@ object fmTutorial: TfmTutorial
         '- Load other worlds'
         '- Save your world'
         ''
-        
-          'Now that you have a basic galaxy made, you can let it run and wa' +
-          'tch it grow.'
+        'Now that you have a basic scene made, '#11
+        ''
+        'you can let it run and watch as the world grow.'
         '')
       ParentFont = False
       ReadOnly = True
       ScrollBars = ssBoth
       TabOrder = 0
+      ExplicitWidth = 407
+      ExplicitHeight = 440
     end
   end
   object Panel3: TPanel
     Left = 0
-    Top = 503
-    Width = 429
+    Top = 562
+    Width = 440
     Height = 41
     Align = alBottom
     TabOrder = 2
     ExplicitTop = 478
     ExplicitWidth = 421
     object Panel4: TPanel
-      Left = 319
+      Left = 330
       Top = 1
       Width = 109
       Height = 39

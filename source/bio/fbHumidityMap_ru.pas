@@ -21,6 +21,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormShow(Sender: TObject);
   private
+    Initialized: boolean;
   public
   end;
 
@@ -42,6 +43,7 @@ end;
 
 procedure TFormHumidityMap.FormShow(Sender: TObject);
 begin
+  Initialized := false;
   // Показать карту влажности
 end;
 
@@ -49,7 +51,7 @@ procedure TFormHumidityMap.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  FormFirst.RealityForm.ManagerForm.DropHumidityMap;
+  frmFirst.RealityForm.ManagerForm.DropHumidityMap;
 end;
 
 end.

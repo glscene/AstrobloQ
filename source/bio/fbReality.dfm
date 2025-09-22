@@ -1,4 +1,4 @@
-object fmReality: TfmReality
+object FormReality: TFormReality
   Left = 18
   Top = 158
   BorderIcons = [biSystemMenu, biMinimize, biHelp]

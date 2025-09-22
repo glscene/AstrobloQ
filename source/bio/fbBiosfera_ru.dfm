@@ -38,7 +38,6 @@ object FormBiosfera: TFormBiosfera
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1543
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -47,7 +46,6 @@ object FormBiosfera: TFormBiosfera
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1543
       object tbWater: TToolBar
         Left = 0
         Top = 56
@@ -2692,6 +2690,8 @@ object FormBiosfera: TFormBiosfera
       OnMouseMove = GLSceneViewerMouseMove
       OnMouseUp = GLSceneViewerMouseUp
       TabOrder = 0
+      ExplicitWidth = 1543
+      ExplicitHeight = 128
     end
     object panCamera: TPanel
       Left = 0

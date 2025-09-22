@@ -46,7 +46,7 @@ end;
 procedure TFormEvents.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   CanClose := false;
-  FormFirst.RealityForm.ManagerForm.DropEvents;
+  frmFirst.RealityForm.ManagerForm.DropEvents;
 end;
 
 end.

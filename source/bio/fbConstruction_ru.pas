@@ -20,7 +20,7 @@ uses
   Bio.Utilities;
 
 type
-  TfmConstruction = class(TForm)
+  TfrmConstruction = class(TForm)
     Panel1: TPanel;
     redStatus: TRichEdit;
     Panel3: TPanel;
@@ -45,7 +45,7 @@ type
   end;
 
 var
-  fmConstruction: TfmConstruction;
+  frmConstruction: TfrmConstruction;
 
 implementation //------------------------------------------------------------
 
@@ -54,7 +54,7 @@ uses
 
 {$R *.dfm}
 
-procedure TfmConstruction.FormCreate(Sender: TObject);
+procedure TfrmConstruction.FormCreate(Sender: TObject);
 begin
   StopWatch := TaiStopWatch.Create;
 
@@ -75,7 +75,7 @@ begin
   end;
 end;
 
-procedure TfmConstruction.FormDestroy(Sender: TObject);
+procedure TfrmConstruction.FormDestroy(Sender: TObject);
 begin
   if logfile then
     CloseFile(DebugFile);
@@ -83,13 +83,13 @@ begin
   StopWatch.Free;
 end;
 
-procedure TfmConstruction.AddEvent(aString: string);
+procedure TfrmConstruction.AddEvent(aString: string);
 begin
   redStatus.Lines.Add(aString);
   if logfile then writeln(DebugFile, aString);
 end;
 
-procedure TfmConstruction.AddUnderlinedEvent(aString: string);
+procedure TfrmConstruction.AddUnderlinedEvent(aString: string);
 begin
   redStatus.Lines.Add('');
   if logfile then writeln(DebugFile, '');
@@ -98,45 +98,45 @@ begin
   if logfile then writeln(DebugFile, '---------------------------------');
 end;
 
-procedure TfmConstruction.AppendToLastEvent(aString: string);
+procedure TfrmConstruction.AppendToLastEvent(aString: string);
 begin
   redStatus.Lines.Strings[redStatus.Lines.Count - 1] :=
     redStatus.Lines.Strings[redStatus.Lines.Count - 1] + aString;
   if logfile then writeln(DebugFile, aString);
 end;
 
-procedure TfmConstruction.AddEventSuccess(aString: string);
+procedure TfrmConstruction.AddEventSuccess(aString: string);
 begin
   AppendToLastEvent(aString);
 end;
 
-procedure TfmConstruction.AddEventFailure(aString: string);
+procedure TfrmConstruction.AddEventFailure(aString: string);
 begin
   AppendToLastEvent(aString);
 end;
 
-procedure TfmConstruction.TimedEventStart(aString: string);
+procedure TfrmConstruction.TimedEventStart(aString: string);
 begin
   StopWatch.Go;
   redStatus.Lines.Add(aString);
 end;
 
-procedure TfmConstruction.TimedEventEnd(aString: string);
+procedure TfrmConstruction.TimedEventEnd(aString: string);
 begin
   StopWatch.Stop;
   AppendToLastEvent(aString + ' ' + IntToStr(Variant(StopWatch.Timer)) + 'ms');
 end;
 
-procedure TfmConstruction.BitBtn1Click(Sender: TObject);
+procedure TfrmConstruction.BitBtn1Click(Sender: TObject);
 begin
-  FormFirst.RealityForm.ManagerForm.DropConstruction;
+  frmFirst.RealityForm.ManagerForm.DropConstruction;
 end;
 
-procedure TfmConstruction.FormCloseQuery(Sender: TObject;
+procedure TfrmConstruction.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  FormFirst.RealityForm.ManagerForm.DropConstruction;
+  frmFirst.RealityForm.ManagerForm.DropConstruction;
 end;
 
 end.

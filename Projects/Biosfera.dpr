@@ -54,23 +54,23 @@ uses
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
   fbBiosfera in '..\source\bio\fbBiosfera.pas' {FormBiosfera},
   fbAbout in '..\source\bio\fbAbout.pas' {FormAbout},
-  fbConstruction in '..\source\bio\fbConstruction.pas' {fmConstruction},
+  fbConstruction in '..\source\bio\fbConstruction.pas' {frmConstruction},
   fbCreatingGalaxy in '..\source\bio\fbCreatingGalaxy.pas' {FormCreatingGalaxy},
   fbEditLine in '..\source\bio\fbEditLine.pas' {FormEditLine},
   fbEvents in '..\source\bio\fbEvents.pas' {FormEvents},
   fbIntro in '..\source\bio\fbIntro.pas' {FormIntro},
   fbKeyboard in '..\source\bio\fbKeyboard.pas' {FormKeyboard},
-  fbLists in '..\source\bio\fbLists.pas' {fmLists},
+  fbLists in '..\source\bio\fbLists.pas' {frmLists},
   fbManager in '..\source\bio\fbManager.pas' {FormManager},
   fbMaximums in '..\source\bio\fbMaximums.pas' {FormMaximums},
   fbNewReality in '..\source\bio\fbNewReality.pas' {FormNewReality},
   fbPhotograph in '..\source\bio\fbPhotograph.pas' {FormPhotograph},
-  fbReality in '..\source\bio\fbReality.pas' {fmReality},
+  fbReality in '..\source\bio\fbReality.pas' {FormReality},
   fbSatellite in '..\source\bio\fbSatellite.pas' {FormSatellite},
   fbSettings in '..\source\bio\fbSettings.pas' {FormSettings},
   fbSpirit in '..\source\bio\fbSpirit.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm in '..\source\bio\fbFirstForm.pas' {FormFirst},
+  fbFirstForm in '..\source\bio\fbFirstForm.pas' {frmFirst},
   vSpiritManager in '..\source\bio\vSpiritManager.pas',
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
   fbPopulations in '..\source\bio\fbPopulations.pas' {FormPopulations},
@@ -80,8 +80,8 @@ uses
   fbDNA in '..\source\bio\fbDNA.pas' {FormDNA},
   fbError in '..\source\bio\fbError.pas' {FormError},
   fbTip in '..\source\bio\fbTip.pas' {FormTip},
-  fbSplash in '..\source\bio\fbSplash.pas' {fmSplash},
-  fbImages in '..\source\bio\fbImages.pas' {FormImages},
+  fbSplash in '..\source\bio\fbSplash.pas' {FormSplash},
+  fbImages in '..\source\bio\fbImages.pas' {frmImages},
   Bio.Things in '..\source\bio\Bio.Things.pas',
   Bio.Utilities in '..\source\bio\Bio.Utilities.pas',
   fbTutorial in '..\source\bio\fbTutorial.pas' {fmTutorial},
@@ -94,8 +94,10 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'BioSphere';
-  Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfmSplash, fmSplash);
-  Application.CreateForm(TFormImages, FormImages);
+  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TfrmImages, frmImages);
+  Application.CreateForm(TfrmConstruction, frmConstruction);
+  Application.CreateForm(TfrmLists, frmLists);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.

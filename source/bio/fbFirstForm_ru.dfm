@@ -1,4 +1,4 @@
-object FormFirst: TFormFirst
+object frmFirst: TfrmFirst
   Left = 317
   Top = 229
   BorderStyle = bsNone

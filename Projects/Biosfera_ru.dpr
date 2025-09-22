@@ -53,13 +53,13 @@ uses
   Bio.FireTree in '..\source\bio\Bio.FireTree.pas',
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
   fbAbout_ru in '..\source\bio\fbAbout_ru.pas' {FormAbout},
-  fbConstruction_ru in '..\source\bio\fbConstruction_ru.pas' {fmConstruction},
+  fbConstruction_ru in '..\source\bio\fbConstruction_ru.pas' {frmConstruction},
   fbCreatingGalaxy_ru in '..\source\bio\fbCreatingGalaxy_ru.pas' {FormCreatingGalaxy},
   fbEditLine_ru in '..\source\bio\fbEditLine_ru.pas' {FormEditLine},
   fbEvents_ru in '..\source\bio\fbEvents_ru.pas' {FormEvents},
   fbIntro_ru in '..\source\bio\fbIntro_ru.pas' {FormIntro},
   fbKeyboard_ru in '..\source\bio\fbKeyboard_ru.pas' {FormKeyboard},
-  fbLists_ru in '..\source\bio\fbLists_ru.pas' {fmLists},
+  fbLists_ru in '..\source\bio\fbLists_ru.pas' {frmLists},
   fbManager_ru in '..\source\bio\fbManager_ru.pas' {FormManager},
   fbMaximums_ru in '..\source\bio\fbMaximums_ru.pas' {FormMaximums},
   fbNewReality_ru in '..\source\bio\fbNewReality_ru.pas' {FormNewReality},
@@ -69,7 +69,7 @@ uses
   fbSettings_ru in '..\source\bio\fbSettings_ru.pas' {FormSettings},
   fbSpirit_ru in '..\source\bio\fbSpirit_ru.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm_ru in '..\source\bio\fbFirstForm_ru.pas' {FormFirst},
+  fbFirstForm_ru in '..\source\bio\fbFirstForm_ru.pas' {frmFirst},
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
   fbPopulations_ru in '..\source\bio\fbPopulations_ru.pas' {FormPopulations},
   fbHeightField_ru in '..\source\bio\fbHeightField_ru.pas' {FormHeightField},
@@ -82,7 +82,7 @@ uses
   fbImages_ru in '..\source\bio\fbImages_ru.pas' {FormImages},
   Bio.Things in '..\source\bio\Bio.Things.pas',
   Bio.Utilities in '..\source\bio\Bio.Utilities.pas',
-  fbTutorial_ru in '..\source\bio\fbTutorial_ru.pas' {frmTutorial},
+  fbTutorial_ru in '..\source\bio\fbTutorial_ru.pas' {FormTutorial},
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm_ru in '..\source\bio\fbMiniForm_ru.pas',
   Space.Globals in '..\source\Space.Globals.pas',
@@ -94,8 +94,10 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'Biosfera';
-  Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfmSplash, fmSplash);
+  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TfrmLists, frmLists);
+  Application.CreateForm(TfrmConstruction, frmConstruction);
   Application.CreateForm(TFormImages, FormImages);
+  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.

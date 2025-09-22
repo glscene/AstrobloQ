@@ -70,6 +70,7 @@ type
     procedure cbLightingClick(Sender: TObject);
     procedure tbAlphaChange(Sender: TObject);
   private
+    Initialized: boolean;
     mx, my : Integer;
   protected
     procedure HeatFormula(const x, y: Single; var z: Single;
@@ -92,23 +93,6 @@ uses
 
 {$R *.dfm}
 
-procedure TFormHeightField.Advance;
-begin
-  HeatField.StructureChanged;
-end;
-
-procedure TFormHeightField.FormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
-begin
-  CanClose := false;
-  FormFirst.RealityForm.ManagerForm.DropHeightField;
-end;
-
-procedure TFormHeightField.btnRunClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TFormHeightField.FormCreate(Sender: TObject);
 begin
   HeatField.OnGetHeight := HeatFormula;
@@ -130,6 +114,31 @@ begin
   XAxis.Position.X := (gSpace.WidthSingle-1)/2;
   YAxis.Height := gSpace.HeightSingle-1;
   YAxis.Position.Y := (gSpace.HeightSingle-1)/2;
+end;
+
+procedure TFormHeightField.FormShow(Sender: TObject);
+begin
+  GLSceneViewer.Invalidate;
+  GLSceneViewer.SetFocus;
+  Camera.MoveAroundTarget(0,0); // makes the viewer update on show (?)
+  GLSceneViewer.Buffer.Render;
+end;
+
+procedure TFormHeightField.Advance;
+begin
+  HeatField.StructureChanged;
+end;
+
+procedure TFormHeightField.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+  CanClose := false;
+  frmFirst.RealityForm.ManagerForm.DropHeightField;
+end;
+
+procedure TFormHeightField.btnRunClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TFormHeightField.HeatFormula(const x, y: Single; var z: Single;
@@ -165,14 +174,14 @@ procedure TFormHeightField.GLSceneViewerMouseMove(Sender: TObject;
 begin
    if Shift<>[] then begin
       Camera.MoveAroundTarget(my-y, mx-x);
-      mx:=x; my:=y;
+      mx := x; my := y;
    end;
 end;
 
 procedure TFormHeightField.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
-   mx:=x; my:=y;
+   mx := x; my := y;
 end;
 
 procedure TFormHeightField.FormMouseWheel(Sender: TObject;
@@ -186,14 +195,6 @@ procedure TFormHeightField.cbGridClick(Sender: TObject);
 begin
   Grid.Visible := cbGrid.Checked;
   GLSceneViewer.SetFocus;
-end;
-
-procedure TFormHeightField.FormShow(Sender: TObject);
-begin
-  GLSceneViewer.Invalidate;
-  GLSceneViewer.SetFocus;
-  Camera.MoveAroundTarget(0,0); // makes the viewer update on show (?)
-  GLSceneViewer.Buffer.Render;
 end;
 
 procedure TFormHeightField.cbAxisClick(Sender: TObject);

@@ -67,7 +67,7 @@ type
     FSpiritWindows: TSpiritList;
     FSpaceForm: TFormBiosfera;
     FEventsForm: TFormEvents;
-    FListsForm: TfmLists;
+    FListsForm: TfrmLists;
     FPopulations: TFormPopulations;
     FHeightField: TFormHeightField;
     FHumidityMap: TFormHumidityMap;
@@ -75,7 +75,7 @@ type
   public
     property SpaceForm: TFormBiosfera read FSpaceForm;
     property EventsForm: TFormEvents read FEventsForm;
-    property ListsForm: TfmLists read FListsForm;
+    property ListsForm: TfrmLists read FListsForm;
     property SpiritWindows: TSpiritList read FSpiritWindows;
     property Populations: TFormPopulations read FPopulations;
     property HeightField: TFormHeightField read FHeightField;
@@ -121,14 +121,46 @@ procedure TFormManager.FormCreate(Sender: TObject);
 begin
   FStarted := false;
 
-  FormFirst.Construction.AddEvent('Создание fEventsForm...');
+  frmFirst.Construction.AddEvent('Создание fEventsForm...');
   FEventsForm := TFormEvents.Create(self);
 
-  FormFirst.Construction.AddEvent('Создание SpiritList...');
+  frmFirst.Construction.AddEvent('Создание SpiritList...');
   FSpiritWindows := TSpiritList.Create(self, tbSpirits);
 
-  FormFirst.Construction.AddEvent('Создание f3DEnvironment...');
+  frmFirst.Construction.AddEvent('Создание f3DEnvironment...');
   FSpaceForm := TFormBiosfera.Create(self);
+end;
+
+procedure TFormManager.FormShow(Sender: TObject);
+begin
+  panSpirits.Left := panSpirits.Left + 1;
+
+  if frmFirst.UserSettings.RememberView then
+  begin
+    if frmFirst.UserSettings.ViewAligned then
+    begin
+      SpaceForm.Align := alClient;
+      SpaceForm.tbStickyFit.Down := true;
+    end
+    else
+    begin
+      SpaceForm.Align := alNone;
+      SpaceForm.tbStickyFit.Down := false;
+      SpaceForm.Width := frmFirst.UserSettings.ViewSizeX;
+      SpaceForm.Height := frmFirst.UserSettings.ViewSizeY;
+    end;
+  end;
+
+  SpaceForm.Top := Top;
+  SpaceForm.Left := Left + Width;
+  SpaceForm.Left := SpaceForm.Left + 1;
+  SpaceForm.Left := SpaceForm.Left - 1;
+  SpaceForm.Height := SpaceForm.Height + 1;
+  SpaceForm.Height := SpaceForm.Height - 1;
+
+  if not fStarted and frmFirst.UserSettings.TipOfTheDay then
+    frmFirst.RealityForm.ShowTipOfTheDay;
+  fStarted := true;
 end;
 
 procedure TFormManager.FormDestroy(Sender: TObject);
@@ -211,7 +243,6 @@ end;
 procedure TFormManager.BigRestore;
 begin
   Show;
-
   if tbSpace.Down then
     PopSpace;
   if tbEvents.Down then
@@ -238,7 +269,7 @@ procedure TFormManager.PopSpace;
 begin
   if not SpaceForm.Visible then
     SpaceForm.RefreshPlanetFull;
-    
+
   tbSpace.Down := true;
   SpaceForm.Show;
   SpaceForm.GLCadencer.Enabled := true;
@@ -252,6 +283,8 @@ begin
   SpaceForm.GLCadencer.Enabled := false;
 end;
 
+//------------------------ Events ---------------------------------------
+
 procedure TFormManager.PopEvents;
 begin
   tbEvents.Down := true;
@@ -264,24 +297,26 @@ begin
   EventsForm.Visible := false;
 end;
 
+//------------------------ Lists ---------------------------------------
+
 procedure TFormManager.PopLists;
 var
   myMonitor: integer;
 begin
   if not Assigned(fListsForm) then
   begin
-    FormFirst.Construction.AddEvent('Создание fListForm...');
-    fListsForm := TfmLists.Create(self);
+    frmFirst.Construction.AddEvent('Создание fListForm...');
+    fListsForm := TfrmLists.Create(self);
     fListsForm.Reality := gReality;
   end;
 
   tbLists.Down := true;
   ListsForm.Show;
 
-  myMonitor := FormFirst.Monitors - 1;  // last monitor
+  myMonitor := frmFirst.Monitors - 1;  // last monitor
 
-  ListsForm.Left := FormFirst.Screen.Monitors[myMonitor].Left;
-  ListsForm.Top := FormFirst.Screen.Monitors[myMonitor].Top;
+  ListsForm.Left := frmFirst.Screen.Monitors[myMonitor].Left;
+  ListsForm.Top := frmFirst.Screen.Monitors[myMonitor].Top;
 end;
 
 procedure TFormManager.DropLists;
@@ -291,18 +326,6 @@ begin
     ListsForm.Visible := false;
 end;
 
-procedure TFormManager.PopConstruction;
-begin
-  tbConstruction.Down := true;
-  FormFirst.Construction.Show;
-end;
-
-procedure TFormManager.DropConstruction;
-begin
-  tbConstruction.Down := false;
-  FormFirst.Construction.Visible := false;
-end;
-
 procedure TFormManager.tbEventsClick(Sender: TObject);
 begin
   if tbEvents.Down then
@@ -310,6 +333,22 @@ begin
   else
     DropEvents;
 end;
+
+//------------------------ Construction ---------------------------------------
+
+procedure TFormManager.PopConstruction;
+begin
+  tbConstruction.Down := true;
+  frmFirst.Construction.Show;
+end;
+
+procedure TFormManager.DropConstruction;
+begin
+  tbConstruction.Down := false;
+  frmFirst.Construction.Visible := false;
+end;
+
+//------------------------ Lists ---------------------------------------
 
 procedure TFormManager.tbListsClick(Sender: TObject);
 begin
@@ -325,38 +364,6 @@ begin
   CanClose := false;
 end;
 
-procedure TFormManager.FormShow(Sender: TObject);
-begin
-  panSpirits.Left := panSpirits.Left + 1;
-
-  if FormFirst.UserSettings.RememberView then
-  begin
-    if FormFirst.UserSettings.ViewAligned then
-    begin
-      SpaceForm.Align := alClient;
-      SpaceForm.tbStickyFit.Down := true;
-    end
-    else
-    begin
-      SpaceForm.Align := alNone;
-      SpaceForm.tbStickyFit.Down := false;
-      SpaceForm.Width := FormFirst.UserSettings.ViewSizeX;
-      SpaceForm.Height := FormFirst.UserSettings.ViewSizeY;
-    end;
-  end;
-
-  SpaceForm.Top := Top;
-  SpaceForm.Left := Left + Width;
-  SpaceForm.Left := SpaceForm.Left + 1;
-  SpaceForm.Left := SpaceForm.Left - 1;
-  SpaceForm.Height := SpaceForm.Height + 1;
-  SpaceForm.Height := SpaceForm.Height - 1;
-
-  if not fStarted and FormFirst.UserSettings.TipOfTheDay then
-    FormFirst.RealityForm.ShowTipOfTheDay;
-  fStarted := true;
-end;
-
 procedure TFormManager.tbSpaceClick(Sender: TObject);
 begin
   if tbSpace.Down then
@@ -368,7 +375,7 @@ end;
 procedure TFormManager.tbTimeClick(Sender: TObject);
 begin
   tbTime.Down := true;
-  FormFirst.RealityForm.Show;
+  frmFirst.RealityForm.Show;
 end;
 
 procedure TFormManager.tbConstructionClick(Sender: TObject);
@@ -379,11 +386,13 @@ begin
     DropConstruction;
 end;
 
+// ------------------------------------------------------------------------
+
 procedure TFormManager.PopPopulations;
 begin
   if not Assigned(fPopulations) then
   begin
-    FormFirst.Construction.AddEvent('Создание Populations...');
+    frmFirst.Construction.AddEvent('Создание окна популяций...');
     fPopulations := TFormPopulations.Create(self);
   end;
 
@@ -406,11 +415,13 @@ begin
     DropPopulations;
 end;
 
+//----------------------------------------------------------------------------
+
 procedure TFormManager.PopHeightField;
 begin
   if not Assigned(FHeightField) then
   begin
-    FormFirst.Construction.AddEvent('Создание Height Field...');
+    frmFirst.Construction.AddEvent('Создание карты температуры...');
     FHeightField := TFormHeightField.Create(self);
   end;
 
@@ -424,8 +435,8 @@ begin
   if Assigned(FHeightField) then
   begin
     HeightField.Visible := false;
-//    FHeightField.Free;
-//    FHeightField := nil;
+//  FHeightField.Free;
+//  FHeightField := nil;
   end;
 end;
 
@@ -437,11 +448,13 @@ begin
     DropHeightField;
 end;
 
+//----------------------------------------------------------------------------
+
 procedure TFormManager.PopHumidityMap;
 begin
   if not Assigned(fHumidityMap) then
   begin
-    FormFirst.Construction.AddEvent('Создание карты влажности...');
+    frmFirst.Construction.AddEvent('Создание карты влажности...');
     fHumidityMap := TFormHumidityMap.Create(self);
   end;
 
@@ -455,8 +468,8 @@ begin
   if Assigned(fHumidityMap) then
   begin
     HumidityMap.Visible := false;
-//    fHumidityMap.Free;
-//    fHumidityMap := nil;
+//  fHumidityMap.Free;
+//  fHumidityMap := nil;
   end;
 end;
 
@@ -467,6 +480,8 @@ begin
   else
     DropHumidityMap;
 end;
+
+//----------------------------------------------------------------------------
 
 procedure TFormManager.Reset;
 begin
@@ -492,7 +507,7 @@ end;
 
 procedure TFormManager.Verify;
 begin
-  FormFirst.RealityForm.Show;
+  frmFirst.RealityForm.Show;
   BigRestore;
 end;
 

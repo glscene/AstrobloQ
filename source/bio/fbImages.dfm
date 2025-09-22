@@ -1,4 +1,4 @@
-object FormImages: TFormImages
+object frmImages: TfrmImages
   Left = 950
   Top = 511
   Margins.Left = 2
@@ -7,8 +7,8 @@ object FormImages: TFormImages
   Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'Images'
-  ClientHeight = 250
-  ClientWidth = 369
+  ClientHeight = 257
+  ClientWidth = 370
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -44,10 +44,12 @@ object FormImages: TFormImages
   object panImages: TPanel
     Left = 0
     Top = 0
-    Width = 369
-    Height = 250
+    Width = 370
+    Height = 257
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 369
+    ExplicitHeight = 250
   end
   object ImageListIcons: TImageList
     Left = 287

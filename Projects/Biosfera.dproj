@@ -185,7 +185,7 @@
             <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbConstruction.pas">
-            <Form>fmConstruction</Form>
+            <Form>frmConstruction</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbCreatingGalaxy.pas">
             <Form>FormCreatingGalaxy</Form>
@@ -203,7 +203,7 @@
             <Form>FormKeyboard</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbLists.pas">
-            <Form>fmLists</Form>
+            <Form>frmLists</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbManager.pas">
             <Form>FormManager</Form>
@@ -218,7 +218,7 @@
             <Form>FormPhotograph</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbReality.pas">
-            <Form>fmReality</Form>
+            <Form>FormReality</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbSatellite.pas">
             <Form>FormSatellite</Form>
@@ -231,7 +231,7 @@
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
         <DCCReference Include="..\source\bio\fbFirstForm.pas">
-            <Form>FormFirst</Form>
+            <Form>frmFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vSpiritManager.pas"/>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>
@@ -257,10 +257,10 @@
             <Form>FormTip</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbSplash.pas">
-            <Form>fmSplash</Form>
+            <Form>FormSplash</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbImages.pas">
-            <Form>FormImages</Form>
+            <Form>frmImages</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\bio\Bio.Things.pas"/>

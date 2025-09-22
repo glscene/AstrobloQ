@@ -1,4 +1,4 @@
-object fmConstruction: TfmConstruction
+object frmConstruction: TfrmConstruction
   Left = 506
   Top = 118
   Margins.Left = 2
@@ -40,6 +40,7 @@ object fmConstruction: TfmConstruction
     03FFC0000007F0000001FC000000FFC00000FFE00000FFC00000FF800000FE00
     0001F8000000F0000000E0000000C0000000C0000009C000000FC000000FF000
     001FF000003FF800007FFC0000FFFF0001FFFF8007FFFFC03FFFFFF0FFFF}
+  Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -78,9 +79,6 @@ object fmConstruction: TfmConstruction
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 3
-      ExplicitTop = 409
-      ExplicitWidth = 399
       object BitBtn1: TBitBtn
         Left = 308
         Top = 2

@@ -99,7 +99,7 @@ end;
 
 procedure TFormError.btnSaveWorldClick(Sender: TObject);
 begin
-  FormFirst.RealityForm.SaveAs1Click(Sender);
+  frmFirst.RealityForm.SaveAs1Click(Sender);
 end;
 
 procedure TFormError.FormShow(Sender: TObject);

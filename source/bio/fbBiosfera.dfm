@@ -4,8 +4,8 @@ object FormBiosfera: TFormBiosfera
   Align = alClient
   BorderIcons = [biSystemMenu]
   Caption = 'Biosferas'
-  ClientHeight = 676
-  ClientWidth = 1421
+  ClientHeight = 766
+  ClientWidth = 1424
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object FormBiosfera: TFormBiosfera
   object Splitter3D: TSplitter
     Left = 0
     Top = 553
-    Width = 1421
+    Width = 1424
     Height = 2
     Cursor = crVSplit
     Align = alTop
@@ -33,25 +33,25 @@ object FormBiosfera: TFormBiosfera
   object panMenus: TPanel
     Left = 0
     Top = 0
-    Width = 1421
+    Width = 1424
     Height = 553
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1413
+    ExplicitWidth = 1416
     object panTools: TPanel
       Left = 0
       Top = 231
-      Width = 1421
+      Width = 1424
       Height = 322
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1413
+      ExplicitWidth = 1416
       object tbWater: TToolBar
         Left = 0
         Top = 56
-        Width = 1421
+        Width = 1424
         Height = 29
         ButtonHeight = 19
         ButtonWidth = 49
@@ -60,7 +60,7 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 0
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label9: TLabel
           Left = 0
           Top = 0
@@ -179,17 +179,17 @@ object FormBiosfera: TFormBiosfera
       object tbAtmosphere: TToolBar
         Left = 0
         Top = 85
-        Width = 1421
+        Width = 1424
         Height = 29
         ButtonWidth = 85
         Caption = 'tbAtmosphere'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label4: TLabel
           Left = 0
           Top = 0
@@ -289,19 +289,19 @@ object FormBiosfera: TFormBiosfera
       object tbGalaxy: TToolBar
         Left = 0
         Top = 27
-        Width = 1421
+        Width = 1424
         Height = 29
         ButtonWidth = 81
         Caption = 'tbGalaxy'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ParentShowHint = False
         ShowCaptions = True
         ShowHint = False
         TabOrder = 2
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label12: TLabel
           Left = 0
           Top = 0
@@ -395,17 +395,17 @@ object FormBiosfera: TFormBiosfera
       object tbSettings: TToolBar
         Left = 0
         Top = 188
-        Width = 1421
+        Width = 1424
         Height = 25
         ButtonWidth = 78
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 3
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label18: TLabel
           Left = 0
           Top = 0
@@ -550,17 +550,17 @@ object FormBiosfera: TFormBiosfera
       object tbTools: TToolBar
         Left = 0
         Top = 213
-        Width = 1421
+        Width = 1424
         Height = 28
         ButtonWidth = 81
         Caption = 'tbTools'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 4
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label8: TLabel
           Left = 0
           Top = 0
@@ -715,17 +715,17 @@ object FormBiosfera: TFormBiosfera
       object tbVisuals: TToolBar
         Left = 0
         Top = 141
-        Width = 1421
+        Width = 1424
         Height = 47
         ButtonWidth = 93
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 5
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label17: TLabel
           Left = 0
           Top = 0
@@ -893,17 +893,17 @@ object FormBiosfera: TFormBiosfera
       object tbSpirits: TToolBar
         Left = 0
         Top = 241
-        Width = 1421
+        Width = 1424
         Height = 48
         ButtonWidth = 66
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 6
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label15: TLabel
           Left = 0
           Top = 0
@@ -1071,7 +1071,7 @@ object FormBiosfera: TFormBiosfera
       object tbCameras: TToolBar
         Left = 0
         Top = 0
-        Width = 1421
+        Width = 1424
         Height = 27
         ButtonHeight = 7510
         ButtonWidth = 7794
@@ -1079,7 +1079,7 @@ object FormBiosfera: TFormBiosfera
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         TabOrder = 7
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label1: TLabel
           Left = 0
           Top = 0
@@ -1345,17 +1345,17 @@ object FormBiosfera: TFormBiosfera
       object tbAudio: TToolBar
         Left = 0
         Top = 114
-        Width = 1421
+        Width = 1424
         Height = 27
         ButtonWidth = 97
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 8
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label32: TLabel
           Left = 0
           Top = 0
@@ -1423,17 +1423,17 @@ object FormBiosfera: TFormBiosfera
       object tbDisasters: TToolBar
         Left = 0
         Top = 289
-        Width = 1421
+        Width = 1424
         Height = 29
         ButtonWidth = 97
         Caption = 'tbDisasters'
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 9
         Visible = False
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object Label34: TLabel
           Left = 0
           Top = 0
@@ -1508,27 +1508,27 @@ object FormBiosfera: TFormBiosfera
     object panMainMenu: TPanel
       Left = 0
       Top = 0
-      Width = 1421
+      Width = 1424
       Height = 39
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 1413
+      ExplicitWidth = 1416
       object tbPlanet: TToolBar
         Left = 0
         Top = 0
-        Width = 1421
+        Width = 1424
         Height = 39
         Align = alClient
         ButtonHeight = 36
         ButtonWidth = 50
         Color = clActiveBorder
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1413
+        ExplicitWidth = 1416
         object tbObjectMenu: TToolButton
           Left = 0
           Top = 0
@@ -1721,26 +1721,26 @@ object FormBiosfera: TFormBiosfera
     object panSelect: TPanel
       Left = 0
       Top = 39
-      Width = 1421
+      Width = 1424
       Height = 48
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
       Visible = False
-      ExplicitWidth = 1413
+      ExplicitWidth = 1416
       object tbObjects: TToolBar
         Left = 176
         Top = 0
-        Width = 1245
+        Width = 1248
         Height = 48
         Align = alClient
         ButtonWidth = 73
         EdgeBorders = [ebTop, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1237
+        ExplicitWidth = 1240
         object Label22: TLabel
           Left = 0
           Top = 0
@@ -1933,7 +1933,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 46
         Caption = 'ToolBar1'
         EdgeBorders = [ebLeft, ebTop, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         ShowCaptions = True
         TabOrder = 1
         Wrapable = False
@@ -1988,12 +1988,12 @@ object FormBiosfera: TFormBiosfera
     object panCreatures: TPanel
       Left = 0
       Top = 183
-      Width = 1421
+      Width = 1424
       Height = 48
       Align = alTop
       TabOrder = 3
       Visible = False
-      ExplicitWidth = 1413
+      ExplicitWidth = 1416
       object Panel1: TPanel
         Left = 1
         Top = 1
@@ -2018,17 +2018,17 @@ object FormBiosfera: TFormBiosfera
       object tbCreatures: TToolBar
         Left = 58
         Top = 1
-        Width = 1362
+        Width = 1365
         Height = 46
         Align = alClient
         ButtonWidth = 69
         Caption = 'tbFauna'
         EdgeBorders = [ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 1354
+        ExplicitWidth = 1357
         object tbBird: TToolButton
           Left = 0
           Top = 0
@@ -2252,12 +2252,12 @@ object FormBiosfera: TFormBiosfera
     object panLand: TPanel
       Left = 0
       Top = 135
-      Width = 1421
+      Width = 1424
       Height = 48
       Align = alTop
       TabOrder = 4
       Visible = False
-      ExplicitWidth = 1413
+      ExplicitWidth = 1416
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -2288,7 +2288,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 80
         Caption = 'tbLand'
         EdgeBorders = [ebLeft, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -2421,12 +2421,12 @@ object FormBiosfera: TFormBiosfera
     object panFauna: TPanel
       Left = 0
       Top = 87
-      Width = 1421
+      Width = 1424
       Height = 48
       Align = alTop
       TabOrder = 5
       Visible = False
-      ExplicitWidth = 1413
+      ExplicitWidth = 1416
       object Panel9: TPanel
         Left = 1
         Top = 1
@@ -2451,17 +2451,17 @@ object FormBiosfera: TFormBiosfera
       object tbFauna: TToolBar
         Left = 58
         Top = 1
-        Width = 1362
+        Width = 1365
         Height = 46
         Align = alClient
         ButtonWidth = 96
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 1354
+        ExplicitWidth = 1357
         object tbPlantForest: TToolButton
           Left = 0
           Top = 0
@@ -2636,8 +2636,8 @@ object FormBiosfera: TFormBiosfera
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 657
-    Width = 1421
+    Top = 747
+    Width = 1424
     Height = 19
     Panels = <
       item
@@ -2650,19 +2650,19 @@ object FormBiosfera: TFormBiosfera
         Width = 350
       end>
     OnClick = StatusBarClick
-    ExplicitTop = 632
-    ExplicitWidth = 1413
+    ExplicitTop = 722
+    ExplicitWidth = 1416
   end
   object Panel2: TPanel
     Left = 0
     Top = 555
-    Width = 1421
-    Height = 102
+    Width = 1424
+    Height = 192
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 1413
-    ExplicitHeight = 77
+    ExplicitWidth = 1416
+    ExplicitHeight = 167
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2672,8 +2672,8 @@ object FormBiosfera: TFormBiosfera
     object GLSceneViewer: TGLSceneViewer
       Left = 0
       Top = 0
-      Width = 1421
-      Height = 71
+      Width = 1424
+      Height = 161
       Camera = GLCamera
       Buffer.FogEnvironment.FogColor.Color = {00000000F8FEFE3E0000803F0000803F}
       Buffer.FogEnvironment.FogStart = 1.000000000000000000
@@ -2682,7 +2682,7 @@ object FormBiosfera: TFormBiosfera
       Buffer.FogEnvironment.FogDistance = fdEyePlane
       Buffer.BackgroundColor = clBlack
       Buffer.ContextOptions = [roDoubleBuffer, roStencilBuffer, roRenderToWindow]
-      FieldOfView = 39.089725494384770000
+      FieldOfView = 77.668128967285160000
       PenAsTouch = False
       OnMouseLeave = GLSceneViewerMouseLeave
       OnMouseEnter = GLSceneViewerMouseEnter
@@ -2695,17 +2695,17 @@ object FormBiosfera: TFormBiosfera
     end
     object panCamera: TPanel
       Left = 0
-      Top = 71
-      Width = 1421
+      Top = 161
+      Width = 1424
       Height = 31
       Align = alBottom
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 1413
+      ExplicitTop = 136
+      ExplicitWidth = 1416
       object tbViews: TToolBar
         Left = 1
         Top = 1
-        Width = 1419
+        Width = 1422
         Height = 29
         Align = alClient
         ButtonWidth = 64
@@ -2714,12 +2714,12 @@ object FormBiosfera: TFormBiosfera
         Font.Height = -9
         Font.Name = 'MS Sans Serif'
         Font.Style = []
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ParentFont = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1411
+        ExplicitWidth = 1414
         object Label19: TLabel
           Left = 0
           Top = 0

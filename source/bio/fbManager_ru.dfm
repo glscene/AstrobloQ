@@ -28,7 +28,6 @@ object FormManager: TFormManager
     BevelOuter = bvLowered
     BorderWidth = 10
     TabOrder = 0
-    ExplicitWidth = 146
     object Panel2: TPanel
       Left = 11
       Top = 11
@@ -39,7 +38,6 @@ object FormManager: TFormManager
       Caption = #1056#1077#1072#1083#1100#1085#1086#1089#1090#1100
       Color = clActiveBorder
       TabOrder = 0
-      ExplicitWidth = 124
     end
     object ToolBar1: TToolBar
       Left = 11
@@ -54,11 +52,10 @@ object FormManager: TFormManager
       List = True
       ShowCaptions = True
       TabOrder = 1
-      ExplicitWidth = 124
       object tbTime: TToolButton
         Left = 0
         Top = 0
-        Hint = 'Time'
+        Hint = #1042#1088#1077#1084#1103
         Caption = #1042#1088#1077#1084#1103'                        '
         Down = True
         ImageIndex = 38
@@ -70,7 +67,7 @@ object FormManager: TFormManager
       object tbSpace: TToolButton
         Left = 0
         Top = 19
-        Hint = 'Space View'
+        Hint = #1050#1086#1089#1084#1086#1089
         Caption = #1050#1086#1089#1084#1086#1089
         ImageIndex = 63
         ParentShowHint = False
@@ -82,27 +79,36 @@ object FormManager: TFormManager
       object tbPopulations: TToolButton
         Left = 0
         Top = 38
+        Hint = #1055#1086#1087#1091#1083#1103#1094#1080#1080
         Caption = #1055#1086#1087#1091#1083#1103#1094#1080#1103
         ImageIndex = 117
+        ParentShowHint = False
         Wrap = True
+        ShowHint = True
         Style = tbsCheck
         OnClick = tbPopulationsClick
       end
       object tbHeightField: TToolButton
         Left = 0
         Top = 57
+        Hint = #1050#1072#1088#1090#1072' '#1090#1077#1084#1087#1077#1088#1072#1090#1091#1088#1099
         Caption = #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1072
         ImageIndex = 77
+        ParentShowHint = False
         Wrap = True
+        ShowHint = True
         Style = tbsCheck
         OnClick = tbHeightFieldClick
       end
       object tbHumidityMap: TToolButton
         Left = 0
         Top = 76
+        Hint = #1050#1072#1088#1090#1072' '#1074#1083#1072#1078#1085#1086#1089#1090#1080
         Caption = #1042#1083#1072#1078#1085#1086#1089#1090#1100
         ImageIndex = 57
+        ParentShowHint = False
         Wrap = True
+        ShowHint = True
         Style = tbsCheck
         OnClick = tbHumidityMapClick
       end
@@ -111,14 +117,16 @@ object FormManager: TFormManager
         Top = 95
         Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1094#1080#1103
         ImageIndex = 40
+        ParentShowHint = False
         Wrap = True
+        ShowHint = True
         Style = tbsCheck
         OnClick = tbConstructionClick
       end
       object tbLists: TToolButton
         Left = 0
         Top = 114
-        Hint = 'Lists Window'
+        Hint = #1054#1082#1085#1086' '#1089#1087#1080#1089#1082#1086#1074
         Caption = #1057#1087#1080#1089#1082#1080
         ImageIndex = 26
         ParentShowHint = False
@@ -130,7 +138,7 @@ object FormManager: TFormManager
       object tbEvents: TToolButton
         Left = 0
         Top = 133
-        Hint = 'Events Window'
+        Hint = #1054#1082#1085#1086' '#1089#1086#1073#1099#1090#1080#1081
         Caption = #1057#1086#1073#1099#1090#1080#1103
         ImageIndex = 30
         ParentShowHint = False
@@ -149,8 +157,6 @@ object FormManager: TFormManager
     BevelOuter = bvLowered
     BorderWidth = 10
     TabOrder = 1
-    ExplicitWidth = 146
-    ExplicitHeight = 280
     object Panel1: TPanel
       Left = 11
       Top = 11
@@ -161,7 +167,6 @@ object FormManager: TFormManager
       Caption = #1042#1080#1076
       Color = clInactiveBorder
       TabOrder = 0
-      ExplicitWidth = 124
     end
     object tbSpirits: TToolBar
       Left = 11
@@ -175,8 +180,6 @@ object FormManager: TFormManager
       List = True
       ShowCaptions = True
       TabOrder = 1
-      ExplicitWidth = 124
-      ExplicitHeight = 205
     end
     object Panel4: TPanel
       Left = 11
@@ -186,8 +189,6 @@ object FormManager: TFormManager
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 241
-      ExplicitWidth = 124
       object btnAddThing: TBitBtn
         Left = 0
         Top = 0

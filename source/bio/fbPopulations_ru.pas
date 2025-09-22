@@ -23,7 +23,6 @@ uses
   VCLTee.Series,
   VclTee.TeeGDIPlus,
   (*, TeeProcs, TeEngine, Chart, Series;*)
-  //JvEdit, JvTypedEdit
   GLS.Texture,
   GLS.Color;
 
@@ -66,6 +65,16 @@ uses
   Bio.Globals;
 
 {$R *.dfm}
+
+procedure TFormPopulations.FormCreate(Sender: TObject);
+begin
+  Initialized := false;
+end;
+
+procedure TFormPopulations.FormShow(Sender: TObject);
+begin
+  InitializeGraph;
+end;
 
 procedure TFormPopulations.Advance;
 var
@@ -113,7 +122,7 @@ procedure TFormPopulations.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  FormFirst.RealityForm.ManagerForm.DropPopulations;
+  frmFirst.RealityForm.ManagerForm.DropPopulations;
 end;
 
 procedure TFormPopulations.btnRunClick(Sender: TObject);
@@ -197,16 +206,6 @@ end;
 procedure TFormPopulations.cb3DGraphClick(Sender: TObject);
 begin
   PopGraph.View3D := cb3DGraph.Checked;
-end;
-
-procedure TFormPopulations.FormShow(Sender: TObject);
-begin
-  InitializeGraph;
-end;
-
-procedure TFormPopulations.FormCreate(Sender: TObject);
-begin
-  Initialized := false;
 end;
 
 procedure TFormPopulations.edRateChange(Sender: TObject);

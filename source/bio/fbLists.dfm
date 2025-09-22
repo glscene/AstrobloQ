@@ -1,4 +1,4 @@
-object fmLists: TfmLists
+object frmLists: TfrmLists
   Left = 103
   Top = 136
   Margins.Left = 2
@@ -40,8 +40,10 @@ object fmLists: TfmLists
     00010000000100000001000000010000000180000003C0000003C0000007E000
     000FE000001FE00000FFE00000FFE000007FF000003FF800001FFC00001FFC00
     001FFC00001FFE00003FFF00007FFFE003FFFFFFFFFFFFFFFFFFFFFFFFFF}
+  Position = poScreenCenter
   WindowState = wsMaximized
   OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnShow = FormShow
   TextHeight = 13
   object Panel15: TPanel
@@ -53,6 +55,8 @@ object fmLists: TfmLists
     BevelOuter = bvNone
     Caption = 'Panel15'
     TabOrder = 0
+    ExplicitWidth = 1043
+    ExplicitHeight = 612
     object Splitter2: TSplitter
       Left = 751
       Top = 0
@@ -72,6 +76,8 @@ object fmLists: TfmLists
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 0
+      ExplicitWidth = 743
+      ExplicitHeight = 570
       object panCultureName: TPanel
         Left = 10
         Top = 10
@@ -88,9 +94,7 @@ object fmLists: TfmLists
         Font.Style = [fsUnderline]
         ParentFont = False
         TabOrder = 0
-        ExplicitLeft = 6
-        ExplicitTop = 6
-        ExplicitWidth = 740
+        ExplicitWidth = 723
       end
       object lbThings: TListBox
         Left = 10
@@ -112,6 +116,8 @@ object fmLists: TfmLists
         ParentFont = False
         TabOrder = 1
         OnDblClick = lbThingsDblClick
+        ExplicitWidth = 723
+        ExplicitHeight = 471
       end
       object Panel3: TPanel
         Left = 10
@@ -122,9 +128,8 @@ object fmLists: TfmLists
         BevelOuter = bvNone
         Color = clBtnShadow
         TabOrder = 2
-        ExplicitLeft = 6
-        ExplicitTop = 535
-        ExplicitWidth = 740
+        ExplicitTop = 505
+        ExplicitWidth = 723
         object btnDelete: TBitBtn
           Left = 104
           Top = 4
@@ -208,20 +213,20 @@ object fmLists: TfmLists
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 1
+      ExplicitLeft = 750
+      ExplicitHeight = 570
       object ToolBar1: TToolBar
         Left = 10
         Top = 467
         Width = 273
         Height = 118
         Align = alBottom
-        ButtonHeight = 32
-        ButtonWidth = 114
+        ButtonHeight = 21
+        ButtonWidth = 67
         Caption = 'ToolBar1'
         ShowCaptions = True
         TabOrder = 0
-        ExplicitLeft = 6
-        ExplicitTop = 472
-        ExplicitWidth = 281
+        ExplicitTop = 442
         object tbReality: TToolButton
           Left = 0
           Top = 0
@@ -230,7 +235,7 @@ object fmLists: TfmLists
           OnClick = tbRealityClick
         end
         object tbSpace: TToolButton
-          Left = 114
+          Left = 67
           Top = 0
           Caption = 'Space'
           ImageIndex = 10
@@ -239,14 +244,14 @@ object fmLists: TfmLists
         end
         object tbEnvironment: TToolButton
           Left = 0
-          Top = 32
+          Top = 21
           Caption = 'Environment'
           ImageIndex = 11
           OnClick = tbEnvironmentClick
         end
         object tbExistents: TToolButton
-          Left = 114
-          Top = 32
+          Left = 67
+          Top = 21
           Caption = 'Existents'
           ImageIndex = 4
           Wrap = True
@@ -254,14 +259,14 @@ object fmLists: TfmLists
         end
         object tbAttachments: TToolButton
           Left = 0
-          Top = 64
+          Top = 42
           Caption = 'Attachments'
           ImageIndex = 1
           OnClick = tbAttachmentsClick
         end
         object tbReferences: TToolButton
-          Left = 114
-          Top = 64
+          Left = 67
+          Top = 42
           Caption = 'References'
           ImageIndex = 0
           Wrap = True
@@ -269,14 +274,14 @@ object fmLists: TfmLists
         end
         object tbGrids: TToolButton
           Left = 0
-          Top = 96
+          Top = 63
           Caption = 'Grids'
           ImageIndex = 3
           OnClick = tbGridsClick
         end
         object tbCradle: TToolButton
-          Left = 114
-          Top = 96
+          Left = 67
+          Top = 63
           Caption = 'Cradle'
           ImageIndex = 5
           Wrap = True
@@ -284,14 +289,14 @@ object fmLists: TfmLists
         end
         object tbPurgatory: TToolButton
           Left = 0
-          Top = 128
+          Top = 84
           Caption = 'Purgatory'
           ImageIndex = 6
           OnClick = tbPurgatoryClick
         end
         object tbTrash: TToolButton
-          Left = 114
-          Top = 128
+          Left = 67
+          Top = 84
           Caption = 'Trash'
           ImageIndex = 14
           Wrap = True
@@ -299,14 +304,14 @@ object fmLists: TfmLists
         end
         object tbEventQueue: TToolButton
           Left = 0
-          Top = 160
+          Top = 105
           Caption = 'EventQueue'
           ImageIndex = 14
           OnClick = tbEventQueueClick
         end
         object tbEventRound: TToolButton
-          Left = 114
-          Top = 160
+          Left = 67
+          Top = 105
           Caption = 'EventRound'
           ImageIndex = 13
           Wrap = True
@@ -314,14 +319,14 @@ object fmLists: TfmLists
         end
         object tbThings: TToolButton
           Left = 0
-          Top = 192
+          Top = 126
           Caption = 'Things'
           ImageIndex = 9
           OnClick = tbThingsClick
         end
         object tbFruits: TToolButton
-          Left = 114
-          Top = 192
+          Left = 67
+          Top = 126
           Caption = 'Fruits'
           ImageIndex = 10
           Wrap = True
@@ -329,14 +334,14 @@ object fmLists: TfmLists
         end
         object tbPrey: TToolButton
           Left = 0
-          Top = 224
+          Top = 147
           Caption = 'Prey'
           ImageIndex = 11
           OnClick = tbPreyClick
         end
         object tbPredators: TToolButton
-          Left = 114
-          Top = 224
+          Left = 67
+          Top = 147
           Caption = 'Predators'
           ImageIndex = 12
           Wrap = True
@@ -344,14 +349,14 @@ object fmLists: TfmLists
         end
         object tbColliders: TToolButton
           Left = 0
-          Top = 256
+          Top = 168
           Caption = 'Colliders'
           ImageIndex = 14
           OnClick = tbCollidersClick
         end
         object tb3DView: TToolButton
-          Left = 114
-          Top = 256
+          Left = 67
+          Top = 168
           Caption = '3DView'
           ImageIndex = 13
           OnClick = tb3DViewClick
@@ -378,6 +383,7 @@ object fmLists: TfmLists
         ScrollBars = ssBoth
         TabOrder = 1
         WordWrap = False
+        ExplicitHeight = 432
       end
     end
     object Panel1: TPanel
@@ -388,8 +394,10 @@ object fmLists: TfmLists
       Align = alBottom
       Color = clBtnShadow
       TabOrder = 2
+      ExplicitTop = 570
+      ExplicitWidth = 1043
       object Panel2: TPanel
-        Left = 947
+        Left = 946
         Top = 1
         Width = 104
         Height = 40
@@ -397,6 +405,7 @@ object fmLists: TfmLists
         BevelOuter = bvNone
         Color = clBtnShadow
         TabOrder = 0
+        ExplicitLeft = 938
         object btnClose: TBitBtn
           Left = 14
           Top = 8

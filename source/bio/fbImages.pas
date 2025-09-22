@@ -17,7 +17,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TFormImages = class(TForm)
+  TfrmImages = class(TForm)
     panImages: TPanel;
     ImageListIcons: TImageList;
   private
@@ -27,7 +27,7 @@ type
   end;
 
 var
-  FormImages: TFormImages;
+  frmImages: TfrmImages;
 
 implementation //------------------------------------------------------------
 

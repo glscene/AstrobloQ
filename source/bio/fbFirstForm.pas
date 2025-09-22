@@ -23,7 +23,7 @@ uses
   fbNewReality;
 
 type
-  TFormFirst = class(TForm)
+  TfrmFirst = class(TForm)
     ShowTimer: TTimer;
     imgSplash: TImage;
     procedure FormShow(Sender: TObject);
@@ -32,20 +32,20 @@ type
     procedure ShowTimerTimer(Sender: TObject);
     procedure FormPaint(Sender: TObject);
   private
-    FRealityForm: TfmReality;
+    FRealityForm: TFormReality;
     FDetectedMonitors: integer;
     FMonitors: integer;
     FScreen: TScreen;
     FUserSettings: TUserSettings;
-    FConstruction: TfmConstruction;
+    FConstruction: TfrmConstruction;
     FErrorCount: integer;
   public
     property Screen: TScreen read FScreen;
     property DetectedMonitors: integer read FDetectedMonitors;
     property Monitors: integer read FMonitors write FMonitors;
     property UserSettings: TUserSettings read FUserSettings;
-    property Construction: TfmConstruction read FConstruction;
-    property RealityForm: TfmReality read FRealityForm;
+    property Construction: TfrmConstruction read FConstruction;
+    property RealityForm: TFormReality read FRealityForm;
     function MultipleMonitors: boolean;
     procedure AppException(Sender: TObject; E: Exception);
     procedure ShowIntro;
@@ -53,7 +53,7 @@ type
   end;
 
 var
-  FormFirst: TFormFirst;
+  frmFirst: TfrmFirst;
 
 implementation //--------------------------------------------------------------
 
@@ -67,13 +67,13 @@ uses
 
 {$R *.DFM}
 
-procedure TFormFirst.FormCreate(Sender: TObject);
+procedure TfrmFirst.FormCreate(Sender: TObject);
 begin
   FErrorCount := 0;
   Application.OnException := Self.AppException;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
   gVersion := 960;
-  FConstruction := TfmConstruction.Create(Self);
+  FConstruction := TfrmConstruction.Create(Self);
   Width := imgSplash.Picture.Bitmap.Width;
   Height := imgSplash.Picture.Bitmap.Height;
   SetWindowRgn(Handle, BitmapToRegion(imgSplash.Picture.Bitmap.Handle, clBlack, 10), True);
@@ -95,10 +95,10 @@ begin
   else
     ShowTimer.Interval := 1;
   // create and go to reality form (goes to Manager Form, then Space Form)
-  FRealityForm := TfmReality.Create(Self);
+  FRealityForm := TFormReality.Create(Self);
 end;
 
-procedure TFormFirst.FormDestroy(Sender: TObject);
+procedure TfrmFirst.FormDestroy(Sender: TObject);
 begin
   Construction.AddEvent('Saving settings...');
   UserSettings.SaveToRegistry;
@@ -111,7 +111,7 @@ begin
   FConstruction.Free;
 end;
 
-procedure TFormFirst.FormShow(Sender: TObject);
+procedure TfrmFirst.FormShow(Sender: TObject);
 var
   myFileName: string;
   myLoadTemp: boolean;
@@ -154,7 +154,7 @@ begin
           RealityForm.ShutDown;
           FRealityForm.Free;
           SetCurrentDir(ExtractFilePath(ParamStr(0)));
-          FRealityForm := TfmReality.Create(Self);
+          FRealityForm := TFormReality.Create(Self);
           RealityForm.StartUp(myFileName);
           if myFileName = 'new.air' then
             RealityForm.StartReality
@@ -171,7 +171,9 @@ begin
   ShowTimer.Enabled := True;
 end;
 
-procedure TFormFirst.ShowIntro;
+//------------------------------------------------------------------------
+
+procedure TfrmFirst.ShowIntro;
 var
   FormIntro: TFormIntro;
 begin
@@ -181,32 +183,34 @@ begin
   FormIntro.Free;
 end;
 
-procedure TFormFirst.ShowSplash;
+procedure TfrmFirst.ShowSplash;
 var
-  mySplash: TfmSplash;
+  mySplash: TFormSplash;
 begin
-  mySplash := TfmSplash.Create(Self);
+  mySplash := TFormSplash.Create(Self);
   mySplash.ShowModal;
   mySplash.Refresh;
   mySplash.Free;
 end;
 
-function TFormFirst.MultipleMonitors: boolean;
+//------------------------------------------------------------------------
+
+function TfrmFirst.MultipleMonitors: boolean;
 begin
   result := Monitors > 1;
 end;
 
-procedure TFormFirst.ShowTimerTimer(Sender: TObject);
+procedure TfrmFirst.ShowTimerTimer(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFormFirst.FormPaint(Sender: TObject);
+procedure TfrmFirst.FormPaint(Sender: TObject);
 begin
   Canvas.Draw(0, 0, imgSplash.Picture.Bitmap);
 end;
 
-procedure TFormFirst.AppException(Sender: TObject; E: Exception);
+procedure TfrmFirst.AppException(Sender: TObject; E: Exception);
 var
   myFormError: TFormError;
   myAbout: TAboutInfo;
