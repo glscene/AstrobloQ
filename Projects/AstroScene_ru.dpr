@@ -15,13 +15,13 @@ uses
   Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fmAstroScene_ru in '..\source\fmAstroScene_ru.pas' {FormAstroScene},
-  fmOptions_ru in '..\source\fmOptions_ru.pas' {FormOptions},
+  fmAstroScene_ru in '..\source\fmAstroScene_ru.pas' {frmAstroScene},
+  fmOptions_ru in '..\source\fmOptions_ru.pas' {frmOptions},
   fmGenStarsys_ru in '..\source\fmGenStarsys_ru.pas' {frmGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Space.Globals in '..\source\Space.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   fmFormI in '..\source\fmFormI.pas' {FormI},
   frParams_ru in '..\source\frParams_ru.pas' {FrameParamsR: TFrame},
   fmStarsys_ru in '..\source\fmStarsys_ru.pas' {frmStarsys},
@@ -37,19 +37,19 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Space.ReadCSV in '..\source\Space.ReadCSV.pas',
-  fmSettings_ru in '..\source\fmSettings_ru.pas' {FormSettings};
+  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings};
 
 {$R *.res}
 
 begin
   Application.Initialize;
 //  TStyleManager.TrySetStyle('Windows10');
-  Application.CreateForm(TFormAstroScene, FormAstroScene);
+  Application.CreateForm(TfrmAstroScene, frmAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TFormOptions, FormOptions);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormI, FormI);
-  Application.CreateForm(TFormSettings, FormSettings);
+  Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

@@ -1,4 +1,4 @@
-inherited FormSettings: TFormSettings
+inherited frmSettings: TfrmSettings
   HelpContext = 0
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 759
@@ -19,6 +19,8 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 662
+    ExplicitWidth = 1305
     object ButtonOk: TButton
       Left = 1079
       Top = 10
@@ -45,6 +47,8 @@ inherited FormSettings: TFormSettings
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 1305
+    ExplicitHeight = 662
     object tvSettings: TTreeView
       Left = 1
       Top = 1
@@ -72,6 +76,7 @@ inherited FormSettings: TFormSettings
         000000000000000106170432045104370434044B040000330000000000000000
         000000FFFFFFFFFFFFFFFF07000000000000000000000000010A220440043004
         35043A0442043E04400438044F04}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -92,6 +97,8 @@ inherited FormSettings: TFormSettings
       ParentFont = False
       Style = tsButtons
       TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -261,7 +268,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 122
+          Left = 114
           Top = 53
           Width = 149
           Height = 200

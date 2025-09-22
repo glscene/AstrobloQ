@@ -19,8 +19,8 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTehnosfera_ru in '..\source\teh\ftTehnosfera_ru.pas' {FormTehnosfera},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout};
+  ftTehnosfera_ru in '..\source\teh\ftTehnosfera_ru.pas' {frmTehnosfera},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout};
 
 {$R *.res}
 
@@ -28,9 +28,8 @@ begin
   Application.Initialize;
 
   Application.Title := 'Tehnosfera';
-  Application.CreateForm(TFormTehnosfera, FormTehnosfera);
+  Application.CreateForm(TfrmTehnosfera, frmTehnosfera);
   Application.CreateForm(TFormLocations, FormLocations);
-  Application.CreateForm(TFormCETI, FormCETI);
   Application.CreateForm(TfrmMeshData, frmMeshData);
   Application.CreateForm(TfrmLoadModel, frmLoadModel);
   Application.CreateForm(TDataModuleBase, DataModuleBase);

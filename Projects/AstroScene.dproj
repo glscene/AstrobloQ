@@ -106,7 +106,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\fmAstroScene.pas">
-            <Form>FormAstroScene</Form>
+            <Form>frmAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmFormI.pas">
             <Form>FormI</Form>
@@ -118,7 +118,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
-            <Form>frmAbout</Form>
+            <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmGenStarsys.pas">
@@ -129,7 +129,7 @@
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\Space.ReadCSV.pas"/>
         <DCCReference Include="..\source\fmOptions.pas">
-            <Form>FormOptions</Form>
+            <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\Space.Globals.pas"/>
@@ -189,7 +189,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

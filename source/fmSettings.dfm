@@ -1,4 +1,4 @@
-inherited FormSettings: TFormSettings
+inherited frmSettings: TfrmSettings
   HelpContext = 0
   Caption = 'Settings'
   ClientHeight = 759
@@ -1123,7 +1123,7 @@ inherited FormSettings: TFormSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 154
+          Left = 146
           Top = 53
           Width = 149
           Height = 200

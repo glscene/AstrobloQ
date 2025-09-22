@@ -1,4 +1,4 @@
-object FormAstroScene: TFormAstroScene
+object frmAstroScene: TfrmAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
@@ -88975,6 +88975,10 @@ object FormAstroScene: TFormAstroScene
     end
     object miTools: TMenuItem
       Caption = '&Tools'
+      object Settings1: TMenuItem
+        Caption = 'Settings...'
+        OnClick = Settings1Click
+      end
       object miToolsOptions: TMenuItem
         Caption = 'Options...'
         OnClick = miToolsOptionsClick

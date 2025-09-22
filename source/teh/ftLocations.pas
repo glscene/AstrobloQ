@@ -360,10 +360,10 @@ begin
   cbTypes.Items.Add('6: Scientific Visualization [clrLime]');
   cbTypes.Items.Add('7: Others [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  FormTehnosfera.cbTypes.Clear;
+  frmTehnosfera.cbTypes.Clear;
   // EarthForm.cbTypes.Items.Add(S);
-  FormTehnosfera.cbTypes.Items := cbTypes.Items; // copied items to main form
-  FormTehnosfera.cbTypes.ItemIndex := 0;
+  frmTehnosfera.cbTypes.Items := cbTypes.Items; // copied items to main form
+  frmTehnosfera.cbTypes.ItemIndex := 0;
 end;
 
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);

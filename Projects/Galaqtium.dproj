@@ -127,7 +127,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\galaxy\fgGalaqtium.pas">
-            <Form>FormGalaqtium</Form>
+            <Form>frmGalaqtium</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
@@ -155,7 +155,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
-            <Form>frmAbout</Form>
+            <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\Space.Globals.pas"/>
@@ -186,7 +186,7 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\fmSettings.pas">
-            <Form>FormSettings</Form>
+            <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

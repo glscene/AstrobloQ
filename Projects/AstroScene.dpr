@@ -11,17 +11,17 @@ program AstroScene;
 
 uses
   Forms,
-  fmAstroScene in '..\source\fmAstroScene.pas' {FormAstroScene},
+  fmAstroScene in '..\source\fmAstroScene.pas' {frmAstroScene},
   fmFormI in '..\source\fmFormI.pas' {FormI: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {frmAbout},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fmGenStarsys in '..\source\fmGenStarsys.pas' {frmGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
   Space.ReadCSV in '..\source\Space.ReadCSV.pas',
-  fmOptions in '..\source\fmOptions.pas' {FormOptions},
+  fmOptions in '..\source\fmOptions.pas' {frmOptions},
   Space.Globals in '..\source\Space.Globals.pas',
   fmSolarsys in '..\source\fmSolarsys.pas' {frmSolarSys},
   frParams in '..\source\frParams.pas' {FrameParams: TFrame},
@@ -39,19 +39,19 @@ uses
   faPointto in '..\source\astro\faPointto.pas' {FormPointto},
   faConstPolygons in '..\source\astro\faConstPolygons.pas' {FormConstPolygons},
   faCoordinates in '..\source\astro\faCoordinates.pas' {FormCoords},
-  fmSettings in '..\source\fmSettings.pas' {FormSettings};
+  fmSettings in '..\source\fmSettings.pas' {frmSettings};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   //TStyleManager.TrySetStyle('Glow');
-  Application.CreateForm(TFormAstroScene, FormAstroScene);
+  Application.CreateForm(TfrmAstroScene, frmAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TFormOptions, FormOptions);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormI, FormI);
-  Application.CreateForm(TFormSettings, FormSettings);
+  Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

@@ -36,7 +36,7 @@ uses
   fmFormI;
 
 type
-  TFormOptions = class(TFormI)
+  TfrmOptions = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -107,7 +107,7 @@ type
   end;
 
 var
-  FormOptions: TFormOptions;
+  frmOptions: TfrmOptions;
 
 implementation //-----------------------------------------------------------
 
@@ -117,7 +117,7 @@ uses
   fmAstroScene_ru;
 
 //-------------------------------------------------------------
-procedure TFormOptions.FormCreate(Sender: TObject);
+procedure TfrmOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -156,7 +156,7 @@ end;
 //---------------------------------------------------
 // Показать кайму атмосферы
 //---------------------------------------------------
-procedure TFormOptions.CheckBoxAtmosferaClick(Sender: TObject);
+procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
  // frmAllPlanets.Atmosphere;
 end;
@@ -164,19 +164,19 @@ end;
 //---------------------------------------------------
 // Показать или скрыть оси X, Y, Z небесного тела
 //---------------------------------------------------
-procedure TFormOptions.CheckBoxAxesClick(Sender: TObject);
+procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
 begin
   if CheckBoxAxes.Checked then
   begin
-    FormAstroScene.sfPlanet.ShowAxes := not FormAstroScene.sfPlanet.ShowAxes;
-    FormAstroScene.ffPlanet.ShowAxes := not FormAstroScene.ffPlanet.ShowAxes;
+    frmAstroScene.sfPlanet.ShowAxes := not frmAstroScene.sfPlanet.ShowAxes;
+    frmAstroScene.ffPlanet.ShowAxes := not frmAstroScene.ffPlanet.ShowAxes;
   end;
 end;
 
 //---------------------------------------------------
 // Показать картографическую сетку
 //---------------------------------------------------
-procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
+procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
 begin
   //
 end;
@@ -184,9 +184,9 @@ end;
 //---------------------------------------------------
 // Показать разрез с ядром и мантией
 //---------------------------------------------------
-procedure TFormOptions.CheckBoxCoreClick(Sender: TObject);
+procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
 begin
-  with FormAstroScene do
+  with frmAstroScene do
   if CheckBoxCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
@@ -209,26 +209,26 @@ end;
 //------------------------------------------------------------------
 // Показать или скрыть небесное тело
 //------------------------------------------------------------------
-procedure TFormOptions.CheckBoxHidePlanetClick(Sender: TObject);
+procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
 begin
   if CheckBoxHidePlanet.Checked then
   begin
-    FormAstroScene.sfPlanet.Visible := False;
-    FormAstroScene.ffPlanet.Visible := False;
-    FormAstroScene.DirectOpenGL.Visible := False;
+    frmAstroScene.sfPlanet.Visible := False;
+    frmAstroScene.ffPlanet.Visible := False;
+    frmAstroScene.DirectOpenGL.Visible := False;
   end
   else
   begin
-    FormAstroScene.sfPlanet.Visible := True;
-    FormAstroScene.ffPlanet.Visible := True;
-    FormAstroScene.DirectOpenGL.Visible := True;
+    frmAstroScene.sfPlanet.Visible := True;
+    frmAstroScene.ffPlanet.Visible := True;
+    frmAstroScene.DirectOpenGL.Visible := True;
   end;
 end;
 
 //---------------------------------------------------------
 // Выбор страниц опций
 //---------------------------------------------------------
-procedure TFormOptions.tvOptionsClick(Sender: TObject);
+procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
   tvOptions.Items[1].DropHighlighted := False;
   case tvOptions.Selected.StateIndex of
@@ -243,15 +243,15 @@ end;
 //------------------------------------------------------------
 // Чтение установок из ини файла
 //------------------------------------------------------------
-procedure TFormOptions.ReadIniFile;
+procedure TfrmOptions.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxRotate.Name, True);
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
@@ -260,14 +260,14 @@ end;
 //------------------------------------------------------------
 // Запись установок в инифайл
 //------------------------------------------------------------
-procedure TFormOptions.WriteIniFile;
+procedure TfrmOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(FormOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(FormOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -277,7 +277,7 @@ end;
 //--------------------------------------------------------------
 // Изменение и запись в файл при нажатии на кнопку ОК
 //--------------------------------------------------------------
-procedure TFormOptions.ButtonOKClick(Sender: TObject);
+procedure TfrmOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -285,14 +285,14 @@ begin
   if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
-  FormOptions.Close;
+  frmOptions.Close;
 end;
 
 
 //--------------------------------------------------------------
 // Запись при закрытии формы
 //--------------------------------------------------------------
-procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmOptions.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;

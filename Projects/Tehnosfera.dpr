@@ -16,11 +16,11 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {frmAbout},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Space.Globals in '..\source\Space.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {FormTehnosfera},
+  ftTehnosfera in '..\source\teh\ftTehnosfera.pas' {frmTehnosfera},
   ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   ftCETInet in '..\source\teh\ftCETInet.pas' {FormCETI};
@@ -31,15 +31,15 @@ begin
   Application.Initialize;
 
   Application.Title := 'Tehnosfera';
-  Application.CreateForm(TFormTehnosfera, FormTehnosfera);
+  Application.CreateForm(TfrmTehnosfera, frmTehnosfera);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmMeshEditor, frmMeshEditor);
   Application.CreateForm(TfrmCyborg, frmCyborg);
-  Application.CreateForm(TFormCETI, FormCETI);
   Application.CreateForm(TfrmRobot, frmRobot);
   Application.CreateForm(TfrmSpacePilot, frmSpacePilot);
   Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TFormCETI, FormCETI);
   Application.Run;
 end.

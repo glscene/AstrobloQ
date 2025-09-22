@@ -1,4 +1,4 @@
-object FormOptions: TFormOptions
+object frmOptions: TfrmOptions
   Left = 0
   Top = 0
   Caption = 'Options'
@@ -24,7 +24,7 @@ object FormOptions: TFormOptions
       811
       29)
     object ButtonOK: TButton
-      Left = 488
+      Left = 480
       Top = 3
       Width = 70
       Height = 23

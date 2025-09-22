@@ -1,6 +1,3 @@
-// ------------------
-// Show Tehnosfera
-// ------------------
 unit ftCETInet;
 
 interface
@@ -29,6 +26,7 @@ uses
 
   Stage.VectorTypes,
   Stage.VectorGeometry,
+  Stage.Keyboard,
 
   GLS.Cadencer,
   GLS.Texture,
@@ -204,11 +202,8 @@ type
     procedure ApplyBgColor;
     procedure ApplyTexturing;
     procedure ApplyFPS;
-
     procedure DoOpen(const fileName: String);
-
   public
-
     md, nthShow: Boolean;
     mx, my: Integer;
     hlShader: TGLShader;
@@ -219,13 +214,11 @@ type
 var
   FormCETI: TFormCETI;
 
-implementation
+implementation //-------------------------------------------------------------
 
 {$R *.dfm}
 
 uses
-  Stage.Keyboard,
-  // GraphicEx,
   GLS.PersistentClasses,
   GLS.MeshUtils,
   GLS.FileOBJ,
@@ -249,7 +242,6 @@ uses
   Teh.Globals;
 
 type
-
   // Shader for unvisible lines (for viewer, *not* generic)
   THiddenLineShader = class(TGLShader)
   private

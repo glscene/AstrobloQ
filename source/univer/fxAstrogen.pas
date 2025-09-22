@@ -92,7 +92,7 @@ begin
     Diffuse := TAlphaColors.White;
     Specular := TAlphaColors.White;
     Shininess := 50;
-    Texture.LoadFromFile(FormUniversum.DataDir + '\map\Earth.jpg');
+    Texture.LoadFromFile(frmUniversum.DataDir + '\map\Earth.jpg');
   end;
 
   M := TAstroMaterialSource.Create(Self);
@@ -100,8 +100,8 @@ begin
   Sphere2.MaterialSource := M;
   Sphere2.TwoSide := True;
 
-  MemoSVC.Lines.LoadFromFile(FormUniversum.DataDir + '\shader\ShaderV.hlsl');
-  MemoSPC.Lines.LoadFromFile(FormUniversum.DataDir + '\shader\ShaderP.hlsl');
+  MemoSVC.Lines.LoadFromFile(frmUniversum.DataDir + '\shader\ShaderV.hlsl');
+  MemoSPC.Lines.LoadFromFile(frmUniversum.DataDir + '\shader\ShaderP.hlsl');
 
   with M do
   begin
@@ -110,7 +110,7 @@ begin
     DiffRatio := TAlphaColorF.Create(1, 1, 1);
     SpecRatio := TAlphaColorF.Create(1, 1, 1);
     SpecShiny := 50;
-    DiffImage.LoadFromFile(FormUniversum.DataDir + '\map\Earth.jpg');
+    DiffImage.LoadFromFile(frmUniversum.DataDir + '\map\Earth.jpg');
 
     ShaderV.Source.Text := MemoSVC.Text;
     for T in ShaderV.Errors.Keys do

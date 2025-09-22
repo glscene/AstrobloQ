@@ -34,7 +34,7 @@ uses
   fmFormI;
 
 type
-  TFormOptions = class(TFormI)
+  TfrmOptions = class(TFormI)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -140,7 +140,7 @@ type
   end;
 
 var
-  FormOptions: TFormOptions;
+  frmOptions: TfrmOptions;
 
 implementation //------------------------------------------------------------
 
@@ -153,7 +153,7 @@ uses
 //-------------------------------------------------------------
 // Form Create
 //-------------------------------------------------------------
-procedure TFormOptions.FormCreate(Sender: TObject);
+procedure TfrmOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -185,7 +185,7 @@ end;
 //---------------------------------------------------
 // Styles of Interface
 //---------------------------------------------------
-procedure TFormOptions.ComboBoxVclStylesChange(Sender: TObject);
+procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
@@ -193,9 +193,9 @@ end;
 //---------------------------------------------------
 // Show the planet core with mantle
 //---------------------------------------------------
-procedure TFormOptions.chbCoreClick(Sender: TObject);
+procedure TfrmOptions.chbCoreClick(Sender: TObject);
 begin
-  with FormAstroScene do
+  with frmAstroScene do
   begin
     // Make ffPlanet invisible and replace it with sfPlanet and glDisks visible
     PlanetPath := CurrentStar + tvMoons.Selected.Text;
@@ -214,57 +214,57 @@ end;
 //-----------------------------------------------------------------
 // Show atmosphere
 //-----------------------------------------------------------------
-procedure TFormOptions.chbAtmosphereClick(Sender: TObject);
+procedure TfrmOptions.chbAtmosphereClick(Sender: TObject);
 begin
-  FormAstroScene.DirectOpenGL.Visible := chbAtmosphere.Checked;
+  frmAstroScene.DirectOpenGL.Visible := chbAtmosphere.Checked;
 end;
 
 //-----------------------------------------------------------------
 // Show axes for celestial bodies
 //-----------------------------------------------------------------
-procedure TFormOptions.chbAxesClick(Sender: TObject);
+procedure TfrmOptions.chbAxesClick(Sender: TObject);
 begin
-  FormAstroScene.sfPlanet.ShowAxes := chbAxes.Checked;
+  frmAstroScene.sfPlanet.ShowAxes := chbAxes.Checked;
 end;
 
 //-----------------------------------------------------------------
 // Show lines, borders, figures and names of constellations
 //-----------------------------------------------------------------
 
-procedure TFormOptions.chbPlanetGridClick(Sender: TObject);
+procedure TfrmOptions.chbPlanetGridClick(Sender: TObject);
 begin
-  FormAstroScene.TorusGreenwich.Visible := chbPlanetgrid.Checked;
-  FormAstroScene.TorusEquator.Visible := chbPlanetgrid.Checked;
+  frmAstroScene.TorusGreenwich.Visible := chbPlanetgrid.Checked;
+  frmAstroScene.TorusEquator.Visible := chbPlanetgrid.Checked;
 end;
 
 //-----------------------------------------------------------------
 // Show lines, borders, figures and names of constellations
 //-----------------------------------------------------------------
-procedure TFormOptions.chbConstellationsClick(Sender: TObject);
+procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
 begin
-  CurrDir := FormAstroScene.DataDir + '\constellation\';
+  CurrDir := frmAstroScene.DataDir + '\constellation\';
   SetCurrentDir(CurrDir);
   if chbConstLines.Checked then
-    FormAstroScene.LoadConstLines(CurrDir)
+    frmAstroScene.LoadConstLines(CurrDir)
   else
-    FormAstroScene.ConstLines.Nodes.Clear;
+    frmAstroScene.ConstLines.Nodes.Clear;
   if chbConstBounds.Checked then
-    FormAstroScene.LoadConstBorders(CurrDir)
+    frmAstroScene.LoadConstBorders(CurrDir)
   else
-    FormAstroScene.ConstBorders.Nodes.Clear;
+    frmAstroScene.ConstBorders.Nodes.Clear;
   // Also Figures
 end;
 
 //------------------------------------------------------------------
 // Show/Hide panels and the planet
 //------------------------------------------------------------------
-procedure TFormOptions.chbHideClick(Sender: TObject);
+procedure TfrmOptions.chbHideClick(Sender: TObject);
 begin
-  FormAstroScene.PanelLeft.Visible := chbHide.Checked;
-  FormAstroScene.PanelRight.Visible := chbHide.Checked;
-  FormAstroScene.StatusBar.Visible := chbHide.Checked;
-  FormAstroScene.ControlBar.Visible := chbHide.Checked;
-  FormAstroScene.sfPlanet.Visible := chbHide.Checked;
+  frmAstroScene.PanelLeft.Visible := chbHide.Checked;
+  frmAstroScene.PanelRight.Visible := chbHide.Checked;
+  frmAstroScene.StatusBar.Visible := chbHide.Checked;
+  frmAstroScene.ControlBar.Visible := chbHide.Checked;
+  frmAstroScene.sfPlanet.Visible := chbHide.Checked;
   (*
   if chbHide.Checked then
     frmAstroScene.BorderStyle := bsNone
@@ -276,15 +276,15 @@ end;
 //------------------------------------------------------------------
 // Planet rotations
 //------------------------------------------------------------------
-procedure TFormOptions.chbRotateClick(Sender: TObject);
+procedure TfrmOptions.chbRotateClick(Sender: TObject);
 begin
-  FormAstroScene.Cadencer.Enabled := chbRotate.Checked;
+  frmAstroScene.Cadencer.Enabled := chbRotate.Checked;
 end;
 
 //-----------------------------------------------------------------
 // Active page of PageControl
 //-----------------------------------------------------------------
-procedure TFormOptions.tvOptionsClick(Sender: TObject);
+procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
   inherited;
   tvOptions.Items[1].DropHighlighted := False;
@@ -302,14 +302,14 @@ end;
 //---------------------------------------------------------
 // Writing settingd in ini file
 //---------------------------------------------------------
-procedure TFormOptions.WriteIniFile;
+procedure TfrmOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(FormOptions.Name, chbAxes.Name, chbAxes.Checked);
-    IniFile.WriteBool(FormOptions.Name, chbRotate.Name, chbRotate.Checked);
+    IniFile.WriteBool(frmOptions.Name, chbAxes.Name, chbAxes.Checked);
+    IniFile.WriteBool(frmOptions.Name, chbRotate.Name, chbRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -319,7 +319,7 @@ end;
 //-----------------------------------------------------------
 // OK click
 //-----------------------------------------------------------
-procedure TFormOptions.ButtonOKClick(Sender: TObject);
+procedure TfrmOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -327,7 +327,7 @@ begin
   if FileExists(UpperCase(FileName)) then
     DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
-  FormOptions.Close;
+  frmOptions.Close;
 end;
 
 end.

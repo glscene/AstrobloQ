@@ -1,4 +1,4 @@
-object frmAbout: TfrmAbout
+object FormAbout: TFormAbout
   Left = 0
   Top = 0
   BorderStyle = bsDialog

@@ -9,6 +9,7 @@ uses
   System.Variants,
   System.Classes,
   System.IniFiles,
+  System.UITypes,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -64,7 +65,7 @@ uses
   Astro.Utils;
 
 type
-  TFormGalaqtium = class(TFormI)
+  TfrmGalaqtium = class(TFormI)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
@@ -251,7 +252,7 @@ const
   crSlidezy = 10;
 
 var
-  FormGalaqtium: TFormGalaqtium;
+  frmGalaqtium: TfrmGalaqtium;
 
 implementation //-------------------------------------------------------------
 
@@ -263,7 +264,7 @@ uses
 
 
 // -----------------------------------------------------------------------
-procedure TFormGalaqtium.FormCreate(Sender: TObject);
+procedure TfrmGalaqtium.FormCreate(Sender: TObject);
 begin
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
@@ -273,7 +274,7 @@ begin
 end;
 
 // -----------------------------------------------------------
-procedure TFormGalaqtium.GLCadencerProgress(Sender: TObject;
+procedure TfrmGalaqtium.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   if frmOption.CheckBoxRotate.Checked and
@@ -294,13 +295,13 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalaqtium.GLAsyncTimerTimer(Sender: TObject);
+procedure TfrmGalaqtium.GLAsyncTimerTimer(Sender: TObject);
 begin
   // diskGalaxy.Roll(0.01);
 end;
 
 // ------------------------------------------------------------
-procedure TFormGalaqtium.MakeRandomStars;
+procedure TfrmGalaqtium.MakeRandomStars;
 var
   i: Integer;
   Edge, Edge05: Integer;
@@ -403,20 +404,20 @@ begin
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaqtium.ButtonClearClick(Sender: TObject);
+procedure TfrmGalaqtium.ButtonClearClick(Sender: TObject);
 begin
   dcSolcube.DeleteChildren();
   svGalacube.Invalidate();
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaqtium.ButtonAddStarsClick(Sender: TObject);
+procedure TfrmGalaqtium.ButtonAddStarsClick(Sender: TObject);
 begin
   MakeRandomStars;
 end;
 
 //--------------------------------------------------------
-procedure TFormGalaqtium.chbAllClick(Sender: TObject);
+procedure TfrmGalaqtium.chbAllClick(Sender: TObject);
 begin
   chbO.Checked := chbAll.Checked;
   chbB.Checked := chbAll.Checked;
@@ -428,27 +429,27 @@ begin
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaqtium.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaqtium.svGalaxyMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crRotate;
 end;
 
-procedure TFormGalaqtium.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
+procedure TfrmGalaqtium.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Screen.Cursor := crDefault;
 end;
 
 // -----------------------------------------------------------------------
-procedure TFormGalaqtium.tbAxesClick(Sender: TObject);
+procedure TfrmGalaqtium.tbAxesClick(Sender: TObject);
 begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
 //---------------------------------------------------------------------------
 
-procedure TFormGalaqtium.tbSolarcubeClick(Sender: TObject);
+procedure TfrmGalaqtium.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
   if dcGalacube.Visible then
@@ -469,7 +470,7 @@ end;
 
 //---------------------------------------------------------------------------
 
-function TFormGalaqtium.ReadHygStars: Boolean;
+function TfrmGalaqtium.ReadHygStars: Boolean;
 var
   i: Integer;
 
@@ -539,7 +540,7 @@ end;
 // -------------------------------------------------------------
 //                         File menu
 // -------------------------------------------------------------
-procedure TFormGalaqtium.miOpenClick(Sender: TObject);
+procedure TfrmGalaqtium.miOpenClick(Sender: TObject);
 begin
 //  dcSolcube.DeleteChildren();
   Stars.Free();
@@ -563,7 +564,7 @@ begin
 end;
 
 // --------------------------------------------------------
-procedure TFormGalaqtium.miSaveAsClick(Sender: TObject);
+procedure TfrmGalaqtium.miSaveAsClick(Sender: TObject);
 begin
   if DataModuleDialogs.SaveTextFileDialog.Execute then
     if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
@@ -574,7 +575,7 @@ begin
 end;
 
 //-----------------------------------------------------------
-procedure TFormGalaqtium.seNStarsChange(Sender: TObject);
+procedure TfrmGalaqtium.seNStarsChange(Sender: TObject);
 begin
   nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
   nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -586,12 +587,12 @@ begin
 end;
 
 //---------------------------------------------------------------------
-procedure TFormGalaqtium.miOptionsClick(Sender: TObject);
+procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
 begin
   frmOption.Show;
 end;
 
-procedure TFormGalaqtium.miNewStarcubeClick(Sender: TObject);
+procedure TfrmGalaqtium.miNewStarcubeClick(Sender: TObject);
 begin
   with TFormAstrocube.Create(Self) do
     try
@@ -604,7 +605,7 @@ end;
 //------------------------------------------------------------------------
 //                           View menu
 //------------------------------------------------------------------------
-procedure TFormGalaqtium.miExoplanetsClick(Sender: TObject);
+procedure TfrmGalaqtium.miExoplanetsClick(Sender: TObject);
 begin
   with TFormExoplanets.Create(Self) do
     try
@@ -614,7 +615,7 @@ begin
     end;
 end;
 
-procedure TFormGalaqtium.miLithosphereClick(Sender: TObject);
+procedure TfrmGalaqtium.miLithosphereClick(Sender: TObject);
 begin
 {
   with TfrmLitosphere.Create(Self) do
@@ -626,7 +627,7 @@ begin
 }
 end;
 
-procedure TFormGalaqtium.miBiosphereClick(Sender: TObject);
+procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -636,7 +637,7 @@ begin
     end;
 end;
 
-procedure TFormGalaqtium.miTechnosphereClick(Sender: TObject);
+procedure TfrmGalaqtium.miTechnosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -646,7 +647,7 @@ begin
     end;
 end;
 
-procedure TFormGalaqtium.miPanelShowClick(Sender: TObject);
+procedure TfrmGalaqtium.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
   PanelRight.Visible := not PanelRight.Visible;
@@ -656,7 +657,7 @@ end;
 //-----------------------------------------------------------------------
 //                         Tools menu
 //-----------------------------------------------------------------------
-procedure TFormGalaqtium.miMonitorClick(Sender: TObject);
+procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
     try
@@ -666,7 +667,7 @@ begin
     end;
 end;
 
-procedure TFormGalaqtium.miAnalyserClick(Sender: TObject);
+procedure TfrmGalaqtium.miAnalyserClick(Sender: TObject);
 begin
   with TFormAnalyser.Create(Self) do
     try
@@ -676,7 +677,7 @@ begin
     end;
 end;
 
-procedure TFormGalaqtium.miProjectionClick(Sender: TObject);
+procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -686,7 +687,7 @@ begin
     end;
 end;
 
-procedure TFormGalaqtium.miParadoxClick(Sender: TObject);
+procedure TfrmGalaqtium.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
     try
@@ -699,9 +700,9 @@ end;
 // -------------------------------------------------------------
 //                                Help menu
 // -------------------------------------------------------------
-procedure TFormGalaqtium.miAboutClick(Sender: TObject);
+procedure TfrmGalaqtium.miAboutClick(Sender: TObject);
 begin
-  with TFrmAbout.Create(Self) do
+  with TFormAbout.Create(Self) do
     try
       ShowModal;
     finally
@@ -711,7 +712,7 @@ end;
 
 
 // -------------------------------------------------------------
-procedure TFormGalaqtium.miExitClick(Sender: TObject);
+procedure TfrmGalaqtium.miExitClick(Sender: TObject);
 begin
   Close();
 end;

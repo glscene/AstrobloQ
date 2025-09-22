@@ -111,10 +111,10 @@
             <Form>FormNewStarcube</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgOptions_ru.pas">
-            <Form>FormOptions</Form>
+            <Form>frmOptions</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgGalaqtium_ru.pas">
-            <Form>FormGalaqtium</Form>
+            <Form>frmGalaqtium</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\Addons\StarProj\fStarProj.pas">
@@ -133,7 +133,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout_ru.pas">
-            <Form>frmAbout</Form>
+            <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\fmFormI.pas">

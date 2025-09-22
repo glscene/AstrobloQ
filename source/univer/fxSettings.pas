@@ -27,7 +27,7 @@ uses
   fxForm;
 
 type
-  TFormSettings = class(TFormX)
+  TfrmSettings = class(TFormX)
     tvSettings: TTreeView;
     tvGeneral: TTreeViewItem;
     tvInterface: TTreeViewItem;
@@ -54,14 +54,14 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  frmSettings: TfrmSettings;
 
 implementation // -------------------------------------------------------------
 
 {$R *.fmx}
 
 
-procedure TFormSettings.FormCreate(Sender: TObject);
+procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
 
@@ -74,7 +74,7 @@ begin
   inherited;
 end;
 
-procedure TFormSettings.tvSettingsClick(Sender: TObject);
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -116,13 +116,13 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-procedure TFormSettings.WriteIniFile;
+procedure TfrmSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(FormSettings.Name, 'English', 9);
+    IniFile.WriteInteger(frmSettings.Name, 'English', 9);
   finally
     IniFile.Free;
   end;
@@ -132,7 +132,7 @@ end;
 
 //--------------------------------------------------------------------------
 
-procedure TFormSettings.ReadIniFile;
+procedure TfrmSettings.ReadIniFile;
 var
   IniFile: TIniFile;
 
@@ -140,7 +140,7 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLangId := IniFile.ReadInteger(FormSettings.Name, 'English', 9);
+    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, 'English', 9);
   finally
     IniFile.Free;
   end;
@@ -148,7 +148,7 @@ end;
 
 //-------------------------------------------------------------------------
 
-procedure TFormSettings.ButtonOkClick(Sender: TObject);
+procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -160,7 +160,7 @@ begin
   end;
   // Write settings
   WriteIniFile;
-  FormSettings.Close;
+  frmSettings.Close;
 end;
 
 

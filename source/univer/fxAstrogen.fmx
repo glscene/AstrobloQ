@@ -31,7 +31,6 @@ object FormAstrogen: TFormAstrogen
       CustomIcon = <
         item
         end>
-      TextSettings.Trimming = None
       IsSelected = True
       Size.Width = 46.000000000000000000
       Size.Height = 26.000000000000000000
@@ -135,7 +134,6 @@ object FormAstrogen: TFormAstrogen
       CustomIcon = <
         item
         end>
-      TextSettings.Trimming = None
       IsSelected = False
       Size.Width = 57.000000000000000000
       Size.Height = 26.000000000000000000
@@ -166,7 +164,6 @@ object FormAstrogen: TFormAstrogen
           CustomIcon = <
             item
             end>
-          TextSettings.Trimming = None
           IsSelected = True
           Size.Width = 53.000000000000000000
           Size.Height = 26.000000000000000000
@@ -197,7 +194,6 @@ object FormAstrogen: TFormAstrogen
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = True
               Size.Width = 48.000000000000000000
               Size.Height = 26.000000000000000000
@@ -229,7 +225,6 @@ object FormAstrogen: TFormAstrogen
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = False
               Size.Width = 46.000000000000000000
               Size.Height = 26.000000000000000000
@@ -261,7 +256,6 @@ object FormAstrogen: TFormAstrogen
           CustomIcon = <
             item
             end>
-          TextSettings.Trimming = None
           IsSelected = False
           Size.Width = 45.000000000000000000
           Size.Height = 26.000000000000000000
@@ -292,7 +286,6 @@ object FormAstrogen: TFormAstrogen
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = True
               Size.Width = 48.000000000000000000
               Size.Height = 26.000000000000000000
@@ -324,7 +317,6 @@ object FormAstrogen: TFormAstrogen
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = False
               Size.Width = 46.000000000000000000
               Size.Height = 26.000000000000000000

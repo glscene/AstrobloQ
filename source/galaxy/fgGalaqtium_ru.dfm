@@ -1,4 +1,4 @@
-object FormGalaqtium: TFormGalaqtium
+object frmGalaqtium: TfrmGalaqtium
   Left = 0
   Top = 0
   Caption = 'Galaqtium'
