@@ -187,26 +187,26 @@
         <CppCompile Include="AstroSceneC.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\dcBase.cpp">
+        <CppCompile Include="..\source\astroc\dcBase.cpp">
             <Form>dmBase</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-            <DependentOn>..\Source\astroc\dcBase.h</DependentOn>
-            <BuildOrder>7</BuildOrder>
+            <DependentOn>..\source\astroc\dcBase.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\dcDialogs.cpp">
+        <CppCompile Include="..\source\astroc\dcDialogs.cpp">
             <Form>dmDialogs</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-            <DependentOn>..\Source\astroc\dcDialogs.h</DependentOn>
-            <BuildOrder>8</BuildOrder>
+            <DependentOn>..\source\astroc\dcDialogs.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\dcImages.cpp">
+        <CppCompile Include="..\source\astroc\dcImages.cpp">
             <Form>dmImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-            <DependentOn>..\Source\astroc\dcImages.h</DependentOn>
-            <BuildOrder>9</BuildOrder>
+            <DependentOn>..\source\astroc\dcImages.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\Source\astroc\fcAbout.cpp">
             <Form>FormAbout</Form>
@@ -220,11 +220,11 @@
             <DependentOn>..\source\astroc\fcAstroScene.h</DependentOn>
             <BuildOrder>11</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\fcForm.cpp">
+        <CppCompile Include="..\source\astroc\fcForm.cpp">
             <Form>FormC</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\Source\astroc\fcForm.h</DependentOn>
-            <BuildOrder>12</BuildOrder>
+            <DependentOn>..\source\astroc\fcForm.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\Source\astroc\fcHercRussel.cpp">
             <Form>FormHercRussel</Form>
@@ -251,6 +251,11 @@
             <DependentOn>..\Source\astroc\ucUtils.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
+        <FormResources Include="..\source\astroc\dcBase.dfm"/>
+        <FormResources Include="..\source\astroc\dcDialogs.dfm"/>
+        <FormResources Include="..\source\astroc\dcImages.dfm"/>
+        <FormResources Include="..\source\astroc\fcForm.dfm"/>
+        <FormResources Include="..\source\astroc\fcAstroScene.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
