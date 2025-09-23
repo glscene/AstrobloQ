@@ -118,7 +118,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIDuck.FloatWithCommunity;
 var
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
   myForce: TAffineVector;
 begin
 //  if not Position.UnderWater then exit;
@@ -126,7 +126,7 @@ begin
   // in a Community?
   if Community.ValidTarget then
   begin
-    myCommunity := AICommunity(Community.Target);
+    myCommunity := TaiCommunity(Community.Target);
     // Boids
     // http://www.vergenet.net/~conrad/boids/pseudocode.html
     // Rule 1: Boids try to fly towards the centre of mass of neighbouring boids.

@@ -142,7 +142,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIFish.FindFood;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   targetHeight: single;
 begin
   targetHeight := Position.Water - 2;
@@ -165,7 +165,7 @@ begin
         else
           if Age mod 16 = 0 then
           begin
-            Bonk(AIThing(myThing.Position.Carrier));
+            Bonk(TaiThing(myThing.Position.Carrier));
             Eyes.InvalidateTarget;
           end;
       end;

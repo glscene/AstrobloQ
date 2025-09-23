@@ -20,7 +20,7 @@ uses
   vSplashScreen, Vcl.Imaging.pngimage;
 
 type
-  TfmSplash = class(TForm)
+  TFormSplash = class(TForm)
     SplashTimer: TTimer;
     imgBackdrop: TImage;
     labVersion: TLabel;
@@ -42,7 +42,7 @@ type
   end;
 
 var
-  fmSplash: TfmSplash;
+  FormSplash: TFormSplash;
 
 implementation //-------------------------------------------------------------
 
@@ -51,12 +51,12 @@ uses
 
 {$R *.DFM}
 
-procedure TfmSplash.SplashTimerTimer(Sender: TObject);
+procedure TFormSplash.SplashTimerTimer(Sender: TObject);
 begin
   labButton.Visible := not labButton.Visible;
 end;
 
-procedure TfmSplash.FormCreate(Sender: TObject);
+procedure TFormSplash.FormCreate(Sender: TObject);
 var
   myAboutInfo: TAboutInfo;
 begin
@@ -72,27 +72,27 @@ begin
   // SetWindowRgn(Handle, BitmapToRegion(imgBackdrop.Picture.Bitmap.Handle, clNone, 10), true);
 end;
 
-procedure TfmSplash.FormPaint(Sender: TObject);
+procedure TFormSplash.FormPaint(Sender: TObject);
 begin
   // Canvas.Draw(0, 0, imgBackDrop.Picture.Bitmap);
 end;
 
-procedure TfmSplash.imgBackdropClick(Sender: TObject);
+procedure TFormSplash.imgBackdropClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfmSplash.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFormSplash.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   Close;
 end;
 
-procedure TfmSplash.FormClick(Sender: TObject);
+procedure TFormSplash.FormClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfmSplash.TimerCloseTimer(Sender: TObject);
+procedure TFormSplash.TimerCloseTimer(Sender: TObject);
 begin
   Close;
 end;

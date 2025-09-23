@@ -57,7 +57,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIShark.Fuel;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   targetHeight: single;
 begin
   inherited Fuel;

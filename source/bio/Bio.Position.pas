@@ -1,8 +1,8 @@
 unit Bio.Position;
 (*
   Node
-       AIPosition       - coordinate object for things
-       AIForce          - position modifier
+       TaiPosition       - coordinate object for things
+       TaiForce          - position modifier
 *)
 
 interface
@@ -1141,8 +1141,8 @@ begin
   aList.Add('Collider: ' + BoolToYesNoStr(fCollider));
   aList.Add('Carried: ' + BoolToYesNoStr(fCarried));
   if fCarried then
-    aList.Add('Carrier: ' + AIThing(fCarrier).OneLineDisplay);
-//  aList.Add('Location: ' + AIGrid(fLocation).OneLineDisplay);
+    aList.Add('Carrier: ' + TaiThing(fCarrier).OneLineDisplay);
+//  aList.Add('Location: ' + TaiGrid(fLocation).OneLineDisplay);
 end;
 
 // ----------------------------------------------------------------------------

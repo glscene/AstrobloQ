@@ -28,7 +28,7 @@ type
 AILearningCreature = class(AICreature)
 private
   fMemory: AIReportList;          // memory of eaten things
-  fSenses: AIThingReferenceList;  // list of nearby things
+  fSenses: TaiThingReferenceList;  // list of nearby things
   fTimer: integer;                // timer, measures effort to get food
   fSenseMemory: TStringList;      // text-version of fSenses
 protected
@@ -43,7 +43,7 @@ public
   destructor Destroy; override;
 
   property Memory: AIReportList read fMemory;
-  property Senses: AIThingReferenceList read fSenses;
+  property Senses: TaiThingReferenceList read fSenses;
   property SenseMemory: TStringList read fSenseMemory;
   property Timer: integer read fTimer;
 
@@ -69,7 +69,7 @@ begin
   inherited Create(aParent);
 
   fMemory := AIReportList.Create(true);
-  fSenses := AIThingReferenceList.Create(self);
+  fSenses := TaiThingReferenceList.Create(self);
   fSenseMemory := TStringList.Create;
 end;
 
@@ -98,8 +98,8 @@ end;
 procedure AILearningCreature.LookForSomethingToEat;
 var
   i: integer;
-  myThing: AIThing;
-  myTarget: AIThing;
+  myThing: TaiThing;
+  myTarget: TaiThing;
   BestWeight, ReportWeight: single;
 begin
   fSenses.Clear;
@@ -111,7 +111,7 @@ begin
 
   for i := 0 to fSenses.Count - 1 do
   begin
-    myThing := AIThing(fSenses.Items[i]);
+    myThing := TaiThing(fSenses.Items[i]);
     // make sure its not the same kind
     if not (myThing.Kind = Kind) then
     begin
@@ -133,8 +133,8 @@ end;
 procedure AILearningCreature.LookForSomethingToEat(aBinding: integer);
 var
   i: integer;
-  myThing: AIThing;
-  myTarget: AIThing;
+  myThing: TaiThing;
+  myTarget: TaiThing;
   BestWeight, ReportWeight: single;
 begin
   fSenses.Clear;
@@ -146,7 +146,7 @@ begin
 
   for i := 0 to fSenses.Count - 1 do
   begin
-    myThing := AIThing(fSenses.Items[i]);
+    myThing := TaiThing(fSenses.Items[i]);
     // make sure its not the same kind
     if not (myThing.Kind = Kind) and (myThing.Position.Binding = aBinding) then
     begin
@@ -184,7 +184,7 @@ end;
 // try to eat whatever the creature is holding
 function AILearningCreature.Eat(const JawSize: integer): boolean;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   myPreviousHealth: integer;
   myChange: integer;
 begin
@@ -209,7 +209,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AILearningCreature.GiveUp;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Eyes.ValidTarget then
   begin

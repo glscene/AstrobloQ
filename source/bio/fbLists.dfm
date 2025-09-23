@@ -116,8 +116,6 @@ object frmLists: TfrmLists
         ParentFont = False
         TabOrder = 1
         OnDblClick = lbThingsDblClick
-        ExplicitWidth = 723
-        ExplicitHeight = 471
       end
       object Panel3: TPanel
         Left = 10
@@ -383,7 +381,6 @@ object frmLists: TfrmLists
         ScrollBars = ssBoth
         TabOrder = 1
         WordWrap = False
-        ExplicitHeight = 432
       end
     end
     object Panel1: TPanel

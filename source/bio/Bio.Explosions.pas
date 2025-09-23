@@ -27,7 +27,7 @@ const
 type
 
 // ============================================================================
-AIExplosion = class(AIThing)
+AIExplosion = class(TaiThing)
 private
   fEffect: integer;
   fStrength: single;
@@ -50,7 +50,7 @@ public
 end;
 
 // ============================================================================
-AIBomb = class(AIThing)
+AIBomb = class(TaiThing)
 private
   fTimer: integer;
   fEffect: integer;

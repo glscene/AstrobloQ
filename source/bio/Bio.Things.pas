@@ -72,12 +72,13 @@ const
 
 type
 
-AIIntegerList = array of integer;
-AIThing = class;
-AIClass = class of AIThing;
+TaiIntegerList = array of integer;
+TaiThing = class;
+TaiClass = class of TaiThing;
 
 // ============================================================================
-AIThing = class(TaiBaseObject)
+
+TaiThing = class(TaiBaseObject)
 private
   FKind: integer;
   FPosition: AIPosition;
@@ -109,7 +110,7 @@ public
   // what happens when its eaten?
   function Digest(const aAmount: integer): integer; virtual;
   // play happiness value
-  function Play(aPlaymate: AIThing): integer;
+  function Play(aPlaymate: TaiThing): integer;
   function Tickle: integer; virtual;
   // talk
   procedure Talk(aText: string; aRadius: single; aTimerDeath: integer);
@@ -122,7 +123,7 @@ public
   function IsPrey: boolean; virtual;      // small prey
   function IsPredator: boolean; virtual;  // predators that chase the prey
   procedure Fuel; virtual; // add time
-  procedure OnCollide(aCollider: AIThing); virtual;
+  procedure OnCollide(aCollider: TaiThing); virtual;
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
@@ -130,58 +131,58 @@ public
 end;
 
 // ----------------------------------------------------------------------------
-AIThingList = class(TaiBaseContainer)
+TaiThingList = class(TaiBaseContainer)
 private
-  fMaximums:  AIIntegerList;          // maximum amounts
-  fCounters:  AIIntegerList;          // counters
-  fExistents: AIThingReferenceList;   // list of things that exist
-  fCradle:    AIThingReferenceList;   // list of new things
-  fPurgatory: AIThingReferenceList;   // list of things condemned to deletion
-  fTrash:     AIThingReferenceList;   // list of things to delete
-  fTables:    AIThingTables;          // handy lists sorted by thing Kind
+  fMaximums:  TaiIntegerList;          // maximum amounts
+  fCounters:  TaiIntegerList;          // counters
+  fExistents: TaiThingReferenceList;   // list of things that exist
+  fCradle:    TaiThingReferenceList;   // list of new things
+  fPurgatory: TaiThingReferenceList;   // list of things condemned to deletion
+  fTrash:     TaiThingReferenceList;   // list of things to delete
+  fTables:    TaiThingTables;          // handy lists sorted by thing Kind
   fForms:     TaiBaseContainer;        // a base model of each things DNA
-  fFruits:    AIThingReferenceList;   // list of all fruits
-  fPrey:      AIThingReferenceList;   // list of all prey
-  fPredators: AIThingReferenceList;   // list of all predators
-  fColliders: AIThingReferenceList;   // list of all colliding objects
-  fTangibles: AIThingReferenceList;   // list of Position.Fueled objects
+  fFruits:    TaiThingReferenceList;   // list of all fruits
+  fPrey:      TaiThingReferenceList;   // list of all prey
+  fPredators: TaiThingReferenceList;   // list of all predators
+  fColliders: TaiThingReferenceList;   // list of all colliding objects
+  fTangibles: TaiThingReferenceList;   // list of Position.Fueled objects
   fCollisions: boolean;               // collisions on or off?
   fAI:        boolean;                // call ai code?
-  function NewApple: AIThing;
-  function NewAppleTree: AIThing;
-  function NewAppleSeed: AIThing;
-  function NewOrange: AIThing;
-  function NewOrangeTree: AIThing;
-  function NewOrangeSeed: AIThing;
+  function NewApple: TaiThing;
+  function NewAppleTree: TaiThing;
+  function NewAppleSeed: TaiThing;
+  function NewOrange: TaiThing;
+  function NewOrangeTree: TaiThing;
+  function NewOrangeSeed: TaiThing;
 protected
   procedure CreateTables;
   procedure DestroyTables;
   procedure ClearTables;
   procedure GenerateForms;
-  function  CreateThing(aKind: integer): AIThing;
+  function  CreateThing(aKind: integer): TaiThing;
   procedure CheckCollisions;
 public
   constructor Create(aEnvironment: pointer);
   destructor Destroy; override;
-  property Existents: AIThingReferenceList read fExistents;
-  property Cradle:    AIThingReferenceList read fCradle;
-  property Purgatory: AIThingReferenceList read fPurgatory;
-  property Trash:     AIThingReferenceList read fTrash;
-  property Fruits:    AIThingReferenceList read fFruits;
-  property Prey:      AIThingReferenceList read fPrey;
-  property Predators: AIThingReferenceList read fPredators;
-  property Colliders: AIThingReferenceList read fColliders;
-  property Tangibles: AIThingReferenceList read fTangibles;
-  property Tables:    AIThingTables read fTables;
+  property Existents: TaiThingReferenceList read fExistents;
+  property Cradle:    TaiThingReferenceList read fCradle;
+  property Purgatory: TaiThingReferenceList read fPurgatory;
+  property Trash:     TaiThingReferenceList read fTrash;
+  property Fruits:    TaiThingReferenceList read fFruits;
+  property Prey:      TaiThingReferenceList read fPrey;
+  property Predators: TaiThingReferenceList read fPredators;
+  property Colliders: TaiThingReferenceList read fColliders;
+  property Tangibles: TaiThingReferenceList read fTangibles;
+  property Tables:    TaiThingTables read fTables;
   property Forms:     TaiBaseContainer read fForms;
-  property Maximums:  AIIntegerList read fMaximums;
-  property Counters:  AIIntegerList read fCounters;
+  property Maximums:  TaiIntegerList read fMaximums;
+  property Counters:  TaiIntegerList read fCounters;
   property Collisions: boolean read fCollisions write fCollisions;
   property AI: boolean read fAI write fAI;
-  function NewThing(aKind: integer): AIThing; overload;
-  function NewThing(aKind: integer; aLocation: AIGrid): AIThing; overload;
+  function NewThing(aKind: integer): TaiThing; overload;
+  function NewThing(aKind: integer; aLocation: AIGrid): TaiThing; overload;
   function Exists(aKind: integer): boolean;
-  function Connection(aKind: integer): AIThing;
+  function Connection(aKind: integer): TaiThing;
   procedure JoinAllCommunities;
   procedure FuelEverything;
   procedure BringOutYourDead;
@@ -243,19 +244,19 @@ uses
   Bio.MissileDefence;
 
 // ----------------------------------------------------------------------------
-constructor AIThingList.Create(aEnvironment: pointer);
+constructor TaiThingList.Create(aEnvironment: pointer);
 begin
   inherited Create(aEnvironment);
   gThings := self;
-  fExistents := AIThingReferenceList.Create(self);
-  fCradle :=    AIThingReferenceList.Create(self);
-  fPurgatory := AIThingReferenceList.Create(self);
-  fTrash :=     AIThingReferenceList.Create(self);
-  fFruits :=    AIThingReferenceList.Create(self);
-  fPredators := AIThingReferenceList.Create(self);
-  fPrey :=      AIThingReferenceList.Create(self);
-  fColliders := AIThingReferenceList.Create(self);
-  fTangibles := AIThingReferenceList.Create(self);
+  fExistents := TaiThingReferenceList.Create(self);
+  fCradle :=    TaiThingReferenceList.Create(self);
+  fPurgatory := TaiThingReferenceList.Create(self);
+  fTrash :=     TaiThingReferenceList.Create(self);
+  fFruits :=    TaiThingReferenceList.Create(self);
+  fPredators := TaiThingReferenceList.Create(self);
+  fPrey :=      TaiThingReferenceList.Create(self);
+  fColliders := TaiThingReferenceList.Create(self);
+  fTangibles := TaiThingReferenceList.Create(self);
   fForms :=     TaiBaseContainer.Create(self);
   fCollisions := true;
   fAI := true;
@@ -269,7 +270,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIThingList.Destroy;
+destructor TaiThingList.Destroy;
 begin
   fExistents.Free;
   fCradle.Free;
@@ -286,7 +287,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIThing.Create(aParent: pointer);
+constructor TaiThing.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -298,7 +299,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIThing.Destroy;
+destructor TaiThing.Destroy;
 begin
   // if this still Exists, then it might be linked
   if Exists then
@@ -310,7 +311,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.DefaultMaximums;
+procedure TaiThingList.DefaultMaximums;
 var
   i: integer;
 begin
@@ -371,7 +372,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.ResetCounters;
+procedure TaiThingList.ResetCounters;
 var
   i: integer;
 begin
@@ -380,13 +381,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.CanAdd(aKind: integer): boolean;
+function TaiThingList.CanAdd(aKind: integer): boolean;
 begin
   result := (Maximums[aKind] > Counters[aKind]);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.Clean;
+procedure TaiThingList.Clean;
 begin
   Clear;
   Existents.Clear;
@@ -473,31 +474,31 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.GetName: string;
+function TaiThing.GetName: string;
 begin
   result := ThingName(Kind);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.SetName(aName: string);
+procedure TaiThing.SetName(aName: string);
 begin
   // do nothing
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.OneLineDisplay: string;
+function TaiThing.OneLineDisplay: string;
 begin
   result := Name + ' ' + IntToStr(Handle) + ' ' + Position.OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Fuel;
+procedure TaiThing.Fuel;
 begin
 //  fAge := fAge + 1;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Cease;
+procedure TaiThing.Cease;
 begin
   if fExists then
   begin
@@ -511,9 +512,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewThing(aKind: integer; aLocation: AIGrid): AIThing;
+function TaiThingList.NewThing(aKind: integer; aLocation: AIGrid): TaiThing;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not CanAdd(aKind) then
   begin
@@ -521,7 +522,7 @@ begin
     exit;
   end;
 
-  myThing := AIThing(NewThing(aKind));
+  myThing := TaiThing(NewThing(aKind));
   myThing.Position.SetToCoordinates(aLocation.Coordinates);
   myThing.Position.RandomizeOffset;
   myThing.Position.Fuel;
@@ -531,7 +532,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewThing(aKind: integer): AIThing;
+function TaiThingList.NewThing(aKind: integer): TaiThing;
 begin
   result := nil;
 
@@ -544,7 +545,7 @@ begin
   // add to owned thing list
   // if its a living group, then push to the top of list
   //  this is a trick to make communities fuel before their members move
-  if not (AIThing(result) is AILivingGroup) then
+  if not (TaiThing(result) is TaiLivingGroup) then
     Add(result)
   else
     Insert(0, result);
@@ -574,7 +575,7 @@ end;
 
 
 // ----------------------------------------------------------------------------
-function AIThingList.CreateThing(aKind: integer): AIThing;
+function TaiThingList.CreateThing(aKind: integer): TaiThing;
 begin
   case aKind of
     cApple:       result := NewApple;
@@ -612,7 +613,7 @@ begin
     cMouse:      result := AIMouse.Create(self);
     cTiger:      result := AITiger.Create(self);
     cDuck:       result := AIDuck.Create(self);
-    cCommunity:  result := AICommunity.Create(self);
+    cCommunity:  result := TaiCommunity.Create(self);
     cDolphin:    result := AIDolphin.Create(self);
     cAquaPlant:  result := AIAquaPlant.Create(self);
     cLadybug:    result := AILadybug.Create(self);
@@ -631,7 +632,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewApple: AIThing;
+function TaiThingList.NewApple: TaiThing;
 var
   myApple: AIFruit;
 begin
@@ -647,7 +648,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewOrange: AIThing;
+function TaiThingList.NewOrange: TaiThing;
 var
   myOrange: AIFruit;
 begin
@@ -663,7 +664,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewAppleTree: AIThing;
+function TaiThingList.NewAppleTree: TaiThing;
 var
   myAppleTree: AITree;
 begin
@@ -678,7 +679,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewOrangeTree: AIThing;
+function TaiThingList.NewOrangeTree: TaiThing;
 var
   myOrangeTree: AITree;
 begin
@@ -692,7 +693,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewAppleSeed: AIThing;
+function TaiThingList.NewAppleSeed: TaiThing;
 var
   myAppleSeed: AISeed;
 begin
@@ -705,7 +706,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.NewOrangeSeed: AIThing;
+function TaiThingList.NewOrangeSeed: TaiThing;
 var
   myOrangeSeed: AISeed;
 begin
@@ -718,41 +719,41 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.EmptyPurgatory;
+procedure TaiThingList.EmptyPurgatory;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Purgatory.Count - 1 do
   begin
-    myThing := AIThing(Purgatory.Items[i]);
+    myThing := TaiThing(Purgatory.Items[i]);
     Trash.Add(myThing);
   end;
   Purgatory.Clear;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.EmptyTrash;
+procedure TaiThingList.EmptyTrash;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Trash.Count - 1 do
   begin
-    myThing := AIThing(Trash.Items[i]);
+    myThing := TaiThing(Trash.Items[i]);
     Remove(myThing);              // remove thing from reality, forever
   end;
   Trash.Clear;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.EmptyCradle;
+procedure TaiThingList.EmptyCradle;
 begin
   Cradle.Clear;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.SaveToFile(var aFile: TextFile);
+procedure TaiThing.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   Position.SaveToFile(aFile);
@@ -761,7 +762,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.LoadFromFile(var aFile: TextFile);
+procedure TaiThing.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   Position.LoadFromFile(aFile);
@@ -770,10 +771,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.SaveToFile(var aFile: TextFile);
+procedure TaiThingList.SaveToFile(var aFile: TextFile);
 var
   i: Integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   writeFileBoolean(aFile, fCollisions);
   writeFileBoolean(aFile, fAI);
@@ -784,18 +785,18 @@ begin
   writeln(aFile, Count);
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     writeln(aFile, myThing.Kind);                     // write kind
     myThing.SaveToFile(aFile);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.LoadFromFile(var aFile: TextFile);
+procedure TaiThingList.LoadFromFile(var aFile: TextFile);
 var
   i: Integer;
   myCount: Integer;
-  myThing: AIThing;
+  myThing: TaiThing;
   myKind: integer;
 begin
   ResetCounters;
@@ -816,46 +817,46 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Damage(aAmount: integer);
+procedure TaiThing.Damage(aAmount: integer);
 begin
   // do nothing; subclasses responsible for damage assessment
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.Exists(aKind: integer): boolean;
+function TaiThingList.Exists(aKind: integer): boolean;
 var
   i: integer;
 begin
   result := false;
   for i := 0 to Count - 1 do
-    if AIThing(Items[i]).Kind = aKind then
+    if TaiThing(Items[i]).Kind = aKind then
       result := true;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.Connection(aKind: integer): AIThing;
+function TaiThingList.Connection(aKind: integer): TaiThing;
 var
   i: integer;
 begin
   // this method always returns the last apple in the list
   result := nil;
   for i := 0 to Count - 1 do
-    if AIThing(Items[i]).Kind = aKind then
-      result := AIThing(Items[i]);
+    if TaiThing(Items[i]).Kind = aKind then
+      result := TaiThing(Items[i]);
 end;
 
 // ----------------------------------------------------------------------------
 // If you have seen the movie THE STAND you might remember a big black guy
 //  ringing a bell yelling "Bring out your dead!!!"
 // This function is named in honor of him.
-procedure AIThingList.BringOutYourDead;
+procedure TaiThingList.BringOutYourDead;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Purgatory.Count - 1 do
   begin
-    myThing := AIThing(Purgatory.Items[i]);
+    myThing := TaiThing(Purgatory.Items[i]);
     if Existents.IndexOf(myThing) <> -1 then
     begin
       // remove links to this thing
@@ -883,7 +884,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Noise(aEffectIndex, aTimerDeath: integer);
+procedure TaiThing.Noise(aEffectIndex, aTimerDeath: integer);
 var
   myVibe: AIVibe;
 begin
@@ -895,7 +896,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
+procedure TaiThing.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
 var
   myVibe: AIVibe;
 begin
@@ -906,19 +907,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Perform(aActivity: integer);
+procedure TaiThing.Perform(aActivity: integer);
 begin
 //  Noise(cNoiseKick, 1);
   // nothing
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.FuelEverything;
+procedure TaiThingList.FuelEverything;
 var
   i: integer;
   RigidCount: integer;
-  myThing: AIThing;
-  myItem: AIThing;
+  myThing: TaiThing;
+  myItem: TaiThing;
   myCreature: AICreature;
 begin
 
@@ -931,18 +932,18 @@ begin
   if fAI then
     for i := 0 to RigidCount do
     begin
-      if not (Existents.Items[i] is AILivingThing) then
-        AIThing(Existents.Items[i]).Fuel
-      else if AILivingThing(Existents.Items[i]).Alive then
-        AIThing(Existents.Items[i]).Fuel
+      if not (Existents.Items[i] is TaiLivingThing) then
+        TaiThing(Existents.Items[i]).Fuel
+      else if TaiLivingThing(Existents.Items[i]).Alive then
+        TaiThing(Existents.Items[i]).Fuel
       else
-        AILivingThing(Existents.Items[i]).Decompose;
+        TaiLivingThing(Existents.Items[i]).Decompose;
     end;
 
   // apply all velocities
   for i := 0 to fTangibles.Count-1 do
   begin
-    myThing := AIThing(fTangibles.Items[i]);
+    myThing := TaiThing(fTangibles.Items[i]);
 
     if not myThing.Position.Carried then
       myThing.Position.Fuel;
@@ -976,7 +977,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.CreateTables;
+procedure TaiThingList.CreateTables;
 var
   i: integer;
 begin
@@ -984,11 +985,11 @@ begin
   SetLength(fTables, 64);
   // create the tables
   for i := 0 to 64-1 do
-    fTables[i] := AIThingReferenceList.Create(self);
+    fTables[i] := TaiThingReferenceList.Create(self);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.DestroyTables;
+procedure TaiThingList.DestroyTables;
 var
   i: integer;
 begin
@@ -998,7 +999,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.ClearTables;
+procedure TaiThingList.ClearTables;
 var
   i: integer;
 begin
@@ -1008,7 +1009,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.FullDisplay(aList: TStrings);
+procedure TaiThing.FullDisplay(aList: TStrings);
 begin
   aList.Add(Name);
   inherited FullDisplay(aList);
@@ -1024,30 +1025,30 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.GetAge: integer;
+function TaiThing.GetAge: integer;
 begin
   result := gReality.Time - fBirthday;
 end;
 
 // ----------------------------------------------------------------------------
 // what happens when something tries to eat this?
-function AIThing.Digest(const aAmount: integer): integer;
+function TaiThing.Digest(const aAmount: integer): integer;
 begin
   result := 0;
 end;
 
 // ----------------------------------------------------------------------------
 // used after a file is loaded, to rejoin creatures to their communities
-procedure AIThingList.JoinAllCommunities;
+procedure TaiThingList.JoinAllCommunities;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   i: integer;
 begin
   for i := 0 to Count-1 do
   begin
-    myThing := AIThing(Items[i]);
-    if myThing is AICommunityCreature then
-      AICommunityCreature(myThing).ReaffirmCommunity;
+    myThing := TaiThing(Items[i]);
+    if myThing is TaiCommunityCreature then
+      TaiCommunityCreature(myThing).ReaffirmCommunity;
     if myThing is AIBird then
       AIBird(myThing).ReaffirmFlock;
   end;
@@ -1056,7 +1057,7 @@ end;
 // ----------------------------------------------------------------------------
 // creates an instance of every object
 // Plato's Forms: every object has a form from which it acquires its characteristics
-procedure AIThingList.GenerateForms;
+procedure TaiThingList.GenerateForms;
 var
   myDNA: AIDNA;
   i: integer;
@@ -1070,7 +1071,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // loads DNA ini files
-procedure AIThingList.LoadForms;
+procedure TaiThingList.LoadForms;
 var
   myDNA: AIDNA;
   i: integer;
@@ -1086,7 +1087,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingList.CanTreeGrowHere(aPosition: AIPosition): boolean;
+function TaiThingList.CanTreeGrowHere(aPosition: AIPosition): boolean;
 begin
   result := (not gThings.Tables[cOrangeTree].HasKindWithinXY(cOrangeTree, aPosition.X, aPosition.Y, 5))
     and (not gThings.Tables[cAppleTree].HasKindWithinXY(cAppleTree, aPosition.X, aPosition.Y, 5))
@@ -1095,43 +1096,43 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.HasDNA: boolean;
+function TaiThing.HasDNA: boolean;
 begin
   result := false;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.GetDNA: pointer;
+function TaiThing.GetDNA: pointer;
 begin
   result := nil;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.IsPlant: boolean;
+function TaiThing.IsPlant: boolean;
 begin
   result := false;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.IsFruit: boolean;
+function TaiThing.IsFruit: boolean;
 begin
   result := false;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.IsPrey: boolean;
+function TaiThing.IsPrey: boolean;
 begin
   result := false;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.IsPredator: boolean;
+function TaiThing.IsPredator: boolean;
 begin
   result := false;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.OnCollide(aCollider: AIThing);
+procedure TaiThing.OnCollide(aCollider: TaiThing);
 begin
   // do nothing
 end;
@@ -1140,7 +1141,7 @@ end;
 // this system uses two forces:
 //  - repulsion: objects will repulse other objects when they are colliding
 //  - kinetic collision: kinetic energy and mass is used to distribute forces 
-procedure AIThingList.CheckCollisions;
+procedure TaiThingList.CheckCollisions;
 var
   myPos1, myPos2: AIPosition;
   i, j: integer;
@@ -1149,10 +1150,10 @@ var
 begin
   for i := 0 to gThings.Colliders.Count-1 do
   begin
-    myPos1 := AIThing(gThings.Colliders.Items[i]).Position;
+    myPos1 := TaiThing(gThings.Colliders.Items[i]).Position;
     for j := i+1 to gThings.Colliders.Count-1 do
     begin
-      myPos2 := AIThing(gThings.Colliders.Items[j]).Position;
+      myPos2 := TaiThing(gThings.Colliders.Items[j]).Position;
       if i<>j then
       begin
         // true if collided (sphere vs sphere)
@@ -1203,8 +1204,8 @@ begin
           myPos1.Acceleration.ApplyForce(c1);
           myPos2.Acceleration.ApplyForce(c2);
           // call smash code
-          AIThing(gThings.Colliders.Items[i]).OnCollide(AIThing(gThings.Colliders.Items[j]));
-          AIThing(gThings.Colliders.Items[j]).OnCollide(AIThing(gThings.Colliders.Items[i]));
+          TaiThing(gThings.Colliders.Items[i]).OnCollide(TaiThing(gThings.Colliders.Items[j]));
+          TaiThing(gThings.Colliders.Items[j]).OnCollide(TaiThing(gThings.Colliders.Items[i]));
         end;
       end;
     end;
@@ -1212,7 +1213,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.Play(aPlaymate: AIThing): integer;
+function TaiThing.Play(aPlaymate: TaiThing): integer;
 begin
   result := aPlaymate.Tickle;
   if (aPlaymate.Kind = Kind) then result := 5;
@@ -1220,13 +1221,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThing.Tickle: integer;
+function TaiThing.Tickle: integer;
 begin
   result := 1;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingList.DisplayCounts(aList: TStrings);
+procedure TaiThingList.DisplayCounts(aList: TStrings);
 var
   i: integer;
 begin
@@ -1238,7 +1239,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Talk(aText: string; aRadius: single; aTimerDeath: integer);
+procedure TaiThing.Talk(aText: string; aRadius: single; aTimerDeath: integer);
 var
   mySpeech: AISpeech;
 begin
@@ -1254,7 +1255,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThing.Report;
+procedure TaiThing.Report;
 begin
   Talk(OneLineDisplay, 10, 32);
 end;

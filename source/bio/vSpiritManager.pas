@@ -28,17 +28,17 @@ type
   private
     FSpiritForm: TFormSpirit;
     FSpiritButton: TDynamicToolButton;
-    FThing: AIThing;
+    FThing: TaiThing;
     FVisible: boolean;
     FParentList: TObjectList;
     procedure CreateSpiritForm(aManager: TForm);
     procedure CreateSpiritButton(aSpiritBar: TToolBar);
   public
     constructor Create(aParentList: TObjectList; aManager: TForm;
-      aSpiritBar: TToolBar; aThing: AIThing);
+      aSpiritBar: TToolBar; aThing: TaiThing);
     destructor Destroy; override;
     property ParentList: TObjectList read FParentList;
-    property Thing: AIThing read FThing;
+    property Thing: TaiThing read FThing;
     property SpiritForm: TFormSpirit read FSpiritForm;
     property SpiritButton: TDynamicToolButton read FSpiritButton;
     property Visible: boolean read FVisible;
@@ -63,7 +63,7 @@ type
       write fForceSpaceAdvance;
     procedure AdvanceAll;
     procedure HideAll;
-    procedure AddSpirit(aThing: AIThing; aVisible: boolean);
+    procedure AddSpirit(aThing: TaiThing; aVisible: boolean);
     procedure RemoveSpirit(aSpiritHolder: TSpiritHolder);
   end;
 
@@ -76,7 +76,7 @@ uses
   fbImages;
 
 constructor TSpiritHolder.Create(aParentList: TObjectList; aManager: TForm;
-  aSpiritBar: TToolBar; aThing: AIThing);
+  aSpiritBar: TToolBar; aThing: TaiThing);
 begin
   inherited Create;
   FParentList := aParentList;
@@ -206,7 +206,7 @@ begin
   end;
 end;
 
-procedure TSpiritList.AddSpirit(aThing: AIThing; aVisible: boolean);
+procedure TSpiritList.AddSpirit(aThing: TaiThing; aVisible: boolean);
 var
   mySpiritHolder: TSpiritHolder;
   i: integer;

@@ -17,8 +17,6 @@ uses
   Vcl.Buttons,
   Bio.Position ;
 
-  ///JvEdit, JvTypedEdit, JvFloatEdit
-
 type
   TFormPosition = class(TForm)
     Panel2: TPanel;
@@ -74,9 +72,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure btnCopyClick(Sender: TObject);
   private
-     
   public
-     
     Position: AIPosition;
     procedure GetPosition;
     procedure ApplyPosition;
@@ -85,9 +81,11 @@ type
 var
   FormPosition: TFormPosition;
 
-implementation
+implementation //--------------------------------------------------------------
 
-uses Bio.Things, Bio.Globals;
+uses
+  Bio.Things,
+  Bio.Globals;
 
 {$R *.dfm}
 
@@ -165,9 +163,9 @@ end;
 
 procedure TFormPosition.btnCopyClick(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
-  ///myThing := AIThing(gThings.FindWithHandle(edHandle.Value));
+  ///myThing := TaiThing(gThings.FindWithHandle(edHandle.Value));
   if myThing<>nil then
   begin
     Position.FullCopy(myThing.Position);

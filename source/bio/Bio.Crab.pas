@@ -153,7 +153,7 @@ end;
 // find and grab food
 procedure AICrab.FindAndGrab;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   // check how long we've been chasing
   if (Timer - gReality.Time) > 512 then

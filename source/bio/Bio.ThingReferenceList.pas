@@ -18,7 +18,7 @@ type
 
 // ----------------------------------------------------------------------------
 
-AIThingReferenceList = class(TaiReferenceList)
+TaiThingReferenceList = class(TaiReferenceList)
 public
   procedure FullDisplay(aList: TStrings); override;
 
@@ -62,14 +62,14 @@ public
   function CommunityWithRoom(aKind: integer): pointer;
   procedure NotifyAllCommunitiesOfDeath(aThing: pointer);
 
-  procedure NearestNeighbours(aPosition: AIPosition; aRange: single; aList: AIThingReferenceList);
+  procedure NearestNeighbours(aPosition: AIPosition; aRange: single; aList: TaiThingReferenceList);
 
   procedure ReportAll;
   procedure ReportAllCreatures;
 end;
 
-AIThingTables = array of AIThingReferenceList;
-AILocationTables = array of array of AIThingReferenceList;
+TaiThingTables = array of TaiThingReferenceList;
+TaiLocationTables = array of array of TaiThingReferenceList;
 
 implementation //--------------------------------------------------------------
 
@@ -82,28 +82,28 @@ uses
   Bio.Life, Bio.Creature;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.AreAllAtLocation(aLocation: pointer): boolean;
+function TaiThingReferenceList.AreAllAtLocation(aLocation: pointer): boolean;
 var
   i: integer;
 begin
   result := true;
 
   for i := 0 to Count - 1 do
-    if not (AIThing(Items[i]).Position.Location = aLocation) then
+    if not (TaiThing(Items[i]).Position.Location = aLocation) then
       result := false
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.HasKind(aKind: integer): boolean;
+function TaiThingReferenceList.HasKind(aKind: integer): boolean;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   result := false;
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) then
       result := true;
@@ -111,19 +111,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.HasKindWithinDistance(
+function TaiThingReferenceList.HasKindWithinDistance(
   aKind: integer;
   aPosition: AIPosition;
   aDistance: single): boolean;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   result := false;
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) and (aPosition.DistancePlusHeightTo(myThing.Position) <= aDistance) then
       result := true;
@@ -131,26 +131,26 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.AmountOfKind(aKind: integer): integer;
+function TaiThingReferenceList.AmountOfKind(aKind: integer): integer;
 var
   i: integer;
 begin
   result := 0;
 
   for i := 0 to Count - 1 do
-    if (AIThing(Items[i]).Kind = aKind) then
+    if (TaiThing(Items[i]).Kind = aKind) then
       result := result + 1;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.FirstOfKind(aKind: integer): pointer;
+function TaiThingReferenceList.FirstOfKind(aKind: integer): pointer;
 var
   i: integer;
 begin
   result := nil;
 
   for i := 0 to Count - 1 do
-    if (AIThing(Items[i]).Kind = aKind) then
+    if (TaiThing(Items[i]).Kind = aKind) then
     begin
       result := Items[i];
       exit;
@@ -158,7 +158,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.RandomOfKind(aKind: integer): pointer;
+function TaiThingReferenceList.RandomOfKind(aKind: integer): pointer;
 var
   i: integer;
   want: integer;
@@ -171,7 +171,7 @@ begin
 //  want := Random(AmountOfKind(aKind));
 
   for i := 0 to Count - 1 do
-    if (AIThing(Items[i]).Kind = aKind) then
+    if (TaiThing(Items[i]).Kind = aKind) then
     begin
       if pos = want then
         result := Items[i];
@@ -180,14 +180,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.LastOfKind(aKind: integer): pointer;
+function TaiThingReferenceList.LastOfKind(aKind: integer): pointer;
 var
   i: integer;
 begin
   result := nil;
 
   for i := Count -1 downto 0 do
-    if (AIThing(Items[i]).Kind = aKind) then
+    if (TaiThing(Items[i]).Kind = aKind) then
     begin
       result := Items[i];
       exit;
@@ -195,9 +195,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestThing(aGrabber: pointer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestThing(aGrabber: pointer; aPosition: AIPosition; aRange: single): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -207,7 +207,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if not (myThing = aGrabber) then
     begin
@@ -222,9 +222,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -234,7 +234,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) and not (myThing.Position = aPosition) then
     begin
@@ -249,9 +249,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestOfKind(aKind: integer; aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestOfKind(aKind: integer; aPosition: AIPosition): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -261,7 +261,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) and not (myThing.Position = aPosition) then
     begin
@@ -276,9 +276,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -288,7 +288,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) and not (myThing.Position = aPosition) and not (myThing.Position.Carried) then
     begin
@@ -303,9 +303,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.FarthestOfKind(aPosition: AIPosition; aKind: integer): pointer;
+function TaiThingReferenceList.FarthestOfKind(aPosition: AIPosition; aKind: integer): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   farthest: single;
   distance: single;
   i: integer;
@@ -315,7 +315,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if myThing.Kind = aKind then
     begin
@@ -330,19 +330,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.ApplyOriginatingForceToAll(
+procedure TaiThingReferenceList.ApplyOriginatingForceToAll(
   aOrigin: AIPosition;
   aStrength: single;
   aRadius: single);
 var
   i: integer;
   distance: single;
-  myThing: AIThing;
+  myThing: TaiThing;
   myVect: TGLVector;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if not (myThing.Position = aOrigin) and not (myThing.Kind = cExplosion) then
       begin
@@ -362,15 +362,15 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.ApplyDamage(aOrigin: AIPosition; aDamage: integer; aRadius: single);
+procedure TaiThingReferenceList.ApplyDamage(aOrigin: AIPosition; aDamage: integer; aRadius: single);
 var
   i: integer;
   distance: single;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if not (myThing.Position = aOrigin) and not (myThing.Kind = cExplosion) then
       begin
@@ -383,39 +383,39 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.KillEverything;
+procedure TaiThingReferenceList.KillEverything;
 var
   i: integer;
 begin
   for i := 0 to Count - 1 do
-    AIThing(Items[i]).Cease;
+    TaiThing(Items[i]).Cease;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.KillEveryKind(aKind: integer);
+procedure TaiThingReferenceList.KillEveryKind(aKind: integer);
 var
   i: integer;
 begin
   for i := 0 to Count - 1 do
-    if AIThing(Items[i]).Kind = aKind then
-      AIThing(Items[i]).Cease;
+    if TaiThing(Items[i]).Kind = aKind then
+      TaiThing(Items[i]).Cease;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.HasKindWithinXY(
+function TaiThingReferenceList.HasKindWithinXY(
   aKind: integer;
   aX: single; aY: single;
   aDistance: single): boolean;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
   dX, dY: single;
 begin
   result := false;
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) then
     begin
@@ -428,9 +428,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestOfClass(aClass: TaiBaseClass; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestOfClass(aClass: TaiBaseClass; aPosition: AIPosition; aRange: single): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -440,7 +440,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing is aClass) and not (myThing.Position = aPosition) then
     begin
@@ -455,7 +455,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.RandomThing: pointer;
+function TaiThingReferenceList.RandomThing: pointer;
 var
   want: integer;
 begin
@@ -468,9 +468,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestThing(aPosition: AIPosition): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -480,7 +480,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (myThing.Position <> aPosition) and (distance < closest) then
@@ -492,9 +492,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestThing(aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestThing(aPosition: AIPosition; aRange: single): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -504,7 +504,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance <= aRange) and (distance < closest) and not (myThing.Kind = cVibe) then
@@ -516,16 +516,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.HasKindAtLocation(aLocation: pointer; aKind: integer): boolean;
+function TaiThingReferenceList.HasKindAtLocation(aLocation: pointer; aKind: integer): boolean;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   result := false;
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) and (myThing.Position = aLocation) then
       result := true;
@@ -533,16 +533,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.CommunityWithRoom(aKind: integer): pointer;
+function TaiThingReferenceList.CommunityWithRoom(aKind: integer): pointer;
 var
   i: integer;
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
   result := nil;
 
   for i := 0 to Count - 1 do
   begin
-    myCommunity := AICommunity(Items[i]);
+    myCommunity := TaiCommunity(Items[i]);
 
     if (myCommunity.Admit = aKind) and (myCommunity.Vacancy) then
       result := myCommunity;
@@ -550,9 +550,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.SimpleNearestThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.SimpleNearestThing(aPosition: AIPosition): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -562,7 +562,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if aPosition <> myThing.Position then
     begin
@@ -577,24 +577,24 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.NotifyAllCommunitiesOfDeath(aThing: pointer);
+procedure TaiThingReferenceList.NotifyAllCommunitiesOfDeath(aThing: pointer);
 var
   i: integer;
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
   for i := 0 to Count - 1 do
   begin
-    myCommunity := AICommunity(Items[i]);
+    myCommunity := TaiCommunity(Items[i]);
 
-    if (myCommunity.Admit = AIThing(aThing).Kind) then
+    if (myCommunity.Admit = TaiThing(aThing).Kind) then
       myCommunity.NotifyOfDeath(aThing);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.SimpleNearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.SimpleNearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -604,7 +604,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if (myThing.Kind = aKind) and not (myThing.Position = aPosition) and not (myThing.Position.Carried) then
     begin
@@ -620,18 +620,18 @@ end;
 
 // ----------------------------------------------------------------------------
 // find the n nearest neighbours to aPosition
-procedure AIThingReferenceList.NearestNeighbours(
+procedure TaiThingReferenceList.NearestNeighbours(
   aPosition: AIPosition;
   aRange: single;
-  aList: AIThingReferenceList);
+  aList: TaiThingReferenceList);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   distance: single;
   i: integer;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (myThing.Position <> aPosition) and (distance < aRange) then
@@ -640,27 +640,27 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.FullDisplay(aList: TStrings);
+procedure TaiThingReferenceList.FullDisplay(aList: TStrings);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   i: integer;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     aList.Add(myThing.OneLineDisplay);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.ShakeLand(aStrength: single);
+procedure TaiThingReferenceList.ShakeLand(aStrength: single);
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     if myThing.Position.Binding = bindLand then
     begin
@@ -674,9 +674,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestAvailableThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestAvailableThing(aPosition: AIPosition): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -686,7 +686,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance < closest) and (myThing.Position <> aPosition) and (not myThing.Position.Carried) then
@@ -698,9 +698,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestAvailableUnderwaterThing(aPosition: AIPosition; aNotKind: integer): pointer;
+function TaiThingReferenceList.NearestAvailableUnderwaterThing(aPosition: AIPosition; aNotKind: integer): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -710,7 +710,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance < closest) and (myThing.Position.UnderWater) and (myThing.Kind <> aNotKind)
@@ -723,9 +723,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.NearestAvailableNotUnderwaterThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestAvailableNotUnderwaterThing(aPosition: AIPosition): pointer;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   closest: single;
   distance: single;
   i: integer;
@@ -735,7 +735,7 @@ begin
 
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
 
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance < closest) and (not myThing.Position.UnderWater)
@@ -748,86 +748,86 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.KillAllPlantsAtLocation(aLocation: pointer);
+procedure TaiThingReferenceList.KillAllPlantsAtLocation(aLocation: pointer);
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     if (myThing.Position.Location = aLocation) and (myThing.IsPlant) then
       myThing.Cease;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.KillAllLifeAtLocation(aLocation: pointer);
+procedure TaiThingReferenceList.KillAllLifeAtLocation(aLocation: pointer);
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
-    if (myThing.Position.Location = aLocation) and (myThing is AILivingThing)
-    and (AILivingThing(myThing).Alive) then
-      AILivingThing(myThing).Die;
+    myThing := TaiThing(Items[i]);
+    if (myThing.Position.Location = aLocation) and (myThing is TaiLivingThing)
+    and (TaiLivingThing(myThing).Alive) then
+      TaiLivingThing(myThing).Die;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.CeaseEverythingLocation(aLocation: pointer);
+procedure TaiThingReferenceList.CeaseEverythingLocation(aLocation: pointer);
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     if (myThing.Position.Location = aLocation)then
       myThing.Cease;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.ReportAll;
+procedure TaiThingReferenceList.ReportAll;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     myThing.Report;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIThingReferenceList.ReportAllCreatures;
+procedure TaiThingReferenceList.ReportAllCreatures;
 var
   i: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     if myThing is AICreature then
       myThing.Report;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-function AIThingReferenceList.DistanceToNearest(aPosition: AIPosition): single;
+function TaiThingReferenceList.DistanceToNearest(aPosition: AIPosition): single;
 var
   i: integer;
   dist: single;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   result := 100;
   for i := 0 to Count - 1 do
   begin
-    myThing := AIThing(Items[i]);
+    myThing := TaiThing(Items[i]);
     dist := aPosition.DistanceToXPlusY(myThing.Position);
     if result > dist then
       result := dist;

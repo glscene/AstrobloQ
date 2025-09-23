@@ -47,7 +47,7 @@ public
   procedure AddReport(aKind: integer; aSuccess: boolean; aValue: integer; aEffort: integer);
   procedure FullDisplay(aList: TStrings);
   function ReportWeight(aKind: integer): single; overload;
-  function ReportWeight(aLivingThing: AILivingThing): single; overload;
+  function ReportWeight(aLivingThing: TaiLivingThing): single; overload;
 
   function HighestWeight: integer;
   function LowestWeight: integer;
@@ -139,7 +139,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportList.ReportWeight(aLivingThing: AILivingThing): single;
+function AIReportList.ReportWeight(aLivingThing: TaiLivingThing): single;
 var
   i: integer;
   myReport: AIReportCard;

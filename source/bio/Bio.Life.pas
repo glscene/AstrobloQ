@@ -12,7 +12,7 @@ uses
 
 type
 
-  AILivingThing = class(AIThing)
+  TaiLivingThing = class(TaiThing)
   private
     fWater: single;
     fRot: integer;
@@ -43,9 +43,10 @@ type
   end;
 
   // ============================================================================
-  AILivingGroup = class(AIThing)
+
+  TaiLivingGroup = class(TaiThing)
   private
-    fMembers: AIThingReferenceList;
+    fMembers: TaiThingReferenceList;
     fMaximum: integer;
     fFull: boolean;
   protected
@@ -53,11 +54,11 @@ type
   public
     constructor Create(aParent: pointer);
     destructor Destroy; override;
-    property Members: AIThingReferenceList read fMembers;
+    property Members: TaiThingReferenceList read fMembers;
     property Maximum: integer read fMaximum write fMaximum;
     property Full: boolean read fFull;
-    function AddMember(aMember: AIThing): boolean; virtual;
-    procedure RemoveMember(aMember: AIThing);
+    function AddMember(aMember: TaiThing): boolean; virtual;
+    procedure RemoveMember(aMember: TaiThing);
     function Vacancy: boolean;
     procedure Fuel; override;
     function OneLineDisplay: string; override;
@@ -72,7 +73,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AILivingThing.Create(aParent: pointer);
+constructor TaiLivingThing.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -82,7 +83,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.Die;
+procedure TaiLivingThing.Die;
 begin
   fAlive := false;
   fHealth := 0;
@@ -90,7 +91,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.Fuel;
+procedure TaiLivingThing.Fuel;
 begin
   inherited Fuel;
 
@@ -111,19 +112,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILivingThing.Dead: boolean;
+function TaiLivingThing.Dead: boolean;
 begin
   result := not(Alive);
 end;
 
 // ----------------------------------------------------------------------------
-function AILivingThing.Rotten: boolean;
+function TaiLivingThing.Rotten: boolean;
 begin
   result := (Rot >= 512);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.Decompose;
+procedure TaiLivingThing.Decompose;
 begin
   fRot := fRot + 1;
   if Rotten then
@@ -131,7 +132,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.Damage(aAmount: integer);
+procedure TaiLivingThing.Damage(aAmount: integer);
 begin
   inherited Damage(aAmount);
 
@@ -139,17 +140,17 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AILivingGroup.Create(aParent: pointer);
+constructor TaiLivingGroup.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
-  fMembers := AIThingReferenceList.Create(self);
+  fMembers := TaiThingReferenceList.Create(self);
   fMaximum := 64;
   CalculateFull;
 end;
 
 // ----------------------------------------------------------------------------
-destructor AILivingGroup.Destroy;
+destructor TaiLivingGroup.Destroy;
 begin
   fMembers.Free;
 
@@ -157,7 +158,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingGroup.Fuel;
+procedure TaiLivingGroup.Fuel;
 begin
   inherited Fuel;
 
@@ -166,7 +167,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.SaveToFile(var aFile: TextFile);
+procedure TaiLivingThing.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fWater);
@@ -176,7 +177,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.LoadFromFile(var aFile: TextFile);
+procedure TaiLivingThing.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fWater);
@@ -186,7 +187,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILivingThing.OneLineDisplay: string;
+function TaiLivingThing.OneLineDisplay: string;
 begin
   result := GetName + ' ' + IntToStr(Handle) + ' Health=' + IntToStr(fHealth) +
     Position.OneLineDisplay;
@@ -195,7 +196,7 @@ end;
 // ----------------------------------------------------------------------------
 // returns true if the member was added,
 // returns false if group is full
-function AILivingGroup.AddMember(aMember: AIThing): boolean;
+function TaiLivingGroup.AddMember(aMember: TaiThing): boolean;
 begin
   result := false;
   if not fFull and (Members.IndexOf(aMember) = -1) then
@@ -207,28 +208,28 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingGroup.RemoveMember(aMember: AIThing);
+procedure TaiLivingGroup.RemoveMember(aMember: TaiThing);
 begin
   Members.Remove(aMember);
   CalculateFull;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingGroup.SaveToFile(var aFile: TextFile);
+procedure TaiLivingGroup.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fMaximum);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingGroup.LoadFromFile(var aFile: TextFile);
+procedure TaiLivingGroup.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fMaximum);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.FullDisplay(aList: TStrings);
+procedure TaiLivingThing.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -239,10 +240,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingGroup.FullDisplay(aList: TStrings);
+procedure TaiLivingGroup.FullDisplay(aList: TStrings);
 var
   i: integer;
-  myMember: AIThing;
+  myMember: TaiThing;
 begin
   inherited FullDisplay(aList);
 
@@ -251,32 +252,32 @@ begin
   aList.Add('Full: ' + BoolToYesNoStr(fFull));
   for i := 0 to fMembers.Count - 1 do
   begin
-    myMember := AIThing(fMembers[i]);
+    myMember := TaiThing(fMembers[i]);
     aList.AddObject(IntToStr(i + 1) + ': ' + myMember.OneLineDisplay, myMember);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-function AILivingGroup.OneLineDisplay: string;
+function TaiLivingGroup.OneLineDisplay: string;
 begin
   result := GetName + Format(' %d Members=%d/%d ',
     [Handle, Members.Count, fMaximum]);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingGroup.CalculateFull;
+procedure TaiLivingGroup.CalculateFull;
 begin
   fFull := (fMembers.Count >= fMaximum);
 end;
 
 // ----------------------------------------------------------------------------
-function AILivingGroup.Vacancy: boolean;
+function TaiLivingGroup.Vacancy: boolean;
 begin
   result := not fFull;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.SetAlive(aValue: boolean);
+procedure TaiLivingThing.SetAlive(aValue: boolean);
 begin
   if aValue = fAlive then
     exit;
@@ -296,7 +297,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.Cease;
+procedure TaiLivingThing.Cease;
 begin
   if Exists and Alive then
     Die;
@@ -305,7 +306,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILivingThing.Digest(const aAmount: integer): integer;
+function TaiLivingThing.Digest(const aAmount: integer): integer;
 begin
   result := aAmount;
   if aAmount > Health then
@@ -316,7 +317,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.SetHealth(aValue: integer);
+procedure TaiLivingThing.SetHealth(aValue: integer);
 begin
   fHealth := aValue;
   if fHealth <= 0 then
@@ -324,7 +325,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILivingThing.HealthIncrease(aAmount: integer);
+procedure TaiLivingThing.HealthIncrease(aAmount: integer);
 begin
   Health := Health + aAmount;
 end;

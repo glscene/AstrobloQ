@@ -85,9 +85,11 @@ type
 var
   FormPosition: TFormPosition;
 
-implementation
+implementation //--------------------------------------------------------------
 
-uses Bio.Things, Bio.Globals;
+uses
+  Bio.Things,
+  Bio.Globals;
 
 {$R *.dfm}
 
@@ -165,7 +167,7 @@ end;
 
 procedure TFormPosition.btnCopyClick(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   ///myThing := AIThing(gThings.FindWithHandle(edHandle.Value));
   if myThing<>nil then

@@ -16,10 +16,8 @@ TLinkObject = class(TObject)
 private
   fLeftHandle: Int64;
   fRightHandle: Int64;
-
   fLeftObjectPointer: Pointer;
   fRightObjectPointer: Pointer;
-
   procedure SetLeftHandle(aValue: Int64);
   procedure SetRightHandle(aValue: Int64);
 public
@@ -28,49 +26,38 @@ public
   property RightHandle: Int64 read fRightHandle write SetRightHandle;
   property LeftObjectPointer: Pointer read fLeftObjectPointer write fLeftObjectPointer;
   property RightObjectPointer: Pointer read fRightObjectPointer write fRightObjectPointer;
-
   function Valid: boolean;
   function ValidLeft: boolean;
-
   procedure AssignLeftObject(aObject: TaiBaseObject);
   procedure AssignRightObject(aObject: TaiBaseObject);
-
   function ValidRight: boolean;
-
   procedure InvalidateRight;
   procedure InvalidateLeft;
-
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
-
   procedure CopyFrom(aLinkObject: TLinkObject); virtual;
 end;
 
 // ============================================================================
+
 AILink = class(TLinkObject)
 private
-  function GetOrigin: AIThing;
-  function GetTarget: AIThing;
-  procedure SetOrigin(aThing: AIThing);
-  procedure SetTarget(aThing: AIThing);
+  function GetOrigin: TaiThing;
+  function GetTarget: TaiThing;
+  procedure SetOrigin(aThing: TaiThing);
+  procedure SetTarget(aThing: TaiThing);
 public
-  property Origin: AIThing read GetOrigin write SetOrigin;
-  property Target: AIThing read GetTarget write SetTarget;
-
+  property Origin: TaiThing read GetOrigin write SetOrigin;
+  property Target: TaiThing read GetTarget write SetTarget;
   function OriginKind: integer;
   function TargetKind: integer;
-
   function Connected: boolean;
   function Disconnected: boolean;
-
   function ValidTarget: boolean;
   function ValidOrigin: boolean;
-
   procedure InvalidateOrigin;
   procedure InvalidateTarget;
-
   procedure Disconnect;
-
   procedure AssignOrigin(aObject: TaiBaseObject);
   procedure AssignTarget(aObject: TaiBaseObject); virtual;
   function OneLineDisplayRight: string;
@@ -80,7 +67,7 @@ end;
 // ============================================================================
 AIAttachment = class(AILink)
 public
-  procedure Attach(aThing: AIThing);
+  procedure Attach(aThing: TaiThing);
   procedure Detach;
 
   function Holding: boolean;
@@ -124,7 +111,7 @@ end;
 // ============================================================================
 AIAttachmentContainer = class(AILinkContainer)
 public
-  function NewAttachment(aLeftObject: AIThing): AIAttachment;
+  function NewAttachment(aLeftObject: TaiThing): AIAttachment;
   procedure DetachAllWithHandle(aHandle: int64);
   procedure SetObjectPointers(aContainer: TaiBaseContainer); override;
 end;
@@ -384,25 +371,25 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.GetOrigin: AIThing;
+function AILink.GetOrigin: TaiThing;
 begin
   result := fLeftObjectPointer;
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.GetTarget: AIThing;
+function AILink.GetTarget: TaiThing;
 begin
   result := fRightObjectPointer;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.SetOrigin(aThing: AIThing);
+procedure AILink.SetOrigin(aThing: TaiThing);
 begin
   AssignLeftObject(aThing);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.SetTarget(aThing: AIThing);
+procedure AILink.SetTarget(aThing: TaiThing);
 begin
   AssignRightObject(aThing);
 end;
@@ -426,7 +413,7 @@ function AILink.OriginKind: integer;
 begin
   result := cNothing;
   if ValidLeft then
-    result := AIThing(LeftObjectPointer).Kind;
+    result := TaiThing(LeftObjectPointer).Kind;
 end;
 
 // ----------------------------------------------------------------------------
@@ -434,11 +421,11 @@ function AILink.TargetKind: integer;
 begin
   result := cNothing;
   if ValidRight then
-    result := AIThing(RightObjectPointer).Kind;
+    result := TaiThing(RightObjectPointer).Kind;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAttachment.Attach(aThing: AIThing);
+procedure AIAttachment.Attach(aThing: TaiThing);
 begin
   if aThing.Position.Carried then
     exit;
@@ -477,7 +464,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIAttachmentContainer.NewAttachment(aLeftObject: AIThing): AIAttachment;
+function AIAttachmentContainer.NewAttachment(aLeftObject: TaiThing): AIAttachment;
 begin
   result := AIAttachment.Create;
   result.LeftObjectPointer := aLeftObject;
@@ -660,7 +647,7 @@ begin
     if myPointer <> nil then
     begin
       // have to set this to false, because .Attach exits if true
-      AIThing(myPointer).Position.Carried := false;
+      TaiThing(myPointer).Position.Carried := false;
       // now attach
       mySearch.Attach(myPointer);
     end;

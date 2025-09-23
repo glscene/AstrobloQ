@@ -104,7 +104,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIGrazer.FindFood;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if (desire = cDesireFood) and not Grabber.Holding then
   begin
@@ -141,13 +141,13 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIGrazer.WalkWithCommunity;
 var
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
   myForce: TAffineVector;
 begin
   // in a Community?
   if Community.ValidTarget then
   begin
-    myCommunity := AICommunity(Community.Target);
+    myCommunity := TaiCommunity(Community.Target);
 
     if myCommunity.Position.UnderWater then
       exit;

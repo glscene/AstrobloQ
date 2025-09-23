@@ -32,7 +32,7 @@ type
 
 // ============================================================================
 // a group of birds
-AIFlock = class(AILivingGroup)
+AIFlock = class(TaiLivingGroup)
 private
   fFlightPattern: integer;
   fFlockCenter: TAffineVector;
@@ -264,7 +264,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIBird.Swim;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.02);
   if Eyes.ValidTarget then
@@ -478,7 +478,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIBird.FindFruit;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
     // has food in sight
     if Eyes.ValidTarget then

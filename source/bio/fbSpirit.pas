@@ -133,7 +133,7 @@ begin
   begin
     LockWindowUpdate(FullDisplay.Handle);
     tempString.Clear;
-    AIThing(Target.Target).FullDisplay(tempString);
+    TaiThing(Target.Target).FullDisplay(tempString);
     FullDisplay.Lines.Clear;
     FullDisplay.Lines.Add(tempString.Text);
     LockWindowUpdate(0);
@@ -163,7 +163,7 @@ end;
 
 procedure TFormSpirit.RefreshAll;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Target.ValidTarget then
   begin
@@ -228,19 +228,19 @@ end;
 
 procedure TFormSpirit.Heal1Click(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Target.ValidTarget then
   begin
     myThing := Target.Target;
-    if myThing is AILivingThing then
-      AILivingThing(myThing).Health := AILivingThing(myThing).Health + 256;
+    if myThing is TaiLivingThing then
+      TaiLivingThing(myThing).Health := TaiLivingThing(myThing).Health + 256;
   end;
 end;
 
 procedure TFormSpirit.Kill1Click(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Target.ValidTarget then
   begin
@@ -282,7 +282,7 @@ end;
 
 procedure TFormSpirit.Stop1Click(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Target.ValidTarget then
   begin
@@ -294,13 +294,13 @@ end;
 
 procedure TFormSpirit.Die1Click(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Target.ValidTarget then
   begin
     myThing := Target.Target;
-    if myThing is AILivingThing then
-      AILivingThing(myThing).Die;
+    if myThing is TaiLivingThing then
+      TaiLivingThing(myThing).Die;
   end;
 end;
 
@@ -408,7 +408,7 @@ end;
 procedure TFormSpirit.menuDNAClick(Sender: TObject);
 var
   myfmDNA: TFormDNA;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   // make sure our target has DNA
   if not Target.ValidTarget then exit;
@@ -429,7 +429,7 @@ end;
 procedure TFormSpirit.Reposition1Click(Sender: TObject);
 var
   myFormPosition: TFormPosition;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   // make sure our target has Position
   if not Target.ValidTarget then exit;

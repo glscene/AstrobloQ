@@ -1,4 +1,4 @@
-object fmReality: TfmReality
+object FormReality: TFormReality
   Left = 18
   Top = 158
   BorderIcons = [biSystemMenu, biMinimize, biHelp]
@@ -53,6 +53,7 @@ object fmReality: TfmReality
     BevelOuter = bvLowered
     BorderWidth = 2
     TabOrder = 0
+    ExplicitWidth = 1077
     object Panel4: TPanel
       Left = 3
       Top = 3
@@ -338,6 +339,7 @@ object fmReality: TfmReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 4
+      ExplicitLeft = 995
       object btnExit: TBitBtn
         Left = 1
         Top = 2

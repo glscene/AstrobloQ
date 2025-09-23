@@ -215,7 +215,7 @@
             <Form>FormPhotograph</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbReality_ru.pas">
-            <Form>fmReality</Form>
+            <Form>FormReality</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbSatellite_ru.pas">
             <Form>FormSatellite</Form>
@@ -253,10 +253,10 @@
             <Form>FormTip</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbSplash_ru.pas">
-            <Form>fmSplash</Form>
+            <Form>FormSplash</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbImages_ru.pas">
-            <Form>FormImages</Form>
+            <Form>frmImages</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\bio\Bio.Things.pas"/>

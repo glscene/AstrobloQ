@@ -18,7 +18,7 @@ uses
 type
 
 // ============================================================================
-AIAnt = class(AICommunityCreature)
+AIAnt = class(TaiCommunityCreature)
 private
 public
   constructor Create(aParent: pointer);

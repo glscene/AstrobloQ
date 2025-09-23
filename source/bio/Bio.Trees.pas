@@ -25,7 +25,7 @@ const
 type
 
 // ============================================================================
-AIPlant = class(AILivingThing)
+AIPlant = class(TaiLivingThing)
 public
   function IsPlant: boolean; override;
 end;

@@ -1,57 +1,40 @@
 object FormPosition: TFormPosition
   Left = 335
   Top = 113
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'Position'
-  ClientHeight = 903
-  ClientWidth = 562
+  ClientHeight = 516
+  ClientWidth = 321
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Position = poOwnerFormCenter
   OnShow = FormShow
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 562
-    Height = 65
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 321
+    Height = 37
     Align = alTop
     TabOrder = 9
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 119
-      Height = 63
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 68
+      Height = 36
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Creature:'
       TabOrder = 0
     end
     object panID: TPanel
-      Left = 120
+      Left = 69
       Top = 1
-      Width = 441
-      Height = 63
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 252
+      Height = 36
       Align = alClient
       Alignment = taLeftJustify
       BevelOuter = bvNone
@@ -61,37 +44,25 @@ object FormPosition: TFormPosition
   end
   object panButtonBar: TPanel
     Left = 0
-    Top = 774
-    Width = 562
-    Height = 129
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 442
+    Width = 321
+    Height = 74
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 17
     object panOKButton: TPanel
-      Left = 379
+      Left = 217
       Top = 1
-      Width = 182
-      Height = 127
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 104
+      Height = 72
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
       object btnOK: TBitBtn
-        Left = 35
-        Top = 74
-        Width = 131
-        Height = 43
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 20
+        Top = 42
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -99,42 +70,30 @@ object FormPosition: TFormPosition
       end
     end
     object btnCancel: TBitBtn
-      Left = 18
-      Top = 74
-      Width = 131
-      Height = 43
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 10
+      Top = 42
+      Width = 75
+      Height = 25
       Kind = bkCancel
       NumGlyphs = 2
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnApply: TBitBtn
-      Left = 399
-      Top = 18
-      Width = 131
-      Height = 43
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 228
+      Top = 10
+      Width = 75
+      Height = 25
       Caption = 'Apply'
       TabOrder = 2
       OnClick = btnApplyClick
     end
     object btnCopy: TBitBtn
-      Left = 18
-      Top = 18
-      Width = 131
-      Height = 43
+      Left = 10
+      Top = 10
+      Width = 75
+      Height = 25
       Hint = 'Copy from another object'#39's position (enter handle).'
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
       Caption = 'Copy'
       ParentShowHint = False
       ShowHint = True
@@ -144,25 +103,17 @@ object FormPosition: TFormPosition
   end
   object Panel3: TPanel
     Left = 0
-    Top = 65
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 37
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
     object Panel4: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -172,25 +123,17 @@ object FormPosition: TFormPosition
   end
   object Panel5: TPanel
     Left = 0
-    Top = 628
-    Width = 562
-    Height = 41
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 359
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 14
     object Panel8: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 41
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -200,25 +143,17 @@ object FormPosition: TFormPosition
   end
   object Panel9: TPanel
     Left = 0
-    Top = 588
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 336
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 13
     object Panel10: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -228,25 +163,17 @@ object FormPosition: TFormPosition
   end
   object Panel11: TPanel
     Left = 0
-    Top = 548
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 313
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 12
     object Panel14: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -256,25 +183,17 @@ object FormPosition: TFormPosition
   end
   object Panel15: TPanel
     Left = 0
-    Top = 508
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 290
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 11
     object Panel16: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -284,25 +203,17 @@ object FormPosition: TFormPosition
   end
   object Panel17: TPanel
     Left = 0
-    Top = 467
-    Width = 562
-    Height = 41
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 267
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 10
     object Panel18: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 41
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -312,25 +223,17 @@ object FormPosition: TFormPosition
   end
   object Panel19: TPanel
     Left = 0
-    Top = 427
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 244
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 18
     object Panel20: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -340,25 +243,17 @@ object FormPosition: TFormPosition
   end
   object Panel21: TPanel
     Left = 0
-    Top = 387
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 221
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 8
     object Panel22: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -368,25 +263,17 @@ object FormPosition: TFormPosition
   end
   object Panel23: TPanel
     Left = 0
-    Top = 347
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 198
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 7
     object Panel24: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -396,25 +283,17 @@ object FormPosition: TFormPosition
   end
   object Panel25: TPanel
     Left = 0
-    Top = 306
-    Width = 562
-    Height = 41
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 175
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 6
     object Panel26: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 41
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -424,25 +303,17 @@ object FormPosition: TFormPosition
   end
   object Panel27: TPanel
     Left = 0
-    Top = 266
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 152
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 5
     object Panel28: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -452,25 +323,17 @@ object FormPosition: TFormPosition
   end
   object Panel29: TPanel
     Left = 0
-    Top = 226
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 129
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 4
     object Panel30: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -480,25 +343,17 @@ object FormPosition: TFormPosition
   end
   object Panel31: TPanel
     Left = 0
-    Top = 186
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 106
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 3
     object Panel32: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -508,25 +363,17 @@ object FormPosition: TFormPosition
   end
   object Panel33: TPanel
     Left = 0
-    Top = 145
-    Width = 562
-    Height = 41
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 83
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
     object Panel34: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 41
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -536,25 +383,17 @@ object FormPosition: TFormPosition
   end
   object Panel35: TPanel
     Left = 0
-    Top = 105
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 60
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
     object Panel36: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -564,25 +403,17 @@ object FormPosition: TFormPosition
   end
   object Panel41: TPanel
     Left = 0
-    Top = 749
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 428
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 19
     object Panel42: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -590,26 +421,18 @@ object FormPosition: TFormPosition
       TabOrder = 0
     end
     object cbTangible: TCheckBox
-      Left = 175
-      Top = 7
-      Width = 68
-      Height = 30
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 100
+      Top = 4
+      Width = 39
+      Height = 17
       Enabled = False
       TabOrder = 2
     end
     object cbCollider: TCheckBox
-      Left = 231
-      Top = 7
-      Width = 100
-      Height = 30
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 132
+      Top = 4
+      Width = 57
+      Height = 17
       Alignment = taLeftJustify
       Caption = 'Collider:'
       Enabled = False
@@ -618,25 +441,17 @@ object FormPosition: TFormPosition
   end
   object Panel43: TPanel
     Left = 0
-    Top = 709
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 405
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 16
     object Panel44: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -646,25 +461,17 @@ object FormPosition: TFormPosition
   end
   object Panel45: TPanel
     Left = 0
-    Top = 669
-    Width = 562
-    Height = 40
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 382
+    Width = 321
+    Height = 23
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 15
     object Panel46: TPanel
       Left = 0
       Top = 0
-      Width = 163
-      Height = 40
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 93
+      Height = 23
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone

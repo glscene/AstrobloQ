@@ -34,7 +34,7 @@ const
   cInstructionLoadFile = 1;
 
 type
-  TfmReality = class(TMiniForm)
+  TFormReality = class(TMiniForm)
     MainMenu1: TMainMenu;
     File1: TMenuItem;
     Quit1: TMenuItem;
@@ -181,7 +181,7 @@ type
   end;
 
 var
-  fmReality: TfmReality;
+  FormReality: TFormReality;
 
 implementation // --------------------------------------------------
 
@@ -209,7 +209,7 @@ uses
 // -----------------------------------------------------------------------------
 // --------------------------- FORM LOGIC --------------------------------------
 // -----------------------------------------------------------------------------
-procedure TfmReality.FormCreate(Sender: TObject);
+procedure TFormReality.FormCreate(Sender: TObject);
 begin
   OnMinimize := MyMinimize;
   OnMaximize := MyMaximize;
@@ -220,7 +220,7 @@ begin
 end;
 
 // -----------------------------------------------------------------------------
-procedure TfmReality.RefreshInterface;
+procedure TFormReality.RefreshInterface;
 begin
   RealityClock.Interval := Reality.ClockStagger;
   trackSpeed.Position := Reality.ClockStagger;
@@ -253,13 +253,13 @@ begin
   RefreshTickers;
 end;
 
-procedure TfmReality.RefreshAll;
+procedure TFormReality.RefreshAll;
 begin
   RefreshInterface;
   ManagerForm.Advance;
 end;
 
-procedure TfmReality.FormShow(Sender: TObject);
+procedure TFormReality.FormShow(Sender: TObject);
 begin
   if frmFirst.UserSettings.TipOfTheDay then
     RealityClock.Enabled := true;
@@ -277,19 +277,19 @@ begin
   frmFirst.Construction.AddEvent('Still running');
 end;
 
-procedure TfmReality.menuSetTimeTickingClick(Sender: TObject);
+procedure TFormReality.menuSetTimeTickingClick(Sender: TObject);
 begin
   Reality.SetTimeTicking;
   RefreshInterface;
 end;
 
-procedure TfmReality.menuSetTimeFlowingClick(Sender: TObject);
+procedure TFormReality.menuSetTimeFlowingClick(Sender: TObject);
 begin
   Reality.SetTimeFlowing;
   RefreshInterface;
 end;
 
-procedure TfmReality.btnGoClick(Sender: TObject);
+procedure TFormReality.btnGoClick(Sender: TObject);
 begin
   StartReality;
   RefreshInterface;
@@ -297,7 +297,7 @@ begin
     ManagerForm.SpaceForm.SetFocus;
 end;
 
-procedure TfmReality.btnStopClick(Sender: TObject);
+procedure TFormReality.btnStopClick(Sender: TObject);
 begin
   StopReality;
   RefreshInterface;
@@ -305,7 +305,7 @@ begin
     ManagerForm.SpaceForm.SetFocus;
 end;
 
-procedure TfmReality.StartReality;
+procedure TFormReality.StartReality;
 begin
   if Reality.TimeIsFlowing then
   begin
@@ -323,7 +323,7 @@ begin
   RefreshAll;
 end;
 
-procedure TfmReality.StopReality;
+procedure TFormReality.StopReality;
 begin
   RealityClock.Enabled := false;
   ManagerForm.SpaceForm.InformOfStop;
@@ -334,60 +334,60 @@ begin
   RefreshAll;
 end;
 
-procedure TfmReality.radTickingClick(Sender: TObject);
+procedure TFormReality.radTickingClick(Sender: TObject);
 begin
   Reality.SetTimeTicking;
   RefreshInterface;
 end;
 
-procedure TfmReality.radFlowingClick(Sender: TObject);
+procedure TFormReality.radFlowingClick(Sender: TObject);
 begin
   Reality.SetTimeFlowing;
   RefreshInterface;
 end;
 
-procedure TfmReality.menuMonitorSingleClick(Sender: TObject);
+procedure TFormReality.menuMonitorSingleClick(Sender: TObject);
 begin
   // MultipleMonitors := false;
   RefreshInterface;
 end;
 
-procedure TfmReality.menuMonitorDoubleClick(Sender: TObject);
+procedure TFormReality.menuMonitorDoubleClick(Sender: TObject);
 begin
   // MultipleMonitors := true;
   RefreshInterface;
 end;
 
-procedure TfmReality.menuGoClick(Sender: TObject);
+procedure TFormReality.menuGoClick(Sender: TObject);
 begin
   btnGoClick(Sender);
 end;
 
-procedure TfmReality.menuStopClick(Sender: TObject);
+procedure TFormReality.menuStopClick(Sender: TObject);
 begin
   btnStopClick(Sender);
 end;
 
-procedure TfmReality.trackSpeedChange(Sender: TObject);
+procedure TFormReality.trackSpeedChange(Sender: TObject);
 begin
   Reality.ClockStagger := trackSpeed.Position;
   RefreshInterface;
 end;
 
-procedure TfmReality.Quit1Click(Sender: TObject);
+procedure TFormReality.Quit1Click(Sender: TObject);
 begin
   StopReality;
   Close;
 end;
 
-procedure TfmReality.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TFormReality.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   if Reality.IsRunning then
     StopReality;
   CanClose := true;
 end;
 
-procedure TfmReality.menuEnvironmentNameClick(Sender: TObject);
+procedure TFormReality.menuEnvironmentNameClick(Sender: TObject);
 var
   FormEditLine: TFormEditLine;
 begin
@@ -400,7 +400,7 @@ begin
   RefreshAll;
 end;
 
-procedure TfmReality.menuCreatorNameClick(Sender: TObject);
+procedure TFormReality.menuCreatorNameClick(Sender: TObject);
 var
   FormEditLine: TFormEditLine;
 begin
@@ -412,12 +412,12 @@ begin
   RefreshAll;
 end;
 
-procedure TfmReality.AddEvent(aEvent: string);
+procedure TFormReality.AddEvent(aEvent: string);
 begin
   ManagerForm.EventsForm.AddEvent(aEvent);
 end;
 
-procedure TfmReality.About2Click(Sender: TObject);
+procedure TFormReality.About2Click(Sender: TObject);
 var
   FormAbout: TFormAbout;
 begin
@@ -426,7 +426,7 @@ begin
   FormAbout.Free;
 end;
 
-procedure TfmReality.menuReadmeClick(Sender: TObject);
+procedure TFormReality.menuReadmeClick(Sender: TObject);
 var
   FormIntro: TFormIntro;
 begin
@@ -436,7 +436,7 @@ begin
   FormIntro.Free;
 end;
 
-procedure TfmReality.MyMinimize(Sender: TObject; var state: TMiniState);
+procedure TFormReality.MyMinimize(Sender: TObject; var state: TMiniState);
 begin
   SetFocus;
   ManagerForm.BigHide;
@@ -444,7 +444,7 @@ begin
   state := tmAll; // minimize all windows
 end;
 
-procedure TfmReality.MyMaximize(Sender: TObject; var state: TMiniState);
+procedure TFormReality.MyMaximize(Sender: TObject; var state: TMiniState);
 begin
   Show;
   ManagerForm.Show;
@@ -452,7 +452,7 @@ begin
   SetFocus;
 end;
 
-procedure TfmReality.Advance;
+procedure TFormReality.Advance;
 begin
   // HACK FOR RESTORING FROM MINIMIZED STATE
   if not(WindowState = wsMinimized) and not ManagerForm.Visible then
@@ -467,17 +467,17 @@ begin
   ManagerForm.Advance;
 end;
 
-procedure TfmReality.RefreshTickers;
+procedure TFormReality.RefreshTickers;
 begin
   panRealityTime1.Caption := IntToStr(Reality.Time);
 end;
 
-procedure TfmReality.RealityClockTimer(Sender: TObject);
+procedure TFormReality.RealityClockTimer(Sender: TObject);
 begin
   Advance;
 end;
 
-procedure TfmReality.menuViewManagerClick(Sender: TObject);
+procedure TFormReality.menuViewManagerClick(Sender: TObject);
 begin
   if not ManagerForm.Visible then
   begin
@@ -488,22 +488,22 @@ begin
     ManagerForm.Hide;
 end;
 
-procedure TfmReality.menuViewSpaceClick(Sender: TObject);
+procedure TFormReality.menuViewSpaceClick(Sender: TObject);
 begin
   ManagerForm.PopSpace;
 end;
 
-procedure TfmReality.menuViewEventsClick(Sender: TObject);
+procedure TFormReality.menuViewEventsClick(Sender: TObject);
 begin
   ManagerForm.PopEvents;
 end;
 
-procedure TfmReality.menuViewListsClick(Sender: TObject);
+procedure TFormReality.menuViewListsClick(Sender: TObject);
 begin
   ManagerForm.PopLists;
 end;
 
-procedure TfmReality.Load1Click(Sender: TObject);
+procedure TFormReality.Load1Click(Sender: TObject);
 begin
   odLoadReality.InitialDir := ExtractFilePath(ParamStr(0)) + '\worlds';
   odLoadReality.FileName := '*.air';
@@ -525,7 +525,7 @@ begin
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
 
-procedure TfmReality.menuSaveClick(Sender: TObject);
+procedure TFormReality.menuSaveClick(Sender: TObject);
 begin
   if SaveRealityToFile(FileName) then
     ShowMessage('Симуляция сохранена ' + FileName)
@@ -534,7 +534,7 @@ begin
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
 end;
 
-function TfmReality.SaveRealityToFile(aFileName: string): Boolean;
+function TFormReality.SaveRealityToFile(aFileName: string): Boolean;
 var
   myFile: TextFile;
 begin
@@ -548,7 +548,7 @@ begin
   result := true;
 end;
 
-procedure TfmReality.menuNewRealityClick(Sender: TObject);
+procedure TFormReality.menuNewRealityClick(Sender: TObject);
 var
   myNewReality: TFormNewReality;
 begin
@@ -568,7 +568,7 @@ begin
   myNewReality.Free;
 end;
 
-procedure TfmReality.SaveAs1Click(Sender: TObject);
+procedure TFormReality.SaveAs1Click(Sender: TObject);
 begin
   sdSaveReality.InitialDir := ExtractFilePath(ParamStr(0)) + '\worlds';
   sdSaveReality.FileName := '*.air';
@@ -585,7 +585,7 @@ end;
 //--------------------------------------------------------------------------
 // Руководство
 //--------------------------------------------------------------------------
-procedure TfmReality.menuTutorialClick(Sender: TObject);
+procedure TFormReality.menuTutorialClick(Sender: TObject);
 var
   myfmTutorial: TFormTutorial;
 begin
@@ -594,14 +594,14 @@ begin
   myfmTutorial.Free;
 end;
 
-procedure TfmReality.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormReality.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   ManagerForm.DropAll;
   if Reality.IsRunning then
     StopReality;
 end;
 
-procedure TfmReality.menuKeyboardClick(Sender: TObject);
+procedure TFormReality.menuKeyboardClick(Sender: TObject);
 var
   myFormKeyboard: TFormKeyboard;
 begin
@@ -610,7 +610,7 @@ begin
   myFormKeyboard.Free;
 end;
 
-procedure TfmReality.menuMaxClick(Sender: TObject);
+procedure TFormReality.menuMaxClick(Sender: TObject);
 var
   myFormMaximums: TFormMaximums;
 begin
@@ -619,7 +619,7 @@ begin
   myFormMaximums.Free;
 end;
 
-procedure TfmReality.menuSettingsClick(Sender: TObject);
+procedure TFormReality.menuSettingsClick(Sender: TObject);
 var
   myFormSettings: TFormSettings;
 begin
@@ -629,13 +629,13 @@ begin
   myFormSettings.Free;
 end;
 
-procedure TfmReality.btnExitClick(Sender: TObject);
+procedure TFormReality.btnExitClick(Sender: TObject);
 begin
   StopReality;
   Close;
 end;
 
-procedure TfmReality.VerifyWindows;
+procedure TFormReality.VerifyWindows;
 // var
 // myFocus: TForm;
 begin
@@ -650,14 +650,14 @@ begin
   // myFocus.SetFocus;
 end;
 
-procedure TfmReality.FormActivate(Sender: TObject);
+procedure TFormReality.FormActivate(Sender: TObject);
 begin
   // ManagerForm.BringToFront;
   // BringToFront;
   // ManagerForm.BigRestore;
 end;
 
-procedure TfmReality.StartUp(aFileName: string);
+procedure TFormReality.StartUp(aFileName: string);
 begin
   FReality := AIReality.Create;
   FFileName := 'current.air';
@@ -677,7 +677,7 @@ begin
   RefreshInterface;
 end;
 
-procedure TfmReality.ShutDown;
+procedure TFormReality.ShutDown;
 begin
   // if autosave on exit, then save
   if frmFirst.UserSettings.AutoSave then
@@ -689,7 +689,7 @@ begin
   FReality.Free;
 end;
 
-procedure TfmReality.FlipOnOffSwitch; // switches the reality on/off
+procedure TFormReality.FlipOnOffSwitch; // switches the reality on/off
 begin
   if RealityClock.Enabled then
     StopReality
@@ -697,25 +697,25 @@ begin
     StartReality;
 end;
 
-procedure TfmReality.Restore1Click(Sender: TObject);
+procedure TFormReality.Restore1Click(Sender: TObject);
 begin
   ManagerForm.SpaceForm.RestoreScene;
 end;
 
-procedure TfmReality.ReloadDNA1Click(Sender: TObject);
+procedure TFormReality.ReloadDNA1Click(Sender: TObject);
 begin
   Reality.Environment.Things.LoadForms;
   ShowMessage('DNA перезагружена');
 end;
 
-procedure TfmReality.btn20Click(Sender: TObject);
+procedure TFormReality.btn20Click(Sender: TObject);
 begin
   trackSpeed.Position := 40;
   Reality.ClockStagger := trackSpeed.Position;
   RefreshInterface;
 end;
 
-procedure TfmReality.cbCollisionsClick(Sender: TObject);
+procedure TFormReality.cbCollisionsClick(Sender: TObject);
 begin
   Reality.Environment.Things.Collisions := cbCollisions.Checked;
   RefreshInterface;
@@ -725,13 +725,13 @@ begin
     frmFirst.Construction.AddEvent('Отключить столкновения');
 end;
 
-procedure TfmReality.ipoftheDay1Click(Sender: TObject);
+procedure TFormReality.ipoftheDay1Click(Sender: TObject);
 begin
   // StopReality;
   ShowTipOfTheDay;
 end;
 
-procedure TfmReality.ShowTipOfTheDay;
+procedure TFormReality.ShowTipOfTheDay;
 var
   myTip: TFormTip;
 begin
@@ -749,7 +749,7 @@ begin
   myTip.Free;
 end;
 
-procedure TfmReality.cbAIClick(Sender: TObject);
+procedure TFormReality.cbAIClick(Sender: TObject);
 begin
   Reality.Environment.Things.AI := cbAI.Checked;
   RefreshInterface;
@@ -759,7 +759,7 @@ begin
     frmFirst.Construction.AddEvent('Отключить биосферу');
 end;
 
-procedure TfmReality.AAsteroids1Click(Sender: TObject);
+procedure TFormReality.AAsteroids1Click(Sender: TObject);
 var
   myfmEditLine: TFormEditLine;
 begin

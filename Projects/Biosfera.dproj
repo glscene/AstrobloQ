@@ -266,7 +266,7 @@
         <DCCReference Include="..\source\bio\Bio.Things.pas"/>
         <DCCReference Include="..\source\bio\Bio.Utilities.pas"/>
         <DCCReference Include="..\source\bio\fbTutorial.pas">
-            <Form>fmTutorial</Form>
+            <Form>FormTutorial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\bio\dbImages.pas">

@@ -123,7 +123,7 @@ end;
 // find and grab food
 procedure AIRabbit.FindFood(aKind: integer; aSpeed: single);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not Grabber.Holding then
   begin

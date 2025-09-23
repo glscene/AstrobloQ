@@ -22,7 +22,7 @@ object FormTutorial: TFormTutorial
     Width = 429
     Height = 41
     Align = alTop
-    Caption = #1048#1085#1089#1090#1088#1091#1082#1094#1080#1103
+    Caption = #1056#1091#1082#1086#1074#1086#1076#1089#1090#1074#1086
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
     Font.Height = -16

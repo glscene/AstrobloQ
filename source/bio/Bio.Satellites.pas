@@ -15,7 +15,7 @@ uses
 type
 
 // ============================================================================
-AISatellite = class(AIThing)
+AISatellite = class(TaiThing)
 private
   fSize: single;       // size of object; radius
 public
@@ -43,7 +43,7 @@ public
   procedure Fuel; override;
 
   procedure Explode; virtual; abstract; // when collide, explode into smaller, falling pieces
-  procedure OnCollide(aCollider: AIThing); override;
+  procedure OnCollide(aCollider: TaiThing); override;
 
   procedure Perform(aActivity: integer); override;
 
@@ -74,7 +74,7 @@ public
 end;
 
 // ============================================================================
-AIAsteroid = class(AIThing)
+AIAsteroid = class(TaiThing)
 private
   fEnergy: integer;
   fBurning: boolean;
@@ -451,7 +451,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.OnCollide(aCollider: AIThing);
+procedure AIOrbiter.OnCollide(aCollider: TaiThing);
 begin
   if aCollider is AISatellite then
     Explode;

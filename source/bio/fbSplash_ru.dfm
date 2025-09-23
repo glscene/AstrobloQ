@@ -1,4 +1,4 @@
-object fmSplash: TfmSplash
+object FormSplash: TFormSplash
   Left = 218
   Top = 151
   BorderStyle = bsNone

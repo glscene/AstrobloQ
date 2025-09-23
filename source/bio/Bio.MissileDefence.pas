@@ -40,14 +40,14 @@ public
   property Priority: single read fPriority write SetPriority;
 
   procedure Damage(aAmount: integer); override;
-  procedure OnCollide(aCollider: AIThing); override;
+  procedure OnCollide(aCollider: TaiThing); override;
   procedure Explode; override;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
 // ============================================================================
-AIMissile = class(AIThing)
+AIMissile = class(TaiThing)
 private
   fTimer: integer;
   fAim: integer;
@@ -60,7 +60,7 @@ public
   property Timer: integer read fTimer write fTimer;
   property Aim: integer read fAim write fAim;
 
-  procedure OnCollide(aCollider: AIThing); override;
+  procedure OnCollide(aCollider: TaiThing); override;
   procedure Damage(aAmount: integer); override;
 
   procedure Fuel; override;
@@ -326,7 +326,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissile.OnCollide(aCollider: AIThing);
+procedure AIMissile.OnCollide(aCollider: TaiThing);
 begin
   aCollider.Cease;
   if Exists then
@@ -346,7 +346,7 @@ end;
 procedure AIMissile.Explode;
 var
   myExplosion: AIExplosion;
-  myTarget: AIThing;
+  myTarget: TaiThing;
 begin
   myExplosion := AIExplosion(gThings.NewThing(cExplosion));
   Noise(cNoiseSmash, 1);
@@ -361,13 +361,13 @@ begin
     myExplosion.Diminish := 0.0001;
     myExplosion.Position.Fuel;
   end;
-  myTarget := AIThing(gThings.FindWithHandle(Aim));
+  myTarget := TaiThing(gThings.FindWithHandle(Aim));
   if (myTarget<>nil) and (myTarget.Exists) and (myTarget.Kind = cAsteroid) then
     AIAsteroid(myTarget).UnMark;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.OnCollide(aCollider: AIThing);
+procedure AIMissileDefence.OnCollide(aCollider: TaiThing);
 begin
   if not (aCollider is AIMissileDefence) or (Position.Velocity.Strength > 1) then
   begin

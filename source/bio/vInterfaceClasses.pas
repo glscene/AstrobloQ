@@ -269,7 +269,7 @@ begin
   myCrossover := TCrossover(ActiveItem);
   repeat
   begin
-    if AIThing(TCrossover(ActiveItem).Data).Kind = aKind then
+    if TaiThing(TCrossover(ActiveItem).Data).Kind = aKind then
       result := true
     else
       SetNextOrFirstActive;
@@ -290,7 +290,7 @@ begin
   myCrossover := TCrossover(ActiveItem);
   repeat
   begin
-    if AIThing(TCrossover(ActiveItem).Data).Kind = aKind then
+    if TaiThing(TCrossover(ActiveItem).Data).Kind = aKind then
       result := true
     else
       SetPriorOrLastActive;

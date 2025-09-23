@@ -26,7 +26,7 @@ const
 type
 
 // ============================================================================
-AIMatingCreature = class(AICommunityCreature)
+AIMatingCreature = class(TAICommunityCreature)
 private
   fPartner: AILink; // потенциальный репродуктивный партнёр
   fFemale: boolean; // true для жен, false для муж
@@ -143,7 +143,7 @@ begin
   if not Community.ValidTarget then
     exit;
   // must be room in the community for a baby
-  if AICommunity(Community.Target).Full then
+  if TaiCommunity(Community.Target).Full then
   begin
     Partner.InvalidateTarget;
     exit;
@@ -162,11 +162,11 @@ end;
 // assumes in a community
 procedure AIMatingCreature.FindMate;
 var
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
   i: integer;
   myMate: AIMatingCreature;
 begin
-  myCommunity := AICommunity(Community.Target);
+  myCommunity := TaiCommunity(Community.Target);
   // if too many in this community, dont breed
   if myCommunity.Full then exit;
   // find a mate
@@ -188,7 +188,7 @@ procedure AIMatingCreature.MateWithPartner;
 var
   myMate: AIMatingCreature;
   myBaby: AIMatingCreature;
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
   if not Partner.ValidTarget then exit;
   if not Community.ValidTarget then exit;
@@ -198,7 +198,7 @@ begin
   // turn towards mate
   Position.TurnTowardsTarget(myMate.Position, ca30);
 
-  myCommunity := AICommunity(Community.Target);
+  myCommunity := TaiCommunity(Community.Target);
   if myCommunity.Full then exit;
 
   if not myMate.Alive then begin Partner.InvalidateTarget; exit; end;
@@ -215,7 +215,7 @@ begin
   myBaby.Health := 512;
   myBaby.DevelopIntoBaby;
   MatingTimer := gReality.Time + 128;
-  AICommunity(Community.Target).AddMember(myBaby);
+  TaiCommunity(Community.Target).AddMember(myBaby);
   Partner.InvalidateTarget;
 end;
 

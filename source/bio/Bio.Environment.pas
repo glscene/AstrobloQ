@@ -33,7 +33,7 @@ type
 AIEnvironment = class(TaiBaseObject)
 private
   fName: string;
-  fThings: AIThingList;
+  fThings: TaiThingList;
   fSpace: AISpace;
   fReferences: AILinkContainer;
   fAttachments: AIAttachmentContainer;
@@ -47,7 +47,7 @@ public
   constructor Create(aReality: pointer);
   destructor Destroy; override;
   property Name: string read fName write fName;
-  property Things: AIThingList read fThings;
+  property Things: TaiThingList read fThings;
   property Space: AISpace read fSpace;
   property References: AILinkContainer read fReferences;
   property Attachments: AIAttachmentContainer read fAttachments;
@@ -58,14 +58,14 @@ public
   property Shadows: boolean read fShadows write fShadows;
   procedure Fuel;
   function RoundStatistics: string;
-  procedure EnactGrab(aOriginCreature: AICreature; aTarget: AIThing);
-  procedure EnactBonk(aOriginCreature: AICreature; aTarget: AIThing);
+  procedure EnactGrab(aOriginCreature: AICreature; aTarget: TaiThing);
+  procedure EnactBonk(aOriginCreature: AICreature; aTarget: TaiThing);
   procedure Clean;
   procedure Build(aWidth: integer; aHeight: integer);
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
   procedure Snip(aHandle: integer); overload;
-  procedure Snip(aThing: AIThing); overload;
+  procedure Snip(aThing: TaiThing); overload;
   procedure FullDisplay(aList: TStrings); override;
   function FindWithHandle(aHandle: integer): TaiBaseObject;
 end;
@@ -85,7 +85,7 @@ begin
   gEnvironment := self;
   fSpace := AISpace.Create(self, 20, 11);
   // create an empty list of things
-  fThings := AIThingList.Create(self);
+  fThings := TaiThingList.Create(self);
   // create an empty list of links (thing <-> thing)
   fReferences := AILinkContainer.Create(self);
   fAttachments := AIAttachmentContainer.Create(self);
@@ -219,7 +219,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // cleans all references to this thing
-procedure AIEnvironment.Snip(aThing: AIThing);
+procedure AIEnvironment.Snip(aThing: TaiThing);
 begin
   Snip(aThing.Handle);
 end;
@@ -263,7 +263,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.EnactGrab(aOriginCreature: AICreature; aTarget: AIThing);
+procedure AIEnvironment.EnactGrab(aOriginCreature: AICreature; aTarget: TaiThing);
 begin
   // already holding something?
   if aOriginCreature.Grabber.Holding then exit;
@@ -288,10 +288,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.EnactBonk(aOriginCreature: AICreature; aTarget: AIThing);
+procedure AIEnvironment.EnactBonk(aOriginCreature: AICreature; aTarget: TaiThing);
 var
   myTargetCreature: AICreature;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if aOriginCreature.CloseEnoughToGrab(aTarget) then
   begin

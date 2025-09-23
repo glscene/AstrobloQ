@@ -113,7 +113,7 @@ end;
 // find and grab food
 procedure AITurtle.FindAndGrab(aSpeed: single);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   // check how long we've been chasing
   if (Timer - gReality.Time) > 512 then

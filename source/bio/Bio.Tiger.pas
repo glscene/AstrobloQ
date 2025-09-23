@@ -102,7 +102,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AITiger.Bully;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 
 begin
     // torment

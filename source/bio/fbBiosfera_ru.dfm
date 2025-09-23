@@ -38,6 +38,7 @@ object FormBiosfera: TFormBiosfera
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 1543
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -46,6 +47,7 @@ object FormBiosfera: TFormBiosfera
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 1543
       object tbWater: TToolBar
         Left = 0
         Top = 56
@@ -182,7 +184,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 121
         Caption = 'tbAtmosphere'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -292,7 +294,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 110
         Caption = 'tbGalaxy'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ParentShowHint = False
         ShowCaptions = True
@@ -398,7 +400,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 94
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 3
@@ -553,7 +555,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 81
         Caption = 'tbTools'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 4
@@ -718,7 +720,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 95
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 5
@@ -896,7 +898,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 69
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 6
@@ -1348,7 +1350,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 98
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 8
@@ -1426,7 +1428,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 107
         Caption = 'tbDisasters'
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 9
@@ -1522,7 +1524,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 70
         Color = clActiveBorder
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
@@ -1734,7 +1736,7 @@ object FormBiosfera: TFormBiosfera
         Align = alClient
         ButtonWidth = 86
         EdgeBorders = [ebTop, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
@@ -1931,7 +1933,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 40
         Caption = 'ToolBar1'
         EdgeBorders = [ebLeft, ebTop, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         ShowCaptions = True
         TabOrder = 1
         Wrapable = False
@@ -2022,7 +2024,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 90
         Caption = 'tbFauna'
         EdgeBorders = [ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -2286,7 +2288,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 78
         Caption = 'tbLand'
         EdgeBorders = [ebLeft, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -2455,7 +2457,7 @@ object FormBiosfera: TFormBiosfera
         ButtonWidth = 115
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
@@ -2714,7 +2716,7 @@ object FormBiosfera: TFormBiosfera
         Font.Height = -9
         Font.Name = 'MS Sans Serif'
         Font.Style = []
-        Images = FormImages.ImageListIcons
+        Images = frmImages.ImageListIcons
         List = True
         ParentFont = False
         ShowCaptions = True

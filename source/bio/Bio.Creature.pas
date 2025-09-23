@@ -29,7 +29,7 @@ const
 type
 
 // ============================================================================
-AICreature = class(AILivingThing)
+AICreature = class(TaiLivingThing)
 private
   fGrabber: AIAttachment;   // used to pick things up
   fEyes: AILink;            // used to focus attention
@@ -41,47 +41,42 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   property Grabber: AIAttachment read fGrabber;
   property Eyes: AILink read fEyes;
   property Desire: integer read fDesire write fDesire;
   property NextActivity: integer read fNextActivity write fNextActivity;
   property Size: single read fSize write fSize;
-
   // Actions
   function Eat(const JawSize: integer): boolean; virtual;
-  procedure Grab(aTarget: AIThing); overload;
+  procedure Grab(aTarget: TaiThing); overload;
   procedure Grab; overload;
   procedure Drop;
-  procedure Bonk(aTarget: AIThing); overload;
+  procedure Bonk(aTarget: TaiThing); overload;
   procedure Bonk; overload;
   procedure Use(aSwitch: integer);
-  procedure Kick(aTarget: AIThing; aStrength: single); overload;
+  procedure Kick(aTarget: TaiThing; aStrength: single); overload;
   procedure Kick(aStrength: single); overload;
   procedure KickReturn;
-  procedure KickTowards(aTarget, aDestination: AIThing; aMaxStrength: single);
+  procedure KickTowards(aTarget, aDestination: TaiThing; aMaxStrength: single);
   procedure Throw;
   procedure Give(aCreature: AICreature); overload;
   procedure Give; overload;
-  procedure Attack(aAmount: integer; aTarget: AIThing);
-  function CloseEnoughToGrab(aThing: AIThing): boolean;
+  procedure Attack(aAmount: integer; aTarget: TaiThing);
+  function CloseEnoughToGrab(aThing: TaiThing): boolean;
 
   // AI Code
   procedure Forage(aSpeed: single); overload;
   procedure Forage(aKind: integer; aSpeed: single); overload;
   procedure ForageFruitAndPrey(aSpeed: single);
-
   procedure Cease; override;
   procedure Perform(aActivity: integer); override;
-
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Utilities,
@@ -121,7 +116,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // try to pick up something
-procedure AICreature.Grab(aTarget: AIThing);
+procedure AICreature.Grab(aTarget: TaiThing);
 begin
   // already holding something?
   if Grabber.Holding then exit;
@@ -148,12 +143,12 @@ end;
 // try to pick up something nearby
 procedure AICreature.Grab;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Grabber.Holding then
     exit;
 
-  myThing := AIThing(gEnvironment.Things.Existents.NearestThing(self, Position, 2.5));
+  myThing := TaiThing(gEnvironment.Things.Existents.NearestThing(self, Position, 2.5));
 
   if not (myThing = nil) and not (myThing = self) then
     Grab(myThing);
@@ -163,7 +158,7 @@ end;
 // drop
 procedure AICreature.Drop;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Grabber.Holding then
   begin
@@ -179,7 +174,7 @@ end;
 // give an item to another creature
 procedure AICreature.Give(aCreature: AICreature);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Grabber.Holding then
   begin
@@ -197,7 +192,7 @@ end;
 // give an item to nearest creature
 procedure AICreature.Give;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   myThing := gEnvironment.Things.Existents.NearestThing(self, Position, 2.5);
   if not (myThing = nil) then
@@ -208,9 +203,9 @@ end;
 // ----------------------------------------------------------------------------
 // hit a target
 // if the target is holding something, it drops it
-procedure AICreature.Bonk(aTarget: AIThing);
+procedure AICreature.Bonk(aTarget: TaiThing);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   Assert(Assigned(aTarget));
   if Position.DistancePlusHeightTo(aTarget.Position) < 1.5 then
@@ -231,9 +226,9 @@ end;
 // bonk nearest thing
 procedure AICreature.Bonk;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
-  myThing := AIThing(gEnvironment.Things.Existents.NearestThing(self, Position, 2.5));
+  myThing := TaiThing(gEnvironment.Things.Existents.NearestThing(self, Position, 2.5));
   if not (myThing = nil) then
     Bonk(myThing);
 end;
@@ -242,13 +237,13 @@ end;
 // try to eat whatever the creature is holding
 function AICreature.Eat(const JawSize: integer): boolean;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   result := false;
 
-  if Grabber.Connected and (AIThing(Grabber.Target) is AILivingThing) then
+  if Grabber.Connected and (TaiThing(Grabber.Target) is TaiLivingThing) then
   begin
-    myThing := AIThing(Grabber.Target);
+    myThing := TaiThing(Grabber.Target);
     // absorb health
     Health := Health + myThing.Digest(JawSize);
     // return true if completely eaten
@@ -260,11 +255,11 @@ end;
 procedure AICreature.Use(aSwitch: integer);
 begin
   if Grabber.Connected then
-    AIThing(Grabber.Target).Perform(aSwitch);
+    TaiThing(Grabber.Target).Perform(aSwitch);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICreature.Kick(aTarget: AIThing; aStrength: single);
+procedure AICreature.Kick(aTarget: TaiThing; aStrength: single);
 begin
   if NextActivity > Age then
     exit;
@@ -279,7 +274,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AICreature.Kick(aStrength: single);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if NextActivity > Age then
     exit;
@@ -302,7 +297,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AICreature.Throw;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Grabber.Holding then
   begin
@@ -328,7 +323,7 @@ end;
 // find and grab food
 procedure AICreature.Forage(aSpeed: single);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not Grabber.Holding then
   begin
@@ -365,7 +360,7 @@ end;
 // find and grab food
 procedure AICreature.Forage(aKind: integer; aSpeed: single);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not Grabber.Holding then
   begin
@@ -406,7 +401,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICreature.KickTowards(aTarget, aDestination: AIThing; aMaxStrength: single);
+procedure AICreature.KickTowards(aTarget, aDestination: TaiThing; aMaxStrength: single);
 var
   myStrength: single;
   myDistance: single;
@@ -450,7 +445,7 @@ end;
 procedure AICreature.KickReturn;
 var
   myCreature: AICreature;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if NextActivity > Age then
     exit;
@@ -531,7 +526,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICreature.Attack(aAmount: integer; aTarget: AIThing);
+procedure AICreature.Attack(aAmount: integer; aTarget: TaiThing);
 begin
   if Position.DistancePlusHeightTo(aTarget.Position) < (Position.SizeX + aTarget.Position.SizeX + 1) then
     aTarget.Damage(aAmount);
@@ -539,7 +534,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // close enough to grab?
-function AICreature.CloseEnoughToGrab(aThing: AIThing): boolean;
+function AICreature.CloseEnoughToGrab(aThing: TaiThing): boolean;
 begin
   result :=
     Position.DistancePlusHeightTo(aThing.Position)
@@ -557,7 +552,7 @@ end;
 // find and grab food
 procedure AICreature.ForageFruitAndPrey(aSpeed: single);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not Grabber.Holding then
   begin

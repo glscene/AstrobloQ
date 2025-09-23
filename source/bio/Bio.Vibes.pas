@@ -50,7 +50,7 @@ type
 
 // ============================================================================
 // an individual vibe
-AIVibe = class(AIThing)
+AIVibe = class(TaiThing)
 private
   fEffectType: integer;
   fEffectIndex: integer;
@@ -74,7 +74,7 @@ end;
 
 // ============================================================================
 // an visible string of text
-AISpeech = class(AIThing)
+AISpeech = class(TaiThing)
 private
   fText: string;          // text to communicate
   fRadius: single;        // how widely can it be "heard"

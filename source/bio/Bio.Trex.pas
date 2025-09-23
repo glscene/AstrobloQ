@@ -95,7 +95,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AITrex.Bully;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
     // torment
     if Grabber.Holding then

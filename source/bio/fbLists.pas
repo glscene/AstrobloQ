@@ -132,7 +132,7 @@ end;
 procedure TfrmLists.RefreshThings;
 var
   myIndex: integer;
-  myThing: AIThing;
+  myThing: TaiThing;
   myLastPos: integer;
 begin
   myLastPos := lbThings.ItemIndex;
@@ -144,7 +144,7 @@ begin
 
   for myIndex := 0 to Reality.Environment.Things.Existents.Count -1 do
   begin
-    myThing := AIThing(Reality.Environment.Things.Existents[myIndex]);
+    myThing := TaiThing(Reality.Environment.Things.Existents[myIndex]);
 
     if not ((myThing is AIPlant) or (myThing is AIEvolvingPlant)) or cbPlants.Checked then
     if not (myThing is AICreature) or cbCreatures.Checked then
@@ -206,33 +206,33 @@ end;
 
 procedure TfrmLists.btnDeleteClick(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
-    myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
+    myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
     myThing.Cease;
   end;
 end;
 
 procedure TfrmLists.btnViewClick(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
-    myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
+    myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
     frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
   end;
 end;
 
 procedure TfrmLists.lbThingsDblClick(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
-    myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
+    myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
     frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
   end;
 end;
@@ -244,11 +244,11 @@ end;
 
 procedure TfrmLists.btnTrackClick(Sender: TObject);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
-    myThing := AIThing(lbThings.Items.Objects[lbThings.ItemIndex]);
+    myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
     frmFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(myThing);
   end;
 end;

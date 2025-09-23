@@ -24,7 +24,7 @@ const
 type
 
 // ============================================================================
-AIFireTree = class(AIThing)
+AIFireTree = class(TaiThing)
 private
   fFire: single;
   fBurning: boolean;

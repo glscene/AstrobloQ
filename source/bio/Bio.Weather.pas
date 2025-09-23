@@ -18,7 +18,7 @@ uses
 type
 
 // ============================================================================
-AICloud = class(AIThing)
+AICloud = class(TaiThing)
 private
   fWater: single;
   fRaining: boolean;
@@ -39,7 +39,7 @@ public
 end;
 
 // ============================================================================
-AILightning = class(AIThing)
+AILightning = class(TaiThing)
 private
   fLifeTime: integer;
 protected
@@ -55,7 +55,7 @@ public
 end;
 
 // ============================================================================
-AIIceberg = class(AIThing)
+AIIceberg = class(TaiThing)
 private
   fWater: single;
 public
@@ -77,7 +77,7 @@ public
 end;
 
 // ============================================================================
-AIEarthquake = class(AIThing)
+AIEarthquake = class(TaiThing)
 private
   fRumble: single;
   procedure SetRumble(aValue: single);

@@ -1,4 +1,4 @@
-object fmTutorial: TfmTutorial
+object FormTutorial: TFormTutorial
   Left = 325
   Top = 87
   Margins.Left = 2
@@ -30,7 +30,7 @@ object fmTutorial: TfmTutorial
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 421
+    ExplicitWidth = 432
   end
   object Panel2: TPanel
     Left = 0
@@ -40,8 +40,8 @@ object fmTutorial: TfmTutorial
     Align = alClient
     BorderWidth = 10
     TabOrder = 1
-    ExplicitWidth = 421
-    ExplicitHeight = 437
+    ExplicitWidth = 432
+    ExplicitHeight = 496
     object redIntro: TRichEdit
       Left = 11
       Top = 11
@@ -89,7 +89,8 @@ object fmTutorial: TfmTutorial
         '- Load other worlds'
         '- Save your world'
         ''
-        'Now that you have a basic scene made, '#11
+        'Now that you have a basic scene made, '
+        ''
         ''
         'you can let it run and watch as the world grow.'
         '')
@@ -97,8 +98,6 @@ object fmTutorial: TfmTutorial
       ReadOnly = True
       ScrollBars = ssBoth
       TabOrder = 0
-      ExplicitWidth = 407
-      ExplicitHeight = 440
     end
   end
   object Panel3: TPanel
@@ -108,8 +107,8 @@ object fmTutorial: TfmTutorial
     Height = 41
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 478
-    ExplicitWidth = 421
+    ExplicitTop = 537
+    ExplicitWidth = 432
     object Panel4: TPanel
       Left = 330
       Top = 1
@@ -118,7 +117,7 @@ object fmTutorial: TfmTutorial
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 311
+      ExplicitLeft = 322
       object btnRun: TBitBtn
         Left = 18
         Top = 6

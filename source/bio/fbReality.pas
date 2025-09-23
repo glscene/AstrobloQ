@@ -581,9 +581,9 @@ end;
 
 procedure TFormReality.menuTutorialClick(Sender: TObject);
 var
-  myfmTutorial: TfmTutorial;
+  myfmTutorial: TFormTutorial;
 begin
-  myfmTutorial := TfmTutorial.Create(self);
+  myfmTutorial := TFormTutorial.Create(self);
   myfmTutorial.ShowModal;
   myfmTutorial.Free;
 end;

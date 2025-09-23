@@ -29,7 +29,7 @@ const
 type
 
 // ============================================================================
-AICommunity = class(AILivingGroup)
+TaiCommunity = class(TaiLivingGroup)
 private
   fPattern: integer;        // movement of the group
   fCenter: TAffineVector;   // center coordinate of the group
@@ -48,8 +48,8 @@ public
   property Angle: single read fAngle write fAngle;
   property Admit: integer read fAdmit write fAdmit;
 
-  function AddMember(aMember: AIThing): boolean; override;
-  procedure NotifyOfDeath(aThing: AIThing);
+  function AddMember(aMember: TaiThing): boolean; override;
+  procedure NotifyOfDeath(aThing: TaiThing);
 
   procedure Fuel; override;
   function OneLineDisplay: string; override;
@@ -60,7 +60,8 @@ public
 end;
 
 // ============================================================================
-AICommunityCreature = class(AICreature)
+
+TaiCommunityCreature = class(AICreature)
 private
   fCommunity: AILink;   // community this creature belongs to
   fAvoidance: TAffineVector;
@@ -70,31 +71,26 @@ protected
   function CommunityAvoidanceXY(aBubble: single): TAffineVector;
   procedure JoinCommunity;
   procedure LeaveCommunity;
-
 //  procedure FlyWithCommunity;
 //  procedure TravelWithCommunity;
   procedure SwimWithCommunity;
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   property Community: AILink read fCommunity;
   property Avoidance: TAffineVector read fAvoidance write fAvoidance;
   property Bump: boolean read fBump write fBump;
-
   procedure AvoidNeighbour;
-
   procedure Fuel; override;
   procedure Die; override;
   procedure Cease; override;
-
   procedure ReaffirmCommunity; // for loading
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation
+implementation // -----------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -105,7 +101,7 @@ uses
   Bio.Fish;
 
 // ----------------------------------------------------------------------------
-constructor AICommunity.Create(aParent: pointer);
+constructor TaiCommunity.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -117,14 +113,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AICommunity.Destroy;
+destructor TaiCommunity.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunity.Fuel;
+procedure TaiCommunity.Fuel;
 begin
   inherited Fuel;
 
@@ -144,9 +140,9 @@ end;
 // ----------------------------------------------------------------------------
 // finds center of Community (avg of all members)
 // and finds velocity of Community (avg of all members)
-procedure AICommunity.CalculateCenters;
+procedure TaiCommunity.CalculateCenters;
 var
-  myCreature, myNeighbour: AICommunityCreature;
+  myCreature, myNeighbour: TaiCommunityCreature;
   i, j, RigidCount: integer;
   Participation: integer;
   myDistance: single;
@@ -166,7 +162,7 @@ begin
   // for all birds
   for i := 0 to Members.Count - 1 do
   begin
-    myCreature := AICommunityCreature(Members.Items[i]);
+    myCreature := TaiCommunityCreature(Members.Items[i]);
     // add to center
     fCenter.X := fCenter.X + myCreature.Position.X;
     fCenter.Y := fCenter.Y + myCreature.Position.Y;
@@ -188,7 +184,7 @@ begin
     for j := 0 to Members.Count - 1 do
       if i <> j then
         begin
-          myNeighbour := AICommunityCreature(Members.Items[j]);
+          myNeighbour := TaiCommunityCreature(Members.Items[j]);
           myDistance := myCreature.Position.SimpleDistanceTo(myNeighbour.Position);
           if myDistance < (0.2 + myCreature.Size + myNeighbour.Size)/2 then
           begin
@@ -236,7 +232,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AICommunityCreature.Create(aParent: pointer);
+constructor TaiCommunityCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -244,7 +240,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AICommunityCreature.Destroy;
+destructor TaiCommunityCreature.Destroy;
 begin
   LeaveCommunity;
   gEnvironment.References.Remove(fCommunity);
@@ -255,19 +251,19 @@ end;
 // ----------------------------------------------------------------------------
 // assumes in a flock
 // avoid any nearby birds
-function AICommunityCreature.CommunityAvoidance(aBubble: single): TAffineVector;
+function TaiCommunityCreature.CommunityAvoidance(aBubble: single): TAffineVector;
 var
-  myFriend: AICommunityCreature;
+  myFriend: TaiCommunityCreature;
   i, RigidCount: integer;
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
-  myCommunity := AICommunity(Community.Target);
+  myCommunity := TaiCommunity(Community.Target);
   RigidCount := myCommunity.Members.Count - 1;
 
   // find the first creature that is nearby and return avoidance vector
   for i := 0 to RigidCount do
   begin
-    myFriend := AICommunityCreature(myCommunity.Members.Items[i]);
+    myFriend := TaiCommunityCreature(myCommunity.Members.Items[i]);
     if (myFriend <> self) then
     begin
       if Position.SimpleDistanceTo(myFriend.Position)/2 < aBubble then
@@ -284,18 +280,18 @@ end;
 // ----------------------------------------------------------------------------
 // assumes in a flock
 // avoid any nearby birds
-function AICommunityCreature.CommunityAvoidanceXY(aBubble: single): TAffineVector;
+function TaiCommunityCreature.CommunityAvoidanceXY(aBubble: single): TAffineVector;
 var
-  myFriend: AICommunityCreature;
+  myFriend: TaiCommunityCreature;
   i, RigidCount: integer;
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
-  myCommunity := AICommunity(Community.Target);
+  myCommunity := TaiCommunity(Community.Target);
   RigidCount := myCommunity.Members.Count;
 
   for i := 0 to RigidCount - 1 do
   begin
-    myFriend := AICommunityCreature(myCommunity.Members.Items[i]);
+    myFriend := TaiCommunityCreature(myCommunity.Members.Items[i]);
     if (myFriend <> self) then
     begin
       if Position.SimpleDistanceToXY(myFriend.Position) < aBubble then
@@ -309,9 +305,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.JoinCommunity;
+procedure TaiCommunityCreature.JoinCommunity;
 var
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
   // already in a community?
   if Community.ValidTarget then
@@ -323,7 +319,7 @@ begin
   // if there are no Communitys, create one
   if (myCommunity = nil) and (gThings.CanAdd(cCommunity)) then
   begin
-    myCommunity := AICommunity(gThings.NewThing(cCommunity));
+    myCommunity := TaiCommunity(gThings.NewThing(cCommunity));
     myCommunity.Admit := Kind; // set this community to allow only my kind
   end;
 
@@ -337,17 +333,17 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.LeaveCommunity;
+procedure TaiCommunityCreature.LeaveCommunity;
 begin
   if Community.ValidTarget then
   begin
-    AICommunity(Community.Target).RemoveMember(self);
+    TaiCommunity(Community.Target).RemoveMember(self);
     Community.InvalidateTarget;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.Fuel;
+procedure TaiCommunityCreature.Fuel;
 begin
   inherited Fuel;
 
@@ -357,7 +353,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.Die;
+procedure TaiCommunityCreature.Die;
 begin
   inherited Die;
 
@@ -365,7 +361,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.Cease;
+procedure TaiCommunityCreature.Cease;
 begin
   LeaveCommunity;
   gThings.Tables[cCommunity].NotifyAllCommunitiesOfDeath(self);
@@ -374,7 +370,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.SaveToFile(var aFile: TextFile);
+procedure TaiCommunityCreature.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   fCommunity.SaveToFile(aFile);
@@ -383,7 +379,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.LoadFromFile(var aFile: TextFile);
+procedure TaiCommunityCreature.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   fCommunity.LoadFromFile(aFile);
@@ -394,7 +390,7 @@ end;
 // ----------------------------------------------------------------------------
 // returns true if the member was added,
 // returns false if group is full
-function AICommunity.AddMember(aMember: AIThing): boolean;
+function TaiCommunity.AddMember(aMember: TaiThing): boolean;
 begin
   result := false;
 
@@ -403,7 +399,7 @@ begin
     exit;
 
   // already in a community?
-  if AICommunityCreature(aMember).Community.ValidTarget then
+  if TaiCommunityCreature(aMember).Community.ValidTarget then
     exit;
 
   // add member
@@ -411,11 +407,11 @@ begin
 
   // assign the community to the new member
   if result then
-    AICommunityCreature(aMember).Community.AssignTarget(self);
+    TaiCommunityCreature(aMember).Community.AssignTarget(self);
 end;
 
 // ----------------------------------------------------------------------------
-function AICommunity.OneLineDisplay: string;
+function TaiCommunity.OneLineDisplay: string;
 begin
   result := GetName
     + Format(' %d %s=%d/%d Admit=%d Pattern=%d Angle=%0.2f ',
@@ -425,9 +421,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.SwimWithCommunity;
+procedure TaiCommunityCreature.SwimWithCommunity;
 var
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
   myForce: TAffineVector;
 begin
   if not Position.UnderWater then exit;
@@ -435,7 +431,7 @@ begin
   // in a Community?
   if Community.ValidTarget then
   begin
-    myCommunity := AICommunity(Community.Target);
+    myCommunity := TaiCommunity(Community.Target);
     // Boids
     // http://www.vergenet.net/~conrad/boids/pseudocode.html
     // Rule 1: Boids try to fly towards the centre of mass of neighbouring boids.
@@ -465,7 +461,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunity.SaveToFile(var aFile: TextFile);
+procedure TaiCommunity.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fPattern);
@@ -476,7 +472,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunity.LoadFromFile(var aFile: TextFile);
+procedure TaiCommunity.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fPattern);
@@ -487,14 +483,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.AvoidNeighbour;
+procedure TaiCommunityCreature.AvoidNeighbour;
 begin
 //  Position.Velocity.ApplyForce(fAvoidance);
   Position.Velocity.ApplyForce(fAvoidance.X/10, fAvoidance.Y/10, fAvoidance.Z/10);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunity.FullDisplay(aList: TStrings);
+procedure TaiCommunity.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -506,7 +502,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.FullDisplay(aList: TStrings);
+procedure TaiCommunityCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -514,19 +510,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunity.NotifyOfDeath(aThing: AIThing);
+procedure TaiCommunity.NotifyOfDeath(aThing: TaiThing);
 begin
   RemoveMember(aThing);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICommunityCreature.ReaffirmCommunity;
+procedure TaiCommunityCreature.ReaffirmCommunity;
 var
-  myCommunity: AICommunity;
+  myCommunity: TaiCommunity;
 begin
   if Community.ValidTarget then
   begin
-    myCommunity := AICommunity(Community.Target);
+    myCommunity := TaiCommunity(Community.Target);
     Community.InvalidateTarget;
     myCommunity.AddMember(self);
   end;

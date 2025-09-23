@@ -32,7 +32,7 @@ gUniqueHandle: integer;
 gReality: AIReality;
 gEnvironment: AIEnvironment;
 gSpace: AISpace;
-gThings: AIThingList;
+gThings: TaiThingList;
 
 gGravity: AIForce;
 gAirFriction: AIForce;

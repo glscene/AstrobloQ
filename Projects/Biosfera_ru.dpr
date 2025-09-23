@@ -64,7 +64,7 @@ uses
   fbMaximums_ru in '..\source\bio\fbMaximums_ru.pas' {FormMaximums},
   fbNewReality_ru in '..\source\bio\fbNewReality_ru.pas' {FormNewReality},
   fbPhotograph_ru in '..\source\bio\fbPhotograph_ru.pas' {FormPhotograph},
-  fbReality_ru in '..\source\bio\fbReality_ru.pas' {fmReality},
+  fbReality_ru in '..\source\bio\fbReality_ru.pas' {FormReality},
   fbSatellite_ru in '..\source\bio\fbSatellite_ru.pas' {FormSatellite},
   fbSettings_ru in '..\source\bio\fbSettings_ru.pas' {FormSettings},
   fbSpirit_ru in '..\source\bio\fbSpirit_ru.pas' {FormSpirit},
@@ -78,8 +78,8 @@ uses
   fbDNAR in '..\source\bio\fbDNAR.pas' {FormDNA},
   fbError_ru in '..\source\bio\fbError_ru.pas' {FormError},
   fbTip_ru in '..\source\bio\fbTip_ru.pas' {FormTip},
-  fbSplash_ru in '..\source\bio\fbSplash_ru.pas' {fmSplash},
-  fbImages_ru in '..\source\bio\fbImages_ru.pas' {FormImages},
+  fbSplash_ru in '..\source\bio\fbSplash_ru.pas' {FormSplash},
+  fbImages_ru in '..\source\bio\fbImages_ru.pas' {frmImages},
   Bio.Things in '..\source\bio\Bio.Things.pas',
   Bio.Utilities in '..\source\bio\Bio.Utilities.pas',
   fbTutorial_ru in '..\source\bio\fbTutorial_ru.pas' {FormTutorial},
@@ -97,7 +97,7 @@ begin
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmLists, frmLists);
   Application.CreateForm(TfrmConstruction, frmConstruction);
-  Application.CreateForm(TFormImages, FormImages);
+  Application.CreateForm(TfrmImages, frmImages);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.

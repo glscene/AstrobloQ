@@ -27,15 +27,13 @@ type
 
 // ============================================================================
 // an individual Tool
-AITool = class(AIThing)
+AITool = class(TaiThing)
 private
   fNextUse: integer;
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   property NextUse: integer read fNextUse write fNextUse;
-
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
@@ -82,22 +80,19 @@ private
   function UsageString: string;
 public
   constructor Create(aParent: pointer);
-
   property Usage: integer read fUsage write fUsage;
   property Pop: integer read fPop write fPop;
   property Rate: integer read fRate write SetRate;
   property Amount: single read fAmount write fAmount;
-
   procedure Fuel; override;
   procedure Perform(aActivity: integer); override;
-
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -336,7 +331,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIBeacon.PopThing(aKind: integer);
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if not gThings.CanAdd(aKind) then exit;
 

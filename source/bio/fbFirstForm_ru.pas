@@ -33,7 +33,7 @@ type
     procedure ShowTimerTimer(Sender: TObject);
     procedure FormPaint(Sender: TObject);
   private
-    FRealityForm: TfmReality;
+    FRealityForm: TFormReality;
     FDetectedMonitors: integer;
     FMonitors: integer;
     FScreen: TScreen;
@@ -46,7 +46,7 @@ type
     property Monitors: integer read FMonitors write FMonitors;
     property UserSettings: TUserSettings read FUserSettings;
     property Construction: TfrmConstruction read FConstruction;
-    property RealityForm: TfmReality read FRealityForm;
+    property RealityForm: TFormReality read FRealityForm;
     function MultipleMonitors: boolean;
     procedure AppException(Sender: TObject; E: Exception);
     procedure ShowIntro;
@@ -96,7 +96,7 @@ begin
   else
     ShowTimer.Interval := 1;
   // create and go to reality form (goes to Manager Form, then Space Form)
-  FRealityForm := TfmReality.Create(Self);
+  FRealityForm := TFormReality.Create(Self);
 end;
 
 procedure TfrmFirst.FormDestroy(Sender: TObject);
@@ -155,7 +155,7 @@ begin
           RealityForm.ShutDown;
           FRealityForm.Free;
           SetCurrentDir(ExtractFilePath(ParamStr(0)));
-          FRealityForm := TfmReality.Create(Self);
+          FRealityForm := TFormReality.Create(Self);
           RealityForm.StartUp(myFileName);
           if myFileName = 'new.air' then
             RealityForm.StartReality
@@ -184,9 +184,9 @@ end;
 
 procedure TfrmFirst.ShowSplash;
 var
-  mySplash: TfmSplash;
+  mySplash: TFormSplash;
 begin
-  mySplash := TfmSplash.Create(Self);
+  mySplash := TFormSplash.Create(Self);
   mySplash.ShowModal;
   mySplash.Refresh;
   mySplash.Free;

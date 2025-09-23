@@ -995,7 +995,7 @@ type
     procedure CleanGalaxy;
     procedure ReportUserEvent(aEvent: string);
     procedure PopUpTargetWindow;
-    procedure FindTarget(aThing: AIThing);
+    procedure FindTarget(aThing: TaiThing);
     procedure EmptyAllSounds;
     procedure FullDisplay(aLines: TStrings);
     procedure InformOfStart;
@@ -1351,7 +1351,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.SetCameraByTarget;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   if Assigned(TargetToFollow) then
   begin
@@ -1525,7 +1525,7 @@ var
 begin
   if not(TargetToFollow = nil) then
   begin
-    TargetPosition := AIThing(TargetToFollow.Data).Position;
+    TargetPosition := TaiThing(TargetToFollow.Data).Position;
     FocusObject := TGLBaseSceneObject(TargetToFollow.SubVisuals[0]);
 
     if TargetPosition.Binding = bindLand then
@@ -1539,7 +1539,7 @@ begin
     ViewDestination.Fuel;
     ViewZoom := 0;
 
-    StatusBar.Panels[2].Text := AIThing(TargetToFollow.Data).OneLineDisplay;
+    StatusBar.Panels[2].Text := TaiThing(TargetToFollow.Data).OneLineDisplay;
 
     if ViewOffset < 2 then
       ViewOffset := 2;
@@ -1557,7 +1557,7 @@ var
 begin
   if not(HiddenTarget = nil) then
   begin
-    TargetPosition := AIThing(HiddenTarget.Data).Position;
+    TargetPosition := TaiThing(HiddenTarget.Data).Position;
     FocusObject := FloatCube;
 
     ViewDestination.FullCopy(TargetPosition);
@@ -1575,7 +1575,7 @@ begin
 
     GLCamera.NearPlaneBias := 0.001;
 
-    StatusBar.Panels[2].Text := AIThing(TargetToFollow.Data).OneLineDisplay;
+    StatusBar.Panels[2].Text := TaiThing(TargetToFollow.Data).OneLineDisplay;
 
     CoordinatesFromPosition(ViewTarget, ViewUp, FloatCube.Position);
   end
@@ -1961,17 +1961,17 @@ begin
     if TargetToFollow = nil then
       exit;
     if isKeyDown('a') then
-      AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaX(-0.05);
+      TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaX(-0.05);
     if isKeyDown('d') then
-      AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaX(0.05);
+      TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaX(0.05);
     if isKeyDown('w') then
-      AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaY(-0.05);
+      TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaY(-0.05);
     if isKeyDown('s') then
-      AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaY(0.05);
+      TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaY(0.05);
     if isKeyDown('f') then
-      AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight(-0.05);
+      TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight(-0.05);
     if isKeyDown('r') then
-      AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight(0.05);
+      TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight(0.05);
   end;
 end;
 
@@ -1984,7 +1984,7 @@ begin
     StatusBar.Panels[1].Text := '';
 
   if Assigned(TargetToFollow) then
-    StatusBar.Panels[2].Text := AIThing(TargetToFollow.Data).OneLineDisplay;
+    StatusBar.Panels[2].Text := TaiThing(TargetToFollow.Data).OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
@@ -2125,7 +2125,7 @@ end;
 function TFormBiosfera.CheckCradle: TCrossover;
 var
   i: Integer;
-  myThing: AIThing;
+  myThing: TaiThing;
   myCount: Integer;
 begin
   result := nil;
@@ -2136,7 +2136,7 @@ begin
     // take new things from cradle
     for i := 0 to myCount - 1 do
     begin
-      myThing := AIThing(Environment.Things.Cradle.Items[i]);
+      myThing := TaiThing(Environment.Things.Cradle.Items[i]);
       case myThing.Kind of
         cApple:
           BuildApple(AIFruit(myThing));
@@ -2240,7 +2240,7 @@ procedure TFormBiosfera.CheckPurgatory;
 var
   i: Integer;
   myCrossover: TCrossover;
-  myThing: AIThing;
+  myThing: TaiThing;
   myCount: Integer;
 begin
   myCount := Environment.Things.Purgatory.Count;
@@ -2249,7 +2249,7 @@ begin
   begin
     for i := 0 to myCount - 1 do
     begin
-      myThing := AIThing(Environment.Things.Purgatory.Items[i]);
+      myThing := TaiThing(Environment.Things.Purgatory.Items[i]);
       if myThing.Kind = cSpeech then
       begin
         myCrossover := fSpeeches.FindCrossoverByData(myThing);
@@ -2290,7 +2290,7 @@ procedure TFormBiosfera.CheckTrash;
 var
   i: Integer;
   myCrossover: TCrossover;
-  myThing: AIThing;
+  myThing: TaiThing;
   myCount: Integer;
 begin
   myCount := Environment.Things.Trash.Count;
@@ -2299,7 +2299,7 @@ begin
   begin
     for i := 0 to myCount - 1 do
     begin
-      myThing := AIThing(Environment.Things.Trash.Items[i]);
+      myThing := TaiThing(Environment.Things.Trash.Items[i]);
       // myCrossover := myThing.Crossover;
       myCrossover := Satellites.FindCrossoverByData(myThing);
       if Assigned(myCrossover) then
@@ -2413,14 +2413,14 @@ begin
         then
         begin
           // move by horizontal mouse movement
-          AIThing(TargetToFollow.Data).Position.Velocity.ApplyAngularForce
+          TaiThing(TargetToFollow.Data).Position.Velocity.ApplyAngularForce
             (ViewDestination.DirectionXY - HalfPi, (X - mouse_x) / 128);
           // move by vertical mouse movement along Y
-          AIThing(TargetToFollow.Data).Position.Velocity.ApplyAngularForce
+          TaiThing(TargetToFollow.Data).Position.Velocity.ApplyAngularForce
             (ViewDestination.DirectionXY, (Y - mouse_y) / 128 *
             cos(ViewDestination.DirectionH));
           // move by vertical mouse movement along Height
-          AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight
+          TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight
             ((mouse_y - Y) / 128 * sin(ViewDestination.DirectionH));
         end;
       end;
@@ -2446,27 +2446,27 @@ begin
         camFree, camAvatar, camEyes:
           begin
             // move by horizontal mouse movement
-            AIThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
+            TaiThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
               (ViewDestination.DirectionXY + HalfPi, (X - mouse_x) / 128.0);
             // move by vertical mouse movement along Y
-            AIThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
+            TaiThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
               (ViewDestination.DirectionXY, (Y - mouse_y) / 128.0 *
               cos(ViewDestination.DirectionH));
             // move by vertical mouse movement along Height
-            AIThing(PlayTarget.Data).Position.Velocity.AlterDeltaHeight
+            TaiThing(PlayTarget.Data).Position.Velocity.AlterDeltaHeight
               ((mouse_y - Y) / 128.0 * sin(ViewDestination.DirectionH));
           end;
       else
         begin
           // move by horizontal mouse movement
-          AIThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
+          TaiThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
             (ViewDestination.DirectionXY - HalfPi, (X - mouse_x) / 128.0);
           // move by vertical mouse movement along Y
-          AIThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
+          TaiThing(PlayTarget.Data).Position.Velocity.ApplyAngularForce
             (ViewDestination.DirectionXY, (Y - mouse_y) / 128.0 *
             cos(ViewDestination.DirectionH));
           // move by vertical mouse movement along Height
-          AIThing(PlayTarget.Data).Position.Velocity.AlterDeltaHeight
+          TaiThing(PlayTarget.Data).Position.Velocity.AlterDeltaHeight
             ((mouse_y - Y) / 128.0 * sin(ViewDestination.DirectionH));
         end;
       end; // case
@@ -2611,7 +2611,7 @@ procedure TFormBiosfera.RefreshSatellites;
 var
   i: Integer;
   myCrossover: TCrossover;
-  myThing: AIThing;
+  myThing: TaiThing;
 begin
   for i := 0 to Satellites.Count - 1 do
   begin
@@ -5144,7 +5144,7 @@ end;
 
 procedure TFormBiosfera.AddNewTree(aKind: Integer; aLocation: AIGrid);
 var
-  myTree: AIThing;
+  myTree: TaiThing;
   X, Y: single;
 begin
   if not gThings.CanAdd(aKind) then
@@ -5165,7 +5165,7 @@ begin
     not gThings.Tables[cEvolvingTree].HasKindWithinXY(cEvolvingTree, X, Y, 5)
     and not gThings.Tables[cFireTree].HasKindWithinXY(cFireTree, X, Y, 5) then
   begin
-    myTree := AIThing(gThings.NewThing(aKind));
+    myTree := TaiThing(gThings.NewThing(aKind));
     if myTree <> nil then
       myTree.Position.SetPosition(X, Y, 0);
   end;
@@ -6248,7 +6248,7 @@ end;
 
 procedure TFormBiosfera.tbControlBotClick(Sender: TObject);
 begin
-  if not Assigned(TargetToFollow) or (AIThing(TargetToFollow.Data).Kind <> cBot)
+  if not Assigned(TargetToFollow) or (TaiThing(TargetToFollow.Data).Kind <> cBot)
   then
     if Satellites.SetCrossoverByKind(cBot) then
     begin
@@ -6257,7 +6257,7 @@ begin
     end;
 
   if Assigned(TargetToFollow) then
-    if AIThing(TargetToFollow.Data).Kind = cBot then
+    if TaiThing(TargetToFollow.Data).Kind = cBot then
     begin
       ControlBot := TargetToFollow.Data;
       ControllingBot := true;
@@ -6944,7 +6944,7 @@ var
   i, j, k: Integer;
   myPosition: AIPosition;
 begin
-  myPosition := AIThing(TargetToFollow.Data).Position;
+  myPosition := TaiThing(TargetToFollow.Data).Position;
   // add tracking trail
   AddToTrail(myPosition, TrackLines);
 
@@ -7737,8 +7737,8 @@ procedure TFormBiosfera.tbCeaseClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    LastAction('Cease: ' + AIThing(TargetToFollow.Data).OneLineDisplay);
-    AIThing(TargetToFollow.Data).Cease;
+    LastAction('Cease: ' + TaiThing(TargetToFollow.Data).OneLineDisplay);
+    TaiThing(TargetToFollow.Data).Cease;
   end;
 end;
 
@@ -7757,7 +7757,7 @@ begin
   end;
 end;
 
-procedure TFormBiosfera.FindTarget(aThing: AIThing);
+procedure TFormBiosfera.FindTarget(aThing: TaiThing);
 var
   myTarget: TCrossover;
 begin
@@ -7911,9 +7911,9 @@ procedure TFormBiosfera.tbDieClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    LastAction('Die: ' + AIThing(TargetToFollow.Data).OneLineDisplay);
-    if (AIThing(TargetToFollow.Data) is AILivingThing) then
-      AILivingThing(TargetToFollow.Data).Die;
+    LastAction('Die: ' + TaiThing(TargetToFollow.Data).OneLineDisplay);
+    if (TaiThing(TargetToFollow.Data) is TaiLivingThing) then
+      TaiLivingThing(TargetToFollow.Data).Die;
   end;
 end;
 
@@ -7921,9 +7921,9 @@ procedure TFormBiosfera.tbHealClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    if (AIThing(TargetToFollow.Data) is AILivingThing) then
-      AILivingThing(TargetToFollow.Data).Health :=
-        AILivingThing(TargetToFollow.Data).Health + 256;
+    if (TaiThing(TargetToFollow.Data) is TaiLivingThing) then
+      TaiLivingThing(TargetToFollow.Data).Health :=
+        TaiLivingThing(TargetToFollow.Data).Health + 256;
   end;
 end;
 
@@ -7931,7 +7931,7 @@ procedure TFormBiosfera.tbPerform0Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Perform(0);
+    TaiThing(TargetToFollow.Data).Perform(0);
   end;
 end;
 
@@ -7939,7 +7939,7 @@ procedure TFormBiosfera.tbPerform1Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Perform(1);
+    TaiThing(TargetToFollow.Data).Perform(1);
   end;
 end;
 
@@ -7947,7 +7947,7 @@ procedure TFormBiosfera.tbPerform2Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Perform(2);
+    TaiThing(TargetToFollow.Data).Perform(2);
   end;
 end;
 
@@ -7955,7 +7955,7 @@ procedure TFormBiosfera.tbPerform3Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Perform(3);
+    TaiThing(TargetToFollow.Data).Perform(3);
   end;
 end;
 
@@ -7963,7 +7963,7 @@ procedure TFormBiosfera.tbPerform4Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Perform(4);
+    TaiThing(TargetToFollow.Data).Perform(4);
   end;
 end;
 
@@ -7971,7 +7971,7 @@ procedure TFormBiosfera.tbPerform5Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Perform(5);
+    TaiThing(TargetToFollow.Data).Perform(5);
   end;
 end;
 
@@ -7981,12 +7981,12 @@ var
 begin
   if (TargetToFollow <> nil) then
   begin
-    myKind := AIThing(TargetToFollow.Data).Kind;
-    if (MessageDlg('Are you sure you want an extinction of ' +
+    myKind := TaiThing(TargetToFollow.Data).Kind;
+    if (MessageDlg('Желаете гибели ' +
       ThingNamePlural(myKind) + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes)
     then
     begin
-      LastAction('Extinction: ' + ThingNamePlural(myKind));
+      LastAction('Гибель: ' + ThingNamePlural(myKind));
       gThings.Tables[myKind].KillEverything;
     end;
   end;
@@ -8005,7 +8005,7 @@ end;
 {
   procedure Tfm3DEnvironment.DisplayMouseObjectInfo;
   var
-  myThing: AIThing;
+  myThing: TaiThing;
   objPos, winPos : TAffineVector;
   myCrossover: TCrossover;
   myVisual: TGLBaseSceneObject;
@@ -8764,7 +8764,7 @@ procedure TFormBiosfera.tbJumpClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    AIThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight(0.5);
+    TaiThing(TargetToFollow.Data).Position.Velocity.AlterDeltaHeight(0.5);
   end;
 end;
 
@@ -9037,9 +9037,9 @@ procedure TFormBiosfera.tbHarmClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
-    if (AIThing(TargetToFollow.Data) is AILivingThing) then
-      AILivingThing(TargetToFollow.Data).Health :=
-        AILivingThing(TargetToFollow.Data).Health - 256;
+    if (TaiThing(TargetToFollow.Data) is TaiLivingThing) then
+      TaiLivingThing(TargetToFollow.Data).Health :=
+        TaiLivingThing(TargetToFollow.Data).Health - 256;
   end;
 end;
 
@@ -9103,7 +9103,7 @@ end;
 procedure TFormBiosfera.tbReportClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
-    AIThing(TargetToFollow.Data).Report;
+    TaiThing(TargetToFollow.Data).Report;
 end;
 
 procedure TFormBiosfera.tbSpeechesClick(Sender: TObject);
@@ -9263,7 +9263,7 @@ begin
   if TargetToFollow = nil then
     exit;
 
-  if Satellites.SetCrossoverByKind(AIThing(TargetToFollow.Data).Kind) then
+  if Satellites.SetCrossoverByKind(TaiThing(TargetToFollow.Data).Kind) then
   begin
     TargetToFollow := Satellites.ActiveItem;
     SetCameraByTarget;

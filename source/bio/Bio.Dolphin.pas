@@ -29,7 +29,7 @@ const
 type
 
 // ============================================================================
-AIDolphin = class(AICommunityCreature)
+AIDolphin = class(TaiCommunityCreature)
 private
   fSensor: AIPosition;  // used to detect land/water
   fFlipper: integer;    // animation state
@@ -171,7 +171,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIDolphin.FindFood;
 var
-  myThing: AIThing;
+  myThing: TaiThing;
   targetHeight: single;
 begin
   targetHeight := Position.Water - 2;
