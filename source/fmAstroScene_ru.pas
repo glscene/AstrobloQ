@@ -61,7 +61,7 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  fmFormI,
+  fmFormFirst,
 
   fmSolarsys_ru,
   fmStarsys_ru,
@@ -73,7 +73,7 @@ uses
 
 
 type
-  TfrmAstroScene = class(TFormI)
+  TfrmAstroScene = class(TfrmFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;

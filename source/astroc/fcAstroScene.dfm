@@ -1,7 +1,7 @@
 object frmAstroScene: TfrmAstroScene
   Left = 0
   Top = 0
-  Caption = 'AstroSceneC'
+  Caption = 'AstroScene'
   ClientHeight = 510
   ClientWidth = 891
   Color = clBtnFace
@@ -526,7 +526,7 @@ object frmAstroScene: TfrmAstroScene
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = 'AstroSceneC'
+    FormCaption = 'AstroScene'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

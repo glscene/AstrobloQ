@@ -18,7 +18,7 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  fmFormI in '..\source\fmFormI.pas' {FormI},
+  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},
   Space.Globals in '..\source\Space.Globals.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
@@ -34,7 +34,7 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TfrmFirst, frmFirst);
   Application.Run;
 end.
 

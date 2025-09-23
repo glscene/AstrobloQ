@@ -22,7 +22,7 @@ uses
   Space.Globals in '..\source\Space.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
-  fmFormI in '..\source\fmFormI.pas' {FormI},
+  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   frParams_ru in '..\source\frParams_ru.pas' {FrameParamsR: TFrame},
   fmStarsys_ru in '..\source\fmStarsys_ru.pas' {frmStarsys},
   fmSolarsys_ru in '..\source\fmSolarsys_ru.pas' {frmSolarsys},
@@ -49,7 +49,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

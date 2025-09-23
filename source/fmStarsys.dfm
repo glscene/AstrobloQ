@@ -1,4 +1,4 @@
-object frmStarSys: TfrmStarSys
+object FormStarsys: TFormStarsys
   Left = 193
   Top = 128
   Caption = 'Star system'

@@ -16,12 +16,12 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
 
-  fmFormI,
-///  fStarLife,
+  fmFormFirst,
+///  fmStarLife,
   fStarProj;
 
 type
-  TFormMonitor = class(TFormI)
+  TFormMonitor = class(TfrmFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     TreeView1: TTreeView;

@@ -22,12 +22,12 @@ uses
   GLS.Scene,
   GLS.SceneViewer,
 
-  fmFormI,
+  fmFormFirst,
   Astro.ReadHyg,
   Astro.Utils;
 
 type
-  TFormHercrussel = class(TFormI)
+  TFormHercrussel = class(TfrmFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLMaterialLibrary1: TGLMaterialLibrary;

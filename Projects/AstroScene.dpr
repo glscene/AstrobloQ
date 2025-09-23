@@ -12,10 +12,10 @@ program AstroScene;
 uses
   Forms,
   fmAstroScene in '..\source\fmAstroScene.pas' {frmAstroScene},
-  fmFormI in '..\source\fmFormI.pas' {FormI: TDataModule},
+  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
-  fmGenStarsys in '..\source\fmGenStarsys.pas' {frmGenStarsys},
+  fmGenStarsys in '..\source\fmGenStarsys.pas' {FormGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
@@ -23,9 +23,9 @@ uses
   Space.ReadCSV in '..\source\Space.ReadCSV.pas',
   fmOptions in '..\source\fmOptions.pas' {frmOptions},
   Space.Globals in '..\source\Space.Globals.pas',
-  fmSolarsys in '..\source\fmSolarsys.pas' {frmSolarSys},
+  fmSolarsys in '..\source\fmSolarsys.pas' {FormSolarSys},
   frParams in '..\source\frParams.pas' {FrameParams: TFrame},
-  fmStarsys in '..\source\fmStarsys.pas' {frmStarSys},
+  fmStarsys in '..\source\fmStarsys.pas' {FormStarsys},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   fmConstells in '..\source\fmConstells.pas' {frmConstells},
@@ -51,7 +51,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TFormI, FormI);
+  Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

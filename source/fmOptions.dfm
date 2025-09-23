@@ -24,7 +24,7 @@ object frmOptions: TfrmOptions
       811
       29)
     object ButtonOK: TButton
-      Left = 480
+      Left = 472
       Top = 3
       Width = 70
       Height = 23
@@ -33,6 +33,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
+      ExplicitLeft = 480
     end
   end
   object PanelMiddle: TPanel

@@ -1,4 +1,4 @@
-object frmSolarSys: TfrmSolarSys
+object FormSolarSys: TFormSolarSys
   Left = 193
   Top = 128
   Caption = 'Solar system'

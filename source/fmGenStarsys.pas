@@ -200,7 +200,7 @@ type
   end;
 
 type
-  TfrmGenStarsys = class(TForm)
+  TFormGenStarsys = class(TForm)
     GLSceneViewerA: TGLSceneViewer;
     GLCadencerA: TGLCadencer;
     GLMaterialLibraryA: TGLMaterialLibrary;
@@ -504,7 +504,7 @@ type
   end;
 
 var
-  frmGenStarsys: TfrmGenStarsys;
+  FormGenStarsys: TFormGenStarsys;
 
 //=============================================================================
 implementation
@@ -518,7 +518,7 @@ var
 
 {$R *.DFM}
 
-procedure TfrmGenStarsys.FormCreate(Sender: TObject);
+procedure TFormGenStarsys.FormCreate(Sender: TObject);
 begin
   { top := ABCreatorFormY;
     left := ABCreatorFormX; }
@@ -566,14 +566,14 @@ begin
   ClearBtnClick(Sender);
 end;
 
-procedure TfrmGenStarsys.FormShow(Sender: TObject);
+procedure TFormGenStarsys.FormShow(Sender: TObject);
 begin
   dmx := 1;
   dmy := 1; // To get the Flare to Display at Startup
   GLSceneViewerA.SetFocus;
 end;
 
-procedure TfrmGenStarsys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormGenStarsys.FormClose(Sender: TObject; var Action: TCloseAction);
 var
   j: Integer;
 begin
@@ -613,17 +613,17 @@ begin
     ABCreatorFormX := ABCreatorForm.left; }
 end;
 
-procedure TfrmGenStarsys.ExitBtnClick(Sender: TObject);
+procedure TFormGenStarsys.ExitBtnClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmGenStarsys.HelpBtnClick(Sender: TObject);
+procedure TFormGenStarsys.HelpBtnClick(Sender: TObject);
 begin
   Application.HelpContext(2000);
 end;
 
-procedure TfrmGenStarsys.ClearBtnClick(Sender: TObject);
+procedure TFormGenStarsys.ClearBtnClick(Sender: TObject);
 var
   j: Integer;
 begin
@@ -700,7 +700,7 @@ begin
   Running := True;
 end;
 
-procedure TfrmGenStarsys.ClearData;
+procedure TFormGenStarsys.ClearData;
 var
   DCCenter: TGLBaseSceneObject;
 begin
@@ -745,7 +745,7 @@ begin
   DebrisUpDown.Position := 0;
 end;
 
-procedure TfrmGenStarsys.ClearDataEdits;
+procedure TFormGenStarsys.ClearDataEdits;
 begin
   NameEdit.Text := 'Star';
   RadiusEdit.Text := '10000';
@@ -792,14 +792,14 @@ begin
 end;
 
 //----------------------------------------------------------
-procedure TfrmGenStarsys.LoadBtnClick(Sender: TObject);
+procedure TFormGenStarsys.LoadBtnClick(Sender: TObject);
 begin
 //  SetCurrentDir(Application.ExeName);
   OpenDialog.Filter := 'Universal Definition(*.spud)|*.spud';
   OpenDialog.InitialDir := ExtractFilePath(EarthModelPath);
   if OpenDialog.Execute then
   begin
-    frmGenStarsys.Caption := 'Загрузка';
+    FormGenStarsys.Caption := 'Загрузка';
 ///   FormABCreator.ProcessMessages; // при авто-создании форм
     ClearBtnClick(Sender);
     EarthModelPath := ExtractFilePath(OpenDialog.filename);
@@ -818,7 +818,7 @@ end;
   GetTurnAngle   FRotation.Y;
   GetRollAngle    FRotation.Z; }
 
-procedure TfrmGenStarsys.CreateGLSolarSystem(filename: string);
+procedure TFormGenStarsys.CreateGLSolarSystem(filename: string);
 var
   RingType, LevelCount, Level2Count, i, j, k: Integer;
   CheckVersionDataTmp: TVersionData;
@@ -2321,7 +2321,7 @@ end;
 *)
 
 { --------------------------------------------------- }
-procedure TfrmGenStarsys.SaveBtnClick(Sender: TObject);
+procedure TFormGenStarsys.SaveBtnClick(Sender: TObject);
 begin
   SaveDialog.Filter := 'Universal Definition(*.spud)|*.spud';
   SaveDialog.InitialDir := ExtractFilePath(EarthModelPath);
@@ -2332,7 +2332,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.SaveGLSolarSystem(filename: string);
+procedure TFormGenStarsys.SaveGLSolarSystem(filename: string);
 var
   i, j: Integer;
   F: file;
@@ -2377,7 +2377,7 @@ begin
   Closefile(F);
 end;
 
-procedure TfrmGenStarsys.PlanetsRGClick(Sender: TObject);
+procedure TFormGenStarsys.PlanetsRGClick(Sender: TObject);
 var
   tempbool: Boolean;
 begin
@@ -2426,7 +2426,7 @@ end;
 
 //------------------------------------------------------------
 //
-procedure TfrmGenStarsys.StoreBtnClick(Sender: TObject);
+procedure TFormGenStarsys.StoreBtnClick(Sender: TObject);
 begin
   // GLCadencer1.Enabled:=False;
   case SSORG.ItemIndex of
@@ -3311,7 +3311,7 @@ end;
 
 //------------------------------------------------------------------------
 
-procedure TfrmGenStarsys.ShowBtnClick(Sender: TObject);
+procedure TFormGenStarsys.ShowBtnClick(Sender: TObject);
 begin // a Brainiac could Get Save and Set the data...
   nbS3dsCB.Checked := False; { S3dsTex }
   case SSORG.ItemIndex of
@@ -4353,7 +4353,7 @@ end;
 {
   Сохранение в текстовый файл
   и вызов System to Open THAT... для печати }
-procedure TfrmGenStarsys.PrintBtnClick(Sender: TObject);
+procedure TFormGenStarsys.PrintBtnClick(Sender: TObject);
 var
   i, j: Integer;
   F: TextFile;
@@ -5191,7 +5191,7 @@ begin
   ShellExecute(0, 'open', PChar(EarthModelPath + 'Spud.txt'), '', '', SW_SHOW);
 end;
 
-procedure TfrmGenStarsys.PickActiveCBClick(Sender: TObject);
+procedure TFormGenStarsys.PickActiveCBClick(Sender: TObject);
 { var i,Proxyi:Integer; }
 begin
   (* If (PickActiveCB.Checked) then
@@ -5210,7 +5210,7 @@ begin
     Children[0].children[Proxyi].Visible:=True; *)
 end;
 
-procedure TfrmGenStarsys.SunShineCBClick(Sender: TObject);
+procedure TFormGenStarsys.SunShineCBClick(Sender: TObject);
 begin
   { If (PickActiveCB.Checked) then
     begin
@@ -5222,19 +5222,19 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.GLSceneViewerABeforeRender(Sender: TObject);
+procedure TFormGenStarsys.GLSceneViewerABeforeRender(Sender: TObject);
 begin
   If SunShineCB.Checked then
     SunShineFlare.PreRender(Sender as TGLSceneBuffer);
 end;
 
-procedure TfrmGenStarsys.SunShineTBChange(Sender: TObject);
+procedure TFormGenStarsys.SunShineTBChange(Sender: TObject);
 begin
   SunShineFlare.Size := SunShineTB.Position;
   SunShineLabel.Caption := Inttostr(SunShineTB.Position);
 end;
 
-procedure TfrmGenStarsys.LabelTBChange(Sender: TObject);
+procedure TFormGenStarsys.LabelTBChange(Sender: TObject);
 var
   Temp: Double;
 begin
@@ -5249,7 +5249,7 @@ end;
   This could be done automatically with some code
   that uses the Bounding box of the 3ds object
   and scales that to fit the desired 'diameter' }
-procedure TfrmGenStarsys.S3dsScalerTBChange(Sender: TObject);
+procedure TFormGenStarsys.S3dsScalerTBChange(Sender: TObject);
 var
   Scale, i, j: Integer;
 begin
@@ -5353,7 +5353,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TfrmGenStarsys.TimeTrackBarChange(Sender: TObject);
+procedure TFormGenStarsys.TimeTrackBarChange(Sender: TObject);
 begin
   SolarTimeMultiplier := (HoursTimeTrackBar.Position / 24) *
     TimeTrackBar.Position;
@@ -5363,7 +5363,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TfrmGenStarsys.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormGenStarsys.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     #27:
@@ -5379,7 +5379,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TfrmGenStarsys.PlanetPickerCBChange(Sender: TObject);
+procedure TFormGenStarsys.PlanetPickerCBChange(Sender: TObject);
 begin
   If PlanetPickerCB.ItemIndex > 0 then
   begin
@@ -5397,7 +5397,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TfrmGenStarsys.RunBtnClick(Sender: TObject);
+procedure TFormGenStarsys.RunBtnClick(Sender: TObject);
 begin { Running selects action inside Cadencer }
   // Allow camera movement without moving planets
   Running := True; // Cadencer Always running, Timer Toggled as FPS
@@ -5405,7 +5405,7 @@ begin { Running selects action inside Cadencer }
     Timer1.Enabled:=True; }
 end;
 
-procedure TfrmGenStarsys.TimerATimer(Sender: TObject);
+procedure TFormGenStarsys.TimerATimer(Sender: TObject);
 begin
   { Caption:=Format('%d Comet particles, %.1f FPS',
     [GLCometParticles.Count-1, GLSceneViewerA.FramesPerSecond]); }
@@ -5416,7 +5416,7 @@ begin
   GLSceneViewerA.ResetPerformanceMonitor;
 end;
 
-procedure TfrmGenStarsys.StopBtnClick(Sender: TObject);
+procedure TFormGenStarsys.StopBtnClick(Sender: TObject);
 begin
   { GLCadencer1.Enabled:=False;
     Timer1.Enabled:=False; }
@@ -5427,7 +5427,7 @@ end;
 
 //-----------------------------------------------------------------------
 
-procedure TfrmGenStarsys.GLCadencerAProgress(Sender: TObject;
+procedure TFormGenStarsys.GLCadencerAProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   i, j, kometcount: Integer;
@@ -5731,7 +5731,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.AddToTrail(const p: TGLVector);
+procedure TFormGenStarsys.AddToTrail(const p: TGLVector);
 var
   i, k: Integer;
 begin
@@ -5749,7 +5749,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.GLSceneViewerAMouseDown(Sender: TObject;
+procedure TFormGenStarsys.GLSceneViewerAMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
   s, ss: String;
@@ -5866,7 +5866,7 @@ end;
   The 'Case' statments could set the RadioGroups and Call 'Show' button
   to Display the data...
   still dont know what DocIndex will do... }
-procedure TfrmGenStarsys.DataDisplayer(Switch, Spec, Species, SubSpecies,
+procedure TFormGenStarsys.DataDisplayer(Switch, Spec, Species, SubSpecies,
   Spec3ds: Integer);
 var
   s1, s: String;
@@ -5966,12 +5966,12 @@ Begin
   end;
 end;
 
-procedure TfrmGenStarsys.GLSceneViewerAMouseEnter(Sender: TObject);
+procedure TFormGenStarsys.GLSceneViewerAMouseEnter(Sender: TObject);
 begin
   GLSceneViewerA.SetFocus; // GLSceneViewer.Focused;
 end;
 
-procedure TfrmGenStarsys.GLSceneViewerAMouseMove(Sender: TObject;
+procedure TFormGenStarsys.GLSceneViewerAMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if ((ssLeft in Shift) and (ssCtrl in Shift)) then
@@ -5998,20 +5998,20 @@ begin
   my := Y;
 end;
 
-procedure TfrmGenStarsys.CFLTrackBarChange(Sender: TObject);
+procedure TFormGenStarsys.CFLTrackBarChange(Sender: TObject);
 begin
   CameraFocalLength := CFLTrackBar.Position;
   GLCamera.FocalLength := CameraFocalLength;
   CFLLabel.Caption := Inttostr(Round(GLCamera.FocalLength));
 end;
 
-procedure TfrmGenStarsys.GLSceneViewerAMouseUp(Sender: TObject;
+procedure TFormGenStarsys.GLSceneViewerAMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   PickedObj := nil;
 end;
 
-procedure TfrmGenStarsys.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormGenStarsys.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   F: Single;
@@ -6028,7 +6028,7 @@ begin { Going away or Not too close: WheelDelta Value is 120 or -120 }
   Handled := True;
 end;
 
-procedure TfrmGenStarsys.CameraDistanceUpDownClick(Sender: TObject;
+procedure TFormGenStarsys.CameraDistanceUpDownClick(Sender: TObject;
   Button: TUDBtnType);
 var
   WheelDeltas: Integer;
@@ -6047,13 +6047,13 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.DisplayToolbar1Click(Sender: TObject);
+procedure TFormGenStarsys.DisplayToolbar1Click(Sender: TObject);
 begin
   DisplayToolbar1.Checked := (not DisplayToolbar1.Checked);
   ToggleToolbarDisplay;
 end;
 
-procedure TfrmGenStarsys.ToggleToolbarDisplay;
+procedure TFormGenStarsys.ToggleToolbarDisplay;
 Begin
   If DisplayToolbar1.Checked then
   begin // SolarOrbPanel
@@ -6089,7 +6089,7 @@ Begin
   end;
 End;
 
-procedure TfrmGenStarsys.DisplayFPS1Click(Sender: TObject);
+procedure TFormGenStarsys.DisplayFPS1Click(Sender: TObject);
 begin
   DisplayFPS1.Checked := (not DisplayFPS1.Checked);
   If DisplayFPS1.Checked then
@@ -6103,7 +6103,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.FullScreen1Click(Sender: TObject);
+procedure TFormGenStarsys.FullScreen1Click(Sender: TObject);
 begin { fig FullScreen ? }
   GLSceneViewerA.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -6120,64 +6120,64 @@ begin { fig FullScreen ? }
   GLSceneViewerA.OnMouseMove := GLSceneViewerAMouseMove;
 end;
 
-procedure TfrmGenStarsys.GLSceneViewerADblClick(Sender: TObject);
+procedure TFormGenStarsys.GLSceneViewerADblClick(Sender: TObject);
 begin
   FullScreen1Click(Sender);
 end;
 
-procedure TfrmGenStarsys.PlanetsLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.PlanetsLoadFakeTextureClick(Sender: TObject);
 begin
   PlanetsLoadFakeTexture.Checked := (not PlanetsLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.RingsLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.RingsLoadFakeTextureClick(Sender: TObject);
 begin
   RingsLoadFakeTexture.Checked := (not RingsLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.MoonsLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.MoonsLoadFakeTextureClick(Sender: TObject);
 begin
   MoonsLoadFakeTexture.Checked := (not MoonsLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.S3dsLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.S3dsLoadFakeTextureClick(Sender: TObject);
 begin
   S3dsLoadFakeTexture.Checked := (not S3dsLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.AsteroidsLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.AsteroidsLoadFakeTextureClick(Sender: TObject);
 begin
   AsteroidsLoadFakeTexture.Checked := (not AsteroidsLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.CometsLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.CometsLoadFakeTextureClick(Sender: TObject);
 begin
   CometsLoadFakeTexture.Checked := (not CometsLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.DebrisLoadFakeTextureClick(Sender: TObject);
+procedure TFormGenStarsys.DebrisLoadFakeTextureClick(Sender: TObject);
 begin
   DebrisLoadFakeTexture.Checked := (not DebrisLoadFakeTexture.Checked);
 end;
 
-procedure TfrmGenStarsys.DocIndexLinkCBClick(Sender: TObject);
+procedure TFormGenStarsys.DocIndexLinkCBClick(Sender: TObject);
 begin
   { DocIndexLinkCB.Checked := (not DocIndexLinkCB.Checked); }
 end;
 
-procedure TfrmGenStarsys.AtmosphereOnCBClick(Sender: TObject);
+procedure TFormGenStarsys.AtmosphereOnCBClick(Sender: TObject);
 begin
   { Cant really 'Focus' on a Planet so Atmosphere is kinda a waste }
   { AtmosphereOnCB.Checked := (not AtmosphereOnCB.Checked); }
 end;
 
-procedure TfrmGenStarsys.UseOrbitalElementsCBClick(Sender: TObject);
+procedure TFormGenStarsys.UseOrbitalElementsCBClick(Sender: TObject);
 begin
   { UseOrbitalElementsCB.Checked := (not UseOrbitalElementsCB.Checked); }
 
 end;
 
-procedure TfrmGenStarsys.LabelsOnCBClick(Sender: TObject);
+procedure TFormGenStarsys.LabelsOnCBClick(Sender: TObject);
 begin { HUDLabel }
   GLFlatTextLabel.Visible := LabelsOnCB.Checked;
   { LabelsOnCB.Checked := (not LabelsOnCB.Checked); }
@@ -6190,7 +6190,7 @@ begin { HUDLabel }
     component. Default character scale is 1 font pixel = 1 space unit. }
 end;
 
-procedure TfrmGenStarsys.SelectFontMenuClick(Sender: TObject);
+procedure TFormGenStarsys.SelectFontMenuClick(Sender: TObject);
 begin
   FontDialogA.Font := WindowsBitmapFontA.Font;
   FontDialogA.Font.Color := GLFlatTextLabel.ModulateColor.AsWinColor;
@@ -6201,7 +6201,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.OrbitTrailsOnCBClick(Sender: TObject);
+procedure TFormGenStarsys.OrbitTrailsOnCBClick(Sender: TObject);
 var
   i: Integer;
 begin { Clear at start AND End }
@@ -6211,18 +6211,18 @@ begin { Clear at start AND End }
   { OrbitTrailsOnCB.Checked := (not OrbitTrailsOnCB.Checked); }
 end;
 
-procedure TfrmGenStarsys.DatePickerCBClick(Sender: TObject);
+procedure TFormGenStarsys.DatePickerCBClick(Sender: TObject);
 begin
   DateTimePicker1.Visible := (DatePickerCB.Checked);
 end;
 
-procedure TfrmGenStarsys.DateTimePicker1Change(Sender: TObject);
+procedure TFormGenStarsys.DateTimePicker1Change(Sender: TObject);
 begin
   ShowMessage(Datetostr(DateTimePicker1.Date));
   OrbitalTime := DateTimePicker1.Date;
 end;
 
-procedure TfrmGenStarsys.MoonScalex0Click(Sender: TObject);
+procedure TFormGenStarsys.MoonScalex0Click(Sender: TObject);
 begin
   MoonScale := 0;
   Case MoonScale of
@@ -6235,7 +6235,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.MoonScalex10Click(Sender: TObject);
+procedure TFormGenStarsys.MoonScalex10Click(Sender: TObject);
 begin
   MoonScale := 10;
   Case MoonScale of
@@ -6248,7 +6248,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.MoonScalex50Click(Sender: TObject);
+procedure TFormGenStarsys.MoonScalex50Click(Sender: TObject);
 begin
   MoonScale := 50;
   Case MoonScale of
@@ -6261,7 +6261,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.SunScale20Click(Sender: TObject);
+procedure TFormGenStarsys.SunScale20Click(Sender: TObject);
 begin
   SunScale := 20;
   Case SunScale of
@@ -6274,7 +6274,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.SunScale200Click(Sender: TObject);
+procedure TFormGenStarsys.SunScale200Click(Sender: TObject);
 begin
   SunScale := 200;
   Case SunScale of
@@ -6287,7 +6287,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.SunScale2000Click(Sender: TObject);
+procedure TFormGenStarsys.SunScale2000Click(Sender: TObject);
 begin
   SunScale := 2000;
   Case SunScale of
@@ -6300,7 +6300,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.OrbitTrails36Click(Sender: TObject);
+procedure TFormGenStarsys.OrbitTrails36Click(Sender: TObject);
 begin
   MaxLines := 36;
   Case MaxLines of
@@ -6315,7 +6315,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.OrbitTrails360Click(Sender: TObject);
+procedure TFormGenStarsys.OrbitTrails360Click(Sender: TObject);
 begin
   MaxLines := 360;
   Case MaxLines of
@@ -6330,7 +6330,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.OrbitTrails1000Click(Sender: TObject);
+procedure TFormGenStarsys.OrbitTrails1000Click(Sender: TObject);
 begin
   MaxLines := 1000;
   Case MaxLines of
@@ -6345,7 +6345,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.OrbitTrails3600Click(Sender: TObject);
+procedure TFormGenStarsys.OrbitTrails3600Click(Sender: TObject);
 begin
   MaxLines := 3600;
   Case MaxLines of
@@ -6360,7 +6360,7 @@ begin
   end;
 end;
 
-procedure TfrmGenStarsys.SpudVersionConvertor1Click(Sender: TObject);
+procedure TFormGenStarsys.SpudVersionConvertor1Click(Sender: TObject);
 begin
   ///HoloSpudVCForm.Show;
 end;

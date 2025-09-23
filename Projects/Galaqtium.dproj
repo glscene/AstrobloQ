@@ -160,8 +160,8 @@
         </DCCReference>
         <DCCReference Include="..\source\Space.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\fmFormI.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="..\source\fmFormFirst.pas">
+            <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgAstrocube.pas">

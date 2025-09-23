@@ -20,10 +20,10 @@ uses
   Vcl.Imaging.pngimage,
   Vcl.Buttons,
 
-  fmFormI;
+  fmFormFirst;
 
 type
-  TFormAbout = class(TFormI)
+  TFormAbout = class(TfrmFirst)
     PanelAstrobloQ: TPanel;
     PageControl: TPageControl;
     tsDevelopers: TTabSheet;

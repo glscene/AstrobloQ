@@ -39,8 +39,6 @@ object FormAbout: TFormAbout
     ActivePage = tsLitosfera
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 724
-    ExplicitHeight = 530
     object tsAstroScene: TTabSheet
       Caption = 'AstroScene'
       object ImagePlanets: TImage

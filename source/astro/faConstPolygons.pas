@@ -25,10 +25,10 @@ uses
   GLS.Scene,
 
   Astro.Utils,
-  fmFormI;
+  fmFormFirst;
 
 type
-  TFormConstPolygons = class(TFormI)
+  TFormConstPolygons = class(TfrmFirst)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;

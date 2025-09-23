@@ -47,7 +47,7 @@ uses
   GLS.Color,
   GLS.SpaceText,
 
-  fmFormI,
+  fmFormFirst,
   fmAbout,
   fmSettings,
 
@@ -65,7 +65,7 @@ uses
   Astro.Utils;
 
 type
-  TfrmGalaqtium = class(TFormI)
+  TfrmGalaqtium = class(TfrmFirst)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;

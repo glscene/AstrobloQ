@@ -35,10 +35,10 @@ uses
 
   Space.Globals,
   dmImages,
-  fmFormI;
+  fmFormFirst;
 
 type
-  TfrmSettings = class(TFormI)
+  TfrmSettings = class(TfrmFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;

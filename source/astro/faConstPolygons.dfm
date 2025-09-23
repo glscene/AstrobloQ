@@ -20,7 +20,6 @@ object FormConstPolygons: TFormConstPolygons
     Height = 443
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 418
     object tvShortNames: TTreeView
       Left = 1
       Top = 41

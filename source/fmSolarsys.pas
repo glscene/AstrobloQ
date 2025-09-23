@@ -52,12 +52,12 @@ uses
   GLS.LensFlare,
 
   fmOptions,
-  fmFormI,
+  fmFormFirst,
   frParams
   ;
 
 type
-  TfrmSolarSys = class(TFormI)
+  TFormSolarSys = class(TfrmFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
@@ -194,7 +194,7 @@ type
   end;
 
 var
-  frmSolarSys: TfrmSolarSys;
+  FormSolarSys: TFormSolarSys;
 const
   cOmega = 10;  // angular velocity
 
@@ -202,7 +202,7 @@ implementation //-----------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmSolarSys.FormCreate;
+procedure TFormSolarSys.FormCreate;
 begin
   PathToData := ExtractFilePath(ParamStr(0))  + 'data';
   SetCurrentDir(PathToData);
@@ -275,7 +275,7 @@ end;
 
 // FormShow
 //
-procedure TfrmSolarSys.FormShow(Sender: TObject);
+procedure TFormSolarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
@@ -285,7 +285,7 @@ end;
 
 // Hide Panels
 //
-procedure TfrmSolarSys.miHidePanelsClick(Sender: TObject);
+procedure TFormSolarSys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
@@ -296,7 +296,7 @@ begin
     miHidePanels.Caption := 'Show panels';
 end;
 
-procedure TfrmSolarSys.miInnerCoreClick(Sender: TObject);
+procedure TFormSolarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   TreeViewClick(Self);
@@ -306,14 +306,14 @@ end;
 
 // Open File dialog
 //
-procedure TfrmSolarSys.Open1Click(Sender: TObject);
+procedure TFormSolarSys.Open1Click(Sender: TObject);
 begin
   //
 end;
 
 // CadencerProgress
 //
-procedure TfrmSolarSys.CadencerProgress(Sender: TObject;
+procedure TFormSolarSys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
@@ -356,7 +356,7 @@ end;
 
 // Show Orbit Lines
 //
-procedure TfrmSolarSys.cbOrbitClick(Sender: TObject);
+procedure TFormSolarSys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
@@ -372,7 +372,7 @@ end;
 
 // Rotate Solar System
 //
-procedure TfrmSolarSys.cbRotationClick(Sender: TObject);
+procedure TFormSolarSys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
@@ -380,14 +380,14 @@ end;
 
 // Show Habitable Zone
 //
-procedure TfrmSolarSys.cbHabitableZoneClick(Sender: TObject);
+procedure TFormSolarSys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
 // TreeViewChange
 //
-procedure TfrmSolarSys.TreeViewChange(Sender: TObject; Node: TTreeNode);
+procedure TFormSolarSys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
   begin
@@ -400,7 +400,7 @@ end;
 
 // TreeViewClick
 //
-procedure TfrmSolarSys.TreeViewClick(Sender: TObject);
+procedure TFormSolarSys.TreeViewClick(Sender: TObject);
 var
   i: integer;
 begin
@@ -754,7 +754,7 @@ end;
 
 // MouseDown
 //
-procedure TfrmSolarSys.SceneViewerMouseDown;
+procedure TFormSolarSys.SceneViewerMouseDown;
 begin
   newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
@@ -768,7 +768,7 @@ end;
 
 // GetObjects
 //
-procedure TfrmSolarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
+procedure TFormSolarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
   Node: TTreeNode;
@@ -788,7 +788,7 @@ end;
 //
 // UpdateTreeView
 //
-procedure TfrmSolarSys.UpdateTreeView;
+procedure TFormSolarSys.UpdateTreeView;
 
 begin
   TreeView.Items.Clear;
@@ -797,7 +797,7 @@ end;
 
 // AddBBox
 //
-procedure TfrmSolarSys.AddBBox;
+procedure TFormSolarSys.AddBBox;
 const
   c = 0.5;
   d = 0.3;
@@ -860,7 +860,7 @@ end;
 
 // UpdateBBox
 //
-procedure TfrmSolarSys.UpdateBBox;
+procedure TFormSolarSys.UpdateBBox;
 var
   v1, v2: TVector3f;
 
@@ -889,7 +889,7 @@ end;
 
 // Sys_doglRender
 //
-procedure TfrmSolarSys.Sys_doglRender;
+procedure TFormSolarSys.Sys_doglRender;
 begin
   if PickObject <> nil then
   begin
@@ -902,7 +902,7 @@ end;
 
 // AsyncTimerTimer
 //
-procedure TfrmSolarSys.AsyncTimerTimer;
+procedure TFormSolarSys.AsyncTimerTimer;
 begin
   Caption := 'Solar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
@@ -910,21 +910,21 @@ end;
 
 // About
 //
-procedure TfrmSolarSys.About1Click(Sender: TObject);
+procedure TFormSolarSys.About1Click(Sender: TObject);
 begin
   ShowMessage('Lithosphere');
 end;
 
 // Exit
 //
-procedure TfrmSolarSys.Exit1Click(Sender: TObject);
+procedure TFormSolarSys.Exit1Click(Sender: TObject);
 begin
   Close;
 end;
 
 // Form Close
 //
-procedure TfrmSolarSys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormSolarSys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
 end;

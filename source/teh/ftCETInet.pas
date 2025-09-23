@@ -41,10 +41,10 @@ uses
   GLS.Coordinates,
 
   GLS.BaseClasses,
-  fmFormI;
+  fmFormFirst;
 
 type
-  TFormCETI = class(TFormI)
+  TFormCETI = class(TfrmFirst)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;

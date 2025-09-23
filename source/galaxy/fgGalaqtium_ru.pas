@@ -48,7 +48,7 @@ uses
   GLS.SpaceText,
   GLS.VectorLists,
 
-  fmFormI,
+  fmFormFirst,
   fmAbout_ru,
 
   dmImages,
@@ -65,7 +65,7 @@ uses
   ;
 
 type
-  TfrmGalaqtium = class(TFormI)
+  TfrmGalaqtium = class(TfrmFirst)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;

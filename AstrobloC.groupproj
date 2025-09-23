@@ -12,9 +12,6 @@
         <Projects Include="Addons\Starbox\GenStarc.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Addons\FermiPX\Starnetc.cbproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -50,23 +47,14 @@
     <Target Name="GenStarc:Make">
         <MSBuild Projects="Addons\Starbox\GenStarc.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="Starnetc">
-        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj"/>
-    </Target>
-    <Target Name="Starnetc:Clean">
-        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Starnetc:Make">
-        <MSBuild Projects="Addons\FermiPX\Starnetc.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroSceneC;StarViewerC;GenStarc;Starnetc"/>
+        <CallTarget Targets="AstroSceneC;StarViewerC;GenStarc"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroSceneC:Clean;StarViewerC:Clean;GenStarc:Clean;Starnetc:Clean"/>
+        <CallTarget Targets="AstroSceneC:Clean;StarViewerC:Clean;GenStarc:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroSceneC:Make;StarViewerC:Make;GenStarc:Make;Starnetc:Make"/>
+        <CallTarget Targets="AstroSceneC:Make;StarViewerC:Make;GenStarc:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

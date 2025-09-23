@@ -2,9 +2,9 @@
 // This unit is part of AstroLibrary
 //-------------------------------------
 
-unit fmFormI;
+unit fmFormFirst;
 
-(* The fmForm unit for TFormI class as parent for all child forms *)
+(* The fmFormI unit for TfrmI class as parent for all child forms *)
 
 interface
 
@@ -18,7 +18,7 @@ uses
   Vcl.ExtDlgs;
 
 type
-  TFormI = class(TForm)
+  TfrmFirst = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -26,28 +26,28 @@ type
   end;
 
 var
-  FormI: TFormI;
+  frmFirst: TfrmFirst;
 
 implementation //----------------------------------------------------------
 
 {$R *.dfm}
 
 //
-procedure TFormI.FormCreate(Sender: TObject);
+procedure TfrmFirst.FormCreate(Sender: TObject);
 begin
   ReadInifile;
 end;
 
 //----------------------------------------------------------
 
-procedure TFormI.ReadIniFile;
+procedure TfrmFirst.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   with IniFile do
     try
-      //Options.Param := ReadInteger('frmOptions', 'Param', 200);
+      //Options.Param := ReadInteger('FormOptions', 'Param', 200);
     finally
       IniFile.Free;
     end;

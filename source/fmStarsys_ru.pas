@@ -50,13 +50,13 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
-  fmFormI,
+  fmFormFirst,
   fmOptions_ru,
   frParams_ru
   ;
 
 type
-  TfrmStarsys = class(TFormI)
+  TfrmStarsys = class(TfrmFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

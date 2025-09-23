@@ -1,4 +1,4 @@
-object frmGenStarsys: TfrmGenStarsys
+object FormGenStarsys: TFormGenStarsys
   Left = 30
   Top = 20
   Caption = 'Star system generator'

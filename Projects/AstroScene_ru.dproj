@@ -127,8 +127,8 @@
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmFormI.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="..\source\fmFormFirst.pas">
+            <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\frParams_ru.pas">

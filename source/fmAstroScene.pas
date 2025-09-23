@@ -68,7 +68,7 @@ uses
   fmSettings,
   fmGenStarsys,
 
-  fmFormI,
+  fmFormFirst,
   fmAbout,
 
   faCoordinates,
@@ -80,7 +80,7 @@ uses
 
 
 type
-  TfrmAstroScene = class(TFormI) // not translated when TForm
+  TfrmAstroScene = class(TfrmFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -850,7 +850,7 @@ end;
 //------------------------------------------------------------------
 procedure TfrmAstroScene.miSolarSystemClick(Sender: TObject);
 begin
-  with TfrmSolarSys.Create(Self) do
+  with TFormSolarsys.Create(Self) do
     try
       ShowModal;
     finally
@@ -863,7 +863,7 @@ end;
 // -----------------------------------------------------------------
 procedure TfrmAstroScene.miStarsysClick(Sender: TObject);
 begin
-  with TfrmStarSys(Self) do
+  with TFormStarsys(Self) do
     try
       ShowModal;
     finally
@@ -1004,7 +1004,7 @@ begin
   if FileExists(AppPath + 'EarthAbcde.exe') then
     ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
 *)
-  with TfrmGenStarsys.Create(Self) do
+  with TFormGenStarsys.Create(Self) do
     try
       ShowModal;
     finally
@@ -1012,7 +1012,7 @@ begin
     end;
  (*
   // New exoplanet system
-  with TFrmNewSystem.Create(Self) do
+  with TFormNewSystem.Create(Self) do
     try
       ShowModal;
     finally

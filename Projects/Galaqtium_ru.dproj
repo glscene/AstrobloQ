@@ -136,8 +136,8 @@
             <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\fmFormI.pas">
-            <Form>FormI</Form>
+        <DCCReference Include="..\source\fmFormFirst.pas">
+            <Form>frmFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgAnalyser_ru.pas">
             <Form>FormAnalyser</Form>

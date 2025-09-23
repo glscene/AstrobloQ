@@ -31,10 +31,10 @@ uses
   Vcl.Themes,
 
   Space.Globals,
-  fmFormI;
+  fmFormFirst;
 
 type
-  TfrmOptions = class(TFormI)
+  TfrmOptions = class(TfrmFirst)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;

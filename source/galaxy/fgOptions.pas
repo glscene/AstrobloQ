@@ -35,10 +35,10 @@ uses
 
   Space.Globals,
   dmImages,
-  fmFormI;
+  fmFormFirst;
 
 type
-  TfrmOption = class(TFormI)
+  TfrmOption = class(TfrmFirst)
     PanelBottom: TPanel;
     PanelMain: TPanel;
     tvSettings: TTreeView;
