@@ -26,7 +26,7 @@ type
 
 // ============================================================================
 // an individual Trex
-AITrex = class(AICreature)
+AITrex = class(TaiCreature)
 protected
   procedure Bully;
 public
@@ -42,7 +42,7 @@ implementation
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Bird,
   Bio.Vibes, Bio.Utilities;
 

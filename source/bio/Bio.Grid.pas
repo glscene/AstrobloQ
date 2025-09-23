@@ -1,6 +1,6 @@
 unit Bio.Grid;
 (*
-  Node AIGrid
+  Node TaiGrid
   This class holds the grid component of the map.
 *)
 
@@ -67,7 +67,7 @@ const
   cMaxTempFlow = 0.5;
 type
 
-AIHeightArray = array of single;
+TaiHeightArray = array of single;
 
 // ============================================================================
 AIGrid = class(TaiBaseObject)
@@ -89,7 +89,7 @@ private
   // set at runtime by AISpace.ConnectMap
   fAtTop: boolean;        // at top of map?
   fAtBottom: boolean;     // at bottom of map?
-  fCornerValues: AIHeightArray;
+  fCornerValues: TaiHeightArray;
   fWaterMax: single;
   fLandMax: single;
   // links
@@ -161,7 +161,7 @@ public
   property ConnectionUpRight: AIGrid read fConnectionUpRight;
   property ConnectionDownLeft: AIGrid read fConnectionDownLeft;
   property ConnectionDownRight: AIGrid read fConnectionDownRight;
-  property CornerValues: AIHeightArray read fCornerValues;
+  property CornerValues: TaiHeightArray read fCornerValues;
 
   procedure CalculateHeights;
   procedure CalculateFullHeights;
@@ -214,8 +214,7 @@ end;
 
 AIDimensions = array of array of AIGrid;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //=============================================================
 
 uses
   Bio.Environment,

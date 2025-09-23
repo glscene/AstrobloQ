@@ -812,7 +812,7 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-    if myThing is AICreature then
+    if myThing is TaiCreature then
       myThing.Report;
   end;
 end;

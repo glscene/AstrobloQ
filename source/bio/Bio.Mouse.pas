@@ -19,7 +19,7 @@ const
 type
 
 // ============================================================================
-AIMouse = class(AICreature)
+AIMouse = class(TaiCreature)
 protected
 public
   constructor Create(aParent: pointer);
@@ -27,7 +27,7 @@ public
   function IsPrey: boolean; override;
 end;
 
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -37,7 +37,7 @@ uses
   Bio.Globals,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Trees;
+  Bio.Flora;
 
 // ----------------------------------------------------------------------------
 constructor AIMouse.Create(aParent: pointer);

@@ -11,12 +11,12 @@ uses
   Bio.Things,
   Bio.Life,
   Bio.DNA,
-  Bio.Trees;
+  Bio.Flora;
 
 type
 
 // ============================================================================
-AIEvolvingPlant = class(AIPlant)
+AIEvolvingPlant = class(TaiPlant)
 private
   fDNA: AIDNA;
 public

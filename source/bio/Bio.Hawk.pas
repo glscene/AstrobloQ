@@ -44,7 +44,7 @@ const
 type
 
 // ============================================================================
-AIHawk = class(AICreature)
+AIHawk = class(TaiCreature)
 private
   fFlying: boolean;
 public
@@ -68,7 +68,7 @@ implementation
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Bird,
   Bio.Vibes,
   Bio.Utilities;

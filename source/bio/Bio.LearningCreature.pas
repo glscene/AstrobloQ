@@ -25,7 +25,7 @@ type
 
 // ============================================================================
 
-AILearningCreature = class(AICreature)
+AILearningCreature = class(TaiCreature)
 private
   fMemory: AIReportList;          // memory of eaten things
   fSenses: TaiThingReferenceList;  // list of nearby things

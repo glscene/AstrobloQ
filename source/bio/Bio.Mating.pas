@@ -56,13 +56,12 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
   Bio.Fish;
@@ -73,7 +72,7 @@ begin
   inherited Create(aParent);
 
   fPartner := gEnvironment.References.NewLink(self);
-  // random gender
+  // random gender - случайный выбор пола
   if Random(2) = 0 then
     fFemale := false
   else
@@ -86,7 +85,6 @@ end;
 destructor AIMatingCreature.Destroy;
 begin
   gEnvironment.References.Remove(fPartner);
-
   inherited Destroy;
 end;
 
@@ -94,7 +92,6 @@ end;
 procedure AIMatingCreature.Fuel;
 begin
   inherited Fuel;
-
   case fStage of
     cCreatureBaby:  if Age > 1024 then fStage := cCreatureAdult;
     cCreatureAdult: if Age > 9500 then fStage := cCreatureElder;
@@ -114,7 +111,6 @@ end;
 procedure AIMatingCreature.Cease;
 begin
   fPartner.InvalidateTarget;
-
   inherited Cease;
 end;
 
@@ -149,7 +145,7 @@ begin
     exit;
   end;
 
-  // Поиск партнёра
+  // Search of a partner
   if not Partner.ValidTarget then
     FindMate
   else

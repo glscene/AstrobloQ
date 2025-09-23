@@ -35,7 +35,7 @@ const
 type
 
 // ============================================================================
-AIBot = class(AICreature)
+AIBot = class(TaiCreature)
 private
   fPassword: string;    // password that allows bot to be controlled
 

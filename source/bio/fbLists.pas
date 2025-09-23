@@ -111,7 +111,7 @@ uses
   fbFirstForm,
   fbSatellite,
   Bio.Things,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Space,
   Bio.Grid,
   Bio.Creature,
@@ -146,8 +146,8 @@ begin
   begin
     myThing := TaiThing(Reality.Environment.Things.Existents[myIndex]);
 
-    if not ((myThing is AIPlant) or (myThing is AIEvolvingPlant)) or cbPlants.Checked then
-    if not (myThing is AICreature) or cbCreatures.Checked then
+    if not ((myThing is TaiPlant) or (myThing is AIEvolvingPlant)) or cbPlants.Checked then
+    if not (myThing is TaiCreature) or cbCreatures.Checked then
     if not (myThing is AICloud) or cbClouds.Checked then
     lbThings.Items.AddObject(
       myThing.OneLineDisplay,

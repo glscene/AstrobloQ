@@ -39,10 +39,10 @@ private
   fAttachments: AIAttachmentContainer;
   fShadows: boolean;
 protected
-  function GetGravity: AIForce;
-  function GetAirFriction: AIForce;
-  function GetLandFriction: AIForce;
-  function GetWaterFriction: AIForce;
+  function GetGravity: TaiForce;
+  function GetAirFriction: TaiForce;
+  function GetLandFriction: TaiForce;
+  function GetWaterFriction: TaiForce;
 public
   constructor Create(aReality: pointer);
   destructor Destroy; override;
@@ -51,15 +51,15 @@ public
   property Space: AISpace read fSpace;
   property References: AILinkContainer read fReferences;
   property Attachments: AIAttachmentContainer read fAttachments;
-  property Gravity: AIForce read GetGravity;
-  property AirFriction: AIForce read GetAirFriction;
-  property LandFriction: AIForce read GetLandFriction;
-  property WaterFriction: AIForce read GetWaterFriction;
+  property Gravity: TaiForce read GetGravity;
+  property AirFriction: TaiForce read GetAirFriction;
+  property LandFriction: TaiForce read GetLandFriction;
+  property WaterFriction: TaiForce read GetWaterFriction;
   property Shadows: boolean read fShadows write fShadows;
   procedure Fuel;
   function RoundStatistics: string;
-  procedure EnactGrab(aOriginCreature: AICreature; aTarget: TaiThing);
-  procedure EnactBonk(aOriginCreature: AICreature; aTarget: TaiThing);
+  procedure EnactGrab(aOriginCreature: TaiCreature; aTarget: TaiThing);
+  procedure EnactBonk(aOriginCreature: TaiCreature; aTarget: TaiThing);
   procedure Clean;
   procedure Build(aWidth: integer; aHeight: integer);
   procedure SaveToFile(var aFile: TextFile); override;
@@ -92,13 +92,13 @@ begin
   fShadows := false;
 
   fName := 'New Planet';
-  gGravity := AIForce.Create;
+  gGravity := TaiForce.Create;
   gGravity.SetForce(0.0, 0.0, -0.0098*1.5);
-  gAirFriction := AIForce.Create;
+  gAirFriction := TaiForce.Create;
   gAirFriction.SetForce(0.0005, 0.0005, 0.0005);
-  gLandFriction := AIForce.Create;
+  gLandFriction := TaiForce.Create;
   gLandFriction.SetForce(0.05, 0.05, 0.05);
-  gWaterFriction := AIForce.Create;
+  gWaterFriction := TaiForce.Create;
   gWaterFriction.SetForce(0.25, 0.25, 0.25);
 end;
 
@@ -194,25 +194,25 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetGravity: AIForce;
+function AIEnvironment.GetGravity: TaiForce;
 begin
   result := gGravity;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetAirFriction: AIForce;
+function AIEnvironment.GetAirFriction: TaiForce;
 begin
   result := gAirFriction;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetLandFriction: AIForce;
+function AIEnvironment.GetLandFriction: TaiForce;
 begin
   result := gLandFriction;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetWaterFriction: AIForce;
+function AIEnvironment.GetWaterFriction: TaiForce;
 begin
   result := gWaterFriction;
 end;
@@ -263,7 +263,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.EnactGrab(aOriginCreature: AICreature; aTarget: TaiThing);
+procedure AIEnvironment.EnactGrab(aOriginCreature: TaiCreature; aTarget: TaiThing);
 begin
   // already holding something?
   if aOriginCreature.Grabber.Holding then exit;
@@ -272,9 +272,9 @@ begin
   // grabbing a sound?
   if (aTarget.Kind = cVibe) then exit;
   // check to see if the target is grabbing me already (cancel if so);
-  if aTarget is AICreature then
-    if AICreature(aTarget).Grabber.Holding and
-      (AICreature(aTarget).Grabber.Target = aOriginCreature) then
+  if aTarget is TaiCreature then
+    if TaiCreature(aTarget).Grabber.Holding and
+      (TaiCreature(aTarget).Grabber.Target = aOriginCreature) then
         exit;
   // is it already carried?
   if aTarget.Position.Carried then exit;
@@ -288,16 +288,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.EnactBonk(aOriginCreature: AICreature; aTarget: TaiThing);
+procedure AIEnvironment.EnactBonk(aOriginCreature: TaiCreature; aTarget: TaiThing);
 var
-  myTargetCreature: AICreature;
+  myTargetCreature: TaiCreature;
   myThing: TaiThing;
 begin
   if aOriginCreature.CloseEnoughToGrab(aTarget) then
   begin
-    if aTarget is AICreature then
+    if aTarget is TaiCreature then
     begin
-      myTargetCreature := AICreature(aTarget);
+      myTargetCreature := TaiCreature(aTarget);
       if myTargetCreature.Grabber.Holding then
       begin
         myThing := myTargetCreature.Grabber.Target;

@@ -140,7 +140,6 @@
         <DCCReference Include="..\source\bio\Bio.Fish.pas"/>
         <DCCReference Include="..\source\bio\Bio.Force.pas"/>
         <DCCReference Include="..\source\bio\Bio.Fox.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Grass.pas"/>
         <DCCReference Include="..\source\bio\Bio.Grazer.pas"/>
         <DCCReference Include="..\source\bio\Bio.Grid.pas"/>
         <DCCReference Include="..\source\bio\Bio.Hawk.pas"/>
@@ -155,7 +154,7 @@
         <DCCReference Include="..\source\bio\Bio.Terrier.pas"/>
         <DCCReference Include="..\source\bio\Bio.ThingReferenceList.pas"/>
         <DCCReference Include="..\source\bio\Bio.Tool.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Trees.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Flora.pas"/>
         <DCCReference Include="..\source\bio\Bio.Trex.pas"/>
         <DCCReference Include="..\source\bio\Bio.Turtle.pas"/>
         <DCCReference Include="..\source\bio\Bio.Vibes.pas"/>

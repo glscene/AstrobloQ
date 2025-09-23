@@ -27,7 +27,7 @@ const
 type
 
 // ============================================================================
-AIMatingSingleCreature = class(AICreature)
+AIMatingSingleCreature = class(TaiCreature)
 private
   fPartner: AILink; // potential partner to reproduce with
   fFemale: boolean; // true if girl, false if guy
@@ -57,12 +57,12 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
   Bio.Fish;

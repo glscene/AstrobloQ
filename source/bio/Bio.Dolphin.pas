@@ -57,7 +57,7 @@ uses
   Bio.Globals,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Trees;
+  Bio.Flora;
 
 // ----------------------------------------------------------------------------
 constructor AIDolphin.Create(aParent: pointer);

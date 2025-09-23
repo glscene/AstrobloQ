@@ -25,7 +25,7 @@ uses
   Bio.Satellites,
   Bio.Space,
   vInterfaceClasses,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Grid,
   Bio.Fish,
   Bio.Bird,
@@ -47,7 +47,6 @@ uses
   Bio.Terrier,
   Bio.Fox,
   Bio.Rabbit,
-  Bio.Grass,
   Bio.Mouse,
   Bio.Tiger,
   Bio.Duck,
@@ -811,11 +810,11 @@ type
     function BuildMoon(aMoon: AIMoon): TCrossover;
     function BuildSun(aSun: AISun): TCrossover;
     function BuildCloud(aCloud: AICloud): TCrossover;
-    function BuildAppleTree(aTree: AITree): TCrossover;
-    function BuildOrangeTree(aTree: AITree): TCrossover;
-    function BuildApple(aApple: AIFruit): TCrossover;
-    function BuildOrange(aOrange: AIFruit): TCrossover;
-    function BuildSeed(aSeed: AISeed): TCrossover;
+    function BuildAppleTree(aTree: TaiTree): TCrossover;
+    function BuildOrangeTree(aTree: TaiTree): TCrossover;
+    function BuildApple(aApple: TaiFruit): TCrossover;
+    function BuildOrange(aOrange: TaiFruit): TCrossover;
+    function BuildSeed(aSeed: TaiSeed): TCrossover;
     function BuildFish(aFish: AIFish): TCrossover;
     function BuildBird(aBird: AIBird): TCrossover;
     function BuildAsteroid(aAsteroid: AIAsteroid): TCrossover;
@@ -834,13 +833,13 @@ type
     function BuildTerrier(aTerrier: AITerrier): TCrossover;
     function BuildFox(aFox: AIFox): TCrossover;
     function BuildRabbit(aRabbit: AIRabbit): TCrossover;
-    function BuildGrass(aGrass: AIGrass): TCrossover;
+    function BuildGrass(aGrass: TaiGrass): TCrossover;
     function BuildIceberg(aIceberg: AIIceberg): TCrossover;
     function BuildMouse(aMouse: AIMouse): TCrossover;
     function BuildTiger(aTiger: AITiger): TCrossover;
     function BuildDuck(aDuck: AIDuck): TCrossover;
     function BuildDolphin(aDolphin: AIDolphin): TCrossover;
-    function BuildAquaPlant(aAquaPlant: AIAquaPlant): TCrossover;
+    function BuildAquaPlant(aAquaPlant: TaiAquaPlant): TCrossover;
     function BuildLadybug(aLadybug: AILadybug): TCrossover;
     function BuildAnt(aAnt: AIAnt): TCrossover;
     function BuildEvolvingTree(aTree: AIEvolvingTree): TCrossover;
@@ -2135,17 +2134,17 @@ begin
       myThing := TaiThing(Environment.Things.Cradle.Items[i]);
       case myThing.Kind of
         cApple:
-          BuildApple(AIFruit(myThing));
+          BuildApple(TaiFruit(myThing));
         cOrange:
-          BuildOrange(AIFruit(myThing));
+          BuildOrange(TaiFruit(myThing));
         cAppleSeed:
-          BuildSeed(AISeed(myThing));
+          BuildSeed(TaiSeed(myThing));
         cOrangeSeed:
-          BuildSeed(AISeed(myThing));
+          BuildSeed(TaiSeed(myThing));
         cAppleTree:
-          BuildAppleTree(AITree(myThing));
+          BuildAppleTree(TaiTree(myThing));
         cOrangeTree:
-          BuildOrangeTree(AITree(myThing));
+          BuildOrangeTree(TaiTree(myThing));
         cCloud:
           BuildCloud(AICloud(myThing));
         cFish:
@@ -2194,7 +2193,7 @@ begin
         cRabbit:
           result := BuildRabbit(AIRabbit(myThing));
         cGrass:
-          result := BuildGrass(AIGrass(myThing));
+          result := BuildGrass(TaiGrass(myThing));
         cIceberg:
           result := BuildIceberg(AIIceberg(myThing));
         cMouse:
@@ -2206,7 +2205,7 @@ begin
         cDolphin:
           result := BuildDolphin(AIDolphin(myThing));
         cAquaPlant:
-          result := BuildAquaPlant(AIAquaPlant(myThing));
+          result := BuildAquaPlant(TaiAquaPlant(myThing));
         cLadybug:
           result := BuildLadybug(AILadybug(myThing));
         cAnt:
@@ -3243,7 +3242,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildAppleTree(aTree: AITree): TCrossover;
+function TFormBiosfera.BuildAppleTree(aTree: TaiTree): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3266,7 +3265,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildOrangeTree(aTree: AITree): TCrossover;
+function TFormBiosfera.BuildOrangeTree(aTree: TaiTree): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3289,7 +3288,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildApple(aApple: AIFruit): TCrossover;
+function TFormBiosfera.BuildApple(aApple: TaiFruit): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3319,7 +3318,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildOrange(aOrange: AIFruit): TCrossover;
+function TFormBiosfera.BuildOrange(aOrange: TaiFruit): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3349,7 +3348,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildSeed(aSeed: AISeed): TCrossover;
+function TFormBiosfera.BuildSeed(aSeed: TaiSeed): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3526,12 +3525,12 @@ end;
 procedure TFormBiosfera.UpdateAppleTree(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTree: AITree;
+  myTree: TaiTree;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTree := AITree(aCrossover.Data);
+  myTree := TaiTree(aCrossover.Data);
 
   factor := myTree.Water + 0.1;
   Scale := AppleTreeModel.Scale.AsVector;
@@ -3548,12 +3547,12 @@ end;
 procedure TFormBiosfera.UpdateOrangeTree(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTree: AITree;
+  myTree: TaiTree;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTree := AITree(aCrossover.Data);
+  myTree := TaiTree(aCrossover.Data);
 
   factor := myTree.Water + 0.01;
   Scale := OrangeTreeModel.Scale.AsVector;
@@ -3570,10 +3569,10 @@ end;
 procedure TFormBiosfera.UpdateApple(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myApple: AIFruit;
+  myApple: TaiFruit;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myApple := AIFruit(aCrossover.Data);
+  myApple := TaiFruit(aCrossover.Data);
 
   PositionThing(myApple.Position, myProxy);
 end;
@@ -3582,10 +3581,10 @@ end;
 procedure TFormBiosfera.UpdateOrange(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myOrange: AIFruit;
+  myOrange: TaiFruit;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myOrange := AIFruit(aCrossover.Data);
+  myOrange := TaiFruit(aCrossover.Data);
 
   PositionThing(myOrange.Position, myProxy);
 end;
@@ -3594,10 +3593,10 @@ end;
 procedure TFormBiosfera.UpdateSeed(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  mySeed: AISeed;
+  mySeed: TaiSeed;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  mySeed := AISeed(aCrossover.Data);
+  mySeed := TaiSeed(aCrossover.Data);
 
   PositionThing(mySeed.Position, myProxy);
 end;
@@ -5181,7 +5180,7 @@ end;
 
 procedure TFormBiosfera.AddGrass(aLocation: AIGrid);
 var
-  myGrass: AIGrass;
+  myGrass: TaiGrass;
   X, Y: single;
 begin
   if not gThings.CanAdd(cGrass) then
@@ -5199,7 +5198,7 @@ begin
 
   if not gThings.Existents.HasKindWithinXY(cGrass, X, Y, 1) then
   begin
-    myGrass := AIGrass(gThings.NewThing(cGrass));
+    myGrass := TaiGrass(gThings.NewThing(cGrass));
     if myGrass <> nil then
       myGrass.Position.SetPosition(X, Y, 0);
   end;
@@ -7452,7 +7451,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildGrass(aGrass: AIGrass): TCrossover;
+function TFormBiosfera.BuildGrass(aGrass: TaiGrass): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7485,12 +7484,12 @@ end;
 procedure TFormBiosfera.UpdateGrass(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myGrass: AIGrass;
+  myGrass: TaiGrass;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myGrass := AIGrass(aCrossover.Data);
+  myGrass := TaiGrass(aCrossover.Data);
 
   factor := myGrass.Water;
   Scale := GrassModel.Scale.AsVector;
@@ -8055,7 +8054,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildAquaPlant(aAquaPlant: AIAquaPlant): TCrossover;
+function TFormBiosfera.BuildAquaPlant(aAquaPlant: TaiAquaPlant): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -8083,10 +8082,10 @@ end;
 procedure TFormBiosfera.UpdateAquaPlant(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myAquaPlant: AIAquaPlant;
+  myAquaPlant: TaiAquaPlant;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myAquaPlant := AIAquaPlant(aCrossover.Data);
+  myAquaPlant := TaiAquaPlant(aCrossover.Data);
 
   PositionThing(myAquaPlant.Position, myProxy, 0, 0.26);
 end;

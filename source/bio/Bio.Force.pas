@@ -16,7 +16,7 @@ uses
 type
 
   // ----------------------------------------------------------------------------
-  AIForce = class(TObject)
+  TaiForce = class(TObject)
   private
     fDeltaX: single;
     fDeltaY: single;
@@ -34,19 +34,19 @@ type
     procedure AlterDeltaY(aAmount: single);
     procedure AlterDeltaHeight(aAmount: single);
     // add a force (+)
-    procedure ApplyForce(aForce: AIForce); overload;
+    procedure ApplyForce(aForce: TaiForce); overload;
     procedure ApplyForce(aDeltaX: single; aDeltaY: single; aDeltaHeight: single); overload;
     procedure ApplyForce(aForce: TAffineVector); overload;
     procedure ApplyAngularForce(aXYAngle: single; aHeightAngle: single; aStrength: single);
       overload;
     procedure ApplyAngularForce(aXYAngle: single; aStrength: single); overload;
-    procedure ApplyOppositeForce(aForce: AIForce);
+    procedure ApplyOppositeForce(aForce: TaiForce);
     // apply a force, accounting for mass
-    procedure ApplyMassiveForce(aForce: AIForce; aMass: single);
+    procedure ApplyMassiveForce(aForce: TaiForce; aMass: single);
     // weakens the force towards 0
     procedure ApplyNeutralizingAngularForce(aXYAngle: single; aHeightAngle: single;
       aStrength: single);
-    procedure ApplyNeutralizingForce(aForce: AIForce);
+    procedure ApplyNeutralizingForce(aForce: TaiForce);
     procedure Zero; // sets force to 0
     procedure Zero2; // sets force to 0
     function Stale: boolean; // true if strenght = 0
@@ -66,14 +66,13 @@ type
     function Valid: boolean;
     procedure ReverseY;
     function AsAffineVector: TAffineVector;
-    procedure CopyFrom(aForce: AIForce);
+    procedure CopyFrom(aForce: TaiForce);
     function OneLineDisplay: string;
     procedure SaveToFile(var aFile: TextFile);
     procedure LoadFromFile(var aFile: TextFile);
   end;
 
-//=============================================================================
-implementation
+implementation //=============================================================
 
 uses
   Bio.Globals,
@@ -82,7 +81,7 @@ uses
   Bio.Grid;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.CopyFrom(aForce: AIForce);
+procedure TaiForce.CopyFrom(aForce: TaiForce);
 begin
   fDeltaX := aForce.DeltaX;
   fDeltaY := aForce.DeltaY;
@@ -90,7 +89,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.SetForce(aDeltaX: single; aDeltaY: single; aDeltaHeight: single);
+procedure TaiForce.SetForce(aDeltaX: single; aDeltaY: single; aDeltaHeight: single);
 begin
   fDeltaX := aDeltaX;
   fDeltaY := aDeltaY;
@@ -98,7 +97,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.SetForce(aVector: TAffineVector);
+procedure TaiForce.SetForce(aVector: TAffineVector);
 begin
   fDeltaX := aVector.X;
   fDeltaY := aVector.Y;
@@ -106,7 +105,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.SetAngularForce(aXYAngle: single; aHeightAngle: single; aStrength: single);
+procedure TaiForce.SetAngularForce(aXYAngle: single; aHeightAngle: single; aStrength: single);
 begin
   fDeltaX := cos(aXYAngle) * sin(aHeightAngle) * aStrength;
   fDeltaY := sin(aXYAngle) * sin(aHeightAngle) * aStrength;
@@ -117,7 +116,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyAngularForce(aXYAngle: single; aHeightAngle: single; aStrength: single);
+procedure TaiForce.ApplyAngularForce(aXYAngle: single; aHeightAngle: single; aStrength: single);
 begin
   fDeltaX := fDeltaX + cos(aXYAngle) * sin(aHeightAngle) * aStrength;
   fDeltaY := fDeltaY + sin(aXYAngle) * sin(aHeightAngle) * aStrength;
@@ -130,14 +129,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyAngularForce(aXYAngle: single; aStrength: single);
+procedure TaiForce.ApplyAngularForce(aXYAngle: single; aStrength: single);
 begin
   fDeltaX := fDeltaX + cos(aXYAngle) * aStrength;
   fDeltaY := fDeltaY + sin(aXYAngle) * aStrength;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyForce(aForce: AIForce);
+procedure TaiForce.ApplyForce(aForce: TaiForce);
 begin
   fDeltaX := fDeltaX + aForce.DeltaX;
   fDeltaY := fDeltaY + aForce.DeltaY;
@@ -145,7 +144,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyOppositeForce(aForce: AIForce);
+procedure TaiForce.ApplyOppositeForce(aForce: TaiForce);
 begin
   fDeltaX := fDeltaX - aForce.DeltaX;
   fDeltaY := fDeltaY - aForce.DeltaY;
@@ -153,7 +152,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyForce(aDeltaX: single; aDeltaY: single; aDeltaHeight: single);
+procedure TaiForce.ApplyForce(aDeltaX: single; aDeltaY: single; aDeltaHeight: single);
 begin
   fDeltaX := fDeltaX + aDeltaX;
   fDeltaY := fDeltaY + aDeltaY;
@@ -161,7 +160,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyForce(aForce: TAffineVector);
+procedure TaiForce.ApplyForce(aForce: TAffineVector);
 begin
   fDeltaX := fDeltaX + aForce.X;
   fDeltaY := fDeltaY + aForce.Y;
@@ -169,7 +168,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.Zero;
+procedure TaiForce.Zero;
 begin
   fDeltaX := 0.0; // crashed here once twice
   fDeltaY := 0.0;
@@ -177,7 +176,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.Zero2;
+procedure TaiForce.Zero2;
 begin
   fDeltaX := 0.0; // crashed here once twice
   fDeltaY := 0.0;
@@ -185,7 +184,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyNeutralizingForce(aForce: AIForce);
+procedure TaiForce.ApplyNeutralizingForce(aForce: TaiForce);
 begin
   fDeltaX := AdjustValue(fDeltaX, 0.0, aForce.DeltaX);
   fDeltaY := AdjustValue(fDeltaY, 0.0, aForce.DeltaY);
@@ -193,7 +192,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.Scale(aFactor: single);
+procedure TaiForce.Scale(aFactor: single);
 begin
   fDeltaX := fDeltaX * aFactor;
   fDeltaY := fDeltaY * aFactor;
@@ -201,14 +200,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.XYScale(aFactor: single);
+procedure TaiForce.XYScale(aFactor: single);
 begin
   fDeltaX := fDeltaX * aFactor;
   fDeltaY := fDeltaY * aFactor;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyNeutralizingAngularForce(aXYAngle: single; aHeightAngle: single;
+procedure TaiForce.ApplyNeutralizingAngularForce(aXYAngle: single; aHeightAngle: single;
   aStrength: single);
 var
   dX, dY, dH: single;
@@ -223,25 +222,25 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ReverseY;
+procedure TaiForce.ReverseY;
 begin
   fDeltaY := fDeltaY * -1.0;
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.Strength: single;
+function TaiForce.Strength: single;
 begin
   result := abs(fDeltaX) + abs(fDeltaY) + abs(fDeltaHeight);
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.XYStrength: single;
+function TaiForce.XYStrength: single;
 begin
   result := abs(fDeltaX) + abs(fDeltaY);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.Invert;
+procedure TaiForce.Invert;
 begin
   fDeltaX := fDeltaX * -1.0;
   fDeltaY := fDeltaY * -1.0;
@@ -249,38 +248,38 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.InvertXY;
+procedure TaiForce.InvertXY;
 begin
   fDeltaX := fDeltaX * -1.0;
   fDeltaY := fDeltaY * -1.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.InvertY;
+procedure TaiForce.InvertY;
 begin
   fDeltaY := fDeltaY * -1.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.InvertX;
+procedure TaiForce.InvertX;
 begin
   fDeltaX := fDeltaX * -1.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.InvertHeight;
+procedure TaiForce.InvertHeight;
 begin
   fDeltaHeight := fDeltaHeight * -1.0;
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.OneLineDisplay: string;
+function TaiForce.OneLineDisplay: string;
 begin
   result := Format('dX=%0.2f, dY=%0.2f, dH=%0.2f', [fDeltaX, fDeltaY, fDeltaHeight]);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.SaveToFile(var aFile: TextFile);
+procedure TaiForce.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fDeltaX);
   writeln(aFile, fDeltaY);
@@ -288,7 +287,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.LoadFromFile(var aFile: TextFile);
+procedure TaiForce.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fDeltaX);
   readln(aFile, fDeltaY);
@@ -296,7 +295,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.ApplyMassiveForce(aForce: AIForce; aMass: single);
+procedure TaiForce.ApplyMassiveForce(aForce: TaiForce; aMass: single);
 begin
   if not(aForce.DeltaX = 0.0) then
     fDeltaX := fDeltaX + aForce.DeltaX / aMass;
@@ -309,13 +308,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.Stale: boolean;
+function TaiForce.Stale: boolean;
 begin
   result := ((fDeltaX = 0.0) and (fDeltaY = 0.0) and (fDeltaHeight = 0.0));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.LimitForce;
+procedure TaiForce.LimitForce;
 begin
   if (fDeltaX > 5.0) then
     fDeltaX := 5.0;
@@ -334,7 +333,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.Shrink(aAmount: single);
+procedure TaiForce.Shrink(aAmount: single);
 var
   n: TAffineVector;
 begin
@@ -359,13 +358,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.Length: single;
+function TaiForce.Length: single;
 begin
   result := sqrt(fDeltaX * fDeltaX + fDeltaY * fDeltaY + fDeltaHeight * fDeltaHeight);
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.AsAffineVector: TAffineVector;
+function TaiForce.AsAffineVector: TAffineVector;
 begin
   result.X := fDeltaX;
   result.Y := fDeltaY;
@@ -373,7 +372,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.LimitSpeed(aMax: single);
+procedure TaiForce.LimitSpeed(aMax: single);
 var
   mySpeed: single;
 begin
@@ -388,25 +387,25 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIForce.Valid: boolean;
+function TaiForce.Valid: boolean;
 begin
   result := not(IsNan(fDeltaX) or IsNan(fDeltaY) or IsNan(fDeltaHeight));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.AlterDeltaX(aAmount: single);
+procedure TaiForce.AlterDeltaX(aAmount: single);
 begin
   DeltaX := DeltaX + aAmount;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.AlterDeltaY(aAmount: single);
+procedure TaiForce.AlterDeltaY(aAmount: single);
 begin
   DeltaY := DeltaY + aAmount;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIForce.AlterDeltaHeight(aAmount: single);
+procedure TaiForce.AlterDeltaHeight(aAmount: single);
 begin
   DeltaHeight := DeltaHeight + aAmount;
 end;

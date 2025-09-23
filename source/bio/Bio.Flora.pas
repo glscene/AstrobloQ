@@ -1,4 +1,4 @@
-unit Bio.Trees;
+unit Bio.Flora;
 (*
   Trees: apple, orange etc
 *)
@@ -24,22 +24,20 @@ const
 
 type
 
-// ============================================================================
-AIPlant = class(TaiLivingThing)
+//----------------------------------------------------------------------------
+TaiPlant = class(TaiLivingThing)
 public
   function IsPlant: boolean; override;
 end;
 
-// ============================================================================
-AITree = class(AIPlant)
+//----------------------------------------------------------------------------
+TaiTree = class(TaiPlant)
 private
   fFruitTimer: integer;
-
   procedure BearFruit;
 public
   constructor Create(aParent: pointer);
   property FruitTimer: integer read fFruitTimer write fFruitTimer;
-
   procedure Fuel; override;
   procedure Cease; override;
   procedure Perform(aActivity: integer); override;
@@ -49,11 +47,10 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-// ============================================================================
-AIFruit = class(AIPlant)
+//----------------------------------------------------------------------------
+TaiFruit = class(TaiPlant)
 private
   fCarryingSeed: boolean;
-
   procedure DropSeed;
 public
   property CarryingSeed: boolean read fCarryingSeed write fCarryingSeed;
@@ -65,8 +62,8 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-// ============================================================================
-AISeed = class(AIPlant)
+//----------------------------------------------------------------------------
+TaiSeed = class(TaiPlant)
 private
   procedure Sprout;
 public
@@ -75,27 +72,34 @@ public
   procedure Cease; override;
 end;
 
-// ============================================================================
-AIAquaPlant = class(AIPlant)
+//----------------------------------------------------------------------------
+TaiAquaPlant = class(TaiPlant)
 private
   fFruitTimer: integer;
   procedure BearFruit;
 public
   constructor Create(aParent: pointer);
-
   property FruitTimer: integer read fFruitTimer write fFruitTimer;
-
   function Digest(const aAmount: integer): integer; override;
   procedure Fuel; override;
   procedure Perform(aActivity: integer); override;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-//=============================================================================
-implementation
+//----------------------------------------------------------------------------
+TaiGrass = class(TaiPlant)
+private
+public
+  constructor Create(aParent: pointer);
+  procedure Fuel; override;
+  procedure Grow;
+  function IsFruit: boolean; override;
+end;
+
+
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -107,7 +111,7 @@ uses
   Bio.Position;
 
 // ----------------------------------------------------------------------------
-constructor AITree.Create(aParent: pointer);
+constructor TaiTree.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -119,7 +123,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.Fuel;
+procedure TaiTree.Fuel;
 begin
   inherited Fuel;
 
@@ -154,14 +158,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.BearFruit;
+procedure TaiTree.BearFruit;
 var
-  myFruit: AIFruit;
+  myFruit: TaiFruit;
 begin
   if Kind = cAppleTree then
-    myFruit := AIFruit(gThings.NewThing(cApple))
+    myFruit := TaiFruit(gThings.NewThing(cApple))
   else
-    myFruit := AIFruit(gThings.NewThing(cOrange));
+    myFruit := TaiFruit(gThings.NewThing(cOrange));
 
   if Assigned(myFruit) then
   begin
@@ -175,13 +179,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.Perform(aActivity: integer);
+procedure TaiTree.Perform(aActivity: integer);
 begin
   BearFruit;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.Cease;
+procedure TaiTree.Cease;
 begin
   if Exists then
   begin
@@ -194,7 +198,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFruit.Fuel;
+procedure TaiFruit.Fuel;
 begin
   inherited Fuel;
 
@@ -205,7 +209,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFruit.Cease;
+procedure TaiFruit.Cease;
 begin
   if CarryingSeed then
     DropSeed;
@@ -214,14 +218,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFruit.DropSeed;
+procedure TaiFruit.DropSeed;
 var
-  mySeed: AISeed;
+  mySeed: TaiSeed;
 begin
   if Kind = cApple then
-    mySeed := AISeed(gThings.NewThing(cAppleSeed))
+    mySeed := TaiSeed(gThings.NewThing(cAppleSeed))
   else //orange
-    mySeed := AISeed(gThings.NewThing(cOrangeSeed));
+    mySeed := TaiSeed(gThings.NewThing(cOrangeSeed));
 
   if Assigned(mySeed) then
   begin
@@ -234,7 +238,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISeed.Fuel;
+procedure TaiSeed.Fuel;
 begin
   inherited Fuel;
 
@@ -243,7 +247,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISeed.Cease;
+procedure TaiSeed.Cease;
 begin
   if Exists then
   begin
@@ -255,9 +259,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISeed.Sprout;
+procedure TaiSeed.Sprout;
 var
-  myTree: AITree;
+  myTree: TaiTree;
 //  myLocation: AIGrid;
 begin
   myTree := nil;
@@ -292,48 +296,48 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFruit.SaveToFile(var aFile: TextFile);
+procedure TaiFruit.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeFileBoolean(aFile, fCarryingSeed);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFruit.LoadFromFile(var aFile: TextFile);
+procedure TaiFruit.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   fCarryingSeed := readFileBoolean(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-function AIFruit.IsFruit: boolean;
+function TaiFruit.IsFruit: boolean;
 begin
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.SaveToFile(var aFile: TextFile);
+procedure TaiTree.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fFruitTimer);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.LoadFromFile(var aFile: TextFile);
+procedure TaiTree.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fFruitTimer);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITree.FullDisplay(aList: TStrings);
+procedure TaiTree.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
   aList.Add('FruitTimer: ' + IntToStr(fFruitTimer));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFruit.FullDisplay(aList: TStrings);
+procedure TaiFruit.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -341,7 +345,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIAquaPlant.Create(aParent: pointer);
+constructor TaiAquaPlant.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -355,7 +359,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAquaPlant.Fuel;
+procedure TaiAquaPlant.Fuel;
 begin
   inherited Fuel;
 
@@ -374,14 +378,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAquaPlant.BearFruit;
+procedure TaiAquaPlant.BearFruit;
 var
-  myFruit: AIFruit;
+  myFruit: TaiFruit;
 begin
   if Random(3) = 0 then
-    myFruit := AIFruit(gThings.NewThing(cApple))
+    myFruit := TaiFruit(gThings.NewThing(cApple))
   else
-    myFruit := AIFruit(gThings.NewThing(cOrange));
+    myFruit := TaiFruit(gThings.NewThing(cOrange));
 
   if Assigned(myFruit) then
   begin
@@ -395,57 +399,111 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAquaPlant.Perform(aActivity: integer);
+procedure TaiAquaPlant.Perform(aActivity: integer);
 begin
   BearFruit;
 end;
 
 // ----------------------------------------------------------------------------
-function AITree.Digest(const aAmount: integer): integer;
+function TaiTree.Digest(const aAmount: integer): integer;
 begin
   result := -1 * inherited Digest(aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-function AISeed.Digest(const aAmount: integer): integer;
+function TaiSeed.Digest(const aAmount: integer): integer;
 begin
   inherited Digest(aAmount);
   result := 0;
 end;
 
 // ----------------------------------------------------------------------------
-function AIAquaPlant.Digest(const aAmount: integer): integer;
+function TaiAquaPlant.Digest(const aAmount: integer): integer;
 begin
   inherited Digest(aAmount);
   result := 0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAquaPlant.SaveToFile(var aFile: TextFile);
+procedure TaiAquaPlant.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fFruitTimer);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAquaPlant.LoadFromFile(var aFile: TextFile);
+procedure TaiAquaPlant.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fFruitTimer);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAquaPlant.FullDisplay(aList: TStrings);
+procedure TaiAquaPlant.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
   aList.Add('FruitTimer: ' + IntToStr(fFruitTimer));
 end;
 
 // ----------------------------------------------------------------------------
-function AIPlant.IsPlant: boolean;
+function TaiPlant.IsPlant: boolean;
 begin
   result := true;
 end;
+
+// ----------------------------------------------------------------------------
+constructor TaiGrass.Create(aParent: pointer);
+begin
+  inherited Create(aParent);
+
+  Kind := cGrass;
+  Health := 5024;
+  Position.SetSize(1, 0.2, 0.2, true);
+  Position.SetProperties(1, 0.1, 0.25);
+  Position.Collider := false;
+
+  Water := 0.05;
+  Health := 64;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiGrass.Fuel;
+begin
+  inherited Fuel;
+
+  if (Age mod 128 = 0) then
+    Grow;
+
+  if Water < 0.5 then
+    Water := Water + 0.01;
+
+  if (Position.Binding = bindLand) and not Position.UnderWater then
+    Health := Health + 1;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiGrass.Grow;
+var
+  myGrass: TaiGrass;
+begin
+//  if gThings.Existents.HasKindWithinDistance(cGrass, Position, 1) then
+//    exit;
+  if not gThings.CanAdd(cGrass) then
+    exit;
+
+  myGrass := TaiGrass(gThings.NewThing(cGrass));
+  myGrass.Position.FullCopy(Position);
+  myGrass.Position.DirectionXY := Random * TwoPi;
+  myGrass.Position.MoveBy(1);
+  myGrass.Position.Height := 0;
+end;
+
+// ----------------------------------------------------------------------------
+function TaiGrass.IsFruit: boolean;
+begin
+  result := true;
+end;
+
 
 end.
 

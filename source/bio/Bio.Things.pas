@@ -208,7 +208,7 @@ implementation //-------------------------------------------------------------
 uses
   Bio.Reality,
   Bio.Environment,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Satellites,
   Bio.Fish,
   Bio.Bird,
@@ -230,7 +230,6 @@ uses
   Bio.Terrier,
   Bio.Fox,
   Bio.Rabbit,
-  Bio.Grass,
   Bio.Mouse,
   Bio.Tiger,
   Bio.Duck,
@@ -608,14 +607,14 @@ begin
     cTerrier:    result := AITerrier.Create(self);
     cFox:        result := AIFox.Create(self);
     cRabbit:     result := AIRabbit.Create(self);
-    cGrass:      result := AIGrass.Create(self);
+    cGrass:      result := TaiGrass.Create(self);
     cIceberg:    result := AIIceberg.Create(self);
     cMouse:      result := AIMouse.Create(self);
     cTiger:      result := AITiger.Create(self);
     cDuck:       result := AIDuck.Create(self);
     cCommunity:  result := TaiCommunity.Create(self);
     cDolphin:    result := AIDolphin.Create(self);
-    cAquaPlant:  result := AIAquaPlant.Create(self);
+    cAquaPlant:  result := TaiAquaPlant.Create(self);
     cLadybug:    result := AILadybug.Create(self);
     cAnt:        result := AIAnt.Create(self);
     cEarthquake: result := AIEarthquake.Create(self);
@@ -634,9 +633,9 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingList.NewApple: TaiThing;
 var
-  myApple: AIFruit;
+  myApple: TaiFruit;
 begin
-  myApple := AIFruit.Create(self);
+  myApple := TaiFruit.Create(self);
   myApple.Kind := cApple;
 
   myApple.Position.Height := 40;
@@ -650,9 +649,9 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingList.NewOrange: TaiThing;
 var
-  myOrange: AIFruit;
+  myOrange: TaiFruit;
 begin
-  myOrange := AIFruit.Create(self);
+  myOrange := TaiFruit.Create(self);
   myOrange.Kind := cOrange;
 
   myOrange.Position.Height := 20;
@@ -666,9 +665,9 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingList.NewAppleTree: TaiThing;
 var
-  myAppleTree: AITree;
+  myAppleTree: TaiTree;
 begin
-  myAppleTree := AITree.Create(self);
+  myAppleTree := TaiTree.Create(self);
   myAppleTree.Kind := cAppleTree;
 
   myAppleTree.Position.SetPosition(Random(10), Random(10), 15);
@@ -681,9 +680,9 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingList.NewOrangeTree: TaiThing;
 var
-  myOrangeTree: AITree;
+  myOrangeTree: TaiTree;
 begin
-  myOrangeTree := AITree.Create(self);
+  myOrangeTree := TaiTree.Create(self);
   myOrangeTree.Kind := cOrangeTree;
 
   myOrangeTree.Position.SetSize(0.5, 0.5, 1, true);
@@ -695,9 +694,9 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingList.NewAppleSeed: TaiThing;
 var
-  myAppleSeed: AISeed;
+  myAppleSeed: TaiSeed;
 begin
-  myAppleSeed := AISeed.Create(self);
+  myAppleSeed := TaiSeed.Create(self);
   myAppleSeed.Kind := cAppleSeed;
   myAppleSeed.Health := 512;
   myAppleSeed.Position.SetSize(0.1, 0.1, 1.5, true);
@@ -708,9 +707,9 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingList.NewOrangeSeed: TaiThing;
 var
-  myOrangeSeed: AISeed;
+  myOrangeSeed: TaiSeed;
 begin
-  myOrangeSeed := AISeed.Create(self);
+  myOrangeSeed := TaiSeed.Create(self);
   myOrangeSeed.Kind := cOrangeSeed;
   myOrangeSeed.Health := 512;
   myOrangeSeed.Position.SetSize(0.1, 0.1, 0.5, true);
@@ -920,7 +919,7 @@ var
   RigidCount: integer;
   myThing: TaiThing;
   myItem: TaiThing;
-  myCreature: AICreature;
+  myCreature: TaiCreature;
 begin
 
   if fCollisions then
@@ -948,9 +947,9 @@ begin
     if not myThing.Position.Carried then
       myThing.Position.Fuel;
 
-    if myThing is AICreature then
+    if myThing is TaiCreature then
     begin
-      myCreature := AICreature(myThing);
+      myCreature := TaiCreature(myThing);
       // check to see if it is holding something
       if myCreature.Grabber.Holding then
       begin

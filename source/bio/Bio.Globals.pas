@@ -34,10 +34,10 @@ gEnvironment: AIEnvironment;
 gSpace: AISpace;
 gThings: TaiThingList;
 
-gGravity: AIForce;
-gAirFriction: AIForce;
-gLandFriction: AIForce;
-gWaterFriction: AIForce;
+gGravity: TaiForce;
+gAirFriction: TaiForce;
+gLandFriction: TaiForce;
+gWaterFriction: TaiForce;
 
 gVersion: integer;
 
@@ -45,8 +45,7 @@ function UniqueHandle: integer;
 
 //gWorldState: AIWorldState; ??
 
-//============================================================================
-implementation
+implementation //==============================================================
 
 // 0 is null handle
 function UniqueHandle: integer;

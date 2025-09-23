@@ -61,7 +61,7 @@ end;
 
 // ============================================================================
 
-TaiCommunityCreature = class(AICreature)
+TaiCommunityCreature = class(TaiCreature)
 private
   fCommunity: AILink;   // community this creature belongs to
   fAvoidance: TAffineVector;
@@ -95,7 +95,7 @@ implementation // -----------------------------------------------------------
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
   Bio.Fish;

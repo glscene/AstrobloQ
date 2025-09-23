@@ -53,7 +53,7 @@ end;
 
 // ============================================================================
 // an individual bird
-AIBird = class(AICreature)
+AIBird = class(TaiCreature)
 private
   fFlock: AILink;     // flock
   fFlying: boolean;   // is it flying?
@@ -97,7 +97,7 @@ implementation
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
   Bio.Fish;

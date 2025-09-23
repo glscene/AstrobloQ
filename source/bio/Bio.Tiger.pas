@@ -27,7 +27,7 @@ type
 // with Terriers? etc.
 // Also should avoid water as tigers don't like getting wet.
 
-AITiger = class(AICreature)
+AITiger = class(TaiCreature)
 protected
   procedure Bully;
 public
@@ -43,7 +43,7 @@ implementation //-----------------------------------------------------------
 uses
   Bio.Reality,
   Bio.Globals,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Bird,
   Bio.Vibes,
   Bio.Utilities;

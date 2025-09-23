@@ -14,7 +14,6 @@ uses
   Bio.Fish in '..\source\bio\Bio.Fish.pas',
   Bio.Force in '..\source\bio\Bio.Force.pas',
   Bio.Fox in '..\source\bio\Bio.Fox.pas',
-  Bio.Grass in '..\source\bio\Bio.Grass.pas',
   Bio.Grazer in '..\source\bio\Bio.Grazer.pas',
   Bio.Grid in '..\source\bio\Bio.Grid.pas',
   Bio.Hawk in '..\source\bio\Bio.Hawk.pas',
@@ -29,7 +28,6 @@ uses
   Bio.Terrier in '..\source\bio\Bio.Terrier.pas',
   Bio.ThingReferenceList in '..\source\bio\Bio.ThingReferenceList.pas',
   Bio.Tool in '..\source\bio\Bio.Tool.pas',
-  Bio.Trees in '..\source\bio\Bio.Trees.pas',
   Bio.Trex in '..\source\bio\Bio.Trex.pas',
   Bio.Turtle in '..\source\bio\Bio.Turtle.pas',
   Bio.Vibes in '..\source\bio\Bio.Vibes.pas',
@@ -87,7 +85,8 @@ uses
   fbMiniForm_ru in '..\source\bio\fbMiniForm_ru.pas',
   Space.Globals in '..\source\Space.Globals.pas',
   fbBiosfera_ru in '..\source\bio\fbBiosfera_ru.pas' {FormBiosfera},
-  vSpiritManager_ru in '..\source\bio\vSpiritManager_ru.pas';
+  vSpiritManager_ru in '..\source\bio\vSpiritManager_ru.pas',
+  Bio.Flora in '..\source\bio\Bio.Flora.pas';
 
 {$R *.res}
 

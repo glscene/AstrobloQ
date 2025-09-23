@@ -77,7 +77,7 @@ uses
   Bio.Globals,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Trees,
+  Bio.Flora,
   Bio.Explosions;
 
 // ----------------------------------------------------------------------------

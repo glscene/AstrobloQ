@@ -37,8 +37,7 @@ public
   procedure Fuel; override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality, Bio.Environment,
@@ -47,7 +46,7 @@ uses
   Bio.Globals,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Trees;
+  Bio.Flora;
 
 // ----------------------------------------------------------------------------
 constructor AIFish.Create(aParent: pointer);

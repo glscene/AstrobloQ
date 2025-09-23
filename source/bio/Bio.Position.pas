@@ -52,36 +52,30 @@ type
 AIPosition = class(TObject)
 private
   // velocity
-  fVelocity: AIForce;
+  fVelocity: TaiForce;
   // acceleration
-  fAcceleration: AIForce;
+  fAcceleration: TaiForce;
   // pointer to carrier
   fCarrier: pointer;
   fLocation: pointer;
-
   // coordinates
   fX: single;
   fY: single;
   fHeight: single;
-
   // direction
   fDirectionXY: single;
   fDirectionH: single;
-
   // mass
   fMass: single;        // "weight"
   fBounce: single;      // land bounce
   fBuoyancy: single;    // water floating
-
   // bounding box
   fSizeX: single;
   fSizeY: single;
   fSizeH: single;
-
   // height of land/water
   fLand: single;
   fWater: single;
-
   // world binding
   fBinding: integer;
   // can be grabbed?
@@ -92,23 +86,18 @@ private
   fUnderWater: boolean;
   // collides?
   fCollider: boolean;
-
   procedure SetX(aX: single);
   procedure SetY(aY: single);
-
   function ApplyY(aY: single): boolean;
-
   procedure SetDirectionXY(aDirectionXY: single);
   procedure SetDirectionH(aDirectionH: single);
   procedure SetMass(aMass: single);
-
   procedure TerrainCollide(aLocation: pointer);
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
   procedure CopyCoords(aPosition: AIPosition);
   procedure FullCopy(aPosition: AIPosition);
-
   property X: single read fX write SetX;
   property Y: single read fY write SetY;
   property Height: single read fHeight write fHeight;
@@ -125,8 +114,8 @@ public
   property Collider: boolean read fCollider write fCollider;
   property Carried: boolean read fCarried write fCarried;
   property Carrier: pointer read fCarrier write fCarrier;
-  property Velocity: AIForce read fVelocity;
-  property Acceleration: AIForce read fAcceleration;
+  property Velocity: TaiForce read fVelocity;
+  property Acceleration: TaiForce read fAcceleration;
   property UnderWater: boolean read fUnderWater;
   property Land: single read fLand;
   property Water: single read fWater;
@@ -136,13 +125,10 @@ public
   procedure SetSize(aSizeX: single; aSizeY: single; aSizeH: single); overload;
   procedure SetProperties(aMass: single; aBounce: single; aBuoyancy: single);
   procedure SetDirection(aXYAngle: single; aHeightAngle: single);
-
   function Volume: single;
-
   function DistanceToX(aDestX: single): single;
   function DistanceToY(aDestY: single): single;
   procedure TurnTowards(const aTarget, aAmount: single);
-
   procedure MoveFreely(aAmount: single);
   procedure MoveFreely5(aAmount: single);
   procedure Move(dX: single; dY: single);
@@ -155,9 +141,7 @@ public
   procedure TurnLeft(aAmount: single); overload;
   procedure TurnRight(aAmount: single); overload;
   procedure Reverse;
-
   procedure MoveBy(aAmount: single);
-
   procedure FaceTarget(aPosition: AIPosition); overload;
   procedure FaceTarget(aPosition: TAffineVector); overload;
   procedure TurnTowardsVelocity(const aAmount: single);
@@ -166,23 +150,18 @@ public
   procedure TurnTowardsVector(const aVector: TAffineVector; const aAmount: single);
   procedure FaceVelocity;
   function TurnTowardsAndIsFacingTarget(const aPosition: AIPosition; const aAmount: single): boolean;
-
   procedure MoveTowards(aPosition: AIPosition; aAmount: single); overload;
   procedure MoveTowardsHeight(aHeight: single; aAmount: single);
-
-  procedure ApplyForce(aForce: AIForce); overload;
+  procedure ApplyForce(aForce: TaiForce); overload;
   procedure ApplyForce(dX: single; dY: single; dH: single); overload;
   procedure ApplyForce(aOrigin: AIPosition; aStrength: single); overload;
   procedure ApplyForce(aAngle: single; aStrength: single); overload;
-
   procedure Center;               // centers at x.5, y.5
   procedure RandomizeOffset;      // randomizes the fraction of the position (1.0)
   procedure RandomizeHalfOffset;  // randomizes the fraction of the position (0.5)
-
   // grow/shrink
   procedure Inflate(aAmount: single);
   procedure Deflate(aAmount: single);
-
   function DistanceTo(aDestination: AIPosition): single;
   function DistancePlusHeightTo(aDestination: AIPosition): single;
   function DistanceToHeight(aHeight: single): single;
@@ -191,27 +170,21 @@ public
   function SimpleDistanceToXY(aDestination: AIPosition): single;
   function DistanceToVector(aVector: TAffineVector): single;
   function DirectionTo(aPosition: AIPosition): single;
-
   function HeightAbove: single;
   function HighestHeight: single;
   function AsAffineVector: TAffineVector;
-
   procedure VelocityStrafeLeft(aAmount: single);
   procedure VelocityStrafeRight(aAmount: single);
   procedure AccelerationStrafeLeft(aAmount: single);
   procedure AccelerationStrafeRight(aAmount: single);
-
   // emit noises etc
   procedure Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
-
   // location interface
-  procedure ApplyOrbitingForce(aForce: AIForce);  // reverses y at poles
+  procedure ApplyOrbitingForce(aForce: TaiForce);  // reverses y at poles
   procedure SetToCoordinates(aCoordinates: AICoordinates);
   function GridX: integer;
   function GridY: integer;
-
   procedure Fuel;
-
   function OneLineDisplay: string;
   procedure FullDisplay(aList: TStrings);
   procedure SaveToFile(var aFile: TextFile);
@@ -232,8 +205,8 @@ constructor AIPosition.Create(aParent: pointer);
 begin
   inherited Create;
 
-  fVelocity := AIForce.Create;
-  fAcceleration := AIForce.Create;
+  fVelocity := TaiForce.Create;
+  fAcceleration := TaiForce.Create;
 
   fBinding := bindLand;
   fMass := 1.0;
@@ -817,7 +790,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.ApplyForce(aForce: AIForce);
+procedure AIPosition.ApplyForce(aForce: TaiForce);
 begin
   if not (aForce.DeltaX = 0) then
     X := X + aForce.DeltaX;
@@ -1002,7 +975,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.ApplyOrbitingForce(aForce: AIForce);
+procedure AIPosition.ApplyOrbitingForce(aForce: TaiForce);
 begin
   if not (aForce.DeltaX = 0) then
     X := X + aForce.DeltaX;

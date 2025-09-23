@@ -20,7 +20,7 @@ const
 type
 
 // ============================================================================
-AIShark = class(AICreature)
+AIShark = class(TaiCreature)
 protected
   procedure Swim;
   procedure Dart;
@@ -40,7 +40,7 @@ uses
   Bio.Globals,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Trees;
+  Bio.Flora;
 
 // ----------------------------------------------------------------------------
 constructor AIShark.Create(aParent: pointer);
