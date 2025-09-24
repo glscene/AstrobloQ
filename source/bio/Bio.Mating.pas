@@ -26,9 +26,9 @@ const
 type
 
 // ============================================================================
-AIMatingCreature = class(TAICommunityCreature)
+TaiMatingCreature = class(TaiCommunityCreature)
 private
-  fPartner: AILink; // потенциальный репродуктивный партнёр
+  fPartner: TaiLink; // потенциальный репродуктивный партнёр
   fFemale: boolean; // true для жен, false для муж
   fStage: integer;  // stage of sexual reproduction
   fMatingTimer: integer; // timer to delay mating
@@ -46,7 +46,7 @@ public
   procedure Fuel; override;
   procedure Die; override;
   procedure Cease; override;
-  property Partner: AILink read fPartner;
+  property Partner: TaiLink read fPartner;
   property Female: boolean read fFemale write fFemale;
   property Stage: integer read fStage write fStage;
   property MatingTimer: integer read fMatingTimer write fMatingTimer;
@@ -67,7 +67,7 @@ uses
   Bio.Fish;
 
 // ----------------------------------------------------------------------------
-constructor AIMatingCreature.Create(aParent: pointer);
+constructor TaiMatingCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -82,14 +82,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIMatingCreature.Destroy;
+destructor TaiMatingCreature.Destroy;
 begin
   gEnvironment.References.Remove(fPartner);
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.Fuel;
+procedure TaiMatingCreature.Fuel;
 begin
   inherited Fuel;
   case fStage of
@@ -100,7 +100,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.Die;
+procedure TaiMatingCreature.Die;
 begin
   inherited Die;
 
@@ -108,14 +108,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.Cease;
+procedure TaiMatingCreature.Cease;
 begin
   fPartner.InvalidateTarget;
   inherited Cease;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.SaveToFile(var aFile: TextFile);
+procedure TaiMatingCreature.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   fPartner.SaveToFile(aFile);
@@ -124,7 +124,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.LoadFromFile(var aFile: TextFile);
+procedure TaiMatingCreature.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   fPartner.LoadFromFile(aFile);
@@ -133,7 +133,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.MatingBehaviour;
+procedure TaiMatingCreature.MatingBehaviour;
 begin
   // must be in a community
   if not Community.ValidTarget then
@@ -156,11 +156,11 @@ end;
 
 // ----------------------------------------------------------------------------
 // assumes in a community
-procedure AIMatingCreature.FindMate;
+procedure TaiMatingCreature.FindMate;
 var
   myCommunity: TaiCommunity;
   i: integer;
-  myMate: AIMatingCreature;
+  myMate: TaiMatingCreature;
 begin
   myCommunity := TaiCommunity(Community.Target);
   // if too many in this community, dont breed
@@ -168,7 +168,7 @@ begin
   // find a mate
   for i := 0 to myCommunity.Members.Count - 1 do
   begin
-    myMate := AIMatingCreature(myCommunity.Members[i]);
+    myMate := TaiMatingCreature(myCommunity.Members[i]);
     if (Female <> myMate.Female)
     and (myMate.Stage = cCreatureAdult)
     and ((myMate.Partner.Target = nil) or (myMate.Partner.Target = self)) 
@@ -180,16 +180,16 @@ end;
 // ----------------------------------------------------------------------------
 // assumes in a community
 // assumes has a partner
-procedure AIMatingCreature.MateWithPartner;
+procedure TaiMatingCreature.MateWithPartner;
 var
-  myMate: AIMatingCreature;
-  myBaby: AIMatingCreature;
+  myMate: TaiMatingCreature;
+  myBaby: TaiMatingCreature;
   myCommunity: TaiCommunity;
 begin
   if not Partner.ValidTarget then exit;
   if not Community.ValidTarget then exit;
 
-  myMate := AIMatingCreature(Partner.Target);
+  myMate := TaiMatingCreature(Partner.Target);
 
   // turn towards mate
   Position.TurnTowardsTarget(myMate.Position, ca30);
@@ -204,7 +204,7 @@ begin
   if gReality.Time < MatingTimer then exit;
 
   // close to mate, so make a baby
-  myBaby := AIMatingCreature(gThings.NewThing(Kind));
+  myBaby := TaiMatingCreature(gThings.NewThing(Kind));
   myBaby.Position.FullCopy(Position);
   myBaby.Position.Y := myBaby.Position.Y + Position.SizeY;
   Health := Health - 512;
@@ -216,7 +216,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.FullDisplay(aList: TStrings);
+procedure TaiMatingCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -231,7 +231,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIMatingCreature.OneLineDisplay: string;
+function TaiMatingCreature.OneLineDisplay: string;
 begin
   result := GetName + ' ' + IntToStr(Handle) + ' ';
 
@@ -266,7 +266,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMatingCreature.MatingBehaviourNoRestraints;
+procedure TaiMatingCreature.MatingBehaviourNoRestraints;
 begin
   // look for a partner
   if not Partner.ValidTarget then
@@ -279,10 +279,10 @@ end;
 
 // ----------------------------------------------------------------------------
 // find nearest possible mate
-procedure AIMatingCreature.FindMateNoRestraints;
+procedure TaiMatingCreature.FindMateNoRestraints;
 var
   i: integer;
-  myMate: AIMatingCreature;
+  myMate: TaiMatingCreature;
   closest: single;
   distance: single;
 begin
@@ -290,7 +290,7 @@ begin
   closest := 1000000;
   for i := 0 to gThings.Tables[Kind].Count - 1 do
   begin
-    myMate := AIMatingCreature(gThings.Tables[Kind].Items[i]);
+    myMate := TaiMatingCreature(gThings.Tables[Kind].Items[i]);
     distance := Position.DistancePlusHeightTo(myMate.Position);
     if (distance < closest) and (Female <> myMate.Female) and myMate.Alive then
     begin

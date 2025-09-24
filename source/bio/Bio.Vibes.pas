@@ -50,7 +50,7 @@ type
 
 // ============================================================================
 // an individual vibe
-AIVibe = class(TaiThing)
+TaiVibe = class(TaiThing)
 private
   fEffectType: integer;
   fEffectIndex: integer;
@@ -58,44 +58,36 @@ private
   fTimerDeath: integer;
 public
   constructor Create(aParent: pointer);
-
   property EffectType: integer read fEffectType write fEffectType;
   property EffectIndex: integer read fEffectIndex write fEffectIndex;
   property SensoryType: integer read fSensoryType write fSensoryType;
   property TimerDeath: integer read fTimerDeath write fTimerDeath;
-
   procedure SetVibe(aEffectType, aEffectIndex, aTimerDeath: integer);
-
   procedure Fuel; override;
-
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
 // ============================================================================
 // an visible string of text
-AISpeech = class(TaiThing)
+TaiSpeech = class(TaiThing)
 private
   fText: string;          // text to communicate
   fRadius: single;        // how widely can it be "heard"
   fTimerDeath: integer;   // how long will this stick around?
 public
   constructor Create(aParent: pointer);
-
   property Text: string read fText write fText;
   property Radius: single read fRadius write fRadius;
   property TimerDeath: integer read fTimerDeath write fTimerDeath;
-
   procedure Fuel; override;
-
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation
+implementation //=============================================================
 
-// ----------------------------------------------------------------------------
-constructor AIVibe.Create(aParent: pointer);
+constructor TaiVibe.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -109,7 +101,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIVibe.Fuel;
+procedure TaiVibe.Fuel;
 begin
   inherited Fuel;
 
@@ -118,7 +110,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIVibe.SetVibe(aEffectType, aEffectIndex, aTimerDeath: integer);
+procedure TaiVibe.SetVibe(aEffectType, aEffectIndex, aTimerDeath: integer);
 begin
   fEffectType := aEffectType;
   fEffectIndex := aEffectIndex;
@@ -126,7 +118,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIVibe.SaveToFile(var aFile: TextFile);
+procedure TaiVibe.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fEffectType);
@@ -136,7 +128,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIVibe.LoadFromFile(var aFile: TextFile);
+procedure TaiVibe.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fEffectType);
@@ -146,7 +138,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AISpeech.Create(aParent: pointer);
+constructor TaiSpeech.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -160,7 +152,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpeech.Fuel;
+procedure TaiSpeech.Fuel;
 begin
   inherited Fuel;
 
@@ -169,7 +161,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpeech.SaveToFile(var aFile: TextFile);
+procedure TaiSpeech.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fText);
@@ -178,7 +170,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpeech.LoadFromFile(var aFile: TextFile);
+procedure TaiSpeech.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fText);

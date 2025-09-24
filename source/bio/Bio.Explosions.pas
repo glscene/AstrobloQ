@@ -50,7 +50,7 @@ public
 end;
 
 // ============================================================================
-AIBomb = class(TaiThing)
+TaiBomb = class(TaiThing)
 private
   fTimer: integer;
   fEffect: integer;
@@ -68,13 +68,11 @@ public
 
   procedure Fuel; override;
   procedure Explode;
-
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -84,7 +82,7 @@ uses
   Bio.Position;
 
 // ----------------------------------------------------------------------------
-constructor AIBomb.Create(aParent: pointer);
+constructor TaiBomb.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -99,7 +97,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // this kind of code works good: constantly running a fast check for the expensive occasion
-procedure AIBomb.Fuel;
+procedure TaiBomb.Fuel;
 begin
   inherited Fuel;
 
@@ -108,7 +106,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBomb.Explode;
+procedure TaiBomb.Explode;
 var
   myExplosion: TaiExplosion;
 begin
@@ -169,7 +167,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TaiExplosion.Shrapnel;
 var
-  myBomb: AIBomb;
+  myBomb: TaiBomb;
 begin
   myBomb := gEnvironment.Things.Tables[cBomb].NearestOfKind(cBomb, Position, BlastRadius);
 
@@ -198,7 +196,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBomb.SaveToFile(var aFile: TextFile);
+procedure TaiBomb.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fTimer);
@@ -209,7 +207,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBomb.LoadFromFile(var aFile: TextFile);
+procedure TaiBomb.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fTimer);

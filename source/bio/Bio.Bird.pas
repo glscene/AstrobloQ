@@ -32,7 +32,7 @@ type
 
 // ============================================================================
 // a group of birds
-AIFlock = class(TaiLivingGroup)
+TaiFlock = class(TaiLivingGroup)
 private
   fFlightPattern: integer;
   fFlockCenter: TAffineVector;
@@ -53,9 +53,9 @@ end;
 
 // ============================================================================
 // an individual bird
-AIBird = class(TaiCreature)
+TaiBird = class(TaiCreature)
 private
-  fFlock: AILink;     // flock
+  fFlock: TaiLink;     // flock
   fFlying: boolean;   // is it flying?
   fMature: boolean;   // can have kids
   fGender: boolean;       // male, female
@@ -69,12 +69,12 @@ protected
   procedure MatingBehaviour;
   procedure FindMate;
   procedure CreateBaby;
-  function ValidMate(aMate: AIBird): boolean;
+  function ValidMate(aMate: TaiBird): boolean;
   function InMatingCondition: boolean;
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Flock: AILink read fFlock;
+  property Flock: TaiLink read fFlock;
   property Flying: boolean read fFlying write fFlying;
   property Mature: boolean read fMature write fMature;
   property Gender: boolean read fGender write fGender;
@@ -92,7 +92,7 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -103,7 +103,7 @@ uses
   Bio.Fish;
 
 // ----------------------------------------------------------------------------
-constructor AIBird.Create(aParent: pointer);
+constructor TaiBird.Create(aParent: pointer);
 begin
   inherited Create(aParent);
   Kind := cBird;
@@ -127,7 +127,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIBird.Destroy;
+destructor TaiBird.Destroy;
 begin
   LeaveFlock;
   gEnvironment.References.Remove(fFlock);
@@ -135,7 +135,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.Fuel;
+procedure TaiBird.Fuel;
 begin
   inherited Fuel;
   // calculate new desire based on past desire
@@ -222,7 +222,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.Die;
+procedure TaiBird.Die;
 begin
   inherited Die;
 
@@ -232,7 +232,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.Cease;
+procedure TaiBird.Cease;
 begin
   if Exists then
     LeaveFlock;
@@ -241,7 +241,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.FlapWings;
+procedure TaiBird.FlapWings;
 begin
   if (Random(2048) = 0) then
     Noise(cNoiseBirdChirp, 1);
@@ -250,19 +250,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.Hop;
+procedure TaiBird.Hop;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, QuarterPi, 0.2);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.Walk;
+procedure TaiBird.Walk;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.1);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.Swim;
+procedure TaiBird.Swim;
 var
   myThing: TaiThing;
 begin
@@ -283,7 +283,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.SaveToFile(var aFile: TextFile);
+procedure TaiBird.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeFileBoolean(aFile, fFlying);
@@ -291,7 +291,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.LoadFromFile(var aFile: TextFile);
+procedure TaiBird.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   fFlying := readFileBoolean(aFile);
@@ -299,7 +299,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIFlock.Create(aParent: pointer);
+constructor TaiFlock.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -311,14 +311,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIFlock.Destroy;
+destructor TaiFlock.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFlock.Fuel;
+procedure TaiFlock.Fuel;
 begin
   inherited Fuel;
 
@@ -335,9 +335,9 @@ end;
 // ----------------------------------------------------------------------------
 // finds center of flock (avg of all birds)
 // and finds velocity of flock (avg of all birds)
-procedure AIFlock.CalculateCenters;
+procedure TaiFlock.CalculateCenters;
 var
-  myBird: AIBird;
+  myBird: TaiBird;
   i, RigidCount, FlockingCount: integer;
 begin
   FlockingCount := 0;
@@ -354,7 +354,7 @@ begin
   RigidCount := Members.Count;
   for i := 0 to RigidCount-1 do
   begin
-    myBird := AIBird(Members.Items[i]);
+    myBird := TaiBird(Members.Items[i]);
 
     // add to center
     fFlockCenter.X := fFlockCenter.X + myBird.Position.X;
@@ -408,13 +408,13 @@ end;
 // ----------------------------------------------------------------------------
 // assumes in a flock
 // avoid any nearby birds
-function AIBird.FlockAvoidance: TAffineVector;
+function TaiBird.FlockAvoidance: TAffineVector;
 var
-  myBird: AIBird;
+  myBird: TaiBird;
   i: integer;
-  myFlock: AIFlock;
+  myFlock: TaiFlock;
 begin
-  myFlock := AIFlock(Flock.Target);
+  myFlock := TaiFlock(Flock.Target);
 
   result.X := 0;
   result.Y := 0;
@@ -422,7 +422,7 @@ begin
 
   for i := 0 to myFlock.Members.Count - 1 do
   begin
-    myBird := AIBird(myFlock.Members.Items[i]);
+    myBird := TaiBird(myFlock.Members.Items[i]);
     if (myBird <> self) then
     begin
       if Position.DistancePlusHeightTo(myBird.Position) < 2 then
@@ -437,15 +437,15 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.FlyWithFlock;
+procedure TaiBird.FlyWithFlock;
 var
-  myFlock: AIFlock;
+  myFlock: TaiFlock;
   myCenter: TAffineVector;
 begin
   // in a flock?
   if Flock.ValidTarget then
   begin
-    myFlock := AIFlock(Flock.Target);
+    myFlock := TaiFlock(Flock.Target);
     // Boids
     // http://www.vergenet.net/~conrad/boids/pseudocode.html
     // Rule 1: Boids try to fly towards the centre of mass of neighbouring boids.
@@ -476,7 +476,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.FindFruit;
+procedure TaiBird.FindFruit;
 var
   myThing: TaiThing;
 begin
@@ -544,9 +544,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.JoinFlock;
+procedure TaiBird.JoinFlock;
 var
-  myFlock: AIFlock;
+  myFlock: TaiFlock;
 begin
   // if there are no flocks, create one
   if (gThings.Counters[cFlock] = 0) then
@@ -564,7 +564,7 @@ begin
   // if the last flock is full, try to create a new one
   if myFlock.Full then
     if gThings.CanAdd(cFlock) then
-      myFlock := AIFlock(gThings.NewThing(cFlock));
+      myFlock := TaiFlock(gThings.NewThing(cFlock));
 
   // if the flock has a vacancy, then join it
   if myFlock.Vacancy then
@@ -576,25 +576,25 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.LeaveFlock;
+procedure TaiBird.LeaveFlock;
 begin
   if Flock.ValidTarget then
   begin
-    AIFlock(Flock.Target).RemoveMember(self);
+    TaiFlock(Flock.Target).RemoveMember(self);
     Flock.InvalidateTarget;
   end;
 end;
 
 // ----------------------------------------------------------------------------
 // set eyes to look at a potential mate
-procedure AIBird.FindMate;
+procedure TaiBird.FindMate;
 var
-  myFlock: AIFlock;
+  myFlock: TaiFlock;
   index: integer;
 begin
   // in a flock?
   if Flock.ValidTarget then
-    myFlock := AIFlock(Flock.Target)
+    myFlock := TaiFlock(Flock.Target)
   else
     exit;
 
@@ -604,7 +604,7 @@ begin
 
   // find a bird
   index := Random(myFlock.Members.Count);
-  Eyes.AssignTarget(AIBird(myFlock.Members[index]));
+  Eyes.AssignTarget(TaiBird(myFlock.Members[index]));
 
   // check to see if looking at a bird or not, just in case
   if not (Eyes.TargetKind = cBird) then
@@ -614,22 +614,22 @@ begin
   end;
 
   // check to see if its a valid mate
-  if not ValidMate(AIBird(Eyes.Target)) then
+  if not ValidMate(TaiBird(Eyes.Target)) then
     Eyes.InvalidateTarget;
 end;
 
 // ----------------------------------------------------------------------------
 // find, chase, and sex up another bird
-procedure AIBird.MatingBehaviour;
+procedure TaiBird.MatingBehaviour;
 var
-  myMate: AIBird;
+  myMate: TaiBird;
 begin
   Flying := true;
 
   // chase mate
   if Eyes.ValidTarget and (Eyes.Target.Kind = cBird) then
   begin
-      myMate := AIBird(Eyes.Target);
+      myMate := TaiBird(Eyes.Target);
       // turn towards mate
       Position.TurnTowardsTarget(myMate.Position, ca45);
       // fly towards mate
@@ -660,22 +660,22 @@ end;
 
 // ----------------------------------------------------------------------------
 // have a kid
-procedure AIBird.CreateBaby;
+procedure TaiBird.CreateBaby;
 var
-  myBaby: AIBird;
-  myFlock: AIFlock;
+  myBaby: TaiBird;
+  myFlock: TaiFlock;
 begin
   if not Flock.ValidTarget then exit;
-  myFlock := AIFlock(Flock.Target);
+  myFlock := TaiFlock(Flock.Target);
   if not Grabber.Holding then exit;
-  if not (Grabber.Target is AIBird) then exit;
+  if not (Grabber.Target is TaiBird) then exit;
   if not gThings.CanAdd(cBird) then exit;
   if not myFlock.Vacancy then exit;
   if not gThings.CanAdd(cBird) then exit;
 
   fMatingTimer := gReality.Time + 1024;
 
-  myBaby := AIBird(gThings.NewThing(cBird));
+  myBaby := TaiBird(gThings.NewThing(cBird));
   myBaby.Position.FullCopy(Position);
   myBaby.Position.Height := Position.Height - 1;
   myBaby.Flock.AssignTarget(myFlock);
@@ -686,11 +686,11 @@ end;
 
 // ----------------------------------------------------------------------------
 // is this bird a valid mate?  ;)
-function AIBird.ValidMate(aMate: AIBird): boolean;
+function TaiBird.ValidMate(aMate: TaiBird): boolean;
 begin
   result := false;
   // is it a bird?
-  if not (aMate is AIBird) then exit;
+  if not (aMate is TaiBird) then exit;
   // is the bird myself?
   if (aMate = self) then exit;
   // is the bird mature?
@@ -702,13 +702,13 @@ begin
   // is the bird being carried?
   if aMate.Position.Carried then exit;
   // is the bird holding another bird? note: causes a bug!
-  //  if aMate.Grabber.Holding and (aMate.Grabber.Target is AIBird) then exit;
+  //  if aMate.Grabber.Holding and (aMate.Grabber.Target is TaiBird) then exit;
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
 // is it time to mate?
-function AIBird.InMatingCondition: boolean;
+function TaiBird.InMatingCondition: boolean;
 begin
   result := false;
   // healthy?
@@ -722,7 +722,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.FullDisplay(aList: TStrings);
+procedure TaiBird.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -734,19 +734,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBird.ReaffirmFlock;
+procedure TaiBird.ReaffirmFlock;
 var
-  myFlock: AIFlock;
+  myFlock: TaiFlock;
 begin
   if Flock.ValidTarget then
   begin
-    myFlock := AIFlock(Flock.Target);
+    myFlock := TaiFlock(Flock.Target);
     myFlock.AddMember(self);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFlock.FullDisplay(aList: TStrings);
+procedure TaiFlock.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 

@@ -21,7 +21,7 @@ uses
 type
 
 // ============================================================================
-AIDuck = class(AIMatingCreature)
+TaiDuck = class(TaiMatingCreature)
 protected
   procedure FloatWithCommunity;
   procedure Float;
@@ -29,11 +29,10 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Fuel; override;
 end;
 
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -44,7 +43,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AIDuck.Create(aParent: pointer);
+constructor TaiDuck.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -60,14 +59,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIDuck.Destroy;
+destructor TaiDuck.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDuck.Fuel;
+procedure TaiDuck.Fuel;
 begin
   inherited Fuel;
 
@@ -116,7 +115,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDuck.FloatWithCommunity;
+procedure TaiDuck.FloatWithCommunity;
 var
   myCommunity: TaiCommunity;
   myForce: TAffineVector;
@@ -158,14 +157,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDuck.Float;
+procedure TaiDuck.Float;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.05);
   Position.Velocity.LimitSpeed(0.1);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDuck.DevelopIntoBaby;
+procedure TaiDuck.DevelopIntoBaby;
 begin
   Size := 0.3;
   Position.SetSize(Size, Size, Size/2);

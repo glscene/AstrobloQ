@@ -19,7 +19,7 @@ const
 type
 
 // ============================================================================
-AIMouse = class(TaiCreature)
+TaiMouse = class(TaiCreature)
 protected
 public
   constructor Create(aParent: pointer);
@@ -40,7 +40,7 @@ uses
   Bio.Flora;
 
 // ----------------------------------------------------------------------------
-constructor AIMouse.Create(aParent: pointer);
+constructor TaiMouse.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -50,7 +50,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMouse.Fuel;
+procedure TaiMouse.Fuel;
 begin
   inherited Fuel;
 
@@ -64,7 +64,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIMouse.IsPrey: boolean;
+function TaiMouse.IsPrey: boolean;
 begin
   result := true;
 end;

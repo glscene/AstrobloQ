@@ -19,7 +19,7 @@ uses
 type
 
 // ============================================================================
-AILadybug = class(AIGeneticCreature)
+TaiLadybug = class(TaiGeneticCreature)
 protected
   procedure DevelopIntoBaby; override;
   procedure FindFood(aKind: integer; aSpeed: single);
@@ -27,16 +27,13 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Die; override;
   function IsPrey: boolean; override;
-
   function OneLineDisplay: string; override;
   procedure Fuel; override;
 end;
 
-//=============================================================================
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -46,7 +43,7 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AILadybug.Create(aParent: pointer);
+constructor TaiLadybug.Create(aParent: pointer);
 begin
   Kind := cLadybug;
 
@@ -58,14 +55,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AILadybug.Destroy;
+destructor TaiLadybug.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILadybug.Fuel;
+procedure TaiLadybug.Fuel;
 begin
   inherited Fuel;
 
@@ -101,14 +98,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILadyBug.Move;
+procedure TaiLadybug.Move;
 begin
   if Position.Velocity.XYStrength < 0.1 then
     Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.025);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILadyBug.DevelopIntoBaby;
+procedure TaiLadybug.DevelopIntoBaby;
 begin
   Size := 0.1;
   Position.SetSize(Size, Size, Size);
@@ -126,7 +123,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // find and grab food
-procedure AILadyBug.FindFood(aKind: integer; aSpeed: single);
+procedure TaiLadybug.FindFood(aKind: integer; aSpeed: single);
 var
   myThing: TaiThing;
 begin
@@ -170,13 +167,13 @@ end;
 
 
 // ----------------------------------------------------------------------------
-function AILadyBug.OneLineDisplay: string;
+function TaiLadybug.OneLineDisplay: string;
 begin
   result := Format('Ladybug b=%0.2f ', [DNA.Buoyancy]) + inherited OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILadybug.Die;
+procedure TaiLadybug.Die;
 begin
   inherited Die;
 
@@ -184,7 +181,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILadyBug.IsPrey: boolean;
+function TaiLadybug.IsPrey: boolean;
 begin
   result := true;
 end;

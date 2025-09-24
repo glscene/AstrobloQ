@@ -18,7 +18,7 @@ uses
 type
 
 // ============================================================================
-AIAnt = class(TaiCommunityCreature)
+TaiAnt = class(TaiCommunityCreature)
 private
 public
   constructor Create(aParent: pointer);
@@ -38,7 +38,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AIAnt.Create(aParent: pointer);
+constructor TaiAnt.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -50,14 +50,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIAnt.Destroy;
+destructor TaiAnt.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAnt.Fuel;
+procedure TaiAnt.Fuel;
 begin
   inherited Fuel;
 
@@ -68,7 +68,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIAnt.IsPrey: boolean;
+function TaiAnt.IsPrey: boolean;
 begin
   result := true;
 end;

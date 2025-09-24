@@ -23,7 +23,7 @@ const
 type
 
 // ============================================================================
-AIGeneticCreature = class(AIMatingSingleCreature)
+TaiGeneticCreature = class(TaiMatingSingleCreature)
 private
   fDNA: TaiDNA;
 protected
@@ -34,13 +34,11 @@ public
   destructor Destroy; override;
 
   property DNA: TaiDNA read fDNA;
-
   // user-interface and bot-interface
   procedure Perform(aActivity: integer); override;
-  // DNA access     
+  // DNA access
   function HasDNA: boolean; override;
   function GetDNA: pointer; override;
-
   // file load/save routines
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
@@ -59,73 +57,66 @@ uses
   Bio.Community;
 
 // ----------------------------------------------------------------------------
-constructor AIGeneticCreature.Create(aParent: pointer);
+constructor TaiGeneticCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   fDNA := TaiDNA.Create;
   fDNA.CopyFrom(TaiDNA(gThings.Forms.Items[Kind]));
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIGeneticCreature.Destroy;
+destructor TaiGeneticCreature.Destroy;
 begin
   fDNA.Free;
-
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGeneticCreature.Perform(aActivity: integer);
+procedure TaiGeneticCreature.Perform(aActivity: integer);
 begin
   inherited Perform(aActivity);
-
   case aActivity of
     10: ; //Evolve;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGeneticCreature.SaveToFile(var aFile: TextFile);
+procedure TaiGeneticCreature.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
-
   DNA.SaveToFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGeneticCreature.LoadFromFile(var aFile: TextFile);
+procedure TaiGeneticCreature.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
-
   DNA.LoadFromFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-function AIGeneticCreature.OneLineDisplay: string;
+function TaiGeneticCreature.OneLineDisplay: string;
 begin
   result := inherited OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGeneticCreature.FullDisplay(aList: TStrings);
+procedure TaiGeneticCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   DNA.FullDisplay(aList);
 end;
 
 // ----------------------------------------------------------------------------
 // assumes in a community
 // assumes has a partner
-procedure AIGeneticCreature.MateWithPartner;
+procedure TaiGeneticCreature.MateWithPartner;
 var
-  myMate: AIGeneticCreature;
-  myBaby: AIGeneticCreature;
+  myMate: TaiGeneticCreature;
+  myBaby: TaiGeneticCreature;
 begin
   if not Partner.ValidTarget then exit;
-
-  myMate := AIGeneticCreature(Partner.Target);
+  myMate := TaiGeneticCreature(Partner.Target);
 
   // move towards mate
   Position.TurnTowardsTarget(myMate.Position, ca30);
@@ -137,7 +128,7 @@ begin
   if gReality.Time < MatingTimer then exit;
 
   // close to mate, so make a baby
-  myBaby := AIGeneticCreature(gThings.NewThing(Kind));
+  myBaby := TaiGeneticCreature(gThings.NewThing(Kind));
   myBaby.Position.FullCopy(Position);
   Health := Health - 512;
   myBaby.Health := 512;
@@ -150,13 +141,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGeneticCreature.HasDNA: boolean;
+function TaiGeneticCreature.HasDNA: boolean;
 begin
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
-function AIGeneticCreature.GetDNA: pointer;
+function TaiGeneticCreature.GetDNA: pointer;
 begin
   result := fDNA;
 end;

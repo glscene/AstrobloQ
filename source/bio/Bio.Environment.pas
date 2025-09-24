@@ -35,8 +35,8 @@ private
   fName: string;
   fThings: TaiThingList;
   fSpace: TaiSpace;
-  fReferences: AILinkContainer;
-  fAttachments: AIAttachmentContainer;
+  fReferences: TaiLinkContainer;
+  fAttachments: TaiAttachmentContainer;
   fShadows: boolean;
 protected
   function GetGravity: TaiForce;
@@ -49,8 +49,8 @@ public
   property Name: string read fName write fName;
   property Things: TaiThingList read fThings;
   property Space: TaiSpace read fSpace;
-  property References: AILinkContainer read fReferences;
-  property Attachments: AIAttachmentContainer read fAttachments;
+  property References: TaiLinkContainer read fReferences;
+  property Attachments: TaiAttachmentContainer read fAttachments;
   property Gravity: TaiForce read GetGravity;
   property AirFriction: TaiForce read GetAirFriction;
   property LandFriction: TaiForce read GetLandFriction;
@@ -87,8 +87,8 @@ begin
   // create an empty list of things
   fThings := TaiThingList.Create(self);
   // create an empty list of links (thing <-> thing)
-  fReferences := AILinkContainer.Create(self);
-  fAttachments := AIAttachmentContainer.Create(self);
+  fReferences := TaiLinkContainer.Create(self);
+  fAttachments := TaiAttachmentContainer.Create(self);
   fShadows := false;
 
   fName := 'New Planet';

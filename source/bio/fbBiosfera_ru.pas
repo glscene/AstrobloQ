@@ -710,7 +710,7 @@ type
     PlanetRadius: Single;
     WaterRadius: Single;
     ControllingBot: Boolean;
-    ControlBot: AIBot;
+    ControlBot: TaiBot;
     Flying: Boolean;
     FlyingForwards: Boolean;
     (*
@@ -818,37 +818,37 @@ type
     function BuildOrange(aOrange: TaiFruit): TCrossover;
     function BuildSeed(aSeed: TaiSeed): TCrossover;
     function BuildFish(aFish: TaiFish): TCrossover;
-    function BuildBird(aBird: AIBird): TCrossover;
+    function BuildBird(aBird: TaiBird): TCrossover;
     function BuildAsteroid(aAsteroid: TaiAsteroid): TCrossover;
     function BuildExplosion(aExplosion: TaiExplosion): TCrossover;
-    function BuildBot(aBot: AIBot): TCrossover;
-    function BuildCrab(aCrab: AICrab): TCrossover;
-    function BuildHawk(aHawk: AIHawk): TCrossover;
-    function BuildGrazer(aGrazer: AIGrazer): TCrossover;
-    function BuildTrex(aTrex: AITrex): TCrossover;
-    function BuildVibe(aVibe: AIVibe): TCrossover;
-    function BuildBall(aBall: AIBall): TCrossover;
+    function BuildBot(aBot: TaiBot): TCrossover;
+    function BuildCrab(aCrab: TaiCrab): TCrossover;
+    function BuildHawk(aHawk: TaiHawk): TCrossover;
+    function BuildGrazer(aGrazer: TaiGrazer): TCrossover;
+    function BuildTrex(aTrex: TaiTrex): TCrossover;
+    function BuildVibe(aVibe: TaiVibe): TCrossover;
+    function BuildBall(aBall: TaiBall): TCrossover;
     function BuildLightning(aLightning: TaiLightning): TCrossover;
-    function BuildShark(aShark: AIShark): TCrossover;
-    function BuildTurtle(aTurtle: AITurtle): TCrossover;
-    function BuildBeacon(aBeacon: AIBeacon): TCrossover;
+    function BuildShark(aShark: TaiShark): TCrossover;
+    function BuildTurtle(aTurtle: TaiTurtle): TCrossover;
+    function BuildBeacon(aBeacon: TaiBeacon): TCrossover;
     function BuildTerrier(aTerrier: TaiTerrier): TCrossover;
-    function BuildFox(aFox: AIFox): TCrossover;
-    function BuildRabbit(aRabbit: AIRabbit): TCrossover;
+    function BuildFox(aFox: TaiFox): TCrossover;
+    function BuildRabbit(aRabbit: TaiRabbit): TCrossover;
     function BuildGrass(aGrass: TaiGrass): TCrossover;
     function BuildIceberg(aIceberg: TaiIceberg): TCrossover;
-    function BuildMouse(aMouse: AIMouse): TCrossover;
-    function BuildTiger(aTiger: AITiger): TCrossover;
-    function BuildDuck(aDuck: AIDuck): TCrossover;
-    function BuildDolphin(aDolphin: AIDolphin): TCrossover;
+    function BuildMouse(aMouse: TaiMouse): TCrossover;
+    function BuildTiger(aTiger: TaiTiger): TCrossover;
+    function BuildDuck(aDuck: TaiDuck): TCrossover;
+    function BuildDolphin(aDolphin: TaiDolphin): TCrossover;
     function BuildAquaPlant(aAquaPlant: TaiAquaPlant): TCrossover;
-    function BuildLadybug(aLadybug: AILadybug): TCrossover;
-    function BuildAnt(aAnt: AIAnt): TCrossover;
+    function BuildLadybug(aLadybug: TaiLadybug): TCrossover;
+    function BuildAnt(aAnt: TaiAnt): TCrossover;
     function BuildEvolvingTree(aTree: TaiEvolvingTree): TCrossover;
     function BuildEvolvingFruit(aFruit: TaiEvolvingFruit): TCrossover;
     function BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
     function BuildFireTree(aFireTree: TaiFireTree): TCrossover;
-    function BuildSpeech(aSpeech: AISpeech): TCrossover;
+    function BuildSpeech(aSpeech: TaiSpeech): TCrossover;
     function BuildMissileDefence(aMissileDefence: TaiMissileDefence): TCrossover;
     function BuildMissile(aMissile: TaiMissile): TCrossover;
 
@@ -2154,9 +2154,9 @@ begin
         cFish:
           BuildFish(TaiFish(myThing));
         cBird:
-          result := BuildBird(AIBird(myThing));
+          result := BuildBird(TaiBird(myThing));
         cBot:
-          result := BuildBot(AIBot(myThing));
+          result := BuildBot(TaiBot(myThing));
         cSun:
           result := BuildSun(TaiSun(myThing));
         cMoon:
@@ -2168,52 +2168,52 @@ begin
               result := nil;
           end;
         cTrex:
-          result := BuildTrex(AITrex(myThing));
+          result := BuildTrex(TaiTrex(myThing));
         cGrazer:
-          result := BuildGrazer(AIGrazer(myThing));
+          result := BuildGrazer(TaiGrazer(myThing));
         cHawk:
-          result := BuildHawk(AIHawk(myThing));
+          result := BuildHawk(TaiHawk(myThing));
         cCrab:
-          result := BuildCrab(AICrab(myThing));
+          result := BuildCrab(TaiCrab(myThing));
         cExplosion:
           result := BuildExplosion(TaiExplosion(myThing));
         cBall:
-          result := BuildBall(AIBall(myThing));
+          result := BuildBall(TaiBall(myThing));
         cVibe:
           if Visible then
-            BuildVibe(AIVibe(myThing));
+            BuildVibe(TaiVibe(myThing));
         cLightning:
           result := BuildLightning(TaiLightning(myThing));
         cShark:
-          result := BuildShark(AIShark(myThing));
+          result := BuildShark(TaiShark(myThing));
         cTurtle:
-          result := BuildTurtle(AITurtle(myThing));
+          result := BuildTurtle(TaiTurtle(myThing));
         cBeacon:
-          result := BuildBeacon(AIBeacon(myThing));
+          result := BuildBeacon(TaiBeacon(myThing));
         cTerrier:
           result := BuildTerrier(TaiTerrier(myThing));
         cFox:
-          result := BuildFox(AIFox(myThing));
+          result := BuildFox(TaiFox(myThing));
         cRabbit:
-          result := BuildRabbit(AIRabbit(myThing));
+          result := BuildRabbit(TaiRabbit(myThing));
         cGrass:
           result := BuildGrass(TaiGrass(myThing));
         cIceberg:
           result := BuildIceberg(TaiIceberg(myThing));
         cMouse:
-          result := BuildMouse(AIMouse(myThing));
+          result := BuildMouse(TaiMouse(myThing));
         cTiger:
-          result := BuildTiger(AITiger(myThing));
+          result := BuildTiger(TaiTiger(myThing));
         cDuck:
-          result := BuildDuck(AIDuck(myThing));
+          result := BuildDuck(TaiDuck(myThing));
         cDolphin:
-          result := BuildDolphin(AIDolphin(myThing));
+          result := BuildDolphin(TaiDolphin(myThing));
         cAquaPlant:
           result := BuildAquaPlant(TaiAquaPlant(myThing));
         cLadybug:
-          result := BuildLadybug(AILadybug(myThing));
+          result := BuildLadybug(TaiLadybug(myThing));
         cAnt:
-          result := BuildAnt(AIAnt(myThing));
+          result := BuildAnt(TaiAnt(myThing));
         cEvolvingTree:
           BuildEvolvingTree(TaiEvolvingTree(myThing));
         cEvolvingFruit:
@@ -2223,7 +2223,7 @@ begin
         cFireTree:
           BuildFireTree(TaiFireTree(myThing));
         cSpeech:
-          BuildSpeech(AISpeech(myThing));
+          BuildSpeech(TaiSpeech(myThing));
         cMissileDefence:
           BuildMissileDefence(TaiMissileDefence(myThing));
         cMissile:
@@ -3357,7 +3357,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildBot(aBot: AIBot): TCrossover;
+function TFormBiosfera.BuildBot(aBot: TaiBot): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3569,12 +3569,12 @@ end;
 procedure TFormBiosfera.UpdateBot(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myBot: AIBot;
+  myBot: TaiBot;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myBot := AIBot(aCrossover.Data);
+  myBot := TaiBot(aCrossover.Data);
 
   factor := 0.4;
   Scale := SpiritModel.Scale.AsVector;
@@ -3605,7 +3605,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildBird(aBird: AIBird): TCrossover;
+function TFormBiosfera.BuildBird(aBird: TaiBird): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3629,12 +3629,12 @@ end;
 procedure TFormBiosfera.UpdateBird(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myBird: AIBird;
+  myBird: TaiBird;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myBird := AIBird(aCrossover.Data);
+  myBird := TaiBird(aCrossover.Data);
 
   if myBird.Flying then
   begin
@@ -5042,12 +5042,12 @@ end;
 //-------------------------------------------------------------------
 procedure TFormBiosfera.AddBeacon(aUsage: Integer; aLocation: TaiGrid);
 var
-  myBeacon: AIBeacon;
+  myBeacon: TaiBeacon;
 begin
   if not gThings.CanAdd(cBeacon) then
     exit;
 
-  myBeacon := AIBeacon(gThings.NewThing(cBeacon, aLocation));
+  myBeacon := TaiBeacon(gThings.NewThing(cBeacon, aLocation));
   myBeacon.Position.center;
   myBeacon.Usage := aUsage;
   if (myBeacon.Usage = cBeaconApple) then
@@ -6342,7 +6342,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildCrab(aCrab: AICrab): TCrossover;
+function TFormBiosfera.BuildCrab(aCrab: TaiCrab): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6356,7 +6356,6 @@ begin
   end;
 
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aCrab;
   result.SubVisuals.Add(myProxy);
@@ -6368,12 +6367,12 @@ end;
 procedure TFormBiosfera.UpdateCrab(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myCrab: AICrab;
+  myCrab: TaiCrab;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myCrab := AICrab(aCrossover.Data);
+  myCrab := TaiCrab(aCrossover.Data);
 
   if myCrab.Dead then
     myProxy.Up.SetVector(0, -1, 0);
@@ -6382,15 +6381,13 @@ begin
   Scale := CrabModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myCrab.Position, myProxy, HalfPi, -0.05);
-
   if myCrab.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, QuarterPi);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildHawk(aHawk: AIHawk): TCrossover;
+function TFormBiosfera.BuildHawk(aHawk: TaiHawk): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6402,9 +6399,7 @@ begin
     Up := HawkModel.Up;
     PitchAngle := -90;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aHawk;
   result.SubVisuals.Add(myProxy);
@@ -6416,23 +6411,21 @@ end;
 procedure TFormBiosfera.UpdateHawk(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myHawk: AIHawk;
+  myHawk: TaiHawk;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myHawk := AIHawk(aCrossover.Data);
-
+  myHawk := TaiHawk(aCrossover.Data);
   factor := 0.5 + 0.005 * myHawk.Size;
   Scale := HawkModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myHawk.Position, myProxy, HalfPi);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildGrazer(aGrazer: AIGrazer): TCrossover;
+function TFormBiosfera.BuildGrazer(aGrazer: TaiGrazer): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6444,9 +6437,7 @@ begin
     // Up := GrazerModel.Up;
     PitchAngle := 90;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aGrazer;
   result.SubVisuals.Add(myProxy);
@@ -6458,26 +6449,24 @@ end;
 procedure TFormBiosfera.UpdateGrazer(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myGrazer: AIGrazer;
+  myGrazer: TaiGrazer;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myGrazer := AIGrazer(aCrossover.Data);
+  myGrazer := TaiGrazer(aCrossover.Data);
 
   factor := myGrazer.Size;
   Scale := GrazerModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myGrazer.Position, myProxy, -HalfPi);
-
   if myGrazer.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildTrex(aTrex: AITrex): TCrossover;
+function TFormBiosfera.BuildTrex(aTrex: TaiTrex): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6500,26 +6489,24 @@ end;
 procedure TFormBiosfera.UpdateTrex(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTrex: AITrex;
+  myTrex: TaiTrex;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTrex := AITrex(aCrossover.Data);
+  myTrex := TaiTrex(aCrossover.Data);
 
   factor := 0.9 + 0.004 * myTrex.Size;
   Scale := TrexModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myTrex.Position, myProxy, -HalfPi);
-
   if myTrex.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildVibe(aVibe: AIVibe): TCrossover;
+function TFormBiosfera.BuildVibe(aVibe: TaiVibe): TCrossover;
 begin
   case aVibe.EffectType of
     cEffectNoise:
@@ -6576,7 +6563,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildBall(aBall: AIBall): TCrossover;
+function TFormBiosfera.BuildBall(aBall: TaiBall): TCrossover;
 var
   mySphere: TGLSphere;
 begin
@@ -6601,10 +6588,10 @@ end;
 procedure TFormBiosfera.UpdateBall(aCrossover: TCrossover);
 var
   mySphere: TGLSphere;
-  myBall: AIBall;
+  myBall: TaiBall;
 begin
   mySphere := TGLSphere(aCrossover.SubVisuals.Items[0]);
-  myBall := AIBall(aCrossover.Data);
+  myBall := TaiBall(aCrossover.Data);
 
   if not(mySphere.radius = myBall.Position.SizeX / 6) then
     mySphere.radius := myBall.Position.SizeX / 6;
@@ -6640,9 +6627,7 @@ end;
 procedure TFormBiosfera.SetFlatGridHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
-
   myX, myY: single;
-
   // grid heights (mountains/valleys)
   HeightMiddle: single;
   HeightUpLeft: single;
@@ -7007,7 +6992,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildShark(aShark: AIShark): TCrossover;
+function TFormBiosfera.BuildShark(aShark: TaiShark): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7032,12 +7017,12 @@ end;
 procedure TFormBiosfera.UpdateShark(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myShark: AIShark;
+  myShark: TaiShark;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myShark := AIShark(aCrossover.Data);
+  myShark := TaiShark(aCrossover.Data);
 
   factor := 0.01 + 0.01 * myShark.Size;
   Scale := SharkModel.Scale.AsVector;
@@ -7078,7 +7063,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildTurtle(aTurtle: AITurtle): TCrossover;
+function TFormBiosfera.BuildTurtle(aTurtle: TaiTurtle): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7089,9 +7074,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := TurtleModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aTurtle;
   result.SubVisuals.Add(myProxy);
@@ -7103,18 +7086,16 @@ end;
 procedure TFormBiosfera.UpdateTurtle(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTurtle: AITurtle;
+  myTurtle: TaiTurtle;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTurtle := AITurtle(aCrossover.Data);
-
+  myTurtle := TaiTurtle(aCrossover.Data);
   factor := 0.01 + 0.01 * myTurtle.Size;
   Scale := TurtleModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myTurtle.Position, myProxy, HalfPi);
 end;
 
@@ -7129,7 +7110,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildBeacon(aBeacon: AIBeacon): TCrossover;
+function TFormBiosfera.BuildBeacon(aBeacon: TaiBeacon): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7144,9 +7125,7 @@ begin
   Scale := BeaconModel.Scale.AsVector;
   ScaleVector(Scale, 0.1);
   myProxy.Scale.AsVector := Scale;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aBeacon;
   result.SubVisuals.Add(myProxy);
@@ -7158,10 +7137,10 @@ end;
 procedure TFormBiosfera.UpdateBeacon(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myBeacon: AIBeacon;
+  myBeacon: TaiBeacon;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myBeacon := AIBeacon(aCrossover.Data);
+  myBeacon := TaiBeacon(aCrossover.Data);
 
   myProxy.RollAngle := myProxy.RollAngle + 1;
   myProxy.PitchAngle := myProxy.PitchAngle + 2;
@@ -7184,14 +7163,11 @@ begin
     ProxyOptions := [pooObjects];
     Up := TerrierModel.Up;
   end;
-
   factor := 0.3; // + 0.01 * myTerrier.Size;
   Scale := TerrierModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aTerrier;
   result.SubVisuals.Add(myProxy);
@@ -7200,11 +7176,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildTiger(aTiger: AITiger): TCrossover;
-
+function TFormBiosfera.BuildTiger(aTiger: TaiTiger): TCrossover;
 var
   myProxy: TGLProxyObject;
-
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
   with myProxy do
@@ -7213,9 +7187,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := TigerModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aTiger;
   result.SubVisuals.Add(myProxy);
@@ -7231,7 +7203,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myTerrier := TaiTerrier(aCrossover.Data);
-
   myProxy.Up.SetToZero;
   CoordinatesFromPosition(myTerrier.Position, myProxy.Direction,
     myProxy.Position, 0.3);
@@ -7243,13 +7214,12 @@ end;
 procedure TFormBiosfera.UpdateTiger(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTiger: AITiger;
+  myTiger: TaiTiger;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTiger := AITiger(aCrossover.Data);
-
+  myTiger := TaiTiger(aCrossover.Data);
   factor := 1.25; { * myTiger.Size; }
   Scale := TigerModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7259,7 +7229,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildDuck(aDuck: AIDuck): TCrossover;
+function TFormBiosfera.BuildDuck(aDuck: TaiDuck): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7273,9 +7243,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := DuckModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aDuck;
   result.SubVisuals.Add(myProxy);
@@ -7287,20 +7255,17 @@ end;
 procedure TFormBiosfera.UpdateDuck(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myDuck: AIDuck;
+  myDuck: TaiDuck;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myDuck := AIDuck(aCrossover.Data);
-
+  myDuck := TaiDuck(aCrossover.Data);
   factor := myDuck.Size / 5;
   Scale := DuckModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myDuck.Position, myProxy, Pi, -0.05);
-
   if myDuck.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, cHalfPi);
 end;
@@ -7321,7 +7286,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildFox(aFox: AIFox): TCrossover;
+function TFormBiosfera.BuildFox(aFox: TaiFox): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7334,14 +7299,11 @@ begin
     ProxyOptions := [pooObjects];
     Up := FoxModel.Up;
   end;
-
   factor := 0.3; // + 0.01 * myFox.Size;
   Scale := FoxModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aFox;
   result.SubVisuals.Add(myProxy);
@@ -7353,11 +7315,10 @@ end;
 procedure TFormBiosfera.UpdateFox(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myFox: AIFox;
+  myFox: TaiFox;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myFox := AIFox(aCrossover.Data);
-
+  myFox := TaiFox(aCrossover.Data);
   if myFox.Alive then
     PositionThing(myFox.Position, myProxy, -HalfPi, 0.25)
   else
@@ -7368,7 +7329,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildRabbit(aRabbit: AIRabbit): TCrossover;
+function TFormBiosfera.BuildRabbit(aRabbit: TaiRabbit): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7381,14 +7342,11 @@ begin
     ProxyOptions := [pooObjects];
     Up := RabbitModel.Up;
   end;
-
   factor := 0.3; // + 0.01 * myRabbit.Size;
   Scale := RabbitModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aRabbit;
   result.SubVisuals.Add(myProxy);
@@ -7400,13 +7358,11 @@ end;
 procedure TFormBiosfera.UpdateRabbit(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myRabbit: AIRabbit;
+  myRabbit: TaiRabbit;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myRabbit := AIRabbit(aCrossover.Data);
-
+  myRabbit := TaiRabbit(aCrossover.Data);
   PositionThing(myRabbit.Position, myProxy, -HalfPi);
-
   if myRabbit.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
 end;
@@ -7426,14 +7382,11 @@ begin
     Up := GrassModel.Up;
     RollAngle := Random(360);
   end;
-
   factor := 0.3; // + 0.01 * myGrass.Size;
   Scale := GrassModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aGrass;
   result.SubVisuals.Add(myProxy);
@@ -7451,12 +7404,10 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myGrass := TaiGrass(aCrossover.Data);
-
   factor := myGrass.Water;
   Scale := GrassModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myGrass.Position, myProxy, 0, -0.05);
   // CoordinatesFromPosition(myGrass.Position, myProxy.Direction, myProxy.Position, -0.05);
 end;
@@ -7506,9 +7457,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := IcebergModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aIceberg;
   result.SubVisuals.Add(myProxy);
@@ -7526,12 +7475,10 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myIceberg := TaiIceberg(aCrossover.Data);
-
   factor := 0.4 * myIceberg.Position.SizeH;
   Scale := IcebergModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myIceberg.Position, myProxy);
 end;
 
@@ -7552,7 +7499,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildMouse(aMouse: AIMouse): TCrossover;
+function TFormBiosfera.BuildMouse(aMouse: TaiMouse): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7563,9 +7510,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := MouseModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aMouse;
   result.SubVisuals.Add(myProxy);
@@ -7577,20 +7522,17 @@ end;
 procedure TFormBiosfera.UpdateMouse(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myMouse: AIMouse;
+  myMouse: TaiMouse;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myMouse := AIMouse(aCrossover.Data);
-
+  myMouse := TaiMouse(aCrossover.Data);
   factor := 0.75 * myMouse.Position.SizeH;
   Scale := MouseModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myMouse.Position, myProxy, -HalfPi);
-
   if myMouse.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
 end;
@@ -7622,7 +7564,6 @@ begin
       TGridCrossover(myGrid.Crossover).LastValue := myGrid.Height;
       TGridCrossover(myGrid.WaterCrossover).LastValue := myGrid.Water;
     end;
-
   PlanetModel.Position.SetPoint(0, 0, 0);
   EmptyAllSounds;
   InvalidOctree := true;
@@ -7638,7 +7579,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildDolphin(aDolphin: AIDolphin): TCrossover;
+function TFormBiosfera.BuildDolphin(aDolphin: TaiDolphin): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7651,7 +7592,6 @@ begin
   end;
 
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aDolphin;
   result.SubVisuals.Add(myProxy);
@@ -7663,12 +7603,12 @@ end;
 procedure TFormBiosfera.UpdateDolphin(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myDolphin: AIDolphin;
+  myDolphin: TaiDolphin;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myDolphin := AIDolphin(aCrossover.Data);
+  myDolphin := TaiDolphin(aCrossover.Data);
 
   case myDolphin.Flipper of
     cFlipperUp:
@@ -7685,7 +7625,6 @@ begin
   Scale := Dolphin1.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myDolphin.Position, myProxy, Pi);
 end;
 
@@ -7769,7 +7708,6 @@ begin
     ShowMessage('Максимум четыре солнца!');
     exit;
   end;
-
   mySun := TaiSun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
   begin
@@ -8144,7 +8082,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildLadybug(aLadybug: AILadybug): TCrossover;
+function TFormBiosfera.BuildLadybug(aLadybug: TaiLadybug): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -8157,7 +8095,6 @@ begin
   end;
 
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aLadybug;
   result.SubVisuals.Add(myProxy);
@@ -8169,12 +8106,12 @@ end;
 procedure TFormBiosfera.UpdateLadybug(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myLadybug: AILadybug;
+  myLadybug: TaiLadybug;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myLadybug := AILadybug(aCrossover.Data);
+  myLadybug := TaiLadybug(aCrossover.Data);
 
   factor := 0.005;
   Scale := LadyBugModel.Scale.AsVector;
@@ -8182,13 +8119,12 @@ begin
   myProxy.Scale.AsVector := Scale;
 
   PositionThing(myLadybug.Position, myProxy, -HalfPi, -0.01);
-
   if myLadybug.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, Pi);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildAnt(aAnt: AIAnt): TCrossover;
+function TFormBiosfera.BuildAnt(aAnt: TaiAnt): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -8201,7 +8137,6 @@ begin
   end;
 
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aAnt;
   result.SubVisuals.Add(myProxy);
@@ -8213,12 +8148,12 @@ end;
 procedure TFormBiosfera.UpdateAnt(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myAnt: AIAnt;
+  myAnt: TaiAnt;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myAnt := AIAnt(aCrossover.Data);
+  myAnt := TaiAnt(aCrossover.Data);
 
   factor := 0.05;
   Scale := AntModel1.Scale.AsVector;
@@ -8998,7 +8933,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildSpeech(aSpeech: AISpeech): TCrossover;
+function TFormBiosfera.BuildSpeech(aSpeech: TaiSpeech): TCrossover;
 var
   myHUDText: TGLHUDText;
 begin
@@ -9021,11 +8956,11 @@ end;
 procedure TFormBiosfera.UpdateSpeech(aCrossover: TCrossover);
 var
   myHUDText: TGLHUDText;
-  mySpeech: AISpeech;
+  mySpeech: TaiSpeech;
   objpos, winpos: TAffineVector;
 begin
   myHUDText := TGLHUDText(aCrossover.SubVisuals.Items[0]);
-  mySpeech := AISpeech(aCrossover.Data);
+  mySpeech := TaiSpeech(aCrossover.Data);
   PositionThing(mySpeech.Position, myHUDText);
   SetVector(objpos, myHUDText.AbsolutePosition);
   winpos := GLSceneViewer.Buffer.worldtoscreen(objpos);

@@ -1070,11 +1070,11 @@ end;
 // ----------------------------------------------------------------------------
 procedure TaiPosition.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
 var
-  myVibe: AIVibe;
+  myVibe: TaiVibe;
 begin
   if not gThings.CanAdd(cVibe) then exit;
 
-  myVibe := AIVibe(gEnvironment.Things.NewThing(cVibe));
+  myVibe := TaiVibe(gEnvironment.Things.NewThing(cVibe));
   myVibe.SetVibe(aEffectType, aEffectIndex, aTimerDeath);
   myVibe.Position.CopyCoords(self);
 end;

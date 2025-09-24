@@ -20,7 +20,7 @@ const
 type
 
 // ============================================================================
-AIShark = class(TaiCreature)
+TaiShark = class(TaiCreature)
 protected
   procedure Swim;
   procedure Dart;
@@ -30,7 +30,7 @@ public
   function IsPredator: boolean; override;
 end;
 
-implementation
+implementation //=============================================================
 
 uses
   Bio.Reality,
@@ -43,7 +43,7 @@ uses
   Bio.Flora;
 
 // ----------------------------------------------------------------------------
-constructor AIShark.Create(aParent: pointer);
+constructor TaiShark.Create(aParent: pointer);
 begin
   inherited Create(aParent);
   Kind := cShark;
@@ -55,7 +55,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIShark.Fuel;
+procedure TaiShark.Fuel;
 var
   myThing: TaiThing;
   targetHeight: single;
@@ -145,19 +145,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIShark.Swim;
+procedure TaiShark.Swim;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.09);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIShark.Dart;
+procedure TaiShark.Dart;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.12);
 end;
 
 // ----------------------------------------------------------------------------
-function AIShark.IsPredator: boolean;
+function TaiShark.IsPredator: boolean;
 begin
   result := true;
 end;

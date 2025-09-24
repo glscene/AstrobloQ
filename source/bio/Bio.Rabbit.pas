@@ -19,7 +19,7 @@ type
 
 // ============================================================================
 // an individual Rabbit
-AIRabbit = class(AIGeneticCreature)
+TaiRabbit = class(TaiGeneticCreature)
 protected
   procedure DevelopIntoBaby; override;
   procedure FindFood(aKind: integer; aSpeed: single);
@@ -31,8 +31,7 @@ public
   function IsPrey: boolean; override;
 end;
 
-//=============================================================================
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -43,7 +42,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AIRabbit.Create(aParent: pointer);
+constructor TaiRabbit.Create(aParent: pointer);
 begin
   Kind := cRabbit;
   inherited Create(aParent);
@@ -55,14 +54,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIRabbit.Destroy;
+destructor TaiRabbit.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIRabbit.Fuel;
+procedure TaiRabbit.Fuel;
 begin
   inherited Fuel;
 
@@ -98,20 +97,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIRabbit.IsPrey: boolean;
+function TaiRabbit.IsPrey: boolean;
 begin
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIRabbit.Move;
+procedure TaiRabbit.Move;
 begin
   if Position.Velocity.XYStrength < 0.1 then
     Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.05);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIRabbit.DevelopIntoBaby;
+procedure TaiRabbit.DevelopIntoBaby;
 begin
   Size := 1;
   Position.SetSize(Size, Size, Size);
@@ -121,7 +120,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // find and grab food
-procedure AIRabbit.FindFood(aKind: integer; aSpeed: single);
+procedure TaiRabbit.FindFood(aKind: integer; aSpeed: single);
 var
   myThing: TaiThing;
 begin

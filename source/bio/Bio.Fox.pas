@@ -20,7 +20,7 @@ type
 
 // ============================================================================
 // an individual Fox
-AIFox = class(AIGeneticCreature)
+TaiFox = class(TaiGeneticCreature)
 protected
   procedure DevelopIntoBaby; override;
   procedure FindFood(aKind: integer; aSpeed: single);
@@ -28,12 +28,11 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Fuel; override;
   function IsPredator: boolean; override;
 end;
 
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -44,7 +43,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AIFox.Create(aParent: pointer);
+constructor TaiFox.Create(aParent: pointer);
 begin
   Kind := cFox;
 
@@ -59,14 +58,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIFox.Destroy;
+destructor TaiFox.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFox.Fuel;
+procedure TaiFox.Fuel;
 begin
   inherited Fuel;
 
@@ -104,20 +103,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIFox.IsPredator: boolean;
+function TaiFox.IsPredator: boolean;
 begin
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFox.Move;
+procedure TaiFox.Move;
 begin
   if Position.Velocity.XYStrength < 0.2 then
     Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.05*Position.Mass);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFox.DevelopIntoBaby;
+procedure TaiFox.DevelopIntoBaby;
 begin
   Size := 2;
   Position.SetSize(Size, Size, Size);
@@ -127,7 +126,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // find and grab food
-procedure AIFox.FindFood(aKind: integer; aSpeed: single);
+procedure TaiFox.FindFood(aKind: integer; aSpeed: single);
 var
   myThing: TaiThing;
 begin

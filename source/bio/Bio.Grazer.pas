@@ -22,7 +22,7 @@ type
 
 // ============================================================================
 // an individual Grazer
-AIGrazer = class(AIMatingCreature)
+TaiGrazer = class(TaiMatingCreature)
 protected
   procedure WalkWithCommunity;
   procedure FindFood;
@@ -30,12 +30,10 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Fuel; override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -44,7 +42,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AIGrazer.Create(aParent: pointer);
+constructor TaiGrazer.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -54,14 +52,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIGrazer.Destroy;
+destructor TaiGrazer.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrazer.Fuel;
+procedure TaiGrazer.Fuel;
 begin
   inherited Fuel;
 
@@ -102,7 +100,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrazer.FindFood;
+procedure TaiGrazer.FindFood;
 var
   myThing: TaiThing;
 begin
@@ -139,7 +137,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrazer.WalkWithCommunity;
+procedure TaiGrazer.WalkWithCommunity;
 var
   myCommunity: TaiCommunity;
   myForce: TAffineVector;
@@ -173,7 +171,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrazer.DevelopIntoBaby;
+procedure TaiGrazer.DevelopIntoBaby;
 begin
   Size := 0.4;
   Position.SetSize(Size*2.5, Size*2.5, Size*2.5);

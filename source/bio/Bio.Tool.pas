@@ -27,7 +27,7 @@ type
 
 // ============================================================================
 // an individual Tool
-AITool = class(TaiThing)
+TaiTool = class(TaiThing)
 private
   fNextUse: integer;
 public
@@ -40,7 +40,7 @@ end;
 
 // ============================================================================
 // an individual Tool
-AIWeapon = class(AITool)
+TaiWeapon = class(TaiTool)
 private
   procedure Shoot;
   procedure Flamethrower;
@@ -53,7 +53,7 @@ end;
 
 // ============================================================================
 // an individual Tool
-AIBall = class(AITool)
+TaiBall = class(TaiTool)
 public
   constructor Create(aParent: pointer);
   procedure Perform(aActivity: integer); override;
@@ -62,13 +62,13 @@ end;
 
 // ============================================================================
 // an individual Tool
-AIBalloon = class(AIBall)
+TaiBalloon = class(TaiBall)
 public
 end;
 
 // ============================================================================
 // an item
-AIBeacon = class(AITool)
+TaiBeacon = class(TaiTool)
 private
   fActive: boolean;
   fUsage: integer;
@@ -103,7 +103,7 @@ uses
   Bio.Space;
 
 // ----------------------------------------------------------------------------
-constructor AITool.Create(aParent: pointer);
+constructor TaiTool.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -111,14 +111,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AITool.Destroy;
+destructor TaiTool.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIWeapon.Create(aParent: pointer);
+constructor TaiWeapon.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -130,7 +130,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIWeapon.Perform(aActivity: integer);
+procedure TaiWeapon.Perform(aActivity: integer);
 begin
   if NextUse > Age then
     exit;
@@ -144,12 +144,12 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIWeapon.Shoot;
+procedure TaiWeapon.Shoot;
 var
-  myBomb: AIBomb;
+  myBomb: TaiBomb;
 begin
   // bullet
-  myBomb := AIBomb(gEnvironment.Things.NewThing(cBomb));
+  myBomb := TaiBomb(gEnvironment.Things.NewThing(cBomb));
   if not (myBomb = nil) then
   begin
     Noise(cNoiseWeaponFire, 1);
@@ -167,7 +167,7 @@ begin
   end;
 
   // shell
-  myBomb := AIBomb(gEnvironment.Things.NewThing(cBomb));
+  myBomb := TaiBomb(gEnvironment.Things.NewThing(cBomb));
   if not (myBomb = nil) then
   begin
     myBomb.Position.CopyCoords(Position);
@@ -188,7 +188,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIWeapon.Flamethrower;
+procedure TaiWeapon.Flamethrower;
 var
   myExplosion: TaiExplosion;
 begin
@@ -209,11 +209,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIWeapon.Bomb;
+procedure TaiWeapon.Bomb;
 var
-  myBomb: AIBomb;
+  myBomb: TaiBomb;
 begin
-  myBomb := AIBomb(gEnvironment.Things.NewThing(cBomb));
+  myBomb := TaiBomb(gEnvironment.Things.NewThing(cBomb));
   if not (myBomb = nil) then
   begin
     myBomb.Position.CopyCoords(Position);
@@ -231,11 +231,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIWeapon.Nuke;
+procedure TaiWeapon.Nuke;
 var
-  myBomb: AIBomb;
+  myBomb: TaiBomb;
 begin
-  myBomb := AIBomb(gEnvironment.Things.NewThing(cBomb));
+  myBomb := TaiBomb(gEnvironment.Things.NewThing(cBomb));
   if not (myBomb = nil) then
   begin
     myBomb.Position.CopyCoords(Position);
@@ -255,7 +255,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIBall.Create(aParent: pointer);
+constructor TaiBall.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -268,7 +268,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBall.Perform(aActivity: integer);
+procedure TaiBall.Perform(aActivity: integer);
 begin
   if aActivity = 0 then
     Position.Inflate(0.01);
@@ -278,7 +278,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.Fuel;
+procedure TaiBeacon.Fuel;
 begin
   inherited Fuel;
 
@@ -293,21 +293,21 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITool.SaveToFile(var aFile: TextFile);
+procedure TaiTool.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fNextUse);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITool.LoadFromFile(var aFile: TextFile);
+procedure TaiTool.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fNextUse);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.SaveToFile(var aFile: TextFile);
+procedure TaiBeacon.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fUsage);
@@ -318,7 +318,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.LoadFromFile(var aFile: TextFile);
+procedure TaiBeacon.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fUsage);
@@ -329,7 +329,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.PopThing(aKind: integer);
+procedure TaiBeacon.PopThing(aKind: integer);
 var
   myThing: TaiThing;
 begin
@@ -343,7 +343,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.Perform(aActivity: integer);
+procedure TaiBeacon.Perform(aActivity: integer);
 begin
   if aActivity = 0 then
     fActive := not fActive;
@@ -354,7 +354,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIBeacon.Create(aParent: pointer);
+constructor TaiBeacon.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -369,14 +369,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.SetRate(aValue: integer);
+procedure TaiBeacon.SetRate(aValue: integer);
 begin
   fRate := aValue;
   if fRate < 1 then fRate := 1;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBall.Fuel;
+procedure TaiBall.Fuel;
 begin
   inherited Fuel;
 
@@ -387,7 +387,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBeacon.FullDisplay(aList: TStrings);
+procedure TaiBeacon.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -399,13 +399,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIBeacon.OneLineDisplay: string;
+function TaiBeacon.OneLineDisplay: string;
 begin
   result := 'Beacon ' + UsageString + ' ' + inherited OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
-function AIBeacon.UsageString: string;
+function TaiBeacon.UsageString: string;
 begin
   case fUsage of
     cBeaconDrain: result := 'Drain';

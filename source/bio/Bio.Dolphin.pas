@@ -29,7 +29,7 @@ const
 type
 
 // ============================================================================
-AIDolphin = class(TaiCommunityCreature)
+TaiDolphin = class(TaiCommunityCreature)
 private
   fSensor: TaiPosition;  // used to detect land/water
   fFlipper: integer;    // animation state
@@ -59,7 +59,7 @@ uses
   Bio.Flora;
 
 // ----------------------------------------------------------------------------
-constructor AIDolphin.Create(aParent: pointer);
+constructor TaiDolphin.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -78,7 +78,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIDolphin.Destroy;
+destructor TaiDolphin.Destroy;
 begin
   fSensor.Free;
 
@@ -86,7 +86,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDolphin.Fuel;
+procedure TaiDolphin.Fuel;
 begin
   inherited Fuel;
 
@@ -143,7 +143,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDolphin.Swim;
+procedure TaiDolphin.Swim;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.075);
   if Age mod 8 = 0 then
@@ -155,20 +155,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDolphin.Jump;
+procedure TaiDolphin.Jump;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.3, 2.2);
   fFlipper := cFlipperJump;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDolphin.Flop;
+procedure TaiDolphin.Flop;
 begin
   Position.Acceleration.ApplyAngularForce(Random*TwoPi, 0.9, 0.1);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDolphin.FindFood;
+procedure TaiDolphin.FindFood;
 var
   myThing: TaiThing;
   targetHeight: single;
@@ -204,7 +204,6 @@ begin
       end;
       Position.DirectionXY := Position.DirectionXY + RandomSwing * QuarterPi;
     end;
-
   // move
   if Position.UnderWater then
   begin
@@ -212,13 +211,12 @@ begin
       Position.Acceleration.DeltaHeight := Position.Acceleration.DeltaHeight - 0.1
     else
       Position.Acceleration.DeltaHeight := Position.Acceleration.DeltaHeight + 0.1;
-
     Swim;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDolphin.FullDisplay(aList: TStrings);
+procedure TaiDolphin.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 

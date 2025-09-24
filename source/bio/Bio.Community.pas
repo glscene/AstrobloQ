@@ -50,10 +50,8 @@ public
 
   function AddMember(aMember: TaiThing): boolean; override;
   procedure NotifyOfDeath(aThing: TaiThing);
-
   procedure Fuel; override;
   function OneLineDisplay: string; override;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
@@ -63,7 +61,7 @@ end;
 
 TaiCommunityCreature = class(TaiCreature)
 private
-  fCommunity: AILink;   // community this creature belongs to
+  fCommunity: TaiLink;   // community this creature belongs to
   fAvoidance: TAffineVector;
   fBump: boolean;
 protected
@@ -77,7 +75,7 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Community: AILink read fCommunity;
+  property Community: TaiLink read fCommunity;
   property Avoidance: TAffineVector read fAvoidance write fAvoidance;
   property Bump: boolean read fBump write fBump;
   procedure AvoidNeighbour;

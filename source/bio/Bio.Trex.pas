@@ -26,28 +26,28 @@ type
 
 // ============================================================================
 // an individual Trex
-AITrex = class(TaiCreature)
+TaiTrex = class(TaiCreature)
 protected
   procedure Bully;
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   function IsPredator: boolean; override;
   procedure Fuel; override;
 end;
 
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
   Bio.Globals,
   Bio.Flora,
   Bio.Bird,
-  Bio.Vibes, Bio.Utilities;
+  Bio.Vibes,
+  Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AITrex.Create(aParent: pointer);
+constructor TaiTrex.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -57,14 +57,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AITrex.Destroy;
+destructor TaiTrex.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITrex.Fuel;
+procedure TaiTrex.Fuel;
 begin
   inherited Fuel;
 
@@ -93,7 +93,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITrex.Bully;
+procedure TaiTrex.Bully;
 var
   myThing: TaiThing;
 begin
@@ -127,7 +127,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AITrex.IsPredator: boolean;
+function TaiTrex.IsPredator: boolean;
 begin
   result := true;
 end;

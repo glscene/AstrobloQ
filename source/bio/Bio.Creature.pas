@@ -31,8 +31,8 @@ type
 // ============================================================================
 TaiCreature = class(TaiLivingThing)
 private
-  fGrabber: AIAttachment;   // used to pick things up
-  fEyes: AILink;            // used to focus attention
+  fGrabber: TaiAttachment;   // used to pick things up
+  fEyes: TaiLink;            // used to focus attention
   fNextActivity: integer;
   fDesire: integer;
   fSize: single;
@@ -41,8 +41,8 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Grabber: AIAttachment read fGrabber;
-  property Eyes: AILink read fEyes;
+  property Grabber: TaiAttachment read fGrabber;
+  property Eyes: TaiLink read fEyes;
   property Desire: integer read fDesire write fDesire;
   property NextActivity: integer read fNextActivity write fNextActivity;
   property Size: single read fSize write fSize;

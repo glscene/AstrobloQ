@@ -27,7 +27,7 @@ type
 // ============================================================================
 // an individual Crab
 // the happiest crabs are the crabs that play with alot of balls
-AICrab = class(AILearningCreature)
+TaiCrab = class(AILearningCreature)
 protected
   procedure FindAndGrab;
   function HoldingFood: boolean;
@@ -40,7 +40,7 @@ public
   procedure Scuttle;
 end;
 
-implementation
+implementation //=============================================================
 
 uses
   Bio.Reality,
@@ -51,7 +51,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AICrab.Create(aParent: pointer);
+constructor TaiCrab.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -66,14 +66,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AICrab.Destroy;
+destructor TaiCrab.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICrab.Fuel;
+procedure TaiCrab.Fuel;
 begin
   inherited Fuel;
 
@@ -136,14 +136,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICrab.Hop;
+procedure TaiCrab.Hop;
 begin
   if Position.Binding = bindLand then
     Position.Acceleration.ApplyForce(0, 0, 0.4);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICrab.Scuttle;
+procedure TaiCrab.Scuttle;
 begin
   if Position.Binding = bindLand then
     Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.1);
@@ -151,7 +151,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // find and grab food
-procedure AICrab.FindAndGrab;
+procedure TaiCrab.FindAndGrab;
 var
   myThing: TaiThing;
 begin
@@ -187,7 +187,7 @@ begin
   end;
 end;
 
-function AICrab.HoldingFood: boolean;
+function TaiCrab.HoldingFood: boolean;
 begin
   result := Grabber.Holding
     and (Grabber.Target.IsFruit or Grabber.Target.IsPrey);

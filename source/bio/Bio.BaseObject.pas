@@ -83,7 +83,7 @@ type
     procedure FullDisplay(aStrings: TStrings); virtual;
   end;
 
-  AIKind = class of TaiBaseObject;
+  TaiKind = class of TaiBaseObject;
 
 implementation // -------------------------------------------------------------
 

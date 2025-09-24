@@ -19,20 +19,18 @@ type
 
 // ============================================================================
 // an individual Turtle
-AITurtle = class(AILearningCreature)
+TaiTurtle = class(AILearningCreature)
 private
   procedure FindAndGrab(aSpeed: single);
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Babble;
   function IsPredator: boolean; override;
   procedure Fuel; override;
 end;
 
-//=============================================================================
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -42,7 +40,7 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AITurtle.Create(aParent: pointer);
+constructor TaiTurtle.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -55,14 +53,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AITurtle.Destroy;
+destructor TaiTurtle.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITurtle.Fuel;
+procedure TaiTurtle.Fuel;
 begin
   inherited Fuel;
 
@@ -111,7 +109,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // find and grab food
-procedure AITurtle.FindAndGrab(aSpeed: single);
+procedure TaiTurtle.FindAndGrab(aSpeed: single);
 var
   myThing: TaiThing;
 begin
@@ -148,13 +146,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AITurtle.IsPredator: boolean;
+function TaiTurtle.IsPredator: boolean;
 begin
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITurtle.Babble;
+procedure TaiTurtle.Babble;
 begin
   case Random(2) of
     0: Talk('"I hope I can find another ' + ThingName(FavoriteFood) + ', those are yummy."', 10, 64);

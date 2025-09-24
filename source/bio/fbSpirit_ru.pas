@@ -86,7 +86,7 @@ type
     procedure menuDNAClick(Sender: TObject);
     procedure Reposition1Click(Sender: TObject);
   private
-    fTarget: AILink;
+    fTarget: TaiLink;
     fSpiritHolder: pointer;
     tempString: TStringList;
     fDead: boolean;
@@ -99,7 +99,7 @@ type
   public
     procedure RefreshAll;
     procedure Advance;
-    property Target: AILink read fTarget;
+    property Target: TaiLink read fTarget;
     property SpiritHolder: pointer read fSpiritHolder write fSpiritHolder;
     property Deletion: boolean read fDeletion;
   end;

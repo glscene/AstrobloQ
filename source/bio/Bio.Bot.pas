@@ -1,7 +1,7 @@
 unit Bio.Bot;
 (*
-  Node AIBot
-  AIBot is a remote-controlled entity.
+  Node TaiBot
+  TaiBot is a remote-controlled entity.
   A client controls the bot by sending it commands.
   The body of the bot tries to act out that command in the world.
   The body of the bot gives the client sensual information about the environment.
@@ -9,7 +9,7 @@ unit Bio.Bot;
   The client may be an artificial intelligence.  This would send commands by
     an internet protocol such as SOAP.
   Both human and ai are restricted by the same set of world rules.
-  Dave:
+  Dave Kerr:
   After showing alot of people this project, the funniest reaction were from
   two women who threw their hands up to her heads and screamed
   "Wow!!  I feel like I've just been shown a new dimension of knowledge!"
@@ -35,12 +35,10 @@ const
 type
 
 // ============================================================================
-AIBot = class(TaiCreature)
+TaiBot = class(TaiCreature)
 private
   fPassword: string;    // password that allows bot to be controlled
-
-  fTargetLink: AILink;
-
+  fTargetLink: TaiLink;
   fLastJump: integer;
   fLastBomb: integer;
 
@@ -50,27 +48,22 @@ private
   fActivity: string;
 
   KickStrength: single;
-
   procedure SetCommand(aCommand: string);
 protected
   procedure Bomb;
-
   procedure InterpretCommand;
   procedure InterpretActivity;
   procedure InterpretJetpack;
   procedure InterpretEmotion;
-
 public
-  constructor Create(
-    aParent: pointer);
+  constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   // info
   property Command: string read fCommand write SetCommand;
   property Emotion: string read fEmotion write fEmotion;
   property Jetpack: string read fJetpack write fJetpack;
   property Activity: string read fActivity write fActivity;
-  property TargetLink: AILink read fTargetLink;
+  property TargetLink: TaiLink read fTargetLink;
   property LastJump: integer read fLastJump write fLastJump;
   property LastBomb: integer read fLastBomb write fLastBomb;
 
@@ -78,14 +71,17 @@ public
   procedure Fuel; override; // add time
 end;
 
+implementation // -------------------------------------------------------------
+
+uses
+  System.SysUtils,
+  Bio.Position,
+  Bio.Globals,
+  Bio.Explosions,
+  Bio.Vibes;
+
 // ----------------------------------------------------------------------------
-
-implementation
-
-uses System.SysUtils, Bio.Position, Bio.Globals, Bio.Explosions, Bio.Vibes;
-
-// ----------------------------------------------------------------------------
-constructor AIBot.Create(
+constructor TaiBot.Create(
     aParent: pointer);
 begin
   inherited Create(aParent);
@@ -103,7 +99,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIBot.Destroy;
+destructor TaiBot.Destroy;
 begin
   gEnvironment.References.Remove(fTargetLink);
 
@@ -111,13 +107,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIBot.OneLineDisplay: string;
+function TaiBot.OneLineDisplay: string;
 begin
   result := 'bot + Health: ' + IntToStr(Health) + ' ' + Position.OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.Fuel;
+procedure TaiBot.Fuel;
 begin
   inherited Fuel;
 
@@ -141,22 +137,22 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.SetCommand(aCommand: string);
+procedure TaiBot.SetCommand(aCommand: string);
 begin
   fCommand := aCommand;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.Bomb;
+procedure TaiBot.Bomb;
 var
-  myBomb: AIBomb;
+  myBomb: TaiBomb;
 begin
   if (gReality.Time - LastBomb < 8) then
     exit;
 
   LastBomb := gReality.Time;
 
-  myBomb := AIBomb(gEnvironment.Things.NewThing(cBomb));
+  myBomb := TaiBomb(gEnvironment.Things.NewThing(cBomb));
   if not (myBomb = nil) then
   begin
     myBomb.Position.CopyCoords(Position);
@@ -171,7 +167,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.InterpretCommand;
+procedure TaiBot.InterpretCommand;
 begin
   if (Command = 'MOVE') then
     if (Position.Binding = bindLand) and (Jetpack = '') then
@@ -199,7 +195,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.InterpretActivity;
+procedure TaiBot.InterpretActivity;
 begin
   if Activity = 'KICK' then
   begin
@@ -247,7 +243,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.InterpretJetpack;
+procedure TaiBot.InterpretJetpack;
 begin
   if (Jetpack = 'JETPACK') then
     Position.Acceleration.ApplyForce(0, 0, 0.04);
@@ -262,7 +258,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIBot.InterpretEmotion;
+procedure TaiBot.InterpretEmotion;
 begin
   if Emotion = 'TURNLEFT' then
     Position.TurnLeft(ca5);

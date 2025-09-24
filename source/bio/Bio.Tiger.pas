@@ -1,4 +1,11 @@
 unit Bio.Tiger;
+(*
+ An individual Tiger.
+ Tigers hunt eat mice if they are hungry - sometimes they play with their
+ food first! :) Should be extended to try and catch birds, rabbits - play
+ with Terriers? etc.
+ Also should avoid water as tigers don't like getting wet.
+ *)
 
 interface
 
@@ -20,14 +27,7 @@ const
 
 type
 
-// ============================================================================
-// an individual Tiger
-// tigers hunt eat mice if they are hungry - sometimes they play with their
-// food first! :) Should be extended to try and catch birds, rabbits - play
-// with Terriers? etc.
-// Also should avoid water as tigers don't like getting wet.
-
-AITiger = class(TaiCreature)
+TaiTiger = class(TaiCreature)
 protected
   procedure Bully;
 public
@@ -49,7 +49,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AITiger.Create(aParent: pointer);
+constructor TaiTiger.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -63,14 +63,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AITiger.Destroy;
+destructor TaiTiger.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITiger.Fuel;
+procedure TaiTiger.Fuel;
 begin
   inherited Fuel;
 
@@ -100,7 +100,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITiger.Bully;
+procedure TaiTiger.Bully;
 var
   myThing: TaiThing;
 
@@ -134,7 +134,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AITiger.IsPredator: boolean;
+function TaiTiger.IsPredator: boolean;
 begin
   result := true;
 end;

@@ -6,13 +6,15 @@ uses
   System.Types,
   System.Classes,
   System.Contnrs,
+  System.SysUtils,
+
   Bio.BaseObject,
   Bio.Things;
 
 type
 
 // ============================================================================
-TLinkObject = class(TObject)
+TaiLinkObject = class(TObject)
 private
   fLeftHandle: Int64;
   fRightHandle: Int64;
@@ -35,12 +37,11 @@ public
   procedure InvalidateLeft;
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
-  procedure CopyFrom(aLinkObject: TLinkObject); virtual;
+  procedure CopyFrom(aLinkObject: TaiLinkObject); virtual;
 end;
 
 // ============================================================================
-
-AILink = class(TLinkObject)
+TaiLink = class(TaiLinkObject)
 private
   function GetOrigin: TaiThing;
   function GetTarget: TaiThing;
@@ -65,11 +66,10 @@ public
 end;
 
 // ============================================================================
-AIAttachment = class(AILink)
+TaiAttachment = class(TaiLink)
 public
   procedure Attach(aThing: TaiThing);
   procedure Detach;
-
   function Holding: boolean;
   function Empty: boolean;
 end;
@@ -82,46 +82,38 @@ protected
 public
   function FirstWithRightHandle(aHandle: int64): boolean;
   function FirstWithLeftHandle(aHandle: int64): boolean;
-
   function NextWithRightHandle(aHandle: int64): boolean;
   function NextWithLeftHandle(aHandle: int64): boolean;
-
   procedure SetObjectPointers(aContainer: TaiBaseContainer); virtual;
   procedure SetLeftObjectPointers(aContainer: TaiBaseContainer);
   procedure SetRightObjectPointers(aContainer: TaiBaseContainer);
-
   procedure NeutralizeAllLinksWithRightHandle(aHandle: int64);
   procedure NeutralizeAllLinksWithLeftHandle(aHandle: int64);
   procedure NeutralizeAllLinksWithHandle(aHandle: int64);
-
-  function NewLink: AILink; overload;
-
+  function NewLink: TaiLink; overload;
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
 end;
 
 // ============================================================================
-AILinkContainer = class(TLinkContainer)
+TaiLinkContainer = class(TLinkContainer)
 public
-  function NewLink(aLeftObject: TaiBaseObject): AILink; overload;
-  function NewLink(aLeftObject: TaiBaseObject; aRightObject: TaiBaseObject): AILink; overload;
+  function NewLink(aLeftObject: TaiBaseObject): TaiLink; overload;
+  function NewLink(aLeftObject: TaiBaseObject; aRightObject: TaiBaseObject): TaiLink; overload;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
 // ============================================================================
-AIAttachmentContainer = class(AILinkContainer)
+TaiAttachmentContainer = class(TaiLinkContainer)
 public
-  function NewAttachment(aLeftObject: TaiThing): AIAttachment;
+  function NewAttachment(aLeftObject: TaiThing): TaiAttachment;
   procedure DetachAllWithHandle(aHandle: int64);
   procedure SetObjectPointers(aContainer: TaiBaseContainer); override;
 end;
 
-implementation
+implementation //=============================================================
 
-uses SysUtils;
-
-// ----------------------------------------------------------------------------
-constructor TLinkObject.Create;
+constructor TaiLinkObject.Create;
 begin
   inherited Create;
   fLeftHandle := 0;
@@ -131,67 +123,67 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TLinkObject.Valid: boolean;
+function TaiLinkObject.Valid: boolean;
 begin
   result := ValidLeft and ValidRight;
 end;
 
 // ----------------------------------------------------------------------------
-function TLinkObject.ValidLeft: boolean;
+function TaiLinkObject.ValidLeft: boolean;
 begin
   result := (fLeftHandle <> 0);
 end;
 
 // ----------------------------------------------------------------------------
-function TLinkObject.ValidRight: boolean;
+function TaiLinkObject.ValidRight: boolean;
 begin
   result := (fRightHandle <> 0);
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.SetLeftHandle(aValue: Int64);
+procedure TaiLinkObject.SetLeftHandle(aValue: Int64);
 begin
   if fLeftHandle <> aValue then
     fLeftHandle := aValue;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.SetRightHandle(aValue: Int64);
+procedure TaiLinkObject.SetRightHandle(aValue: Int64);
 begin
   if fRightHandle <> aValue then
     fRightHandle := aValue;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.AssignLeftObject(aObject: TaiBaseObject);
+procedure TaiLinkObject.AssignLeftObject(aObject: TaiBaseObject);
 begin
   fLeftObjectPointer := aObject;
   fLeftHandle := aObject.Handle;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.AssignRightObject(aObject: TaiBaseObject);
+procedure TaiLinkObject.AssignRightObject(aObject: TaiBaseObject);
 begin
   fRightObjectPointer := aObject;
   fRightHandle := aObject.Handle;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.InvalidateRight;
+procedure TaiLinkObject.InvalidateRight;
 begin
   fRightObjectPointer := nil;
   fRightHandle := 0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.InvalidateLeft;
+procedure TaiLinkObject.InvalidateLeft;
 begin
   fLeftObjectPointer := nil;
   fLeftHandle := 0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.CopyFrom(aLinkObject: TLinkObject);
+procedure TaiLinkObject.CopyFrom(aLinkObject: TaiLinkObject);
 begin
   fLeftHandle := aLinkObject.fLeftHandle;
   fRightHandle := aLinkObject.fRightHandle;
@@ -200,14 +192,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.SaveToFile(var aFile: TextFile);
+procedure TaiLinkObject.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fRightHandle);
   writeln(aFile, fLeftHandle);
 end;
 
 // ----------------------------------------------------------------------------
-procedure TLinkObject.LoadFromFile(var aFile: TextFile);
+procedure TaiLinkObject.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fRightHandle);
   readln(aFile, fLeftHandle);
@@ -215,7 +207,7 @@ end;
 
 // ----------------------------------------------------------------------------
 function TLinkContainer.NextWithRightHandle(aHandle: int64): boolean;
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   result := false;
   if Next then
@@ -228,7 +220,7 @@ end;
 
 // ----------------------------------------------------------------------------
 function TLinkContainer.NextWithLeftHandle(aHandle: int64): boolean;
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   result := false;
   if Next then
@@ -241,7 +233,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.RemoveAllLinksWithRightHandle(aHandle: int64);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   while FirstWithRightHandle(aHandle) do
   begin
@@ -252,7 +244,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.RemoveAllLinksWithLeftHandle(aHandle: int64);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   while FirstWithLeftHandle(aHandle) do
   begin
@@ -263,7 +255,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.NeutralizeAllLinksWithRightHandle(aHandle: int64);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   if First then
   repeat
@@ -275,7 +267,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.NeutralizeAllLinksWithLeftHandle(aHandle: int64);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   if First then
   repeat
@@ -287,7 +279,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.NeutralizeAllLinksWithHandle(aHandle: int64);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   if First then
   repeat
@@ -301,7 +293,7 @@ end;
 
 // ----------------------------------------------------------------------------
 function TLinkContainer.FirstWithRightHandle(aHandle: int64): boolean;
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   result := false;
   if First then
@@ -314,7 +306,7 @@ end;
 
 // ----------------------------------------------------------------------------
 function TLinkContainer.FirstWithLeftHandle(aHandle: int64): boolean;
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
 begin
   result := false;
   if First then
@@ -326,16 +318,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TLinkContainer.NewLink: AILink;
+function TLinkContainer.NewLink: TaiLink;
 begin
-  result := AILink.Create;
+  result := TaiLink.Create;
   Add(result);
 end;
 
 // ----------------------------------------------------------------------------
-function AILinkContainer.NewLink(aLeftObject: TaiBaseObject; aRightObject: TaiBaseObject): AILink;
+function TaiLinkContainer.NewLink(aLeftObject: TaiBaseObject; aRightObject: TaiBaseObject): TaiLink;
 begin
-  result := AILink.Create;
+  result := TaiLink.Create;
   result.LeftObjectPointer := aLeftObject;
   result.RightObjectPointer := aRightObject;
   result.LeftHandle := aLeftObject.Handle;
@@ -344,72 +336,72 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILinkContainer.NewLink(aLeftObject: TaiBaseObject): AILink;
+function TaiLinkContainer.NewLink(aLeftObject: TaiBaseObject): TaiLink;
 begin
-  result := AILink.Create;
+  result := TaiLink.Create;
   result.LeftObjectPointer := aLeftObject;
   result.LeftHandle := aLeftObject.Handle;
   Add(result);
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.Connected: boolean;
+function TaiLink.Connected: boolean;
 begin
   result := (fRightHandle <> 0);
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.Disconnected: boolean;
+function TaiLink.Disconnected: boolean;
 begin
   result := not ValidRight;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.Disconnect;
+procedure TaiLink.Disconnect;
 begin
   InvalidateRight;
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.GetOrigin: TaiThing;
+function TaiLink.GetOrigin: TaiThing;
 begin
   result := fLeftObjectPointer;
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.GetTarget: TaiThing;
+function TaiLink.GetTarget: TaiThing;
 begin
   result := fRightObjectPointer;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.SetOrigin(aThing: TaiThing);
+procedure TaiLink.SetOrigin(aThing: TaiThing);
 begin
   AssignLeftObject(aThing);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.SetTarget(aThing: TaiThing);
+procedure TaiLink.SetTarget(aThing: TaiThing);
 begin
   AssignRightObject(aThing);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.AssignOrigin(aObject: TaiBaseObject);
+procedure TaiLink.AssignOrigin(aObject: TaiBaseObject);
 begin
   if not (aObject = nil) then
     AssignLeftObject(aObject);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.AssignTarget(aObject: TaiBaseObject);
+procedure TaiLink.AssignTarget(aObject: TaiBaseObject);
 begin
   if not (aObject = nil) then
     AssignRightObject(aObject);
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.OriginKind: integer;
+function TaiLink.OriginKind: integer;
 begin
   result := cNothing;
   if ValidLeft then
@@ -417,7 +409,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.TargetKind: integer;
+function TaiLink.TargetKind: integer;
 begin
   result := cNothing;
   if ValidRight then
@@ -425,7 +417,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAttachment.Attach(aThing: TaiThing);
+procedure TaiAttachment.Attach(aThing: TaiThing);
 begin
   if aThing.Position.Carried then
     exit;
@@ -440,7 +432,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAttachment.Detach;
+procedure TaiAttachment.Detach;
 begin
   if ValidTarget then
   begin
@@ -451,30 +443,30 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIAttachment.Holding: boolean;
+function TaiAttachment.Holding: boolean;
 begin
   // CRASHED
   result := (fRightHandle <> 0);
 end;
 
 // ----------------------------------------------------------------------------
-function AIAttachment.Empty: boolean;
+function TaiAttachment.Empty: boolean;
 begin
   result := not ValidRight;
 end;
 
 // ----------------------------------------------------------------------------
-function AIAttachmentContainer.NewAttachment(aLeftObject: TaiThing): AIAttachment;
+function TaiAttachmentContainer.NewAttachment(aLeftObject: TaiThing): TaiAttachment;
 begin
-  result := AIAttachment.Create;
+  result := TaiAttachment.Create;
   result.LeftObjectPointer := aLeftObject;
   result.LeftHandle := aLeftObject.Handle;
   Add(result);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAttachmentContainer.DetachAllWithHandle(aHandle: int64);
-var mySearch: AIAttachment;
+procedure TaiAttachmentContainer.DetachAllWithHandle(aHandle: int64);
+var mySearch: TaiAttachment;
 begin
   if First then
   repeat
@@ -491,7 +483,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.SetLeftObjectPointers(aContainer: TaiBaseContainer);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
     myPointer: pointer;
 begin
   if First then
@@ -506,7 +498,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.SetRightObjectPointers(aContainer: TaiBaseContainer);
-var mySearch: TLinkObject;
+var mySearch: TaiLinkObject;
     myPointer: pointer;
 begin
   if First then
@@ -522,7 +514,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TLinkContainer.SetObjectPointers(aContainer: TaiBaseContainer);
 var
-  mySearch: TLinkObject;
+  mySearch: TaiLinkObject;
   myPointer: pointer;
 begin
   if First then
@@ -544,12 +536,12 @@ end;
 procedure TLinkContainer.SaveToFile(var aFile: TextFile);
 var
   i: integer;
-  myLink: TLinkObject;
+  myLink: TaiLinkObject;
 begin
   writeln(aFile, Count);
   for i := 0 to Count - 1 do
   begin
-    myLink := TLinkObject(Items[i]);
+    myLink := TaiLinkObject(Items[i]);
     myLink.SaveToFile(aFile);
   end;
 end;
@@ -558,12 +550,12 @@ end;
 procedure TLinkContainer.LoadFromFile(var aFile: TextFile);
 var
   i, aCount: integer;
-  myLink: TLinkObject;
+  myLink: TaiLinkObject;
 begin
   readln(aFile, aCount);
   for i := 0 to aCount - 1 do
   begin
-    myLink := AILink.Create;
+    myLink := TaiLink.Create;
     myLink.LoadFromFile(aFile);
     // do not load dead links
     if myLink.LeftHandle <> 0 then
@@ -574,33 +566,33 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.InvalidateTarget;
+procedure TaiLink.InvalidateTarget;
 begin
   fRightObjectPointer := nil;
   fRightHandle := 0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILink.InvalidateOrigin;
+procedure TaiLink.InvalidateOrigin;
 begin
   fLeftObjectPointer := nil;
   fLeftHandle := 0;
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.ValidTarget: boolean;
+function TaiLink.ValidTarget: boolean;
 begin
   result := (fRightHandle <> 0);
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.ValidOrigin: boolean;
+function TaiLink.ValidOrigin: boolean;
 begin
   result := ValidLeft;
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.OneLineDisplayRight: string;
+function TaiLink.OneLineDisplayRight: string;
 begin
   if ValidRight then
     result := TaiBaseObject(RightObjectPointer).OneLineDisplay
@@ -609,30 +601,30 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILink.OneLineDisplayBoth: string;
+function TaiLink.OneLineDisplayBoth: string;
 begin
   result := IntToStr(LeftHandle) + '<->' + IntToStr(RightHandle);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILinkContainer.FullDisplay(aList: TStrings);
+procedure TaiLinkContainer.FullDisplay(aList: TStrings);
 var
   i: integer;
-  myLink: AILink;
+  myLink: TaiLink;
 begin
   aList.Add('LINK CONTAINER');
   aList.Add('----------------------');
   for i := 0 to Count - 1 do
   begin
-    myLink := AILink(Items[i]);
+    myLink := TaiLink(Items[i]);
     aList.Add(myLink.OneLineDisplayBoth + ' ' + myLink.OneLineDisplayRight);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAttachmentContainer.SetObjectPointers(aContainer: TaiBaseContainer);
+procedure TaiAttachmentContainer.SetObjectPointers(aContainer: TaiBaseContainer);
 var
-  mySearch: AIAttachment;
+  mySearch: TaiAttachment;
   myPointer: pointer;
 begin
   if First then

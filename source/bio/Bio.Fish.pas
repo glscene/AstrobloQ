@@ -22,7 +22,7 @@ const
 type
 
 // ============================================================================
-TaiFish = class(AIMatingCreature)
+TaiFish = class(TaiMatingCreature)
 protected
   procedure Swim;
   procedure Flop;

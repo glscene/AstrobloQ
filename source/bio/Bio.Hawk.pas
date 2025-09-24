@@ -44,7 +44,7 @@ const
 type
 
 // ============================================================================
-AIHawk = class(TaiCreature)
+TaiHawk = class(TaiCreature)
 private
   fFlying: boolean;
 public
@@ -57,13 +57,11 @@ public
   procedure Hop;
   procedure FlapWings;
   function IsPredator: boolean; override;
-
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -74,40 +72,34 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AIHawk.Create(aParent: pointer);
+constructor TaiHawk.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cHawk;
-
   Position.SetPosition(Random * 10.0, Random * -10.0, 5);
   Position.SetSize(1, 0.75, 0.4, true);
-
   Health := 5500 + Random(500);
   Flying := true;
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIHawk.Destroy;
+destructor TaiHawk.Destroy;
 begin
-
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIHawk.Fuel;
+procedure TaiHawk.Fuel;
 var
-  myBird: AIBird;
+  myBird: TaiBird;
 begin
   inherited Fuel;
-
   // determine desire
   desire := cHawkDesireNone;
   if Health < 5120 then
     desire := cHawkDesireFood
   else
     desire := cHawkDesireWander;
-
   // find goal to enact that desire
   if desire = cHawkDesireWander then
   begin
@@ -141,7 +133,7 @@ begin
     // chase bird
     if Eyes.ValidTarget then
     begin
-      myBird := AIBird(Eyes.Target);
+      myBird := TaiBird(Eyes.Target);
       Position.TurnTowardsTarget(myBird.Position, ca75);
       Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.1);
       if (myBird.Position.Height > Position.Height) or (Position.Velocity.DeltaHeight < -0.5) then
@@ -169,35 +161,35 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIHawk.Hop;
+procedure TaiHawk.Hop;
 begin
   if Position.Binding = bindLand then
     Position.Acceleration.ApplyForce(0, 0, 0.2);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIHawk.FlapWings;
+procedure TaiHawk.FlapWings;
 begin
 //  if Position.Velocity.DeltaHeight < 0.5 then
     Position.Acceleration.ApplyForce(0, 0, 0.03);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIHawk.SaveToFile(var aFile: TextFile);
+procedure TaiHawk.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeFileBoolean(aFile, fFlying);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIHawk.LoadFromFile(var aFile: TextFile);
+procedure TaiHawk.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   fFlying := readFileBoolean(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-function AIHawk.IsPredator: boolean;
+function TaiHawk.IsPredator: boolean;
 begin
   result := true;
 end;

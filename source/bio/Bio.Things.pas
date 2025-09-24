@@ -588,42 +588,42 @@ begin
     cMoon:       result := TaiMoon.Create(self);
     cCloud:      result := TaiCloud.Create(self);
     cFish:       result := TaiFish.Create(self);
-    cBird:       result := AIBird.Create(self);
+    cBird:       result := TaiBird.Create(self);
     cAsteroid:   result := TaiAsteroid.Create(self);
     cExplosion:  result := TaiExplosion.Create(self);
-    cFlock:      result := AIFlock.Create(self);
-    cBot:        result := AIBot.Create(self);
-    cBall:       result := AIBall.Create(self);
-    cBomb:       result := AIBomb.Create(self);
-    cCrab:       result := AICrab.Create(self);
-    cHawk:       result := AIHawk.Create(self);
-    cGrazer:     result := AIGrazer.Create(self);
-    cTrex:       result := AITrex.Create(self);
-    cVibe:       result := AIVibe.Create(self);
-    cWeapon:     result := AIWeapon.Create(self);
+    cFlock:      result := TaiFlock.Create(self);
+    cBot:        result := TaiBot.Create(self);
+    cBall:       result := TaiBall.Create(self);
+    cBomb:       result := TaiBomb.Create(self);
+    cCrab:       result := TaiCrab.Create(self);
+    cHawk:       result := TaiHawk.Create(self);
+    cGrazer:     result := TaiGrazer.Create(self);
+    cTrex:       result := TaiTrex.Create(self);
+    cVibe:       result := TaiVibe.Create(self);
+    cWeapon:     result := TaiWeapon.Create(self);
     cLightning:  result := TaiLightning.Create(self);
-    cShark:      result := AIShark.Create(self);
-    cTurtle:     result := AITurtle.Create(self);
-    cBeacon:     result := AIBeacon.Create(self);
+    cShark:      result := TaiShark.Create(self);
+    cTurtle:     result := TaiTurtle.Create(self);
+    cBeacon:     result := TaiBeacon.Create(self);
     cTerrier:    result := TaiTerrier.Create(self);
-    cFox:        result := AIFox.Create(self);
-    cRabbit:     result := AIRabbit.Create(self);
+    cFox:        result := TaiFox.Create(self);
+    cRabbit:     result := TaiRabbit.Create(self);
     cGrass:      result := TaiGrass.Create(self);
     cIceberg:    result := TaiIceberg.Create(self);
-    cMouse:      result := AIMouse.Create(self);
-    cTiger:      result := AITiger.Create(self);
-    cDuck:       result := AIDuck.Create(self);
+    cMouse:      result := TaiMouse.Create(self);
+    cTiger:      result := TaiTiger.Create(self);
+    cDuck:       result := TaiDuck.Create(self);
     cCommunity:  result := TaiCommunity.Create(self);
-    cDolphin:    result := AIDolphin.Create(self);
+    cDolphin:    result := TaiDolphin.Create(self);
     cAquaPlant:  result := TaiAquaPlant.Create(self);
-    cLadybug:    result := AILadybug.Create(self);
-    cAnt:        result := AIAnt.Create(self);
+    cLadybug:    result := TaiLadybug.Create(self);
+    cAnt:        result := TaiAnt.Create(self);
     cEarthquake: result := TaiEarthquake.Create(self);
     cEvolvingTree:  result := TaiEvolvingTree.Create(self);
     cEvolvingFruit: result := TaiEvolvingFruit.Create(self);
     cEvolvingSeed:  result := TaiEvolvingSeed.Create(self);
     cFireTree:      result := TaiFireTree.Create(self);
-    cSpeech:        result := AISpeech.Create(self);
+    cSpeech:        result := TaiSpeech.Create(self);
     cMissileDefence:result := TaiMissileDefence.Create(self);
     cMissile:       result := TaiMissile.Create(self);
   else
@@ -886,11 +886,11 @@ end;
 // ----------------------------------------------------------------------------
 procedure TaiThing.Noise(aEffectIndex, aTimerDeath: integer);
 var
-  myVibe: AIVibe;
+  myVibe: TaiVibe;
 begin
   if not gThings.CanAdd(cVibe) then exit;
 
-  myVibe := AIVibe(gEnvironment.Things.NewThing(cVibe));
+  myVibe := TaiVibe(gEnvironment.Things.NewThing(cVibe));
   myVibe.SetVibe(cEffectNoise, aEffectIndex, aTimerDeath);
   myVibe.Position.CopyCoords(Position);
 end;
@@ -898,10 +898,10 @@ end;
 // ----------------------------------------------------------------------------
 procedure TaiThing.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
 var
-  myVibe: AIVibe;
+  myVibe: TaiVibe;
 begin
   if not gThings.CanAdd(cVibe) then exit;
-  myVibe := AIVibe(gEnvironment.Things.NewThing(cVibe));
+  myVibe := TaiVibe(gEnvironment.Things.NewThing(cVibe));
   myVibe.SetVibe(aEffectType, aEffectIndex, aTimerDeath);
   myVibe.Position.CopyCoords(Position);
 end;
@@ -1049,8 +1049,8 @@ begin
     myThing := TaiThing(Items[i]);
     if myThing is TaiCommunityCreature then
       TaiCommunityCreature(myThing).ReaffirmCommunity;
-    if myThing is AIBird then
-      AIBird(myThing).ReaffirmFlock;
+    if myThing is TaiBird then
+      TaiBird(myThing).ReaffirmFlock;
   end;
 end;
 
@@ -1241,11 +1241,11 @@ end;
 // ----------------------------------------------------------------------------
 procedure TaiThing.Talk(aText: string; aRadius: single; aTimerDeath: integer);
 var
-  mySpeech: AISpeech;
+  mySpeech: TaiSpeech;
 begin
   if gThings.CanAdd(cSpeech) then
   begin
-    mySpeech := AISpeech(gThings.NewThing(cSpeech));
+    mySpeech := TaiSpeech(gThings.NewThing(cSpeech));
     mySpeech.Position.CopyCoords(Position);
     mySpeech.Position.Height := mySpeech.Position.Height + Position.SizeH;
     mySpeech.Text := aText;
