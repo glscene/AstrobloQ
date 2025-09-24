@@ -34,6 +34,7 @@ object FormHeightField: TFormHeightField
     OnMouseDown = GLSceneViewerMouseDown
     OnMouseMove = GLSceneViewerMouseMove
     TabOrder = 0
+    ExplicitWidth = 525
   end
   object Panel3: TPanel
     Left = 0

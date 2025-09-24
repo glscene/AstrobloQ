@@ -81,7 +81,7 @@ TaiClass = class of TaiThing;
 TaiThing = class(TaiBaseObject)
 private
   FKind: integer;
-  FPosition: AIPosition;
+  FPosition: TaiPosition;
   FExists: boolean;
   FBirthday: integer;
 protected
@@ -93,7 +93,7 @@ public
   destructor Destroy; override;
   property Name: string read GetName write SetName;
   property Kind: integer read fKind write fKind;
-  property Position: AIPosition read fPosition;
+  property Position: TaiPosition read fPosition;
   property Age: integer read GetAge;
   property Birthday: integer read fBirthday;
   property Exists: boolean read fExists;
@@ -180,7 +180,7 @@ public
   property Collisions: boolean read fCollisions write fCollisions;
   property AI: boolean read fAI write fAI;
   function NewThing(aKind: integer): TaiThing; overload;
-  function NewThing(aKind: integer; aLocation: AIGrid): TaiThing; overload;
+  function NewThing(aKind: integer; aLocation: TaiGrid): TaiThing; overload;
   function Exists(aKind: integer): boolean;
   function Connection(aKind: integer): TaiThing;
   procedure JoinAllCommunities;
@@ -189,7 +189,7 @@ public
   procedure EmptyCradle;
   procedure EmptyPurgatory;   // dangerous...!
   procedure EmptyTrash;       // dangerous
-  function CanTreeGrowHere(aPosition: AIPosition): boolean;
+  function CanTreeGrowHere(aPosition: TaiPosition): boolean;
   function  CanAdd(aKind: integer): boolean;
   procedure DefaultMaximums;
   procedure ResetCounters;
@@ -293,7 +293,7 @@ begin
   Handle := UniqueHandle;
 
   fBirthday := gReality.Time;
-  fPosition := AIPosition.Create(self);
+  fPosition := TaiPosition.Create(self);
   fExists := true;
 end;
 
@@ -511,7 +511,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingList.NewThing(aKind: integer; aLocation: AIGrid): TaiThing;
+function TaiThingList.NewThing(aKind: integer; aLocation: TaiGrid): TaiThing;
 var
   myThing: TaiThing;
 begin
@@ -577,21 +577,22 @@ end;
 function TaiThingList.CreateThing(aKind: integer): TaiThing;
 begin
   case aKind of
-    cApple:       result := NewApple;
-    cOrange:      result := NewOrange;
-    cAppleTree:   result := NewAppleTree;
-    cOrangeTree:  result := NewOrangeTree;
-    cAppleSeed:   result := NewAppleSeed;
-    cOrangeSeed:  result := NewOrangeSeed;
-    cSun:         result := AISun.Create(self);
-    cMoon:        result := AIMoon.Create(self);
-    cCloud:       result := AICloud.Create(self);
-    cFish:        result := AIFish.Create(self);
-    cBird:        result := AIBird.Create(self);
-    cAsteroid:    result := AIAsteroid.Create(self);
-    cExplosion:   result := AIExplosion.Create(self);
-    cFlock:       result := AIFlock.Create(self);
-    cBot:         result := AIBot.Create(self);
+    cApple:      result := NewApple;
+    cOrange:     result := NewOrange;
+    cAppleTree:  result := NewAppleTree;
+    cOrangeTree: result := NewOrangeTree;
+    cAppleSeed:  result := NewAppleSeed;
+    cOrangeSeed: result := NewOrangeSeed;
+
+    cSun:        result := TaiSun.Create(self);
+    cMoon:       result := TaiMoon.Create(self);
+    cCloud:      result := TaiCloud.Create(self);
+    cFish:       result := TaiFish.Create(self);
+    cBird:       result := AIBird.Create(self);
+    cAsteroid:   result := TaiAsteroid.Create(self);
+    cExplosion:  result := TaiExplosion.Create(self);
+    cFlock:      result := AIFlock.Create(self);
+    cBot:        result := AIBot.Create(self);
     cBall:       result := AIBall.Create(self);
     cBomb:       result := AIBomb.Create(self);
     cCrab:       result := AICrab.Create(self);
@@ -600,15 +601,15 @@ begin
     cTrex:       result := AITrex.Create(self);
     cVibe:       result := AIVibe.Create(self);
     cWeapon:     result := AIWeapon.Create(self);
-    cLightning:  result := AILightning.Create(self);
+    cLightning:  result := TaiLightning.Create(self);
     cShark:      result := AIShark.Create(self);
     cTurtle:     result := AITurtle.Create(self);
     cBeacon:     result := AIBeacon.Create(self);
-    cTerrier:    result := AITerrier.Create(self);
+    cTerrier:    result := TaiTerrier.Create(self);
     cFox:        result := AIFox.Create(self);
     cRabbit:     result := AIRabbit.Create(self);
     cGrass:      result := TaiGrass.Create(self);
-    cIceberg:    result := AIIceberg.Create(self);
+    cIceberg:    result := TaiIceberg.Create(self);
     cMouse:      result := AIMouse.Create(self);
     cTiger:      result := AITiger.Create(self);
     cDuck:       result := AIDuck.Create(self);
@@ -617,14 +618,14 @@ begin
     cAquaPlant:  result := TaiAquaPlant.Create(self);
     cLadybug:    result := AILadybug.Create(self);
     cAnt:        result := AIAnt.Create(self);
-    cEarthquake: result := AIEarthquake.Create(self);
-    cEvolvingTree:  result := AIEvolvingTree.Create(self);
-    cEvolvingFruit: result := AIEvolvingFruit.Create(self);
-    cEvolvingSeed:  result := AIEvolvingSeed.Create(self);
-    cFireTree:   result := AIFireTree.Create(self);
-    cSpeech:     result := AISpeech.Create(self);
-    cMissileDefence: result := AIMissileDefence.Create(self);
-    cMissile:       result := AIMissile.Create(self);
+    cEarthquake: result := TaiEarthquake.Create(self);
+    cEvolvingTree:  result := TaiEvolvingTree.Create(self);
+    cEvolvingFruit: result := TaiEvolvingFruit.Create(self);
+    cEvolvingSeed:  result := TaiEvolvingSeed.Create(self);
+    cFireTree:      result := TaiFireTree.Create(self);
+    cSpeech:        result := AISpeech.Create(self);
+    cMissileDefence:result := TaiMissileDefence.Create(self);
+    cMissile:       result := TaiMissile.Create(self);
   else
     result := nil;
   end;
@@ -1058,12 +1059,12 @@ end;
 // Plato's Forms: every object has a form from which it acquires its characteristics
 procedure TaiThingList.GenerateForms;
 var
-  myDNA: AIDNA;
+  myDNA: TaiDNA;
   i: integer;
 begin
   for i := 0 to cLastThing do
   begin
-    myDNA := AIDNA.Create;
+    myDNA := TaiDNA.Create;
     Forms.Add(myDNA);
   end;
 end;
@@ -1072,13 +1073,13 @@ end;
 // loads DNA ini files
 procedure TaiThingList.LoadForms;
 var
-  myDNA: AIDNA;
+  myDNA: TaiDNA;
   i: integer;
   myFileName: string;
 begin
   for i := 0 to cLastThing do
   begin
-    myDNA := AIDNA(Forms.Items[i]);
+    myDNA := TaiDNA(Forms.Items[i]);
     myFileName := 'biodata\' + ThingName(i) + '.ini';
     if FileExists(myFileName) then
       myDNA.LoadFromINI(myFileName);
@@ -1086,7 +1087,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingList.CanTreeGrowHere(aPosition: AIPosition): boolean;
+function TaiThingList.CanTreeGrowHere(aPosition: TaiPosition): boolean;
 begin
   result := (not gThings.Tables[cOrangeTree].HasKindWithinXY(cOrangeTree, aPosition.X, aPosition.Y, 5))
     and (not gThings.Tables[cAppleTree].HasKindWithinXY(cAppleTree, aPosition.X, aPosition.Y, 5))
@@ -1142,7 +1143,7 @@ end;
 //  - kinetic collision: kinetic energy and mass is used to distribute forces 
 procedure TaiThingList.CheckCollisions;
 var
-  myPos1, myPos2: AIPosition;
+  myPos1, myPos2: TaiPosition;
   i, j: integer;
   n1, n2, v1, v2, c1, c2, r1, r2: TAffineVector;
   overlap: single;

@@ -29,9 +29,9 @@ gThreeQuartersWorldHeight: single;
 
 gUniqueHandle: integer;
 
-gReality: AIReality;
-gEnvironment: AIEnvironment;
-gSpace: AISpace;
+gReality: TaiReality;
+gEnvironment: TaiEnvironment;
+gSpace: TaiSpace;
 gThings: TaiThingList;
 
 gGravity: TaiForce;

@@ -66,9 +66,9 @@ object FormSatellite: TFormSatellite
     object Label3: TLabel
       Left = 150
       Top = 8
-      Width = 155
+      Width = 101
       Height = 13
-      Caption = 'Rate of movement in clock ticks.'
+      Caption = #1057#1082#1086#1088#1086#1089#1090#1100' '#1076#1074#1080#1078#1077#1085#1080#1103
     end
     object Panel2: TPanel
       Left = 0

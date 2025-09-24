@@ -692,12 +692,12 @@ type
     procedure tbNextKindClick(Sender: TObject);
     procedure tbRestore2Click(Sender: TObject);
   private
-    fEnvironment: AIEnvironment;
+    fEnvironment: TaiEnvironment;
     fMouseGridX: Integer;
     fMouseGridY: Integer;
     fPlanetGrid: TGridCrossoverList;
     fWaterGrid: TGridCrossoverList;
-    fFocusGrid: AIGrid;
+    fFocusGrid: TaiGrid;
     fSatellites: TCrossoverList;
     fSpeakers: TCrossoverList;
     fSpeeches: TCrossoverList;
@@ -719,16 +719,16 @@ type
       The ViewDestination is "near" the ViewTarget
       The Camera points at the FloatCube
     *)
-    ViewPosition: AIPosition; // actual camera position
-    ViewDestination: AIPosition; // camera destination
-    ViewTarget: AIPosition; // camera target
+    ViewPosition: TaiPosition; // actual camera position
+    ViewDestination: TaiPosition; // camera destination
+    ViewTarget: TaiPosition; // camera target
     ViewTrackingSpeed: Single; // how fast the camera moves
     fViewZoom: Single; // zoom distance to target
     fViewOffset: Single; // offset from target
     ViewUp: TGLCoordinates; // TGLCamera.Up
     ViewAdjust: Single;
     FocusObject: TGLBaseSceneObject;
-    Prediction: AIPosition; // used to predict positions
+    Prediction: TaiPosition; // used to predict positions
 
     TextureMap: array of array of array of TTexPoint;
     fCameraMode: eCamera;
@@ -788,37 +788,37 @@ type
     procedure CalculateTerrainSettings;
     procedure SetFaceTexture(aCrossover: TGridCrossover; newTexIndex: Integer;
       aFaceA, aFaceB: Integer);
-    function GetTextureNumber(aGrid, aAdjacentGrid: AIGrid): Integer;
+    function GetTextureNumber(aGrid, aAdjacentGrid: TaiGrid): Integer;
     procedure SetTool(aTool: eTool);
-    procedure ApplyTool(aTool: eTool; aLocation: AIGrid);
+    procedure ApplyTool(aTool: eTool; aLocation: TaiGrid);
     procedure ApplyUserInterface;
     procedure AllToolBarsInvisible;
-    procedure UpdateGridHeight(aGrid: AIGrid);
-    procedure SetGridHeightPoints(aGrid: AIGrid);
-    procedure UpdateWaterHeight(aGrid: AIGrid);
-    procedure SetWaterHeightPoints(aGrid: AIGrid);
+    procedure UpdateGridHeight(aGrid: TaiGrid);
+    procedure SetGridHeightPoints(aGrid: TaiGrid);
+    procedure UpdateWaterHeight(aGrid: TaiGrid);
+    procedure SetWaterHeightPoints(aGrid: TaiGrid);
     function CheckCradle: TCrossover;
     procedure CheckPurgatory;
     procedure CheckTrash;
     procedure RemoveLights;
     procedure AddStars;
-    procedure AddNewTree(aKind: Integer; aLocation: AIGrid);
-    procedure AddBeacon(aUsage: Integer; aLocation: AIGrid);
+    procedure AddNewTree(aKind: Integer; aLocation: TaiGrid);
+    procedure AddBeacon(aUsage: Integer; aLocation: TaiGrid);
     procedure SetMouseGridX(X: Integer);
     procedure SetMouseGridY(Y: Integer);
 
-    function BuildMoon(aMoon: AIMoon): TCrossover;
-    function BuildSun(aSun: AISun): TCrossover;
-    function BuildCloud(aCloud: AICloud): TCrossover;
+    function BuildMoon(aMoon: TaiMoon): TCrossover;
+    function BuildSun(aSun: TaiSun): TCrossover;
+    function BuildCloud(aCloud: TaiCloud): TCrossover;
     function BuildAppleTree(aTree: TaiTree): TCrossover;
     function BuildOrangeTree(aTree: TaiTree): TCrossover;
     function BuildApple(aApple: TaiFruit): TCrossover;
     function BuildOrange(aOrange: TaiFruit): TCrossover;
     function BuildSeed(aSeed: TaiSeed): TCrossover;
-    function BuildFish(aFish: AIFish): TCrossover;
+    function BuildFish(aFish: TaiFish): TCrossover;
     function BuildBird(aBird: AIBird): TCrossover;
-    function BuildAsteroid(aAsteroid: AIAsteroid): TCrossover;
-    function BuildExplosion(aExplosion: AIExplosion): TCrossover;
+    function BuildAsteroid(aAsteroid: TaiAsteroid): TCrossover;
+    function BuildExplosion(aExplosion: TaiExplosion): TCrossover;
     function BuildBot(aBot: AIBot): TCrossover;
     function BuildCrab(aCrab: AICrab): TCrossover;
     function BuildHawk(aHawk: AIHawk): TCrossover;
@@ -826,15 +826,15 @@ type
     function BuildTrex(aTrex: AITrex): TCrossover;
     function BuildVibe(aVibe: AIVibe): TCrossover;
     function BuildBall(aBall: AIBall): TCrossover;
-    function BuildLightning(aLightning: AILightning): TCrossover;
+    function BuildLightning(aLightning: TaiLightning): TCrossover;
     function BuildShark(aShark: AIShark): TCrossover;
     function BuildTurtle(aTurtle: AITurtle): TCrossover;
     function BuildBeacon(aBeacon: AIBeacon): TCrossover;
-    function BuildTerrier(aTerrier: AITerrier): TCrossover;
+    function BuildTerrier(aTerrier: TaiTerrier): TCrossover;
     function BuildFox(aFox: AIFox): TCrossover;
     function BuildRabbit(aRabbit: AIRabbit): TCrossover;
     function BuildGrass(aGrass: TaiGrass): TCrossover;
-    function BuildIceberg(aIceberg: AIIceberg): TCrossover;
+    function BuildIceberg(aIceberg: TaiIceberg): TCrossover;
     function BuildMouse(aMouse: AIMouse): TCrossover;
     function BuildTiger(aTiger: AITiger): TCrossover;
     function BuildDuck(aDuck: AIDuck): TCrossover;
@@ -842,13 +842,13 @@ type
     function BuildAquaPlant(aAquaPlant: TaiAquaPlant): TCrossover;
     function BuildLadybug(aLadybug: AILadybug): TCrossover;
     function BuildAnt(aAnt: AIAnt): TCrossover;
-    function BuildEvolvingTree(aTree: AIEvolvingTree): TCrossover;
-    function BuildEvolvingFruit(aFruit: AIEvolvingFruit): TCrossover;
-    function BuildEvolvingSeed(aSeed: AIEvolvingSeed): TCrossover;
-    function BuildFireTree(aFireTree: AIFireTree): TCrossover;
+    function BuildEvolvingTree(aTree: TaiEvolvingTree): TCrossover;
+    function BuildEvolvingFruit(aFruit: TaiEvolvingFruit): TCrossover;
+    function BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
+    function BuildFireTree(aFireTree: TaiFireTree): TCrossover;
     function BuildSpeech(aSpeech: AISpeech): TCrossover;
-    function BuildMissileDefence(aMissileDefence: AIMissileDefence): TCrossover;
-    function BuildMissile(aMissile: AIMissile): TCrossover;
+    function BuildMissileDefence(aMissileDefence: TaiMissileDefence): TCrossover;
+    function BuildMissile(aMissile: TaiMissile): TCrossover;
 
     procedure UpdateMoon(aCrossover: TCrossover);
     procedure UpdateSun(aCrossover: TCrossover);
@@ -900,7 +900,7 @@ type
     procedure HideCursor;
     procedure CheckKeys;
     procedure MoveCursor(aDirection: Integer); overload;
-    procedure MoveCursor(aGrid: AIGrid); overload;
+    procedure MoveCursor(aGrid: TaiGrid); overload;
     procedure CalculateCursorPosition;
     procedure InvalidateLand;
     procedure DirectCamera(Grain: single);
@@ -920,19 +920,19 @@ type
     procedure LoadSound(aFileName: string);
     procedure GenerateSoundSystem(aNumberOfSpeakers: Integer);
     procedure PlaySound(aSoundIndex: Integer; aRepeat: Integer;
-      aPosition: AIPosition); overload;
+      aPosition: TaiPosition); overload;
 
     // free floating coordinates
-    procedure CoordinatesFromPosition(aPosition: AIPosition;
+    procedure CoordinatesFromPosition(aPosition: TaiPosition;
       aCoordinates: TGLCoordinates); overload;
-    procedure CoordinatesFromPosition(aPosition: AIPosition;
+    procedure CoordinatesFromPosition(aPosition: TaiPosition;
       aDirection: TGLCoordinates; aCoordinates: TGLCoordinates); overload;
-    procedure CoordinatesFromPosition(aPosition: AIPosition;
+    procedure CoordinatesFromPosition(aPosition: TaiPosition;
       aCoordinates: TGLCoordinates; aFactor: single); overload;
-    procedure CoordinatesFromPosition(aPosition: AIPosition;
+    procedure CoordinatesFromPosition(aPosition: TaiPosition;
       aCoordinates: TGLCoordinates; aFactor: single;
       aOffset: TGLVector); overload;
-    procedure CoordinatesFromPosition(aPosition: AIPosition;
+    procedure CoordinatesFromPosition(aPosition: TaiPosition;
       aDirection: TGLCoordinates; aCoordinates: TGLCoordinates;
       aFactor: single); overload;
     procedure CoordinatesFromPosition(aX, aY, aHeight: single;
@@ -940,20 +940,20 @@ type
     procedure CoordinatesFromPosition(aOrigin: TAffineVector;
       var aVector: TAffineVector); overload;
     // includes proper flat positioning
-    procedure PositionThing(aPosition: AIPosition;
+    procedure PositionThing(aPosition: TaiPosition;
       aThing: TGLBaseSceneObject); overload;
-    procedure PositionThing(aPosition: AIPosition; aThing: TGLBaseSceneObject;
+    procedure PositionThing(aPosition: TaiPosition; aThing: TGLBaseSceneObject;
       aAngle: single); overload;
-    procedure PositionThing(aPosition: AIPosition; aThing: TGLBaseSceneObject;
+    procedure PositionThing(aPosition: TaiPosition; aThing: TGLBaseSceneObject;
       aAngle: single; aFactor: single); overload;
-    procedure SetEnvironment(aEnvironment: AIEnvironment);
+    procedure SetEnvironment(aEnvironment: TaiEnvironment);
     procedure SetPlanetVariables;
-    procedure AddStormCloud(aLocation: AIGrid);
-    procedure AddRainCloud(aLocation: AIGrid);
-    procedure AddForest(aLocation: AIGrid);
-    procedure AddGrass(aLocation: AIGrid);
-    procedure AddLightning(aLocation: AIGrid);
-    procedure AddToTrail(aPosition: AIPosition; aLines: TGLLines);
+    procedure AddStormCloud(aLocation: TaiGrid);
+    procedure AddRainCloud(aLocation: TaiGrid);
+    procedure AddForest(aLocation: TaiGrid);
+    procedure AddGrass(aLocation: TaiGrid);
+    procedure AddLightning(aLocation: TaiGrid);
+    procedure AddToTrail(aPosition: TaiPosition; aLines: TGLLines);
     procedure UpdateTrackingTrail;
     function FindObjectUnderMouse: pointer;
     procedure PickObjectWithMouse;
@@ -962,20 +962,20 @@ type
     procedure AutoSnap; // take a mini photo for animations
     procedure CheckToolRepeat;
     procedure BreakLimits(aKind: Integer);
-    procedure SetFlatGridHeightPoints(aGrid: AIGrid);
-    procedure SetFlatWaterHeightPoints(aGrid: AIGrid);
+    procedure SetFlatGridHeightPoints(aGrid: TaiGrid);
+    procedure SetFlatWaterHeightPoints(aGrid: TaiGrid);
     // ----------------------------------------------------------------------------
   public
     LastActivity: string;
     LastTime: Integer;
-    property Environment: AIEnvironment read fEnvironment write SetEnvironment;
+    property Environment: TaiEnvironment read fEnvironment write SetEnvironment;
     property MouseGridX: Integer read fMouseGridX write SetMouseGridX;
     property MouseGridY: Integer read fMouseGridY write SetMouseGridY;
     property PlanetGrid: TGridCrossoverList read fPlanetGrid;
     property WaterGrid: TGridCrossoverList read fWaterGrid;
     property Satellites: TCrossoverList read fSatellites;
     property Speakers: TCrossoverList read fSpeakers;
-    property FocusGrid: AIGrid read fFocusGrid;
+    property FocusGrid: TaiGrid read fFocusGrid;
     property Tool: eTool read fTool write SetTool;
     property CameraMode: eCamera read fCameraMode write SetCamera;
     property ViewZoom: single read fViewZoom write SetViewZoom;
@@ -1035,10 +1035,10 @@ begin
   fSatellites := TCrossoverList.Create;
   fSpeakers := TCrossoverList.Create;
   fSpeeches := TCrossoverList.Create;
-  ViewPosition := AIPosition.Create(nil);
-  ViewDestination := AIPosition.Create(nil);
-  ViewTarget := AIPosition.Create(nil);
-  Prediction := AIPosition.Create(nil);
+  ViewPosition := TaiPosition.Create(nil);
+  ViewDestination := TaiPosition.Create(nil);
+  ViewTarget := TaiPosition.Create(nil);
+  Prediction := TaiPosition.Create(nil);
   ViewUp := TGLCoordinates.Create(nil);
   ViewUp.Style := csVector;
   KBStopWatch := TaiStopWatch.Create;
@@ -1098,7 +1098,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.SetEnvironment(aEnvironment: AIEnvironment);
+procedure TFormBiosfera.SetEnvironment(aEnvironment: TaiEnvironment);
 begin
   fEnvironment := aEnvironment;
   SetPlanetVariables;
@@ -1356,7 +1356,7 @@ begin
     myThing := TargetToFollow.Data;
     if ViewOffset < 100 then
       ViewOffset := 100;
-    if myThing is AISatellite then
+    if myThing is TaiSatellite then
     begin
       if ViewOffset < 1500 then
         ViewOffset := 1500;
@@ -1518,7 +1518,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.ChaseCamera;
 var
-  TargetPosition: AIPosition;
+  TargetPosition: TaiPosition;
 begin
   if not(TargetToFollow = nil) then
   begin
@@ -1550,7 +1550,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.EyesCamera;
 var
-  TargetPosition: AIPosition;
+  TargetPosition: TaiPosition;
 begin
   if not(HiddenTarget = nil) then
   begin
@@ -2146,20 +2146,20 @@ begin
         cOrangeTree:
           BuildOrangeTree(TaiTree(myThing));
         cCloud:
-          BuildCloud(AICloud(myThing));
+          BuildCloud(TaiCloud(myThing));
         cFish:
-          BuildFish(AIFish(myThing));
+          BuildFish(TaiFish(myThing));
         cBird:
           result := BuildBird(AIBird(myThing));
         cBot:
           result := BuildBot(AIBot(myThing));
         cSun:
-          result := BuildSun(AISun(myThing));
+          result := BuildSun(TaiSun(myThing));
         cMoon:
-          result := BuildMoon(AIMoon(myThing));
+          result := BuildMoon(TaiMoon(myThing));
         cAsteroid:
           begin
-            result := BuildAsteroid(AIAsteroid(myThing));
+            result := BuildAsteroid(TaiAsteroid(myThing));
             if Tool = tAsteroid then
               result := nil;
           end;
@@ -2172,14 +2172,14 @@ begin
         cCrab:
           result := BuildCrab(AICrab(myThing));
         cExplosion:
-          result := BuildExplosion(AIExplosion(myThing));
+          result := BuildExplosion(TaiExplosion(myThing));
         cBall:
           result := BuildBall(AIBall(myThing));
         cVibe:
           if Visible then
             BuildVibe(AIVibe(myThing));
         cLightning:
-          result := BuildLightning(AILightning(myThing));
+          result := BuildLightning(TaiLightning(myThing));
         cShark:
           result := BuildShark(AIShark(myThing));
         cTurtle:
@@ -2187,7 +2187,7 @@ begin
         cBeacon:
           result := BuildBeacon(AIBeacon(myThing));
         cTerrier:
-          result := BuildTerrier(AITerrier(myThing));
+          result := BuildTerrier(TaiTerrier(myThing));
         cFox:
           result := BuildFox(AIFox(myThing));
         cRabbit:
@@ -2195,7 +2195,7 @@ begin
         cGrass:
           result := BuildGrass(TaiGrass(myThing));
         cIceberg:
-          result := BuildIceberg(AIIceberg(myThing));
+          result := BuildIceberg(TaiIceberg(myThing));
         cMouse:
           result := BuildMouse(AIMouse(myThing));
         cTiger:
@@ -2211,19 +2211,19 @@ begin
         cAnt:
           result := BuildAnt(AIAnt(myThing));
         cEvolvingTree:
-          BuildEvolvingTree(AIEvolvingTree(myThing));
+          BuildEvolvingTree(TaiEvolvingTree(myThing));
         cEvolvingFruit:
-          BuildEvolvingFruit(AIEvolvingFruit(myThing));
+          BuildEvolvingFruit(TaiEvolvingFruit(myThing));
         cEvolvingSeed:
-          BuildEvolvingSeed(AIEvolvingSeed(myThing));
+          BuildEvolvingSeed(TaiEvolvingSeed(myThing));
         cFireTree:
-          BuildFireTree(AIFireTree(myThing));
+          BuildFireTree(TaiFireTree(myThing));
         cSpeech:
           BuildSpeech(AISpeech(myThing));
         cMissileDefence:
-          BuildMissileDefence(AIMissileDefence(myThing));
+          BuildMissileDefence(TaiMissileDefence(myThing));
         cMissile:
-          BuildMissile(AIMissile(myThing));
+          BuildMissile(TaiMissile(myThing));
       end;
     end;
     Environment.Things.EmptyCradle;
@@ -2530,7 +2530,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildMoon(aMoon: AIMoon): TCrossover;
+function TFormBiosfera.BuildMoon(aMoon: TaiMoon): TCrossover;
 var
   mySphere: TGLSphere;
 begin
@@ -2549,7 +2549,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildSun(aSun: AISun): TCrossover;
+function TFormBiosfera.BuildSun(aSun: TaiSun): TCrossover;
 var
   mySphere: TGLSphere;
   myLight: TGLLightSource;
@@ -2703,13 +2703,13 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.tbBuildMoonClick(Sender: TObject);
 var
-  myMoon: AIMoon;
+  myMoon: TaiMoon;
 begin
   // add first moon to top, second to bottom
   BreakLimits(cMoon);
   if not Environment.Things.CanAdd(cMoon) then
     exit;
-  myMoon := AIMoon(Environment.Things.NewThing(cMoon));
+  myMoon := TaiMoon(Environment.Things.NewThing(cMoon));
   ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added moon');
   LastAction('Added=moon');
@@ -2718,7 +2718,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.tbBuildSunClick(Sender: TObject);
 var
-  mySun: AISun;
+  mySun: TaiSun;
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
@@ -2726,7 +2726,7 @@ begin
     exit;
   end;
 
-  mySun := AISun(Environment.Things.NewThing(cSun));
+  mySun := TaiSun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
     ReportUserEvent('Added sun' + mySun.OneLineDisplay);
   frmFirst.Construction.AddEvent('Added sun');
@@ -2793,7 +2793,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.UpdateGridHeight(aGrid: AIGrid);
+procedure TFormBiosfera.UpdateGridHeight(aGrid: TaiGrid);
 begin
   if SphereMode then
   begin
@@ -2827,7 +2827,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.SetGridHeightPoints(aGrid: AIGrid);
+procedure TFormBiosfera.SetGridHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -2976,7 +2976,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.UpdateWaterHeight(aGrid: AIGrid);
+procedure TFormBiosfera.UpdateWaterHeight(aGrid: TaiGrid);
 begin
   if SphereMode then
   begin
@@ -3017,7 +3017,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.SetWaterHeightPoints(aGrid: AIGrid);
+procedure TFormBiosfera.SetWaterHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -3127,10 +3127,10 @@ end;
 procedure TFormBiosfera.UpdateMoon(aCrossover: TCrossover);
 var
   mySphere: TGLSphere;
-  myMoon: AIMoon;
+  myMoon: TaiMoon;
 begin
   mySphere := TGLSphere(aCrossover.SubVisuals.Items[0]);
-  myMoon := AIMoon(aCrossover.Data);
+  myMoon := TaiMoon(aCrossover.Data);
 
   PositionThing(myMoon.Position, mySphere);
 
@@ -3143,12 +3143,12 @@ end;
 procedure TFormBiosfera.UpdateSun(aCrossover: TCrossover);
 var
   mySphere: TGLSphere;
-  mySun: AISun;
+  mySun: TaiSun;
   myLight: TGLLightSource;
 begin
   mySphere := TGLSphere(aCrossover.SubVisuals.Items[0]);
   myLight := TGLLightSource(aCrossover.SubVisuals.Items[1]);
-  mySun := AISun(aCrossover.Data);
+  mySun := TaiSun(aCrossover.Data);
 
   PositionThing(mySun.Position, mySphere);
 
@@ -3161,7 +3161,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildCloud(aCloud: AICloud): TCrossover;
+function TFormBiosfera.BuildCloud(aCloud: TaiCloud): TCrossover;
 var
   myProxy: TGLProxyObject;
   myRain: TGLProxyObject;
@@ -3202,12 +3202,12 @@ procedure TFormBiosfera.UpdateCloud(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myRain: TGLProxyObject;
-  myCloud: AICloud;
+  myCloud: TaiCloud;
   myScale: TGLVector;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myRain := TGLProxyObject(aCrossover.SubVisuals.Items[1]);
-  myCloud := AICloud(aCrossover.Data);
+  myCloud := TaiCloud(aCrossover.Data);
 
   PositionThing(myCloud.Position, myProxy, 0);
 
@@ -3223,7 +3223,7 @@ begin
     if aCrossover.Height <= 0 then
     begin
       // snow code
-      // if AIGrid(myCloud.Position.Location).Temperature = 0 then
+      // if TaiGrid(myCloud.Position.Location).Temperature = 0 then
       // myRain.MasterObject := SnowModel;
       aCrossover.Height := Variant(myCloud.Position.Height);
     end;
@@ -3402,7 +3402,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // called whenever a new fish is added
-function TFormBiosfera.BuildFish(aFish: AIFish): TCrossover;
+function TFormBiosfera.BuildFish(aFish: TaiFish): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3429,7 +3429,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildAsteroid(aAsteroid: AIAsteroid): TCrossover;
+function TFormBiosfera.BuildAsteroid(aAsteroid: TaiAsteroid): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3459,7 +3459,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildExplosion(aExplosion: AIExplosion): TCrossover;
+function TFormBiosfera.BuildExplosion(aExplosion: TaiExplosion): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3504,11 +3504,11 @@ end;
 procedure TFormBiosfera.UpdateExplosion(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myExplosion: AIExplosion;
+  myExplosion: TaiExplosion;
   myFire: TGLFireFXManager;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myExplosion := AIExplosion(aCrossover.Data);
+  myExplosion := TaiExplosion(aCrossover.Data);
 
   PositionThing(myExplosion.Position, myProxy, 0, 0.25);
 
@@ -3625,12 +3625,12 @@ end;
 procedure TFormBiosfera.UpdateFish(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myFish: AIFish;
+  myFish: TaiFish;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myFish := AIFish(aCrossover.Data);
+  myFish := TaiFish(aCrossover.Data);
 
   factor := myFish.Size / 4;
   Scale := FishModel.Scale.AsVector;
@@ -3708,7 +3708,6 @@ begin
   Scale := BirdFlap2.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myBird.Position, myProxy, HalfPi);
 end;
 
@@ -3716,12 +3715,12 @@ end;
 procedure TFormBiosfera.UpdateAsteroid(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myAsteroid: AIAsteroid;
+  myAsteroid: TaiAsteroid;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myAsteroid := AIAsteroid(aCrossover.Data);
+  myAsteroid := TaiAsteroid(aCrossover.Data);
 
   factor := 0.25 + 0.1 * myAsteroid.Size;
   Scale := AsteroidModel.Scale.AsVector;
@@ -3859,7 +3858,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
-procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
+procedure TFormBiosfera.CoordinatesFromPosition(aPosition: TaiPosition;
   aCoordinates: TGLCoordinates);
 var
   myLongitude: single;
@@ -3937,7 +3936,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
-procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
+procedure TFormBiosfera.CoordinatesFromPosition(aPosition: TaiPosition;
   aCoordinates: TGLCoordinates; aFactor: single);
 var
   myLongitude: single;
@@ -3963,7 +3962,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + offset
-procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
+procedure TFormBiosfera.CoordinatesFromPosition(aPosition: TaiPosition;
   aCoordinates: TGLCoordinates; aFactor: single; aOffset: TGLVector);
 var
   myLongitude: single;
@@ -3990,7 +3989,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // positioning with direction
-procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
+procedure TFormBiosfera.CoordinatesFromPosition(aPosition: TaiPosition;
   aDirection: TGLCoordinates; aCoordinates: TGLCoordinates);
 var
   myLongitude: single;
@@ -4019,7 +4018,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // positioning with direction
-procedure TFormBiosfera.CoordinatesFromPosition(aPosition: AIPosition;
+procedure TFormBiosfera.CoordinatesFromPosition(aPosition: TaiPosition;
   aDirection: TGLCoordinates; aCoordinates: TGLCoordinates; aFactor: single);
 var
   myLongitude: single;
@@ -4284,7 +4283,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.MoveCursor(aGrid: AIGrid);
+procedure TFormBiosfera.MoveCursor(aGrid: TaiGrid);
 begin
   fFocusGrid := aGrid;
   ValidCursor := true;
@@ -4346,7 +4345,7 @@ var
   sinAngleStart, sinAngleFinish, sinAngleMiddle: single;
   sinSliceBegin, sinSliceFinish, sinSliceMiddle: single;
 
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
   myCrossover: TGridCrossover;
 
   function AddToMesh(aVertice: TAffineVector; aTexPoint: TTexPoint;
@@ -4595,7 +4594,7 @@ var
   i: Integer;
   myCrossover: TGridCrossover;
   myWaterCrossover: TGridCrossover;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
   newTexIndex: Integer;
   changed: Boolean;
 begin
@@ -4603,7 +4602,7 @@ begin
 
   for i := 0 to gSpace.EventRound.ActiveIndex - 1 do
   begin
-    myGrid := AIGrid(gSpace.EventRound.Events[i].Target);
+    myGrid := TaiGrid(gSpace.EventRound.Events[i].Target);
     myCrossover := myGrid.Crossover;
     myWaterCrossover := myGrid.WaterCrossover;
 
@@ -4698,7 +4697,7 @@ end;
 
 //-------------------------------------------------------------------
 function TFormBiosfera.GetTextureNumber(aGrid, aAdjacentGrid
-  : AIGrid): Integer;
+  : TaiGrid): Integer;
 var
   myAdjacent: Integer;
 begin
@@ -4775,7 +4774,7 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosfera.ApplyTool(aTool: eTool; aLocation: AIGrid);
+procedure TFormBiosfera.ApplyTool(aTool: eTool; aLocation: TaiGrid);
 begin
   // invalidates the land at cursor, for instant refresh
   TGridCrossover(PlanetGrid.FindCrossoverByData(aLocation)).LastState := -1;
@@ -5079,7 +5078,7 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosfera.AddBeacon(aUsage: Integer; aLocation: AIGrid);
+procedure TFormBiosfera.AddBeacon(aUsage: Integer; aLocation: TaiGrid);
 var
   myBeacon: AIBeacon;
 begin
@@ -5098,34 +5097,34 @@ begin
   end;
 end;
 
-procedure TFormBiosfera.AddStormCloud(aLocation: AIGrid);
+procedure TFormBiosfera.AddStormCloud(aLocation: TaiGrid);
 var
-  myCloud: AICloud;
+  myCloud: TaiCloud;
 begin
   if not gThings.CanAdd(cCloud) then
     exit;
 
-  myCloud := AICloud(gThings.NewThing(cCloud, aLocation));
+  myCloud := TaiCloud(gThings.NewThing(cCloud, aLocation));
   if myCloud = nil then
     exit;
   myCloud.Storm := true;
   myCloud.Water := 4;
 end;
 
-procedure TFormBiosfera.AddRainCloud(aLocation: AIGrid);
+procedure TFormBiosfera.AddRainCloud(aLocation: TaiGrid);
 var
-  myCloud: AICloud;
+  myCloud: TaiCloud;
 begin
   if not gThings.CanAdd(cCloud) then
     exit;
 
-  myCloud := AICloud(gThings.NewThing(cCloud, aLocation));
+  myCloud := TaiCloud(gThings.NewThing(cCloud, aLocation));
   if myCloud = nil then
     exit;
   myCloud.Raining := true;
 end;
 
-procedure TFormBiosfera.AddForest(aLocation: AIGrid);
+procedure TFormBiosfera.AddForest(aLocation: TaiGrid);
 begin
   case Random(3) of
     0:
@@ -5137,7 +5136,7 @@ begin
   end;
 end;
 
-procedure TFormBiosfera.AddNewTree(aKind: Integer; aLocation: AIGrid);
+procedure TFormBiosfera.AddNewTree(aKind: Integer; aLocation: TaiGrid);
 var
   myTree: TaiThing;
   X, Y: single;
@@ -5166,19 +5165,19 @@ begin
   end;
 end;
 
-procedure TFormBiosfera.AddLightning(aLocation: AIGrid);
+procedure TFormBiosfera.AddLightning(aLocation: TaiGrid);
 var
-  myLightning: AILightning;
+  myLightning: TaiLightning;
 begin
   if not gThings.CanAdd(cLightning) then
     exit;
 
-  myLightning := AILightning(gThings.NewThing(cLightning, aLocation));
+  myLightning := TaiLightning(gThings.NewThing(cLightning, aLocation));
   myLightning.Position.Height := myLightning.Position.Height + 100;
   myLightning.Position.Fuel;
 end;
 
-procedure TFormBiosfera.AddGrass(aLocation: AIGrid);
+procedure TFormBiosfera.AddGrass(aLocation: TaiGrid);
 var
   myGrass: TaiGrass;
   X, Y: single;
@@ -5558,14 +5557,14 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.tbCustomSunClick(Sender: TObject);
 var
-  mySun: AISun;
+  mySun: TaiSun;
 begin
-  if Satellites.AmountOfData(AISun) < 4 then
+  if Satellites.AmountOfData(TaiSun) < 4 then
   begin
-    mySun := AISun(Environment.Things.NewThing(cSun));
+    mySun := TaiSun(Environment.Things.NewThing(cSun));
     ReportUserEvent('Added sun: ' + mySun.OneLineDisplay);
     frmFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
-      (AISatellite(mySun));
+      (TaiSatellite(mySun));
   end
   else
     ShowMessage('Maximum four suns!');
@@ -5574,17 +5573,17 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.tbCustomMoonClick(Sender: TObject);
 var
-  myMoon: AIMoon;
+  myMoon: TaiMoon;
 begin
   // add first moon to top, second to bottom
   if not Environment.Things.Exists(cMoon) then
-    myMoon := AIMoon(Environment.Things.NewThing(cMoon))
+    myMoon := TaiMoon(Environment.Things.NewThing(cMoon))
   else
-    myMoon := AIMoon(Environment.Things.NewThing(cMoon));
+    myMoon := TaiMoon(Environment.Things.NewThing(cMoon));
 
   ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
   frmFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
-    (AISatellite(myMoon));
+    (TaiSatellite(myMoon));
 end;
 
 // ----------------------------------------------------------------------------
@@ -5623,7 +5622,7 @@ var
   sinAngleStart, sinAngleFinish, sinAngleMiddle: single;
   sinSliceBegin, sinSliceFinish, sinSliceMiddle: single;
 
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
   myCrossover: TGridCrossover;
 
   function AddToMesh(aVertice: TAffineVector; aNormal: TAffineVector): Integer;
@@ -6061,7 +6060,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBiosfera.PlaySound(aSoundIndex: Integer; aRepeat: Integer;
-  aPosition: AIPosition);
+  aPosition: TaiPosition);
 var
   myCrossover: TCrossover;
   mySpeaker: TGLDummyCube;
@@ -6676,7 +6675,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.SetFlatGridHeightPoints(aGrid: AIGrid);
+procedure TFormBiosfera.SetFlatGridHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -6783,7 +6782,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosfera.SetFlatWaterHeightPoints(aGrid: AIGrid);
+procedure TFormBiosfera.SetFlatWaterHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -6901,7 +6900,7 @@ begin
   Tool := tForest;
 end;
 
-procedure TFormBiosfera.AddToTrail(aPosition: AIPosition; aLines: TGLLines);
+procedure TFormBiosfera.AddToTrail(aPosition: TaiPosition; aLines: TGLLines);
 var
   p, pt: TAffineVector;
   v: TGLVector;
@@ -6937,7 +6936,7 @@ end;
 procedure TFormBiosfera.UpdateTrackingTrail;
 var
   i, j, k: Integer;
-  myPosition: AIPosition;
+  myPosition: TaiPosition;
 begin
   myPosition := TaiThing(TargetToFollow.Data).Position;
   // add tracking trail
@@ -6990,7 +6989,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildLightning(aLightning: AILightning): TCrossover;
+function TFormBiosfera.BuildLightning(aLightning: TaiLightning): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -7210,7 +7209,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildTerrier(aTerrier: AITerrier): TCrossover;
+function TFormBiosfera.BuildTerrier(aTerrier: TaiTerrier): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7252,9 +7251,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := TigerModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aTiger;
   result.SubVisuals.Add(myProxy);
@@ -7266,10 +7263,10 @@ end;
 procedure TFormBiosfera.UpdateTerrier(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTerrier: AITerrier;
+  myTerrier: TaiTerrier;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTerrier := AITerrier(aCrossover.Data);
+  myTerrier := TaiTerrier(aCrossover.Data);
 
   myProxy.Up.SetToZero;
   CoordinatesFromPosition(myTerrier.Position, myProxy.Direction,
@@ -7420,14 +7417,12 @@ begin
     ProxyOptions := [pooObjects];
     Up := RabbitModel.Up;
   end;
-
   factor := 0.3; // + 0.01 * myRabbit.Size;
   Scale := RabbitModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
 
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aRabbit;
   result.SubVisuals.Add(myProxy);
@@ -7490,12 +7485,10 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myGrass := TaiGrass(aCrossover.Data);
-
   factor := myGrass.Water;
   Scale := GrassModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myGrass.Position, myProxy, 0, -0.05);
   // CoordinatesFromPosition(myGrass.Position, myProxy.Direction, myProxy.Position, -0.05);
 end;
@@ -7534,7 +7527,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildIceberg(aIceberg: AIIceberg): TCrossover;
+function TFormBiosfera.BuildIceberg(aIceberg: TaiIceberg): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7545,9 +7538,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := IcebergModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aIceberg;
   result.SubVisuals.Add(myProxy);
@@ -7559,18 +7550,16 @@ end;
 procedure TFormBiosfera.UpdateIceberg(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myIceberg: AIIceberg;
+  myIceberg: TaiIceberg;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myIceberg := AIIceberg(aCrossover.Data);
-
+  myIceberg := TaiIceberg(aCrossover.Data);
   factor := 0.4 * myIceberg.Position.SizeH;
   Scale := IcebergModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myIceberg.Position, myProxy);
 end;
 
@@ -7602,9 +7591,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := MouseModel.Up;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aMouse;
   result.SubVisuals.Add(myProxy);
@@ -7650,7 +7637,7 @@ end;
 procedure TFormBiosfera.RefreshPlanetFull;
 var
   i, j: Integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for i := 0 to gSpace.WidthLoop do
     for j := 0 to gSpace.HeightLoop do
@@ -7801,7 +7788,7 @@ end;
 
 procedure TFormBiosfera.tbFakeSunClick(Sender: TObject);
 var
-  mySun: AISun;
+  mySun: TaiSun;
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
@@ -7809,7 +7796,7 @@ begin
     exit;
   end;
 
-  mySun := AISun(Environment.Things.NewThing(cSun));
+  mySun := TaiSun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
   begin
     mySun.Rate := 0;
@@ -8381,12 +8368,12 @@ end;
 
 procedure TFormBiosfera.tbEarthquakeClick(Sender: TObject);
 var
-  myEarthquake: AIEarthquake;
+  myEarthquake: TaiEarthquake;
 begin
   if gThings.Counters[cEarthquake] > 0 then
     myEarthquake := gThings.Tables[cEarthquake].FirstOfKind(cEarthquake)
   else
-    myEarthquake := AIEarthquake(gThings.NewThing(cEarthquake));
+    myEarthquake := TaiEarthquake(gThings.NewThing(cEarthquake));
   if Assigned(myEarthquake) then
   begin
     myEarthquake.Rumble := myEarthquake.Rumble + 2;
@@ -8419,7 +8406,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning
-procedure TFormBiosfera.PositionThing(aPosition: AIPosition;
+procedure TFormBiosfera.PositionThing(aPosition: TaiPosition;
   aThing: TGLBaseSceneObject);
 var
   myLongitude: single;
@@ -8455,7 +8442,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
-procedure TFormBiosfera.PositionThing(aPosition: AIPosition;
+procedure TFormBiosfera.PositionThing(aPosition: TaiPosition;
   aThing: TGLBaseSceneObject; aAngle: single);
 var
   myLongitude: single;
@@ -8496,7 +8483,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
-procedure TFormBiosfera.PositionThing(aPosition: AIPosition;
+procedure TFormBiosfera.PositionThing(aPosition: TaiPosition;
   aThing: TGLBaseSceneObject; aAngle: single; aFactor: single);
 var
   myLongitude: single;
@@ -8584,7 +8571,7 @@ end;
 
 // =========================EVOLUTION TREES====================
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildEvolvingTree(aTree: AIEvolvingTree): TCrossover;
+function TFormBiosfera.BuildEvolvingTree(aTree: TaiEvolvingTree): TCrossover;
 var
   myProxy: TGLColorProxy;
 begin
@@ -8617,7 +8604,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildEvolvingFruit(aFruit: AIEvolvingFruit)
+function TFormBiosfera.BuildEvolvingFruit(aFruit: TaiEvolvingFruit)
   : TCrossover;
 var
   myProxy: TGLColorProxy;
@@ -8652,7 +8639,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildEvolvingSeed(aSeed: AIEvolvingSeed): TCrossover;
+function TFormBiosfera.BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
 var
   myProxy: TGLColorProxy;
   myScale: TGLVector;
@@ -8698,12 +8685,12 @@ end;
 procedure TFormBiosfera.UpdateEvolvingTree(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
-  myTree: AIEvolvingTree;
+  myTree: TaiEvolvingTree;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
-  myTree := AIEvolvingTree(aCrossover.Data);
+  myTree := TaiEvolvingTree(aCrossover.Data);
 
   factor := myTree.Water + 0.1;
   Scale := AppleTreeModel.Scale.AsVector;
@@ -8720,10 +8707,10 @@ end;
 procedure TFormBiosfera.UpdateEvolvingFruit(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
-  myFruit: AIEvolvingFruit;
+  myFruit: TaiEvolvingFruit;
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
-  myFruit := AIEvolvingFruit(aCrossover.Data);
+  myFruit := TaiEvolvingFruit(aCrossover.Data);
 
   PositionThing(myFruit.Position, myProxy);
 end;
@@ -8732,10 +8719,10 @@ end;
 procedure TFormBiosfera.UpdateEvolvingSeed(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
-  mySeed: AIEvolvingSeed;
+  mySeed: TaiEvolvingSeed;
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
-  mySeed := AIEvolvingSeed(aCrossover.Data);
+  mySeed := TaiEvolvingSeed(aCrossover.Data);
 
   PositionThing(mySeed.Position, myProxy);
 end;
@@ -8937,7 +8924,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildFireTree(aFireTree: AIFireTree): TCrossover;
+function TFormBiosfera.BuildFireTree(aFireTree: TaiFireTree): TCrossover;
 var
   myProxy: TGLColorProxy;
   myScale: TGLVector;
@@ -8969,15 +8956,13 @@ end;
 procedure TFormBiosfera.UpdateFireTree(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
-  myFireTree: AIFireTree;
+  myFireTree: TaiFireTree;
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
-  myFireTree := AIFireTree(aCrossover.Data);
-
+  myFireTree := TaiFireTree(aCrossover.Data);
   myProxy.FrontColor.Diffuse.Red := myFireTree.Fire / cBurnDown;
   myProxy.FrontColor.Ambient.Red := myFireTree.Fire / cBurnDown;
   // myProxy.FrontColor.Emission.Red := myFireTree.Fire / cBurnDown;
-
   PositionThing(myFireTree.Position, myProxy, 0, -0.15);
 end;
 
@@ -9169,7 +9154,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildMissileDefence(aMissileDefence: AIMissileDefence)
+function TFormBiosfera.BuildMissileDefence(aMissileDefence: TaiMissileDefence)
   : TCrossover;
 var
   myProxy: TGLColorProxy;
@@ -9200,21 +9185,19 @@ end;
 procedure TFormBiosfera.UpdateMissileDefence(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
-  myMissileDefence: AIMissileDefence;
+  myMissileDefence: TaiMissileDefence;
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
-  myMissileDefence := AIMissileDefence(aCrossover.Data);
-
+  myMissileDefence := TaiMissileDefence(aCrossover.Data);
   myProxy.FrontColor.Diffuse.Red := myMissileDefence.Priority;
   myProxy.FrontColor.Diffuse.Blue := myMissileDefence.Priority;
   myProxy.FrontColor.Ambient.Red := myMissileDefence.Priority;
   myProxy.FrontColor.Emission.Red := myMissileDefence.Priority / 2;
-
   PositionThing(myMissileDefence.Position, myProxy, 0);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosfera.BuildMissile(aMissile: AIMissile): TCrossover;
+function TFormBiosfera.BuildMissile(aMissile: TaiMissile): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -9231,9 +9214,7 @@ begin
     ScaleVector(myScale, myFactor);
     Scale.AsVector := myScale;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aMissile;
   result.SubVisuals.Add(myProxy);
@@ -9245,11 +9226,10 @@ end;
 procedure TFormBiosfera.UpdateMissile(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myMissile: AIMissile;
+  myMissile: TaiMissile;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myMissile := AIMissile(aCrossover.Data);
-
+  myMissile := TaiMissile(aCrossover.Data);
   PositionThing(myMissile.Position, myProxy, 0, -0.15);
 end;
 
@@ -9257,7 +9237,6 @@ procedure TFormBiosfera.tbNextKindClick(Sender: TObject);
 begin
   if TargetToFollow = nil then
     exit;
-
   if Satellites.SetCrossoverByKind(TaiThing(TargetToFollow.Data).Kind) then
   begin
     TargetToFollow := Satellites.ActiveItem;

@@ -89,14 +89,14 @@ type
     procedure tbTrashClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    fReality: AIReality;
+    fReality: TaiReality;
   public
-    property Reality: AIReality read fReality write fReality;
+    property Reality: TaiReality read fReality write fReality;
     procedure RefreshAll;
     procedure RefreshThings;
     procedure RefreshGrids;
     procedure Advance;
-    procedure EditSatellite(aSatellite: AISatellite);
+    procedure EditSatellite(aSatellite: TaiSatellite);
   end;
 
 var
@@ -146,9 +146,9 @@ begin
   begin
     myThing := TaiThing(Reality.Environment.Things.Existents[myIndex]);
 
-    if not ((myThing is TaiPlant) or (myThing is AIEvolvingPlant)) or cbPlants.Checked then
+    if not ((myThing is TaiPlant) or (myThing is TaiEvolvingPlant)) or cbPlants.Checked then
     if not (myThing is TaiCreature) or cbCreatures.Checked then
-    if not (myThing is AICloud) or cbClouds.Checked then
+    if not (myThing is TaiCloud) or cbClouds.Checked then
     lbThings.Items.AddObject(
       myThing.OneLineDisplay,
       myThing);
@@ -163,13 +163,13 @@ procedure TfrmLists.RefreshGrids;
 var
   X: integer;
   Y: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   redView.Clear;
   for X := 0 to Reality.Environment.Space.WidthLoop do
     for Y := 0 to Reality.Environment.Space.HeightLoop do
   begin
-    myGrid := AIGrid(Reality.Environment.Space.Map[X][Y]);
+    myGrid := TaiGrid(Reality.Environment.Space.Map[X][Y]);
     redView.Lines.Add(myGrid.OneLineDisplay);
   end;
 end;
@@ -195,7 +195,7 @@ begin
   RefreshThings;
 end;
 
-procedure TfrmLists.EditSatellite(aSatellite: AISatellite);
+procedure TfrmLists.EditSatellite(aSatellite: TaiSatellite);
 var
   myFormSatellite: TFormSatellite;
 begin

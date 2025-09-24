@@ -49,7 +49,7 @@ const
 type
 
 // ----------------------------------------------------------------------------
-AIPosition = class(TObject)
+TaiPosition = class(TObject)
 private
   // velocity
   fVelocity: TaiForce;
@@ -96,8 +96,8 @@ private
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  procedure CopyCoords(aPosition: AIPosition);
-  procedure FullCopy(aPosition: AIPosition);
+  procedure CopyCoords(aPosition: TaiPosition);
+  procedure FullCopy(aPosition: TaiPosition);
   property X: single read fX write SetX;
   property Y: single read fY write SetY;
   property Height: single read fHeight write fHeight;
@@ -142,19 +142,19 @@ public
   procedure TurnRight(aAmount: single); overload;
   procedure Reverse;
   procedure MoveBy(aAmount: single);
-  procedure FaceTarget(aPosition: AIPosition); overload;
+  procedure FaceTarget(aPosition: TaiPosition); overload;
   procedure FaceTarget(aPosition: TAffineVector); overload;
   procedure TurnTowardsVelocity(const aAmount: single);
-  procedure TurnTowardsTarget(const aPosition: AIPosition); overload;
-  procedure TurnTowardsTarget(const aPosition: AIPosition; const aAmount: single); overload;
+  procedure TurnTowardsTarget(const aPosition: TaiPosition); overload;
+  procedure TurnTowardsTarget(const aPosition: TaiPosition; const aAmount: single); overload;
   procedure TurnTowardsVector(const aVector: TAffineVector; const aAmount: single);
   procedure FaceVelocity;
-  function TurnTowardsAndIsFacingTarget(const aPosition: AIPosition; const aAmount: single): boolean;
-  procedure MoveTowards(aPosition: AIPosition; aAmount: single); overload;
+  function TurnTowardsAndIsFacingTarget(const aPosition: TaiPosition; const aAmount: single): boolean;
+  procedure MoveTowards(aPosition: TaiPosition; aAmount: single); overload;
   procedure MoveTowardsHeight(aHeight: single; aAmount: single);
   procedure ApplyForce(aForce: TaiForce); overload;
   procedure ApplyForce(dX: single; dY: single; dH: single); overload;
-  procedure ApplyForce(aOrigin: AIPosition; aStrength: single); overload;
+  procedure ApplyForce(aOrigin: TaiPosition; aStrength: single); overload;
   procedure ApplyForce(aAngle: single; aStrength: single); overload;
   procedure Center;               // centers at x.5, y.5
   procedure RandomizeOffset;      // randomizes the fraction of the position (1.0)
@@ -162,14 +162,14 @@ public
   // grow/shrink
   procedure Inflate(aAmount: single);
   procedure Deflate(aAmount: single);
-  function DistanceTo(aDestination: AIPosition): single;
-  function DistancePlusHeightTo(aDestination: AIPosition): single;
+  function DistanceTo(aDestination: TaiPosition): single;
+  function DistancePlusHeightTo(aDestination: TaiPosition): single;
   function DistanceToHeight(aHeight: single): single;
-  function DistanceToXPlusY(aDestination: AIPosition): single;
-  function SimpleDistanceTo(aDestination: AIPosition): single;
-  function SimpleDistanceToXY(aDestination: AIPosition): single;
+  function DistanceToXPlusY(aDestination: TaiPosition): single;
+  function SimpleDistanceTo(aDestination: TaiPosition): single;
+  function SimpleDistanceToXY(aDestination: TaiPosition): single;
   function DistanceToVector(aVector: TAffineVector): single;
-  function DirectionTo(aPosition: AIPosition): single;
+  function DirectionTo(aPosition: TaiPosition): single;
   function HeightAbove: single;
   function HighestHeight: single;
   function AsAffineVector: TAffineVector;
@@ -201,7 +201,7 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AIPosition.Create(aParent: pointer);
+constructor TaiPosition.Create(aParent: pointer);
 begin
   inherited Create;
 
@@ -229,7 +229,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIPosition.Destroy;
+destructor TaiPosition.Destroy;
 begin
   fVelocity.Free;
   fAcceleration.Free;
@@ -238,10 +238,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Fuel;
+procedure TaiPosition.Fuel;
 var
   gridx, gridy: integer;
-  myLocation: AIGrid;
+  myLocation: TaiGrid;
 begin
   // apply acceleration
   if not (fAcceleration.Stale) then
@@ -304,7 +304,7 @@ begin
         if Velocity.DeltaHeight <= 0.02 then begin Velocity.DeltaHeight := 0; fHeight := fLand; end;
       end;
 
-      //fAcceleration.ApplyForce(AIGrid(fLocation).Wind);
+      //fAcceleration.ApplyForce(TaiGrid(fLocation).Wind);
 
       if not fVelocity.Stale then
         fVelocity.Shrink(fMass * 0.010);
@@ -359,11 +359,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.TerrainCollide(aLocation: pointer);
+procedure TaiPosition.TerrainCollide(aLocation: pointer);
 var
   v, n, r: TAffineVector;
 begin
-  n := AIGrid(aLocation).Normal;
+  n := TaiGrid(aLocation).Normal;
   v := fVelocity.AsAffineVector;
   r := VectorCombine(v, n, 1, -2*VectorDotProduct(v, n));
   r := VectorScale(r, fBounce);
@@ -371,7 +371,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.OneLineDisplay: string;
+function TaiPosition.OneLineDisplay: string;
 begin
   case fBinding of
     bindLand: result := 'b-Land';
@@ -387,7 +387,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SaveToFile(var aFile: TextFile);
+procedure TaiPosition.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fDirectionXY);
   writeln(aFile, fX);
@@ -413,7 +413,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.LoadFromFile(var aFile: TextFile);
+procedure TaiPosition.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fDirectionXY);
   readln(aFile, fX);
@@ -439,7 +439,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.CopyCoords(aPosition: AIPosition);
+procedure TaiPosition.CopyCoords(aPosition: TaiPosition);
 begin
   fX := aPosition.X;
   fY := aPosition.Y;
@@ -450,7 +450,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.FullCopy(aPosition: AIPosition);
+procedure TaiPosition.FullCopy(aPosition: TaiPosition);
 begin
   fX := aPosition.X;
   fY := aPosition.Y;
@@ -471,7 +471,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetPosition(aX: single; aY: single; aHeight: single);
+procedure TaiPosition.SetPosition(aX: single; aY: single; aHeight: single);
 begin
   SetX(aX);
   SetY(aY);
@@ -479,7 +479,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetX(aX: single);
+procedure TaiPosition.SetX(aX: single);
 begin
   fX := aX;
 
@@ -495,7 +495,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetY(aY: single);
+procedure TaiPosition.SetY(aY: single);
 begin
   fY := aY;
 
@@ -521,7 +521,7 @@ end;
 // ----------------------------------------------------------------------------
 // from 0 to 2pi
 // wraps around
-procedure AIPosition.SetDirectionXY(aDirectionXY: single);
+procedure TaiPosition.SetDirectionXY(aDirectionXY: single);
 begin
   fDirectionXY := aDirectionXY;
 
@@ -534,7 +534,7 @@ end;
 // ----------------------------------------------------------------------------
 // from 0 to pi
 // doesnt wrap around
-procedure AIPosition.SetDirectionH(aDirectionH: single);
+procedure TaiPosition.SetDirectionH(aDirectionH: single);
 begin
   fDirectionH := aDirectionH;
 
@@ -547,7 +547,7 @@ end;
 // ----------------------------------------------------------------------------
 // aXY = 0..2pi
 // aH = 0..pi
-procedure AIPosition.SetDirection(aXYAngle: single; aHeightAngle: single);
+procedure TaiPosition.SetDirection(aXYAngle: single; aHeightAngle: single);
 begin
   DirectionXY := aXYAngle;
   DirectionH := aHeightAngle;
@@ -555,7 +555,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // moves by the total direction vector, including height
-procedure AIPosition.MoveFreely(aAmount: single);
+procedure TaiPosition.MoveFreely(aAmount: single);
 var
   mySinH: single;
 begin
@@ -567,7 +567,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // moves by the total direction vector, including height
-procedure AIPosition.MoveFreely5(aAmount: single);
+procedure TaiPosition.MoveFreely5(aAmount: single);
 var
   mySinH: single;
 begin
@@ -578,7 +578,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveBy(aAmount: single);
+procedure TaiPosition.MoveBy(aAmount: single);
 begin
   X := fX + cos(fDirectionXY) * aAmount;
   Y := fY + sin(fDirectionXY) * aAmount;
@@ -586,21 +586,21 @@ end;
 
 // ----------------------------------------------------------------------------
 // sets direction to face a target position
-procedure AIPosition.FaceTarget(aPosition: AIPosition);
+procedure TaiPosition.FaceTarget(aPosition: TaiPosition);
 begin
   DirectionXY := ArcTan2(aPosition.Y - Y, aPosition.X - X);
 end;
 
 // ----------------------------------------------------------------------------
 // sets direction to face a target position
-procedure AIPosition.FaceTarget(aPosition: TAffineVector);
+procedure TaiPosition.FaceTarget(aPosition: TAffineVector);
 begin
   DirectionXY := ArcTan2(aPosition.Y - Y, aPosition.X - X);
 end;
 
 // ----------------------------------------------------------------------------
 // sets direction to face target velocity
-procedure AIPosition.FaceVelocity;
+procedure TaiPosition.FaceVelocity;
 begin
   Assert(not IsNan(fVelocity.DeltaX));
   Assert(not IsNan(fVelocity.DeltaY));
@@ -609,35 +609,35 @@ end;
 
 // ----------------------------------------------------------------------------
 // sets direction to incrementally face target velocity
-procedure AIPosition.TurnTowardsVelocity(const aAmount: single);
+procedure TaiPosition.TurnTowardsVelocity(const aAmount: single);
 begin
   TurnTowards(arctan2(fVelocity.DeltaY, fVelocity.DeltaX), aAmount);
 end;
 
 // ----------------------------------------------------------------------------
 // sets direction to incrementally face target vector
-procedure AIPosition.TurnTowardsVector(const aVector: TAffineVector; const aAmount: single);
+procedure TaiPosition.TurnTowardsVector(const aVector: TAffineVector; const aAmount: single);
 begin
   TurnTowards(arctan2(aVector.Y, aVector.X), aAmount);
 end;
 
 // ----------------------------------------------------------------------------
 // turn towards a target position
-procedure AIPosition.TurnTowardsTarget(const aPosition: AIPosition);
+procedure TaiPosition.TurnTowardsTarget(const aPosition: TaiPosition);
 begin
   TurnTowards(arctan2(aPosition.Y - Y, aPosition.X - X), ca5);
 end;
 
 // ----------------------------------------------------------------------------
 // turn towards a target position
-procedure AIPosition.TurnTowardsTarget(const aPosition: AIPosition; const aAmount: single);
+procedure TaiPosition.TurnTowardsTarget(const aPosition: TaiPosition; const aAmount: single);
 begin
   TurnTowards(arctan2(aPosition.Y - Y, aPosition.X - X), aAmount);
 end;
 
 // ----------------------------------------------------------------------------
 // turn towards a target position
-function AIPosition.TurnTowardsAndIsFacingTarget(const aPosition: AIPosition; const aAmount: single): boolean;
+function TaiPosition.TurnTowardsAndIsFacingTarget(const aPosition: TaiPosition; const aAmount: single): boolean;
 var
   myTarget: single;
 begin
@@ -647,7 +647,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.TurnTowards(const aTarget, aAmount: single);
+procedure TaiPosition.TurnTowards(const aTarget, aAmount: single);
 var
   myDiff: single;
 begin
@@ -684,7 +684,7 @@ end;
 // shortest distance between two x coordinates
 // accounts for edge of spherical map
 // TODO: account for poles
-function AIPosition.DistanceToX(aDestX: single): single;
+function TaiPosition.DistanceToX(aDestX: single): single;
 begin
   result := Abs(X - aDestX);
 
@@ -701,96 +701,96 @@ end;
 // ----------------------------------------------------------------------------
 // shortest distance between two Y coordinates
 // TODO: account for poles
-function AIPosition.DistanceToY(aDestY: single): single;
+function TaiPosition.DistanceToY(aDestY: single): single;
 begin
   result := Abs(Y - aDestY);
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.DistanceToHeight(aHeight: single): single;
+function TaiPosition.DistanceToHeight(aHeight: single): single;
 begin
   result := abs(Height - aHeight);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Move(dX: single; dY: single);
+procedure TaiPosition.Move(dX: single; dY: single);
 begin
   X := fX + dX;
   Y := fY + dY;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveX(dX: single);
+procedure TaiPosition.MoveX(dX: single);
 begin
   X := fX + dX;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveY(dY: single);
+procedure TaiPosition.MoveY(dY: single);
 begin
   Y := fY + dY;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveHeight(dHeight: single);
+procedure TaiPosition.MoveHeight(dHeight: single);
 begin
   Height := fHeight + dHeight;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.TurnLeft;
+procedure TaiPosition.TurnLeft;
 begin
   DirectionXY := fDirectionXY - ca360;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.TurnRight;
+procedure TaiPosition.TurnRight;
 begin
   DirectionXY := fDirectionXY + ca360;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.TurnLeft(aAmount: single);
+procedure TaiPosition.TurnLeft(aAmount: single);
 begin
   DirectionXY := fDirectionXY - aAmount;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.TurnRight(aAmount: single);
+procedure TaiPosition.TurnRight(aAmount: single);
 begin
   DirectionXY := fDirectionXY + aAmount;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Reverse;
+procedure TaiPosition.Reverse;
 begin
   DirectionXY := fDirectionXY + Pi;
   Velocity.InvertXY;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Center;
+procedure TaiPosition.Center;
 begin
   fX := Round(fX/10-0.5)*10 + 5.0;
   fY := Round(fY/10-0.5)*10 + 5.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.RandomizeOffset;
+procedure TaiPosition.RandomizeOffset;
 begin
   fX := fX + Random*10.0;
   fY := fY + Random*10.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.RandomizeHalfOffset;
+procedure TaiPosition.RandomizeHalfOffset;
 begin
   fX := fX + 2.5 + Random*5.0;
   fY := fY + 2.5 + Random*5.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.ApplyForce(aForce: TaiForce);
+procedure TaiPosition.ApplyForce(aForce: TaiForce);
 begin
   if not (aForce.DeltaX = 0) then
     X := X + aForce.DeltaX;
@@ -803,7 +803,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.ApplyForce(dX: single; dY: single; dH: single);
+procedure TaiPosition.ApplyForce(dX: single; dY: single; dH: single);
 begin
   if not (dX = 0) then
     X := X + dX;
@@ -815,7 +815,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // applies a force from an origin, decreasing strength over distance
-procedure AIPosition.ApplyForce(aOrigin: AIPosition; aStrength: single);
+procedure TaiPosition.ApplyForce(aOrigin: TaiPosition; aStrength: single);
 var
   dX: single;
   dY: single;
@@ -829,14 +829,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.ApplyForce(aAngle: single; aStrength: single);
+procedure TaiPosition.ApplyForce(aAngle: single; aStrength: single);
 begin
   X := X + aStrength * cos(aAngle);
   Y := Y + aStrength * sin(aAngle);
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.DistanceTo(aDestination: AIPosition): single;
+function TaiPosition.DistanceTo(aDestination: TaiPosition): single;
 var
   dX, dY: single;
 begin
@@ -846,7 +846,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.DistancePlusHeightTo(aDestination: AIPosition): single;
+function TaiPosition.DistancePlusHeightTo(aDestination: TaiPosition): single;
 var
   dX, dY, dH: single;
 begin
@@ -857,7 +857,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.DistanceToVector(aVector: TAffineVector): single;
+function TaiPosition.DistanceToVector(aVector: TAffineVector): single;
 var
   dX, dY, dH: single;
 begin
@@ -868,7 +868,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.DistanceToXPlusY(aDestination: AIPosition): single;
+function TaiPosition.DistanceToXPlusY(aDestination: TaiPosition): single;
 var
   dX, dY: single;
 begin
@@ -878,7 +878,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveTowards(aPosition: AIPosition; aAmount: single);
+procedure TaiPosition.MoveTowards(aPosition: TaiPosition; aAmount: single);
 begin
   if DistanceToX(aPosition.X) < aAmount then
     X := aPosition.X
@@ -904,7 +904,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveTowardsHeight(aHeight: single; aAmount: single);
+procedure TaiPosition.MoveTowardsHeight(aHeight: single; aAmount: single);
 begin
   if Height < aHeight then
   begin
@@ -922,7 +922,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetSize(aSizeX: single; aSizeY: single; aSizeH: single; aTangible: boolean);
+procedure TaiPosition.SetSize(aSizeX: single; aSizeY: single; aSizeH: single; aTangible: boolean);
 begin
   fSizeX := aSizeX;
   fSizeY := aSizeY;
@@ -931,7 +931,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetSize(aSizeX: single; aSizeY: single; aSizeH: single);
+procedure TaiPosition.SetSize(aSizeX: single; aSizeY: single; aSizeH: single);
 begin
   fSizeX := aSizeX;
   fSizeY := aSizeY;
@@ -939,7 +939,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetProperties(aMass: single; aBounce: single; aBuoyancy: single);
+procedure TaiPosition.SetProperties(aMass: single; aBounce: single; aBuoyancy: single);
 begin
   Mass := aMass;
   Bounce := aBounce;
@@ -947,19 +947,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.DirectionTo(aPosition: AIPosition): single;
+function TaiPosition.DirectionTo(aPosition: TaiPosition): single;
 begin
   result := arctan2(aPosition.Y - Y, aPosition.X - X);
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.Volume: single;
+function TaiPosition.Volume: single;
 begin
   result := fSizeX * fSizeY * fSizeH;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Inflate(aAmount: single);
+procedure TaiPosition.Inflate(aAmount: single);
 begin
   fSizeX := fSizeX + aAmount;
   fSizeY := fSizeY + aAmount;
@@ -967,7 +967,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Deflate(aAmount: single);
+procedure TaiPosition.Deflate(aAmount: single);
 begin
   fSizeX := fSizeX - aAmount;
   fSizeY := fSizeY - aAmount;
@@ -975,7 +975,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.ApplyOrbitingForce(aForce: TaiForce);
+procedure TaiPosition.ApplyOrbitingForce(aForce: TaiForce);
 begin
   if not (aForce.DeltaX = 0) then
     X := X + aForce.DeltaX;
@@ -989,20 +989,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetToCoordinates(aCoordinates: AICoordinates);
+procedure TaiPosition.SetToCoordinates(aCoordinates: AICoordinates);
 begin
   X := aCoordinates.X*10;
   Y := aCoordinates.Y*10;
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.GridX: integer;
+function TaiPosition.GridX: integer;
 begin
   result := Round(fX/10-0.5);
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.GridY: integer;
+function TaiPosition.GridY: integer;
 begin
   result := Round(fY/10-0.5);
 end;
@@ -1010,7 +1010,7 @@ end;
 // ----------------------------------------------------------------------------
 // same as setY
 // returns true if position changed across a pole
-function AIPosition.ApplyY(aY: single): boolean;
+function TaiPosition.ApplyY(aY: single): boolean;
 begin
   fY := aY;
   result := false;
@@ -1035,14 +1035,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.MoveYNoPoles(dY: single);
+procedure TaiPosition.MoveYNoPoles(dY: single);
 begin
   if (fY + dY > 0) and (fY + dY < gWorldHeight) then
     Y := fY + dY;
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.HeightAbove: single;
+function TaiPosition.HeightAbove: single;
 begin
   if fLand > fWater then
     result := fHeight - fLand
@@ -1051,7 +1051,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.HighestHeight: single;
+function TaiPosition.HighestHeight: single;
 begin
   if fLand > fWater then
     result := fLand
@@ -1060,7 +1060,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.AsAffineVector: TAffineVector;
+function TaiPosition.AsAffineVector: TAffineVector;
 begin
   result.X := fX;
   result.Y := fY;
@@ -1068,7 +1068,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
+procedure TaiPosition.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
 var
   myVibe: AIVibe;
 begin
@@ -1080,20 +1080,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.SimpleDistanceTo(aDestination: AIPosition): single;
+function TaiPosition.SimpleDistanceTo(aDestination: TaiPosition): single;
 begin
   // crashed here
   result := abs(X - aDestination.X) + abs(Y - aDestination.Y) + abs(Height - aDestination.Height);
 end;
 
 // ----------------------------------------------------------------------------
-function AIPosition.SimpleDistanceToXY(aDestination: AIPosition): single;
+function TaiPosition.SimpleDistanceToXY(aDestination: TaiPosition): single;
 begin
   result := abs(X - aDestination.X) + abs(Y - aDestination.Y);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.FullDisplay(aList: TStrings);
+procedure TaiPosition.FullDisplay(aList: TStrings);
 begin
   case fBinding of
     bindLand: aList.Add('Binding: Land');
@@ -1119,31 +1119,31 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.VelocityStrafeLeft(aAmount: single);
+procedure TaiPosition.VelocityStrafeLeft(aAmount: single);
 begin
   Velocity.ApplyAngularForce(DirectionXY - HalfPi, aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.VelocityStrafeRight(aAmount: single);
+procedure TaiPosition.VelocityStrafeRight(aAmount: single);
 begin
   Velocity.ApplyAngularForce(DirectionXY + HalfPi, aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.AccelerationStrafeLeft(aAmount: single);
+procedure TaiPosition.AccelerationStrafeLeft(aAmount: single);
 begin
   Acceleration.ApplyAngularForce(DirectionXY - HalfPi, aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.AccelerationStrafeRight(aAmount: single);
+procedure TaiPosition.AccelerationStrafeRight(aAmount: single);
 begin
   Acceleration.ApplyAngularForce(DirectionXY + HalfPi, aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIPosition.SetMass(aMass: single);
+procedure TaiPosition.SetMass(aMass: single);
 begin
   fMass := aMass;
   if fMass < 1.0 then fMass := 1.0;

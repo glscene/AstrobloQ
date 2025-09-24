@@ -15,9 +15,7 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
   Vcl.Buttons,
-  Bio.Position ;
-
-  ///JvEdit, JvTypedEdit, JvFloatEdit
+  Bio.Position;
 
 type
   TFormPosition = class(TForm)
@@ -74,10 +72,8 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure btnCopyClick(Sender: TObject);
   private
-     
   public
-     
-    Position: AIPosition;
+    Position: TaiPosition;
     procedure GetPosition;
     procedure ApplyPosition;
   end;
@@ -169,14 +165,14 @@ procedure TFormPosition.btnCopyClick(Sender: TObject);
 var
   myThing: TaiThing;
 begin
-  ///myThing := AIThing(gThings.FindWithHandle(edHandle.Value));
+  ///myThing := TaiThing(gThings.FindWithHandle(edHandle.Value));
   if myThing<>nil then
   begin
     Position.FullCopy(myThing.Position);
     GetPosition;
   end
   else
-    ShowMessage('Object with that handle does not exist.');
+    ShowMessage('Объекта с таким индексом нет.');
 end;
 
 end.

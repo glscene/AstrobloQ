@@ -24,30 +24,30 @@ public
 
   // basic operations
   function RandomThing: pointer;
-  function NearestThing(aPosition: AIPosition): pointer; overload;
-  function NearestThing(aPosition: AIPosition; aRange: single): pointer; overload;
-  function SimpleNearestThing(aPosition: AIPosition): pointer;
-  function NearestAvailableThing(aPosition: AIPosition): pointer;
+  function NearestThing(aPosition: TaiPosition): pointer; overload;
+  function NearestThing(aPosition: TaiPosition; aRange: single): pointer; overload;
+  function SimpleNearestThing(aPosition: TaiPosition): pointer;
+  function NearestAvailableThing(aPosition: TaiPosition): pointer;
 
   function HasKind(aKind: integer): boolean;
   function HasKindAtLocation(aLocation: pointer; aKind: integer): boolean;
-  function HasKindWithinDistance(aKind: integer; aPosition: AIPosition; aDistance: single): boolean;
+  function HasKindWithinDistance(aKind: integer; aPosition: TaiPosition; aDistance: single): boolean;
   function HasKindWithinXY(aKind: integer; aX: single; aY: single; aDistance: single): boolean;
   function AmountOfKind(aKind: integer): integer;
   function FirstOfKind(aKind: integer): pointer;
   function RandomOfKind(aKind: integer): pointer;
-  function FarthestOfKind(aPosition: AIPosition; aKind: integer): pointer;
+  function FarthestOfKind(aPosition: TaiPosition; aKind: integer): pointer;
   function LastOfKind(aKind: integer): pointer;
-  function NearestThing(aGrabber: pointer; aPosition: AIPosition; aRange: single): pointer; overload;
-  function NearestOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer; overload;
-  function NearestOfKind(aKind: integer; aPosition: AIPosition): pointer; overload;
-  function NearestOfClass(aClass: TaiBaseClass; aPosition: AIPosition; aRange: single): pointer;
-  function NearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
-  function NearestAvailableUnderwaterThing(aPosition: AIPosition; aNotKind: integer): pointer;
-  function NearestAvailableNotUnderwaterThing(aPosition: AIPosition): pointer;
-  function SimpleNearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
-  procedure ApplyOriginatingForceToAll(aOrigin: AIPosition; aStrength: single; aRadius: single);
-  procedure ApplyDamage(aOrigin: AIPosition; aDamage: integer; aRadius: single);
+  function NearestThing(aGrabber: pointer; aPosition: TaiPosition; aRange: single): pointer; overload;
+  function NearestOfKind(aKind: integer; aPosition: TaiPosition; aRange: single): pointer; overload;
+  function NearestOfKind(aKind: integer; aPosition: TaiPosition): pointer; overload;
+  function NearestOfClass(aClass: TaiBaseClass; aPosition: TaiPosition; aRange: single): pointer;
+  function NearestAvailableOfKind(aKind: integer; aPosition: TaiPosition; aRange: single): pointer;
+  function NearestAvailableUnderwaterThing(aPosition: TaiPosition; aNotKind: integer): pointer;
+  function NearestAvailableNotUnderwaterThing(aPosition: TaiPosition): pointer;
+  function SimpleNearestAvailableOfKind(aKind: integer; aPosition: TaiPosition; aRange: single): pointer;
+  procedure ApplyOriginatingForceToAll(aOrigin: TaiPosition; aStrength: single; aRadius: single);
+  procedure ApplyDamage(aOrigin: TaiPosition; aDamage: integer; aRadius: single);
   procedure KillEverything;
   procedure KillEveryKind(aKind: integer);
   function AreAllAtLocation(aLocation: pointer): boolean;
@@ -56,13 +56,13 @@ public
   procedure KillAllPlantsAtLocation(aLocation: pointer);
   procedure KillAllLifeAtLocation(aLocation: pointer);
   procedure CeaseEverythingLocation(aLocation: pointer);
-  function DistanceToNearest(aPosition: AIPosition): single;
+  function DistanceToNearest(aPosition: TaiPosition): single;
 
   // community
   function CommunityWithRoom(aKind: integer): pointer;
   procedure NotifyAllCommunitiesOfDeath(aThing: pointer);
 
-  procedure NearestNeighbours(aPosition: AIPosition; aRange: single; aList: TaiThingReferenceList);
+  procedure NearestNeighbours(aPosition: TaiPosition; aRange: single; aList: TaiThingReferenceList);
 
   procedure ReportAll;
   procedure ReportAllCreatures;
@@ -113,7 +113,7 @@ end;
 // ----------------------------------------------------------------------------
 function TaiThingReferenceList.HasKindWithinDistance(
   aKind: integer;
-  aPosition: AIPosition;
+  aPosition: TaiPosition;
   aDistance: single): boolean;
 var
   i: integer;
@@ -195,7 +195,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestThing(aGrabber: pointer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestThing(aGrabber: pointer; aPosition: TaiPosition; aRange: single): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -222,7 +222,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestOfKind(aKind: integer; aPosition: TaiPosition; aRange: single): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -249,7 +249,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestOfKind(aKind: integer; aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestOfKind(aKind: integer; aPosition: TaiPosition): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -276,7 +276,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestAvailableOfKind(aKind: integer; aPosition: TaiPosition; aRange: single): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -303,7 +303,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.FarthestOfKind(aPosition: AIPosition; aKind: integer): pointer;
+function TaiThingReferenceList.FarthestOfKind(aPosition: TaiPosition; aKind: integer): pointer;
 var
   myThing: TaiThing;
   farthest: single;
@@ -331,7 +331,7 @@ end;
 
 // ----------------------------------------------------------------------------
 procedure TaiThingReferenceList.ApplyOriginatingForceToAll(
-  aOrigin: AIPosition;
+  aOrigin: TaiPosition;
   aStrength: single;
   aRadius: single);
 var
@@ -362,7 +362,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TaiThingReferenceList.ApplyDamage(aOrigin: AIPosition; aDamage: integer; aRadius: single);
+procedure TaiThingReferenceList.ApplyDamage(aOrigin: TaiPosition; aDamage: integer; aRadius: single);
 var
   i: integer;
   distance: single;
@@ -428,7 +428,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestOfClass(aClass: TaiBaseClass; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestOfClass(aClass: TaiBaseClass; aPosition: TaiPosition; aRange: single): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -468,7 +468,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestThing(aPosition: TaiPosition): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -492,7 +492,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestThing(aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.NearestThing(aPosition: TaiPosition; aRange: single): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -550,7 +550,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.SimpleNearestThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.SimpleNearestThing(aPosition: TaiPosition): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -592,7 +592,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.SimpleNearestAvailableOfKind(aKind: integer; aPosition: AIPosition; aRange: single): pointer;
+function TaiThingReferenceList.SimpleNearestAvailableOfKind(aKind: integer; aPosition: TaiPosition; aRange: single): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -621,7 +621,7 @@ end;
 // ----------------------------------------------------------------------------
 // find the n nearest neighbours to aPosition
 procedure TaiThingReferenceList.NearestNeighbours(
-  aPosition: AIPosition;
+  aPosition: TaiPosition;
   aRange: single;
   aList: TaiThingReferenceList);
 var
@@ -674,7 +674,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestAvailableThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestAvailableThing(aPosition: TaiPosition): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -698,7 +698,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestAvailableUnderwaterThing(aPosition: AIPosition; aNotKind: integer): pointer;
+function TaiThingReferenceList.NearestAvailableUnderwaterThing(aPosition: TaiPosition; aNotKind: integer): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -723,7 +723,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.NearestAvailableNotUnderwaterThing(aPosition: AIPosition): pointer;
+function TaiThingReferenceList.NearestAvailableNotUnderwaterThing(aPosition: TaiPosition): pointer;
 var
   myThing: TaiThing;
   closest: single;
@@ -818,7 +818,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TaiThingReferenceList.DistanceToNearest(aPosition: AIPosition): single;
+function TaiThingReferenceList.DistanceToNearest(aPosition: TaiPosition): single;
 var
   i: integer;
   dist: single;

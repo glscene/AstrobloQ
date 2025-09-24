@@ -100,7 +100,7 @@ type
      
   public
      
-    procedure ExtractValues(aReality: AIReality);
+    procedure ExtractValues(aReality: TaiReality);
   end;
 
 var
@@ -203,7 +203,7 @@ begin
   edIslands.Text := IntToStr(UpDownIslands.Position);
 end;
 
-procedure TFormNewReality.ExtractValues(aReality: AIReality);
+procedure TFormNewReality.ExtractValues(aReality: TaiReality);
 begin
   aReality.Creator := edCreator.Text;
   aReality.Environment.Name := edEnvironment.Text;

@@ -16,21 +16,20 @@ type
 
 // ============================================================================
 // an individual Terrier
-AITerrier = class(TaiCreature)
+TaiTerrier = class(TaiCreature)
 private
-  fDestination: AIPosition;
+  fDestination: TaiPosition;
   fShaker: integer;
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Destination: AIPosition read fDestination;
+  property Destination: TaiPosition read fDestination;
   property Shaker: integer read fShaker;
   function IsPredator: boolean; override;
   procedure Fuel; override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -41,7 +40,7 @@ uses
   Bio.Utilities;
 
 // ----------------------------------------------------------------------------
-constructor AITerrier.Create(aParent: pointer);
+constructor TaiTerrier.Create(aParent: pointer);
 begin
   inherited Create(aParent);
    Kind := cTerrier;
@@ -49,20 +48,20 @@ begin
   Health := 5024;
   Position.SetSize(3, 3, 3, true);
   Position.SetProperties(5, 0.1, 0.25);
-  fDestination := AIPosition.Create(self);
+  fDestination := TaiPosition.Create(self);
   Health := 4000;
   Desire := cDesireWander;
 end;
 
 // ----------------------------------------------------------------------------
-destructor AITerrier.Destroy;
+destructor TaiTerrier.Destroy;
 begin
   fDestination.Free;
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AITerrier.Fuel;
+procedure TaiTerrier.Fuel;
 begin
   inherited Fuel;
 
@@ -143,7 +142,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AITerrier.IsPredator: boolean;
+function TaiTerrier.IsPredator: boolean;
 begin
   result := true;
 end;

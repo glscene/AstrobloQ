@@ -25,10 +25,9 @@ const
 type
 
 // ============================================================================
-AIReality =  Class(TaiBaseObject)
+TaiReality =  Class(TaiBaseObject)
 private
   fCreator: string;
-
   fTimeStream: integer;       // time mode: ticking or flowing
   fTime: integer;             // the number of ticks after reality is first run
   fTimeSinceExecute: integer; // last time the user stopped reality
@@ -36,20 +35,16 @@ private
   fIsRunning: boolean;        // but is it running?
   fVersion: integer;          // program version
   fFileName: string;          // possible file name of this reality
-
-  fEnvironment: AIEnvironment;
-
+  fEnvironment: TaiEnvironment;
   procedure Tick;
   procedure Tock;
   procedure AdvanceTime;
 public
   constructor Create;
   destructor Destroy; override;
-
   // questions
   function TimeIsTicking: boolean;
   function TimeIsFlowing: boolean;
-
   // actions
   procedure FlipTimeStream;
   procedure SetTimeTicking;
@@ -58,7 +53,7 @@ public
   function RandomInteger(aMin: integer; aMax: integer): integer;
   // info
   property Creator: string read fCreator write fCreator;
-  property Environment: AIEnvironment read fEnvironment write fEnvironment;
+  property Environment: TaiEnvironment read fEnvironment write fEnvironment;
   property Time: integer read fTime;
   property TimeSinceExecute: integer read fTimeSinceExecute;
   property IsRunning: boolean read fIsRunning;
@@ -75,9 +70,7 @@ public
   function ValidFile(aFileName: string): boolean;
 end;
 
-//------------------------------------------------------------
-implementation
-//------------------------------------------------------------
+implementation //------------------------------------------------------------
 
 uses
   Bio.Utilities,
@@ -85,14 +78,14 @@ uses
 
 // ----------------------------------------------------------------------------
 // Create Reality
-constructor AIReality.Create;
+constructor TaiReality.Create;
 begin
   inherited Create(nil);
 
   gReality := self;
   fVersion := gVersion;
 
-  fEnvironment := AIEnvironment.Create(self);
+  fEnvironment := TaiEnvironment.Create(self);
   fClockStagger := 40;
   fIsRunning := false;
 
@@ -104,7 +97,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // Destroy Reality
-destructor AIReality.Destroy;
+destructor TaiReality.Destroy;
 begin
   fEnvironment.Free;
 
@@ -112,21 +105,21 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.Clean;
+procedure TaiReality.Clean;
 begin
   fTime := 0;
   Environment.Clean;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.Build(aWidth: integer; aHeight: integer);
+procedure TaiReality.Build(aWidth: integer; aHeight: integer);
 begin
   gReality := self;
   Environment.Build(aWidth, aHeight);
 end;
 
 // ----------------------------------------------------------------------------
-function AIReality.RandomInteger(aMin: integer; aMax: integer): integer;
+function TaiReality.RandomInteger(aMin: integer; aMax: integer): integer;
 begin
   result := aMin + Random(aMax);
 end;
@@ -134,13 +127,13 @@ end;
 // ----------------------------------------------------------------------------
 // TimeIsTicking
 // In this mode, reality fuels the environment with one time unit, then halts
-function AIReality.TimeIsTicking: boolean;
+function TaiReality.TimeIsTicking: boolean;
 begin
   result := (fTimeStream = cTimeTicking);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.SetTimeTicking;
+procedure TaiReality.SetTimeTicking;
 begin
   fTimeStream := cTimeTicking;
 end;
@@ -148,20 +141,20 @@ end;
 // ----------------------------------------------------------------------------
 // TimeIsFlowing
 // In this mode, reality keeps fueling the environment with time until halted
-function AIReality.TimeIsFlowing: boolean;
+function TaiReality.TimeIsFlowing: boolean;
 begin
   result := (fTimeStream = cTimeFlowing);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.SetTimeFlowing;
+procedure TaiReality.SetTimeFlowing;
 begin
   fTimeStream := cTimeFlowing;
 end;
 
 // ----------------------------------------------------------------------------
 // Change Ticking to Flowing or vice versa
-procedure AIReality.FlipTimeStream;
+procedure TaiReality.FlipTimeStream;
 begin
   if TimeIsFlowing then
     fTimeStream := cTimeTicking
@@ -172,7 +165,7 @@ end;
 // ----------------------------------------------------------------------------
 // tick the clock
 // increase time gauge
-procedure AIReality.Tick;
+procedure TaiReality.Tick;
 begin
   fTime := fTime + 1;
 end;
@@ -180,7 +173,7 @@ end;
 // ----------------------------------------------------------------------------
 // tock the clock
 // pause time
-procedure AIReality.Tock;
+procedure TaiReality.Tock;
 begin
   fTimeSinceExecute := fTime;
 end;
@@ -188,7 +181,7 @@ end;
 // ----------------------------------------------------------------------------
 // tick the earth clock
 // fuel the environment
-procedure AIReality.AdvanceTime;
+procedure TaiReality.AdvanceTime;
 begin
   Tick;
 
@@ -199,7 +192,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.TickTock;
+procedure TaiReality.TickTock;
 begin
   fIsRunning := true;
   AdvanceTime;
@@ -207,7 +200,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.SaveToFile(var aFile: TextFile);
+procedure TaiReality.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fVersion);
   inherited SaveToFile(aFile);
@@ -222,7 +215,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.LoadFromFile(var aFile: TextFile);
+procedure TaiReality.LoadFromFile(var aFile: TextFile);
 var
   myVersion: integer; // saved to fake variable
 begin
@@ -240,7 +233,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIReality.LoadReality(aFileName: string): boolean;
+function TaiReality.LoadReality(aFileName: string): boolean;
 var
   myFile: TextFile;
 begin
@@ -257,7 +250,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIReality.ValidFile(aFileName: string): boolean;
+function TaiReality.ValidFile(aFileName: string): boolean;
 var
   myFile: TextFile;
   myFileVersion: integer;
@@ -277,7 +270,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.SaveReality(aFileName: string);
+procedure TaiReality.SaveReality(aFileName: string);
 var
   myFile: TextFile;
 begin
@@ -289,7 +282,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReality.FullDisplay(aList: TStrings);
+procedure TaiReality.FullDisplay(aList: TStrings);
 begin
   aList.Add('REALITY');
   aList.Add('-------------');

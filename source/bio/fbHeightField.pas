@@ -135,7 +135,7 @@ procedure TFormHeightField.HeatFormula(const x, y: Single; var z: Single;
   var color: TGLColorVector; var texPoint: TTexPoint);
 var
   gridx, gridy: integer;
-  myLocation: AIGrid;
+  myLocation: TaiGrid;
 begin
   gridx := Round(x);
   gridy := Round(y);
@@ -149,7 +149,7 @@ procedure TFormHeightField.HumidityFormula(const x, y: Single; var z: Single;
   var color: TGLColorVector; var texPoint: TTexPoint);
 var
   gridx, gridy: integer;
-  myLocation: AIGrid;
+  myLocation: TaiGrid;
 begin
   gridx := Round(x);
   gridy := Round(y);

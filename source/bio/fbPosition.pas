@@ -73,7 +73,7 @@ type
     procedure btnCopyClick(Sender: TObject);
   private
   public
-    Position: AIPosition;
+    Position: TaiPosition;
     procedure GetPosition;
     procedure ApplyPosition;
   end;

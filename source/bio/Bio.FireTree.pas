@@ -24,30 +24,25 @@ const
 type
 
 // ============================================================================
-AIFireTree = class(TaiThing)
+TaiFireTree = class(TaiThing)
 private
   fFire: single;
   fBurning: boolean;
-
   procedure SetFire(aAmount: single);
 public
   property Fire: single read fFire write SetFire;
   property Burning: boolean read fBurning;
-
   constructor Create(aParent: pointer);
-
   procedure Fuel; override;
-
   procedure Damage(aAmount: integer); override;
   function Digest(const aAmount: integer): integer; override;
   function IsPlant: boolean; override;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation
+implementation //=============================================================
 
 uses
   Bio.Reality,
@@ -59,10 +54,9 @@ uses
   Bio.Position;
 
 // ----------------------------------------------------------------------------
-constructor AIFireTree.Create(aParent: pointer);
+constructor TaiFireTree.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cFireTree;
   Position.DirectionXY := Random*TwoPi;
   Position.Collider := true;
@@ -73,22 +67,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFireTree.SetFire(aAmount: single);
+procedure TaiFireTree.SetFire(aAmount: single);
 begin
   fFire := aAmount;
-
   fBurning := (fFire <> 0);
-
   if fFire < 0 then fFire := 0;
   if fFire >= 256 then Cease;
 //  if fFire >= cBurnDown then Cease;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFireTree.Fuel;
+procedure TaiFireTree.Fuel;
 begin
   inherited Fuel;
-
   if Burning then
   begin
     // spread to nearby trees
@@ -101,38 +92,38 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFireTree.Damage(aAmount: integer);
+procedure TaiFireTree.Damage(aAmount: integer);
 begin
   if not Burning then
     Fire := cBurnStart;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFireTree.SaveToFile(var aFile: TextFile);
+procedure TaiFireTree.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFireTree.LoadFromFile(var aFile: TextFile);
+procedure TaiFireTree.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFireTree.FullDisplay(aList: TStrings);
+procedure TaiFireTree.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 end;
 
 // ----------------------------------------------------------------------------
-function AIFireTree.Digest(const aAmount: integer): integer;
+function TaiFireTree.Digest(const aAmount: integer): integer;
 begin
   result := -1 * inherited Digest(aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-function AIFireTree.IsPlant: boolean;
+function TaiFireTree.IsPlant: boolean;
 begin
   result := true;
 end;

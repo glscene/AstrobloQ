@@ -1,54 +1,41 @@
 object FormSatellite: TFormSatellite
   Left = 411
   Top = 200
-  Margins.Left = 4
-  Margins.Top = 4
-  Margins.Right = 4
-  Margins.Bottom = 4
+  Margins.Left = 2
+  Margins.Top = 2
+  Margins.Right = 2
+  Margins.Bottom = 2
   Caption = 'Satellite'
-  ClientHeight = 606
-  ClientWidth = 581
+  ClientHeight = 346
+  ClientWidth = 332
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object panDescription: TPanel
     Left = 0
     Top = 0
-    Width = 581
-    Height = 50
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Width = 332
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 0
     object Label1: TLabel
-      Left = 263
-      Top = 14
-      Width = 234
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 150
+      Top = 8
+      Width = 135
+      Height = 13
       Caption = 'Intensity of effect per round,.'
     end
     object panRate: TPanel
       Left = 0
       Top = 0
-      Width = 175
-      Height = 50
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 100
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -58,14 +45,10 @@ object FormSatellite: TFormSatellite
       TabOrder = 0
     end
     object edRate: TEdit
-      Left = 179
-      Top = 7
-      Width = 67
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 102
+      Top = 4
+      Width = 39
+      Height = 21
       TabOrder = 1
       Text = '1'
       OnChange = edRateChange
@@ -73,37 +56,25 @@ object FormSatellite: TFormSatellite
   end
   object Panel1: TPanel
     Left = 0
-    Top = 102
-    Width = 581
-    Height = 51
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 58
+    Width = 332
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 2
     object Label3: TLabel
-      Left = 263
-      Top = 14
-      Width = 267
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 150
+      Top = 8
+      Width = 155
+      Height = 13
       Caption = 'Rate of movement in clock ticks.'
     end
     object Panel2: TPanel
       Left = 0
       Top = 0
-      Width = 175
-      Height = 51
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 100
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -113,14 +84,10 @@ object FormSatellite: TFormSatellite
       TabOrder = 0
     end
     object edMovement: TEdit
-      Left = 179
-      Top = 7
-      Width = 67
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 102
+      Top = 4
+      Width = 39
+      Height = 21
       TabOrder = 1
       Text = '25'
       OnChange = edMovementChange
@@ -128,37 +95,25 @@ object FormSatellite: TFormSatellite
   end
   object Panel3: TPanel
     Left = 0
-    Top = 50
-    Width = 581
-    Height = 52
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 29
+    Width = 332
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 1
     object Label2: TLabel
-      Left = 263
-      Top = 14
-      Width = 146
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 150
+      Top = 8
+      Width = 87
+      Height = 13
       Caption = 'Distance of effect.'
     end
     object Panel4: TPanel
       Left = 0
       Top = 0
-      Width = 175
-      Height = 52
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 100
+      Height = 30
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -168,14 +123,10 @@ object FormSatellite: TFormSatellite
       TabOrder = 0
     end
     object edRadius: TEdit
-      Left = 179
-      Top = 7
-      Width = 67
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 102
+      Top = 4
+      Width = 39
+      Height = 21
       TabOrder = 1
       Text = '5'
       OnChange = edRadiusChange
@@ -183,26 +134,18 @@ object FormSatellite: TFormSatellite
   end
   object Panel5: TPanel
     Left = 0
-    Top = 153
-    Width = 581
-    Height = 133
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 87
+    Width = 332
+    Height = 76
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 3
     object rgDirection: TRadioGroup
-      Left = 78
+      Left = 47
       Top = 5
-      Width = 351
-      Height = 123
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 204
+      Height = 91
       Align = alClient
       Caption = 'Direction:'
       Columns = 2
@@ -214,67 +157,55 @@ object FormSatellite: TFormSatellite
         'Right')
       TabOrder = 0
       OnClick = rgDirectionClick
+      ExplicitWidth = 196
+      ExplicitHeight = 66
     end
     object Panel6: TPanel
       Left = 5
       Top = 5
-      Width = 73
-      Height = 123
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 42
+      Height = 91
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitLeft = 3
+      ExplicitTop = 3
+      ExplicitHeight = 70
     end
     object Panel7: TPanel
-      Left = 429
+      Left = 251
       Top = 5
-      Width = 147
-      Height = 123
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 84
+      Height = 91
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 2
+      ExplicitLeft = 245
+      ExplicitTop = 3
+      ExplicitHeight = 70
     end
   end
   object panButtonBar: TPanel
     Left = 0
-    Top = 533
-    Width = 581
-    Height = 73
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 305
+    Width = 332
+    Height = 41
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 4
     object panOKButton: TPanel
-      Left = 398
+      Left = 227
       Top = 1
-      Width = 182
-      Height = 71
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Width = 104
+      Height = 40
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
       object btnOK: TBitBtn
-        Left = 18
-        Top = 14
-        Width = 130
-        Height = 43
-        Margins.Left = 6
-        Margins.Top = 6
-        Margins.Right = 6
-        Margins.Bottom = 6
+        Left = 10
+        Top = 8
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
@@ -284,139 +215,91 @@ object FormSatellite: TFormSatellite
   end
   object Panel8: TPanel
     Left = 0
-    Top = 286
-    Width = 581
-    Height = 247
-    Margins.Left = 6
-    Margins.Top = 6
-    Margins.Right = 6
-    Margins.Bottom = 6
+    Top = 163
+    Width = 332
+    Height = 142
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 5
     object Label4: TLabel
-      Left = 42
-      Top = 28
-      Width = 81
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 24
+      Top = 16
+      Width = 45
+      Height = 13
       Caption = 'Epicenter'
     end
     object Label5: TLabel
-      Left = 84
-      Top = 70
-      Width = 14
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 48
+      Top = 40
+      Width = 7
+      Height = 13
       Caption = 'X'
     end
     object Label6: TLabel
-      Left = 224
-      Top = 70
-      Width = 12
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 128
+      Top = 40
+      Width = 7
+      Height = 13
       Caption = 'Y'
     end
     object Label7: TLabel
-      Left = 378
-      Top = 70
-      Width = 12
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 216
+      Top = 40
+      Width = 7
+      Height = 13
       Caption = 'Z'
     end
     object Label8: TLabel
-      Left = 28
-      Top = 140
-      Width = 36
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 16
+      Top = 80
+      Width = 20
+      Height = 13
       Caption = 'Size'
     end
     object Label9: TLabel
-      Left = 28
-      Top = 189
-      Width = 72
-      Height = 24
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 16
+      Top = 108
+      Width = 42
+      Height = 13
       Caption = 'Distance'
     end
     object edX: TEdit
-      Left = 112
-      Top = 56
-      Width = 99
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 64
+      Top = 32
+      Width = 57
+      Height = 21
       TabOrder = 0
       Text = '0'
     end
     object edY: TEdit
-      Left = 252
-      Top = 56
-      Width = 99
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 144
+      Top = 32
+      Width = 57
+      Height = 21
       TabOrder = 1
       Text = '0'
     end
     object edZ: TEdit
-      Left = 406
-      Top = 56
-      Width = 99
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 232
+      Top = 32
+      Width = 57
+      Height = 21
       TabOrder = 2
       Text = '0'
     end
     object edSize: TEdit
-      Left = 112
-      Top = 126
-      Width = 211
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 64
+      Top = 72
+      Width = 121
+      Height = 21
       TabOrder = 3
       Text = '2'
     end
     object edDistance: TEdit
-      Left = 112
-      Top = 175
-      Width = 211
-      Height = 32
-      Margins.Left = 6
-      Margins.Top = 6
-      Margins.Right = 6
-      Margins.Bottom = 6
+      Left = 64
+      Top = 100
+      Width = 121
+      Height = 21
       TabOrder = 4
       Text = '5'
     end

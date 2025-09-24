@@ -56,10 +56,9 @@ type
     procedure LoadDNA1Click(Sender: TObject);
     procedure SaveDNA1Click(Sender: TObject);
   private
-     
+
   public
-     
-    DNA: AIDNA;
+    DNA: TaiDNA;
     procedure GetDNA;
     procedure ApplyDNA;
   end;

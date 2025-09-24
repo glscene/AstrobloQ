@@ -131,7 +131,7 @@ begin
 //  if AIGrid(Position.Location).Windy then Position.TurnTowardsVector(AIGrid(Position.Location).Wind, ca1);
 
 // suck water from land
-  if (Water < 1.5) and (AIGrid(Position.Location).Water > 0.005)
+  if (Water < 1.5) and (TaiGrid(Position.Location).Water > 0.005)
       and not (Position.Underwater) and (Position.Binding = bindLand) then
   begin
     gSpace.QueueChange(Position.Location, cEventAddWater, -0.005);
@@ -139,7 +139,7 @@ begin
   end;
 
   // bear fruit
-  if (Age > fFruitTimer) then//and (AIGrid(Position.Location).Temperature > 5) then
+  if (Age > fFruitTimer) then//and (TaiGrid(Position.Location).Temperature > 5) then
   begin
     if (Water > 0.25) then
       BearFruit;
@@ -251,7 +251,7 @@ procedure TaiSeed.Cease;
 begin
   if Exists then
   begin
-    if (Position.Binding = bindLand) and not (Position.UnderWater) and (AIGrid(Position.Location).Water >= 0.5) then
+    if (Position.Binding = bindLand) and not (Position.UnderWater) and (TaiGrid(Position.Location).Water >= 0.5) then
       Sprout;
   end;
 
@@ -262,7 +262,7 @@ end;
 procedure TaiSeed.Sprout;
 var
   myTree: TaiTree;
-//  myLocation: AIGrid;
+//  myLocation: TaiGrid;
 begin
   myTree := nil;
 
@@ -279,13 +279,13 @@ begin
     if Kind = cAppleSeed then
     begin
       if gThings.CanTreeGrowHere(Position) then
-        myTree := AIGrid(Position.Location).NewThing(cAppleTree);
+        myTree := TaiGrid(Position.Location).NewThing(cAppleTree);
     end;
 
     if Kind = cOrangeSeed then
     begin
       if gThings.CanTreeGrowHere(Position) then
-        myTree := AIGrid(Position.Location).NewThing(cOrangeTree);
+        myTree := TaiGrid(Position.Location).NewThing(cOrangeTree);
     end;
 
     if Assigned(myTree) then
@@ -364,7 +364,7 @@ begin
   inherited Fuel;
 
 // face water direction
-//  if AIGrid(Position.Location).Wavy then Position.TurnTowardsVector(AIGrid(Position.Location).Wave, ca1);
+//  if TaiGrid(Position.Location).Wavy then Position.TurnTowardsVector(TaiGrid(Position.Location).Wave, ca1);
 
   if gReality.Time > fFruitTimer then
   begin

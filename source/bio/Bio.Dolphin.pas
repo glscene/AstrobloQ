@@ -31,7 +31,7 @@ type
 // ============================================================================
 AIDolphin = class(TaiCommunityCreature)
 private
-  fSensor: AIPosition;  // used to detect land/water
+  fSensor: TaiPosition;  // used to detect land/water
   fFlipper: integer;    // animation state
 protected
   procedure Swim;
@@ -41,14 +41,13 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Sensor: AIPosition read fSensor;
+  property Sensor: TaiPosition read fSensor;
   property Flipper: integer read fFlipper;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //-------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -66,7 +65,7 @@ begin
 
   Kind := cDolphin;
 
-  fSensor := AIPosition.Create(self);
+  fSensor := TaiPosition.Create(self);
   fFlipper := cFlipperFlat;
 
   Kind := cDolphin;

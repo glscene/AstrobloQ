@@ -59,7 +59,7 @@ type
      
   public
      
-    DNA: AIDNA;
+    DNA: TaiDNA;
     procedure GetDNA;
     procedure ApplyDNA;
   end;

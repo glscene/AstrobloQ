@@ -1,17 +1,13 @@
 object FormNewReality: TFormNewReality
   Left = 330
   Top = 148
-  Margins.Left = 5
-  Margins.Top = 5
-  Margins.Right = 5
-  Margins.Bottom = 5
   Caption = 'New planet'
-  ClientHeight = 791
-  ClientWidth = 729
+  ClientHeight = 452
+  ClientWidth = 417
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   Icon.Data = {
@@ -40,17 +36,12 @@ object FormNewReality: TFormNewReality
     00000000000000000000000000000000000000000000000000000000000000C0
     00000FE01F003FFFFF80FFFFFFC0FFFFFFF0FFFFFFF8FFFFFFFEFFFFFFFF}
   Position = poScreenCenter
-  PixelsPerInch = 168
-  TextHeight = 24
+  TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 51
-    Width = 729
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 29
+    Width = 417
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
@@ -58,12 +49,8 @@ object FormNewReality: TFormNewReality
     object Panel2: TPanel
       Left = 0
       Top = 0
-      Width = 226
-      Height = 51
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 129
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -73,27 +60,19 @@ object FormNewReality: TFormNewReality
       TabOrder = 0
     end
     object edCreator: TEdit
-      Left = 249
-      Top = 7
-      Width = 260
-      Height = 32
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 142
+      Top = 4
+      Width = 149
+      Height = 21
       TabOrder = 1
       Text = 'User'
     end
   end
   object Panel3: TPanel
     Left = 0
-    Top = 102
-    Width = 729
-    Height = 50
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 58
+    Width = 417
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
@@ -101,12 +80,8 @@ object FormNewReality: TFormNewReality
     object Panel4: TPanel
       Left = 0
       Top = 0
-      Width = 175
-      Height = 50
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 100
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -116,27 +91,19 @@ object FormNewReality: TFormNewReality
       TabOrder = 0
     end
     object edWidth: TEdit
-      Left = 265
-      Top = 8
-      Width = 89
-      Height = 32
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 151
+      Top = 5
+      Width = 51
+      Height = 21
       ReadOnly = True
       TabOrder = 1
       Text = '20'
     end
     object UpDownWidth: TUpDown
-      Left = 350
-      Top = -2
-      Width = 30
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 200
+      Top = -1
+      Width = 17
+      Height = 25
       Min = 2
       Max = 80
       Increment = 2
@@ -148,12 +115,8 @@ object FormNewReality: TFormNewReality
   object Panel5: TPanel
     Left = 0
     Top = 0
-    Width = 729
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Width = 417
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
@@ -161,12 +124,8 @@ object FormNewReality: TFormNewReality
     object Panel6: TPanel
       Left = 0
       Top = 0
-      Width = 226
-      Height = 51
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 129
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -176,27 +135,19 @@ object FormNewReality: TFormNewReality
       TabOrder = 0
     end
     object edEnvironment: TEdit
-      Left = 249
-      Top = 7
-      Width = 260
-      Height = 32
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 142
+      Top = 4
+      Width = 149
+      Height = 21
       TabOrder = 1
       Text = 'myPlanet'
     end
   end
   object Panel7: TPanel
     Left = 0
-    Top = 152
-    Width = 729
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 87
+    Width = 417
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
@@ -204,12 +155,8 @@ object FormNewReality: TFormNewReality
     object Panel8: TPanel
       Left = 0
       Top = 0
-      Width = 175
-      Height = 51
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 100
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -219,27 +166,19 @@ object FormNewReality: TFormNewReality
       TabOrder = 0
     end
     object edHeight: TEdit
-      Left = 266
-      Top = 2
-      Width = 89
-      Height = 32
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 152
+      Top = 1
+      Width = 51
+      Height = 21
       ReadOnly = True
       TabOrder = 1
       Text = '11'
     end
     object UpDownHeight: TUpDown
-      Left = 350
-      Top = -3
-      Width = 30
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 200
+      Top = -2
+      Width = 17
+      Height = 25
       Min = 2
       Max = 40
       Position = 11
@@ -249,13 +188,9 @@ object FormNewReality: TFormNewReality
   end
   object Panel11: TPanel
     Left = 0
-    Top = 254
-    Width = 729
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 145
+    Width = 417
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
@@ -264,12 +199,8 @@ object FormNewReality: TFormNewReality
     object Panel12: TPanel
       Left = 0
       Top = 0
-      Width = 226
-      Height = 51
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 129
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -279,27 +210,19 @@ object FormNewReality: TFormNewReality
       TabOrder = 0
     end
     object edTension: TEdit
-      Left = 249
-      Top = 7
-      Width = 89
-      Height = 32
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 142
+      Top = 4
+      Width = 51
+      Height = 21
       ReadOnly = True
       TabOrder = 1
       Text = '2'
     end
     object UpDownTension: TUpDown
-      Left = 336
+      Left = 192
       Top = 0
-      Width = 30
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 17
+      Height = 25
       Max = 20
       Position = 2
       TabOrder = 2
@@ -308,63 +231,43 @@ object FormNewReality: TFormNewReality
   end
   object Panel19: TPanel
     Left = 0
-    Top = 305
-    Width = 729
-    Height = 71
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 174
+    Width = 417
+    Height = 41
     Align = alTop
     TabOrder = 5
     object btnBarren: TBitBtn
-      Left = 70
-      Top = 14
-      Width = 131
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 40
+      Top = 8
+      Width = 75
+      Height = 25
       Caption = 'Barren'
       TabOrder = 0
       OnClick = btnBarrenClick
     end
     object btnDirty: TBitBtn
-      Left = 210
-      Top = 14
-      Width = 131
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 120
+      Top = 8
+      Width = 75
+      Height = 25
       Caption = 'Dirty'
       TabOrder = 1
       OnClick = btnDirtyClick
     end
     object btnGrass: TBitBtn
-      Left = 350
-      Top = 14
-      Width = 131
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 200
+      Top = 8
+      Width = 75
+      Height = 25
       Caption = 'Grasslands'
       TabOrder = 2
       OnClick = btnGrassClick
     end
     object btnWatery: TBitBtn
-      Left = 490
-      Top = 14
-      Width = 149
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 280
+      Top = 8
+      Width = 85
+      Height = 25
       Caption = 'Underwater'
       TabOrder = 3
       OnClick = btnWateryClick
@@ -372,49 +275,33 @@ object FormNewReality: TFormNewReality
   end
   object Panel20: TPanel
     Left = 0
-    Top = 714
-    Width = 729
-    Height = 77
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 408
+    Width = 417
+    Height = 44
     Align = alBottom
     TabOrder = 7
     object Panel22: TPanel
-      Left = 418
+      Left = 239
       Top = 1
-      Width = 310
-      Height = 75
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 177
+      Height = 42
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
       object BitBtn1: TBitBtn
-        Left = 151
-        Top = 14
-        Width = 131
-        Height = 44
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 86
+        Top = 8
+        Width = 75
+        Height = 25
         Kind = bkOK
         NumGlyphs = 2
         TabOrder = 0
       end
       object BitBtn2: TBitBtn
-        Left = 11
-        Top = 14
-        Width = 131
-        Height = 44
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 6
+        Top = 8
+        Width = 75
+        Height = 25
         Caption = #1054#1090#1084#1077#1085#1072
         Kind = bkCancel
         NumGlyphs = 2
@@ -424,36 +311,24 @@ object FormNewReality: TFormNewReality
   end
   object Panel23: TPanel
     Left = 0
-    Top = 376
-    Width = 729
-    Height = 338
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 215
+    Width = 417
+    Height = 193
     Align = alClient
     TabOrder = 6
     object Panel21: TPanel
       Left = 1
       Top = 1
-      Width = 420
-      Height = 336
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 240
+      Height = 192
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
       object Panel13: TPanel
         Left = 0
-        Top = 58
-        Width = 420
-        Height = 51
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Top = 33
+        Width = 240
+        Height = 29
         Align = alTop
         BevelOuter = bvNone
         ParentColor = True
@@ -461,12 +336,8 @@ object FormNewReality: TFormNewReality
         object Panel14: TPanel
           Left = 0
           Top = 0
-          Width = 226
-          Height = 51
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 129
+          Height = 29
           Align = alLeft
           Alignment = taRightJustify
           BevelOuter = bvNone
@@ -476,27 +347,19 @@ object FormNewReality: TFormNewReality
           TabOrder = 0
         end
         object edWater: TEdit
-          Left = 249
-          Top = 7
-          Width = 89
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 142
+          Top = 4
+          Width = 51
+          Height = 21
           ReadOnly = True
           TabOrder = 1
           Text = '20'
         end
         object UpDownWater: TUpDown
-          Left = 336
+          Left = 192
           Top = 0
-          Width = 30
-          Height = 44
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 17
+          Height = 25
           Max = 50
           Position = 20
           TabOrder = 2
@@ -505,13 +368,9 @@ object FormNewReality: TFormNewReality
       end
       object Panel9: TPanel
         Left = 0
-        Top = 109
-        Width = 420
-        Height = 50
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Top = 62
+        Width = 240
+        Height = 29
         Align = alTop
         BevelOuter = bvNone
         ParentColor = True
@@ -519,12 +378,8 @@ object FormNewReality: TFormNewReality
         object Panel10: TPanel
           Left = 0
           Top = 0
-          Width = 226
-          Height = 50
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 129
+          Height = 29
           Align = alLeft
           Alignment = taRightJustify
           BevelOuter = bvNone
@@ -534,27 +389,19 @@ object FormNewReality: TFormNewReality
           TabOrder = 0
         end
         object edLandHeight: TEdit
-          Left = 249
-          Top = 7
-          Width = 89
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 142
+          Top = 4
+          Width = 51
+          Height = 21
           ReadOnly = True
           TabOrder = 1
           Text = '10'
         end
         object UpDownLandHeight: TUpDown
-          Left = 336
+          Left = 192
           Top = 0
-          Width = 30
-          Height = 44
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 17
+          Height = 25
           Max = 25
           Position = 10
           TabOrder = 2
@@ -563,13 +410,9 @@ object FormNewReality: TFormNewReality
       end
       object Panel17: TPanel
         Left = 0
-        Top = 159
-        Width = 420
-        Height = 51
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Top = 91
+        Width = 240
+        Height = 29
         Align = alTop
         BevelOuter = bvNone
         ParentColor = True
@@ -577,12 +420,8 @@ object FormNewReality: TFormNewReality
         object Panel18: TPanel
           Left = 0
           Top = 0
-          Width = 226
-          Height = 51
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 129
+          Height = 29
           Align = alLeft
           Alignment = taRightJustify
           BevelOuter = bvNone
@@ -592,27 +431,19 @@ object FormNewReality: TFormNewReality
           TabOrder = 0
         end
         object edHumidity: TEdit
-          Left = 249
-          Top = 7
-          Width = 89
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 142
+          Top = 4
+          Width = 51
+          Height = 21
           ReadOnly = True
           TabOrder = 1
           Text = '0'
         end
         object UpDownHumidity: TUpDown
-          Left = 336
+          Left = 192
           Top = 0
-          Width = 30
-          Height = 44
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 17
+          Height = 25
           Max = 10
           TabOrder = 2
           OnClick = UpDownHumidityClick
@@ -620,13 +451,9 @@ object FormNewReality: TFormNewReality
       end
       object Panel15: TPanel
         Left = 0
-        Top = 210
-        Width = 420
-        Height = 51
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Top = 120
+        Width = 240
+        Height = 29
         Align = alTop
         BevelOuter = bvNone
         ParentColor = True
@@ -634,12 +461,8 @@ object FormNewReality: TFormNewReality
         object Panel16: TPanel
           Left = 0
           Top = 0
-          Width = 226
-          Height = 51
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 129
+          Height = 29
           Align = alLeft
           Alignment = taRightJustify
           BevelOuter = bvNone
@@ -649,27 +472,19 @@ object FormNewReality: TFormNewReality
           TabOrder = 0
         end
         object edTemp: TEdit
-          Left = 249
-          Top = 7
-          Width = 89
-          Height = 32
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 142
+          Top = 4
+          Width = 51
+          Height = 21
           ReadOnly = True
           TabOrder = 1
           Text = '2'
         end
         object UpDownTemp: TUpDown
-          Left = 336
+          Left = 192
           Top = 0
-          Width = 30
-          Height = 44
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Width = 17
+          Height = 25
           Max = 10
           Position = 2
           TabOrder = 2
@@ -679,186 +494,130 @@ object FormNewReality: TFormNewReality
       object Panel25: TPanel
         Left = 0
         Top = 0
-        Width = 420
-        Height = 58
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Width = 240
+        Height = 33
         Align = alTop
         Alignment = taLeftJustify
         BevelOuter = bvNone
         TabOrder = 4
         object Label2: TLabel
-          Left = 25
-          Top = 18
-          Width = 111
-          Height = 24
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
+          Left = 14
+          Top = 10
+          Width = 64
+          Height = 13
           Caption = 'Grid Defaults:'
         end
       end
     end
     object Panel24: TPanel
-      Left = 421
+      Left = 241
       Top = 1
-      Width = 307
-      Height = 336
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 175
+      Height = 192
       Align = alClient
       TabOrder = 1
       object Label1: TLabel
-        Left = 25
-        Top = 14
-        Width = 188
-        Height = 24
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 14
+        Top = 8
+        Width = 106
+        Height = 13
         Caption = 'Landscape generation'
       end
       object cbContinents: TCheckBox
-        Left = 56
-        Top = 65
-        Width = 170
-        Height = 30
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 32
+        Top = 37
+        Width = 97
+        Height = 17
         Caption = 'Continents'
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
       end
       object cbIslands: TCheckBox
-        Left = 56
-        Top = 109
-        Width = 170
-        Height = 29
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 32
+        Top = 62
+        Width = 97
+        Height = 17
         Caption = 'Islands'
         TabOrder = 3
       end
       object cbHalo: TCheckBox
-        Left = 56
-        Top = 151
-        Width = 170
-        Height = 29
+        Left = 32
+        Top = 86
+        Width = 97
+        Height = 17
         Hint = 'Generates a ring of raised land about the equator.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Halo'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 6
       end
       object cbSun: TCheckBox
-        Left = 56
-        Top = 196
-        Width = 170
-        Height = 30
+        Left = 32
+        Top = 112
+        Width = 97
+        Height = 17
         Hint = 'Automatically create a sun.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Sun'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 7
       end
       object edContinents: TEdit
-        Left = 210
-        Top = 60
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 120
+        Top = 34
+        Width = 33
+        Height = 21
         ReadOnly = True
         TabOrder = 1
         Text = '7'
       end
       object edIslands: TEdit
-        Left = 210
-        Top = 105
-        Width = 58
-        Height = 32
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 120
+        Top = 60
+        Width = 33
+        Height = 21
         ReadOnly = True
         TabOrder = 4
         Text = '4'
       end
       object cbFrozenPoles: TCheckBox
-        Left = 56
-        Top = 238
-        Width = 170
-        Height = 30
+        Left = 32
+        Top = 136
+        Width = 97
+        Height = 17
         Hint = 'Lower the temperature of the poles to frozen.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Icy poles'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 8
       end
       object cbFuzzy: TCheckBox
-        Left = 56
-        Top = 280
-        Width = 170
-        Height = 30
+        Left = 32
+        Top = 160
+        Width = 97
+        Height = 17
         Hint = 'Randomly raise/lower grid heights by small amounts.'
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
         Caption = 'Fuzzy Land'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 9
       end
       object UpDownContinents: TUpDown
-        Left = 266
-        Top = 56
-        Width = 30
-        Height = 44
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 152
+        Top = 32
+        Width = 17
+        Height = 25
         Max = 16
         Position = 7
         TabOrder = 2
         OnClick = UpDownContinentsClick
       end
       object UpDownIslands: TUpDown
-        Left = 266
-        Top = 105
-        Width = 30
-        Height = 44
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
+        Left = 152
+        Top = 60
+        Width = 17
+        Height = 25
         Max = 50
         Position = 4
         TabOrder = 5
@@ -868,13 +627,9 @@ object FormNewReality: TFormNewReality
   end
   object Panel26: TPanel
     Left = 0
-    Top = 203
-    Width = 729
-    Height = 51
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
+    Top = 116
+    Width = 417
+    Height = 29
     Align = alTop
     BevelOuter = bvNone
     ParentColor = True
@@ -882,12 +637,8 @@ object FormNewReality: TFormNewReality
     object Panel27: TPanel
       Left = 0
       Top = 0
-      Width = 175
-      Height = 51
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 100
+      Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
@@ -897,27 +648,19 @@ object FormNewReality: TFormNewReality
       TabOrder = 0
     end
     object edPlanetRadius: TEdit
-      Left = 265
-      Top = 9
-      Width = 89
-      Height = 32
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 151
+      Top = 5
+      Width = 51
+      Height = 21
       ReadOnly = True
       TabOrder = 1
       Text = '10'
     end
     object UpDownRadius: TUpDown
-      Left = 350
+      Left = 200
       Top = 0
-      Width = 30
-      Height = 44
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Width = 17
+      Height = 25
       Min = 4
       Max = 64
       Position = 10

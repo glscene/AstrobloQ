@@ -22,7 +22,7 @@ const
 type
 
 // ============================================================================
-AIFish = class(AIMatingCreature)
+TaiFish = class(AIMatingCreature)
 protected
   procedure Swim;
   procedure Flop;
@@ -49,7 +49,7 @@ uses
   Bio.Flora;
 
 // ----------------------------------------------------------------------------
-constructor AIFish.Create(aParent: pointer);
+constructor TaiFish.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -62,14 +62,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIFish.Destroy;
+destructor TaiFish.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.Fuel;
+procedure TaiFish.Fuel;
 begin
   inherited Fuel;
 
@@ -126,20 +126,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.Swim;
+procedure TaiFish.Swim;
 begin
   Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.075);
   Position.Velocity.LimitSpeed(0.1);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.Flop;
+procedure TaiFish.Flop;
 begin
   Position.Acceleration.ApplyAngularForce(Random*TwoPi, 0.9, 0.1);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.FindFood;
+procedure TaiFish.FindFood;
 var
   myThing: TaiThing;
   targetHeight: single;
@@ -200,7 +200,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.Die;
+procedure TaiFish.Die;
 begin
   inherited Die;
 
@@ -209,21 +209,21 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.DevelopIntoBaby;
+procedure TaiFish.DevelopIntoBaby;
 begin
   Size := 0.1;
   Position.SetSize(Size, Size, Size/4);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIFish.Grow(aAmount: single);
+procedure TaiFish.Grow(aAmount: single);
 begin
   Size := Size + aAmount;
   Position.SetSize(Size, Size/4, Size/4);
 end;
 
 // ----------------------------------------------------------------------------
-function AIFish.IsPrey: boolean;
+function TaiFish.IsPrey: boolean;
 begin
   result := true;
 end;

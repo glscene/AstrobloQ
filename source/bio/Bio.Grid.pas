@@ -21,7 +21,6 @@ const
   wlDirt = 10;
   wlField = 50;
   wlGrass = 100;
-
   wlPond = 0;
   wlLake = 20;
   wlSea = 50;
@@ -32,12 +31,10 @@ const
   lsDirt = 1;
   lsField = 2;
   lsDesert = 3;
-
   lsSea = 4;
   lsPond = 5;
   lsLake = 6;
   lsOcean = 7;
-
   lsGlacier = 9;
 
   cWaterFloor = 0;
@@ -48,9 +45,7 @@ const
   cTemperatureCeiling = 10;
   cHumidityFloor = 0;
   cHumidityCeiling = 10;
-
   cWaterSurfaceTension = 0.25; // how much water there needs to be before it spills
-
   cWaterUpLeft = 0;
   cWaterUpRight = 1;
   cWaterDownLeft = 2;
@@ -63,14 +58,13 @@ const
   cHeightDown = 9;
   cHeightLeft = 10;
   cHeightRight = 11;
-
   cMaxTempFlow = 0.5;
 type
 
 TaiHeightArray = array of single;
 
 // ============================================================================
-AIGrid = class(TaiBaseObject)
+TaiGrid = class(TaiBaseObject)
 private
   // Atmosphere
   fTemperature: single;   // temperature of atmosphere
@@ -93,14 +87,14 @@ private
   fWaterMax: single;
   fLandMax: single;
   // links
-  fConnectionUp: AIGrid;
-  fConnectionDown: AIGrid;
-  fConnectionLeft: AIGrid;
-  fConnectionRight: AIGrid;
-  fConnectionUpLeft: AIGrid;
-  fConnectionUpRight: AIGrid;
-  fConnectionDownLeft: AIGrid;
-  fConnectionDownRight: AIGrid;
+  fConnectionUp: TaiGrid;
+  fConnectionDown: TaiGrid;
+  fConnectionLeft: TaiGrid;
+  fConnectionRight: TaiGrid;
+  fConnectionUpLeft: TaiGrid;
+  fConnectionUpRight: TaiGrid;
+  fConnectionDownLeft: TaiGrid;
+  fConnectionDownRight: TaiGrid;
   fWaterCrossover: pointer; // for external convenience
   // owned
   fCoordinates: AICoordinates;
@@ -110,7 +104,7 @@ private
   procedure SetHeight(aAmount: single);
   procedure QueueMoveWater(
     aAmount: single;
-    aDestination: AIGrid);
+    aDestination: TaiGrid);
 protected
   procedure JiggleWater;
   procedure SetChanged(aValue: boolean);
@@ -136,31 +130,27 @@ public
   property Windy: boolean read fWindy;
   property WaterMax: single read fWaterMax;
   property LandMax: single read fLandMax;
-
   // change by amount
   procedure AlterWater(aAmount: single);
   procedure AlterHumidity(aAmount: single);
   procedure AlterTemperature(aAmount: single);
   procedure AlterHeight(aAmount: single);
-
   // ENVIRONMENT CALLS ONLY
   procedure ChangeWater(aAmount: single);
   procedure ChangeHumidity(aAmount: single);
   procedure ChangeTemperature(aAmount: single);
   procedure ChangeHeight(aAmount: single);
-
   property Coordinates: AICoordinates read fCoordinates;
   property AtTop: boolean read fAtTop write fAtTop;
   property AtBottom: boolean read fAtBottom write fAtBottom;
-
-  property ConnectionUp: AIGrid read fConnectionUp write fConnectionUp;
-  property ConnectionDown: AIGrid read fConnectionDown write fConnectionDown;
-  property ConnectionLeft: AIGrid read fConnectionLeft;
-  property ConnectionRight: AIGrid read fConnectionRight;
-  property ConnectionUpLeft: AIGrid read fConnectionUpLeft;
-  property ConnectionUpRight: AIGrid read fConnectionUpRight;
-  property ConnectionDownLeft: AIGrid read fConnectionDownLeft;
-  property ConnectionDownRight: AIGrid read fConnectionDownRight;
+  property ConnectionUp: TaiGrid read fConnectionUp write fConnectionUp;
+  property ConnectionDown: TaiGrid read fConnectionDown write fConnectionDown;
+  property ConnectionLeft: TaiGrid read fConnectionLeft;
+  property ConnectionRight: TaiGrid read fConnectionRight;
+  property ConnectionUpLeft: TaiGrid read fConnectionUpLeft;
+  property ConnectionUpRight: TaiGrid read fConnectionUpRight;
+  property ConnectionDownLeft: TaiGrid read fConnectionDownLeft;
+  property ConnectionDownRight: TaiGrid read fConnectionDownRight;
   property CornerValues: TaiHeightArray read fCornerValues;
 
   procedure CalculateHeights;
@@ -170,20 +160,16 @@ public
 
   function DetermineLandHeight(aX, aY: single): single;
   function DetermineWaterHeight(aX, aY: single): single;
-
-  function RandomConnection: AIGrid;
-  function Connection(aDirection: integer): AIGrid;
+  function RandomConnection: TaiGrid;
+  function Connection(aDirection: integer): TaiGrid;
   function AtPole: boolean;
-
   procedure DefaultSettings;
-
   procedure Connect(
-    aConnectionUp: AIGrid;
-    aConnectionDown: AIGrid;
-    aConnectionLeft: AIGrid;
-    aConnectionRight: AIGrid);
+    aConnectionUp: TaiGrid;
+    aConnectionDown: TaiGrid;
+    aConnectionLeft: TaiGrid;
+    aConnectionRight: TaiGrid);
   procedure ConnectDiagonals;
-
   function OneLineDisplay: string; override;
   function Freezing: boolean;
   function IsGlacier: boolean;
@@ -212,7 +198,7 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-AIDimensions = array of array of AIGrid;
+TaiDimensions = array of array of TaiGrid;
 
 implementation //=============================================================
 
@@ -228,7 +214,7 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AIGrid.Create(
+constructor TaiGrid.Create(
     aSpace: pointer; X: integer; Y: integer);
 begin
   inherited Create(aSpace);
@@ -239,18 +225,18 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIGrid.Destroy;
+destructor TaiGrid.Destroy;
 begin
   fCoordinates.Free;
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.Connect(
-    aConnectionUp: AIGrid;
-    aConnectionDown: AIGrid;
-    aConnectionLeft: AIGrid;
-    aConnectionRight: AIGrid);
+procedure TaiGrid.Connect(
+    aConnectionUp: TaiGrid;
+    aConnectionDown: TaiGrid;
+    aConnectionLeft: TaiGrid;
+    aConnectionRight: TaiGrid);
 begin
   fConnectionUp    := aConnectionUp;
   fConnectionDown  := aConnectionDown;
@@ -259,7 +245,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.ConnectDiagonals;
+procedure TaiGrid.ConnectDiagonals;
 begin
   fConnectionUpLeft := fConnectionLeft.ConnectionUp;
   fConnectionUpRight := fConnectionRight.ConnectionUp;
@@ -268,61 +254,61 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.SetChanged(aValue: boolean);
+procedure TaiGrid.SetChanged(aValue: boolean);
 begin
   fChanged := aValue;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.SetWater(aAmount: single);
+procedure TaiGrid.SetWater(aAmount: single);
 begin
   AlterWater(aAmount - fWater);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.SetHumidity(aAmount: single);
+procedure TaiGrid.SetHumidity(aAmount: single);
 begin
   ChangeHumidity(aAmount - fHumidity);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.SetTemperature(aAmount: single);
+procedure TaiGrid.SetTemperature(aAmount: single);
 begin
   ChangeTemperature(aAmount - fTemperature);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.SetHeight(aAmount: single);
+procedure TaiGrid.SetHeight(aAmount: single);
 begin
   AlterHeight(aAmount - fHeight);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.AlterWater(aAmount: single);
+procedure TaiGrid.AlterWater(aAmount: single);
 begin
   gSpace.QueueChange(self, cEventAddWater, aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.AlterHumidity(aAmount: single);
+procedure TaiGrid.AlterHumidity(aAmount: single);
 begin
   ChangeHumidity(aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.AlterTemperature(aAmount: single);
+procedure TaiGrid.AlterTemperature(aAmount: single);
 begin
   ChangeTemperature(aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.AlterHeight(aAmount: single);
+procedure TaiGrid.AlterHeight(aAmount: single);
 begin
   gSpace.QueueChange(self, cEventAddHeight, aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.RandomConnection: AIGrid;
+function TaiGrid.RandomConnection: TaiGrid;
 begin
   case Random(4) of
     cDirectionUp:     result := ConnectionUp;
@@ -334,7 +320,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.Connection(aDirection: integer): AIGrid;
+function TaiGrid.Connection(aDirection: integer): TaiGrid;
 begin
   case aDirection of
     cDirectionUp:     result := ConnectionUp;
@@ -347,19 +333,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.Freezing: boolean;
+function TaiGrid.Freezing: boolean;
 begin
   result := Temperature <= 0;
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.IsGlacier: boolean;
+function TaiGrid.IsGlacier: boolean;
 begin
   result := Freezing and (Water >= wlLake);
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.Melting: boolean;
+function TaiGrid.Melting: boolean;
 begin
   result := false;
 end;
@@ -369,7 +355,7 @@ end;
 // first, add to the saturation table
 // if that is full, then add to water
 // if the land is sloped, then spill
-procedure AIGrid.ChangeWater(aAmount: single);
+procedure TaiGrid.ChangeWater(aAmount: single);
 begin
   if fUnderWater then
     JiggleWater;
@@ -394,7 +380,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.JiggleWater;
+procedure TaiGrid.JiggleWater;
 var
   myWaterHeight: single;
   spillage: single;
@@ -483,7 +469,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.WaterHeight: single;
+function TaiGrid.WaterHeight: single;
 begin
   if fHeight > fWater then
     result := fHeight
@@ -492,25 +478,25 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.OverSaturated: boolean;
+function TaiGrid.OverSaturated: boolean;
 begin
   result := fWater > fHeight;
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.ExcessSaturation: single;
+function TaiGrid.ExcessSaturation: single;
 begin
   result := fWater - fHeight;
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.UnderSaturated: boolean;
+function TaiGrid.UnderSaturated: boolean;
 begin
   result := fWater < fHeight;
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.SeaWater: single;
+function TaiGrid.SeaWater: single;
 begin
   result := 0;
   if fWater > fHeight then
@@ -518,19 +504,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.IsLand: boolean;
+function TaiGrid.IsLand: boolean;
 begin
   result := (SeaWater = 0);
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.NoPlants: boolean;
+function TaiGrid.NoPlants: boolean;
 begin
   result := (SeaWater >= wlLake);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.Boil;
+procedure TaiGrid.Boil;
 begin
   gSpace.QueueChange(self, cEventAddWater, -0.1);
   gSpace.QueueChange(self, cEventAddHumidity, 0.1);
@@ -538,11 +524,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.Condense;
+procedure TaiGrid.Condense;
 var
-  myCloud: AICloud;
+  myCloud: TaiCloud;
 begin
-  myCloud := AICloud(NewThing(cCloud));
+  myCloud := TaiCloud(NewThing(cCloud));
   if Assigned(myCloud) then
   begin
     myCloud.Water := 1;
@@ -554,7 +540,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.Splash(aExcessWater: single);
+procedure TaiGrid.Splash(aExcessWater: single);
 var
   mySplash: single;
 begin
@@ -567,7 +553,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.ChangeHumidity(aAmount: single);
+procedure TaiGrid.ChangeHumidity(aAmount: single);
 begin
   fHumidity := fHumidity + aAmount;
 
@@ -579,7 +565,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.ChangeTemperature(aAmount: single);
+procedure TaiGrid.ChangeTemperature(aAmount: single);
 begin
   fTemperature := fTemperature + aAmount;
 
@@ -609,7 +595,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.ChangeHeight(aAmount: single);
+procedure TaiGrid.ChangeHeight(aAmount: single);
 begin
   fHeight := fHeight + aAmount;
 
@@ -628,7 +614,7 @@ end;
 // ----------------------------------------------------------------------------
 // returns the visual state of the land
 //  desert, dirt, field, grass
-function AIGrid.LandState: integer;
+function TaiGrid.LandState: integer;
 var
   myWaterHeight: single;
 begin
@@ -652,7 +638,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.SurroundedByWater: boolean;
+function TaiGrid.SurroundedByWater: boolean;
 begin
   result := true;
   if ConnectionLeft.IsLand or
@@ -668,7 +654,7 @@ end;
 
 
 // ----------------------------------------------------------------------------
-function AIGrid.OneLineDisplay: string;
+function TaiGrid.OneLineDisplay: string;
 begin
   result :=
     Format('Water %.1f, Humid %.1f, Temp %.1f, Height %.1f ',
@@ -677,19 +663,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.NewThing(aKind: integer): pointer;
+function TaiGrid.NewThing(aKind: integer): pointer;
 begin
   result := gThings.NewThing(aKind, self);
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.AtPole: boolean;
+function TaiGrid.AtPole: boolean;
 begin
   result := AtTop or AtBottom;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.LoadFromFile(var aFile: TextFile);
+procedure TaiGrid.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   Coordinates.LoadFromFile(aFile);
@@ -704,7 +690,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.SaveToFile(var aFile: TextFile);
+procedure TaiGrid.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   Coordinates.SaveToFile(aFile);
@@ -719,7 +705,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.Stabalize;
+procedure TaiGrid.Stabalize;
 begin
   ChangeWater(0);
   ChangeHumidity(0);
@@ -728,15 +714,15 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.QueueMoveWater(
+procedure TaiGrid.QueueMoveWater(
     aAmount: single;
-    aDestination: AIGrid);
+    aDestination: TaiGrid);
 begin
   gSpace.MoveWater(self, aAmount, aDestination);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.DefaultSettings;
+procedure TaiGrid.DefaultSettings;
 begin
   fWater := gSpace.DefaultWater;
   fHeight := gSpace.DefaultHeight;
@@ -746,7 +732,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.RaiseSurroundingHeightsTo(newHeight: single);
+procedure TaiGrid.RaiseSurroundingHeightsTo(newHeight: single);
 begin
   if ConnectionUp.Height < newHeight then ConnectionUp.Height := newHeight;
   if ConnectionDown.Height < newHeight then ConnectionDown.Height := newHeight;
@@ -759,7 +745,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.RaiseSurroundingHeightsBy(newHeight: single);
+procedure TaiGrid.RaiseSurroundingHeightsBy(newHeight: single);
 begin
   ConnectionUp.AlterHeight(newHeight);
   ConnectionDown.AlterHeight(newHeight);
@@ -777,7 +763,7 @@ end;
 //  Avg is better for higher resolution planets
 //  because four Avg squares of equal hight, equals one Min square in the center
 //  avg is faster, but this function is only called when the land is changed
-procedure AIGrid.CalculateHeights;
+procedure TaiGrid.CalculateHeights;
 begin
   fCornerValues[cHeightUpLeft] := Avg(Height, ConnectionUp.Height, ConnectionLeft.Height, ConnectionUpLeft.Height);
   fCornerValues[cHeightUpRight] := Avg(Height, ConnectionUp.Height, ConnectionRight.Height, ConnectionUpRight.Height);
@@ -792,7 +778,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.CalculateFullHeights;
+procedure TaiGrid.CalculateFullHeights;
 begin
   fCornerValues[cHeightUpLeft] := Avg(Height, ConnectionUp.Height, ConnectionLeft.Height, ConnectionUpLeft.Height);
   fCornerValues[cHeightUpRight] := Avg(Height, ConnectionUp.Height, ConnectionRight.Height, ConnectionUpRight.Height);
@@ -853,14 +839,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.CalculateLandMax;
+procedure TaiGrid.CalculateLandMax;
 begin
   fLandMax := Max(fHeight, fCornerValues[cHeightUpLeft], fCornerValues[cHeightUpRight], fCornerValues[cHeightDownLeft], fCornerValues[cHeightDownRight],
     fCornerValues[cHeightUp], fCornerValues[cHeightDown], fCornerValues[cHeightLeft], fCornerValues[cHeightRight]);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.CalculateWaters;
+procedure TaiGrid.CalculateWaters;
 begin
   fCornerValues[cWaterUpLeft] := Min(Water, ConnectionUp.Water, ConnectionLeft.Water, ConnectionUpLeft.Water);
   fCornerValues[cWaterUpRight] := Min(Water, ConnectionUp.Water, ConnectionRight.Water, ConnectionUpRight.Water);
@@ -871,7 +857,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.CalculateFullWaters;
+procedure TaiGrid.CalculateFullWaters;
 begin
   fCornerValues[cWaterUpLeft] := Min(Water, ConnectionUp.Water, ConnectionLeft.Water, ConnectionUpLeft.Water);
   fCornerValues[cWaterUpRight] := Min(Water, ConnectionUp.Water, ConnectionRight.Water, ConnectionUpRight.Water);
@@ -905,7 +891,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.DetermineLandHeight(aX, aY: single): single;
+function TaiGrid.DetermineLandHeight(aX, aY: single): single;
 var
   v0, v1, v2, u, v: TAffineVector;
   px, py: single;
@@ -989,7 +975,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIGrid.DetermineWaterHeight(aX, aY: single): single;
+function TaiGrid.DetermineWaterHeight(aX, aY: single): single;
 {begin
   result := Min(fCornerValues[cWaterDownLeft], fCornerValues[cWaterUpLeft],
     fCornerValues[cWaterUpRight], fCornerValues[cWaterDownLeft]);
@@ -1077,7 +1063,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIGrid.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
+procedure TaiGrid.Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
 var
   myVibe: AIVibe;
 begin
@@ -1091,9 +1077,9 @@ end;
 // ----------------------------------------------------------------------------
 // sucks water from surrounding squares
 //  find a random connection and then move water
-procedure AIGrid.SuckWater(aAmount: single);
+procedure TaiGrid.SuckWater(aAmount: single);
 var
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   myGrid := RandomConnection;
   if myGrid.UnderWater then
@@ -1107,7 +1093,7 @@ end;
 
 // ----------------------------------------------------------------------------
 //  CalculateWind;
-procedure AIGrid.CalculateWind;
+procedure TaiGrid.CalculateWind;
 begin
   fWind.X := 0;
   fWind.Y := 0;
@@ -1126,9 +1112,9 @@ end;
 
 // ----------------------------------------------------------------------------
 //  create an iceberg
-procedure AIGrid.FreezeWater;
+procedure TaiGrid.FreezeWater;
 var
-  myIceberg: AIIceberg;
+  myIceberg: TaiIceberg;
 begin
   myIceberg := NewThing(cIceberg);
   if Assigned(myIceberg) then
@@ -1143,7 +1129,7 @@ end;
 
 // ----------------------------------------------------------------------------
 //  this is called every now and then to perform temperature stabalization
-procedure AIGrid.Naturalize;
+procedure TaiGrid.Naturalize;
 var
   myInversion: single;
 begin

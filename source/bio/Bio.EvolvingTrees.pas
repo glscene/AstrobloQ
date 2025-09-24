@@ -16,17 +16,15 @@ uses
 type
 
 // ============================================================================
-AIEvolvingPlant = class(TaiPlant)
+TaiEvolvingPlant = class(TaiPlant)
 private
-  fDNA: AIDNA;
+  fDNA: TaiDNA;
 public
   // create and delete
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
-  property DNA: AIDNA read fDNA;
-
-  // DNA access     
+  property DNA: TaiDNA read fDNA;
+  // DNA access
   function HasDNA: boolean; override;
   function GetDNA: pointer; override;
   // file load/save routines
@@ -38,7 +36,7 @@ public
 end;
 
 // ============================================================================
-AIEvolvingTree = class(AIEvolvingPlant)
+TaiEvolvingTree = class(TaiEvolvingPlant)
 private
   fFruitTimer: integer;
   procedure BearFruit;
@@ -56,7 +54,7 @@ public
 end;
 
 // ============================================================================
-AIEvolvingFruit = class(AIEvolvingPlant)
+TaiEvolvingFruit = class(TaiEvolvingPlant)
 private
   fCarryingSeed: boolean;
   procedure DropSeed;
@@ -72,7 +70,7 @@ public
 end;
 
 // ============================================================================
-AIEvolvingSeed = class(AIEvolvingPlant)
+TaiEvolvingSeed = class(TaiEvolvingPlant)
 private
   procedure Sprout;
 public
@@ -82,8 +80,7 @@ public
   procedure Cease; override;
 end;
 
-//=============================================================================
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -95,71 +92,64 @@ uses
   Bio.Position;
 
 // ----------------------------------------------------------------------------
-constructor AIEvolvingPlant.Create(aParent: pointer);
+constructor TaiEvolvingPlant.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
-  fDNA := AIDNA.Create;
-  fDNA.CopyFrom(AIDNA(gThings.Forms.Items[Kind]));
+  fDNA := TaiDNA.Create;
+  fDNA.CopyFrom(TaiDNA(gThings.Forms.Items[Kind]));
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIEvolvingPlant.Destroy;
+destructor TaiEvolvingPlant.Destroy;
 begin
   fDNA.Free;
-
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingPlant.SaveToFile(var aFile: TextFile);
+procedure TaiEvolvingPlant.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
-
   DNA.SaveToFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingPlant.LoadFromFile(var aFile: TextFile);
+procedure TaiEvolvingPlant.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
-
   DNA.LoadFromFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-function AIEvolvingPlant.OneLineDisplay: string;
+function TaiEvolvingPlant.OneLineDisplay: string;
 begin
   result := inherited OneLineDisplay;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingPlant.FullDisplay(aList: TStrings);
+procedure TaiEvolvingPlant.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   DNA.FullDisplay(aList);
 end;
 
 // ----------------------------------------------------------------------------
-function AIEvolvingPlant.HasDNA: boolean;
+function TaiEvolvingPlant.HasDNA: boolean;
 begin
   result := true;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEvolvingPlant.GetDNA: pointer;
+function TaiEvolvingPlant.GetDNA: pointer;
 begin
   result := fDNA;
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIEvolvingTree.Create(aParent: pointer);
+constructor TaiEvolvingTree.Create(aParent: pointer);
 begin
   Kind := cEvolvingTree;
-
   inherited Create(aParent);
-
   fFruitTimer := 256;
   Water := Random*1;
   Health := 64;
@@ -171,15 +161,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.Fuel;
+procedure TaiEvolvingTree.Fuel;
 begin
   inherited Fuel;
-
   // face wind direction
 //  if AIGrid(Position.Location).Windy then Position.TurnTowardsVector(AIGrid(Position.Location).Wind, ca1);
 
   // suck water from land
-  if (Water < 1.5) and (AIGrid(Position.Location).Water > 0.005)
+  if (Water < 1.5) and (TaiGrid(Position.Location).Water > 0.005)
       and not (Position.Underwater) and (Position.Binding = bindLand) then
   begin
     gSpace.QueueChange(Position.Location, cEventAddWater, -0.005);
@@ -187,7 +176,7 @@ begin
   end;
 
   // bear fruit
-  if (Age > fFruitTimer) then//and (AIGrid(Position.Location).Temperature > 5) then
+  if (Age > fFruitTimer) then//and (TaiGrid(Position.Location).Temperature > 5) then
   begin
     if (Water > 0.25) then
       BearFruit;
@@ -206,12 +195,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.BearFruit;
+procedure TaiEvolvingTree.BearFruit;
 var
-  myFruit: AIEvolvingFruit;
+  myFruit: TaiEvolvingFruit;
 begin
-  myFruit := AIEvolvingFruit(gThings.NewThing(cEvolvingFruit));
-
+  myFruit := TaiEvolvingFruit(gThings.NewThing(cEvolvingFruit));
   if Assigned(myFruit) then
   begin
     Noise(cNoisePop, 1);
@@ -235,13 +223,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.Perform(aActivity: integer);
+procedure TaiEvolvingTree.Perform(aActivity: integer);
 begin
   BearFruit;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.Cease;
+procedure TaiEvolvingTree.Cease;
 begin
   if Exists then
   begin
@@ -254,7 +242,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIEvolvingFruit.Create(aParent: pointer);
+constructor TaiEvolvingFruit.Create(aParent: pointer);
 begin
   Kind := cEvolvingFruit;
 
@@ -272,7 +260,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingFruit.Fuel;
+procedure TaiEvolvingFruit.Fuel;
 begin
   inherited Fuel;
 
@@ -283,7 +271,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingFruit.Cease;
+procedure TaiEvolvingFruit.Cease;
 begin
   if Exists and CarryingSeed then
     DropSeed;
@@ -292,11 +280,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingFruit.DropSeed;
+procedure TaiEvolvingFruit.DropSeed;
 var
-  mySeed: AIEvolvingSeed;
+  mySeed: TaiEvolvingSeed;
 begin
-  mySeed := AIEvolvingSeed(gThings.NewThing(cEvolvingSeed));
+  mySeed := TaiEvolvingSeed(gThings.NewThing(cEvolvingSeed));
 
   if Assigned(mySeed) then
   begin
@@ -312,7 +300,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIEvolvingSeed.Create(aParent: pointer);
+constructor TaiEvolvingSeed.Create(aParent: pointer);
 begin
   Kind := cEvolvingSeed;
 
@@ -329,7 +317,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingSeed.Fuel;
+procedure TaiEvolvingSeed.Fuel;
 begin
   inherited Fuel;
 
@@ -338,11 +326,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingSeed.Cease;
+procedure TaiEvolvingSeed.Cease;
 begin
   if Exists then
   begin
-    if (Position.Binding = bindLand) and not (Position.UnderWater) and (AIGrid(Position.Location).Water >= 0.5) then
+    if (Position.Binding = bindLand) and not (Position.UnderWater) and (TaiGrid(Position.Location).Water >= 0.5) then
       Sprout;
   end;
   
@@ -350,10 +338,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingSeed.Sprout;
+procedure TaiEvolvingSeed.Sprout;
 var
-  myTree: AIEvolvingTree;
-//  myLocation: AIGrid;
+  myTree: TaiEvolvingTree;
+//  myLocation: TaiGrid;
 begin
   myTree := nil;
 
@@ -368,7 +356,7 @@ begin
     exit;
 
   if gThings.CanTreeGrowHere(Position) then
-    myTree := AIEvolvingTree(gThings.NewThing(cEvolvingTree));
+    myTree := TaiEvolvingTree(gThings.NewThing(cEvolvingTree));
 
   if Assigned(myTree) then
   begin
@@ -379,35 +367,35 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingFruit.SaveToFile(var aFile: TextFile);
+procedure TaiEvolvingFruit.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeFileBoolean(aFile, fCarryingSeed);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingFruit.LoadFromFile(var aFile: TextFile);
+procedure TaiEvolvingFruit.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   fCarryingSeed := readFileBoolean(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.SaveToFile(var aFile: TextFile);
+procedure TaiEvolvingTree.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fFruitTimer);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.LoadFromFile(var aFile: TextFile);
+procedure TaiEvolvingTree.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fFruitTimer);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingTree.FullDisplay(aList: TStrings);
+procedure TaiEvolvingTree.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -415,7 +403,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEvolvingFruit.FullDisplay(aList: TStrings);
+procedure TaiEvolvingFruit.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -423,20 +411,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIEvolvingTree.Digest(const aAmount: integer): integer;
+function TaiEvolvingTree.Digest(const aAmount: integer): integer;
 begin
   result := -1 * inherited Digest(aAmount);
 end;
 
 // ----------------------------------------------------------------------------
-function AIEvolvingSeed.Digest(const aAmount: integer): integer;
+function TaiEvolvingSeed.Digest(const aAmount: integer): integer;
 begin
   inherited Digest(aAmount);
   result := 0;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEvolvingFruit.IsFruit: boolean;
+function TaiEvolvingFruit.IsFruit: boolean;
 begin
   result := true;
 end;

@@ -150,7 +150,7 @@ type
     procedure cbAIClick(Sender: TObject);
     procedure AAsteroids1Click(Sender: TObject);
   private
-    FReality: AIReality;
+    FReality: TaiReality;
     FManagerForm: TFormManager;
     FPaused: Boolean;
     FFileName: string;
@@ -158,7 +158,7 @@ type
     procedure MyMinimize(Sender: TObject; var state: TMiniState);
     procedure MyMaximize(Sender: TObject; var state: TMiniState);
   public
-    property Reality: AIReality read FReality;
+    property Reality: TaiReality read FReality;
     property ManagerForm: TFormManager read FManagerForm;
     property Paused: Boolean read FPaused write FPaused;
     property FileName: string read FFileName write FFileName;
@@ -653,7 +653,7 @@ end;
 
 procedure TFormReality.StartUp(aFileName: string);
 begin
-  FReality := AIReality.Create;
+  FReality := TaiReality.Create;
   FFileName := 'current.air';
   // try to load a file
   if (aFileName <> '') and FileExists(aFileName) then

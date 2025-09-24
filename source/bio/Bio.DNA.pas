@@ -20,7 +20,7 @@ const
 type
 
 // ============================================================================
-AIDNA = class(TObject)
+TaiDNA = class(TObject)
 private
   fMutation: single;
   fGrowthRate: single;
@@ -54,8 +54,8 @@ public
   property Blue: single read fBlue write SetBlue;
   property Green: single read fGreen write SetGreen;
   // combine two DNA values into one
-  procedure Combine(FatherDNA, MotherDNA: AIDNA);
-  procedure CopyFrom(aDNA: AIDNA);
+  procedure Combine(FatherDNA, MotherDNA: TaiDNA);
+  procedure CopyFrom(aDNA: TaiDNA);
   // file load/save routines
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
@@ -76,21 +76,21 @@ uses
   Bio.Position;
 
 // ----------------------------------------------------------------------------
-constructor AIDNA.Create;
+constructor TaiDNA.Create;
 begin
   inherited Create;
   fMutation := 1;
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIDNA.Destroy;
+destructor TaiDNA.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SaveToFile(var aFile: TextFile);
+procedure TaiDNA.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fMutation);
   writeln(aFile, fBuoyancy);
@@ -102,7 +102,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.LoadFromFile(var aFile: TextFile);
+procedure TaiDNA.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fMutation);
   readln(aFile, fBuoyancy);       SetBuoyancy(fBuoyancy);
@@ -114,13 +114,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIDNA.OneLineDisplay: string;
+function TaiDNA.OneLineDisplay: string;
 begin
   result := 'DNA';
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.FullDisplay(aList: TStrings);
+procedure TaiDNA.FullDisplay(aList: TStrings);
 begin
   aList.Add('DNA ----------');
   aList.Add(Format('Mutation: %0.4f', [fMutation]));
@@ -133,7 +133,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.Combine(FatherDNA, MotherDNA: AIDNA);
+procedure TaiDNA.Combine(FatherDNA, MotherDNA: TaiDNA);
 var
   myRate: single;
 begin
@@ -156,7 +156,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.LoadFromINI(aFileName: string);
+procedure TaiDNA.LoadFromINI(aFileName: string);
 var
   Ini: TIniFile;
 begin
@@ -177,7 +177,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIDNA.SaveToINI(aFileName: string): boolean;
+function TaiDNA.SaveToINI(aFileName: string): boolean;
 var
   Ini: TIniFile;
 begin
@@ -197,7 +197,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.CopyFrom(aDNA: AIDNA);
+procedure TaiDNA.CopyFrom(aDNA: TaiDNA);
 begin
   Mutation := aDNA.Mutation;
   Buoyancy := aDNA.Buoyancy;
@@ -209,7 +209,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SetBounce(aValue: single);
+procedure TaiDNA.SetBounce(aValue: single);
 begin
   fBounce := aValue;
   if fBounce < 0.0 then fBounce := 0.0;
@@ -217,7 +217,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SetBuoyancy(aValue: single);
+procedure TaiDNA.SetBuoyancy(aValue: single);
 begin
   fBuoyancy := aValue;
   if fBuoyancy < 0.0 then fBuoyancy := 0.0;
@@ -225,7 +225,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SetRed(aValue: single);
+procedure TaiDNA.SetRed(aValue: single);
 begin
   fRed := aValue;
   if fRed < 0.0 then fRed := 0.0;
@@ -233,7 +233,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SetBlue(aValue: single);
+procedure TaiDNA.SetBlue(aValue: single);
 begin
   fBlue := aValue;
   if fBlue < 0.0 then fBlue := 0.0;
@@ -241,7 +241,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SetGreen(aValue: single);
+procedure TaiDNA.SetGreen(aValue: single);
 begin
   fGreen := aValue;
   if fGreen < 0.0 then fGreen := 0.0;
@@ -249,7 +249,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIDNA.SetPreferredFood(aValue: integer);
+procedure TaiDNA.SetPreferredFood(aValue: integer);
 begin
   fPreferredFood := aValue;
   if fPreferredFood < 0 then fPreferredFood := 0;

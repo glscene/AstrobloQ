@@ -30,11 +30,11 @@ uses
 type
 
 // ============================================================================
-AIEnvironment = class(TaiBaseObject)
+TaiEnvironment = class(TaiBaseObject)
 private
   fName: string;
   fThings: TaiThingList;
-  fSpace: AISpace;
+  fSpace: TaiSpace;
   fReferences: AILinkContainer;
   fAttachments: AIAttachmentContainer;
   fShadows: boolean;
@@ -48,7 +48,7 @@ public
   destructor Destroy; override;
   property Name: string read fName write fName;
   property Things: TaiThingList read fThings;
-  property Space: AISpace read fSpace;
+  property Space: TaiSpace read fSpace;
   property References: AILinkContainer read fReferences;
   property Attachments: AIAttachmentContainer read fAttachments;
   property Gravity: TaiForce read GetGravity;
@@ -79,11 +79,11 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AIEnvironment.Create(aReality: pointer);
+constructor TaiEnvironment.Create(aReality: pointer);
 begin
   inherited Create(aReality);
   gEnvironment := self;
-  fSpace := AISpace.Create(self, 20, 11);
+  fSpace := TaiSpace.Create(self, 20, 11);
   // create an empty list of things
   fThings := TaiThingList.Create(self);
   // create an empty list of links (thing <-> thing)
@@ -103,7 +103,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIEnvironment.Destroy;
+destructor TaiEnvironment.Destroy;
 begin
   fThings.Free;
   fSpace.Free;
@@ -119,7 +119,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.Clean;
+procedure TaiEnvironment.Clean;
 begin
   Things.Clean;
   Space.Clean;
@@ -128,14 +128,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.Build(aWidth: integer; aHeight: integer);
+procedure TaiEnvironment.Build(aWidth: integer; aHeight: integer);
 begin
   gEnvironment := self;
   Space.Build(aWidth, aHeight);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.Fuel;
+procedure TaiEnvironment.Fuel;
 begin
   // delete trash
   Things.EmptyTrash;
@@ -150,7 +150,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.SaveToFile(var aFile: TextFile);
+procedure TaiEnvironment.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fName);
@@ -162,7 +162,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.LoadFromFile(var aFile: TextFile);
+procedure TaiEnvironment.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fName);
@@ -178,7 +178,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.RoundStatistics: string;
+function TaiEnvironment.RoundStatistics: string;
 var
   i: integer;
 begin
@@ -194,46 +194,46 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetGravity: TaiForce;
+function TaiEnvironment.GetGravity: TaiForce;
 begin
   result := gGravity;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetAirFriction: TaiForce;
+function TaiEnvironment.GetAirFriction: TaiForce;
 begin
   result := gAirFriction;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetLandFriction: TaiForce;
+function TaiEnvironment.GetLandFriction: TaiForce;
 begin
   result := gLandFriction;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.GetWaterFriction: TaiForce;
+function TaiEnvironment.GetWaterFriction: TaiForce;
 begin
   result := gWaterFriction;
 end;
 
 // ----------------------------------------------------------------------------
 // cleans all references to this thing
-procedure AIEnvironment.Snip(aThing: TaiThing);
+procedure TaiEnvironment.Snip(aThing: TaiThing);
 begin
   Snip(aThing.Handle);
 end;
 
 // ----------------------------------------------------------------------------
 // cleans all references to this thing
-procedure AIEnvironment.Snip(aHandle: integer);
+procedure TaiEnvironment.Snip(aHandle: integer);
 begin
   fReferences.NeutralizeAllLinksWithRightHandle(aHandle);
   fAttachments.DetachAllWithHandle(aHandle);
 end;
 
 // ----------------------------------------------------------------------------
-function AIEnvironment.FindWithHandle(aHandle: integer): TaiBaseObject;
+function TaiEnvironment.FindWithHandle(aHandle: integer): TaiBaseObject;
 begin
   result := gThings.FindWithHandle(aHandle);
   if not Assigned(result) then
@@ -241,7 +241,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.FullDisplay(aList: TStrings);
+procedure TaiEnvironment.FullDisplay(aList: TStrings);
 begin
   {
   aList.Add('='+IntToStr());
@@ -263,7 +263,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.EnactGrab(aOriginCreature: TaiCreature; aTarget: TaiThing);
+procedure TaiEnvironment.EnactGrab(aOriginCreature: TaiCreature; aTarget: TaiThing);
 begin
   // already holding something?
   if aOriginCreature.Grabber.Holding then exit;
@@ -288,7 +288,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEnvironment.EnactBonk(aOriginCreature: TaiCreature; aTarget: TaiThing);
+procedure TaiEnvironment.EnactBonk(aOriginCreature: TaiCreature; aTarget: TaiThing);
 var
   myTargetCreature: TaiCreature;
   myThing: TaiThing;

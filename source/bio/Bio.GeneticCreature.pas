@@ -25,7 +25,7 @@ type
 // ============================================================================
 AIGeneticCreature = class(AIMatingSingleCreature)
 private
-  fDNA: AIDNA;
+  fDNA: TaiDNA;
 protected
   procedure MateWithPartner; override;
 public
@@ -33,7 +33,7 @@ public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
 
-  property DNA: AIDNA read fDNA;
+  property DNA: TaiDNA read fDNA;
 
   // user-interface and bot-interface
   procedure Perform(aActivity: integer); override;
@@ -49,7 +49,7 @@ public
   procedure FullDisplay(aList: TStrings); override;
 end;
 
-implementation
+implementation //=============================================================
 
 uses
   Bio.Utilities,
@@ -63,8 +63,8 @@ constructor AIGeneticCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
-  fDNA := AIDNA.Create;
-  fDNA.CopyFrom(AIDNA(gThings.Forms.Items[Kind]));
+  fDNA := TaiDNA.Create;
+  fDNA.CopyFrom(TaiDNA(gThings.Forms.Items[Kind]));
 end;
 
 // ----------------------------------------------------------------------------

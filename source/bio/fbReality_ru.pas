@@ -152,7 +152,7 @@ type
     procedure cbAIClick(Sender: TObject);
     procedure AAsteroids1Click(Sender: TObject);
   private
-    FReality: AIReality;
+    FReality: TaiReality;
     FManagerForm: TFormManager;
     FPaused: Boolean;
     FFileName: string;
@@ -160,7 +160,7 @@ type
     procedure MyMinimize(Sender: TObject; var state: TMiniState);
     procedure MyMaximize(Sender: TObject; var state: TMiniState);
   public
-    property Reality: AIReality read FReality;
+    property Reality: TaiReality read FReality;
     property ManagerForm: TFormManager read FManagerForm;
     property Paused: Boolean read FPaused write FPaused;
     property FileName: string read FFileName write FFileName;
@@ -659,7 +659,7 @@ end;
 
 procedure TFormReality.StartUp(aFileName: string);
 begin
-  FReality := AIReality.Create;
+  FReality := TaiReality.Create;
   FFileName := 'current.air';
   // try to load a file
   if (aFileName <> '') and FileExists(aFileName) then
@@ -754,9 +754,9 @@ begin
   Reality.Environment.Things.AI := cbAI.Checked;
   RefreshInterface;
   if cbAI.Checked then
-    frmFirst.Construction.AddEvent('Включить биосферу')
+    frmFirst.Construction.AddEvent('Показать биосферу')
   else
-    frmFirst.Construction.AddEvent('Отключить биосферу');
+    frmFirst.Construction.AddEvent('Скрыть биосферу');
 end;
 
 procedure TFormReality.AAsteroids1Click(Sender: TObject);

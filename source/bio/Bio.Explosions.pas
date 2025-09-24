@@ -27,7 +27,7 @@ const
 type
 
 // ============================================================================
-AIExplosion = class(TaiThing)
+TaiExplosion = class(TaiThing)
 private
   fEffect: integer;
   fStrength: single;
@@ -110,14 +110,14 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIBomb.Explode;
 var
-  myExplosion: AIExplosion;
+  myExplosion: TaiExplosion;
 begin
   Cease;
 
   if (Effect = cEffectShell) or (Effect = cEffectBullet) then
     exit;
 
-  myExplosion := AIExplosion(gThings.NewThing(cExplosion));
+  myExplosion := TaiExplosion(gThings.NewThing(cExplosion));
   if not (myExplosion = nil) then
   begin
     myExplosion.Position.CopyCoords(Position);
@@ -129,7 +129,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIExplosion.Create(aParent: pointer);
+constructor TaiExplosion.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -143,16 +143,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIExplosion.Fuel;
+procedure TaiExplosion.Fuel;
 var
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   inherited Fuel;
 
   Shrapnel;
 
   // change temp
-  myGrid := AIGrid(Position.Location);
+  myGrid := TaiGrid(Position.Location);
   if not (Position.Binding = bindSpace) then
     myGrid.AlterTemperature(0.1);
   if Position.Height < (Position.Water + BlastRadius) then
@@ -167,7 +167,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIExplosion.Shrapnel;
+procedure TaiExplosion.Shrapnel;
 var
   myBomb: AIBomb;
 begin
@@ -178,7 +178,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIExplosion.SaveToFile(var aFile: TextFile);
+procedure TaiExplosion.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fEffect);
@@ -188,7 +188,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIExplosion.LoadFromFile(var aFile: TextFile);
+procedure TaiExplosion.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fEffect);
@@ -220,7 +220,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIExplosion.Digest(const aAmount: integer): integer;
+function TaiExplosion.Digest(const aAmount: integer): integer;
 begin
   result := -1 * aAmount;
 end;

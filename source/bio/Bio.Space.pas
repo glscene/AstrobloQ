@@ -27,17 +27,17 @@ const
 
 type
 
-AIMap = array of array of AIGrid;
+TaiMap = array of array of TaiGrid;
 
 // ============================================================================
-AISpace = class(TaiBaseObject)
+TaiSpace = class(TaiBaseObject)
 private
   fWidth: integer;      // width of the map (grids)
   fHeight: integer;     // height of the map (grids)
   fRadius: single;      // radius of the planet (for visual only)
   fSpherical: boolean;  // is the user viewing this in sphere or flat mode?
 
-  fMap: AIMap;          // array of grids
+  fMap: TaiMap;          // array of grids
 
   // keep two lists of events
   fEventList1: AIEventList; // first round of events
@@ -79,12 +79,10 @@ public
     aWidth: integer;
     aHeight: integer);
   destructor Destroy; override;
-
   property Width: integer read fWidth;
   property Height: integer read fHeight;
   property Radius: single read fRadius write fRadius;
   property Spherical: boolean read fSpherical write fSpherical;
-
   property EventRound: AIEventList read fEventRound;
   property EventQueue: AIEventList read fEventQueue;
   property WidthLoop: integer read fWidthLoop;
@@ -95,7 +93,6 @@ public
   property HeightSingle: single read fHeightSingle;
   property HalfWidthSingle: single read fHalfWidthSingle;
   property HalfHeightSingle: single read fHalfHeightSingle;
-
   property DefaultHeight: integer read fDefaultHeight write fDefaultHeight;
   property DefaultWater: integer read fDefaultWater write fDefaultWater;
   property DefaultTemperature: integer read fDefaultTemperature write fDefaultTemperature;
@@ -111,38 +108,32 @@ public
   procedure MeteorShower;
   procedure ResetMapToDefaults;
 
-  property Map: AIMap read fMap;
-
+  property Map: TaiMap read fMap;
   procedure MoveWater(
-    aSource: AIGrid;
+    aSource: TaiGrid;
     aAmount: single;
-    aDestination: AIGrid);
-
+    aDestination: TaiGrid);
   procedure QueueChange(
-    aDestination: AIGrid;
+    aDestination: TaiGrid;
     aChangeKind: integer;
     aAmount: single);
-
   procedure Fuel;
   procedure Stabalize;  // large scale grid validization
   procedure FuzzyHeight(aFuzz: integer); // adds small random values to height
-
-  function RandomLocation: AIGrid;
-  function RandomLocationAwayFromPoles: AIGrid;
+  function RandomLocation: TaiGrid;
+  function RandomLocationAwayFromPoles: TaiGrid;
 
   procedure Clean;
   procedure Build(aWidth: integer; aHeight: integer);
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
-
   function LandAtPosition(aX, aY: single): single;
   function WaterAtPosition(aX, aY: single): single;
   function FindWithHandle(aHandle: integer): TaiBaseObject;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
-//=============================================================================
-implementation
+implementation //=============================================================
 
 uses
   Bio.Utilities,
@@ -153,7 +144,7 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AISpace.Create(
+constructor TaiSpace.Create(
     aEnvironment: pointer;
     aWidth: integer;
     aHeight: integer);
@@ -191,7 +182,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AISpace.Destroy;
+destructor TaiSpace.Destroy;
 begin
   fEventList1.Free;
   fEventList2.Free;
@@ -202,7 +193,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.Clean;
+procedure TaiSpace.Clean;
 begin
   fEventList1.Free;
   fEventList2.Free;
@@ -210,7 +201,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.Build(aWidth: integer; aHeight: integer);
+procedure TaiSpace.Build(aWidth: integer; aHeight: integer);
 begin
   fWidth := aWidth;
   fHeight := aHeight;
@@ -230,7 +221,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.DeriveDimensionalValues;
+procedure TaiSpace.DeriveDimensionalValues;
 begin
   fWidthLoop := fWidth - 1;
   fHeightLoop := fHeight - 1;
@@ -264,23 +255,23 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.InitializeMap;
+procedure TaiSpace.InitializeMap;
 var
   myWidth: integer;
   myHeight: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for myWidth := 0 to Width - 1 do
     for myHeight := 0 to Height - 1 do
       begin
-        myGrid := AIGrid.Create(self, myWidth, myHeight);
+        myGrid := TaiGrid.Create(self, myWidth, myHeight);
         Map[myWidth][myHeight] := myGrid;
         myGrid.DefaultSettings;
       end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.HeightenMap;
+procedure TaiSpace.HeightenMap;
 var
   myWidth: integer;
   myHeight: integer;
@@ -294,11 +285,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.ResetMapToDefaults;
+procedure TaiSpace.ResetMapToDefaults;
 var
   myWidth: integer;
   myHeight: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for myWidth := 0 to Width - 1 do
     for myHeight := 0 to Height - 1 do
@@ -314,15 +305,15 @@ end;
 // this must be called after InitializeMap since the adjacent grids wont
 // exist until after InitializeMap is called
 // Edges of the map are connected, not nil
-procedure AISpace.ConnectMap;
+procedure TaiSpace.ConnectMap;
 var
   myWidth: integer;
   myHeight: integer;
-  myGrid: AIGrid;
-  myGridUp: AIGrid;
-  myGridDown: AIGrid;
-  myGridLeft: AIGrid;
-  myGridRight: AIGrid;
+  myGrid: TaiGrid;
+  myGridUp: TaiGrid;
+  myGridDown: TaiGrid;
+  myGridLeft: TaiGrid;
+  myGridRight: TaiGrid;
 begin
   // connect all grids to adjacent grids, ala curved 2 dimensions
   for myWidth := 0 to Width - 1 do
@@ -387,11 +378,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.FreeMap;
+procedure TaiSpace.FreeMap;
 var
   myWidth: integer;
   myHeight: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for myWidth := 0 to Width - 1 do
     for myHeight := 0 to Height - 1 do
@@ -402,10 +393,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.MoveWater(
-    aSource: AIGrid;
+procedure TaiSpace.MoveWater(
+    aSource: TaiGrid;
     aAmount: single;
-    aDestination: AIGrid);
+    aDestination: TaiGrid);
 begin
   // remove water from source
   QueueChange(
@@ -420,11 +411,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.FuzzyHeight(aFuzz: integer);
+procedure TaiSpace.FuzzyHeight(aFuzz: integer);
 var
   myWidth: integer;
   myHeight: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for myWidth := 0 to Width - 1 do
     for myHeight := 0 to Height - 1 do
@@ -435,7 +426,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.LoadFromFile(var aFile: TextFile);
+procedure TaiSpace.LoadFromFile(var aFile: TextFile);
 var
   X, Y: integer;
 begin
@@ -463,7 +454,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.SaveToFile(var aFile: TextFile);
+procedure TaiSpace.SaveToFile(var aFile: TextFile);
 var
   X, Y: integer;
 begin
@@ -485,7 +476,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.Stabalize;
+procedure TaiSpace.Stabalize;
 var
   myWidth: integer;
   myHeight: integer;
@@ -496,13 +487,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.RandomLocation: AIGrid;
+function TaiSpace.RandomLocation: TaiGrid;
 begin
   result := Map[Random(Width)][Random(Height)];
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.RandomLocationAwayFromPoles: AIGrid;
+function TaiSpace.RandomLocationAwayFromPoles: TaiGrid;
 var
   myNiceHeight: integer;
 begin
@@ -511,7 +502,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.GetDefaultWaterHeight: integer;
+function TaiSpace.GetDefaultWaterHeight: integer;
 begin
   result := fDefaultWater;
   if fDefaultHeight > fDefaultWater then
@@ -520,10 +511,10 @@ end;
 
 // ----------------------------------------------------------------------------
 // builds a ring of height around the equator
-procedure AISpace.GenerateHalo;
+procedure TaiSpace.GenerateHalo;
 var
   myWidth: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for myWidth := 0 to WidthLoop do
   begin
@@ -543,10 +534,10 @@ end;
 
 // ----------------------------------------------------------------------------
 // randomly make continents
-procedure AISpace.GenerateContinents(aAmount: integer);
+procedure TaiSpace.GenerateContinents(aAmount: integer);
 var
-  myGrid: AIGrid;
-  myConnection: AIGrid;
+  myGrid: TaiGrid;
+  myConnection: TaiGrid;
   mySize: integer;
   i, j: integer;
 begin
@@ -568,9 +559,9 @@ end;
 
 // ----------------------------------------------------------------------------
 // randomly picks grids and makes them islands
-procedure AISpace.GenerateIslands(aAmount: integer);
+procedure TaiSpace.GenerateIslands(aAmount: integer);
 var
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
   i: integer;
 begin
   for i := 0 to aAmount - 1 do
@@ -582,10 +573,10 @@ end;
 
 // ----------------------------------------------------------------------------
 // sets temp to lowest at poles
-procedure AISpace.FreezePoles;
+procedure TaiSpace.FreezePoles;
 var
   myWidth: integer;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   for myWidth := 0 to WidthLoop do
   begin
@@ -600,19 +591,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.Effects;
+procedure TaiSpace.Effects;
 var
   i: integer;
   RigidCount: integer;
   myEvent: AISpatialEvent;
-  myGrid: AIGrid;
+  myGrid: TaiGrid;
 begin
   RigidCount := fEventRound.ActiveIndex - 1;
 
   for i := 0 to RigidCount do
   begin
     myEvent := fEventRound.Events[i];
-    myGrid := AIGrid(myEvent.Target);
+    myGrid := TaiGrid(myEvent.Target);
 
     case myEvent.Kind
     of
@@ -655,7 +646,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.Fuel;
+procedure TaiSpace.Fuel;
 begin
   // clear old events
   fEventRound.Clear;
@@ -687,8 +678,8 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.QueueChange(
-    aDestination: AIGrid;
+procedure TaiSpace.QueueChange(
+    aDestination: TaiGrid;
     aChangeKind: integer;
     aAmount: single);
 var
@@ -727,7 +718,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.LandAtPosition(aX, aY: single): single;
+function TaiSpace.LandAtPosition(aX, aY: single): single;
 var
   Gridx, Gridy: integer;
 begin
@@ -738,7 +729,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.WaterAtPosition(aX, aY: single): single;
+function TaiSpace.WaterAtPosition(aX, aY: single): single;
 var
   Gridx, Gridy: integer;
 begin
@@ -749,7 +740,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AISpace.FindWithHandle(aHandle: integer): TaiBaseObject;
+function TaiSpace.FindWithHandle(aHandle: integer): TaiBaseObject;
 var
   myWidth: integer;
   myHeight: integer;
@@ -766,10 +757,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.MeteorShower;
+procedure TaiSpace.MeteorShower;
 var
   i: integer;
-  myLocation: AIGrid;
+  myLocation: TaiGrid;
 begin
   myLocation := RandomLocation;
 //  myLocation := Map[HalfWidth][HalfHeight].RandomConnection;
@@ -781,7 +772,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISpace.FullDisplay(aList: TStrings);
+procedure TaiSpace.FullDisplay(aList: TStrings);
 begin
   {
   aList.Add('='+IntToStr());

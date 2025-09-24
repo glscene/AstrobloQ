@@ -190,9 +190,9 @@ end;
 // ----------------------------------------------------------------------------
 procedure AIWeapon.Flamethrower;
 var
-  myExplosion: AIExplosion;
+  myExplosion: TaiExplosion;
 begin
-  myExplosion := AIExplosion(gEnvironment.Things.NewThing(cExplosion));
+  myExplosion := TaiExplosion(gEnvironment.Things.NewThing(cExplosion));
   if not (myExplosion = nil) then
   begin
     myExplosion.Position.CopyCoords(Position);

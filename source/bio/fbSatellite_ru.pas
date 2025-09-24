@@ -55,25 +55,24 @@ type
     procedure edMovementChange(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
   private
-    fSatellite: AISatellite;
-    procedure SetSatellite(aSatellite: AISatellite);
+    fSatellite: TaiSatellite;
+    procedure SetSatellite(aSatellite: TaiSatellite);
   public
-    property Satellite: AISatellite read fSatellite write SetSatellite;
+    property Satellite: TaiSatellite read fSatellite write SetSatellite;
     procedure Refresh;
   end;
 
 var
   FormSatellite: TFormSatellite;
 
-//============================================================================
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Things;
 
 {$R *.DFM}
 
-procedure TFormSatellite.SetSatellite(aSatellite: AISatellite);
+procedure TFormSatellite.SetSatellite(aSatellite: TaiSatellite);
 begin
   fSatellite := aSatellite;
 

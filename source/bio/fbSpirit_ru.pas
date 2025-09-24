@@ -419,7 +419,7 @@ begin
   frmFirst.RealityForm.StopReality;
   // edit DNA
   myfmDNA := TFormDNA.Create(self);
-  myfmDNA.DNA := AIDNA(myThing.GetDNA);
+  myfmDNA.DNA := TaiDNA(myThing.GetDNA);
   myfmDNA.panID.Caption := myThing.Name + ' ' + IntToStr(myThing.Handle);
   myfmDNA.ShowModal;
   myfmDNA.Free;

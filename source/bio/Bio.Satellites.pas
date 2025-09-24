@@ -15,58 +15,50 @@ uses
 type
 
 // ============================================================================
-AISatellite = class(TaiThing)
+TaiSatellite = class(TaiThing)
 private
   fSize: single;       // size of object; radius
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   property Size: single read fSize write fSize;
-
   procedure Fuel; override;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
 // ============================================================================
-AIOrbiter = class(AISatellite)
+TaiOrbiter = class(TaiSatellite)
 private
   fRadius: integer;     // how many squares the sun shines on
   fRate: single;       // qualitative rate of effect
 public
   property Rate: single read fRate write fRate;
   property Radius: integer read fRadius write fRadius;
-
   procedure Fuel; override;
-
   procedure Explode; virtual; abstract; // when collide, explode into smaller, falling pieces
   procedure OnCollide(aCollider: TaiThing); override;
-
   procedure Perform(aActivity: integer); override;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
 // ============================================================================
-AISun = class(AIOrbiter)
+TaiSun = class(TaiOrbiter)
 private
   fSwing: boolean;
 public
   constructor Create(aParent: pointer);
   property Swing: boolean read fSwing;
-
   procedure Explode; override;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
 // ============================================================================
-AIMoon = class(AIOrbiter)
+TaiMoon = class(TaiOrbiter)
 public
   constructor Create(aParent: pointer);
   procedure Explode; override;
@@ -74,7 +66,7 @@ public
 end;
 
 // ============================================================================
-AIAsteroid = class(TaiThing)
+TaiAsteroid = class(TaiThing)
 private
   fEnergy: integer;
   fBurning: boolean;
@@ -86,20 +78,17 @@ public
   property Burning: boolean read fBurning write fBurning;
   property Size: single read fSize write fSize;
   property Markers: integer read fMarkers write fMarkers;
-
   procedure Smash;
   procedure Burn;
   procedure Fuel; override;
   procedure Mark;
   procedure UnMark;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -112,7 +101,7 @@ uses
   Bio.Weather;
 
 // ----------------------------------------------------------------------------
-constructor AISatellite.Create(aParent: pointer);
+constructor TaiSatellite.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -121,14 +110,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AISatellite.Destroy;
+destructor TaiSatellite.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISatellite.Fuel;
+procedure TaiSatellite.Fuel;
 begin
   inherited Fuel;
 
@@ -137,7 +126,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AISun.Create(aParent: pointer);
+constructor TaiSun.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -151,10 +140,10 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISun.Fuel;
+procedure TaiSun.Fuel;
 var
   myReach: integer;
-  myExtend: AIGrid;
+  myExtend: TaiGrid;
 begin
   inherited Fuel;
 
@@ -164,7 +153,7 @@ begin
     Position.Velocity.DeltaY := -0.01;
  }
   // find random square by radius
-  myExtend := AIGrid(Position.Location);
+  myExtend := TaiGrid(Position.Location);
   for myReach := 0 to Radius - 1 do
   begin
     case Random(4) of
@@ -180,14 +169,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISun.Explode;
+procedure TaiSun.Explode;
 var
-  myAsteroid: AIAsteroid;
+  myAsteroid: TaiAsteroid;
   i: integer;
 begin
   for i := 0 to 25 do
   begin
-    myAsteroid := AIAsteroid(gThings.NewThing(cAsteroid));
+    myAsteroid := TaiAsteroid(gThings.NewThing(cAsteroid));
     if Assigned(myAsteroid) then
     begin
       myAsteroid.Energy := 20;
@@ -201,7 +190,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIMoon.Create(aParent: pointer);
+constructor TaiMoon.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -215,15 +204,15 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMoon.Fuel;
+procedure TaiMoon.Fuel;
 var
 //  myReach: integer;
-  myExtend: AIGrid;
+  myExtend: TaiGrid;
 begin
   inherited Fuel;
 
   // find random square by radius
-  myExtend := AIGrid(Position.Location);
+  myExtend := TaiGrid(Position.Location);
   // cause a tide
   myExtend.SuckWater(0.1);
 
@@ -236,14 +225,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMoon.Explode;
+procedure TaiMoon.Explode;
 var
-  myAsteroid: AIAsteroid;
+  myAsteroid: TaiAsteroid;
   i: integer;
 begin
   for i := 0 to 10 do
   begin
-    myAsteroid := AIGrid(Position.Location).NewThing(cAsteroid);
+    myAsteroid := TaiGrid(Position.Location).NewThing(cAsteroid);
     if Assigned(myAsteroid) then
     begin
       myAsteroid.Energy := -15;
@@ -257,7 +246,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIAsteroid.Create(aParent: pointer);
+constructor TaiAsteroid.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -275,7 +264,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.Fuel;
+procedure TaiAsteroid.Fuel;
 begin
   inherited Fuel;
 
@@ -291,7 +280,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.Fuel;
+procedure TaiOrbiter.Fuel;
 begin
   inherited Fuel;
 
@@ -299,14 +288,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.Smash;
+procedure TaiAsteroid.Smash;
 var
-  myExplosion: AIExplosion;
-  myEarthquake: AIEarthquake;
+  myExplosion: TaiExplosion;
+  myEarthquake: TaiEarthquake;
   myLand: single;
-  Location: AIGrid;
+  Location: TaiGrid;
 begin
-  Location := AIGrid(Position.Location);
+  Location := TaiGrid(Position.Location);
 
   // change temp
   Location.AlterTemperature(Energy+2);
@@ -323,7 +312,7 @@ begin
 
   myExplosion := nil;
   if (Energy >= 0) or (not Position.UnderWater) then
-    myExplosion := AIExplosion(Location.NewThing(cExplosion));
+    myExplosion := TaiExplosion(Location.NewThing(cExplosion));
   Noise(cNoiseSmash, 1);
   if Assigned(myExplosion) then
   begin
@@ -341,7 +330,7 @@ begin
   if gThings.Counters[cEarthquake] > 0 then
     myEarthquake := gThings.Tables[cEarthquake].FirstOfKind(cEarthquake)
   else
-    myEarthquake := AIEarthquake(Location.NewThing(cEarthquake));
+    myEarthquake := TaiEarthquake(Location.NewThing(cEarthquake));
   if Assigned(myEarthquake) then
   begin
     myEarthquake.Rumble := myEarthquake.Rumble + 0.2;
@@ -351,7 +340,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.Burn;
+procedure TaiAsteroid.Burn;
 begin
   fBurning := true;
   Size := Size - 0.1;
@@ -360,21 +349,21 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISatellite.SaveToFile(var aFile: TextFile);
+procedure TaiSatellite.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fSize);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISatellite.LoadFromFile(var aFile: TextFile);
+procedure TaiSatellite.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fSize);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.SaveToFile(var aFile: TextFile);
+procedure TaiOrbiter.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fRate);
@@ -382,7 +371,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.LoadFromFile(var aFile: TextFile);
+procedure TaiOrbiter.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fRate);
@@ -390,7 +379,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.SaveToFile(var aFile: TextFile);
+procedure TaiAsteroid.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fEnergy);
@@ -399,7 +388,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.LoadFromFile(var aFile: TextFile);
+procedure TaiAsteroid.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fEnergy);
@@ -408,24 +397,22 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISatellite.FullDisplay(aList: TStrings);
+procedure TaiSatellite.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add(Format('Size: %0.2f', [fSize]));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.FullDisplay(aList: TStrings);
+procedure TaiOrbiter.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Radius: ' + IntToStr(fRadius));
   aList.Add(Format('Rate: %0.2f', [fRate]));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AISun.FullDisplay(aList: TStrings);
+procedure TaiSun.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -433,17 +420,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.FullDisplay(aList: TStrings);
+procedure TaiAsteroid.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Energy: ' + IntToStr(fEnergy));
   aList.Add(Format('Size: %0.2f', [fSize]));
   aList.Add('Burning: ' + BoolToYesNoStr(fBurning));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.Perform(aActivity: integer);
+procedure TaiOrbiter.Perform(aActivity: integer);
 begin
   case aActivity of
     0: Explode;
@@ -451,20 +437,20 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIOrbiter.OnCollide(aCollider: TaiThing);
+procedure TaiOrbiter.OnCollide(aCollider: TaiThing);
 begin
-  if aCollider is AISatellite then
+  if aCollider is TaiSatellite then
     Explode;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.Mark;
+procedure TaiAsteroid.Mark;
 begin
   fMarkers := fMarkers + 1;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAsteroid.UnMark;
+procedure TaiAsteroid.UnMark;
 begin
   fMarkers := fMarkers - 1;
 end;

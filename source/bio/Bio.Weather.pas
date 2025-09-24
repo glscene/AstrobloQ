@@ -18,7 +18,7 @@ uses
 type
 
 // ============================================================================
-AICloud = class(TaiThing)
+TaiCloud = class(TaiThing)
 private
   fWater: single;
   fRaining: boolean;
@@ -39,7 +39,7 @@ public
 end;
 
 // ============================================================================
-AILightning = class(TaiThing)
+TaiLightning = class(TaiThing)
 private
   fLifeTime: integer;
 protected
@@ -55,7 +55,7 @@ public
 end;
 
 // ============================================================================
-AIIceberg = class(TaiThing)
+TaiIceberg = class(TaiThing)
 private
   fWater: single;
 public
@@ -69,7 +69,7 @@ public
 end;
 
 // ============================================================================
-AIAurora = class(AISatellite)
+TaiAurora = class(TaiSatellite)
 private
   fLuminosity: single;
 public
@@ -77,7 +77,7 @@ public
 end;
 
 // ============================================================================
-AIEarthquake = class(TaiThing)
+TaiEarthquake = class(TaiThing)
 private
   fRumble: single;
   procedure SetRumble(aValue: single);
@@ -104,7 +104,7 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AICloud.Create;
+constructor TaiCloud.Create;
 begin
   inherited Create(aParent);
 
@@ -123,9 +123,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.Fuel;
+procedure TaiCloud.Fuel;
 var
-  Location: AIGrid;
+  Location: TaiGrid;
 begin
   inherited Fuel;
 
@@ -140,7 +140,7 @@ begin
       Position.Velocity.DeltaHeight := Position.Velocity.DeltaHeight + 0.05;
   end;
 
-  Location := AIGrid(Position.Location);
+  Location := TaiGrid(Position.Location);
 
   // rain
   if Raining then
@@ -186,9 +186,9 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.Separate;
+procedure TaiCloud.Separate;
 var
-  myBrotherCloud: AICloud;
+  myBrotherCloud: TaiCloud;
 begin
   if Random(2) = 0 then
   begin
@@ -201,7 +201,7 @@ begin
 
   if Random(32) = 0 then Storm := true;
 
-  myBrotherCloud := AICloud(gThings.NewThing(cCloud));
+  myBrotherCloud := TaiCloud(gThings.NewThing(cCloud));
   myBrotherCloud.Water := Water/2;
   myBrotherCloud.Position.CopyCoords(Position);
   myBrotherCloud.Position.Velocity.ApplyForce(RandomSwing * 0.05, RandomSwing * 0.05, 0);
@@ -213,21 +213,21 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.LightningStrike;
+procedure TaiCloud.LightningStrike;
 var
-  myLightning: AILightning;
+  myLightning: TaiLightning;
 begin
   if not gThings.CanAdd(cLightning) then
     exit;
 
-  myLightning := AILightning(gThings.NewThing(cLightning));
+  myLightning := TaiLightning(gThings.NewThing(cLightning));
   myLightning.Position.CopyCoords(Position);
   myLightning.LifeTime := 8;
   myLightning.Position.Fuel;
 end;
 
 // ----------------------------------------------------------------------------
-constructor AILightning.Create;
+constructor TaiLightning.Create;
 begin
   inherited Create(aParent);
 
@@ -241,7 +241,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILightning.Fuel;
+procedure TaiLightning.Fuel;
 begin
   inherited Fuel;
 
@@ -255,14 +255,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILightning.Shock;
+procedure TaiLightning.Shock;
 var
-  myExplosion: AIExplosion;
+  myExplosion: TaiExplosion;
 begin
   if not gThings.CanAdd(cExplosion) then
     exit;
 
-  myExplosion := AIExplosion(gThings.NewThing(cExplosion));
+  myExplosion := TaiExplosion(gThings.NewThing(cExplosion));
   myExplosion.Position.CopyCoords(Position);
   myExplosion.Position.Height := 0;
   myExplosion.Effect := cEffectBlast;
@@ -273,7 +273,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.SaveToFile(var aFile: TextFile);
+procedure TaiCloud.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fWater);
@@ -282,7 +282,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.LoadFromFile(var aFile: TextFile);
+procedure TaiCloud.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fWater);
@@ -291,19 +291,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILightning.SaveToFile(var aFile: TextFile);
+procedure TaiLightning.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILightning.LoadFromFile(var aFile: TextFile);
+procedure TaiLightning.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIAurora.Fuel;
+procedure TaiAurora.Fuel;
 begin
   inherited Fuel;
 
@@ -313,7 +313,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AICloud.OneLineDisplay: string;
+function TaiCloud.OneLineDisplay: string;
 begin
   result := Format('Cloud %d Water=%0.2f ', [Handle, Water])
     + 'Rain=' + BoolToYesNoStr(Raining)
@@ -322,14 +322,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIIceberg.Separate;
+procedure TaiIceberg.Separate;
 var
-  myBrotherIceberg: AIIceberg;
+  myBrotherIceberg: TaiIceberg;
 begin
   if not gThings.CanAdd(cIceberg) then
     exit;
 
-  myBrotherIceberg := AIIceberg(gThings.NewThing(cIceberg));
+  myBrotherIceberg := TaiIceberg(gThings.NewThing(cIceberg));
   myBrotherIceberg.Water := Water/2;
   myBrotherIceberg.Position.CopyCoords(Position);
   myBrotherIceberg.Position.Velocity.ApplyForce(RandomSwing * 1.75, RandomSwing * 1.75, 0);
@@ -339,21 +339,21 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIIceberg.SaveToFile(var aFile: TextFile);
+procedure TaiIceberg.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fWater);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIIceberg.LoadFromFile(var aFile: TextFile);
+procedure TaiIceberg.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fWater);
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIIceberg.Create;
+constructor TaiIceberg.Create;
 begin
   inherited Create(aParent);
 
@@ -365,19 +365,16 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIIceberg.Fuel;
+procedure TaiIceberg.Fuel;
 var
-  Location: AIGrid;
+  Location: TaiGrid;
 begin
   inherited Fuel;
-
   if Water <= 0 then
     Cease;
-
-  Location := AIGrid(Position.Location);
+  Location := TaiGrid(Position.Location);
 
 //  Melting := ;
-
   // rain
   if Location.Temperature > 0 then
   begin
@@ -397,24 +394,22 @@ begin
 //    if Water > 50 then
 //      Separate;
   end;
-
   Position.SetSize(Water/20, Water/20, Water/20);
   Position.Mass := Water;
   Position.Buoyancy := Water * 0.6;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.FullDisplay(aList: TStrings);
+procedure TaiCloud.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add(Format('Water: %0.2f', [fWater]));
   aList.Add('Raining: ' + BoolToYesNoStr(fRaining));
   aList.Add('Storm: ' + BoolToYesNoStr(fStorm));
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICloud.Perform(aActivity: integer);
+procedure TaiCloud.Perform(aActivity: integer);
 begin
   case aActivity of
     0: LightningStrike;
@@ -425,7 +420,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILightning.FullDisplay(aList: TStrings);
+procedure TaiLightning.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -433,7 +428,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIIceberg.FullDisplay(aList: TStrings);
+procedure TaiIceberg.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -441,13 +436,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILightning.Digest(const aAmount: integer): integer;
+function TaiLightning.Digest(const aAmount: integer): integer;
 begin
   result := -10000;
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIEarthquake.Create;
+constructor TaiEarthquake.Create;
 begin
   inherited Create(aParent);
 
@@ -462,7 +457,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEarthquake.SetRumble(aValue: single);
+procedure TaiEarthquake.SetRumble(aValue: single);
 begin
   fRumble := aValue;
   if fRumble > 10 then
@@ -470,7 +465,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEarthquake.Fuel;
+procedure TaiEarthquake.Fuel;
 begin
   inherited Fuel;
 
@@ -489,13 +484,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEarthquake.Shake;
+procedure TaiEarthquake.Shake;
 begin
   gThings.Existents.ShakeLand(fRumble/10);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEarthquake.FullDisplay(aList: TStrings);
+procedure TaiEarthquake.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -503,14 +498,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEarthquake.SaveToFile(var aFile: TextFile);
+procedure TaiEarthquake.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fRumble);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEarthquake.LoadFromFile(var aFile: TextFile);
+procedure TaiEarthquake.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fRumble);

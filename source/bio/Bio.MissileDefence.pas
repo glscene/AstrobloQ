@@ -16,12 +16,12 @@ uses
 type
 
 // ============================================================================
-AIMissileDefence = class(AIOrbiter)
+TaiMissileDefence = class(TaiOrbiter)
 private
-  fDestination: AIPosition;
-  fPredictor: AIPosition;
-  fPick: AIPosition;
-  fInitial: AIPosition;
+  fDestination: TaiPosition;
+  fPredictor: TaiPosition;
+  fPick: TaiPosition;
+  fInitial: TaiPosition;
   fRecharge: integer;
   fPriority: single;
 protected
@@ -31,14 +31,12 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
-  property Initial: AIPosition read fInitial;
-  property Destination: AIPosition read fDestination;
-  property Predictor: AIPosition read fPredictor;
-  property Pick: AIPosition read fPick;
+  property Initial: TaiPosition read fInitial;
+  property Destination: TaiPosition read fDestination;
+  property Predictor: TaiPosition read fPredictor;
+  property Pick: TaiPosition read fPick;
   property Recharge: integer read fRecharge write fRecharge;
   property Priority: single read fPriority write SetPriority;
-
   procedure Damage(aAmount: integer); override;
   procedure OnCollide(aCollider: TaiThing); override;
   procedure Explode; override;
@@ -47,7 +45,7 @@ public
 end;
 
 // ============================================================================
-AIMissile = class(TaiThing)
+TaiMissile = class(TaiThing)
 private
   fTimer: integer;
   fAim: integer;
@@ -56,19 +54,15 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   property Timer: integer read fTimer write fTimer;
   property Aim: integer read fAim write fAim;
-
   procedure OnCollide(aCollider: TaiThing); override;
   procedure Damage(aAmount: integer); override;
-
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
 end;
 
-//------------------------------------------------------------------------------
-implementation
+implementation //--------------------------------------------------------------
 
 uses
   Bio.Reality,
@@ -81,16 +75,16 @@ uses
   Bio.Explosions;
 
 // ----------------------------------------------------------------------------
-constructor AIMissileDefence.Create(aParent: pointer);
+constructor TaiMissileDefence.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
   Kind := cMissileDefence;
 
-  fPredictor := AIPosition.Create(self);
-  fPick := AIPosition.Create(self);
-  fDestination := AIPosition.Create(self);
-  fInitial := AIPosition.Create(self);
+  fPredictor := TaiPosition.Create(self);
+  fPick := TaiPosition.Create(self);
+  fDestination := TaiPosition.Create(self);
+  fInitial := TaiPosition.Create(self);
   Priority := 0;
 
   Position.SetSize(1, 1, 1, true);
@@ -100,7 +94,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIMissileDefence.Destroy;
+destructor TaiMissileDefence.Destroy;
 begin
   fPredictor.Free;
   fPick.Free;
@@ -111,7 +105,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.Fuel;
+procedure TaiMissileDefence.Fuel;
 begin
   inherited Fuel;
 
@@ -131,7 +125,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.SetPriority(aValue: single);
+procedure TaiMissileDefence.SetPriority(aValue: single);
 begin
   fPriority := aValue;
   if fPriority < 0.0 then
@@ -141,17 +135,17 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.FullDisplay(aList: TStrings);
+procedure TaiMissileDefence.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
 end;
 
 // ----------------------------------------------------------------------------
-function AIMissileDefence.Shoot: boolean;
+function TaiMissileDefence.Shoot: boolean;
 var
-  myMissile: AIMissile;
-  myAsteroid: AIAsteroid;
+  myMissile: TaiMissile;
+  myAsteroid: TaiAsteroid;
   myDistance,myLastDistance: single;
   i, j, aLoopStart, aLoopEnd, Timer: integer;
   mySpeed, myCollide: single;
@@ -249,7 +243,7 @@ begin
   // found the right missile path
   if FoundIt then
   begin
-    myMissile := AIMissile(gThings.NewThing(cMissile));
+    myMissile := TaiMissile(gThings.NewThing(cMissile));
     myMissile.Position.FullCopy(Pick);
     myMissile.Timer := Timer;
     myMissile.Aim := myAsteroid.Handle;
@@ -261,11 +255,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.Explode;
+procedure TaiMissileDefence.Explode;
 var
-  myExplosion: AIExplosion;
+  myExplosion: TaiExplosion;
 begin
-  myExplosion := AIExplosion(gThings.NewThing(cExplosion));
+  myExplosion := TaiExplosion(gThings.NewThing(cExplosion));
   Noise(cNoiseSmash, 1);
   if Assigned(myExplosion) then
   begin
@@ -281,7 +275,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-constructor AIMissile.Create(aParent: pointer);
+constructor TaiMissile.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
@@ -293,14 +287,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-destructor AIMissile.Destroy;
+destructor TaiMissile.Destroy;
 begin
 
   inherited Destroy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissile.Fuel;
+procedure TaiMissile.Fuel;
 begin
   inherited Fuel;
 
@@ -319,14 +313,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissile.FullDisplay(aList: TStrings);
+procedure TaiMissile.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissile.OnCollide(aCollider: TaiThing);
+procedure TaiMissile.OnCollide(aCollider: TaiThing);
 begin
   aCollider.Cease;
   if Exists then
@@ -337,18 +331,18 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissile.Damage(aAmount: integer);
+procedure TaiMissile.Damage(aAmount: integer);
 begin
   // do nothing
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissile.Explode;
+procedure TaiMissile.Explode;
 var
-  myExplosion: AIExplosion;
+  myExplosion: TaiExplosion;
   myTarget: TaiThing;
 begin
-  myExplosion := AIExplosion(gThings.NewThing(cExplosion));
+  myExplosion := TaiExplosion(gThings.NewThing(cExplosion));
   Noise(cNoiseSmash, 1);
   if Assigned(myExplosion) then
   begin
@@ -363,13 +357,13 @@ begin
   end;
   myTarget := TaiThing(gThings.FindWithHandle(Aim));
   if (myTarget<>nil) and (myTarget.Exists) and (myTarget.Kind = cAsteroid) then
-    AIAsteroid(myTarget).UnMark;
+    TaiAsteroid(myTarget).UnMark;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.OnCollide(aCollider: TaiThing);
+procedure TaiMissileDefence.OnCollide(aCollider: TaiThing);
 begin
-  if not (aCollider is AIMissileDefence) or (Position.Velocity.Strength > 1) then
+  if not (aCollider is TaiMissileDefence) or (Position.Velocity.Strength > 1) then
   begin
     Explode;
     Cease;
@@ -377,7 +371,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIMissileDefence.Damage(aAmount: integer);
+procedure TaiMissileDefence.Damage(aAmount: integer);
 begin
   Explode;
   Cease;
