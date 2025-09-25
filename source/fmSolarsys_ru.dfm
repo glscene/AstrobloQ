@@ -32,7 +32,6 @@ object frmSolarsys: TfrmSolarsys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 645
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object frmSolarsys: TfrmSolarsys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -88,7 +88,6 @@ object frmSolarsys: TfrmSolarsys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -121,6 +120,7 @@ object frmSolarsys: TfrmSolarsys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
+      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -133,6 +133,19 @@ object frmSolarsys: TfrmSolarsys
       TabOrder = 4
       OnClick = cbRotationClick
     end
+    inline FrameParamsR: TFrameParamsR
+      Left = 1
+      Top = 38
+      Width = 145
+      Height = 65
+      Align = alTop
+      TabOrder = 5
+      Visible = False
+      ExplicitLeft = 24
+      ExplicitTop = 44
+      ExplicitWidth = 137
+      ExplicitHeight = 65
+    end
   end
   object StatusBarSol: TStatusBar
     Left = 0
@@ -142,17 +155,6 @@ object frmSolarsys: TfrmSolarsys
     Panels = <>
     ExplicitTop = 510
     ExplicitWidth = 971
-  end
-  inline FrameParamsR: TFrameParamsR
-    Left = 576
-    Top = 453
-    Width = 241
-    Height = 65
-    TabOrder = 4
-    ExplicitLeft = 576
-    ExplicitTop = 453
-    ExplicitWidth = 241
-    ExplicitHeight = 65
   end
   object Scene: TGLScene
     Left = 254

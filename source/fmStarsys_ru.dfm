@@ -32,7 +32,6 @@ object frmStarsys: TfrmStarsys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 674
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object frmStarsys: TfrmStarsys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 511
     end
   end
   object PanelRight: TPanel
@@ -87,7 +87,6 @@ object frmStarsys: TfrmStarsys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -120,6 +119,7 @@ object frmStarsys: TfrmStarsys
       Lines.Strings = (
         'Memo1')
       TabOrder = 4
+      ExplicitTop = 389
     end
     object cbRotation: TCheckBox
       Left = 29

@@ -42,7 +42,6 @@ object FormSolarSys: TFormSolarSys
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
-    ExplicitHeight = 510
     object TreeView: TTreeView
       Left = 4
       Top = 4
@@ -55,7 +54,6 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
-      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -65,8 +63,6 @@ object FormSolarSys: TFormSolarSys
     Height = 535
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 835
-    ExplicitHeight = 510
     object Splitter1: TSplitter
       Left = 1
       Top = 18
@@ -119,7 +115,6 @@ object FormSolarSys: TFormSolarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
-      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -132,6 +127,18 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 4
       OnClick = cbRotationClick
     end
+    inline FrameParams: TFrameParams
+      Left = 1
+      Top = 38
+      Width = 134
+      Height = 119
+      Align = alTop
+      TabOrder = 5
+      ExplicitLeft = 15
+      ExplicitTop = 48
+      ExplicitWidth = 121
+      ExplicitHeight = 119
+    end
   end
   object StatusBarSol: TStatusBar
     Left = 0
@@ -139,19 +146,6 @@ object FormSolarSys: TFormSolarSys
     Width = 979
     Height = 18
     Panels = <>
-    ExplicitTop = 510
-    ExplicitWidth = 971
-  end
-  inline FrameParams: TFrameParams
-    Left = 632
-    Top = 410
-    Width = 185
-    Height = 119
-    TabOrder = 4
-    ExplicitLeft = 632
-    ExplicitTop = 410
-    ExplicitWidth = 185
-    ExplicitHeight = 119
   end
   object Scene: TGLScene
     Left = 254

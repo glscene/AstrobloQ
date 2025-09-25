@@ -132,6 +132,18 @@ object FormStarsys: TFormStarsys
       TabOrder = 4
       OnClick = cbRotationClick
     end
+    inline FrameParams: TFrameParams
+      Left = 1
+      Top = 38
+      Width = 134
+      Height = 119
+      Align = alTop
+      TabOrder = 5
+      ExplicitLeft = 31
+      ExplicitTop = 410
+      ExplicitWidth = 105
+      ExplicitHeight = 119
+    end
   end
   object StatusBarStar: TStatusBar
     Left = 0
@@ -141,17 +153,6 @@ object FormStarsys: TFormStarsys
     Panels = <>
     ExplicitTop = 519
     ExplicitWidth = 989
-  end
-  inline FrameParams: TFrameParams
-    Left = 632
-    Top = 410
-    Width = 185
-    Height = 119
-    TabOrder = 4
-    ExplicitLeft = 632
-    ExplicitTop = 410
-    ExplicitWidth = 185
-    ExplicitHeight = 119
   end
   object Scene: TGLScene
     Left = 24

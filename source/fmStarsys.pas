@@ -52,8 +52,8 @@ uses
 
   fmOptions,
   frParams,
-
-  fmFormFirst
+  fmFormFirst,
+  Astro.Utils
   ;
 
 type
@@ -200,14 +200,11 @@ implementation //-----------------------------------------------------
 
 procedure TFormStarsys.FormCreate;
 begin
-  //GetCurrentDir()  from settings
-  PathToData := ExtractFilePath(ParamStr(0))  + 'data';
-  SetCurrentDir(PathToData);
-
-  // Maps as cylindrical textures
-  CurrentDir := PathToData  + '\star\sun\';
+  PathToData := GetDataPath();
+  CurrentDir := PathToData  + '\stars\sun\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
+  // Maps as cylindrical textures
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');   // current star
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg'); // appropriate map
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');

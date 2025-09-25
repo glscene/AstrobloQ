@@ -53,7 +53,8 @@ uses
 
   fmFormFirst,
   fmOptions_ru,
-  frParams_ru
+  frParams_ru,
+  Astro.Utils
   ;
 
 type
@@ -193,13 +194,11 @@ implementation //-----------------------------------------------------
 
 procedure TfrmSolarsys.FormCreate;
 begin
-  PathToData := ExtractFilePath(ParamStr(0))  + 'data';
-  SetCurrentDir(PathToData);
-
-  // Maps as cylindrical textures
-  CurrentDir := PathToData  + '\stars\sun\'; //GetCurrentDir()
+  PathToData := GetDataPath();
+  CurrentDir := PathToData  + '\stars\sun\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
+  // Maps as cylindrical textures
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg');
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');

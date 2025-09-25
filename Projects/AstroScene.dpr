@@ -53,5 +53,6 @@ begin
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TfrmConstells, frmConstells);
   Application.Run;
 end.

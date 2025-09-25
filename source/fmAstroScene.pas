@@ -863,7 +863,7 @@ end;
 // -----------------------------------------------------------------
 procedure TfrmAstroScene.miStarsysClick(Sender: TObject);
 begin
-  with TFormStarsys(Self) do
+  with TFormStarsys.Create(Self) do
     try
       ShowModal;
     finally
