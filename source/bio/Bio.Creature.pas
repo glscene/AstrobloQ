@@ -41,11 +41,6 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Grabber: TaiAttachment read fGrabber;
-  property Eyes: TaiLink read fEyes;
-  property Desire: integer read fDesire write fDesire;
-  property NextActivity: integer read fNextActivity write fNextActivity;
-  property Size: single read fSize write fSize;
   // Actions
   function Eat(const JawSize: integer): boolean; virtual;
   procedure Grab(aTarget: TaiThing); overload;
@@ -73,6 +68,12 @@ public
   procedure LoadFromFile(var aFile: TextFile); override;
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
+  // property
+  property Grabber: TaiAttachment read fGrabber;
+  property Eyes: TaiLink read fEyes;
+  property Desire: integer read fDesire write fDesire;
+  property NextActivity: integer read fNextActivity write fNextActivity;
+  property Size: single read fSize write fSize;
 end;
 
 implementation //-------------------------------------------------------------

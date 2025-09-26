@@ -11,7 +11,7 @@ uses
   Bio.Environment in '..\source\bio\Bio.Environment.pas',
   Bio.EnvironmentStructures in '..\source\bio\Bio.EnvironmentStructures.pas',
   Bio.Explosions in '..\source\bio\Bio.Explosions.pas',
-  Bio.Fish in '..\source\bio\Bio.Fish.pas',
+  Bio.Pisces in '..\source\bio\Bio.Pisces.pas',
   Bio.Force in '..\source\bio\Bio.Force.pas',
   Bio.Fox in '..\source\bio\Bio.Fox.pas',
   Bio.Grazer in '..\source\bio\Bio.Grazer.pas',
@@ -23,7 +23,6 @@ uses
   Bio.Rabbit in '..\source\bio\Bio.Rabbit.pas',
   Bio.Reality in '..\source\bio\Bio.Reality.pas',
   Bio.Satellites in '..\source\bio\Bio.Satellites.pas',
-  Bio.Shark in '..\source\bio\Bio.Shark.pas',
   Bio.Space in '..\source\bio\Bio.Space.pas',
   Bio.Terrier in '..\source\bio\Bio.Terrier.pas',
   Bio.ThingReferenceList in '..\source\bio\Bio.ThingReferenceList.pas',
@@ -42,8 +41,7 @@ uses
   Bio.Mating in '..\source\bio\Bio.Mating.pas',
   Bio.Dolphin in '..\source\bio\Bio.Dolphin.pas',
   Bio.ReportCard in '..\source\bio\Bio.ReportCard.pas',
-  Bio.Ladybug in '..\source\bio\Bio.Ladybug.pas',
-  Bio.Ant in '..\source\bio\Bio.Ant.pas',
+  Bio.Insects in '..\source\bio\Bio.Insects.pas',
   Bio.LearningCreature in '..\source\bio\Bio.LearningCreature.pas',
   Bio.DNA in '..\source\bio\Bio.DNA.pas',
   Bio.GeneticCreature in '..\source\bio\Bio.GeneticCreature.pas',
@@ -84,15 +82,15 @@ uses
   Bio.Things in '..\source\bio\Bio.Things.pas',
   Bio.Utilities in '..\source\bio\Bio.Utilities.pas',
   fbTutorial in '..\source\bio\fbTutorial.pas' {FormTutorial},
-  dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm in '..\source\bio\fbMiniForm.pas',
-  Space.Globals in '..\source\Space.Globals.pas';
+  Space.Globals in '..\source\Space.Globals.pas',
+  dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.Title := 'BioSphere';
+  Application.Title := 'Biosfera';
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmImages, frmImages);
   Application.CreateForm(TfrmConstruction, frmConstruction);

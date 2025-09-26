@@ -36,36 +36,28 @@ private
   fHeight: integer;     // height of the map (grids)
   fRadius: single;      // radius of the planet (for visual only)
   fSpherical: boolean;  // is the user viewing this in sphere or flat mode?
-
   fMap: TaiMap;          // array of grids
-
   // keep two lists of events
-  fEventList1: AIEventList; // first round of events
-  fEventList2: AIEventList; // next round of events
-  fEventRound: AIEventList; // pointer to active event queue
-  fEventQueue: AIEventList; // pointer to active round of events
-
+  fEventList1: TaiEventList; // first round of events
+  fEventList2: TaiEventList; // next round of events
+  fEventRound: TaiEventList; // pointer to active event queue
+  fEventQueue: TaiEventList; // pointer to active round of events
   // derived at runtime
   fWidthLoop: integer;    //width-1
   fHeightLoop: integer;   //height-1
   fHalfWidth: integer;    //width/2
   fHalfHeight: integer;   //height/2
-
   fWidthSingle: single;
   fHeightSingle: single;
   fHalfWidthSingle: single;
   fHalfHeightSingle: single;
-
   fWorldWidth: single;
   fWorldHeight: single;
-
   fDefaultHeight: integer;
   fDefaultWater: integer;
   fDefaultTemperature: integer;
   fDefaultHumidity: integer;
-
   fAsteroids: integer;
-
   procedure InitializeMap;
   procedure FreeMap;
   procedure ConnectMap;
@@ -79,12 +71,42 @@ public
     aWidth: integer;
     aHeight: integer);
   destructor Destroy; override;
+  // terrain generation routines
+  procedure GenerateHalo;
+  procedure GenerateContinents(aAmount: integer);
+  procedure GenerateIslands(aAmount: integer);
+  procedure FreezePoles;
+  procedure MeteorShower;
+  procedure ResetMapToDefaults;
+  procedure MoveWater(
+    aSource: TaiGrid;
+    aAmount: single;
+    aDestination: TaiGrid);
+  procedure QueueChange(
+    aDestination: TaiGrid;
+    aChangeKind: integer;
+    aAmount: single);
+  procedure Fuel;
+  procedure Stabalize;  // large scale grid validization
+  procedure FuzzyHeight(aFuzz: integer); // adds small random values to height
+  function RandomLocation: TaiGrid;
+  function RandomLocationAwayFromPoles: TaiGrid;
+  procedure Clean;
+  procedure Build(aWidth: integer; aHeight: integer);
+  procedure SaveToFile(var aFile: TextFile); override;
+  procedure LoadFromFile(var aFile: TextFile); override;
+  function LandAtPosition(aX, aY: single): single;
+  function WaterAtPosition(aX, aY: single): single;
+  function FindWithHandle(aHandle: integer): TaiBaseObject;
+  procedure FullDisplay(aList: TStrings); override;
+  // property
+  property Map: TaiMap read fMap;
   property Width: integer read fWidth;
   property Height: integer read fHeight;
   property Radius: single read fRadius write fRadius;
   property Spherical: boolean read fSpherical write fSpherical;
-  property EventRound: AIEventList read fEventRound;
-  property EventQueue: AIEventList read fEventQueue;
+  property EventRound: TaiEventList read fEventRound;
+  property EventQueue: TaiEventList read fEventQueue;
   property WidthLoop: integer read fWidthLoop;
   property HeightLoop: integer read fHeightLoop;
   property HalfWidth: integer read fHalfWidth;
@@ -99,38 +121,6 @@ public
   property DefaultHumidity: integer read fDefaultHumidity write fDefaultHumidity;
   property DefaultWaterHeight: integer read GetDefaultWaterHeight;
   property Asteroids: integer read fAsteroids write fAsteroids;
-
-  // terrain generation routines
-  procedure GenerateHalo;
-  procedure GenerateContinents(aAmount: integer);
-  procedure GenerateIslands(aAmount: integer);
-  procedure FreezePoles;
-  procedure MeteorShower;
-  procedure ResetMapToDefaults;
-
-  property Map: TaiMap read fMap;
-  procedure MoveWater(
-    aSource: TaiGrid;
-    aAmount: single;
-    aDestination: TaiGrid);
-  procedure QueueChange(
-    aDestination: TaiGrid;
-    aChangeKind: integer;
-    aAmount: single);
-  procedure Fuel;
-  procedure Stabalize;  // large scale grid validization
-  procedure FuzzyHeight(aFuzz: integer); // adds small random values to height
-  function RandomLocation: TaiGrid;
-  function RandomLocationAwayFromPoles: TaiGrid;
-
-  procedure Clean;
-  procedure Build(aWidth: integer; aHeight: integer);
-  procedure SaveToFile(var aFile: TextFile); override;
-  procedure LoadFromFile(var aFile: TextFile); override;
-  function LandAtPosition(aX, aY: single): single;
-  function WaterAtPosition(aX, aY: single): single;
-  function FindWithHandle(aHandle: integer): TaiBaseObject;
-  procedure FullDisplay(aList: TStrings); override;
 end;
 
 implementation //=============================================================
@@ -173,8 +163,8 @@ begin
   ConnectMap;
   HeightenMap;
 
-  fEventList1 := AIEventList.Create(self, 64);
-  fEventList2 := AIEventList.Create(self, 64);
+  fEventList1 := TaiEventList.Create(self, 64);
+  fEventList2 := TaiEventList.Create(self, 64);
   fEventRound := fEventList1;
   fEventQueue := fEventList2;
 
@@ -214,8 +204,8 @@ begin
   ConnectMap;
   HeightenMap;
 
-  fEventList1 := AIEventList.Create(self, fWidth*fHeight*2);
-  fEventList2 := AIEventList.Create(self, fWidth*fHeight*2);
+  fEventList1 := TaiEventList.Create(self, fWidth*fHeight*2);
+  fEventList2 := TaiEventList.Create(self, fWidth*fHeight*2);
   fEventRound := fEventList1;
   fEventQueue := fEventList2;
 end;
@@ -595,7 +585,7 @@ procedure TaiSpace.Effects;
 var
   i: integer;
   RigidCount: integer;
-  myEvent: AISpatialEvent;
+  myEvent: TaiSpatialEvent;
   myGrid: TaiGrid;
 begin
   RigidCount := fEventRound.ActiveIndex - 1;
@@ -683,7 +673,7 @@ procedure TaiSpace.QueueChange(
     aChangeKind: integer;
     aAmount: single);
 var
-  myChange: AISpatialEvent;
+  myChange: TaiSpatialEvent;
   i, RigidCount: integer;
   duplicate: boolean;
 begin
@@ -694,7 +684,7 @@ begin
 //  if aDestination.Flagged then
   for i := 0 to RigidCount do
   begin
-    myChange := AISpatialEvent(fEventQueue.Events[i]);
+    myChange := TaiSpatialEvent(fEventQueue.Events[i]);
 
     if (myChange.Target = aDestination) and (myChange.Kind = aChangeKind) then
     begin

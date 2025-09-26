@@ -19,7 +19,6 @@ uses
 const
   cCrabBaby = 0;
   cCrabAdult = 256;
-
   cCrabSpeed = 0.05;
 
 type
@@ -27,14 +26,13 @@ type
 // ============================================================================
 // an individual Crab
 // the happiest crabs are the crabs that play with alot of balls
-TaiCrab = class(AILearningCreature)
+TaiCrab = class(TaiLearningCreature)
 protected
   procedure FindAndGrab;
   function HoldingFood: boolean;
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Fuel; override;
   procedure Hop;
   procedure Scuttle;

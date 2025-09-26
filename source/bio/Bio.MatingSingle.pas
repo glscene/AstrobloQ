@@ -29,9 +29,9 @@ type
 // ============================================================================
 TaiMatingSingleCreature = class(TaiCreature)
 private
-  fPartner: TaiLink; // potential partner to reproduce with
-  fFemale: boolean; // true if girl, false if guy
-  fStage: integer;  // stage of sexual reproduction
+  fPartner: TaiLink;  // potential partner to reproduce with
+  fFemale: boolean;   // true if girl, false if guy
+  fStage: integer;    // stage of sexual reproduction
   fMatingTimer: integer; // timer to delay mating
 protected
   procedure MatingBehaviour;
@@ -41,23 +41,21 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   procedure Fuel; override;
   procedure Die; override;
   procedure Cease; override;
-
-  property Partner: TaiLink read fPartner;
-  property Female: boolean read fFemale write fFemale;
-  property Stage: integer read fStage write fStage;
-  property MatingTimer: integer read fMatingTimer write fMatingTimer;
-
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Partner: TaiLink read fPartner;
+  property Female: boolean read fFemale write fFemale;
+  property Stage: integer read fStage write fStage;
+  property MatingTimer: integer read fMatingTimer write fMatingTimer;
 end;
 
-implementation //-------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,
@@ -65,13 +63,12 @@ uses
   Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Fish;
+  Bio.Pisces;
 
 // ----------------------------------------------------------------------------
 constructor TaiMatingSingleCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   fPartner := gEnvironment.References.NewLink(self);
   // random gender
   if Random(2) = 0 then
@@ -86,7 +83,6 @@ end;
 destructor TaiMatingSingleCreature.Destroy;
 begin
   gEnvironment.References.Remove(fPartner);
-
   inherited Destroy;
 end;
 
@@ -94,7 +90,6 @@ end;
 procedure TaiMatingSingleCreature.Fuel;
 begin
   inherited Fuel;
-
   case fStage of
     cCreatureBaby:  if Age > 1024 then fStage := cCreatureAdult;
     cCreatureAdult: if Age > 9500 then fStage := cCreatureElder;
@@ -106,7 +101,6 @@ end;
 procedure TaiMatingSingleCreature.Die;
 begin
   inherited Die;
-
   fPartner.InvalidateTarget;
 end;
 
@@ -114,7 +108,6 @@ end;
 procedure TaiMatingSingleCreature.Cease;
 begin
   fPartner.InvalidateTarget;
-
   inherited Cease;
 end;
 

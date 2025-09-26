@@ -23,7 +23,6 @@ public
   // create and delete
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property DNA: TaiDNA read fDNA;
   // DNA access
   function HasDNA: boolean; override;
   function GetDNA: pointer; override;
@@ -33,6 +32,8 @@ public
   // display routines
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
+  // property
+  property DNA: TaiDNA read fDNA;
 end;
 
 // ============================================================================
@@ -42,12 +43,10 @@ private
   procedure BearFruit;
 public
   constructor Create(aParent: pointer);
-
   procedure Fuel; override;
   procedure Cease; override;
   procedure Perform(aActivity: integer); override;
   function Digest(const aAmount: integer): integer; override;
-
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
@@ -60,13 +59,14 @@ private
   procedure DropSeed;
 public
   constructor Create(aParent: pointer);
-  property CarryingSeed: boolean read fCarryingSeed write fCarryingSeed;
   procedure Fuel; override;
   procedure Cease; override;
   function IsFruit: boolean; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property CarryingSeed: boolean read fCarryingSeed write fCarryingSeed;
 end;
 
 // ============================================================================

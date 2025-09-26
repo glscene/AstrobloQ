@@ -35,18 +35,16 @@ private
   fBlastRadius: single;
 public
   constructor Create(aParent: pointer);
-
+  procedure Fuel; override;
+  procedure Shrapnel;
+  function Digest(const aAmount: integer): integer; override;
+  procedure SaveToFile(var aFile: TextFile); override;
+  procedure LoadFromFile(var aFile: TextFile); override;
+  // property
   property Effect: integer read fEffect write fEffect;
   property Strength: single read fStrength write fStrength;
   property Diminish: single read fDiminish write fDiminish;
   property BlastRadius: single read fBlastRadius write fBlastRadius;
-
-  procedure Fuel; override;
-  procedure Shrapnel;
-  function Digest(const aAmount: integer): integer; override;
-
-  procedure SaveToFile(var aFile: TextFile); override;
-  procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
 // ============================================================================
@@ -59,20 +57,19 @@ private
   fBlastRadius: single;
 public
   constructor Create(aParent: pointer);
-
+  procedure Fuel; override;
+  procedure Explode;
+  procedure SaveToFile(var aFile: TextFile); override;
+  procedure LoadFromFile(var aFile: TextFile); override;
+  // property
   property Timer: integer read fTimer write fTimer;
   property Effect: integer read fEffect write fEffect;
   property Strength: single read fStrength write fStrength;
   property Diminish: single read fDiminish write fDiminish;
   property BlastRadius: single read fBlastRadius write fBlastRadius;
-
-  procedure Fuel; override;
-  procedure Explode;
-  procedure SaveToFile(var aFile: TextFile); override;
-  procedure LoadFromFile(var aFile: TextFile); override;
 end;
 
-implementation //--------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,
@@ -85,7 +82,6 @@ uses
 constructor TaiBomb.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cBomb;
   Timer := 128;
   Strength := 0.175;
@@ -111,10 +107,8 @@ var
   myExplosion: TaiExplosion;
 begin
   Cease;
-
   if (Effect = cEffectShell) or (Effect = cEffectBullet) then
     exit;
-
   myExplosion := TaiExplosion(gThings.NewThing(cExplosion));
   if not (myExplosion = nil) then
   begin
@@ -146,19 +140,15 @@ var
   myGrid: TaiGrid;
 begin
   inherited Fuel;
-
   Shrapnel;
-
   // change temp
   myGrid := TaiGrid(Position.Location);
   if not (Position.Binding = bindSpace) then
     myGrid.AlterTemperature(0.1);
   if Position.Height < (Position.Water + BlastRadius) then
-    myGrid.Splash(Strength); 
-
+    myGrid.Splash(Strength);
   gEnvironment.Things.Existents.ApplyOriginatingForceToAll(Position, Strength*10, BlastRadius);
   gEnvironment.Things.Existents.ApplyDamage(Position, 512, BlastRadius);
-
   Strength := Strength - Diminish;
   if Strength <= 0 then
     Cease;

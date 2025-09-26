@@ -24,10 +24,6 @@ private
   procedure SetRightHandle(aValue: Int64);
 public
   constructor Create;
-  property LeftHandle: Int64 read fLeftHandle write SetLeftHandle;
-  property RightHandle: Int64 read fRightHandle write SetRightHandle;
-  property LeftObjectPointer: Pointer read fLeftObjectPointer write fLeftObjectPointer;
-  property RightObjectPointer: Pointer read fRightObjectPointer write fRightObjectPointer;
   function Valid: boolean;
   function ValidLeft: boolean;
   procedure AssignLeftObject(aObject: TaiBaseObject);
@@ -38,6 +34,11 @@ public
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
   procedure CopyFrom(aLinkObject: TaiLinkObject); virtual;
+  // property
+  property LeftHandle: Int64 read fLeftHandle write SetLeftHandle;
+  property RightHandle: Int64 read fRightHandle write SetRightHandle;
+  property LeftObjectPointer: Pointer read fLeftObjectPointer write fLeftObjectPointer;
+  property RightObjectPointer: Pointer read fRightObjectPointer write fRightObjectPointer;
 end;
 
 // ============================================================================
@@ -48,8 +49,6 @@ private
   procedure SetOrigin(aThing: TaiThing);
   procedure SetTarget(aThing: TaiThing);
 public
-  property Origin: TaiThing read GetOrigin write SetOrigin;
-  property Target: TaiThing read GetTarget write SetTarget;
   function OriginKind: integer;
   function TargetKind: integer;
   function Connected: boolean;
@@ -63,6 +62,9 @@ public
   procedure AssignTarget(aObject: TaiBaseObject); virtual;
   function OneLineDisplayRight: string;
   function OneLineDisplayBoth: string;
+  // property
+  property Origin: TaiThing read GetOrigin write SetOrigin;
+  property Target: TaiThing read GetTarget write SetTarget;
 end;
 
 // ============================================================================

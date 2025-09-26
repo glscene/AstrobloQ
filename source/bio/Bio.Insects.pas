@@ -1,7 +1,7 @@
-unit Bio.Ladybug;
-
-// an individual Ladybug
-
+unit Bio.Insects;
+(*
+  An individual Ant
+*)
 interface
 
 uses
@@ -9,16 +9,26 @@ uses
   System.SysUtils,
   Bio.BaseObject,
   Bio.Things,
-  Bio.Mating,
   Bio.Position,
   Bio.Life,
   Bio.Link,
   Bio.Creature,
-  Bio.GeneticCreature;
+  Bio.GeneticCreature,
+  Bio.Community;
 
 type
 
-// ============================================================================
+(* The Ant *)
+TaiAnt = class(TaiCommunityCreature)
+private
+public
+  constructor Create(aParent: pointer);
+  destructor Destroy; override;
+  procedure Fuel; override;
+  function IsPrey: boolean; override;
+end;
+
+(* The Ladybug *)
 TaiLadybug = class(TaiGeneticCreature)
 protected
   procedure DevelopIntoBaby; override;
@@ -33,20 +43,57 @@ public
   procedure Fuel; override;
 end;
 
-implementation //==============================================================
+
+implementation  // ============================================================
 
 uses
   Bio.Reality,
   Bio.Globals,
   Bio.Flora,
   Bio.Bird,
-  Bio.Vibes;
+  Bio.Vibes,
+  Bio.Utilities;
 
 // ----------------------------------------------------------------------------
+constructor TaiAnt.Create(aParent: pointer);
+begin
+  inherited Create(aParent);
+  Kind := cAnt;
+  Health := 4000;
+  Desire := cDesireWander;
+  Position.SetSize(0.2, 0.2, 0.2);
+  Position.SetProperties(1, 0.3, 0.9);
+end;
+
+// ----------------------------------------------------------------------------
+destructor TaiAnt.Destroy;
+begin
+
+  inherited Destroy;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiAnt.Fuel;
+begin
+  inherited Fuel;
+
+  // example code to eat grass
+  Forage(0.02);
+  if Grabber.Holding then
+    if Eat(128) then Noise(cNoiseEat, 1);
+end;
+
+// ----------------------------------------------------------------------------
+function TaiAnt.IsPrey: boolean;
+begin
+  result := true;
+end;
+
+
+// ------------------- Ladybug ----------------------------------------------
 constructor TaiLadybug.Create(aParent: pointer);
 begin
   Kind := cLadybug;
-
   inherited Create(aParent);
 
   Health := 2000;
@@ -57,7 +104,6 @@ end;
 // ----------------------------------------------------------------------------
 destructor TaiLadybug.Destroy;
 begin
-
   inherited Destroy;
 end;
 
@@ -65,15 +111,12 @@ end;
 procedure TaiLadybug.Fuel;
 begin
   inherited Fuel;
-
 //  desire := cDesireNone;
   if (Health < 2048) and not Grabber.Holding then
     desire := cDesireFood
   else
     desire := cDesireMate;
-
   if Age > 3000 then Die;
-
   // eat
   if Grabber.Holding then
   begin
@@ -81,7 +124,6 @@ begin
     if Grabber.Empty then
       Noise(cNoiseEat, 1);
   end;
-
   // find food
   case desire of
     cDesireFood:
@@ -165,7 +207,6 @@ begin
   end;
 end;
 
-
 // ----------------------------------------------------------------------------
 function TaiLadybug.OneLineDisplay: string;
 begin
@@ -176,7 +217,6 @@ end;
 procedure TaiLadybug.Die;
 begin
   inherited Die;
-
   Position.Buoyancy := 1.0; // float when dead
 end;
 
@@ -185,6 +225,7 @@ function TaiLadybug.IsPrey: boolean;
 begin
   result := true;
 end;
+
 
 end.
 

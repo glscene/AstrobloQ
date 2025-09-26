@@ -11,8 +11,8 @@ const
 
 type
 
-// *****************************************************************************
-TUserSettings = class(TObject)
+(* User Settings *)
+TaiUserSettings = class(TObject)
 private
   fLoadOnStartup: boolean;
   fAutoSave: boolean;
@@ -30,6 +30,10 @@ private
   fViewSizeY: integer;
   fAdvancedMode: boolean;
 public
+  procedure LoadFromRegistry;
+  procedure SaveToRegistry;
+  function OneLineDisplay: string;
+  // property
   property LoadOnStartup: boolean read fLoadOnStartup write fLoadOnStartup;
   property AutoSave: boolean read fAutoSave write fAutoSave;
   property WorkingFile: string read fWorkingFile write fWorkingFile;
@@ -45,20 +49,16 @@ public
   property ViewAligned: boolean read fViewAligned write fViewAligned;
   property ViewSizeX: integer read fViewSizeX write fViewSizeX;
   property ViewSizeY: integer read fViewSizeY write fViewSizeY;
-  procedure LoadFromRegistry;
-  procedure SaveToRegistry;
-  function OneLineDisplay: string;
 end;
 
-//=============================================================================
-implementation
+implementation //==============================================================
 
 uses
   Bio.Globals,
   Bio.Utilities;
 
 // -----------------------------------------------------------------------------
-procedure TUserSettings.LoadFromRegistry;
+procedure TaiUserSettings.LoadFromRegistry;
 var
   myRegistry: TRegistry;
 begin
@@ -158,7 +158,7 @@ begin
 end;
 
 // -----------------------------------------------------------------------------
-procedure TUserSettings.SaveToRegistry;
+procedure TaiUserSettings.SaveToRegistry;
 var
   myRegistry: TRegistry;
 begin
@@ -187,7 +187,7 @@ begin
 end;
 
 // -----------------------------------------------------------------------------
-function TUserSettings.OneLineDisplay: string;
+function TaiUserSettings.OneLineDisplay: string;
 begin
   result := '';
   result := result + '-LoadOnStartup=' + BoolToYesNoStr(fLoadOnStartup);

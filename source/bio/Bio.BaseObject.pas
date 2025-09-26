@@ -20,7 +20,6 @@ type
   public
     constructor Create(aValue: boolean);
     destructor Destroy; override;
-    property ActiveItem: Pointer read fActiveItem write fActiveItem;
     function Next: boolean;
     function First: boolean;
     function SetNextActive: boolean;
@@ -33,10 +32,11 @@ type
     function PositionAtIndex(anIndex: LongInt): boolean;
     function ActiveItemIndex: LongInt;
     function IndexOfActiveItem: LongInt;
+    // property
+    property ActiveItem: Pointer read fActiveItem write fActiveItem;
   end;
 
   // ============================================================================
-
   TaiBaseObject = class(TObject)
   private
     fHandle: integer;
@@ -46,18 +46,18 @@ type
   public
     constructor Create(aParent: Pointer);
     destructor Destroy; override;
-    property Handle: integer read fHandle write fHandle;
-    property ParentHandle: integer read fParentHandle write fParentHandle;
-    property ParentPointer: Pointer read fParentPointer write fParentPointer;
-    property Crossover: Pointer read fCrossover write fCrossover;
     function OneLineDisplay: string; virtual;
     procedure FullDisplay(aList: TStrings); virtual;
     procedure SaveToFile(var aFile: TextFile); virtual;
     procedure LoadFromFile(var aFile: TextFile); virtual;
+    // property
+    property Handle: integer read fHandle write fHandle;
+    property ParentHandle: integer read fParentHandle write fParentHandle;
+    property ParentPointer: Pointer read fParentPointer write fParentPointer;
+    property Crossover: Pointer read fCrossover write fCrossover;
   end;
 
   // ============================================================================
-
   TaiBaseContainer = class(TaiActiveList)
   private
     fParentHandle: integer;
@@ -65,10 +65,11 @@ type
   public
     constructor Create(aParent: Pointer);
     destructor Destroy; override;
-    property ParentHandle: integer read fParentHandle;
-    property ParentPointer: Pointer read fParentPointer write fParentPointer;
     function FindWithHandle(aHandle: integer): TaiBaseObject;
     procedure FullDisplay(aStrings: TStrings); virtual;
+    // property
+    property ParentHandle: integer read fParentHandle;
+    property ParentPointer: Pointer read fParentPointer write fParentPointer;
   end;
 
   // ============================================================================
@@ -79,13 +80,14 @@ type
   public
     constructor Create(aParent: Pointer);
     destructor Destroy; override;
-    property ParentPointer: Pointer read fParentPointer write fParentPointer;
     procedure FullDisplay(aStrings: TStrings); virtual;
+    // property
+    property ParentPointer: Pointer read fParentPointer write fParentPointer;
   end;
 
   TaiKind = class of TaiBaseObject;
 
-implementation // -------------------------------------------------------------
+implementation // ============================================================
 
 constructor TaiActiveList.Create(aValue: boolean);
 begin
@@ -189,7 +191,6 @@ end;
 function TaiActiveList.SetNextOrFirstActive: boolean;
 begin
   result := SetNextActive;
-
   if not result then
     result := SetFirstActive;
 end;
@@ -198,7 +199,6 @@ end;
 function TaiActiveList.SetPriorOrLastActive: boolean;
 begin
   result := SetPriorActive;
-
   if not result then
     result := SetLastActive;
 end;
@@ -230,7 +230,6 @@ end;
 constructor TaiBaseObject.Create(aParent: Pointer);
 begin
   inherited Create;
-
   fParentPointer := aParent;
   fHandle := 0;
   fParentHandle := 0;
@@ -239,7 +238,7 @@ end;
 // ----------------------------------------------------------------------------
 destructor TaiBaseObject.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 
@@ -267,14 +266,13 @@ end;
 constructor TaiBaseContainer.Create(aParent: Pointer);
 begin
   inherited Create(True); // does own objects
-
   ParentPointer := aParent;
 end;
 
 // ----------------------------------------------------------------------------
 destructor TaiBaseContainer.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 
@@ -291,14 +289,13 @@ end;
 constructor TaiReferenceList.Create(aParent: Pointer);
 begin
   inherited Create(False); // doesnt own objects
-
   ParentPointer := aParent;
 end;
 
 // ----------------------------------------------------------------------------
 destructor TaiReferenceList.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 

@@ -91,12 +91,6 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Name: string read GetName write SetName;
-  property Kind: integer read fKind write fKind;
-  property Position: TaiPosition read fPosition;
-  property Age: integer read GetAge;
-  property Birthday: integer read fBirthday;
-  property Exists: boolean read fExists;
   // queue for deletion
   procedure Cease; virtual;
   // take damage
@@ -128,6 +122,13 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Name: string read GetName write SetName;
+  property Kind: integer read fKind write fKind;
+  property Position: TaiPosition read fPosition;
+  property Age: integer read GetAge;
+  property Birthday: integer read fBirthday;
+  property Exists: boolean read fExists;
 end;
 
 // ----------------------------------------------------------------------------
@@ -164,21 +165,6 @@ protected
 public
   constructor Create(aEnvironment: pointer);
   destructor Destroy; override;
-  property Existents: TaiThingReferenceList read fExistents;
-  property Cradle:    TaiThingReferenceList read fCradle;
-  property Purgatory: TaiThingReferenceList read fPurgatory;
-  property Trash:     TaiThingReferenceList read fTrash;
-  property Fruits:    TaiThingReferenceList read fFruits;
-  property Prey:      TaiThingReferenceList read fPrey;
-  property Predators: TaiThingReferenceList read fPredators;
-  property Colliders: TaiThingReferenceList read fColliders;
-  property Tangibles: TaiThingReferenceList read fTangibles;
-  property Tables:    TaiThingTables read fTables;
-  property Forms:     TaiBaseContainer read fForms;
-  property Maximums:  TaiIntegerList read fMaximums;
-  property Counters:  TaiIntegerList read fCounters;
-  property Collisions: boolean read fCollisions write fCollisions;
-  property AI: boolean read fAI write fAI;
   function NewThing(aKind: integer): TaiThing; overload;
   function NewThing(aKind: integer; aLocation: TaiGrid): TaiThing; overload;
   function Exists(aKind: integer): boolean;
@@ -198,19 +184,35 @@ public
   procedure DisplayCounts(aList: TStrings);
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
+  // property
+  property Existents: TaiThingReferenceList read fExistents;
+  property Cradle:    TaiThingReferenceList read fCradle;
+  property Purgatory: TaiThingReferenceList read fPurgatory;
+  property Trash:     TaiThingReferenceList read fTrash;
+  property Fruits:    TaiThingReferenceList read fFruits;
+  property Prey:      TaiThingReferenceList read fPrey;
+  property Predators: TaiThingReferenceList read fPredators;
+  property Colliders: TaiThingReferenceList read fColliders;
+  property Tangibles: TaiThingReferenceList read fTangibles;
+  property Tables:    TaiThingTables read fTables;
+  property Forms:     TaiBaseContainer read fForms;
+  property Maximums:  TaiIntegerList read fMaximums;
+  property Counters:  TaiIntegerList read fCounters;
+  property Collisions: boolean read fCollisions write fCollisions;
+  property AI: boolean read fAI write fAI;
 end;
 
 function ThingName(aKind: integer): string;
 function ThingNamePlural(aKind: integer): string;
 
-implementation //-------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,
   Bio.Environment,
   Bio.Flora,
   Bio.Satellites,
-  Bio.Fish,
+  Bio.Pisces,
   Bio.Bird,
   Bio.Explosions,
   Bio.Life,
@@ -225,7 +227,6 @@ uses
   Bio.Tool,
   Bio.Globals,
   Bio.Weather,
-  Bio.Shark,
   Bio.Turtle,
   Bio.Terrier,
   Bio.Fox,
@@ -235,8 +236,7 @@ uses
   Bio.Duck,
   Bio.Community,
   Bio.Dolphin,
-  Bio.Ladybug,
-  Bio.Ant,
+  Bio.Insects,
   Bio.DNA,
   Bio.EvolvingTrees,
   Bio.FireTree,

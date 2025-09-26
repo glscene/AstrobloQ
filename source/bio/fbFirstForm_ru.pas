@@ -37,14 +37,14 @@ type
     FDetectedMonitors: integer;
     FMonitors: integer;
     FScreen: TScreen;
-    FUserSettings: TUserSettings;
+    FUserSettings: TaiUserSettings;
     FConstruction: TfrmConstruction;
     FErrorCount: integer;
   public
     property Screen: TScreen read FScreen;
     property DetectedMonitors: integer read FDetectedMonitors;
     property Monitors: integer read FMonitors write FMonitors;
-    property UserSettings: TUserSettings read FUserSettings;
+    property UserSettings: TaiUserSettings read FUserSettings;
     property Construction: TfrmConstruction read FConstruction;
     property RealityForm: TFormReality read FRealityForm;
     function MultipleMonitors: boolean;
@@ -83,7 +83,7 @@ begin
   Monitors := DetectedMonitors;
 
   Construction.AddEvent('Число мониторов = ' + IntToStr(Monitors));
-  FUserSettings := TUserSettings.Create;
+  FUserSettings := TaiUserSettings.Create;
   Construction.AddEvent('Загрузка установок...');
   UserSettings.LoadFromRegistry;
   Construction.AddEventSuccess(' сделано.');

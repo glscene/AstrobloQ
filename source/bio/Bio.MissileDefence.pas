@@ -31,17 +31,18 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
+  procedure Damage(aAmount: integer); override;
+  procedure OnCollide(aCollider: TaiThing); override;
+  procedure Explode; override;
+  procedure Fuel; override;
+  procedure FullDisplay(aList: TStrings); override;
+  // property
   property Initial: TaiPosition read fInitial;
   property Destination: TaiPosition read fDestination;
   property Predictor: TaiPosition read fPredictor;
   property Pick: TaiPosition read fPick;
   property Recharge: integer read fRecharge write fRecharge;
   property Priority: single read fPriority write SetPriority;
-  procedure Damage(aAmount: integer); override;
-  procedure OnCollide(aCollider: TaiThing); override;
-  procedure Explode; override;
-  procedure Fuel; override;
-  procedure FullDisplay(aList: TStrings); override;
 end;
 
 // ============================================================================
@@ -54,15 +55,16 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Timer: integer read fTimer write fTimer;
-  property Aim: integer read fAim write fAim;
   procedure OnCollide(aCollider: TaiThing); override;
   procedure Damage(aAmount: integer); override;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
+  // property
+  property Timer: integer read fTimer write fTimer;
+  property Aim: integer read fAim write fAim;
 end;
 
-implementation //--------------------------------------------------------------
+implementation // ============================================================
 
 uses
   Bio.Reality,
@@ -138,7 +140,7 @@ end;
 procedure TaiMissileDefence.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
+  //
 end;
 
 // ----------------------------------------------------------------------------
@@ -166,7 +168,6 @@ begin
     gThings.Tables[cAsteroid].SetFirstActive;
     exit;
   end;
-
   Initial.CopyCoords(Position);
   Initial.SetSize(1, 1, 1, true);
   Initial.Mass := 1;
@@ -193,7 +194,6 @@ begin
   end;
 
   FoundIt := false;
-
   if Initial.Height < myAsteroid.Position.Height then
   begin
     aLoopStart := 0;
@@ -250,7 +250,6 @@ begin
     myAsteroid.Mark;
     Position.FaceTarget(myAsteroid.Position);
   end;
-
   result := FoundIt;
 end;
 
@@ -278,10 +277,8 @@ end;
 constructor TaiMissile.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cMissile;
   Aim := 0;
-
   Position.SetSize(1, 1, 1, true);
   Position.Mass := 1;
 end;
@@ -289,7 +286,7 @@ end;
 // ----------------------------------------------------------------------------
 destructor TaiMissile.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 
@@ -316,7 +313,7 @@ end;
 procedure TaiMissile.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
+  //
 end;
 
 // ----------------------------------------------------------------------------

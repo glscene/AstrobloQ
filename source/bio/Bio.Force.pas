@@ -22,9 +22,6 @@ type
     fDeltaY: single;
     fDeltaHeight: single;
   public
-    property DeltaX: single read fDeltaX write fDeltaX;
-    property DeltaY: single read fDeltaY write fDeltaY;
-    property DeltaHeight: single read fDeltaHeight write fDeltaHeight;
     // set the force (=)
     procedure SetForce(aDeltaX: single; aDeltaY: single; aDeltaHeight: single); overload;
     procedure SetAngularForce(aXYAngle: single; aHeightAngle: single; aStrength: single);
@@ -70,6 +67,10 @@ type
     function OneLineDisplay: string;
     procedure SaveToFile(var aFile: TextFile);
     procedure LoadFromFile(var aFile: TextFile);
+    // property
+    property DeltaX: single read fDeltaX write fDeltaX;
+    property DeltaY: single read fDeltaY write fDeltaY;
+    property DeltaHeight: single read fDeltaHeight write fDeltaHeight;
   end;
 
 implementation //=============================================================
@@ -121,7 +122,6 @@ begin
   fDeltaX := fDeltaX + cos(aXYAngle) * sin(aHeightAngle) * aStrength;
   fDeltaY := fDeltaY + sin(aXYAngle) * sin(aHeightAngle) * aStrength;
   fDeltaHeight := fDeltaHeight + cos(aHeightAngle) * aStrength;
-
   { fDeltaX := fDeltaX + cos(aXYAngle) * aStrength;
     fDeltaY := fDeltaY + sin(aXYAngle) * aStrength;
     fDeltaHeight := fDeltaHeight + cos(aHeightAngle) * sin(aHeightAngle) * aStrength;

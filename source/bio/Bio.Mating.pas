@@ -1,7 +1,7 @@
 unit Bio.Mating;
 (*
-  Для спаривания живого организма с другим организмом того же вида
-  Они должны быть в одном сообществе, комьюнити
+ For a living organism to mate with another organism of the same species,
+ they must be in the same community.
 *)
 interface
 
@@ -28,9 +28,9 @@ type
 // ============================================================================
 TaiMatingCreature = class(TaiCommunityCreature)
 private
-  fPartner: TaiLink; // потенциальный репродуктивный партнёр
-  fFemale: boolean; // true для жен, false для муж
-  fStage: integer;  // stage of sexual reproduction
+  fPartner: TaiLink;     // potential reproductive partner
+  fFemale: boolean;      // true for femail, false для mail
+  fStage: integer;       // stage of sexual reproduction
   fMatingTimer: integer; // timer to delay mating
 protected
   procedure MatingBehaviour;
@@ -46,17 +46,18 @@ public
   procedure Fuel; override;
   procedure Die; override;
   procedure Cease; override;
-  property Partner: TaiLink read fPartner;
-  property Female: boolean read fFemale write fFemale;
-  property Stage: integer read fStage write fStage;
-  property MatingTimer: integer read fMatingTimer write fMatingTimer;
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Partner: TaiLink read fPartner;
+  property Female: boolean read fFemale write fFemale;
+  property Stage: integer read fStage write fStage;
+  property MatingTimer: integer read fMatingTimer write fMatingTimer;
 end;
 
-implementation //--------------------------------------------------------------
+implementation // ============================================================
 
 uses
   Bio.Reality,
@@ -64,7 +65,7 @@ uses
   Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Fish;
+  Bio.Pisces;
 
 // ----------------------------------------------------------------------------
 constructor TaiMatingCreature.Create(aParent: pointer);
@@ -72,7 +73,7 @@ begin
   inherited Create(aParent);
 
   fPartner := gEnvironment.References.NewLink(self);
-  // random gender - случайный выбор пола
+  // random gender
   if Random(2) = 0 then
     fFemale := false
   else
@@ -220,8 +221,8 @@ procedure TaiMatingCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
-  aList.Add('Партнёр: ' + Partner.OneLineDisplayRight);
-  aList.Add('Самка/Самец: ' + BoolToGender(fFemale));
+  aList.Add('Partner: ' + Partner.OneLineDisplayRight);
+  aList.Add('Female/Male: ' + BoolToGender(fFemale));
   case fStage of
     cCreatureBaby:  aList.Add('Стадия: Юный');
     cCreatureAdult: aList.Add('Стадия: Взрослый');
@@ -236,14 +237,14 @@ begin
   result := GetName + ' ' + IntToStr(Handle) + ' ';
 
   if Female then
-    result := result + 'Самка'
+    result := result + 'Female'
   else
-    result := result + 'Самец';
+    result := result + 'Male';
 
   case fStage of
-    cCreatureBaby: result := result + ' Юный';
-    cCreatureAdult: result := result + ' Взрослый';
-    cCreatureElder: result := result + ' Старый';
+    cCreatureBaby: result := result + ' Young';
+    cCreatureAdult: result := result + ' Adult';
+    cCreatureElder: result := result + ' Elder';
   end;
 
   if Dead then

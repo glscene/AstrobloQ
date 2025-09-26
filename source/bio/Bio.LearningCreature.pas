@@ -24,10 +24,9 @@ uses
 type
 
 // ============================================================================
-
-AILearningCreature = class(TaiCreature)
+TaiLearningCreature = class(TaiCreature)
 private
-  fMemory: AIReportList;          // memory of eaten things
+  fMemory: TaiReportList;          // memory of eaten things
   fSenses: TaiThingReferenceList;  // list of nearby things
   fTimer: integer;                // timer, measures effort to get food
   fSenseMemory: TStringList;      // text-version of fSenses
@@ -41,22 +40,20 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
-  property Memory: AIReportList read fMemory;
-  property Senses: TaiThingReferenceList read fSenses;
-  property SenseMemory: TStringList read fSenseMemory;
-  property Timer: integer read fTimer;
-
   function Eat(const JawSize: integer): boolean; override;
   function FavoriteFood: integer;
   function YuckiestFood: integer;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Memory: TaiReportList read fMemory;
+  property Senses: TaiThingReferenceList read fSenses;
+  property SenseMemory: TStringList read fSenseMemory;
+  property Timer: integer read fTimer;
 end;
 
-//============================================================================
-implementation
+implementation //==============================================================
 
 uses
   Bio.Reality,
@@ -64,17 +61,17 @@ uses
   Bio.Vibes;
 
 // ----------------------------------------------------------------------------
-constructor AILearningCreature.Create(aParent: pointer);
+constructor TaiLearningCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
 
-  fMemory := AIReportList.Create(true);
+  fMemory := TaiReportList.Create(true);
   fSenses := TaiThingReferenceList.Create(self);
   fSenseMemory := TStringList.Create;
 end;
 
 // ----------------------------------------------------------------------------
-destructor AILearningCreature.Destroy;
+destructor TaiLearningCreature.Destroy;
 begin
   fMemory.Free;
   fSenses.Free;
@@ -84,7 +81,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILearningCreature.FullDisplay(aList: TStrings);
+procedure TaiLearningCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
 
@@ -95,7 +92,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILearningCreature.LookForSomethingToEat;
+procedure TaiLearningCreature.LookForSomethingToEat;
 var
   i: integer;
   myThing: TaiThing;
@@ -130,7 +127,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILearningCreature.LookForSomethingToEat(aBinding: integer);
+procedure TaiLearningCreature.LookForSomethingToEat(aBinding: integer);
 var
   i: integer;
   myThing: TaiThing;
@@ -165,7 +162,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILearningCreature.LoadFromFile(var aFile: TextFile);
+procedure TaiLearningCreature.LoadFromFile(var aFile: TextFile);
 begin
   inherited LoadFromFile(aFile);
   readln(aFile, fTimer);
@@ -173,7 +170,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILearningCreature.SaveToFile(var aFile: TextFile);
+procedure TaiLearningCreature.SaveToFile(var aFile: TextFile);
 begin
   inherited SaveToFile(aFile);
   writeln(aFile, fTimer);
@@ -182,7 +179,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // try to eat whatever the creature is holding
-function AILearningCreature.Eat(const JawSize: integer): boolean;
+function TaiLearningCreature.Eat(const JawSize: integer): boolean;
 var
   myThing: TaiThing;
   myPreviousHealth: integer;
@@ -207,7 +204,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AILearningCreature.GiveUp;
+procedure TaiLearningCreature.GiveUp;
 var
   myThing: TaiThing;
 begin
@@ -220,13 +217,13 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AILearningCreature.FavoriteFood: integer;
+function TaiLearningCreature.FavoriteFood: integer;
 begin
   result := Memory.HighestWeight;
 end;
 
 // ----------------------------------------------------------------------------
-function AILearningCreature.YuckiestFood: integer;
+function TaiLearningCreature.YuckiestFood: integer;
 begin
   result := Memory.LowestWeight;
 end;

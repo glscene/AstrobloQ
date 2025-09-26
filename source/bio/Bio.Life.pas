@@ -12,6 +12,8 @@ uses
 
 type
 
+  // ==========================================================================
+
   TaiLivingThing = class(TaiThing)
   private
     fWater: single;
@@ -22,10 +24,6 @@ type
     procedure SetHealth(aValue: integer);
   public
     constructor Create(aParent: pointer);
-    property Water: single read fWater write fWater;
-    property Health: integer read fHealth write SetHealth;
-    property Rot: integer read fRot write fRot;
-    property Alive: boolean read fAlive write SetAlive;
     // Modify
     procedure HealthIncrease(aAmount: integer);
     function Dead: boolean;
@@ -40,9 +38,14 @@ type
     procedure FullDisplay(aList: TStrings); override;
     procedure SaveToFile(var aFile: TextFile); override;
     procedure LoadFromFile(var aFile: TextFile); override;
+    // property
+    property Water: single read fWater write fWater;
+    property Health: integer read fHealth write SetHealth;
+    property Rot: integer read fRot write fRot;
+    property Alive: boolean read fAlive write SetAlive;
   end;
 
-  // ============================================================================
+  // ==========================================================================
 
   TaiLivingGroup = class(TaiThing)
   private
@@ -94,7 +97,6 @@ end;
 procedure TaiLivingThing.Fuel;
 begin
   inherited Fuel;
-
   // decrease health every round
   if fHealth > 0 then
   begin
@@ -143,8 +145,7 @@ end;
 constructor TaiLivingGroup.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
-  fMembers := TaiThingReferenceList.Create(self);
+   fMembers := TaiThingReferenceList.Create(self);
   fMaximum := 64;
   CalculateFull;
 end;
@@ -153,7 +154,6 @@ end;
 destructor TaiLivingGroup.Destroy;
 begin
   fMembers.Free;
-
   inherited Destroy;
 end;
 
@@ -161,7 +161,6 @@ end;
 procedure TaiLivingGroup.Fuel;
 begin
   inherited Fuel;
-
   if Members.Count = 0 then
     Cease;
 end;
@@ -232,7 +231,6 @@ end;
 procedure TaiLivingThing.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Alive: ' + BoolToYesNoStr(Alive));
   aList.Add('Health: ' + IntToStr(fHealth));
   aList.Add(Format('Water: %0.2f', [fWater]));

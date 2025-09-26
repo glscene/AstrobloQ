@@ -33,9 +33,10 @@ private
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property NextUse: integer read fNextUse write fNextUse;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property NextUse: integer read fNextUse write fNextUse;
 end;
 
 // ============================================================================
@@ -80,19 +81,20 @@ private
   function UsageString: string;
 public
   constructor Create(aParent: pointer);
-  property Usage: integer read fUsage write fUsage;
-  property Pop: integer read fPop write fPop;
-  property Rate: integer read fRate write SetRate;
-  property Amount: single read fAmount write fAmount;
   procedure Fuel; override;
   procedure Perform(aActivity: integer); override;
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Usage: integer read fUsage write fUsage;
+  property Pop: integer read fPop write fPop;
+  property Rate: integer read fRate write SetRate;
+  property Amount: single read fAmount write fAmount;
 end;
 
-implementation //-------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,
@@ -106,14 +108,13 @@ uses
 constructor TaiTool.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   fNextUse := 0;
 end;
 
 // ----------------------------------------------------------------------------
 destructor TaiTool.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 
@@ -258,12 +259,9 @@ end;
 constructor TaiBall.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cBall;
-
   Position.SetSize(1, 1, 1, true);
   Position.SetProperties(2, 0.9, 1.8);
-
   Position.Acceleration.ApplyForce(Random * 0.1 - 0.05, Random * 0.1 - 0.05, 0.15);
 end;
 
@@ -281,7 +279,6 @@ end;
 procedure TaiBeacon.Fuel;
 begin
   inherited Fuel;
-
   if fActive then
   case fUsage of
     cBeaconDrain: gSpace.QueueChange(Position.Location, cEventAddWater, -0.1);
@@ -390,7 +387,6 @@ end;
 procedure TaiBeacon.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Usage: ' + UsageString);
   aList.Add(Format('Amount: %0.2f', [fAmount]));
   aList.Add('Active: ' + BoolToYesNoStr(fActive));

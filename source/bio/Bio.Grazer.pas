@@ -33,7 +33,7 @@ public
   procedure Fuel; override;
 end;
 
-implementation //-------------------------------------------------------------
+implementation // ============================================================
 
 uses
   Bio.Reality,

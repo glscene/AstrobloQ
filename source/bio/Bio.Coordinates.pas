@@ -40,32 +40,31 @@ const
 function ReverseDirection(aDirection: integer): integer;
 
 type
-  // ----------------------------------------------------------------------------
-  AICoordinates = class(TObject)
-  private
-    fX: integer;
-    fY: integer;
-    fXS: single;
-    fYS: single;
-    procedure SetX(aX: integer);
-    procedure SetY(aY: integer);
-  public
-    constructor Create(aParent: pointer; aX: integer; aY: integer);
-    property X: integer read fX write SetX;
-    property Y: integer read fY write SetY;
-    // XS = X *10.0
-    property XS: single read fXS;
-    // YS = Y *10.0
-    property YS: single read fYS;
+// ----------------------------------------------------------------------------
+TaiCoordinates = class(TObject)
+private
+  fX: integer;
+  fY: integer;
+  fXS: single;
+  fYS: single;
+  procedure SetX(aX: integer);
+  procedure SetY(aY: integer);
+public
+  constructor Create(aParent: pointer; aX: integer; aY: integer);
+  function OneLineDisplay: string;
+  function DistanceTo(aDestination: TaiCoordinates): integer;
+  procedure SaveToFile(var aFile: TextFile);
+  procedure LoadFromFile(var aFile: TextFile);
+  // property
+  property X: integer read fX write SetX;
+  property Y: integer read fY write SetY;
+  // XS = X *10.0
+  property XS: single read fXS;
+  // YS = Y *10.0
+  property YS: single read fYS;
+end;
 
-    function OneLineDisplay: string;
-    function DistanceTo(aDestination: AICoordinates): integer;
-    procedure SaveToFile(var aFile: TextFile);
-    procedure LoadFromFile(var aFile: TextFile);
-  end;
-
-//-----------------------------------------------------------------------------
-implementation
+implementation // ============================================================
 
 uses
   Bio.Space,
@@ -73,36 +72,35 @@ uses
   Bio.Globals;
 
 // ----------------------------------------------------------------------------
-constructor AICoordinates.Create(aParent: pointer; aX: integer; aY: integer);
+constructor TaiCoordinates.Create(aParent: pointer; aX: integer; aY: integer);
 begin
   inherited Create;
-
   X := aX;
   Y := aY;
 end;
 
 // ----------------------------------------------------------------------------
-function AICoordinates.OneLineDisplay: string;
+function TaiCoordinates.OneLineDisplay: string;
 begin
   result := 'X: ' + IntToStr(X) + ', Y: ' + IntToStr(Y);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICoordinates.SetX(aX: integer);
+procedure TaiCoordinates.SetX(aX: integer);
 begin
   fX := aX;
   fXS := fX * 10.0;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICoordinates.SetY(aY: integer);
+procedure TaiCoordinates.SetY(aY: integer);
 begin
   fY := aY;
   fYS := fY * 10.0;
 end;
 
 // ----------------------------------------------------------------------------
-function AICoordinates.DistanceTo(aDestination: AICoordinates): integer;
+function TaiCoordinates.DistanceTo(aDestination: TaiCoordinates): integer;
 var
   lX, lY: integer;
 begin
@@ -118,14 +116,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICoordinates.SaveToFile(var aFile: TextFile);
+procedure TaiCoordinates.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fX);
   writeln(aFile, fY);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AICoordinates.LoadFromFile(var aFile: TextFile);
+procedure TaiCoordinates.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fX);
   readln(aFile, fY);

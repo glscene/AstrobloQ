@@ -3,8 +3,15 @@ unit dbImages;
 interface
 
 uses
-  System.SysUtils, System.Classes, Vcl.BaseImageCollection, Vcl.ImageCollection,
-  System.ImageList, Vcl.ImgList, Vcl.VirtualImageList, Vcl.Controls;
+  System.SysUtils,
+  System.Classes,
+  System.ImageList,
+
+  Vcl.BaseImageCollection,
+  Vcl.ImageCollection,
+  Vcl.ImgList,
+  Vcl.VirtualImageList,
+  Vcl.Controls;
 
 type
   TDataModuleImages = class(TDataModule)
@@ -12,15 +19,13 @@ type
     ImageCollectionBio: TImageCollection;
     ImageListIcons: TImageList;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
   DataModuleImages: TDataModuleImages;
 
-implementation
+implementation // ===========================================================
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 

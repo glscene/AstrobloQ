@@ -137,7 +137,7 @@
         <DCCReference Include="..\source\bio\Bio.Environment.pas"/>
         <DCCReference Include="..\source\bio\Bio.EnvironmentStructures.pas"/>
         <DCCReference Include="..\source\bio\Bio.Explosions.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Fish.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Pisces.pas"/>
         <DCCReference Include="..\source\bio\Bio.Force.pas"/>
         <DCCReference Include="..\source\bio\Bio.Fox.pas"/>
         <DCCReference Include="..\source\bio\Bio.Grazer.pas"/>
@@ -149,7 +149,6 @@
         <DCCReference Include="..\source\bio\Bio.Rabbit.pas"/>
         <DCCReference Include="..\source\bio\Bio.Reality.pas"/>
         <DCCReference Include="..\source\bio\Bio.Satellites.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Shark.pas"/>
         <DCCReference Include="..\source\bio\Bio.Space.pas"/>
         <DCCReference Include="..\source\bio\Bio.Terrier.pas"/>
         <DCCReference Include="..\source\bio\Bio.ThingReferenceList.pas"/>
@@ -167,8 +166,7 @@
         <DCCReference Include="..\source\bio\Bio.Mating.pas"/>
         <DCCReference Include="..\source\bio\Bio.Dolphin.pas"/>
         <DCCReference Include="..\source\bio\Bio.ReportCard.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Ladybug.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Ant.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Insects.pas"/>
         <DCCReference Include="..\source\bio\Bio.LearningCreature.pas"/>
         <DCCReference Include="..\source\bio\Bio.DNA.pas"/>
         <DCCReference Include="..\source\bio\Bio.GeneticCreature.pas"/>

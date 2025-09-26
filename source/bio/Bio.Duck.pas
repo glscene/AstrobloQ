@@ -61,7 +61,7 @@ end;
 // ----------------------------------------------------------------------------
 destructor TaiDuck.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 
@@ -69,16 +69,14 @@ end;
 procedure TaiDuck.Fuel;
 begin
   inherited Fuel;
-
   if (Size < 1) and (Health > 1536) then
   begin
     Size := Size + 0.0002; // 5000 ticks to reach 1
     Position.SetSize(Size, Size, Size);
   end;
-
-  desire := cDesireNone;
+  Desire := cDesireNone;
   if (Health < 3000) and not Grabber.Holding then
-    desire := cDesireFood
+    Desire := cDesireFood
   else
   begin
     case Stage of
@@ -89,7 +87,7 @@ begin
   end;
 
   // find food           yeah i need a new duck quack
-  case desire of
+  case Desire of
     cDesireFood:
     begin
       case Stage of
@@ -120,7 +118,7 @@ var
   myCommunity: TaiCommunity;
   myForce: TAffineVector;
 begin
-//  if not Position.UnderWater then exit;
+  // if not Position.UnderWater then exit;
 
   // in a Community?
   if Community.ValidTarget then
@@ -133,7 +131,7 @@ begin
     myForce.Y := (myCommunity.Center.Y - Position.Y) / 400;
     myForce.Z := 0;
     // Rule 2: Boids try to keep a small distance away from other objects (including other boids).
-{    if Bump then
+{   if Bump then
     begin
       myForce[0] := myForce[0] + Avoidance[0];
       myForce[1] := myForce[1] + Avoidance[1];

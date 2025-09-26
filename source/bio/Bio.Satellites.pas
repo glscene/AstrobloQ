@@ -21,11 +21,12 @@ private
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Size: single read fSize write fSize;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Size: single read fSize write fSize;
 end;
 
 // ============================================================================
@@ -34,8 +35,6 @@ private
   fRadius: integer;     // how many squares the sun shines on
   fRate: single;       // qualitative rate of effect
 public
-  property Rate: single read fRate write fRate;
-  property Radius: integer read fRadius write fRadius;
   procedure Fuel; override;
   procedure Explode; virtual; abstract; // when collide, explode into smaller, falling pieces
   procedure OnCollide(aCollider: TaiThing); override;
@@ -43,6 +42,9 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Rate: single read fRate write fRate;
+  property Radius: integer read fRadius write fRadius;
 end;
 
 // ============================================================================
@@ -51,10 +53,11 @@ private
   fSwing: boolean;
 public
   constructor Create(aParent: pointer);
-  property Swing: boolean read fSwing;
   procedure Explode; override;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
+  // property
+  property Swing: boolean read fSwing;
 end;
 
 // ============================================================================
@@ -74,10 +77,6 @@ private
   fMarkers: integer;
 public
   constructor Create(aParent: pointer);
-  property Energy: integer read fEnergy write fEnergy;
-  property Burning: boolean read fBurning write fBurning;
-  property Size: single read fSize write fSize;
-  property Markers: integer read fMarkers write fMarkers;
   procedure Smash;
   procedure Burn;
   procedure Fuel; override;
@@ -86,6 +85,11 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Energy: integer read fEnergy write fEnergy;
+  property Burning: boolean read fBurning write fBurning;
+  property Size: single read fSize write fSize;
+  property Markers: integer read fMarkers write fMarkers;
 end;
 
 implementation //--------------------------------------------------------------

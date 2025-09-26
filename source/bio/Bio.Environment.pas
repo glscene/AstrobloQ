@@ -46,16 +46,6 @@ protected
 public
   constructor Create(aReality: pointer);
   destructor Destroy; override;
-  property Name: string read fName write fName;
-  property Things: TaiThingList read fThings;
-  property Space: TaiSpace read fSpace;
-  property References: TaiLinkContainer read fReferences;
-  property Attachments: TaiAttachmentContainer read fAttachments;
-  property Gravity: TaiForce read GetGravity;
-  property AirFriction: TaiForce read GetAirFriction;
-  property LandFriction: TaiForce read GetLandFriction;
-  property WaterFriction: TaiForce read GetWaterFriction;
-  property Shadows: boolean read fShadows write fShadows;
   procedure Fuel;
   function RoundStatistics: string;
   procedure EnactGrab(aOriginCreature: TaiCreature; aTarget: TaiThing);
@@ -68,9 +58,20 @@ public
   procedure Snip(aThing: TaiThing); overload;
   procedure FullDisplay(aList: TStrings); override;
   function FindWithHandle(aHandle: integer): TaiBaseObject;
+  // property
+  property Name: string read fName write fName;
+  property Things: TaiThingList read fThings;
+  property Space: TaiSpace read fSpace;
+  property References: TaiLinkContainer read fReferences;
+  property Attachments: TaiAttachmentContainer read fAttachments;
+  property Gravity: TaiForce read GetGravity;
+  property AirFriction: TaiForce read GetAirFriction;
+  property LandFriction: TaiForce read GetLandFriction;
+  property WaterFriction: TaiForce read GetWaterFriction;
+  property Shadows: boolean read fShadows write fShadows;
 end;
 
-implementation //--------------------------------------------------------------
+implementation // ============================================================
 
 uses
   Bio.Reality,

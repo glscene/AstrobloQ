@@ -98,28 +98,6 @@ public
   destructor Destroy; override;
   procedure CopyCoords(aPosition: TaiPosition);
   procedure FullCopy(aPosition: TaiPosition);
-  property X: single read fX write SetX;
-  property Y: single read fY write SetY;
-  property Height: single read fHeight write fHeight;
-  property DirectionXY: single read fDirectionXY write SetDirectionXY;
-  property DirectionH: single read fDirectionH write SetDirectionH;
-  property Binding: integer read fBinding write fBinding;
-  property Mass: single read fMass write SetMass;
-  property Buoyancy: single read fBuoyancy write fBuoyancy;
-  property Bounce: single read fBounce write fBounce;
-  property SizeX: single read fSizeX write fSizeX;
-  property SizeY: single read fSizeY write fSizeY;
-  property SizeH: single read fSizeH write fSizeH;
-  property Tangible: boolean read fTangible write fTangible;
-  property Collider: boolean read fCollider write fCollider;
-  property Carried: boolean read fCarried write fCarried;
-  property Carrier: pointer read fCarrier write fCarrier;
-  property Velocity: TaiForce read fVelocity;
-  property Acceleration: TaiForce read fAcceleration;
-  property UnderWater: boolean read fUnderWater;
-  property Land: single read fLand;
-  property Water: single read fWater;
-  property Location: pointer read fLocation;
   procedure SetPosition(aX: single; aY: single; aHeight: single);
   procedure SetSize(aSizeX: single; aSizeY: single; aSizeH: single; aTangible: boolean); overload;
   procedure SetSize(aSizeX: single; aSizeY: single; aSizeH: single); overload;
@@ -181,7 +159,7 @@ public
   procedure Vibrate(aEffectType, aEffectIndex, aTimerDeath: integer);
   // location interface
   procedure ApplyOrbitingForce(aForce: TaiForce);  // reverses y at poles
-  procedure SetToCoordinates(aCoordinates: AICoordinates);
+  procedure SetToCoordinates(aCoordinates: TaiCoordinates);
   function GridX: integer;
   function GridY: integer;
   procedure Fuel;
@@ -189,9 +167,32 @@ public
   procedure FullDisplay(aList: TStrings);
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
+  // property
+  property X: single read fX write SetX;
+  property Y: single read fY write SetY;
+  property Height: single read fHeight write fHeight;
+  property DirectionXY: single read fDirectionXY write SetDirectionXY;
+  property DirectionH: single read fDirectionH write SetDirectionH;
+  property Binding: integer read fBinding write fBinding;
+  property Mass: single read fMass write SetMass;
+  property Buoyancy: single read fBuoyancy write fBuoyancy;
+  property Bounce: single read fBounce write fBounce;
+  property SizeX: single read fSizeX write fSizeX;
+  property SizeY: single read fSizeY write fSizeY;
+  property SizeH: single read fSizeH write fSizeH;
+  property Tangible: boolean read fTangible write fTangible;
+  property Collider: boolean read fCollider write fCollider;
+  property Carried: boolean read fCarried write fCarried;
+  property Carrier: pointer read fCarrier write fCarrier;
+  property Velocity: TaiForce read fVelocity;
+  property Acceleration: TaiForce read fAcceleration;
+  property UnderWater: boolean read fUnderWater;
+  property Land: single read fLand;
+  property Water: single read fWater;
+  property Location: pointer read fLocation;
 end;
 
-implementation //-------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Globals,
@@ -989,7 +990,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TaiPosition.SetToCoordinates(aCoordinates: AICoordinates);
+procedure TaiPosition.SetToCoordinates(aCoordinates: TaiCoordinates);
 begin
   X := aCoordinates.X*10;
   Y := aCoordinates.Y*10;

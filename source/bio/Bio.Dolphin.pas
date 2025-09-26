@@ -41,13 +41,14 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Sensor: TaiPosition read fSensor;
-  property Flipper: integer read fFlipper;
   procedure Fuel; override;
   procedure FullDisplay(aList: TStrings); override;
+  // property
+  property Sensor: TaiPosition read fSensor;
+  property Flipper: integer read fFlipper;
 end;
 
-implementation //-------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,
@@ -64,13 +65,11 @@ begin
   inherited Create(aParent);
 
   Kind := cDolphin;
-
   fSensor := TaiPosition.Create(self);
   fFlipper := cFlipperFlat;
 
-  Kind := cDolphin;
+  Kind := cDolphin; // ? repeat
   Desire := cDesireWander;
-
   Size := 16;
   Health := 4100;
   Position.SetSize(2, 2, 1, true);
@@ -81,7 +80,6 @@ end;
 destructor TaiDolphin.Destroy;
 begin
   fSensor.Free;
-
   inherited Destroy;
 end;
 
@@ -89,7 +87,6 @@ end;
 procedure TaiDolphin.Fuel;
 begin
   inherited Fuel;
-
   case desire of
     cDesireFood: if Health > 4000 then Desire := cDesireWander;
     cDesireWander: if Health < 2048 then Desire := cDesireFood;
@@ -114,7 +111,6 @@ begin
     end;
     //if Position.UnderWater then SwimWithCommunity;
   end;
-
   Sensor.FullCopy(Position);
   Sensor.ApplyForce(Position.DirectionXY, 6);
   Sensor.Height := 0;
@@ -123,7 +119,6 @@ begin
 //  if not Sensor.UnderWater then
     if Position.UnderWater then
       Jump;
-
   if not Position.UnderWater then
   begin
     if Position.Binding = bindLand then
@@ -219,7 +214,6 @@ end;
 procedure TaiDolphin.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Flipper: ' + IntToStr(fFlipper));
   aList.Add('Sensor--------------------------');
   fSensor.FullDisplay(aList);

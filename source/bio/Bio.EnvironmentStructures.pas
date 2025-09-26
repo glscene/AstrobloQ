@@ -13,29 +13,25 @@ const
 type
 
 // ----------------------------------------------------------------------------
-AISpatialEvent = record
+TaiSpatialEvent = record
   Kind: integer;
   Target: pointer;
   Modifier: single;
 end;
 
-AISpatialArray = array of AISpatialEvent;
+TaiSpatialArray = array of TaiSpatialEvent;
 
 // ----------------------------------------------------------------------------
-AIEventList = class(TaiBaseObject)
+TaiEventList = class(TaiBaseObject)
 private
   fFull: boolean;
   fActiveIndex: integer;
   fSize: integer;
-  fEvents: AISpatialArray;
+  fEvents: TaiSpatialArray;
 protected
   procedure IncreaseArraySize(aAmount: integer);
 public
   constructor Create(aParent: pointer; aSize: integer);
-  property Full: boolean read fFull;
-  property Size: integer read fSize;
-  property ActiveIndex: integer read fActiveIndex write fActiveIndex;
-  property Events: AISpatialArray read fEvents;
   procedure AddEvent(aKind: integer; aTarget: pointer; aModifier: single);
   procedure Clear;
   function Empty: boolean;
@@ -43,28 +39,30 @@ public
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
   procedure FullDisplay(aLines: TStrings); override;
+  // property
+  property Full: boolean read fFull;
+  property Size: integer read fSize;
+  property ActiveIndex: integer read fActiveIndex write fActiveIndex;
+  property Events: TaiSpatialArray read fEvents;
 end;
 
-// ----------------------------------------------------------------------------
-implementation
-// ----------------------------------------------------------------------------
+implementation // ============================================================
 
 uses
   Bio.Utilities,
   Bio.Globals;
 
 // ----------------------------------------------------------------------------
-constructor AIEventList.Create(aParent: pointer; aSize: integer);
+constructor TaiEventList.Create(aParent: pointer; aSize: integer);
 begin
   inherited Create(aParent);
-
   fSize := aSize;
   fActiveIndex := 0;
   SetLength(fEvents, fSize);
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEventList.AddEvent(aKind: integer; aTarget: pointer; aModifier: single);
+procedure TaiEventList.AddEvent(aKind: integer; aTarget: pointer; aModifier: single);
 begin
   // if too many events, then increase the event size list
   if fActiveIndex >= fSize then
@@ -79,26 +77,26 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEventList.Clear;
+procedure TaiEventList.Clear;
 begin
   fActiveIndex := 0;
   fFull := false;
 end;
 
 // ----------------------------------------------------------------------------
-function AIEventList.Empty: boolean;
+function TaiEventList.Empty: boolean;
 begin
   result := not (fFull);
 end;
 
 // ----------------------------------------------------------------------------
-function AIEventList.Count: integer;
+function TaiEventList.Count: integer;
 begin
   result := fActiveIndex;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEventList.LoadFromFile(var aFile: TextFile);
+procedure TaiEventList.LoadFromFile(var aFile: TextFile);
 var
   i: integer;
   handle: integer;
@@ -122,7 +120,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEventList.SaveToFile(var aFile: TextFile);
+procedure TaiEventList.SaveToFile(var aFile: TextFile);
 var
   i: integer;
 begin
@@ -141,11 +139,11 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEventList.FullDisplay(aLines: TStrings);
+procedure TaiEventList.FullDisplay(aLines: TStrings);
 var
   i: integer;
   RigidCount: integer;
-  myEvent: AISpatialEvent;
+  myEvent: TaiSpatialEvent;
 begin
   aLines.Add('EventList');
   aLines.Add('--------------');
@@ -164,7 +162,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIEventList.IncreaseArraySize(aAmount: integer);
+procedure TaiEventList.IncreaseArraySize(aAmount: integer);
 begin
   fSize := Count + aAmount;
   SetLength(fEvents, Size);

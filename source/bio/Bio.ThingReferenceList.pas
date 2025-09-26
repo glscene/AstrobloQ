@@ -17,18 +17,15 @@ uses
 type
 
 // ----------------------------------------------------------------------------
-
 TaiThingReferenceList = class(TaiReferenceList)
 public
   procedure FullDisplay(aList: TStrings); override;
-
   // basic operations
   function RandomThing: pointer;
   function NearestThing(aPosition: TaiPosition): pointer; overload;
   function NearestThing(aPosition: TaiPosition; aRange: single): pointer; overload;
   function SimpleNearestThing(aPosition: TaiPosition): pointer;
   function NearestAvailableThing(aPosition: TaiPosition): pointer;
-
   function HasKind(aKind: integer): boolean;
   function HasKindAtLocation(aLocation: pointer; aKind: integer): boolean;
   function HasKindWithinDistance(aKind: integer; aPosition: TaiPosition; aDistance: single): boolean;
@@ -52,18 +49,14 @@ public
   procedure KillEveryKind(aKind: integer);
   function AreAllAtLocation(aLocation: pointer): boolean;
   procedure ShakeLand(aStrength: single);
-
   procedure KillAllPlantsAtLocation(aLocation: pointer);
   procedure KillAllLifeAtLocation(aLocation: pointer);
   procedure CeaseEverythingLocation(aLocation: pointer);
   function DistanceToNearest(aPosition: TaiPosition): single;
-
   // community
   function CommunityWithRoom(aKind: integer): pointer;
   procedure NotifyAllCommunitiesOfDeath(aThing: pointer);
-
   procedure NearestNeighbours(aPosition: TaiPosition; aRange: single; aList: TaiThingReferenceList);
-
   procedure ReportAll;
   procedure ReportAllCreatures;
 end;
@@ -71,7 +64,7 @@ end;
 TaiThingTables = array of TaiThingReferenceList;
 TaiLocationTables = array of array of TaiThingReferenceList;
 
-implementation //--------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Things,
@@ -87,7 +80,6 @@ var
   i: integer;
 begin
   result := true;
-
   for i := 0 to Count - 1 do
     if not (TaiThing(Items[i]).Position.Location = aLocation) then
       result := false
@@ -100,7 +92,6 @@ var
   myThing: TaiThing;
 begin
   result := false;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
@@ -148,7 +139,6 @@ var
   i: integer;
 begin
   result := nil;
-
   for i := 0 to Count - 1 do
     if (TaiThing(Items[i]).Kind = aKind) then
     begin
@@ -165,11 +155,9 @@ var
   pos: integer;
 begin
   result := nil;
-
   pos := 0;
   want := Random(gThings.Counters[aKind]);
 //  want := Random(AmountOfKind(aKind));
-
   for i := 0 to Count - 1 do
     if (TaiThing(Items[i]).Kind = aKind) then
     begin
@@ -204,11 +192,9 @@ var
 begin
   result := nil;  // closest thing
   closest := aRange + 1;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if not (myThing = aGrabber) then
     begin
       distance := aPosition.DistancePlusHeightTo(myThing.Position);
@@ -262,7 +248,6 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if (myThing.Kind = aKind) and not (myThing.Position = aPosition) then
     begin
       distance := aPosition.DistancePlusHeightTo(myThing.Position);
@@ -285,7 +270,6 @@ var
 begin
   result := nil;  // closest thing
   closest := aRange + 1;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
@@ -316,7 +300,6 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if myThing.Kind = aKind then
     begin
       distance := aPosition.DistancePlusHeightTo(myThing.Position);
@@ -371,11 +354,9 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if not (myThing.Position = aOrigin) and not (myThing.Kind = cExplosion) then
       begin
       distance := aOrigin.DistancePlusHeightTo(myThing.Position);
-
       if distance < aRadius then
         myThing.Damage(aDamage);
     end;
@@ -412,11 +393,9 @@ var
   dX, dY: single;
 begin
   result := false;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if (myThing.Kind = aKind) then
     begin
       dx := (aX - myThing.Position.X);
@@ -437,11 +416,9 @@ var
 begin
   result := nil;  // closest thing
   closest := aRange + 1;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if (myThing is aClass) and not (myThing.Position = aPosition) then
     begin
       distance := aPosition.DistancePlusHeightTo(myThing.Position);
@@ -481,7 +458,6 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (myThing.Position <> aPosition) and (distance < closest) then
     begin
@@ -501,11 +477,9 @@ var
 begin
   result := nil;  // closest thing
   closest := aRange + 1;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance <= aRange) and (distance < closest) and not (myThing.Kind = cVibe) then
     begin
@@ -522,11 +496,9 @@ var
   myThing: TaiThing;
 begin
   result := false;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if (myThing.Kind = aKind) and (myThing.Position = aLocation) then
       result := true;
   end;
@@ -539,11 +511,9 @@ var
   myCommunity: TaiCommunity;
 begin
   result := nil;
-
   for i := 0 to Count - 1 do
   begin
     myCommunity := TaiCommunity(Items[i]);
-
     if (myCommunity.Admit = aKind) and (myCommunity.Vacancy) then
       result := myCommunity;
   end;
@@ -559,11 +529,9 @@ var
 begin
   result := nil;  // closest thing
   closest := 100000;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if aPosition <> myThing.Position then
     begin
       distance := aPosition.SimpleDistanceTo(myThing.Position);
@@ -601,11 +569,9 @@ var
 begin
   result := nil;  // closest thing
   closest := aRange + 1;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if (myThing.Kind = aKind) and not (myThing.Position = aPosition) and not (myThing.Position.Carried) then
     begin
       distance := aPosition.SimpleDistanceTo(myThing.Position);
@@ -632,7 +598,6 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (myThing.Position <> aPosition) and (distance < aRange) then
       aList.Add(myThing);
@@ -661,7 +626,6 @@ begin
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     if myThing.Position.Binding = bindLand then
     begin
       myThing.Position.Velocity.ApplyForce(
@@ -669,7 +633,6 @@ begin
         RandomSwing*aStrength/2,
         aStrength);
     end;
-
   end;
 end;
 
@@ -683,11 +646,9 @@ var
 begin
   result := nil;  // closest thing
   closest := 100000;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance < closest) and (myThing.Position <> aPosition) and (not myThing.Position.Carried) then
     begin
@@ -707,11 +668,9 @@ var
 begin
   result := nil;  // closest thing
   closest := 100000;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance < closest) and (myThing.Position.UnderWater) and (myThing.Kind <> aNotKind)
       and (myThing.Position <> aPosition) and (not myThing.Position.Carried) then
@@ -732,11 +691,9 @@ var
 begin
   result := nil;  // closest thing
   closest := 100000;
-
   for i := 0 to Count - 1 do
   begin
     myThing := TaiThing(Items[i]);
-
     distance := aPosition.DistancePlusHeightTo(myThing.Position);
     if (distance < closest) and (not myThing.Position.UnderWater)
       and (not myThing.Position.Carried) then

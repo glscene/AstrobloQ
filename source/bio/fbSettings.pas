@@ -48,9 +48,9 @@ type
     procedure cbRememberViewClick(Sender: TObject);
     procedure cbAdvancedModeClick(Sender: TObject);
   private
-    fUserSettings: TUserSettings;
+    fUserSettings: TaiUserSettings;
   public
-    property UserSettings: TUserSettings read fUserSettings write fUserSettings;
+    property UserSettings: TaiUserSettings read fUserSettings write fUserSettings;
   end;
 
 var

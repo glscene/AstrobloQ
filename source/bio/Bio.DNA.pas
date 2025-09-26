@@ -43,16 +43,6 @@ protected
 public
   constructor Create;
   destructor Destroy; override;
-  property Mutation: single read fMutation write fMutation;
-  property GrowthRate: single read fGrowthRate write fGrowthRate;
-  property SizeMax: single read fSizeMax write fSizeMax;
-  property MassMax: single read fMassMax write fMassMax;
-  property Buoyancy: single read fBuoyancy write SetBuoyancy;
-  property Bounce: single read fBounce write SetBounce;
-  property PreferredFood: integer read fPreferredFood write SetPreferredFood;
-  property Red: single read fRed write SetRed;
-  property Blue: single read fBlue write SetBlue;
-  property Green: single read fGreen write SetGreen;
   // combine two DNA values into one
   procedure Combine(FatherDNA, MotherDNA: TaiDNA);
   procedure CopyFrom(aDNA: TaiDNA);
@@ -64,10 +54,20 @@ public
   // display routines
   function OneLineDisplay: string;
   procedure FullDisplay(aList: TStrings);
+  // property
+  property Mutation: single read fMutation write fMutation;
+  property GrowthRate: single read fGrowthRate write fGrowthRate;
+  property SizeMax: single read fSizeMax write fSizeMax;
+  property MassMax: single read fMassMax write fMassMax;
+  property Buoyancy: single read fBuoyancy write SetBuoyancy;
+  property Bounce: single read fBounce write SetBounce;
+  property PreferredFood: integer read fPreferredFood write SetPreferredFood;
+  property Red: single read fRed write SetRed;
+  property Blue: single read fBlue write SetBlue;
+  property Green: single read fGreen write SetGreen;
 end;
 
-//-----------------------------------------------------------------------------
-implementation
+implementation // =============================================================
 
 uses
   Bio.Utilities,

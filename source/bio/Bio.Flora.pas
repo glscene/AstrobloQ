@@ -37,7 +37,6 @@ private
   procedure BearFruit;
 public
   constructor Create(aParent: pointer);
-  property FruitTimer: integer read fFruitTimer write fFruitTimer;
   procedure Fuel; override;
   procedure Cease; override;
   procedure Perform(aActivity: integer); override;
@@ -45,6 +44,8 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property FruitTimer: integer read fFruitTimer write fFruitTimer;
 end;
 
 //----------------------------------------------------------------------------
@@ -53,13 +54,14 @@ private
   fCarryingSeed: boolean;
   procedure DropSeed;
 public
-  property CarryingSeed: boolean read fCarryingSeed write fCarryingSeed;
   procedure Fuel; override;
   procedure Cease; override;
   function IsFruit: boolean; override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property CarryingSeed: boolean read fCarryingSeed write fCarryingSeed;
 end;
 
 //----------------------------------------------------------------------------
@@ -79,13 +81,14 @@ private
   procedure BearFruit;
 public
   constructor Create(aParent: pointer);
-  property FruitTimer: integer read fFruitTimer write fFruitTimer;
   function Digest(const aAmount: integer): integer; override;
   procedure Fuel; override;
   procedure Perform(aActivity: integer); override;
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // Property
+  property FruitTimer: integer read fFruitTimer write fFruitTimer;
 end;
 
 //----------------------------------------------------------------------------

@@ -32,8 +32,6 @@ public
   // create and delete
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
-  property DNA: TaiDNA read fDNA;
   // user-interface and bot-interface
   procedure Perform(aActivity: integer); override;
   // DNA access
@@ -45,6 +43,8 @@ public
   // display routines
   function OneLineDisplay: string; override;
   procedure FullDisplay(aList: TStrings); override;
+  // property
+  property DNA: TaiDNA read fDNA;
 end;
 
 implementation //=============================================================

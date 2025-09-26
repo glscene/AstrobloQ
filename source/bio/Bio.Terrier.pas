@@ -23,13 +23,14 @@ private
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Destination: TaiPosition read fDestination;
-  property Shaker: integer read fShaker;
   function IsPredator: boolean; override;
   procedure Fuel; override;
+  // property
+  property Destination: TaiPosition read fDestination;
+  property Shaker: integer read fShaker;
 end;
 
-implementation //--------------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,

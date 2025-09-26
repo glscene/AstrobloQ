@@ -16,7 +16,7 @@ uses
 type
 
 // *****************************************************************************
-AIReportCard = class(TObject)
+TaiReportCard = class(TObject)
 private
   fKind: integer;     // kind of object eaten
   fSuccess: integer;  // times succesful (health+)
@@ -25,55 +25,51 @@ private
   fValue: integer;   // average Value of health gained (*(total-1)/total)
   fEffort: integer;   // average amount of time taken to catch
 public
+  procedure UpdateReport(aResult: boolean; aValue: integer; aEffort: integer);
+  function Failed: integer;   //=Total-Success, how many times failed
+  function OneLineDisplay: string;
+  procedure SaveToFile(var aFile: TextFile);
+  procedure LoadFromFile(var aFile: TextFile);
+  // property
   property Kind: integer read fKind write fKind;
   property Success: integer read fSuccess write fSuccess;
   property Total: integer read fTotal write fTotal;
   property Weight: single read fWeight;
   property Value: integer read fValue write fValue;
   property Effort: integer read fEffort;
-
-  procedure UpdateReport(aResult: boolean; aValue: integer; aEffort: integer);
-
-  function Failed: integer;   //=Total-Success, how many times failed
-  function OneLineDisplay: string;
-
-  procedure SaveToFile(var aFile: TextFile);
-  procedure LoadFromFile(var aFile: TextFile);
 end;
 
 // *****************************************************************************
-AIReportList = class(TaiActiveList)
+TaiReportList = class(TaiActiveList)
 public
   procedure AddReport(aKind: integer; aSuccess: boolean; aValue: integer; aEffort: integer);
   procedure FullDisplay(aList: TStrings);
   function ReportWeight(aKind: integer): single; overload;
   function ReportWeight(aLivingThing: TaiLivingThing): single; overload;
-
   function HighestWeight: integer;
   function LowestWeight: integer;
-
   procedure SaveToFile(var aFile: TextFile);
   procedure LoadFromFile(var aFile: TextFile);
 end;
 
-implementation // -------------------------------------------------------------
+implementation // ============================================================
 
-procedure AIReportList.AddReport(aKind: integer; aSuccess: boolean; aValue: integer; aEffort: integer);
+procedure TaiReportList.AddReport(aKind: integer; aSuccess: boolean; aValue: integer; aEffort: integer);
 var
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
   i: integer;
 begin
   myReport := nil;
   // find it
   for i := 0 to Count - 1 do
-    if AIReportCard(Items[i]).Kind = aKind then
-      myReport := AIReportCard(Items[i]);
+    if TaiReportCard(Items[i]).Kind = aKind then
+      myReport := TaiReportCard(Items[i]);
   // found it
   if myReport <> nil then
     myReport.UpdateReport(aSuccess, aValue, aEffort)
   else
   begin
-    myReport := AIReportCard.Create;
+    myReport := TaiReportCard.Create;
     myReport.Kind := aKind;
     myReport.UpdateReport(aSuccess, aValue, aEffort);
     Add(myReport);
@@ -81,22 +77,22 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReportList.FullDisplay(aList: TStrings);
+procedure TaiReportList.FullDisplay(aList: TStrings);
 var
   i: integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
 begin
   aList.Add('Reports: ' + IntToStr(Count));
   for i := 0 to Count - 1 do
   begin
-    myReport := AIReportCard(Items[i]);
+    myReport := TaiReportCard(Items[i]);
     aList.AddObject(IntToStr(i+1) + ': '
       + myReport.OneLineDisplay, myReport);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReportCard.UpdateReport(aResult: boolean; aValue: integer; aEffort: integer);
+procedure TaiReportCard.UpdateReport(aResult: boolean; aValue: integer; aEffort: integer);
 begin
   // add to average Value
   fValue := (fValue * fTotal + aValue) div (fTotal + 1);
@@ -111,50 +107,50 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportCard.Failed: integer;   //=Total-Success, how many times failed
+function TaiReportCard.Failed: integer;   //=Total-Success, how many times failed
 begin
   result := fTotal - fSuccess;
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportCard.OneLineDisplay: string;
+function TaiReportCard.OneLineDisplay: string;
 begin
   result := ThingName(fKind) + Format('->Weight=%0.2f, Kind=%d, Success=%d, Failed=%d, Total=%d, Value=%d, Effort=%d',
     [fWeight, fKind, fSuccess, Failed, fTotal, fValue, fEffort]);
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportList.ReportWeight(aKind: integer): single;
+function TaiReportList.ReportWeight(aKind: integer): single;
 var
   i: integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
 begin
   result := 100; // returns 50 if unknown thing
   for i := 0 to Count - 1 do
   begin
-    myReport := AIReportCard(Items[i]);
+    myReport := TaiReportCard(Items[i]);
     if myReport.Kind = aKind then
       result := myReport.Weight;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportList.ReportWeight(aLivingThing: TaiLivingThing): single;
+function TaiReportList.ReportWeight(aLivingThing: TaiLivingThing): single;
 var
   i: integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
 begin
   result := aLivingThing.Health;
   for i := 0 to Count - 1 do
   begin
-    myReport := AIReportCard(Items[i]);
+    myReport := TaiReportCard(Items[i]);
     if myReport.Kind = aLivingThing.Kind then
       result := myReport.Weight;
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReportCard.LoadFromFile(var aFile: TextFile);
+procedure TaiReportCard.LoadFromFile(var aFile: TextFile);
 begin
   readln(aFile, fKind);
   readln(aFile, fSuccess);
@@ -165,7 +161,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReportCard.SaveToFile(var aFile: TextFile);
+procedure TaiReportCard.SaveToFile(var aFile: TextFile);
 begin
   writeln(aFile, fKind);
   writeln(aFile, fSuccess);
@@ -176,47 +172,47 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReportList.SaveToFile(var aFile: TextFile);
+procedure TaiReportList.SaveToFile(var aFile: TextFile);
 var
   i: Integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
 begin
   writeln(aFile, Count);
   for i := 0 to Count - 1 do
   begin
-    myReport := AIReportCard(Items[i]);
+    myReport := TaiReportCard(Items[i]);
     myReport.SaveToFile(aFile);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-procedure AIReportList.LoadFromFile(var aFile: TextFile);
+procedure TaiReportList.LoadFromFile(var aFile: TextFile);
 var
   i: Integer;
   myCount: Integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
 begin
   readln(aFile, myCount);
   for i := 0 to myCount - 1 do
   begin
-    myReport := AIReportCard.Create;
+    myReport := TaiReportCard.Create;
     myReport.LoadFromFile(aFile);
     Add(myReport);
   end;
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportList.HighestWeight: integer;
+function TaiReportList.HighestWeight: integer;
 var
   i: integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
   best: single;
 begin
   result := cNoThing;
   best := -1;
   for i := 0 to Count - 1 do
   begin
-    myReport := AIReportCard(Items[i]);
+    myReport := TaiReportCard(Items[i]);
     if myReport.Weight > best then
     begin
       best := myReport.Weight;
@@ -226,17 +222,17 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function AIReportList.LowestWeight: integer;
+function TaiReportList.LowestWeight: integer;
 var
   i: integer;
-  myReport: AIReportCard;
+  myReport: TaiReportCard;
   worst: single;
 begin
   result := cNoThing;
   worst := 100000;
   for i := 0 to Count - 1 do
   begin
-    myReport := AIReportCard(Items[i]);
+    myReport := TaiReportCard(Items[i]);
     if myReport.Weight < worst then
     begin
       worst := myReport.Weight;

@@ -17,9 +17,8 @@ uses
 
 type
 
-// ============================================================================
 // an individual Turtle
-TaiTurtle = class(AILearningCreature)
+TaiTurtle = class(TaiLearningCreature)
 private
   procedure FindAndGrab(aSpeed: single);
 public
@@ -43,7 +42,6 @@ uses
 constructor TaiTurtle.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cTurtle;
   Desire := cDesireFood;
   Size := 32;
@@ -55,7 +53,7 @@ end;
 // ----------------------------------------------------------------------------
 destructor TaiTurtle.Destroy;
 begin
-
+  //
   inherited Destroy;
 end;
 

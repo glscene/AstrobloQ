@@ -51,15 +51,6 @@ public
   procedure SetTimeFlowing;
   procedure TickTock;
   function RandomInteger(aMin: integer; aMax: integer): integer;
-  // info
-  property Creator: string read fCreator write fCreator;
-  property Environment: TaiEnvironment read fEnvironment write fEnvironment;
-  property Time: integer read fTime;
-  property TimeSinceExecute: integer read fTimeSinceExecute;
-  property IsRunning: boolean read fIsRunning;
-  property ClockStagger: integer read fClockStagger write fClockStagger;
-  property Version: integer read fVersion;
-  property FileName: string read fFileName;
   procedure Clean;
   procedure Build(aWidth: integer; aHeight: integer);
   procedure SaveToFile(var aFile: TextFile); override;
@@ -68,9 +59,18 @@ public
   function LoadReality(aFileName: string): boolean;
   procedure SaveReality(aFileName: string);
   function ValidFile(aFileName: string): boolean;
+  // property
+  property Creator: string read fCreator write fCreator;
+  property Environment: TaiEnvironment read fEnvironment write fEnvironment;
+  property Time: integer read fTime;
+  property TimeSinceExecute: integer read fTimeSinceExecute;
+  property IsRunning: boolean read fIsRunning;
+  property ClockStagger: integer read fClockStagger write fClockStagger;
+  property Version: integer read fVersion;
+  property FileName: string read fFileName;
 end;
 
-implementation //------------------------------------------------------------
+implementation // ============================================================
 
 uses
   Bio.Utilities,
@@ -81,14 +81,12 @@ uses
 constructor TaiReality.Create;
 begin
   inherited Create(nil);
-
   gReality := self;
   fVersion := gVersion;
 
   fEnvironment := TaiEnvironment.Create(self);
   fClockStagger := 40;
   fIsRunning := false;
-
   fCreator := 'User';
 
   SetTimeFlowing;

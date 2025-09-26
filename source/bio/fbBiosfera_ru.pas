@@ -62,10 +62,9 @@ uses
   Bio.Environment,
   Bio.Satellites,
   Bio.Space,
-  vInterfaceClasses,
   Bio.Flora,
   Bio.Grid,
-  Bio.Fish,
+  Bio.Pisces,
   Bio.Bird,
   Bio.Coordinates,
   Bio.Explosions,
@@ -80,7 +79,6 @@ uses
   Bio.Tool,
   Bio.Utilities,
   Bio.Weather,
-  Bio.Shark,
   Bio.Turtle,
   Bio.Terrier,
   Bio.Fox,
@@ -90,11 +88,11 @@ uses
   Bio.Duck,
   Bio.Dolphin,
   Bio.Things,
-  Bio.Ladybug,
   Bio.FireTree,
   Bio.MissileDefence,
-  Bio.Ant,
+  Bio.Insects,
   Bio.EvolvingTrees,
+  vInterfaceClasses,
 
   dbImages
   ;

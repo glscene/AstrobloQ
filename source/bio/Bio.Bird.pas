@@ -100,7 +100,7 @@ uses
   Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Fish;
+  Bio.Pisces;
 
 // ----------------------------------------------------------------------------
 constructor TaiBird.Create(aParent: pointer);

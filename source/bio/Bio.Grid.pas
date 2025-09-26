@@ -97,7 +97,7 @@ private
   fConnectionDownRight: TaiGrid;
   fWaterCrossover: pointer; // for external convenience
   // owned
-  fCoordinates: AICoordinates;
+  fCoordinates: TaiCoordinates;
   procedure SetWater(aAmount: single);
   procedure SetHumidity(aAmount: single);
   procedure SetTemperature(aAmount: single);
@@ -116,6 +116,7 @@ public
     X: integer;
     Y: integer);
   destructor Destroy; override;
+  // property
   property Water: single read fWater write SetWater;
   property Humidity: single read fHumidity write SetHumidity;
   property Temperature: single read fTemperature write SetTemperature;
@@ -140,24 +141,10 @@ public
   procedure ChangeHumidity(aAmount: single);
   procedure ChangeTemperature(aAmount: single);
   procedure ChangeHeight(aAmount: single);
-  property Coordinates: AICoordinates read fCoordinates;
-  property AtTop: boolean read fAtTop write fAtTop;
-  property AtBottom: boolean read fAtBottom write fAtBottom;
-  property ConnectionUp: TaiGrid read fConnectionUp write fConnectionUp;
-  property ConnectionDown: TaiGrid read fConnectionDown write fConnectionDown;
-  property ConnectionLeft: TaiGrid read fConnectionLeft;
-  property ConnectionRight: TaiGrid read fConnectionRight;
-  property ConnectionUpLeft: TaiGrid read fConnectionUpLeft;
-  property ConnectionUpRight: TaiGrid read fConnectionUpRight;
-  property ConnectionDownLeft: TaiGrid read fConnectionDownLeft;
-  property ConnectionDownRight: TaiGrid read fConnectionDownRight;
-  property CornerValues: TaiHeightArray read fCornerValues;
-
   procedure CalculateHeights;
   procedure CalculateFullHeights;
   procedure CalculateWaters;
   procedure CalculateFullWaters;
-
   function DetermineLandHeight(aX, aY: single): single;
   function DetermineWaterHeight(aX, aY: single): single;
   function RandomConnection: TaiGrid;
@@ -196,6 +183,19 @@ public
   function NewThing(aKind: integer): pointer;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Coordinates: TaiCoordinates read fCoordinates;
+  property AtTop: boolean read fAtTop write fAtTop;
+  property AtBottom: boolean read fAtBottom write fAtBottom;
+  property ConnectionUp: TaiGrid read fConnectionUp write fConnectionUp;
+  property ConnectionDown: TaiGrid read fConnectionDown write fConnectionDown;
+  property ConnectionLeft: TaiGrid read fConnectionLeft;
+  property ConnectionRight: TaiGrid read fConnectionRight;
+  property ConnectionUpLeft: TaiGrid read fConnectionUpLeft;
+  property ConnectionUpRight: TaiGrid read fConnectionUpRight;
+  property ConnectionDownLeft: TaiGrid read fConnectionDownLeft;
+  property ConnectionDownRight: TaiGrid read fConnectionDownRight;
+  property CornerValues: TaiHeightArray read fCornerValues;
 end;
 
 TaiDimensions = array of array of TaiGrid;
@@ -219,7 +219,7 @@ constructor TaiGrid.Create(
 begin
   inherited Create(aSpace);
   Handle := UniqueHandle;
-  fCoordinates := AICoordinates.Create(self, X, Y);
+  fCoordinates := TaiCoordinates.Create(self, X, Y);
   SetLength(fCornerValues, 12);
   fChanged := true;
 end;

@@ -41,13 +41,6 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
-  property Pattern: integer read fPattern write fPattern;
-  property Center: TAffineVector read fCenter;
-  property Velocity: TAffineVector read fVelocity;
-  property Angle: single read fAngle write fAngle;
-  property Admit: integer read fAdmit write fAdmit;
-
   function AddMember(aMember: TaiThing): boolean; override;
   procedure NotifyOfDeath(aThing: TaiThing);
   procedure Fuel; override;
@@ -55,6 +48,12 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Pattern: integer read fPattern write fPattern;
+  property Center: TAffineVector read fCenter;
+  property Velocity: TAffineVector read fVelocity;
+  property Angle: single read fAngle write fAngle;
+  property Admit: integer read fAdmit write fAdmit;
 end;
 
 // ============================================================================
@@ -75,9 +74,6 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Community: TaiLink read fCommunity;
-  property Avoidance: TAffineVector read fAvoidance write fAvoidance;
-  property Bump: boolean read fBump write fBump;
   procedure AvoidNeighbour;
   procedure Fuel; override;
   procedure Die; override;
@@ -86,9 +82,13 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Community: TaiLink read fCommunity;
+  property Avoidance: TAffineVector read fAvoidance write fAvoidance;
+  property Bump: boolean read fBump write fBump;
 end;
 
-implementation // -----------------------------------------------------------
+implementation // =============================================================
 
 uses
   Bio.Reality,
@@ -96,13 +96,12 @@ uses
   Bio.Flora,
   Bio.Vibes,
   Bio.Utilities,
-  Bio.Fish;
+  Bio.Pisces;
 
 // ----------------------------------------------------------------------------
 constructor TaiCommunity.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   Kind := cCommunity;
   fPattern := cPatternEclipse;
   Maximum := Random(32) + 8;
@@ -121,14 +120,12 @@ end;
 procedure TaiCommunity.Fuel;
 begin
   inherited Fuel;
-
   fAngle := fAngle + ca2;
   if fAngle >= TwoPi then
   begin
     fAngle := 0;
     fPattern := Random(5);
   end;
-
   //if Age mod 4 = 0 then
     CalculateCenters;
   Position.SetPosition(Center.X, Center.Y, Center.Z);
@@ -148,7 +145,6 @@ var
 begin
   Participation := 0;
   RigidCount := Members.Count - 1;
-
   // reset to 0
   fCenter.X := 0;
   fCenter.Y := 0;
@@ -156,7 +152,6 @@ begin
   fVelocity.X := 0;
   fVelocity.Y := 0;
   fVelocity.Z := 0;
-
   // for all birds
   for i := 0 to Members.Count - 1 do
   begin
@@ -174,7 +169,6 @@ begin
       fVelocity.Z := fVelocity.Z + myCreature.Position.Velocity.DeltaHeight;
       Participation := Participation + 1;
     end;
-
     myCreature.Bump := false;
     myAvoidance.X := 0;
     myAvoidance.Y := 0;
@@ -194,7 +188,6 @@ begin
         end;
     myCreature.Avoidance := myAvoidance;
   end;
-
   // calculate the average center position
   RigidCount := RigidCount + 1;
   fCenter.X := fCenter.X / (RigidCount);
@@ -233,7 +226,6 @@ end;
 constructor TaiCommunityCreature.Create(aParent: pointer);
 begin
   inherited Create(aParent);
-
   fCommunity := gEnvironment.References.NewLink(self);
 end;
 
@@ -242,7 +234,6 @@ destructor TaiCommunityCreature.Destroy;
 begin
   LeaveCommunity;
   gEnvironment.References.Remove(fCommunity);
-
   inherited Destroy;
 end;
 
@@ -257,7 +248,6 @@ var
 begin
   myCommunity := TaiCommunity(Community.Target);
   RigidCount := myCommunity.Members.Count - 1;
-
   // find the first creature that is nearby and return avoidance vector
   for i := 0 to RigidCount do
   begin
@@ -266,10 +256,10 @@ begin
     begin
       if Position.SimpleDistanceTo(myFriend.Position)/2 < aBubble then
       begin
-        result.X := result.X + (Position.X - myFriend.Position.X) * 0.025;
-        result.Y := result.Y + (Position.Y - myFriend.Position.Y) * 0.025;
-        result.Z := result.Z + (Position.Height - myFriend.Position.Height) * 0.025;
-        break;
+        Result.X := result.X + (Position.X - myFriend.Position.X) * 0.025;
+        Result.Y := result.Y + (Position.Y - myFriend.Position.Y) * 0.025;
+        Result.Z := result.Z + (Position.Height - myFriend.Position.Height) * 0.025;
+        Break;
       end;
     end;
   end;
@@ -310,17 +300,14 @@ begin
   // already in a community?
   if Community.ValidTarget then
     exit;
-
   // find an existing community with vacancy
   myCommunity := gThings.Tables[cCommunity].CommunityWithRoom(Kind);
-
   // if there are no Communitys, create one
   if (myCommunity = nil) and (gThings.CanAdd(cCommunity)) then
   begin
     myCommunity := TaiCommunity(gThings.NewThing(cCommunity));
     myCommunity.Admit := Kind; // set this community to allow only my kind
   end;
-
   // if valid community, then join it
   if (myCommunity <> nil) then
   begin
@@ -344,7 +331,6 @@ end;
 procedure TaiCommunityCreature.Fuel;
 begin
   inherited Fuel;
-
   if (Age mod 64 = 0) then
     if not Community.ValidTarget then
       JoinCommunity;
@@ -354,7 +340,6 @@ end;
 procedure TaiCommunityCreature.Die;
 begin
   inherited Die;
-
   LeaveCommunity;
 end;
 
@@ -363,7 +348,6 @@ procedure TaiCommunityCreature.Cease;
 begin
   LeaveCommunity;
   gThings.Tables[cCommunity].NotifyAllCommunitiesOfDeath(self);
-
   inherited Cease;
 end;
 
@@ -391,18 +375,14 @@ end;
 function TaiCommunity.AddMember(aMember: TaiThing): boolean;
 begin
   result := false;
-
   // valid member?
   if aMember.Kind <> fAdmit then
     exit;
-
   // already in a community?
   if TaiCommunityCreature(aMember).Community.ValidTarget then
     exit;
-
   // add member
   result := inherited AddMember(aMember);
-
   // assign the community to the new member
   if result then
     TaiCommunityCreature(aMember).Community.AssignTarget(self);
@@ -425,7 +405,6 @@ var
   myForce: TAffineVector;
 begin
   if not Position.UnderWater then exit;
-
   // in a Community?
   if Community.ValidTarget then
   begin
@@ -491,7 +470,6 @@ end;
 procedure TaiCommunity.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Pattern: ' + IntToStr(fPattern));
   aList.Add('Admit: ' + IntToStr(fAdmit));
   aList.Add('Center: ' + VectorToString(fCenter));
@@ -503,7 +481,6 @@ end;
 procedure TaiCommunityCreature.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('Community: ' + Community.OneLineDisplayRight);
 end;
 
