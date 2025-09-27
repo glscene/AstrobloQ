@@ -142,7 +142,7 @@
         <DCCReference Include="..\source\galaxy\fgAnalyser_ru.pas">
             <Form>FormAnalyser</Form>
         </DCCReference>
-        <DCCReference Include="..\source\Space.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

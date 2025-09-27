@@ -2,7 +2,7 @@ object frmAstroScene: TfrmAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'AstroSceneR'
+  Caption = 'AstroScene'
   ClientHeight = 696
   ClientWidth = 1302
   Color = clBtnFace
@@ -34,7 +34,6 @@ object frmAstroScene: TfrmAstroScene
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 887
   end
   object PanelLeft: TPanel
     Left = 0
@@ -149,6 +148,7 @@ object frmAstroScene: TfrmAstroScene
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
+      ExplicitHeight = 621
     end
   end
   object StatusBar: TStatusBar
@@ -281,6 +281,7 @@ object frmAstroScene: TfrmAstroScene
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
+      ExplicitHeight = 621
     end
   end
   object Scene: TGLScene

@@ -265,7 +265,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbMiniForm.pas"/>
-        <DCCReference Include="..\source\Space.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\bio\dbImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>

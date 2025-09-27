@@ -117,7 +117,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
-        <DCCReference Include="..\source\Space.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
@@ -168,7 +168,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\Space.ReadCSV.pas"/>
+        <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
         <DCCReference Include="..\source\fmSettings_ru.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>

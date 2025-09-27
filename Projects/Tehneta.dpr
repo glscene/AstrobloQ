@@ -18,7 +18,7 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
-  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   ftTehneta in '..\source\teh\ftTehneta.pas' {frmTehneta},
   ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},

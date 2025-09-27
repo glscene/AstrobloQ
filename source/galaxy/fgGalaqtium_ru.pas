@@ -55,7 +55,7 @@ uses
   dmDialogs,
   dmBase,
 
-  Space.Globals,
+  Astro.Globals,
 
   fgAnalyser_ru,
   fgMonitor_ru,

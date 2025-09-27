@@ -20,7 +20,7 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},
-  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}

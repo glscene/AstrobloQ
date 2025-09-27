@@ -79,7 +79,7 @@ uses
   fbTutorial_ru in '..\source\bio\fbTutorial_ru.pas' {FormTutorial},
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm_ru in '..\source\bio\fbMiniForm_ru.pas',
-  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   fbBiosneta_ru in '..\source\bio\fbBiosneta_ru.pas' {FormBiosneta},
   vSpiritManager_ru in '..\source\bio\vSpiritManager_ru.pas',
   Bio.Flora in '..\source\bio\Bio.Flora.pas';

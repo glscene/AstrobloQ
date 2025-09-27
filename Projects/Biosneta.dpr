@@ -81,7 +81,7 @@ uses
   Bio.Utilities in '..\source\bio\Bio.Utilities.pas',
   fbTutorial in '..\source\bio\fbTutorial.pas' {FormTutorial},
   fbMiniForm in '..\source\bio\fbMiniForm.pas',
-  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule};
 
 {$R *.res}

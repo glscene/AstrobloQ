@@ -19,7 +19,7 @@ uses
   fmOptions_ru in '..\source\fmOptions_ru.pas' {frmOptions},
   fmGenStarsys_ru in '..\source\fmGenStarsys_ru.pas' {frmGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
-  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
@@ -36,7 +36,7 @@ uses
   fmMixTextures in '..\source\fmMixTextures.pas' {FormTexCombine},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  Space.ReadCSV in '..\source\Space.ReadCSV.pas',
+  Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings};
 
 {$R *.res}

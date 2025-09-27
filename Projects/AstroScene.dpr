@@ -20,9 +20,8 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
-  Space.ReadCSV in '..\source\Space.ReadCSV.pas',
   fmOptions in '..\source\fmOptions.pas' {frmOptions},
-  Space.Globals in '..\source\Space.Globals.pas',
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   fmSolarsys in '..\source\fmSolarsys.pas' {FormSolarSys},
   frParams in '..\source\frParams.pas' {FrameParams: TFrame},
   fmStarsys in '..\source\fmStarsys.pas' {FormStarsys},
@@ -39,7 +38,8 @@ uses
   faPointto in '..\source\astro\faPointto.pas' {FormPointto},
   faConstPolygons in '..\source\astro\faConstPolygons.pas' {FormConstPolygons},
   faCoordinates in '..\source\astro\faCoordinates.pas' {FormCoords},
-  fmSettings in '..\source\fmSettings.pas' {frmSettings};
+  fmSettings in '..\source\fmSettings.pas' {frmSettings},
+  Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas';
 
 {$R *.res}
 

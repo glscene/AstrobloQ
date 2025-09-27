@@ -265,7 +265,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbMiniForm_ru.pas"/>
-        <DCCReference Include="..\source\Space.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\bio\fbBiosneta_ru.pas">
             <Form>FormBiosneta</Form>
             <FormType>dfm</FormType>

@@ -30,7 +30,7 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  Space.Globals,
+  Astro.Globals,
   fmFormFirst;
 
 type

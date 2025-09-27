@@ -61,7 +61,7 @@ uses
   fgAstrocube,
   fgOptions,
 
-  Space.Globals,
+  Astro.Globals,
   Astro.Utils;
 
 type

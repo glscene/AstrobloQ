@@ -1,4 +1,4 @@
-﻿unit Space.Globals;
+﻿unit Astro.Globals;
 
 interface
 

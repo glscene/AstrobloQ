@@ -25,7 +25,7 @@ uses
   fbManager_ru,
   fbMiniForm_ru,
 
-  Space.Globals;
+  Astro.Globals;
 
 // geTipofDay
 

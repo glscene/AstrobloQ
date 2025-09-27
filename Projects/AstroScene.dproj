@@ -127,12 +127,11 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\Space.ReadCSV.pas"/>
         <DCCReference Include="..\source\fmOptions.pas">
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\Space.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\fmSolarsys.pas">
             <Form>FormSolarSys</Form>
             <FormType>dfm</FormType>
@@ -192,6 +191,7 @@
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
