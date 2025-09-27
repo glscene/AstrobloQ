@@ -31,14 +31,17 @@
 ![AstroScene](./docs/clips/PlanetarySystems.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
+### Litosneta
+
+Экзопланеты с литосферами
 ![Litosfera](./docs/clips/Litosfera_ru.png)
 
 ![Litosfera](./docs/clips/AnimationPlanet2a.gif)
 ![Litosfera](./docs/clips/AnimationAsteroid2.gif)
 
-### Biosfera
+### Biosneta
 
-Биосферы экзопланет
+Экзопланеты с биосферами
  
 ![Biosfera](./docs/clips/Biosfera.jpg)
 
@@ -47,25 +50,23 @@
 ![AstroScene](./docs/clips/AnimationLadybug2.gif)
 ![AstroScene](./docs/clips/AnimationFlock.gif)
 
+### Tehnosneta
 
-### Tehnosfera
-
-Техносферы экзопланет
+Экзопланеты с техносферами
 ![Tehnosfera](./docs/clips/Tehnosferas.png)
-
 
 ### Galaqtium
 
-![GalaQtium](./docs/clips/AstrobloQ_ru.png)
 ![GalaQtium](./docs/clips/Noostages_ru.jpg)
+![GalaQtium](./docs/clips/AstrobloQ_ru.png)
 
 Для моделирования используются следующие данные и методы вычислений: 
 
 - исходные данные о звёздах и экзопланетах находятся в каталогах [HYG](https://github.com/astronexus/HYG-Database), [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data), [Earthlike Terraplanets](https://phl.upr.edu/hwc);
-- строение, структура и состав объектов в системах "Star" -> "Galaxy" -> "Universe" моделируются с заданной точностью в разных масштабах; 
-- тетраэдральные сети TetraDel строятся по известным x,y,z координатам звёзд в галактической системе координат и по векторам vx,vy,vz их собственных движений с экстраполяцией в прошлое и будущее на шкале -10;0;+10 Gyr;
-- диаграммы сетей полиэдров PolyVor рассчитываются как двойственные графы тетраэдрализации Делоне;
-- построение грид-модели GalaGrd с кубическими ячейками выполняется по методу NNI, Natural Neighbour Interpolation с учётом влияния в интерполянте характеристик соседних регионов, за исключением областей войдов GalaxyVoids;
+- строение, структура и состав объектов в системах "Star->Galaxy->Universe" представляются в соответствующих масштабах с различным уровнем детализации L.O.D; 
+- тетраэдральные сетки TetraDel строятся по известным x,y,z координатам звёзд в галактической системе координат и по векторам vx,vy,vz их собственных движений с экстраполяцией в прошлое и будущее на шкале -10;0;+10 Gyr;
+- диаграммы сеток полиэдров PolyVor рассчитываются как двойственные графы тетраэдрализации Делоне;
+- для построения грид-модели GalaGrid с кубическими ячейками галавокселей используется метод интерполяции NNI, Natural Neighbour Interpolation, учитывающем влияние соседних регионов, за исключением областей GalaxyVoids;
 - изменение структуры Галактики во времени моделируется на базе [волновых функций плотности](https://github.com/beltoforion/Galaxy-Renderer) и путём экстраполяции данных звёздных каталогов в будущее;
 - эволюция звёздных популяций прогнозируется согласно диаграмме Герцшпрунга-Рассела для звёздного каталога HYG;
 - при моделировании коэволюции рассеянных скоплений звёзд, шаровых скоплений и галактик применяется операция свёртки рождения и гибели спектральных классов звёзд; 
