@@ -1,9 +1,9 @@
-program Biosfera_ru;
+program Biosneta_ru;
 
 uses
   Forms,
   Bio.BaseObject in '..\source\bio\Bio.BaseObject.pas',
-  Bio.Bird in '..\source\bio\Bio.Bird.pas',
+  Bio.Birds in '..\source\bio\Bio.Birds.pas',
   Bio.Bot in '..\source\bio\Bio.Bot.pas',
   Bio.Coordinates in '..\source\bio\Bio.Coordinates.pas',
   Bio.Crab in '..\source\bio\Bio.Crab.pas',
@@ -16,7 +16,6 @@ uses
   Bio.Fox in '..\source\bio\Bio.Fox.pas',
   Bio.Grazer in '..\source\bio\Bio.Grazer.pas',
   Bio.Grid in '..\source\bio\Bio.Grid.pas',
-  Bio.Hawk in '..\source\bio\Bio.Hawk.pas',
   Bio.Life in '..\source\bio\Bio.Life.pas',
   Bio.Link in '..\source\bio\Bio.Link.pas',
   Bio.Position in '..\source\bio\Bio.Position.pas',
@@ -35,7 +34,6 @@ uses
   Bio.UserSettings in '..\source\bio\Bio.UserSettings.pas',
   Bio.Mouse in '..\source\bio\Bio.Mouse.pas',
   Bio.Tiger in '..\source\bio\Bio.Tiger.pas',
-  Bio.Duck in '..\source\bio\Bio.Duck.pas',
   Bio.Community in '..\source\bio\Bio.Community.pas',
   Bio.Mating in '..\source\bio\Bio.Mating.pas',
   Bio.Dolphin in '..\source\bio\Bio.Dolphin.pas',
@@ -82,7 +80,7 @@ uses
   dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
   fbMiniForm_ru in '..\source\bio\fbMiniForm_ru.pas',
   Space.Globals in '..\source\Space.Globals.pas',
-  fbBiosfera_ru in '..\source\bio\fbBiosfera_ru.pas' {FormBiosfera},
+  fbBiosneta_ru in '..\source\bio\fbBiosneta_ru.pas' {FormBiosneta},
   vSpiritManager_ru in '..\source\bio\vSpiritManager_ru.pas',
   Bio.Flora in '..\source\bio\Bio.Flora.pas';
 
@@ -90,7 +88,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'Biosfera';
+  Application.Title := 'Biosneta';
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmLists, frmLists);
   Application.CreateForm(TfrmConstruction, frmConstruction);

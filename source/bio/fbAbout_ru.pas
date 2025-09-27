@@ -33,8 +33,6 @@ type
     TabSheet3: TTabSheet;
     rePhilosophy: TRichEdit;
     redIntro: TRichEdit;
-    TabSheet4: TTabSheet;
-    RichEdit3: TRichEdit;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure labBioSphereClick(Sender: TObject);

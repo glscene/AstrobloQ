@@ -3,7 +3,7 @@ object FormReality: TFormReality
   Top = 158
   BorderIcons = [biSystemMenu, biMinimize, biHelp]
   BorderStyle = bsSingle
-  Caption = 'Biosfera'
+  Caption = 'Biosneta'
   ClientHeight = 43
   ClientWidth = 1085
   Color = clBtnFace

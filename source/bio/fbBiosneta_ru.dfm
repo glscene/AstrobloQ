@@ -1,9 +1,9 @@
-object FormBiosfera: TFormBiosfera
+object FormBiosneta: TFormBiosneta
   Left = 4
   Top = 83
   Align = alClient
   BorderIcons = [biSystemMenu]
-  Caption = 'Biosferas'
+  Caption = 'Biosneta'
   ClientHeight = 758
   ClientWidth = 1551
   Color = clBtnFace
@@ -38,6 +38,7 @@ object FormBiosfera: TFormBiosfera
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 1543
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -46,6 +47,7 @@ object FormBiosfera: TFormBiosfera
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 1543
       object tbWater: TToolBar
         Left = 0
         Top = 56
@@ -558,6 +560,7 @@ object FormBiosfera: TFormBiosfera
         ShowCaptions = True
         TabOrder = 4
         Visible = False
+        ExplicitWidth = 1543
         object Label8: TLabel
           Left = 0
           Top = 0
@@ -937,7 +940,7 @@ object FormBiosfera: TFormBiosfera
           Left = 211
           Top = 0
           Width = 45
-          Height = 13
+          Height = 22
           Caption = #1050#1086#1085#1090#1088#1086#1083':'
           Color = clInactiveBorder
           ParentColor = False
@@ -956,7 +959,7 @@ object FormBiosfera: TFormBiosfera
           Left = 325
           Top = 0
           Width = 34
-          Height = 13
+          Height = 22
           Caption = #1040#1082#1094#1080#1080':'
           Color = clInactiveBorder
           ParentColor = False
@@ -1024,7 +1027,7 @@ object FormBiosfera: TFormBiosfera
           Left = 915
           Top = 0
           Width = 22
-          Height = 13
+          Height = 22
           Caption = 'Use:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1376,7 +1379,7 @@ object FormBiosfera: TFormBiosfera
           Left = 173
           Top = 0
           Width = 28
-          Height = 13
+          Height = 22
           Caption = 'Trails:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1437,7 +1440,7 @@ object FormBiosfera: TFormBiosfera
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = 'Disasters:'
+          Caption = #1041#1077#1076#1089#1090#1074#1080#1077
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -1473,7 +1476,7 @@ object FormBiosfera: TFormBiosfera
         object tbPlantRemover: TToolButton
           Left = 295
           Top = 0
-          Caption = 'Plant Remover'
+          Caption = #1057#1088#1091#1073#1080#1090#1100' '
           Grouped = True
           ImageIndex = 48
           Style = tbsCheck
@@ -1482,7 +1485,7 @@ object FormBiosfera: TFormBiosfera
         object tbLifeKiller: TToolButton
           Left = 402
           Top = 0
-          Caption = 'Life Killer'
+          Caption = #1059#1073#1080#1090#1100
           Grouped = True
           ImageIndex = 16
           Style = tbsCheck
@@ -1577,7 +1580,7 @@ object FormBiosfera: TFormBiosfera
         object tbAtmosphereMenu: TToolButton
           Left = 280
           Top = 0
-          Hint = 'Atmosphere'
+          Hint = #1040#1090#1084#1086#1089#1092#1077#1088#1072
           Caption = #1042#1086#1079#1076#1091#1093
           Grouped = True
           ImageIndex = 85
@@ -1637,8 +1640,8 @@ object FormBiosfera: TFormBiosfera
         object tbDisastersMenu: TToolButton
           Left = 630
           Top = 0
-          Hint = 'Disasters'
-          Caption = #1041#1077#1076#1089#1090#1074#1080#1077
+          Hint = #1050#1072#1090#1072#1089#1090#1088#1086#1092#1099
+          Caption = #1041#1077#1076#1089#1090#1074#1080#1103
           Grouped = True
           ImageIndex = 153
           ParentShowHint = False
@@ -1649,7 +1652,7 @@ object FormBiosfera: TFormBiosfera
         object tbCameraMenu: TToolButton
           Left = 700
           Top = 0
-          Hint = 'Find'
+          Hint = #1053#1072#1081#1090#1080
           Caption = #1055#1086#1080#1089#1082
           Grouped = True
           ImageIndex = 140
@@ -1673,7 +1676,7 @@ object FormBiosfera: TFormBiosfera
         object tbAudioMenu: TToolButton
           Left = 840
           Top = 0
-          Hint = 'Audio and Details'
+          Hint = #1047#1074#1091#1082#1080' '#1080' '#1096#1086#1088#1086#1093#1080
           Caption = #1040#1091#1076#1080#1086
           Grouped = True
           ImageIndex = 43
@@ -1705,7 +1708,7 @@ object FormBiosfera: TFormBiosfera
         object tbRepeat: TToolButton
           Left = 988
           Top = 0
-          Hint = 'Tool Repeat'
+          Hint = #1055#1086#1074#1090#1086#1088#1077#1085#1080#1077
           Caption = #1055#1086#1074#1090#1086#1088
           Down = True
           ImageIndex = 142
@@ -2658,6 +2661,8 @@ object FormBiosfera: TFormBiosfera
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 1543
+    ExplicitHeight = 159
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2719,7 +2724,7 @@ object FormBiosfera: TFormBiosfera
           Left = 0
           Top = 0
           Width = 42
-          Height = 13
+          Height = 22
           Caption = #1050#1072#1084#1077#1088#1072':'
         end
         object tbCameraPlanet: TToolButton
@@ -2855,8 +2860,8 @@ object FormBiosfera: TFormBiosfera
     end
   end
   object GLScene: TGLScene
-    Left = 661
-    Top = 234
+    Left = 37
+    Top = 578
     object GalaxyCube: TGLDummyCube
       CubeSize = 1.000000000000000000
       object SkyDome: TGLSkyDome
@@ -3345,23 +3350,23 @@ object FormBiosfera: TFormBiosfera
     MaxDeltaTime = 1.000000000000000000
     SleepLength = 5
     OnProgress = GLCadencerProgress
-    Left = 753
-    Top = 306
+    Left = 209
+    Top = 578
   end
   object GLMaterialLibrary: TGLMaterialLibrary
-    Left = 1140
-    Top = 216
+    Left = 500
+    Top = 576
   end
   object FPSTimer: TTimer
     Interval = 1024
     OnTimer = FPSTimerTimer
-    Left = 1250
-    Top = 398
+    Left = 1330
+    Top = 582
   end
   object GLSoundLibrary: TGLSoundLibrary
     Samples = <>
-    Left = 1057
-    Top = 364
+    Left = 689
+    Top = 580
   end
   object GLPolygonPFXManager1: TGLPolygonPFXManager
     Cadencer = GLCadencer
@@ -3372,8 +3377,8 @@ object FormBiosfera: TFormBiosfera
         LifeTime = 3.000000000000000000
         SizeScale = 1.000000000000000000
       end>
-    Left = 1300
-    Top = 216
+    Left = 916
+    Top = 584
   end
   object GLWindowsBitmapFont1: TGLWindowsBitmapFont
     Font.Charset = DEFAULT_CHARSET
@@ -3381,8 +3386,8 @@ object FormBiosfera: TFormBiosfera
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Left = 848
-    Top = 237
+    Left = 328
+    Top = 573
   end
   object AVIRecorder: TGLAVIRecorder
     FPS = 24
@@ -3390,14 +3395,14 @@ object FormBiosfera: TFormBiosfera
     Width = 320
     Height = 200
     Filename = 'photos\aimovie.avi'
-    Left = 1250
-    Top = 511
+    Left = 802
+    Top = 583
   end
   object GLBass: TGLSMBASS
     MaxChannels = 32
     MasterVolume = 1.000000000000000000
     Sources = <>
-    Left = 754
-    Top = 237
+    Left = 130
+    Top = 573
   end
 end

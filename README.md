@@ -25,39 +25,39 @@
 
 ![Noonet](./docs/clips/Noosfera.png)
 
-![Tehnosfera](./docs/clips/Meteors.gif)
+![Tehneta](./docs/clips/Meteors.gif)
 
 ![AstroScene](./docs/clips/PlanetarySystems.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
 ### Litosneta
 
-Экзопланеты с литосферами
-![Litosfera](./docs/clips/Litosfera_ru.png)
+Экзопланета с литосферой
+![Litosneta](./docs/clips/Litosfera_ru.png)
 
-![Litosfera](./docs/clips/AnimationPlanet2a.gif)
-![Litosfera](./docs/clips/AnimationAsteroid2.gif)
+![Litosneta](./docs/clips/AnimationPlanet2a.gif)
+![Litosneta](./docs/clips/AnimationAsteroid2.gif)
 
 ### Biosneta
 
-Экзопланеты с биосферами
+Экзопланета с биосферой
  
-![Biosfera](./docs/clips/Biosfera.jpg)
+![Biosneta](./docs/clips/Biosfera.jpg)
 
-![Biosfera](./docs/clips/AnimationDolphin.gif)
-![Biosfera](./docs/clips/AnimationEcosystemA.gif)
+![Biosneta](./docs/clips/AnimationDolphin.gif)
+![Biosneta](./docs/clips/AnimationEcosystemA.gif)
 ![AstroScene](./docs/clips/AnimationLadybug2.gif)
 ![AstroScene](./docs/clips/AnimationFlock.gif)
 
-### Tehnosneta
+### Tehneta
 
-Экзопланеты с техносферами
-![Tehnosfera](./docs/clips/Tehnosferas.png)
+Экзопланета с техносферой
+![Tehneta](./docs/clips/Tehnosferas.png)
 
 ## Galaqtium
 
-![GalaQtium](./docs/clips/Noostages.jpg)
-![GalaQtium](./docs/clips/AstrobloQ_ru.png)
+![Galaqtium](./docs/clips/AstrobloQ_ru.png)
+![Galaqtium](./docs/clips/Noostages.jpg)
 
 Для моделирования используются следующие данные и методы: 
 
@@ -84,13 +84,13 @@
 - [PasDoc](https://pasdoc.github.io/), средство составления HTML документации путём сбора комментариев из исходного кода проекта. 
 - [Inno Setup](https://jrsoftware.org/isinfo.php), программа создания инсталляторов приложений Windows.
 
-Проекты на базе AstrobloQ могут быть как публичными, так и приватными по лицензии MPL 2.0. 
-Пакеты визуальных графических компонентов [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/) можно использовать
-в стартапах бесплатно в [образовании и научных организациях](https://gitverse.ru/UniverseCETI/GalaxyCETI/) 
+Проекты AstrobloQ могут быть как публичными, так и приватными по лицензии MPL 2.0. 
+Пакеты визуальных компонентов [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/) можно использовать
+в стартапах в [образовании и научных организациях](https://gitverse.ru/UniverseCETI/GalaxyCETI/) 
 со ссылкой в описании проекта. 
 
 Вы можете принять участие в развитии системы. Для этого необходимо зарегистрироваться на GitVerse, 
-открыть аккаунт и добавить AstrobloQ в избранное. Соавторы получают доступ к приватному репозиторию 
-с релизами готовых программ и инсталляциями рабочих приложений с базами данных.  
+открыть аккаунт и добавить AstrobloQ в избранное. Соавторы получают доступ к репозиторию 
+с релизами готовых программ и инсталляциями рабочих приложений.  
 
 [Admin](https://t.me/astronoology)

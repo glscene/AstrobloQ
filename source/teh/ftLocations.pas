@@ -9,9 +9,6 @@ unit ftLocations;
   the stuff on the left would be divided into
   left and right sides with its own memo
 
-  The Earthform Main page People Display would be the 'front page'
-  It could be divided into 2 pages or not.. maybe 1 ..wider
-
   The Planet maker (ABCDE) may be another page
 *)
 
@@ -114,10 +111,10 @@ type
 var
   FormLocations: TFormLocations;
 
-implementation // -----------------------------------------------------------
+implementation // ============================================================
 
 uses
-  ftTehnosfera,
+  ftTehneta,
   Teh.Globals;
 
 {$R *.DFM}
@@ -360,10 +357,10 @@ begin
   cbTypes.Items.Add('6: Scientific Visualization [clrLime]');
   cbTypes.Items.Add('7: Others [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  frmTehnosfera.cbTypes.Clear;
+  frmTehneta.cbTypes.Clear;
   // EarthForm.cbTypes.Items.Add(S);
-  frmTehnosfera.cbTypes.Items := cbTypes.Items; // copied items to main form
-  frmTehnosfera.cbTypes.ItemIndex := 0;
+  frmTehneta.cbTypes.Items := cbTypes.Items; // copied items to main form
+  frmTehneta.cbTypes.ItemIndex := 0;
 end;
 
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);

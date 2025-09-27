@@ -3,7 +3,7 @@ object FormReality: TFormReality
   Top = 158
   BorderIcons = [biSystemMenu, biMinimize, biHelp]
   BorderStyle = bsSingle
-  Caption = 'Biosfera'
+  Caption = 'Biosneta'
   ClientHeight = 41
   ClientWidth = 1079
   Color = clBtnFace
@@ -53,6 +53,7 @@ object FormReality: TFormReality
     BevelOuter = bvLowered
     BorderWidth = 2
     TabOrder = 0
+    ExplicitWidth = 1071
     object Panel4: TPanel
       Left = 3
       Top = 3
@@ -338,6 +339,7 @@ object FormReality: TFormReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 4
+      ExplicitLeft = 989
       object btnExit: TBitBtn
         Left = 0
         Top = 2
@@ -373,8 +375,8 @@ object FormReality: TFormReality
     end
   end
   object MainMenu1: TMainMenu
-    Left = 613
-    Top = 3
+    Left = 645
+    Top = 65523
     object File1: TMenuItem
       Caption = 'File'
       object menuNewReality: TMenuItem
@@ -562,20 +564,20 @@ object FormReality: TFormReality
   object RealityClock: TTimer
     Interval = 100
     OnTimer = RealityClockTimer
-    Left = 634
-    Top = 8
+    Left = 802
+    Top = 65520
   end
   object odLoadReality: TOpenDialog
     DefaultExt = 'air'
     FileName = '*.air'
     Filter = '*.air'
-    Left = 562
-    Top = 8
+    Left = 554
+    Top = 65520
   end
   object sdSaveReality: TSaveDialog
     FileName = '*.air'
     Filter = '*.air'
-    Left = 711
+    Left = 903
     Top = 65522
   end
 end

@@ -33,7 +33,6 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-
   function IsPredator: boolean; override;
   procedure Fuel; override;
 end;
@@ -44,7 +43,7 @@ uses
   Bio.Reality,
   Bio.Globals,
   Bio.Flora,
-  Bio.Bird,
+  Bio.Birds,
   Bio.Vibes,
   Bio.Utilities;
 

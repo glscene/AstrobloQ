@@ -114,10 +114,10 @@ type
 var
   FormLocations: TFormLocations;
 
-implementation //----------------------------------------------------------
+implementation // =============================================================
 
 uses
-  ftTehnosfera_ru,
+  ftTehneta_ru,
   Teh.Globals;
 
 {$R *.DFM}
@@ -372,10 +372,10 @@ begin
   cbTypes.Items.Add('6: Scientific Visualization [clrLime]');
   cbTypes.Items.Add('7: Others [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  frmTehnosfera.cbTypes.Clear;
-  // frmNoosfera.cbTypes.Items.Add(S);
-  frmTehnosfera.cbTypes.Items := cbTypes.Items; // copied items to main form
-  frmTehnosfera.cbTypes.ItemIndex := 0;
+  frmTehneta.cbTypes.Clear;
+  // frmTehneta.cbTypes.Items.Add(S);
+  frmTehneta.cbTypes.Items := cbTypes.Items; // copied items to main form
+  frmTehneta.cbTypes.ItemIndex := 0;
 end;
 
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);

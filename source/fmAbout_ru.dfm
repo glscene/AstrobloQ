@@ -36,13 +36,11 @@ object FormAbout: TFormAbout
     Top = 65
     Width = 749
     Height = 552
-    ActivePage = tsUniversum
+    ActivePage = tsTehnosfera
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 741
-    ExplicitHeight = 527
     object tsAstroScene: TTabSheet
-      Caption = 'AstroScene'
+      Caption = #1040#1089#1090#1088#1086#1089#1094#1077#1085#1072
       object ImagePlanets: TImage
         Left = 0
         Top = 41
@@ -53060,7 +53058,6 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 733
       end
     end
     object tsTehnosfera: TTabSheet

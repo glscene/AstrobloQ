@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{D54C68E8-0F0B-49F9-AEEB-BB0F77F91991}</ProjectGuid>
-        <MainSource>Biosfera.dpr</MainSource>
+        <MainSource>Biosneta.dpr</MainSource>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <ProjectVersion>20.3</ProjectVersion>
@@ -10,7 +10,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <ProjectName Condition="'$(ProjectName)'==''">Biosfera</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Biosneta</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -60,7 +60,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>Biosfera</SanitizedProjectName>
+        <SanitizedProjectName>Biosneta</SanitizedProjectName>
         <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Build>1000</VerInfo_Build>
@@ -129,7 +129,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\bio\Bio.BaseObject.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Bird.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Birds.pas"/>
         <DCCReference Include="..\source\bio\Bio.Bot.pas"/>
         <DCCReference Include="..\source\bio\Bio.Coordinates.pas"/>
         <DCCReference Include="..\source\bio\Bio.Crab.pas"/>
@@ -142,7 +142,6 @@
         <DCCReference Include="..\source\bio\Bio.Fox.pas"/>
         <DCCReference Include="..\source\bio\Bio.Grazer.pas"/>
         <DCCReference Include="..\source\bio\Bio.Grid.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Hawk.pas"/>
         <DCCReference Include="..\source\bio\Bio.Life.pas"/>
         <DCCReference Include="..\source\bio\Bio.Link.pas"/>
         <DCCReference Include="..\source\bio\Bio.Position.pas"/>
@@ -162,7 +161,6 @@
         <DCCReference Include="..\source\bio\Bio.UserSettings.pas"/>
         <DCCReference Include="..\source\bio\Bio.Mouse.pas"/>
         <DCCReference Include="..\source\bio\Bio.Tiger.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Duck.pas"/>
         <DCCReference Include="..\source\bio\Bio.Community.pas"/>
         <DCCReference Include="..\source\bio\Bio.Mating.pas"/>
         <DCCReference Include="..\source\bio\Bio.Dolphin.pas"/>
@@ -175,8 +173,8 @@
         <DCCReference Include="..\source\bio\Bio.MatingSingle.pas"/>
         <DCCReference Include="..\source\bio\Bio.FireTree.pas"/>
         <DCCReference Include="..\source\bio\Bio.MissileDefence.pas"/>
-        <DCCReference Include="..\source\bio\fbBiosfera.pas">
-            <Form>FormBiosfera</Form>
+        <DCCReference Include="..\source\bio\fbBiosneta.pas">
+            <Form>FormBiosneta</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbAbout.pas">
             <Form>FormAbout</Form>
@@ -292,7 +290,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Biosfera.dpr</Source>
+                    <Source Name="MainSource">Biosneta.dpr</Source>
                 </Source>
                 <Parameters>
                     <Parameters Name="UseLauncher">False</Parameters>
@@ -339,9 +337,9 @@
             </Platforms>
             <Deployment Version="5">
                 <DeployFile LocalName="..\Bin\PlanetAI.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="..\bin\Biosfera.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Biosneta.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Biosfera.exe</RemoteName>
+                        <RemoteName>Biosneta.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

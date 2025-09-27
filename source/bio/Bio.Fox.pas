@@ -38,7 +38,7 @@ uses
   Bio.Reality,
   Bio.Globals,
   Bio.Flora,
-  Bio.Bird,
+  Bio.Birds,
   Bio.Vibes,
   Bio.Utilities;
 

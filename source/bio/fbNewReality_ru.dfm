@@ -46,6 +46,7 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 1
+    ExplicitWidth = 409
     object Panel2: TPanel
       Left = 0
       Top = 0
@@ -77,6 +78,7 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 2
+    ExplicitWidth = 409
     object Panel4: TPanel
       Left = 0
       Top = 0
@@ -121,6 +123,7 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 0
+    ExplicitWidth = 409
     object Panel6: TPanel
       Left = 0
       Top = 0
@@ -152,6 +155,7 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 3
+    ExplicitWidth = 409
     object Panel8: TPanel
       Left = 0
       Top = 0
@@ -196,18 +200,20 @@ object FormNewReality: TFormNewReality
     ParentColor = True
     TabOrder = 4
     Visible = False
+    ExplicitWidth = 409
     object Panel12: TPanel
       Left = 0
       Top = 0
-      Width = 129
+      Width = 105
       Height = 29
       Align = alLeft
       Alignment = taRightJustify
       BevelOuter = bvNone
       BorderWidth = 5
-      Caption = 'Water Surface Tension:'
+      Caption = #1042#1086#1083#1085#1077#1085#1080#1077' '#1084#1086#1088#1103':'
       ParentColor = True
       TabOrder = 0
+      ExplicitLeft = 24
     end
     object edTension: TEdit
       Left = 152
@@ -236,12 +242,13 @@ object FormNewReality: TFormNewReality
     Height = 41
     Align = alTop
     TabOrder = 5
+    ExplicitWidth = 409
     object btnBarren: TBitBtn
       Left = 40
       Top = 8
       Width = 75
       Height = 25
-      Caption = #1055#1091#1089#1090#1099#1088#1100
+      Caption = #1055#1091#1089#1090#1099#1085#1103
       TabOrder = 0
       OnClick = btnBarrenClick
     end
@@ -280,6 +287,8 @@ object FormNewReality: TFormNewReality
     Height = 44
     Align = alBottom
     TabOrder = 7
+    ExplicitTop = 383
+    ExplicitWidth = 409
     object Panel22: TPanel
       Left = 239
       Top = 1
@@ -288,6 +297,7 @@ object FormNewReality: TFormNewReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 231
       object BitBtn1: TBitBtn
         Left = 86
         Top = 8
@@ -316,6 +326,8 @@ object FormNewReality: TFormNewReality
     Height = 193
     Align = alClient
     TabOrder = 6
+    ExplicitWidth = 409
+    ExplicitHeight = 168
     object Panel21: TPanel
       Left = 1
       Top = 1
@@ -324,6 +336,7 @@ object FormNewReality: TFormNewReality
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 166
       object Panel13: TPanel
         Left = 0
         Top = 33
@@ -516,6 +529,8 @@ object FormNewReality: TFormNewReality
       Height = 191
       Align = alClient
       TabOrder = 1
+      ExplicitWidth = 167
+      ExplicitHeight = 166
       object Label1: TLabel
         Left = 14
         Top = 8
@@ -584,8 +599,8 @@ object FormNewReality: TFormNewReality
       object cbFrozenPoles: TCheckBox
         Left = 32
         Top = 136
-        Width = 97
-        Height = 17
+        Width = 129
+        Height = 18
         Hint = 'Lower the temperature of the poles to frozen.'
         Caption = #1051#1077#1076#1086#1074#1099#1077' '#1087#1086#1083#1102#1089#1072
         ParentShowHint = False
@@ -598,7 +613,7 @@ object FormNewReality: TFormNewReality
         Width = 97
         Height = 17
         Hint = 'Randomly raise/lower grid heights by small amounts.'
-        Caption = 'Fuzzy Land'
+        Caption = #1061#1086#1083#1084#1080#1089#1090#1086#1089#1090#1100
         ParentShowHint = False
         ShowHint = True
         TabOrder = 9
@@ -634,6 +649,7 @@ object FormNewReality: TFormNewReality
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 8
+    ExplicitWidth = 409
     object Panel27: TPanel
       Left = 0
       Top = 0

@@ -1,4 +1,4 @@
-unit Bio.Bird;
+unit Bio.Birds;
 
 interface
 
@@ -8,13 +8,17 @@ uses
   System.Types,
   System.SysUtils,
   System.Math,
+
+  Stage.VectorGeometry,
+
   Bio.BaseObject,
   Bio.Things,
   Bio.Position,
   Bio.Life,
   Bio.Link,
   Bio.Creature,
-  Stage.VectorGeometry;
+  Bio.Community,
+  Bio.Mating;
 
 const
   cFlockNoPattern = 0;        // fly normally
@@ -28,10 +32,34 @@ const
   cGoalEat = 2;
   cGoalMate = 3;
 
+const
+  cHawkBaby = 0;
+  cHawkAdult = 256;
+
+  cHawkDesireNone = 0;
+  cHawkDesireWander = 1;
+  cHawkDesireFood = 2;
+  cHawkDesireRest = 3;
+
+  cHawkGoalNone = 0;
+  cHawkGoalMove = 1;
+  cHawkGoalEat = 2;
+  cHawkGoalAttack = 3;
+
+  cHawkMove = 0;
+  cHawkRest = 1;
+  cHawkJoinFlock = 2;
+  cHawkForage = 3;
+  cHawkEatFood = 4;
+  cHawkAttack = 5;
+  cHawkNoGoal = 6;
+  cHawkFindNest = 7;
+  cHawkFollow = 8;
+  cHawkSpeed = 0.01;
+
 type
 
-// ============================================================================
-// a group of birds
+(* A group of birds *)
 TaiFlock = class(TaiLivingGroup)
 private
   fFlightPattern: integer;
@@ -43,16 +71,16 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
+  procedure FullDisplay(aList: TStrings); override;
+  procedure Fuel; override;
+  // property
   property FlightPattern: integer read fFlightPattern write fFlightPattern;
   property FlockCenter: TAffineVector read fFlockCenter;
   property FlockVelocity: TAffineVector read fFlockVelocity;
   property FlockAngle: single read fFlockAngle write fFlockAngle;
-  procedure FullDisplay(aList: TStrings); override;
-  procedure Fuel; override;
 end;
 
-// ============================================================================
-// an individual bird
+(* An individual bird *)
 TaiBird = class(TaiCreature)
 private
   fFlock: TaiLink;     // flock
@@ -74,11 +102,6 @@ protected
 public
   constructor Create(aParent: pointer);
   destructor Destroy; override;
-  property Flock: TaiLink read fFlock;
-  property Flying: boolean read fFlying write fFlying;
-  property Mature: boolean read fMature write fMature;
-  property Gender: boolean read fGender write fGender;
-  property MatingTimer: integer read fMatingTimer write fMatingTimer;
   procedure Fuel; override;
   procedure Die; override;
   procedure Cease; override;
@@ -90,9 +113,44 @@ public
   procedure FullDisplay(aList: TStrings); override;
   procedure SaveToFile(var aFile: TextFile); override;
   procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Flock: TaiLink read fFlock;
+  property Flying: boolean read fFlying write fFlying;
+  property Mature: boolean read fMature write fMature;
+  property Gender: boolean read fGender write fGender;
+  property MatingTimer: integer read fMatingTimer write fMatingTimer;
 end;
 
-implementation //--------------------------------------------------------------
+(* Duck *)
+TaiDuck = class(TaiMatingCreature)
+protected
+  procedure FloatWithCommunity;
+  procedure Float;
+  procedure DevelopIntoBaby; override;
+public
+  constructor Create(aParent: pointer);
+  destructor Destroy; override;
+  procedure Fuel; override;
+end;
+
+(* Hawk *)
+TaiHawk = class(TaiCreature)
+private
+  fFlying: boolean;
+public
+  constructor Create(aParent: pointer);
+  destructor Destroy; override;
+  procedure Fuel; override;
+  procedure Hop;
+  procedure FlapWings;
+  function IsPredator: boolean; override;
+  procedure SaveToFile(var aFile: TextFile); override;
+  procedure LoadFromFile(var aFile: TextFile); override;
+  // property
+  property Flying: boolean read fFlying write fFlying;
+end;
+
+implementation // =============================================================
 
 uses
   Bio.Reality,
@@ -152,7 +210,6 @@ begin
       if Grabber.Holding then
         Desire := cDesireEat;
     end;
-
     cDesireWander, cDesireEat:
     begin
       // mate if possible
@@ -162,7 +219,6 @@ begin
       if (Health < 1000) and (not Grabber.Holding) then
         Desire := cDesireFood;
     end;
-
     cDesireMate:
     begin
       // look for food if hungry
@@ -172,7 +228,6 @@ begin
         Eyes.InvalidateTarget;
       end;
     end;
-
   end;
 
   // enact desire
@@ -199,7 +254,6 @@ begin
     Flying := false;
     Swim;
   end;
-
   // eat
   if Grabber.Holding then
   begin
@@ -212,7 +266,6 @@ begin
       Desire := cDesireWander;
       exit;
     end;
-
     if Grabber.Empty and (Size < 1024) then
     begin
       Noise(cNoiseEat, 1);
@@ -227,7 +280,6 @@ begin
   inherited Die;
 
   Noise(cNoiseSquawk, 1);
-
   LeaveFlock;
 end;
 
@@ -236,7 +288,6 @@ procedure TaiBird.Cease;
 begin
   if Exists then
     LeaveFlock;
-
   inherited Cease;
 end;
 
@@ -313,7 +364,6 @@ end;
 // ----------------------------------------------------------------------------
 destructor TaiFlock.Destroy;
 begin
-
   inherited Destroy;
 end;
 
@@ -321,14 +371,12 @@ end;
 procedure TaiFlock.Fuel;
 begin
   inherited Fuel;
-
   fFlockAngle := fFlockAngle + ca2;
   if fFlockAngle >= TwoPi then
   begin
     fFlockAngle := 0;
     fFlightPattern := Random(5);
   end;
-
   CalculateCenters;
 end;
 
@@ -341,7 +389,6 @@ var
   i, RigidCount, FlockingCount: integer;
 begin
   FlockingCount := 0;
-
   // reset to 0
   fFlockCenter.X := 0;
   fFlockCenter.Y := 0;
@@ -349,13 +396,11 @@ begin
   fFlockVelocity.X := 0;
   fFlockVelocity.Y := 0;
   fFlockVelocity.Z := 0;
-
   // for all birds
   RigidCount := Members.Count;
   for i := 0 to RigidCount-1 do
   begin
     myBird := TaiBird(Members.Items[i]);
-
     // add to center
     fFlockCenter.X := fFlockCenter.X + myBird.Position.X;
     fFlockCenter.Y := fFlockCenter.Y + myBird.Position.Y;
@@ -370,7 +415,6 @@ begin
       FlockingCount := FlockingCount + 1;
     end;
   end;
-
   // calculate the average center position
   fFlockCenter.X := fFlockCenter.X / (RigidCount);
   fFlockCenter.Y := fFlockCenter.Y / (RigidCount);
@@ -404,10 +448,9 @@ begin
   end;
 end;
 
-
 // ----------------------------------------------------------------------------
-// assumes in a flock
-// avoid any nearby birds
+// assumes in a flock avoid any nearby birds
+// ----------------------------------------------------------------------------
 function TaiBird.FlockAvoidance: TAffineVector;
 var
   myBird: TaiBird;
@@ -415,11 +458,9 @@ var
   myFlock: TaiFlock;
 begin
   myFlock := TaiFlock(Flock.Target);
-
   result.X := 0;
   result.Y := 0;
   result.Z := 0;
-
   for i := 0 to myFlock.Members.Count - 1 do
   begin
     myBird := TaiBird(myFlock.Members.Items[i]);
@@ -464,9 +505,7 @@ begin
   end
   else // not in a flock
     JoinFlock;
-
   Flying := (Position.Binding = bindAtmosphere);
-
   if Position.HeightAbove < 10 then
   begin
     if Position.Velocity.DeltaHeight < 0 then
@@ -523,7 +562,6 @@ begin
       // or maybe get a fish
         Eyes.AssignTarget(gThings.Prey.NearestAvailableThing(Position));
     end;
-
   // move
   if Flying then
   begin
@@ -551,7 +589,6 @@ begin
   // if there are no flocks, create one
   if (gThings.Counters[cFlock] = 0) then
     gThings.NewThing(cFlock);
-
   // find a vacant flock
   with gThings.Tables[cFlock] do
   begin
@@ -560,12 +597,10 @@ begin
       myFlock := ActiveItem;
     until myFlock.Vacancy or not Next;
   end;
-
   // if the last flock is full, try to create a new one
   if myFlock.Full then
     if gThings.CanAdd(cFlock) then
       myFlock := TaiFlock(gThings.NewThing(cFlock));
-
   // if the flock has a vacancy, then join it
   if myFlock.Vacancy then
   begin
@@ -597,22 +632,18 @@ begin
     myFlock := TaiFlock(Flock.Target)
   else
     exit;
-
   // if the flock is full, dont reproduce
   if myFlock.Full then
     exit;
-
   // find a bird
   index := Random(myFlock.Members.Count);
   Eyes.AssignTarget(TaiBird(myFlock.Members[index]));
-
   // check to see if looking at a bird or not, just in case
   if not (Eyes.TargetKind = cBird) then
   begin
     Eyes.InvalidateTarget;
     exit;
   end;
-
   // check to see if its a valid mate
   if not ValidMate(TaiBird(Eyes.Target)) then
     Eyes.InvalidateTarget;
@@ -625,7 +656,6 @@ var
   myMate: TaiBird;
 begin
   Flying := true;
-
   // chase mate
   if Eyes.ValidTarget and (Eyes.Target.Kind = cBird) then
   begin
@@ -749,12 +779,262 @@ end;
 procedure TaiFlock.FullDisplay(aList: TStrings);
 begin
   inherited FullDisplay(aList);
-
   aList.Add('FlightPattern: ' + IntToStr(fFlightPattern));
   aList.Add('FlockCenter: ' + VectorToString(fFlockCenter));
   aList.Add('FlockVelocity: ' + VectorToString(fFlockVelocity));
   aList.Add(Format('FlockAngle: %0.2f', [fFlockAngle]));
 end;
+
+// ------------------------- TaiDuck ------------------------------------------
+constructor TaiDuck.Create(aParent: pointer);
+begin
+  inherited Create(aParent);
+
+  Kind := cDuck;
+
+  Size := 1;
+  Position.SetSize(1, 0.75, 0.75, true);
+  Position.SetProperties(5, 0.1, 4.5);
+  Position.Collider := true;
+
+  Health := 4000;
+  Desire := cDesireWander;
+end;
+
+// ----------------------------------------------------------------------------
+destructor TaiDuck.Destroy;
+begin
+  //
+  inherited Destroy;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiDuck.Fuel;
+begin
+  inherited Fuel;
+  if (Size < 1) and (Health > 1536) then
+  begin
+    Size := Size + 0.0002; // 5000 ticks to reach 1
+    Position.SetSize(Size, Size, Size);
+  end;
+  Desire := cDesireNone;
+  if (Health < 3000) and not Grabber.Holding then
+    Desire := cDesireFood
+  else
+  begin
+    case Stage of
+      cCreatureBaby:  desire := cDesireWander;
+      cCreatureAdult: desire := cDesireMate;
+      cCreatureElder: desire := cDesireWander;
+    end;
+  end;
+
+  // find food           yeah i need a new duck quack
+  case Desire of
+    cDesireFood:
+    begin
+      case Stage of
+        cCreatureBaby:  Forage(0.12);
+        cCreatureAdult: ForageFruitAndPrey(0.11);
+        cCreatureElder: Forage(0.1);
+      end;
+
+      if Bump then AvoidNeighbour;
+    end;
+    cDesireWander: FloatWithCommunity;
+    cDesireMate:
+    begin
+      if Random(512)=0 then
+        Noise(cNoiseQuack, 1);
+      MatingBehaviour;
+      FloatWithCommunity;
+    end;
+  end;
+
+  if Grabber.Holding then
+    if Eat(16) then Noise(cNoiseEat, 1);
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiDuck.FloatWithCommunity;
+var
+  myCommunity: TaiCommunity;
+  myForce: TAffineVector;
+begin
+  // if not Position.UnderWater then exit;
+
+  // in a Community?
+  if Community.ValidTarget then
+  begin
+    myCommunity := TaiCommunity(Community.Target);
+    // Boids
+    // http://www.vergenet.net/~conrad/boids/pseudocode.html
+    // Rule 1: Boids try to fly towards the centre of mass of neighbouring boids.
+    myForce.X := (myCommunity.Center.X - Position.X) / 400;
+    myForce.Y := (myCommunity.Center.Y - Position.Y) / 400;
+    myForce.Z := 0;
+    // Rule 2: Boids try to keep a small distance away from other objects (including other boids).
+{   if Bump then
+    begin
+      myForce[0] := myForce[0] + Avoidance[0];
+      myForce[1] := myForce[1] + Avoidance[1];
+    end;}
+    // Rule 3: Boids try to match velocity with near boids.
+    myForce.X := myForce.X + myCommunity.Velocity.X;
+    myForce.Y := myForce.Y + myCommunity.Velocity.Y;
+    myForce.Z := myForce.Z + myCommunity.Velocity.Z;
+    // Limiting the speed
+    LimitVector(myForce, 0.1);
+    // Face direction of velocity
+    Position.TurnTowardsVector(myForce, ca15);
+    // move
+    Position.Acceleration.ApplyAngularForce(Position.DirectionXY, VectorLength(myForce));
+    // make sure not to surface from underwater
+    if Position.Height < (Position.Water -1) then
+      Position.Acceleration.DeltaHeight := Position.Acceleration.DeltaHeight + 0.2;
+  end
+  else // not in a Community
+    JoinCommunity;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiDuck.Float;
+begin
+  Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.05);
+  Position.Velocity.LimitSpeed(0.1);
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiDuck.DevelopIntoBaby;
+begin
+  Size := 0.3;
+  Position.SetSize(Size, Size, Size/2);
+  Noise(cNoiseDuckling, 1);
+end;
+
+// --------------------------  TaiHawk  --------------------------------------
+constructor TaiHawk.Create(aParent: pointer);
+begin
+  inherited Create(aParent);
+  Kind := cHawk;
+  Position.SetPosition(Random * 10.0, Random * -10.0, 5);
+  Position.SetSize(1, 0.75, 0.4, true);
+  Health := 5500 + Random(500);
+  Flying := true;
+end;
+
+// ----------------------------------------------------------------------------
+destructor TaiHawk.Destroy;
+begin
+  inherited Destroy;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiHawk.Fuel;
+var
+  myBird: TaiBird;
+begin
+  inherited Fuel;
+  // determine desire
+  desire := cHawkDesireNone;
+  if Health < 5120 then
+    desire := cHawkDesireFood
+  else
+    desire := cHawkDesireWander;
+  // find goal to enact that desire
+  if desire = cHawkDesireWander then
+  begin
+    if Flying then
+    begin
+      if (Position.Velocity.DeltaHeight <= -0.2) then
+        Position.Acceleration.ApplyForce(0, 0, 0.05);
+      if (Position.Height < 40) then
+        Position.Acceleration.ApplyForce(0, 0, 0.04);
+      if Position.Velocity.XYStrength < 0.2 then
+        Position.Acceleration.ApplyAngularForce(Pi, 0.05);
+    end
+    else
+      if (Age mod 32) = 0 then
+        Hop;
+    Position.FaceVelocity;
+  end;
+
+  if (desire = cHawkDesireFood) and not Grabber.Holding then
+  begin
+    if not Eyes.ValidTarget then
+    begin
+      myBird := gEnvironment.Things.Tables[cBird].RandomThing;
+      if not (myBird = nil) then
+      begin
+        Eyes.AssignTarget(myBird);
+        Noise(cNoiseHawk, 1);
+      end;
+    end;
+
+    // chase bird
+    if Eyes.ValidTarget then
+    begin
+      myBird := TaiBird(Eyes.Target);
+      Position.TurnTowardsTarget(myBird.Position, ca75);
+      Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0.1);
+      if (myBird.Position.Height > Position.Height) or (Position.Velocity.DeltaHeight < -0.5) then
+        FlapWings;
+      if Position.DistancePlusHeightTo(myBird.Position) < 2.0 then
+      begin
+        if myBird.Position.Carried then
+          Bonk
+        else
+          Grab(myBird);
+      end;
+    end;
+  end;
+
+  Position.Velocity.LimitSpeed(0.8);
+
+  if Grabber.Holding then
+  begin
+    if Eat(8) then Noise(cNoiseEat, 1);
+    if (Position.Height < 15) then
+      FlapWings;
+    if Position.Velocity.XYStrength < 0.2 then
+      Position.Acceleration.ApplyAngularForce(Position.DirectionXY, 0, 0.05);
+  end;
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiHawk.Hop;
+begin
+  if Position.Binding = bindLand then
+    Position.Acceleration.ApplyForce(0, 0, 0.2);
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiHawk.FlapWings;
+begin
+//  if Position.Velocity.DeltaHeight < 0.5 then
+    Position.Acceleration.ApplyForce(0, 0, 0.03);
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiHawk.SaveToFile(var aFile: TextFile);
+begin
+  inherited SaveToFile(aFile);
+  writeFileBoolean(aFile, fFlying);
+end;
+
+// ----------------------------------------------------------------------------
+procedure TaiHawk.LoadFromFile(var aFile: TextFile);
+begin
+  inherited LoadFromFile(aFile);
+  fFlying := readFileBoolean(aFile);
+end;
+
+// ----------------------------------------------------------------------------
+function TaiHawk.IsPredator: boolean;
+begin
+  result := true;
+end;
+
 
 end.
 

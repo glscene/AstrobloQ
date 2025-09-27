@@ -28,22 +28,11 @@ object FormManager: TFormManager
     BevelOuter = bvLowered
     BorderWidth = 10
     TabOrder = 0
-    object Panel2: TPanel
+    object ToolBar1: TToolBar
       Left = 11
       Top = 11
       Width = 132
-      Height = 25
-      Align = alTop
-      BevelOuter = bvLowered
-      Caption = #1056#1077#1072#1083#1100#1085#1086#1089#1090#1100
-      Color = clActiveBorder
-      TabOrder = 0
-    end
-    object ToolBar1: TToolBar
-      Left = 11
-      Top = 36
-      Width = 132
-      Height = 178
+      Height = 203
       Align = alClient
       ButtonHeight = 19
       ButtonWidth = 117
@@ -51,7 +40,9 @@ object FormManager: TFormManager
       EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
       List = True
       ShowCaptions = True
-      TabOrder = 1
+      TabOrder = 0
+      ExplicitTop = 36
+      ExplicitHeight = 178
       object tbTime: TToolButton
         Left = 0
         Top = 0

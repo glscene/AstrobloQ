@@ -1,7 +1,7 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Tehnosfera_ru;
+program Tehneta_ru;
 uses
   Forms,
   ftMeshEditor_ru in '..\source\teh\ftMeshEditor_ru.pas' {frmMeshEditor},
@@ -19,7 +19,7 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTehnosfera_ru in '..\source\teh\ftTehnosfera_ru.pas' {frmTehnosfera},
+  ftTehneta_ru in '..\source\teh\ftTehneta_ru.pas' {frmTehneta},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout};
 
 {$R *.res}
@@ -27,8 +27,8 @@ uses
 begin
   Application.Initialize;
 
-  Application.Title := 'Tehnosfera';
-  Application.CreateForm(TfrmTehnosfera, frmTehnosfera);
+  Application.Title := 'Tehneta';
+  Application.CreateForm(TfrmTehneta, frmTehneta);
   Application.CreateForm(TFormLocations, FormLocations);
   Application.CreateForm(TfrmMeshData, frmMeshData);
   Application.CreateForm(TfrmLoadModel, frmLoadModel);

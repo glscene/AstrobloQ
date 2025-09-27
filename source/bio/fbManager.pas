@@ -25,7 +25,7 @@ uses
   fbLists,
   fbSpirit,
   vInterfaceClasses,
-  fbBiosfera,
+  fbBiosneta,
   vSpiritManager,
   fbPopulations,
   fbHeightField,
@@ -34,7 +34,6 @@ uses
 type
   TFormManager = class(TForm)
     Panel3: TPanel;
-    Panel2: TPanel;
     panSpirits: TPanel;
     Panel1: TPanel;
     tbSpirits: TToolBar;
@@ -65,7 +64,7 @@ type
     procedure FormActivate(Sender: TObject);
   private
     FSpiritWindows: TSpiritList;
-    FSpaceForm: TFormBiosfera;
+    FSpaceForm: TFormBiosneta;
     FEventsForm: TFormEvents;
     FListsForm: TfrmLists;
     FPopulations: TFormPopulations;
@@ -73,7 +72,7 @@ type
     FHumidityMap: TFormHumidityMap;
     FStarted: boolean;
   public
-    property SpaceForm: TFormBiosfera read FSpaceForm;
+    property SpaceForm: TFormBiosneta read FSpaceForm;
     property EventsForm: TFormEvents read FEventsForm;
     property ListsForm: TfrmLists read FListsForm;
     property SpiritWindows: TSpiritList read FSpiritWindows;
@@ -128,7 +127,7 @@ begin
   FSpiritWindows := TSpiritList.Create(self, tbSpirits);
 
   frmFirst.Construction.AddEvent('Creating f3DEnvironment...');
-  FSpaceForm := TFormBiosfera.Create(self);
+  FSpaceForm := TFormBiosneta.Create(self);
 
 end;
 
