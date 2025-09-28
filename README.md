@@ -23,9 +23,9 @@
 
 Звёзды с экзопланетными системами
 
-![Noonet](./docs/clips/Noosfera.png)
+![Nooneta](./docs/clips/Noosfera.png)
 
-![Tehneta](./docs/clips/Meteors.gif)
+![Texneta](./docs/clips/Meteors.gif)
 
 ![AstroScene](./docs/clips/PlanetarySystems.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
@@ -49,10 +49,10 @@
 ![AstroScene](./docs/clips/AnimationLadybug2.gif)
 ![AstroScene](./docs/clips/AnimationFlock.gif)
 
-### Tehneta
+### Texneta
 
 Экзопланета с техносферой
-![Tehneta](./docs/clips/Tehnosferas.png)
+![Texneta](./docs/clips/Tehnosferas.png)
 
 ## Galaqtium
 
@@ -76,7 +76,7 @@
 - численное решение парадокса Ферми даёт верхнюю оценку вероятного числа КЦ I типа по шкале академика РАН Н.С.Кардашёва;
 
 ### Среды и инструменты разработки
-- VS Code и RAD Studio, Community Edition.    
+- RAD Studio Community Edition, VS Code, GigaCode, GigaStudio.    
 - [Git](https://git-scm.com/downloads/win), консольная утилита отслеживания изменений и контроля версий.
 - [TortoiseGit](https://tortoisegit.org/),  графическая оболочка Git с установкой клиента в Windows Explorer.
 - [Beyond Compare](https://www.scootersoftware.com/), программа сравнения, слияния и синхронизации данных. 
@@ -84,13 +84,15 @@
 - [PasDoc](https://pasdoc.github.io/), средство составления HTML документации путём сбора комментариев из исходного кода проекта. 
 - [Inno Setup](https://jrsoftware.org/isinfo.php), программа создания инсталляторов приложений Windows.
 
-Проекты AstrobloQ могут быть как публичными, так и приватными по лицензии MPL 2.0. 
-Пакеты визуальных компонентов [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/) можно использовать
-в стартапах в [образовании и научных организациях](https://gitverse.ru/UniverseCETI/GalaxyCETI/) 
-со ссылкой в описании проекта. 
+Проекты AstrobloQ можно использовать в [образовании и научных организациях](https://gitverse.ru/UniverseCETI/GalaxyCETI/) 
+и для стартапов со ссылкой в описании программ и указанием в диалоге справки логотипа "AsQ". 
 
-Вы можете принять участие в развитии системы. Для этого необходимо зарегистрироваться на GitVerse, 
-открыть аккаунт и добавить AstrobloQ в избранное. Соавторы получают доступ к репозиторию 
-с релизами готовых программ и инсталляциями рабочих приложений.  
+Приглашаем принять участие в развитии AstrobloQ, объединяющем программы 
+по астрономии и космонавтике на российской платформе открытого кода. 
+Для подключения к разработке можно зарегистрироваться на GitVerse, открыть аккаунт и добавить репозиторий 
+[AstrobloQ](https://gitverse.ru/glscene/AstrobloQ/) в избранное. 
+Соавторам и партнёрам разработки обеспечивается доступ к релизам как публичных (public), так и приватных (private) программ 
+с инсталляторами приложений.  
 
+Астроблок
 [Admin](https://t.me/astronoology)

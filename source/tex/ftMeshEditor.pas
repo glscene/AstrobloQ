@@ -47,7 +47,6 @@ uses
 
 type
   TMovingAxis = (maAxisX, maAxisY, maAxisZ, maAxisXY, maAxisXZ, maAxisYZ);
-
   TModifierCube = class(TGLCube)
   public
     FVectorIndex: Integer;
@@ -131,7 +130,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure ViewControlPanelClick(Sender: TObject);
   private
-
     FOldX, FOldY: Integer;
     FModifierList: TObjectList;
     FSelectedModifier: TModifierCube;
@@ -155,9 +153,7 @@ type
     // Set Freeform's polygon mode: line, fill or points
     property PolygonMode: TGLPolygonMode read GetPolygonMode
       write SetPolygonMode;
-
   public
-
     MovingAxis: TMovingAxis;
     Pick: TGLCustomSceneObject;
     SelectedObject: TGLCustomSceneObject;
@@ -176,11 +172,11 @@ type
 var
   frmMeshEditor: TfrmMeshEditor;
 
-implementation // -----------------------------------------------------------
+implementation // ============================================================
 
 uses
   ftMeshData,
-  Teh.Globals;
+  Tex.Globals;
 
 {$R *.dfm}
 

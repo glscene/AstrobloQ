@@ -246,7 +246,7 @@ uses
   GLS.Color,
   GLS.RenderContextInfo,
 
-  Teh.Globals;
+  Tex.Globals;
 
 type
 

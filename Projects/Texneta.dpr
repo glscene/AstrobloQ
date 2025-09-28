@@ -1,17 +1,17 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Tehneta;
+program Texneta;
 uses
   Forms,
-  ftMeshEditor in '..\source\teh\ftMeshEditor.pas' {frmMeshEditor},
-  ftMeshData in '..\source\teh\ftMeshData.pas' {FormMeshData},
-  ftSpacePilot in '..\source\teh\ftSpacePilot.pas' {frmSpacePilot},
+  ftMeshEditor in '..\source\tex\ftMeshEditor.pas' {frmMeshEditor},
+  ftMeshData in '..\source\tex\ftMeshData.pas' {FormMeshData},
+  ftSpacePilot in '..\source\tex\ftSpacePilot.pas' {frmSpacePilot},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
-  ftCyborg in '..\source\teh\ftCyborg.pas' {frmCyborg},
-  ftRobot in '..\source\teh\ftRobot.pas' {frmRobot},
-  Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
-  Teh.Globals in '..\source\teh\Teh.Globals.pas',
+  ftCyborg in '..\source\tex\ftCyborg.pas' {frmCyborg},
+  ftRobot in '..\source\tex\ftRobot.pas' {frmRobot},
+  Tex.BoneUtils in '..\source\tex\Tex.BoneUtils.pas',
+  Tex.Globals in '..\source\tex\Tex.Globals.pas',
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
@@ -20,10 +20,10 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTehneta in '..\source\teh\ftTehneta.pas' {frmTehneta},
-  ftLocations in '..\source\teh\ftLocations.pas' {FormLocations},
+  ftTexneta in '..\source\tex\ftTexneta.pas' {frmTexneta},
+  ftLocations in '..\source\tex\ftLocations.pas' {FormLocations},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  ftCETInet in '..\source\teh\ftCETInet.pas' {FormCETI};
+  ftCETInet in '..\source\tex\ftCETInet.pas' {FormCETI};
 
 {$R *.res}
 
@@ -31,7 +31,7 @@ begin
   Application.Initialize;
 
   Application.Title := 'Tehneta';
-  Application.CreateForm(TfrmTehneta, frmTehneta);
+  Application.CreateForm(TfrmTexneta, frmTexneta);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);

@@ -1,7 +1,7 @@
 //
 // Some skelet utility functions for MDL
 //
-unit Teh.BoneUtils;
+unit Tex.BoneUtils;
 
 interface
 
@@ -130,7 +130,7 @@ var
 begin
   AcAp := Ac.AbsolutePosition;
 
-  // ---------------√оризонтальные углы-----------------------
+  // ---------------Horizon coners-----------------------
   V4.X := AbsolutePosition.X;
   V4.Y := AcAp.Y;
   V4.Z := AbsolutePosition.Z;
@@ -143,7 +143,7 @@ begin
   if VC.Y > 0 then
     aa := -aa;
 
-  // ---------------¬ертикальные углы-----------------------
+  // ---------------Verticle corners-----------------------
   V4.X := AbsolutePosition.X;
   V4.Y := AbsolutePosition.Y + YCenterOffset;
   V4.Z := AbsolutePosition.Y;
@@ -208,7 +208,7 @@ var
   t: integer;
 begin
   Result := -1;
-  // как подсчитать число костей в скелете !?
+  // how to calculate the number of bones in a skeleton !?
   try
     for t := 0 to 99 { Ac.Skeleton.RootBones.Count-1 } do
     begin
@@ -217,7 +217,6 @@ begin
         Result := t;
         Break;
       end;
-
     end;
   except
   end;

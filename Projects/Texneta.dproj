@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{A3030AB1-5D6D-49B7-ADF6-D8772AD2F26E}</ProjectGuid>
-        <MainSource>Tehneta.dpr</MainSource>
+        <MainSource>Texneta.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
@@ -9,7 +9,7 @@
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>20.3</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Tehneta</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Texneta</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -53,7 +53,7 @@
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>Tehneta</SanitizedProjectName>
+        <SanitizedProjectName>Texneta</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
@@ -107,15 +107,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\teh\ftMeshEditor.pas">
+        <DCCReference Include="..\source\tex\ftMeshEditor.pas">
             <Form>frmMeshEditor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftMeshData.pas">
+        <DCCReference Include="..\source\tex\ftMeshData.pas">
             <Form>FormMeshData</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftSpacePilot.pas">
+        <DCCReference Include="..\source\tex\ftSpacePilot.pas">
             <Form>frmSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -123,16 +123,16 @@
             <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftCyborg.pas">
+        <DCCReference Include="..\source\tex\ftCyborg.pas">
             <Form>frmCyborg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftRobot.pas">
+        <DCCReference Include="..\source\tex\ftRobot.pas">
             <Form>frmRobot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\Teh.BoneUtils.pas"/>
-        <DCCReference Include="..\source\teh\Teh.Globals.pas"/>
+        <DCCReference Include="..\source\tex\Tex.BoneUtils.pas"/>
+        <DCCReference Include="..\source\tex\Tex.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -156,16 +156,16 @@
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\teh\ftTehneta.pas">
-            <Form>frmTehneta</Form>
+        <DCCReference Include="..\source\tex\ftTexneta.pas">
+            <Form>frmTexneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\teh\ftLocations.pas">
+        <DCCReference Include="..\source\tex\ftLocations.pas">
             <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\teh\ftCETInet.pas">
+        <DCCReference Include="..\source\tex\ftCETInet.pas">
             <Form>FormCETI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -187,7 +187,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Tehneta.dpr</Source>
+                    <Source Name="MainSource">Texneta.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -201,9 +201,9 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\Tehneta.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Texneta.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Tehneta.exe</RemoteName>
+                        <RemoteName>Texneta.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

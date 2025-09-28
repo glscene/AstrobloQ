@@ -6,7 +6,7 @@ object frmCyborg: TfrmCyborg
   Margins.Top = 2
   Margins.Right = 2
   Margins.Bottom = 2
-  Caption = 'Cyborg'
+  Caption = #1050#1080#1073#1086#1088#1075
   ClientHeight = 417
   ClientWidth = 711
   Color = clBtnFace
@@ -60,6 +60,7 @@ object frmCyborg: TfrmCyborg
     OnMouseDown = GLSceneViewer1MouseDown
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 0
+    ExplicitWidth = 471
   end
   object Panel1: TPanel
     Left = 463

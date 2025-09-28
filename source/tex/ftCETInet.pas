@@ -239,7 +239,7 @@ uses
   GLS.Color,
   GLS.RenderContextInfo,
 
-  Teh.Globals;
+  Tex.Globals;
 
 type
   // Shader for unvisible lines (for viewer, *not* generic)

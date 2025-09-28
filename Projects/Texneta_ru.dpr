@@ -1,25 +1,25 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Tehneta_ru;
+program Texneta_ru;
 uses
   Forms,
-  ftMeshEditor_ru in '..\source\teh\ftMeshEditor_ru.pas' {frmMeshEditor},
-  ftMeshData_ru in '..\source\teh\ftMeshData_ru.pas' {frmMeshData},
-  ftSpacePilot_ru in '..\source\teh\ftSpacePilot_ru.pas' {frmSpacePilot},
-  ftLocations_ru in '..\source\teh\ftLocations_ru.pas' {FormLocations},
+  ftMeshEditor_ru in '..\source\tex\ftMeshEditor_ru.pas' {frmMeshEditor},
+  ftMeshData_ru in '..\source\tex\ftMeshData_ru.pas' {frmMeshData},
+  ftSpacePilot_ru in '..\source\tex\ftSpacePilot_ru.pas' {frmSpacePilot},
+  ftLocations_ru in '..\source\tex\ftLocations_ru.pas' {FormLocations},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
-  ftCyborg_ru in '..\source\teh\ftCyborg_ru.pas' {frmCyborg},
-  ftRobot_ru in '..\source\teh\ftRobot_ru.pas' {frmLoadModel},
-  ftCETInet_ru in '..\source\teh\ftCETInet_ru.pas' {FormCETI},
-  Teh.BoneUtils in '..\source\teh\Teh.BoneUtils.pas',
-  Teh.Globals in '..\source\teh\Teh.Globals.pas',
+  ftCyborg_ru in '..\source\tex\ftCyborg_ru.pas' {frmCyborg},
+  ftRobot_ru in '..\source\tex\ftRobot_ru.pas' {frmLoadModel},
+  ftCETInet_ru in '..\source\tex\ftCETInet_ru.pas' {FormCETI},
+  Tex.BoneUtils in '..\source\tex\Tex.BoneUtils.pas',
+  Tex.Globals in '..\source\tex\Tex.Globals.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTehneta_ru in '..\source\teh\ftTehneta_ru.pas' {frmTehneta},
+  ftTexneta_ru in '..\source\tex\ftTexneta_ru.pas' {frmTexneta},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout};
 
 {$R *.res}
@@ -27,8 +27,8 @@ uses
 begin
   Application.Initialize;
 
-  Application.Title := 'Tehneta';
-  Application.CreateForm(TfrmTehneta, frmTehneta);
+  Application.Title := 'Texneta';
+  Application.CreateForm(TfrmTexneta, frmTexneta);
   Application.CreateForm(TFormLocations, FormLocations);
   Application.CreateForm(TfrmMeshData, frmMeshData);
   Application.CreateForm(TfrmLoadModel, frmLoadModel);

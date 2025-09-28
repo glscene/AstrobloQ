@@ -1,4 +1,4 @@
-unit Teh.Globals;
+unit Tex.Globals;
 
 interface
 

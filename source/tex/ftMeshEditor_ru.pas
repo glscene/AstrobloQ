@@ -176,11 +176,11 @@ type
 var
   frmMeshEditor: TfrmMeshEditor;
 
-implementation //-----------------------------------------------------------
+implementation // ============================================================
 
 uses
   ftMeshData_ru,
-  Teh.Globals;
+  Tex.Globals;
 
 {$R *.dfm}
 

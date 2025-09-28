@@ -114,8 +114,8 @@ var
 implementation // ============================================================
 
 uses
-  ftTehneta,
-  Teh.Globals;
+  ftTexneta,
+  Tex.Globals;
 
 {$R *.DFM}
 
@@ -357,10 +357,10 @@ begin
   cbTypes.Items.Add('6: Scientific Visualization [clrLime]');
   cbTypes.Items.Add('7: Others [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  frmTehneta.cbTypes.Clear;
-  // EarthForm.cbTypes.Items.Add(S);
-  frmTehneta.cbTypes.Items := cbTypes.Items; // copied items to main form
-  frmTehneta.cbTypes.ItemIndex := 0;
+  frmTexneta.cbTypes.Clear;
+  // frmTexneta.cbTypes.Items.Add(S);
+  frmTexneta.cbTypes.Items := cbTypes.Items; // copied items to main form
+  frmTexneta.cbTypes.ItemIndex := 0;
 end;
 
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);

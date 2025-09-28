@@ -1,7 +1,7 @@
 object frmMeshEditor: TfrmMeshEditor
   Left = 122
   Top = 59
-  Caption = 'Mesh Editor'
+  Caption = #1052#1077#1096' '#1088#1077#1076#1072#1082#1090#1086#1088
   ClientHeight = 398
   ClientWidth = 676
   Color = clBtnFace
@@ -63,6 +63,7 @@ object frmMeshEditor: TfrmMeshEditor
     OnMouseMove = ScnMouseMove
     OnMouseUp = ScnMouseUp
     TabOrder = 0
+    ExplicitWidth = 472
   end
   object StatusBar: TStatusBar
     Left = 0
@@ -85,6 +86,8 @@ object frmMeshEditor: TfrmMeshEditor
       item
         Width = 50
       end>
+    ExplicitTop = 354
+    ExplicitWidth = 668
   end
   object ControlPanel: TPanel
     Left = 0
@@ -351,27 +354,27 @@ object frmMeshEditor: TfrmMeshEditor
     Left = 598
     Top = 16
     object File1: TMenuItem
-      Caption = 'File'
+      Caption = #1060#1072#1081#1083
       object Open1: TMenuItem
-        Caption = 'Open...'
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
         OnClick = Open1Click
       end
       object Save1: TMenuItem
-        Caption = 'Save'
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         OnClick = Save1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = 'Exit'
+        Caption = #1042#1099#1093#1086#1076
         OnClick = Exit1Click
       end
     end
     object Edit1: TMenuItem
-      Caption = 'Edit'
+      Caption = #1055#1088#1072#1074#1082#1072
       object ViewControlPanel: TMenuItem
-        Caption = 'View Control Panel'
+        Caption = #1042#1080#1076' '#1082#1086#1085#1090#1088#1086#1083' '#1087#1072#1085#1077#1083#1080
         Checked = True
         OnClick = ViewControlPanelClick
       end

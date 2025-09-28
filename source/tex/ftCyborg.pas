@@ -1,7 +1,7 @@
 // --------------------------
 // Viewer for Cyborgs
 // --------------------------
-unit ftCyborg_ru;
+unit ftCyborg;
 
 interface
 
@@ -120,12 +120,11 @@ type
 var
   frmCyborg: TfrmCyborg;
 
-
-implementation //------------------------------------------------------------
+implementation //============================================================
 
 uses
-  Teh.Globals,
-  Teh.BoneUtils;
+  Tex.Globals,
+  Tex.BoneUtils;
 
 {$R *.DFM}
 
@@ -151,6 +150,7 @@ begin
   // NoGLRunning:=True;
   FormCyborgY := frmCyborg.top;
   FormCyborgX := frmCyborg.left;
+
 end;
 
 procedure TfrmCyborg.FormHide(Sender: TObject);

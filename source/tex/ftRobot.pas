@@ -271,12 +271,12 @@ procedure DoMdlOpen(const FileName : TFileName);
 var
   frmRobot: TfrmRobot;
 
-implementation //------------------------------------------------------------
+implementation // =============================================================
 
 {$R *.DFM}
 
 uses
-  Teh.Globals;
+  Tex.Globals;
 
 procedure TfrmRobot.FormCreate(Sender: TObject);
 begin

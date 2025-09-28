@@ -1,7 +1,7 @@
 object frmMeshEditor: TfrmMeshEditor
   Left = 122
   Top = 59
-  Caption = #1052#1077#1096' '#1088#1077#1076#1072#1082#1090#1086#1088
+  Caption = 'Mesh Editor'
   ClientHeight = 398
   ClientWidth = 676
   Color = clBtnFace
@@ -86,8 +86,6 @@ object frmMeshEditor: TfrmMeshEditor
       item
         Width = 50
       end>
-    ExplicitTop = 354
-    ExplicitWidth = 668
   end
   object ControlPanel: TPanel
     Left = 0
@@ -97,7 +95,6 @@ object frmMeshEditor: TfrmMeshEditor
     Align = alLeft
     BevelInner = bvLowered
     TabOrder = 2
-    ExplicitHeight = 354
     object PageControl1: TPageControl
       Left = 2
       Top = 2
@@ -106,7 +103,6 @@ object frmMeshEditor: TfrmMeshEditor
       ActivePage = TabSheet3
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 350
       object TabSheetControls: TTabSheet
         Caption = 'Controls'
         object Label6: TLabel
@@ -356,27 +352,27 @@ object frmMeshEditor: TfrmMeshEditor
     Left = 598
     Top = 16
     object File1: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = 'File'
       object Open1: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        Caption = 'Open...'
         OnClick = Open1Click
       end
       object Save1: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        Caption = 'Save'
         OnClick = Save1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         OnClick = Exit1Click
       end
     end
     object Edit1: TMenuItem
-      Caption = #1055#1088#1072#1074#1082#1072
+      Caption = 'Edit'
       object ViewControlPanel: TMenuItem
-        Caption = #1042#1080#1076' '#1082#1086#1085#1090#1088#1086#1083' '#1087#1072#1085#1077#1083#1080
+        Caption = 'View Control Panel'
         Checked = True
         OnClick = ViewControlPanelClick
       end

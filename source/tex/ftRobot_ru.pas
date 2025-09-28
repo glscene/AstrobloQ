@@ -269,15 +269,12 @@ type
 var
   frmLoadModel: TfrmLoadModel;
 
-  // ---------------------------------------------------------------
-implementation
-
-// ---------------------------------------------------------------
+implementation // ============================================================
 
 {$R *.DFM}
 
 uses
-  Teh.Globals;
+  Tex.Globals;
 
 procedure TfrmLoadModel.FormCreate(Sender: TObject);
 begin
