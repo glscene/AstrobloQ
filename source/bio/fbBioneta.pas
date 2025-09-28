@@ -1,4 +1,4 @@
-unit fbBiosneta;
+unit fbBioneta;
 
 interface
 
@@ -119,7 +119,7 @@ const
 //----------------------------------------------------------------------------
 
 type
-  TFormBiosneta = class(TForm)
+  TFormBioneta = class(TForm)
     GLScene: TGLScene;
     GLCamera: TGLCamera;
     GLCadencer: TGLCadencer;
@@ -1003,7 +1003,7 @@ type
   end;
 
 var
-  FormBiosneta: TFormBiosneta;
+  FormBioneta: TFormBioneta;
 
 implementation //---------------------------------------------------------------
 
@@ -1026,7 +1026,7 @@ const
 // ----------------------------------------------------------------------------
 // FormCreate
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FormCreate(Sender: TObject);
+procedure TFormBioneta.FormCreate(Sender: TObject);
 var
   i: Integer;
 begin
@@ -1098,7 +1098,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetEnvironment(aEnvironment: TaiEnvironment);
+procedure TFormBioneta.SetEnvironment(aEnvironment: TaiEnvironment);
 begin
   fEnvironment := aEnvironment;
   SetPlanetVariables;
@@ -1107,7 +1107,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetPlanetVariables;
+procedure TFormBioneta.SetPlanetVariables;
 begin
   PlanetHeight := Environment.Space.Height;
   PlanetWidth := Environment.Space.Width;
@@ -1116,7 +1116,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FormDestroy(Sender: TObject);
+procedure TFormBioneta.FormDestroy(Sender: TObject);
 begin
   fPlanetGrid.Free;
   fWaterGrid.Free;
@@ -1133,7 +1133,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FormShow(Sender: TObject);
+procedure TFormBioneta.FormShow(Sender: TObject);
 begin
   ValidCursor := false;
   Caption := Environment.Name;
@@ -1152,7 +1152,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.Reset;
+procedure TFormBioneta.Reset;
 begin
   ValidCursor := false;
   ToolIsActive := false;
@@ -1161,7 +1161,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.InitializeCameraSystem;
+procedure TFormBioneta.InitializeCameraSystem;
 begin
   ViewPosition.SetPosition(gHalfWorldWidth, gHalfWorldHeight, 50);
   ViewDestination.SetPosition(gHalfWorldWidth, gHalfWorldHeight, 50);
@@ -1173,7 +1173,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.Advance;
+procedure TFormBioneta.Advance;
 var
   latestThing: pointer;
 begin
@@ -1229,7 +1229,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetCamera(aCameraMode: eCamera);
+procedure TFormBioneta.SetCamera(aCameraMode: eCamera);
 begin
   // prechange
   case fCameraMode of
@@ -1346,7 +1346,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetCameraByTarget;
+procedure TFormBioneta.SetCameraByTarget;
 var
   myThing: TaiThing;
 begin
@@ -1369,7 +1369,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.DirectCamera(Grain: single);
+procedure TFormBioneta.DirectCamera(Grain: single);
 var
   planeDistance: single;
   heightDistance: single;
@@ -1478,7 +1478,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FreeFloatCamera;
+procedure TFormBioneta.FreeFloatCamera;
 begin
   // place the view target in front of the destination
   if (ViewDestination.Height < ViewDestination.Land) then
@@ -1495,7 +1495,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.PlanetCamera;
+procedure TFormBioneta.PlanetCamera;
 begin
   ViewDestination.Velocity.Zero;
   ViewDestination.Acceleration.Zero;
@@ -1516,7 +1516,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.ChaseCamera;
+procedure TFormBioneta.ChaseCamera;
 var
   TargetPosition: TaiPosition;
 begin
@@ -1548,7 +1548,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.EyesCamera;
+procedure TFormBioneta.EyesCamera;
 var
   TargetPosition: TaiPosition;
 begin
@@ -1581,7 +1581,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.AvatarCamera;
+procedure TFormBioneta.AvatarCamera;
 begin
   // place the view target in front of the destination
   ViewDestination.Velocity.Zero;
@@ -1601,7 +1601,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SatelliteCamera;
+procedure TFormBioneta.SatelliteCamera;
 begin
   ViewDestination.DirectionXY := 0;
   ViewDestination.MoveBy(0.1);
@@ -1613,7 +1613,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.ResetOffset;
+procedure TFormBioneta.ResetOffset;
 begin
   ViewOffset := 25;
   ViewTarget.DirectionH := 0;
@@ -1621,7 +1621,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetViewZoom(aViewZoom: single);
+procedure TFormBioneta.SetViewZoom(aViewZoom: single);
 begin
   fViewZoom := aViewZoom;
 
@@ -1632,7 +1632,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetViewOffset(aViewOffset: single);
+procedure TFormBioneta.SetViewOffset(aViewOffset: single);
 begin
   fViewOffset := aViewOffset;
 
@@ -1643,7 +1643,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.ApplyUserInterface;
+procedure TFormBioneta.ApplyUserInterface;
 begin
   if not isKeyDown(VK_SHIFT) then
     ApplyTool(Tool, FocusGrid)
@@ -1652,7 +1652,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.CheckKeys;
+procedure TFormBioneta.CheckKeys;
 begin
   // press ESC to leave fullscreen
   if not StatusBar.Visible and isKeyDown(VK_ESCAPE) then
@@ -1973,7 +1973,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.RefreshInterface;
+procedure TFormBioneta.RefreshInterface;
 begin
   if ValidCursor then
     StatusBar.Panels[1].Text := FocusGrid.OneLineDisplay
@@ -1985,7 +1985,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.LoadTexture(aTexName: string; aFile: string);
+procedure TFormBioneta.LoadTexture(aTexName: string; aFile: string);
 begin
   // Loading aTexName texture from aFile...
   frmFirst.Construction.AddEvent('Loading texture ' + aTexName +
@@ -2009,7 +2009,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.LoadMaterialLibrary;
+procedure TFormBioneta.LoadMaterialLibrary;
 begin
   frmFirst.Construction.AddUnderlinedEvent('Loading material library:');
   LoadTexture('landtex', 'textures\alltex.bmp');
@@ -2024,7 +2024,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.LoadModel(aFreeForm: TGLFreeForm; aFile: string);
+procedure TFormBioneta.LoadModel(aFreeForm: TGLFreeForm; aFile: string);
 begin
   // Loading model aFile...
   frmFirst.Construction.AddEvent('Loading model from file: ' + aFile
@@ -2040,7 +2040,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.LoadModels;
+procedure TFormBioneta.LoadModels;
 begin
   frmFirst.Construction.AddUnderlinedEvent('Loading models library:');
   LoadModel(AppleTreeModel, 'models\newtree.3ds');
@@ -2100,7 +2100,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.AddStars;
+procedure TFormBioneta.AddStars;
 var
   X: Integer;
 begin
@@ -2117,7 +2117,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.CheckCradle: TCrossover;
+function TFormBioneta.CheckCradle: TCrossover;
 var
   i: Integer;
   myThing: TaiThing;
@@ -2231,7 +2231,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.CheckPurgatory;
+procedure TFormBioneta.CheckPurgatory;
 var
   i: Integer;
   myCrossover: TCrossover;
@@ -2281,7 +2281,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.CheckTrash;
+procedure TFormBioneta.CheckTrash;
 var
   i: Integer;
   myCrossover: TCrossover;
@@ -2325,7 +2325,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.GLSceneViewerMouseDown(Sender: TObject;
+procedure TFormBioneta.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -2359,7 +2359,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.GLSceneViewerMouseUp(Sender: TObject;
+procedure TFormBioneta.GLSceneViewerMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   // stop using tool when user lifts mouse button
@@ -2375,7 +2375,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.GLSceneViewerMouseMove(Sender: TObject;
+procedure TFormBioneta.GLSceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   // move camera
@@ -2473,7 +2473,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormBioneta.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   myInvert: single;
@@ -2498,7 +2498,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.CalculateCursorPosition;
+procedure TFormBioneta.CalculateCursorPosition;
 var
   rayStart, rayVector, iPoint, iNormal: TGLVector;
   myCrossover: TCrossover;
@@ -2530,7 +2530,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildMoon(aMoon: TaiMoon): TCrossover;
+function TFormBioneta.BuildMoon(aMoon: TaiMoon): TCrossover;
 var
   mySphere: TGLSphere;
 begin
@@ -2549,7 +2549,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildSun(aSun: TaiSun): TCrossover;
+function TFormBioneta.BuildSun(aSun: TaiSun): TCrossover;
 var
   mySphere: TGLSphere;
   myLight: TGLLightSource;
@@ -2602,7 +2602,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.RefreshSatellites;
+procedure TFormBioneta.RefreshSatellites;
 var
   i: Integer;
   myCrossover: TCrossover;
@@ -2701,7 +2701,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbBuildMoonClick(Sender: TObject);
+procedure TFormBioneta.tbBuildMoonClick(Sender: TObject);
 var
   myMoon: TaiMoon;
 begin
@@ -2716,7 +2716,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbBuildSunClick(Sender: TObject);
+procedure TFormBioneta.tbBuildSunClick(Sender: TObject);
 var
   mySun: TaiSun;
 begin
@@ -2734,7 +2734,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetMouseGridX(X: Integer);
+procedure TFormBioneta.SetMouseGridX(X: Integer);
 begin
   fMouseGridX := X;
 
@@ -2745,7 +2745,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetMouseGridY(Y: Integer);
+procedure TFormBioneta.SetMouseGridY(Y: Integer);
 begin
   fMouseGridY := Y;
 
@@ -2756,44 +2756,44 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.ReportUserEvent(aEvent: string);
+procedure TFormBioneta.ReportUserEvent(aEvent: string);
 begin
   frmFirst.RealityForm.ManagerForm.EventsForm.AddEvent
     (frmFirst.RealityForm.Reality.Creator + ' -> ' + aEvent);
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbWateringCanClick(Sender: TObject);
+procedure TFormBioneta.tbWateringCanClick(Sender: TObject);
 begin
   Tool := tWateringCan;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbSpongeClick(Sender: TObject);
+procedure TFormBioneta.tbSpongeClick(Sender: TObject);
 begin
   Tool := tSponge;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbSplashClick(Sender: TObject);
+procedure TFormBioneta.tbSplashClick(Sender: TObject);
 begin
   Tool := tSplash;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbRaiseLandClick(Sender: TObject);
+procedure TFormBioneta.tbRaiseLandClick(Sender: TObject);
 begin
   Tool := tRaiseLand;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbLowerLandClick(Sender: TObject);
+procedure TFormBioneta.tbLowerLandClick(Sender: TObject);
 begin
   Tool := tLowerLand;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateGridHeight(aGrid: TaiGrid);
+procedure TFormBioneta.UpdateGridHeight(aGrid: TaiGrid);
 begin
   if SphereMode then
   begin
@@ -2827,7 +2827,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetGridHeightPoints(aGrid: TaiGrid);
+procedure TFormBioneta.SetGridHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -2976,7 +2976,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateWaterHeight(aGrid: TaiGrid);
+procedure TFormBioneta.UpdateWaterHeight(aGrid: TaiGrid);
 begin
   if SphereMode then
   begin
@@ -3017,7 +3017,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetWaterHeightPoints(aGrid: TaiGrid);
+procedure TFormBioneta.SetWaterHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -3100,7 +3100,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FormCloseQuery(Sender: TObject;
+procedure TFormBioneta.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
@@ -3114,7 +3114,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FPSTimerTimer(Sender: TObject);
+procedure TFormBioneta.FPSTimerTimer(Sender: TObject);
 begin
   // update FPS and reset counter for the next second
   GLScene.Progress(0, 0);
@@ -3124,7 +3124,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateMoon(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateMoon(aCrossover: TCrossover);
 var
   mySphere: TGLSphere;
   myMoon: TaiMoon;
@@ -3140,7 +3140,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateSun(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateSun(aCrossover: TCrossover);
 var
   mySphere: TGLSphere;
   mySun: TaiSun;
@@ -3161,7 +3161,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildCloud(aCloud: TaiCloud): TCrossover;
+function TFormBioneta.BuildCloud(aCloud: TaiCloud): TCrossover;
 var
   myProxy: TGLProxyObject;
   myRain: TGLProxyObject;
@@ -3198,7 +3198,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateCloud(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateCloud(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myRain: TGLProxyObject;
@@ -3242,7 +3242,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildAppleTree(aTree: TaiTree): TCrossover;
+function TFormBioneta.BuildAppleTree(aTree: TaiTree): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3265,7 +3265,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildOrangeTree(aTree: TaiTree): TCrossover;
+function TFormBioneta.BuildOrangeTree(aTree: TaiTree): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3288,7 +3288,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildApple(aApple: TaiFruit): TCrossover;
+function TFormBioneta.BuildApple(aApple: TaiFruit): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3318,7 +3318,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildOrange(aOrange: TaiFruit): TCrossover;
+function TFormBioneta.BuildOrange(aOrange: TaiFruit): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3348,7 +3348,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildSeed(aSeed: TaiSeed): TCrossover;
+function TFormBioneta.BuildSeed(aSeed: TaiSeed): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3381,7 +3381,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildBot(aBot: TaiBot): TCrossover;
+function TFormBioneta.BuildBot(aBot: TaiBot): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3402,7 +3402,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // called whenever a new fish is added
-function TFormBiosneta.BuildFish(aFish: TaiFish): TCrossover;
+function TFormBioneta.BuildFish(aFish: TaiFish): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3429,7 +3429,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildAsteroid(aAsteroid: TaiAsteroid): TCrossover;
+function TFormBioneta.BuildAsteroid(aAsteroid: TaiAsteroid): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3459,7 +3459,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildExplosion(aExplosion: TaiExplosion): TCrossover;
+function TFormBioneta.BuildExplosion(aExplosion: TaiExplosion): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -3501,7 +3501,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateExplosion(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateExplosion(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myExplosion: TaiExplosion;
@@ -3522,7 +3522,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateAppleTree(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateAppleTree(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTree: TaiTree;
@@ -3544,7 +3544,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateOrangeTree(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateOrangeTree(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTree: TaiTree;
@@ -3566,7 +3566,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateApple(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateApple(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myApple: TaiFruit;
@@ -3578,7 +3578,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateOrange(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateOrange(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myOrange: TaiFruit;
@@ -3590,7 +3590,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateSeed(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateSeed(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   mySeed: TaiSeed;
@@ -3602,7 +3602,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateBot(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateBot(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myBot: TaiBot;
@@ -3622,7 +3622,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // called every round, to reposition the fish
-procedure TFormBiosneta.UpdateFish(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateFish(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myFish: TaiFish;
@@ -3644,7 +3644,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildBird(aBird: TaiBird): TCrossover;
+function TFormBioneta.BuildBird(aBird: TaiBird): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -3665,7 +3665,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateBird(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateBird(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myBird: TaiBird;
@@ -3712,7 +3712,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateAsteroid(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateAsteroid(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myAsteroid: TaiAsteroid;
@@ -3731,31 +3731,31 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbAppleTreeClick(Sender: TObject);
+procedure TFormBioneta.tbAppleTreeClick(Sender: TObject);
 begin
   Tool := tAppleTree;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCloudClick(Sender: TObject);
+procedure TFormBioneta.tbCloudClick(Sender: TObject);
 begin
   Tool := tCloud;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbAppleClick(Sender: TObject);
+procedure TFormBioneta.tbAppleClick(Sender: TObject);
 begin
   Tool := tApple;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbOrangeClick(Sender: TObject);
+procedure TFormBioneta.tbOrangeClick(Sender: TObject);
 begin
   Tool := tOrange;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbFishClick(Sender: TObject);
+procedure TFormBioneta.tbFishClick(Sender: TObject);
 begin
   LastAction('Tool=Fish');
   Tool := tFish;
@@ -3763,7 +3763,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbBirdClick(Sender: TObject);
+procedure TFormBioneta.tbBirdClick(Sender: TObject);
 begin
   LastAction('Tool=Bird');
   Tool := tBird;
@@ -3771,19 +3771,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbSpiritGuyClick(Sender: TObject);
+procedure TFormBioneta.tbSpiritGuyClick(Sender: TObject);
 begin
   Tool := tSpiritGuy;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbSpiritGirlClick(Sender: TObject);
+procedure TFormBioneta.tbSpiritGirlClick(Sender: TObject);
 begin
   Tool := tSpiritGirl;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.BuildGalaxy;
+procedure TFormBioneta.BuildGalaxy;
 begin
   CameraMode := camPlanet;
 
@@ -3804,7 +3804,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.CleanGalaxy;
+procedure TFormBioneta.CleanGalaxy;
 begin
   core.X := 0;
   core.Y := 0;
@@ -3827,7 +3827,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.RemoveLights;
+procedure TFormBioneta.RemoveLights;
 var
   myLight: TGLLightSource;
 begin
@@ -3839,7 +3839,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.BuildFromMap;
+procedure TFormBioneta.BuildFromMap;
 begin
   core.X := 0;
   core.Y := 0;
@@ -3858,7 +3858,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
-procedure TFormBiosneta.CoordinatesFromPosition(aPosition: TaiPosition;
+procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
   aCoordinates: TGLCoordinates);
 var
   myLongitude: single;
@@ -3884,7 +3884,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
-procedure TFormBiosneta.CoordinatesFromPosition(aX, aY, aHeight: single;
+procedure TFormBioneta.CoordinatesFromPosition(aX, aY, aHeight: single;
   aCoordinates: TGLCoordinates);
 var
   myLongitude: single;
@@ -3910,7 +3910,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
-procedure TFormBiosneta.CoordinatesFromPosition(aOrigin: TAffineVector;
+procedure TFormBioneta.CoordinatesFromPosition(aOrigin: TAffineVector;
   var aVector: TAffineVector);
 var
   myLongitude: single;
@@ -3936,7 +3936,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
-procedure TFormBiosneta.CoordinatesFromPosition(aPosition: TaiPosition;
+procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
   aCoordinates: TGLCoordinates; aFactor: single);
 var
   myLongitude: single;
@@ -3962,7 +3962,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + offset
-procedure TFormBiosneta.CoordinatesFromPosition(aPosition: TaiPosition;
+procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
   aCoordinates: TGLCoordinates; aFactor: single; aOffset: TGLVector);
 var
   myLongitude: single;
@@ -3989,7 +3989,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // positioning with direction
-procedure TFormBiosneta.CoordinatesFromPosition(aPosition: TaiPosition;
+procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
   aDirection: TGLCoordinates; aCoordinates: TGLCoordinates);
 var
   myLongitude: single;
@@ -4018,7 +4018,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // positioning with direction
-procedure TFormBiosneta.CoordinatesFromPosition(aPosition: TaiPosition;
+procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
   aDirection: TGLCoordinates; aCoordinates: TGLCoordinates; aFactor: single);
 var
   myLongitude: single;
@@ -4046,7 +4046,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.RefreshCursor;
+procedure TFormBioneta.RefreshCursor;
 var
   myNormal: TAffineVector;
 begin
@@ -4103,7 +4103,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCameraPlanetClick(Sender: TObject);
+procedure TFormBioneta.tbCameraPlanetClick(Sender: TObject);
 begin
   CameraMode := camPlanet;
   if (ViewPosition.Y < 5) then
@@ -4111,19 +4111,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbOrangeTreeClick(Sender: TObject);
+procedure TFormBioneta.tbOrangeTreeClick(Sender: TObject);
 begin
   Tool := tOrangeTree;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbOrangeSeedClick(Sender: TObject);
+procedure TFormBioneta.tbOrangeSeedClick(Sender: TObject);
 begin
   Tool := tOrangeSeed;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.GLCadencerProgress(Sender: TObject;
+procedure TFormBioneta.GLCadencerProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
   if not Visible then
@@ -4208,7 +4208,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCameraTargetClick(Sender: TObject);
+procedure TFormBioneta.tbCameraTargetClick(Sender: TObject);
 begin
   if CameraMode = camEyes then
   begin
@@ -4231,26 +4231,26 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCameraAvatarClick(Sender: TObject);
+procedure TFormBioneta.tbCameraAvatarClick(Sender: TObject);
 begin
   CameraMode := camAvatar;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCameraSatelliteClick(Sender: TObject);
+procedure TFormBioneta.tbCameraSatelliteClick(Sender: TObject);
 begin
   CameraMode := camSatellite;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCameraGalaxyClick(Sender: TObject);
+procedure TFormBioneta.tbCameraGalaxyClick(Sender: TObject);
 begin
   CameraMode := camPlanet;
   ViewDestination.SetPosition(ViewDestination.X, 10, PlanetRadius * 140);
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbFullscreenClick(Sender: TObject);
+procedure TFormBioneta.tbFullscreenClick(Sender: TObject);
 begin
   Align := alNone;
   panMenus.Visible := false;
@@ -4263,19 +4263,19 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbFlattenLandClick(Sender: TObject);
+procedure TFormBioneta.tbFlattenLandClick(Sender: TObject);
 begin
   Tool := tFlattenLand;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbMountainClick(Sender: TObject);
+procedure TFormBioneta.tbMountainClick(Sender: TObject);
 begin
   Tool := tMountain;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.MoveCursor(aDirection: Integer);
+procedure TFormBioneta.MoveCursor(aDirection: Integer);
 begin
   fFocusGrid := FocusGrid.Connection(aDirection);
   ValidCursor := true;
@@ -4283,7 +4283,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.MoveCursor(aGrid: TaiGrid);
+procedure TFormBioneta.MoveCursor(aGrid: TaiGrid);
 begin
   fFocusGrid := aGrid;
   ValidCursor := true;
@@ -4292,7 +4292,7 @@ end;
 
 // ----------------------------------------------------------------------------
 
-procedure TFormBiosneta.BuildPlanet(center: TGLVector; radius: single;
+procedure TFormBioneta.BuildPlanet(center: TGLVector; radius: single;
   Height: Integer; Width: Integer; Show: Boolean);
 var
   Latitude: Integer; // position along the height axis
@@ -4589,7 +4589,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // refresh the planet map
-procedure TFormBiosneta.RefreshPlanet;
+procedure TFormBioneta.RefreshPlanet;
 var
   i: Integer;
   myCrossover: TGridCrossover;
@@ -4663,7 +4663,7 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.SetFaceTexture(aCrossover: TGridCrossover;
+procedure TFormBioneta.SetFaceTexture(aCrossover: TGridCrossover;
   newTexIndex: Integer; aFaceA, aFaceB: Integer);
 var
   myVect: TAffineVector;
@@ -4696,7 +4696,7 @@ begin
 end;
 
 //-------------------------------------------------------------------
-function TFormBiosneta.GetTextureNumber(aGrid, aAdjacentGrid
+function TFormBioneta.GetTextureNumber(aGrid, aAdjacentGrid
   : TaiGrid): Integer;
 var
   myAdjacent: Integer;
@@ -4768,13 +4768,13 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.SetTool(aTool: eTool);
+procedure TFormBioneta.SetTool(aTool: eTool);
 begin
   fTool := aTool;
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.ApplyTool(aTool: eTool; aLocation: TaiGrid);
+procedure TFormBioneta.ApplyTool(aTool: eTool; aLocation: TaiGrid);
 begin
   // invalidates the land at cursor, for instant refresh
   TGridCrossover(PlanetGrid.FindCrossoverByData(aLocation)).LastState := -1;
@@ -5078,7 +5078,7 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.AddBeacon(aUsage: Integer; aLocation: TaiGrid);
+procedure TFormBioneta.AddBeacon(aUsage: Integer; aLocation: TaiGrid);
 var
   myBeacon: TaiBeacon;
 begin
@@ -5097,7 +5097,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.AddStormCloud(aLocation: TaiGrid);
+procedure TFormBioneta.AddStormCloud(aLocation: TaiGrid);
 var
   myCloud: TaiCloud;
 begin
@@ -5111,7 +5111,7 @@ begin
   myCloud.Water := 4;
 end;
 
-procedure TFormBiosneta.AddRainCloud(aLocation: TaiGrid);
+procedure TFormBioneta.AddRainCloud(aLocation: TaiGrid);
 var
   myCloud: TaiCloud;
 begin
@@ -5124,7 +5124,7 @@ begin
   myCloud.Raining := true;
 end;
 
-procedure TFormBiosneta.AddForest(aLocation: TaiGrid);
+procedure TFormBioneta.AddForest(aLocation: TaiGrid);
 begin
   case Random(3) of
     0:
@@ -5136,7 +5136,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.AddNewTree(aKind: Integer; aLocation: TaiGrid);
+procedure TFormBioneta.AddNewTree(aKind: Integer; aLocation: TaiGrid);
 var
   myTree: TaiThing;
   X, Y: single;
@@ -5165,7 +5165,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.AddLightning(aLocation: TaiGrid);
+procedure TFormBioneta.AddLightning(aLocation: TaiGrid);
 var
   myLightning: TaiLightning;
 begin
@@ -5177,7 +5177,7 @@ begin
   myLightning.Position.Fuel;
 end;
 
-procedure TFormBiosneta.AddGrass(aLocation: TaiGrid);
+procedure TFormBioneta.AddGrass(aLocation: TaiGrid);
 var
   myGrass: TaiGrass;
   X, Y: single;
@@ -5203,68 +5203,68 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbHeatClick(Sender: TObject);
+procedure TFormBioneta.tbHeatClick(Sender: TObject);
 begin
   Tool := tHeater;
 end;
 
-procedure TFormBiosneta.tbAddRemoveWaterClick(Sender: TObject);
+procedure TFormBioneta.tbAddRemoveWaterClick(Sender: TObject);
 begin
   Tool := tWateringCan;
 end;
 
-procedure TFormBiosneta.tbLandDesertClick(Sender: TObject);
+procedure TFormBioneta.tbLandDesertClick(Sender: TObject);
 begin
   Tool := tWaterLeveller;
   WaterLevel := 1;
 end;
 
-procedure TFormBiosneta.tbLandDirtClick(Sender: TObject);
+procedure TFormBioneta.tbLandDirtClick(Sender: TObject);
 begin
   Tool := tWaterLeveller;
   WaterLevel := 2.5;
 end;
 
-procedure TFormBiosneta.tbLandFieldClick(Sender: TObject);
+procedure TFormBioneta.tbLandFieldClick(Sender: TObject);
 begin
   Tool := tWaterLeveller;
   WaterLevel := 5.0;
 end;
 
-procedure TFormBiosneta.tbLandGrassClick(Sender: TObject);
+procedure TFormBioneta.tbLandGrassClick(Sender: TObject);
 begin
   Tool := tWaterLeveller;
   WaterLevel := 7.5;
 end;
 
-procedure TFormBiosneta.tbWaterSeaClick(Sender: TObject);
+procedure TFormBioneta.tbWaterSeaClick(Sender: TObject);
 begin
   Tool := tWaterLeveller;
   WaterLevel := 15.0;
 end;
 
-procedure TFormBiosneta.tbValleyClick(Sender: TObject);
+procedure TFormBioneta.tbValleyClick(Sender: TObject);
 begin
   Tool := tValley;
 end;
 
-procedure TFormBiosneta.tbColdClick(Sender: TObject);
+procedure TFormBioneta.tbColdClick(Sender: TObject);
 begin
   Tool := tCooler;
 end;
 
-procedure TFormBiosneta.tbHumidifierClick(Sender: TObject);
+procedure TFormBioneta.tbHumidifierClick(Sender: TObject);
 begin
   Tool := tHumidifier;
 end;
 
-procedure TFormBiosneta.tbDehumidifierClick(Sender: TObject);
+procedure TFormBioneta.tbDehumidifierClick(Sender: TObject);
 begin
   Tool := tDehumidifier;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.AllToolBarsInvisible;
+procedure TFormBioneta.AllToolBarsInvisible;
 begin
   tbWater.Visible := false;
   panFauna.Visible := false;
@@ -5282,7 +5282,7 @@ begin
   tbDisasters.Visible := false;
 end;
 
-procedure TFormBiosneta.tbWaterMenuClick(Sender: TObject);
+procedure TFormBioneta.tbWaterMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbWater.Align := alClient;
@@ -5298,7 +5298,7 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbFaunaMenuClick(Sender: TObject);
+procedure TFormBioneta.tbFaunaMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   panFauna.Align := alClient;
@@ -5334,7 +5334,7 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbCreaturesMenuClick(Sender: TObject);
+procedure TFormBioneta.tbCreaturesMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   panCreatures.Align := alClient;
@@ -5378,7 +5378,7 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbSpiritsMenuClick(Sender: TObject);
+procedure TFormBioneta.tbSpiritsMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbSpirits.Align := alClient;
@@ -5390,7 +5390,7 @@ begin
   HideCursor;
 end;
 
-procedure TFormBiosneta.tbLandMenuClick(Sender: TObject);
+procedure TFormBioneta.tbLandMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   panLand.Align := alClient;
@@ -5411,7 +5411,7 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbAtmosphereMenuClick(Sender: TObject);
+procedure TFormBioneta.tbAtmosphereMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbAtmosphere.Align := alClient;
@@ -5435,7 +5435,7 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbGalaxyMenuClick(Sender: TObject);
+procedure TFormBioneta.tbGalaxyMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbGalaxy.Align := alClient;
@@ -5447,28 +5447,28 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbCameraMenuClick(Sender: TObject);
+procedure TFormBioneta.tbCameraMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbCameras.Align := alClient;
   tbCameras.Visible := true;
 end;
 
-procedure TFormBiosneta.tbVisualsMenuClick(Sender: TObject);
+procedure TFormBioneta.tbVisualsMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbVisuals.Align := alClient;
   tbVisuals.Visible := true;
 end;
 
-procedure TFormBiosneta.tbSettingsMenuClick(Sender: TObject);
+procedure TFormBioneta.tbSettingsMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbSettings.Align := alClient;
   tbSettings.Visible := true;
 end;
 
-procedure TFormBiosneta.tbToolsMenuClick(Sender: TObject);
+procedure TFormBioneta.tbToolsMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbTools.Align := alClient;
@@ -5489,38 +5489,38 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbShowCloudsClick(Sender: TObject);
+procedure TFormBioneta.tbShowCloudsClick(Sender: TObject);
 begin
   CloudCube.Visible := tbShowClouds.Down;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbShowSatellitesClick(Sender: TObject);
+procedure TFormBioneta.tbShowSatellitesClick(Sender: TObject);
 begin
   SatellitesCube.Visible := tbShowSatellites.Down;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbShowStarsClick(Sender: TObject);
+procedure TFormBioneta.tbShowStarsClick(Sender: TObject);
 begin
   SkyDome.Visible := tbShowStars.Down;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbShowWaterClick(Sender: TObject);
+procedure TFormBioneta.tbShowWaterClick(Sender: TObject);
 begin
   WaterBubble.Visible := tbShowWater.Down;
   UnderWaterCam := not ViewPosition.UnderWater;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbShowAtmosphereClick(Sender: TObject);
+procedure TFormBioneta.tbShowAtmosphereClick(Sender: TObject);
 begin
   Atmosphere.Visible := tbShowAtmosphere.Down;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbStickyFitClick(Sender: TObject);
+procedure TFormBioneta.tbStickyFitClick(Sender: TObject);
 begin
   tbFullscreen.Down := false;
   if tbStickyFit.Down then
@@ -5534,28 +5534,28 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbShowCursorClick(Sender: TObject);
+procedure TFormBioneta.tbShowCursorClick(Sender: TObject);
 begin
   PlanetCursor.Visible := tbShowCursor.Down;
   RefreshCursor;
 end;
 
-procedure TFormBiosneta.tbFlashlightClick(Sender: TObject);
+procedure TFormBioneta.tbFlashlightClick(Sender: TObject);
 begin
   FlashLight.Shining := tbFlashlight.Down;
 end;
 
-procedure TFormBiosneta.tbAppleSeedClick(Sender: TObject);
+procedure TFormBioneta.tbAppleSeedClick(Sender: TObject);
 begin
   Tool := tAppleSeed;
 end;
 
-procedure TFormBiosneta.tbOctreeClick(Sender: TObject);
+procedure TFormBioneta.tbOctreeClick(Sender: TObject);
 begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCustomSunClick(Sender: TObject);
+procedure TFormBioneta.tbCustomSunClick(Sender: TObject);
 var
   mySun: TaiSun;
 begin
@@ -5571,7 +5571,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbCustomMoonClick(Sender: TObject);
+procedure TFormBioneta.tbCustomMoonClick(Sender: TObject);
 var
   myMoon: TaiMoon;
 begin
@@ -5587,7 +5587,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.BuildWater(center: TGLVector; radius: single;
+procedure TFormBioneta.BuildWater(center: TGLVector; radius: single;
   Height: Integer; Width: Integer; Show: Boolean);
 var
   // grid normal vectors
@@ -5787,7 +5787,7 @@ begin
       SetWaterHeightPoints(Environment.Space.Map[Longitude][Latitude]);
 end;
 
-procedure TFormBiosneta.WaterUpDownClick(Sender: TObject;
+procedure TFormBioneta.WaterUpDownClick(Sender: TObject;
   Button: TUDBtnType);
 begin
   edWater.Text := IntToStr(WaterUpDown.Position);
@@ -5795,7 +5795,7 @@ begin
   WaterFastUpDown.Position := WaterUpDown.Position;
 end;
 
-procedure TFormBiosneta.WaterFastUpDownClick(Sender: TObject;
+procedure TFormBioneta.WaterFastUpDownClick(Sender: TObject;
   Button: TUDBtnType);
 begin
   edWater.Text := IntToStr(WaterFastUpDown.Position);
@@ -5803,7 +5803,7 @@ begin
   WaterUpDown.Position := WaterFastUpDown.Position;
 end;
 
-procedure TFormBiosneta.tbSnapshotClick(Sender: TObject);
+procedure TFormBioneta.tbSnapshotClick(Sender: TObject);
 var
   myFormPhotograph: TFormPhotograph;
   // myJpeg: TJpegImage;
@@ -5848,12 +5848,12 @@ begin
   myFormPhotograph.Free;
 end;
 
-procedure TFormBiosneta.tbStabalizeClick(Sender: TObject);
+procedure TFormBioneta.tbStabalizeClick(Sender: TObject);
 begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.BuildAtmosphere(center: TGLVector; radius: single;
+procedure TFormBioneta.BuildAtmosphere(center: TGLVector; radius: single;
   Height: Integer; Width: Integer; Show: Boolean);
 var
   // grid normal vectors
@@ -6008,7 +6008,7 @@ begin
     IntToStr(Atmosphere.MeshObjects.TriangleCount));
 end;
 
-procedure TFormBiosneta.InvalidateLand;
+procedure TFormBioneta.InvalidateLand;
 var
   X, Y: Integer;
 begin
@@ -6022,14 +6022,14 @@ begin
   WaterBubble.StructureChanged;
 end;
 
-procedure TFormBiosneta.tbAsteroidClick(Sender: TObject);
+procedure TFormBioneta.tbAsteroidClick(Sender: TObject);
 begin
   Tool := tAsteroid;
   tbRepeat.Down := false;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.GenerateSoundSystem(aNumberOfSpeakers: Integer);
+procedure TFormBioneta.GenerateSoundSystem(aNumberOfSpeakers: Integer);
 var
   i: Integer;
   myCrossover: TCrossover;
@@ -6059,7 +6059,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.PlaySound(aSoundIndex: Integer; aRepeat: Integer;
+procedure TFormBioneta.PlaySound(aSoundIndex: Integer; aRepeat: Integer;
   aPosition: TaiPosition);
 var
   myCrossover: TCrossover;
@@ -6089,7 +6089,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.LoadSounds;
+procedure TFormBioneta.LoadSounds;
 begin
   frmFirst.Construction.AddUnderlinedEvent('Loading sounds');
 
@@ -6126,7 +6126,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.LoadSound(aFileName: string);
+procedure TFormBioneta.LoadSound(aFileName: string);
 begin
   frmFirst.Construction.AddEvent('Loading sound from file ' + aFileName
     + '... ');
@@ -6139,7 +6139,7 @@ begin
     frmFirst.Construction.AddEventFailure(' not found!');
 end;
 
-procedure TFormBiosneta.tbPriorTargetClick(Sender: TObject);
+procedure TFormBioneta.tbPriorTargetClick(Sender: TObject);
 begin
   if Satellites.SetNextOrFirstActive then
     TargetToFollow := Satellites.ActiveItem
@@ -6149,7 +6149,7 @@ begin
   SetCameraByTarget;
 end;
 
-procedure TFormBiosneta.tbNextTargetClick(Sender: TObject);
+procedure TFormBioneta.tbNextTargetClick(Sender: TObject);
 begin
   if Satellites.SetPriorOrLastActive then
     TargetToFollow := Satellites.ActiveItem
@@ -6159,7 +6159,7 @@ begin
   SetCameraByTarget;
 end;
 
-procedure TFormBiosneta.tbTrackSunClick(Sender: TObject);
+procedure TFormBioneta.tbTrackSunClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cSun) then
   begin
@@ -6168,7 +6168,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackMoonClick(Sender: TObject);
+procedure TFormBioneta.tbTrackMoonClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cMoon) then
   begin
@@ -6177,7 +6177,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackBirdClick(Sender: TObject);
+procedure TFormBioneta.tbTrackBirdClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cBird) then
   begin
@@ -6186,7 +6186,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackFishClick(Sender: TObject);
+procedure TFormBioneta.tbTrackFishClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cFish) then
   begin
@@ -6195,7 +6195,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackAppleClick(Sender: TObject);
+procedure TFormBioneta.tbTrackAppleClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cAppleTree) then
   begin
@@ -6204,7 +6204,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackOrangeClick(Sender: TObject);
+procedure TFormBioneta.tbTrackOrangeClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cOrangeTree) then
   begin
@@ -6213,7 +6213,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackCloudClick(Sender: TObject);
+procedure TFormBioneta.tbTrackCloudClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cCloud) then
   begin
@@ -6222,7 +6222,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackAsteroidClick(Sender: TObject);
+procedure TFormBioneta.tbTrackAsteroidClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cAsteroid) then
   begin
@@ -6231,7 +6231,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackSpiritClick(Sender: TObject);
+procedure TFormBioneta.tbTrackSpiritClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cBot) then
   begin
@@ -6240,7 +6240,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbControlBotClick(Sender: TObject);
+procedure TFormBioneta.tbControlBotClick(Sender: TObject);
 begin
   if not Assigned(TargetToFollow) or (TaiThing(TargetToFollow.Data).Kind <> cBot)
   then
@@ -6266,18 +6266,18 @@ begin
     end;
 end;
 
-procedure TFormBiosneta.tbBotPickupClick(Sender: TObject);
+procedure TFormBioneta.tbBotPickupClick(Sender: TObject);
 begin
   ControlBot.Command := 'GRAB';
 end;
 
-procedure TFormBiosneta.tbBotThrowClick(Sender: TObject);
+procedure TFormBioneta.tbBotThrowClick(Sender: TObject);
 begin
   ControlBot.Command := 'DROP';
 end;
 
 //------------------------------------------------------------
-procedure TFormBiosneta.GenerateTextureMap;
+procedure TFormBioneta.GenerateTextureMap;
 var
   TexUpLeft: TTexPoint;
   TexDownLeft: TTexPoint;
@@ -6380,7 +6380,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildCrab(aCrab: TaiCrab): TCrossover;
+function TFormBioneta.BuildCrab(aCrab: TaiCrab): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6403,7 +6403,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateCrab(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateCrab(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myCrab: TaiCrab;
@@ -6428,7 +6428,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildHawk(aHawk: TaiHawk): TCrossover;
+function TFormBioneta.BuildHawk(aHawk: TaiHawk): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6451,7 +6451,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateHawk(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateHawk(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myHawk: TaiHawk;
@@ -6470,7 +6470,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildGrazer(aGrazer: TaiGrazer): TCrossover;
+function TFormBioneta.BuildGrazer(aGrazer: TaiGrazer): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6493,7 +6493,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateGrazer(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateGrazer(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myGrazer: TaiGrazer;
@@ -6515,7 +6515,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildTrex(aTrex: TaiTrex): TCrossover;
+function TFormBioneta.BuildTrex(aTrex: TaiTrex): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -6535,7 +6535,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateTrex(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateTrex(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTrex: TaiTrex;
@@ -6557,7 +6557,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildVibe(aVibe: TaiVibe): TCrossover;
+function TFormBioneta.BuildVibe(aVibe: TaiVibe): TCrossover;
 begin
   case aVibe.EffectType of
     cEffectNoise:
@@ -6572,49 +6572,49 @@ begin
   result := nil;
 end;
 
-procedure TFormBiosneta.tbCrabClick(Sender: TObject);
+procedure TFormBioneta.tbCrabClick(Sender: TObject);
 begin
   Tool := tCrab;
 end;
 
-procedure TFormBiosneta.tbTrexClick(Sender: TObject);
+procedure TFormBioneta.tbTrexClick(Sender: TObject);
 begin
   Tool := tTrex;
 end;
 
-procedure TFormBiosneta.tbGrazerClick(Sender: TObject);
+procedure TFormBioneta.tbGrazerClick(Sender: TObject);
 begin
   Tool := tGrazer;
 end;
 
-procedure TFormBiosneta.tbHawkClick(Sender: TObject);
+procedure TFormBioneta.tbHawkClick(Sender: TObject);
 begin
   Tool := tHawk;
   tbRepeat.Down := false;
 end;
 
-procedure TFormBiosneta.tbBallClick(Sender: TObject);
+procedure TFormBioneta.tbBallClick(Sender: TObject);
 begin
   Tool := tBall;
 end;
 
-procedure TFormBiosneta.tbCubeClick(Sender: TObject);
+procedure TFormBioneta.tbCubeClick(Sender: TObject);
 begin
   Tool := tCube;
 end;
 
-procedure TFormBiosneta.tbWeaponClick(Sender: TObject);
+procedure TFormBioneta.tbWeaponClick(Sender: TObject);
 begin
   Tool := tWeapon;
 end;
 
-procedure TFormBiosneta.cbTrackNewThingsClick(Sender: TObject);
+procedure TFormBioneta.cbTrackNewThingsClick(Sender: TObject);
 begin
   GLSceneViewer.SetFocus;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildBall(aBall: TaiBall): TCrossover;
+function TFormBioneta.BuildBall(aBall: TaiBall): TCrossover;
 var
   mySphere: TGLSphere;
 begin
@@ -6636,7 +6636,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateBall(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateBall(aCrossover: TCrossover);
 var
   mySphere: TGLSphere;
   myBall: TaiBall;
@@ -6660,7 +6660,7 @@ begin
     mySphere.radius * 0.25);
 end;
 
-procedure TFormBiosneta.tbSphericalClick(Sender: TObject);
+procedure TFormBioneta.tbSphericalClick(Sender: TObject);
 begin
   SphereMode := tbSpherical.Down;
   Environment.Space.Spherical := SphereMode;
@@ -6675,7 +6675,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetFlatGridHeightPoints(aGrid: TaiGrid);
+procedure TFormBioneta.SetFlatGridHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -6782,7 +6782,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.SetFlatWaterHeightPoints(aGrid: TaiGrid);
+procedure TFormBioneta.SetFlatWaterHeightPoints(aGrid: TaiGrid);
 var
   myCrossover: TGridCrossover;
 
@@ -6850,7 +6850,7 @@ begin
   WaterVertices.Items[myCrossover.Vertices[3][2]] := VertexUpRight;
 end;
 
-procedure TFormBiosneta.tbTrackCrabClick(Sender: TObject);
+procedure TFormBioneta.tbTrackCrabClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cCrab) then
   begin
@@ -6859,7 +6859,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackTrexClick(Sender: TObject);
+procedure TFormBioneta.tbTrackTrexClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cTrex) then
   begin
@@ -6868,7 +6868,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackGrazerClick(Sender: TObject);
+procedure TFormBioneta.tbTrackGrazerClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cGrazer) then
   begin
@@ -6877,7 +6877,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackHawkClick(Sender: TObject);
+procedure TFormBioneta.tbTrackHawkClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cHawk) then
   begin
@@ -6886,7 +6886,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackBallClick(Sender: TObject);
+procedure TFormBioneta.tbTrackBallClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cBall) then
   begin
@@ -6895,12 +6895,12 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPlantForestClick(Sender: TObject);
+procedure TFormBioneta.tbPlantForestClick(Sender: TObject);
 begin
   Tool := tForest;
 end;
 
-procedure TFormBiosneta.AddToTrail(aPosition: TaiPosition; aLines: TGLLines);
+procedure TFormBioneta.AddToTrail(aPosition: TaiPosition; aLines: TGLLines);
 var
   p, pt: TAffineVector;
   v: TGLVector;
@@ -6919,7 +6919,7 @@ begin
     aLines.Nodes[0].Free;
 end;
 
-procedure TFormBiosneta.tbTrackLinesClick(Sender: TObject);
+procedure TFormBioneta.tbTrackLinesClick(Sender: TObject);
 begin
   if not tbTrackLines.Down then
   begin
@@ -6933,7 +6933,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.UpdateTrackingTrail;
+procedure TFormBioneta.UpdateTrackingTrail;
 var
   i, j, k: Integer;
   myPosition: TaiPosition;
@@ -6973,7 +6973,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPredictionsClick(Sender: TObject);
+procedure TFormBioneta.tbPredictionsClick(Sender: TObject);
 begin
   if not tbPredictions.Down then
   begin
@@ -6989,7 +6989,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildLightning(aLightning: TaiLightning): TCrossover;
+function TFormBioneta.BuildLightning(aLightning: TaiLightning): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -7039,13 +7039,13 @@ begin
   PlaySound(10, 0, aLightning.Position);
 end;
 
-procedure TFormBiosneta.tbStormCloudClick(Sender: TObject);
+procedure TFormBioneta.tbStormCloudClick(Sender: TObject);
 begin
   Tool := tStormCloud;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildShark(aShark: TaiShark): TCrossover;
+function TFormBioneta.BuildShark(aShark: TaiShark): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7067,7 +7067,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateShark(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateShark(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myShark: TaiShark;
@@ -7085,19 +7085,19 @@ begin
   PositionThing(myShark.Position, myProxy, -HalfPi);
 end;
 
-procedure TFormBiosneta.tbSharkClick(Sender: TObject);
+procedure TFormBioneta.tbSharkClick(Sender: TObject);
 begin
   Tool := tShark;
   tbRepeat.Down := false;
 end;
 
-procedure TFormBiosneta.tbTurtleClick(Sender: TObject);
+procedure TFormBioneta.tbTurtleClick(Sender: TObject);
 begin
   Tool := tTurtle;
   tbRepeat.Down := false;
 end;
 
-procedure TFormBiosneta.tbTrackSharkClick(Sender: TObject);
+procedure TFormBioneta.tbTrackSharkClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cShark) then
   begin
@@ -7106,7 +7106,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackTurtleClick(Sender: TObject);
+procedure TFormBioneta.tbTrackTurtleClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cTurtle) then
   begin
@@ -7116,7 +7116,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildTurtle(aTurtle: TaiShark): TCrossover;
+function TFormBioneta.BuildTurtle(aTurtle: TaiShark): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7138,7 +7138,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateTurtle(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateTurtle(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTurtle: TaiShark;
@@ -7156,18 +7156,18 @@ begin
   PositionThing(myTurtle.Position, myProxy, HalfPi);
 end;
 
-procedure TFormBiosneta.tbBeaconBubbleClick(Sender: TObject);
+procedure TFormBioneta.tbBeaconBubbleClick(Sender: TObject);
 begin
   Tool := tBeaconBubble;
 end;
 
-procedure TFormBiosneta.tbBeaconDrainClick(Sender: TObject);
+procedure TFormBioneta.tbBeaconDrainClick(Sender: TObject);
 begin
   Tool := tBeaconDrain;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildBeacon(aBeacon: TaiBeacon): TCrossover;
+function TFormBioneta.BuildBeacon(aBeacon: TaiBeacon): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7193,7 +7193,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateBeacon(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateBeacon(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myBeacon: TaiBeacon;
@@ -7209,7 +7209,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildTerrier(aTerrier: TaiTerrier): TCrossover;
+function TFormBioneta.BuildTerrier(aTerrier: TaiTerrier): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7238,7 +7238,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildTiger(aTiger: TaiTiger): TCrossover;
+function TFormBioneta.BuildTiger(aTiger: TaiTiger): TCrossover;
 
 var
   myProxy: TGLProxyObject;
@@ -7260,7 +7260,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateTerrier(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateTerrier(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTerrier: TaiTerrier;
@@ -7276,7 +7276,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateTiger(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateTiger(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTiger: TaiTiger;
@@ -7295,7 +7295,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildDuck(aDuck: TaiDuck): TCrossover;
+function TFormBioneta.BuildDuck(aDuck: TaiDuck): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7320,7 +7320,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateDuck(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateDuck(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myDuck: TaiDuck;
@@ -7342,12 +7342,12 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.tbTerrierClick(Sender: TObject);
+procedure TFormBioneta.tbTerrierClick(Sender: TObject);
 begin
   Tool := tTerrier;
 end;
 
-procedure TFormBiosneta.tbTrackTerrierClick(Sender: TObject);
+procedure TFormBioneta.tbTrackTerrierClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cTerrier) then
   begin
@@ -7357,7 +7357,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildFox(aFox: TaiFox): TCrossover;
+function TFormBioneta.BuildFox(aFox: TaiFox): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7385,7 +7385,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateFox(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateFox(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myFox: TaiFox;
@@ -7403,7 +7403,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildRabbit(aRabbit: TaiRabbit): TCrossover;
+function TFormBioneta.BuildRabbit(aRabbit: TaiRabbit): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7430,7 +7430,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateRabbit(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateRabbit(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myRabbit: TaiRabbit;
@@ -7444,7 +7444,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildGrass(aGrass: TaiGrass): TCrossover;
+function TFormBioneta.BuildGrass(aGrass: TaiGrass): TCrossover;
 var
   myProxy: TGLProxyObject;
   Scale: TGLVector;
@@ -7473,7 +7473,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateGrass(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateGrass(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myGrass: TaiGrass;
@@ -7490,22 +7490,22 @@ begin
   // CoordinatesFromPosition(myGrass.Position, myProxy.Direction, myProxy.Position, -0.05);
 end;
 
-procedure TFormBiosneta.tbRabbitClick(Sender: TObject);
+procedure TFormBioneta.tbRabbitClick(Sender: TObject);
 begin
   Tool := tRabbit;
 end;
 
-procedure TFormBiosneta.tbFoxClick(Sender: TObject);
+procedure TFormBioneta.tbFoxClick(Sender: TObject);
 begin
   Tool := tFox;
 end;
 
-procedure TFormBiosneta.tbGrassClick(Sender: TObject);
+procedure TFormBioneta.tbGrassClick(Sender: TObject);
 begin
   Tool := tGrass;
 end;
 
-procedure TFormBiosneta.tbTrackFoxClick(Sender: TObject);
+procedure TFormBioneta.tbTrackFoxClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cFox) then
   begin
@@ -7514,7 +7514,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackRabbitClick(Sender: TObject);
+procedure TFormBioneta.tbTrackRabbitClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cRabbit) then
   begin
@@ -7524,7 +7524,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildIceberg(aIceberg: TaiIceberg): TCrossover;
+function TFormBioneta.BuildIceberg(aIceberg: TaiIceberg): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7544,7 +7544,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateIceberg(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateIceberg(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myIceberg: TaiIceberg;
@@ -7560,24 +7560,24 @@ begin
   PositionThing(myIceberg.Position, myProxy);
 end;
 
-procedure TFormBiosneta.tbIcebergClick(Sender: TObject);
+procedure TFormBioneta.tbIcebergClick(Sender: TObject);
 begin
   Tool := tIceberg;
   tbRepeat.Down := false;
 end;
 
-procedure TFormBiosneta.tbTigerClick(Sender: TObject);
+procedure TFormBioneta.tbTigerClick(Sender: TObject);
 begin
   Tool := tTiger;
 end;
 
-procedure TFormBiosneta.tbMouseClick(Sender: TObject);
+procedure TFormBioneta.tbMouseClick(Sender: TObject);
 begin
   Tool := tMouse;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildMouse(aMouse: TaiMouse): TCrossover;
+function TFormBioneta.BuildMouse(aMouse: TaiMouse): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7597,7 +7597,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateMouse(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateMouse(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myMouse: TaiMouse;
@@ -7617,20 +7617,20 @@ begin
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
 end;
 
-procedure TFormBiosneta.tbDuckClick(Sender: TObject);
+procedure TFormBioneta.tbDuckClick(Sender: TObject);
 begin
   LastAction('Tool=Duck');
   Tool := tDuck;
 end;
 
-procedure TFormBiosneta.AdvanceHidden;
+procedure TFormBioneta.AdvanceHidden;
 begin
   CheckCradle;
   CheckPurgatory;
   CheckTrash;
 end;
 
-procedure TFormBiosneta.RefreshPlanetFull;
+procedure TFormBioneta.RefreshPlanetFull;
 var
   i, j: Integer;
   myGrid: TaiGrid;
@@ -7653,14 +7653,14 @@ begin
   RefreshSatellites;
 end;
 
-procedure TFormBiosneta.tbDolphinClick(Sender: TObject);
+procedure TFormBioneta.tbDolphinClick(Sender: TObject);
 begin
   Tool := tDolphin;
   tbRepeat.Down := false;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildDolphin(aDolphin: TaiDolphin): TCrossover;
+function TFormBioneta.BuildDolphin(aDolphin: TaiDolphin): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7681,7 +7681,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateDolphin(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateDolphin(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myDolphin: TaiDolphin;
@@ -7710,7 +7710,7 @@ begin
   PositionThing(myDolphin.Position, myProxy, Pi);
 end;
 
-procedure TFormBiosneta.tbCeaseClick(Sender: TObject);
+procedure TFormBioneta.tbCeaseClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7719,13 +7719,13 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackWindowClick(Sender: TObject);
+procedure TFormBioneta.tbTrackWindowClick(Sender: TObject);
 begin
   LastAction('PopupTargetWindow');
   PopUpTargetWindow;
 end;
 
-procedure TFormBiosneta.PopUpTargetWindow;
+procedure TFormBioneta.PopUpTargetWindow;
 begin
   if TargetToFollow <> nil then
   begin
@@ -7734,7 +7734,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.FindTarget(aThing: TaiThing);
+procedure TFormBioneta.FindTarget(aThing: TaiThing);
 var
   myTarget: TCrossover;
 begin
@@ -7749,7 +7749,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackTigerClick(Sender: TObject);
+procedure TFormBioneta.tbTrackTigerClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cTiger) then
   begin
@@ -7758,7 +7758,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackDuckClick(Sender: TObject);
+procedure TFormBioneta.tbTrackDuckClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cDuck) then
   begin
@@ -7767,7 +7767,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackDolphinClick(Sender: TObject);
+procedure TFormBioneta.tbTrackDolphinClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cDolphin) then
   begin
@@ -7776,12 +7776,12 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbAquaPlantClick(Sender: TObject);
+procedure TFormBioneta.tbAquaPlantClick(Sender: TObject);
 begin
   Tool := tAquaPlant;
 end;
 
-procedure TFormBiosneta.tbFakeSunClick(Sender: TObject);
+procedure TFormBioneta.tbFakeSunClick(Sender: TObject);
 var
   mySun: TaiSun;
 begin
@@ -7805,12 +7805,12 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbBeaconOrangeClick(Sender: TObject);
+procedure TFormBioneta.tbBeaconOrangeClick(Sender: TObject);
 begin
   Tool := tBeaconOrange;
 end;
 
-procedure TFormBiosneta.tbSelectClick(Sender: TObject);
+procedure TFormBioneta.tbSelectClick(Sender: TObject);
 begin
   LastAction('Tool=Select');
   tbSelect.Down := true;
@@ -7853,12 +7853,12 @@ end;
   end;
 }
 
-procedure TFormBiosneta.PickObjectWithMouse;
+procedure TFormBioneta.PickObjectWithMouse;
 begin
   FindTarget(FindObjectUnderMouse);
 end;
 
-function TFormBiosneta.FindObjectUnderMouse: pointer;
+function TFormBioneta.FindObjectUnderMouse: pointer;
 var
   myCrossover: TCrossover;
   myVisual: TGLBaseSceneObject;
@@ -7872,7 +7872,7 @@ begin
     result := myCrossover.Data;
 end;
 
-procedure TFormBiosneta.tbObjectMenuClick(Sender: TObject);
+procedure TFormBioneta.tbObjectMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   panSelect.Align := alClient;
@@ -7884,7 +7884,7 @@ begin
   HideCursor;
 end;
 
-procedure TFormBiosneta.tbDieClick(Sender: TObject);
+procedure TFormBioneta.tbDieClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7894,7 +7894,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbHealClick(Sender: TObject);
+procedure TFormBioneta.tbHealClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7904,7 +7904,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPerform0Click(Sender: TObject);
+procedure TFormBioneta.tbPerform0Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7912,7 +7912,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPerform1Click(Sender: TObject);
+procedure TFormBioneta.tbPerform1Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7920,7 +7920,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPerform2Click(Sender: TObject);
+procedure TFormBioneta.tbPerform2Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7928,7 +7928,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPerform3Click(Sender: TObject);
+procedure TFormBioneta.tbPerform3Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7936,7 +7936,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPerform4Click(Sender: TObject);
+procedure TFormBioneta.tbPerform4Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7944,7 +7944,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbPerform5Click(Sender: TObject);
+procedure TFormBioneta.tbPerform5Click(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -7952,7 +7952,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbExtinctionClick(Sender: TObject);
+procedure TFormBioneta.tbExtinctionClick(Sender: TObject);
 var
   myKind: Integer;
 begin
@@ -7969,12 +7969,12 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.HideCursor;
+procedure TFormBioneta.HideCursor;
 begin
   RefreshCursor;
 end;
 
-procedure TFormBiosneta.ShowCursor;
+procedure TFormBioneta.ShowCursor;
 begin
   RefreshCursor;
 end;
@@ -8008,13 +8008,13 @@ end;
   end;
 }
 
-procedure TFormBiosneta.GLSceneViewerDblClick(Sender: TObject);
+procedure TFormBioneta.GLSceneViewerDblClick(Sender: TObject);
 begin
   if Tool = tSelect then
     PopUpTargetWindow;
 end;
 
-procedure TFormBiosneta.FormResize(Sender: TObject);
+procedure TFormBioneta.FormResize(Sender: TObject);
 begin
   if Width > 850 then
   begin
@@ -8036,7 +8036,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildAquaPlant(aAquaPlant: TaiAquaPlant): TCrossover;
+function TFormBioneta.BuildAquaPlant(aAquaPlant: TaiAquaPlant): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -8061,7 +8061,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateAquaPlant(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateAquaPlant(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myAquaPlant: TaiAquaPlant;
@@ -8073,7 +8073,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.AutoSnap;
+procedure TFormBioneta.AutoSnap;
 begin
   /// was...  if gReality.Time mod StrToInt(edAutoSnap.Text) = 0 then
   if gReality.Time = 0 then
@@ -8087,85 +8087,85 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbGrabClick(Sender: TObject);
+procedure TFormBioneta.tbGrabClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'GRAB';
 end;
 
-procedure TFormBiosneta.tbDropClick(Sender: TObject);
+procedure TFormBioneta.tbDropClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'DROP';
 end;
 
-procedure TFormBiosneta.tbKickClick(Sender: TObject);
+procedure TFormBioneta.tbKickClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'KICK';
 end;
 
-procedure TFormBiosneta.tbThrowClick(Sender: TObject);
+procedure TFormBioneta.tbThrowClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'THROW';
 end;
 
-procedure TFormBiosneta.tbEatClick(Sender: TObject);
+procedure TFormBioneta.tbEatClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'EAT';
 end;
 
-procedure TFormBiosneta.tbUse1Click(Sender: TObject);
+procedure TFormBioneta.tbUse1Click(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'USE1';
 end;
 
-procedure TFormBiosneta.tbBonkClick(Sender: TObject);
+procedure TFormBioneta.tbBonkClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'BONK';
 end;
 
-procedure TFormBiosneta.tbGiveClick(Sender: TObject);
+procedure TFormBioneta.tbGiveClick(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'GIVE';
 end;
 
-procedure TFormBiosneta.tbUse2Click(Sender: TObject);
+procedure TFormBioneta.tbUse2Click(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'USE2';
 end;
 
-procedure TFormBiosneta.tbUse3Click(Sender: TObject);
+procedure TFormBioneta.tbUse3Click(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'USE3';
 end;
 
-procedure TFormBiosneta.tbUse4Click(Sender: TObject);
+procedure TFormBioneta.tbUse4Click(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'USE4';
 end;
 
-procedure TFormBiosneta.tbUse5Click(Sender: TObject);
+procedure TFormBioneta.tbUse5Click(Sender: TObject);
 begin
   if ControllingBot then
     ControlBot.Activity := 'USE5';
 end;
 
-procedure TFormBiosneta.GLSceneViewerMouseEnter(Sender: TObject);
+procedure TFormBioneta.GLSceneViewerMouseEnter(Sender: TObject);
 begin
   GLSceneViewer.SetFocus;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildLadybug(aLadybug: TaiLadybug): TCrossover;
+function TFormBioneta.BuildLadybug(aLadybug: TaiLadybug): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -8187,7 +8187,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateLadybug(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateLadybug(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myLadybug: TaiLadybug;
@@ -8209,7 +8209,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildAnt(aAnt: TaiAnt): TCrossover;
+function TFormBioneta.BuildAnt(aAnt: TaiAnt): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -8231,7 +8231,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateAnt(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateAnt(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myAnt: TaiAnt;
@@ -8267,17 +8267,17 @@ begin
   PositionThing(myAnt.Position, myProxy, -HalfPi);
 end;
 
-procedure TFormBiosneta.tbLadybugClick(Sender: TObject);
+procedure TFormBioneta.tbLadybugClick(Sender: TObject);
 begin
   Tool := tLadybug;
 end;
 
-procedure TFormBiosneta.tbAntClick(Sender: TObject);
+procedure TFormBioneta.tbAntClick(Sender: TObject);
 begin
   Tool := tAnt;
 end;
 
-procedure TFormBiosneta.tbZoomInClick(Sender: TObject);
+procedure TFormBioneta.tbZoomInClick(Sender: TObject);
 begin
   case CameraMode of
     camPlanet, camSatellite:
@@ -8291,7 +8291,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbZoomOutClick(Sender: TObject);
+procedure TFormBioneta.tbZoomOutClick(Sender: TObject);
 begin
   case CameraMode of
     camPlanet, camSatellite:
@@ -8305,12 +8305,12 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbBeaconAppleClick(Sender: TObject);
+procedure TFormBioneta.tbBeaconAppleClick(Sender: TObject);
 begin
   Tool := tBeaconApple;
 end;
 
-procedure TFormBiosneta.StickyFit;
+procedure TFormBioneta.StickyFit;
 begin
   Align := alClient;
   WindowState := wsNormal;
@@ -8318,21 +8318,21 @@ begin
   tbStickyFit.Down := true;
 end;
 
-procedure TFormBiosneta.UnStickyFit;
+procedure TFormBioneta.UnStickyFit;
 begin
   Align := alNone;
   BorderIcons := BorderIcons + [biMaximize];
   tbStickyFit.Down := false;
 end;
 
-procedure TFormBiosneta.InformOfStart;
+procedure TFormBioneta.InformOfStart;
 begin
   Tool := LastTool;
   ShowCursor;
   RefreshCursor;
 end;
 
-procedure TFormBiosneta.InformOfStop;
+procedure TFormBioneta.InformOfStop;
 begin
   HideCursor;
   RefreshCursor;
@@ -8341,7 +8341,7 @@ begin
   Tool := tSelect;
 end;
 
-procedure TFormBiosneta.EmptyAllSounds;
+procedure TFormBioneta.EmptyAllSounds;
 var
   i: Integer;
   mySpeaker: TGLDummyCube;
@@ -8361,7 +8361,7 @@ begin
   Speakers.SetFirstActive;
 end;
 
-procedure TFormBiosneta.tbEarthquakeClick(Sender: TObject);
+procedure TFormBioneta.tbEarthquakeClick(Sender: TObject);
 var
   myEarthquake: TaiEarthquake;
 begin
@@ -8375,13 +8375,13 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbCameraLightClick(Sender: TObject);
+procedure TFormBioneta.tbCameraLightClick(Sender: TObject);
 begin
   CameraLight.Shining := tbCameraLight.Down;
 end;
 
 //------------------------------------------------------------
-procedure TFormBiosneta.CalculateTerrainSettings;
+procedure TFormBioneta.CalculateTerrainSettings;
 begin
   if SphereMode then
   begin
@@ -8401,7 +8401,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning
-procedure TFormBiosneta.PositionThing(aPosition: TaiPosition;
+procedure TFormBioneta.PositionThing(aPosition: TaiPosition;
   aThing: TGLBaseSceneObject);
 var
   myLongitude: single;
@@ -8437,7 +8437,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
-procedure TFormBiosneta.PositionThing(aPosition: TaiPosition;
+procedure TFormBioneta.PositionThing(aPosition: TaiPosition;
   aThing: TGLBaseSceneObject; aAngle: single);
 var
   myLongitude: single;
@@ -8478,7 +8478,7 @@ end;
 
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
-procedure TFormBiosneta.PositionThing(aPosition: TaiPosition;
+procedure TFormBioneta.PositionThing(aPosition: TaiPosition;
   aThing: TGLBaseSceneObject; aAngle: single; aFactor: single);
 var
   myLongitude: single;
@@ -8517,24 +8517,24 @@ begin
     + aAngle);
 end;
 
-procedure TFormBiosneta.tbFloatCameraClick(Sender: TObject);
+procedure TFormBioneta.tbFloatCameraClick(Sender: TObject);
 begin
   CameraMode := camFree;
 end;
 
-procedure TFormBiosneta.GLSceneViewerMouseLeave(Sender: TObject);
+procedure TFormBioneta.GLSceneViewerMouseLeave(Sender: TObject);
 begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TFormBiosneta.RestoreScene;
+procedure TFormBioneta.RestoreScene;
 begin
   OrangeTreeModel.StructureChanged;
   OrangeTreeModel.Material.Texture.Disabled := true;
   OrangeTreeModel.Material.Texture.Disabled := false;
 end;
 
-procedure TFormBiosneta.tbTrackLadybugClick(Sender: TObject);
+procedure TFormBioneta.tbTrackLadybugClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cLadybug) then
   begin
@@ -8543,7 +8543,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbTrackAntClick(Sender: TObject);
+procedure TFormBioneta.tbTrackAntClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cAnt) then
   begin
@@ -8552,13 +8552,13 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.CheckToolRepeat;
+procedure TFormBioneta.CheckToolRepeat;
 begin
   if not tbRepeat.Down then
     ToolIsActive := false;
 end;
 
-procedure TFormBiosneta.BreakLimits(aKind: Integer);
+procedure TFormBioneta.BreakLimits(aKind: Integer);
 begin
   if not gThings.CanAdd(aKind) then
     gThings.Maximums[aKind] := gThings.Maximums[aKind] + 1;
@@ -8566,7 +8566,7 @@ end;
 
 // =========================EVOLUTION TREES====================
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildEvolvingTree(aTree: TaiEvolvingTree): TCrossover;
+function TFormBioneta.BuildEvolvingTree(aTree: TaiEvolvingTree): TCrossover;
 var
   myProxy: TGLColorProxy;
 begin
@@ -8599,7 +8599,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildEvolvingFruit(aFruit: TaiEvolvingFruit)
+function TFormBioneta.BuildEvolvingFruit(aFruit: TaiEvolvingFruit)
   : TCrossover;
 var
   myProxy: TGLColorProxy;
@@ -8634,7 +8634,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
+function TFormBioneta.BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
 var
   myProxy: TGLColorProxy;
   myScale: TGLVector;
@@ -8677,7 +8677,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateEvolvingTree(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateEvolvingTree(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
   myTree: TaiEvolvingTree;
@@ -8699,7 +8699,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateEvolvingFruit(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateEvolvingFruit(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
   myFruit: TaiEvolvingFruit;
@@ -8711,7 +8711,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateEvolvingSeed(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateEvolvingSeed(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
   mySeed: TaiEvolvingSeed;
@@ -8722,22 +8722,22 @@ begin
   PositionThing(mySeed.Position, myProxy);
 end;
 
-procedure TFormBiosneta.tbEvolvingTreeClick(Sender: TObject);
+procedure TFormBioneta.tbEvolvingTreeClick(Sender: TObject);
 begin
   Tool := tEvolvingTree;
 end;
 
-procedure TFormBiosneta.tbEvolvingFruitClick(Sender: TObject);
+procedure TFormBioneta.tbEvolvingFruitClick(Sender: TObject);
 begin
   Tool := tEvolvingFruit;
 end;
 
-procedure TFormBiosneta.tbEvolvingSeedClick(Sender: TObject);
+procedure TFormBioneta.tbEvolvingSeedClick(Sender: TObject);
 begin
   Tool := tEvolvingSeed;
 end;
 
-procedure TFormBiosneta.tbJumpClick(Sender: TObject);
+procedure TFormBioneta.tbJumpClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -8745,14 +8745,14 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbMoveClick(Sender: TObject);
+procedure TFormBioneta.tbMoveClick(Sender: TObject);
 begin
   LastAction('Tool=Move');
   Tool := tMove;
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.FullDisplay(aLines: TStrings);
+procedure TFormBioneta.FullDisplay(aLines: TStrings);
 begin
   aLines.Add('ViewPosition');
   aLines.Add('------------------------');
@@ -8769,7 +8769,7 @@ begin
   aLines.Add('ViewAdjust: ' + Format('%0.2f', [ViewAdjust]));
 end;
 
-procedure TFormBiosneta.tbVolumesClick(Sender: TObject);
+procedure TFormBioneta.tbVolumesClick(Sender: TObject);
 begin
   with GLShadowVolume do
     if tbVolumes.Down then
@@ -8784,7 +8784,7 @@ begin
     end;
 end;
 
-procedure TFormBiosneta.SetShadowMode(aMode: Boolean);
+procedure TFormBioneta.SetShadowMode(aMode: Boolean);
 begin
   if not aMode then
   begin
@@ -8799,7 +8799,7 @@ begin
   tbShadows.Down := Environment.Shadows;
 end;
 
-procedure TFormBiosneta.tbComplexifyClick(Sender: TObject);
+procedure TFormBioneta.tbComplexifyClick(Sender: TObject);
 begin
   if tbComplexify.Down then
   begin
@@ -8819,45 +8819,45 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbVolumeChange(Sender: TObject);
+procedure TFormBioneta.tbVolumeChange(Sender: TObject);
 begin
   SoundVolume := tbVolume.Position / 10.0;
   GLSceneViewer.SetFocus;
 end;
 
-procedure TFormBiosneta.tbPopBeaconClick(Sender: TObject);
+procedure TFormBioneta.tbPopBeaconClick(Sender: TObject);
 begin
   Tool := tBeaconAny;
   GLSceneViewer.SetFocus;
 end;
 
-procedure TFormBiosneta.tbAudioMenuClick(Sender: TObject);
+procedure TFormBioneta.tbAudioMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbAudio.Align := alClient;
   tbAudio.Visible := true;
 end;
 
-procedure TFormBiosneta.StatusBarClick(Sender: TObject);
+procedure TFormBioneta.StatusBarClick(Sender: TObject);
 begin
   frmFirst.RealityForm.BringToFront;
   frmFirst.RealityForm.ManagerForm.BringToFront;
   BringToFront;
 end;
 
-procedure TFormBiosneta.tbRestoreParentClick(Sender: TObject);
+procedure TFormBioneta.tbRestoreParentClick(Sender: TObject);
 begin
   frmFirst.RealityForm.BringToFront;
   frmFirst.RealityForm.ManagerForm.BringToFront;
   BringToFront;
 end;
 
-procedure TFormBiosneta.cboxThingsChange(Sender: TObject);
+procedure TFormBioneta.cboxThingsChange(Sender: TObject);
 begin
   GLSceneViewer.SetFocus;
 end;
 
-procedure TFormBiosneta.tbHighDetailClick(Sender: TObject);
+procedure TFormBioneta.tbHighDetailClick(Sender: TObject);
 begin
   if tbHighDetail.Down then
   begin
@@ -8875,7 +8875,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbAVIMovieClick(Sender: TObject);
+procedure TFormBioneta.tbAVIMovieClick(Sender: TObject);
 begin
   LastAction('AVI-Start');
   BorderStyle := bsSingle;
@@ -8890,36 +8890,36 @@ begin
   tbAVIFrame.Visible := true;
 end;
 
-procedure TFormBiosneta.LastAction(aAction: string);
+procedure TFormBioneta.LastAction(aAction: string);
 begin
   LastActivity := aAction;
   LastTime := gReality.Time;
 end;
 
-procedure TFormBiosneta.cbAutoSnapClick(Sender: TObject);
+procedure TFormBioneta.cbAutoSnapClick(Sender: TObject);
 begin
   LastAction('Autosnap');
 end;
 
-procedure TFormBiosneta.tbMouseViewClick(Sender: TObject);
+procedure TFormBioneta.tbMouseViewClick(Sender: TObject);
 begin
   LastAction('MouseView');
   if not tbMouseView.Down then
     GLObjectText.Visible := false;
 end;
 
-procedure TFormBiosneta.tbPlantClearerClick(Sender: TObject);
+procedure TFormBioneta.tbPlantClearerClick(Sender: TObject);
 begin
   Tool := tPlantClearer;
 end;
 
-procedure TFormBiosneta.tbFireTreeClick(Sender: TObject);
+procedure TFormBioneta.tbFireTreeClick(Sender: TObject);
 begin
   Tool := tFireTree;
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildFireTree(aFireTree: TaiFireTree): TCrossover;
+function TFormBioneta.BuildFireTree(aFireTree: TaiFireTree): TCrossover;
 var
   myProxy: TGLColorProxy;
   myScale: TGLVector;
@@ -8948,7 +8948,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateFireTree(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateFireTree(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
   myFireTree: TaiFireTree;
@@ -8961,28 +8961,28 @@ begin
   PositionThing(myFireTree.Position, myProxy, 0, -0.15);
 end;
 
-procedure TFormBiosneta.tbLightningClick(Sender: TObject);
+procedure TFormBioneta.tbLightningClick(Sender: TObject);
 begin
   Tool := tLightning;
 end;
 
-procedure TFormBiosneta.tbCreatureDeathClick(Sender: TObject);
+procedure TFormBioneta.tbCreatureDeathClick(Sender: TObject);
 begin
   Tool := tLifeKiller;
 end;
 
-procedure TFormBiosneta.tbThingCeaserClick(Sender: TObject);
+procedure TFormBioneta.tbThingCeaserClick(Sender: TObject);
 begin
   Tool := tThingCeaser;
 end;
 
-procedure TFormBiosneta.tbRainCloudClick(Sender: TObject);
+procedure TFormBioneta.tbRainCloudClick(Sender: TObject);
 begin
   Tool := tRainCloud;
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.tbCameraEyesClick(Sender: TObject);
+procedure TFormBioneta.tbCameraEyesClick(Sender: TObject);
 begin
   if (TargetToFollow = nil) then
   begin
@@ -9008,7 +9008,7 @@ begin
   end;
 end;
 
-procedure TFormBiosneta.tbHarmClick(Sender: TObject);
+procedure TFormBioneta.tbHarmClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
   begin
@@ -9019,7 +9019,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildSpeech(aSpeech: TaiSpeech): TCrossover;
+function TFormBioneta.BuildSpeech(aSpeech: TaiSpeech): TCrossover;
 var
   myHUDText: TGLHUDText;
 begin
@@ -9039,7 +9039,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateSpeech(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateSpeech(aCrossover: TCrossover);
 var
   myHUDText: TGLHUDText;
   mySpeech: TaiSpeech;
@@ -9057,7 +9057,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.RefreshSpeeches;
+procedure TFormBioneta.RefreshSpeeches;
 var
   i: Integer;
   myCrossover: TCrossover;
@@ -9070,23 +9070,23 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.tbReportAllClick(Sender: TObject);
+procedure TFormBioneta.tbReportAllClick(Sender: TObject);
 begin
   Environment.Things.Tangibles.ReportAllCreatures;
 end;
 
-procedure TFormBiosneta.tbReportClick(Sender: TObject);
+procedure TFormBioneta.tbReportClick(Sender: TObject);
 begin
   if TargetToFollow <> nil then
     TaiThing(TargetToFollow.Data).Report;
 end;
 
-procedure TFormBiosneta.tbSpeechesClick(Sender: TObject);
+procedure TFormBioneta.tbSpeechesClick(Sender: TObject);
 begin
   HUDCube.Visible := tbSpeeches.Down;
 end;
 
-procedure TFormBiosneta.tbShowFireClick(Sender: TObject);
+procedure TFormBioneta.tbShowFireClick(Sender: TObject);
 begin
   if tbShowFire.Down then
     frmFirst.Construction.AddEvent('Disabled fireFX')
@@ -9095,19 +9095,19 @@ begin
   tbShowFire.Enabled := false;
 end;
 
-procedure TFormBiosneta.tbAVIFrameClick(Sender: TObject);
+procedure TFormBioneta.tbAVIFrameClick(Sender: TObject);
 begin
   AVIRecorder.AddAVIFrame;
 end;
 
-procedure TFormBiosneta.tbMissileDefenceClick(Sender: TObject);
+procedure TFormBioneta.tbMissileDefenceClick(Sender: TObject);
 begin
   tbRepeat.Down := false;
   Tool := tMissileDefence;
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.tbDisastersMenuClick(Sender: TObject);
+procedure TFormBioneta.tbDisastersMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
   tbDisasters.Align := alClient;
@@ -9123,18 +9123,18 @@ begin
   ShowCursor;
 end;
 
-procedure TFormBiosneta.tbLifeKillerClick(Sender: TObject);
+procedure TFormBioneta.tbLifeKillerClick(Sender: TObject);
 begin
   Tool := tLifeKiller;
 end;
 
-procedure TFormBiosneta.tbPlantRemoverClick(Sender: TObject);
+procedure TFormBioneta.tbPlantRemoverClick(Sender: TObject);
 begin
   Tool := tPlantClearer;
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.tbBotSelectClick(Sender: TObject);
+procedure TFormBioneta.tbBotSelectClick(Sender: TObject);
 begin
   LastAction('Tool=Select');
   tbSelect.Down := true;
@@ -9142,14 +9142,14 @@ begin
   HideCursor;
 end;
 
-procedure TFormBiosneta.tbShadowsClick(Sender: TObject);
+procedure TFormBioneta.tbShadowsClick(Sender: TObject);
 begin
   Environment.Shadows := tbShadows.Down;
   SetShadowMode(Environment.Shadows);
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildMissileDefence(aMissileDefence: TaiMissileDefence)
+function TFormBioneta.BuildMissileDefence(aMissileDefence: TaiMissileDefence)
   : TCrossover;
 var
   myProxy: TGLColorProxy;
@@ -9177,7 +9177,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateMissileDefence(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateMissileDefence(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
   myMissileDefence: TaiMissileDefence;
@@ -9192,7 +9192,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBiosneta.BuildMissile(aMissile: TaiMissile): TCrossover;
+function TFormBioneta.BuildMissile(aMissile: TaiMissile): TCrossover;
 var
   myProxy: TGLProxyObject;
   myScale: TGLVector;
@@ -9218,7 +9218,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBiosneta.UpdateMissile(aCrossover: TCrossover);
+procedure TFormBioneta.UpdateMissile(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myMissile: TaiMissile;
@@ -9228,7 +9228,7 @@ begin
   PositionThing(myMissile.Position, myProxy, 0, -0.15);
 end;
 
-procedure TFormBiosneta.tbNextKindClick(Sender: TObject);
+procedure TFormBioneta.tbNextKindClick(Sender: TObject);
 begin
   if TargetToFollow = nil then
     exit;
@@ -9240,7 +9240,7 @@ begin
 end;
 
 //-------------------------------------------------------------------
-procedure TFormBiosneta.tbRestore2Click(Sender: TObject);
+procedure TFormBioneta.tbRestore2Click(Sender: TObject);
 begin
   frmFirst.RealityForm.BringToFront;
   frmFirst.RealityForm.ManagerForm.BringToFront;

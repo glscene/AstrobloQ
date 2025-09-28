@@ -41,8 +41,6 @@ object FormManager: TFormManager
       List = True
       ShowCaptions = True
       TabOrder = 0
-      ExplicitTop = 36
-      ExplicitHeight = 178
       object tbTime: TToolButton
         Left = 0
         Top = 0

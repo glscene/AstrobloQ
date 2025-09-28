@@ -2,7 +2,7 @@
 
 Система астромоделирования эволюции Галактики и численного решения парадокса Ферми. 
 
-Проекты разрабатывается с использованием графической библиотеки GaLaXy Engine с компонентами GLScene VCL и GXScene FMX:
+Проекты разрабатываются на базе библиотеки GaLaXy Engine с компонентами GLScene VCL и GXScene FMX:
 - [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/);
 
 Для астрометрических расчётов дополнительно могут использоваться следующие библиотеки: 
@@ -30,22 +30,22 @@
 ![AstroScene](./docs/clips/PlanetarySystems.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
-### Litosneta
+### Litoneta
 
 Экзопланета с литосферой
-![Litosneta](./docs/clips/Litosfera_ru.png)
+![Litoneta](./docs/clips/Litosfera_ru.png)
 
-![Litosneta](./docs/clips/AnimationPlanet2a.gif)
-![Litosneta](./docs/clips/AnimationAsteroid2.gif)
+![Litoneta](./docs/clips/AnimationPlanet2a.gif)
+![Litoneta](./docs/clips/AnimationAsteroid2.gif)
 
-### Biosneta
+### Bioneta
 
 Экзопланета с биосферой
  
-![Biosneta](./docs/clips/Biosfera.jpg)
+![Bioneta](./docs/clips/Biosfera.jpg)
 
-![Biosneta](./docs/clips/AnimationDolphin.gif)
-![Biosneta](./docs/clips/AnimationEcosystemA.gif)
+![Bioneta](./docs/clips/AnimationDolphin.gif)
+![Bioneta](./docs/clips/AnimationEcosystemA.gif)
 ![AstroScene](./docs/clips/AnimationLadybug2.gif)
 ![AstroScene](./docs/clips/AnimationFlock.gif)
 
@@ -59,7 +59,7 @@
 ![Galaqtium](./docs/clips/AstrobloQ_ru.png)
 ![Galaqtium](./docs/clips/Noostages.jpg)
 
-Для моделирования используются следующие данные и методы: 
+В астромодели используются следующие данные и методы: 
 
 - исходные данные о звёздах и экзопланетах находятся в каталогах [HYG](https://github.com/astronexus/HYG-Database), [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data), [Earthlike Terraplanets](https://phl.upr.edu/hwc);
 - строение, структура и состав объектов в системах "Star->Galaxy->Universe" представляются в соответствующих масштабах с различным уровнем детализации L.O.D; 

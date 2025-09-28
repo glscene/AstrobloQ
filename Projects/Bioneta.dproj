@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{22135BAC-3B25-4A87-BED1-0F5FFBCB942A}</ProjectGuid>
-        <MainSource>Biosneta_ru.dpr</MainSource>
+        <ProjectGuid>{D54C68E8-0F0B-49F9-AEEB-BB0F77F91991}</ProjectGuid>
+        <MainSource>Bioneta.dpr</MainSource>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <ProjectVersion>20.3</ProjectVersion>
@@ -10,7 +10,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <ProjectName Condition="'$(ProjectName)'==''">Biosneta_ru</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Bioneta</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -60,7 +60,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>Biosneta_ru</SanitizedProjectName>
+        <SanitizedProjectName>Bioneta</SanitizedProjectName>
         <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Build>1000</VerInfo_Build>
@@ -152,6 +152,7 @@
         <DCCReference Include="..\source\bio\Bio.Terrier.pas"/>
         <DCCReference Include="..\source\bio\Bio.ThingReferenceList.pas"/>
         <DCCReference Include="..\source\bio\Bio.Tool.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Flora.pas"/>
         <DCCReference Include="..\source\bio\Bio.Trex.pas"/>
         <DCCReference Include="..\source\bio\Bio.Turtle.pas"/>
         <DCCReference Include="..\source\bio\Bio.Vibes.pas"/>
@@ -172,106 +173,104 @@
         <DCCReference Include="..\source\bio\Bio.MatingSingle.pas"/>
         <DCCReference Include="..\source\bio\Bio.FireTree.pas"/>
         <DCCReference Include="..\source\bio\Bio.MissileDefence.pas"/>
-        <DCCReference Include="..\source\bio\fbAbout_ru.pas">
+        <DCCReference Include="..\source\bio\fbBioneta.pas">
+            <Form>FormBioneta</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbConstruction_ru.pas">
+        <DCCReference Include="..\source\bio\fbConstruction.pas">
             <Form>frmConstruction</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbCreatingGalaxy_ru.pas">
+        <DCCReference Include="..\source\bio\fbCreatingGalaxy.pas">
             <Form>FormCreatingGalaxy</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbEditLine_ru.pas">
+        <DCCReference Include="..\source\bio\fbEditLine.pas">
             <Form>FormEditLine</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbEvents_ru.pas">
+        <DCCReference Include="..\source\bio\fbEvents.pas">
             <Form>FormEvents</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbIntro_ru.pas">
+        <DCCReference Include="..\source\bio\fbIntro.pas">
             <Form>FormIntro</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbKeyboard_ru.pas">
+        <DCCReference Include="..\source\bio\fbKeyboard.pas">
             <Form>FormKeyboard</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbLists_ru.pas">
+        <DCCReference Include="..\source\bio\fbLists.pas">
             <Form>frmLists</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbManager_ru.pas">
+        <DCCReference Include="..\source\bio\fbManager.pas">
             <Form>FormManager</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbMaximums_ru.pas">
+        <DCCReference Include="..\source\bio\fbMaximums.pas">
             <Form>FormMaximums</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbNewReality_ru.pas">
+        <DCCReference Include="..\source\bio\fbNewReality.pas">
             <Form>FormNewReality</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbPhotograph_ru.pas">
+        <DCCReference Include="..\source\bio\fbPhotograph.pas">
             <Form>FormPhotograph</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbReality_ru.pas">
+        <DCCReference Include="..\source\bio\fbReality.pas">
             <Form>FormReality</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSatellite_ru.pas">
+        <DCCReference Include="..\source\bio\fbSatellite.pas">
             <Form>FormSatellite</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSettings_ru.pas">
+        <DCCReference Include="..\source\bio\fbSettings.pas">
             <Form>FormSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSpirit_ru.pas">
+        <DCCReference Include="..\source\bio\fbSpirit.pas">
             <Form>FormSpirit</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
-        <DCCReference Include="..\source\bio\fbFirstForm_ru.pas">
+        <DCCReference Include="..\source\bio\fbFirstForm.pas">
             <Form>frmFirst</Form>
         </DCCReference>
+        <DCCReference Include="..\source\bio\vSpiritManager.pas"/>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>
-        <DCCReference Include="..\source\bio\fbPopulations_ru.pas">
+        <DCCReference Include="..\source\bio\fbPopulations.pas">
             <Form>FormPopulations</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbHeightField_ru.pas">
+        <DCCReference Include="..\source\bio\fbHeightField.pas">
             <Form>FormHeightField</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbHumidityMap_ru.pas">
+        <DCCReference Include="..\source\bio\fbHumidityMap.pas">
             <Form>FormHumidityMap</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbPosition_ru.pas">
+        <DCCReference Include="..\source\bio\fbPosition.pas">
             <Form>FormPosition</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbDNAR.pas">
+        <DCCReference Include="..\source\bio\fbDNA.pas">
             <Form>FormDNA</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbError_ru.pas">
+        <DCCReference Include="..\source\bio\fbError.pas">
             <Form>FormError</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbTip_ru.pas">
+        <DCCReference Include="..\source\bio\fbTip.pas">
             <Form>FormTip</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSplash_ru.pas">
+        <DCCReference Include="..\source\bio\fbSplash.pas">
             <Form>FormSplash</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbImages_ru.pas">
+        <DCCReference Include="..\source\bio\fbImages.pas">
             <Form>frmImages</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\bio\Bio.Things.pas"/>
         <DCCReference Include="..\source\bio\Bio.Utilities.pas"/>
-        <DCCReference Include="..\source\bio\fbTutorial_ru.pas">
+        <DCCReference Include="..\source\bio\fbTutorial.pas">
             <Form>FormTutorial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\bio\fbMiniForm.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\bio\dbImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbMiniForm_ru.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\bio\fbBiosneta_ru.pas">
-            <Form>FormBiosneta</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\bio\vSpiritManager_ru.pas"/>
-        <DCCReference Include="..\source\bio\Bio.Flora.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -291,7 +290,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Biosneta_ru.dpr</Source>
+                    <Source Name="MainSource">Bioneta.dpr</Source>
                 </Source>
                 <Parameters>
                     <Parameters Name="UseLauncher">False</Parameters>
@@ -338,9 +337,9 @@
             </Platforms>
             <Deployment Version="5">
                 <DeployFile LocalName="..\Bin\PlanetAI.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="..\bin\Biosneta_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Bioneta.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Biosneta_ru.exe</RemoteName>
+                        <RemoteName>Bioneta.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1198,6 +1197,9 @@
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
             </Deployment>
+            <UnitTesting>
+                <TestProjectName>D:\AstrobloQ\Projects\Test\LifePlanetsTests.dproj</TestProjectName>
+            </UnitTesting>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

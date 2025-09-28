@@ -1,11 +1,11 @@
-object FormBiosneta: TFormBiosneta
+object FormBioneta: TFormBioneta
   Left = 4
   Top = 83
   Align = alClient
   BorderIcons = [biSystemMenu]
   Caption = 'Biosneta'
-  ClientHeight = 758
-  ClientWidth = 1551
+  ClientHeight = 766
+  ClientWidth = 1424
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object FormBiosneta: TFormBiosneta
   object Splitter3D: TSplitter
     Left = 0
     Top = 553
-    Width = 1551
+    Width = 1424
     Height = 2
     Cursor = crVSplit
     Align = alTop
@@ -33,41 +33,41 @@ object FormBiosneta: TFormBiosneta
   object panMenus: TPanel
     Left = 0
     Top = 0
-    Width = 1551
+    Width = 1424
     Height = 553
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1543
+    ExplicitWidth = 1416
     object panTools: TPanel
       Left = 0
       Top = 231
-      Width = 1551
+      Width = 1424
       Height = 322
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1543
+      ExplicitWidth = 1416
       object tbWater: TToolBar
         Left = 0
         Top = 56
-        Width = 1551
+        Width = 1424
         Height = 29
         ButtonHeight = 19
-        ButtonWidth = 54
+        ButtonWidth = 49
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         List = True
         ShowCaptions = True
         TabOrder = 0
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label9: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 19
           AutoSize = False
-          Caption = #1042#1086#1076#1072
+          Caption = 'Water'
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -85,10 +85,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbWateringCanClick
         end
         object tbSponge: TToolButton
-          Left = 127
+          Left = 122
           Top = 0
           Hint = 'Sponge (Removes Water)'
-          Caption = #1043#1091#1073#1082#1072
+          Caption = 'Sponge'
           Grouped = True
           ImageIndex = 52
           ParentShowHint = False
@@ -97,26 +97,26 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSpongeClick
         end
         object tbSplash: TToolButton
-          Left = 181
+          Left = 171
           Top = 0
           Hint = 'Splash'
-          Caption = #1041#1088#1099#1079#1075#1080
+          Caption = 'Splash'
           Grouped = True
           ImageIndex = 91
           Style = tbsCheck
           OnClick = tbSplashClick
         end
         object tbIceberg: TToolButton
-          Left = 235
+          Left = 220
           Top = 0
-          Caption = #1040#1081#1089#1073#1077#1088#1075
+          Caption = 'Iceberg'
           Grouped = True
           ImageIndex = 74
           Style = tbsCheck
           OnClick = tbIcebergClick
         end
         object ToolButton2: TToolButton
-          Left = 289
+          Left = 269
           Top = 0
           Width = 8
           Caption = 'ToolButton2'
@@ -124,17 +124,17 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object Panel4: TPanel
-          Left = 297
+          Left = 277
           Top = 0
-          Width = 139
+          Width = 97
           Height = 19
           BevelOuter = bvNone
-          Caption = #1057#1082#1086#1088#1086#1089#1090#1100' '#1080#1089#1087#1072#1088#1077#1085#1080#1103':'
+          Caption = 'Pour Rate:'
           Color = clActiveBorder
           TabOrder = 2
         end
         object edWater: TEdit
-          Left = 436
+          Left = 374
           Top = 0
           Width = 38
           Height = 19
@@ -147,7 +147,7 @@ object FormBiosneta: TFormBiosneta
           Text = '1'
         end
         object WaterUpDown: TUpDown
-          Left = 474
+          Left = 412
           Top = 0
           Width = 17
           Height = 19
@@ -157,7 +157,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = WaterUpDownClick
         end
         object WaterFastUpDown: TUpDown
-          Left = 491
+          Left = 429
           Top = 0
           Width = 17
           Height = 19
@@ -168,7 +168,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = WaterFastUpDownClick
         end
         object ToolButton3: TToolButton
-          Left = 508
+          Left = 446
           Top = 0
           Width = 8
           Caption = 'ToolButton3'
@@ -179,9 +179,9 @@ object FormBiosneta: TFormBiosneta
       object tbAtmosphere: TToolBar
         Left = 0
         Top = 85
-        Width = 1551
+        Width = 1424
         Height = 29
-        ButtonWidth = 121
+        ButtonWidth = 85
         Caption = 'tbAtmosphere'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -189,14 +189,14 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 1
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label4: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
+          Caption = 'Atmosphere'
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -204,7 +204,7 @@ object FormBiosneta: TFormBiosneta
           Left = 73
           Top = 0
           Hint = 'Heat'
-          Caption = #1046#1072#1088#1072
+          Caption = 'Heat'
           Down = True
           Grouped = True
           ImageIndex = 77
@@ -214,10 +214,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbHeatClick
         end
         object tbCold: TToolButton
-          Left = 194
+          Left = 158
           Top = 0
           Hint = 'Cool'
-          Caption = #1061#1086#1083#1086#1076
+          Caption = 'Cool'
           Grouped = True
           ImageIndex = 73
           ParentShowHint = False
@@ -226,10 +226,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbColdClick
         end
         object tbHumidifier: TToolButton
-          Left = 315
+          Left = 243
           Top = 0
           Hint = 'Humidify'
-          Caption = #1042#1083#1072#1078#1085#1086#1089#1090#1100
+          Caption = 'Humidify'
           Grouped = True
           ImageIndex = 83
           ParentShowHint = False
@@ -238,10 +238,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbHumidifierClick
         end
         object tbDehumidifier: TToolButton
-          Left = 436
+          Left = 328
           Top = 0
           Hint = 'Dehumidify'
-          Caption = #1042#1099#1089#1099#1093#1072#1085#1080#1077
+          Caption = 'Dehumidify  '
           Grouped = True
           ImageIndex = 82
           ParentShowHint = False
@@ -250,10 +250,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbDehumidifierClick
         end
         object tbCloud: TToolButton
-          Left = 557
+          Left = 413
           Top = 0
           Hint = 'Cloud'
-          Caption = #1054#1073#1083#1072#1082#1072
+          Caption = 'Clouds'
           Grouped = True
           ImageIndex = 57
           ParentShowHint = False
@@ -262,10 +262,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCloudClick
         end
         object tbRainCloud: TToolButton
-          Left = 678
+          Left = 498
           Top = 0
           Hint = 'Cloud that is raining.'
-          Caption = #1044#1086#1078#1076#1077#1074#1099#1077' '#1086#1073#1083#1072#1082#1072
+          Caption = 'Rain Cloud'
           Grouped = True
           ImageIndex = 57
           ParentShowHint = False
@@ -274,10 +274,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbRainCloudClick
         end
         object tbStormCloud: TToolButton
-          Left = 799
+          Left = 583
           Top = 0
           Hint = 'Cloud that shoots lightning.'
-          Caption = #1058#1091#1095#1080
+          Caption = 'Storm Cloud'
           Grouped = True
           ImageIndex = 153
           ParentShowHint = False
@@ -289,9 +289,9 @@ object FormBiosneta: TFormBiosneta
       object tbGalaxy: TToolBar
         Left = 0
         Top = 27
-        Width = 1551
+        Width = 1424
         Height = 29
-        ButtonWidth = 110
+        ButtonWidth = 81
         Caption = 'tbGalaxy'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -301,14 +301,14 @@ object FormBiosneta: TFormBiosneta
         ShowHint = False
         TabOrder = 2
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label12: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1057#1072#1090#1077#1083#1083#1080#1090#1099
+          Caption = 'Satellites'
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -316,7 +316,7 @@ object FormBiosneta: TFormBiosneta
           Left = 73
           Top = 0
           Hint = 'Sun'
-          Caption = #1057#1086#1083#1085#1094#1077
+          Caption = 'Sun'
           Grouped = True
           ImageIndex = 61
           ParentShowHint = False
@@ -324,17 +324,17 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbBuildSunClick
         end
         object tbBuildMoon: TToolButton
-          Left = 183
+          Left = 154
           Top = 0
           Hint = 'Moon'
-          Caption = #1051#1091#1085#1072
+          Caption = 'Moon'
           ImageIndex = 62
           ParentShowHint = False
           ShowHint = True
           OnClick = tbBuildMoonClick
         end
         object ToolButton11: TToolButton
-          Left = 293
+          Left = 235
           Top = 0
           Width = 8
           Caption = 'ToolButton11'
@@ -342,17 +342,17 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object tbFakeSun: TToolButton
-          Left = 301
+          Left = 243
           Top = 0
           Hint = 'Create a sun with only light, no heat.'
-          Caption = #1051#1077#1076#1103#1085#1086#1077' '#1089#1086#1083#1085#1094#1077
+          Caption = 'Frozen Sun'
           ImageIndex = 58
           ParentShowHint = False
           ShowHint = True
           OnClick = tbFakeSunClick
         end
         object ToolButton10: TToolButton
-          Left = 411
+          Left = 324
           Top = 0
           Width = 8
           Caption = 'ToolButton10'
@@ -360,10 +360,10 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object tbAsteroid: TToolButton
-          Left = 419
+          Left = 332
           Top = 0
           Hint = 'Asteroid'
-          Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
+          Caption = 'Asteroids'
           Grouped = True
           ImageIndex = 93
           ParentShowHint = False
@@ -372,10 +372,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAsteroidClick
         end
         object tbMissileDefence: TToolButton
-          Left = 529
+          Left = 413
           Top = 0
           Hint = 'Add a missile defence satellite.'
-          Caption = #1047#1072#1097#1080#1090#1072
+          Caption = 'Defence'
           Grouped = True
           ImageIndex = 150
           ParentShowHint = False
@@ -384,7 +384,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbMissileDefenceClick
         end
         object ToolButton4: TToolButton
-          Left = 639
+          Left = 494
           Top = 0
           Width = 8
           Caption = 'ToolButton4'
@@ -395,9 +395,9 @@ object FormBiosneta: TFormBiosneta
       object tbSettings: TToolBar
         Left = 0
         Top = 188
-        Width = 1551
+        Width = 1424
         Height = 25
-        ButtonWidth = 94
+        ButtonWidth = 78
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -405,14 +405,14 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 3
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label18: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1059#1090#1080#1083#1080#1090#1099': '
+          Caption = 'Utilities: '
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -420,7 +420,7 @@ object FormBiosneta: TFormBiosneta
           Left = 73
           Top = 0
           Hint = 'Shine a Light From the Camera'
-          Caption = #1057#1074#1077#1090' '#1082#1072#1084#1077#1088#1099
+          Caption = 'Cam Light'
           Down = True
           ImageIndex = 39
           ParentShowHint = False
@@ -429,10 +429,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraLightClick
         end
         object tbShowCursor: TToolButton
-          Left = 167
+          Left = 151
           Top = 0
           Hint = 'Shows a cursor on the planet when you move the mouse.'
-          Caption = #1050#1091#1088#1089#1086#1088
+          Caption = 'Cursor   '
           Down = True
           ImageIndex = 74
           ParentShowHint = False
@@ -441,7 +441,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowCursorClick
         end
         object tbFlashlight: TToolButton
-          Left = 261
+          Left = 229
           Top = 0
           Hint = 'Shines a light on the planet that you are looking at.'
           Caption = 'Flash Light'
@@ -452,7 +452,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFlashlightClick
         end
         object tbStickyFit: TToolButton
-          Left = 355
+          Left = 307
           Top = 0
           Hint = 
             'Sticky fit causes the Space window to stick in its designated de' +
@@ -466,7 +466,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbStickyFitClick
         end
         object tbFullscreen: TToolButton
-          Left = 449
+          Left = 385
           Top = 0
           Hint = 'Press ESC to exit fullscreen mode.'
           Caption = 'Fullscreen'
@@ -477,7 +477,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFullscreenClick
         end
         object ToolButton6: TToolButton
-          Left = 543
+          Left = 463
           Top = 0
           Width = 8
           Caption = 'ToolButton6'
@@ -485,7 +485,7 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object tbSnapshot: TToolButton
-          Left = 551
+          Left = 471
           Top = 0
           Hint = 'Take a photograph of your world.'
           Caption = 'Snapshot'
@@ -495,7 +495,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSnapshotClick
         end
         object cbAutoSnap: TCheckBox
-          Left = 645
+          Left = 549
           Top = 0
           Width = 69
           Height = 22
@@ -504,7 +504,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = cbAutoSnapClick
         end
         object ToolButton9: TToolButton
-          Left = 714
+          Left = 618
           Top = 0
           Width = 8
           Caption = 'ToolButton9'
@@ -512,7 +512,7 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object tbAVIMovie: TToolButton
-          Left = 722
+          Left = 626
           Top = 0
           Hint = 
             'Start recording an AVI movie. When you close AIPlanet, the movie' +
@@ -525,7 +525,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAVIMovieClick
         end
         object tbAVIDirect: TToolButton
-          Left = 816
+          Left = 704
           Top = 0
           Hint = 'While this button is down, capture a frame.'
           Caption = 'AVI Direct'
@@ -536,7 +536,7 @@ object FormBiosneta: TFormBiosneta
           Visible = False
         end
         object tbAVIFrame: TToolButton
-          Left = 910
+          Left = 782
           Top = 0
           Hint = 'Capture an extra AVI frame (for when time is stopped).'
           Caption = 'AVI Frame'
@@ -550,7 +550,7 @@ object FormBiosneta: TFormBiosneta
       object tbTools: TToolBar
         Left = 0
         Top = 213
-        Width = 1551
+        Width = 1424
         Height = 28
         ButtonWidth = 81
         Caption = 'tbTools'
@@ -560,21 +560,21 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 4
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label8: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099':'
+          Caption = 'Tools:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbBall: TToolButton
           Left = 73
           Top = 0
-          Caption = #1052#1103#1095
+          Caption = 'Ball'
           Down = True
           Grouped = True
           ImageIndex = 95
@@ -585,7 +585,7 @@ object FormBiosneta: TFormBiosneta
           Left = 154
           Top = 0
           Hint = 'Bubble Beacon'
-          Caption = #1055#1091#1079#1099#1088#1100
+          Caption = 'Bubble'
           Grouped = True
           ImageIndex = 24
           ParentShowHint = False
@@ -715,9 +715,9 @@ object FormBiosneta: TFormBiosneta
       object tbVisuals: TToolBar
         Left = 0
         Top = 141
-        Width = 1551
+        Width = 1424
         Height = 47
-        ButtonWidth = 95
+        ButtonWidth = 93
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -725,14 +725,14 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 5
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label17: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1042#1080#1076#1080#1084#1086#1089#1090#1100': '
+          Caption = 'Visuals: '
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -740,7 +740,7 @@ object FormBiosneta: TFormBiosneta
           Left = 73
           Top = 0
           Hint = 'Show Suns, Moons, and Asteroids'
-          Caption = #1057#1072#1090#1077#1083#1083#1080#1090#1099'    '
+          Caption = 'Satellites        '
           Down = True
           ImageIndex = 76
           ParentShowHint = False
@@ -749,10 +749,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowSatellitesClick
         end
         object tbShowClouds: TToolButton
-          Left = 168
+          Left = 166
           Top = 0
           Hint = 'Shows clouds in the atmosphere.'
-          Caption = #1054#1073#1083#1072#1082#1072
+          Caption = 'Clouds'
           Down = True
           ImageIndex = 72
           ParentShowHint = False
@@ -761,10 +761,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowCloudsClick
         end
         object tbShowWater: TToolButton
-          Left = 263
+          Left = 259
           Top = 0
           Hint = 'Show lakes, seas, and oceans.'
-          Caption = #1042#1086#1076#1072
+          Caption = 'Water'
           Down = True
           ImageIndex = 84
           ParentShowHint = False
@@ -773,10 +773,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowWaterClick
         end
         object tbShowStars: TToolButton
-          Left = 358
+          Left = 352
           Top = 0
           Hint = 'Shows the starfield in the background.'
-          Caption = #1047#1074#1105#1079#1076#1099
+          Caption = 'Stars'
           Down = True
           ImageIndex = 91
           ParentShowHint = False
@@ -785,10 +785,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowStarsClick
         end
         object tbShowAtmosphere: TToolButton
-          Left = 453
+          Left = 445
           Top = 0
           Hint = 'Show the atmosphere around your planet.'
-          Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
+          Caption = 'Atmosphere'
           Down = True
           ImageIndex = 85
           ParentShowHint = False
@@ -797,10 +797,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowAtmosphereClick
         end
         object tbHighDetail: TToolButton
-          Left = 548
+          Left = 538
           Top = 0
           Hint = 'Use high detail models if available.'
-          Caption = #1044#1077#1090#1072#1083#1080#1079#1072#1094#1080#1103
+          Caption = 'High Detail'
           ImageIndex = 91
           ParentShowHint = False
           ShowHint = True
@@ -808,20 +808,20 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbHighDetailClick
         end
         object Label25: TLabel
-          Left = 643
+          Left = 631
           Top = 0
           Width = 72
           Height = 22
           AutoSize = False
-          Caption = #1043#1088#1072#1092#1080#1082#1080
+          Caption = 'Graphics'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbShadows: TToolButton
-          Left = 715
+          Left = 703
           Top = 0
           Hint = 'Turn shadows on or off.'
-          Caption = #1058#1077#1085#1080
+          Caption = 'Shadows'
           ImageIndex = 97
           ParentShowHint = False
           ShowHint = True
@@ -829,7 +829,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShadowsClick
         end
         object tbComplexify: TToolButton
-          Left = 810
+          Left = 796
           Top = 0
           Hint = 'Object shadows cast onto other objects.'
           Caption = 'Multicast'
@@ -840,10 +840,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbComplexifyClick
         end
         object tbVolumes: TToolButton
-          Left = 905
+          Left = 889
           Top = 0
           Hint = 'Shows shadow volumes.'
-          Caption = #1054#1073#1098#1105#1084#1099
+          Caption = 'Volumes'
           ImageIndex = 88
           ParentShowHint = False
           ShowHint = True
@@ -851,7 +851,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbVolumesClick
         end
         object tbSpeeches: TToolButton
-          Left = 1000
+          Left = 982
           Top = 0
           Hint = 'Show text speeches.'
           Caption = 'Speeches'
@@ -863,7 +863,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSpeechesClick
         end
         object tbShowFire: TToolButton
-          Left = 1095
+          Left = 1075
           Top = 0
           Hint = 
             'Prevents fire effects from being created by sun and explosions (' +
@@ -877,10 +877,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbShowFireClick
         end
         object tbSpherical: TToolButton
-          Left = 1190
+          Left = 1168
           Top = 0
           Hint = 'Shape Land as Flat or Spherical'
-          Caption = #1057#1092#1077#1088#1080#1095#1085#1086#1089#1090#1100
+          Caption = 'Spherical'
           Down = True
           ImageIndex = 86
           ParentShowHint = False
@@ -893,9 +893,9 @@ object FormBiosneta: TFormBiosneta
       object tbSpirits: TToolBar
         Left = 0
         Top = 241
-        Width = 1551
+        Width = 1424
         Height = 48
-        ButtonWidth = 69
+        ButtonWidth = 66
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -903,14 +903,14 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 6
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label15: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1053#1086#1074#1099#1081' '#1073#1086#1090': '
+          Caption = 'New Bot: '
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -918,7 +918,7 @@ object FormBiosneta: TFormBiosneta
           Left = 73
           Top = 0
           Hint = 'Bot'
-          Caption = #1041#1086#1090
+          Caption = 'Bot'
           Down = True
           Grouped = True
           ImageIndex = 45
@@ -928,103 +928,103 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSpiritGuyClick
         end
         object tbBotSelect: TToolButton
-          Left = 142
+          Left = 139
           Top = 0
-          Caption = #1042#1099#1073#1086#1088
+          Caption = 'Select'
           Grouped = True
           ImageIndex = 122
           Style = tbsCheck
           OnClick = tbBotSelectClick
         end
         object Label5: TLabel
-          Left = 211
+          Left = 205
           Top = 0
-          Width = 45
+          Width = 36
           Height = 22
-          Caption = #1050#1086#1085#1090#1088#1086#1083':'
+          Caption = 'Control:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbControlBot: TToolButton
-          Left = 256
+          Left = 241
           Top = 0
           Hint = 'Control Bot'
-          Caption = #1050#1086#1085#1090#1088#1086#1083
+          Caption = 'Control'
           ImageIndex = 5
           ParentShowHint = False
           ShowHint = True
           OnClick = tbControlBotClick
         end
         object Label2: TLabel
-          Left = 325
+          Left = 307
           Top = 0
-          Width = 34
+          Width = 38
           Height = 22
-          Caption = #1040#1082#1094#1080#1080':'
+          Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbGrab: TToolButton
-          Left = 359
+          Left = 345
           Top = 0
           Caption = 'Grab'
           ImageIndex = 12
           OnClick = tbGrabClick
         end
         object tbDrop: TToolButton
-          Left = 428
+          Left = 411
           Top = 0
           Caption = 'Drop'
           ImageIndex = 13
           OnClick = tbDropClick
         end
         object tbKick: TToolButton
-          Left = 497
+          Left = 477
           Top = 0
           Caption = 'Kick'
           ImageIndex = 11
           OnClick = tbKickClick
         end
         object tbEat: TToolButton
-          Left = 566
+          Left = 543
           Top = 0
-          Caption = #1045#1076#1072
+          Caption = 'Eat'
           ImageIndex = 15
           OnClick = tbEatClick
         end
         object Label6: TLabel
-          Left = 635
+          Left = 609
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1040#1082#1094#1080#1080':'
+          Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbBonk: TToolButton
-          Left = 708
+          Left = 682
           Top = 0
           Caption = 'Bonk'
           ImageIndex = 16
           OnClick = tbBonkClick
         end
         object tbGive: TToolButton
-          Left = 777
+          Left = 748
           Top = 0
           Caption = 'Give'
           ImageIndex = 17
           OnClick = tbGiveClick
         end
         object tbThrow: TToolButton
-          Left = 846
+          Left = 814
           Top = 0
           Caption = 'Throw'
           ImageIndex = 14
           OnClick = tbThrowClick
         end
         object Label3: TLabel
-          Left = 915
+          Left = 880
           Top = 0
           Width = 22
           Height = 22
@@ -1033,35 +1033,35 @@ object FormBiosneta: TFormBiosneta
           ParentColor = False
         end
         object tbUse1: TToolButton
-          Left = 937
+          Left = 902
           Top = 0
           Caption = 'Use1 (/)'
           ImageIndex = 127
           OnClick = tbUse1Click
         end
         object tbUse2: TToolButton
-          Left = 1006
+          Left = 968
           Top = 0
           Caption = 'Use2'
           ImageIndex = 128
           OnClick = tbUse2Click
         end
         object tbUse3: TToolButton
-          Left = 1075
+          Left = 1034
           Top = 0
           Caption = 'Use3'
           ImageIndex = 129
           OnClick = tbUse3Click
         end
         object tbUse4: TToolButton
-          Left = 1144
+          Left = 1100
           Top = 0
           Caption = 'Use4'
           ImageIndex = 130
           OnClick = tbUse4Click
         end
         object tbUse5: TToolButton
-          Left = 1213
+          Left = 1166
           Top = 0
           Caption = 'Use5'
           ImageIndex = 131
@@ -1071,7 +1071,7 @@ object FormBiosneta: TFormBiosneta
       object tbCameras: TToolBar
         Left = 0
         Top = 0
-        Width = 1551
+        Width = 1424
         Height = 27
         ButtonHeight = 7510
         ButtonWidth = 7794
@@ -1079,14 +1079,14 @@ object FormBiosneta: TFormBiosneta
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         TabOrder = 7
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label1: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 7510
           AutoSize = False
-          Caption = #1053#1072#1081#1090#1080
+          Caption = 'Find'
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -1345,9 +1345,9 @@ object FormBiosneta: TFormBiosneta
       object tbAudio: TToolBar
         Left = 0
         Top = 114
-        Width = 1551
+        Width = 1424
         Height = 27
-        ButtonWidth = 98
+        ButtonWidth = 97
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -1355,14 +1355,14 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 8
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label32: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1047#1074#1091#1082
+          Caption = 'Volume'
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -1393,7 +1393,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbTrackLinesClick
         end
         object tbPredictions: TToolButton
-          Left = 299
+          Left = 298
           Top = 0
           Caption = 'Prediction Trail'
           ImageIndex = 27
@@ -1401,7 +1401,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbPredictionsClick
         end
         object cbTrackNewThings: TCheckBox
-          Left = 397
+          Left = 395
           Top = 0
           Width = 112
           Height = 22
@@ -1410,10 +1410,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = cbTrackNewThingsClick
         end
         object tbRestoreParent: TToolButton
-          Left = 509
+          Left = 507
           Top = 0
           Hint = 'Restore the Time and Manager windows.'
-          Caption = #1042#1086#1089#1089#1090#1072#1085#1086#1074#1080#1090#1100
+          Caption = 'Restore'
           ImageIndex = 90
           ParentShowHint = False
           ShowHint = True
@@ -1423,9 +1423,9 @@ object FormBiosneta: TFormBiosneta
       object tbDisasters: TToolBar
         Left = 0
         Top = 289
-        Width = 1551
+        Width = 1424
         Height = 29
-        ButtonWidth = 107
+        ButtonWidth = 97
         Caption = 'tbDisasters'
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -1433,14 +1433,14 @@ object FormBiosneta: TFormBiosneta
         ShowCaptions = True
         TabOrder = 9
         Visible = False
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object Label34: TLabel
           Left = 0
           Top = 0
           Width = 73
           Height = 22
           AutoSize = False
-          Caption = #1041#1077#1076#1089#1090#1074#1080#1077
+          Caption = 'Disasters:'
           Color = clInactiveBorder
           ParentColor = False
         end
@@ -1448,14 +1448,14 @@ object FormBiosneta: TFormBiosneta
           Left = 73
           Top = 0
           Hint = 'Earthquake'
-          Caption = #1047#1077#1084#1083#1077#1090#1088#1103#1089#1077#1085#1080#1077
+          Caption = 'Earthquake'
           ImageIndex = 2
           ParentShowHint = False
           ShowHint = True
           OnClick = tbEarthquakeClick
         end
         object ToolButton5: TToolButton
-          Left = 180
+          Left = 170
           Top = 0
           Width = 8
           Caption = 'ToolButton5'
@@ -1463,9 +1463,9 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object tbLightning: TToolButton
-          Left = 188
+          Left = 178
           Top = 0
-          Caption = #1052#1086#1083#1085#1080#1103
+          Caption = 'Lightning'
           Grouped = True
           ImageIndex = 155
           ParentShowHint = False
@@ -1474,28 +1474,28 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLightningClick
         end
         object tbPlantRemover: TToolButton
-          Left = 295
+          Left = 275
           Top = 0
-          Caption = #1057#1088#1091#1073#1080#1090#1100' '
+          Caption = 'Plant Remover'
           Grouped = True
           ImageIndex = 48
           Style = tbsCheck
           OnClick = tbPlantRemoverClick
         end
         object tbLifeKiller: TToolButton
-          Left = 402
+          Left = 372
           Top = 0
-          Caption = #1059#1073#1080#1090#1100
+          Caption = 'Life Killer'
           Grouped = True
           ImageIndex = 16
           Style = tbsCheck
           OnClick = tbLifeKillerClick
         end
         object tbThingCeaser: TToolButton
-          Left = 509
+          Left = 469
           Top = 0
           Hint = 'Remove Things from Land'
-          Caption = #1050#1086#1088#1079#1080#1085#1072
+          Caption = 'Trash'
           Grouped = True
           ImageIndex = 41
           ParentShowHint = False
@@ -1508,32 +1508,32 @@ object FormBiosneta: TFormBiosneta
     object panMainMenu: TPanel
       Left = 0
       Top = 0
-      Width = 1551
+      Width = 1424
       Height = 39
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 1543
+      ExplicitWidth = 1416
       object tbPlanet: TToolBar
         Left = 0
         Top = 0
-        Width = 1551
+        Width = 1424
         Height = 39
         Align = alClient
         ButtonHeight = 36
-        ButtonWidth = 70
+        ButtonWidth = 50
         Color = clActiveBorder
         EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1543
+        ExplicitWidth = 1416
         object tbObjectMenu: TToolButton
           Left = 0
           Top = 0
           Hint = 'Object Menu'
-          Caption = #1054#1073#1098#1077#1082#1090
+          Caption = 'Object'
           Grouped = True
           ImageIndex = 138
           ParentShowHint = False
@@ -1542,10 +1542,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbObjectMenuClick
         end
         object tbGalaxyMenu: TToolButton
-          Left = 70
+          Left = 50
           Top = 0
           Hint = 'Satellites'
-          Caption = #1050#1086#1089#1084#1086#1089
+          Caption = 'Space'
           Grouped = True
           ImageIndex = 76
           ParentShowHint = False
@@ -1554,10 +1554,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbGalaxyMenuClick
         end
         object tbWaterMenu: TToolButton
-          Left = 140
+          Left = 100
           Top = 0
           Hint = 'Water'
-          Caption = #1042#1086#1076#1072
+          Caption = 'Water'
           Grouped = True
           ImageIndex = 84
           ParentShowHint = False
@@ -1566,10 +1566,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbWaterMenuClick
         end
         object tbLandMenu: TToolButton
-          Left = 210
+          Left = 150
           Top = 0
           Hint = 'Land'
-          Caption = #1057#1091#1096#1072
+          Caption = 'Land'
           Grouped = True
           ImageIndex = 78
           ParentShowHint = False
@@ -1578,10 +1578,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLandMenuClick
         end
         object tbAtmosphereMenu: TToolButton
-          Left = 280
+          Left = 200
           Top = 0
-          Hint = #1040#1090#1084#1086#1089#1092#1077#1088#1072
-          Caption = #1042#1086#1079#1076#1091#1093
+          Hint = 'Atmosphere'
+          Caption = 'Air'
           Grouped = True
           ImageIndex = 85
           ParentShowHint = False
@@ -1590,10 +1590,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAtmosphereMenuClick
         end
         object tbFaunaMenu: TToolButton
-          Left = 350
+          Left = 250
           Top = 0
           Hint = 'Fauna'
-          Caption = #1056#1072#1089#1090#1077#1085#1080#1103
+          Caption = 'Plants'
           Grouped = True
           ImageIndex = 75
           ParentShowHint = False
@@ -1602,10 +1602,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFaunaMenuClick
         end
         object tbCreaturesMenu: TToolButton
-          Left = 420
+          Left = 300
           Top = 0
           Hint = 'Creatures'
-          Caption = #1046#1080#1074#1086#1090#1085#1099#1077
+          Caption = 'Animals'
           Grouped = True
           ImageIndex = 109
           ParentShowHint = False
@@ -1614,10 +1614,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCreaturesMenuClick
         end
         object tbSpiritsMenu: TToolButton
-          Left = 490
+          Left = 350
           Top = 0
           Hint = 'Spirits'
-          Caption = #1041#1086#1090#1099
+          Caption = 'Bots'
           Grouped = True
           ImageIndex = 45
           ParentShowHint = False
@@ -1626,10 +1626,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSpiritsMenuClick
         end
         object tbToolsMenu: TToolButton
-          Left = 560
+          Left = 400
           Top = 0
           Hint = 'Tools'
-          Caption = #1048#1085#1090#1088#1091#1084#1077#1085#1090#1099
+          Caption = 'Tools'
           Grouped = True
           ImageIndex = 40
           ParentShowHint = False
@@ -1638,10 +1638,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbToolsMenuClick
         end
         object tbDisastersMenu: TToolButton
-          Left = 630
+          Left = 450
           Top = 0
-          Hint = #1050#1072#1090#1072#1089#1090#1088#1086#1092#1099
-          Caption = #1041#1077#1076#1089#1090#1074#1080#1103
+          Hint = 'Disasters'
+          Caption = 'Disasters'
           Grouped = True
           ImageIndex = 153
           ParentShowHint = False
@@ -1650,10 +1650,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbDisastersMenuClick
         end
         object tbCameraMenu: TToolButton
-          Left = 700
+          Left = 500
           Top = 0
-          Hint = #1053#1072#1081#1090#1080
-          Caption = #1055#1086#1080#1089#1082
+          Hint = 'Find'
+          Caption = 'Search'
           Grouped = True
           ImageIndex = 140
           ParentShowHint = False
@@ -1662,10 +1662,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraMenuClick
         end
         object tbVisualsMenu: TToolButton
-          Left = 770
+          Left = 550
           Top = 0
           Hint = 'Visuals'
-          Caption = #1042#1080#1079#1091#1072#1083
+          Caption = 'Visuals'
           Grouped = True
           ImageIndex = 20
           ParentShowHint = False
@@ -1674,10 +1674,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbVisualsMenuClick
         end
         object tbAudioMenu: TToolButton
-          Left = 840
+          Left = 600
           Top = 0
-          Hint = #1047#1074#1091#1082#1080' '#1080' '#1096#1086#1088#1086#1093#1080
-          Caption = #1040#1091#1076#1080#1086
+          Hint = 'Audio and Details'
+          Caption = 'Audio'
           Grouped = True
           ImageIndex = 43
           ParentShowHint = False
@@ -1686,10 +1686,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAudioMenuClick
         end
         object tbSettingsMenu: TToolButton
-          Left = 910
+          Left = 650
           Top = 0
           Hint = 'Settings'
-          Caption = #1054#1087#1094#1080#1080
+          Caption = 'Options'
           Grouped = True
           ImageIndex = 31
           ParentShowHint = False
@@ -1698,7 +1698,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSettingsMenuClick
         end
         object ToolButton7: TToolButton
-          Left = 980
+          Left = 700
           Top = 0
           Width = 8
           Caption = 'ToolButton7'
@@ -1706,10 +1706,10 @@ object FormBiosneta: TFormBiosneta
           Style = tbsSeparator
         end
         object tbRepeat: TToolButton
-          Left = 988
+          Left = 708
           Top = 0
-          Hint = #1055#1086#1074#1090#1086#1088#1077#1085#1080#1077
-          Caption = #1055#1086#1074#1090#1086#1088
+          Hint = 'Tool Repeat'
+          Caption = 'Repeat'
           Down = True
           ImageIndex = 142
           ParentShowHint = False
@@ -1721,33 +1721,33 @@ object FormBiosneta: TFormBiosneta
     object panSelect: TPanel
       Left = 0
       Top = 39
-      Width = 1551
+      Width = 1424
       Height = 48
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
       Visible = False
-      ExplicitWidth = 1543
+      ExplicitWidth = 1416
       object tbObjects: TToolBar
         Left = 176
         Top = 0
-        Width = 1375
+        Width = 1248
         Height = 48
         Align = alClient
-        ButtonWidth = 86
+        ButtonWidth = 73
         EdgeBorders = [ebTop, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1367
+        ExplicitWidth = 1240
         object Label22: TLabel
           Left = 0
           Top = 0
           Width = 48
           Height = 22
           AutoSize = False
-          Caption = #1042#1080#1076':'
+          Caption = 'View:'
           Color = clActiveBorder
           ParentColor = False
         end
@@ -1755,7 +1755,7 @@ object FormBiosneta: TFormBiosneta
           Left = 48
           Top = 0
           Hint = 'Mouse View (Info appears under cursor)'
-          Caption = #1048#1085#1092#1086
+          Caption = 'Info'
           ImageIndex = 125
           ParentShowHint = False
           ShowHint = True
@@ -1763,17 +1763,17 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbMouseViewClick
         end
         object tbTrackWindow: TToolButton
-          Left = 134
+          Left = 121
           Top = 0
           Hint = 'View Selected Object (Double Click)'
-          Caption = #1044#1077#1090#1072#1083#1080
+          Caption = 'Details'
           ImageIndex = 123
           ParentShowHint = False
           ShowHint = True
           OnClick = tbTrackWindowClick
         end
         object Label23: TLabel
-          Left = 220
+          Left = 194
           Top = 0
           Width = 49
           Height = 22
@@ -1783,7 +1783,7 @@ object FormBiosneta: TFormBiosneta
           ParentColor = False
         end
         object tbHeal: TToolButton
-          Left = 269
+          Left = 243
           Top = 0
           Hint = 'Heal this object (256).'
           Caption = 'Heal'
@@ -1793,7 +1793,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbHealClick
         end
         object tbHarm: TToolButton
-          Left = 355
+          Left = 316
           Top = 0
           Hint = 'Harm this object (-256).'
           Caption = 'Harm'
@@ -1803,17 +1803,17 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbHarmClick
         end
         object tbDie: TToolButton
-          Left = 441
+          Left = 389
           Top = 0
           Hint = 'Kill this object, if it is living.'
-          Caption = #1043#1080#1073#1077#1083#1100
+          Caption = 'Die'
           ImageIndex = 41
           ParentShowHint = False
           ShowHint = True
           OnClick = tbDieClick
         end
         object tbCease: TToolButton
-          Left = 527
+          Left = 462
           Top = 0
           Hint = 'Cease this objects existence.'
           Caption = 'Cease'
@@ -1823,19 +1823,19 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCeaseClick
         end
         object tbExtinction: TToolButton
-          Left = 613
+          Left = 535
           Top = 0
           Hint = 'Kill every kind of this object.'
-          Caption = #1042#1099#1084#1080#1088#1072#1085#1080#1077
+          Caption = 'Extinction'
           ImageIndex = 42
           ParentShowHint = False
           ShowHint = True
           OnClick = tbExtinctionClick
         end
         object tbJump: TToolButton
-          Left = 699
+          Left = 608
           Top = 0
-          Caption = #1055#1088#1099#1078#1086#1082
+          Caption = 'Jump'
           ImageIndex = 152
           Wrap = True
           OnClick = tbJumpClick
@@ -1846,7 +1846,7 @@ object FormBiosneta: TFormBiosneta
           Width = 48
           Height = 22
           AutoSize = False
-          Caption = #1054#1090#1095#1105#1090':'
+          Caption = 'Report:'
           Color = clActiveBorder
           ParentColor = False
         end
@@ -1854,69 +1854,69 @@ object FormBiosneta: TFormBiosneta
           Left = 48
           Top = 22
           Hint = 'Ask for report from current object.'
-          Caption = #1054#1090#1095#1105#1090
+          Caption = 'Report'
           ImageIndex = 117
           ParentShowHint = False
           ShowHint = True
           OnClick = tbReportClick
         end
         object tbReportAll: TToolButton
-          Left = 134
+          Left = 121
           Top = 22
           Hint = 'Ask for reports from all creatures.'
-          Caption = #1056#1077#1087#1086#1088#1090#1072#1078
+          Caption = 'Report All'
           ImageIndex = 118
           ParentShowHint = False
           ShowHint = True
           OnClick = tbReportAllClick
         end
         object Label20: TLabel
-          Left = 220
+          Left = 194
           Top = 22
           Width = 49
           Height = 22
           AutoSize = False
-          Caption = #1044#1077#1081#1089#1090#1074#1080#1103':'
+          Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
         end
         object tbPerform0: TToolButton
-          Left = 269
+          Left = 243
           Top = 22
           Caption = 'Perform'
           ImageIndex = 126
           OnClick = tbPerform0Click
         end
         object tbPerform1: TToolButton
-          Left = 355
+          Left = 316
           Top = 22
           Caption = 'Perform'
           ImageIndex = 127
           OnClick = tbPerform1Click
         end
         object tbPerform2: TToolButton
-          Left = 441
+          Left = 389
           Top = 22
           Caption = 'Perform'
           ImageIndex = 128
           OnClick = tbPerform2Click
         end
         object tbPerform3: TToolButton
-          Left = 527
+          Left = 462
           Top = 22
           Caption = 'Perform'
           ImageIndex = 129
           OnClick = tbPerform3Click
         end
         object tbPerform4: TToolButton
-          Left = 613
+          Left = 535
           Top = 22
           Caption = 'Perform'
           ImageIndex = 130
           OnClick = tbPerform4Click
         end
         object tbPerform5: TToolButton
-          Left = 699
+          Left = 608
           Top = 22
           Caption = 'Perform'
           ImageIndex = 131
@@ -1930,7 +1930,7 @@ object FormBiosneta: TFormBiosneta
         Height = 48
         Align = alLeft
         ButtonHeight = 36
-        ButtonWidth = 40
+        ButtonWidth = 46
         Caption = 'ToolBar1'
         EdgeBorders = [ebLeft, ebTop, ebBottom]
         Images = frmImages.ImageListIcons
@@ -1941,7 +1941,7 @@ object FormBiosneta: TFormBiosneta
           Left = 0
           Top = 0
           Hint = 'Use the mouse button to target an object.'
-          Caption = #1042#1099#1073#1086#1088
+          Caption = '   Select'
           Down = True
           Grouped = True
           ImageIndex = 122
@@ -1951,7 +1951,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSelectClick
         end
         object tbMove: TToolButton
-          Left = 40
+          Left = 46
           Top = 0
           Hint = 'Use the mouse but to drag objects around.'
           Caption = 'Move'
@@ -1979,7 +1979,7 @@ object FormBiosneta: TFormBiosneta
           Height = 21
           Align = alTop
           BevelOuter = bvNone
-          Caption = #1050#1091#1088#1089#1086#1088#1099
+          Caption = 'Cursors'
           Color = clInactiveBorder
           TabOrder = 0
         end
@@ -1988,12 +1988,12 @@ object FormBiosneta: TFormBiosneta
     object panCreatures: TPanel
       Left = 0
       Top = 183
-      Width = 1551
+      Width = 1424
       Height = 48
       Align = alTop
       TabOrder = 3
       Visible = False
-      ExplicitWidth = 1543
+      ExplicitWidth = 1416
       object Panel1: TPanel
         Left = 1
         Top = 1
@@ -2010,7 +2010,7 @@ object FormBiosneta: TFormBiosneta
           Height = 21
           Align = alTop
           BevelOuter = bvNone
-          Caption = #1046#1080#1074#1086#1090#1085#1099#1077':'
+          Caption = 'Creatures:'
           Color = clInactiveBorder
           TabOrder = 0
         end
@@ -2018,22 +2018,22 @@ object FormBiosneta: TFormBiosneta
       object tbCreatures: TToolBar
         Left = 58
         Top = 1
-        Width = 1492
+        Width = 1365
         Height = 46
         Align = alClient
-        ButtonWidth = 90
+        ButtonWidth = 69
         Caption = 'tbFauna'
         EdgeBorders = [ebRight, ebBottom]
         Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 1484
+        ExplicitWidth = 1357
         object tbBird: TToolButton
           Left = 0
           Top = 0
           Hint = 'Bird'
-          Caption = #1055#1090#1080#1094#1072
+          Caption = 'Bird'
           Down = True
           Grouped = True
           ImageIndex = 53
@@ -2043,10 +2043,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbBirdClick
         end
         object tbFish: TToolButton
-          Left = 90
+          Left = 69
           Top = 0
           Hint = 'Fish'
-          Caption = #1056#1099#1073#1072
+          Caption = 'Fish'
           Grouped = True
           ImageIndex = 94
           ParentShowHint = False
@@ -2055,10 +2055,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFishClick
         end
         object tbDuck: TToolButton
-          Left = 180
+          Left = 138
           Top = 0
           Hint = 'Duck'
-          Caption = #1059#1090#1082#1072
+          Caption = 'Duck'
           Grouped = True
           ImageIndex = 116
           ParentShowHint = False
@@ -2067,10 +2067,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbDuckClick
         end
         object tbLadybug: TToolButton
-          Left = 270
+          Left = 207
           Top = 0
           Hint = 'Ladybug'
-          Caption = #1046#1091#1095#1086#1082
+          Caption = 'LadyBug'
           Grouped = True
           ImageIndex = 136
           ParentShowHint = False
@@ -2079,10 +2079,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLadybugClick
         end
         object tbHawk: TToolButton
-          Left = 360
+          Left = 276
           Top = 0
           Hint = 'Hawk'
-          Caption = #1071#1089#1090#1088#1077#1073
+          Caption = 'Hawk'
           Grouped = True
           ImageIndex = 98
           ParentShowHint = False
@@ -2091,10 +2091,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbHawkClick
         end
         object tbTurtle: TToolButton
-          Left = 450
+          Left = 345
           Top = 0
           Hint = 'Turtle'
-          Caption = #1063#1077#1088#1077#1087#1072#1093#1072
+          Caption = 'Turtle'
           Grouped = True
           ImageIndex = 108
           ParentShowHint = False
@@ -2103,10 +2103,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbTurtleClick
         end
         object tbCrab: TToolButton
-          Left = 540
+          Left = 414
           Top = 0
           Hint = 'Crab'
-          Caption = #1050#1088#1072#1073
+          Caption = 'Crab'
           Grouped = True
           ImageIndex = 96
           ParentShowHint = False
@@ -2115,10 +2115,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCrabClick
         end
         object tbShark: TToolButton
-          Left = 630
+          Left = 483
           Top = 0
           Hint = 'Shark'
-          Caption = #1040#1082#1091#1083#1072
+          Caption = 'Shark'
           Grouped = True
           ImageIndex = 107
           ParentShowHint = False
@@ -2127,10 +2127,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbSharkClick
         end
         object tbAnt: TToolButton
-          Left = 720
+          Left = 552
           Top = 0
           Hint = 'Ant'
-          Caption = #1052#1091#1088#1072#1074#1077#1081
+          Caption = 'Ant'
           Grouped = True
           ImageIndex = 137
           ParentShowHint = False
@@ -2139,10 +2139,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAntClick
         end
         object tbGrazer: TToolButton
-          Left = 810
+          Left = 621
           Top = 0
           Hint = 'Grazer'
-          Caption = #1058#1088#1072#1074#1086#1103#1076#1085#1099#1081
+          Caption = 'Grazer'
           Grouped = True
           ImageIndex = 101
           ParentShowHint = False
@@ -2151,10 +2151,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbGrazerClick
         end
         object tbTrex: TToolButton
-          Left = 900
+          Left = 690
           Top = 0
           Hint = 'Trex'
-          Caption = #1056#1101#1082#1089
+          Caption = 'Trex'
           Grouped = True
           ImageIndex = 100
           ParentShowHint = False
@@ -2163,10 +2163,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbTrexClick
         end
         object tbRabbit: TToolButton
-          Left = 990
+          Left = 759
           Top = 0
           Hint = 'Rabbit'
-          Caption = #1050#1088#1086#1083#1080#1082
+          Caption = 'Rabbit'
           Grouped = True
           ImageIndex = 111
           ParentShowHint = False
@@ -2175,10 +2175,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbRabbitClick
         end
         object tbTiger: TToolButton
-          Left = 1080
+          Left = 828
           Top = 0
           Hint = 'Tiger'
-          Caption = #1058#1080#1075#1088
+          Caption = 'Tiger'
           Grouped = True
           ImageIndex = 115
           ParentShowHint = False
@@ -2187,10 +2187,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbTigerClick
         end
         object tbMouse: TToolButton
-          Left = 1170
+          Left = 897
           Top = 0
           Hint = 'Mouse'
-          Caption = #1052#1099#1096#1100
+          Caption = 'Mouse'
           Grouped = True
           ImageIndex = 114
           ParentShowHint = False
@@ -2199,10 +2199,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbMouseClick
         end
         object tbTerrier: TToolButton
-          Left = 1260
+          Left = 966
           Top = 0
           Hint = 'Terrier'
-          Caption = #1058#1077#1088#1100#1077#1088
+          Caption = 'Terrier'
           Grouped = True
           ImageIndex = 110
           ParentShowHint = False
@@ -2212,10 +2212,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbTerrierClick
         end
         object tbDolphin: TToolButton
-          Left = 1350
+          Left = 1035
           Top = 0
           Hint = 'Dolphin'
-          Caption = #1044#1077#1083#1100#1092#1080#1085
+          Caption = 'Dolphin'
           Grouped = True
           ImageIndex = 119
           ParentShowHint = False
@@ -2224,10 +2224,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbDolphinClick
         end
         object tbFox: TToolButton
-          Left = 1440
+          Left = 1104
           Top = 0
           Hint = 'Fox'
-          Caption = #1051#1080#1089#1072
+          Caption = 'Fox'
           Grouped = True
           ImageIndex = 113
           ParentShowHint = False
@@ -2236,10 +2236,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFoxClick
         end
         object tbCreatureDeath: TToolButton
-          Left = 1530
+          Left = 1173
           Top = 0
           Hint = 'Creature Killer'
-          Caption = #1043#1080#1073#1077#1083#1100
+          Caption = 'Death'
           Grouped = True
           ImageIndex = 41
           ParentShowHint = False
@@ -2252,12 +2252,12 @@ object FormBiosneta: TFormBiosneta
     object panLand: TPanel
       Left = 0
       Top = 135
-      Width = 1551
+      Width = 1424
       Height = 48
       Align = alTop
       TabOrder = 4
       Visible = False
-      ExplicitWidth = 1543
+      ExplicitWidth = 1416
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -2274,7 +2274,7 @@ object FormBiosneta: TFormBiosneta
           Height = 21
           Align = alTop
           BevelOuter = bvNone
-          Caption = #1057#1091#1096#1072
+          Caption = 'Land'
           Color = clInactiveBorder
           TabOrder = 0
         end
@@ -2282,10 +2282,10 @@ object FormBiosneta: TFormBiosneta
       object tbLand: TToolBar
         Left = 58
         Top = 1
-        Width = 448
+        Width = 414
         Height = 46
         Align = alLeft
-        ButtonWidth = 78
+        ButtonWidth = 80
         Caption = 'tbLand'
         EdgeBorders = [ebLeft, ebBottom]
         Images = frmImages.ImageListIcons
@@ -2297,7 +2297,7 @@ object FormBiosneta: TFormBiosneta
           Left = 0
           Top = 0
           Hint = 'Raise Land'
-          Caption = #1055#1083#1072#1090#1086
+          Caption = 'Plate'
           Grouped = True
           ImageIndex = 65
           ParentShowHint = False
@@ -2306,10 +2306,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbRaiseLandClick
         end
         object tbLowerLand: TToolButton
-          Left = 78
+          Left = 80
           Top = 0
           Hint = 'Lower Land'
-          Caption = #1053#1080#1079#1080#1085#1072
+          Caption = 'LowerLand'
           Grouped = True
           ImageIndex = 64
           ParentShowHint = False
@@ -2318,10 +2318,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLowerLandClick
         end
         object tbMountain: TToolButton
-          Left = 156
+          Left = 160
           Top = 0
           Hint = 'Mountain'
-          Caption = #1043#1086#1088#1099
+          Caption = 'Mountain'
           Grouped = True
           ImageIndex = 86
           ParentShowHint = False
@@ -2330,10 +2330,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbMountainClick
         end
         object tbValley: TToolButton
-          Left = 234
+          Left = 240
           Top = 0
           Hint = 'Valley'
-          Caption = #1044#1086#1083#1080#1085#1072
+          Caption = 'Valley'
           Grouped = True
           ImageIndex = 81
           ParentShowHint = False
@@ -2346,7 +2346,7 @@ object FormBiosneta: TFormBiosneta
           Left = 0
           Top = 22
           Hint = 'Flatten'
-          Caption = #1056#1072#1074#1085#1080#1085#1072
+          Caption = 'Flatten'
           Grouped = True
           ImageIndex = 70
           ParentShowHint = False
@@ -2355,10 +2355,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFlattenLandClick
         end
         object tbLandDesert: TToolButton
-          Left = 78
+          Left = 80
           Top = 22
           Hint = 'Land (1.0)'
-          Caption = #1055#1091#1089#1090#1099#1085#1103
+          Caption = 'Desert'
           Grouped = True
           ImageIndex = 102
           ParentShowHint = False
@@ -2367,10 +2367,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLandDesertClick
         end
         object tbLandDirt: TToolButton
-          Left = 156
+          Left = 160
           Top = 22
           Hint = 'Land (2.5)'
-          Caption = #1043#1088#1091#1085#1090
+          Caption = 'Dirt'
           Grouped = True
           ImageIndex = 103
           ParentShowHint = False
@@ -2379,10 +2379,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLandDirtClick
         end
         object tbLandField: TToolButton
-          Left = 234
+          Left = 240
           Top = 22
           Hint = 'Land (5.0)'
-          Caption = #1051#1091#1075#1072
+          Caption = 'LandField'
           Down = True
           Grouped = True
           ImageIndex = 104
@@ -2405,7 +2405,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbLandGrassClick
         end
         object tbWaterSea: TToolButton
-          Left = 78
+          Left = 80
           Top = 44
           Hint = 'Land (15.0)'
           Caption = 'Hills'
@@ -2421,12 +2421,12 @@ object FormBiosneta: TFormBiosneta
     object panFauna: TPanel
       Left = 0
       Top = 87
-      Width = 1551
+      Width = 1424
       Height = 48
       Align = alTop
       TabOrder = 5
       Visible = False
-      ExplicitWidth = 1543
+      ExplicitWidth = 1416
       object Panel9: TPanel
         Left = 1
         Top = 1
@@ -2443,7 +2443,7 @@ object FormBiosneta: TFormBiosneta
           Height = 21
           Align = alTop
           BevelOuter = bvNone
-          Caption = #1056#1072#1089#1090#1077#1085#1080#1103
+          Caption = 'Plants'
           Color = clInactiveBorder
           TabOrder = 0
         end
@@ -2451,22 +2451,22 @@ object FormBiosneta: TFormBiosneta
       object tbFauna: TToolBar
         Left = 58
         Top = 1
-        Width = 1492
+        Width = 1365
         Height = 46
         Align = alClient
-        ButtonWidth = 115
+        ButtonWidth = 96
         Caption = 'tbFauna'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 1484
+        ExplicitWidth = 1357
         object tbPlantForest: TToolButton
           Left = 0
           Top = 0
           Hint = 'Plant Forest'
-          Caption = #1051#1077#1089
+          Caption = 'Plant Forest'
           Down = True
           Grouped = True
           ImageIndex = 75
@@ -2476,10 +2476,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbPlantForestClick
         end
         object tbEvolvingTree: TToolButton
-          Left = 115
+          Left = 96
           Top = 0
           Hint = 'Evolving Tree'
-          Caption = #1069#1074#1086#1076#1077#1088#1077#1074#1086
+          Caption = 'Evolving Tree'
           Grouped = True
           ImageIndex = 148
           ParentShowHint = False
@@ -2488,10 +2488,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbEvolvingTreeClick
         end
         object tbAppleTree: TToolButton
-          Left = 230
+          Left = 192
           Top = 0
           Hint = 'Apple Tree'
-          Caption = #1071#1073#1083#1086#1085#1103
+          Caption = 'Apple Tree'
           Grouped = True
           ImageIndex = 47
           ParentShowHint = False
@@ -2500,10 +2500,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAppleTreeClick
         end
         object tbOrangeTree: TToolButton
-          Left = 345
+          Left = 288
           Top = 0
           Hint = 'Orange Tree'
-          Caption = #1040#1087#1077#1083#1100#1089#1080#1085#1086#1089
+          Caption = 'Orange Tree'
           Grouped = True
           ImageIndex = 49
           ParentShowHint = False
@@ -2512,10 +2512,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbOrangeTreeClick
         end
         object tbAquaPlant: TToolButton
-          Left = 460
+          Left = 384
           Top = 0
           Hint = 'Aquatic Plant'
-          Caption = #1050#1072#1084#1099#1096
+          Caption = 'Aqua Plant'
           Grouped = True
           ImageIndex = 120
           ParentShowHint = False
@@ -2524,10 +2524,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAquaPlantClick
         end
         object tbGrass: TToolButton
-          Left = 575
+          Left = 480
           Top = 0
           Hint = 'Grass'
-          Caption = #1058#1088#1072#1074#1072
+          Caption = 'Grass'
           Grouped = True
           ImageIndex = 112
           ParentShowHint = False
@@ -2536,10 +2536,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbGrassClick
         end
         object tbFireTree: TToolButton
-          Left = 690
+          Left = 576
           Top = 0
           Hint = 'Fire Tree'
-          Caption = #1045#1083#1100
+          Caption = 'Fire Tree'
           Grouped = True
           ImageIndex = 48
           ParentShowHint = False
@@ -2548,10 +2548,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbFireTreeClick
         end
         object tbApple: TToolButton
-          Left = 805
+          Left = 672
           Top = 0
           Hint = 'Apple'
-          Caption = #1071#1073#1083#1086#1082#1080
+          Caption = 'Apples'
           Grouped = True
           ImageIndex = 9
           ParentShowHint = False
@@ -2560,10 +2560,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAppleClick
         end
         object tbEvolvingFruit: TToolButton
-          Left = 920
+          Left = 768
           Top = 0
           Hint = 'Evolving Fruit'
-          Caption = #1069#1074#1086#1092#1088#1091#1082#1090
+          Caption = 'Evolving Fruit'
           Grouped = True
           ImageIndex = 149
           ParentShowHint = False
@@ -2572,10 +2572,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbEvolvingFruitClick
         end
         object tbOrange: TToolButton
-          Left = 1035
+          Left = 864
           Top = 0
           Hint = 'Orange'
-          Caption = #1040#1087#1077#1083#1100#1089#1080#1085
+          Caption = 'Orange'
           Grouped = True
           ImageIndex = 11
           ParentShowHint = False
@@ -2584,10 +2584,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbOrangeClick
         end
         object tbAppleSeed: TToolButton
-          Left = 1150
+          Left = 960
           Top = 0
           Hint = 'Apple Seed'
-          Caption = #1047#1105#1088#1085#1072' '#1103#1073#1083#1086#1082#1072
+          Caption = 'Apple Seed'
           Grouped = True
           ImageIndex = 54
           ParentShowHint = False
@@ -2596,10 +2596,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbAppleSeedClick
         end
         object tbOrangeSeed: TToolButton
-          Left = 1265
+          Left = 1056
           Top = 0
           Hint = 'Orange Seed'
-          Caption = #1047#1105#1088#1085#1072' '#1072#1087#1077#1083#1100#1089#1080#1085#1072
+          Caption = 'Orange Seed'
           Grouped = True
           ImageIndex = 54
           ParentShowHint = False
@@ -2608,10 +2608,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbOrangeSeedClick
         end
         object tbEvolvingSeed: TToolButton
-          Left = 1380
+          Left = 1152
           Top = 0
           Hint = 'Evolving Seed'
-          Caption = #1069#1074#1086#1079#1077#1088#1085#1086
+          Caption = 'Evolving Seed'
           Grouped = True
           ImageIndex = 54
           ParentShowHint = False
@@ -2620,7 +2620,7 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbEvolvingSeedClick
         end
         object tbPlantClearer: TToolButton
-          Left = 1495
+          Left = 1248
           Top = 0
           Hint = 'Plant Clearer'
           Caption = 'Plant Clearer'
@@ -2636,8 +2636,8 @@ object FormBiosneta: TFormBiosneta
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 739
-    Width = 1551
+    Top = 747
+    Width = 1424
     Height = 19
     Panels = <
       item
@@ -2650,19 +2650,19 @@ object FormBiosneta: TFormBiosneta
         Width = 350
       end>
     OnClick = StatusBarClick
-    ExplicitTop = 714
-    ExplicitWidth = 1543
+    ExplicitTop = 722
+    ExplicitWidth = 1416
   end
   object Panel2: TPanel
     Left = 0
     Top = 555
-    Width = 1551
-    Height = 184
+    Width = 1424
+    Height = 192
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 1543
-    ExplicitHeight = 159
+    ExplicitWidth = 1416
+    ExplicitHeight = 167
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2672,8 +2672,8 @@ object FormBiosneta: TFormBiosneta
     object GLSceneViewer: TGLSceneViewer
       Left = 0
       Top = 0
-      Width = 1551
-      Height = 153
+      Width = 1424
+      Height = 161
       Camera = GLCamera
       Buffer.FogEnvironment.FogColor.Color = {00000000F8FEFE3E0000803F0000803F}
       Buffer.FogEnvironment.FogStart = 1.000000000000000000
@@ -2682,7 +2682,7 @@ object FormBiosneta: TFormBiosneta
       Buffer.FogEnvironment.FogDistance = fdEyePlane
       Buffer.BackgroundColor = clBlack
       Buffer.ContextOptions = [roDoubleBuffer, roStencilBuffer, roRenderToWindow]
-      FieldOfView = 74.831977844238280000
+      FieldOfView = 77.668128967285160000
       PenAsTouch = False
       OnMouseLeave = GLSceneViewerMouseLeave
       OnMouseEnter = GLSceneViewerMouseEnter
@@ -2695,20 +2695,20 @@ object FormBiosneta: TFormBiosneta
     end
     object panCamera: TPanel
       Left = 0
-      Top = 153
-      Width = 1551
+      Top = 161
+      Width = 1424
       Height = 31
       Align = alBottom
       TabOrder = 1
-      ExplicitTop = 128
-      ExplicitWidth = 1543
+      ExplicitTop = 136
+      ExplicitWidth = 1416
       object tbViews: TToolBar
         Left = 1
         Top = 1
-        Width = 1549
+        Width = 1422
         Height = 29
         Align = alClient
-        ButtonWidth = 79
+        ButtonWidth = 64
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -9
@@ -2719,19 +2719,19 @@ object FormBiosneta: TFormBiosneta
         ParentFont = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1541
+        ExplicitWidth = 1414
         object Label19: TLabel
           Left = 0
           Top = 0
-          Width = 42
+          Width = 39
           Height = 22
-          Caption = #1050#1072#1084#1077#1088#1072':'
+          Caption = 'Camera:'
         end
         object tbCameraPlanet: TToolButton
-          Left = 42
+          Left = 39
           Top = 0
           Hint = 'Focus on your planet (P).'
-          Caption = #1055#1083#1072#1085#1077#1090#1072
+          Caption = 'Planet'
           Grouped = True
           ImageIndex = 63
           ParentShowHint = False
@@ -2740,20 +2740,20 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraPlanetClick
         end
         object tbFloatCamera: TToolButton
-          Left = 121
+          Left = 103
           Top = 0
           Hint = 'Free floating camera.'
-          Caption = #1055#1072#1085#1086#1088#1072#1084#1072
+          Caption = 'Free'
           Grouped = True
           ImageIndex = 39
           Style = tbsCheck
           OnClick = tbFloatCameraClick
         end
         object tbCameraTarget: TToolButton
-          Left = 200
+          Left = 167
           Top = 0
           Hint = 'The camera follows a target (\).'
-          Caption = #1062#1077#1083#1100
+          Caption = 'Target'
           Grouped = True
           ImageIndex = 35
           ParentShowHint = False
@@ -2762,10 +2762,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraTargetClick
         end
         object tbCameraEyes: TToolButton
-          Left = 279
+          Left = 231
           Top = 0
           Hint = 'Eyes view.'
-          Caption = #1042#1080#1076
+          Caption = 'Eyes'
           Grouped = True
           ImageIndex = 151
           ParentShowHint = False
@@ -2774,10 +2774,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraEyesClick
         end
         object tbCameraGalaxy: TToolButton
-          Left = 358
+          Left = 295
           Top = 0
           Hint = 'View the planet from afar.'
-          Caption = #1050#1086#1089#1084#1086#1089
+          Caption = 'Space'
           Grouped = True
           ImageIndex = 76
           ParentShowHint = False
@@ -2786,10 +2786,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraGalaxyClick
         end
         object tbCameraSatellite: TToolButton
-          Left = 437
+          Left = 359
           Top = 0
           Hint = 'Rotate around the planet from space.'
-          Caption = #1057#1072#1090#1077#1083#1083#1080#1090
+          Caption = 'Satellite'
           Grouped = True
           ImageIndex = 80
           ParentShowHint = False
@@ -2798,10 +2798,10 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraSatelliteClick
         end
         object tbCameraAvatar: TToolButton
-          Left = 516
+          Left = 423
           Top = 0
           Hint = 'Walk around on your planet in first person mode (Tab).'
-          Caption = #1055#1088#1086#1075#1091#1083#1082#1072
+          Caption = 'Walk'
           Grouped = True
           ImageIndex = 34
           ParentShowHint = False
@@ -2810,49 +2810,49 @@ object FormBiosneta: TFormBiosneta
           OnClick = tbCameraAvatarClick
         end
         object tbZoomIn: TToolButton
-          Left = 595
+          Left = 487
           Top = 0
           Hint = 'Zoom In (+ key or mouse wheel)'
-          Caption = #1041#1083#1080#1078#1077
+          Caption = 'In'
           ImageIndex = 37
           ParentShowHint = False
           ShowHint = True
           OnClick = tbZoomInClick
         end
         object tbZoomOut: TToolButton
-          Left = 674
+          Left = 551
           Top = 0
           Hint = 'Zoom Out (- key or mouse wheel)'
-          Caption = #1044#1072#1083#1100#1096#1077
+          Caption = 'Out'
           ImageIndex = 139
           ParentShowHint = False
           ShowHint = True
           OnClick = tbZoomOutClick
         end
         object tbPriorTarget: TToolButton
-          Left = 753
+          Left = 615
           Top = 0
           Hint = 'Target the previous target to view ([).'
-          Caption = #1055#1088#1077#1076
+          Caption = 'Prev'
           ImageIndex = 68
           ParentShowHint = False
           ShowHint = True
           OnClick = tbPriorTargetClick
         end
         object tbNextTarget: TToolButton
-          Left = 832
+          Left = 679
           Top = 0
           Hint = 'Find the next target to view (]).'
-          Caption = #1057#1083#1077#1076
+          Caption = 'Next'
           ImageIndex = 69
           ParentShowHint = False
           ShowHint = True
           OnClick = tbNextTargetClick
         end
         object tbNextKind: TToolButton
-          Left = 911
+          Left = 743
           Top = 0
-          Caption = #1050#1072#1081#1085#1076
+          Caption = 'Kind'
           ImageIndex = 157
           OnClick = tbNextKindClick
         end
@@ -2860,7 +2860,7 @@ object FormBiosneta: TFormBiosneta
     end
   end
   object GLScene: TGLScene
-    Left = 37
+    Left = 61
     Top = 578
     object GalaxyCube: TGLDummyCube
       CubeSize = 1.000000000000000000
@@ -3350,22 +3350,22 @@ object FormBiosneta: TFormBiosneta
     MaxDeltaTime = 1.000000000000000000
     SleepLength = 5
     OnProgress = GLCadencerProgress
-    Left = 209
+    Left = 145
     Top = 578
   end
   object GLMaterialLibrary: TGLMaterialLibrary
-    Left = 500
-    Top = 576
+    Left = 428
+    Top = 584
   end
   object FPSTimer: TTimer
     Interval = 1024
     OnTimer = FPSTimerTimer
-    Left = 1330
-    Top = 582
+    Left = 1314
+    Top = 574
   end
   object GLSoundLibrary: TGLSoundLibrary
     Samples = <>
-    Left = 689
+    Left = 817
     Top = 580
   end
   object GLPolygonPFXManager1: TGLPolygonPFXManager
@@ -3377,7 +3377,7 @@ object FormBiosneta: TFormBiosneta
         LifeTime = 3.000000000000000000
         SizeScale = 1.000000000000000000
       end>
-    Left = 916
+    Left = 556
     Top = 584
   end
   object GLWindowsBitmapFont1: TGLWindowsBitmapFont
@@ -3386,8 +3386,8 @@ object FormBiosneta: TFormBiosneta
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Left = 328
-    Top = 573
+    Left = 272
+    Top = 581
   end
   object AVIRecorder: TGLAVIRecorder
     FPS = 24
@@ -3395,14 +3395,14 @@ object FormBiosneta: TFormBiosneta
     Width = 320
     Height = 200
     Filename = 'photos\aimovie.avi'
-    Left = 802
+    Left = 706
     Top = 583
   end
   object GLBass: TGLSMBASS
     MaxChannels = 32
     MasterVolume = 1.000000000000000000
     Sources = <>
-    Left = 130
-    Top = 573
+    Left = 946
+    Top = 581
   end
 end
