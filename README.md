@@ -95,4 +95,5 @@
 с инсталляторами приложений.  
 
 Астроблок
-[Admin](https://t.me/astronoology)
+
+[Admin](https://t.me/glscene)
