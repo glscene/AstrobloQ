@@ -117,7 +117,7 @@ var
 implementation // =============================================================
 
 uses
-  ftTexneta_ru,
+  ftTexoneta_ru,
   Tex.Globals;
 
 {$R *.DFM}
@@ -363,14 +363,14 @@ begin
   DotColorArray[6] := clrLime;
   DotColorArray[7] := clrFlesh;
   cbTypes.Clear;
-  cbTypes.Items.Add('0: Undecided Dabbler [clrSilver]');
-  cbTypes.Items.Add('1: GLS Developer [clrMandarinOrange]');
-  cbTypes.Items.Add('2: Content Creator [clrYellow]');
-  cbTypes.Items.Add('3: Game Developer FPS [clrBlue]');
-  cbTypes.Items.Add('4: Game Developer RTS Sims [clrRed]');
-  cbTypes.Items.Add('4: VR Simulation [clrPurple]');
-  cbTypes.Items.Add('6: Scientific Visualization [clrLime]');
-  cbTypes.Items.Add('7: Others [clrFlesh]');
+  cbTypes.Items.Add('0: Соавтор [clrSilver]');
+  cbTypes.Items.Add('1: Разработчик [clrMandarinOrange]');
+  cbTypes.Items.Add('2: Творец контента [clrYellow]');
+  cbTypes.Items.Add('3: Контрибьютор [clrBlue]');
+  cbTypes.Items.Add('4: Дизайнер игр [clrRed]');
+  cbTypes.Items.Add('4: Симулятор VR/AR [clrPurple]');
+  cbTypes.Items.Add('6: Научный партнёр [clrLime]');
+  cbTypes.Items.Add('7: Спонсор [clrFlesh]');
   cbTypes.ItemIndex := 0;
   frmTexneta.cbTypes.Clear;
   // frmTexneta.cbTypes.Items.Add(S);
