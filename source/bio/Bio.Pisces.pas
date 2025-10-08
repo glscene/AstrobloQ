@@ -96,7 +96,7 @@ begin
     desire := cDesireFood
   else
   begin
-    case Stage of
+    case Sexstage of
       cCreatureBaby:  desire := cDesireWander;
       cCreatureAdult: desire := cDesireMate;
       cCreatureElder: desire := cDesireWander;

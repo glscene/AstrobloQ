@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5A43B545-F091-413C-987F-D9F2CC2201C0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ShortLands.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DuneFighter.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FracLands.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FracArchip.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ShortLands">
+        <MSBuild Projects="ShortLands.dproj"/>
+    </Target>
+    <Target Name="ShortLands:Clean">
+        <MSBuild Projects="ShortLands.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShortLands:Make">
+        <MSBuild Projects="ShortLands.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DuneFighter">
+        <MSBuild Projects="DuneFighter.dproj"/>
+    </Target>
+    <Target Name="DuneFighter:Clean">
+        <MSBuild Projects="DuneFighter.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DuneFighter:Make">
+        <MSBuild Projects="DuneFighter.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FracLands">
+        <MSBuild Projects="FracLands.dproj"/>
+    </Target>
+    <Target Name="FracLands:Clean">
+        <MSBuild Projects="FracLands.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FracLands:Make">
+        <MSBuild Projects="FracLands.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FracArchip">
+        <MSBuild Projects="FracArchip.dproj"/>
+    </Target>
+    <Target Name="FracArchip:Clean">
+        <MSBuild Projects="FracArchip.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FracArchip:Make">
+        <MSBuild Projects="FracArchip.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ShortLands;DuneFighter;FracLands;FracArchip"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ShortLands:Clean;DuneFighter:Clean;FracLands:Clean;FracArchip:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ShortLands:Make;DuneFighter:Make;FracLands:Make;FracArchip:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

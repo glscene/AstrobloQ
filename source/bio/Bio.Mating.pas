@@ -30,7 +30,7 @@ TaiMatingCreature = class(TaiCommunityCreature)
 private
   fPartner: TaiLink;     // potential reproductive partner
   fFemale: boolean;      // true for femail, false для mail
-  fStage: integer;       // stage of sexual reproduction
+  fSexstage: integer;       // stage of sexual reproduction
   fMatingTimer: integer; // timer to delay mating
 protected
   procedure MatingBehaviour;
@@ -53,7 +53,7 @@ public
   // property
   property Partner: TaiLink read fPartner;
   property Female: boolean read fFemale write fFemale;
-  property Stage: integer read fStage write fStage;
+  property Sexstage: integer read fSexstage write fSexstage;
   property MatingTimer: integer read fMatingTimer write fMatingTimer;
 end;
 
@@ -78,7 +78,7 @@ begin
     fFemale := false
   else
     fFemale := true;
-  fStage := cCreatureBaby;
+  fSexstage := cCreatureBaby;
   fMatingTimer := 0;
 end;
 
@@ -93,9 +93,9 @@ end;
 procedure TaiMatingCreature.Fuel;
 begin
   inherited Fuel;
-  case fStage of
-    cCreatureBaby:  if Age > 1024 then fStage := cCreatureAdult;
-    cCreatureAdult: if Age > 9500 then fStage := cCreatureElder;
+  case fSexstage of
+    cCreatureBaby:  if Age > 1024 then fSexstage := cCreatureAdult;
+    cCreatureAdult: if Age > 9500 then fSexstage := cCreatureElder;
     cCreatureElder: if Age > 10000 then Die;
   end;
 end;
@@ -121,7 +121,7 @@ begin
   inherited SaveToFile(aFile);
   fPartner.SaveToFile(aFile);
   writeFileBoolean(aFile, fFemale);
-  writeln(aFile, fStage);
+  writeln(aFile, fSexstage);
 end;
 
 // ----------------------------------------------------------------------------
@@ -130,7 +130,7 @@ begin
   inherited LoadFromFile(aFile);
   fPartner.LoadFromFile(aFile);
   fFemale := readFileBoolean(aFile);
-  readln(aFile, fStage);
+  readln(aFile, fSexstage);
 end;
 
 // ----------------------------------------------------------------------------
@@ -171,7 +171,7 @@ begin
   begin
     myMate := TaiMatingCreature(myCommunity.Members[i]);
     if (Female <> myMate.Female)
-    and (myMate.Stage = cCreatureAdult)
+    and (myMate.Sexstage = cCreatureAdult)
     and ((myMate.Partner.Target = nil) or (myMate.Partner.Target = self)) 
     then
       Partner.AssignTarget(myMate);
@@ -223,7 +223,7 @@ begin
 
   aList.Add('Partner: ' + Partner.OneLineDisplayRight);
   aList.Add('Female/Male: ' + BoolToGender(fFemale));
-  case fStage of
+  case fSexstage of
     cCreatureBaby:  aList.Add('Стадия: Юный');
     cCreatureAdult: aList.Add('Стадия: Взрослый');
     cCreatureElder: aList.Add('Стадия: Старый');
@@ -241,7 +241,7 @@ begin
   else
     result := result + 'Male';
 
-  case fStage of
+  case fSexstage of
     cCreatureBaby: result := result + ' Young';
     cCreatureAdult: result := result + ' Adult';
     cCreatureElder: result := result + ' Elder';

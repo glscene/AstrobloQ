@@ -32,6 +32,8 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 560
+    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -40,6 +42,7 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -172,6 +175,8 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 974
+    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalacube: TGLSceneViewer
@@ -185,7 +190,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762
@@ -194,6 +198,8 @@ object frmGalaqtium: TfrmGalaqtium
         Height = 516
         Align = alRight
         TabOrder = 1
+        ExplicitLeft = 754
+        ExplicitHeight = 491
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -597,8 +603,8 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object GLScene: TGLScene
-    Left = 271
-    Top = 156
+    Left = 79
+    Top = 92
     object Camera: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
@@ -751,8 +757,8 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object MainMenu: TMainMenu
-    Left = 648
-    Top = 107
+    Left = 448
+    Top = 91
     object miFile: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object miNewStarcube: TMenuItem
@@ -917,19 +923,19 @@ object frmGalaqtium: TfrmGalaqtium
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 537
-    Top = 179
+    Left = 177
+    Top = 163
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 269
-    Top = 236
+    Left = 77
+    Top = 164
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'GalaxyCETIR'
+    FormCaption = 'AstrobloQ'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -944,8 +950,8 @@ object frmGalaqtium: TfrmGalaqtium
         Action = snaMoveAroundTarget
       end>
     OnMouseMove = GLSimpleNavigationMouseMove
-    Left = 532
-    Top = 243
+    Left = 300
+    Top = 91
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <
@@ -103797,7 +103803,7 @@ object frmGalaqtium: TfrmGalaqtium
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 260
-    Top = 323
+    Left = 180
+    Top = 91
   end
 end

@@ -83,9 +83,9 @@ end;
 (* An individual bird *)
 TaiBird = class(TaiCreature)
 private
-  fFlock: TaiLink;     // flock
-  fFlying: boolean;   // is it flying?
-  fMature: boolean;   // can have kids
+  fFlock: TaiLink;        // flock
+  fFlying: boolean;       // is it flying?
+  fMature: boolean;       // can have kids
   fGender: boolean;       // male, female
   fMatingTimer: integer;  // timer for mating
 protected
@@ -822,7 +822,7 @@ begin
     Desire := cDesireFood
   else
   begin
-    case Stage of
+    case Sexstage of
       cCreatureBaby:  desire := cDesireWander;
       cCreatureAdult: desire := cDesireMate;
       cCreatureElder: desire := cDesireWander;
@@ -833,7 +833,7 @@ begin
   case Desire of
     cDesireFood:
     begin
-      case Stage of
+      case Sexstage of
         cCreatureBaby:  Forage(0.12);
         cCreatureAdult: ForageFruitAndPrey(0.11);
         cCreatureElder: Forage(0.1);
@@ -862,7 +862,6 @@ var
   myForce: TAffineVector;
 begin
   // if not Position.UnderWater then exit;
-
   // in a Community?
   if Community.ValidTarget then
   begin
