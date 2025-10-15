@@ -2,7 +2,7 @@ object frmAstroScene: TfrmAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'AstroScene'
+  Caption = 'AstrobloQ'
   ClientHeight = 724
   ClientWidth = 1319
   Color = clBtnFace
@@ -88911,12 +88911,14 @@ object frmAstroScene: TfrmAstroScene
     Top = 200
   end
   object MainMenu: TMainMenu
+    Images = DataModuleImages.ImageListInterface
     Left = 501
     Top = 56
     object miOpen: TMenuItem
       Caption = '&File'
       object miFileOpen: TMenuItem
         Caption = 'Open...'
+        ImageIndex = 8
         OnClick = miFileOpenClick
       end
       object miFileSaveAs: TMenuItem
@@ -88928,6 +88930,7 @@ object frmAstroScene: TfrmAstroScene
       end
       object miFileExit: TMenuItem
         Caption = 'Exit'
+        ImageIndex = 3
         OnClick = miFileExitClick
       end
     end
@@ -88977,6 +88980,7 @@ object frmAstroScene: TfrmAstroScene
       Caption = '&Tools'
       object Settings1: TMenuItem
         Caption = 'Settings...'
+        ImageIndex = 130
         OnClick = Settings1Click
       end
       object miToolsOptions: TMenuItem

@@ -45,7 +45,7 @@ uses
 
 begin
   Application.Initialize;
-  //TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Windows10 Dark');
   Application.CreateForm(TfrmAstroScene, frmAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
