@@ -934,21 +934,21 @@ void __fastcall TFormViewerHYG::GLCadencer1Progress(TObject *Sender, const doubl
 void __fastcall TFormViewerHYG::Points1Click(TObject *Sender)
 {
 	if (Points1->Checked == false) Points1->Checked = true;
-	FormViewerHYG->Caption = "Viewer HYG | Stars";
+	FormViewerHYG->Caption = "Viewer HYG SQLite | Stars";
 	InitDraw();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormViewerHYG::Delaunay1Click(TObject *Sender)
 {
 	if (Delaunay1->Checked == false) Delaunay1->Checked = true;
-	FormViewerHYG->Caption = "Viewer HYG | Delaunay tetranet";
+	FormViewerHYG->Caption = "Viewer HYG SQLite | Delaunay tetranet";
 	InitDraw();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormViewerHYG::Voronoi1Click(TObject *Sender)
 {
 	if (Voronoi1->Checked == false) Voronoi1->Checked = true;
-	FormViewerHYG->Caption = "Viewer HYG | Voronoi polynet";
+	FormViewerHYG->Caption = "Viewer HYG SQLite | Voronoi polynet";
 	InitDraw();
 }
 //---------------------------------------------------------------------------
@@ -956,7 +956,7 @@ void __fastcall TFormViewerHYG::Voronoi1Click(TObject *Sender)
 void __fastcall TFormViewerHYG::FormCreate(TObject *Sender)
 {
 	Points1->Checked = true;
-	FormViewerHYG->Caption = "Viewer HYG | Stars mode";
+	FormViewerHYG->Caption = "Viewer HYG SQLite | Stars mode";
 
 	Mode1->Enabled = false;
 	Data1->Enabled = false;

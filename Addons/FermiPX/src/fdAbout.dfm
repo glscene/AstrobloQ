@@ -21,38 +21,20 @@ object FormAbout: TFormAbout
     ModalResult = 1
     TabOrder = 0
   end
-  object Memo: TMemo
-    Left = 176
-    Top = 72
-    Width = 209
-    Height = 137
-    Alignment = taCenter
-    Lines.Strings = (
-      #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
-      ''
-      #1042#1072#1089#1080#1083#1100#1077#1074' '#1055#1072#1074#1077#1083' '
-      #1050#1086#1087#1090#1103#1077#1074' '#1051#1077#1074
-      #1050#1086#1083#1091#1096#1077#1074' '#1044#1072#1085#1080#1083
-      #1063#1077#1088#1085#1099#1093' '#1045#1074#1075#1077#1085#1080#1081
-      #1044#1072#1093#1080#1085' '#1040#1085#1090#1086#1085
-      '')
-    TabOrder = 1
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
     Width = 551
     Height = 41
     Align = alTop
-    Caption = #1057#1086#1083#1072#1088#1094#1077#1083#1089
+    Caption = 'StarNets'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
-    ExplicitLeft = -8
-    ExplicitWidth = 559
+    TabOrder = 1
+    ExplicitWidth = 543
   end
 end

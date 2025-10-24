@@ -44,6 +44,8 @@ object Form1: TForm1
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
+    ExplicitWidth = 633
+    ExplicitHeight = 454
   end
   object Panel1: TPanel
     Left = 0
@@ -321,12 +323,6 @@ object Form1: TForm1
       object Exit1: TMenuItem
         Caption = #1042#1099#1093#1086#1076
         OnClick = Exit1Click
-      end
-    end
-    object Help1: TMenuItem
-      Caption = #1057#1087#1088#1072#1074#1082#1072
-      object About1: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
       end
     end
   end

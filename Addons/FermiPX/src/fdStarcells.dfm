@@ -1,7 +1,7 @@
 object frmStarnets: TfrmStarnets
   Left = 0
   Top = 0
-  Caption = 'Starnets'
+  Caption = 'StarCells'
   ClientHeight = 616
   ClientWidth = 900
   Color = clBtnFace
@@ -442,7 +442,7 @@ object frmStarnets: TfrmStarnets
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer
-    FormCaption = 'FermiPD - %FPS'
+    FormCaption = 'StarCells - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

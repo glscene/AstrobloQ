@@ -1,7 +1,7 @@
 object FormViewerHYG: TFormViewerHYG
   Left = 0
   Top = 0
-  Caption = 'Viewer HYG'
+  Caption = 'Viewer HYG SQLite'
   ClientHeight = 652
   ClientWidth = 1086
   Color = clBtnFace
@@ -45,6 +45,8 @@ object FormViewerHYG: TFormViewerHYG
     OnMouseDown = GLSceneViewer1MouseDown
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 1
+    ExplicitWidth = 936
+    ExplicitHeight = 608
   end
   object PanelRight: TPanel
     Left = 944
@@ -150,6 +152,7 @@ object FormViewerHYG: TFormViewerHYG
       end
       object Open1: TMenuItem
         Caption = '&Open...'
+        Enabled = False
         OnClick = Open1Click
       end
       object Save1: TMenuItem

@@ -3,7 +3,7 @@
         <ProjectGuid>{EB36530C-803F-4068-A899-BEFDE4D9FC61}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="FermiPX\ViewerHYG_С.cbproj">
+        <Projects Include="FermiPX\ViewerHYGsql_С.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Starbox\RandomStarС.cbproj">
@@ -18,7 +18,7 @@
         <Projects Include="Starcube\StarCubeС.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="FermiPX\Starnet_С.cbproj">
+        <Projects Include="FermiPX\Starlife_С.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -29,14 +29,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ViewerHYG_С">
-        <MSBuild Projects="FermiPX\ViewerHYG_С.cbproj"/>
+    <Target Name="ViewerHYGsql_С">
+        <MSBuild Projects="FermiPX\ViewerHYGsql_С.cbproj"/>
     </Target>
-    <Target Name="ViewerHYG_С:Clean">
-        <MSBuild Projects="FermiPX\ViewerHYG_С.cbproj" Targets="Clean"/>
+    <Target Name="ViewerHYGsql_С:Clean">
+        <MSBuild Projects="FermiPX\ViewerHYGsql_С.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="ViewerHYG_С:Make">
-        <MSBuild Projects="FermiPX\ViewerHYG_С.cbproj" Targets="Make"/>
+    <Target Name="ViewerHYGsql_С:Make">
+        <MSBuild Projects="FermiPX\ViewerHYGsql_С.cbproj" Targets="Make"/>
     </Target>
     <Target Name="RandomStarС">
         <MSBuild Projects="Starbox\RandomStarС.cbproj"/>
@@ -74,23 +74,23 @@
     <Target Name="StarCubeС:Make">
         <MSBuild Projects="Starcube\StarCubeС.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="Starnet_С">
-        <MSBuild Projects="FermiPX\Starnet_С.cbproj"/>
+    <Target Name="Starlife_С">
+        <MSBuild Projects="FermiPX\Starlife_С.cbproj"/>
     </Target>
-    <Target Name="Starnet_С:Clean">
-        <MSBuild Projects="FermiPX\Starnet_С.cbproj" Targets="Clean"/>
+    <Target Name="Starlife_С:Clean">
+        <MSBuild Projects="FermiPX\Starlife_С.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Starnet_С:Make">
-        <MSBuild Projects="FermiPX\Starnet_С.cbproj" Targets="Make"/>
+    <Target Name="Starlife_С:Make">
+        <MSBuild Projects="FermiPX\Starlife_С.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ViewerHYG_С;RandomStarС;StarboxС;StarViewerC;StarCubeС;Starnet_С"/>
+        <CallTarget Targets="ViewerHYGsql_С;RandomStarС;StarboxС;StarViewerC;StarCubeС;Starlife_С"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ViewerHYG_С:Clean;RandomStarС:Clean;StarboxС:Clean;StarViewerC:Clean;StarCubeС:Clean;Starnet_С:Clean"/>
+        <CallTarget Targets="ViewerHYGsql_С:Clean;RandomStarС:Clean;StarboxС:Clean;StarViewerC:Clean;StarCubeС:Clean;Starlife_С:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ViewerHYG_С:Make;RandomStarС:Make;StarboxС:Make;StarViewerC:Make;StarCubeС:Make;Starnet_С:Make"/>
+        <CallTarget Targets="ViewerHYGsql_С:Make;RandomStarС:Make;StarboxС:Make;StarViewerC:Make;StarCubeС:Make;Starlife_С:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

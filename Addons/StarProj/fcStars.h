@@ -41,8 +41,6 @@ __published:	// IDE-managed Components
 	TGLCamera *GLCamera1;
 	TOpenTextFileDialog *OpenTextFileDialog1;
 	TGLPoints *GLPoints1;
-	TMenuItem *Help1;
-	TMenuItem *About1;
 	TPanel *Panel1;
 	TGLSimpleNavigation *GLSimpleNavigation1;
 	TButton *Button1;
