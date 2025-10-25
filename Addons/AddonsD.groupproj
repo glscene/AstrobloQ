@@ -3,13 +3,13 @@
         <ProjectGuid>{34D46BB1-B6F4-4B95-AAE8-B07CDB10AAC1}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="StarsysGen\StarsysGen.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="StarProj\StarProj.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="FermiPX\StarCells.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarsysGen\StarsysGen.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="FermiPX\StarCellx.dproj">
@@ -23,15 +23,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="StarsysGen">
-        <MSBuild Projects="StarsysGen\StarsysGen.dproj"/>
-    </Target>
-    <Target Name="StarsysGen:Clean">
-        <MSBuild Projects="StarsysGen\StarsysGen.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="StarsysGen:Make">
-        <MSBuild Projects="StarsysGen\StarsysGen.dproj" Targets="Make"/>
-    </Target>
     <Target Name="StarProj">
         <MSBuild Projects="StarProj\StarProj.dproj"/>
     </Target>
@@ -50,6 +41,15 @@
     <Target Name="StarCells:Make">
         <MSBuild Projects="FermiPX\StarCells.dproj" Targets="Make"/>
     </Target>
+    <Target Name="StarsysGen">
+        <MSBuild Projects="StarsysGen\StarsysGen.dproj"/>
+    </Target>
+    <Target Name="StarsysGen:Clean">
+        <MSBuild Projects="StarsysGen\StarsysGen.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarsysGen:Make">
+        <MSBuild Projects="StarsysGen\StarsysGen.dproj" Targets="Make"/>
+    </Target>
     <Target Name="StarCellx">
         <MSBuild Projects="FermiPX\StarCellx.dproj"/>
     </Target>
@@ -60,13 +60,13 @@
         <MSBuild Projects="FermiPX\StarCellx.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarsysGen;StarProj;StarCells;StarCellx"/>
+        <CallTarget Targets="StarProj;StarCells;StarsysGen;StarCellx"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarsysGen:Clean;StarProj:Clean;StarCells:Clean;StarCellx:Clean"/>
+        <CallTarget Targets="StarProj:Clean;StarCells:Clean;StarsysGen:Clean;StarCellx:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarsysGen:Make;StarProj:Make;StarCells:Make;StarCellx:Make"/>
+        <CallTarget Targets="StarProj:Make;StarCells:Make;StarsysGen:Make;StarCellx:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
