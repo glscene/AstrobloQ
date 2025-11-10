@@ -254,7 +254,7 @@ begin
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-  StarDir := DataDir + 'stars';
+  StarDir := DataDir + '\' + 'stars';
 
   // Path to Hipparcos, Hyg or Gaia DR4
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -322,7 +322,7 @@ begin
     sfPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
 
     // actor model to support octotrees !
-    acPlanet.LoadFromFile(DataDir + '\model\planet.3ds');
+    acPlanet.LoadFromFile(DataDir + '\skybody\planet.3ds');
 
     // loading maps from VirtPlanetMaps
 //    acPlanet.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[4]);
@@ -414,7 +414,7 @@ begin
     intensity := VectorDotProduct(normal, lightingVector) + 0.1;
     if (PInteger(@intensity)^ > 0) then
     begin
-      // sample на дневной стороне
+      // sample on a day side
       intensity := intensity * contrib;
       alt := (VectorLength(atmPoint) - cPlanetRadius) * invAtmosphereHeight;
       VectorLerp(cLowAtmColor, cHighAtmColor, alt, altColor);
