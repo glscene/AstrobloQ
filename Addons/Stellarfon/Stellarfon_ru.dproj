@@ -87,8 +87,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
-        <DCC_UnitSearchPath>..\addons\Sequencer;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\Sequencer;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -104,63 +103,62 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\stell\fsStellarfon_ru.pas">
+        <DCCReference Include="code\fsStellarfon_ru.pas">
             <Form>frmStellarfon</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsAbout_ru.pas">
+        <DCCReference Include="code\fsAbout_ru.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsColorFigures_ru.pas">
+        <DCCReference Include="code\fsColorFigures_ru.pas">
             <Form>FormColorFigures</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsMidikeys_ru.pas">
+        <DCCReference Include="code\fsMidikeys_ru.pas">
             <Form>FormMidikeys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\Stell.Musickeys.pas"/>
-        <DCCReference Include="..\source\stell\fsMediaPlayer_ru.pas">
-            <Form>frmMediaPlayer</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\stell\fsSetColors_ru.pas">
+        <DCCReference Include="code\GLS.MusicKeys.pas"/>
+        <DCCReference Include="code\fsSetColors_ru.pas">
             <Form>frmSetColors</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsSettings_ru.pas">
+        <DCCReference Include="code\fsSettings_ru.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Addons\Sequencer\fsSequencer_ru.pas">
+        <DCCReference Include="..\Sequencer\fsSequencer_ru.pas">
             <Form>frmSequencer</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\src\uConstellations.pas"/>
-        <DCCReference Include="..\src\uSound.pas"/>
-        <DCCReference Include="..\source\dmBase.pas">
+        <DCCReference Include="..\..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmDialogs.pas">
+        <DCCReference Include="..\..\source\dmDialogs.pas">
             <Form>DataModuleDialogs</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmImages.pas">
+        <DCCReference Include="..\..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsFirstForm_ru.pas">
+        <DCCReference Include="code\fsFirstForm_ru.pas">
             <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="..\..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\..\source\astro\Astro.ReadHyg.pas"/>
+        <DCCReference Include="..\..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="code\Bass.Sound.pas"/>
+        <DCCReference Include="code\fsMediaPlayer_ru.pas">
+            <Form>frmMediaPlayer</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -189,13 +187,13 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\Stellarfon_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Stellarfon.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Stellarfon_ru.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Stellarfon_ru.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Stellarfon.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="Win32\Debug\Sonofon.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">

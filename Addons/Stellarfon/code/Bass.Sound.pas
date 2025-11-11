@@ -1,4 +1,4 @@
-unit uSound;
+unit Bass.Sound;
 
 interface
 
@@ -23,7 +23,7 @@ where is a path to sounds?
 procedure TForm2.Button1Click(Sender: TObject);
 begin
   // False - reading file
-  // the fierst 0  - all file will play.
+  // the first 0  - all file will play.
   // the last 0 - without loops.
   chan1 := BASS_StreamCreateFile(False, PWideChar('piano.mp3'), 0, 0, 0 {$IFDEF UNICODE} or BASS_UNICODE {$ENDIF});
   chan2 := BASS_StreamCreateFile(False, PWideChar('guitar.mp3'), 0, 0, 0 {$IFDEF UNICODE} or BASS_UNICODE {$ENDIF});

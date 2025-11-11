@@ -87,8 +87,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
-        <DCC_UnitSearchPath>..\addons\Sequencer;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\Sequencer;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -104,63 +103,62 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\stell\fsStellarfon.pas">
+        <DCCReference Include="code\fsStellarfon.pas">
             <Form>frmStellarfon</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsMidikeys.pas">
+        <DCCReference Include="code\fsMidikeys.pas">
             <Form>FormMidikeys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsAbout.pas">
+        <DCCReference Include="code\fsAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsFirstForm.pas">
+        <DCCReference Include="code\fsFirstForm.pas">
             <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsSettings.pas">
+        <DCCReference Include="code\fsSettings.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\Stell.Musickeys.pas"/>
-        <DCCReference Include="..\source\stell\fsColorFigures.pas">
+        <DCCReference Include="code\GLS.MusicKeys.pas"/>
+        <DCCReference Include="code\fsColorFigures.pas">
             <Form>FormColorFigures</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsSetColors.pas">
+        <DCCReference Include="code\fsSetColors.pas">
             <Form>frmSetColors</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\stell\fsMediaPlayer.pas">
+        <DCCReference Include="code\fsMediaPlayer.pas">
             <Form>frmMediaPlayer</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Addons\Sequencer\fsSequencer.pas">
+        <DCCReference Include="..\Sequencer\fsSequencer.pas">
             <Form>FormSequencer</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\dmBase.pas">
+        <DCCReference Include="..\..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmDialogs.pas">
+        <DCCReference Include="..\..\source\dmDialogs.pas">
             <Form>DataModuleDialogs</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmImages.pas">
+        <DCCReference Include="..\..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\src\uConstellations.pas"/>
-        <DCCReference Include="..\src\uSound.pas"/>
-        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\..\source\astro\Astro.ReadHyg.pas"/>
+        <DCCReference Include="..\..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="..\..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="code\Bass.Sound.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

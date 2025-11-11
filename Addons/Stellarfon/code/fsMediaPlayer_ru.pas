@@ -16,12 +16,13 @@ uses
   Vcl.Taskbar,
   Vcl.MPlayer,
   Vcl.ExtCtrls,
+  Vcl.StdCtrls,
 
   Vcl.Grids,
   Vcl.Outline,
   Vcl.Samples.DirOutln,
 
-  GLS.Scene, Vcl.StdCtrls;
+  GLS.Scene;
 
 type
   TfrmMediaPlayer = class(TForm)

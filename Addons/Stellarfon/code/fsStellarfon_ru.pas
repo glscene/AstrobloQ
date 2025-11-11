@@ -62,23 +62,21 @@ uses
   GLS.Color,
   GLS.Texture,
   GLS.RenderContextInfo,
+  GLS.MusicKeys, // todo
 
   dmImages,
 
-  Astro.Utils,
-  fsSettings_ru, // AV in _ru
-
-  Stell.Musickeys,
-
   Astro.Globals,
+  Astro.Utils,
 
+  fsFirstForm_ru,
+  fsSettings_ru, // AV in _ru
   fsColorFigures_ru,
 
   fsMidikeys_ru,
   fsSequencer_ru,
-  fsMediaPlayer_ru,
-  fsAbout_ru,
-  fsFirstForm_ru;
+  fsAbout_ru
+  ;
 
 type
   TfrmStellarfon = class(TfrmFirst)
@@ -308,6 +306,9 @@ var
   PickUp: TGLCustomSceneObject;
 
 implementation //==============================================================
+
+uses
+  fsMediaPlayer_ru;
 
 {$R *.dfm}
 

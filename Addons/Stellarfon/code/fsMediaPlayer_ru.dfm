@@ -23,8 +23,6 @@ object frmMediaPlayer: TfrmMediaPlayer
     Caption = #1044#1074#1072#1078#1076#1099' '#1097#1077#1083#1082#1085#1080#1090#1077' '#1076#1083#1103' '#1074#1099#1073#1086#1088#1072' '#1084#1080#1076#1080' '#1092#1072#1081#1083#1072
     TabOrder = 0
     OnDblClick = Panel1DblClick
-    ExplicitWidth = 498
-    ExplicitHeight = 314
     object ListBox1: TListBox
       Left = 1
       Top = 1
@@ -33,7 +31,6 @@ object frmMediaPlayer: TfrmMediaPlayer
       Align = alLeft
       ItemHeight = 13
       TabOrder = 0
-      ExplicitHeight = 312
     end
   end
   object MediaPlayer1: TMediaPlayer
@@ -46,8 +43,6 @@ object frmMediaPlayer: TfrmMediaPlayer
     Display = Panel1
     ParentDoubleBuffered = False
     TabOrder = 1
-    ExplicitTop = 314
-    ExplicitWidth = 496
   end
   object OpenDialog1: TOpenDialog
     Left = 336

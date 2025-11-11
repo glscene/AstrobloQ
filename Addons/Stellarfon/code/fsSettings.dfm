@@ -621,7 +621,6 @@ inherited frmSettings: TfrmSettings
         Align = alBottom
         Caption = ' Statistics '
         TabOrder = 0
-        ExplicitTop = 0
         ExplicitWidth = 791
         object lblPlayed: TLabel
           Left = 17

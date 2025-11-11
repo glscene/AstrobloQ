@@ -61,21 +61,21 @@ uses
   GLS.Texture,
   GLS.RenderContextInfo,
 
+  GLS.MusicKeys, // todo
+
   dmImages,
   dmDialogs,
 
+  Astro.Globals,
+  Astro.Utils,
+
+  fsFirstForm,
   fsSettings,  // AV
   fsColorFigures,
-
-  Astro.Globals,
-  fsFirstForm,
-
-  Stell.Musickeys,
-  Astro.Utils,
   fsMidikeys,
   fsSequencer,
-  fsMediaPlayer,
-  fsAbout;
+  fsAbout
+  ;
 
 type
   TfrmStellarfon = class(TfrmFirst)
@@ -312,6 +312,9 @@ var
 
 implementation //==============================================================
 
+uses
+  fsMediaPlayer;
+
 {$R *.dfm}
 
 // ----------------------------------------
@@ -491,8 +494,8 @@ begin
   inherited;
   // path to assets
   PathToAssets := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(PathToAssets, Pos('bin', PathToAssets), Length(PathToAssets)); // if bin dir for exe
-  PathToAssets := IncludeTrailingPathDelimiter(PathToAssets) + 'assets';
+  Delete(PathToAssets, Pos('astrobloq', PathToAssets), Length(PathToAssets)); // if bin dir for exe
+  PathToAssets := IncludeTrailingPathDelimiter(PathToAssets) + 'astrobloq\assets';
   SetCurrentDir(PathToAssets) ;
 
   SetCurrentDir(PathToAssets  + '\cubemap');

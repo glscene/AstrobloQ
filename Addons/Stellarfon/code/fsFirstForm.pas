@@ -4,7 +4,7 @@
 
 unit fsFirstForm;
 
-(* The fmForm unit for TFormI class as parent for all child forms *)
+(* The unit for TfrmFirst class as parent for all child forms *)
 
 interface
 
