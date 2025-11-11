@@ -1040,7 +1040,7 @@ object frmFracLands: TfrmFracLands
       Height = 13
     end
     object btApply: TBitBtn
-      Left = 266
+      Left = 258
       Top = -1
       Width = 75
       Height = 25
@@ -1051,7 +1051,7 @@ object frmFracLands: TfrmFracLands
       NumGlyphs = 2
       TabOrder = 0
       OnClick = btApplyClick
-      ExplicitLeft = 258
+      ExplicitLeft = 250
     end
   end
   object GLScene1: TGLScene
@@ -1060,7 +1060,7 @@ object frmFracLands: TfrmFracLands
     Top = 16
     object GLDummyCube1: TGLDummyCube
       CubeSize = 1.000000000000000000
-      object TerrainRenderer1: TGLTerrainRenderer
+      object GLTerrainRenderer1: TGLTerrainRenderer
         Material.FrontProperties.Emission.Color = {0000803F0000803F0000803F0000803F}
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {00000000000000000000803F00000000}

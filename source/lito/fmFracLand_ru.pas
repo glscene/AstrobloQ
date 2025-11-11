@@ -1,5 +1,41 @@
-unit fmFracLand;
+unit fmFracLand_ru;
+(*
+  The FractaLandscape demonstrates the used of the TGLFractalHDS and other functions
+  included into the GLS.RandomHDS unit. The dialogbox interfaces almost all object
+  properties allowing you to get a feeling about what they are controlling.
 
+  The TGLFractalHDS is used in the same way as the other GLScene HDS. You must
+  link it to a TGLTerrainRenderer to see something. But it does much more as it
+  actually:
+  1) builds its own HDS on the base of a few user-chosen parameters,
+  2) computes lighting and
+  3) computes its own texture. The user really has not
+  much to do apart choosing the parameter combination that fits its needs. Its
+  creativity is to be used in the OnDrawtexture event which defines how colors will
+  be draped on the heightfield according to coordinates and topography.
+
+  To understand how everything works, give a look at the agGLRandomHDS unit and
+  at the following methods of the present unit:
+  - FormCreate: How to declare and create the FractalHDS (not a plug-and-play component)
+  - btApplyClick: Setting the properties
+  - GenerateLandscape: How to load textures, build the landscape and free them
+  afterward
+  - OnDrawTexture: This function select the right color to display at a particular
+  cell on the landscape, depending on its coordinates, elevation and slope. This
+  function use the textures loaded in the GenerateLandscape procedure to drape
+  them on the height field. Although the Drawtexture allows you to completely
+  control the look of your landscape and to produce the most dramatic effects,
+  it is not mandatory. If no OnDrawTexture event handler is supplied to the
+  TGLFractalHDS, a default function will be used:
+  - DummyCube for scaling;
+  - Cadencer replaced by an TGLAsyncTimer.
+
+  All the other methods on this form are just maintenance code for the demo;
+  they are not related directly to landscape generation.
+
+  The original code of this unit was based on the demo SynthTerr and
+  Alexandre Hirzel fractal improvements, 2003
+*)
 interface
 
 uses
@@ -42,7 +78,7 @@ type
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
-    TerrainRenderer1: TGLTerrainRenderer;
+    GLTerrainRenderer1: TGLTerrainRenderer;
     GLMaterialLibrary1: TGLMaterialLibrary;
     PageControl1: TPageControl;
     Panel1: TPanel;
@@ -174,9 +210,9 @@ type
     DataPath: TFileName;
     mx, my: Integer;
     FCamHeight: Single;
-    LandscapeGenerated: boolean;
-    TopographyChanged: boolean;
-    LightChanged: boolean;
+    LandscapeGenerated: Boolean;
+    TopographyChanged: Boolean;
+    LightChanged: Boolean;
     Start: cardinal;
     FRendering: boolean;
     procedure SetRendering(const Value: boolean);
@@ -200,7 +236,7 @@ type
     function OnDrawTextureGrass(const Sender: tGLBaseRandomHDS; X, Y: Integer;
       z: double; aNormal: TGLVector): TGLColorVector;
   public
-    FractalHDS: tGLFractalHDS;
+    FractalHDS: TGLFractalHDS;
     procedure GenerateLandscape;
     procedure ProcessKeyboard(const DeltaTime: double);
     property Rendering: boolean read FRendering write SetRendering;
@@ -216,7 +252,7 @@ implementation //=============================================================
 {$R *.DFM}
 
 uses
-  fmProgress;
+  fmProgress_ru;
 
 var
   Forest, Sea, Beach, Snow, Grass, Cliff, BrownSoil: tBitmap;
@@ -266,14 +302,15 @@ begin
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
   DataPath := GetCurrentDir() + '\map'; //
   SetCurrentDir(DataPath);
 
   // Terrain Renderer initialisation
-  TerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;
-  TerrainRenderer1.TileSize := 32;
+  GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;
+  GLTerrainRenderer1.TileSize := 32;
 
   TopographyChanged := True;
   LightChanged := True;
@@ -398,7 +435,7 @@ begin
   Result := TextureGrass(X, Y);
 end;
 
-// Movement, mouse handling etc.
+//------------------- Movement, mouse handling etc. -------------------------
 procedure TfrmFracLands.GLSceneViewer1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -406,15 +443,17 @@ begin
   my := Y;
 end;
 
+//-----------------------------------------------------------------------
 procedure TfrmFracLands.GLSceneViewer1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
-{ not workable !
+// not workable yet !
+(*
   if ssLeft in Shift then
     GLCamera1.MoveAroundTarget(my - Y, mx - X);
   mx := X;
   my := Y;
-}
+*)
   if ssLeft in Shift then
   begin
     if abs(X - mx) > abs(my - Y) then
@@ -433,7 +472,7 @@ end;
 procedure TfrmFracLands.Timer1Timer(Sender: TObject);
 begin
   Caption := Format('%.1f FPS - %d', [GLSceneViewer1.FramesPerSecond,
-    TerrainRenderer1.LastTriangleCount]);
+    GLTerrainRenderer1.LastTriangleCount]);
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
@@ -449,6 +488,7 @@ begin
   OnScaleChanged(Sender);
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmFracLands.GenerateLandscape;
 begin
   try
@@ -457,7 +497,7 @@ begin
     frmProgress.Execute;
     Screen.Cursor := crHourGlass;
 
-    { Load temporary textures }
+    // Load temporary textures
     Forest := LoadJPGtexture('Forest.jpg');
     Sea := LoadJPGtexture('Sea.jpg');
     Snow := LoadJPGtexture('Snow.jpg');
@@ -541,7 +581,7 @@ begin
     FractalHDS.Free;
   GLMaterialLibrary1.Materials.DeleteUnusedMaterials;
   FractalHDS := TGLFractalHDS.Create(Self);
-  FractalHDS.TerrainRenderer := TerrainRenderer1;
+  FractalHDS.TerrainRenderer := GLTerrainRenderer1;
   // Link the HDS to the Renderer
   FractalHDS.Name := 'Landscape';
 
@@ -562,7 +602,7 @@ begin
       (SeaLevel + Amplitude / 2);
 
     // Erosion properties
-    {
+    (*
       ErosionByRain.Enabled := ckRainErosion.Checked;
       ErosionByRain.ErosionRate := tbErosionRate.Position / 10;
       ErosionByRain.DepositRate := tbDepositionRate.Position / 10;
@@ -575,7 +615,7 @@ begin
 
       Steps.Enabled := ckStepped.Checked;
       Steps.Count := seStepCount.Value;
-      { }
+    *)
 
     // Lighting properties
     /// ? LightColor := ConvertWinColor(shColor.Brush.Color);
@@ -615,10 +655,11 @@ begin
       end; // with
       MaterialName := 'Default';
     end; // else
-    {// Landscape without a sea
+    (*
+     // Landscape without a sea
      PrimerLandscape := True;
      PrimerIsland(0, 100, fHeight);
-    {}
+    *)
   end; // with
 
   GenerateLandscape;
@@ -644,7 +685,7 @@ begin
     FogEnvironment.FogStart := GLCamera1.DepthOfView * tbFogStart.Position / 10;
     FogEnvironment.FogEnd := GLCamera1.DepthOfView * 1.2;
   end; // with
-  TerrainRenderer1.QualityDistance := GLCamera1.DepthOfView / 2;
+  GLTerrainRenderer1.QualityDistance := GLCamera1.DepthOfView / 2;
 end;
 
 procedure TfrmFracLands.OnScaleChanged(Sender: TObject);
@@ -735,7 +776,7 @@ begin
     if IsKeyDown(VK_ESCAPE) then
       Close;
 
-    { Don't leave the map }
+    // Don't leave the map
     if not FractalHDS.Cyclic then
     begin
       if X < -FractalHDS.XMoveBoundary * GLDummyCube1.Scale.X then
@@ -751,7 +792,7 @@ begin
     // Don't fall through terrain!
     if FCamHeight < 0 then
       FCamHeight := 1;
-    Y := (TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight) *
+    Y := (GLTerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight) *
       GLDummyCube1.Scale.Y;
   end; // with
 end;
@@ -762,9 +803,9 @@ begin
   AsyncTimer1.Enabled := FRendering;
   GLSceneViewer1.Enabled := FRendering;
   if FRendering = False then
-    TerrainRenderer1.HeightDataSource := nil
+    GLTerrainRenderer1.HeightDataSource := nil
   else
-    TerrainRenderer1.HeightDataSource := FractalHDS;
+    GLTerrainRenderer1.HeightDataSource := FractalHDS;
 end;
 
 procedure TfrmFracLands.btDefaultTextureClick(Sender: TObject);

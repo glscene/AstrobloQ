@@ -1,4 +1,15 @@
 unit fmShortLands;
+(*
+  This unit shows how to set up a fractal landscape.
+  Objects created at design time have comments.
+
+  Basically, you need a SceneViewer, a Scene, a Camera, a MaterialLibrary and
+  a TerrainRenderer; make the latter child of a DummyCube if you want to be able
+  to rescale it (to create wider perspective). All these objects must be linked properly as shown in other tutorials.
+  This code just build and display a landscape. You can't navigate it nor rotate the angle
+  of view.
+  Originally created by Alexandre Hirzel, 2003
+*)
 
 interface
 
@@ -60,6 +71,9 @@ implementation // =============================================================
 
 procedure TfrmShortLands.FormCreate(Sender: TObject);
 begin
+  DataPath := GetCurrentDir() + '\map'; //
+  SetCurrentDir(DataPath);
+
   (* Setting up terrain renderer. This could be done at design time but you have
     missed it. These transformations are needed because, in a HDS, the z vector
     is pointing upward. *)

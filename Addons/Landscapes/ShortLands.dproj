@@ -106,8 +106,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="interface\fmShortLands.pas">
+        <DCCReference Include="code\fmShortLands.pas">
             <Form>frmShortLands</Form>
+        </DCCReference>
+        <DCCReference Include="code\fmTexLand.pas">
+            <Form>frmTexland</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

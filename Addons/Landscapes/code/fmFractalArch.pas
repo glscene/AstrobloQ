@@ -18,21 +18,23 @@ uses
   Vcl.ExtCtrls,
   Vcl.StdCtrls,
 
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
+  Stage.Keyboard,
+
   GLS.Scene,
   GLS.TerrainRenderer,
   GLS.Objects,
   GLS.HeightData,
   GLS.Texture,
   GLS.SceneViewer,
-  Stage.VectorTypes,
-  Stage.VectorGeometry,
+
   GLS.AsyncTimer,
   GLS.Material,
   GLS.Coordinates,
 
   GLS.BaseClasses,
   GLS.Color,
-  Stage.Keyboard,
   GLS.RandomHDS,
   GLS.SimpleNavigation,
   GLS.Cadencer;
@@ -42,7 +44,7 @@ type
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
-    TerrainRenderer1: TGLTerrainRenderer;
+    GLTerrainRenderer1: TGLTerrainRenderer;
     GLMaterialLibrary1: TGLMaterialLibrary;
     Panel1: TPanel;
     lblDebug: TLabel;
@@ -64,10 +66,10 @@ type
     DataPath: TFileName;
     mx, my: Integer;
     FCamHeight: Single;
-    Start: cardinal;
-    FRendering: boolean;
-    LastUpdate: cardinal;
-    procedure SetRendering(const Value: boolean);
+    Start: Cardinal;
+    FRendering: Boolean;
+    LastUpdate: Cardinal;
+    procedure SetRendering(const Value: Boolean);
     (*
       Select the color to paint depending on height(z) and normal. x and y are used to
       drape a texture.
@@ -143,6 +145,7 @@ begin
   Result := ConvertWinColor(BrownSoil.Canvas.Pixels[X mod BrownSoil.Width, Y mod BrownSoil.Height]);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmFracArchip.FormCreate(Sender: TObject);
 begin
   DataPath := GetCurrentDir() + '\map';
@@ -151,10 +154,10 @@ begin
   GLMaterialLibrary1.AddTextureMaterial('DefaultTexture', '004_neige.jpg');
 
   // Terrain Renderer initialisation
-  TerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;
-  TerrainRenderer1.Material.LibMaterialName := '004_neige.jpg';
+  GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;
+  GLTerrainRenderer1.Material.LibMaterialName := '004_neige.jpg';
   FractalArchip := TGLFractalArchipelago.Create(Self);
-  FractalArchip.TerrainRenderer := TerrainRenderer1; // Link the HDS to the Renderer
+  FractalArchip.TerrainRenderer := GLTerrainRenderer1; // Link the HDS to the Renderer
   FractalArchip.MaterialName := 'DefaultTexture';
   FractalArchip.Depth := 7;
   Rendering := False;
@@ -279,7 +282,7 @@ end;
 procedure TfrmFracArchip.Timer1Timer(Sender: TObject);
 begin
   Caption := Format('%.1f FPS - %d  %s: %d%%', [GLSceneViewer1.FramesPerSecond,
-    TerrainRenderer1.LastTriangleCount, FractalArchip.Task, FractalArchip.TaskProgress]);
+    GLTerrainRenderer1.LastTriangleCount, FractalArchip.Task, FractalArchip.TaskProgress]);
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
@@ -310,7 +313,7 @@ begin
     // A low value or seams between landtiles could be seen
     with GLMaterialLibrary1.AddTextureMaterial('Sea', 'Sea.jpg').Material do
     begin
-      (* BlendingMode := bmTransparency; *) // Uncomment to get a transparent sea
+      //BlendingMode := bmTransparency; // Uncomment to get a transparent sea
     end;
     FractalArchip.SeaMaterialName := 'Sea';
     SeaDynamic := True;
@@ -365,7 +368,7 @@ begin
 
     // Let's go!
    /// BuildLandscape;
-///    Initialize(10, 10); // < = Start position failed
+    Initialize(10, 10); // < = Start position failed
     Rendering := True;
     Start := GetTickCount;
     LastUpdate := Start;
@@ -434,10 +437,10 @@ begin
     // Don't fall through terrain!
     if FCamHeight < 1 then
       FCamHeight := 1;
-    Position.Y := TerrainRenderer1.InterpolatedHeight(AbsolutePosition);
+    Position.Y := GLTerrainRenderer1.InterpolatedHeight(AbsolutePosition);
     if Position.Y < FractalArchip.SeaLevel then
       Position.Y := FractalArchip.SeaLevel;
-    Position.Y := (Position.Y + FCamHeight) * TerrainRenderer1.Scale.Y;
+    Position.Y := (Position.Y + FCamHeight) * GLTerrainRenderer1.Scale.Y;
   end; // with
 end;
 
@@ -451,9 +454,9 @@ begin
   GLSceneViewer1.Visible := FRendering;
 
   if FRendering = False then
-    TerrainRenderer1.HeightDataSource := nil
+    GLTerrainRenderer1.HeightDataSource := nil
   else
-    TerrainRenderer1.HeightDataSource := FractalArchip;
+    GLTerrainRenderer1.HeightDataSource := FractalArchip;
 
 end;
 
@@ -466,9 +469,7 @@ begin
   MakeVector(Result, cos(slope), sin(slope), slope); // False colour
 end;
 
-//--------------------------------------------------
-initialization
-//--------------------------------------------------
+initialization //=============================================================
 
 finalization
 

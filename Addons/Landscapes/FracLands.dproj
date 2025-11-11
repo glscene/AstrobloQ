@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{B88F046F-398F-4307-868D-32F7D96DE45F}</ProjectGuid>
+        <ProjectGuid>{3E4E088D-B2EA-42B1-8239-C09ED6FF3946}</ProjectGuid>
         <MainSource>FracLands.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -105,11 +105,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="interface\fmProgress.pas">
-            <Form>frmProgress</Form>
-        </DCCReference>
-        <DCCReference Include="interface\fmFracLand.pas">
+        <DCCReference Include="..\..\source\lito\fmFracLand.pas">
             <Form>frmFracLands</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\source\lito\fmProgress.pas">
+            <Form>frmProgress</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

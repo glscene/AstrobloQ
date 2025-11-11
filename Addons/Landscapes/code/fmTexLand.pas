@@ -36,7 +36,7 @@ uses
   GLS.Skydome;
 
 type
-  TForm1 = class(TForm)
+  TfrmTexland = class(TForm)
     GLScene1: TGLScene;
     SceneViewer: TGLSceneViewer;
     Cadencer: TGLCadencer;
@@ -54,19 +54,23 @@ type
   public
     procedure handleMouse(dt: single);
     procedure handleKeyboard(dt: single);
+  private
+    DataPath: TFileName;
   end;
 
 var
-  Form1: TForm1;
+  frmTexland: TfrmTexland;
 
 implementation //------------------------------------------------------------
 
 {$R *.dfm}
 
-// setup
-//
-procedure TForm1.FormCreate;
+//---------------------------------------------------------------------------
+procedure TfrmTexland.FormCreate;
 begin
+  DataPath := GetCurrentDir() + '\map'; //
+  SetCurrentDir(DataPath);
+
   BitmapHDS.Picture.LoadFromFile('heightmap.bmp');
   // diffuse
   with Terrain.Material.TextureEx.Add do
@@ -85,9 +89,8 @@ begin
   ShowCursor(false);
 end;
 
-// cadProgress
-//
-procedure TForm1.CadencerProgress;
+//----------------------------------------------------------------------------
+procedure TfrmTexland.CadencerProgress;
 begin
   if not Active then
     exit;
@@ -96,9 +99,8 @@ begin
   SceneViewer.Invalidate;
 end;
 
-// handleMouse
-//
-procedure TForm1.handleMouse;
+// ---------------------------- handleMouse ----------------------------------
+procedure TfrmTexland.handleMouse;
 begin
   with Mouse.CursorPos do
   begin
@@ -108,9 +110,8 @@ begin
   Mouse.CursorPos := Point(Screen.Width div 2, Screen.Height div 2);
 end;
 
-// handleKeyboard
-//
-procedure TForm1.handleKeyboard;
+//---------------------------------- handleKeyboard ---------------------------
+procedure TfrmTexland.handleKeyboard;
 var
   spd, f: single;
 begin
@@ -135,19 +136,17 @@ begin
     Close;
 end;
 
-// show
-//
-procedure TForm1.FormShow;
+//------------------------------ FormShow ----------------------------------------
+procedure TfrmTexland.FormShow;
 begin
   Mouse.CursorPos := Point(Screen.Width div 2, Screen.Height div 2);
   Cadencer.Enabled := true;
 end;
 
-// timer
-//
-procedure TForm1.AsyncTimerTimer;
+//--------------------------- AsyncTimer -------------------------------------
+procedure TfrmTexland.AsyncTimerTimer;
 begin
-  Form1.Caption := 'Land: ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Land: ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 

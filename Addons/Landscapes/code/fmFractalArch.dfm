@@ -23,7 +23,7 @@ object frmFracArchip: TfrmFracArchip
   object Label1: TLabel
     Left = 0
     Top = 184
-    Width = 584
+    Width = 576
     Height = 20
     Alignment = taCenter
     Anchors = [akLeft, akTop, akRight]
@@ -88,7 +88,7 @@ object frmFracArchip: TfrmFracArchip
         Left = 264
         Top = 160
       end
-      object TerrainRenderer1: TGLTerrainRenderer
+      object GLTerrainRenderer1: TGLTerrainRenderer
         Material.FrontProperties.Emission.Color = {0000803F0000803F0000803F0000803F}
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {00000000000000000000803F00000000}

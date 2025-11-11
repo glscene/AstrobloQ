@@ -1,9 +1,9 @@
-program FracLands;
+program FracLands_ru;
 
 uses
   Forms,
-  fmFracLand in '..\..\source\lito\fmFracLand.pas' {frmFracLands},
-  fmProgress in '..\..\source\lito\fmProgress.pas' {frmProgress};
+  fmProgress_ru in '..\..\source\lito\fmProgress_ru.pas' {frmProgress},
+  fmFracLand_ru in '..\..\source\lito\fmFracLand_ru.pas' {frmFracLands};
 
 {$R *.res}
 

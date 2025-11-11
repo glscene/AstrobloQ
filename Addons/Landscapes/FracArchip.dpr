@@ -9,7 +9,6 @@
 
   Please consider testing the FractalLandscape first to understand how fractal
   landscapes are built and what the various parameters are controlling.
-
   Alexandre Hirzel, (c) June 2003
 *)
 
@@ -18,7 +17,7 @@ program FracArchip;
 uses
   Forms,
   Winapi.MMSystem,
-  fmFractalArch in 'interface\fmFractalArch.pas' {frmFracArchip};
+  fmFractalArch in 'code\fmFractalArch.pas' {frmFracArchip};
 
 {$R *.res}
 
