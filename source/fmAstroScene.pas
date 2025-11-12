@@ -142,28 +142,16 @@ type
     Arrow_Y: TGLArrowLine;
     ArrowLineZ: TGLArrowLine;
     Arrow_Z: TGLArrowLine;
-    tbPlanets: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
-    ToolButton4: TToolButton;
     miHipparcos: TMenuItem;
     miHertsRussel: TMenuItem;
     miPointTo: TMenuItem;
     miConstPolygons: TMenuItem;
     miCoordinates: TMenuItem;
-    ToolButton5: TToolButton;
-    ToolButton6: TToolButton;
-    ToolButton7: TToolButton;
-    ToolButton8: TToolButton;
-    ToolButton9: TToolButton;
-    ToolButton10: TToolButton;
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
     ClearTreeView1: TMenuItem;
     Constellations1: TMenuItem;
     Settings1: TMenuItem;
-    ControlBarBottom: TControlBar;
     ToolBar1: TToolBar;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
@@ -172,6 +160,25 @@ type
     ToolButton15: TToolButton;
     ToolButton16: TToolButton;
     ToolButton17: TToolButton;
+    ToolBar2: TToolBar;
+    ToolButton18: TToolButton;
+    ToolButton19: TToolButton;
+    ToolButton20: TToolButton;
+    ToolButton21: TToolButton;
+    tbPlanets: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
+    ToolButton10: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    StaticText3: TStaticText;
+    StaticText1: TStaticText;
+    StaticText2: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -248,7 +255,7 @@ const
   Plane1: array [0 .. 3] of Double = (-1, 0, 0, 0.0);
   Plane2: array [0 .. 3] of Double = (0, -1, 0, 0.0);
 
-implementation //-------------------------------------------------------------
+implementation //=============================================================
 
 {$R *.dfm}
 
@@ -277,9 +284,9 @@ begin
   end;
 
   // change currect star dir
-  if DirectoryExists('stars\sun') then
-        ChDir('stars\sun');
-  CurrentStar := DataDir + '\stars\sun\';
+  if DirectoryExists('starsys\sun') then
+        ChDir('starsys\sun');
+  CurrentStar := DataDir + '\starsys\sun\';
 
   // Enable textured maps
   sfPlanet.Material.Texture.Disabled := False;
@@ -783,7 +790,6 @@ begin
     PanelLeft.Visible := True;
     PanelRight.Visible := True;
     ControlBarTop.Visible := True;
-    ControlBarBottom.Visible := True;
     BorderStyle := bsSizeable;
   end
   else
@@ -792,7 +798,6 @@ begin
     PanelLeft.Visible := False;
     PanelRight.Visible := False;
     ControlBarTop.Visible := False;
-    ControlBarBottom.Visible := False;
     BorderStyle := bsNone;
   end;
   SceneViewer.OnMouseMove := SceneViewerMouseMove;

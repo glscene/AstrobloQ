@@ -122,11 +122,6 @@ type
     miOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
-    ControlBar: TControlBar;
-    ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
     N1: TMenuItem;
     miMonitor: TMenuItem;
     miGenStarsys: TMenuItem;
@@ -139,15 +134,34 @@ type
     miSettings: TMenuItem;
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
-    ControlBarBottom: TControlBar;
-    ToolBar2: TToolBar;
+    ControlBarTop: TControlBar;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    StaticText1: TStaticText;
+    StaticText2: TStaticText;
+    StaticText3: TStaticText;
+    tbPlanets: TToolBar;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
+    ToolButton10: TToolButton;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
     ToolButton13: TToolButton;
     ToolButton14: TToolButton;
     ToolButton15: TToolButton;
     ToolButton16: TToolButton;
+    ToolButton18: TToolButton;
+    ToolBar2: TToolBar;
     ToolButton17: TToolButton;
+    ToolButton19: TToolButton;
+    ToolButton20: TToolButton;
+    ToolButton21: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -181,7 +195,7 @@ type
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
     TimeMultiplier: Single;
-    HighResResourcesLoaded: Boolean; // for high res textures
+    HighResResourcesLoaded: Boolean; // для текстур высокого разрешения
     CameraTimeSteps: Single;
     Radius, invAtmosphereHeight: Single;
     eyePos, lightingVector: TGLVector;
@@ -201,9 +215,9 @@ var
 
 const
   cOpacity: Single = 5;
-  // thicker atmosphere looks better :)
+  // более толстая атмосфера лучше выглядит
   cAtmosphereRadius: Single = 0.55;
-  // smaller radius is taken to eliminate the effect of overlapping lines
+  // небольшой радиус взят чтобы исключить эффект наложения линий друг на друга
   cPlanetRadius: Single = 0.495;
   cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
   cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
@@ -230,7 +244,7 @@ begin
   SetCurrentDir(DataDir) ;
   StarDir := DataDir + 'stars';
 
-  // Path to Hipparcos, Hyg or Gaia DR4
+  // Путь к каталогам Hipparcos, Hyg и Gaia DR4
   CatalogName := DataDir + '\catalog\hipparcos.stars';
 //  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
@@ -242,9 +256,9 @@ begin
   end;
 
   // change currect star dir
-  if DirectoryExists('Stars\sun') then
-        ChDir('Stars\sun');
-  CurrentStar := DataDir + '\Stars\sun\';
+  if DirectoryExists('starsys\sun') then
+        ChDir('starsys\sun');
+  CurrentStar := DataDir + '\starsys\sun\';
 
   // Enable textured maps
   sfPlanet.Material.Texture.Disabled := False;
@@ -273,25 +287,28 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Show/Hide panels
+// Скрыть показать панели и тулбары
 //------------------------------------------------------------------
 procedure TfrmAstroScene.miViewHidePanelsClick(Sender: TObject);
 begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
   if miViewHidePanels.Checked then
   begin
-    miViewHidePanels.Caption := 'Show panels';
+    miViewHidePanels.Caption := 'Показать панели';
     PanelLeft.Visible := False;
+    PanelRight.Visible := False;
     StatusBar.Visible := False;
-    ControlBar.Visible := False;
+    ControlBarTop.Visible := False;
     frmAstroScene.BorderStyle := bsNone;
   end
   else
   begin
-    miViewHidePanels.Caption := 'Hide panels';
+    miViewHidePanels.Caption := 'Скрыть панели';
     PanelLeft.Visible := True;
+    PanelRight.Visible := True;
     StatusBar.Visible := True;
-    ControlBar.Visible := True;
+    StatusBar.Align := alBottom;
+    ControlBarTop.Visible := True;
     frmAstroScene.BorderStyle := bsSizeable;
   end;
 end;
@@ -357,7 +374,7 @@ begin
 
   miHelpWiki.Caption := tvMoons.Selected.Text + 'in Ruwiki';
 
-  // Show atmosphere
+  // Показать атмосферу
   if tvMoons.Selected.Text = 'Earth' then
     DirectOpenGL.Visible := True
   else
@@ -389,7 +406,7 @@ end;
 
 
 //------------------------------------------------------------------
-// City lights
+// Огни городов
 //------------------------------------------------------------------
 procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
@@ -400,7 +417,6 @@ begin
 end;
 
 //------------------------------------------------------------------
-
 procedure TfrmAstroScene.About1Click(Sender: TObject);
 begin
   inherited;
@@ -412,6 +428,7 @@ begin
   end;
 end;
 
+//----------------------------- Цвет атмосферы -------------------------------
 function TfrmAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
@@ -580,8 +597,8 @@ begin
   FreeMem(pColor);
 end;
 
-//--------------------------- Menu Items ---------------------------
-// Show constellation lines
+//------------------------------------------------------------------
+// Показать линии созвездий
 //------------------------------------------------------------------
 procedure TfrmAstroScene.miViewConstlinesClick(Sender: TObject);
 begin
@@ -618,7 +635,7 @@ begin
 end;
 
 //------------------------------------------------------------------
-// Load constellation borders
+// Загрузка границ созвездий
 //------------------------------------------------------------------
 procedure TfrmAstroScene.LoadConstBorders;
 var
@@ -673,8 +690,8 @@ begin
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
  /// LSSun.Position.AsAffineVector := p;   //стоп движения солнца
 
-  // rotation of the Moon around self and Earth
-  // direction could be changed!
+  // вращение Луны вокруг себя и Земли
+  // направление вращения можно изменить!
   p := ComputePlanetPosition(cMoonOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
@@ -761,7 +778,6 @@ end;
 
 
 //------------------------------------------------------------------
-
 procedure TfrmAstroScene.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
@@ -770,18 +786,16 @@ begin
     WindowState := wsNormal;
     PanelLeft.Visible := True;
     PanelRight.Visible := True;
-    ControlBar.Visible := True;
+    ControlBarTop.Visible := True;
     BorderStyle := bsSizeable;
-
   end
   else
   begin
     WindowState := wsMaximized;
     PanelLeft.Visible := False;
     PanelRight.Visible := False;
-    ControlBar.Visible := False;
+    ControlBarTop.Visible := False;
     BorderStyle := bsNone;
-
   end;
   SceneViewer.OnMouseMove := SceneViewerMouseMove;
 end;

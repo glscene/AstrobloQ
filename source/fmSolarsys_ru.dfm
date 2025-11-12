@@ -141,9 +141,9 @@ object frmSolarsys: TfrmSolarsys
       Align = alTop
       TabOrder = 5
       Visible = False
-      ExplicitLeft = 24
-      ExplicitTop = 44
-      ExplicitWidth = 137
+      ExplicitLeft = 1
+      ExplicitTop = 38
+      ExplicitWidth = 145
       ExplicitHeight = 65
     end
   end
@@ -195,7 +195,7 @@ object frmSolarsys: TfrmSolarsys
         Stacks = 32
         EffectsData = {
           0458434F4C02010201060A54474C424669726546580201020006064669726546
-          5802000200060D4669726546584D616E61676572}
+          58020002001200000000}
       end
       object HabitableZone: TGLDisk
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
@@ -747,7 +747,7 @@ object frmSolarsys: TfrmSolarsys
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = SceneViewer
-    FormCaption = 'Solar System'
+    FormCaption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
     Options = [snoMouseWheelHandled]
     KeyCombinations = <
       item

@@ -1,4 +1,4 @@
-name;name_plain;horizons;radius;diameter;end_time;begin_time;class;number;name_en;name_ru;index
+full_name;name_plain;horizons;radius;diameter;end_time;begin_time;class;number;name;name_ru;index
 Earth_moon;luna;301;1737.4;3474.8;2000-01-01-00-00-00;1998-12-31-19-12-01;Earth;1;Moon;Луна;1
 Phobos;phobos;401;11.1;22.2;2000-01-01-00-00-00;1998-02-13-00-00-01;Mars;1;Phobos;Фобос;2
 Deimos;deimos;402;;;2000-01-01-00-00-00;1998-02-13-00-00-01;Mars;2;Deimos;Деймос;3

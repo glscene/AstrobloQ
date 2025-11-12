@@ -181,7 +181,7 @@ object frmStarsys: TfrmStarsys
         Stacks = 32
         EffectsData = {
           0458434F4C02010201060A54474C424669726546580201020006064669726546
-          5802000200060D4669726546584D616E61676572}
+          58020002001200000000}
       end
       object HabitableZone: TGLDisk
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}

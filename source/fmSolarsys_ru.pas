@@ -195,10 +195,10 @@ implementation //-----------------------------------------------------
 procedure TfrmSolarsys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\stars\sun\'; //instead of GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
-  // Maps as cylindrical textures
+  // Текстуры карт
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg');
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
@@ -233,13 +233,13 @@ begin
   Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
     Charon.Material.Texture.Image.LoadFromFile('charon.jpg');
 
-  // Models for FreeForms
+  // Загрузка моделей в FreeForms
   Phobos.LoadFromFile('phobos.3ds');
   Phobos.Scale.Scale(0.05 / Phobos.BoundingSphereRadius);
   Deimos.LoadFromFile('deimos.3ds');
   Deimos.Scale.Scale(0.05 / Deimos.BoundingSphereRadius);
 
-  // Catalog of stars for SkyDome
+  // Загрузка каталогов звёзд в SkyDome
   SetCurrentDir(PathToData + '\catalog');
   FileName := GetCurrentDir + '\Yale_BSC.stars';
   SkyDome.Bands.Clear;
@@ -271,17 +271,16 @@ begin
   UpdateBBox; // ?
 end;
 
-// Hide Panels
-//
+// ------------------- Скрыть или показать панели -----------------------------
 procedure TfrmSolarsys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := 'Hide panels'
+     miHidePanels.Caption := 'Скрыть панели'
    else
-    miHidePanels.Caption := 'Show panels';
+    miHidePanels.Caption := 'Показать панели';
 end;
 
 procedure TfrmSolarsys.miInnerCoreClick(Sender: TObject);
@@ -299,8 +298,7 @@ begin
   //
 end;
 
-// CadencerProgress
-//
+// ---------------------- Прогресс каденсера ---------------------------------
 procedure TfrmSolarsys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
@@ -342,8 +340,7 @@ begin
     dcCharon.Turn(deltaTime * 100);
 end;
 
-// Show Orbit Lines
-//
+//---------------------- Показать линии орбит --------------------------------
 procedure TfrmSolarsys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
@@ -358,23 +355,20 @@ begin
   SceneViewer.Invalidate;
 end;
 
-// Rotate Solar System
-//
+//--------------------- Вращение планетной системы ----------------------------
 procedure TfrmSolarsys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
 end;
 
-// Show Habitable Zone
-//
+//----------------------- Показать обитаемую зону звезды ----------------------
 procedure TfrmSolarsys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
-// TreeViewChange
-//
+//--------------------- Изменение дерева просмотра ----------------------------
 procedure TfrmSolarsys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
@@ -386,8 +380,7 @@ begin
   end;
 end;
 
-// TreeViewClick
-//
+//------------------------ клик мыши по узлу дерева ---------------------------
 procedure TfrmSolarsys.TreeViewClick(Sender: TObject);
 var
   i: integer;

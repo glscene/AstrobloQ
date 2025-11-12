@@ -1,4 +1,4 @@
-index;Planet;name_ru; Temperature; Moons; Diameter; Mass_earth; Distance; Gravity_earth; Day_hours; Density; Speed;Gravity_ surface; Inclination; Eccentricity; Semi_majorAxis; OrbitalPeriod; SiderealRotation
+index;name;name_ru; Temperature; Moons; Diameter; Mass_earth; Distance; Gravity_earth; Day_hours; Density; Speed;Gravity_ surface; Inclination; Eccentricity; Semi_majorAxis; OrbitalPeriod; SiderealRotation
 1;Mercury;Меркурий;350;0;4879.4;0.05;58;0.4;1416;5.42;48;3.7;7.004;0.20563593;0.38709927;0.241;58.65
 2;Venus;Венера;470;0;12103.6;0.8;108;0.1;5832;5.24;32;8.87;3.39471;0.00677672;0.72333566;0.615;243.0187
 3;Earth;Земля;20;1;12756.3;1;150;1;23.9;5.51;30;9.78;0.00005;0.01671123;1.00000261;1;0.997271

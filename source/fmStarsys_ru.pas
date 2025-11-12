@@ -190,10 +190,10 @@ implementation //-----------------------------------------------------
 procedure TfrmStarsys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\stars\sun\'; //instead of GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
-  // Maps as cylindrical textures
+  // Текстуры карт
   Sun.Material.Texture.Image.LoadFromFile('sun.jpg');   // current star
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg'); // appropriate map
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
@@ -228,13 +228,13 @@ begin
   Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
     Charon.Material.Texture.Image.LoadFromFile('charon.jpg');
 
-  // Models for FreeForms
+  // Загрузка моделей в FreeForms
   Phobos.LoadFromFile('phobos.3ds');
   Phobos.Scale.Scale(0.05 / Phobos.BoundingSphereRadius);
   Deimos.LoadFromFile('deimos.3ds');
   Deimos.Scale.Scale(0.05 / Deimos.BoundingSphereRadius);
 
-  // Catalog of stars for SkyDome
+  // Загрузка каталогов звёзд в SkyDome
   SetCurrentDir(PathToData + '\catalog');
   FileName := GetCurrentDir + '\Yale_BSC.stars';
   SkyDome.Bands.Clear;
@@ -242,7 +242,8 @@ begin
     SkyDome.Stars.LoadStarsFile(FileName);
 
   UpdateTreeView;
-  TreeView.Select(TreeView.Items[0]); // goto to the first node
+  // переход к первому узлу дерева просмотра
+  TreeView.Select(TreeView.Items[0]);
 (*
 //  ffAsteroid.LoadFromFile('asteroid.3ds');
 //  ffComet.LoadFromFile('comet.3ds');
@@ -251,13 +252,12 @@ begin
   ///Atmosphere := TGLAtmosphere.Create(Self);
   SceneViewer.Buffer.RenderingContext.Activate;
 
-  // return to sun star dir
+  // возвращение в папку starsys
   SetCurrentDir(CurrentDir);
   inherited;
 end;
 
-// FormShow
-//
+//------------------------------ FormShow -------------------------------------
 procedure TfrmStarsys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
@@ -266,19 +266,19 @@ begin
   UpdateBBox; // ?
 end;
 
-// Hide Panels
-//
+// ------------------- Скрыть или показать панели -----------------------------
 procedure TfrmStarsys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := 'Hide Panels'
+     miHidePanels.Caption := 'Скрыть панели'
    else
-    miHidePanels.Caption := 'Show Panels';
+    miHidePanels.Caption := 'Показать панели';
 end;
 
+// Показ недр перенести в диалог опций!
 procedure TfrmStarsys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
@@ -287,8 +287,7 @@ begin
 end;
 
 
-// CadencerProgress
-//
+// ---------------------- Прогресс каденсера ---------------------------------
 procedure TfrmStarsys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
@@ -330,8 +329,7 @@ begin
     dcCharon.Turn(deltaTime * 100);
 end;
 
-// Show Orbit Lines
-//
+//---------------------- Показать линии орбит --------------------------------
 procedure TfrmStarsys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
@@ -346,23 +344,20 @@ begin
   SceneViewer.Invalidate;
 end;
 
-// Rotate Solar System
-//
+//--------------------- Вращение планетной системы ----------------------------
 procedure TfrmStarsys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
 end;
 
-// Show Habitable Zone
-//
+//----------------------- Показать обитаемую зону звезды ----------------------
 procedure TfrmStarsys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
-// TreeViewChange
-//
+//--------------------- Изменение дерева просмотра ----------------------------
 procedure TfrmStarsys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
@@ -374,8 +369,7 @@ begin
   end;
 end;
 
-// TreeViewClick
-//
+//------------------------ клик мыши по узлу дерева ---------------------------
 procedure TfrmStarsys.TreeViewClick(Sender: TObject);
 var
   i: integer;
@@ -742,8 +736,7 @@ begin
 end;
 
 
-// GetObjects
-//
+//--------------------- Определение объекта по щелчку мыши--------------------
 procedure TfrmStarsys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
@@ -761,9 +754,7 @@ begin
   end;
 end;
 
-//
-// UpdateTreeView
-//
+//---------------------- Обновление дерева просмотра --------------------------
 procedure TfrmStarsys.UpdateTreeView;
 
 begin
@@ -771,8 +762,7 @@ begin
   GetObjects(TreeView.TopItem, SolarSystem);
 end;
 
-// AddBBox
-//
+// ------------------------ AddBBox -------------------------------------------
 procedure TfrmStarsys.AddBBox;
 const
   c = 0.5;
@@ -834,8 +824,7 @@ begin
   end;
 end;
 
-// UpdateBBox
-//
+//---------------------------- UpdateBBox ------------------------------------
 procedure TfrmStarsys.UpdateBBox;
 var
   v1, v2: TVector3f;
@@ -863,8 +852,7 @@ begin
   axis_lines.Matrix^ := PickObject.AbsoluteMatrix;
 end;
 
-// Sys_doglRender
-//
+//------------------------ Sys_doglRender ------------------------------------
 procedure TfrmStarsys.Sys_doglRender;
 begin
   if PickObject <> nil then
@@ -876,8 +864,7 @@ begin
   end;
 end;
 
-// AsyncTimerTimer
-//
+//--------------------------- AsyncTimerTimer ---------------------------------
 procedure TfrmStarsys.AsyncTimerTimer;
 begin
   Caption := 'Stellar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
@@ -885,18 +872,16 @@ begin
 end;
 
 
-// Exit
-//
-procedure TfrmStarsys.Exit1Click(Sender: TObject);
-begin
-  Exit;
-end;
-
-// Form Close
-//
+//------------------------------- Form Close
 procedure TfrmStarsys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
+end;
+
+//----------------------------------- Выход -----------------------------------
+procedure TfrmStarsys.Exit1Click(Sender: TObject);
+begin
+  Exit;
 end;
 
 end.
