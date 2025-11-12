@@ -38,7 +38,6 @@ object FormBioneta: TFormBioneta
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1543
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -47,7 +46,6 @@ object FormBioneta: TFormBioneta
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1543
       object tbWater: TToolBar
         Left = 0
         Top = 56
@@ -2692,6 +2690,8 @@ object FormBioneta: TFormBioneta
       OnMouseMove = GLSceneViewerMouseMove
       OnMouseUp = GLSceneViewerMouseUp
       TabOrder = 0
+      ExplicitWidth = 1543
+      ExplicitHeight = 128
     end
     object panCamera: TPanel
       Left = 0
@@ -2708,7 +2708,7 @@ object FormBioneta: TFormBioneta
         Width = 1549
         Height = 29
         Align = alClient
-        ButtonWidth = 79
+        ButtonWidth = 110
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -9
@@ -2730,7 +2730,7 @@ object FormBioneta: TFormBioneta
         object tbCameraPlanet: TToolButton
           Left = 42
           Top = 0
-          Hint = 'Focus on your planet (P).'
+          Hint = #1060#1086#1082#1091#1089' '#1082#1072#1084#1077#1088#1099' '#1085#1072#1094#1077#1083#1077#1085' '#1085#1072' '#1087#1083#1072#1085#1077#1090#1091
           Caption = #1055#1083#1072#1085#1077#1090#1072
           Grouped = True
           ImageIndex = 63
@@ -2740,20 +2740,22 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraPlanetClick
         end
         object tbFloatCamera: TToolButton
-          Left = 121
+          Left = 152
           Top = 0
-          Hint = 'Free floating camera.'
+          Hint = #1055#1072#1085#1086#1088#1072#1084#1072' '#1089#1074#1086#1073#1086#1076#1085#1086#1081' '#1082#1072#1084#1077#1088#1099
           Caption = #1055#1072#1085#1086#1088#1072#1084#1072
           Grouped = True
           ImageIndex = 39
+          ParentShowHint = False
+          ShowHint = True
           Style = tbsCheck
           OnClick = tbFloatCameraClick
         end
         object tbCameraTarget: TToolButton
-          Left = 200
+          Left = 262
           Top = 0
-          Hint = 'The camera follows a target (\).'
-          Caption = #1062#1077#1083#1100
+          Hint = #1050#1072#1084#1077#1088#1072' '#1085#1072#1094#1077#1083#1077#1085#1072' '#1085#1072' '#1094#1077#1083#1100
+          Caption = #1042#1080#1076' '#1094#1077#1083#1080
           Grouped = True
           ImageIndex = 35
           ParentShowHint = False
@@ -2762,10 +2764,10 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraTargetClick
         end
         object tbCameraEyes: TToolButton
-          Left = 279
+          Left = 372
           Top = 0
-          Hint = 'Eyes view.'
-          Caption = #1042#1080#1076
+          Hint = #1042#1080#1076' '#1075#1083#1072#1079#1072#1084#1080' '#1082#1086#1089#1084#1086#1085#1072#1074#1090#1072
+          Caption = #1042#1080#1076' '#1089' '#1086#1088#1073#1080#1090#1099
           Grouped = True
           ImageIndex = 151
           ParentShowHint = False
@@ -2774,10 +2776,10 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraEyesClick
         end
         object tbCameraGalaxy: TToolButton
-          Left = 358
+          Left = 482
           Top = 0
-          Hint = 'View the planet from afar.'
-          Caption = #1050#1086#1089#1084#1086#1089
+          Hint = #1042#1080#1076' '#1080#1079' '#1073#1083#1080#1078#1085#1077#1075#1086' '#1082#1086#1089#1084#1086#1089#1072
+          Caption = #1042#1080#1076' '#1080#1079' '#1082#1086#1089#1084#1086#1089#1072
           Grouped = True
           ImageIndex = 76
           ParentShowHint = False
@@ -2786,10 +2788,10 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraGalaxyClick
         end
         object tbCameraSatellite: TToolButton
-          Left = 437
+          Left = 592
           Top = 0
-          Hint = 'Rotate around the planet from space.'
-          Caption = #1057#1072#1090#1077#1083#1083#1080#1090
+          Hint = #1042#1080#1076' '#1089' '#1086#1088#1073#1080#1090#1099' '#1089#1087#1091#1090#1085#1080#1082#1072
+          Caption = #1042#1080#1076' '#1089#1086' '#1089#1087#1091#1090#1085#1080#1082#1072
           Grouped = True
           ImageIndex = 80
           ParentShowHint = False
@@ -2798,9 +2800,9 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraSatelliteClick
         end
         object tbCameraAvatar: TToolButton
-          Left = 516
+          Left = 702
           Top = 0
-          Hint = 'Walk around on your planet in first person mode (Tab).'
+          Hint = #1055#1086' '#1087#1086#1074#1077#1088#1093#1085#1086#1089#1090#1080' '#1087#1083#1072#1085#1077#1090#1099' (Tab).'
           Caption = #1055#1088#1086#1075#1091#1083#1082#1072
           Grouped = True
           ImageIndex = 34
@@ -2810,9 +2812,9 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraAvatarClick
         end
         object tbZoomIn: TToolButton
-          Left = 595
+          Left = 812
           Top = 0
-          Hint = 'Zoom In (+ key or mouse wheel)'
+          Hint = 'Zoom In (+ '#1082#1083#1072#1074#1080#1096#1072' '#1080#1083#1080' '#1082#1086#1083#1077#1089#1086' '#1084#1099#1096#1080')'
           Caption = #1041#1083#1080#1078#1077
           ImageIndex = 37
           ParentShowHint = False
@@ -2820,9 +2822,9 @@ object FormBioneta: TFormBioneta
           OnClick = tbZoomInClick
         end
         object tbZoomOut: TToolButton
-          Left = 674
+          Left = 922
           Top = 0
-          Hint = 'Zoom Out (- key or mouse wheel)'
+          Hint = 'Zoom Out (- '#1082#1083#1072#1074#1080#1096#1072' '#1080#1083#1080' '#1082#1086#1083#1077#1089#1086' '#1084#1099#1096#1080')'
           Caption = #1044#1072#1083#1100#1096#1077
           ImageIndex = 139
           ParentShowHint = False
@@ -2830,9 +2832,9 @@ object FormBioneta: TFormBioneta
           OnClick = tbZoomOutClick
         end
         object tbPriorTarget: TToolButton
-          Left = 753
+          Left = 1032
           Top = 0
-          Hint = 'Target the previous target to view ([).'
+          Hint = #1055#1077#1088#1077#1093#1086#1076' '#1082' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1081' '#1094#1077#1083#1080' ['
           Caption = #1055#1088#1077#1076
           ImageIndex = 68
           ParentShowHint = False
@@ -2840,9 +2842,9 @@ object FormBioneta: TFormBioneta
           OnClick = tbPriorTargetClick
         end
         object tbNextTarget: TToolButton
-          Left = 832
+          Left = 1142
           Top = 0
-          Hint = 'Find the next target to view (]).'
+          Hint = #1055#1077#1088#1077#1093#1086#1076' '#1082' '#1089#1083#1077#1076#1091#1102#1097#1077#1081' '#1094#1077#1083#1080' ]'
           Caption = #1057#1083#1077#1076
           ImageIndex = 69
           ParentShowHint = False
@@ -2850,7 +2852,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbNextTargetClick
         end
         object tbNextKind: TToolButton
-          Left = 911
+          Left = 1252
           Top = 0
           Caption = #1050#1072#1081#1085#1076
           ImageIndex = 157

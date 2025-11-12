@@ -17,7 +17,7 @@ program FracArchip;
 uses
   Forms,
   Winapi.MMSystem,
-  fmFractalArch in 'code\fmFractalArch.pas' {frmFracArchip};
+  flFractalArch in '..\..\source\lito\flFractalArch.pas' {frmFracArchip};
 
 {$R *.res}
 

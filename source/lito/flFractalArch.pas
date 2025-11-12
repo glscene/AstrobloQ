@@ -1,4 +1,4 @@
-unit fmFractalArch;
+unit flFractalArch;
 
 interface
 
@@ -63,7 +63,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure GLAsyncTimer1Timer(Sender: TObject);
   private
-    DataPath: TFileName;
+    DataPath, MediaPath: TFileName;
     mx, my: Integer;
     FCamHeight: Single;
     Start: Cardinal;
@@ -148,8 +148,10 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmFracArchip.FormCreate(Sender: TObject);
 begin
-  DataPath := GetCurrentDir() + '\map';
-  SetCurrentDir(DataPath);
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  SetCurrentDir(MediaPath) ;
 
   GLMaterialLibrary1.AddTextureMaterial('DefaultTexture', '004_neige.jpg');
 
@@ -367,8 +369,8 @@ begin
     end;
 
     // Let's go!
-   /// BuildLandscape;
-    Initialize(10, 10); // < = Start position failed
+   /// BuildLandscape;  todo
+   /// Initialize(10, 10); // todo < = Start position failed
     Rendering := True;
     Start := GetTickCount;
     LastUpdate := Start;

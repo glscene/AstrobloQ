@@ -1,4 +1,4 @@
-unit fmDuneFighter;
+unit flDuneFighter;
 (*
   This unit show how a cyclic fractal HDS can be used with an actor.
 
@@ -91,6 +91,7 @@ type
     procedure GLCadencer1Progress(Sender: TObject; const deltaTime, newTime: Double);
     procedure FormActivate(Sender: TObject);
   private
+    MediaPath: TFileName;
     hdsDunes: TGLFractalHDS;
     DataPath: TFileName;
     procedure AddMushrooms;
@@ -118,8 +119,11 @@ var
 
 procedure TfrmDuneFighter.FormCreate(Sender: TObject);
 begin
-  DataPath := GetCurrentDir() + '\map'; //
-  SetCurrentDir(DataPath);
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  SetCurrentDir(MediaPath) ;
+
   // Create terrain
   GLTerrainRenderer1.Up.SetVector(0, 0, 1);
   GLTerrainRenderer1.Direction.SetVector(0, 1, 0);

@@ -2,8 +2,8 @@ program ShortLands;
 
 uses
   Forms,
-  fmShortLands in 'code\fmShortLands.pas' {frmShortLands},
-  fmTexLand in 'code\fmTexLand.pas' {frmTexland};
+  flShortLands in '..\..\source\lito\flShortLands.pas' {frmShortLands},
+  flTexLand in '..\..\source\lito\flTexLand.pas' {frmTexland};
 
 {$R *.res}
 

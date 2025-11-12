@@ -1,4 +1,4 @@
-unit fmFracLand_ru;
+unit flFracLand;
 (*
   The FractaLandscape demonstrates the used of the TGLFractalHDS and other functions
   included into the GLS.RandomHDS unit. The dialogbox interfaces almost all object
@@ -207,7 +207,7 @@ type
     procedure AsyncTimer1Timer(Sender: TObject);
     procedure btDefaultTextureClick(Sender: TObject);
   private
-    DataPath: TFileName;
+    DataPath, MediaPath: TFileName;
     mx, my: Integer;
     FCamHeight: Single;
     LandscapeGenerated: Boolean;
@@ -252,7 +252,7 @@ implementation //=============================================================
 {$R *.DFM}
 
 uses
-  fmProgress_ru;
+  flProgress;
 
 var
   Forest, Sea, Beach, Snow, Grass, Cliff, BrownSoil: tBitmap;
@@ -305,8 +305,10 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
-  DataPath := GetCurrentDir() + '\map'; //
-  SetCurrentDir(DataPath);
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  SetCurrentDir(MediaPath);
 
   // Terrain Renderer initialisation
   GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;

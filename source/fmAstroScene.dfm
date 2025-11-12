@@ -23,31 +23,33 @@ object frmAstroScene: TfrmAstroScene
     Left = 273
     Top = 57
     Width = 791
-    Height = 648
+    Height = 591
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 145.841857910156300000
+    FieldOfView = 142.765472412109400000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 783
+    ExplicitHeight = 566
   end
   object PanelLeft: TPanel
     Left = 0
     Top = 57
     Width = 273
-    Height = 648
+    Height = 591
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 623
+    ExplicitHeight = 566
     object tvMoons: TTreeView
       Left = 1
       Top = 1
       Width = 271
-      Height = 646
+      Height = 589
       Hint = 'Moons'
       Align = alClient
       AutoExpand = True
@@ -155,7 +157,7 @@ object frmAstroScene: TfrmAstroScene
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 621
+      ExplicitHeight = 564
     end
   end
   object StatusBar: TStatusBar
@@ -183,7 +185,7 @@ object frmAstroScene: TfrmAstroScene
     ExplicitTop = 680
     ExplicitWidth = 1311
   end
-  object ControlBar: TControlBar
+  object ControlBarTop: TControlBar
     Left = 0
     Top = 0
     Width = 1319
@@ -210,6 +212,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton1'
         ImageIndex = 0
         ImageName = '0_Sun'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton2: TToolButton
         Left = 49
@@ -221,6 +225,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton2'
         ImageIndex = 1
         ImageName = '1_Mercury'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton3: TToolButton
         Left = 98
@@ -232,6 +238,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton3'
         ImageIndex = 2
         ImageName = '2_Venus'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton4: TToolButton
         Left = 147
@@ -243,6 +251,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton4'
         ImageIndex = 3
         ImageName = '3_Earth'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton5: TToolButton
         Left = 196
@@ -250,6 +260,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton5'
         ImageIndex = 4
         ImageName = '4_Mars'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton6: TToolButton
         Left = 245
@@ -257,6 +269,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton6'
         ImageIndex = 5
         ImageName = '5_Jupiter'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton7: TToolButton
         Left = 294
@@ -264,6 +278,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton7'
         ImageIndex = 6
         ImageName = '6_Saturn'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton8: TToolButton
         Left = 343
@@ -271,6 +287,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton8'
         ImageIndex = 7
         ImageName = '7_Uranus'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton9: TToolButton
         Left = 392
@@ -278,6 +296,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton9'
         ImageIndex = 8
         ImageName = '8_Neptune'
+        ParentShowHint = False
+        ShowHint = True
       end
       object ToolButton10: TToolButton
         Left = 441
@@ -285,6 +305,8 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton10'
         ImageIndex = 9
         ImageName = '9_Pluto'
+        ParentShowHint = False
+        ShowHint = True
       end
     end
   end
@@ -292,16 +314,16 @@ object frmAstroScene: TfrmAstroScene
     Left = 1064
     Top = 57
     Width = 255
-    Height = 648
+    Height = 591
     Align = alRight
     TabOrder = 4
     ExplicitLeft = 1056
-    ExplicitHeight = 623
+    ExplicitHeight = 566
     object tvAsteroids: TTreeView
       Left = 1
       Top = 1
       Width = 253
-      Height = 646
+      Height = 589
       Hint = 'Asteroids'
       Align = alClient
       AutoExpand = True
@@ -351,7 +373,112 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
-      ExplicitHeight = 621
+      ExplicitHeight = 564
+    end
+  end
+  object ControlBarBottom: TControlBar
+    Left = 0
+    Top = 648
+    Width = 1319
+    Height = 57
+    Align = alBottom
+    TabOrder = 5
+    ExplicitTop = 623
+    ExplicitWidth = 1311
+    object ToolBar1: TToolBar
+      Left = 19
+      Top = 2
+      Width = 502
+      Height = 48
+      ButtonHeight = 45
+      ButtonWidth = 49
+      Images = DataModuleImages.VirtPlanetSymbols
+      TabOrder = 0
+      object ToolButton11: TToolButton
+        Left = 0
+        Top = 0
+        Hint = 'Planet'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton1'
+        ImageIndex = 0
+        ImageName = '0_Sun'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton12: TToolButton
+        Left = 49
+        Top = 0
+        Hint = 'View from low orbit'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton2'
+        ImageIndex = 1
+        ImageName = '1_Mercury'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton13: TToolButton
+        Left = 98
+        Top = 0
+        Hint = 'View from cosmos'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton3'
+        ImageIndex = 2
+        ImageName = '2_Venus'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton14: TToolButton
+        Left = 147
+        Top = 0
+        Hint = 'Walk on surface'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton4'
+        ImageIndex = 3
+        ImageName = '3_Earth'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton15: TToolButton
+        Left = 196
+        Top = 0
+        Hint = 'Zoom in'
+        Caption = 'ToolButton5'
+        ImageIndex = 4
+        ImageName = '4_Mars'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton16: TToolButton
+        Left = 245
+        Top = 0
+        Hint = 'Zoom out'
+        Caption = 'ToolButton6'
+        ImageIndex = 5
+        ImageName = '5_Jupiter'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton17: TToolButton
+        Left = 294
+        Top = 0
+        Caption = 'ToolButton7'
+        ImageIndex = 6
+        ImageName = '6_Saturn'
+        ParentShowHint = False
+        ShowHint = True
+      end
     end
   end
   object Scene: TGLScene

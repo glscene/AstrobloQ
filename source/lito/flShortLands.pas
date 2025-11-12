@@ -1,4 +1,4 @@
-unit fmShortLands;
+unit flShortLands;
 (*
   This unit shows how to set up a fractal landscape.
   Objects created at design time have comments.
@@ -55,7 +55,7 @@ type
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
     procedure GLSceneViewer1DblClick(Sender: TObject);
   private
-    DataPath: TFileName;
+    DataPath, MediaPath: TFileName;
     hdsLandscape: TGLFractalHDS; // Declare the landscape manually
     mx, my: Integer;
   public
@@ -71,8 +71,10 @@ implementation // =============================================================
 
 procedure TfrmShortLands.FormCreate(Sender: TObject);
 begin
-  DataPath := GetCurrentDir() + '\map'; //
-  SetCurrentDir(DataPath);
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  SetCurrentDir(MediaPath) ;
 
   (* Setting up terrain renderer. This could be done at design time but you have
     missed it. These transformations are needed because, in a HDS, the z vector

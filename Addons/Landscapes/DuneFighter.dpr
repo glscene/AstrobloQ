@@ -2,7 +2,7 @@ program DuneFighter;
 
 uses
   Forms,
-  fmDuneFighter in 'code\fmDuneFighter.pas' {frmDuneFighter};
+  flDuneFighter in '..\..\source\lito\flDuneFighter.pas' {frmDuneFighter};
 
 {$R *.RES}
 

@@ -23,7 +23,7 @@ object frmFracArchip: TfrmFracArchip
   object Label1: TLabel
     Left = 0
     Top = 184
-    Width = 576
+    Width = 568
     Height = 20
     Alignment = taCenter
     Anchors = [akLeft, akTop, akRight]

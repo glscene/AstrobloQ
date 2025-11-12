@@ -100,15 +100,16 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <DCC_ExeOutput>..\..\bin\</DCC_ExeOutput>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\..\source\lito\fmProgress_ru.pas">
+        <DCCReference Include="..\..\source\lito\flProgress_ru.pas">
             <Form>frmProgress</Form>
         </DCCReference>
-        <DCCReference Include="..\..\source\lito\fmFracLand_ru.pas">
+        <DCCReference Include="..\..\source\lito\flFracLand_ru.pas">
             <Form>frmFracLands</Form>
             <FormType>dfm</FormType>
         </DCCReference>

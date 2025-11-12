@@ -1,4 +1,4 @@
-unit fmTexLand;
+unit flTexLand;
 
 interface
 
@@ -55,21 +55,23 @@ type
     procedure handleMouse(dt: single);
     procedure handleKeyboard(dt: single);
   private
-    DataPath: TFileName;
+    DataPath, MediaPath: TFileName;
   end;
 
 var
   frmTexland: TfrmTexland;
 
-implementation //------------------------------------------------------------
+implementation //============================================================
 
 {$R *.dfm}
 
 //---------------------------------------------------------------------------
 procedure TfrmTexland.FormCreate;
 begin
-  DataPath := GetCurrentDir() + '\map'; //
-  SetCurrentDir(DataPath);
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath));
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  SetCurrentDir(MediaPath) ;
 
   BitmapHDS.Picture.LoadFromFile('heightmap.bmp');
   // diffuse

@@ -1040,7 +1040,7 @@ object frmFracLands: TfrmFracLands
       Height = 13
     end
     object btApply: TBitBtn
-      Left = 258
+      Left = 242
       Top = -1
       Width = 75
       Height = 25
@@ -1051,7 +1051,7 @@ object frmFracLands: TfrmFracLands
       NumGlyphs = 2
       TabOrder = 0
       OnClick = btApplyClick
-      ExplicitLeft = 250
+      ExplicitLeft = 234
     end
   end
   object GLScene1: TGLScene

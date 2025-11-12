@@ -124,7 +124,7 @@ type
     miToolsOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
-    ControlBar: TControlBar;
+    ControlBarTop: TControlBar;
     miGenStarsys: TMenuItem;
     acPlanet: TGLActor;
     miTools: TMenuItem;
@@ -163,6 +163,15 @@ type
     ClearTreeView1: TMenuItem;
     Constellations1: TMenuItem;
     Settings1: TMenuItem;
+    ControlBarBottom: TControlBar;
+    ToolBar1: TToolBar;
+    ToolButton11: TToolButton;
+    ToolButton12: TToolButton;
+    ToolButton13: TToolButton;
+    ToolButton14: TToolButton;
+    ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -773,7 +782,8 @@ begin
     WindowState := wsNormal;
     PanelLeft.Visible := True;
     PanelRight.Visible := True;
-    ControlBar.Visible := True;
+    ControlBarTop.Visible := True;
+    ControlBarBottom.Visible := True;
     BorderStyle := bsSizeable;
   end
   else
@@ -781,7 +791,8 @@ begin
     WindowState := wsMaximized;
     PanelLeft.Visible := False;
     PanelRight.Visible := False;
-    ControlBar.Visible := False;
+    ControlBarTop.Visible := False;
+    ControlBarBottom.Visible := False;
     BorderStyle := bsNone;
   end;
   SceneViewer.OnMouseMove := SceneViewerMouseMove;

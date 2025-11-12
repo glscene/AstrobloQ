@@ -22,24 +22,26 @@ object frmAstroScene: TfrmAstroScene
     Left = 233
     Top = 29
     Width = 879
-    Height = 648
+    Height = 591
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 145.841857910156300000
+    FieldOfView = 142.765472412109400000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitWidth = 871
+    ExplicitHeight = 623
   end
   object PanelLeft: TPanel
     Left = 0
     Top = 29
     Width = 233
-    Height = 648
+    Height = 591
     Align = alLeft
     TabOrder = 1
     ExplicitHeight = 623
@@ -47,7 +49,7 @@ object frmAstroScene: TfrmAstroScene
       Left = 1
       Top = 1
       Width = 231
-      Height = 646
+      Height = 589
       Hint = #1051#1091#1085#1099
       Align = alClient
       AutoExpand = True
@@ -173,8 +175,7 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 652
-    ExplicitWidth = 1294
+    ExplicitTop = 669
   end
   object ControlBar: TControlBar
     Left = 0
@@ -227,7 +228,7 @@ object frmAstroScene: TfrmAstroScene
     Left = 1112
     Top = 29
     Width = 190
-    Height = 648
+    Height = 591
     Align = alRight
     TabOrder = 4
     ExplicitLeft = 1104
@@ -236,7 +237,7 @@ object frmAstroScene: TfrmAstroScene
       Left = 1
       Top = 1
       Width = 188
-      Height = 646
+      Height = 589
       Hint = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       Align = alClient
       AutoExpand = True
@@ -282,6 +283,111 @@ object frmAstroScene: TfrmAstroScene
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
       ExplicitHeight = 621
+    end
+  end
+  object ControlBarBottom: TControlBar
+    Left = 0
+    Top = 620
+    Width = 1302
+    Height = 57
+    Align = alBottom
+    TabOrder = 5
+    ExplicitLeft = 8
+    ExplicitTop = 551
+    object ToolBar2: TToolBar
+      Left = 19
+      Top = 2
+      Width = 502
+      Height = 48
+      ButtonHeight = 45
+      ButtonWidth = 49
+      Images = DataModuleImages.VirtPlanetSymbols
+      TabOrder = 0
+      object ToolButton11: TToolButton
+        Left = 0
+        Top = 0
+        Hint = 'Planet'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton1'
+        ImageIndex = 0
+        ImageName = '0_Sun'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton12: TToolButton
+        Left = 49
+        Top = 0
+        Hint = 'View from low orbit'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton2'
+        ImageIndex = 1
+        ImageName = '1_Mercury'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton13: TToolButton
+        Left = 98
+        Top = 0
+        Hint = 'View from cosmos'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton3'
+        ImageIndex = 2
+        ImageName = '2_Venus'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton14: TToolButton
+        Left = 147
+        Top = 0
+        Hint = 'Walk on surface'
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'ToolButton4'
+        ImageIndex = 3
+        ImageName = '3_Earth'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton15: TToolButton
+        Left = 196
+        Top = 0
+        Hint = 'Zoom in'
+        Caption = 'ToolButton5'
+        ImageIndex = 4
+        ImageName = '4_Mars'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton16: TToolButton
+        Left = 245
+        Top = 0
+        Hint = 'Zoom out'
+        Caption = 'ToolButton6'
+        ImageIndex = 5
+        ImageName = '5_Jupiter'
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object ToolButton17: TToolButton
+        Left = 294
+        Top = 0
+        Caption = 'ToolButton7'
+        ImageIndex = 6
+        ImageName = '6_Saturn'
+        ParentShowHint = False
+        ShowHint = True
+      end
     end
   end
   object Scene: TGLScene

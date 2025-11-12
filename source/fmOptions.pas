@@ -263,7 +263,8 @@ begin
   frmAstroScene.PanelLeft.Visible := chbHide.Checked;
   frmAstroScene.PanelRight.Visible := chbHide.Checked;
   frmAstroScene.StatusBar.Visible := chbHide.Checked;
-  frmAstroScene.ControlBar.Visible := chbHide.Checked;
+  frmAstroScene.ControlBarTop.Visible := chbHide.Checked;
+  frmAstroScene.ControlBarBottom.Visible := chbHide.Checked;
   frmAstroScene.sfPlanet.Visible := chbHide.Checked;
   (*
   if chbHide.Checked then

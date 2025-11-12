@@ -139,6 +139,15 @@ type
     miSettings: TMenuItem;
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
+    ControlBarBottom: TControlBar;
+    ToolBar2: TToolBar;
+    ToolButton11: TToolButton;
+    ToolButton12: TToolButton;
+    ToolButton13: TToolButton;
+    ToolButton14: TToolButton;
+    ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);

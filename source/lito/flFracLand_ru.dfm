@@ -1,9 +1,9 @@
 object frmFracLands: TfrmFracLands
   Left = 242
   Top = 106
-  Caption = 'Fractal Landscape'
-  ClientHeight = 496
-  ClientWidth = 693
+  Caption = #1060#1088#1072#1082#1090#1072#1083#1100#1085#1099#1081' '#1083#1072#1085#1076#1096#1072#1092#1090
+  ClientHeight = 586
+  ClientWidth = 748
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -27,46 +27,44 @@ object frmFracLands: TfrmFracLands
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 351
-    Width = 693
+    Top = 441
+    Width = 748
     Height = 120
     ActivePage = TabSheet1
     Align = alBottom
     HotTrack = True
     TabOrder = 0
     OnChange = PageControl1Change
-    ExplicitTop = 326
-    ExplicitWidth = 685
     object TabSheet1: TTabSheet
-      Caption = 'Topography'
+      Caption = #1058#1086#1087#1086#1075#1088#1072#1092#1080#1103
       object GroupBox1: TGroupBox
-        Left = 193
+        Left = 225
         Top = 0
-        Width = 173
+        Width = 208
         Height = 92
         Align = alLeft
-        Caption = 'Sea parameters'
+        Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1084#1086#1088#1103
         TabOrder = 0
         object Label2: TLabel
-          Left = 24
+          Left = 6
           Top = 40
-          Width = 47
+          Width = 73
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Sea level:'
+          Caption = #1059#1088#1086#1074#1077#1085#1100' '#1084#1086#1088#1103
           FocusControl = tbRoughness
         end
         object Label21: TLabel
-          Left = 3
+          Left = 6
           Top = 64
-          Width = 68
+          Width = 72
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Transparency:'
+          Caption = #1055#1088#1086#1079#1088#1072#1095#1085#1086#1089#1090#1100
           FocusControl = tbRoughness
         end
         object tbSeaLevel: TTrackBar
-          Left = 72
+          Left = 105
           Top = 40
           Width = 97
           Height = 25
@@ -78,19 +76,19 @@ object frmFracLands: TfrmFracLands
         end
         object ckSea: TCheckBox
           Left = 16
-          Top = 16
-          Width = 73
+          Top = 17
+          Width = 137
           Height = 17
           Hint = 'Every vertices below sea level are levelled up'
           Alignment = taLeftJustify
-          Caption = 'Sea sur&face'
+          Caption = #1055#1086#1074#1077#1088#1093#1085#1086#1089#1090#1100' '#1084#1086#1088#1103
           Checked = True
           State = cbChecked
           TabOrder = 1
           OnClick = OnTopographyChanged
         end
         object tbTransparency: TTrackBar
-          Left = 72
+          Left = 105
           Top = 64
           Width = 97
           Height = 25
@@ -104,18 +102,18 @@ object frmFracLands: TfrmFracLands
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
-        Width = 193
+        Width = 225
         Height = 92
         Align = alLeft
-        Caption = 'Fractal parameters'
+        Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1092#1088#1072#1082#1090#1072#1083#1086#1074
         TabOrder = 1
         object Label3: TLabel
-          Left = 8
-          Top = 16
-          Width = 32
+          Left = 5
+          Top = 21
+          Width = 41
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Depth:'
+          Caption = #1043#1083#1091#1073#1080#1085#1072
           FocusControl = seDepth
         end
         object Label4: TLabel
@@ -128,8 +126,8 @@ object frmFracLands: TfrmFracLands
           FocusControl = tbRoughness
         end
         object Label11: TLabel
-          Left = 108
-          Top = 16
+          Left = 126
+          Top = 21
           Width = 28
           Height = 13
           Alignment = taRightJustify
@@ -137,17 +135,17 @@ object frmFracLands: TfrmFracLands
           FocusControl = seSeed
         end
         object Label13: TLabel
-          Left = 15
+          Left = 9
           Top = 64
-          Width = 49
+          Width = 55
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Amplitude:'
+          Caption = #1040#1084#1087#1083#1080#1090#1091#1076#1072
           FocusControl = tbAmplitude
         end
         object seDepth: TSpinEdit
-          Left = 40
-          Top = 16
+          Left = 57
+          Top = 15
           Width = 57
           Height = 22
           Hint = 
@@ -160,7 +158,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnTopographyChanged
         end
         object tbRoughness: TTrackBar
-          Left = 64
+          Left = 104
           Top = 40
           Width = 97
           Height = 25
@@ -171,7 +169,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnTopographyChanged
         end
         object seSeed: TSpinEdit
-          Left = 136
+          Left = 168
           Top = 16
           Width = 49
           Height = 22
@@ -185,7 +183,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnTopographyChanged
         end
         object tbAmplitude: TTrackBar
-          Left = 64
+          Left = 104
           Top = 64
           Width = 97
           Height = 25
@@ -200,12 +198,12 @@ object frmFracLands: TfrmFracLands
         end
       end
       object GroupBox12: TGroupBox
-        Left = 366
+        Left = 433
         Top = 0
-        Width = 171
+        Width = 216
         Height = 92
         Align = alLeft
-        Caption = 'Tile parameters'
+        Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1090#1072#1081#1083#1086#1074
         TabOrder = 2
         object Label18: TLabel
           Left = 8
@@ -237,8 +235,8 @@ object frmFracLands: TfrmFracLands
           FocusControl = tbRoughness
         end
         object tbScaleX: TTrackBar
-          Left = 48
-          Top = 32
+          Left = 80
+          Top = 33
           Width = 121
           Height = 25
           HelpContext = 45
@@ -252,18 +250,18 @@ object frmFracLands: TfrmFracLands
         object ckCyclic: TCheckBox
           Left = 16
           Top = 16
-          Width = 49
+          Width = 74
           Height = 17
           Hint = 'The landscape wrap on itself endlessly'
           Alignment = taLeftJustify
-          Caption = '&Cyclic'
+          Caption = #1062#1080#1082#1083#1099
           Checked = True
           State = cbChecked
           TabOrder = 1
           OnClick = OnTopographyChanged
         end
         object tbScaleY: TTrackBar
-          Left = 48
+          Left = 80
           Top = 48
           Width = 121
           Height = 25
@@ -277,7 +275,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnScaleChanged
         end
         object tbScaleZ: TTrackBar
-          Left = 48
+          Left = 80
           Top = 64
           Width = 121
           Height = 25
@@ -291,12 +289,12 @@ object frmFracLands: TfrmFracLands
           OnChange = OnScaleChanged
         end
         object ckIsometric: TCheckBox
-          Left = 96
-          Top = 16
-          Width = 65
+          Left = 112
+          Top = 18
+          Width = 89
           Height = 17
           Alignment = taLeftJustify
-          Caption = '&Isometric'
+          Caption = #1048#1079#1086#1084#1077#1090#1088#1080#1103
           Checked = True
           State = cbChecked
           TabOrder = 4
@@ -305,7 +303,7 @@ object frmFracLands: TfrmFracLands
       end
     end
     object TabSheet3: TTabSheet
-      Caption = 'Erosion'
+      Caption = #1069#1088#1086#1079#1080#1103
       ImageIndex = 2
       object GroupBox5: TGroupBox
         Left = 0
@@ -455,7 +453,7 @@ object frmFracLands: TfrmFracLands
       object GroupBox14: TGroupBox
         Left = 457
         Top = 0
-        Width = 228
+        Width = 283
         Height = 92
         Align = alClient
         Caption = 'Steps'
@@ -493,7 +491,7 @@ object frmFracLands: TfrmFracLands
       end
     end
     object TabSheet2: TTabSheet
-      Caption = 'Lighting'
+      Caption = #1057#1074#1077#1090
       ImageIndex = 1
       object GroupBox3: TGroupBox
         Left = 0
@@ -618,7 +616,7 @@ object frmFracLands: TfrmFracLands
       end
     end
     object TabSheet4: TTabSheet
-      Caption = 'Texture'
+      Caption = #1058#1077#1082#1089#1090#1091#1088#1072
       ImageIndex = 3
       object GroupBox8: TGroupBox
         Left = 0
@@ -773,7 +771,7 @@ object frmFracLands: TfrmFracLands
       end
     end
     object TabSheet5: TTabSheet
-      Caption = 'View'
+      Caption = #1042#1080#1076
       ImageIndex = 4
       object GroupBox11: TGroupBox
         Left = 0
@@ -1004,8 +1002,8 @@ object frmFracLands: TfrmFracLands
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 693
-    Height = 351
+    Width = 748
+    Height = 441
     Camera = GLCamera1
     Buffer.FogEnvironment.FogColor.Color = {FCA9313F9CC4603F91ED7C3F0000803F}
     Buffer.FogEnvironment.FogStart = 400.000000000000000000
@@ -1014,24 +1012,26 @@ object frmFracLands: TfrmFracLands
     Buffer.BackgroundColor = clSkyBlue
     Buffer.FogEnable = True
     Buffer.Lighting = False
-    FieldOfView = 148.195465087890600000
+    FieldOfView = 154.447631835937500000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewer1MouseEnter
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 2
+    ExplicitWidth = 693
+    ExplicitHeight = 352
   end
   object Panel1: TPanel
     Left = 0
-    Top = 471
-    Width = 693
+    Top = 561
+    Width = 748
     Height = 25
     Align = alBottom
     TabOrder = 1
     ExplicitTop = 446
     ExplicitWidth = 685
     DesignSize = (
-      693
+      748
       25)
     object lblDebug: TLabel
       Left = 8
@@ -1040,12 +1040,12 @@ object frmFracLands: TfrmFracLands
       Height = 13
     end
     object btApply: TBitBtn
-      Left = 250
+      Left = 305
       Top = -1
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
-      Caption = 'Apply'
+      Caption = 'Ok'
       Enabled = False
       Kind = bkOK
       NumGlyphs = 2

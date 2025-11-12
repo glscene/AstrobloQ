@@ -1,4 +1,4 @@
-unit fmProgress;
+unit flProgress_ru;
 
 interface
 
@@ -35,7 +35,7 @@ var
 implementation //=============================================================
 
 uses
-  fmFracLand;
+  flFracLand_ru;
 
 {$R *.dfm}
 
