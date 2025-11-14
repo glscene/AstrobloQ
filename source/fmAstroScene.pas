@@ -166,16 +166,15 @@ type
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
     tbPlanets: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton8: TToolButton;
-    ToolButton9: TToolButton;
-    ToolButton10: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
-    ToolButton4: TToolButton;
-    ToolButton5: TToolButton;
-    ToolButton6: TToolButton;
-    ToolButton7: TToolButton;
+    ToolButtonSun: TToolButton;
+    ToolButtonMercury: TToolButton;
+    ToolButtonVenus: TToolButton;
+    ToolButtonEarth: TToolButton;
+    ToolButtonMars: TToolButton;
+    ToolButtonJupiter: TToolButton;
+    ToolButtonSaturn: TToolButton;
+    ToolButtonNeptune: TToolButton;
+    ToolButtonUranus: TToolButton;
     StaticText3: TStaticText;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
@@ -211,6 +210,7 @@ type
     procedure ClearTreeView1Click(Sender: TObject);
     procedure Constellations1Click(Sender: TObject);
     procedure Settings1Click(Sender: TObject);
+    procedure ToolButtonPlanetsClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -449,7 +449,6 @@ begin
 end;
 
 //------------------------------------------------------------------
-
 function TfrmAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
@@ -736,6 +735,87 @@ procedure TfrmAstroScene.Settings1Click(Sender: TObject);
 begin
   frmSettings.Show;
 end;
+
+
+//----------------------------ToolButtonSun ------------------------------------
+procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
+var
+  I: Integer;
+  PlanetName: TFileName;
+begin
+  PlanetName := CurrentStar + TToolButton(Sender).Caption;
+  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
+(*
+  case TToolButton(Sender).ImageIndex of
+    0: begin
+        // sun
+         tvMoons.Select(tvMoons.Items[0]);
+       end;
+    1: begin
+         // mercury
+         tvMoons.Select(tvMoons.Items[1]);
+       end;
+    2: begin
+         // venus
+         tvMoons.Select(tvMoons.Items[2]);
+       end;
+    3: begin
+         // earth
+         tvMoons.Select(tvMoons.Items[3]);
+       end;
+    4: begin
+         //mars
+       end;
+    5: begin
+         //jupiter
+       end;
+    6: begin
+         //saturn
+       end;
+    7: begin end;
+    8: begin end;
+  end;
+
+  if ToolButtonSun.Down then
+  begin // sun
+  end
+  else
+  if ToolButtonMercury.Down then
+  begin // mercury
+  end
+  else
+  if ToolButtonVenus.Down then
+  begin // venus
+  end
+  else
+//  if tbPlanets.Buttons[3].Down then
+  if ToolButtonEarth.Down then
+  begin // earth
+    tvMoons.Select(tvMoons.Items[3]); // show Earth
+  end
+  else
+  if ToolButtonMars.Down then
+  begin // mars
+  end
+  else
+  if ToolButtonJupiter.Down then
+  begin // jupiter
+  end
+  else
+  if ToolButtonSaturn.Down then
+  begin // saturn
+  end
+  else
+  if ToolButtonNeptune.Down then
+  begin // neptune
+  end
+  else
+  if ToolButtonUranus.Down then
+  begin // uranus
+  end
+*)
+end;
+
 
 //------------------------------------------------------------------
 

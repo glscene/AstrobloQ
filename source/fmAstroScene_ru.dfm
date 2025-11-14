@@ -35,7 +35,6 @@ object frmAstroScene: TfrmAstroScene
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 838
   end
   object PanelLeft: TPanel
     Left = 0
@@ -44,6 +43,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 655
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 630
     object tvMoons: TTreeView
       Left = 1
       Top = 105
@@ -149,10 +149,7 @@ object frmAstroScene: TfrmAstroScene
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
-      ExplicitLeft = 0
-      ExplicitTop = 212
-      ExplicitWidth = 189
-      ExplicitHeight = 345
+      ExplicitHeight = 524
     end
     object StaticText1: TStaticText
       Left = 1
@@ -163,9 +160,6 @@ object frmAstroScene: TfrmAstroScene
       Alignment = taCenter
       Caption = #1051#1091#1085#1099
       TabOrder = 1
-      ExplicitLeft = -4
-      ExplicitTop = 182
-      ExplicitWidth = 527
     end
     object StaticText3: TStaticText
       Left = 1
@@ -176,9 +170,6 @@ object frmAstroScene: TfrmAstroScene
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
       TabOrder = 2
-      ExplicitLeft = 2
-      ExplicitTop = 0
-      ExplicitWidth = 527
     end
     object tbPlanets: TToolBar
       Left = 1
@@ -197,117 +188,107 @@ object frmAstroScene: TfrmAstroScene
       List = True
       ParentFont = False
       TabOrder = 3
-      ExplicitWidth = 360
-      object ToolButton18: TToolButton
+      object ToolButtonSun: TToolButton
         Left = 0
-        Top = 0
-        Width = 9
-        Caption = 'ToolButton18'
-        ImageIndex = 10
-        ImageName = '11_Luna'
-        Style = tbsSeparator
-      end
-      object ToolButton8: TToolButton
-        Left = 9
         Top = 0
         Hint = #1057#1086#1083#1085#1094#1077
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = 'ToolButton1'
+        Caption = #1057#1086#1083#1085#1094#1077
         ImageIndex = 0
         ImageName = '0_Sun'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton9: TToolButton
-        Left = 41
+      object ToolButtonMercury: TToolButton
+        Left = 32
         Top = 0
         Hint = #1052#1077#1088#1082#1091#1088#1080#1081
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = 'ToolButton2'
+        Caption = #1052#1077#1088#1082#1091#1088#1080#1081
         ImageIndex = 1
         ImageName = '1_Mercury'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton10: TToolButton
-        Left = 73
+      object ToolButtonVenus: TToolButton
+        Left = 64
         Top = 0
         Hint = #1042#1077#1085#1077#1088#1072
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = 'ToolButton3'
+        Caption = #1042#1077#1085#1077#1088#1072
         ImageIndex = 2
         ImageName = '2_Venus'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton11: TToolButton
-        Left = 105
+      object ToolButtonEarth: TToolButton
+        Left = 96
         Top = 0
         Hint = #1047#1077#1084#1083#1103
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = 'ToolButton4'
+        Caption = #1047#1077#1084#1083#1103
         ImageIndex = 3
         ImageName = '3_Earth'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton12: TToolButton
-        Left = 137
+      object ToolButtonMars: TToolButton
+        Left = 128
         Top = 0
         Hint = #1052#1072#1088#1089
-        Caption = 'ToolButton5'
+        Caption = #1052#1072#1088#1089
         ImageIndex = 4
         ImageName = '4_Mars'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton13: TToolButton
-        Left = 169
+      object ToolButtonJupiter: TToolButton
+        Left = 160
         Top = 0
         Hint = #1070#1087#1080#1090#1077#1088
-        Caption = 'ToolButton6'
+        Caption = #1070#1087#1080#1090#1077#1088
         ImageIndex = 5
         ImageName = '5_Jupiter'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton14: TToolButton
-        Left = 201
+      object ToolButtonSaturn: TToolButton
+        Left = 192
         Top = 0
         Hint = #1057#1072#1090#1091#1088#1085
-        Caption = 'ToolButton7'
+        Caption = #1057#1072#1090#1091#1088#1085
         ImageIndex = 6
         ImageName = '6_Saturn'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton16: TToolButton
-        Left = 233
+      object ToolButtonNeptune: TToolButton
+        Left = 224
         Top = 0
         Hint = #1053#1077#1087#1090#1091#1085
-        Caption = 'ToolButton9'
+        Caption = #1053#1077#1087#1090#1091#1085
         ImageIndex = 8
         ImageName = '8_Neptune'
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton15: TToolButton
-        Left = 265
+      object ToolButtonUranus: TToolButton
+        Left = 256
         Top = 0
         Hint = #1059#1088#1072#1085
-        Caption = 'ToolButton8'
+        Caption = #1059#1088#1072#1085
         ImageIndex = 7
         ImageName = '7_Uranus'
         ParentShowHint = False
@@ -337,8 +318,8 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 664
-    ExplicitWidth = 1302
+    ExplicitTop = 687
+    ExplicitWidth = 1407
   end
   object PanelRight: TPanel
     Left = 1128
@@ -347,6 +328,8 @@ object frmAstroScene: TfrmAstroScene
     Height = 655
     Align = alRight
     TabOrder = 3
+    ExplicitLeft = 1120
+    ExplicitHeight = 630
     object tvAsteroids: TTreeView
       Left = 1
       Top = 29
@@ -396,9 +379,7 @@ object frmAstroScene: TfrmAstroScene
         000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
         3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
         0000000000000001052104350434043D043004}
-      ExplicitLeft = 0
-      ExplicitWidth = 189
-      ExplicitHeight = 577
+      ExplicitHeight = 600
     end
     object StaticText2: TStaticText
       Left = 1
@@ -418,8 +399,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 57
     Align = alTop
     TabOrder = 4
-    ExplicitLeft = -17
-    ExplicitWidth = 1319
+    ExplicitWidth = 1407
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
