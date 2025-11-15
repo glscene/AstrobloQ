@@ -45,11 +45,11 @@ object frmAstroScene: TfrmAstroScene
     ExplicitHeight = 647
     object tvMoons: TTreeView
       Left = 1
-      Top = 107
+      Top = 328
       Width = 295
-      Height = 564
+      Height = 343
       Hint = 'Moons'
-      Align = alClient
+      Align = alBottom
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -155,7 +155,6 @@ object frmAstroScene: TfrmAstroScene
         3400380039005F0047006F006C00650076006B0061000000350000000B000000
         0B000000FFFFFFFFFFFFFFFF00000000000000000000000000010B3900300033
         00370037005F005300650064006E006100}
-      ExplicitHeight = 539
     end
     object tbPlanets: TToolBar
       Left = 1
@@ -184,7 +183,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Bottom = 2
         Caption = 'Sun'
         ImageIndex = 0
-        ImageName = '0_Sun'
+        ImageName = 'Sun'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -199,7 +198,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Bottom = 2
         Caption = 'Mercury'
         ImageIndex = 1
-        ImageName = '1_Mercury'
+        ImageName = 'Mercury'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -214,7 +213,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Bottom = 2
         Caption = 'Venus'
         ImageIndex = 2
-        ImageName = '2_Venus'
+        ImageName = 'Venus'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -229,7 +228,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Bottom = 2
         Caption = 'Earth'
         ImageIndex = 3
-        ImageName = '3_Earth'
+        ImageName = 'Earth'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -240,7 +239,7 @@ object frmAstroScene: TfrmAstroScene
         Hint = 'Mars'
         Caption = 'Mars'
         ImageIndex = 4
-        ImageName = '4_Mars'
+        ImageName = 'Mars'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -251,7 +250,7 @@ object frmAstroScene: TfrmAstroScene
         Hint = 'Jupiter'
         Caption = 'Jupiter'
         ImageIndex = 5
-        ImageName = '5_Jupiter'
+        ImageName = 'Jupiter'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -262,29 +261,29 @@ object frmAstroScene: TfrmAstroScene
         Hint = 'Saturn'
         Caption = 'Saturn'
         ImageIndex = 6
-        ImageName = '6_Saturn'
-        ParentShowHint = False
-        ShowHint = True
-        OnClick = ToolButtonPlanetsClick
-      end
-      object ToolButtonNeptune: TToolButton
-        Left = 224
-        Top = 0
-        Hint = 'Neptune'
-        Caption = 'Neptune'
-        ImageIndex = 8
-        ImageName = '8_Neptune'
+        ImageName = 'Saturn'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonUranus: TToolButton
-        Left = 256
+        Left = 224
         Top = 0
         Hint = 'Uranus'
         Caption = 'Uranus'
         ImageIndex = 7
-        ImageName = '7_Uranus'
+        ImageName = 'Uranus'
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = ToolButtonPlanetsClick
+      end
+      object ToolButtonNeptune: TToolButton
+        Left = 256
+        Top = 0
+        Hint = 'Neptune'
+        Caption = 'Neptune'
+        ImageIndex = 8
+        ImageName = 'Neptune'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
@@ -321,6 +320,26 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+    end
+    object ListBoxMoons: TListBox
+      AlignWithMargins = True
+      Left = 4
+      Top = 110
+      Width = 289
+      Height = 146
+      Align = alTop
+      ItemHeight = 17
+      Items.Strings = (
+        'Moon'
+        'Fobos'
+        'Deimos'
+        'Io'
+        'Europa'
+        'Ganimed'
+        'Callisto')
+      TabOrder = 4
+      ExplicitLeft = 2
+      ExplicitTop = 113
     end
   end
   object StatusBar: TStatusBar

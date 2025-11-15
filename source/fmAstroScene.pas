@@ -178,6 +178,7 @@ type
     StaticText3: TStaticText;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
+    ListBoxMoons: TListBox;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -740,10 +741,9 @@ end;
 //----------------------------ToolButtonSun ------------------------------------
 procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 var
-  I: Integer;
   PlanetName: TFileName;
 begin
-  PlanetName := CurrentStar + TToolButton(Sender).Caption;
+  PlanetName := CurrentStar + TToolButton(Sender).ImageName;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
 (*
   case TToolButton(Sender).ImageIndex of

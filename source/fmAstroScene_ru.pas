@@ -161,6 +161,7 @@ type
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
+    ListBoxMoons: TListBox;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -188,6 +189,7 @@ type
     procedure miGenStarsysClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
+    procedure ToolButtonPlanetsClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -229,10 +231,11 @@ const
   Plane1: array [0 .. 3] of Double = (-1, 0, 0, 0.0);
   Plane2: array [0 .. 3] of Double = (0, -1, 0, 0.0);
 
-implementation //-------------------------------------------------------------
+implementation // =============================================================
 
 {$R *.dfm}
 
+// -------------------- Создание главной формы --------------------------------
 procedure TfrmAstroScene.FormCreate(Sender: TObject);
 var
   I: Integer;
@@ -282,12 +285,11 @@ begin
   miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
 
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
-  inherited;   // should be inheritance for translation
+
+  ListBoxMoons.Items.LoadFromFile(CurrentStar + 'sun_moons.csv');
 end;
 
-//------------------------------------------------------------------
-// Скрыть показать панели и тулбары
-//------------------------------------------------------------------
+//------------------  Скрыть или показать панели и тулбары -------------------
 procedure TfrmAstroScene.miViewHidePanelsClick(Sender: TObject);
 begin
   miViewHidePanels.Checked := not miViewHidePanels.Checked;
@@ -312,9 +314,7 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------
-//   Выбор узлов деревьев просмотра планет, звёзд и созвездий tvMoonsClick
-//------------------------------------------------------------------
+//------------------ Выбор лун в дереве просмотра  ----------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 begin
   PlanetPath := CurrentStar + tvMoons.Selected.Text;
@@ -381,9 +381,7 @@ begin
 end;
 
 
-//---------------------------------------------------------------------
-// Generator of star systems
-//----------------------------------------------------------------------
+//-------------------------- Генератор экзопланетной системы -----------------
 procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -404,27 +402,13 @@ begin
 end;
 
 
-//------------------------------------------------------------------
-// Огни городов
-//------------------------------------------------------------------
+//------------------- Перед рендером включение огней городов -----------------
 procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // если нет мультитекстурирования и combiner то без света городов
   MatLib.Materials[0].Shader := TexCombiner;
   MatLib.Materials[0].Texture2Name := 'earthNight';
-end;
-
-//------------------------------------------------------------------
-procedure TfrmAstroScene.About1Click(Sender: TObject);
-begin
-  inherited;
-  with TFormAbout.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
 end;
 
 //----------------------------- Цвет атмосферы -------------------------------
@@ -472,8 +456,7 @@ begin
   Result.W := n * contrib * cOpacity * 0.1;
 end;
 
-//------------------------------------------------------------------
-
+//--------------------- Вычисление цвета атмосферы ----------------------------
 function TfrmAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
@@ -502,9 +485,7 @@ begin
     Result := clrTransparent;
 end;
 
-//------------------------------------------------------------------
-// DirectOpenGLRender for atmosphere
-//------------------------------------------------------------------
+//---------------- Атмосфера DirectOpenGLRender ------------------------------
 procedure TfrmAstroScene.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
   cSlices = 60;
@@ -596,22 +577,7 @@ begin
   FreeMem(pColor);
 end;
 
-//------------------------------------------------------------------
-// Показать линии созвездий
-//------------------------------------------------------------------
-procedure TfrmAstroScene.miViewConstlinesClick(Sender: TObject);
-begin
-  ConstLines.Nodes.Clear;
-  miViewConstlines.Checked := not miViewConstlines.Checked;
-  if miViewConstLines.Checked then
-  begin
-    ConstLinesAlpha := 0.5 - ConstLinesAlpha;
-    LoadConstLines;
-  end;
-end;
-
-//------------------------------------------------------------------
-
+//------------------- Загрузка линий созвездий --------------------------------
 procedure TfrmAstroScene.LoadConstLines;
 var
   sl, line: TStrings;
@@ -633,9 +599,19 @@ begin
   line.Free;
 end;
 
-//------------------------------------------------------------------
-// Загрузка границ созвездий
-//------------------------------------------------------------------
+//---------------------- Меню линий созвездий --------------------------------
+procedure TfrmAstroScene.miViewConstlinesClick(Sender: TObject);
+begin
+  ConstLines.Nodes.Clear;
+  miViewConstlines.Checked := not miViewConstlines.Checked;
+  if miViewConstLines.Checked then
+  begin
+    ConstLinesAlpha := 0.5 - ConstLinesAlpha;
+    LoadConstLines;
+  end;
+end;
+
+//------------------- Загрузка границ созвездий ------------------------------
 procedure TfrmAstroScene.LoadConstBorders;
 var
   sl, line: TStrings;
@@ -658,9 +634,7 @@ begin
   line.Free;
 end;
 
-//------------------------------------------------------------------
-// Show constallation borders
-//------------------------------------------------------------------
+//---------------------- Меню границ созвездий --------------------------------
 procedure TfrmAstroScene.miViewConstBordersClick(Sender: TObject);
 begin
   ConstBounds.Nodes.Clear;
@@ -674,9 +648,7 @@ begin
 end;
 
 
-//------------------------------------------------------------------
-// Cadencer
-//------------------------------------------------------------------
+//------------------------- Процесс каденсера --------------------------------
 procedure TfrmAstroScene.CadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
@@ -735,8 +707,7 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------
-
+//------------------------ Опускаем мышь -------------------------------------
 procedure TfrmAstroScene.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -744,8 +715,7 @@ begin
   my := y;
 end;
 
-//-----------------------------------------------------------------
-
+//------------------------ Движение мыши ------------------------------------
 procedure TfrmAstroScene.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -760,8 +730,7 @@ begin
   my := y;
 end;
 
-//------------------------------------------------------------------
-
+//-------------------------- Колесо мыши -------------------------------------
 procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
@@ -776,7 +745,7 @@ begin
 end;
 
 
-//------------------------------------------------------------------
+//------------------------- Двойной клик мыши ---------------------------------
 procedure TfrmAstroScene.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
@@ -799,8 +768,7 @@ begin
   SceneViewer.OnMouseMove := SceneViewerMouseMove;
 end;
 
-//------------------------------------------------------------------
-
+//--------------------- Загрузка текстуры высокого разрешения -----------------
 procedure TfrmAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
   if FileExists(FileName) then
@@ -810,8 +778,7 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------
-
+//-------------------------- Обработка клавиш --------------------------------
 procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
 
 begin
@@ -845,19 +812,25 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------
-//  FPS
-//------------------------------------------------------------------
+//---------------- Таймер с частотой кадров FPS в статус строке ---------------
 procedure TfrmAstroScene.TimerTimer(Sender: TObject);
 begin
-//  Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
-  StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
+//Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
+  StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0); // FPS
   SceneViewer.ResetPerformanceMonitor;
 end;
 
-//------------------------------------------------------------------
-// Солнечная система
-//------------------------------------------------------------------
+
+//------------------------------- Планеты ------------------------------------
+procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
+var
+  PlanetName: TFileName;
+begin
+  PlanetName := CurrentStar + TToolButton(Sender).ImageName;
+  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
+end;
+
+//-------------------------- Солнечная система -------------------------------
 procedure TfrmAstroScene.miSolarSystemClick(Sender: TObject);
 begin
   with TfrmSolarsys.Create(Self) do
@@ -868,9 +841,7 @@ begin
     end;
 end;
 
-// -----------------------------------------------------------------
-// Star system
-// -----------------------------------------------------------------
+// ------------------ Экзопланетная система звезды ===-------------------------
 procedure TfrmAstroScene.miStellarSystemClick(Sender: TObject);
 begin
   with TfrmStarsys.Create(Self) do
@@ -881,17 +852,13 @@ begin
     end;
 end;
 
-//------------------------------------------------------------------
-// Clear tvMoons
-//------------------------------------------------------------------
+//-------------------------- Очитить дерево просмотра -------------------------
 procedure TfrmAstroScene.miClearTreeViewClick(Sender: TObject);
 begin
   tvMoons.Items.Clear;
 end;
 
-//------------------------------------------------------------------
-//  Open miOpenFile
-//------------------------------------------------------------------
+//---------------------- Открыть файл экзопланетной системы -----------------
 procedure TfrmAstroScene.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
@@ -918,9 +885,7 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------
-// miFileSaveAs Planet system
-//------------------------------------------------------------------
+//-------------------- Меню FileSaveAs экзопланетной системы ------------------
 procedure TfrmAstroScene.miFileSaveAsClick(Sender: TObject);
 begin
   SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
@@ -933,22 +898,31 @@ begin
   end;
 end;
 
-//------------------------- Options --------------------------------
+//------------------------- Показать опции ------------------------------------
 procedure TfrmAstroScene.miOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
 
-//------------------------- Settings --------------------------------
+//------------------------ Показать настройки --------------------------------
 procedure TfrmAstroScene.miSettingsClick(Sender: TObject);
 begin
   frmSettings.Show;
 end;
 
+//----------------------- О программе -----------------------------------------
+procedure TfrmAstroScene.About1Click(Sender: TObject);
+begin
+  inherited;
+  with TFormAbout.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
 
-//------------------------------------------------------------------
-// Help in wiki
-//------------------------------------------------------------------
+//-------------------------- Справка в Wiki ----------------------------------
 procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
 var
   S: String;
@@ -985,7 +959,7 @@ begin
   Close;
 end;
 
-initialization //-----------------------------------------------------------
+initialization //==============================================================
 
   FormatSettings.DecimalSeparator := '.';
 

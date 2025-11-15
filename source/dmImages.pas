@@ -10,8 +10,10 @@ uses
   Vcl.VirtualImageList,
   Vcl.BaseImageCollection,
   Vcl.ImageCollection,
+  Vcl.Controls,
+
   GLS.BaseClasses,
-  GLS.Material, Vcl.Controls;
+  GLS.Material;
 
 type
   TDataModuleImages = class(TDataModule)
@@ -32,7 +34,7 @@ type
 var
   DataModuleImages: TDataModuleImages;
 
-implementation
+implementation //=============================================================
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
