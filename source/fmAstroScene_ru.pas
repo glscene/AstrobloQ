@@ -161,6 +161,7 @@ type
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
+    GLPlanetMaps: TGLMaterialLibrary;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -313,16 +314,25 @@ begin
   end;
 end;
 
+//---------------------------- Выбор планет в тулбаре ------------------------
+procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
+var
+  PlanetName: TFileName;
+begin
+  PlanetName := CurrentStar + TToolButton(Sender).ImageName;
+  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
+end;
+
+
 //------------------ Выбор лун в дереве просмотра  ----------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 begin
   PlanetPath := CurrentStar + tvMoons.Selected.Text;
 
-//  From LibMaterial or virtualimage collection
-///  tvMoons.Images := dfImages.ImgVirtPlanets;
+  //  From LibMaterial or virtualimage collection
+///  tvMoons.Images := dmImages.ImgVirtPlanets;
 
-  // Selection planet.3ds
-  if tvMoons.Selected.StateIndex = -1 then
+  if tvMoons.Selected.StateIndex = -1 then   // planet.3ds
   begin
     sfPlanet.Visible := True;
     sfPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
@@ -380,7 +390,7 @@ begin
 end;
 
 
-//-------------------------- Генератор экзопланетной системы -----------------
+//--------------------- Генератор экзопланетной системы -----------------------
 procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -819,15 +829,6 @@ begin
   SceneViewer.ResetPerformanceMonitor;
 end;
 
-
-//------------------------------- Планеты ------------------------------------
-procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
-var
-  PlanetName: TFileName;
-begin
-  PlanetName := CurrentStar + TToolButton(Sender).ImageName;
-  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
-end;
 
 //-------------------------- Солнечная система -------------------------------
 procedure TfrmAstroScene.miSolarSystemClick(Sender: TObject);

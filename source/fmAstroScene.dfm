@@ -758,7 +758,6 @@ object frmAstroScene: TfrmAstroScene
         end
       end
       object acPlanet: TGLActor
-        Visible = False
         Interval = 100
         MaterialLibrary = MatLib
         LightmapLibrary = MatLib
@@ -767,7 +766,6 @@ object frmAstroScene: TfrmAstroScene
         Material.MaterialLibrary = MatLib
         Direction.Coordinates = {00000000000080BF0000000000000000}
         Up.Coordinates = {00000000000000000000803F00000000}
-        Visible = False
         MaterialLibrary = MatLib
         object dcMoon: TGLDummyCube
           Up.Coordinates = {FC9D7FB10000803F0000000000000000}

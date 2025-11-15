@@ -36,6 +36,8 @@ object frmAstroScene: TfrmAstroScene
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitLeft = 315
+    ExplicitTop = 51
   end
   object PanelLeft: TPanel
     Left = 0
@@ -504,8 +506,8 @@ object frmAstroScene: TfrmAstroScene
   end
   object Scene: TGLScene
     ObjectsSorting = osNone
-    Left = 618
-    Top = 67
+    Left = 386
+    Top = 83
     object StarSkyDome: TGLSkyDome
       Bands = <
         item
@@ -678,13 +680,13 @@ object frmAstroScene: TfrmAstroScene
     Scene = Scene
     MaxDeltaTime = 0.050000000000000000
     OnProgress = CadencerProgress
-    Left = 310
-    Top = 169
+    Left = 382
+    Top = 153
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 509
-    Top = 140
+    Left = 941
+    Top = 132
   end
   object MatLib: TGLMaterialLibrary
     Materials = <
@@ -88934,8 +88936,8 @@ object frmAstroScene: TfrmAstroScene
         Name = 'clouds'
         Tag = 0
       end>
-    Left = 744
-    Top = 69
+    Left = 504
+    Top = 85
   end
   object TexCombiner: TGLTexCombineShader
     Combiners.Strings = (
@@ -88944,12 +88946,12 @@ object frmAstroScene: TfrmAstroScene
       '')
     DesignTimeEnabled = False
     MaterialLibrary = MatLib
-    Left = 746
-    Top = 200
+    Left = 618
+    Top = 160
   end
   object MainMenu: TMainMenu
-    Left = 501
-    Top = 56
+    Left = 869
+    Top = 128
     object miOpen: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object miFileOpen: TMenuItem
@@ -89047,11 +89049,56 @@ object frmAstroScene: TfrmAstroScene
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 524
-    Top = 297
+    Left = 876
+    Top = 289
   end
   object SaveDialog: TSaveDialog
-    Left = 313
-    Top = 299
+    Left = 985
+    Top = 291
+  end
+  object GLPlanetMaps: TGLMaterialLibrary
+    Materials = <
+      item
+        Name = 'Sun'
+        Tag = 0
+      end
+      item
+        Name = 'Mercury'
+        Tag = 0
+      end
+      item
+        Name = 'Venus'
+        Tag = 0
+      end
+      item
+        Name = 'Earth'
+        Tag = 0
+      end
+      item
+        Name = 'Mars'
+        Tag = 0
+      end
+      item
+        Name = 'Jupiter'
+        Tag = 0
+      end
+      item
+        Name = 'Saturn'
+        Tag = 0
+      end
+      item
+        Name = 'Uranus'
+        Tag = 0
+      end
+      item
+        Name = 'Neptune'
+        Tag = 0
+      end
+      item
+        Name = 'Pluto'
+        Tag = 0
+      end>
+    Left = 504
+    Top = 152
   end
 end

@@ -24,7 +24,6 @@ type
     VirtConstelSymbols: TVirtualImageList;
     ConstelFigures: TImageCollection;
     ImageListInterface: TImageList;
-    GLPlanetMaps: TGLMaterialLibrary;
     PlanetMaps: TImageCollection;
     VirtPlanetMaps: TVirtualImageList;
   private
