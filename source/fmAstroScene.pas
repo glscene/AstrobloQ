@@ -178,7 +178,6 @@ type
     StaticText3: TStaticText;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
-    ListBoxMoons: TListBox;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);

@@ -161,7 +161,6 @@ type
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
-    ListBoxMoons: TListBox;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -286,7 +285,7 @@ begin
 
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
 
-  ListBoxMoons.Items.LoadFromFile(CurrentStar + 'sun_moons.csv');
+  ///tvMoons.LoadFromFile(CurrentStar + 'sun_moons.csv');
 end;
 
 //------------------  Скрыть или показать панели и тулбары -------------------
