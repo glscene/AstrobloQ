@@ -36,8 +36,6 @@ object frmAstroScene: TfrmAstroScene
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitLeft = 315
-    ExplicitTop = 51
   end
   object PanelLeft: TPanel
     Left = 0
@@ -113,6 +111,7 @@ object frmAstroScene: TfrmAstroScene
         0000010622044004380442043E043D0400002D00000008000000080000000100
         0000FFFFFFFF0000000000000000000000000001071F0440043E044204350443
         044104}
+      ExplicitHeight = 518
     end
     object StaticText1: TStaticText
       Left = 1
@@ -504,7 +503,7 @@ object frmAstroScene: TfrmAstroScene
       end
     end
   end
-  object Scene: TGLScene
+  object GLScene: TGLScene
     ObjectsSorting = osNone
     Left = 386
     Top = 83
@@ -629,13 +628,13 @@ object frmAstroScene: TfrmAstroScene
       end
       object acPlanet: TGLActor
         Interval = 100
-        MaterialLibrary = MatLib
-        LightmapLibrary = MatLib
+        MaterialLibrary = GLMatLib
+        LightmapLibrary = GLMatLib
         object dcMoon: TGLDummyCube
           Up.Coordinates = {FC9D7FB10000803F0000000000000000}
           CubeSize = 1.000000000000000000
           object Moon: TGLSphere
-            Material.MaterialLibrary = MatLib
+            Material.MaterialLibrary = GLMatLib
             Material.LibMaterialName = 'moon'
             Direction.Coordinates = {D947AABE616D713F0000000000000000}
             Position.Coordinates = {CDCCECC100000000000000000000803F}
@@ -649,11 +648,11 @@ object frmAstroScene: TfrmAstroScene
         end
       end
       object ffPlanet: TGLFreeForm
-        Material.MaterialLibrary = MatLib
+        Material.MaterialLibrary = GLMatLib
         Direction.Coordinates = {00000000000080BF0000000000000000}
         Up.Coordinates = {00000000000000000000803F00000000}
         Visible = False
-        MaterialLibrary = MatLib
+        MaterialLibrary = GLMatLib
       end
       object DirectOpenGL: TGLDirectOpenGL
         Visible = False
@@ -676,19 +675,19 @@ object frmAstroScene: TfrmAstroScene
       end
     end
   end
-  object Cadencer: TGLCadencer
-    Scene = Scene
+  object GLCadencer: TGLCadencer
+    Scene = GLScene
     MaxDeltaTime = 0.050000000000000000
-    OnProgress = CadencerProgress
+    OnProgress = GLCadencerProgress
     Left = 382
     Top = 153
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 941
-    Top = 132
+    Left = 1005
+    Top = 84
   end
-  object MatLib: TGLMaterialLibrary
+  object GLMatLib: TGLMaterialLibrary
     Materials = <
       item
         Name = 'earthDay'
@@ -40389,7 +40388,7 @@ object frmAstroScene: TfrmAstroScene
         Material.Texture.FilteringQuality = tfAnisotropic
         Material.Texture.Disabled = False
         Texture2Name = 'earthNight4096'
-        Shader = TexCombiner
+        Shader = GLTexCombiner
       end
       item
         Name = 'earthNight'
@@ -63369,7 +63368,7 @@ object frmAstroScene: TfrmAstroScene
           9AFBA520845349482114D2520845349482114D2520845349482114D252084534
           882114A20845288210F62A50FE13C7B2847FFFD9}
         Texture2Name = 'earthDay4096'
-        Shader = TexCombiner
+        Shader = GLTexCombiner
       end
       item
         Name = 'moon'
@@ -88939,19 +88938,19 @@ object frmAstroScene: TfrmAstroScene
     Left = 504
     Top = 85
   end
-  object TexCombiner: TGLTexCombineShader
+  object GLTexCombiner: TGLTexCombineShader
     Combiners.Strings = (
       'Tex0:=Tex0;'
       'Tex1:=InterPolate(Tex0, Tex1, PrimaryColor);'
       '')
     DesignTimeEnabled = False
-    MaterialLibrary = MatLib
-    Left = 618
-    Top = 160
+    MaterialLibrary = GLMatLib
+    Left = 506
+    Top = 152
   end
   object MainMenu: TMainMenu
     Left = 869
-    Top = 128
+    Top = 80
     object miOpen: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object miFileOpen: TMenuItem
@@ -89049,56 +89048,11 @@ object frmAstroScene: TfrmAstroScene
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 876
-    Top = 289
+    Left = 868
+    Top = 161
   end
   object SaveDialog: TSaveDialog
-    Left = 985
-    Top = 291
-  end
-  object GLPlanetMaps: TGLMaterialLibrary
-    Materials = <
-      item
-        Name = 'Sun'
-        Tag = 0
-      end
-      item
-        Name = 'Mercury'
-        Tag = 0
-      end
-      item
-        Name = 'Venus'
-        Tag = 0
-      end
-      item
-        Name = 'Earth'
-        Tag = 0
-      end
-      item
-        Name = 'Mars'
-        Tag = 0
-      end
-      item
-        Name = 'Jupiter'
-        Tag = 0
-      end
-      item
-        Name = 'Saturn'
-        Tag = 0
-      end
-      item
-        Name = 'Uranus'
-        Tag = 0
-      end
-      item
-        Name = 'Neptune'
-        Tag = 0
-      end
-      item
-        Name = 'Pluto'
-        Tag = 0
-      end>
-    Left = 504
-    Top = 152
+    Left = 1001
+    Top = 171
   end
 end

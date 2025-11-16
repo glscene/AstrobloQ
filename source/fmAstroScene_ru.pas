@@ -74,19 +74,19 @@ uses
 
 type
   TfrmAstroScene = class(TfrmFirst)
-    Scene: TGLScene;
+    GLScene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
     sfPlanet: TGLSphere;
     DirectOpenGL: TGLDirectOpenGL;
-    Cadencer: TGLCadencer;
+    GLCadencer: TGLCadencer;
     Timer: TTimer;
     Moon: TGLSphere;
     dcStar: TGLDummyCube;
     dcMoon: TGLDummyCube;
     LensStar: TGLLensFlare;
-    MatLib: TGLMaterialLibrary;
-    TexCombiner: TGLTexCombineShader;
+    GLMatLib: TGLMaterialLibrary;
+    GLTexCombiner: TGLTexCombineShader;
     CameraControler: TGLCamera;
     StarSkyDome: TGLSkyDome;
     ConstLines: TGLLines;
@@ -161,11 +161,10 @@ type
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
-    GLPlanetMaps: TGLMaterialLibrary;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
-    procedure CadencerProgress(Sender: TObject; const deltaTime, newTime: Double);
+    procedure GLCadencerProgress(Sender: TObject; const deltaTime, newTime: Double);
     procedure SceneViewerMouseDown(Sender: TObject;
       Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure SceneViewerMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
@@ -394,7 +393,7 @@ end;
 procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
 begin
   Timer.Enabled := False;
-  Cadencer.Enabled := False;
+  GLCadencer.Enabled := False;
 (*
   if FileExists(AppPath + 'EarthAbcde.exe') then
     ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
@@ -407,7 +406,7 @@ begin
     end;
 
   Timer.Enabled := True;
-  Cadencer.Enabled := True;
+  GLCadencer.Enabled := True;
 end;
 
 
@@ -416,8 +415,8 @@ procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // если нет мультитекстурирования и combiner то без света городов
-  MatLib.Materials[0].Shader := TexCombiner;
-  MatLib.Materials[0].Texture2Name := 'earthNight';
+  GLMatLib.Materials[0].Shader := GLTexCombiner;
+  GLMatLib.Materials[0].Texture2Name := 'earthNight';
 end;
 
 //----------------------------- Цвет атмосферы -------------------------------
@@ -658,7 +657,7 @@ end;
 
 
 //------------------------- Процесс каденсера --------------------------------
-procedure TfrmAstroScene.CadencerProgress(Sender: TObject; const deltaTime,
+procedure TfrmAstroScene.GLCadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   d : Double;
@@ -789,7 +788,6 @@ end;
 
 //-------------------------- Обработка клавиш --------------------------------
 procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
-
 begin
   case Key of
     'e', 'E': // Планета
@@ -806,9 +804,9 @@ begin
         try
           if DirectoryExists(CurrentStar) then
           begin
-            LoadHighResTexture(MatLib.Materials[0], 'earth_4096.jpg');
-            LoadHighResTexture(MatLib.Materials[1], 'earth_night_4096.jpg');
-            LoadHighResTexture(MatLib.Materials[2], 'moon.jpg');  //need moon_4096
+            LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
           end;
           SceneViewer.Buffer.AntiAliasing := aa2x;
         finally

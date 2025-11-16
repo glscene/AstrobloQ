@@ -278,7 +278,7 @@ end;
 //------------------------------------------------------------------
 procedure TfrmOptions.chbRotateClick(Sender: TObject);
 begin
-  frmAstroScene.Cadencer.Enabled := chbRotate.Checked;
+  frmAstroScene.GLCadencer.Enabled := chbRotate.Checked;
 end;
 
 //-----------------------------------------------------------------

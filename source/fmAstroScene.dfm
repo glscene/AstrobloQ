@@ -524,9 +524,9 @@ object frmAstroScene: TfrmAstroScene
       TabOrder = 1
     end
   end
-  object Scene: TGLScene
+  object GLScene: TGLScene
     ObjectsSorting = osNone
-    Left = 306
+    Left = 378
     Top = 67
     object StarSkyDome: TGLSkyDome
       Bands = <
@@ -575,7 +575,7 @@ object frmAstroScene: TfrmAstroScene
       DepthOfView = 200000.000000000000000000
       FocalLength = 99.545860290527340000
       NearPlaneBias = 0.100000001490116100
-      TargetObject = dcStar
+      TargetObject = dcPlanet
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0000803F000000000000803F0000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
@@ -588,14 +588,36 @@ object frmAstroScene: TfrmAstroScene
     object CameraControler: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 50.000000000000000000
-      TargetObject = dcStar
+      TargetObject = dcPlanet
       Position.Coordinates = {0000803F000000000000803F0000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
       Up.Coordinates = {00000000000000000000803F00000000}
     end
-    object dcStar: TGLDummyCube
+    object dcPlanet: TGLDummyCube
       ObjectsSorting = osNone
       CubeSize = 1000.000000000000000000
+      object ffPlanet: TGLFreeForm
+        Material.MaterialLibrary = GLMatLib
+        Direction.Coordinates = {00000000000080BF0000000000000000}
+        Up.Coordinates = {00000000000000000000803F00000000}
+        MaterialLibrary = GLMatLib
+        object dcMoon: TGLDummyCube
+          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+          CubeSize = 1.000000000000000000
+          object Moon: TGLSphere
+            Material.MaterialLibrary = GLMatLib
+            Material.LibMaterialName = 'moon'
+            Direction.Coordinates = {D947AABE616D713F0000000000000000}
+            Position.Coordinates = {CDCCECC100000000000000000000803F}
+            Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
+            TurnAngle = -170.000000000000000000
+            Up.Coordinates = {00000000000000000000803F00000000}
+            Radius = 0.500000000000000000
+            Slices = 32
+            Stacks = 32
+          end
+        end
+      end
       object Atmosphere: TGLAtmosphere
         Visible = False
       end
@@ -757,33 +779,6 @@ object frmAstroScene: TfrmAstroScene
           Parts = [toSides, toStartDisk, toStopDisk]
         end
       end
-      object acPlanet: TGLActor
-        Interval = 100
-        MaterialLibrary = MatLib
-        LightmapLibrary = MatLib
-      end
-      object ffPlanet: TGLFreeForm
-        Material.MaterialLibrary = MatLib
-        Direction.Coordinates = {00000000000080BF0000000000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
-        MaterialLibrary = MatLib
-        object dcMoon: TGLDummyCube
-          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
-          CubeSize = 1.000000000000000000
-          object Moon: TGLSphere
-            Material.MaterialLibrary = MatLib
-            Material.LibMaterialName = 'moon'
-            Direction.Coordinates = {D947AABE616D713F0000000000000000}
-            Position.Coordinates = {CDCCECC100000000000000000000803F}
-            Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
-            TurnAngle = -170.000000000000000000
-            Up.Coordinates = {00000000000000000000803F00000000}
-            Radius = 0.500000000000000000
-            Slices = 32
-            Stacks = 32
-          end
-        end
-      end
       object DirectOpenGL: TGLDirectOpenGL
         Visible = False
         UseBuildList = False
@@ -805,19 +800,19 @@ object frmAstroScene: TfrmAstroScene
       end
     end
   end
-  object Cadencer: TGLCadencer
-    Scene = Scene
+  object GLCadencer: TGLCadencer
+    Scene = GLScene
     MaxDeltaTime = 0.050000000000000000
-    OnProgress = CadencerProgress
-    Left = 310
-    Top = 169
+    OnProgress = GLCadencerProgress
+    Left = 374
+    Top = 145
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 509
-    Top = 140
+    Left = 1037
+    Top = 84
   end
-  object MatLib: TGLMaterialLibrary
+  object GLMatLib: TGLMaterialLibrary
     Materials = <
       item
         Name = 'earthDay'
@@ -40518,7 +40513,7 @@ object frmAstroScene: TfrmAstroScene
         Material.Texture.FilteringQuality = tfAnisotropic
         Material.Texture.Disabled = False
         Texture2Name = 'earthNight4096'
-        Shader = TexCombiner
+        Shader = GLTexCombiner
       end
       item
         Name = 'earthNight'
@@ -63498,7 +63493,7 @@ object frmAstroScene: TfrmAstroScene
           9AFBA520845349482114D2520845349482114D2520845349482114D252084534
           882114A20845288210F62A50FE13C7B2847FFFD9}
         Texture2Name = 'earthDay4096'
-        Shader = TexCombiner
+        Shader = GLTexCombiner
       end
       item
         Name = 'moon'
@@ -89065,23 +89060,23 @@ object frmAstroScene: TfrmAstroScene
         Name = 'clouds'
         Tag = 0
       end>
-    Left = 744
+    Left = 496
     Top = 69
   end
-  object TexCombiner: TGLTexCombineShader
+  object GLTexCombiner: TGLTexCombineShader
     Combiners.Strings = (
       'Tex0:=Tex0;'
       'Tex1:=InterPolate(Tex0, Tex1, PrimaryColor);'
       '')
     DesignTimeEnabled = False
-    MaterialLibrary = MatLib
-    Left = 746
-    Top = 200
+    MaterialLibrary = GLMatLib
+    Left = 498
+    Top = 144
   end
   object MainMenu: TMainMenu
     Images = DataModuleImages.ImageListInterface
-    Left = 501
-    Top = 56
+    Left = 925
+    Top = 80
     object miOpen: TMenuItem
       Caption = '&File'
       object miFileOpen: TMenuItem
@@ -89185,11 +89180,11 @@ object frmAstroScene: TfrmAstroScene
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 532
-    Top = 297
+    Left = 924
+    Top = 177
   end
   object SaveDialog: TSaveDialog
-    Left = 313
-    Top = 299
+    Left = 1041
+    Top = 179
   end
 end
