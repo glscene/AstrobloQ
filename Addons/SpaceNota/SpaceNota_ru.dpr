@@ -11,7 +11,6 @@ uses
   GLS.MusicKeys in 'code\GLS.MusicKeys.pas',
   fsSetColors_ru in 'code\fsSetColors_ru.pas' {frmSetColors},
   fsSettings_ru in 'code\fsSettings_ru.pas' {frmSettings},
-  fsSequencer_ru in '..\Sequencer\fsSequencer_ru.pas' {frmSequencer},
   dmBase in '..\..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\..\source\dmImages.pas' {DataModuleImages: TDataModule},
@@ -37,6 +36,5 @@ begin
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmMediaPlayer, frmMediaPlayer);
   Application.CreateForm(TfrmSetColors, frmSetColors);
-  Application.CreateForm(TfrmSequencer, frmSequencer);
   Application.Run;
 end.

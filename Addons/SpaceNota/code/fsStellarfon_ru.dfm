@@ -237,10 +237,6 @@ object frmStellarfon: TfrmStellarfon
         Caption = #1052#1080#1076#1080'-'#1082#1083#1072#1074#1080#1072#1090#1091#1088#1099'...'
         OnClick = miMidikeysClick
       end
-      object miSequencer: TMenuItem
-        Caption = #1057#1077#1082#1074#1077#1085#1089#1086#1088'...'
-        OnClick = miSequencerClick
-      end
       object miMediaPlayer: TMenuItem
         Caption = #1052#1077#1076#1080#1072#1087#1083#1077#1077#1088'...'
         OnClick = miMediaPlayerClick

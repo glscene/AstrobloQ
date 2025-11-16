@@ -74,7 +74,6 @@ uses
   fsColorFigures_ru,
 
   fsMidikeys_ru,
-  fsSequencer_ru,
   fsAbout_ru
   ;
 
@@ -237,7 +236,6 @@ type
     miMediaPlayer: TMenuItem;
     BeaconDevice1: TBeaconDevice;
     N12: TMenuItem;
-    miSequencer: TMenuItem;
     procedure miAboutClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -256,7 +254,6 @@ type
     procedure chbEnsembleClick(Sender: TObject);
     procedure miMidikeysClick(Sender: TObject);
     procedure miMediaPlayerClick(Sender: TObject);
-    procedure miSequencerClick(Sender: TObject);
   public
     PathToAssets, PathToData : TFileName;
     mx: Integer;
@@ -712,16 +709,6 @@ begin
     CloseMidiDevice;
   OpenMidiDevice
 }
-end;
-
-procedure TfrmStellarfon.miSequencerClick(Sender: TObject);
-begin
-  with TfrmSequencer.Create(nil) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 // ---------------------- מ ןנמדנאללו -----------------------------------------
