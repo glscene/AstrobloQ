@@ -4,14 +4,14 @@
 program Texoneta;
 uses
   Forms,
-  ftMeshEditor in '..\source\tex\ftMeshEditor.pas' {frmMeshEditor},
-  ftMeshData in '..\source\tex\ftMeshData.pas' {FormMeshData},
-  ftSpacePilot in '..\source\tex\ftSpacePilot.pas' {frmSpacePilot},
+  ftMeshEditor in '..\source\texo\ftMeshEditor.pas' {frmMeshEditor},
+  ftMeshData in '..\source\texo\ftMeshData.pas' {FormMeshData},
+  ftSpacePilot in '..\source\texo\ftSpacePilot.pas' {frmSpacePilot},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
-  ftCyborg in '..\source\tex\ftCyborg.pas' {frmCyborg},
-  ftRobot in '..\source\tex\ftRobot.pas' {frmRobot},
-  Tex.BoneUtils in '..\source\tex\Tex.BoneUtils.pas',
-  Tex.Globals in '..\source\tex\Tex.Globals.pas',
+  ftCyborg in '..\source\texo\ftCyborg.pas' {frmCyborg},
+  ftRobot in '..\source\texo\ftRobot.pas' {frmRobot},
+  Texo.BoneUtils in '..\source\texo\Texo.BoneUtils.pas',
+  Texo.Globals in '..\source\texo\Texo.Globals.pas',
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
@@ -20,10 +20,10 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTexoneta in '..\source\tex\ftTexoneta.pas' {frmTexoneta},
-  ftLocations in '..\source\tex\ftLocations.pas' {FormLocations},
+  ftTexoneta in '..\source\texo\ftTexoneta.pas' {frmTexoneta},
+  ftLocations in '..\source\texo\ftLocations.pas' {FormLocations},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  ftCETInet in '..\source\tex\ftCETInet.pas' {FormCETI};
+  ftCETInet in '..\source\texo\ftCETInet.pas' {FormCETI};
 
 {$R *.res}
 

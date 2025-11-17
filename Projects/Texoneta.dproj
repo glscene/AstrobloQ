@@ -107,15 +107,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\tex\ftMeshEditor.pas">
+        <DCCReference Include="..\source\texo\ftMeshEditor.pas">
             <Form>frmMeshEditor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tex\ftMeshData.pas">
+        <DCCReference Include="..\source\texo\ftMeshData.pas">
             <Form>FormMeshData</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tex\ftSpacePilot.pas">
+        <DCCReference Include="..\source\texo\ftSpacePilot.pas">
             <Form>frmSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -123,16 +123,16 @@
             <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tex\ftCyborg.pas">
+        <DCCReference Include="..\source\texo\ftCyborg.pas">
             <Form>frmCyborg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tex\ftRobot.pas">
+        <DCCReference Include="..\source\texo\ftRobot.pas">
             <Form>frmRobot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tex\Tex.BoneUtils.pas"/>
-        <DCCReference Include="..\source\tex\Tex.Globals.pas"/>
+        <DCCReference Include="..\source\texo\Texo.BoneUtils.pas"/>
+        <DCCReference Include="..\source\texo\Texo.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -156,16 +156,16 @@
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\tex\ftTexoneta.pas">
+        <DCCReference Include="..\source\texo\ftTexoneta.pas">
             <Form>frmTexoneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tex\ftLocations.pas">
+        <DCCReference Include="..\source\texo\ftLocations.pas">
             <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\tex\ftCETInet.pas">
+        <DCCReference Include="..\source\texo\ftCETInet.pas">
             <Form>FormCETI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
