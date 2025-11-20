@@ -304,6 +304,7 @@ begin
   (**)
 end;
 
+
 procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
@@ -654,10 +655,9 @@ var
   p : TAffineVector;
 begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
-
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
- /// LSSun.Position.AsAffineVector := p;   //stop sun motion
+  /// LSSun.Position.AsAffineVector := p;   //stop sun motion
 
   // rotation of the Moon around self and Earth
   // direction could be changed!
@@ -665,7 +665,6 @@ begin
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   Moon.TurnAngle := 180 - dcMoon.TurnAngle;
-
   // smooth moving for camera
   if (dmy <> 0) or (dmx <> 0) then
   begin
@@ -700,13 +699,14 @@ begin
     ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
   end;
 
- // Rotations
+ // Moving and rotations
+ (*
   if frmOptions.chbRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
   end;
-
+  *)
 end;
 
 //---------------------------- Clear tvMoons ----------------------------------
@@ -758,12 +758,12 @@ end;
 procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
-  f: Single;
+  F: single;
 begin
   if (WheelDelta > 0) or (CameraControler.Position.VectorLength > 0.90) then
   begin
-    f := Power(1.05, WheelDelta * (1 / 120));
-    CameraControler.AdjustDistanceToTarget(f);
+    F := PowerSingle(1.05, WheelDelta * (1 / 120));
+    CameraControler.AdjustDistanceToTarget(F);
   end;
   Handled := True;
 end;

@@ -536,7 +536,7 @@ object frmAstroScene: TfrmAstroScene
         SplineMode = lsmSegments
         Options = []
       end
-      object ConstBounds: TGLLines
+      object ConstBorders: TGLLines
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {0000000000000000000080BF00000000}
         AntiAliased = True

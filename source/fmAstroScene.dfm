@@ -17,6 +17,7 @@ object frmAstroScene: TfrmAstroScene
   Position = poScreenCenter
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
+  OnMouseWheel = FormMouseWheel
   OnShow = FormShow
   TextHeight = 17
   object SceneViewer: TGLSceneViewer
@@ -599,6 +600,7 @@ object frmAstroScene: TfrmAstroScene
       object ffPlanet: TGLFreeForm
         Material.MaterialLibrary = GLMatLib
         Direction.Coordinates = {00000000000080BF0000000000000000}
+        Position.Coordinates = {00000000000000000000A0C00000803F}
         Up.Coordinates = {00000000000000000000803F00000000}
         MaterialLibrary = GLMatLib
         object dcMoon: TGLDummyCube

@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="StarboxC\StarboxС_ru.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\StarViewerC_ru.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\GenStarС_ru.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\StarlifeС.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\StarCubeС_ru.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\EarthMarsCx.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\HygSQLiteС.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="StarboxС_ru">
+        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj"/>
+    </Target>
+    <Target Name="StarboxС_ru:Clean">
+        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarboxС_ru:Make">
+        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarViewerC_ru">
+        <MSBuild Projects="StarboxC\StarViewerC_ru.cbproj"/>
+    </Target>
+    <Target Name="StarViewerC_ru:Clean">
+        <MSBuild Projects="StarboxC\StarViewerC_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarViewerC_ru:Make">
+        <MSBuild Projects="StarboxC\StarViewerC_ru.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="GenStarС_ru">
+        <MSBuild Projects="StarboxC\GenStarС_ru.cbproj"/>
+    </Target>
+    <Target Name="GenStarС_ru:Clean">
+        <MSBuild Projects="StarboxC\GenStarС_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GenStarС_ru:Make">
+        <MSBuild Projects="StarboxC\GenStarС_ru.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarlifeС">
+        <MSBuild Projects="StarboxC\StarlifeС.cbproj"/>
+    </Target>
+    <Target Name="StarlifeС:Clean">
+        <MSBuild Projects="StarboxC\StarlifeС.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarlifeС:Make">
+        <MSBuild Projects="StarboxC\StarlifeС.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarCubeС_ru">
+        <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj"/>
+    </Target>
+    <Target Name="StarCubeС_ru:Clean">
+        <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarCubeС_ru:Make">
+        <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="EarthMarsCx">
+        <MSBuild Projects="StarboxC\EarthMarsCx.cbproj"/>
+    </Target>
+    <Target Name="EarthMarsCx:Clean">
+        <MSBuild Projects="StarboxC\EarthMarsCx.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EarthMarsCx:Make">
+        <MSBuild Projects="StarboxC\EarthMarsCx.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="HygSQLiteС">
+        <MSBuild Projects="StarboxC\HygSQLiteС.cbproj"/>
+    </Target>
+    <Target Name="HygSQLiteС:Clean">
+        <MSBuild Projects="StarboxC\HygSQLiteС.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HygSQLiteС:Make">
+        <MSBuild Projects="StarboxC\HygSQLiteС.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="StarboxС_ru;StarViewerC_ru;GenStarС_ru;StarlifeС;StarCubeС_ru;EarthMarsCx;HygSQLiteС"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="StarboxС_ru:Clean;StarViewerC_ru:Clean;GenStarС_ru:Clean;StarlifeС:Clean;StarCubeС_ru:Clean;EarthMarsCx:Clean;HygSQLiteС:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="StarboxС_ru:Make;StarViewerC_ru:Make;GenStarС_ru:Make;StarlifeС:Make;StarCubeС_ru:Make;EarthMarsCx:Make;HygSQLiteС:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

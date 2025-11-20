@@ -90,7 +90,7 @@ type
     CameraControler: TGLCamera;
     StarSkyDome: TGLSkyDome;
     ConstLines: TGLLines;
-    ConstBounds: TGLLines;
+    ConstBorders: TGLLines;
     MainMenu: TMainMenu;
     miView: TMenuItem;
     miOpen: TMenuItem;
@@ -629,14 +629,13 @@ begin
   sl := TStringList.Create;
   line := TStringList.Create;
 //  sl.LoadFromFile(DataDir + '\constellation\ConstB.cby');  // GaiaSky
-  sl.LoadFromFile(DataDir + '\constellation\ConstBorders.csv');
-//  sl.LoadFromFile(DataDir + '\constellation\Constellations.csv'); // Eleanor
-///  sl.LoadFromFile(DataDir + '\constellation\and.txt');  // Polygon of Andromeda
+//  sl.LoadFromFile(DataDir + '\constellation\ConstBorders.csv'); // Lutz
+  sl.LoadFromFile(DataDir + '\constellation\borders\ant.txt');  // Polygon of Antlia
   for i := 0 to sl.Count - 1 do
   begin
     line.CommaText := sl[i];
     skypos := LonLatToPos(StrToFloatDef(line[0], 0), StrToFloatDef(line[1], 0));
-    ConstBounds.AddNode(skypos);
+    ConstBorders.AddNode(skypos);
   end;
   sl.Free;
   line.Free;
@@ -645,7 +644,7 @@ end;
 //---------------------- Меню границ созвездий --------------------------------
 procedure TfrmAstroScene.miViewConstBordersClick(Sender: TObject);
 begin
-  ConstBounds.Nodes.Clear;
+  ConstBorders.Nodes.Clear;
   miViewConstBorders.Checked := not miViewConstBorders.Checked;
   if miViewConstborders.Checked then
   begin
@@ -676,7 +675,7 @@ begin
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   Moon.TurnAngle := 180 - dcMoon.TurnAngle;
 
-  // гладкое перемещение камеры
+  // плавное перемещение камеры
   if (dmy <> 0) or (dmx <> 0) then
   begin
     CameraControler.MoveAroundTarget(ClampValue(dmy * 0.3, -5, 5),
@@ -700,12 +699,12 @@ begin
     ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
   end;
   // постепенное появление/исчезновение границ созвездий
-  if ConstBounds.LineColor.Alpha <> ConstBordersAlpha then
+  if ConstBorders.LineColor.Alpha <> ConstBordersAlpha then
   begin
-    ConstBounds.LineColor.Alpha :=
-      ClampValue(ConstBounds.LineColor.Alpha + Sign(ConstBordersAlpha -
-                 ConstBounds.LineColor.Alpha) * deltaTime, 0, 0.5);
-    ConstBounds.Visible := (ConstBounds.LineColor.Alpha > 0);
+    ConstBorders.LineColor.Alpha :=
+      ClampValue(ConstBorders.LineColor.Alpha + Sign(ConstBordersAlpha -
+                 ConstBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
+    ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
   end;
 
   if frmOptions.CheckBoxRotate.Checked then

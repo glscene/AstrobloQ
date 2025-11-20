@@ -27,6 +27,9 @@
         <Projects Include="StarboxD\EarthMarsDx.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="StarMotions\pdPlanetFF.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -107,14 +110,23 @@
     <Target Name="EarthMarsDx:Make">
         <MSBuild Projects="StarboxD\EarthMarsDx.dproj" Targets="Make"/>
     </Target>
+    <Target Name="pdPlanetFF">
+        <MSBuild Projects="StarMotions\pdPlanetFF.dproj"/>
+    </Target>
+    <Target Name="pdPlanetFF:Clean">
+        <MSBuild Projects="StarMotions\pdPlanetFF.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pdPlanetFF:Make">
+        <MSBuild Projects="StarMotions\pdPlanetFF.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarCells;StarCellx;StarProj;StarSyx;SpaceLink;SpaceNota_ru;SuperGems;EarthMarsDx"/>
+        <CallTarget Targets="StarCells;StarCellx;StarProj;StarSyx;SpaceLink;SpaceNota_ru;SuperGems;EarthMarsDx;pdPlanetFF"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarCells:Clean;StarCellx:Clean;StarProj:Clean;StarSyx:Clean;SpaceLink:Clean;SpaceNota_ru:Clean;SuperGems:Clean;EarthMarsDx:Clean"/>
+        <CallTarget Targets="StarCells:Clean;StarCellx:Clean;StarProj:Clean;StarSyx:Clean;SpaceLink:Clean;SpaceNota_ru:Clean;SuperGems:Clean;EarthMarsDx:Clean;pdPlanetFF:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarCells:Make;StarCellx:Make;StarProj:Make;StarSyx:Make;SpaceLink:Make;SpaceNota_ru:Make;SuperGems:Make;EarthMarsDx:Make"/>
+        <CallTarget Targets="StarCells:Make;StarCellx:Make;StarProj:Make;StarSyx:Make;SpaceLink:Make;SpaceNota_ru:Make;SuperGems:Make;EarthMarsDx:Make;pdPlanetFF:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
