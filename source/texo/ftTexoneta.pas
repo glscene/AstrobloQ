@@ -307,6 +307,7 @@ type
       CountriesLoaded: Boolean;
     markersCounted, MarkersDisplaySelection: Integer;
     TemporalFlowDateTime: TDateTime;
+    SkyLines: TGLLines;
     procedure LoadConstellationLines;
     procedure ClearLocations;
     procedure DrawPoints;
@@ -336,10 +337,10 @@ implementation  // ============================================================
 {$R *.dfm}
 
 uses
-  Astro.Camera,
-  Astro.SkyBodies, // Asteroid as monolith rock
   Texo.Globals,
   // accurate movements left for later... or the astute reader
+  Astro.Camera,
+  Astro.SkyBodies, // Asteroid as monolith rock
   // ftAllShapeLoader,  // Cities, Countries
   ftMeshEditor,
   ftLocations, // Data input for a planet
@@ -418,8 +419,8 @@ begin
 
   top := FormPlanetY;
   left := FormPlanetX;
-  if FileExists(DataDir + 'Texosfera.chm') then
-    Application.HelpFile := DataDir + 'Texosfera.chm'; // not ready yet
+  if FileExists(TexoDir + 'Texosfera.chm') then
+    Application.HelpFile := TexoDir + 'Texosfera.chm'; // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;
@@ -452,7 +453,7 @@ begin
 
   if FileExists(DataDir + 'earth_bump.bmp') then
     MatLib.Materials[4].Material.Texture.Image.LoadFromFile(DataDir + 'earth_bump.bmp')
-    // GLMaterialLibrary.AddTextureMaterial('EarthBump',EarthProjectPath+'earth_bump.bmp')
+///    MatLib.Materials[4].AddTextureMaterial('EarthBump',DataDir + 'earth_bump.bmp')
   else
     NightSkyorBumpyLand1.Enabled := False;
   GlsGlowLF.Visible := False;

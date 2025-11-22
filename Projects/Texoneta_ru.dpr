@@ -19,7 +19,7 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTexoneta_ru in '..\source\texo\ftTexoneta_ru.pas' {frmTexneta},
+  ftTexoneta_ru in '..\source\texo\ftTexoneta_ru.pas' {frmTexoneta},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
@@ -30,7 +30,7 @@ begin
   Application.Initialize;
 
   Application.Title := 'Texneta';
-  Application.CreateForm(TfrmTexneta, frmTexneta);
+  Application.CreateForm(TfrmTexoneta, frmTexoneta);
   Application.CreateForm(TFormLocations, FormLocations);
   Application.CreateForm(TfrmMeshData, frmMeshData);
   Application.CreateForm(TfrmLoadModel, frmLoadModel);

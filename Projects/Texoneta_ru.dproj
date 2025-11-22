@@ -159,7 +159,7 @@
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\texo\ftTexoneta_ru.pas">
-            <Form>frmTexneta</Form>
+            <Form>frmTexoneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout_ru.pas">
