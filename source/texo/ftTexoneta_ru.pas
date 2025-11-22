@@ -99,7 +99,7 @@ type
     TexCombiner: TGLTexCombineShader;
     CameraControler: TGLCamera;
     SkyDome: TGLSkyDome;
-    ConstellationLines: TGLLines;
+    ConstLines: TGLLines;
     MainMenu: TMainMenu;
     miFile: TMenuItem;
     miSpinThePlanet: TMenuItem;
@@ -167,7 +167,7 @@ type
     miSatelliteLight: TMenuItem;
     miCyborg: TMenuItem;
     miRobot: TMenuItem;
-    miConstellationLines: TMenuItem;
+    miConstLines: TMenuItem;
     miStars: TMenuItem;
     miSunFlare: TMenuItem;
     miHighResolution: TMenuItem;
@@ -286,7 +286,7 @@ type
     procedure miStarsClick(Sender: TObject);
     procedure miSunFlareClick(Sender: TObject);
     procedure miAsteroidsClick(Sender: TObject);
-    procedure miConstellationLinesClick(Sender: TObject);
+    procedure miConstLinesClick(Sender: TObject);
     procedure miAtmosphereClick(Sender: TObject);
     procedure miCloudsClick(Sender: TObject);
     procedure miHighResolutionClick(Sender: TObject);
@@ -309,7 +309,8 @@ type
       CountriesLoaded: Boolean;
     markersCounted, MarkersDisplaySelection: Integer;
     TemporalFlowDateTime: TDateTime;
-    procedure LoadConstellationLines;
+    SkyLines: TGLLines;
+    procedure LoadConstLines;
     procedure ClearLocations;
     procedure DrawPoints;
   public
@@ -391,7 +392,6 @@ begin
   else
   begin
   end;
-
   FormPlanetX := 0;
   FormPlanetY := 0;
   FormCyborgX := 123;
@@ -416,7 +416,6 @@ begin
   /// StartedNameNumber:='Alle Alle in Free';
 
   DoSaver;
-
   top := FormPlanetY;
   left := FormPlanetX;
   if FileExists(TexoDir + 'Texosfera.chm') then
@@ -435,7 +434,8 @@ begin
   DataDir := GetDataPath() + 'constellation\';
   SetCurrentDir(DataDir);
   if FileExists(DataDir + 'ConstLines.dat') then
-    LoadConstellationLines;
+    LoadConstLines;
+(**)
   timeMultiplier := 1;
   // Cloud material should be in MatLib
   DataDir := GetDataPath() + 'starsys\sun\';
@@ -962,31 +962,51 @@ begin
 end;
 
 // ----------------------- Загрузка линий созвездий --------------------------
-procedure TfrmTexneta.LoadConstellationLines;
+procedure TfrmTexneta.LoadConstLines;
 var
-  sl, line: TStrings;
+  sl, Line: TStrings;
   pos1, pos2: TAffineVector;
 
 var
   i: Integer;
 begin
   sl := TStringList.CReate;
-  line := TStringList.CReate;
+  Line := TStringList.CReate;
   sl.LoadFromFile(DataDir + 'ConstLines.dat');
+//  sl.LoadFromFile(DataDir + 'asterisms.csv');
+//  sl.LoadFromFile(DataDir + 'ConstCenters.csv');
   for i := 0 to sl.Count - 1 do
   begin
-    line.CommaText := sl[i];
-    pos1 := LonLatToPos(StrToFloatDef(line[0]), StrToFloatDef(line[1]));
-    ConstellationLines.AddNode(pos1);
-    pos2 := LonLatToPos(StrToFloatDef(line[2]), StrToFloatDef(line[3]));
-    ConstellationLines.AddNode(pos2);
+  (*
+    Line.CommaText := sl[i];
+    pos1 := LonLatToPos(StrToFloatDef(Line[0]), StrToFloatDef(Line[1]));
+    ConstLines.AddNode(pos1);
+    pos2 := LonLatToPos(StrToFloatDef(Line[2]), StrToFloatDef(Line[3]));
+    ConstLines.AddNode(pos2);
+    ConstLines.LineColor.RandomColor;
+   *)
+//    (*
+      SkyLines := TGLLines.CreateAsChild(SkyDome);
+      SkyLines.SplineMode := lsmSegments; // may be lsmLines;
+      Line.CommaText := sl[i];
+      pos1 := LonLatToPos(StrToFloatDef(Line[0]), StrToFloatDef(Line[1]));
+      SkyLines.AddNode(pos2);
+//      SetVector(pos1, Random()-0.5, Random()-0.5, Random()-0.5);
+//      SetVector(pos2, Random()-0.5, Random()-0.5, Random()-0.5);
+      pos2 := LonLatToPos(StrToFloatDef(Line[2]), StrToFloatDef(Line[3]));
+      SkyLines.AddNode(pos2);
+      SkyLines.NodesAspect := lnaInvisible; // may also be lnaAxes; lnaCube;
+      SkyLines.NodeColor.RandomColor;
+//      SkyLines.AddNode(pos1);
+//      SkyLines.AddNode(pos2);
+      SkyLines.LineColor.RandomColor;
+    (**)
   end;
   sl.Free;
-  line.Free;
+  Line.Free;
 end;
 
-// ----------------------------------------------------------------------
-
+// ----------------------------- TimerTimer -----------------------------------
 procedure TfrmTexneta.TimerTimer(Sender: TObject);
 begin
   If MarkersDisplaySelection < 4 then
@@ -999,6 +1019,7 @@ begin
   GLSceneViewer.ResetPerformanceMonitor;
 end;
 
+// ----------------------------- CadencerProgress -----------------------------
 procedure TfrmTexneta.CadencerProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
@@ -1108,15 +1129,16 @@ begin
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
   // smooth constellation appearance/disappearance
-  with ConstellationLines.LineColor do
+  with ConstLines.LineColor do
     if Alpha <> constellationsAlpha then
     begin
       Alpha := ClampValue(Alpha + SignStrict(constellationsAlpha - Alpha) *
         deltaTime, 0, 0.5);
-      ConstellationLines.Visible := (Alpha > 0);
+      ConstLines.Visible := (Alpha > 0);
     end;
 end;
 
+//-------------------------- GLSceneViewerMouseDown ---------------------------
 procedure TfrmTexneta.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -1124,6 +1146,7 @@ begin
   my := Y;
 end;
 
+//-------------------------- GLSceneViewerMouseMove ---------------------------
 procedure TfrmTexneta.GLSceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -1150,6 +1173,7 @@ begin
   end;
 end;
 
+// ---------------------- FormMouseWheel ------------------------------------
 procedure TfrmTexneta.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
@@ -1182,6 +1206,7 @@ begin
   GLSceneViewer.OnMouseMove := GLSceneViewerMouseMove;
 end;
 
+//------------------------- FormKeyPress ------------------------------------
 procedure TfrmTexneta.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
@@ -1223,7 +1248,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.miRoundClick(Sender: TObject);
 begin
   miRound.Checked := True;
@@ -1260,8 +1284,7 @@ begin
   ptsLocations.Style := psSquare;
 end;
 
-// -------------------------------------------------------------------
-
+// -------------------- miSelectedSatellite -----------------------------------
 procedure TfrmTexneta.miSelectedSatelliteClick(Sender: TObject);
 begin
   miSelectedSatellite.Checked := not miSelectedSatellite.Checked;
@@ -1283,7 +1306,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.miAddaPeopleClick(Sender: TObject);
 begin
   FormLocations.Show;
@@ -1302,22 +1324,25 @@ begin
   miSpinSolarSystem.Checked := (not miSpinSolarSystem.Checked);
 end;
 
-// -------------------------------------------------------------------
-
+// ----------------------- miStars -------------------------------------------
 procedure TfrmTexneta.miStarsClick(Sender: TObject);
 begin
+  // remove to settings
   miStars.Checked := (not miStars.Checked);
   SkyDome.Visible := miStars.Checked;
 end;
 
+// ----------------------- miSunFlare ----------------------------------------
 procedure TfrmTexneta.miSunFlareClick(Sender: TObject);
 begin
+  // remove to settings
   miSunFlare.Checked := (not miSunFlare.Checked);
   GLLensFlare1.Visible := miSunFlare.Checked;
 end;
 
 procedure TfrmTexneta.miLocationsClick(Sender: TObject);
 begin
+  // remove to settings
   miLocations.Checked := (not miLocations.Checked);
   MemberGB.Visible := miLocations.Checked;
   GLSceneViewer.Invalidate;
@@ -1330,12 +1355,14 @@ begin
   GlsGlowLF.Visible := False;
 end;
 
-procedure TfrmTexneta.miConstellationLinesClick(Sender: TObject);
+//------------------------ miConstLines -------------------------------
+procedure TfrmTexneta.miConstLinesClick(Sender: TObject);
 begin
-  miConstellationLines.Checked := (not miConstellationLines.Checked);
+  miConstLines.Checked := (not miConstLines.Checked);
   constellationsAlpha := 0.5 - constellationsAlpha;
 end;
 
+//--------------------------- miClouds ----------------------------------------
 procedure TfrmTexneta.miCloudsClick(Sender: TObject);
 begin
   miClouds.Checked := not miClouds.Checked;
@@ -1357,8 +1384,7 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-// -------------------------------------------------------------------
-
+// --------------------- miFlipFlopLand ---------------------------------------
 procedure TfrmTexneta.miFlipFlopLandClick(Sender: TObject);
   procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
@@ -1395,6 +1421,7 @@ begin
   end;
 end;
 
+//----------------------- miHighResolution ------------------------------------
 procedure TfrmTexneta.miHighResolutionClick(Sender: TObject);
   procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
@@ -1441,6 +1468,7 @@ begin
   miHighResolution.Checked := highResResourcesLoaded;
 end;
 
+//------------------------ miCountries ---------------------------------------
 procedure TfrmTexneta.miCountriesClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'country.dat') then
@@ -1452,8 +1480,7 @@ begin
     showmessage(ShpPath + 'country.dat missing');
 end;
 
-// -------------------------------------------------------------------
-
+// ------------------------ DisplayCountries ---------------------------------
 procedure TfrmTexneta.DisplayCountries(Show: Boolean);
 begin
   If (not Show) then
@@ -1478,8 +1505,7 @@ begin
   end;
 end;
 
-// -------------------------------------------------------------------
-
+// ---------------------- LoadCountryShapes ----------------------------------
 function TfrmTexneta.LoadCountryShapes: Boolean;
 var
   INumparts, INumPoints, NumParts, NumPoints: Integer;
@@ -1695,9 +1721,7 @@ end;
   end;{Any Layers ?}
   End; *)
 
-// -------------------------------------------------------------------
-{ CAPITALS.SHP }
-// -------------------------------------------------------------------
+// --------------------- miShowCapitals --------------------------------------
 procedure TfrmTexneta.miShowCapitalsClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'CAPITALS.dat') then
@@ -1733,8 +1757,7 @@ begin
   end;
 end;
 
-// -------------------------------------------------------------------
-
+// --------------------- LoadCapitalShapes ------------------------------------
 function TfrmTexneta.LoadCapitalShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
@@ -1785,6 +1808,7 @@ begin
   ShpCapPoints.StructureChanged;
 end;
 
+//------------------------- miShowCities -------------------------------------
 procedure TfrmTexneta.miShowCitiesClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'cities.dat') then
@@ -1796,8 +1820,7 @@ begin
     showmessage(ShpPath + 'Cities.dat missing');
 end;
 
-// -------------------------------------------------------------------
-
+// -------------------- DisplayCities ----------------------------------------
 procedure TfrmTexneta.DisplayCities(Show: Boolean);
 begin
   If (not Show) then
@@ -1822,6 +1845,7 @@ begin
   end;
 end;
 
+//------------------------------ LoadCityShapes -------------------------------
 function TfrmTexneta.LoadCityShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
@@ -1849,9 +1873,9 @@ begin
   AssignFile(ShapeFileOut, ShpPath + 'cities.dat');
   Reset(ShapeFileOut);
   for i := 1 to 9 do
-    Read(ShapeFileOut, ShapetypeD);
-  Read(ShapeFileOut, ShapetypeD);
-  Count := Trunc(ShapetypeD);
+    Read(ShapeFileOut, ShapeTypeD);
+  Read(ShapeFileOut, ShapeTypeD);
+  Count := Trunc(ShapeTypeD);
 
   for i := 1 to Count do
   begin
@@ -1871,7 +1895,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.miGLSTemporalFlowClick(Sender: TObject);
 begin
   miGLSTemporalFlow.Checked := (not miGLSTemporalFlow.Checked);
@@ -1888,7 +1911,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.FlowTimerTimer(Sender: TObject);
 begin
   { Every 'tick' of time Cycle the display according to GLS Start Date
@@ -1912,6 +1934,7 @@ begin
   DrawPoints;
 end;
 
+//------------------------- miCore --------------------------------------------
 procedure TfrmTexneta.miCoreClick(Sender: TObject);
 begin
   miCore.Checked := not miCore.Checked;
@@ -1928,9 +1951,7 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-// -------------------------------------------------------------------
-// Tools
-// -------------------------------------------------------------------
+// --------------------- miDisplayToolBar -------------------------------------
 procedure TfrmTexneta.miDisplayToolBarClick(Sender: TObject);
 begin
   miDisplayToolBar.Checked := (not miDisplayToolBar.Checked);
@@ -1952,9 +1973,7 @@ begin
   end;
 end;
 
-// -------------------------------------------------------------------
-
-// MeshShow
+// --------------------- miMeshEditor -----------------------------------------
 procedure TfrmTexneta.miMeshEditorClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -2008,9 +2027,7 @@ begin
   Cadencer.Enabled := True;
 end;
 
-// -------------------------------------------------------------------
-// Астропилот
-// -------------------------------------------------------------------
+// ---------------------- miSpacePilot ---------------------------------------
 procedure TfrmTexneta.miSpacePilotClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -2028,6 +2045,7 @@ begin
   Cadencer.Enabled := True;
 end;
 
+//---------------------------- miCETInet --------------------------------------
 procedure TfrmTexneta.miCETInetClick(Sender: TObject);
 begin
   //
@@ -2080,7 +2098,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.cbTypesChange(Sender: TObject);
 begin
   DrawPoints; // cbTypes
@@ -2092,7 +2109,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.NameCBChange(Sender: TObject);
 var
   i: Integer;
@@ -2236,6 +2252,7 @@ begin
   end;
 end;
 
+//------------------------- Labels -------------------------------------------
 procedure TfrmTexneta.lblEMailClick(Sender: TObject);
 begin
   ShellExecute(0, 'open', PChar('mailto:' + lblEMail.Caption), '', '', SW_SHOW);
@@ -2257,7 +2274,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 procedure TfrmTexneta.GlowUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   { if (Button = btNext) then
@@ -2268,8 +2284,6 @@ begin
   GlsGlowLF.Size := GlowUpDown.Position;
 end;
 
-// -------------------------------------------------------------------
-//
 // -------------------------------------------------------------------
 procedure TfrmTexneta.ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
