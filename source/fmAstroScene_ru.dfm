@@ -88998,8 +88998,22 @@ object frmAstroScene: TfrmAstroScene
         Caption = #1057#1074#1077#1090' '#1075#1086#1088#1086#1076#1086#1074
       end
     end
+    object N5: TMenuItem
+      Caption = #1050#1072#1088#1090#1099
+      object miConstAtlas: TMenuItem
+        Caption = #1040#1090#1083#1072#1089' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+        OnClick = miConstAtlasClick
+      end
+      object miSkyAreas: TMenuItem
+        Caption = #1055#1083#1086#1097#1072#1076#1080' '#1085#1077#1073#1086#1089#1074#1086#1076#1072
+        OnClick = miSkyAreasClick
+      end
+      object miMoonMap: TMenuItem
+        Caption = #1050#1072#1088#1090#1072' '#1051#1091#1085#1099
+      end
+    end
     object miMonitor: TMenuItem
-      Caption = '&'#1052#1086#1085#1080#1090#1086#1088
+      Caption = '&'#1052#1086#1076#1077#1083#1100
       object miSolarSystem: TMenuItem
         Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miSolarSystemClick

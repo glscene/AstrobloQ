@@ -24,9 +24,9 @@ uses
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   frParams_ru in '..\source\frParams_ru.pas' {FrameParamsR: TFrame},
-  fmStarsys_ru in '..\source\fmStarsys_ru.pas' {frmStarsys},
-  fmSolarsys_ru in '..\source\fmSolarsys_ru.pas' {frmSolarsys},
-  fmConstells_ru in '..\source\fmConstells_ru.pas' {frmConstells},
+  fmStarsys_ru in '..\source\fmStarsys_ru.pas' {FormStarsys},
+  fmSolarsys_ru in '..\source\fmSolarsys_ru.pas' {FormSolarsys},
+  faConstells_ru in '..\source\astro\faConstells_ru.pas' {FormConstells},
   Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
@@ -37,7 +37,8 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings};
+  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
+  faSkyAreas_ru in '..\source\astro\faSkyAreas_ru.pas' {FormSkyAreas};
 
 {$R *.res}
 

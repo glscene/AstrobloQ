@@ -257,12 +257,12 @@ const
 var
   frmGalaqtium: TfrmGalaqtium;
 
-implementation //-------------------------------------------------------------
+implementation //=============================================================
 
 {$R *.dfm}
 
 uses
-  fStarProj,
+  fgStarProj,
   fgExoplanets_ru;
 
 

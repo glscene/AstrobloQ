@@ -1,6 +1,6 @@
 unit fgOptions_ru;
 (*
-  This unit is part of the Galaxy
+  Опции настроек Galaqtium
 *)
 interface
 
@@ -14,7 +14,6 @@ uses
   System.IniFiles,
   System.Math,
   System.ImageList,
-
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -25,7 +24,6 @@ uses
   Vcl.WinXCtrls,
   Vcl.WinXPickers,
   Vcl.WinXCalendars,
-
   Vcl.Samples.Spin,
   Vcl.CheckLst,
   Vcl.ColorGrd,
@@ -103,16 +101,14 @@ type
     stEqual: TStaticText;
     lbFl: TLabel;
     lbFb: TLabel;
-    EditLt: TEdit;
     EditLs: TEdit;
     lbFn: TLabel;
     LabelLs: TLabel;
-    LabelLt: TLabel;
     nbFt: TNumberBox;
     lbFt: TLabel;
     nbHg: TNumberBox;
     LabelHg: TLabel;
-    EditDt: TEdit;
+    EditDp: TEdit;
     LabelVg: TLabel;
     EditVg: TEdit;
     nbFp: TNumberBox;
@@ -163,14 +159,17 @@ type
     LabelRc: TLabel;
     NumberBoxRc: TNumberBox;
     LabelPlanets: TLabel;
-    ButtonCalculate: TButton;
-    Button1: TButton;
-    Label1: TLabel;
-    Edit1: TEdit;
-    Label3: TLabel;
-    Edit2: TEdit;
+    GroupBox1: TGroupBox;
+    EditLt: TEdit;
+    LabelLt: TLabel;
     Edit3: TEdit;
     Label6: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    ButtonCalculate: TButton;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -188,14 +187,14 @@ type
 var
   frmOptions: TfrmOptions;
 
-implementation //------------------------------------------------------------
+implementation //=============================================================
 
 {$R *.dfm}
 
 uses
   fgGalaqtium_ru;
 
-//---------------------------------------------------------------------------
+//--------------------------- Создание формы ---------------------------------
 procedure TfrmOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
@@ -203,7 +202,7 @@ var
   S: String;
 begin
   ReadIniFile;
-  // Including UI styles in a combobox
+  // Включение стилей UI в комбобоксе настроек
   for StyleName in TStyleManager.StyleNames do
     ComboBoxVclStyles.Items.Add(StyleName);
   ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
@@ -217,7 +216,7 @@ begin
  	chlbStarClasses.Checked[5] := True;
  	chlbStarClasses.Checked[6] := True;
 
-  // Setting TreeView Icon Indexes
+  // Установка индексов в TreeView
   for I := 0 to tvSettings.Items.Count - 1 do
   begin
     tvSettings.Items[I].ImageIndex := 0;
@@ -233,7 +232,7 @@ begin
   trbVelocityChange(Self);
 end;
 
-//--------------------------------------------------------------------
+//---------------------- tvSettings -------------------------------------------
 procedure TfrmOptions.tvSettingsClick(Sender: TObject);
 begin
   inherited;
@@ -250,7 +249,7 @@ begin
   end;
 end;
 
-//--------------------------------------------------------------------
+//---------------------- trbVelocity ------------------------------------------
 procedure TfrmOptions.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
@@ -265,13 +264,13 @@ begin
 end;
 
 
-//-----------------------------------------------------
+//--------------------------- Вычисление --------------------------------------
 procedure TfrmOptions.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Nt, Np : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
-  Ds, // Distance between stars
-  Dt: Extended; // Distance between technospheres
+  Ds, // Расстояние между звёздами
+  Dp: Extended; // Расстояние между планетами
   Lc, Ls: LONG64;
 begin
   Ns := nbNs.Value;
@@ -286,24 +285,24 @@ begin
   Ls := StrToInt64(EditLs.Text);
   Ratio := Lc/Ls;
 *)
-  // Number of stars with exoplanets
-  Nt := {1 Earth +} Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
+  // Число звёзд с экзопланетами без учёта долголетия в Ratio
+  Nt := {1 Earth +} Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));
   EditNt.Text := FloatToStr(Nt);
 
-  // Calculating volume of galaxy cylinder
+  // Определение объёма цилиндра галактики
   Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
   EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
-  // Average distance betweem galaxy stars
+  // Средне расстояние между звёздами в галактике
   Ratio := Vg/Ns;
   Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
-  // Distance betweem stars
+  // Расстояние между звёздами
   EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
 
-  // Average distance betweem exoplanet systems
+  // Среднее расстояние между планетными системами
   Ratio := Np*Vg/Nt;
-  Dt := Power(Ratio, 1/3);
-  // Output of distance betweem exoplanet systems
-  EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
+  Dp := Power(Ratio, 1/3);
+  // Вывод расстояния между экзопланетными системами
+  EditDp.Text := FloatToStrF(Dp, ffFixed, 25, 2);
 end;
 
 procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
@@ -316,9 +315,7 @@ begin
   Result := ShowModal = mrOk;
 end;
 
-//--------------------------------------------------------------------
-// Reading Inifile sections and setting the interface language
-//--------------------------------------------------------------------
+//--------------------- ReadIniFile --------------------------------------------
 procedure TfrmOptions.ReadIniFile;
 var
   IniFile: TIniFile;
@@ -333,7 +330,7 @@ begin
   end;
 end;
 
-// --------------------------------------------------------------------
+// ---------------------- WriteIniFile -----------------------------------------
 procedure TfrmOptions.WriteIniFile;
 var
   IniFile: TIniFile;
@@ -348,7 +345,7 @@ begin
   inherited;
 end;
 
-// -----------------------------------------------------------------------
+// ----------------------- ButtonOk -------------------------------------------
 procedure TfrmOptions.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;

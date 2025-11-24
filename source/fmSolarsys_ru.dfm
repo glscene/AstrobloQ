@@ -1,4 +1,4 @@
-object frmSolarsys: TfrmSolarsys
+object FormSolarsys: TFormSolarsys
   Left = 193
   Top = 128
   Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072

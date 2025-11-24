@@ -59,7 +59,7 @@ procedure TFrameParamsR.ShowParams;
     ed.Height := 20;
     ed.OnKeyPress := edKeyPress;
     ed.OnChange := edChange;
-    param := GetPropInfo(frmSolarsys.PickObject, PChar(prm));
+    param := GetPropInfo(FormSolarsys.PickObject, PChar(prm));
     if param <> nil then
     begin
       if param.PropType^.Kind = tkInteger then
@@ -68,9 +68,9 @@ procedure TFrameParamsR.ShowParams;
         ed.Tag := 11;
       case ed.Tag of
         10:
-          ed.Text := IntToStr(GetOrdProp(frmSolarsys.PickObject, param));
+          ed.Text := IntToStr(GetOrdProp(FormSolarsys.PickObject, param));
         11:
-          ed.Text := Format('%.4f', [GetFloatProp(frmSolarsys.PickObject, param)]);
+          ed.Text := Format('%.4f', [GetFloatProp(FormSolarsys.PickObject, param)]);
       end;
     end;
   end;
@@ -144,7 +144,7 @@ var
 begin
   with TEdit(Sender) do
   begin
-    param := GetPropInfo(frmSolarsys.PickObject, pchar(Hint));
+    param := GetPropInfo(FormSolarsys.PickObject, pchar(Hint));
     if param <> nil then
     begin
       case Tag of
@@ -152,13 +152,13 @@ begin
           begin
             if not TryStrToInt(Text, i) then
               i := 0;
-            SetOrdProp(frmSolarsys.PickObject, param, i);
+            SetOrdProp(FormSolarsys.PickObject, param, i);
           end;
         11:
           begin
             if not TryStrToFloat(Text, f) then
               f := 0;
-            SetFloatProp(frmSolarsys.PickObject, param, f);
+            SetFloatProp(FormSolarsys.PickObject, param, f);
           end;
       end;
     end;

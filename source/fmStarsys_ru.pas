@@ -57,7 +57,7 @@ uses
   ;
 
 type
-  TfrmStarsys = class(TfrmFirst)
+  TFormStarsys = class(TfrmFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
@@ -179,7 +179,7 @@ type
   end;
 
 var
-  frmStarsys: TfrmStarsys;
+  FormStarsys: TFormStarsys;
 const
   cOmega = 10;  // angular velocity
 
@@ -187,7 +187,7 @@ implementation //-----------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmStarsys.FormCreate;
+procedure TFormStarsys.FormCreate;
 begin
   PathToData := GetDataPath();
   CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
@@ -258,7 +258,7 @@ begin
 end;
 
 //------------------------------ FormShow -------------------------------------
-procedure TfrmStarsys.FormShow(Sender: TObject);
+procedure TFormStarsys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
@@ -267,7 +267,7 @@ begin
 end;
 
 // ------------------- Скрыть или показать панели -----------------------------
-procedure TfrmStarsys.miHidePanelsClick(Sender: TObject);
+procedure TFormStarsys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
@@ -279,7 +279,7 @@ begin
 end;
 
 // Показ недр перенести в диалог опций!
-procedure TfrmStarsys.miInnerCoreClick(Sender: TObject);
+procedure TFormStarsys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   TreeViewClick(Self);
@@ -288,7 +288,7 @@ end;
 
 
 // ---------------------- Прогресс каденсера ---------------------------------
-procedure TfrmStarsys.CadencerProgress(Sender: TObject;
+procedure TFormStarsys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
@@ -330,7 +330,7 @@ begin
 end;
 
 //---------------------- Показать линии орбит --------------------------------
-procedure TfrmStarsys.cbOrbitClick(Sender: TObject);
+procedure TFormStarsys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
@@ -345,20 +345,20 @@ begin
 end;
 
 //--------------------- Вращение планетной системы ----------------------------
-procedure TfrmStarsys.cbRotationClick(Sender: TObject);
+procedure TFormStarsys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
 end;
 
 //----------------------- Показать обитаемую зону звезды ----------------------
-procedure TfrmStarsys.cbHabitableZoneClick(Sender: TObject);
+procedure TFormStarsys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
 //--------------------- Изменение дерева просмотра ----------------------------
-procedure TfrmStarsys.TreeViewChange(Sender: TObject; Node: TTreeNode);
+procedure TFormStarsys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
   begin
@@ -370,7 +370,7 @@ begin
 end;
 
 //------------------------ клик мыши по узлу дерева ---------------------------
-procedure TfrmStarsys.TreeViewClick(Sender: TObject);
+procedure TFormStarsys.TreeViewClick(Sender: TObject);
 var
   i: integer;
 begin
@@ -724,7 +724,7 @@ end;
 
 // MouseDown
 //
-procedure TfrmStarsys.SceneViewerMouseDown;
+procedure TFormStarsys.SceneViewerMouseDown;
 begin
   newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
@@ -737,7 +737,7 @@ end;
 
 
 //--------------------- Определение объекта по щелчку мыши--------------------
-procedure TfrmStarsys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
+procedure TFormStarsys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
   Node: TTreeNode;
@@ -755,7 +755,7 @@ begin
 end;
 
 //---------------------- Обновление дерева просмотра --------------------------
-procedure TfrmStarsys.UpdateTreeView;
+procedure TFormStarsys.UpdateTreeView;
 
 begin
   TreeView.Items.Clear;
@@ -763,7 +763,7 @@ begin
 end;
 
 // ------------------------ AddBBox -------------------------------------------
-procedure TfrmStarsys.AddBBox;
+procedure TFormStarsys.AddBBox;
 const
   c = 0.5;
   d = 0.3;
@@ -825,7 +825,7 @@ begin
 end;
 
 //---------------------------- UpdateBBox ------------------------------------
-procedure TfrmStarsys.UpdateBBox;
+procedure TFormStarsys.UpdateBBox;
 var
   v1, v2: TVector3f;
 
@@ -853,7 +853,7 @@ begin
 end;
 
 //------------------------ Sys_doglRender ------------------------------------
-procedure TfrmStarsys.Sys_doglRender;
+procedure TFormStarsys.Sys_doglRender;
 begin
   if PickObject <> nil then
   begin
@@ -865,7 +865,7 @@ begin
 end;
 
 //--------------------------- AsyncTimerTimer ---------------------------------
-procedure TfrmStarsys.AsyncTimerTimer;
+procedure TFormStarsys.AsyncTimerTimer;
 begin
   Caption := 'Stellar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
@@ -873,13 +873,13 @@ end;
 
 
 //------------------------------- Form Close
-procedure TfrmStarsys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormStarsys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
 end;
 
 //----------------------------------- Выход -----------------------------------
-procedure TfrmStarsys.Exit1Click(Sender: TObject);
+procedure TFormStarsys.Exit1Click(Sender: TObject);
 begin
   Exit;
 end;

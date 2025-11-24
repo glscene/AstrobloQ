@@ -139,9 +139,9 @@ object FormStarsys: TFormStarsys
       Height = 119
       Align = alTop
       TabOrder = 5
-      ExplicitLeft = 31
-      ExplicitTop = 410
-      ExplicitWidth = 105
+      ExplicitLeft = 1
+      ExplicitTop = 38
+      ExplicitWidth = 134
       ExplicitHeight = 119
     end
   end

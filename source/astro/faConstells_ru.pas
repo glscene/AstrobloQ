@@ -1,4 +1,4 @@
-unit fmConstells;
+unit faConstells_ru;
 
 interface
 
@@ -47,7 +47,7 @@ uses
   ;
 
 type
-  TfrmConstells = class(TForm)
+  TFormConstells = class(TForm)
     PanelLeft: TPanel;
     StatusBar1: TStatusBar;
     PanelRight: TPanel;
@@ -81,7 +81,6 @@ type
     procedure tvZodiacsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
-    procedure FormShow(Sender: TObject);
   private
     DataDir, CatalogDir, StarDir, FileName : TFileName;
     ConstNames, PlanetMap: TFileName;
@@ -90,16 +89,16 @@ type
   end;
 
 var
-  frmConstells: TfrmConstells;
+  FormConstells: TFormConstells;
 
-implementation //--------------------------------------------------------
+implementation //==============================================================
 
 {$R *.dfm}
 
 //-----------------------------------------------------------------------
-// Loading data and maps for SkyDome
+// «агрузка данных и карт при создании формы
 //-----------------------------------------------------------------------
-procedure TfrmConstells.FormCreate(Sender: TObject);
+procedure TFormConstells.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
@@ -135,20 +134,10 @@ begin
   ffPlanet.Assign(sfPlanet);
 end;
 
-procedure TfrmConstells.FormShow(Sender: TObject);
-begin
-  // Constellations, goto to And
-  frmConstells.tvConstellations.Select(frmConstells.tvConstellations.Items[0]);
-  frmConstells.tvConstellationsClick(Self);
-  // Zodiacs
-  frmConstells.tvZodiacs.Select(frmConstells.tvZodiacs.Items[0]);  // goto to Aries
-  frmConstells.tvZodiacsClick(Self);
-end;
-
 //-----------------------------------------------------------------------
-// Open File of constellations
+// ќткрыть файл созвездий
 //-----------------------------------------------------------------------
-procedure TfrmConstells.Open1Click(Sender: TObject);
+procedure TFormConstells.Open1Click(Sender: TObject);
 begin
   // Load next skyculture for constellations ...
   DataModuleDialogs.OpenDialog.Filter := 'Constellation (*.dat)|*.dat';
@@ -164,17 +153,9 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-//
+// јктиваци€ узла дерева просмотра созвездий
 //-----------------------------------------------------------------------
-procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
-begin
-  VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
-end;
-
-//-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
-procedure TfrmConstells.tvConstellationsContextPopup(Sender: TObject;
+procedure TFormConstells.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
   tmpNode: TTreeNode;
@@ -185,9 +166,17 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-//
+//  ¬ывод карты созвезди€ по индексу узла дерева просмотра
 //-----------------------------------------------------------------------
-procedure TfrmConstells.tvZodiacsClick(Sender: TObject);
+procedure TFormConstells.tvConstellationsClick(Sender: TObject);
+begin
+  VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
+end;
+
+//-----------------------------------------------------------------------
+//  ¬ывод карты зодиакального созвезди€ по индексу узла дерева просмотра
+//-----------------------------------------------------------------------
+procedure TFormConstells.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
@@ -195,7 +184,7 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.Save1Click(Sender: TObject);
+procedure TFormConstells.Save1Click(Sender: TObject);
 begin
   // Save TreeView
 end;
@@ -203,7 +192,7 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.SaveAs1Click(Sender: TObject);
+procedure TFormConstells.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
@@ -211,17 +200,15 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
+procedure TFormConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 begin
- //
   HandleKeys(deltaTime);
-
 end;
 
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
+procedure TFormConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
 
@@ -230,7 +217,7 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.HandleKeys(d: Double);
+procedure TFormConstells.HandleKeys(d: Double);
 begin
   if (IsKeyDown('W') or IsKeyDown('Z')) then
     Camera.Move(d);
@@ -249,7 +236,7 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.miSettingsClick(Sender: TObject);
+procedure TFormConstells.miSettingsClick(Sender: TObject);
 begin
 //
 end;
@@ -257,7 +244,7 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.miTexCombineClick(Sender: TObject);
+procedure TFormConstells.miTexCombineClick(Sender: TObject);
 begin
   with TFormTexCombine.Create(Self) do
     try
@@ -270,7 +257,7 @@ end;
 //-----------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------
-procedure TfrmConstells.Exit1Click(Sender: TObject);
+procedure TFormConstells.Exit1Click(Sender: TObject);
 begin
   Close;
 end;

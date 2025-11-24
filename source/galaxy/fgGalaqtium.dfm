@@ -185,7 +185,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762

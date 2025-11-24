@@ -1,9 +1,9 @@
-object FormConstBorders: TFormConstBorders
+object FormConstPolygons: TFormConstPolygons
   Left = 0
   Top = 0
   Caption = 'Constellation polygons'
-  ClientHeight = 443
-  ClientWidth = 676
+  ClientHeight = 605
+  ClientWidth = 866
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,16 +17,16 @@ object FormConstBorders: TFormConstBorders
     Left = 0
     Top = 0
     Width = 153
-    Height = 443
+    Height = 605
     Align = alLeft
     TabOrder = 0
     ExplicitHeight = 418
     object tvShortNames: TTreeView
       Left = 1
-      Top = 41
+      Top = 1
       Width = 151
-      Height = 344
-      Align = alTop
+      Height = 563
+      Align = alClient
       Indent = 19
       TabOrder = 0
       OnClick = tvShortNamesClick
@@ -43,40 +43,45 @@ object FormConstBorders: TFormConstBorders
         000000000000FFFFFFFFFFFFFFFF000000000000000000000000000103410072
         0069000000250000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000103410075007200}
+      ExplicitTop = 41
+      ExplicitHeight = 344
     end
     object PanelNames: TPanel
       Left = 1
-      Top = 1
+      Top = 564
       Width = 151
       Height = 40
-      Align = alTop
+      Align = alBottom
       Caption = 'Name'
+      ShowCaption = False
       TabOrder = 1
-    end
-    object CheckBoxData: TCheckBox
-      Left = 32
-      Top = 400
-      Width = 97
-      Height = 17
-      Caption = 'Data'
-      TabOrder = 2
-      OnClick = CheckBoxDataClick
+      ExplicitTop = 1
+      object CheckBoxData: TCheckBox
+        Left = 32
+        Top = 12
+        Width = 97
+        Height = 17
+        Caption = 'Data'
+        TabOrder = 0
+        OnClick = CheckBoxDataClick
+      end
     end
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 153
     Top = 0
-    Width = 523
-    Height = 443
+    Width = 713
+    Height = 605
     Buffer.BackgroundColor = clBlack
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 531
+    ExplicitWidth = 524
+    ExplicitHeight = 444
   end
   object MemoData: TMemo
-    Left = 240
-    Top = 91
+    Left = 352
+    Top = 179
     Width = 346
     Height = 270
     Lines.Strings = (
@@ -85,7 +90,11 @@ object FormConstBorders: TFormConstBorders
     Visible = False
   end
   object GLScene1: TGLScene
-    Left = 384
-    Top = 64
+    Left = 224
+    Top = 40
+  end
+  object GLCadencer1: TGLCadencer
+    Left = 224
+    Top = 120
   end
 end

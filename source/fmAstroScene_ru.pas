@@ -68,7 +68,10 @@ uses
   fmGenStarsys_ru,
   fmOptions_ru,
   fmSettings_ru,
-  fmAbout_ru
+  fmAbout_ru,
+
+  faConstells_ru,
+  faSkyAreas_ru
   ;
 
 
@@ -161,6 +164,10 @@ type
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
+    N5: TMenuItem;
+    miConstAtlas: TMenuItem;
+    miMoonMap: TMenuItem;
+    miSkyAreas: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -189,6 +196,8 @@ type
     procedure About1Click(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
+    procedure miConstAtlasClick(Sender: TObject);
+    procedure miSkyAreasClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -245,7 +254,7 @@ begin
   SetCurrentDir(DataDir) ;
   StarDir := DataDir + 'stars';
 
-  // Путь к каталогам Hipparcos, Hyg и Gaia DR4
+  // указываем путь к каталогам Hipparcos, Hyg и Gaia DR4
   CatalogName := DataDir + '\catalog\hipparcos.stars';
 //  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
@@ -256,21 +265,21 @@ begin
     StarSkyDome.StructureChanged;
   end;
 
-  // change currect star dir
+  // переходим в директорию солнечной системы
   if DirectoryExists('starsys\sun') then
         ChDir('starsys\sun');
   CurrentStar := DataDir + '\starsys\sun\';
 
-  // Enable textured maps
+  // разрешаем текстурирование планеты
   sfPlanet.Material.Texture.Disabled := False;
   sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 
-  // Planetoid
+  // разрешаем текстурирование планетоида
   acPlanet.Material.Texture.Disabled := False;
   acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
   acPlanet.Scale.Scale(0.1);
 
-  // Image indices for TreeView
+  // индексируем узлы дерева компонент TreeView
   for I := 0 to tvMoons.Items.Count - 1 do
   begin
 //    tvMoons.Items[I].ImageIndex := I;
@@ -279,8 +288,8 @@ begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-  tvMoons.Select(tvMoons.Items[3]);  // Earth
-  tvMoons.FullExpand;
+  tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
+  tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
   miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
 
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
@@ -830,7 +839,7 @@ end;
 //-------------------------- Солнечная система -------------------------------
 procedure TfrmAstroScene.miSolarSystemClick(Sender: TObject);
 begin
-  with TfrmSolarsys.Create(Self) do
+  with TFormSolarsys.Create(Self) do
     try
       ShowModal;
     finally
@@ -841,7 +850,7 @@ end;
 // ------------------ Экзопланетная система звезды ===-------------------------
 procedure TfrmAstroScene.miStellarSystemClick(Sender: TObject);
 begin
-  with TfrmStarsys.Create(Self) do
+  with TFormStarsys.Create(Self) do
     try
       ShowModal;
     finally
@@ -907,10 +916,30 @@ begin
   frmSettings.Show;
 end;
 
+procedure TfrmAstroScene.miSkyAreasClick(Sender: TObject);
+begin
+  with TFormSkyAreas.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//------------------------ Атлас созвездий -----------------------------------
+procedure TfrmAstroScene.miConstAtlasClick(Sender: TObject);
+begin
+  with TFormConstells.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
 //----------------------- О программе -----------------------------------------
 procedure TfrmAstroScene.About1Click(Sender: TObject);
 begin
-  inherited;
   with TFormAbout.Create(Self) do
   try
     ShowModal;

@@ -259,7 +259,7 @@ implementation //-------------------------------------------------------------
 {$R *.dfm}
 
 uses
-  fStarProj,
+  fgStarProj,
   fgExoplanets;
 
 

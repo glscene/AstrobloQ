@@ -118,9 +118,6 @@
             <Form>frmGalaqtium</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\Addons\StarProj\fStarProj.pas">
-            <Form>FormProjection</Form>
-        </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <DesignClass>TDataModule</DesignClass>
@@ -145,6 +142,10 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
+        <DCCReference Include="..\source\galaxy\fgStarProj.pas">
+            <Form>FormProjection</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -177,7 +178,7 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="Galaqtium_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Galaqtium_ru.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Galaqtium_ru.exe</RemoteName>
                         <Overwrite>true</Overwrite>

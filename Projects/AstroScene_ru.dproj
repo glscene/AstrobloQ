@@ -137,15 +137,15 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmStarsys_ru.pas">
-            <Form>frmStarsys</Form>
+            <Form>FormStarsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmSolarsys_ru.pas">
-            <Form>frmSolarsys</Form>
+            <Form>FormSolarsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmConstells_ru.pas">
-            <Form>frmConstells</Form>
+        <DCCReference Include="..\source\astro\faConstells_ru.pas">
+            <Form>FormConstells</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ConstBayers.pas"/>
@@ -171,6 +171,10 @@
         <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
         <DCCReference Include="..\source\fmSettings_ru.pas">
             <Form>frmSettings</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\faSkyAreas_ru.pas">
+            <Form>FormSkyAreas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

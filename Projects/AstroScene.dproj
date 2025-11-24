@@ -155,7 +155,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmConstells.pas">
+        <DCCReference Include="..\source\astro\faConstells.pas">
             <Form>frmConstells</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -179,7 +179,7 @@
             <Form>FormPointto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faConstPolygons.pas">
+        <DCCReference Include="..\source\astro\faSkyAreas.pas">
             <Form>FormConstPolygons</Form>
             <FormType>dfm</FormType>
         </DCCReference>

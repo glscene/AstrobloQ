@@ -1,4 +1,4 @@
-object frmStarsys: TfrmStarsys
+object FormStarsys: TFormStarsys
   Left = 193
   Top = 128
   Caption = #1047#1074#1105#1079#1076#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072

@@ -58,7 +58,7 @@ uses
   ;
 
 type
-  TfrmSolarsys = class(TfrmFirst)
+  TFormSolarsys = class(TfrmFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
@@ -184,7 +184,7 @@ type
   end;
 
 var
-  frmSolarsys: TfrmSolarsys;
+  FormSolarsys: TFormSolarsys;
 const
   cOmega = 10;  // angular velocity
 
@@ -192,7 +192,7 @@ implementation //-----------------------------------------------------
 
 {$R *.dfm}
 
-procedure TfrmSolarsys.FormCreate;
+procedure TFormSolarsys.FormCreate;
 begin
   PathToData := GetDataPath();
   CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
@@ -263,7 +263,7 @@ end;
 
 // FormShow
 //
-procedure TfrmSolarsys.FormShow(Sender: TObject);
+procedure TFormSolarsys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
@@ -272,7 +272,7 @@ begin
 end;
 
 // ------------------- Скрыть или показать панели -----------------------------
-procedure TfrmSolarsys.miHidePanelsClick(Sender: TObject);
+procedure TFormSolarsys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
@@ -283,7 +283,7 @@ begin
     miHidePanels.Caption := 'Показать панели';
 end;
 
-procedure TfrmSolarsys.miInnerCoreClick(Sender: TObject);
+procedure TFormSolarsys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   TreeViewClick(Self);
@@ -293,13 +293,13 @@ end;
 
 // Open File dialog
 //
-procedure TfrmSolarsys.Open1Click(Sender: TObject);
+procedure TFormSolarsys.Open1Click(Sender: TObject);
 begin
   //
 end;
 
 // ---------------------- Прогресс каденсера ---------------------------------
-procedure TfrmSolarsys.CadencerProgress(Sender: TObject;
+procedure TFormSolarsys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
@@ -341,7 +341,7 @@ begin
 end;
 
 //---------------------- Показать линии орбит --------------------------------
-procedure TfrmSolarsys.cbOrbitClick(Sender: TObject);
+procedure TFormSolarsys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
@@ -356,20 +356,20 @@ begin
 end;
 
 //--------------------- Вращение планетной системы ----------------------------
-procedure TfrmSolarsys.cbRotationClick(Sender: TObject);
+procedure TFormSolarsys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
 end;
 
 //----------------------- Показать обитаемую зону звезды ----------------------
-procedure TfrmSolarsys.cbHabitableZoneClick(Sender: TObject);
+procedure TFormSolarsys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
 //--------------------- Изменение дерева просмотра ----------------------------
-procedure TfrmSolarsys.TreeViewChange(Sender: TObject; Node: TTreeNode);
+procedure TFormSolarsys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
   begin
@@ -381,7 +381,7 @@ begin
 end;
 
 //------------------------ клик мыши по узлу дерева ---------------------------
-procedure TfrmSolarsys.TreeViewClick(Sender: TObject);
+procedure TFormSolarsys.TreeViewClick(Sender: TObject);
 var
   i: integer;
 begin
@@ -735,7 +735,7 @@ end;
 
 // MouseDown
 //
-procedure TfrmSolarsys.SceneViewerMouseDown;
+procedure TFormSolarsys.SceneViewerMouseDown;
 begin
   newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
@@ -749,7 +749,7 @@ end;
 
 // GetObjects
 //
-procedure TfrmSolarsys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
+procedure TFormSolarsys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
   Node: TTreeNode;
@@ -769,7 +769,7 @@ end;
 //
 // UpdateTreeView
 //
-procedure TfrmSolarsys.UpdateTreeView;
+procedure TFormSolarsys.UpdateTreeView;
 
 begin
   TreeView.Items.Clear;
@@ -778,7 +778,7 @@ end;
 
 // AddBBox
 //
-procedure TfrmSolarsys.AddBBox;
+procedure TFormSolarsys.AddBBox;
 const
   c = 0.5;
   d = 0.3;
@@ -841,7 +841,7 @@ end;
 
 // UpdateBBox
 //
-procedure TfrmSolarsys.UpdateBBox;
+procedure TFormSolarsys.UpdateBBox;
 var
   v1, v2: TVector3f;
 
@@ -870,7 +870,7 @@ end;
 
 // Sys_doglRender
 //
-procedure TfrmSolarsys.Sys_doglRender;
+procedure TFormSolarsys.Sys_doglRender;
 begin
   if PickObject <> nil then
   begin
@@ -883,7 +883,7 @@ end;
 
 // AsyncTimerTimer
 //
-procedure TfrmSolarsys.AsyncTimerTimer;
+procedure TFormSolarsys.AsyncTimerTimer;
 begin
   Caption := 'Solar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
@@ -891,21 +891,21 @@ end;
 
 // About
 //
-procedure TfrmSolarsys.About1Click(Sender: TObject);
+procedure TFormSolarsys.About1Click(Sender: TObject);
 begin
   ShowMessage('Lithosphere');
 end;
 
 // Exit
 //
-procedure TfrmSolarsys.Exit1Click(Sender: TObject);
+procedure TFormSolarsys.Exit1Click(Sender: TObject);
 begin
   Close;
 end;
 
 // Form Close
 //
-procedure TfrmSolarsys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormSolarsys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
 end;

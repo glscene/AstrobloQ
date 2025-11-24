@@ -17,8 +17,8 @@ uses
   Vcl.ComCtrls,
 
   fmFormFirst,
-///  fmStarLife,
-  fStarProj;
+///  fgStarLife,
+  fgStarProj;
 
 type
   TFormMonitor = class(TfrmFirst)

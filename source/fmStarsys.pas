@@ -201,7 +201,7 @@ implementation //-----------------------------------------------------
 procedure TFormStarsys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\stars\sun\'; //instead of GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
   // Maps as cylindrical textures

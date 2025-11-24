@@ -27,7 +27,7 @@ uses
   fmStarsys in '..\source\fmStarsys.pas' {FormStarsys},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  fmConstells in '..\source\fmConstells.pas' {frmConstells},
+  faConstells in '..\source\astro\faConstells.pas' {frmConstells},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fmMixTextures in '..\source\fmMixTextures.pas' {FormTexCombine},
   faHipparcos in '..\source\astro\faHipparcos.pas' {FormHipparcos},
@@ -36,7 +36,7 @@ uses
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
   faPointto in '..\source\astro\faPointto.pas' {FormPointto},
-  faConstPolygons in '..\source\astro\faConstPolygons.pas' {FormConstPolygons},
+  faSkyAreas in '..\source\astro\faSkyAreas.pas' {FormConstPolygons},
   faCoordinates in '..\source\astro\faCoordinates.pas' {FormCoords},
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas';

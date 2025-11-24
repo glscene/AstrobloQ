@@ -1,4 +1,4 @@
-unit fmConstells_ru;
+unit faConstells;
 
 interface
 
@@ -137,9 +137,8 @@ end;
 
 procedure TfrmConstells.FormShow(Sender: TObject);
 begin
-   // Constellations
-
-  frmConstells.tvConstellations.Select(frmConstells.tvConstellations.Items[0]);  // goto to And
+  // Constellations, goto to And
+  frmConstells.tvConstellations.Select(frmConstells.tvConstellations.Items[0]);
   frmConstells.tvConstellationsClick(Self);
   // Zodiacs
   frmConstells.tvZodiacs.Select(frmConstells.tvZodiacs.Items[0]);  // goto to Aries

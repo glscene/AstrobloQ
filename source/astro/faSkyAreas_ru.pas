@@ -1,4 +1,4 @@
-unit faConstellsR;
+unit faSkyAreas_ru;
 
 interface
 
@@ -25,17 +25,18 @@ uses
   GLS.Scene,
 
   Astro.Utils,
-  fmForm;
+  fmFormFirst, GLS.Cadencer;
 
 type
-  TFormConstBorders = class(TFormI)
+  TFormSkyAreas = class(TfrmFirst)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;
     GLSceneViewer1: TGLSceneViewer;
     MemoData: TMemo;
-    CheckBoxData: TCheckBox;
     GLScene1: TGLScene;
+    CheckBoxData: TCheckBox;
+    GLCadencer1: TGLCadencer;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure tvShortNamesClick(Sender: TObject);
@@ -48,13 +49,13 @@ type
   end;
 
 var
-  FormConstBorders: TFormConstBorders;
+  FormSkyAreas: TFormSkyAreas;
 
-implementation //-------------------------------------------------------------
+implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormConstBorders.FormCreate(Sender: TObject);
+procedure TFormSkyAreas.FormCreate(Sender: TObject);
 begin
   // Определяем путь к известной папке с файлами
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
@@ -62,7 +63,7 @@ begin
   CurrentPath := DataDir;
 
   // Для текстовых файлов
-  FileName := DataDir + '\constellation\boundary\and.txt';
+  FileName := DataDir + '\constellation\borders\and.txt';
   MemoData.Lines.LoadFromFile(FileName);
 (*
   // a Загрузка из стрима выдаёт китайские иероглифы
@@ -85,7 +86,7 @@ ReplaceSel - если вы хотите заменить уже выбранный в Memo текст,
 то передайте в параметр ReplaceSel TRUE.
 FALSE используется для простой вставки текста;
 *)
-procedure TFormConstBorders.InsertFileInMemo(Memo: TMemo; AFileName: string;
+procedure TFormSkyAreas.InsertFileInMemo(Memo: TMemo; AFileName: string;
   ReplaceSel: Boolean);
 var
   Stream: TMemoryStream;
@@ -111,22 +112,23 @@ begin
   end;
 end;
 
-procedure TFormConstBorders.tvShortNamesClick(Sender: TObject);
+//---------------------------- tvShortNames -----------------------------------
+procedure TFormSkyAreas.tvShortNamesClick(Sender: TObject);
 begin
   //
-  FileName := DataDir + '\constellation\boundary\'+
+  FileName := DataDir + '\constellation\borders\'+
   tvShortNames.Selected.Text + '.txt';
 //  'and.txt';
   MemoData.Lines.LoadFromFile(FileName);
 end;
 
-procedure TFormConstBorders.Button1Click(Sender: TObject);
+procedure TFormSkyAreas.Button1Click(Sender: TObject);
 begin
   tvShortNames.HideSelection := False;
 end;
 
 
-procedure TFormConstBorders.CheckBoxDataClick(Sender: TObject);
+procedure TFormSkyAreas.CheckBoxDataClick(Sender: TObject);
 begin
   MemoData.Visible := CheckBoxData.Checked;
 end;

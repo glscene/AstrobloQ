@@ -18,7 +18,7 @@ uses
 
   fmFormFirst,
 ///  fmStarLife,
-  fStarProj;
+  fgStarProj;
 
 type
   TFormMonitor = class(TfrmFirst)

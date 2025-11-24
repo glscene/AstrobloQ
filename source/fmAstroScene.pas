@@ -63,7 +63,6 @@ uses
 
   fmSolarsys,
   fmStarsys,
-  fmConstells,
   fmOptions,
   fmSettings,
   fmGenStarsys,
@@ -72,7 +71,8 @@ uses
   fmAbout,
 
   faCoordinates,
-  faConstPolygons,
+  faConstells,
+  faSkyAreas,
   faPointto,
   faHipparcos,
   faHercRussel

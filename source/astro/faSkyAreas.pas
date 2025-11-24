@@ -1,4 +1,4 @@
-unit faConstPolygons;
+unit faSkyAreas;
 
 interface
 
@@ -25,7 +25,7 @@ uses
   GLS.Scene,
 
   Astro.Utils,
-  fmFormFirst;
+  fmFormFirst, GLS.Cadencer;
 
 type
   TFormConstPolygons = class(TfrmFirst)
@@ -34,8 +34,9 @@ type
     PanelNames: TPanel;
     GLSceneViewer1: TGLSceneViewer;
     MemoData: TMemo;
-    CheckBoxData: TCheckBox;
     GLScene1: TGLScene;
+    CheckBoxData: TCheckBox;
+    GLCadencer1: TGLCadencer;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure tvShortNamesClick(Sender: TObject);
@@ -62,7 +63,7 @@ begin
   CurrentPath := DataDir;
 
   // Для текстовых файлов
-  FileName := DataDir + '\constellation\boundary\and.txt';
+  FileName := DataDir + '\constellation\borders\and.txt';
   MemoData.Lines.LoadFromFile(FileName);
 (*
   // a Загрузка из стрима выдаёт китайские иероглифы
@@ -113,7 +114,7 @@ end;
 procedure TFormConstPolygons.tvShortNamesClick(Sender: TObject);
 begin
   //
-  FileName := DataDir + '\constellation\boundary\'+
+  FileName := DataDir + '\constellation\borders\'+
   tvShortNames.Selected.Text + '.txt';
 //  'and.txt';
   MemoData.Lines.LoadFromFile(FileName);

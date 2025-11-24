@@ -1,17 +1,17 @@
 inherited frmOptions: TfrmOptions
   HelpContext = 0
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
-  ClientHeight = 745
-  ClientWidth = 1297
+  ClientHeight = 701
+  ClientWidth = 1236
   Font.Height = -19
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 1313
-  ExplicitHeight = 784
+  ExplicitWidth = 1252
+  ExplicitHeight = 740
   TextHeight = 25
   object PanelBottom: TPanel
     Left = 0
-    Top = 673
-    Width = 1297
+    Top = 629
+    Width = 1236
     Height = 72
     Margins.Left = 5
     Margins.Top = 5
@@ -19,8 +19,8 @@ inherited frmOptions: TfrmOptions
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 648
-    ExplicitWidth = 1289
+    ExplicitTop = 604
+    ExplicitWidth = 1228
     object ButtonOk: TButton
       Left = 1079
       Top = 10
@@ -39,21 +39,21 @@ inherited frmOptions: TfrmOptions
   object PanelMain: TPanel
     Left = 0
     Top = 0
-    Width = 1297
-    Height = 673
+    Width = 1236
+    Height = 629
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 1289
-    ExplicitHeight = 648
+    ExplicitWidth = 1228
+    ExplicitHeight = 604
     object tvSettings: TTreeView
       Left = 1
       Top = 1
       Width = 218
-      Height = 671
+      Height = 627
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -79,22 +79,23 @@ inherited frmOptions: TfrmOptions
         FFFF0600000000000000000000000001071F043B0430043D04350442044B0400
         00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
         000001041F04430442043804}
+      ExplicitLeft = -5
     end
     object PageControl: TPageControl
       Left = 219
       Top = 1
-      Width = 1077
-      Height = 671
+      Width = 1016
+      Height = 627
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1069
-      ExplicitHeight = 646
+      ExplicitWidth = 1008
+      ExplicitHeight = 602
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -105,24 +106,24 @@ inherited frmOptions: TfrmOptions
         object Label2: TLabel
           Left = 271
           Top = 88
-          Width = 140
+          Width = 160
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Style of interface'
+          Caption = #1057#1090#1080#1083#1100' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
         end
         object CheckBoxLoadProject: TCheckBox
           Left = 47
           Top = 226
-          Width = 294
+          Width = 234
           Height = 30
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Loading at start'
+          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077
           Checked = True
           State = cbChecked
           TabOrder = 0
@@ -136,7 +137,7 @@ inherited frmOptions: TfrmOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Save on exit'
+          Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1087#1088#1080' '#1074#1099#1093#1086#1076#1077
           Checked = True
           State = cbChecked
           TabOrder = 1
@@ -150,7 +151,7 @@ inherited frmOptions: TfrmOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Show splash'
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1072#1089#1090#1072#1074#1082#1091
           TabOrder = 2
         end
         object ComboBoxVclStyles: TComboBox
@@ -243,7 +244,7 @@ inherited frmOptions: TfrmOptions
         object ListView: TListView
           Left = 0
           Top = 0
-          Width = 1069
+          Width = 1008
           Height = 380
           Margins.Left = 5
           Margins.Top = 5
@@ -323,17 +324,6 @@ inherited frmOptions: TfrmOptions
           Margins.Bottom = 5
           Caption = #1057#1088#1086#1082' '#1078#1080#1079#1085#1080' '#1079#1074#1105#1079#1076', Ls '
         end
-        object LabelLt: TLabel
-          Left = 583
-          Top = 297
-          Width = 222
-          Height = 25
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1090#1077#1093#1085#1086#1089#1092#1077#1088', Lt'
-        end
         object LabelHg: TLabel
           Left = 25
           Top = 101
@@ -368,15 +358,15 @@ inherited frmOptions: TfrmOptions
           Caption = #1052#1077#1078#1079#1074#1105#1079#1076#1085#1086#1077' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1077', Ds'
         end
         object LabelTitle: TLabel
-          Left = 202
+          Left = 312
           Top = 0
-          Width = 579
+          Width = 306
           Height = 38
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1059#1089#1088#1077#1076#1085#1105#1085#1085#1099#1077' '#1087#1072#1088#1072#1084#1077#1090#1088#1099' '#1076#1080#1089#1082#1072' '#1043#1072#1083#1072#1082#1090#1080#1082#1080
+          Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1043#1072#1083#1072#1082#1090#1080#1082#1080
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -28
@@ -394,39 +384,6 @@ inherited frmOptions: TfrmOptions
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1071#1076#1088#1086', Rc'
-        end
-        object Label1: TLabel
-          Left = 583
-          Top = 150
-          Width = 212
-          Height = 25
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1083#1080#1090#1086#1089#1092#1077#1088', Ll'
-        end
-        object Label3: TLabel
-          Left = 583
-          Top = 200
-          Width = 211
-          Height = 25
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1073#1080#1086#1089#1092#1077#1088', Lb'
-        end
-        object Label6: TLabel
-          Left = 584
-          Top = 253
-          Width = 211
-          Height = 25
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1085#1086#1086#1089#1092#1077#1088', Ln'
         end
         object nbRg: TNumberBox
           Left = 288
@@ -448,9 +405,9 @@ inherited frmOptions: TfrmOptions
           NegativeValueColor = clRed
         end
         object grbDrakeFormula: TGroupBox
-          Left = 25
-          Top = 366
-          Width = 1037
+          Left = -4
+          Top = 328
+          Width = 1019
           Height = 221
           Margins.Left = 5
           Margins.Top = 5
@@ -605,15 +562,15 @@ inherited frmOptions: TfrmOptions
             ShowHint = True
           end
           object Label4: TLabel
-            Left = 65
+            Left = 80
             Top = 170
-            Width = 619
+            Width = 541
             Height = 30
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = #1057#1088#1077#1076#1085#1077#1077' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1079#1074#1105#1079#1076#1072#1084#1080' '#1089' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1072#1084#1080', Distance'
+            Caption = #1057#1088#1077#1076#1085#1077#1077' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1087#1083#1072#1085#1077#1090#1085#1099#1084#1080' '#1089#1080#1089#1090#1077#1084#1072#1084#1080', Dp'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -21
@@ -795,8 +752,8 @@ inherited frmOptions: TfrmOptions
             Value = 0.001000000000000000
             SpinButtonOptions.ButtonWidth = 30
           end
-          object EditDt: TEdit
-            Left = 730
+          object EditDp: TEdit
+            Left = 645
             Top = 160
             Width = 164
             Height = 39
@@ -875,26 +832,6 @@ inherited frmOptions: TfrmOptions
             SpinButtonOptions.ButtonWidth = 30
           end
         end
-        object EditLt: TEdit
-          Left = 839
-          Top = 289
-          Width = 153
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Alignment = taRightJustify
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -21
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 2
-          Text = '1000000'
-          TextHint = 'Avarage life time for civilisation'
-        end
         object EditLs: TEdit
           Left = 839
           Top = 91
@@ -911,7 +848,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 2
           Text = '10000000000'
           TextHint = 'Mean lifitime for planet'
         end
@@ -929,7 +866,7 @@ inherited frmOptions: TfrmOptions
           Mode = nbmInt64
           MinValue = 1.000000000000000000
           MaxValue = 1000000.000000000000000000
-          TabOrder = 4
+          TabOrder = 3
           Value = 1000.000000000000000000
           SpinButtonOptions.ButtonWidth = 30
           NegativeValueColor = clRed
@@ -953,7 +890,7 @@ inherited frmOptions: TfrmOptions
           Font.Style = [fsBold]
           ParentFont = False
           ReadOnly = True
-          TabOrder = 5
+          TabOrder = 4
           Text = '1'
         end
         object EditNs: TEdit
@@ -973,7 +910,7 @@ inherited frmOptions: TfrmOptions
           Font.Style = []
           ParentFont = False
           ReadOnly = True
-          TabOrder = 6
+          TabOrder = 5
           Text = '400000000000'
         end
         object EditDs: TEdit
@@ -994,7 +931,7 @@ inherited frmOptions: TfrmOptions
           Font.Style = [fsBold]
           ParentFont = False
           ReadOnly = True
-          TabOrder = 7
+          TabOrder = 6
           Text = '1'
         end
         object NumberBoxRc: TNumberBox
@@ -1011,14 +948,150 @@ inherited frmOptions: TfrmOptions
           Mode = nbmInt64
           MinValue = 1.000000000000000000
           MaxValue = 1000000.000000000000000000
-          TabOrder = 8
+          TabOrder = 7
           Value = 10000.000000000000000000
           SpinButtonOptions.ButtonWidth = 30
           NegativeValueColor = clRed
         end
+        object GroupBox1: TGroupBox
+          Left = 583
+          Top = 139
+          Width = 410
+          Height = 201
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077
+          TabOrder = 8
+          object LabelLt: TLabel
+            Left = 27
+            Top = 154
+            Width = 118
+            Height = 25
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1058#1077#1093#1085#1086#1089#1092#1077#1088', Lt'
+          end
+          object Label6: TLabel
+            Left = 30
+            Top = 119
+            Width = 107
+            Height = 25
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1053#1086#1086#1089#1092#1077#1088', Ln'
+          end
+          object Label3: TLabel
+            Left = 30
+            Top = 76
+            Width = 105
+            Height = 25
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1041#1080#1086#1089#1092#1077#1088', Lb'
+          end
+          object Label1: TLabel
+            Left = 29
+            Top = 41
+            Width = 109
+            Height = 25
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Caption = #1051#1080#1090#1086#1089#1092#1077#1088', Ll'
+          end
+          object EditLt: TEdit
+            Left = 240
+            Top = 155
+            Width = 153
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taRightJustify
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -21
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            Text = '1000000'
+            TextHint = 'Avarage life time for civilisation'
+          end
+          object Edit3: TEdit
+            Left = 240
+            Top = 116
+            Width = 153
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taRightJustify
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -21
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+            Text = '10000000'
+            TextHint = 'Avarage life time for civilisation'
+          end
+          object Edit2: TEdit
+            Left = 240
+            Top = 75
+            Width = 153
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taRightJustify
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -21
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+            Text = '100000000'
+            TextHint = 'Avarage life time for civilisation'
+          end
+          object Edit1: TEdit
+            Left = 240
+            Top = 34
+            Width = 153
+            Height = 38
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            Alignment = taRightJustify
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -21
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            Text = '1000000000'
+            TextHint = 'Avarage life time for civilisation'
+          end
+        end
         object ButtonCalculate: TButton
-          Left = 432
-          Top = 613
+          Left = 381
+          Top = 559
           Width = 164
           Height = 43
           Margins.Left = 5
@@ -1036,9 +1109,9 @@ inherited frmOptions: TfrmOptions
           OnClick = ButtonCalculateClick
         end
         object Button1: TButton
-          Left = 944
-          Top = 613
-          Width = 116
+          Left = 860
+          Top = 559
+          Width = 125
           Height = 43
           Margins.Left = 5
           Margins.Top = 5
@@ -1054,66 +1127,6 @@ inherited frmOptions: TfrmOptions
           TabOrder = 10
           OnClick = ButtonCalculateClick
         end
-        object Edit1: TEdit
-          Left = 839
-          Top = 139
-          Width = 153
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Alignment = taRightJustify
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -21
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 11
-          Text = '1000000000'
-          TextHint = 'Avarage life time for civilisation'
-        end
-        object Edit2: TEdit
-          Left = 839
-          Top = 187
-          Width = 153
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Alignment = taRightJustify
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -21
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 12
-          Text = '100000000'
-          TextHint = 'Avarage life time for civilisation'
-        end
-        object Edit3: TEdit
-          Left = 839
-          Top = 241
-          Width = 153
-          Height = 38
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Alignment = taRightJustify
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clRed
-          Font.Height = -21
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 13
-          Text = '10000000'
-          TextHint = 'Avarage life time for civilisation'
-        end
       end
       object tsStars: TTabSheet
         Margins.Left = 5
@@ -1124,8 +1137,8 @@ inherited frmOptions: TfrmOptions
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
-          1069
-          661)
+          1008
+          617)
         object ColorGrid1: TColorGrid
           Left = 784
           Top = 53
@@ -1138,7 +1151,7 @@ inherited frmOptions: TfrmOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 58
+          Left = -11
           Top = 53
           Width = 149
           Height = 200
@@ -1246,14 +1259,14 @@ inherited frmOptions: TfrmOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Units'
-          ItemIndex = 0
+          Caption = #1045#1076#1080#1085#1080#1094#1099' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1081
+          ItemIndex = 1
           Items.Strings = (
-            'Astronomical unit'
-            'Light year'
-            'Kilolight year'
-            'Parsec'
-            'Kiloparsec')
+            #1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1080#1077', au'
+            #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076', ly'
+            #1058#1099#1089#1103#1095#1072' '#1089#1074#1077#1090#1086#1074#1099#1093' '#1083#1077#1090', kly'
+            #1055#1088#1089#1077#1082', pc'
+            #1050#1080#1083#1086#1087#1072#1088#1089#1077#1082', kpc')
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
@@ -1282,15 +1295,15 @@ inherited frmOptions: TfrmOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Coordinate system'
+          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
           ItemIndex = 0
           Items.Strings = (
-            'Equatorial'
-            'Horizontal'
-            'Geocentric'
-            'Heliocentric'
-            'Galactic'
-            'Supergalactic')
+            #1069#1082#1074#1072#1090#1086#1088#1080#1072#1083#1100#1085#1072#1103
+            #1043#1086#1088#1080#1079#1086#1085#1090#1072#1083#1100#1085#1072#1103
+            #1043#1077#1086#1094#1077#1085#1090#1088#1080#1095#1077#1089#1082#1072#1103
+            #1043#1077#1083#1080#1086#1094#1077#1085#1090#1088#1080#1095#1077#1089#1082#1072#1103
+            #1043#1072#1083#1072#1082#1090#1080#1095#1077#1089#1082#1072#1103
+            #1057#1074#1077#1088#1093#1075#1072#1083#1072#1082#1090#1080#1095#1077#1089#1082#1072#1103)
           TabOrder = 2
         end
       end
@@ -1305,8 +1318,8 @@ inherited frmOptions: TfrmOptions
         object PanelTitle: TPanel
           Left = 0
           Top = 0
-          Width = 1069
-          Height = 661
+          Width = 1008
+          Height = 617
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -1994,8 +2007,8 @@ inherited frmOptions: TfrmOptions
     end
   end
   object ImageList: TImageList
-    Left = 99
-    Top = 302
+    Left = 83
+    Top = 278
     Bitmap = {
       494C010104000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020

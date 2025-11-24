@@ -1,9 +1,9 @@
-object FormConstPolygons: TFormConstPolygons
+object FormSkyAreas: TFormSkyAreas
   Left = 0
   Top = 0
-  Caption = 'Constellation polygons'
-  ClientHeight = 443
-  ClientWidth = 676
+  Caption = #1055#1083#1086#1097#1072#1076#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+  ClientHeight = 633
+  ClientWidth = 1000
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,16 +16,16 @@ object FormConstPolygons: TFormConstPolygons
   object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 153
-    Height = 443
+    Width = 185
+    Height = 633
     Align = alLeft
     TabOrder = 0
     object tvShortNames: TTreeView
       Left = 1
-      Top = 41
-      Width = 151
-      Height = 344
-      Align = alTop
+      Top = 1
+      Width = 183
+      Height = 591
+      Align = alClient
       Indent = 19
       TabOrder = 0
       OnClick = tvShortNamesClick
@@ -42,40 +42,45 @@ object FormConstPolygons: TFormConstPolygons
         000000000000FFFFFFFFFFFFFFFF000000000000000000000000000103410072
         0069000000250000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000103410075007200}
+      ExplicitTop = 41
+      ExplicitWidth = 151
+      ExplicitHeight = 344
     end
     object PanelNames: TPanel
       Left = 1
-      Top = 1
-      Width = 151
+      Top = 592
+      Width = 183
       Height = 40
-      Align = alTop
+      Align = alBottom
       Caption = 'Name'
+      ShowCaption = False
       TabOrder = 1
-    end
-    object CheckBoxData: TCheckBox
-      Left = 32
-      Top = 400
-      Width = 97
-      Height = 17
-      Caption = 'Data'
-      TabOrder = 2
-      OnClick = CheckBoxDataClick
+      ExplicitLeft = -4
+      ExplicitTop = 0
+      object CheckBoxData: TCheckBox
+        Left = 40
+        Top = 12
+        Width = 97
+        Height = 17
+        Caption = 'Data'
+        TabOrder = 0
+        OnClick = CheckBoxDataClick
+      end
     end
   end
   object GLSceneViewer1: TGLSceneViewer
-    Left = 153
+    Left = 185
     Top = 0
-    Width = 523
-    Height = 443
+    Width = 815
+    Height = 633
     Buffer.BackgroundColor = clBlack
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 531
   end
   object MemoData: TMemo
-    Left = 240
-    Top = 91
+    Left = 376
+    Top = 147
     Width = 346
     Height = 270
     Lines.Strings = (
@@ -84,7 +89,11 @@ object FormConstPolygons: TFormConstPolygons
     Visible = False
   end
   object GLScene1: TGLScene
-    Left = 384
-    Top = 64
+    Left = 216
+    Top = 40
+  end
+  object GLCadencer1: TGLCadencer
+    Left = 216
+    Top = 112
   end
 end

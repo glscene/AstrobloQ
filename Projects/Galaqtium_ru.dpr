@@ -12,7 +12,6 @@ uses
   fgOptions_ru in '..\source\galaxy\fgOptions_ru.pas' {frmOptions},
   fgGalaqtium_ru in '..\source\galaxy\fgGalaqtium_ru.pas' {frmGalaqtium},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
-  fStarProj in '..\Addons\StarProj\fStarProj.pas' {FormProjection},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
@@ -21,7 +20,8 @@ uses
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
+  fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -35,6 +35,7 @@ begin
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormProjection, FormProjection);
   Application.Run;
 end.
 
