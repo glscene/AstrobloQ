@@ -62,7 +62,7 @@ uses
   fbPhotograph in '..\source\bio\fbPhotograph.pas' {FormPhotograph},
   fbReality in '..\source\bio\fbReality.pas' {FormReality},
   fbSatellite in '..\source\bio\fbSatellite.pas' {FormSatellite},
-  fbSettings in '..\source\bio\fbSettings.pas' {FormSettings},
+  fbOptions in '..\source\bio\fbOptions.pas' {FormOptions},
   fbSpirit in '..\source\bio\fbSpirit.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
   fbFirstForm in '..\source\bio\fbFirstForm.pas' {frmFirst},

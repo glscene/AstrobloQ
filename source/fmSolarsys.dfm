@@ -32,6 +32,7 @@ object FormSolarSys: TFormSolarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 656
   end
   object PanelLeft: TPanel
     Left = 0
@@ -55,7 +56,6 @@ object FormSolarSys: TFormSolarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
-      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -87,6 +87,7 @@ object FormSolarSys: TFormSolarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
+      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -119,7 +120,6 @@ object FormSolarSys: TFormSolarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
-      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29

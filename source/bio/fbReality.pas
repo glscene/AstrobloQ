@@ -40,7 +40,7 @@ type
     Add1: TMenuItem;
     menuGo: TMenuItem;
     menuStop: TMenuItem;
-    Set1: TMenuItem;
+    miTools: TMenuItem;
     TimeMode1: TMenuItem;
     menuSetTimeTicking: TMenuItem;
     menuSetTimeFlowing: TMenuItem;
@@ -91,7 +91,7 @@ type
     sdSaveReality: TSaveDialog;
     menuKeyboard: TMenuItem;
     menuMax: TMenuItem;
-    menuSettings: TMenuItem;
+    miOptions: TMenuItem;
     labRoundTime: TLabel;
     Panel5: TPanel;
     btnExit: TBitBtn;
@@ -139,7 +139,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure menuKeyboardClick(Sender: TObject);
     procedure menuMaxClick(Sender: TObject);
-    procedure menuSettingsClick(Sender: TObject);
+    procedure miOptionsClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Restore1Click(Sender: TObject);
@@ -198,7 +198,7 @@ uses
   fbKeyboard,
   fbMaximums,
   fbTip,
-  fbSettings
+  fbOptions
   ;
 
 {$R *.DFM}
@@ -613,14 +613,15 @@ begin
   myFormMaximums.Free;
 end;
 
-procedure TFormReality.menuSettingsClick(Sender: TObject);
+//---------------------------------------------------------------------------
+procedure TFormReality.miOptionsClick(Sender: TObject);
 var
-  myFormSettings: TFormSettings;
+  myFormOptions: TFormOptions;
 begin
-  myFormSettings := TFormSettings.Create(self);
-  myFormSettings.UserSettings := frmFirst.UserSettings;
-  myFormSettings.ShowModal;
-  myFormSettings.Free;
+  myFormOptions := TFormOptions.Create(self);
+  myFormOptions.UserSettings := frmFirst.UserSettings;
+  myFormOptions.ShowModal;
+  myFormOptions.Free;
 end;
 
 procedure TFormReality.btnExitClick(Sender: TObject);

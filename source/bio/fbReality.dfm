@@ -53,7 +53,6 @@ object FormReality: TFormReality
     BevelOuter = bvLowered
     BorderWidth = 2
     TabOrder = 0
-    ExplicitWidth = 1071
     object Panel4: TPanel
       Left = 3
       Top = 3
@@ -339,7 +338,6 @@ object FormReality: TFormReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 4
-      ExplicitLeft = 989
       object btnExit: TBitBtn
         Left = 0
         Top = 2
@@ -486,8 +484,8 @@ object FormReality: TFormReality
         Enabled = False
       end
     end
-    object Set1: TMenuItem
-      Caption = 'Options'
+    object miTools: TMenuItem
+      Caption = 'Tools'
       object TimeMode1: TMenuItem
         Caption = '&Time Mode'
         object menuSetTimeTicking: TMenuItem
@@ -520,9 +518,9 @@ object FormReality: TFormReality
         Caption = 'Maxims'
         OnClick = menuMaxClick
       end
-      object menuSettings: TMenuItem
-        Caption = '&Program Settings'
-        OnClick = menuSettingsClick
+      object miOptions: TMenuItem
+        Caption = '&Options...'
+        OnClick = miOptionsClick
       end
       object AAsteroids1: TMenuItem
         Caption = 'Asteroids'

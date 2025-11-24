@@ -60,7 +60,7 @@ uses
   fbPhotograph_ru in '..\source\bio\fbPhotograph_ru.pas' {FormPhotograph},
   fbReality_ru in '..\source\bio\fbReality_ru.pas' {FormReality},
   fbSatellite_ru in '..\source\bio\fbSatellite_ru.pas' {FormSatellite},
-  fbSettings_ru in '..\source\bio\fbSettings_ru.pas' {FormSettings},
+  fbOptions_ru in '..\source\bio\fbOptions_ru.pas' {FormOptions},
   fbSpirit_ru in '..\source\bio\fbSpirit_ru.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
   fbFirstForm_ru in '..\source\bio\fbFirstForm_ru.pas' {frmFirst},

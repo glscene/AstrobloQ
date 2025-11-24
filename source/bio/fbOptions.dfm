@@ -1,7 +1,7 @@
-object FormSettings: TFormSettings
+object FormOptions: TFormOptions
   Left = 324
   Top = 109
-  Caption = 'Settings'
+  Caption = 'Options'
   ClientHeight = 370
   ClientWidth = 247
   Color = clBtnFace
@@ -16,9 +16,9 @@ object FormSettings: TFormSettings
   object Label3: TLabel
     Left = 12
     Top = 12
-    Width = 95
+    Width = 92
     Height = 13
-    Caption = 'Program settings'
+    Caption = 'Program options'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11

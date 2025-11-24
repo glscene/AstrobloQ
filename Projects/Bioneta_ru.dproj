@@ -214,8 +214,8 @@
         <DCCReference Include="..\source\bio\fbSatellite_ru.pas">
             <Form>FormSatellite</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSettings_ru.pas">
-            <Form>FormSettings</Form>
+        <DCCReference Include="..\source\bio\fbOptions_ru.pas">
+            <Form>FormOptions</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbSpirit_ru.pas">
             <Form>FormSpirit</Form>

@@ -1,4 +1,4 @@
-object FormSettings: TFormSettings
+object FormOptions: TFormOptions
   Left = 324
   Top = 109
   Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080

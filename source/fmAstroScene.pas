@@ -63,13 +63,13 @@ uses
 
   fmSolarsys,
   fmStarsys,
-  fmOptions,
   fmSettings,
   fmGenStarsys,
 
   fmFormFirst,
   fmAbout,
 
+  faOptions,
   faCoordinates,
   faConstells,
   faSkyAreas,

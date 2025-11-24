@@ -50,9 +50,9 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
-  fmOptions,
-  frParams,
   fmFormFirst,
+  frParams,
+  faOptions,
   Astro.Utils
   ;
 

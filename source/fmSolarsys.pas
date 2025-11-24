@@ -51,8 +51,8 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
-  fmOptions,
   fmFormFirst,
+  faOptions,
   frParams,
   Astro.Utils
   ;

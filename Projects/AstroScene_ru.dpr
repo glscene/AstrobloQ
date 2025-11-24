@@ -16,7 +16,7 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   fmAstroScene_ru in '..\source\fmAstroScene_ru.pas' {frmAstroScene},
-  fmOptions_ru in '..\source\fmOptions_ru.pas' {frmOptions},
+  faOptions_ru in '..\source\astro\faOptions_ru.pas' {frmOptions},
   fmGenStarsys_ru in '..\source\fmGenStarsys_ru.pas' {frmGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',

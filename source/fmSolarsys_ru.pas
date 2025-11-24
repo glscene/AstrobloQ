@@ -52,7 +52,7 @@ uses
   GLS.LensFlare,
 
   fmFormFirst,
-  fmOptions_ru,
+  faOptions_ru,
   frParams_ru,
   Astro.Utils
   ;

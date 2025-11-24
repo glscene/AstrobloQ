@@ -1,4 +1,4 @@
-unit fbSettings;
+unit fbOptions_ru;
 
 interface
 
@@ -17,7 +17,7 @@ uses
   Bio.UserSettings;
 
 type
-  TFormSettings = class(TForm)
+  TFormOptions = class(TForm)
     cbLoadOnStartup: TCheckBox;
     cbAutosave: TCheckBox;
     Label3: TLabel;
@@ -54,16 +54,16 @@ type
   end;
 
 var
-  FormSettings: TFormSettings;
+  FormOptions: TFormOptions;
 
 implementation //=============================================================
 
 uses
-  fbFirstForm;
+  fbFirstForm_ru;
 
 {$R *.dfm}
 
-procedure TFormSettings.FormShow(Sender: TObject);
+procedure TFormOptions.FormShow(Sender: TObject);
 begin
   cbLoadOnStartup.Checked := UserSettings.LoadOnStartup;
   cbAutosave.Checked := UserSettings.AutoSave;
@@ -78,25 +78,25 @@ begin
   cbAdvancedMode.Checked := UserSettings.AdvancedMode;
 end;
 
-procedure TFormSettings.cbLoadOnStartupClick(Sender: TObject);
+procedure TFormOptions.cbLoadOnStartupClick(Sender: TObject);
 begin
   UserSettings.LoadOnStartup := cbLoadOnStartup.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbAutosaveClick(Sender: TObject);
+procedure TFormOptions.cbAutosaveClick(Sender: TObject);
 begin
   UserSettings.AutoSave := cbAutosave.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbSplashStartClick(Sender: TObject);
+procedure TFormOptions.cbSplashStartClick(Sender: TObject);
 begin
   UserSettings.SplashStart := cbSplashStart.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbSplashExitClick(Sender: TObject);
+procedure TFormOptions.cbSplashExitClick(Sender: TObject);
 begin
   UserSettings.SplashExit := cbSplashExit.Checked;
   UserSettings.SaveToRegistry;
@@ -106,43 +106,43 @@ begin
     frmFirst.ShowTimer.Interval := 1;
 end;
 
-procedure TFormSettings.cbInvertMouseClick(Sender: TObject);
+procedure TFormOptions.cbInvertMouseClick(Sender: TObject);
 begin
   UserSettings.InvertMouse := cbInvertMouse.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbInvertPlanetClick(Sender: TObject);
+procedure TFormOptions.cbInvertPlanetClick(Sender: TObject);
 begin
   UserSettings.InvertPlanet := cbInvertPlanet.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbAuto3DViewClick(Sender: TObject);
+procedure TFormOptions.cbAuto3DViewClick(Sender: TObject);
 begin
   UserSettings.Auto3DView := cbAuto3DView.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbInvertMouseWheelClick(Sender: TObject);
+procedure TFormOptions.cbInvertMouseWheelClick(Sender: TObject);
 begin
   UserSettings.InvertMouseWheel := cbInvertMouseWheel.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbTipOfTheDayClick(Sender: TObject);
+procedure TFormOptions.cbTipOfTheDayClick(Sender: TObject);
 begin
   UserSettings.TipOfTheDay := cbTipOfTheDay.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbRememberViewClick(Sender: TObject);
+procedure TFormOptions.cbRememberViewClick(Sender: TObject);
 begin
   UserSettings.RememberView := cbRememberView.Checked;
   UserSettings.SaveToRegistry;
 end;
 
-procedure TFormSettings.cbAdvancedModeClick(Sender: TObject);
+procedure TFormOptions.cbAdvancedModeClick(Sender: TObject);
 begin
   UserSettings.AdvancedMode := cbAdvancedMode.Checked;
   UserSettings.SaveToRegistry;

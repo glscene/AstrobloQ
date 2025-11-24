@@ -127,7 +127,7 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\fmOptions.pas">
+        <DCCReference Include="..\source\astro\faOptions.pas">
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>

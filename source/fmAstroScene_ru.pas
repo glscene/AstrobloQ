@@ -66,10 +66,10 @@ uses
   fmSolarsys_ru,
   fmStarsys_ru,
   fmGenStarsys_ru,
-  fmOptions_ru,
   fmSettings_ru,
   fmAbout_ru,
 
+  faOptions_ru,
   faConstells_ru,
   faSkyAreas_ru
   ;

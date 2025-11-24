@@ -3,8 +3,8 @@ object frmAstroScene: TfrmAstroScene
   Top = 123
   Cursor = crHelp
   Caption = 'AstrobloQ'
-  ClientHeight = 757
-  ClientWidth = 1420
+  ClientHeight = 732
+  ClientWidth = 1412
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -23,13 +23,13 @@ object frmAstroScene: TfrmAstroScene
   object SceneViewer: TGLSceneViewer
     Left = 297
     Top = 57
-    Width = 868
-    Height = 672
+    Width = 860
+    Height = 647
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 146.994323730468800000
+    FieldOfView = 145.792144775390600000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -40,10 +40,9 @@ object frmAstroScene: TfrmAstroScene
     Left = 0
     Top = 57
     Width = 297
-    Height = 672
+    Height = 647
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 647
     object tvMoons: TTreeView
       Left = 1
       Top = 107
@@ -281,8 +280,8 @@ object frmAstroScene: TfrmAstroScene
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 729
-    Width = 1420
+    Top = 704
+    Width = 1412
     Height = 28
     Panels = <
       item
@@ -301,17 +300,14 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 704
-    ExplicitWidth = 1412
   end
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1420
+    Width = 1412
     Height = 57
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1412
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -444,14 +440,12 @@ object frmAstroScene: TfrmAstroScene
     end
   end
   object PanelRight: TPanel
-    Left = 1165
+    Left = 1157
     Top = 57
     Width = 255
-    Height = 672
+    Height = 647
     Align = alRight
     TabOrder = 4
-    ExplicitLeft = 1157
-    ExplicitHeight = 647
     object tvAsteroids: TTreeView
       Left = 1
       Top = 30
@@ -506,7 +500,6 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
-      ExplicitHeight = 616
     end
     object StaticText2: TStaticText
       Left = 1

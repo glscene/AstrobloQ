@@ -20,7 +20,7 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
-  fmOptions in '..\source\fmOptions.pas' {frmOptions},
+  faOptions in '..\source\astro\faOptions.pas' {frmOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   fmSolarsys in '..\source\fmSolarsys.pas' {FormSolarSys},
   frParams in '..\source\frParams.pas' {FrameParams: TFrame},

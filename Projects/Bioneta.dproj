@@ -218,8 +218,8 @@
         <DCCReference Include="..\source\bio\fbSatellite.pas">
             <Form>FormSatellite</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSettings.pas">
-            <Form>FormSettings</Form>
+        <DCCReference Include="..\source\bio\fbOptions.pas">
+            <Form>FormOptions</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbSpirit.pas">
             <Form>FormSpirit</Form>

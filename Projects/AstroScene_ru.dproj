@@ -108,7 +108,7 @@
         <DCCReference Include="..\source\fmAstroScene_ru.pas">
             <Form>frmAstroScene</Form>
         </DCCReference>
-        <DCCReference Include="..\source\fmOptions_ru.pas">
+        <DCCReference Include="..\source\astro\faOptions_ru.pas">
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>

@@ -201,7 +201,7 @@ uses
   fbKeyboard_ru,
   fbMaximums_ru,
   fbTip_ru,
-  fbSettings_ru
+  fbOptions_ru
   ;
 
 {$R *.DFM}
@@ -621,12 +621,12 @@ end;
 
 procedure TFormReality.menuSettingsClick(Sender: TObject);
 var
-  myFormSettings: TFormSettings;
+  myFormOptions: TFormOptions;
 begin
-  myFormSettings := TFormSettings.Create(self);
-  myFormSettings.UserSettings := frmFirst.UserSettings;
-  myFormSettings.ShowModal;
-  myFormSettings.Free;
+  myFormOptions := TFormOptions.Create(self);
+  myFormOptions.UserSettings := frmFirst.UserSettings;
+  myFormOptions.ShowModal;
+  myFormOptions.Free;
 end;
 
 procedure TFormReality.btnExitClick(Sender: TObject);
