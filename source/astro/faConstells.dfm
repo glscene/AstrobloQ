@@ -3,7 +3,7 @@ object frmConstells: TfrmConstells
   Top = 0
   Caption = 'Constellations'
   ClientHeight = 647
-  ClientWidth = 987
+  ClientWidth = 1024
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object frmConstells: TfrmConstells
   object VirtualImageChart: TVirtualImage
     Left = 209
     Top = 0
-    Width = 624
+    Width = 639
     Height = 628
     Align = alClient
     ImageCollection = DataModuleImages.ConstelCharts
@@ -50,11 +50,14 @@ object frmConstells: TfrmConstells
       Top = 1
       Width = 207
       Height = 586
+      Hint = 'Constellations'
       Align = alClient
       Color = clWhite
       Images = DataModuleImages.VirtConstelSymbols
       Indent = 27
       MultiSelect = True
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 1
       OnClick = tvConstellationsClick
       OnContextPopup = tvConstellationsContextPopup
@@ -209,27 +212,26 @@ object frmConstells: TfrmConstells
   object StatusBar1: TStatusBar
     Left = 0
     Top = 628
-    Width = 987
+    Width = 1024
     Height = 19
     Panels = <>
     ExplicitTop = 603
     ExplicitWidth = 979
   end
   object PanelRight: TPanel
-    Left = 833
+    Left = 848
     Top = 0
-    Width = 154
+    Width = 176
     Height = 628
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 825
-    ExplicitHeight = 603
     object VirtualImageFigures: TVirtualImage
       Left = 1
       Top = 476
-      Width = 152
+      Width = 174
       Height = 151
       Align = alBottom
+      ImageCollection = DataModuleImages.ConstelFigures
       ImageWidth = 0
       ImageHeight = 0
       ImageIndex = 0
@@ -240,13 +242,16 @@ object frmConstells: TfrmConstells
     end
     object tvZodiacs: TTreeView
       Left = 1
-      Top = 1
-      Width = 152
+      Top = 42
+      Width = 174
       Height = 304
+      Hint = 'Zodiac constellations'
       Align = alTop
       Color = clWhite
       Images = DataModuleImages.VirtConstelSymbols
       Indent = 27
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 0
       OnClick = tvZodiacsClick
       Items.NodeData = {
@@ -270,6 +275,20 @@ object frmConstells: TfrmConstells
         00000000000000000001084100710075006100720069007500730000002B0000
         004100000041000000FFFFFFFFFFFFFFFF000000000000000000000000000106
         500069007300630065007300}
+      ExplicitTop = 1
+      ExplicitWidth = 152
+    end
+    object Panel1: TPanel
+      Left = 1
+      Top = 1
+      Width = 174
+      Height = 41
+      Align = alTop
+      Caption = 'Zodiac constellations'
+      TabOrder = 1
+      ExplicitLeft = 2
+      ExplicitTop = 9
+      ExplicitWidth = 152
     end
   end
   object GLScene: TGLScene

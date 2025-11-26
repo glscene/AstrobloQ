@@ -53,7 +53,6 @@ type
     PanelRight: TPanel;
     GLScene: TGLScene;
     GLCadencer: TGLCadencer;
-    PanelBottom: TPanel;
     Camera: TGLCamera;
     LightSource: TGLLightSource;
     dcWorld: TGLDummyCube;
@@ -67,6 +66,7 @@ type
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
     VirtualImageFigures: TVirtualImage;
+    Panel1: TPanel;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
@@ -95,9 +95,9 @@ implementation //==============================================================
 
 {$R *.dfm}
 
-//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Загрузка данных и карт при создании формы
-//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormConstells.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
@@ -165,24 +165,24 @@ begin
     TTreeView(Sender).Selected := tmpNode;
 end;
 
-//-----------------------------------------------------------------------
-//  Вывод карты созвездия по индексу узла дерева просмотра
-//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//  Вывод карт созвездий по индексу узла дерева просмотра
+//-----------------------------------------------------------------------------
 procedure TFormConstells.tvConstellationsClick(Sender: TObject);
 begin
-  VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
+  VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
+  VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
 end;
 
-//-----------------------------------------------------------------------
-//  Вывод карты зодиакального созвездия по индексу узла дерева просмотра
-//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//  Вывод карт зодиакальных созвездий по индексу узла дерева просмотра
+//-----------------------------------------------------------------------------
 procedure TFormConstells.tvZodiacsClick(Sender: TObject);
 begin
+  VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TFormConstells.Save1Click(Sender: TObject);
 begin
@@ -190,23 +190,18 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
 procedure TFormConstells.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
 
 //-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
-procedure TFormConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
+procedure TFormConstells.GLCadencerProgress(Sender: TObject;
+  const DeltaTime, NewTime: Double);
 begin
   HandleKeys(deltaTime);
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TFormConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
@@ -214,8 +209,6 @@ begin
 
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TFormConstells.HandleKeys(d: Double);
 begin
@@ -232,17 +225,12 @@ begin
     Close;
 end;
 
-
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TFormConstells.miSettingsClick(Sender: TObject);
 begin
 //
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TFormConstells.miTexCombineClick(Sender: TObject);
 begin
@@ -254,8 +242,6 @@ begin
     end;
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TFormConstells.Exit1Click(Sender: TObject);
 begin

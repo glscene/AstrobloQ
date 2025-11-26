@@ -67,6 +67,7 @@ type
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
     VirtualImageFigures: TVirtualImage;
+    Panel1: TPanel;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
@@ -135,6 +136,7 @@ begin
   ffPlanet.Assign(sfPlanet);
 end;
 
+//-----------------------------------------------------------------------
 procedure TfrmConstells.FormShow(Sender: TObject);
 begin
   // Constellations, goto to And
@@ -164,16 +166,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
-procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
-begin
-  VirtualImageChart.ImageIndex := tvConstellations.Selected.Index;
-end;
-
-//-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
 procedure TfrmConstells.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
@@ -184,16 +176,24 @@ begin
     TTreeView(Sender).Selected := tmpNode;
 end;
 
-//-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// Displaying constellation maps by tree view node index
+//----------------------------------------------------------------------------
+procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
+begin
+  VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
+  VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
+end;
+
+//----------------------------------------------------------------------------
+// Displaying maps of the zodiac constellations by tree view node index
+//----------------------------------------------------------------------------
 procedure TfrmConstells.tvZodiacsClick(Sender: TObject);
 begin
+  VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TfrmConstells.Save1Click(Sender: TObject);
 begin
@@ -201,15 +201,11 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
 procedure TfrmConstells.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TfrmConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 begin
@@ -219,16 +215,12 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------
 procedure TfrmConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
 
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TfrmConstells.HandleKeys(d: Double);
 begin
@@ -245,17 +237,12 @@ begin
     Close;
 end;
 
-
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TfrmConstells.miSettingsClick(Sender: TObject);
 begin
 //
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TfrmConstells.miTexCombineClick(Sender: TObject);
 begin
@@ -267,8 +254,6 @@ begin
     end;
 end;
 
-//-----------------------------------------------------------------------
-//
 //-----------------------------------------------------------------------
 procedure TfrmConstells.Exit1Click(Sender: TObject);
 begin
