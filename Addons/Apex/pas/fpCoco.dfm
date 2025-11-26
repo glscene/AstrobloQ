@@ -18,7 +18,7 @@ object FormCoco: TFormCoco
     Width = 578
     Height = 25
     Align = alTop
-    Caption = 'Coordinate conversion'
+    Caption = #1055#1088#1077#1086#1073#1088#1072#1079#1086#1074#1072#1085#1080#1077' '#1082#1086#1086#1088#1076#1080#1085#1072#1090
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -34,7 +34,7 @@ object FormCoco: TFormCoco
     Width = 578
     Height = 47
     Align = alTop
-    Caption = 'Input'
+    Caption = #1042#1074#1086#1076
     Columns = 4
     ItemIndex = 0
     Items.Strings = (
@@ -52,7 +52,7 @@ object FormCoco: TFormCoco
     Height = 47
     Hint = 'A E P G H'
     Align = alTop
-    Caption = 'Output'
+    Caption = #1042#1099#1074#1086#1076
     Columns = 5
     ItemIndex = 0
     Items.Strings = (
@@ -93,7 +93,7 @@ object FormCoco: TFormCoco
       Top = 6
       Width = 265
       Height = 59
-      Caption = 'Cartesian coordinates'
+      Caption = #1044#1077#1082#1072#1088#1090#1086#1074#1099' '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1099
       TabOrder = 0
       object LabelZ: TLabel
         Left = 191
@@ -291,7 +291,7 @@ object FormCoco: TFormCoco
       Top = 14
       Width = 329
       Height = 59
-      Caption = 'Cartesian coordinates'
+      Caption = #1044#1077#1082#1072#1088#1090#1086#1074#1099' '#1082#1086#1086#1088#1076#1080#1085#1072#1090#1099
       TabOrder = 0
       object Label3: TLabel
         Left = 225

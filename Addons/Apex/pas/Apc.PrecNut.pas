@@ -40,9 +40,7 @@ procedure PN_Matrix(T0, T: double; var A: Double33);
 (*-----------------------------------------------------------------------*)
 procedure PrecArt(A:Double33; var X,Y,Z: double);
 
-//========================================
-implementation
-//========================================
+implementation //============================================================
 
 (* ----------------------------------------------------------------------- *)
 procedure NutEqu(T: double; var X, Y, Z: double);
@@ -82,7 +80,6 @@ begin
 end;
 
 (* ----------------------------------------------------------------------- *)
-
 procedure PrecMatEcl(T1, T2: double; var A: Double33);
 const
   SEC = 3600.0;
@@ -146,7 +143,6 @@ begin
 end;
 
 (* ----------------------------------------------------------------------- *)
-
 procedure PN_Matrix(T0, T: double; var A: Double33);
 begin
   PrecMatEqu(T0, T, A); // precession matrix T0->T;
@@ -156,7 +152,6 @@ begin
 end;
 
 (* ----------------------------------------------------------------------- *)
-
 procedure PrecArt(A: Double33; var X, Y, Z: double);
 var
   U, V, W: double;

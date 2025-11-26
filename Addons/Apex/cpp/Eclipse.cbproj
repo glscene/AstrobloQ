@@ -125,32 +125,38 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="Eclipse.cpp">
+        <None Include="APC_Cheb.h">
             <BuildOrder>1</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_Cheb.cpp">
-            <BuildOrder>3</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_Math.cpp">
-            <BuildOrder>4</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_Moon.cpp">
-            <BuildOrder>1</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_PrecNut.cpp">
-            <BuildOrder>7</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_Spheric.cpp">
-            <BuildOrder>5</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_Sun.cpp">
+        </None>
+        <None Include="APC_Const.h">
             <BuildOrder>2</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_Time.cpp">
-            <BuildOrder>8</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\..\source\apc\APC_VecMat3D.cpp">
+        </None>
+        <None Include="APC_IO.h">
+            <BuildOrder>3</BuildOrder>
+        </None>
+        <None Include="APC_Math.h">
+            <BuildOrder>4</BuildOrder>
+        </None>
+        <None Include="APC_Moon.h">
+            <BuildOrder>5</BuildOrder>
+        </None>
+        <None Include="APC_PrecNut.h">
             <BuildOrder>6</BuildOrder>
+        </None>
+        <None Include="APC_Spheric.h">
+            <BuildOrder>7</BuildOrder>
+        </None>
+        <None Include="APC_Sun.h">
+            <BuildOrder>8</BuildOrder>
+        </None>
+        <None Include="APC_Time.h">
+            <BuildOrder>9</BuildOrder>
+        </None>
+        <None Include="APC_VecMat3D.h">
+            <BuildOrder>10</BuildOrder>
+        </None>
+        <CppCompile Include="Eclipse.cpp">
+            <BuildOrder>0</BuildOrder>
         </CppCompile>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -287,7 +293,19 @@
                 <DeployFile LocalName=".\Win32\Debug\Eclipse.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName=".\Win32\Debug\Eclipse.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployFile LocalName="Eclipse.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Eclipse.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Eclipse.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Eclipse.tds" Configuration="Debug" Class="DebugSymbols"/>
+                <DeployFile LocalName="Eclipse.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>Eclipse.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">
                         <Operation>1</Operation>

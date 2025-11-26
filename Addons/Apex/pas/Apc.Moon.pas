@@ -55,9 +55,7 @@ procedure MoonEqu(T: Double; var Ra, Dec, R: Double);
 -----------------------------------------------------------------------*)
 procedure T_Fit_Moon(TA, TB: Double; N: integer; var RA_POLY, DE_POLY, R_POLY: TPolynomCheb);
 
-//------------------------------------------------------------------------
-implementation
-//------------------------------------------------------------------------
+implementation //=============================================================
 
 procedure MiniMoon(T: Double; var Ra, Dec: Double);
 const
@@ -509,7 +507,5 @@ begin
     R_POLY.C[J] := R_POLY.C[J] * FAC;
   end;
 end;
-
-
 
 end.

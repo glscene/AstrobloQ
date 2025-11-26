@@ -1,16 +1,14 @@
 unit Apc.Math;
 
 interface
-
-//
-//  Некоторые полезные математические функции и классы
-//
+(*
+  Некоторые полезные математические функции и классы
+*)
 
 uses
   System.Math;
 
 // Вектора и матрицы
-
 type
   Index = (X, Y, Z);
   Vector = array [Index] of Double;
@@ -173,9 +171,7 @@ function SN(X: double): double;
 function TN(X: Double): Double;
 
 
-//-----------------------------------------------------------------------
-implementation
-//-----------------------------------------------------------------------
+implementation //==============================================================
 
 function ACS(X: double): double;
 const
@@ -192,7 +188,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function ASN(X: double): double;
 const
   RAD = 0.0174532925199433;
@@ -207,7 +202,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function ATN(X: double): double;
 const
   RAD = 0.0174532925199433;
@@ -216,7 +210,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function ATN2(Y, X: double): double;
 const
   RAD = 0.0174532925199433;
@@ -242,7 +235,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure Cart(R, THETA, PHI: Double; var X, Y, Z: Double);
 var
   RCST: Double;
@@ -254,7 +246,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure Cross(A, B: Vector; var C: Vector);
 begin
   C[X] := A[Y] * B[Z] - A[Z] * B[Y];
@@ -263,7 +254,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function CS(X: Double): Double;
 const
   RAD = 0.0174532925199433;
@@ -272,7 +262,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function Cubr(X: Double): Double;
 begin
   if (X = 0.0) then
@@ -282,7 +271,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure Ddd(Deg, Min: integer; Sec: Double; var DD: Double);
 var
   SIGN: Double;
@@ -295,7 +283,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure DMS(DD: Double; var Deg, Min: integer; var Sec: Double);
 var
   D1: Double;
@@ -315,14 +302,12 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function Dot(A, B: Vector): Double;
 begin
   Dot := A[X] * B[X] + A[Y] * B[Y] + A[Z] * B[Z];
 end;
 
 //-----------------------------------------------------------------------
-
 procedure LsqFit(A: LsqMat; N, M: integer; var S: LsqVec);
 const
   EPS = 1.0E-10; // machine accuracy
@@ -380,7 +365,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure Polar(X, Y, Z: Double; var R, THETA, PHI: Double);
 var
   RHO: Double;
@@ -395,7 +379,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure Quad(Y_MINUS, Y_0, Y_PLUS: Double; var XE, YE, ZERO1, ZERO2: Double; var NZ: integer);
 var
   A, B, C, DIS, DX: Double;
@@ -422,7 +405,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function T_Eval(F: TPolynomCheb; X: Double): Double;
 var
   F1, F2, OLD_F1, XX, XX2: Double;
@@ -446,7 +428,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 procedure T_Fit_LBR(TA, TB: Double; N: integer; var L_POLY, B_POLY, R_POLY: TPolynomCheb);
 const
   NDIM = 27;
@@ -511,7 +492,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function SN(X: Double): Double;
 const
   RAD = 0.0174532925199433;
@@ -520,7 +500,6 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-
 function TN(X: Double): Double;
 const
   RAD = 0.0174532925199433;

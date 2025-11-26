@@ -106,7 +106,7 @@ function Bright(Planet: PlanetType; R, DELTA, PHI, Dec, DLONG: Double): Double;
 -----------------------------------------------------------------------*)
 procedure Illum(X, Y, Z, XE, YE, ZE: Double; var R, D, ELONG, PHI, K: Double);
 
-implementation //=======================================================
+implementation //=============================================================
 
 function PosAng(X, Y, Z, DX, DY, DZ: Double): Double;
 var

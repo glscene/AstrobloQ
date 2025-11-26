@@ -1,11 +1,8 @@
 //------------------------------------------------------------------------------
-//
 // File:    Coco.cpp
-//
 // Coordinate transformations
 //
 //    The original Fortran/Pascal/C++ codes is described in
-//
 //  - Shampine, Gordon: "Computer solution of Ordinary Differential Equations",
 //    Freeman and Comp., San Francisco (1975)
 //  - Montenbruck O., Pfleger T.: Astronomie Mit Dem Personal Computer.
@@ -15,8 +12,7 @@
 //------------------------------------------------------------------------------
 
 #include <iomanip>
-//#include <stdio.h>      // Header file for standard Input/Output
-
+#include <stdio.h>      // Header file for standard Input/Output
 #include "APC_Const.h"
 #include "APC_Math.h"
 #include "APC_PrecNut.h"
@@ -29,9 +25,7 @@
 #include <ctype.h>
 #include "GNU_iomanip.h"
 #endif
-
 #pragma argsused
-
 using namespace std;
 
 //

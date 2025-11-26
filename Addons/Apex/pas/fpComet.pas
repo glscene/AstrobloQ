@@ -16,15 +16,15 @@ uses
 type
   TFormComet = class(TForm)
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
   FormComet: TFormComet;
 
-implementation
+implementation //=============================================================
 
 {$R *.dfm}
 

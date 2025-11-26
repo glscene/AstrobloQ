@@ -9,7 +9,7 @@ uses
 
 (*-----------------------------------------------------------------------
  EccAnom: расчёт аномалии эксцентриситета E=EccAnom(MAN,ECC)
-          from the mean anomaly MAN and the eccentricity ECC.
+          по средней аномалии MAN и эксцентриситету ECC.
           (solution of Kepler's equation by Newton's method)
           (E, MAN in degrees)
 -----------------------------------------------------------------------*)
@@ -18,14 +18,14 @@ function EccAnom(MAN, ECC: Double): Double;
 (*-----------------------------------------------------------------------
  Element: расчёт элементов орбит по двум позициям для эллиптических и гиперболических орбит
 
-   JDA,JDB: time of passage of points A and B (Julian Date)
-   Ra, RB : position vectors of points A and B
-   TP     : perihelion time (in Julian centuries since J2000)
-   Q      : perihelion distance
-   ECC    : eccentricity
-   INC    : inclination (in deg)
-   LAN    : longitude of the ascending node (in deg)
-   AOP    : argument of perihelion (in deg)
+   JDA,JDB: время прохода точек A и B (Юлианская дата)
+   Ra, RB : позиции векторов точек A и B
+   TP     : время перигелия (in Julian centuries since J2000)
+   Q      : расстояние перигелия
+   ECC    : эксцентриситет
+   INC    : склонение (в градусах deg)
+   LAN    : долгота узла восхождения (в градусах deg)
+   AOP    : аргумент перигелия (в градусах deg)
 -----------------------------------------------------------------------*)
 procedure Element(JDA, JDB: Double; Ra, RB: Vector; var TP, Q, ECC, INC, LAN, AOP: Double);
 
@@ -77,7 +77,7 @@ procedure Kepler(T0, T, Q, ECC: Double; PQR: Double33; var X, Y, Z, VX, VY, VZ: 
 
 (*-----------------------------------------------------------------------
  Parab: расчёт позиции и скорости для
-        parabolic and near parabolic orbits according to Stumpff
+        параболических и почти параболических орбит согласно Stumpff
 
         T0   time of perihelion passage         X,Y    position
         T    time                              VX,VY  velocity

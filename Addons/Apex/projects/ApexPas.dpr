@@ -18,16 +18,16 @@ uses
   fpPlanetpos in '..\pas\fpPlanetpos.pas' {FormPlanetpos},
   fpPlanetrise in '..\pas\fpPlanetrise.pas' {FormPlanetrise},
   fpSunset in '..\pas\fpSunset.pas' {FormSunset},
-  Apc.DE in '..\apc\Apc.DE.pas',
-  Apc.Kepler in '..\apc\Apc.Kepler.pas',
-  Apc.Math in '..\apc\Apc.Math.pas',
-  Apc.Moon in '..\apc\Apc.Moon.pas',
-  Apc.Phys in '..\apc\Apc.Phys.pas',
-  Apc.Planets in '..\apc\Apc.Planets.pas',
-  Apc.PrecNut in '..\apc\Apc.PrecNut.pas',
-  Apc.Spheric in '..\apc\Apc.Spheric.pas',
-  Apc.Sun in '..\apc\Apc.Sun.pas',
-  Apc.Time in '..\apc\Apc.Time.pas';
+  Apc.DE in '..\pas\Apc.DE.pas',
+  Apc.Kepler in '..\pas\Apc.Kepler.pas',
+  Apc.Math in '..\pas\Apc.Math.pas',
+  Apc.Moon in '..\pas\Apc.Moon.pas',
+  Apc.Phys in '..\pas\Apc.Phys.pas',
+  Apc.Planets in '..\pas\Apc.Planets.pas',
+  Apc.PrecNut in '..\pas\Apc.PrecNut.pas',
+  Apc.Spheric in '..\pas\Apc.Spheric.pas',
+  Apc.Sun in '..\pas\Apc.Sun.pas',
+  Apc.Time in '..\pas\Apc.Time.pas';
 
 {$R *.res}
 

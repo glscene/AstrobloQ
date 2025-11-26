@@ -1,9 +1,7 @@
 unit Apc.Spheric;
-
 (*------------------------------------------------------------------------
-         Преобразования, часто встречающиеся в сферической астрономии.
+      Преобразования, часто встречающиеся в сферической астрономии
 ------------------------------------------------------------------------ *)
-
 interface
 
 uses
@@ -96,9 +94,7 @@ procedure StdEqu(RA0, DEC0, XX, YY: Double; var Ra, Dec: Double);
 -----------------------------------------------------------------------*)
 procedure EquStd(RA0, DEC0, Ra, Dec: Double; var XX, YY: Double);
 
-//===============================================================
-implementation
-//===============================================================
+implementation //=============================================================
 
 procedure Aberrat(T: Double; var VX, VY, VZ: Double);
 const
@@ -123,7 +119,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure Apparent(PNMAT: Double33; VX, VY, VZ: Double; var Ra, Dec: Double);
 var
   X, Y, Z, R: Double;
@@ -137,7 +132,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure Ecl2Equ(T: Double; var X, Y, Z: Double);
 var
   EPS, C, S, V: Double;
@@ -151,7 +145,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure Equ2Ecl(T: Double; var X, Y, Z: Double);
 var
   EPS, C, S, V: Double;
@@ -165,7 +158,6 @@ begin
 end;
 
 (* ----------------------------------------------------------------------- *)
-
 procedure Equ2Hor(Dec, TAU, PHI: Double; var H, AZ: Double);
 var
   CS_PHI, SN_PHI, CS_DEC, SN_DEC, CS_TAU, X, Y, Z, DUMMY: Double;
@@ -182,7 +174,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure EquStd(RA0, DEC0, Ra, Dec: Double; var XX, YY: Double);
 var
   C: Double;
@@ -193,7 +184,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure GaussVec(LAN, INC, AOP: Double; var PQR: Double33);
 var
   C1, S1, C2, S2, C3, S3: Double;
@@ -216,7 +206,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure Hor2Equ(H, AZ, PHI: Double; var Dec, TAU: Double);
 var
   CS_PHI, SN_PHI, CS_H, SN_H, CS_AZ, X, Y, Z, DUMMY: Double;
@@ -233,7 +222,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure Orb2Ecl(XX, YY: Double; PQR: Double33; var X, Y, Z: Double);
 begin
   X := PQR[1, 1] * XX + PQR[1, 2] * YY;
@@ -242,7 +230,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure Site(PHI: Double; var RCPHI, RSPHI: Double);
 const
   E2 = 0.006694; (* e**2 = f(2-f) for flattening f = 1/298.257 *)
@@ -256,7 +243,6 @@ begin
 end;
 
 (*-----------------------------------------------------------------------*)
-
 procedure StdEqu(RA0, DEC0, XX, YY: Double; var Ra, Dec: Double);
 begin
   Ra := RA0 + ATN(-XX / (CS(DEC0) - YY * SN(DEC0)));

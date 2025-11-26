@@ -19,7 +19,7 @@
 #include "APC_PrecNut.h"
 #include "APC_Spheric.h"
 #include "APC_VecMat3D.h"
-#include <APC_VecMat3D.cpp>
+#include "APC_VecMat3D.cpp"
 
 
 namespace // Unnamed namespace

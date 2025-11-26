@@ -150,16 +150,16 @@
         <DCCReference Include="..\pas\fpSunset.pas">
             <Form>FormSunset</Form>
         </DCCReference>
-        <DCCReference Include="..\apc\Apc.DE.pas"/>
-        <DCCReference Include="..\apc\Apc.Kepler.pas"/>
-        <DCCReference Include="..\apc\Apc.Math.pas"/>
-        <DCCReference Include="..\apc\Apc.Moon.pas"/>
-        <DCCReference Include="..\apc\Apc.Phys.pas"/>
-        <DCCReference Include="..\apc\Apc.Planets.pas"/>
-        <DCCReference Include="..\apc\Apc.PrecNut.pas"/>
-        <DCCReference Include="..\apc\Apc.Spheric.pas"/>
-        <DCCReference Include="..\apc\Apc.Sun.pas"/>
-        <DCCReference Include="..\apc\Apc.Time.pas"/>
+        <DCCReference Include="..\pas\Apc.DE.pas"/>
+        <DCCReference Include="..\pas\Apc.Kepler.pas"/>
+        <DCCReference Include="..\pas\Apc.Math.pas"/>
+        <DCCReference Include="..\pas\Apc.Moon.pas"/>
+        <DCCReference Include="..\pas\Apc.Phys.pas"/>
+        <DCCReference Include="..\pas\Apc.Planets.pas"/>
+        <DCCReference Include="..\pas\Apc.PrecNut.pas"/>
+        <DCCReference Include="..\pas\Apc.Spheric.pas"/>
+        <DCCReference Include="..\pas\Apc.Sun.pas"/>
+        <DCCReference Include="..\pas\Apc.Time.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

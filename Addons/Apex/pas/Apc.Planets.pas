@@ -1,9 +1,9 @@
 unit Apc.Planets;
 
 interface
-
-// Расчёт положения планет
-
+(*
+ Расчёт положения планет
+*)
 uses
   System.Math,
   Apc.Kepler,
@@ -17,7 +17,6 @@ type
 
 (*-----------------------------------------------------------------------
  PlanetPos:
-
    Вычисляет положение планет на кеплеровских орбитах.
    Элементы эпохи J2000 используются от Меркурия до Марса;
    Соприкасающиеся элементы на эпоху 1995/10/10 (JD 2450000.5) даны для
@@ -121,9 +120,7 @@ procedure NeptunePos(T: Double; var L, B, R: Double);
 -----------------------------------------------------------------------*)
 procedure PlutoPos(T: Double; var L, B, R: Double);
 
-//=====================================================
-implementation
-//=====================================================
+implementation //=============================================================
 
 
 procedure PlanetPos(Planet: PlanetType; T: Double; var X, Y, Z: Double);
@@ -241,7 +238,6 @@ begin
 end; // Position
 
 (* --------------------------------------------------------------------- *)
-
 procedure GeoCentric(T, LP, BP, RP, LS, BS, RS: Double; IPLAN, IMODE: integer;
   var XP, YP, ZP, XS, YS, ZS, X, Y, Z, DELTA0: Double);
 
@@ -398,7 +394,6 @@ end;
 
 
 (* ----------------------------------------------------------------------- *)
-
 procedure MercuryPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -558,7 +553,6 @@ begin // MercuryPos
 end; // MercuryPos
 
 (* ----------------------------------------------------------------------- *)
-
 procedure VenusPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -715,7 +709,6 @@ end; // VenusPos
 
 
 //-----------------------------------------------------------------------
-
 procedure MarsPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -933,7 +926,6 @@ begin // MarsPos
 end;
 
 //-----------------------------------------------------------------------
-
 procedure JupiterPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -1057,7 +1049,6 @@ var
   end;
 
 begin // JupiterPos
-
   DL := 0.0;
   DR := 0.0;
   DB := 0.0;
@@ -1082,7 +1073,6 @@ begin // JupiterPos
 end; // JupiterPos
 
 //-----------------------------------------------------------------------
-
 procedure SaturnPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -1241,7 +1231,6 @@ var
   end;
 
 begin // SaturnPos
-
   DL := 0.0;
   DR := 0.0;
   DB := 0.0;
@@ -1262,11 +1251,9 @@ begin // SaturnPos
   L := 360.0 * Frac(0.2561136 + M6 / P2 + ((5018.6 + T * 1.9) * T + DL) / 1296.0E3);
   R := 9.557584 - 0.000186 * T + DR * 1.0E-5;
   B := (175.1 - 10.2 * T + DB) / 3600.0;
-
 end; // SaturnPos
 
 //-----------------------------------------------------------------------
-
 procedure UranusPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -1417,7 +1404,6 @@ var
   end;
 
 begin // UranusPos
-
   DL := 0.0;
   DR := 0.0;
   DB := 0.0;
@@ -1443,11 +1429,9 @@ begin // UranusPos
   L := 360.0 * Frac(0.4734843 + M7 / P2 + ((5082.3 + 34.2 * T) * T + DL) / 1296.0E3);
   R := 19.211991 + (-0.000333 - 0.000005 * T) * T + DR * 1.0E-5;
   B := (-130.61 + (-0.54 + 0.04 * T) * T + DB) / 3600.0;
-
 end; // UranusPos
 
 //-----------------------------------------------------------------------
-
 procedure NeptunePos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -1552,7 +1536,6 @@ var
   end;
 
 begin // NeptunePos
-
   DL := 0.0;
   DR := 0.0;
   DB := 0.0;
@@ -1572,7 +1555,6 @@ begin // NeptunePos
   L := 360.0 * Frac(0.1254046 + M8 / P2 + ((4982.8 - 21.3 * T) * T + DL) / 1296.0E3);
   R := 30.072984 + (0.001234 + 0.000003 * T) * T + DR * 1.0E-5;
   B := (54.77 + (0.26 + 0.06 * T) * T + DB) / 3600.0;
-
 end; // NeptunePos
 
 //-----------------------------------------------------------------------
@@ -1706,7 +1688,6 @@ var
   end;
 
 begin // PlutoPos
-
   DL := 0.0;
   DR := 0.0;
   DB := 0.0;
@@ -1726,8 +1707,6 @@ begin // PlutoPos
   R := 40.7247248 + DR * 1.0E-5;
   B := -3.909434 + DB / 3600.0;
   Prec(T, L, B);
-
 end; // PlutoPos
-
 
 end.

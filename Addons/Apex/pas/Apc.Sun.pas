@@ -44,12 +44,9 @@ procedure MiniSun(T: Double; var Ra, Dec: Double);
 -----------------------------------------------------------------------*)
 procedure T_Fit_Sun(TA, TB: Double; N: integer; var RA_POLY, DE_POLY, R_POLY: TPolynomCheb);
 
-//=======================================================================
-implementation
-//=======================================================================
+implementation //=============================================================
 
 (*-----------------------------------------------------------------------*)
-
 procedure MiniSun(T: Double; var Ra, Dec: Double);
 const
   P2 = 6.283185307;
@@ -81,7 +78,6 @@ begin
 end;  // MiniSun
 
 (* ----------------------------------------------------------------------- *)
-
 procedure SunPos(T: Double; var L, B, R: Double);
 const
   P2 = 6.283185307;
@@ -257,7 +253,6 @@ begin (* SunPos *)
 end; (* SunPos *)
 
 (* ----------------------------------------------------------------------- *)
-
 procedure SunEqu(T: Double; var Ra, Dec, R: Double);
 var
   DT, L, B, X, Y, Z: Double;
@@ -278,7 +273,6 @@ end;
 *)
 
 (*-----------------------------------------------------------------------------------*)
-
 procedure T_Fit_Sun(TA, TB: Double; N: integer; var RA_POLY, DE_POLY, R_POLY: TPolynomCheb);
 const
   Pi = 3.1415926535898;
@@ -336,6 +330,5 @@ begin
     R_POLY.C[J] := R_POLY.C[J] * FAC;
   end;
 end;  // T_Fit_Sun
-
 
 end.

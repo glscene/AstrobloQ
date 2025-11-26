@@ -143,30 +143,33 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="..\apc\APC_Const.h">
-            <BuildOrder>1</BuildOrder>
+        <None Include="APC_Const.h">
+            <BuildOrder>7</BuildOrder>
         </None>
-        <None Include="..\apc\APC_Math.h">
-            <BuildOrder>2</BuildOrder>
+        <None Include="APC_Math.h">
+            <BuildOrder>7</BuildOrder>
         </None>
-        <None Include="..\apc\APC_PrecNut.h">
-            <BuildOrder>3</BuildOrder>
+        <None Include="APC_PrecNut.h">
+            <BuildOrder>7</BuildOrder>
         </None>
-        <None Include="..\apc\APC_Spheric.h">
-            <BuildOrder>4</BuildOrder>
+        <None Include="APC_Spheric.h">
+            <BuildOrder>7</BuildOrder>
         </None>
-        <None Include="..\apc\APC_Sun.h">
-            <BuildOrder>5</BuildOrder>
+        <None Include="APC_Sun.h">
+            <BuildOrder>7</BuildOrder>
         </None>
-        <None Include="..\apc\APC_Time.h">
-            <BuildOrder>6</BuildOrder>
+        <None Include="APC_Time.h">
+            <BuildOrder>7</BuildOrder>
         </None>
-        <None Include="..\apc\APC_VecMat3D.h">
+        <None Include="APC_VecMat3D.h">
             <BuildOrder>7</BuildOrder>
         </None>
         <CppCompile Include="Coco.cpp">
             <BuildOrder>1</BuildOrder>
         </CppCompile>
+        <None Include="GNU_iomanip.h">
+            <BuildOrder>8</BuildOrder>
+        </None>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -238,6 +241,16 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64370.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64370mt.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
@@ -253,12 +266,32 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32370.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32370mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c290.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
                 <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c290mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c370.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c370mt.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>

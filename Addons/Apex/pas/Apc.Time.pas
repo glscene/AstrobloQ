@@ -1,8 +1,7 @@
 unit Apc.Time;
-
-//
-//    Функции и классы работы со временем
-//
+(*
+  Функции и классы работы со временем
+*)
 
 interface
 
@@ -47,9 +46,7 @@ function MJD(Day, Month, Year: integer; Hour: Double): Double;
 ----------------------------------------------------------------------*)
 procedure CalDat(MJD: Double; var Day, Month, Year: integer; var Hour: Double);
 
-//==============================================================
-implementation
-//==============================================================
+implementation //=============================================================
 
 function LongTrunc(X: Double): Double;
 begin
@@ -64,7 +61,7 @@ var
 begin
   JD := MJD + 2400000.5;
   JD0 := Int(JD + 0.5);  // Delphi
-  (* JD0 := Trunc(JD + 0.5); *)  // Standard Pascal
+  (* JD0 := Trunc(JD + 0.5); *)  // Free Pascal
   (* JD0 := LongTrunc(JD + 0.5); *)
   if (JD0 < 2299161.0) // calendar:
   then
@@ -86,7 +83,6 @@ begin
 end;  // CalDat
 
 //-----------------------------------------------------------------------
-
 procedure ETminUT(T: Double; var DTSEC: Double; var VALID: Boolean);
 begin
   VALID := ((-1.0 <= T) and (T <= -0.05));

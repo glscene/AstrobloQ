@@ -157,134 +157,101 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="..\apc\APC_AOEcat.cpp">
+        <CppCompile Include="..\cpp\APC_AOEcat.cpp">
             <BuildOrder>43</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\apc\APC_Cheb.cpp">
+        <CppCompile Include="..\cpp\APC_Cheb.cpp">
             <BuildOrder>40</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\apc\APC_DE.cpp">
+        <CppCompile Include="..\cpp\APC_DE.cpp">
             <BuildOrder>41</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\apc\APC_IO.cpp">
+        <CppCompile Include="..\cpp\APC_IO.cpp">
             <BuildOrder>32</BuildOrder>
-        </CppCompile>
-        <None Include="..\apc\APC_Kepler.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>33</BuildOrder>
-        </None>
-        <CppCompile Include="..\apc\APC_Math.cpp">
-            <BuildOrder>34</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\apc\APC_Moon.cpp">
-            <BuildOrder>35</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\apc\APC_Phys.cpp">
-            <BuildOrder>32</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\apc\APC_Planets.cpp">
-            <BuildOrder>33</BuildOrder>
-        </CppCompile>
-        <None Include="..\apc\APC_PrecNut.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>28</BuildOrder>
-        </None>
-        <None Include="..\apc\APC_Spheric.cpp">
-            <Exclude>True</Exclude>
-            <BuildOrder>29</BuildOrder>
-        </None>
-        <CppCompile Include="..\apc\APC_Sun.cpp">
-            <BuildOrder>30</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\apc\APC_Time.cpp">
-            <BuildOrder>40</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\apc\APC_VecMat3D.cpp">
-            <BuildOrder>39</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcApex.cpp">
             <Form>frmApex</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcApex.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
+            <BuildOrder>17</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcEclipse.cpp">
             <Form>FormEclipse</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcEclipse.h</DependentOn>
-            <BuildOrder>16</BuildOrder>
+            <BuildOrder>18</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcEclTimer.cpp">
             <Form>FormEclTimer</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcEclTimer.h</DependentOn>
-            <BuildOrder>17</BuildOrder>
+            <BuildOrder>19</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcFoto.cpp">
             <Form>FormFoto</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcFoto.h</DependentOn>
-            <BuildOrder>21</BuildOrder>
+            <BuildOrder>20</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcLuna.cpp">
             <Form>FormLuna</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcLuna.h</DependentOn>
-            <BuildOrder>19</BuildOrder>
+            <BuildOrder>21</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcNumint.cpp">
             <Form>FormNumint</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcNumint.h</DependentOn>
-            <BuildOrder>20</BuildOrder>
+            <BuildOrder>22</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcOccult.cpp">
             <Form>FormOccult</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcOccult.h</DependentOn>
-            <BuildOrder>28</BuildOrder>
+            <BuildOrder>23</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcPhases.cpp">
             <Form>FormPhases</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcPhases.h</DependentOn>
-            <BuildOrder>23</BuildOrder>
+            <BuildOrder>24</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcPhys.cpp">
             <Form>FormPhys</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcPhys.h</DependentOn>
-            <BuildOrder>24</BuildOrder>
+            <BuildOrder>25</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcPlanetpos.cpp">
             <Form>FormPlanetpos</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcPlanetpos.h</DependentOn>
-            <BuildOrder>25</BuildOrder>
+            <BuildOrder>26</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcPlanetrise.cpp">
             <Form>FormPlanetrise</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcPlanetrise.h</DependentOn>
-            <BuildOrder>26</BuildOrder>
+            <BuildOrder>27</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcPPMbin.cpp">
             <Form>FormPPMbin</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcPPMbin.h</DependentOn>
-            <BuildOrder>29</BuildOrder>
+            <BuildOrder>28</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcPPMcat.cpp">
             <Form>FormPPMcat</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcPPMcat.h</DependentOn>
-            <BuildOrder>30</BuildOrder>
+            <BuildOrder>29</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcSunset.cpp">
             <Form>FormSunset</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcSunset.h</DependentOn>
-            <BuildOrder>22</BuildOrder>
+            <BuildOrder>30</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcСoco.cpp">
             <Form>FormCoco</Form>
@@ -292,31 +259,37 @@
             <DependentOn>..\cpp\fcСoco.h</DependentOn>
             <BuildOrder>27</BuildOrder>
         </CppCompile>
+        <None Include="..\cpp\fcСoco.h">
+            <BuildOrder>31</BuildOrder>
+        </None>
         <CppCompile Include="..\cpp\fcСomet.cpp">
             <Form>FormComet</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcСomet.h</DependentOn>
             <BuildOrder>18</BuildOrder>
         </CppCompile>
+        <None Include="..\cpp\fcСomet.h">
+            <BuildOrder>32</BuildOrder>
+        </None>
         <CppCompile Include="ApexCpp.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <FormResources Include="..\cpp\fcNumint.dfm"/>
-        <FormResources Include="..\cpp\fcOccult.dfm"/>
-        <FormResources Include="..\cpp\fcPhases.dfm"/>
-        <FormResources Include="..\cpp\fcLuna.dfm"/>
+        <FormResources Include="..\cpp\fcСoco.dfm"/>
+        <FormResources Include="..\cpp\fcСomet.dfm"/>
+        <FormResources Include="..\cpp\fcApex.dfm"/>
         <FormResources Include="..\cpp\fcEclipse.dfm"/>
         <FormResources Include="..\cpp\fcEclTimer.dfm"/>
         <FormResources Include="..\cpp\fcFoto.dfm"/>
+        <FormResources Include="..\cpp\fcLuna.dfm"/>
+        <FormResources Include="..\cpp\fcNumint.dfm"/>
+        <FormResources Include="..\cpp\fcOccult.dfm"/>
+        <FormResources Include="..\cpp\fcPhases.dfm"/>
         <FormResources Include="..\cpp\fcPhys.dfm"/>
-        <FormResources Include="..\cpp\fcSunset.dfm"/>
-        <FormResources Include="..\cpp\fcСoco.dfm"/>
-        <FormResources Include="..\cpp\fcСomet.dfm"/>
-        <FormResources Include="..\cpp\fcPPMcat.dfm"/>
         <FormResources Include="..\cpp\fcPlanetpos.dfm"/>
         <FormResources Include="..\cpp\fcPlanetrise.dfm"/>
         <FormResources Include="..\cpp\fcPPMbin.dfm"/>
-        <FormResources Include="..\cpp\fcApex.dfm"/>
+        <FormResources Include="..\cpp\fcPPMcat.dfm"/>
+        <FormResources Include="..\cpp\fcSunset.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

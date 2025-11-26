@@ -18,7 +18,7 @@
 #include "APC_Phys.h"
 #include "APC_Planets.h"
 #include "APC_VecMat3D.h"
-#include <APC_VecMat3D.cpp>
+#include "APC_VecMat3D.cpp"
 
 
 

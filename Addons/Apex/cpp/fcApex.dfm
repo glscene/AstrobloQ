@@ -2,8 +2,8 @@ object frmApex: TfrmApex
   Left = 0
   Top = 0
   Caption = 'ApexC'
-  ClientHeight = 485
-  ClientWidth = 630
+  ClientHeight = 470
+  ClientWidth = 742
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object frmApex: TfrmApex
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 630
+    Width = 742
     Height = 27
     Align = alTop
     TabOrder = 0
@@ -25,8 +25,8 @@ object frmApex: TfrmApex
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 467
-    Width = 630
+    Top = 452
+    Width = 742
     Height = 18
     Panels = <>
     ExplicitTop = 442
@@ -36,7 +36,7 @@ object frmApex: TfrmApex
     Left = 0
     Top = 27
     Width = 153
-    Height = 440
+    Height = 425
     Align = alLeft
     TabOrder = 2
     ExplicitHeight = 415
@@ -50,7 +50,7 @@ object frmApex: TfrmApex
     end
     object PanelBottom: TPanel
       Left = 1
-      Top = 418
+      Top = 403
       Width = 151
       Height = 21
       Align = alBottom
@@ -61,7 +61,7 @@ object frmApex: TfrmApex
       Left = 1
       Top = 25
       Width = 151
-      Height = 393
+      Height = 378
       Align = alClient
       Indent = 19
       TabOrder = 2
