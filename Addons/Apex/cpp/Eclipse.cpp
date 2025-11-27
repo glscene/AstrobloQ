@@ -12,6 +12,7 @@
 #include <fstream>
 
 #include "APC_Cheb.h"
+#include "APC_Cheb.cpp"  // ! added due to Cheb3D
 #include "APC_Const.h"
 #include "APC_IO.h"
 #include "APC_Math.h"

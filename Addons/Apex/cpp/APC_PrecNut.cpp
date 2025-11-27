@@ -16,6 +16,7 @@
 
 #include "APC_Const.h"
 #include "APC_Math.h"
+#include "APC_Math.cpp"  // ! added
 #include "APC_PrecNut.h"
 #include "APC_VecMat3D.h"
 #include "APC_VecMat3D.cpp"
@@ -83,10 +84,10 @@ Mat3D NutMatrix (double T)
   double  eps, dpsi, deps;
 
   // Mean arguments of lunar and solar motion
-  ls = pi2*Frac(0.993133+  99.997306*T);   // mean anomaly Sun          
-  D  = pi2*Frac(0.827362+1236.853087*T);   // diff. longitude Moon-Sun  
-  F  = pi2*Frac(0.259089+1342.227826*T);   // mean argument of latitude 
-  N  = pi2*Frac(0.347346-   5.372447*T);   // longit. ascending node    
+  ls = pi2*frac(0.993133+  99.997306*T);   // mean anomaly Sun
+  D  = pi2*frac(0.827362+1236.853087*T);   // diff. longitude Moon-Sun
+  F  = pi2*frac(0.259089+1342.227826*T);   // mean argument of latitude
+  N  = pi2*frac(0.347346-   5.372447*T);   // longit. ascending node
 
   // Nutation angles
   dpsi = ( -17.200*sin(N)   - 1.319*sin(2*(F-D+N)) - 0.227*sin(2*(F+N))

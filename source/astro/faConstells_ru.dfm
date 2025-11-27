@@ -202,7 +202,7 @@ object FormConstells: TFormConstells
     Height = 19
     Panels = <>
     ExplicitTop = 603
-    ExplicitWidth = 979
+    ExplicitWidth = 1006
   end
   object PanelRight: TPanel
     Left = 840
@@ -211,6 +211,8 @@ object FormConstells: TFormConstells
     Height = 628
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 832
+    ExplicitHeight = 603
     object VirtualImageFigures: TVirtualImage
       Left = 1
       Top = 476
@@ -258,7 +260,6 @@ object FormConstells: TFormConstells
         FFFFFFFFFFFFFFFF00000000000000000000000000010712043E0434043E043B
         04350439040000270000004100000041000000FFFFFFFFFFFFFFFF0000000000
         0000000000000000010420044B0431044B04}
-      ExplicitWidth = 152
     end
     object Panel1: TPanel
       Left = 1
@@ -268,7 +269,6 @@ object FormConstells: TFormConstells
       Align = alTop
       Caption = #1047#1086#1076#1080#1072#1082#1072#1083#1100#1085#1099#1077' '#1089#1086#1079#1074#1077#1079#1076#1080#1103
       TabOrder = 1
-      ExplicitWidth = 152
     end
   end
   object GLScene: TGLScene

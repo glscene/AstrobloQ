@@ -16,6 +16,7 @@
 
 #include "APC_Const.h"
 #include "APC_Math.h"
+#include "APC_Math.cpp"  // ! added due to frac
 #include "APC_PrecNut.h"
 #include "APC_Spheric.h"
 #include "APC_Sun.h"
@@ -146,15 +147,15 @@ Vec3D SunPos (double T)
 
 
   // Mean anomalies of planets and mean arguments of lunar orbit [rad]
-  M2 = pi2 * Frac ( 0.1387306 + 162.5485917*T );
-  M3 = pi2 * Frac ( 0.9931266 +  99.9973604*T );
-  M4 = pi2 * Frac ( 0.0543250 +  53.1666028*T );
-  M5 = pi2 * Frac ( 0.0551750 +   8.4293972*T );
-  M6 = pi2 * Frac ( 0.8816500 +   3.3938722*T );
+  M2 = pi2 * frac ( 0.1387306 + 162.5485917*T );
+  M3 = pi2 * frac ( 0.9931266 +  99.9973604*T );
+  M4 = pi2 * frac ( 0.0543250 +  53.1666028*T );
+  M5 = pi2 * frac ( 0.0551750 +   8.4293972*T );
+  M6 = pi2 * frac ( 0.8816500 +   3.3938722*T );
 
-  D  = pi2 * Frac ( 0.8274 + 1236.8531*T );
-  A  = pi2 * Frac ( 0.3749 + 1325.5524*T );
-  U  = pi2 * Frac ( 0.2591 + 1342.2278*T );
+  D  = pi2 * frac ( 0.8274 + 1236.8531*T );
+  A  = pi2 * frac ( 0.3749 + 1325.5524*T );
+  U  = pi2 * frac ( 0.2591 + 1342.2278*T );
 
 
   // Keplerian terms and perturbations by Venus
@@ -239,24 +240,24 @@ Vec3D SunPos (double T)
 
   // Difference of Earth-Moon-barycentre and centre of the Earth
   dl += +  6.45*sin(D) - 0.42*sin(D-A) + 0.18*sin(D+A)
-        +  0.17*sin(D-M3) - 0.06*sin(D+M3);
+		+  0.17*sin(D-M3) - 0.06*sin(D+M3);
 
   dr += + 30.76*cos(D) - 3.06*cos(D-A) + 0.85*cos(D+A)
-        -  0.58*cos(D+M3) + 0.57*cos(D-M3);
+		-  0.58*cos(D+M3) + 0.57*cos(D-M3);
 
   db += + 0.576*sin(U);
 
 
   // Long-periodic perturbations
   dl += + 6.40 * sin ( pi2*(0.6983 + 0.0561*T) )
-        + 1.87 * sin ( pi2*(0.5764 + 0.4174*T) )
-        + 0.27 * sin ( pi2*(0.4189 + 0.3306*T) )
-        + 0.20 * sin ( pi2*(0.3581 + 2.4814*T) );
+		+ 1.87 * sin ( pi2*(0.5764 + 0.4174*T) )
+		+ 0.27 * sin ( pi2*(0.4189 + 0.3306*T) )
+		+ 0.20 * sin ( pi2*(0.3581 + 2.4814*T) );
 
 
   // Ecliptic coordinates ([rad],[AU])
-  l = pi2 * Frac ( 0.7859453 + M3/pi2 +
-                 ( (6191.2+1.1*T)*T + dl ) / 1296.0e3 );
+  l = pi2 * frac ( 0.7859453 + M3/pi2 +
+				 ( (6191.2+1.1*T)*T + dl ) / 1296.0e3 );
   r = 1.0001398 - 0.0000007 * T + dr * 1.0e-6;
   b = db / Arcs;
 
@@ -288,9 +289,9 @@ void MiniSun (double T, double& Ra, double& Dec)
 
 
   // Mean anomaly and ecliptic longitude
-  M  = pi2 * Frac ( 0.993133 + 99.997361*T);
-  L  = pi2 * Frac ( 0.7859453 + M/pi2 +
-                    (6893.0*sin(M)+72.0*sin(2.0*M)+6191.2*T) / 1296.0e3);
+  M  = pi2 * frac ( 0.993133 + 99.997361*T);
+  L  = pi2 * frac ( 0.7859453 + M/pi2 +
+					(6893.0*sin(M)+72.0*sin(2.0*M)+6191.2*T) / 1296.0e3);
 
   // Equatorial coordinates
   e_Sun = R_x(-eps) * Vec3D(Polar(L,0.0));

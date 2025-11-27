@@ -29,15 +29,15 @@ using namespace std;
 
 //------------------------------------------------------------------------------
 //
-// Frac: Gives the fractional part of a number
+// frac: Gives the fractional part of a number
 //
 //------------------------------------------------------------------------------
-/*
-double Frac (double x)
+
+double frac (double x)
 {
    return x-floor(x);
 }
-*/
+
 
 //------------------------------------------------------------------------------
 //
@@ -47,7 +47,7 @@ double Frac (double x)
 
 double Modulo (double x, double y)
 {
-   return y*Frac(x/y);
+   return y*frac(x/y);
 }
 
 

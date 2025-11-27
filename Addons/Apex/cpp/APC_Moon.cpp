@@ -15,11 +15,12 @@
 
 #include "APC_Const.h"
 #include "APC_Math.h"
+#include "APC_Math.cpp"  // ! added
 #include "APC_Moon.h"
 #include "APC_PrecNut.h"
 #include "APC_Spheric.h"
 #include "APC_VecMat3D.h"
-#include "APC_VecMat3D.cpp"
+#include "APC_VecMat3D.cpp" // ! added
 
 namespace // Unnamed namespace
 {
@@ -97,7 +98,7 @@ namespace // Unnamed namespace
 
   
     // Longperiodic perturbations
-    S1 = sin (0.19833+0.05611*T);  S2 = sin (0.27869+0.04508*T);
+	S1 = sin (0.19833+0.05611*T);  S2 = sin (0.27869+0.04508*T);
 	S3 = sin (0.16827-0.36903*T);  S4 = sin (0.34734-5.37261*T);
 	S5 = sin (0.10498-5.37899*T);  S6 = sin (0.42681-0.41855*T);
 	S7 = sin (0.14943-5.37511*T);
@@ -118,11 +119,11 @@ namespace // Unnamed namespace
 	// l  mean anomaly of the Moon     l' mean anomaly of the Sun
 	// F  mean distance from the node  D  mean elongation from the Sun
 
-	L0 = pi2*Frac(0.60643382+1336.85522467*T-0.00000313*T2) + dL0/Arcs;
-	l  = pi2*Frac(0.37489701+1325.55240982*T+0.00002565*T2) + dl /Arcs;
-	ls = pi2*Frac(0.99312619+  99.99735956*T-0.00000044*T2) + dls/Arcs;
-	F  = pi2*Frac(0.25909118+1342.22782980*T-0.00000892*T2) + dF /Arcs;
-	D  = pi2*Frac(0.82736186+1236.85308708*T-0.00000397*T2) + dD /Arcs;
+	L0 = pi2*frac(0.60643382+1336.85522467*T-0.00000313*T2) + dL0/Arcs;
+	l  = pi2*frac(0.37489701+1325.55240982*T+0.00002565*T2) + dl /Arcs;
+	ls = pi2*frac(0.99312619+  99.99735956*T-0.00000044*T2) + dls/Arcs;
+	F  = pi2*frac(0.25909118+1342.22782980*T-0.00000892*T2) + dF /Arcs;
+	D  = pi2*frac(0.82736186+1236.85308708*T-0.00000397*T2) + dD /Arcs;
 
 
 	// Cosine and sine of multiples of mean arguments

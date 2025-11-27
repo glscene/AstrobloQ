@@ -115,7 +115,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <IncludePath>..\\cpp;$(IncludePath)</IncludePath>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <FinalOutputDir>..\\bin</FinalOutputDir>
     </PropertyGroup>
@@ -127,15 +126,9 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="APC_Math.h">
-            <BuildOrder>9</BuildOrder>
-        </None>
         <CppCompile Include="APC_Moon.cpp">
             <BuildOrder>8</BuildOrder>
         </CppCompile>
-        <None Include="APC_Moon.h">
-            <BuildOrder>10</BuildOrder>
-        </None>
         <CppCompile Include="APC_Phys.cpp">
             <BuildOrder>8</BuildOrder>
         </CppCompile>
@@ -292,22 +285,22 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\Eclipse.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName=".\Win32\Debug\Eclipse.tds" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName="Eclipse.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="Eclipse.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\\bin\Eclipse.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Eclipse.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Eclipse.tds" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName="Eclipse.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="..\\bin\Eclipse.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
                         <RemoteName>Eclipse.tds</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\Eclipse.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName=".\Win32\Debug\Eclipse.tds" Configuration="Debug" Class="DebugSymbols"/>
+                <DeployFile LocalName="Eclipse.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Eclipse.tds" Configuration="Debug" Class="DebugSymbols"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">
                         <Operation>1</Operation>

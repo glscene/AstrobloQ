@@ -216,7 +216,7 @@ object frmConstells: TfrmConstells
     Height = 19
     Panels = <>
     ExplicitTop = 603
-    ExplicitWidth = 979
+    ExplicitWidth = 1016
   end
   object PanelRight: TPanel
     Left = 848
@@ -225,6 +225,8 @@ object frmConstells: TfrmConstells
     Height = 628
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 840
+    ExplicitHeight = 603
     object VirtualImageFigures: TVirtualImage
       Left = 1
       Top = 476
@@ -275,8 +277,6 @@ object frmConstells: TfrmConstells
         00000000000000000001084100710075006100720069007500730000002B0000
         004100000041000000FFFFFFFFFFFFFFFF000000000000000000000000000106
         500069007300630065007300}
-      ExplicitTop = 1
-      ExplicitWidth = 152
     end
     object Panel1: TPanel
       Left = 1
@@ -286,9 +286,6 @@ object frmConstells: TfrmConstells
       Align = alTop
       Caption = 'Zodiac constellations'
       TabOrder = 1
-      ExplicitLeft = 2
-      ExplicitTop = 9
-      ExplicitWidth = 152
     end
   end
   object GLScene: TGLScene
