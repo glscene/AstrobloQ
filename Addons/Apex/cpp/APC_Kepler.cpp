@@ -39,6 +39,7 @@
 #include "APC_Kepler.h"
 #include "APC_Math.h"
 #include "APC_VecMat3D.h"
+#include "APC_VecMat3D.cpp"
 
 
 using namespace std;

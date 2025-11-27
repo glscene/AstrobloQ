@@ -14,9 +14,11 @@
 #include "APC_Const.h"
 #include "APC_Math.h"
 
+/*
 #ifdef __GNUC__  // GNU C++ Adaptations
 #include "GNU_iomanip.h"
 #endif
+*/
 
 using namespace std;
 

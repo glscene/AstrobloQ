@@ -127,27 +127,48 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="APC_Const.h">
+        <CppCompile Include="APC_AOEcat.cpp">
             <BuildOrder>1</BuildOrder>
-        </None>
-        <None Include="APC_Math.h">
+        </CppCompile>
+        <CppCompile Include="APC_Cheb.cpp">
             <BuildOrder>2</BuildOrder>
-        </None>
-        <None Include="APC_Moon.h">
+        </CppCompile>
+        <CppCompile Include="APC_DE.cpp">
             <BuildOrder>3</BuildOrder>
-        </None>
-        <None Include="APC_Spheric.h">
+        </CppCompile>
+        <CppCompile Include="APC_IO.cpp">
             <BuildOrder>4</BuildOrder>
-        </None>
-        <None Include="APC_Sun.h">
+        </CppCompile>
+        <CppCompile Include="APC_Kepler.cpp">
             <BuildOrder>5</BuildOrder>
-        </None>
-        <None Include="APC_Time.h">
+        </CppCompile>
+        <CppCompile Include="APC_Math.cpp">
             <BuildOrder>6</BuildOrder>
-        </None>
-        <None Include="GNU_iomanip.h">
+        </CppCompile>
+        <CppCompile Include="APC_Moon.cpp">
             <BuildOrder>7</BuildOrder>
-        </None>
+        </CppCompile>
+        <CppCompile Include="APC_Phys.cpp">
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Planets.cpp">
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_PrecNut.cpp">
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Spheric.cpp">
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Sun.cpp">
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Time.cpp">
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_VecMat3D.cpp">
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Sunset.cpp">
             <BuildOrder>1</BuildOrder>
         </CppCompile>

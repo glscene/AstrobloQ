@@ -125,36 +125,30 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="APC_Cheb.h">
-            <BuildOrder>1</BuildOrder>
-        </None>
-        <None Include="APC_Const.h">
-            <BuildOrder>2</BuildOrder>
-        </None>
-        <None Include="APC_IO.h">
-            <BuildOrder>3</BuildOrder>
-        </None>
-        <None Include="APC_Math.h">
-            <BuildOrder>4</BuildOrder>
-        </None>
-        <None Include="APC_Moon.h">
-            <BuildOrder>5</BuildOrder>
-        </None>
-        <None Include="APC_PrecNut.h">
-            <BuildOrder>6</BuildOrder>
-        </None>
-        <None Include="APC_Spheric.h">
-            <BuildOrder>7</BuildOrder>
-        </None>
-        <None Include="APC_Sun.h">
+        <CppCompile Include="APC_Moon.cpp">
             <BuildOrder>8</BuildOrder>
-        </None>
-        <None Include="APC_Time.h">
+        </CppCompile>
+        <CppCompile Include="APC_Phys.cpp">
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Planets.cpp">
             <BuildOrder>9</BuildOrder>
-        </None>
-        <None Include="APC_VecMat3D.h">
+        </CppCompile>
+        <CppCompile Include="APC_PrecNut.cpp">
             <BuildOrder>10</BuildOrder>
-        </None>
+        </CppCompile>
+        <CppCompile Include="APC_Spheric.cpp">
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Sun.cpp">
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_Time.cpp">
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="APC_VecMat3D.cpp">
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Eclipse.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>

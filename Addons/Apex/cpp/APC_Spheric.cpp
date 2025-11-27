@@ -15,6 +15,7 @@
 #include "APC_Const.h"
 #include "APC_Spheric.h"
 #include "APC_VecMat3D.h"
+#include "APC_VecMat3D.cpp"
 
 
 //------------------------------------------------------------------------------

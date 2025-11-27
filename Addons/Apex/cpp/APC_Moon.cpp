@@ -21,7 +21,6 @@
 #include "APC_VecMat3D.h"
 #include "APC_VecMat3D.cpp"
 
-
 namespace // Unnamed namespace
 {
   //
@@ -32,9 +31,9 @@ namespace // Unnamed namespace
 
 
   //
-  // Sine
+  // Sine - changed to sin() from System.hpp
   //
-  double Sine (double x) { return sin(pi2*Frac(x)); }
+  ///  double Sine (double x) { return sin(pi2*Frac(x)); }
 
 
   //
@@ -98,10 +97,10 @@ namespace // Unnamed namespace
 
   
     // Longperiodic perturbations
-    S1 = Sine (0.19833+0.05611*T);  S2 = Sine (0.27869+0.04508*T);
-    S3 = Sine (0.16827-0.36903*T);  S4 = Sine (0.34734-5.37261*T);
-    S5 = Sine (0.10498-5.37899*T);  S6 = Sine (0.42681-0.41855*T);
-    S7 = Sine (0.14943-5.37511*T); 
+    S1 = sin (0.19833+0.05611*T);  S2 = sin (0.27869+0.04508*T);
+	S3 = sin (0.16827-0.36903*T);  S4 = sin (0.34734-5.37261*T);
+	S5 = sin (0.10498-5.37899*T);  S6 = sin (0.42681-0.41855*T);
+	S7 = sin (0.14943-5.37511*T);
 
     dL0 = 0.84*S1+0.31*S2+14.27*S3+ 7.26*S4+ 0.28*S5+0.24*S6;
     dl  = 2.94*S1+0.31*S2+14.27*S3+ 9.34*S4+ 1.12*S5+0.83*S6;
@@ -109,25 +108,25 @@ namespace // Unnamed namespace
     dF  = 0.21*S1+0.31*S2+14.27*S3-88.70*S4-15.30*S5+0.24*S6-1.86*S7;
     dD  = dL0-dls;
 
-    Dgam   = -3332e-9 * Sine (0.59734-5.37261*T)
-              -539e-9 * Sine (0.35498-5.37899*T)
-               -64e-9 * Sine (0.39943-5.37511*T);
+	Dgam   = -3332e-9 * sin (0.59734-5.37261*T)
+			  -539e-9 * sin (0.35498-5.37899*T)
+			   -64e-9 * sin (0.39943-5.37511*T);
 
 
-    // Mean arguments of the lunar orbit (incl. longperiodic corrections)
-    // L0 mean longitude of the Moon
-    // l  mean anomaly of the Moon     l' mean anomaly of the Sun      
-    // F  mean distance from the node  D  mean elongation from the Sun 
+	// Mean arguments of the lunar orbit (incl. longperiodic corrections)
+	// L0 mean longitude of the Moon
+	// l  mean anomaly of the Moon     l' mean anomaly of the Sun
+	// F  mean distance from the node  D  mean elongation from the Sun
 
-    L0 = pi2*Frac(0.60643382+1336.85522467*T-0.00000313*T2) + dL0/Arcs;
-    l  = pi2*Frac(0.37489701+1325.55240982*T+0.00002565*T2) + dl /Arcs;
-    ls = pi2*Frac(0.99312619+  99.99735956*T-0.00000044*T2) + dls/Arcs;
-    F  = pi2*Frac(0.25909118+1342.22782980*T-0.00000892*T2) + dF /Arcs;
-    D  = pi2*Frac(0.82736186+1236.85308708*T-0.00000397*T2) + dD /Arcs;
+	L0 = pi2*Frac(0.60643382+1336.85522467*T-0.00000313*T2) + dL0/Arcs;
+	l  = pi2*Frac(0.37489701+1325.55240982*T+0.00002565*T2) + dl /Arcs;
+	ls = pi2*Frac(0.99312619+  99.99735956*T-0.00000044*T2) + dls/Arcs;
+	F  = pi2*Frac(0.25909118+1342.22782980*T-0.00000892*T2) + dF /Arcs;
+	D  = pi2*Frac(0.82736186+1236.85308708*T-0.00000397*T2) + dD /Arcs;
 
-  
-    // Cosine and sine of multiples of mean arguments 
-    // incl. secular correction
+
+	// Cosine and sine of multiples of mean arguments
+	// incl. secular correction
     for (int i=0; i<=3; i++) {
       switch(i) {      
         case 0: arg=l;  max=4; fac=1.000002208;               break;
@@ -206,12 +205,12 @@ namespace // Unnamed namespace
   void ILE_Pert::Planetary (double T)
   {
     Dlam +=
-          +0.82*Sine(0.7736  -62.5512*T)+0.31*Sine(0.0466 -125.1025*T)
-          +0.35*Sine(0.5785  -25.1042*T)+0.66*Sine(0.4591+1335.8075*T)
-          +0.64*Sine(0.3130  -91.5680*T)+1.14*Sine(0.1480+1331.2898*T)
-          +0.21*Sine(0.5918+1056.5859*T)+0.44*Sine(0.5784+1322.8595*T)
-          +0.24*Sine(0.2275   -5.7374*T)+0.28*Sine(0.2965   +2.6929*T)
-          +0.33*Sine(0.3132   +6.3368*T);
+		  +0.82*sin(0.7736  -62.5512*T)+0.31*sin(0.0466 -125.1025*T)
+		  +0.35*sin(0.5785  -25.1042*T)+0.66*sin(0.4591+1335.8075*T)
+		  +0.64*sin(0.3130  -91.5680*T)+1.14*sin(0.1480+1331.2898*T)
+		  +0.21*sin(0.5918+1056.5859*T)+0.44*sin(0.5784+1322.8595*T)
+		  +0.24*sin(0.2275   -5.7374*T)+0.28*sin(0.2965   +2.6929*T)
+		  +0.33*sin(0.3132   +6.3368*T);
   }  
 
 

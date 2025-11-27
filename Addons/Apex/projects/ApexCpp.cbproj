@@ -158,16 +158,47 @@
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="..\cpp\APC_AOEcat.cpp">
-            <BuildOrder>43</BuildOrder>
+            <BuildOrder>17</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\APC_Cheb.cpp">
-            <BuildOrder>40</BuildOrder>
+            <BuildOrder>18</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\APC_DE.cpp">
-            <BuildOrder>41</BuildOrder>
+            <BuildOrder>19</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\APC_IO.cpp">
-            <BuildOrder>32</BuildOrder>
+            <BuildOrder>20</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_Kepler.cpp">
+            <BuildOrder>21</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_Math.cpp">
+            <BuildOrder>22</BuildOrder>
+        </CppCompile>
+        <None Include="..\cpp\APC_Moon.cpp">
+            <Exclude>True</Exclude>
+            <BuildOrder>23</BuildOrder>
+        </None>
+        <CppCompile Include="..\cpp\APC_Phys.cpp">
+            <BuildOrder>24</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_Planets.cpp">
+            <BuildOrder>25</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_PrecNut.cpp">
+            <BuildOrder>26</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_Spheric.cpp">
+            <BuildOrder>27</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_Sun.cpp">
+            <BuildOrder>28</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_Time.cpp">
+            <BuildOrder>29</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\cpp\APC_VecMat3D.cpp">
+            <BuildOrder>30</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\cpp\fcApex.cpp">
             <Form>frmApex</Form>
@@ -259,37 +290,31 @@
             <DependentOn>..\cpp\fcСoco.h</DependentOn>
             <BuildOrder>27</BuildOrder>
         </CppCompile>
-        <None Include="..\cpp\fcСoco.h">
-            <BuildOrder>31</BuildOrder>
-        </None>
         <CppCompile Include="..\cpp\fcСomet.cpp">
             <Form>FormComet</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\cpp\fcСomet.h</DependentOn>
             <BuildOrder>18</BuildOrder>
         </CppCompile>
-        <None Include="..\cpp\fcСomet.h">
-            <BuildOrder>32</BuildOrder>
-        </None>
         <CppCompile Include="ApexCpp.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <FormResources Include="..\cpp\fcСoco.dfm"/>
-        <FormResources Include="..\cpp\fcСomet.dfm"/>
-        <FormResources Include="..\cpp\fcApex.dfm"/>
-        <FormResources Include="..\cpp\fcEclipse.dfm"/>
-        <FormResources Include="..\cpp\fcEclTimer.dfm"/>
-        <FormResources Include="..\cpp\fcFoto.dfm"/>
-        <FormResources Include="..\cpp\fcLuna.dfm"/>
-        <FormResources Include="..\cpp\fcNumint.dfm"/>
-        <FormResources Include="..\cpp\fcOccult.dfm"/>
-        <FormResources Include="..\cpp\fcPhases.dfm"/>
-        <FormResources Include="..\cpp\fcPhys.dfm"/>
-        <FormResources Include="..\cpp\fcPlanetpos.dfm"/>
         <FormResources Include="..\cpp\fcPlanetrise.dfm"/>
         <FormResources Include="..\cpp\fcPPMbin.dfm"/>
         <FormResources Include="..\cpp\fcPPMcat.dfm"/>
+        <FormResources Include="..\cpp\fcPhases.dfm"/>
+        <FormResources Include="..\cpp\fcPhys.dfm"/>
+        <FormResources Include="..\cpp\fcPlanetpos.dfm"/>
+        <FormResources Include="..\cpp\fcСomet.dfm"/>
         <FormResources Include="..\cpp\fcSunset.dfm"/>
+        <FormResources Include="..\cpp\fcСoco.dfm"/>
+        <FormResources Include="..\cpp\fcOccult.dfm"/>
+        <FormResources Include="..\cpp\fcFoto.dfm"/>
+        <FormResources Include="..\cpp\fcLuna.dfm"/>
+        <FormResources Include="..\cpp\fcNumint.dfm"/>
+        <FormResources Include="..\cpp\fcApex.dfm"/>
+        <FormResources Include="..\cpp\fcEclipse.dfm"/>
+        <FormResources Include="..\cpp\fcEclTimer.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -317,10 +342,10 @@
                     <Source Name="MainSource">ApexCpp.cpp</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp370.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k370.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp370.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="5">

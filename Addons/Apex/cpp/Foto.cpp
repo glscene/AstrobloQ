@@ -16,9 +16,11 @@
 #include "APC_Math.h"
 #include "APC_Spheric.h"
 
+/*
 #ifdef __GNUC__  // GNU C++ Adaptations
 #include "GNU_iomanip.h"
 #endif
+*/
 
 using namespace std;
 

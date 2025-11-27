@@ -37,6 +37,7 @@ rem delete c/cpp files
 
 rem del *.hpp /s
 del *.obj /s
+del *.#* /s
 del *.#00 /s
 del *.pch /s
 del *.tds /s

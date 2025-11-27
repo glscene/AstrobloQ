@@ -18,6 +18,7 @@
 #include "APC_Math.h"
 #include "APC_PrecNut.h"
 #include "APC_VecMat3D.h"
+#include "APC_VecMat3D.cpp"
 
 
 //------------------------------------------------------------------------------

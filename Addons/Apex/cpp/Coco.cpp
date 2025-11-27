@@ -21,10 +21,13 @@
 #include "APC_Time.h"
 #include "APC_VecMat3D.h"
 
+/*
 #ifdef __GNUC__   // GNU C++ Adaptations
 #include <ctype.h>
 #include "GNU_iomanip.h"
 #endif
+*/
+
 #pragma argsused
 using namespace std;
 

@@ -17,9 +17,11 @@
 
 #include "APC_Math.h"
 
+/*
 #ifdef __GNUC__  // GNU C++ adaptation
 #include "GNU_iomanip.h"
 #endif
+*/
 
 using namespace std;
 
@@ -30,12 +32,12 @@ using namespace std;
 // Frac: Gives the fractional part of a number
 //
 //------------------------------------------------------------------------------
-
+/*
 double Frac (double x)
 {
    return x-floor(x);
 }
-
+*/
 
 //------------------------------------------------------------------------------
 //
@@ -121,7 +123,7 @@ void Quad ( double y_minus, double y_0, double y_plus,
     root2 = xe + dx;
 
     if (fabs(root1) <= 1.0) ++n_root;  
-    if (fabs(root2) <= 1.0) ++n_root;
+	if (fabs(root2) <= 1.0) ++n_root;
     if (root1       < -1.0) root1 = root2;
   }
 }
@@ -177,7 +179,7 @@ void Pegasus ( PegasusFunct f,
       else
         Root = x2;
 
-      Success = (fabs(x2-x1) <= Accuracy);
+	  Success = (fabs(x2-x1) <= Accuracy);
       Iterat++;
     }
     while ( !Success && (Iterat<MaxIterat) );
@@ -261,7 +263,7 @@ ostream& operator << (ostream& os, const Angle& alpha)
 
       fac = 60.0*pow(10.0,p);
 
-      DegRound = floor(fac*fabs(alpha.m_angle)+0.5)/fac+0.1/fac;
+	  DegRound = floor(fac*fabs(alpha.m_angle)+0.5)/fac+0.1/fac;
 
       DMS (DegRound, D, M,S);
 
@@ -289,7 +291,7 @@ ostream& operator << (ostream& os, const Angle& alpha)
       else
         os << setw(w-6);
       os  << D << " "  << setfill('0') << setw(2)
-          << M << " " << setw(2) << int(S) << setfill(' ');
+		  << M << " " << setw(2) << int(S) << setfill(' ');
 
       break;
 

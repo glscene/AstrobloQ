@@ -20,9 +20,11 @@
 #include "APC_Time.h"
 #include "APC_VecMat3D.h"
 
+/*
 #ifdef __GNUC__  // GNU C++ adaptation
 #include "GNU_iomanip.h"
 #endif
+*/
 
 using namespace std;
 
