@@ -403,23 +403,23 @@ void MiniMoon (double T, double& Ra, double& Dec)
 
 
   // Mean elements of lunar orbit
-  L_0 = Frac (0.606433 + 1336.855225*T);       // mean longitude [rev]
+  L_0 = Frac(0.606433 + 1336.855225*T);       // mean longitude [rev]
 
-  l  = pi2*Frac ( 0.374897 + 1325.552410*T );  // Moon's mean anomaly
-  ls = pi2*Frac ( 0.993133 +   99.997361*T );  // Sun's mean anomaly
-  D  = pi2*Frac ( 0.827361 + 1236.853086*T );  // Diff. long. Moon-Sun
-  F  = pi2*Frac ( 0.259086 + 1342.227825*T );  // Dist. from ascending node
+  l  = pi2*Frac( 0.374897 + 1325.552410*T );  // Moon's mean anomaly
+  ls = pi2*Frac( 0.993133 +   99.997361*T );  // Sun's mean anomaly
+  D  = pi2*Frac( 0.827361 + 1236.853086*T );  // Diff. long. Moon-Sun
+  F  = pi2*Frac( 0.259086 + 1342.227825*T );  // Dist. from ascending node
 
 
   // Perturbations in longitude and latitude
   dL = +22640*sin(l) - 4586*sin(l-2*D) + 2370*sin(2*D) +  769*sin(2*l)
-       -668*sin(ls) - 412*sin(2*F) - 212*sin(2*l-2*D) - 206*sin(l+ls-2*D)
-       +192*sin(l+2*D) - 165*sin(ls-2*D) - 125*sin(D) - 110*sin(l+ls)
-       +148*sin(l-ls) - 55*sin(2*F-2*D);
+	   -668*sin(ls) - 412*sin(2*F) - 212*sin(2*l-2*D) - 206*sin(l+ls-2*D)
+	   +192*sin(l+2*D) - 165*sin(ls-2*D) - 125*sin(D) - 110*sin(l+ls)
+	   +148*sin(l-ls) - 55*sin(2*F-2*D);
   S  = F + (dL+412*sin(2*F)+541*sin(ls)) / Arcs;
   h  = F-2*D;
   N  = -526*sin(h) + 44*sin(l+h) - 31*sin(-l+h) - 23*sin(ls+h)
-       + 11*sin(-ls+h) - 25*sin(-2*l+F) + 21*sin(-l+F);
+	   + 11*sin(-ls+h) - 25*sin(-2*l+F) + 21*sin(-l+F);
 
 
   // Ecliptic longitude and latitude

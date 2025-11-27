@@ -29,7 +29,7 @@ enum AngleFormat {
 
 
 // Frac: Gives the fractional part of a number
-double Frac (double x);
+/// double Frac (double x); there is ambiquos with System.hpp
 
 
 // Modulo: calculates x mod y

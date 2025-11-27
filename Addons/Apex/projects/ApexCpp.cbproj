@@ -175,10 +175,9 @@
         <CppCompile Include="..\cpp\APC_Math.cpp">
             <BuildOrder>22</BuildOrder>
         </CppCompile>
-        <None Include="..\cpp\APC_Moon.cpp">
-            <Exclude>True</Exclude>
+        <CppCompile Include="..\cpp\APC_Moon.cpp">
             <BuildOrder>23</BuildOrder>
-        </None>
+        </CppCompile>
         <CppCompile Include="..\cpp\APC_Phys.cpp">
             <BuildOrder>24</BuildOrder>
         </CppCompile>
@@ -299,22 +298,22 @@
         <CppCompile Include="ApexCpp.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
+        <FormResources Include="..\cpp\fcOccult.dfm"/>
+        <FormResources Include="..\cpp\fcPhases.dfm"/>
+        <FormResources Include="..\cpp\fcPhys.dfm"/>
+        <FormResources Include="..\cpp\fcNumint.dfm"/>
+        <FormResources Include="..\cpp\fcEclTimer.dfm"/>
+        <FormResources Include="..\cpp\fcFoto.dfm"/>
+        <FormResources Include="..\cpp\fcLuna.dfm"/>
+        <FormResources Include="..\cpp\fcPlanetpos.dfm"/>
+        <FormResources Include="..\cpp\fcСoco.dfm"/>
+        <FormResources Include="..\cpp\fcСomet.dfm"/>
+        <FormResources Include="..\cpp\fcSunset.dfm"/>
         <FormResources Include="..\cpp\fcPlanetrise.dfm"/>
         <FormResources Include="..\cpp\fcPPMbin.dfm"/>
         <FormResources Include="..\cpp\fcPPMcat.dfm"/>
-        <FormResources Include="..\cpp\fcPhases.dfm"/>
-        <FormResources Include="..\cpp\fcPhys.dfm"/>
-        <FormResources Include="..\cpp\fcPlanetpos.dfm"/>
-        <FormResources Include="..\cpp\fcСomet.dfm"/>
-        <FormResources Include="..\cpp\fcSunset.dfm"/>
-        <FormResources Include="..\cpp\fcСoco.dfm"/>
-        <FormResources Include="..\cpp\fcOccult.dfm"/>
-        <FormResources Include="..\cpp\fcFoto.dfm"/>
-        <FormResources Include="..\cpp\fcLuna.dfm"/>
-        <FormResources Include="..\cpp\fcNumint.dfm"/>
-        <FormResources Include="..\cpp\fcApex.dfm"/>
         <FormResources Include="..\cpp\fcEclipse.dfm"/>
-        <FormResources Include="..\cpp\fcEclTimer.dfm"/>
+        <FormResources Include="..\cpp\fcApex.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
