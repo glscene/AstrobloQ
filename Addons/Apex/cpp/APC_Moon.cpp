@@ -15,12 +15,11 @@
 
 #include "APC_Const.h"
 #include "APC_Math.h"
-#include "APC_Math.cpp"  // ! added
+#include "APC_Math.cpp" // ! added due to frac() ambiquity
 #include "APC_Moon.h"
 #include "APC_PrecNut.h"
 #include "APC_Spheric.h"
 #include "APC_VecMat3D.h"
-#include "APC_VecMat3D.cpp" // ! added
 
 namespace // Unnamed namespace
 {
@@ -32,9 +31,9 @@ namespace // Unnamed namespace
 
 
   //
-  // Sine - changed to sin() from System.hpp
+  // Sine - changed to sin() from System.hpp due to ambiquity
   //
-  ///  double Sine (double x) { return sin(pi2*Frac(x)); }
+  ///  double Sine (double x) { return sin(pi2*frac(x)); }
 
 
   //
@@ -44,35 +43,35 @@ namespace // Unnamed namespace
   class ILE_Pert
   {
 
-    public:
+	public:
 
-      // Initialization (mean arguments, long-periodic corrections, etc.)
-      void Init (double T);
+	  // Initialization (mean arguments, long-periodic corrections, etc.)
+	  void Init (double T);
 
-      // Perturbation term 
-      void Term (int p, int q, int r, int s, double& x, double& y);
+	  // Perturbation term
+	  void Term (int p, int q, int r, int s, double& x, double& y);
 
-      // Summation of solar perturbations
-      void AddSol ( double coeffl, double coeffS, double coeffg, 
-                    double coeffP, int p, int q, int r, int s );
+	  // Summation of solar perturbations
+	  void AddSol ( double coeffl, double coeffS, double coeffg,
+					double coeffP, int p, int q, int r, int s );
 
-      // Summation of perturbation in latitude
-      void AddN (double coeffN, int p, int q, int r, int s);
+	  // Summation of perturbation in latitude
+	  void AddN (double coeffN, int p, int q, int r, int s);
 
-      // Planetary perturbations
-      void Planetary (double T);
+	  // Planetary perturbations
+	  void Planetary (double T);
 
-      // Coordinates
-      double lambda();  // ecliptic longitude in [rad]
-      double beta();    // ecliptic latitude in [rad]
-      double dist();    // geocentric distance in [km]
+	  // Coordinates
+	  double lambda();  // ecliptic longitude in [rad]
+	  double beta();    // ecliptic latitude in [rad]
+	  double dist();    // geocentric distance in [km]
 
-    private:
+	private:
 
-      double Dgam;                       // Longperiodic perturbation
-      double Dlam, DS, gam1C, sinPi, N;  // Periodic perturbations
-      double L0, l,ls,F,D;               // Mean arguments of lunar orbit
-      double Cos[dim][4], Sin[dim][4];   // Cosine and sine of mean arguments
+	  double Dgam;                       // Longperiodic perturbation
+	  double Dlam, DS, gam1C, sinPi, N;  // Periodic perturbations
+	  double L0, l,ls,F,D;               // Mean arguments of lunar orbit
+	  double Cos[dim][4], Sin[dim][4];   // Cosine and sine of mean arguments
   };
 
 
@@ -81,33 +80,33 @@ namespace // Unnamed namespace
   //
   void ILE_Pert::Init (double T)
   {
-    //
-    // Variables
-    //
-    double dL0, dl, dls, dF, dD;             // Longperiodic perturbations
-    double T2, arg, fac;                     // Auxiliary variables
-    double S1, S2, S3, S4, S5, S6, S7;
-    int    max;
+	//
+	// Variables
+	//
+	double dL0, dl, dls, dF, dD;             // Longperiodic perturbations
+	double T2, arg, fac;                     // Auxiliary variables
+	double S1, S2, S3, S4, S5, S6, S7;
+	int    max;
 
-  
-    T2=T*T; // Time
 
-  
-    // Reset perturbations
-    Dlam=0.0; DS=0.0; gam1C=0.0; sinPi=3422.7000; N=0.0;
+	T2=T*T; // Time
 
-  
-    // Longperiodic perturbations
+
+	// Reset perturbations
+	Dlam=0.0; DS=0.0; gam1C=0.0; sinPi=3422.7000; N=0.0;
+
+
+	// Longperiodic perturbations
 	S1 = sin (0.19833+0.05611*T);  S2 = sin (0.27869+0.04508*T);
 	S3 = sin (0.16827-0.36903*T);  S4 = sin (0.34734-5.37261*T);
 	S5 = sin (0.10498-5.37899*T);  S6 = sin (0.42681-0.41855*T);
 	S7 = sin (0.14943-5.37511*T);
 
-    dL0 = 0.84*S1+0.31*S2+14.27*S3+ 7.26*S4+ 0.28*S5+0.24*S6;
-    dl  = 2.94*S1+0.31*S2+14.27*S3+ 9.34*S4+ 1.12*S5+0.83*S6;
-    dls =-6.40*S1                                   -1.89*S6;
-    dF  = 0.21*S1+0.31*S2+14.27*S3-88.70*S4-15.30*S5+0.24*S6-1.86*S7;
-    dD  = dL0-dls;
+	dL0 = 0.84*S1+0.31*S2+14.27*S3+ 7.26*S4+ 0.28*S5+0.24*S6;
+	dl  = 2.94*S1+0.31*S2+14.27*S3+ 9.34*S4+ 1.12*S5+0.83*S6;
+	dls =-6.40*S1                                   -1.89*S6;
+	dF  = 0.21*S1+0.31*S2+14.27*S3-88.70*S4-15.30*S5+0.24*S6-1.86*S7;
+	dD  = dL0-dls;
 
 	Dgam   = -3332e-9 * sin (0.59734-5.37261*T)
 			  -539e-9 * sin (0.35498-5.37899*T)
@@ -128,24 +127,24 @@ namespace // Unnamed namespace
 
 	// Cosine and sine of multiples of mean arguments
 	// incl. secular correction
-    for (int i=0; i<=3; i++) {
-      switch(i) {      
-        case 0: arg=l;  max=4; fac=1.000002208;               break;
-        case 1: arg=ls; max=3; fac=0.997504612-0.002495388*T; break;
-        case 2: arg=F;  max=4; fac=1.000002708+139.978*Dgam;  break;
-        case 3: arg=D;  max=6; fac=1.0;                       break;
-      };
-      
-      Cos[o][i]=1.0;  Cos[o+1][i]=cos(arg)*fac;  Cos[o-1][i]=+Cos[o+1][i];
-      Sin[o][i]=0.0;  Sin[o+1][i]=sin(arg)*fac;  Sin[o-1][i]=-Sin[o+1][i];
-      
-      for (int j=2;j<=max;j++) {
-        AddThe ( Cos[o+j-1][i],Sin[o+j-1][i], Cos[o+1][i],Sin[o+1][i],
-                 Cos[o+j][i],Sin[o+j][i] ); 
-        Cos[o-j][i]=+Cos[o+j][i];
-        Sin[o-j][i]=-Sin[o+j][i];
-      };
-    };
+	for (int i=0; i<=3; i++) {
+	  switch(i) {
+		case 0: arg=l;  max=4; fac=1.000002208;               break;
+		case 1: arg=ls; max=3; fac=0.997504612-0.002495388*T; break;
+		case 2: arg=F;  max=4; fac=1.000002708+139.978*Dgam;  break;
+		case 3: arg=D;  max=6; fac=1.0;                       break;
+	  };
+
+	  Cos[o][i]=1.0;  Cos[o+1][i]=cos(arg)*fac;  Cos[o-1][i]=+Cos[o+1][i];
+	  Sin[o][i]=0.0;  Sin[o+1][i]=sin(arg)*fac;  Sin[o-1][i]=-Sin[o+1][i];
+
+	  for (int j=2;j<=max;j++) {
+		AddThe ( Cos[o+j-1][i],Sin[o+j-1][i], Cos[o+1][i],Sin[o+1][i],
+				 Cos[o+j][i],Sin[o+j][i] );
+		Cos[o-j][i]=+Cos[o+j][i];
+		Sin[o-j][i]=-Sin[o+j][i];
+	  };
+	};
   }
 
 
@@ -155,31 +154,31 @@ namespace // Unnamed namespace
   //
   void ILE_Pert::Term (int p, int q, int r, int s, double& x, double& y)
   {
-    int i[4];
+	int i[4];
 
-    i[0]=p; i[1]=q; i[2]=r; i[3]=s;  x=1.0; y=0.0;
+	i[0]=p; i[1]=q; i[2]=r; i[3]=s;  x=1.0; y=0.0;
 
-    for (int k=0; k<=3; k++) 
-      if (i[k]!=0) AddThe(x,y,Cos[o+i[k]][k],Sin[o+i[k]][k],x,y);
+	for (int k=0; k<=3; k++)
+	  if (i[k]!=0) AddThe(x,y,Cos[o+i[k]][k],Sin[o+i[k]][k],x,y);
   }
 
 
   //
   // AddSol: Summation of solar perturbations
   //
-  void ILE_Pert::AddSol ( 
-    double coeffl, double coeffS, double coeffg, double coeffP,
-    int p, int q, int r, int s )
+  void ILE_Pert::AddSol (
+	double coeffl, double coeffS, double coeffg, double coeffP,
+	int p, int q, int r, int s )
   {
-    //
-    // Variables
-    //
-    double x,y;
+	//
+	// Variables
+	//
+	double x,y;
 
 
-    Term (p,q,r,s,x,y);
-    Dlam  += coeffl*y; DS    += coeffS*y;
-    gam1C += coeffg*x; sinPi += coeffP*x;
+	Term (p,q,r,s,x,y);
+	Dlam  += coeffl*y; DS    += coeffS*y;
+	gam1C += coeffg*x; sinPi += coeffP*x;
   }
 
 
@@ -188,14 +187,14 @@ namespace // Unnamed namespace
   //
   void ILE_Pert::AddN (double coeffN, int p, int q, int r, int s)
   {
-    //
-    // Variables
-    //
-    double x,y;
+	//
+	// Variables
+	//
+	double x,y;
 
 
-    Term(p,q,r,s,x,y); 
-    N += coeffN*y;
+	Term(p,q,r,s,x,y);
+	N += coeffN*y;
   }
 
 
@@ -205,41 +204,41 @@ namespace // Unnamed namespace
   //
   void ILE_Pert::Planetary (double T)
   {
-    Dlam +=
+	Dlam +=
 		  +0.82*sin(0.7736  -62.5512*T)+0.31*sin(0.0466 -125.1025*T)
 		  +0.35*sin(0.5785  -25.1042*T)+0.66*sin(0.4591+1335.8075*T)
 		  +0.64*sin(0.3130  -91.5680*T)+1.14*sin(0.1480+1331.2898*T)
 		  +0.21*sin(0.5918+1056.5859*T)+0.44*sin(0.5784+1322.8595*T)
 		  +0.24*sin(0.2275   -5.7374*T)+0.28*sin(0.2965   +2.6929*T)
 		  +0.33*sin(0.3132   +6.3368*T);
-  }  
+  }
 
 
   //
   // lambda, beta, dist
   //
   double ILE_Pert::lambda()
-  { 
-    return Modulo ( L0+Dlam/Arcs, pi2 ); 
+  {
+	return Modulo ( L0+Dlam/Arcs, pi2 );
   }
 
 
   double ILE_Pert::beta()
   {
-    //
-    // Variables
-    //
-    double S   = F + DS/Arcs;
-    double fac = 1.000002708+139.978*Dgam;
-    
-    
-    return (fac*(18518.511+1.189+gam1C)*sin(S)-6.24*sin(3*S)+N) / Arcs;
+	//
+	// Variables
+	//
+	double S   = F + DS/Arcs;
+	double fac = 1.000002708+139.978*Dgam;
+
+
+	return (fac*(18518.511+1.189+gam1C)*sin(S)-6.24*sin(3*S)+N) / Arcs;
   }
 
 
   double ILE_Pert::dist()
   {
-    return R_Earth * Arcs / (sinPi * 0.999953253);
+	return R_Earth * Arcs / (sinPi * 0.999953253);
   }
 
 } // End of unnamed namespace
@@ -404,12 +403,12 @@ void MiniMoon (double T, double& Ra, double& Dec)
 
 
   // Mean elements of lunar orbit
-  L_0 = Frac(0.606433 + 1336.855225*T);       // mean longitude [rev]
+  L_0 = frac(0.606433 + 1336.855225*T);       // mean longitude [rev]
 
-  l  = pi2*Frac( 0.374897 + 1325.552410*T );  // Moon's mean anomaly
-  ls = pi2*Frac( 0.993133 +   99.997361*T );  // Sun's mean anomaly
-  D  = pi2*Frac( 0.827361 + 1236.853086*T );  // Diff. long. Moon-Sun
-  F  = pi2*Frac( 0.259086 + 1342.227825*T );  // Dist. from ascending node
+  l  = pi2*frac( 0.374897 + 1325.552410*T );  // Moon's mean anomaly
+  ls = pi2*frac( 0.993133 +   99.997361*T );  // Sun's mean anomaly
+  D  = pi2*frac( 0.827361 + 1236.853086*T );  // Diff. long. Moon-Sun
+  F  = pi2*frac( 0.259086 + 1342.227825*T );  // Dist. from ascending node
 
 
   // Perturbations in longitude and latitude
@@ -424,7 +423,7 @@ void MiniMoon (double T, double& Ra, double& Dec)
 
 
   // Ecliptic longitude and latitude
-  l_Moon = pi2 * Frac( L_0 + dL/1296.0e3 ); // [rad]
+  l_Moon = pi2 * frac( L_0 + dL/1296.0e3 ); // [rad]
   b_Moon = ( 18520.0*sin(S) + N ) / Arcs;   // [rad]
 
 

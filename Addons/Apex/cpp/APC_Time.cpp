@@ -13,11 +13,9 @@
 #include "APC_Math.h"
 #include "APC_Time.h"
 
-/*
 #ifdef __GNUC__  // GNU C++ adaptation
 #include "GNU_iomanip.h"
 #endif
-*/
 
 using namespace std;
 

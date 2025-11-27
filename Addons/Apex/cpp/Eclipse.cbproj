@@ -129,6 +129,9 @@
         <CppCompile Include="APC_Moon.cpp">
             <BuildOrder>8</BuildOrder>
         </CppCompile>
+        <None Include="APC_Moon.h">
+            <BuildOrder>9</BuildOrder>
+        </None>
         <CppCompile Include="APC_Phys.cpp">
             <BuildOrder>8</BuildOrder>
         </CppCompile>

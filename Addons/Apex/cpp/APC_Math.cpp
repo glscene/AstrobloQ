@@ -17,11 +17,9 @@
 
 #include "APC_Math.h"
 
-/*
 #ifdef __GNUC__  // GNU C++ adaptation
 #include "GNU_iomanip.h"
 #endif
-*/
 
 using namespace std;
 

@@ -16,12 +16,10 @@
 
 #include "APC_Const.h"
 #include "APC_Math.h"
-#include "APC_Math.cpp"  // ! added due to frac
 #include "APC_PrecNut.h"
 #include "APC_Spheric.h"
 #include "APC_Sun.h"
 #include "APC_VecMat3D.h"
-#include "APC_VecMat3D.cpp"
 
 
 namespace // Unnamed namespace

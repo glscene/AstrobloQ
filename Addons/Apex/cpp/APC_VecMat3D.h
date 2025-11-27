@@ -189,5 +189,11 @@ class Mat3D
     double m_Mat[3][3];  // matrix elements
 };
 
+//
+// Added from APC_VecMat3D.cpp
+//
+Mat3D R_x(double RotAngle);
+Mat3D R_y(double RotAngle);
+Mat3D R_z(double RotAngle);
 
 #endif  // include blocker

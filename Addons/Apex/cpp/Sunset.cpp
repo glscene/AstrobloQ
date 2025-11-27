@@ -17,12 +17,10 @@
 #include "APC_Sun.h"
 #include "APC_Time.h"
 
-/*
 #ifdef __GNUC__  // GNU C++ adaptation
 #include <ctype.h>
 #include "GNU_iomanip.h"
 #endif
-*/
 
 using namespace std;
 

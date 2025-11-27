@@ -28,9 +28,8 @@ enum AngleFormat {
 };
 
 
-// Frac: Gives the fractional part of a number
-/// double Frac (double x); there is ambiquos with System.hpp
-
+// frac: Gives the fractional part of a number
+   double frac (double x);
 
 // Modulo: calculates x mod y
 double Modulo (double x, double y);
