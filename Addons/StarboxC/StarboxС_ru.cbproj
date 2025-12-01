@@ -151,12 +151,6 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="source\fcAbout_ru.cpp">
-            <Form>FormAbout</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>source\fcAbout_ru.h</DependentOn>
-            <BuildOrder>4</BuildOrder>
-        </CppCompile>
         <CppCompile Include="source\fcProjections_ru.cpp">
             <Form>FormProjections</Form>
             <FormType>dfm</FormType>
@@ -181,7 +175,6 @@
         <FormResources Include="source\fcStarlife_ru.dfm"/>
         <FormResources Include="source\fcStarbox_ru.dfm"/>
         <FormResources Include="source\fcProjections_ru.dfm"/>
-        <FormResources Include="source\fcAbout_ru.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

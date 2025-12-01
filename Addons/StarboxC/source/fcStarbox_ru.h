@@ -29,7 +29,6 @@
 
 #include "fcProjections_ru.h"
 #include "fcStarLife_ru.h"
-#include "fcAbout_ru.h"
 #include "GLS.BaseClasses.hpp"
 #include "GLS.Coordinates.hpp"
 
@@ -68,7 +67,6 @@ __published: // IDE-managed Components
 	TMenuItem *miView;
 	TMenuItem *miStarLife;
 	TMenuItem *miProjections;
-	TMenuItem *Hide1;
 	TMenuItem *N1;
 	TMenuItem *miFile;
 	TMenuItem *miNew;
@@ -77,12 +75,8 @@ __published: // IDE-managed Components
 	TMenuItem *miSaveAs;
 	TMenuItem *miExit;
 	TMenuItem *N2;
-	TMenuItem *miHelp;
-	TMenuItem *miAbout;
 	TPanel *PanelLeft;
 	TTreeView *TreeView;
-	TMenuItem *miContent;
-	TMenuItem *N3;
 	TMenuItem *miTools;
 	TMenuItem *miSettings;
 	TMenuItem *miHide;
@@ -123,7 +117,6 @@ __published: // IDE-managed Components
 	void __fastcall chbOClick(TObject *Sender);
 	void __fastcall miStarLifeClick(TObject *Sender);
 	void __fastcall miProjectionsClick(TObject *Sender);
-	void __fastcall miAboutClick(TObject *Sender);
 	void __fastcall ButtonClearClick(TObject *Sender);
 	void __fastcall SpinEditChange(TObject *Sender);
 private: // User declarations

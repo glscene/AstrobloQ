@@ -22,11 +22,11 @@ object Form1: TForm1
     Height = 19
     Panels = <
       item
-        Text = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076':'
+        Text = 'NStars:'
         Width = 680
       end
       item
-        Text = #1042#1088#1077#1084#1103':'
+        Text = 'Time:'
         Width = 100
       end>
     ExplicitTop = 454
@@ -56,9 +56,9 @@ object Form1: TForm1
     object Label2: TLabel
       Left = 26
       Top = 16
-      Width = 79
+      Width = 69
       Height = 16
-      Caption = #1050#1083#1072#1089#1089#1099' '#1079#1074#1105#1079#1076
+      Caption = 'Star classes'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -119,7 +119,7 @@ object Form1: TForm1
       Top = 448
       Width = 141
       Height = 25
-      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1089#1094#1077#1085#1091
+      Caption = 'Clean scene'
       TabOrder = 0
       OnClick = Button1Click
     end
@@ -310,16 +310,16 @@ object Form1: TForm1
     Left = 250
     Top = 106
     object File1: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = 'File'
       object OpenCSV1: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' CSV...'
+        Caption = 'Open CSV...'
         OnClick = OpenCSV1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
         OnClick = Exit1Click
       end
     end

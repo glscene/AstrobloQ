@@ -7,7 +7,6 @@
 USEFORM("source\fcStarlife_ru.cpp", FormLife);
 USEFORM("source\fcStarbox_ru.cpp", FormBox);
 USEFORM("source\fcProjections_ru.cpp", FormProjections);
-USEFORM("source\fcAbout_ru.cpp", FormAbout);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

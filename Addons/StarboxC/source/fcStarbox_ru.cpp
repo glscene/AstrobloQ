@@ -274,19 +274,7 @@ void __fastcall TFormBox::miProjectionsClick(TObject* Sender)
         FormProjections->Free();
     }
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TFormBox::miAboutClick(TObject* Sender)
-{
-    TFormAbout* FormAbout;
-    FormAbout = new TFormAbout(this);
-    try {
-        FormAbout->ShowModal();
-    } __finally
-    {
-        FormAbout->Free();
-    }
-}
 //---------------------------------------------------------------------------
 
 

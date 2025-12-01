@@ -582,9 +582,6 @@ object FormBox: TFormBox
       object N1: TMenuItem
         Caption = '-'
       end
-      object Hide1: TMenuItem
-        Caption = '&'#1062#1074#1077#1090#1086#1074#1072#1103' '#1096#1082#1072#1083#1072'...'
-      end
     end
     object miTools: TMenuItem
       Caption = '&'#1054#1087#1094#1080#1080
@@ -599,19 +596,6 @@ object FormBox: TFormBox
       end
       object miShow: TMenuItem
         Caption = '&'#1055#1086#1082#1072#1079#1072#1090#1100'...'
-      end
-    end
-    object miHelp: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
-      object miContent: TMenuItem
-        Caption = #1042#1080#1082#1080'...'
-      end
-      object N3: TMenuItem
-        Caption = '-'
-      end
-      object miAbout: TMenuItem
-        Caption = '&'#1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
-        OnClick = miAboutClick
       end
     end
   end
