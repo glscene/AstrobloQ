@@ -2,7 +2,7 @@ object frmProgress: TfrmProgress
   Left = 698
   Top = 678
   BorderStyle = bsDialog
-  Caption = 'Progress'
+  Caption = #1055#1088#1086#1075#1088#1077#1089#1089
   ClientHeight = 63
   ClientWidth = 318
   Color = clBtnFace
