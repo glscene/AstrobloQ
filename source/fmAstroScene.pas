@@ -177,6 +177,7 @@ type
     StaticText3: TStaticText;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
+    Model1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -299,12 +300,12 @@ begin
 //    tvPlanets.Items[I].ImageIndex := I;
 //    tvPlanets.Items[I].SelectedIndex := I;
 //    tvPlanets.Items[I].StateIndex := I;
-    tvMoons.Items[I].ExpandedImageIndex := I;
+    tvMoons.Items[I].ExpandedImageIndex := I;   // ?
   end;
   (**)
 end;
 
-
+//---------------------------------------------------------------------------
 procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
@@ -358,7 +359,7 @@ begin
 
 //  From LibMaterial or virtualimage collection
 ///  tvPlanets.Images := dmImages.ImgVirtPlanets;
-
+(*
   if tvMoons.Selected.StateIndex = -1 then // it's a planet with sphere
   begin
     sfPlanet.Visible := False;
@@ -372,11 +373,13 @@ begin
     ffPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     end
   else  // it's a planetoid with freeform
+*)
   begin
     sfPlanet.Visible := False;
 
     ffPlanet.LoadFromFile(PlanetPath + '.3ds');
     ffPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+    ffPlanet.Scale.Scale(100); // don't working
     Camera.TagObject := ffPlanet;
   end;
 

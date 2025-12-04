@@ -1,7 +1,7 @@
 object FormStarsys: TFormStarsys
   Left = 193
   Top = 128
-  Caption = #1047#1074#1105#1079#1076#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
+  Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
   ClientHeight = 563
   ClientWidth = 997
   Color = clBtnFace
@@ -32,7 +32,6 @@ object FormStarsys: TFormStarsys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 674
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object FormStarsys: TFormStarsys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 511
     end
   end
   object PanelRight: TPanel
@@ -87,7 +87,6 @@ object FormStarsys: TFormStarsys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 107
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -120,6 +119,7 @@ object FormStarsys: TFormStarsys
       Lines.Strings = (
         'Memo1')
       TabOrder = 4
+      ExplicitTop = 389
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -173,7 +173,7 @@ object FormStarsys: TFormStarsys
           SpotCutOff = 180.000000000000000000
         end
       end
-      object Sun: TGLSphere
+      object Star: TGLSphere
         Material.FrontProperties.Emission.Color = {9A99593F9A99593FCDCCCC3D0000803F}
         Material.Texture.Disabled = False
         Radius = 0.699999988079071000
@@ -199,10 +199,10 @@ object FormStarsys: TFormStarsys
         Slices = 64
         SweepAngle = 360.000000000000000000
       end
-      object dcMercury: TGLDummyCube
+      object dcPlanet_b: TGLDummyCube
         Tag = 1
         CubeSize = 1.000000000000000000
-        object Mercury: TGLSphere
+        object Planet_b: TGLSphere
           Tag = 1
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000000400000803F}
@@ -210,7 +210,7 @@ object FormStarsys: TFormStarsys
           Slices = 32
           Stacks = 32
         end
-        object MercuryOrbit: TGLTorus
+        object Orbit_b: TGLTorus
           Tag = 1
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
           PitchAngle = 90.000000000000000000
@@ -710,7 +710,7 @@ object FormStarsys: TFormStarsys
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = SceneViewer
-    FormCaption = 'Stellar system - %FPS'
+    FormCaption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072' - %FPS'
     Options = [snoMouseWheelHandled]
     KeyCombinations = <
       item
@@ -745,7 +745,7 @@ object FormStarsys: TFormStarsys
     Paused = False
     ParticleInterval = 0.500000000000000000
     UseInterval = False
-    Reference = Sun
+    Reference = Star
     Left = 152
     Top = 256
   end

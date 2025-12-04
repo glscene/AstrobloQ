@@ -27,6 +27,8 @@ type
     PlanetMaps: TImageCollection;
     VirtPlanetMaps: TVirtualImageList;
     GLPlanetMaps: TGLMaterialLibrary;
+    MoonMaps: TImageCollection;
+    VirtMoonMaps: TVirtualImageList;
   private
   public
   end;

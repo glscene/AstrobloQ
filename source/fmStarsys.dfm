@@ -32,7 +32,6 @@ object FormStarsys: TFormStarsys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 674
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object FormStarsys: TFormStarsys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 511
     end
   end
   object PanelRight: TPanel
@@ -87,7 +87,6 @@ object FormStarsys: TFormStarsys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -120,6 +119,7 @@ object FormStarsys: TFormStarsys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
+      ExplicitTop = 389
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -762,8 +762,8 @@ object FormStarsys: TFormStarsys
     Top = 256
   end
   object MainMenu: TMainMenu
-    Left = 358
-    Top = 32
+    Left = 38
+    Top = 280
     object File1: TMenuItem
       Caption = 'File'
       object New1: TMenuItem

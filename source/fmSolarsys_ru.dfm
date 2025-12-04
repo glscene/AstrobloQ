@@ -32,7 +32,6 @@ object FormSolarsys: TFormSolarsys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 645
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object FormSolarsys: TFormSolarsys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -88,7 +88,6 @@ object FormSolarsys: TFormSolarsys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -121,6 +120,7 @@ object FormSolarsys: TFormSolarsys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
+      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -221,8 +221,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000000400000803F}
           Radius = 0.319999992847442600
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
         end
         object MercuryOrbit: TGLTorus
           Tag = 1
@@ -246,8 +246,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000080400000803F}
           Radius = 0.750000000000000000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
         end
         object VenusOrbit: TGLTorus
           Tag = 2
@@ -273,8 +273,8 @@ object FormSolarsys: TFormSolarsys
           RollAngle = 23.440000534057620000
           Up.Coordinates = {F0AACBBEC8DF6A3F0000000000000000}
           Radius = 0.800000011920929000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object dcMoon: TGLDummyCube
             Tag = 3
             TagFloat = 1.000000000000000000
@@ -285,8 +285,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000C03F0000803F}
               Radius = 0.200000002980232200
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
         end
@@ -312,8 +312,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000020C10000803F}
           Radius = 0.400000005960464500
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object dcPhobos: TGLDummyCube
             Tag = 4
             TagFloat = 1.000000000000000000
@@ -356,8 +356,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {00000000000000000000B0C10000803F}
           Radius = 3.400000095367432000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object dcIo: TGLDummyCube
             Tag = 5
             TagFloat = 1.000000000000000000
@@ -368,8 +368,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000080C00000803F}
               Radius = 0.239999994635582000
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
           object dcEuropa: TGLDummyCube
@@ -382,8 +382,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000A0400000803F}
               Radius = 0.239999994635582000
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
           object dcGanymede: TGLDummyCube
@@ -396,8 +396,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000C0C00000803F}
               Radius = 0.379999995231628400
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
           object dcCallisto: TGLDummyCube
@@ -410,8 +410,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000E0400000803F}
               Radius = 0.259999990463256800
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
           object JupiterRing: TGLDisk
@@ -458,8 +458,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000020420000803F}
           Radius = 3.000000000000000000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object SaturnRing: TGLDisk
             Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
             Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
@@ -489,8 +489,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000000410000803F}
               Radius = 0.100000001490116100
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
           object dcTitan: TGLDummyCube
@@ -503,8 +503,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000020410000803F}
               Radius = 0.500000000000000000
-              Slices = 32
-              Stacks = 32
+              Slices = 64
+              Stacks = 64
             end
           end
         end
@@ -532,8 +532,8 @@ object FormSolarsys: TFormSolarsys
           RollAngle = 45.000000000000000000
           Up.Coordinates = {F30435BFF304353F0000000000000000}
           Radius = 2.200000047683716000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object UranusRing: TGLDisk
             Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
             Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
@@ -563,6 +563,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000080400000803F}
               Radius = 0.250000000000000000
+              Slices = 64
+              Stacks = 64
             end
           end
           object dcMiranda: TGLDummyCube
@@ -575,6 +577,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000040C00000803F}
               Radius = 0.200000002980232200
+              Slices = 64
+              Stacks = 64
             end
           end
         end
@@ -600,8 +604,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {00000000000000000000A0420000803F}
           Radius = 2.099999904632568000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object NeptuneRing: TGLDisk
             Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
             Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
@@ -631,6 +635,8 @@ object FormSolarsys: TFormSolarsys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000A0400000803F}
               Radius = 0.180000007152557400
+              Slices = 64
+              Stacks = 64
             end
           end
         end
@@ -656,8 +662,8 @@ object FormSolarsys: TFormSolarsys
           Material.Texture.Disabled = False
           Position.Coordinates = {00000000000000000000C8420000803F}
           Radius = 0.300000011920929000
-          Slices = 32
-          Stacks = 32
+          Slices = 64
+          Stacks = 64
           object dcCharon: TGLDummyCube
             Tag = 9
             TagFloat = 1.000000000000000000
@@ -693,7 +699,7 @@ object FormSolarsys: TFormSolarsys
       UseBuildList = False
       OnRender = sys_doglRender
       Blend = False
-      object axis_lines: TGLLines
+      object lineAxis: TGLLines
         LineWidth = 2.000000000000000000
         Nodes = <
           item

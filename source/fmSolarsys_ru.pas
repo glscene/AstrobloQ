@@ -69,7 +69,7 @@ type
     Mercury: TGLSphere;
     sys_dogl: TGLDirectOpenGL;
     SolarSystem: TGLDummyCube;
-    axis_lines: TGLLines;
+    lineAxis: TGLLines;
     bb_lines: TGLLines;
     AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
@@ -164,7 +164,6 @@ type
     procedure TreeViewClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -865,7 +864,7 @@ begin
     bb_lines.Scale.SetVector(PickObject.BoundingBox(false).BBox[0]);
     bb_lines.Scale.Scale(2.1);
   end;
-  axis_lines.Matrix^ := PickObject.AbsoluteMatrix;
+  lineAxis.Matrix^ := PickObject.AbsoluteMatrix;
 end;
 
 // Sys_doglRender
@@ -876,7 +875,7 @@ begin
   begin
     rci.GLStates.DepthFunc := cfAlways;
     UpdateBBox;
-    axis_lines.Render(rci);
+    lineAxis.Render(rci);
     bb_lines.Render(rci);
   end;
 end;
@@ -885,15 +884,8 @@ end;
 //
 procedure TFormSolarsys.AsyncTimerTimer;
 begin
-  Caption := 'Solar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
+  Caption := 'Солнечная система' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
-end;
-
-// About
-//
-procedure TFormSolarsys.About1Click(Sender: TObject);
-begin
-  ShowMessage('Lithosphere');
 end;
 
 // Exit

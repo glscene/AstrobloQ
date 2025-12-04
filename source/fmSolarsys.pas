@@ -146,7 +146,6 @@ type
     N2: TMenuItem;
     Help1: TMenuItem;
     miWiki: TMenuItem;
-    About1: TMenuItem;
     stPickObject: TStaticText;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
@@ -175,7 +174,6 @@ type
     procedure TreeViewClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -260,6 +258,7 @@ begin
   UpdateTreeView;
   TreeView.Select(TreeView.Items[0]); // goto to the first node
 (*
+//  ffMoon.LoadFromFile('moon.3ds');
 //  ffAsteroid.LoadFromFile('asteroid.3ds');
 //  ffComet.LoadFromFile('comet.3ds');
 *)
@@ -905,13 +904,6 @@ procedure TFormSolarSys.AsyncTimerTimer;
 begin
   Caption := 'Solar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
-end;
-
-// About
-//
-procedure TFormSolarSys.About1Click(Sender: TObject);
-begin
-  ShowMessage('Lithosphere');
 end;
 
 // Exit

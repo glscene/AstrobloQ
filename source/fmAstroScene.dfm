@@ -43,6 +43,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 647
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 622
     object tvMoons: TTreeView
       Left = 1
       Top = 107
@@ -57,26 +58,27 @@ object frmAstroScene: TfrmAstroScene
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
-      Images = DataModuleImages.VirtPlanetSymbols
+      Images = DataModuleImages.VirtMoonMaps
       Indent = 35
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      StateImages = DataModuleImages.VirtPlanetSymbols
       TabOrder = 0
       OnClick = tvMoonsClick
       Items.NodeData = {
-        071D00000009540054007200650065004E006F00640065002700000003000000
-        03000000FFFFFFFFFFFFFFFF0000000000000000000000000001044D006F006F
-        006E0000002B0000000400000004000000FFFFFFFFFFFFFFFF00000000000000
-        0000000000000106500068006F0062006F00730000002B000000040000000400
-        0000FFFFFFFFFFFFFFFF0000000000000000000000000001064400650069006D
-        006F0073000000230000000500000005000000FFFFFFFFFFFFFFFF0000000000
-        0000000000000000010249006F0000002B0000000500000005000000FFFFFFFF
+        071D00000009540054007200650065004E006F00640065002700000001000000
+        0100000003000000FFFFFFFF0000000000000000000000000001044D006F006F
+        006E0000002B000000020000000200000002000000FFFFFFFF00000000000000
+        0000000000000106500068006F0062006F00730000002B000000030000000300
+        000002000000FFFFFFFF0000000000000000000000000001064400650069006D
+        006F007300000023000000040000000400000004000000FFFFFFFF0000000000
+        0000000000000000010249006F0000002B000000050000000500000004000000
         FFFFFFFF0000000000000000000000000001064500750072006F007000610000
-        002F0000000500000005000000FFFFFFFFFFFFFFFF0000000000000000000000
-        00000108470061006E0079006D0065006400650000002F000000050000000500
-        0000FFFFFFFFFFFFFFFF000000000000000000000000000108430061006C006C
-        006900730074006F0000002F0000000500000005000000FFFFFFFFFFFFFFFF00
+        002F000000060000000600000004000000FFFFFFFF0000000000000000000000
+        00000108470061006E0079006D0065006400650000002F000000070000000700
+        000004000000FFFFFFFF000000000000000000000000000108430061006C006C
+        006900730074006F0000002F000000050000000500000004000000FFFFFFFF00
         000000000000000000000000010841006D0061006C0074006800650061000000
         310000000600000006000000FFFFFFFFFFFFFFFF000000000000000000000000
         00010945006E00630065006C0061006400750073000000290000000600000006
@@ -300,6 +302,8 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 679
+    ExplicitWidth = 1404
   end
   object ControlBarTop: TControlBar
     Left = 0
@@ -308,6 +312,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 57
     Align = alTop
     TabOrder = 3
+    ExplicitWidth = 1404
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -446,11 +451,13 @@ object frmAstroScene: TfrmAstroScene
     Height = 647
     Align = alRight
     TabOrder = 4
+    ExplicitLeft = 1149
+    ExplicitHeight = 622
     object tvAsteroids: TTreeView
       Left = 1
       Top = 30
       Width = 253
-      Height = 641
+      Height = 616
       Hint = 'Asteroids'
       Align = alClient
       AutoExpand = True
@@ -500,6 +507,7 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
+      ExplicitHeight = 591
     end
     object StaticText2: TStaticText
       Left = 1
@@ -569,7 +577,7 @@ object frmAstroScene: TfrmAstroScene
       DepthOfView = 200000.000000000000000000
       FocalLength = 99.545860290527340000
       NearPlaneBias = 0.100000001490116100
-      TargetObject = dcPlanet
+      TargetObject = ffPlanet
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0000803F000000000000803F0000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
@@ -595,6 +603,7 @@ object frmAstroScene: TfrmAstroScene
         Direction.Coordinates = {00000000000080BF0000000000000000}
         Position.Coordinates = {00000000000000000000A0C00000803F}
         Up.Coordinates = {00000000000000000000803F00000000}
+        AutoScaling.Coordinates = {0000204100002041000020410000803F}
         MaterialLibrary = GLMatLib
         object dcMoon: TGLDummyCube
           Up.Coordinates = {FC9D7FB10000803F0000000000000000}
@@ -608,8 +617,8 @@ object frmAstroScene: TfrmAstroScene
             TurnAngle = -170.000000000000000000
             Up.Coordinates = {00000000000000000000803F00000000}
             Radius = 0.500000000000000000
-            Slices = 32
-            Stacks = 32
+            Slices = 64
+            Stacks = 64
           end
         end
       end
@@ -621,6 +630,7 @@ object frmAstroScene: TfrmAstroScene
         Direction.Coordinates = {000000000000803F0000000000000000}
         TurnAngle = -150.000000000000000000
         Up.Coordinates = {00000000000000000000803F00000000}
+        Visible = False
         Radius = 0.500000000000000000
         Slices = 64
         Stacks = 64
@@ -89070,8 +89080,8 @@ object frmAstroScene: TfrmAstroScene
   end
   object MainMenu: TMainMenu
     Images = DataModuleImages.ImageListInterface
-    Left = 925
-    Top = 80
+    Left = 373
+    Top = 256
     object miOpen: TMenuItem
       Caption = '&File'
       object miFileOpen: TMenuItem
@@ -89094,14 +89104,6 @@ object frmAstroScene: TfrmAstroScene
     end
     object miView: TMenuItem
       Caption = '&View'
-      object miSolarSystem: TMenuItem
-        Caption = 'Solar system...'
-        OnClick = miSolarSystemClick
-      end
-      object miStarsys: TMenuItem
-        Caption = 'Star system...'
-        OnClick = miStarsysClick
-      end
       object Constellations1: TMenuItem
         Caption = 'Constellations...'
         OnClick = Constellations1Click
@@ -89132,6 +89134,17 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'Clear TreeView'
         Enabled = False
         OnClick = ClearTreeView1Click
+      end
+    end
+    object Model1: TMenuItem
+      Caption = 'Model'
+      object miSolarSystem: TMenuItem
+        Caption = 'Solar system...'
+        OnClick = miSolarSystemClick
+      end
+      object miStarsys: TMenuItem
+        Caption = 'Star system...'
+        OnClick = miStarsysClick
       end
     end
     object miTools: TMenuItem

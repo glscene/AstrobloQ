@@ -17,7 +17,7 @@
 #pragma link "GLS.Scene"
 #pragma link "GLS.SceneViewer"
 #pragma link "GLS.SimpleNavigation"
-#pragma #pragma link "GLS.BaseClasses"
+#pragma link "GLS.BaseClasses"
 #pragma link "GLS.Coordinates"
 #pragma resource "*.dfm"
 TForm1* Form1;

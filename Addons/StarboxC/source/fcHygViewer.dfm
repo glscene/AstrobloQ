@@ -44,6 +44,7 @@ object Form1: TForm1
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
+    ExplicitWidth = 649
   end
   object Panel1: TPanel
     Left = 0

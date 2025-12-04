@@ -127,7 +127,7 @@ type
     sfCore: TGLSphere;
     N1: TMenuItem;
     miMonitor: TMenuItem;
-    miGenStarsys: TMenuItem;
+    miGenExosys: TMenuItem;
     acPlanet: TGLActor;
     miTools: TMenuItem;
     N7: TMenuItem;
@@ -192,7 +192,7 @@ type
     procedure miSolarSystemClick(Sender: TObject);
     procedure miStellarSystemClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
-    procedure miGenStarsysClick(Sender: TObject);
+    procedure miGenExosysClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
@@ -363,7 +363,7 @@ begin
   end;
 
  (*
-  // planet entrails
+  // Недра планет
   if miInnerCore.Checked then
   begin
     if FileExists(FileName  + '_core.jpg') then
@@ -373,7 +373,7 @@ begin
   end;
 
 *)
-  // Planet rings
+  // Кольца планет
 
   if (tvMoons.Selected.Text = 'Сатурн') or (tvMoons.Selected.Text = 'Уран') then
   begin
@@ -399,7 +399,7 @@ end;
 
 
 //--------------------- Генератор экзопланетной системы -----------------------
-procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
+procedure TfrmAstroScene.miGenExosysClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   GLCadencer.Enabled := False;
@@ -449,9 +449,9 @@ begin
   for i := n - 1 downto 0 do
   begin
     VectorLerp(rayStart, rayEnd, i * invN, atmPoint);
-    // diffuse lighting normal
+    // нормаль диффузного света
     normal := VectorNormalize(atmPoint);
-    // diffuse lighting intensity
+    // интенсивность диффузного света
     intensity := VectorDotProduct(normal, lightingVector) + 0.1;
     if (PInteger(@intensity)^ > 0) then
     begin
@@ -858,7 +858,7 @@ begin
     end;
 end;
 
-//-------------------------- Очитить дерево просмотра -------------------------
+//-------------------------- Очистить дерево просмотра -------------------------
 procedure TfrmAstroScene.miClearTreeViewClick(Sender: TObject);
 begin
   tvMoons.Items.Clear;

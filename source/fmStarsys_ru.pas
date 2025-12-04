@@ -65,7 +65,7 @@ type
     Camera: TGLCamera;
     LightSource: TGLLightSource;
     Cadencer: TGLCadencer;
-    Mercury: TGLSphere;
+    Planet_b: TGLSphere;
     sys_dogl: TGLDirectOpenGL;
     SolarSystem: TGLDummyCube;
     axis_lines: TGLLines;
@@ -73,7 +73,7 @@ type
     AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
     SimpleNavigation: TGLSimpleNavigation;
-    Sun: TGLSphere;
+    Star: TGLSphere;
     MatLib: TGLMaterialLibrary;
     dcEarth: TGLDummyCube;
     Earth: TGLSphere;
@@ -82,7 +82,7 @@ type
     dcMars: TGLDummyCube;
     Mars: TGLSphere;
     MarsOrbit: TGLTorus;
-    dcMercury: TGLDummyCube;
+    dcPlanet_b: TGLDummyCube;
     dcSaturn: TGLDummyCube;
     dcVenus: TGLDummyCube;
     Venus: TGLSphere;
@@ -121,7 +121,7 @@ type
     Triton: TGLSphere;
     dcCharon: TGLDummyCube;
     JupiterOrbit: TGLTorus;
-    MercuryOrbit: TGLTorus;
+    Orbit_b: TGLTorus;
     SaturnOrbit: TGLTorus;
     VenusOrbit: TGLTorus;
     UranusOrbit: TGLTorus;
@@ -190,49 +190,37 @@ implementation //-----------------------------------------------------
 procedure TFormStarsys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\trappist-1\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
-  // Текстуры карт
-  Sun.Material.Texture.Image.LoadFromFile('sun.jpg');   // current star
-  Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg'); // appropriate map
-  Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
+  // Текстурные карты звезды и экзопланет
+  Star.Material.Texture.Image.LoadFromFile('trappist-1.jpg');   // звезда
+  Planet_b.Material.Texture.Image.LoadFromFile('mercury.jpg'); // планета b
+  Venus.Material.Texture.Image.LoadFromFile('venus.jpg');     // планета c
 
-  Earth.Material.Texture.Image.LoadFromFile('earth.jpg');
-  Moon.Material.Texture.Image.LoadFromFile('moon.jpg');
+  Earth.Material.Texture.Image.LoadFromFile('earth.jpg');    // планета d
 
-  Mars.Material.Texture.Image.LoadFromFile('mars.jpg');
-    Phobos.Material.Texture.Image.LoadFromFile('phobos.jpg');
-    Deimos.Material.Texture.Image.LoadFromFile('deimos.jpg');
+  Mars.Material.Texture.Image.LoadFromFile('mars.jpg');     // планета e
 
-  Jupiter.Material.Texture.Image.LoadFromFile('jupiter.jpg');
-    Io.Material.Texture.Image.LoadFromFile('io.jpg');
-    Europa.Material.Texture.Image.LoadFromFile('europa.jpg');
-    Ganymede.Material.Texture.Image.LoadFromFile('ganymede.jpg');
-    Callisto.Material.Texture.Image.LoadFromFile('callisto.jpg');
+  Jupiter.Material.Texture.Image.LoadFromFile('jupiter.jpg'); // планета f
 
-  Saturn.Material.Texture.Image.LoadFromFile('saturn.jpg');
-    SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.png');
-    Titan.Material.Texture.Image.LoadFromFile('titan.jpg');
-    Enceladus.Material.Texture.Image.LoadFromFile('enceladus.jpg');
+  Saturn.Material.Texture.Image.LoadFromFile('saturn.jpg');  // планета g
 
-  Uranus.Material.Texture.Image.LoadFromFile('uranus.jpg');
-    UranusRing.Material.Texture.Image.LoadFromFile('uranus_ring.png');
-    Titania.Material.Texture.Image.LoadFromFile('titania.jpg');
-    Miranda.Material.Texture.Image.LoadFromFile('miranda.jpg');
+  Uranus.Material.Texture.Image.LoadFromFile('uranus.jpg');  // планета h
 
-  Neptune.Material.Texture.Image.LoadFromFile('neptune.jpg');
-    NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.png');
-    Triton.Material.Texture.Image.LoadFromFile('triton.jpg');
+//  UranusRing.Material.Texture.Image.LoadFromFile('scheem.jpg'); //
 
-  Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
-    Charon.Material.Texture.Image.LoadFromFile('charon.jpg');
+// Загрузка моделей TGLFreeForms
+(*
+  // ffPlanet.LoadFromFile('planet.3ds');
+  // ffPlanet.Scale.Scale(0.05 / ffPlanet.BoundingSphereRadius);
 
-  // Загрузка моделей в FreeForms
-  Phobos.LoadFromFile('phobos.3ds');
-  Phobos.Scale.Scale(0.05 / Phobos.BoundingSphereRadius);
-  Deimos.LoadFromFile('deimos.3ds');
-  Deimos.Scale.Scale(0.05 / Deimos.BoundingSphereRadius);
+  // ffMoon.LoadFromFile('moon.3ds');
+  // ffMoon.Scale.Scale(0.05 / ffMoon.BoundingSphereRadius);
+
+  // ffAsteroid.LoadFromFile('asteroid.3ds');
+  // ffAsteroid.Scale.Scale(0.05 / ffAsteroid.BoundingSphereRadius);
+*)
 
   // Загрузка каталогов звёзд в SkyDome
   SetCurrentDir(PathToData + '\catalog');
@@ -244,10 +232,6 @@ begin
   UpdateTreeView;
   // переход к первому узлу дерева просмотра
   TreeView.Select(TreeView.Items[0]);
-(*
-//  ffAsteroid.LoadFromFile('asteroid.3ds');
-//  ffComet.LoadFromFile('comet.3ds');
-*)
   TreeView.FullExpand;
   ///Atmosphere := TGLAtmosphere.Create(Self);
   SceneViewer.Buffer.RenderingContext.Activate;
@@ -292,9 +276,10 @@ procedure TFormStarsys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
-  Sun.Turn(deltaTime * cOmega);
-  dcMercury.Turn(deltaTime * 50);
-    Mercury.Turn(deltaTime * cOmega);
+  Star.Turn(deltaTime * cOmega);
+
+  dcPlanet_b.Turn(deltaTime * 50);
+    Planet_b.Turn(deltaTime * cOmega);
   dcVenus.Turn(deltaTime * 35);
     Venus.Turn(deltaTime * cOmega);
 
@@ -332,7 +317,7 @@ end;
 //---------------------- Показать линии орбит --------------------------------
 procedure TFormStarsys.cbOrbitClick(Sender: TObject);
 begin
-  MercuryOrbit.Visible := cbOrbit.Checked;
+  Orbit_b.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
   EarthOrbit.Visible := cbOrbit.Checked;
   MarsOrbit.Visible := cbOrbit.Checked;
@@ -374,7 +359,7 @@ procedure TFormStarsys.TreeViewClick(Sender: TObject);
 var
   i: integer;
 begin
-  // Solar System ===============
+  // Exoplanet System ===============
   if (TreeView.Selected.Text = SolarSystem.Name) then
   begin
     Camera.MoveTo(SolarSystem);
@@ -383,33 +368,33 @@ begin
     Camera.Position.Y := 10;
     Camera.Position.Z := 10;
   end;
-  //  Sun ===================
-  if (TreeView.Selected.Text = Sun.Name) then
+  //  Star ===================
+  if (TreeView.Selected.Text = Star.Name) then
   begin
-    Camera.MoveTo(Sun);
-    Camera.TargetObject := Sun;
+    Camera.MoveTo(Star);
+    Camera.TargetObject := Star;
     Camera.Position.X := 1;
     Camera.Position.Y := 1;
     Camera.Position.Z := 1;
   end;
-  //  Mercury ===================
-  if (TreeView.Selected.Text = Mercury.Name) then
+  //  Planet_b ===================
+  if (TreeView.Selected.Text = Planet_b.Name) then
   begin
-    Camera.MoveTo(Mercury);
-    Camera.TargetObject := Mercury;
+    Camera.MoveTo(Planet_b);
+    Camera.TargetObject := Planet_b;
     Camera.Position.X := 0.5;
     Camera.Position.Y := 1;
     Camera.Position.Z := 0.5;
     if miInnerCore.Checked then
     begin
-      // Mercury.Radius := 0.32;
+      // Planet_b.Radius := 0.32;
       (PickObject as TGLSphere).Stop := 180;
       // Core
-      Core := TGLSphere.CreateAsChild(Mercury);
+      Core := TGLSphere.CreateAsChild(Planet_b);
       Core.Radius := 0.1;
       Core.Material.FrontProperties.Diffuse.Color := clrCoral;
       // Mantle
-      Mantle := TGLDisk.CreateAsChild(Mercury);
+      Mantle := TGLDisk.CreateAsChild(Planet_b);
       Mantle.InnerRadius := 0.1;
       Mantle.OuterRadius := 0.3;
       Mantle.Material.FrontProperties.Diffuse.Color := clrBrown;
@@ -417,7 +402,7 @@ begin
       Mantle.Slices := 64;
       Mantle.TurnAngle := 90;
       // Crust
-      Crust := TGLDisk.CreateAsChild(Mercury);
+      Crust := TGLDisk.CreateAsChild(Planet_b);
       Crust.InnerRadius := 0.3;
       Crust.OuterRadius := 0.32;
       Crust.Material.FrontProperties.Diffuse.Color := clrYellow;
@@ -427,7 +412,7 @@ begin
     end
     else
     begin
-      Mercury.Stop := 360;
+      Planet_b.Stop := 360;
       Core.Free;
       Crust.Free;
       Mantle.Free;
