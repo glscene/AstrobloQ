@@ -66,7 +66,6 @@ type
     tvZodiacs: TTreeView;
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
-    VirtualImageFigures: TVirtualImage;
     Panel1: TPanel;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
@@ -182,7 +181,6 @@ end;
 procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
-  VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
 end;
 
 //----------------------------------------------------------------------------
@@ -191,7 +189,6 @@ end;
 procedure TfrmConstells.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
-  VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
 end;
 
 //-----------------------------------------------------------------------

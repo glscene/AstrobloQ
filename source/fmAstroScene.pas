@@ -178,6 +178,7 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     Model1: TMenuItem;
+    Image1: TImage;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -353,6 +354,11 @@ end;
 
 //---------------------- Click nodes of tvPlanets -----------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
+var
+  S: String;
+  ID: Integer;
+  TerrainTex: TBitmap;
+
 begin
   PlanetPath := CurrentStar + tvMoons.Selected.Text;
   ffPlanet.Visible := True;
@@ -378,7 +384,12 @@ begin
     sfPlanet.Visible := False;
 
     ffPlanet.LoadFromFile(PlanetPath + '.3ds');
-    ffPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+///    Heightfield1.Material.Texture.Image.Assign(Image1.Picture.Graphic);
+///    ID := DataModuleImages.VirtMoonMaps.Images;
+///    ffPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+  //  S := DataModuleImages.VirtMoonMaps.GetNameByIndex(3); // := tvMoons.Selected.ImageIndex;
+    ffPlanet.Material.Texture.Image.Assign(Image1.Picture);
+   ffPlanet.Material.Texture.Image.GetBitmap32.Assign(TerrainTex);
     ffPlanet.Scale.Scale(100); // don't working
     Camera.TagObject := ffPlanet;
   end;

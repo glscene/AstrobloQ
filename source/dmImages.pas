@@ -22,13 +22,17 @@ type
     PlanetSymbols: TImageCollection;
     VirtPlanetSymbols: TVirtualImageList;
     VirtConstelSymbols: TVirtualImageList;
-    ConstelFigures: TImageCollection;
     ImageListInterface: TImageList;
     PlanetMaps: TImageCollection;
     VirtPlanetMaps: TVirtualImageList;
-    GLPlanetMaps: TGLMaterialLibrary;
+    MatLibStars: TGLMaterialLibrary;
     MoonMaps: TImageCollection;
     VirtMoonMaps: TVirtualImageList;
+    StarSymbols: TImageCollection;
+    MatLibPlanets: TGLMaterialLibrary;
+    MatLibAsteroids: TGLMaterialLibrary;
+    MatLibComets: TGLMaterialLibrary;
+    MatLibMoons: TGLMaterialLibrary;
   private
   public
   end;

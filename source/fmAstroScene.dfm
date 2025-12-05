@@ -453,6 +453,12 @@ object frmAstroScene: TfrmAstroScene
     TabOrder = 4
     ExplicitLeft = 1149
     ExplicitHeight = 622
+    object Image1: TImage
+      Left = 72
+      Top = 560
+      Width = 105
+      Height = 105
+    end
     object tvAsteroids: TTreeView
       Left = 1
       Top = 30
@@ -507,7 +513,8 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
-      ExplicitHeight = 591
+      ExplicitLeft = 6
+      ExplicitTop = 25
     end
     object StaticText2: TStaticText
       Left = 1

@@ -227,21 +227,6 @@ object frmConstells: TfrmConstells
     TabOrder = 2
     ExplicitLeft = 840
     ExplicitHeight = 603
-    object VirtualImageFigures: TVirtualImage
-      Left = 1
-      Top = 476
-      Width = 174
-      Height = 151
-      Align = alBottom
-      ImageCollection = DataModuleImages.ConstelFigures
-      ImageWidth = 0
-      ImageHeight = 0
-      ImageIndex = 0
-      ImageName = 'andromeda'
-      ExplicitLeft = -62
-      ExplicitTop = 408
-      ExplicitWidth = 216
-    end
     object tvZodiacs: TTreeView
       Left = 1
       Top = 42

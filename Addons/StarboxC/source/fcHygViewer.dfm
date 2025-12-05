@@ -44,7 +44,6 @@ object Form1: TForm1
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
-    ExplicitWidth = 649
   end
   object Panel1: TPanel
     Left = 0
@@ -72,7 +71,7 @@ object Form1: TForm1
       Top = 38
       Width = 41
       Height = 25
-      Brush.Color = clBlue
+      Brush.Color = clHighlight
     end
     object ShapeA: TShape
       Left = 97
@@ -85,7 +84,7 @@ object Form1: TForm1
       Top = 131
       Width = 41
       Height = 25
-      Brush.Color = clLime
+      Brush.Color = clKhaki
     end
     object ShapeG: TShape
       Left = 97
@@ -99,7 +98,7 @@ object Form1: TForm1
       Top = 193
       Width = 41
       Height = 25
-      Brush.Color = clFuchsia
+      Brush.Color = clOrange
     end
     object ShapeM: TShape
       Left = 97
