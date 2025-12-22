@@ -1,14 +1,14 @@
 GrafLingvos
 
-Translator of sentence semantics into 3D scenes
-Supports smooth and flat shading, wireframes,
-hidden lines removal, texturing and antialiasing.
+A translator of linguistic message semantics into
+graphic models and scenic images.
+Transformation of verbal messages,
+the content and semantic meaning of sentences, into audiovisual graphic models
+and scenes of virtual and augmented reality.
 
-3D Formats: 3DS, OBJ, SMD, MD2, GLB, TIN, PLY, STL etc.
-2D Formats: PNG, JPG, BMP, TGA etc.
-
-Join us and enjoy.
-https://gitverse.ru/glscene
-
+2D: PNG, JPG, BMP, TGA.
+3D: 3DS, OBJ, SMD, MD2, PLY, GLB.
+Audio: MP3, WAV, MID. 
+Video: AVI, MP4.
 
 GLXE Team
