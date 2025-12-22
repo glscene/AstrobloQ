@@ -29,7 +29,7 @@ object frmAstroScene: TfrmAstroScene
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 145.792144775390600000
+    FieldOfView = 145.645248413085900000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -513,8 +513,7 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
-      ExplicitLeft = 6
-      ExplicitTop = 25
+      ExplicitHeight = 591
     end
     object StaticText2: TStaticText
       Left = 1
@@ -537,7 +536,29 @@ object frmAstroScene: TfrmAstroScene
     ObjectsSorting = osNone
     Left = 378
     Top = 67
-    object StarSkyDome: TGLSkyDome
+    object Camera: TGLCamera
+      DepthOfView = 100000.000000000000000000
+      FocalLength = 100.000000000000000000
+      NearPlaneBias = 0.100000001490116100
+      TargetObject = dcPlanet
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Direction.Coordinates = {0000803F000000000000008000000000}
+      Up.Coordinates = {00000000000000000000803F00000000}
+      object LensStar: TGLLensFlare
+        Seed = 1465
+        FlareIsNotOccluded = True
+      end
+    end
+    object CameraControler: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 100.000000000000000000
+      TargetObject = dcPlanet
+      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Direction.Coordinates = {0000803F000000000000008000000000}
+      Up.Coordinates = {00000000000000000000803F00000000}
+    end
+    object SkyDome: TGLSkyDome
       Bands = <
         item
           StartColor.Color = {0000803F0000803F0000803F0000803F}
@@ -580,222 +601,209 @@ object frmAstroScene: TfrmAstroScene
         Nodes = <>
       end
     end
-    object Camera: TGLCamera
-      DepthOfView = 200000.000000000000000000
-      FocalLength = 99.545860290527340000
-      NearPlaneBias = 0.100000001490116100
-      TargetObject = ffPlanet
-      CameraStyle = csInfinitePerspective
-      Position.Coordinates = {0000803F000000000000803F0000803F}
-      Direction.Coordinates = {0000803F000000000000008000000000}
-      Up.Coordinates = {00000000000000000000803F00000000}
-      object LensStar: TGLLensFlare
-        Seed = 1465
-        FlareIsNotOccluded = True
-      end
-    end
-    object CameraControler: TGLCamera
-      DepthOfView = 10000.000000000000000000
-      FocalLength = 50.000000000000000000
-      TargetObject = dcPlanet
-      Position.Coordinates = {0000803F000000000000803F0000803F}
-      Direction.Coordinates = {0000803F000000000000008000000000}
-      Up.Coordinates = {00000000000000000000803F00000000}
-    end
-    object dcPlanet: TGLDummyCube
-      ObjectsSorting = osNone
-      CubeSize = 1000.000000000000000000
-      object ffPlanet: TGLFreeForm
-        Material.MaterialLibrary = GLMatLib
-        Direction.Coordinates = {00000000000080BF0000000000000000}
-        Position.Coordinates = {00000000000000000000A0C00000803F}
-        Up.Coordinates = {00000000000000000000803F00000000}
-        AutoScaling.Coordinates = {0000204100002041000020410000803F}
-        MaterialLibrary = GLMatLib
-        object dcMoon: TGLDummyCube
-          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
-          CubeSize = 1.000000000000000000
-          object Moon: TGLSphere
-            Material.MaterialLibrary = GLMatLib
-            Material.LibMaterialName = 'moon'
-            Direction.Coordinates = {D947AABE616D713F0000000000000000}
-            Position.Coordinates = {CDCCECC100000000000000000000803F}
-            Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
-            TurnAngle = -170.000000000000000000
-            Up.Coordinates = {00000000000000000000803F00000000}
-            Radius = 0.500000000000000000
+    object dcStar: TGLDummyCube
+      CubeSize = 1.000000000000000000
+      object dcPlanet: TGLDummyCube
+        ObjectsSorting = osNone
+        CubeSize = 1000.000000000000000000
+        object ffPlanet: TGLFreeForm
+          Material.MaterialLibrary = GLMatLib
+          Direction.Coordinates = {00000000000080BF0000000000000000}
+          Position.Coordinates = {00000000000000000000A0C00000803F}
+          Up.Coordinates = {00000000000000000000803F00000000}
+          AutoScaling.Coordinates = {0000204100002041000020410000803F}
+          MaterialLibrary = GLMatLib
+          object dcMoon: TGLDummyCube
+            Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+            CubeSize = 1.000000000000000000
+            object Moon: TGLSphere
+              Material.MaterialLibrary = GLMatLib
+              Material.LibMaterialName = 'moon'
+              Direction.Coordinates = {D947AABE616D713F0000000000000000}
+              Position.Coordinates = {CDCCECC100000000000000000000803F}
+              Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
+              TurnAngle = -170.000000000000000000
+              Up.Coordinates = {00000000000000000000803F00000000}
+              Radius = 0.500000000000000000
+              Slices = 64
+              Stacks = 64
+            end
+          end
+        end
+        object Atmosphere: TGLAtmosphere
+          Visible = False
+        end
+        object sfPlanet: TGLSphere
+          Material.LibMaterialName = 'earthDay'
+          Direction.Coordinates = {000000000000803F0000000000000000}
+          TurnAngle = -150.000000000000000000
+          Up.Coordinates = {00000000000000000000803F00000000}
+          Visible = False
+          Radius = 0.500000000000000000
+          Slices = 64
+          Stacks = 64
+          object dcArrows: TGLDummyCube
+            Visible = False
+            CubeSize = 1.000000000000000000
+            object ArrowLineX: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+              Direction.Coordinates = {0000803F000000000000000000000000}
+              Position.Coordinates = {00007A4500000000000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_X: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+              Direction.Coordinates = {000080BF000000000000000000000000}
+              Position.Coordinates = {00007AC500000000000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object ArrowLineY: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+              Direction.Coordinates = {000000000000803F0000000000000000}
+              Position.Coordinates = {0000000000007A45000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              Up.Coordinates = {00000000000000000000803F00000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_Y: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+              Direction.Coordinates = {00000000000080BF0000000000000000}
+              Position.Coordinates = {0000000000007AC5000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              Up.Coordinates = {00000000000000000000803F00000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object ArrowLineZ: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+              Position.Coordinates = {000000000000000000007A450000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_Z: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+              Direction.Coordinates = {0000000000000000000080BF00000000}
+              Position.Coordinates = {000000000000000000007AC50000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Stacks = 8
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+          end
+          object diskRingDn: TGLDisk
+            Material.Texture.Disabled = False
+            Direction.Coordinates = {000000000000803F2EBD3BB300000000}
+            PitchAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            Visible = False
+            InnerRadius = 0.600000023841857900
+            OuterRadius = 0.899999976158142100
             Slices = 64
-            Stacks = 64
+            SweepAngle = 360.000000000000000000
           end
-        end
-      end
-      object Atmosphere: TGLAtmosphere
-        Visible = False
-      end
-      object sfPlanet: TGLSphere
-        Material.LibMaterialName = 'earthDay'
-        Direction.Coordinates = {000000000000803F0000000000000000}
-        TurnAngle = -150.000000000000000000
-        Up.Coordinates = {00000000000000000000803F00000000}
-        Visible = False
-        Radius = 0.500000000000000000
-        Slices = 64
-        Stacks = 64
-        object dcArrows: TGLDummyCube
-          Visible = False
-          CubeSize = 1.000000000000000000
-          object ArrowLineX: TGLArrowLine
+          object diskRingUp: TGLDisk
+            Material.Texture.Disabled = False
+            Direction.Coordinates = {000000000000803F2EBD3BB300000000}
+            PitchAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            Visible = False
+            NormalDirection = ndInside
+            InnerRadius = 0.600000023841857900
+            OuterRadius = 0.899999976158142100
+            Slices = 64
+            SweepAngle = 360.000000000000000000
+          end
+          object diskMantle: TGLDisk
+            Material.Texture.Disabled = False
+            Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
+            PitchAngle = 90.000000000000000000
+            Position.Coordinates = {0AD723BC00000000000000000000803F}
+            TurnAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            NormalDirection = ndInside
+            InnerRadius = 0.200000002980232200
+            OuterRadius = 0.499000012874603300
+            Slices = 64
+            SweepAngle = 360.000000000000000000
+          end
+          object sfCore: TGLSphere
+            Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+            Radius = 0.200000002980232200
+            Slices = 64
+          end
+          object TorusGreenwich: TGLTorus
+            Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+            Direction.Coordinates = {0000803F000000002EBD3BB300000000}
+            TurnAngle = 90.000000000000000000
+            MajorRadius = 6371.000000000000000000
+            MinorRadius = 50.000000000000000000
+            Rings = 256
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object TorusEquator: TGLTorus
+            Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
             Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
-            Direction.Coordinates = {0000803F000000000000000000000000}
-            Position.Coordinates = {00007A4500000000000000000000803F}
-            Scale.Coordinates = {0000C8420000C8420000484400000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object Arrow_X: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
-            Direction.Coordinates = {000080BF000000000000000000000000}
-            Position.Coordinates = {00007AC500000000000000000000803F}
-            Scale.Coordinates = {0000C8420000C8420000484400000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object ArrowLineY: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
-            Direction.Coordinates = {000000000000803F0000000000000000}
-            Position.Coordinates = {0000000000007A45000000000000803F}
-            Scale.Coordinates = {0000C8420000C8420000484400000000}
-            Up.Coordinates = {00000000000000000000803F00000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object Arrow_Y: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
-            Direction.Coordinates = {00000000000080BF0000000000000000}
-            Position.Coordinates = {0000000000007AC5000000000000803F}
-            Scale.Coordinates = {0000C8420000C8420000484400000000}
-            Up.Coordinates = {00000000000000000000803F00000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object ArrowLineZ: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
-            Position.Coordinates = {000000000000000000007A450000803F}
-            Scale.Coordinates = {0000C8420000C8420000484400000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object Arrow_Z: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
-            Direction.Coordinates = {0000000000000000000080BF00000000}
-            Position.Coordinates = {000000000000000000007AC50000803F}
-            Scale.Coordinates = {0000C8420000C8420000484400000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Stacks = 8
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
+            Direction.Coordinates = {3A69BCB3000080BF7719C1A500000000}
+            Up.Coordinates = {BBF46E3201F03B190000803F00000000}
+            MajorRadius = 6371.000000000000000000
+            MinorRadius = 50.000000000000000000
+            Rings = 256
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
           end
         end
-        object diskRingDn: TGLDisk
-          Material.Texture.Disabled = False
-          Direction.Coordinates = {000000000000803F2EBD3BB300000000}
-          PitchAngle = 90.000000000000000000
-          Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+        object DirectOpenGL: TGLDirectOpenGL
           Visible = False
-          InnerRadius = 0.600000023841857900
-          OuterRadius = 0.899999976158142100
-          Slices = 64
-          SweepAngle = 360.000000000000000000
-        end
-        object diskRingUp: TGLDisk
-          Material.Texture.Disabled = False
-          Direction.Coordinates = {000000000000803F2EBD3BB300000000}
-          PitchAngle = 90.000000000000000000
-          Up.Coordinates = {000000002EBD3BB3000080BF00000000}
-          Visible = False
-          NormalDirection = ndInside
-          InnerRadius = 0.600000023841857900
-          OuterRadius = 0.899999976158142100
-          Slices = 64
-          SweepAngle = 360.000000000000000000
-        end
-        object diskMantle: TGLDisk
-          Material.Texture.Disabled = False
-          Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
-          PitchAngle = 90.000000000000000000
-          Position.Coordinates = {0AD723BC00000000000000000000803F}
-          TurnAngle = 90.000000000000000000
-          Up.Coordinates = {000000002EBD3BB3000080BF00000000}
-          NormalDirection = ndInside
-          InnerRadius = 0.200000002980232200
-          OuterRadius = 0.499000012874603300
-          Slices = 64
-          SweepAngle = 360.000000000000000000
-        end
-        object sfCore: TGLSphere
-          Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
-          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-          Radius = 0.200000002980232200
-          Slices = 64
-        end
-        object TorusGreenwich: TGLTorus
-          Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
-          Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
-          Direction.Coordinates = {0000803F000000002EBD3BB300000000}
-          TurnAngle = 90.000000000000000000
-          MajorRadius = 6371.000000000000000000
-          MinorRadius = 50.000000000000000000
-          Rings = 256
-          StopAngle = 360.000000000000000000
-          Parts = [toSides, toStartDisk, toStopDisk]
-        end
-        object TorusEquator: TGLTorus
-          Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
-          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-          Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
-          Direction.Coordinates = {3A69BCB3000080BF7719C1A500000000}
-          Up.Coordinates = {BBF46E3201F03B190000803F00000000}
-          MajorRadius = 6371.000000000000000000
-          MinorRadius = 50.000000000000000000
-          Rings = 256
-          StopAngle = 360.000000000000000000
-          Parts = [toSides, toStartDisk, toStopDisk]
+          UseBuildList = False
+          OnRender = DirectOpenGLRender
+          Blend = False
         end
       end
-      object DirectOpenGL: TGLDirectOpenGL
-        Visible = False
-        UseBuildList = False
-        OnRender = DirectOpenGLRender
-        Blend = False
+      object dcAsteroid: TGLDummyCube
+        CubeSize = 1.000000000000000000
+      end
+      object dcComet: TGLDummyCube
+        CubeSize = 1.000000000000000000
       end
     end
     object LensFlare: TGLLensFlare

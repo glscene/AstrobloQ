@@ -980,17 +980,15 @@ begin
 //  sl.LoadFromFile(DataDir + 'ConstCenters.csv');
   for i := 0 to sl.Count - 1 do
   begin
-  (*
     Line.CommaText := sl[i];
     pos1 := LonLatToPos(StrToFloatDef(Line[0]), StrToFloatDef(Line[1]));
     ConstLines.AddNode(pos1);
     pos2 := LonLatToPos(StrToFloatDef(Line[2]), StrToFloatDef(Line[3]));
     ConstLines.AddNode(pos2);
-    ConstLines.LineColor.RandomColor;
-   *)
-//    (*
+///    ConstLines.LineColor.RandomColor;
+     (*
       SkyLines := TGLLines.CreateAsChild(SkyDome);
-      SkyLines.SplineMode := lsmSegments; // may be lsmLines;
+      SkyLines.SplineMode := lsmSegments; // или линии lsmLines;
       Line.CommaText := sl[i];
       pos1 := LonLatToPos(StrToFloatDef(Line[0]), StrToFloatDef(Line[1]));
       SkyLines.AddNode(pos2);
@@ -999,10 +997,12 @@ begin
       pos2 := LonLatToPos(StrToFloatDef(Line[2]), StrToFloatDef(Line[3]));
       SkyLines.AddNode(pos2);
       SkyLines.NodesAspect := lnaInvisible; // may also be lnaAxes; lnaCube;
-      SkyLines.NodeColor.RandomColor;
+///      случайный цвет сегментов
+      SkyLines.LineColor.RandomColor;
+//      SkyLines.NodeColor.RandomColor;
 //      SkyLines.AddNode(pos1);
 //      SkyLines.AddNode(pos2);
-      SkyLines.LineColor.RandomColor;
+
     (**)
   end;
   sl.Free;

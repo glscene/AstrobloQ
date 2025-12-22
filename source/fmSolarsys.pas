@@ -294,6 +294,7 @@ begin
     miHidePanels.Caption := 'Show panels';
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
@@ -301,16 +302,17 @@ begin
   SceneViewer.Invalidate;
 end;
 
-
+//----------------------------------------------------------------------------
 // Open File dialog
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.Open1Click(Sender: TObject);
 begin
   //
 end;
 
+//----------------------------------------------------------------------------
 // CadencerProgress
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
@@ -352,8 +354,9 @@ begin
     dcCharon.Turn(deltaTime * 100);
 end;
 
+//----------------------------------------------------------------------------
 // Show Orbit Lines
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
@@ -368,23 +371,26 @@ begin
   SceneViewer.Invalidate;
 end;
 
+//----------------------------------------------------------------------------
 // Rotate Solar System
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
   SceneViewer.Invalidate;
 end;
 
+//----------------------------------------------------------------------------
 // Show Habitable Zone
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.cbHabitableZoneClick(Sender: TObject);
 begin
   HabitableZone.Visible := cbHabitableZone.Checked;
 end;
 
+//----------------------------------------------------------------------------
 // TreeViewChange
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.TreeViewChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
@@ -396,8 +402,9 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 // TreeViewClick
-//
+//----------------------------------------------------------------------------
 procedure TFormSolarSys.TreeViewClick(Sender: TObject);
 var
   i: integer;

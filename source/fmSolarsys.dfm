@@ -739,8 +739,8 @@ object FormSolarSys: TFormSolarSys
     Enabled = True
     Interval = 800
     OnTimer = AsyncTimerTimer
-    Left = 88
-    Top = 16
+    Left = 120
+    Top = 72
   end
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner

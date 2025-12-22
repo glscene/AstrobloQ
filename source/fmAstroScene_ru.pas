@@ -168,6 +168,9 @@ type
     miConstAtlas: TMenuItem;
     miMoonMap: TMenuItem;
     miSkyAreas: TMenuItem;
+    dcPlanet: TGLDummyCube;
+    dcAsteroid: TGLDummyCube;
+    dcComet: TGLDummyCube;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -750,12 +753,12 @@ end;
 procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
-  f: Single;
+  F: Single;
 begin
   if (WheelDelta > 0) or (CameraControler.Position.VectorLength > 0.90) then
   begin
-    f := Power(1.05, WheelDelta * (1 / 120));
-    CameraControler.AdjustDistanceToTarget(f);
+    F := Power(1.05, WheelDelta * (1 / 120));
+    CameraControler.AdjustDistanceToTarget(F);
   end;
   Handled := True;
 end;

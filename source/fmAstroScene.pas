@@ -95,7 +95,7 @@ type
     GLMatLib: TGLMaterialLibrary;
     GLTexCombiner: TGLTexCombineShader;
     CameraControler: TGLCamera;
-    StarSkyDome: TGLSkyDome;
+    SkyDome: TGLSkyDome;
     ConstLines: TGLLines;
     ConstBorders: TGLLines;
     MainMenu: TMainMenu;
@@ -179,6 +179,9 @@ type
     StaticText2: TStaticText;
     Model1: TMenuItem;
     Image1: TImage;
+    dcStar: TGLDummyCube;
+    dcAsteroid: TGLDummyCube;
+    dcComet: TGLDummyCube;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -276,10 +279,10 @@ begin
 //  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
   begin
-    StarSkyDome.Bands.Clear;
-    StarSkyDome.Stars.Clear;
-    StarSkyDome.Stars.LoadStarsFile(CatalogName);
-    StarSkyDome.StructureChanged;
+    SkyDome.Bands.Clear;
+    SkyDome.Stars.Clear;
+    SkyDome.Stars.LoadStarsFile(CatalogName);
+    SkyDome.StructureChanged;
   end;
 
   // change currect star dir
@@ -306,39 +309,6 @@ begin
   (**)
 end;
 
-//---------------------------------------------------------------------------
-procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
-begin
-  case Key of
-    'e', 'E': // Planet
-      begin
-        Camera.MoveTo(dcPlanet);
-        CameraControler.MoveTo(dcPlanet);
-        Camera.TargetObject := dcPlanet;
-        CameraControler.TargetObject := dcPlanet;
-      end;
-    'h':  // HighRes Maps
-      if not highResResourcesLoaded then
-      begin
-        SceneViewer.Cursor := crHourGlass;
-        try
-          if DirectoryExists(CurrentStar) then
-          begin
-            LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
-            LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
-            LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
-          end;
-          SceneViewer.Buffer.AntiAliasing := aa2x;
-        finally
-          SceneViewer.Cursor := crDefault;
-        end;
-        highResResourcesLoaded := True;
-      end;
-    '0'..'9': timeMultiplier := Power(Integer(Key) - Integer('0'), 3);
-    #27: Close;
-  end;
-end;
-
 //------------------------- Form Show ----------------------------------------
 procedure TfrmAstroScene.FormShow(Sender: TObject);
 begin
@@ -350,6 +320,10 @@ begin
   miHelpWiki.Caption := tbPlanets.Buttons[3].ImageName + ' in ' + 'Wikipedia...';
   miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
+
+   Camera.MoveTo(ffPlanet);
+   Camera.TargetObject := ffPlanet;
+
 end;
 
 //---------------------- Click nodes of tvPlanets -----------------------------
@@ -382,16 +356,13 @@ begin
 *)
   begin
     sfPlanet.Visible := False;
-
     ffPlanet.LoadFromFile(PlanetPath + '.3ds');
 ///    Heightfield1.Material.Texture.Image.Assign(Image1.Picture.Graphic);
 ///    ID := DataModuleImages.VirtMoonMaps.Images;
 ///    ffPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
   //  S := DataModuleImages.VirtMoonMaps.GetNameByIndex(3); // := tvMoons.Selected.ImageIndex;
     ffPlanet.Material.Texture.Image.Assign(Image1.Picture);
-   ffPlanet.Material.Texture.Image.GetBitmap32.Assign(TerrainTex);
-    ffPlanet.Scale.Scale(100); // don't working
-    Camera.TagObject := ffPlanet;
+    ffPlanet.Material.Texture.Image.GetBitmap32.Assign(TerrainTex);
   end;
 
  (*
@@ -426,6 +397,39 @@ begin
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
+end;
+
+//---------------------------------------------------------------------------
+procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  case Key of
+    'e', 'E': // Planet
+      begin
+        Camera.MoveTo(dcPlanet);
+        CameraControler.MoveTo(dcPlanet);
+        Camera.TargetObject := dcPlanet;
+        CameraControler.TargetObject := dcPlanet;
+      end;
+    'h':  // HighRes Maps
+      if not highResResourcesLoaded then
+      begin
+        SceneViewer.Cursor := crHourGlass;
+        try
+          if DirectoryExists(CurrentStar) then
+          begin
+            LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
+          end;
+          SceneViewer.Buffer.AntiAliasing := aa2x;
+        finally
+          SceneViewer.Cursor := crDefault;
+        end;
+        highResResourcesLoaded := True;
+      end;
+    '0'..'9': timeMultiplier := Power(Integer(Key) - Integer('0'), 3);
+    #27: Close;
+  end;
 end;
 
 //----------------------  City lights -------------------------------------

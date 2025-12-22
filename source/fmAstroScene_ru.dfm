@@ -19,6 +19,7 @@ object frmAstroScene: TfrmAstroScene
   OnClick = ToolButtonPlanetsClick
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
+  OnMouseWheel = FormMouseWheel
   TextHeight = 24
   object SceneViewer: TGLSceneViewer
     Left = 313
@@ -590,95 +591,104 @@ object frmAstroScene: TfrmAstroScene
     object dcStar: TGLDummyCube
       ObjectsSorting = osNone
       CubeSize = 1000.000000000000000000
-      object sfPlanet: TGLSphere
-        Material.LibMaterialName = 'earthDay'
-        Direction.Coordinates = {000000000000803F0000000000000000}
-        TurnAngle = -150.000000000000000000
-        Up.Coordinates = {00000000000000800000803F00000000}
-        Radius = 0.500000000000000000
-        Slices = 64
-        Stacks = 64
-        object diskRingDn: TGLDisk
-          Material.Texture.Disabled = False
-          Direction.Coordinates = {000000000000803F2EBD3BB300000000}
-          PitchAngle = 90.000000000000000000
-          Up.Coordinates = {000000002EBD3BB3000080BF00000000}
-          Visible = False
-          InnerRadius = 0.600000023841857900
-          OuterRadius = 0.899999976158142100
-          Slices = 64
-          SweepAngle = 360.000000000000000000
-        end
-        object diskRingUp: TGLDisk
-          Material.Texture.Disabled = False
-          Direction.Coordinates = {000000000000803F2EBD3BB300000000}
-          PitchAngle = 90.000000000000000000
-          Up.Coordinates = {000000002EBD3BB3000080BF00000000}
-          Visible = False
-          NormalDirection = ndInside
-          InnerRadius = 0.600000023841857900
-          OuterRadius = 0.899999976158142100
-          Slices = 64
-          SweepAngle = 360.000000000000000000
-        end
-        object diskMantle: TGLDisk
-          Material.Texture.Disabled = False
-          Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
-          PitchAngle = 90.000000000000000000
-          Position.Coordinates = {0AD723BC00000000000000000000803F}
-          TurnAngle = 90.000000000000000000
-          Up.Coordinates = {000000002EBD3BB3000080BF00000000}
-          NormalDirection = ndInside
-          InnerRadius = 0.200000002980232200
-          OuterRadius = 0.499000012874603300
-          Slices = 64
-          SweepAngle = 360.000000000000000000
-        end
-        object sfCore: TGLSphere
-          Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
-          Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-          Radius = 0.200000002980232200
-          Slices = 64
-          Stacks = 64
-        end
-      end
-      object Atmosphere: TGLAtmosphere
-        Visible = False
-      end
-      object dcMoon: TGLDummyCube
-        Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+      object dcPlanet: TGLDummyCube
         CubeSize = 1.000000000000000000
-        object Moon: TGLSphere
+        object acPlanet: TGLActor
+          Interval = 100
+          MaterialLibrary = GLMatLib
+          LightmapLibrary = GLMatLib
+        end
+        object Atmosphere: TGLAtmosphere
+          Visible = False
+        end
+        object ffPlanet: TGLFreeForm
           Material.MaterialLibrary = GLMatLib
-          Material.LibMaterialName = 'moon'
-          Direction.Coordinates = {D947AABE616D713F0000000000000000}
-          Position.Coordinates = {CDCCECC100000000000000000000803F}
-          Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
-          TurnAngle = -170.000000000000000000
+          Direction.Coordinates = {00000000000080BF0000000000000000}
           Up.Coordinates = {00000000000000000000803F00000000}
+          Visible = False
+          MaterialLibrary = GLMatLib
+          object dcMoon: TGLDummyCube
+            Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+            CubeSize = 1.000000000000000000
+            object Moon: TGLSphere
+              Material.MaterialLibrary = GLMatLib
+              Material.LibMaterialName = 'moon'
+              Direction.Coordinates = {D947AABE616D713F0000000000000000}
+              Position.Coordinates = {CDCCECC100000000000000000000803F}
+              Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
+              TurnAngle = -170.000000000000000000
+              Up.Coordinates = {00000000000000000000803F00000000}
+              Radius = 0.500000000000000000
+              Slices = 64
+              Stacks = 64
+            end
+          end
+        end
+        object sfPlanet: TGLSphere
+          Material.LibMaterialName = 'earthDay'
+          Direction.Coordinates = {000000000000803F0000000000000000}
+          TurnAngle = -150.000000000000000000
+          Up.Coordinates = {00000000000000800000803F00000000}
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
+          object diskRingDn: TGLDisk
+            Material.Texture.Disabled = False
+            Direction.Coordinates = {000000000000803F2EBD3BB300000000}
+            PitchAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            Visible = False
+            InnerRadius = 0.600000023841857900
+            OuterRadius = 0.899999976158142100
+            Slices = 64
+            SweepAngle = 360.000000000000000000
+          end
+          object diskRingUp: TGLDisk
+            Material.Texture.Disabled = False
+            Direction.Coordinates = {000000000000803F2EBD3BB300000000}
+            PitchAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            Visible = False
+            NormalDirection = ndInside
+            InnerRadius = 0.600000023841857900
+            OuterRadius = 0.899999976158142100
+            Slices = 64
+            SweepAngle = 360.000000000000000000
+          end
+          object diskMantle: TGLDisk
+            Material.Texture.Disabled = False
+            Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
+            PitchAngle = 90.000000000000000000
+            Position.Coordinates = {0AD723BC00000000000000000000803F}
+            TurnAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            NormalDirection = ndInside
+            InnerRadius = 0.200000002980232200
+            OuterRadius = 0.499000012874603300
+            Slices = 64
+            SweepAngle = 360.000000000000000000
+          end
+          object sfCore: TGLSphere
+            Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+            Radius = 0.200000002980232200
+            Slices = 64
+            Stacks = 64
+          end
         end
       end
-      object ffPlanet: TGLFreeForm
-        Material.MaterialLibrary = GLMatLib
-        Direction.Coordinates = {00000000000080BF0000000000000000}
-        Up.Coordinates = {00000000000000000000803F00000000}
-        Visible = False
-        MaterialLibrary = GLMatLib
+      object dcAsteroid: TGLDummyCube
+        CubeSize = 1.000000000000000000
       end
-      object acPlanet: TGLActor
-        Interval = 100
-        MaterialLibrary = GLMatLib
-        LightmapLibrary = GLMatLib
+      object dcComet: TGLDummyCube
+        CubeSize = 1.000000000000000000
       end
-      object DirectOpenGL: TGLDirectOpenGL
-        Visible = False
-        UseBuildList = False
-        OnRender = DirectOpenGLRender
-        Blend = False
-      end
+    end
+    object DirectOpenGL: TGLDirectOpenGL
+      Visible = False
+      UseBuildList = False
+      OnRender = DirectOpenGLRender
+      Blend = False
     end
     object LensFlare: TGLLensFlare
       Size = 100
