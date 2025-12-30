@@ -134,7 +134,7 @@ var
 begin
   ReadInifile;
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(DataDir, Pos('astrobloq', DataDir) + 9, Length(DataDir));
+  Delete(DataDir, Pos('astrobloq', DataDir) + Length('astrobloq'), Length(DataDir));
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir);
 

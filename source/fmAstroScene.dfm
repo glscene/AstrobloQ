@@ -540,7 +540,7 @@ object frmAstroScene: TfrmAstroScene
       DepthOfView = 100000.000000000000000000
       FocalLength = 100.000000000000000000
       NearPlaneBias = 0.100000001490116100
-      TargetObject = dcPlanet
+      TargetObject = ffPlanet
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0000803F000000000000803F0000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}

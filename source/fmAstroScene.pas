@@ -320,10 +320,6 @@ begin
   miHelpWiki.Caption := tbPlanets.Buttons[3].ImageName + ' in ' + 'Wikipedia...';
   miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
-
-   Camera.MoveTo(ffPlanet);
-   Camera.TargetObject := ffPlanet;
-
 end;
 
 //---------------------- Click nodes of tvPlanets -----------------------------

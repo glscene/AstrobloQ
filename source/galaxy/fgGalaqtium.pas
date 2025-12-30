@@ -43,6 +43,7 @@ uses
   GLS.GeomObjects,
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
+  GLS.VectorLists,
   GLS.Material,
   GLS.Color,
   GLS.SpaceText,
