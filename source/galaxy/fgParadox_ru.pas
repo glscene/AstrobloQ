@@ -37,7 +37,7 @@ var
   FileName: TFileName;
 begin
   // Load Paradox items
-  tvParadox.LoadFromFile(FileName);
+ /// tvParadox.LoadFromFile(FileName);
   tvParadox.FullExpand();
 end;
 

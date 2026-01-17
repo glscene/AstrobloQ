@@ -51,7 +51,7 @@ type
     MIDot3: TMenuItem;
     MIParallax: TMenuItem;
     N1: TMenuItem;
-    CBWireFrame: TMenuItem;
+    miWireFrame: TMenuItem;
     GLLightSource2: TGLLightSource;
     procedure DOInitializeRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure DORenderRender(Sender: TObject; var rci: TGLRenderContextInfo);
@@ -80,6 +80,7 @@ var
   tangentBasisAttrib: Integer;
   sphereList: TGLListHandle;
 
+//----------------------------------------------------------------------------
 function sphere_position(theta, phi: Single): TAffineVector;
 begin
   Result.X := cos(phi) * cos(theta);
@@ -87,6 +88,7 @@ begin
   Result.Z := -cos(phi) * sin(theta);
 end;
 
+//----------------------------------------------------------------------------
 function sphere_tangent(theta, phi: Single): TAffineVector;
 begin
   Result.X := -sin(theta);
@@ -94,6 +96,7 @@ begin
   Result.Z := -cos(theta);
 end;
 
+//----------------------------------------------------------------------------
 function sphere_binormal(theta, phi: Single): TAffineVector;
 begin
   Result.X := -sin(phi) * cos(theta);
@@ -101,13 +104,22 @@ begin
   Result.Z := sin(phi) * sin(theta);
 end;
 
+//----------------------------------------------------------------------------
 function sphere_normal(theta, phi: Single): TAffineVector;
 begin
   Result := sphere_position(theta, phi);
 end;
 
-//------------------------- draw_sphere --------------------------------------
+//------------------------- Draw Sphere --------------------------------------
 procedure Draw_sphere;
+
+const
+  stacks = 20;
+  slices = 40;
+var
+  i, j: Integer;
+  t, t2, phi, phi2, s, theta: Single;
+
   procedure myVertexAttrib3fv(attrib: Cardinal; const v: TAffineVector);
   begin
     GL.VertexAttrib3fv(attrib, @v);
@@ -118,12 +130,6 @@ procedure Draw_sphere;
     GL.Vertex3fv(@v);
   end;
 
-const
-  stacks = 20;
-  slices = 40;
-var
-  i, j: Integer;
-  t, t2, phi, phi2, s, theta: Single;
 begin
   for i := 0 to stacks - 1 do
   begin
@@ -248,9 +254,11 @@ end;
 //-------------------- DORender ---------------------------------------------
 procedure TFBumpEarth.DORenderRender(Sender: TObject;
   var rci: TGLRenderContextInfo);
+
 var
   light, eye: TAffineVector;
   mat: TGLMatrix;
+
 begin
   programObject.UseProgramObject;
 
@@ -263,15 +271,16 @@ begin
   GL.GetFloatv(GL_MODELVIEW_MATRIX, @mat);
   InvertMatrix(mat);
   programObject.UniformMatrix4fv['modelViewI'] := mat;
-  if CBWireFrame.Checked then
+  if miWireFrame.Checked then
     glPolygonMode(GL_FRONT, GL_LINE)
   else
     glPolygonMode(GL_FRONT, GL_FILL);
-  sphereList.CallList;
+  SphereList.CallList;
   programObject.EndUseProgramObject;
   // gl.CheckError;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFBumpEarth.GLSceneViewer1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -284,6 +293,7 @@ begin
   my := Y;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFBumpEarth.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
@@ -296,23 +306,27 @@ begin
   GLSceneViewer1.Invalidate;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFBumpEarth.Timer1Timer(Sender: TObject);
 begin
   Caption := GLSceneViewer1.FramesPerSecondText;
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFBumpEarth.FormResize(Sender: TObject);
 begin
   GLCamera1.FocalLength := ClientWidth * 0.25;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFBumpEarth.MIDot3Click(Sender: TObject);
 begin
   parallaxBumpMapping := False;
   DOInitialize.Tag := 0;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFBumpEarth.MIParallaxClick(Sender: TObject);
 begin
   parallaxBumpMapping := True;

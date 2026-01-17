@@ -94,8 +94,9 @@ void __fastcall TfrmAstroScene::FormCreate(TObject* Sender)
 	// Символы 88 созвездий
 	///  tvConstellations->Images = dmImages->VirtualSymbolConsts;
 */
-	chbGridClick(this);
-	chbPlanetClick(this);
+
+///	chbGridClick(this);
+///	chbPlanetClick(this);
 }
 
 //---------------------------------------------------------------------------
@@ -121,7 +122,7 @@ void __fastcall TfrmAstroScene::GLCadencerProgress(
 
 {
 
-	sfPlanet->TurnAngle = chbRotate->Checked ? 10 * NewTime : 0;
+	sfPlanet->TurnAngle = frmSettings->chbRotate->Checked ? 10 * NewTime : 0;
 	/*
 	if (chbRotate->Checked)
 		sfPlanet->TurnAngle = 10 * NewTime;
@@ -210,37 +211,25 @@ void __fastcall TfrmAstroScene::ButtonPlutoClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("pluto.jpg");
 }
-//---------------------------------------------------------------------------
-
-void __fastcall TfrmAstroScene::miExitClick(TObject* Sender)
-{
-    Close();
-}
 
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmAstroScene::chbAxesClick(TObject* Sender)
 {
-    /*
-  if (chbAxes->Checked)
-	sfPlanet->ShowAxes = true;
-  else
-	sfPlanet->ShowAxes = false;
-*/
-    sfPlanet->ShowAxes = chbAxes->Checked;
-    ArrowX->Visible = chbAxes->Checked;
-    ArrowY->Visible = chbAxes->Checked;
-    ArrowZ->Visible = chbAxes->Checked;
-    Arrow_X->Visible = chbAxes->Checked;
-    Arrow_Y->Visible = chbAxes->Checked;
-    Arrow_Z->Visible = chbAxes->Checked;
+	sfPlanet->ShowAxes = frmSettings->chbAxes->Checked;
+	ArrowX->Visible = frmSettings->chbAxes->Checked;
+	ArrowY->Visible = frmSettings->chbAxes->Checked;
+	ArrowZ->Visible = frmSettings->chbAxes->Checked;
+	Arrow_X->Visible = frmSettings->chbAxes->Checked;
+	Arrow_Y->Visible = frmSettings->chbAxes->Checked;
+	Arrow_Z->Visible = frmSettings->chbAxes->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmAstroScene::chbPlanetClick(TObject* Sender)
 {
-    ///    sfPlanet->Visible = chbPlanet->Checked;
-    if (chbPlanet->Checked)
+	///    sfPlanet->Visible = chbPlanet->Checked;
+	if (frmSettings->chbPlanet->Checked)
 		sfPlanet->Material->PolygonMode = pmFill;
     else
         sfPlanet->Material->PolygonMode = pmLines;
@@ -249,34 +238,35 @@ void __fastcall TfrmAstroScene::chbPlanetClick(TObject* Sender)
 
 void __fastcall TfrmAstroScene::chbGridClick(TObject* Sender)
 {
-    dmMeridianGrid->Visible = chbGrid->Checked;
-    dmParallelGrid->Visible = chbGrid->Checked;
+	dmMeridianGrid->Visible = frmSettings->chbGrid->Checked;
+	dmParallelGrid->Visible = frmSettings->chbGrid->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmAstroScene::miSettingsClick(TObject* Sender)
 {
-    TFormSettings* FormSettings;
-    FormSettings = new TFormSettings(this);
-    try {
-        FormSettings->ShowModal();
-    } __finally
-    {
-        FormSettings->Free();
-    }
+	frmSettings->Show();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmAstroScene::miAboutClick(TObject* Sender)
 {
 	TFormAbout* FormAbout;
-    FormAbout = new TFormAbout(this);
-    try {
-        FormAbout->ShowModal();
-    } __finally
-    {
-        FormAbout->Free();
-    }
+	FormAbout = new TFormAbout(this);
+	try {
+		FormAbout->ShowModal();
+	} __finally
+	{
+		FormAbout->Free();
+	}
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TfrmAstroScene::miExitClick(TObject* Sender)
+{
+	Close();
+}
+
+//---------------------------------------------------------------------------
+
 

@@ -9,12 +9,6 @@
         <Projects Include="Addons\StarboxC\StarboxС_ru.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Addons\StarboxC\StarViewerC_ru.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Addons\StarboxC\GenStarС_ru.cbproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Addons\StarboxC\StarlifeС.cbproj">
             <Dependencies/>
         </Projects>
@@ -25,6 +19,12 @@
             <Dependencies/>
         </Projects>
         <Projects Include="Addons\StarboxC\HygSQLiteС.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Addons\StarboxC\HygViewerC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Addons\StarboxC\HygViewerC_ru.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -52,24 +52,6 @@
     </Target>
     <Target Name="StarboxС_ru:Make">
         <MSBuild Projects="Addons\StarboxC\StarboxС_ru.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="StarViewerC_ru">
-        <MSBuild Projects="Addons\StarboxC\StarViewerC_ru.cbproj"/>
-    </Target>
-    <Target Name="StarViewerC_ru:Clean">
-        <MSBuild Projects="Addons\StarboxC\StarViewerC_ru.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="StarViewerC_ru:Make">
-        <MSBuild Projects="Addons\StarboxC\StarViewerC_ru.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="GenStarС_ru">
-        <MSBuild Projects="Addons\StarboxC\GenStarС_ru.cbproj"/>
-    </Target>
-    <Target Name="GenStarС_ru:Clean">
-        <MSBuild Projects="Addons\StarboxC\GenStarС_ru.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="GenStarС_ru:Make">
-        <MSBuild Projects="Addons\StarboxC\GenStarС_ru.cbproj" Targets="Make"/>
     </Target>
     <Target Name="StarlifeС">
         <MSBuild Projects="Addons\StarboxC\StarlifeС.cbproj"/>
@@ -107,14 +89,32 @@
     <Target Name="HygSQLiteС:Make">
         <MSBuild Projects="Addons\StarboxC\HygSQLiteС.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="HygViewerC">
+        <MSBuild Projects="Addons\StarboxC\HygViewerC.cbproj"/>
+    </Target>
+    <Target Name="HygViewerC:Clean">
+        <MSBuild Projects="Addons\StarboxC\HygViewerC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HygViewerC:Make">
+        <MSBuild Projects="Addons\StarboxC\HygViewerC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="HygViewerC_ru">
+        <MSBuild Projects="Addons\StarboxC\HygViewerC_ru.cbproj"/>
+    </Target>
+    <Target Name="HygViewerC_ru:Clean">
+        <MSBuild Projects="Addons\StarboxC\HygViewerC_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HygViewerC_ru:Make">
+        <MSBuild Projects="Addons\StarboxC\HygViewerC_ru.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroSceneC;StarboxС_ru;StarViewerC_ru;GenStarС_ru;StarlifeС;StarCubeС_ru;EarthMarsCx;HygSQLiteС"/>
+        <CallTarget Targets="AstroSceneC;StarboxС_ru;StarlifeС;StarCubeС_ru;EarthMarsCx;HygSQLiteС;HygViewerC;HygViewerC_ru"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroSceneC:Clean;StarboxС_ru:Clean;StarViewerC_ru:Clean;GenStarС_ru:Clean;StarlifeС:Clean;StarCubeС_ru:Clean;EarthMarsCx:Clean;HygSQLiteС:Clean"/>
+        <CallTarget Targets="AstroSceneC:Clean;StarboxС_ru:Clean;StarlifeС:Clean;StarCubeС_ru:Clean;EarthMarsCx:Clean;HygSQLiteС:Clean;HygViewerC:Clean;HygViewerC_ru:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroSceneC:Make;StarboxС_ru:Make;StarViewerC_ru:Make;GenStarС_ru:Make;StarlifeС:Make;StarCubeС_ru:Make;EarthMarsCx:Make;HygSQLiteС:Make"/>
+        <CallTarget Targets="AstroSceneC:Make;StarboxС_ru:Make;StarlifeС:Make;StarCubeС_ru:Make;EarthMarsCx:Make;HygSQLiteС:Make;HygViewerC:Make;HygViewerC_ru:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

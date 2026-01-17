@@ -17,7 +17,7 @@ object FormAbout: TFormAbout
     Top = 64
     Width = 185
     Height = 41
-    Caption = 'AstroViewer C++ v. 1.0'
+    Caption = 'AstroScene C++ v. 1.0'
     TabOrder = 0
   end
 end

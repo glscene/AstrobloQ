@@ -131,7 +131,7 @@ object FBumpEarth: TFBumpEarth
       Caption = '-'
       GroupIndex = 1
     end
-    object CBWireFrame: TMenuItem
+    object miWireFrame: TMenuItem
       AutoCheck = True
       Caption = 'Wireframe'
       GroupIndex = 1

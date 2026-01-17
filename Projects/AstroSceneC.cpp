@@ -4,12 +4,15 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
+USEFORM("..\Source\astroc\fcHipparcos.cpp", FormHipparcos);
+USEFORM("..\Source\astroc\fcHercRussel.cpp", FormHercRussel);
 USEFORM("..\source\astroc\fcForm.cpp", FormC);
+USEFORM("..\Source\astroc\fcSettings.cpp", frmSettings);
+USEFORM("..\source\astroc\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
+USEFORM("..\source\astroc\dcBase.cpp", dmBase); /* TDataModule: File Type */
 USEFORM("..\source\astroc\fcAstroScene.cpp", frmAstroScene);
-USEFORM("..\source\astroc\dcImages.cpp", dmImages);
-USEFORM("..\source\astroc\dcDialogs.cpp", dmDialogs);
-USEFORM("..\source\astroc\dcBase.cpp", dmBase);
-
+USEFORM("..\Source\astroc\fcAbout.cpp", FormAbout);
+USEFORM("..\source\astroc\dcImages.cpp", dmImages); /* TDataModule: File Type */
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -21,7 +24,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->CreateForm(__classid(TdmImages), &dmImages);
 		Application->CreateForm(__classid(TdmDialogs), &dmDialogs);
 		Application->CreateForm(__classid(TdmBase), &dmBase);
-		Application->CreateForm(__classid(TFormC), &FormC);
+		Application->CreateForm(__classid(TfrmSettings), &frmSettings);
 		Application->Run();
 	}
 	catch (Exception &exception)

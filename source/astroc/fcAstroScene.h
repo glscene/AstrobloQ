@@ -34,7 +34,6 @@ class TfrmAstroScene : public TFormC
 {
 __published:	// IDE-managed Components
 	TGLSceneViewer *GLSceneViewer;
-	TPanel *Panel1;
 	TGLCadencer *GLCadencer;
 	TGLSimpleNavigation *GLSimpleNavigation;
 	TGLScene *GLScene;
@@ -72,20 +71,9 @@ __published:	// IDE-managed Components
 	TGLTorus *ParallelS_60;
 	TGLTorus *ParallelS_75;
 	TGLTorus *PoleS_90;
-	TButton *ButtonMercury;
-	TButton *ButtonVenus;
-	TButton *ButtonEarth;
-	TButton *ButtonMars;
-	TButton *ButtonJupiter;
-	TButton *ButtonSaturn;
-	TButton *ButtonUranus;
-	TButton *ButtonNeptune;
-	TButton *ButtonPluto;
 	TGLDummyCube *dmParallelGrid;
 	TGLLines *Parallel20;
 	TGLDummyCube *dmMeridianGrid;
-	TCheckBox *chbRotate;
-	TCheckBox *chbAxes;
 	TGLDummyCube *dcPlanet;
 	TGLArrowLine *ArrowX;
 	TGLArrowLine *ArrowY;
@@ -93,8 +81,6 @@ __published:	// IDE-managed Components
 	TGLArrowLine *Arrow_X;
 	TGLArrowLine *Arrow_Y;
 	TGLArrowLine *Arrow_Z;
-	TCheckBox *chbPlanet;
-	TCheckBox *chbGrid;
 	TGLDummyCube *dcArrows;
 	TPageControl *PageControl;
 	TTabSheet *tsPlanets;

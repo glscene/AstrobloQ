@@ -190,7 +190,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762
@@ -936,7 +935,7 @@ object frmGalaqtium: TfrmGalaqtium
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'AstrobloQ'
+    FormCaption = 'Galaqtium'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

@@ -2,7 +2,7 @@ object frmAstroScene: TfrmAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
-  Caption = 'AstrobloQ'
+  Caption = 'AstroScene'
   ClientHeight = 732
   ClientWidth = 1412
   Color = clBtnFace

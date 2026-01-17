@@ -18,16 +18,16 @@
         <Projects Include="StarboxD\SpaceLink.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="SpaceNota\SpaceNota_ru.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="StarboxD\SuperGems.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarboxD\EarthMarsDx.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\StarMotions.dproj">
+        <Projects Include="Shadertex\Bumps\BumpEarth.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Shadertex\Bumps\BumpSmoke.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -83,15 +83,6 @@
     <Target Name="SpaceLink:Make">
         <MSBuild Projects="StarboxD\SpaceLink.dproj" Targets="Make"/>
     </Target>
-    <Target Name="SpaceNota_ru">
-        <MSBuild Projects="SpaceNota\SpaceNota_ru.dproj"/>
-    </Target>
-    <Target Name="SpaceNota_ru:Clean">
-        <MSBuild Projects="SpaceNota\SpaceNota_ru.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="SpaceNota_ru:Make">
-        <MSBuild Projects="SpaceNota\SpaceNota_ru.dproj" Targets="Make"/>
-    </Target>
     <Target Name="SuperGems">
         <MSBuild Projects="StarboxD\SuperGems.dproj"/>
     </Target>
@@ -110,23 +101,32 @@
     <Target Name="EarthMarsDx:Make">
         <MSBuild Projects="StarboxD\EarthMarsDx.dproj" Targets="Make"/>
     </Target>
-    <Target Name="StarMotions">
-        <MSBuild Projects="StarboxD\StarMotions.dproj"/>
+    <Target Name="BumpEarth">
+        <MSBuild Projects="Shadertex\Bumps\BumpEarth.dproj"/>
     </Target>
-    <Target Name="StarMotions:Clean">
-        <MSBuild Projects="StarboxD\StarMotions.dproj" Targets="Clean"/>
+    <Target Name="BumpEarth:Clean">
+        <MSBuild Projects="Shadertex\Bumps\BumpEarth.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="StarMotions:Make">
-        <MSBuild Projects="StarboxD\StarMotions.dproj" Targets="Make"/>
+    <Target Name="BumpEarth:Make">
+        <MSBuild Projects="Shadertex\Bumps\BumpEarth.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BumpSmoke">
+        <MSBuild Projects="Shadertex\Bumps\BumpSmoke.dproj"/>
+    </Target>
+    <Target Name="BumpSmoke:Clean">
+        <MSBuild Projects="Shadertex\Bumps\BumpSmoke.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BumpSmoke:Make">
+        <MSBuild Projects="Shadertex\Bumps\BumpSmoke.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarCells;StarCellx;StarProj;StarSyx;SpaceLink;SpaceNota_ru;SuperGems;EarthMarsDx;StarMotions"/>
+        <CallTarget Targets="StarCells;StarCellx;StarProj;StarSyx;SpaceLink;SuperGems;EarthMarsDx;BumpEarth;BumpSmoke"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarCells:Clean;StarCellx:Clean;StarProj:Clean;StarSyx:Clean;SpaceLink:Clean;SpaceNota_ru:Clean;SuperGems:Clean;EarthMarsDx:Clean;StarMotions:Clean"/>
+        <CallTarget Targets="StarCells:Clean;StarCellx:Clean;StarProj:Clean;StarSyx:Clean;SpaceLink:Clean;SuperGems:Clean;EarthMarsDx:Clean;BumpEarth:Clean;BumpSmoke:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarCells:Make;StarCellx:Make;StarProj:Make;StarSyx:Make;SpaceLink:Make;SpaceNota_ru:Make;SuperGems:Make;EarthMarsDx:Make;StarMotions:Make"/>
+        <CallTarget Targets="StarCells:Make;StarCellx:Make;StarProj:Make;StarSyx:Make;SpaceLink:Make;SuperGems:Make;EarthMarsDx:Make;BumpEarth:Make;BumpSmoke:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

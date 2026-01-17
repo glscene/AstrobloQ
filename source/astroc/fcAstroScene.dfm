@@ -2,8 +2,8 @@ object frmAstroScene: TfrmAstroScene
   Left = 0
   Top = 0
   Caption = 'AstroScene'
-  ClientHeight = 510
-  ClientWidth = 891
+  ClientHeight = 582
+  ClientWidth = 966
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,154 +17,22 @@ object frmAstroScene: TfrmAstroScene
   object GLSceneViewer: TGLSceneViewer
     Left = 222
     Top = 29
-    Width = 550
-    Height = 481
+    Width = 744
+    Height = 553
     Camera = Camera
     Buffer.BackgroundColor = clBackground
-    FieldOfView = 156.511001586914100000
+    FieldOfView = 159.499740600585900000
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-  end
-  object Panel1: TPanel
-    Left = 772
-    Top = 29
-    Width = 119
-    Height = 481
-    Align = alRight
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -15
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 1
-    ExplicitLeft = 764
-    ExplicitHeight = 456
-    object ButtonMercury: TButton
-      Left = 22
-      Top = 24
-      Width = 75
-      Height = 25
-      Caption = #1052#1077#1088#1082#1091#1088#1080#1081
-      TabOrder = 0
-      OnClick = ButtonMercuryClick
-    end
-    object ButtonVenus: TButton
-      Left = 22
-      Top = 55
-      Width = 75
-      Height = 25
-      Caption = #1042#1077#1085#1077#1088#1072
-      TabOrder = 1
-      OnClick = ButtonVenusClick
-    end
-    object ButtonEarth: TButton
-      Left = 22
-      Top = 86
-      Width = 75
-      Height = 25
-      Caption = #1047#1077#1084#1083#1103
-      TabOrder = 2
-      OnClick = ButtonEarthClick
-    end
-    object ButtonMars: TButton
-      Left = 22
-      Top = 117
-      Width = 75
-      Height = 25
-      Caption = #1052#1072#1088#1089
-      TabOrder = 3
-      OnClick = ButtonMarsClick
-    end
-    object ButtonJupiter: TButton
-      Left = 22
-      Top = 148
-      Width = 75
-      Height = 25
-      Caption = #1070#1087#1080#1090#1077#1088
-      TabOrder = 4
-      OnClick = ButtonJupiterClick
-    end
-    object ButtonSaturn: TButton
-      Left = 22
-      Top = 179
-      Width = 75
-      Height = 25
-      Caption = #1057#1072#1090#1091#1088#1085
-      TabOrder = 5
-      OnClick = ButtonSaturnClick
-    end
-    object ButtonUranus: TButton
-      Left = 22
-      Top = 211
-      Width = 75
-      Height = 24
-      Caption = #1059#1088#1072#1085
-      TabOrder = 6
-      OnClick = ButtonUranusClick
-    end
-    object ButtonNeptune: TButton
-      Left = 22
-      Top = 241
-      Width = 75
-      Height = 25
-      Caption = #1053#1077#1087#1090#1091#1085
-      TabOrder = 7
-      OnClick = ButtonNeptuneClick
-    end
-    object ButtonPluto: TButton
-      Left = 22
-      Top = 272
-      Width = 75
-      Height = 25
-      Caption = #1055#1083#1091#1090#1086#1085
-      TabOrder = 8
-      OnClick = ButtonPlutoClick
-    end
-    object chbRotate: TCheckBox
-      Left = 18
-      Top = 303
-      Width = 87
-      Height = 24
-      Caption = #1042#1088#1072#1097#1077#1085#1080#1077
-      TabOrder = 9
-    end
-    object chbAxes: TCheckBox
-      Left = 13
-      Top = 333
-      Width = 76
-      Height = 17
-      Caption = #1054#1089#1080
-      Checked = True
-      State = cbChecked
-      TabOrder = 10
-      OnClick = chbAxesClick
-    end
-    object chbPlanet: TCheckBox
-      Left = 16
-      Top = 378
-      Width = 73
-      Height = 17
-      Caption = #1055#1083#1072#1085#1077#1090#1072
-      TabOrder = 11
-      OnClick = chbPlanetClick
-    end
-    object chbGrid: TCheckBox
-      Left = 16
-      Top = 356
-      Width = 81
-      Height = 17
-      Caption = #1043#1077#1086#1089#1077#1090#1082#1072
-      TabOrder = 12
-      OnClick = chbGridClick
-    end
+    ExplicitLeft = 214
+    ExplicitTop = -43
   end
   object PageControl: TPageControl
     Left = 0
     Top = 29
     Width = 222
-    Height = 481
+    Height = 553
     ActivePage = tsPlanets
     Align = alLeft
     Font.Charset = DEFAULT_CHARSET
@@ -173,7 +41,7 @@ object frmAstroScene: TfrmAstroScene
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 1
     ExplicitHeight = 456
     object tsPlanets: TTabSheet
       Caption = #1055#1083#1072#1085#1077#1090#1099
@@ -183,7 +51,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 0
         Top = 0
         Width = 201
-        Height = 446
+        Height = 518
         Align = alLeft
         AutoExpand = True
         Font.Charset = DEFAULT_CHARSET
@@ -297,7 +165,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 192
         Top = 0
         Width = 22
-        Height = 446
+        Height = 518
         Align = alClient
         ImageWidth = 0
         ImageHeight = 0
@@ -310,7 +178,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 0
         Top = 0
         Width = 192
-        Height = 446
+        Height = 518
         Align = alLeft
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -467,16 +335,17 @@ object frmAstroScene: TfrmAstroScene
           0000000000000000000000010C1B04350442044304470430044F045F0020044B
           043104300400002D0000005700000057000000FFFFFFFFFFFFFFFF0000000000
           000000000000000001071B0438044104380447043A043004}
+        ExplicitHeight = 446
       end
     end
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 891
+    Width = 966
     Height = 29
     Align = alTop
-    TabOrder = 3
+    TabOrder = 2
     ExplicitWidth = 883
     object ToolBar1: TToolBar
       Left = 232
@@ -520,7 +389,7 @@ object frmAstroScene: TfrmAstroScene
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 244
+    Left = 268
     Top = 56
   end
   object GLSimpleNavigation: TGLSimpleNavigation
@@ -540,8 +409,8 @@ object frmAstroScene: TfrmAstroScene
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 442
-    Top = 199
+    Left = 282
+    Top = 271
   end
   object GLScene: TGLScene
     Left = 1071
@@ -966,12 +835,12 @@ object frmAstroScene: TfrmAstroScene
     end
   end
   object Timer: TTimer
-    Left = 270
-    Top = 178
+    Left = 350
+    Top = 58
   end
   object MainMenu: TMainMenu
-    Left = 910
-    Top = 84
+    Left = 270
+    Top = 172
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object Open1: TMenuItem
@@ -993,20 +862,20 @@ object frmAstroScene: TfrmAstroScene
       object Show1: TMenuItem
         Caption = #1055#1086#1082#1072#1079#1072#1090#1100
       end
+      object miHipparcos: TMenuItem
+        Caption = #1047#1074#1105#1079#1076#1099' Hyg...'
+        OnClick = miHipparcosClick
+      end
+      object N2: TMenuItem
+        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' HR...'
+        OnClick = miHercrusselClick
+      end
     end
     object miTools: TMenuItem
       Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
         OnClick = miSettingsClick
-      end
-      object miHipparcos: TMenuItem
-        Caption = #1043#1080#1087#1087#1072#1088#1093#1072' '#1082#1072#1090#1072#1083#1086#1075'...'
-        OnClick = miHipparcosClick
-      end
-      object N2: TMenuItem
-        Caption = #1043#1077#1088#1094#1096#1087#1088#1091#1085#1075'-'#1056#1072#1089#1089#1077#1083'...'
-        OnClick = miHercrusselClick
       end
     end
     object miHelp: TMenuItem
