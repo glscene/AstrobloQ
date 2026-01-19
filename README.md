@@ -75,7 +75,7 @@
 
 ### Среды и инструменты разработки
 - IDE RAD Studio Delphi & C++ Builder, Delphi Community Edition, VS Studio, GigaStudio.
-- [GaLaXy Engine](https://github.com/glscene) или [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/);
+- [GLXEngine](https://github.com/glscene) или [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/);
 - [Git](https://git-scm.com/downloads/win), консольная утилита отслеживания изменений и контроля версий.
 - [TortoiseGit](https://tortoisegit.org/),  графическая оболочка Git с установкой клиента в Windows Explorer.
 - [Beyond Compare](https://www.scootersoftware.com/), программа сравнения, слияния и синхронизации данных. 
