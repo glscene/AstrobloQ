@@ -54,7 +54,7 @@
 ## Galaqtium
 
 ![Galaqtium](./docs/clips/AstrobloQ_ru.png)
-![Galaqtium](./docs/clips/Noostages.jpg)
+![Galaqtium](./docs/clips/Noostages_ru.jpg)
 
 При построении астромодели используются следующие данные и методы: 
 
