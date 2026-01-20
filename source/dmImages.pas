@@ -33,6 +33,7 @@ type
     MatLibAsteroids: TGLMaterialLibrary;
     MatLibComets: TGLMaterialLibrary;
     MatLibMoons: TGLMaterialLibrary;
+    ConstelFigures: TImageCollection;
   private
   public
   end;

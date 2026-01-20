@@ -94,7 +94,7 @@ object FormSolarsys: TFormSolarsys
       Top = 173
       Width = 97
       Height = 17
-      Caption = 'Orbits'
+      Caption = #1054#1088#1073#1080#1090#1099
       Checked = True
       State = cbChecked
       TabOrder = 1
@@ -105,7 +105,7 @@ object FormSolarsys: TFormSolarsys
       Top = 196
       Width = 97
       Height = 17
-      Caption = 'Habzone'
+      Caption = #1047#1086#1085#1072' '#1086#1073#1080#1090#1072#1085#1080#1103
       Checked = True
       State = cbChecked
       TabOrder = 2
@@ -127,7 +127,7 @@ object FormSolarsys: TFormSolarsys
       Top = 224
       Width = 97
       Height = 17
-      Caption = 'Rotation'
+      Caption = #1042#1088#1072#1097#1077#1085#1080#1077
       Checked = True
       State = cbChecked
       TabOrder = 4

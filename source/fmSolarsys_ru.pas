@@ -185,7 +185,7 @@ type
 var
   FormSolarsys: TFormSolarsys;
 const
-  cOmega = 10;  // angular velocity
+  cOmega = 10;  // угловая скорость
 
 implementation //-----------------------------------------------------
 
@@ -194,7 +194,7 @@ implementation //-----------------------------------------------------
 procedure TFormSolarsys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sun\'; // вместо GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
   // Текстуры карт
@@ -255,7 +255,7 @@ begin
   ///Atmosphere := TGLAtmosphere.Create(Self);
   SceneViewer.Buffer.RenderingContext.Activate;
 
-  // return to sun star dir
+  // возврат в ридекторию солнца
   SetCurrentDir(CurrentDir);
   inherited;   // inheritance for translation
 end;
@@ -289,12 +289,12 @@ begin
   SceneViewer.Invalidate;
 end;
 
-
+//
 // Open File dialog
 //
 procedure TFormSolarsys.Open1Click(Sender: TObject);
 begin
-  //
+  // not ready csv files
 end;
 
 // ---------------------- Прогресс каденсера ---------------------------------
@@ -661,7 +661,7 @@ begin
       Camera.Position.Y := 0;
       Camera.Position.Z := 5;
     end
-    else   // for Saturn moons
+    else   // для лун Сатурна
     begin
       Camera.Position.X := 1;
       Camera.Position.Y := 1;
@@ -732,8 +732,7 @@ begin
   SceneViewer.Invalidate;
 end;
 
-// MouseDown
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.SceneViewerMouseDown;
 begin
   newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
@@ -746,8 +745,7 @@ begin
 end;
 
 
-// GetObjects
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
@@ -765,9 +763,7 @@ begin
   end;
 end;
 
-//
-// UpdateTreeView
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.UpdateTreeView;
 
 begin
@@ -775,8 +771,7 @@ begin
   GetObjects(TreeView.TopItem, SolarSystem);
 end;
 
-// AddBBox
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.AddBBox;
 const
   c = 0.5;
@@ -838,8 +833,7 @@ begin
   end;
 end;
 
-// UpdateBBox
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.UpdateBBox;
 var
   v1, v2: TVector3f;
@@ -867,8 +861,7 @@ begin
   lineAxis.Matrix^ := PickObject.AbsoluteMatrix;
 end;
 
-// Sys_doglRender
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.Sys_doglRender;
 begin
   if PickObject <> nil then
@@ -880,23 +873,20 @@ begin
   end;
 end;
 
-// AsyncTimerTimer
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.AsyncTimerTimer;
 begin
   Caption := 'Солнечная система' + ' / ' + SceneViewer.FramesPerSecondText(2);
   SceneViewer.ResetPerformanceMonitor;
 end;
 
-// Exit
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.Exit1Click(Sender: TObject);
 begin
   Close;
 end;
 
-// Form Close
-//
+//---------------------------------------------------------------------------
 procedure TFormSolarsys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;

@@ -1,9 +1,9 @@
 object frmGenStarsys: TfrmGenStarsys
   Left = 30
   Top = 20
-  Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1090#1086#1088' '#1079#1074#1105#1079#1076#1085#1086#1081' '#1089#1080#1089#1090#1077#1084#1099
+  Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084
   ClientHeight = 590
-  ClientWidth = 944
+  ClientWidth = 961
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -43,15 +43,15 @@ object frmGenStarsys: TfrmGenStarsys
   OnShow = FormShow
   TextHeight = 13
   object GLSceneViewerA: TGLSceneViewer
-    Left = 393
+    Left = 411
     Top = 0
-    Width = 551
+    Width = 550
     Height = 571
     Camera = GLCamera
     BeforeRender = GLSceneViewerABeforeRender
     Buffer.BackgroundColor = clBackground
     Buffer.AmbientColor.Color = {9A99193F9A99193F9A99193F0000803F}
-    FieldOfView = 159.426910400390600000
+    FieldOfView = 159.390304565429700000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewerAMouseEnter
     Align = alClient
@@ -60,11 +60,12 @@ object frmGenStarsys: TfrmGenStarsys
     OnMouseDown = GLSceneViewerAMouseDown
     OnMouseUp = GLSceneViewerAMouseUp
     TabOrder = 1
+    ExplicitWidth = 616
   end
   object SolarDataPanel: TPanel
     Left = 0
     Top = 0
-    Width = 393
+    Width = 411
     Height = 571
     Align = alLeft
     TabOrder = 0
@@ -72,7 +73,7 @@ object frmGenStarsys: TfrmGenStarsys
     object ToolBarGB: TGroupBox
       Left = 1
       Top = 1
-      Width = 391
+      Width = 409
       Height = 569
       Align = alClient
       ParentShowHint = False
@@ -115,17 +116,17 @@ object frmGenStarsys: TfrmGenStarsys
       object TimeLabel: TLabel
         Left = 22
         Top = 512
-        Width = 52
+        Width = 80
         Height = 13
         Hint = 'Days Per Frame'
-        Caption = 'Time Warp'
+        Caption = #1057#1084#1077#1085#1072' '#1074#1088#1077#1084#1077#1085#1080
       end
       object Label9: TLabel
         Left = 208
         Top = 474
-        Width = 63
+        Width = 71
         Height = 13
-        Caption = 'Planet Picker'
+        Caption = #1042#1099#1073#1086#1088' '#1087#1083#1072#1085#1077#1090
       end
       object Label7: TLabel
         Left = 28
@@ -139,9 +140,9 @@ object frmGenStarsys: TfrmGenStarsys
       object Label19: TLabel
         Left = 152
         Top = 100
-        Width = 60
+        Width = 75
         Height = 13
-        Caption = 'S3ds Scaler:'
+        Caption = 'S3ds '#1084#1072#1089#1096#1090#1072#1073':'
         ParentShowHint = False
         ShowHint = False
       end
@@ -844,9 +845,9 @@ object frmGenStarsys: TfrmGenStarsys
         OnChange = CFLTrackBarChange
       end
       object TimeTrackBar: TTrackBar
-        Left = 74
+        Left = 111
         Top = 512
-        Width = 100
+        Width = 63
         Height = 17
         Hint = 'Day Time Warp'
         Max = 729
@@ -873,7 +874,7 @@ object frmGenStarsys: TfrmGenStarsys
         Width = 72
         Height = 17
         Hint = 'Sun Shine On'
-        Caption = 'SunShine'
+        Caption = #1071#1088#1082#1086#1089#1090#1100
         Checked = True
         State = cbChecked
         TabOrder = 19
@@ -896,7 +897,7 @@ object frmGenStarsys: TfrmGenStarsys
       object BtnPanel: TPanel
         Left = 156
         Top = 144
-        Width = 36
+        Width = 74
         Height = 258
         TabOrder = 21
         object HelpBtn: TSpeedButton
@@ -912,9 +913,9 @@ object frmGenStarsys: TfrmGenStarsys
         object StoreBtn: TSpeedButton
           Left = 2
           Top = 80
-          Width = 33
+          Width = 55
           Height = 22
-          Caption = 'Store'
+          Caption = #1047#1072#1087#1080#1089#1072#1090#1100
           ParentShowHint = False
           ShowHint = False
           OnClick = StoreBtnClick
@@ -922,9 +923,9 @@ object frmGenStarsys: TfrmGenStarsys
         object ShowBtn: TSpeedButton
           Left = 2
           Top = 54
-          Width = 33
+          Width = 55
           Height = 22
-          Caption = 'Show'
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100
           ParentShowHint = False
           ShowHint = False
           OnClick = ShowBtnClick
@@ -934,7 +935,7 @@ object frmGenStarsys: TfrmGenStarsys
           Top = 183
           Width = 33
           Height = 22
-          Caption = 'Run'
+          Caption = #1055#1091#1089#1082
           ParentShowHint = False
           ShowHint = False
           OnClick = RunBtnClick
@@ -944,7 +945,7 @@ object frmGenStarsys: TfrmGenStarsys
           Top = 208
           Width = 33
           Height = 22
-          Caption = 'Stop'
+          Caption = #1057#1090#1086#1087
           ParentShowHint = False
           ShowHint = False
           OnClick = StopBtnClick
@@ -952,9 +953,9 @@ object frmGenStarsys: TfrmGenStarsys
         object ClearBtn: TSpeedButton
           Left = 2
           Top = 3
-          Width = 33
+          Width = 55
           Height = 22
-          Caption = 'Clear'
+          Caption = #1054#1095#1080#1089#1090#1080#1090#1100
           ParentShowHint = False
           ShowHint = False
           OnClick = ClearBtnClick
@@ -962,9 +963,9 @@ object frmGenStarsys: TfrmGenStarsys
         object LoadBtn: TSpeedButton
           Left = 2
           Top = 29
-          Width = 33
+          Width = 55
           Height = 22
-          Caption = 'Load'
+          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
           ParentShowHint = False
           ShowHint = False
           OnClick = LoadBtnClick
@@ -972,9 +973,9 @@ object frmGenStarsys: TfrmGenStarsys
         object SaveBtn: TSpeedButton
           Left = 2
           Top = 106
-          Width = 33
+          Width = 63
           Height = 22
-          Caption = 'Save'
+          Caption = #1057#1086#1079#1088#1072#1085#1080#1090#1100' '
           ParentShowHint = False
           ShowHint = False
           OnClick = SaveBtnClick
@@ -982,9 +983,9 @@ object frmGenStarsys: TfrmGenStarsys
         object PrintBtn: TSpeedButton
           Left = 2
           Top = 131
-          Width = 33
+          Width = 55
           Height = 22
-          Caption = 'Print'
+          Caption = #1055#1077#1095#1072#1090#1100
           ParentShowHint = False
           ShowHint = False
           OnClick = PrintBtnClick
@@ -994,7 +995,7 @@ object frmGenStarsys: TfrmGenStarsys
           Top = 234
           Width = 33
           Height = 22
-          Caption = 'Exit'
+          Caption = #1042#1099#1093#1086#1076
           ParentShowHint = False
           ShowHint = False
           OnClick = ExitBtnClick
@@ -1236,30 +1237,30 @@ object frmGenStarsys: TfrmGenStarsys
   object StatusBar: TStatusBar
     Left = 0
     Top = 571
-    Width = 944
+    Width = 961
     Height = 19
     Panels = <
       item
         Width = 86
       end>
     ExplicitTop = 546
-    ExplicitWidth = 936
+    ExplicitWidth = 1018
   end
   object GLCadencerA: TGLCadencer
     Scene = GLSceneA
     OnProgress = GLCadencerAProgress
-    Left = 798
-    Top = 114
+    Left = 598
+    Top = 50
   end
   object GLMaterialLibraryA: TGLMaterialLibrary
-    Left = 600
-    Top = 282
+    Left = 608
+    Top = 138
   end
   object GLSceneA: TGLScene
     ObjectsSorting = osNone
     VisibilityCulling = vcHierarchical
-    Left = 798
-    Top = 16
+    Left = 478
+    Top = 48
     object SunShineFlare: TGLLensFlare
       Tag = 20
       Size = 100
@@ -1325,21 +1326,21 @@ object frmGenStarsys: TfrmGenStarsys
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 1006
-    Top = 184
+    Left = 702
+    Top = 408
   end
   object SaveDialog: TSaveDialog
-    Left = 824
-    Top = 332
+    Left = 696
+    Top = 484
   end
   object TimerA: TTimer
     OnTimer = TimerATimer
-    Left = 614
+    Left = 598
     Top = 410
   end
   object PopupMenuA: TPopupMenu
-    Left = 680
-    Top = 80
+    Left = 488
+    Top = 408
     object DisplayToolbar1: TMenuItem
       Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1058#1091#1083#1073#1072#1088
       Checked = True
@@ -1475,8 +1476,8 @@ object frmGenStarsys: TfrmGenStarsys
         Material.Texture.TextureFormat = tfLuminanceAlpha
         Material.Texture.Disabled = False
       end>
-    Left = 812
-    Top = 220
+    Left = 740
+    Top = 52
   end
   object WindowsBitmapFontA: TGLWindowsBitmapFont
     Font.Charset = DEFAULT_CHARSET
@@ -1484,8 +1485,8 @@ object frmGenStarsys: TfrmGenStarsys
     Font.Height = -20
     Font.Name = 'Arial'
     Font.Style = [fsBold]
-    Left = 824
-    Top = 450
+    Left = 736
+    Top = 138
   end
   object FontDialogA: TFontDialog
     Font.Charset = DEFAULT_CHARSET
@@ -1493,13 +1494,13 @@ object frmGenStarsys: TfrmGenStarsys
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Left = 1036
-    Top = 310
+    Left = 828
+    Top = 406
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewerA
-    FormCaption = 'Planet System Creator - %FPS'
+    FormCaption = #1050#1086#1085#1089#1090#1088#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084' - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -1513,7 +1514,7 @@ object frmGenStarsys: TfrmGenStarsys
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 954
-    Top = 60
+    Left = 474
+    Top = 140
   end
 end

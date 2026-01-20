@@ -1,29 +1,26 @@
 unit fmGenStarsys_ru;
-
 (*
   -----------------------------------------------------------------------------
-  Генератор небесных тел и экзопланетных систем звёзд,
+  Генератор небесных тел и экзопланетных систем:
   - Планет и Луны ... с главными параметрами
-  - One Space object per orbit, unlimited orbit per Planet & for Sun
+  - Ограничение: один космический объект на орбите вокруг звезды или планеты
 
   Основано на идее Blaise Bernier и Alexandre Hirzel
-  Первоначальная версия модуля создана Jerome Delauney
+  Первоначальную версию модуля создал Jerome Delauney
   Контрибуторы:
-  Aaron Hochwimmer:  конструктор астероидов
-  Blaise Bernier: класс SystemSolar, SunBurst's Trick
-  StuartGooding:  класс TDOT3BumpShader
+  Aaron Hochwimmer:  подключил конструктор астероидов
+  Blaise Bernier: добавил класс SystemSolar, SunBurst's Trick
+  StuartGooding:  добавил класс TDOT3BumpShader
   Eric Grange: эффект свечения атмосферы в GLDirectOpenGL1Render для диска disk,
   с цветом вершин вычисляемых с помощью трассировки лучей ray-tracing.
-  Not that the tesselation of the disk has been hand-optimized
-  so as to reduce CPU use while retaining quality.
-  Pavel Vassiliev: включение компонента TreeViews для просмотра экзопланетных
-  систем по спектральным классам звёзд с визуализацией на TGLSkyDome.
+  Pavel Vassiliev: включил компонент TreeViews для просмотра систем
+  по спектральным классам звёзд с визуализацией на TGLSkyDome.
   Линии и границы созвездий отображаются с помощью TGLLines.
 
   Дополнительно:
   - Создать генерацию и рендеринг полнофуцнкциональной атмосферы по планетным данным
   --Bump Mapping для улучшения текстурной 'глубины'
-  ..Change "Clouds" per Object Velocity
+  ..Плывущие и меняющиеся облака "Clouds" при изменении скорости транспорта
   ..Layers of Clouds rotate counter each other..or faster..or Turbulent 'spots'
   - Add Legend for space entities and constellations (THudText)
     Элементы орбит:
@@ -37,9 +34,7 @@ unit fmGenStarsys_ru;
   - добавление Space Shuttle .. спутники: DIY with 3ds
   - добавление симуляцию миссий (Lambert's Maths).
   - подключение в Help справочной системы Wiki.
-
 *)
-
 (*
   Object: MaterialLibrary: M1
   |_LibMatName :MultiPassMat
@@ -387,10 +382,12 @@ type
   One Space object per orbit, unlimited orbiters per Planet
   ----------------------------------------------------------------------------- *)
     procedure CreateGLSolarSystem(Filename: string);
-    { procedure GLCometParticlesActivateParticle(Sender: TObject;
-      particle: TGLBaseSceneObject);
-      procedure CometSpriteProgress(Sender: TObject;
-      const deltaTime,  newTime: Double); }
+    (*
+    procedure GLCometParticlesActivateParticle(Sender: TObject;
+    particle: TGLBaseSceneObject);
+    procedure CometSpriteProgress(Sender: TObject;
+    const deltaTime,  newTime: Double);
+    *)
     procedure LoadBtnClick(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
     Procedure SaveGLSolarSystem(filename: string);
@@ -412,7 +409,6 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure DataDisplayer(Switch, Spec, Species, SubSpecies,
       Spec3ds: Integer);
-
     procedure GLSceneViewerAMouseEnter(Sender: TObject);
     procedure GLSceneViewerAMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
@@ -467,15 +463,15 @@ type
     PickedObj: TGLCustomSceneObject;
     VersionDataTmp: TVersionData;
     SystemDataTmp: TGLStarSysData;
-    { ? These data arrays are duplicates of data stored with/in Objects ?
-      These are used... data in objects is ignored... but are loaded in }
+    (* ? Эти масивы являются дубликатами данных в/с Objects
+      Они используются... когда другие данные игнорируются... *)
     SunDataTmp: TGLStarData;
     PlanetDataTmpArray: array of TGLPlanetData;
     { Planet    Which one }
     MoonDataTmpArray: array of Array of TGLMoonRingData;
     RingDataTmpArray: array of Array of TGLMoonRingData;
     ImposterBuilder: TGLImposterBuilder;
-    { Object   Which Object    Which S3ds }
+    // Object   Which Object    Which S3ds
     S3dsDataTmpArray: array of array of array of TGLMoonRingData;
     AsteroidDataTmpArray: array of TGLAsteroidData;
     CometDataTmpArray: array of TGLAsteroidData;
@@ -496,9 +492,9 @@ type
     // x:={((SundataTmp.Radius)/(SolarScaleDivisor))+}
     // ((PlanetDataTmpArray[i].Radius)/(SolarScaleDivisor/2))
     // +((PlanetDataTmpArray[i].distance/SolarDistance)) ;
-    CameraFocalLength, { 50 Camera.FocalLength .. 10000 }
-    OrbitalTime, SolarTimeMultiplier: Double; { 1 0..729 Speed of rotation
-      from 0 to __ days per frame per second ? }
+    CameraFocalLength, // 50 Camera.FocalLength .. 10000
+    OrbitalTime, SolarTimeMultiplier: Double;
+    // 1 0..729 Speed of rotation from 0 to __ days per frame per second ?
     // RingType, CometType, DebrisType,
     MaxLines, PlanetToOrbitTrail, SunScale, MoonScale, mx, my, dmx, dmy: Integer;
   end;
@@ -506,12 +502,11 @@ type
 var
   frmGenStarsys: TfrmGenStarsys;
 
-//=============================================================================
-implementation
+implementation //=============================================================
 
 uses
   Astro.SkyBodies; // Debris Field Asteroid maker initially was in uOglObjects
-  /// SpudVCFrm;  {Orbit Elements Input AND Version Convertor}
+  /// SpudVCFrm;  // Orbit Elements Input AND Version Convertor
 
 var
   EarthModelPath: String;
@@ -520,8 +515,7 @@ var
 
 procedure TfrmGenStarsys.FormCreate(Sender: TObject);
 begin
-  { top := ABCreatorFormY;
-    left := ABCreatorFormX; }
+ // top := ABCreatorFormY; left := ABCreatorFormX;
  // SplashScreen := TSplashScreen.Create(Application);
  // SplashScreen.SplashSet(8, 1500);{1000= 1 second}
  // SplashScreen.Show;
@@ -529,14 +523,13 @@ begin
   if FileExists(ExtractFilePath(ParamStr(0)) + 'Noosphere.chm') THEN
     Application.HelpFile := ExtractFilePath(ParamStr(0)) + 'Noosphere.chm';
   EarthModelPath := ExtractFilePath(ParamStr(0)) + 'EarthModel\';
-  { Timer1.Enabled:=False;
-    GLCadencer1.Enabled:=False; }
+  // Timer1.Enabled:=False;  GLCadencer1.Enabled:=False;
   OrbitalTime := Now - 2; // 2 days back
   MoonScale := 10;
   SunScale := 200;
   MaxLines := 360;
   // RingType:=0;  CometType:=0; DebrisType:=0;
-  PlanetToOrbitTrail := 0; { Basically null ..no }
+  PlanetToOrbitTrail := 0; // Basically null ..no
   OrbitLines.AddNode(0, 0, 0);
   OrbitLines.ObjectStyle := OrbitLines.ObjectStyle + [osDirectDraw];
   SetLength(ColorArray, 10);
@@ -609,20 +602,25 @@ begin
   SetLength(ColorArray, 0);
   GLMaterialLibraryA.Materials.Clear;
   CometGLMaterialLibrary.Materials.Clear;
-  { ABCreatorFormY := ABCreatorForm.top;
-    ABCreatorFormX := ABCreatorForm.left; }
+  (*
+  ABCreatorFormY := ABCreatorForm.top;
+  ABCreatorFormX := ABCreatorForm.left;
+  *)
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.ExitBtnClick(Sender: TObject);
 begin
   Close;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.HelpBtnClick(Sender: TObject);
 begin
   Application.HelpContext(2000);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.ClearBtnClick(Sender: TObject);
 var
   j: Integer;
@@ -700,6 +698,7 @@ begin
   Running := True;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.ClearData;
 var
   DCCenter: TGLBaseSceneObject;
@@ -711,7 +710,7 @@ begin
   SystemDataTmp.NbAsteroid := 0;
   SystemDataTmp.NbComet := 0;
   SystemDataTmp.NbDebris := 0;
-  { Just junk to keep from crashing }
+  // Just junk to keep from crashing
   SunDataTmp.StarName := 'Star';
   SunDataTmp.Radius := 10000;
   SunDataTmp.ObjectRotation := 24;
@@ -745,6 +744,7 @@ begin
   DebrisUpDown.Position := 0;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.ClearDataEdits;
 begin
   NameEdit.Text := 'Star';
@@ -911,7 +911,7 @@ begin
     ExtraData := SunDataTmp;
     Name := 'SP' + SunDataTmp.StarName;
     PlanetPickerCB.Items.Add(SunDataTmp.StarName);
-    { 0.27...   200 is Arbitrary seems to work for Earth Solar system }
+    // 0.27...   200 is Arbitrary seems to work for Earth Solar system
     Radius := ((SunDataTmp.Radius) / (SolarScaleDivisor)) / SunScale;
     PitchAngle := SunDataTmp.AxisTilt;
     TurnAngle := 24 / SunDataTmp.ObjectRotation;
@@ -920,7 +920,7 @@ begin
     Tag := 1;
     Hint := IntToStr(0); // jpg tga png bmp
     If FileExists(EarthModelPath + SunDataTmp.StarName + '.jpg') then
-    begin { Create the matlib }
+    begin // Create the matlib
       GLMaterialLibraryA.AddTextureMaterial(SunDataTmp.StarName,
         EarthModelPath + SunDataTmp.StarName + '.jpg');
       Material.MaterialLibrary := GLMaterialLibraryA;
@@ -960,8 +960,10 @@ begin
       GLSceneA.EndUpdate;
       exit;
     end;
-    { But it Would crash later when Rotating.. DO NOT ADD if NOT THERE!
-      Maybe create an "asteroid" freeform }
+    {
+     But it Would crash later when Rotating.. DO NOT ADD if NOT THERE!
+     Maybe create an "asteroid" freeform
+    }
     FFS3ds := TGLS3ds.Create(self);
     with (FFS3ds As TGLS3ds) do
     begin { SunDataTmp }
@@ -2333,7 +2335,7 @@ end;
   end;
 *)
 
-{ --------------------------------------------------- }
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SaveBtnClick(Sender: TObject);
 begin
   SaveDialog.Filter := 'Universal Definition(*.spud)|*.spud';
@@ -2345,6 +2347,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SaveGLSolarSystem(filename: string);
 var
   i, j: Integer;
@@ -2390,6 +2393,7 @@ begin
   Closefile(F);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.PlanetsRGClick(Sender: TObject);
 var
   tempbool: Boolean;
@@ -2437,8 +2441,7 @@ begin
   RCDPositionEdit.Visible := tempbool;
 end;
 
-//------------------------------------------------------------
-//
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.StoreBtnClick(Sender: TObject);
 begin
   // GLCadencer1.Enabled:=False;
@@ -3322,8 +3325,7 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.ShowBtnClick(Sender: TObject);
 begin // a Brainiac could Get Save and Set the data...
   nbS3dsCB.Checked := False; { S3dsTex }
@@ -3538,7 +3540,7 @@ begin // a Brainiac could Get Save and Set the data...
             AxisTiltEdit.Text :=
               Floattostr(RingDataTmpArray[PlanetUpDown.Position - 1,
               RingsUpDown.Position - 1].AxisTilt);
-            { S3dsTex }
+            // S3dsTex
             DocIndexEdit.Text :=
               Inttostr(RingDataTmpArray[PlanetUpDown.Position - 1,
               RingsUpDown.Position - 1].DocIndex);
@@ -3623,7 +3625,7 @@ begin // a Brainiac could Get Save and Set the data...
               [PlanetUpDown.Position - 1, RingsUpDown.Position - 1].Atmosphere;
           end;
         2:
-          Begin { MoonDataTmpArray     : Array of Array of  TMoonData; }
+          begin // MoonDataTmpArray     : Array of Array of  TMoonData;
             NameEdit.Text := MoonDataTmpArray[PlanetUpDown.Position - 1,
               MoonsUpDown.Position - 1].Name;
             RadiusEdit.Text :=
@@ -3635,7 +3637,7 @@ begin // a Brainiac could Get Save and Set the data...
             AxisTiltEdit.Text :=
               Floattostr(MoonDataTmpArray[PlanetUpDown.Position - 1,
               MoonsUpDown.Position - 1].AxisTilt);
-            { S3dsTex }
+            // S3dsTex
             DocIndexEdit.Text :=
               Inttostr(MoonDataTmpArray[PlanetUpDown.Position - 1,
               MoonsUpDown.Position - 1].DocIndex);
@@ -3720,7 +3722,7 @@ begin // a Brainiac could Get Save and Set the data...
               [PlanetUpDown.Position - 1, MoonsUpDown.Position - 1].Atmosphere;
           end;
         3:
-          Begin { S3dsDataTmpArray     :Array of Array of Array of  S3dsDataTmpArray; }
+          begin // S3dsDataTmpArray     :Array of Array of Array of  S3dsDataTmpArray;
             NameEdit.Text := S3dsDataTmpArray[1, PlanetUpDown.Position - 1,
               PS3dsUpDown.Position - 1].Name;
             RadiusEdit.Text :=
@@ -3820,9 +3822,9 @@ begin // a Brainiac could Get Save and Set the data...
           end;
       end;
     2:
-      Case AsteroidRG.ItemIndex of
+      case AsteroidRG.ItemIndex of
         0:
-          begin { AsteroidDataTmpArray   : Array of ; }
+          begin // AsteroidDataTmpArray   : Array of ;
             NameEdit.Text := AsteroidDataTmpArray
               [AsteroidUpDown.Position - 1].Name;
             RadiusEdit.Text :=
@@ -4191,7 +4193,7 @@ begin // a Brainiac could Get Save and Set the data...
     4:
       case DebrisRG.ItemIndex of
         0:
-          begin { DebrisDataTmpArray   : Array of TMoonData; }
+          begin // DebrisDataTmpArray   : Array of TMoonData;
             NameEdit.Text := DebrisDataTmpArray[DebrisUpDown.Position - 1].Name;
             RadiusEdit.Text :=
               Floattostr(DebrisDataTmpArray[DebrisUpDown.Position - 1].Radius);
@@ -4363,9 +4365,7 @@ begin // a Brainiac could Get Save and Set the data...
   end;
 end;
 
-{
-  Сохранение в текстовый файл
-  и вызов System to Open THAT... для печати }
+// Сохранение в текстовый файл и вызов System to Open THAT... для печати
 procedure TfrmGenStarsys.PrintBtnClick(Sender: TObject);
 var
   i, j: Integer;
@@ -5205,7 +5205,7 @@ begin
 end;
 
 procedure TfrmGenStarsys.PickActiveCBClick(Sender: TObject);
-{ var i,Proxyi:Integer; }
+// var i,Proxyi:Integer;
 begin
   (* If (PickActiveCB.Checked) then
     begin
@@ -5225,11 +5225,13 @@ end;
 
 procedure TfrmGenStarsys.SunShineCBClick(Sender: TObject);
 begin
-  { If (PickActiveCB.Checked) then
+  (*
+  If (PickActiveCB.Checked) then
     begin
     SunShineCB.Checked:=false;
     SunShineFlare.Visible:=SunShineCB.Checked;
-    end else }
+    end else
+  *)
   begin
     SunShineFlare.Visible := SunShineCB.Checked;
   end;
@@ -5258,10 +5260,12 @@ begin
   LabelLabel.Caption := Floattostr(Temp);
 end;
 
-{ Distance is Planets apart,Scale is SIZE of Planets
+(*
+  Distance is Planets apart,Scale is SIZE of Planets
   This could be done automatically with some code
   that uses the Bounding box of the 3ds object
-  and scales that to fit the desired 'diameter' }
+  and scales that to fit the desired 'diameter'
+*)
 procedure TfrmGenStarsys.S3dsScalerTBChange(Sender: TObject);
 var
   Scale, i, j: Integer;
@@ -5283,7 +5287,7 @@ begin
             := S3dsScaler;
           DCSolarSystem.Children[0].Children[0].Children[j].Children[0].Scale.z
             := S3dsScaler;
-          { To try to fix object edges fluttering }{ vcObjectBased }
+          // To try to fix object edges fluttering  vcObjectBased
           { If S3DsVisibilityCB.Checked then
             DCSolarSystem.children[0].Children[0].children[j].Children[0].VisibilityCulling:=
             vcHierarchicalelse
@@ -5364,8 +5368,7 @@ begin
   end; { case }
 end;
 
-//-----------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.TimeTrackBarChange(Sender: TObject);
 begin
   SolarTimeMultiplier := (HoursTimeTrackBar.Position / 24) *
@@ -5374,8 +5377,7 @@ begin
   TimeLabel.Caption := Floattostr(SolarTimeMultiplier);
 end;
 
-//-----------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
@@ -5390,8 +5392,7 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.PlanetPickerCBChange(Sender: TObject);
 begin
   If PlanetPickerCB.ItemIndex > 0 then
@@ -5408,8 +5409,7 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.RunBtnClick(Sender: TObject);
 begin { Running selects action inside Cadencer }
   // Allow camera movement without moving planets
@@ -5418,6 +5418,7 @@ begin { Running selects action inside Cadencer }
     Timer1.Enabled:=True; }
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.TimerATimer(Sender: TObject);
 begin
   { Caption:=Format('%d Comet particles, %.1f FPS',
@@ -5429,6 +5430,7 @@ begin
   GLSceneViewerA.ResetPerformanceMonitor;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.StopBtnClick(Sender: TObject);
 begin
   { GLCadencer1.Enabled:=False;
@@ -5438,8 +5440,7 @@ begin
   // Caption:= 'A.B. Creator D. E. Prime';
 end;
 
-//-----------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.GLCadencerAProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
@@ -5448,11 +5449,11 @@ var
   (* d : Double;    p : TAffineVector; *)
   pPoint: TGLVector;
 begin
-  If Running then { Allow camera movement without moving planets }
+  If Running then // Движение камееры без перемещения планет
   begin
-    If PlanetsLoaded then { Gotta have something to turn }
+    If PlanetsLoaded then // Gotta have something to turn
     begin
-      { Need Check that the data has been Computed }
+      // Need Check that the data has been Computed
       (* If UseOrbitalElementsCB.Checked then
         begin                 {OrbitalTime  Now-2 2 days back}
         d:=GMTDateTimeToJulianDay(OrbitalTime-2+newTime*SolarTimeMultiplier);
@@ -5491,7 +5492,7 @@ begin
         { Counts start at 1 due to Sun, kinda messes up other stuff
           the DC .. the Array of Data... may be why it should be using the
           Object 'Extradata' data rather than an array that is also filled... }
-        { Sun is 0 }
+        // Sun is 0
         for i := 1 to SystemDataTmp.NbPlanet do
         begin { DummyCube.Sphere.ChildCube.ChildSphere }
           { Rotate around Sun }
@@ -5561,8 +5562,8 @@ begin
               [PlanetDataTmpArray[i - 1].nbRings + j].TurnAngle +
               (365 / MoonDataTmpArray[i - 1, j].OrbitRotation) * deltaTime *
               SolarTimeMultiplier;
-            { Rotate Sphere }
-            { ObjectRotation   OrbitRotation }
+            // Rotate Sphere
+            // ObjectRotation   OrbitRotation
             DCSolarSystem.Children[i].Children[0].Children
               [PlanetDataTmpArray[i - 1].nbRings + j].Children[0].TurnAngle :=
               DCSolarSystem.Children[i].Children[0].Children
@@ -5580,7 +5581,7 @@ begin
               [i - 1].nbMoons + j].RollAngle +
               (365 / S3dsDataTmpArray[1, i, j].OrbitRotation) * deltaTime *
               SolarTimeMultiplier;
-            { Rotate Sphere }
+            // Rotate Sphere
             DCSolarSystem.Children[i].Children[0].Children
               [PlanetDataTmpArray[i - 1].nbRings + PlanetDataTmpArray[i - 1]
               .nbMoons + j].Children[0].TurnAngle := DCSolarSystem.Children[i]
@@ -5589,11 +5590,11 @@ begin
               (24 / S3dsDataTmpArray[1, i, j].ObjectRotation) * 365 * deltaTime
               * SolarTimeMultiplier;
           end;
-        end; { Planet }
+        end; // Planet
 
         for i := 1 to SystemDataTmp.NbAsteroid do
         begin
-          { Rotate Sphere }
+          // Rotate Sphere
           DCSolarSystem.Children[i + SystemDataTmp.NbPlanet]
           { .children[0] }.TurnAngle := DCSolarSystem.Children
             [i + SystemDataTmp.NbPlanet] { .children[0] }.TurnAngle +
@@ -5614,7 +5615,7 @@ begin
             { .children[0] }.TurnAngle +
               (365 / S3dsDataTmpArray[2, i, j].OrbitRotation) * deltaTime *
               SolarTimeMultiplier;
-            { Rotate Sphere }
+            // Rotate Sphere
             DCSolarSystem.Children[i + SystemDataTmp.NbPlanet].Children[0]
               .Children[j].Children[0].TurnAngle := DCSolarSystem.Children
               [i + SystemDataTmp.NbPlanet].Children[0].Children[j].Children[0]
@@ -5744,6 +5745,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.AddToTrail(const p: TGLVector);
 var
   i, k: Integer;
@@ -5762,6 +5764,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.GLSceneViewerAMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
@@ -5867,6 +5870,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 { Dont know what this is to do... but it does get the data }
 { Case of Species ..1..5 with
   sub-case of SubSpecies to determine if 3ds #8 or not
@@ -5979,6 +5983,7 @@ Begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.GLSceneViewerAMouseEnter(Sender: TObject);
 begin
   GLSceneViewerA.SetFocus; // GLSceneViewer.Focused;
@@ -6011,6 +6016,7 @@ begin
   my := Y;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.CFLTrackBarChange(Sender: TObject);
 begin
   CameraFocalLength := CFLTrackBar.Position;
@@ -6041,6 +6047,7 @@ begin { Going away or Not too close: WheelDelta Value is 120 or -120 }
   Handled := True;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.CameraDistanceUpDownClick(Sender: TObject;
   Button: TUDBtnType);
 var
@@ -6060,12 +6067,14 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.DisplayToolbar1Click(Sender: TObject);
 begin
   DisplayToolbar1.Checked := (not DisplayToolbar1.Checked);
   ToggleToolbarDisplay;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.ToggleToolbarDisplay;
 Begin
   If DisplayToolbar1.Checked then
@@ -6102,6 +6111,7 @@ Begin
   end;
 End;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.DisplayFPS1Click(Sender: TObject);
 begin
   DisplayFPS1.Checked := (not DisplayFPS1.Checked);
@@ -6112,10 +6122,11 @@ begin
   else
   begin
     TimerA.Enabled := False;;
-    Caption := 'Конструктор звёздной системы';
+    Caption := 'Конструктор планетной системы';
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.FullScreen1Click(Sender: TObject);
 begin { fig FullScreen ? }
   GLSceneViewerA.OnMouseMove := nil;
@@ -6133,63 +6144,75 @@ begin { fig FullScreen ? }
   GLSceneViewerA.OnMouseMove := GLSceneViewerAMouseMove;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.GLSceneViewerADblClick(Sender: TObject);
 begin
   FullScreen1Click(Sender);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.PlanetsLoadFakeTextureClick(Sender: TObject);
 begin
   PlanetsLoadFakeTexture.Checked := (not PlanetsLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.RingsLoadFakeTextureClick(Sender: TObject);
 begin
   RingsLoadFakeTexture.Checked := (not RingsLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.MoonsLoadFakeTextureClick(Sender: TObject);
 begin
   MoonsLoadFakeTexture.Checked := (not MoonsLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.S3dsLoadFakeTextureClick(Sender: TObject);
 begin
   S3dsLoadFakeTexture.Checked := (not S3dsLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.AsteroidsLoadFakeTextureClick(Sender: TObject);
 begin
   AsteroidsLoadFakeTexture.Checked := (not AsteroidsLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.CometsLoadFakeTextureClick(Sender: TObject);
 begin
   CometsLoadFakeTexture.Checked := (not CometsLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.DebrisLoadFakeTextureClick(Sender: TObject);
 begin
   DebrisLoadFakeTexture.Checked := (not DebrisLoadFakeTexture.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.DocIndexLinkCBClick(Sender: TObject);
 begin
-  { DocIndexLinkCB.Checked := (not DocIndexLinkCB.Checked); }
+  // DocIndexLinkCB.Checked := (not DocIndexLinkCB.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.AtmosphereOnCBClick(Sender: TObject);
 begin
   { Cant really 'Focus' on a Planet so Atmosphere is kinda a waste }
   { AtmosphereOnCB.Checked := (not AtmosphereOnCB.Checked); }
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.UseOrbitalElementsCBClick(Sender: TObject);
 begin
   { UseOrbitalElementsCB.Checked := (not UseOrbitalElementsCB.Checked); }
 
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.LabelsOnCBClick(Sender: TObject);
 begin { HUDLabel }
   GLFlatTextLabel.Visible := LabelsOnCB.Checked;
@@ -6203,6 +6226,7 @@ begin { HUDLabel }
     component. Default character scale is 1 font pixel = 1 space unit. }
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SelectFontMenuClick(Sender: TObject);
 begin
   FontDialogA.Font := WindowsBitmapFontA.Font;
@@ -6214,6 +6238,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.OrbitTrailsOnCBClick(Sender: TObject);
 var
   i: Integer;
@@ -6224,17 +6249,20 @@ begin { Clear at start AND End }
   { OrbitTrailsOnCB.Checked := (not OrbitTrailsOnCB.Checked); }
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.DatePickerCBClick(Sender: TObject);
 begin
   DateTimePicker1.Visible := (DatePickerCB.Checked);
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.DateTimePicker1Change(Sender: TObject);
 begin
   ShowMessage(Datetostr(DateTimePicker1.Date));
   OrbitalTime := DateTimePicker1.Date;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.MoonScalex0Click(Sender: TObject);
 begin
   MoonScale := 0;
@@ -6248,6 +6276,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.MoonScalex10Click(Sender: TObject);
 begin
   MoonScale := 10;
@@ -6261,6 +6290,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.MoonScalex50Click(Sender: TObject);
 begin
   MoonScale := 50;
@@ -6274,6 +6304,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SunScale20Click(Sender: TObject);
 begin
   SunScale := 20;
@@ -6287,6 +6318,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SunScale200Click(Sender: TObject);
 begin
   SunScale := 200;
@@ -6300,6 +6332,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SunScale2000Click(Sender: TObject);
 begin
   SunScale := 2000;
@@ -6313,6 +6346,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.OrbitTrails36Click(Sender: TObject);
 begin
   MaxLines := 36;
@@ -6328,6 +6362,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.OrbitTrails360Click(Sender: TObject);
 begin
   MaxLines := 360;
@@ -6343,6 +6378,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.OrbitTrails1000Click(Sender: TObject);
 begin
   MaxLines := 1000;
@@ -6358,6 +6394,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.OrbitTrails3600Click(Sender: TObject);
 begin
   MaxLines := 3600;
@@ -6373,6 +6410,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmGenStarsys.SpudVersionConvertor1Click(Sender: TObject);
 begin
   ///HoloSpudVCForm.Show;

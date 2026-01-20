@@ -213,6 +213,16 @@ object FormConstells: TFormConstells
     TabOrder = 2
     ExplicitLeft = 832
     ExplicitHeight = 603
+    object VirtualImageFigures: TVirtualImage
+      Left = 6
+      Top = 397
+      Width = 163
+      Height = 140
+      ImageCollection = DataModuleImages.ConstelFigures
+      ImageWidth = 0
+      ImageHeight = 0
+      ImageIndex = -1
+    end
     object tvZodiacs: TTreeView
       Left = 1
       Top = 42
