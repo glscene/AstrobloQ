@@ -1,9 +1,9 @@
-object FormConstPolygons: TFormConstPolygons
+object FormSkyAreas: TFormSkyAreas
   Left = 0
   Top = 0
-  Caption = 'Constellation polygons'
-  ClientHeight = 605
-  ClientWidth = 866
+  Caption = #1055#1086#1083#1080#1075#1086#1085#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+  ClientHeight = 633
+  ClientWidth = 1000
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,16 +16,16 @@ object FormConstPolygons: TFormConstPolygons
   object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 153
-    Height = 605
+    Width = 185
+    Height = 633
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 418
+    ExplicitHeight = 608
     object tvShortNames: TTreeView
       Left = 1
       Top = 1
-      Width = 151
-      Height = 563
+      Width = 183
+      Height = 591
       Align = alClient
       Indent = 19
       TabOrder = 0
@@ -43,21 +43,20 @@ object FormConstPolygons: TFormConstPolygons
         000000000000FFFFFFFFFFFFFFFF000000000000000000000000000103410072
         0069000000250000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000103410075007200}
-      ExplicitTop = 41
-      ExplicitHeight = 344
+      ExplicitHeight = 566
     end
     object PanelNames: TPanel
       Left = 1
-      Top = 564
-      Width = 151
+      Top = 592
+      Width = 183
       Height = 40
       Align = alBottom
       Caption = 'Name'
       ShowCaption = False
       TabOrder = 1
-      ExplicitTop = 1
+      ExplicitTop = 567
       object CheckBoxData: TCheckBox
-        Left = 32
+        Left = 40
         Top = 12
         Width = 97
         Height = 17
@@ -68,20 +67,18 @@ object FormConstPolygons: TFormConstPolygons
     end
   end
   object GLSceneViewer1: TGLSceneViewer
-    Left = 153
+    Left = 185
     Top = 0
-    Width = 713
-    Height = 605
+    Width = 815
+    Height = 633
     Buffer.BackgroundColor = clBlack
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 524
-    ExplicitHeight = 444
   end
   object MemoData: TMemo
-    Left = 352
-    Top = 179
+    Left = 376
+    Top = 147
     Width = 346
     Height = 270
     Lines.Strings = (
@@ -90,11 +87,11 @@ object FormConstPolygons: TFormConstPolygons
     Visible = False
   end
   object GLScene1: TGLScene
-    Left = 224
+    Left = 216
     Top = 40
   end
   object GLCadencer1: TGLCadencer
-    Left = 224
-    Top = 120
+    Left = 216
+    Top = 112
   end
 end

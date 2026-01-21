@@ -16,7 +16,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  fmAbout_en in '..\source\fmAbout_en.pas' {FormAbout},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',

@@ -28,7 +28,7 @@ uses
   fmFormFirst, GLS.Cadencer;
 
 type
-  TFormConstPolygons = class(TfrmFirst)
+  TFormSkyAreas = class(TfrmFirst)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;
@@ -49,13 +49,13 @@ type
   end;
 
 var
-  FormConstPolygons: TFormConstPolygons;
+  FormSkyAreas: TFormSkyAreas;
 
-implementation //-------------------------------------------------------------
+implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormConstPolygons.FormCreate(Sender: TObject);
+procedure TFormSkyAreas.FormCreate(Sender: TObject);
 begin
   // ќпредел€ем путь к известной папке с файлами
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
@@ -86,7 +86,7 @@ ReplaceSel - если вы хотите заменить уже выбранный в Memo текст,
 то передайте в параметр ReplaceSel TRUE.
 FALSE используетс€ дл€ простой вставки текста;
 *)
-procedure TFormConstPolygons.InsertFileInMemo(Memo: TMemo; AFileName: string;
+procedure TFormSkyAreas.InsertFileInMemo(Memo: TMemo; AFileName: string;
   ReplaceSel: Boolean);
 var
   Stream: TMemoryStream;
@@ -94,9 +94,10 @@ var
 begin
   Stream := TMemoryStream.Create;
   try
-    // Loading text from file...
+    // «агружаем текст из файла...
     Stream.LoadFromFile(AFileName);
 
+    // ƒобавл€ем в конец текста терминирующий ноль...
 (*
     Stream.Seek(0, 2);
     NullTerminator := #0;
@@ -111,7 +112,8 @@ begin
   end;
 end;
 
-procedure TFormConstPolygons.tvShortNamesClick(Sender: TObject);
+//---------------------------- tvShortNames -----------------------------------
+procedure TFormSkyAreas.tvShortNamesClick(Sender: TObject);
 begin
   //
   FileName := DataDir + '\constellation\borders\'+
@@ -120,13 +122,13 @@ begin
   MemoData.Lines.LoadFromFile(FileName);
 end;
 
-procedure TFormConstPolygons.Button1Click(Sender: TObject);
+procedure TFormSkyAreas.Button1Click(Sender: TObject);
 begin
   tvShortNames.HideSelection := False;
 end;
 
 
-procedure TFormConstPolygons.CheckBoxDataClick(Sender: TObject);
+procedure TFormSkyAreas.CheckBoxDataClick(Sender: TObject);
 begin
   MemoData.Visible := CheckBoxData.Checked;
 end;

@@ -49,8 +49,8 @@ uses
   GLS.SpaceText,
 
   fmFormFirst,
-  fmAbout,
-  fmSettings,
+  fmAbout_en,
+  fmSettings_en,
 
   dmImages,
   dmDialogs,

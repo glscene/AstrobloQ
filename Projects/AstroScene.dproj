@@ -105,15 +105,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\fmAstroScene_ru.pas">
+        <DCCReference Include="..\source\fmAstroScene.pas">
             <Form>frmAstroScene</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faOptions_ru.pas">
+        <DCCReference Include="..\source\astro\faOptions.pas">
             <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmGenStarsys_ru.pas">
-            <Form>frmGenStarsys</Form>
+        <DCCReference Include="..\source\fmGenStarsys.pas">
+            <Form>FormGenStarsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
@@ -123,7 +123,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_ru.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -131,20 +131,16 @@
             <Form>frmFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\frParams_ru.pas">
+        <DCCReference Include="..\source\frParams.pas">
             <Form>FrameParamsR</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmStarsys_ru.pas">
-            <Form>FormStarsys</Form>
+        <DCCReference Include="..\source\fmStellarSys.pas">
+            <Form>FormStellarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmSolarsys_ru.pas">
-            <Form>FormSolarsys</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faConstells_ru.pas">
+        <DCCReference Include="..\source\astro\faConstells.pas">
             <Form>FormConstells</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -154,7 +150,7 @@
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\fmMixTextures.pas">
+        <DCCReference Include="..\source\astro\faMixTextures.pas">
             <Form>FormTexCombine</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -169,11 +165,11 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
-        <DCCReference Include="..\source\fmSettings_ru.pas">
+        <DCCReference Include="..\source\fmSettings.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faSkyAreas_ru.pas">
+        <DCCReference Include="..\source\astro\faSkyAreas.pas">
             <Form>FormSkyAreas</Form>
             <FormType>dfm</FormType>
         </DCCReference>

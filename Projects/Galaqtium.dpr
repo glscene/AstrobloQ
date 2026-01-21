@@ -15,7 +15,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
+  fmAbout in '..\source\fmAbout.pas' {FormAbout},
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},

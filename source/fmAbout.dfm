@@ -2,9 +2,9 @@ object FormAbout: TFormAbout
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'About'
-  ClientHeight = 620
-  ClientWidth = 732
+  Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
+  ClientHeight = 617
+  ClientWidth = 749
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,10 +14,10 @@ object FormAbout: TFormAbout
   Position = poScreenCenter
   OnCreate = FormCreate
   TextHeight = 15
-  object Panel1: TPanel
+  object PanelAstrobloQ: TPanel
     Left = 0
     Top = 0
-    Width = 732
+    Width = 749
     Height = 65
     Align = alTop
     BorderWidth = 10
@@ -29,23 +29,25 @@ object FormAbout: TFormAbout
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 724
+    ExplicitWidth = 741
   end
   object PageControl: TPageControl
     Left = 0
     Top = 65
-    Width = 732
-    Height = 555
-    ActivePage = tsLitosfera
+    Width = 749
+    Height = 552
+    ActivePage = tsTehnosfera
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 741
+    ExplicitHeight = 527
     object tsAstroScene: TTabSheet
-      Caption = 'AstroScene'
+      Caption = #1040#1089#1090#1088#1086#1089#1094#1077#1085#1072
       object ImagePlanets: TImage
         Left = 0
         Top = 41
-        Width = 724
-        Height = 484
+        Width = 741
+        Height = 481
         Align = alClient
         Picture.Data = {
           0A544A504547496D616765A2C80100FFD8FFE000104A46494600010101006000
@@ -3711,10 +3713,10 @@ object FormAbout: TFormAbout
       object PanelAllPlanets: TPanel
         Left = 0
         Top = 0
-        Width = 724
+        Width = 741
         Height = 41
         Align = alTop
-        Caption = 'Planets, moons, asteroids and exoplanets'
+        Caption = #1055#1083#1072#1085#1077#1090#1099', '#1083#1091#1085#1099', '#1072#1089#1090#1077#1088#1086#1080#1076#1099' '#1080' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -3722,17 +3724,16 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 716
       end
     end
     object tsLitosfera: TTabSheet
-      Caption = 'Litosfera'
+      Caption = #1051#1080#1090#1086#1089#1092#1077#1088#1072
       ImageIndex = 3
       object Image2: TImage
         Left = 0
         Top = 41
-        Width = 724
-        Height = 484
+        Width = 741
+        Height = 481
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000037E0000
@@ -29571,13 +29572,13 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
-      object PanelTerrasfera: TPanel
+      object PanelLitosfera: TPanel
         Left = 0
         Top = 0
-        Width = 724
+        Width = 741
         Height = 41
         Align = alTop
-        Caption = 'Astrogeology and mineral resources'
+        Caption = #1055#1083#1072#1085#1077#1090#1086#1083#1086#1075#1080#1103' '#1080' '#1084#1080#1085#1077#1088#1072#1083#1100#1085#1099#1077' '#1088#1077#1089#1091#1088#1089#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -29585,17 +29586,16 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 716
       end
     end
     object tsBiosphere: TTabSheet
-      Caption = 'Biosfera'
+      Caption = #1041#1080#1086#1089#1092#1077#1088#1072
       ImageIndex = 4
       object Image1: TImage
         Left = 0
         Top = 41
-        Width = 724
-        Height = 484
+        Width = 741
+        Height = 481
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000031F0000
@@ -53049,10 +53049,10 @@ object FormAbout: TFormAbout
       object PanelBiosfera: TPanel
         Left = 0
         Top = 0
-        Width = 724
+        Width = 741
         Height = 41
         Align = alTop
-        Caption = 'Astrobiology and living organizms'
+        Caption = #1040#1089#1090#1088#1086#1073#1080#1086#1083#1086#1075#1080#1103' '#1080' '#1078#1080#1074#1099#1077' '#1086#1088#1075#1072#1085#1080#1079#1084#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -53063,13 +53063,13 @@ object FormAbout: TFormAbout
       end
     end
     object tsTehnosfera: TTabSheet
-      Caption = 'Tehnosfera'
+      Caption = #1058#1077#1093#1085#1086#1089#1092#1077#1088#1072
       ImageIndex = 5
       object Image3: TImage
         Left = 0
         Top = 41
-        Width = 724
-        Height = 484
+        Width = 741
+        Height = 481
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000033B0000
@@ -65533,13 +65533,13 @@ object FormAbout: TFormAbout
         ExplicitWidth = 642
         ExplicitHeight = 391
       end
-      object PanelNoosfera: TPanel
+      object PanelTehnosfera: TPanel
         Left = 0
         Top = 0
-        Width = 724
+        Width = 741
         Height = 41
         Align = alTop
-        Caption = 'Tehnosferas of cosmic civilizations'
+        Caption = #1058#1077#1093#1085#1086#1089#1092#1077#1088#1099' '#1080' '#1082#1086#1084#1084#1091#1085#1080#1082#1072#1094#1080#1080
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -65547,42 +65547,44 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 733
       end
     end
     object tsDevelopers: TTabSheet
-      Caption = 'Developers'
+      Caption = #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080
       ImageIndex = 1
       TabVisible = False
-      object MemoTeam: TMemo
+      object Memo1: TMemo
         Left = 0
         Top = 0
-        Width = 724
-        Height = 525
+        Width = 741
+        Height = 522
         Align = alClient
         Alignment = taCenter
         Lines.Strings = (
-          'Developers:'
-          'Pavel Vassiliev'
-          'Leo Kaptyaev'
-          'Danil Vasin'
-          'Elizaveta Soboleva'
+          #1056#1072#1079#1088#1072#1073#1086#1090#1095#1080#1082#1080':'
+          #1055#1072#1074#1077#1083' '#1042#1072#1089#1080#1083#1100#1077#1074
+          #1051#1077#1074' '#1050#1086#1087#1090#1103#1077#1074
+          #1044#1072#1085#1080#1083' '#1042#1072#1089#1080#1085
+          #1045#1083#1080#1079#1072#1074#1077#1090#1072' '#1057#1086#1073#1086#1083#1077#1074#1072
           ''
-          'Contributors:'
-          'Alexandr Tsvetkov'
-          'Eugeniy Chernyh'
-          'Anton Dahin'
-          'Arseniy Medvedev')
+          #1050#1086#1085#1090#1088#1080#1073#1091#1090#1086#1088#1099':'
+          #1040#1083#1077#1082#1089#1072#1085#1076#1088' '#1062#1074#1077#1090#1082#1086#1074
+          #1045#1074#1075#1077#1085#1080#1081' '#1063#1077#1088#1085#1099#1093
+          #1040#1085#1090#1086#1085' '#1044#1072#1093#1080#1085
+          #1040#1088#1089#1077#1085#1080#1081' '#1052#1077#1076#1074#1077#1076#1077#1074
+          '')
         TabOrder = 0
       end
     end
     object tsGalaqtium: TTabSheet
-      Caption = 'Galaqtium'
+      Caption = #1043#1072#1083#1072#1082#1090#1080#1091#1084
       ImageIndex = 7
       object ImageGalaxy: TImage
         Left = 0
         Top = 41
-        Width = 724
-        Height = 484
+        Width = 741
+        Height = 481
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D494844520000054E0000
@@ -121714,10 +121716,10 @@ object FormAbout: TFormAbout
       object PanelGalaktika: TPanel
         Left = 0
         Top = 0
-        Width = 724
+        Width = 741
         Height = 41
         Align = alTop
-        Caption = 'Galaxy and evolution of habitability'
+        Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072' '#1080' '#1101#1074#1086#1083#1102#1094#1080#1103' '#1086#1073#1080#1090#1072#1077#1084#1086#1089#1090#1080
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -121728,13 +121730,13 @@ object FormAbout: TFormAbout
       end
     end
     object tsUniversum: TTabSheet
-      Caption = 'Universum'
+      Caption = #1042#1089#1077#1083#1077#1085#1085#1072#1103
       ImageIndex = 8
       object Image4: TImage
         Left = 0
         Top = 41
-        Width = 724
-        Height = 484
+        Width = 741
+        Height = 481
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000004D60000
@@ -163428,10 +163430,10 @@ object FormAbout: TFormAbout
       object PanelUniverse: TPanel
         Left = 0
         Top = 0
-        Width = 724
+        Width = 741
         Height = 41
         Align = alTop
-        Caption = 'Metagalaxy and the Universe'
+        Caption = #1052#1077#1090#1072#1075#1072#1083#1072#1082#1090#1080#1082#1072' '#1080' '#1042#1089#1077#1083#1077#1085#1085#1072#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -163439,10 +163441,11 @@ object FormAbout: TFormAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 733
       end
     end
     object tsTools: TTabSheet
-      Caption = 'Tools'
+      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       ImageIndex = 2
       object ButtonAstrobloQ: TSpeedButton
         Left = 386

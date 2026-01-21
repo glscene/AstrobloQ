@@ -1,421 +1,279 @@
 object frmOptions: TfrmOptions
   Left = 0
   Top = 0
-  Caption = 'Options'
-  ClientHeight = 623
-  ClientWidth = 811
+  Hint = 'Longevity'
+  BorderStyle = bsDialog
+  Caption = #1054#1087#1094#1080#1080
+  ClientHeight = 443
+  ClientWidth = 750
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
-  TextHeight = 15
+  TextHeight = 21
   object PanelBottom: TPanel
     Left = 0
-    Top = 594
-    Width = 811
-    Height = 29
+    Top = 402
+    Width = 750
+    Height = 41
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 569
-    ExplicitWidth = 803
+    ExplicitTop = 377
+    ExplicitWidth = 742
     DesignSize = (
-      811
-      29)
+      750
+      41)
     object ButtonOK: TButton
-      Left = 440
-      Top = 3
-      Width = 70
-      Height = 23
+      Left = 418
+      Top = 1
+      Width = 99
+      Height = 31
       Anchors = [akTop, akRight]
       Caption = 'OK'
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 432
+      ExplicitLeft = 410
     end
   end
   object PanelMiddle: TPanel
     Left = 0
-    Top = 30
-    Width = 811
-    Height = 564
+    Top = 9
+    Width = 750
+    Height = 393
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 803
-    ExplicitHeight = 539
+    ExplicitWidth = 742
+    ExplicitHeight = 368
     object PageControl: TPageControl
-      Left = 163
+      Left = 169
       Top = 5
-      Width = 643
-      Height = 554
-      ActivePage = tsPlanets
+      Width = 576
+      Height = 383
+      ActivePage = tsGeneral
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 635
-      ExplicitHeight = 529
+      ExplicitWidth = 568
+      ExplicitHeight = 358
       object tsGeneral: TTabSheet
-        Caption = 'General'
+        Caption = #1054#1073#1097#1080#1077
         ImageIndex = 7
         TabVisible = False
-        object LabelPrecision: TLabel
-          Left = 77
-          Top = 255
-          Width = 48
-          Height = 15
-          Caption = 'Precision'
-        end
-        object gbxCoordinateSys: TGroupBox
-          Left = 168
-          Top = 24
-          Width = 337
-          Height = 201
-          Caption = 'Coordinate system'
-          TabOrder = 0
-          object rgrSystem: TRadioGroup
-            Left = 16
-            Top = 24
-            Width = 129
-            Height = 98
-            Caption = 'System'
-            Ctl3D = True
-            ItemIndex = 0
-            Items.Strings = (
-              'Spherical'
-              'Cartesian'
-              'Cylindrical')
-            ParentCtl3D = False
-            TabOrder = 0
-          end
-          object RadioGroup1: TRadioGroup
-            Left = 168
-            Top = 24
-            Width = 152
-            Height = 161
-            Caption = 'Coordinates'
-            Ctl3D = True
-            ItemIndex = 0
-            Items.Strings = (
-              'Azimutal'
-              'Equatorial'
-              'Ecliptical'
-              'Galactic'
-              'Supergalactic')
-            ParentCtl3D = False
-            TabOrder = 1
-          end
-        end
         object rgUnits: TRadioGroup
-          Left = 21
+          Left = 48
           Top = 24
-          Width = 131
-          Height = 97
-          Caption = 'Units'
+          Width = 169
+          Height = 145
+          Hint = 
+            'https://ru.ruwiki.ru/wiki/'#1045#1076#1080#1085#1080#1094#1099'+'#1080#1079#1084#1077#1088#1077#1085#1080#1103#13#10'https://ru.ruwiki.r' +
+            'u/wiki/'#1057#1074#1077#1090#1086#1074#1086#1081'_'#1075#1086#1076#13#10'https://ru.ruwiki.ru/wiki/'#1055#1072#1088#1089#1077#1082#13#10'https://r' +
+            'u.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072#13#10'https://ru.ruwiki.ru/w' +
+            'iki/'#1050#1080#1083#1086#1084#1077#1090#1088#1099
+          Caption = #1045#1076#1080#1085#1080#1094#1099' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1103
           ItemIndex = 0
           Items.Strings = (
-            'Light year'
-            'Parsec'
-            'Kiloparsec')
-          TabOrder = 1
-        end
-        object SpinEditPrecision: TSpinEdit
-          Left = 168
-          Top = 254
-          Width = 41
-          Height = 24
-          Hint = 'Precision'
-          MaxValue = 18
-          MinValue = 0
-          TabOrder = 2
-          Value = 2
+            #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076
+            #1055#1072#1088#1089#1077#1082
+            #1040#1089#1090#1088#1086#1077#1076#1080#1085#1080#1094#1072
+            #1050#1080#1083#1086#1084#1077#1090#1088)
+          TabOrder = 0
         end
       end
       object tsInterface: TTabSheet
-        Caption = 'Interface'
+        Caption = #1048#1085#1090#1077#1088#1092#1077#1081#1089
+        ImageIndex = 4
         TabVisible = False
         object lbStyle: TLabel
-          Left = 99
-          Top = 25
-          Width = 88
-          Height = 15
-          Caption = 'Style of interface'
-        end
-        object ComboBoxVclStyles: TComboBox
-          Left = 240
-          Top = 22
-          Width = 117
-          Height = 23
-          Style = csDropDownList
-          DropDownCount = 5
-          TabOrder = 0
-          OnChange = ComboBoxVclStylesChange
+          Left = 75
+          Top = 28
+          Width = 131
+          Height = 21
+          Caption = #1057#1090#1080#1083#1100' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
         end
         object cbSplashStart: TCheckBox
-          Left = 158
+          Left = 187
           Top = 280
           Width = 131
           Height = 18
-          Caption = 'Start splash'
+          Caption = #1047#1072#1089#1090#1072#1074#1082#1072
+          TabOrder = 0
+        end
+        object ComboBoxVclStyles: TComboBox
+          Left = 248
+          Top = 25
+          Width = 193
+          Height = 29
+          Style = csDropDownList
+          DropDownCount = 5
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 1
         end
       end
       object tsDisplay: TTabSheet
-        Caption = 'Display'
-        ImageIndex = 2
+        Caption = #1044#1080#1089#1087#1083#1077#1081
+        ImageIndex = 4
         TabVisible = False
-        object CheckBoxCubemap: TCheckBox
-          Left = 231
-          Top = 40
-          Width = 98
-          Height = 17
-          Caption = 'Cubemap'
-          TabOrder = 0
-        end
       end
-      object tsDatatime: TTabSheet
-        Caption = 'Datatime'
-        ImageIndex = 3
+      object tsStars: TTabSheet
+        Caption = #1047#1074#1105#1079#1076#1099
+        ImageIndex = 5
         TabVisible = False
-        object PanelScale: TPanel
-          Left = 104
-          Top = 101
-          Width = 313
-          Height = 123
-          BevelInner = bvLowered
-          BevelKind = bkFlat
+        DesignSize = (
+          568
+          373)
+        object chlbStarClasses: TCheckListBox
+          Left = -38
+          Top = 137
+          Width = 104
+          Height = 128
+          Anchors = [akTop, akRight]
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = 15
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemHeight = 17
+          Items.Strings = (
+            'O'
+            'B'
+            'A'
+            'F'
+            'G'
+            'K'
+            'M')
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
           TabOrder = 0
-          object lblScaleX: TLabel
-            Left = 33
-            Top = 25
-            Width = 43
-            Height = 15
-            Alignment = taRightJustify
-            Caption = 'Factor X'
-          end
-          object Label1: TLabel
-            Left = 33
-            Top = 52
-            Width = 43
-            Height = 15
-            Alignment = taRightJustify
-            Caption = 'Factor Y'
-          end
-          object Label2: TLabel
-            Left = 33
-            Top = 81
-            Width = 43
-            Height = 15
-            Alignment = taRightJustify
-            Caption = 'Factor Z'
-          end
-          object Edit1: TEdit
-            Left = 128
-            Top = 16
-            Width = 121
-            Height = 23
+        end
+        object GroupBox2: TGroupBox
+          Left = 40
+          Top = 24
+          Width = 441
+          Height = 65
+          Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
+          TabOrder = 1
+          object chbConstFigures: TCheckBox
+            Left = 274
+            Top = 24
+            Width = 79
+            Height = 17
+            Caption = #1060#1080#1075#1091#1088#1099
             TabOrder = 0
-            Text = 'Edit1'
           end
-          object Edit2: TEdit
-            Left = 128
-            Top = 45
-            Width = 121
-            Height = 23
+          object chbConstLines: TCheckBox
+            Left = 26
+            Top = 24
+            Width = 79
+            Height = 17
+            Caption = #1051#1080#1085#1080#1080
             TabOrder = 1
-            Text = 'Edit1'
           end
-          object Edit3: TEdit
-            Left = 128
-            Top = 74
-            Width = 121
-            Height = 23
+          object chbConstBounds: TCheckBox
+            Left = 138
+            Top = 24
+            Width = 79
+            Height = 17
+            Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
-            Text = 'Edit1'
           end
         end
-        object chbSysTime: TCheckBox
-          Left = 184
-          Top = 40
-          Width = 225
-          Height = 17
-          Caption = 'Universal time (UT)'
-          Checked = True
-          State = cbChecked
-          TabOrder = 1
+        object gbShowStars: TGroupBox
+          Left = 208
+          Top = 137
+          Width = 281
+          Height = 128
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1074#1105#1079#1076#1099
+          TabOrder = 2
+          object chbSkyGrid: TCheckBox
+            Left = 15
+            Top = 48
+            Width = 146
+            Height = 23
+            Caption = 'Sky grid'
+            TabOrder = 0
+            StyleName = 'Windows'
+            OnClick = CheckBoxCoreClick
+          end
         end
       end
       object tsPlanets: TTabSheet
-        Caption = 'Planets'
+        Caption = #1055#1083#1072#1085#1077#1090#1099
         ImageIndex = 6
         TabVisible = False
-        object lbExoplanets: TListBox
-          Left = 34
-          Top = 398
-          Width = 202
-          Height = 91
-          ItemHeight = 15
-          Items.Strings = (
-            'Aquaworld'
-            'Icyworld'
-            'Desert'
-            'Earthlike'
-            'SuperEarth'
-            'Captured'
-            ''
-            ''
-            '')
-          TabOrder = 0
-        end
-        object grbShowPlanets: TGroupBox
-          Left = 34
-          Top = 231
-          Width = 559
-          Height = 130
-          Caption = 'Show'
-          TabOrder = 1
-          object chbRotate: TCheckBox
-            Left = 31
-            Top = 20
-            Width = 82
-            Height = 30
-            Caption = 'Rotation'
-            Checked = True
-            State = cbChecked
-            TabOrder = 0
-            StyleName = 'Windows'
-            OnClick = chbRotateClick
-          end
-          object chbAxes: TCheckBox
-            Left = 135
-            Top = 24
-            Width = 76
-            Height = 23
-            Caption = 'Axes'
-            Checked = True
-            State = cbChecked
-            TabOrder = 1
-            StyleName = 'Windows'
-            OnClick = chbAxesClick
-          end
-          object chbShading: TCheckBox
-            Left = 246
-            Top = 93
-            Width = 105
-            Height = 21
-            Caption = 'Shading'
-            TabOrder = 2
-            StyleName = 'Windows'
-          end
-          object chbCore: TCheckBox
-            Left = 246
-            Top = 22
-            Width = 98
-            Height = 27
-            Caption = 'Core'
-            TabOrder = 3
-            StyleName = 'Windows'
-            OnClick = chbCoreClick
-          end
-          object chbAtmosphere: TCheckBox
-            Left = 31
-            Top = 64
-            Width = 98
-            Height = 23
-            Caption = 'Atmosphere'
-            Checked = True
-            State = cbChecked
-            TabOrder = 4
-            StyleName = 'Windows'
-            OnClick = chbAtmosphereClick
-          end
-          object chbClouds: TCheckBox
-            Left = 135
-            Top = 64
-            Width = 98
-            Height = 26
-            Caption = 'Clouds'
-            TabOrder = 5
-            StyleName = 'Windows'
-          end
-          object chbHide: TCheckBox
-            Left = 31
-            Top = 96
-            Width = 98
-            Height = 23
-            Caption = 'Hide'
-            TabOrder = 6
-            StyleName = 'Windows'
-            OnClick = chbHideClick
-          end
-          object chbPlanetgrid: TCheckBox
-            Left = 246
-            Top = 62
-            Width = 126
-            Height = 25
-            Caption = 'Planet grid'
-            TabOrder = 7
-            StyleName = 'Windows'
-            OnClick = chbPlanetGridClick
-          end
-        end
         object grbPlanetGuts: TGroupBox
-          Left = 34
-          Top = 29
+          Left = 312
+          Top = 3
           Width = 177
           Height = 172
-          Caption = 'Layers'
-          TabOrder = 2
+          Caption = #1057#1083#1086#1080
+          TabOrder = 0
           object LabelIce: TLabel
             Left = 24
             Top = 22
-            Width = 15
-            Height = 15
+            Width = 28
+            Height = 21
             Alignment = taCenter
-            Caption = 'Ice'
+            Caption = #1051#1105#1076
           end
           object LabelWater: TLabel
             Left = 24
             Top = 54
-            Width = 31
-            Height = 15
+            Width = 35
+            Height = 21
             Alignment = taCenter
-            Caption = 'Water'
+            Caption = #1042#1086#1076#1072
           end
           object LabelCrust: TLabel
             Left = 24
             Top = 84
-            Width = 28
-            Height = 15
+            Width = 35
+            Height = 21
             Alignment = taCenter
-            Caption = 'Crust'
+            Caption = #1050#1086#1088#1072
           end
           object LabelMantle: TLabel
             Left = 24
             Top = 113
-            Width = 37
-            Height = 15
+            Width = 55
+            Height = 21
             Alignment = taCenter
-            Caption = 'Mantle'
+            Caption = #1052#1072#1085#1090#1080#1103
           end
           object LabelCore: TLabel
             Left = 24
             Top = 143
-            Width = 25
-            Height = 15
+            Width = 36
+            Height = 21
             Alignment = taCenter
-            Caption = 'Core'
+            Caption = #1071#1076#1088#1086
           end
           object nbIce: TNumberBox
             Left = 96
             Top = 13
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -426,7 +284,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 43
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -437,7 +295,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 77
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -448,7 +306,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 111
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -459,7 +317,7 @@ object frmOptions: TfrmOptions
             Left = 96
             Top = 139
             Width = 49
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -467,50 +325,138 @@ object frmOptions: TfrmOptions
             Value = 0.200000000000000000
           end
         end
+        object grbShowPlanets: TGroupBox
+          Left = 32
+          Top = 206
+          Width = 521
+          Height = 164
+          Caption = 'Show'
+          TabOrder = 1
+          object CheckBoxRotate: TCheckBox
+            Left = 33
+            Top = 30
+            Width = 82
+            Height = 16
+            Caption = 'Rotation'
+            Checked = True
+            State = cbChecked
+            TabOrder = 0
+            StyleName = 'Windows'
+          end
+          object CheckBoxAxes: TCheckBox
+            Left = 33
+            Top = 104
+            Width = 82
+            Height = 25
+            Caption = 'Axes'
+            TabOrder = 1
+            StyleName = 'Windows'
+            OnClick = CheckBoxAxesClick
+          end
+          object CheckBox4: TCheckBox
+            Left = 167
+            Top = 109
+            Width = 105
+            Height = 20
+            Caption = 'Shading'
+            TabOrder = 2
+            StyleName = 'Windows'
+          end
+          object CheckBoxCore: TCheckBox
+            Left = 167
+            Top = 31
+            Width = 98
+            Height = 27
+            Caption = 'Core'
+            TabOrder = 3
+            StyleName = 'Windows'
+            OnClick = CheckBoxCoreClick
+          end
+          object CheckBoxAtmosfera: TCheckBox
+            Left = 31
+            Top = 64
+            Width = 130
+            Height = 23
+            Caption = 'Atmosphere'
+            TabOrder = 4
+            StyleName = 'Windows'
+            OnClick = CheckBoxAtmosferaClick
+          end
+          object chbClouds: TCheckBox
+            Left = 167
+            Top = 73
+            Width = 98
+            Height = 24
+            Caption = 'Clouds'
+            TabOrder = 5
+            StyleName = 'Windows'
+            OnClick = CheckBoxCoreClick
+          end
+          object chbCartographicGrid: TCheckBox
+            Left = 303
+            Top = 65
+            Width = 178
+            Height = 24
+            Caption = 'Cartographic Grid'
+            TabOrder = 6
+            StyleName = 'Windows'
+            OnClick = chbCartographicGridClick
+          end
+          object CheckBoxHidePlanet: TCheckBox
+            Left = 303
+            Top = 24
+            Width = 122
+            Height = 25
+            Caption = 'Hide'
+            TabOrder = 7
+            StyleName = 'Windows'
+            OnClick = CheckBoxHidePlanetClick
+          end
+        end
         object grbPlanetParams: TGroupBox
-          Left = 345
-          Top = 25
-          Width = 193
-          Height = 176
+          Left = 32
+          Top = -3
+          Width = 209
+          Height = 182
           Caption = 'Planet'
-          TabOrder = 3
+          TabOrder = 2
           object LabelPlanetTilt: TLabel
             Left = 11
             Top = 83
-            Width = 38
-            Height = 15
+            Width = 50
+            Height = 21
             Alignment = taCenter
             Caption = 'Axis tilt'
           end
           object LabelPlanetDensity: TLabel
             Left = 11
             Top = 50
-            Width = 39
-            Height = 15
+            Width = 52
+            Height = 21
             Alignment = taCenter
             Caption = 'Density'
           end
           object LabelPlanetRadius: TLabel
             Left = 11
             Top = 17
-            Width = 35
-            Height = 15
+            Width = 47
+            Height = 21
             Alignment = taCenter
             Caption = 'Radius'
           end
           object LabelGravityAccel: TLabel
             Left = 11
             Top = 119
-            Width = 40
-            Height = 15
+            Width = 54
+            Height = 21
             Alignment = taCenter
             Caption = 'Gravity '
           end
           object Label6: TLabel
             Left = 11
             Top = 147
-            Width = 67
-            Height = 15
+            Width = 87
+            Height = 21
             Alignment = taCenter
             Caption = 'Temperature'
           end
@@ -518,7 +464,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 82
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MinValue = -90.000000000000000000
@@ -530,7 +476,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 48
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 30.000000000000000000
@@ -541,7 +487,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 15
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             MaxValue = 100000.000000000000000000
             TabOrder = 2
@@ -551,7 +497,7 @@ object frmOptions: TfrmOptions
             Left = 115
             Top = 118
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -560,10 +506,10 @@ object frmOptions: TfrmOptions
             Value = 9.800000000000000000
           end
           object NumberBox7: TNumberBox
-            Left = 110
-            Top = 147
+            Left = 118
+            Top = 150
             Width = 65
-            Height = 23
+            Height = 29
             Alignment = taCenter
             Decimal = 0
             MinValue = -373.000000000000000000
@@ -573,227 +519,12 @@ object frmOptions: TfrmOptions
           end
         end
       end
-      object tsStars: TTabSheet
-        Caption = 'Stars'
-        ImageIndex = 5
-        TabVisible = False
-        object gbStarColors: TGroupBox
-          Left = 24
-          Top = 158
-          Width = 218
-          Height = 260
-          Caption = 'Star colors'
-          TabOrder = 0
-          object ShapeM: TShape
-            Left = 152
-            Top = 234
-            Width = 41
-            Height = 20
-            Brush.Color = clRed
-          end
-          object ShapeK: TShape
-            Left = 152
-            Top = 199
-            Width = 41
-            Height = 20
-            Brush.Color = clFuchsia
-          end
-          object ShapeG: TShape
-            Left = 152
-            Top = 173
-            Width = 41
-            Height = 20
-            Brush.Color = clYellow
-          end
-          object ShapeF: TShape
-            Left = 153
-            Top = 147
-            Width = 41
-            Height = 20
-            Brush.Color = clMoneyGreen
-          end
-          object ShapeA: TShape
-            Left = 153
-            Top = 114
-            Width = 41
-            Height = 20
-          end
-          object ShapeO: TShape
-            Left = 152
-            Top = 62
-            Width = 41
-            Height = 20
-            Brush.Color = clBlue
-          end
-          object ShapeB: TShape
-            Left = 152
-            Top = 88
-            Width = 41
-            Height = 20
-            Brush.Color = clSkyBlue
-          end
-          object Label4: TLabel
-            Left = 102
-            Top = 34
-            Width = 12
-            Height = 16
-            Caption = '%'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label3: TLabel
-            Left = 22
-            Top = 36
-            Width = 30
-            Height = 16
-            Caption = 'Class'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-          end
-          object clbStarColors: TCheckListBox
-            Left = 16
-            Top = 56
-            Width = 65
-            Height = 201
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -20
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            ItemHeight = 28
-            Items.Strings = (
-              'O'
-              'B'
-              'A'
-              'F'
-              'G'
-              'K'
-              'M')
-            ParentFont = False
-            TabOrder = 0
-          end
-          object ListBox2: TListBox
-            Left = 95
-            Top = 56
-            Width = 51
-            Height = 201
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -20
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            ItemHeight = 28
-            Items.Strings = (
-              '0.1'
-              '0.4'
-              '0.5'
-              '3'
-              '8'
-              '12'
-              '76')
-            ParentFont = False
-            TabOrder = 1
-          end
-          object stColor: TStaticText
-            Left = 152
-            Top = 38
-            Width = 34
-            Height = 20
-            Caption = 'Color'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 2
-          end
-        end
-        object GroupBoxConstallations: TGroupBox
-          Left = 80
-          Top = 19
-          Width = 441
-          Height = 64
-          Caption = 'Constellations'
-          TabOrder = 1
-          object chbConstFigures: TCheckBox
-            Left = 242
-            Top = 24
-            Width = 79
-            Height = 25
-            Caption = 'Figures'
-            TabOrder = 0
-            StyleName = 'Windows'
-            OnClick = chbConstellationsClick
-          end
-          object chbConstLines: TCheckBox
-            Left = 26
-            Top = 24
-            Width = 79
-            Height = 25
-            Caption = 'Lines'
-            TabOrder = 1
-            StyleName = 'Windows'
-            OnClick = chbConstellationsClick
-          end
-          object chbConstBounds: TCheckBox
-            Left = 133
-            Top = 24
-            Width = 79
-            Height = 25
-            Caption = 'Borders'
-            TabOrder = 2
-            StyleName = 'Windows'
-            OnClick = chbConstellationsClick
-          end
-          object CheckBox2: TCheckBox
-            Left = 346
-            Top = 24
-            Width = 79
-            Height = 25
-            Caption = 'Names'
-            TabOrder = 3
-            StyleName = 'Windows'
-            OnClick = chbConstellationsClick
-          end
-        end
-        object gbShowStars: TGroupBox
-          Left = 266
-          Top = 164
-          Width = 247
-          Height = 128
-          Caption = 'Show stars'
-          TabOrder = 2
-          object chbSkyGrid: TCheckBox
-            Left = 15
-            Top = 32
-            Width = 146
-            Height = 31
-            Caption = 'Sky grid'
-            TabOrder = 0
-            StyleName = 'Windows'
-          end
-        end
-      end
-      object tsGalaxy: TTabSheet
-        Caption = 'Galaxy'
-        ImageIndex = 4
-        TabVisible = False
-      end
     end
     object tvOptions: TTreeView
       Left = 5
       Top = 5
-      Width = 158
-      Height = 554
+      Width = 164
+      Height = 383
       Align = alLeft
       AutoExpand = True
       HotTrack = True
@@ -802,34 +533,31 @@ object frmOptions: TfrmOptions
       TabOrder = 1
       OnClick = tvOptionsClick
       Items.NodeData = {
-        070700000009540054007200650065004E006F00640065002D00000000000000
-        00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
-        006500720061006C000000310000000100000001000000FFFFFFFFFFFFFFFF00
-        000000000000000000000000010949006E007400650072006600610063006500
-        00002D0000000200000002000000FFFFFFFFFFFFFFFF02000000000000000000
-        000000010744006900730070006C006100790000002700000003000000030000
-        00FFFFFFFFFFFFFFFF0300000000000000000000000001044400610074006500
-        00002D0000000400000004000000FFFFFFFFFFFFFFFF00000000000000000000
-        000000010750006C0061006E0065007400730000002900000005000000050000
-        00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
-        730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
-        00000000000106470061006C00610078007900}
-      ExplicitHeight = 529
+        070500000009540054007200650065004E006F00640065002900000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
+        04380435040000310000000000000000000000FFFFFFFFFFFFFFFF0000000000
+        0000000000000000010918043D04420435044004440435043904410400002F00
+        00000000000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001
+        081C043004420435044004380430043B0400002D0000000000000000000000FF
+        FFFFFFFFFFFFFF0000000000000000000000000001071F043B0430043D043504
+        42044B0400002B0000000000000000000000FFFFFFFFFFFFFFFF000000000000
+        000000000000000106170432045104370434044B04}
+      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 811
-    Height = 30
+    Width = 750
+    Height = 9
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 803
+    ExplicitWidth = 742
   end
   object ImageList: TImageList
-    Left = 79
-    Top = 494
+    Left = 427
+    Top = 376
     Bitmap = {
       494C010104000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020

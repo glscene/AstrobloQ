@@ -1,4 +1,4 @@
-object FrameParams: TFrameParams
+object FrameParamsR: TFrameParamsR
   Left = 0
   Top = 0
   Width = 595

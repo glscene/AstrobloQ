@@ -15,7 +15,7 @@ uses
   GLS.GeomObjects;
 
 type
-  TFrameParams = class(TFrame)
+  TFrameParamsR = class(TFrame)
     procedure edKeyPress(Sender: TObject; var Key: Char);
     procedure edChange(Sender: TObject);
   public
@@ -23,15 +23,16 @@ type
     procedure ShowParams;
   end;
 
-implementation //-------------------------------------------------------------
+implementation // -------------------------------------------------------------
 
 uses
-  fmSolarsys;
+  fmStellarSys;
 
 {$R *.dfm}
 
 // ShowParams
-procedure TFrameParams.ShowParams;
+//
+procedure TFrameParamsR.ShowParams;
 
   procedure addLabel(x, y: integer; cap: string);
   var
@@ -58,7 +59,7 @@ procedure TFrameParams.ShowParams;
     ed.Height := 20;
     ed.OnKeyPress := edKeyPress;
     ed.OnChange := edChange;
-    param := GetPropInfo(FormSolarSys.PickObject, PChar(prm));
+    param := GetPropInfo(FormStellarSys.PickObject, PChar(prm));
     if param <> nil then
     begin
       if param.PropType^.Kind = tkInteger then
@@ -67,9 +68,9 @@ procedure TFrameParams.ShowParams;
         ed.Tag := 11;
       case ed.Tag of
         10:
-          ed.Text := IntToStr(GetOrdProp(FormSolarSys.PickObject, param));
+          ed.Text := IntToStr(GetOrdProp(FormStellarSys.PickObject, param));
         11:
-          ed.Text := Format('%.4f', [GetFloatProp(FormSolarSys.PickObject, param)]);
+          ed.Text := Format('%.4f', [GetFloatProp(FormStellarSys.PickObject, param)]);
       end;
     end;
   end;
@@ -79,7 +80,7 @@ var
 
 begin
 {
-  with FormSolarsys do
+  with FormSolarSys do
   begin
     if (lastPickObject <> PickObject) or (PickObject = nil) then
       for i := self.ControlCount - 1 downto 0 do
@@ -121,7 +122,8 @@ begin
 end;
 
 // edKeyPress
-procedure TFrameParams.edKeyPress;
+//
+procedure TFrameParamsR.edKeyPress;
 begin
   case Key of
     '0' .. '9', ',', '-', #13, #8:
@@ -132,7 +134,8 @@ begin
 end;
 
 // edChange
-procedure TFrameParams.edChange;
+//
+procedure TFrameParamsR.edChange;
 var
   param: PPropInfo;
   i: integer;
@@ -141,7 +144,7 @@ var
 begin
   with TEdit(Sender) do
   begin
-    param := GetPropInfo(FormSolarSys.PickObject, pchar(Hint));
+    param := GetPropInfo(FormStellarSys.PickObject, pchar(Hint));
     if param <> nil then
     begin
       case Tag of
@@ -149,13 +152,13 @@ begin
           begin
             if not TryStrToInt(Text, i) then
               i := 0;
-            SetOrdProp(FormSolarSys.PickObject, param, i);
+            SetOrdProp(FormStellarSys.PickObject, param, i);
           end;
         11:
           begin
             if not TryStrToFloat(Text, f) then
               f := 0;
-            SetFloatProp(FormSolarSys.PickObject, param, f);
+            SetFloatProp(FormStellarSys.PickObject, param, f);
           end;
       end;
     end;

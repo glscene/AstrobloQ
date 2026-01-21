@@ -1,5 +1,5 @@
 //-------------------------------------
-// This unit is part of AstroLibrary
+// This unit is part of AstrobloQ
 //-------------------------------------
 
 unit fmFormFirst;

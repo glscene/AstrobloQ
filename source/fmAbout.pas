@@ -24,7 +24,7 @@ uses
 
 type
   TFormAbout = class(TfrmFirst)
-    Panel1: TPanel;
+    PanelAstrobloQ: TPanel;
     PageControl: TPageControl;
     tsDevelopers: TTabSheet;
     tsTools: TTabSheet;
@@ -41,15 +41,15 @@ type
     Image1: TImage;
     Image3: TImage;
     Image4: TImage;
-    MemoTeam: TMemo;
+    Memo1: TMemo;
     Image2: TImage;
     ImagePlanets: TImage;
     PanelAllPlanets: TPanel;
-    PanelTerrasfera: TPanel;
-    PanelBiosfera: TPanel;
-    PanelNoosfera: TPanel;
+    PanelLitosfera: TPanel;
+    PanelTehnosfera: TPanel;
     PanelGalaktika: TPanel;
     PanelUniverse: TPanel;
+    PanelBiosfera: TPanel;
     procedure ImageGLSClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
     procedure OGLImageClick(Sender: TObject);
@@ -63,7 +63,7 @@ type
 var
   FormAbout: TFormAbout;
 
-implementation //-------------------------------------------------------------
+implementation
 
 {$R *.dfm}
 

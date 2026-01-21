@@ -11,7 +11,7 @@ uses
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fgOptions in '..\source\galaxy\fgOptions.pas' {frmOption},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  fmAbout_en in '..\source\fmAbout_en.pas' {FormAbout},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
@@ -21,7 +21,7 @@ uses
   fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
   fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  fmSettings in '..\source\fmSettings.pas' {frmSettings},
+  fmSettings_en in '..\source\fmSettings_en.pas' {frmSettings},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection};
 
 {$R *.res}

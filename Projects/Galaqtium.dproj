@@ -130,7 +130,7 @@
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_ru.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>

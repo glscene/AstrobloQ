@@ -6,11 +6,15 @@ uses
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
-  System.UITypes,
   System.Variants,
   System.Classes,
-  System.IniFiles,
   System.ImageList,
+  System.Beacon.Components,
+  System.Beacon,
+  System.Bluetooth,
+  System.IniFiles,
+  System.UITypes,
+
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -21,7 +25,6 @@ uses
   Vcl.ExtCtrls,
   Vcl.ImgList,
   Vcl.Grids,
-  Vcl.Outline,
   Vcl.Samples.DirOutln,
   Vcl.ColorGrd,
   Vcl.Samples.Gauges,
@@ -30,7 +33,6 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  Astro.Globals,
   fmFormFirst;
 
 type
@@ -39,111 +41,75 @@ type
     ButtonOK: TButton;
     PanelMiddle: TPanel;
     PageControl: TPageControl;
-    tsInterface: TTabSheet;
     tsDisplay: TTabSheet;
-    tsDatatime: TTabSheet;
-    PanelScale: TPanel;
-    lblScaleX: TLabel;
-    Label1: TLabel;
-    Label2: TLabel;
     tvOptions: TTreeView;
     PanelTop: TPanel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
     ImageList: TImageList;
-    tsGalaxy: TTabSheet;
     tsStars: TTabSheet;
     tsPlanets: TTabSheet;
-    lbExoplanets: TListBox;
     tsGeneral: TTabSheet;
-    gbxCoordinateSys: TGroupBox;
-    rgrSystem: TRadioGroup;
-    rgUnits: TRadioGroup;
-    gbStarColors: TGroupBox;
-    ShapeM: TShape;
-    ShapeK: TShape;
-    ShapeG: TShape;
-    ShapeF: TShape;
-    ShapeA: TShape;
-    ShapeO: TShape;
-    ShapeB: TShape;
-    Label4: TLabel;
-    Label3: TLabel;
-    clbStarColors: TCheckListBox;
-    ListBox2: TListBox;
-    stColor: TStaticText;
-    RadioGroup1: TRadioGroup;
-    chbSysTime: TCheckBox;
-    SpinEditPrecision: TSpinEdit;
-    LabelPrecision: TLabel;
-    GroupBoxConstallations: TGroupBox;
+    grbPlanetGuts: TGroupBox;
+    LabelIce: TLabel;
+    nbIce: TNumberBox;
+    nbWater: TNumberBox;
+    LabelWater: TLabel;
+    nbCrust: TNumberBox;
+    LabelCrust: TLabel;
+    nbMantle: TNumberBox;
+    LabelMantle: TLabel;
+    nbCore: TNumberBox;
+    LabelCore: TLabel;
+    chlbStarClasses: TCheckListBox;
+    grbShowPlanets: TGroupBox;
+    CheckBoxRotate: TCheckBox;
+    CheckBoxAxes: TCheckBox;
+    CheckBox4: TCheckBox;
+    CheckBoxCore: TCheckBox;
+    grbPlanetParams: TGroupBox;
+    nbTilt: TNumberBox;
+    LabelPlanetTilt: TLabel;
+    nbDensity: TNumberBox;
+    LabelPlanetDensity: TLabel;
+    nbRadius: TNumberBox;
+    LabelPlanetRadius: TLabel;
+    nbGravityAccel: TNumberBox;
+    LabelGravityAccel: TLabel;
+    NumberBox7: TNumberBox;
+    Label6: TLabel;
+    CheckBoxAtmosfera: TCheckBox;
+    GroupBox2: TGroupBox;
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
-    CheckBox2: TCheckBox;
+    chbClouds: TCheckBox;
+    chbCartographicGrid: TCheckBox;
+    CheckBoxHidePlanet: TCheckBox;
+    gbShowStars: TGroupBox;
+    chbSkyGrid: TCheckBox;
+    tsInterface: TTabSheet;
+    cbSplashStart: TCheckBox;
     ComboBoxVclStyles: TComboBox;
     lbStyle: TLabel;
-    cbSplashStart: TCheckBox;
-    grbShowPlanets: TGroupBox;
-    chbRotate: TCheckBox;
-    chbAxes: TCheckBox;
-    chbCore: TCheckBox;
-    chbAtmosphere: TCheckBox;
-    chbClouds: TCheckBox;
-    chbHide: TCheckBox;
-    chbPlanetgrid: TCheckBox;
-    chbShading: TCheckBox;
-    chbSkyGrid: TCheckBox;
-    gbShowStars: TGroupBox;
-    grbPlanetGuts: TGroupBox;
-    LabelIce: TLabel;
-    LabelWater: TLabel;
-    LabelCrust: TLabel;
-    LabelMantle: TLabel;
-    LabelCore: TLabel;
-    nbIce: TNumberBox;
-    nbWater: TNumberBox;
-    nbCrust: TNumberBox;
-    nbMantle: TNumberBox;
-    nbCore: TNumberBox;
-    grbPlanetParams: TGroupBox;
-    LabelPlanetTilt: TLabel;
-    LabelPlanetDensity: TLabel;
-    LabelPlanetRadius: TLabel;
-    LabelGravityAccel: TLabel;
-    Label6: TLabel;
-    nbTilt: TNumberBox;
-    nbDensity: TNumberBox;
-    nbRadius: TNumberBox;
-    nbGravityAccel: TNumberBox;
-    NumberBox7: TNumberBox;
-    CheckBoxCubemap: TCheckBox;
+    rgUnits: TRadioGroup;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ComboBoxVclStylesChange(Sender: TObject);
-    procedure chbConstellationsClick(Sender: TObject);
-    procedure chbAxesClick(Sender: TObject);
-    procedure chbRotateClick(Sender: TObject);
-    procedure chbCoreClick(Sender: TObject);
-    procedure chbPlanetGridClick(Sender: TObject);
-    procedure chbHideClick(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure chbAtmosphereClick(Sender: TObject);
+    procedure CheckBoxCoreClick(Sender: TObject);
+    procedure CheckBoxAtmosferaClick(Sender: TObject);
+    procedure CheckBoxHidePlanetClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure CheckBoxAxesClick(Sender: TObject);
+    procedure chbCartographicGridClick(Sender: TObject);
   private
-    CurrDir: TFileName;
-    Node: TTreeNode;
-    Nodes: TTreeNodes;
-    procedure WriteIniFile;
   public
-    //
+    procedure ReadIniFile; override;
+    procedure WriteIniFile;
   end;
 
 var
   frmOptions: TfrmOptions;
 
-implementation //------------------------------------------------------------
-
+implementation //-----------------------------------------------------------
 
 {$R *.dfm}
 
@@ -151,183 +117,185 @@ uses
   fmAstroScene;
 
 //-------------------------------------------------------------
-// Form Create
-//-------------------------------------------------------------
 procedure TfrmOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
+
 begin
-  // Read saved settings
+  // Загрузка сохранённых опций интерфейса
   ReadIniFile;
 
-  // Styles for interface
+  // Включение стилей интерфейса в комбобокс
   for StyleName in TStyleManager.StyleNames do
     ComboBoxVclStyles.Items.Add(StyleName);
   ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 
-  // Fill items with indices for TreeView
+  // Заполнение индексов узлов дерева установок
   for I := 0 to tvOptions.Items.Count - 1 do
   begin
-    tvOptions.Items[i].ImageIndex := 0;
-    tvOptions.Items[i].SelectedIndex := 1;
-    tvOptions.Items[i].StateIndex := 0;
+    tvOptions.Items[I].ImageIndex := 0;
+    tvOptions.Items[I].SelectedIndex := 1;
+    tvOptions.Items[I].StateIndex := I;
   end;
 
-  // Initial highlighted item
+  // Выбор начальной темы узла дерева
   tvOptions.Items[1].Selected := True;
   tvOptionsClick(Self);
+  // Подсветка темы узла после клика !
   tvOptions.Items[1].DropHighlighted := True;
+  // Раскрываем все узлы дерева
   tvOptions.FullExpand;
+
+//  tvOptions.Select(tvOptions.Items[0]);
+//  tvOptionsClick(Self);
+
   inherited;
 end;
 
 //---------------------------------------------------
-// Styles of Interface
+// Показать кайму атмосферы
 //---------------------------------------------------
-procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
+procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
-  TStyleManager.SetStyle(ComboBoxVclStyles.Text);
+ // frmAllPlanets.Atmosphere;
 end;
 
 //---------------------------------------------------
-// Show the planet core with mantle
+// Показать или скрыть оси X, Y, Z небесного тела
 //---------------------------------------------------
-procedure TfrmOptions.chbCoreClick(Sender: TObject);
+procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
+begin
+  if CheckBoxAxes.Checked then
+  begin
+    frmAstroScene.sfPlanet.ShowAxes := not frmAstroScene.sfPlanet.ShowAxes;
+    frmAstroScene.ffPlanet.ShowAxes := not frmAstroScene.ffPlanet.ShowAxes;
+  end;
+end;
+
+//---------------------------------------------------
+// Показать картографическую сетку
+//---------------------------------------------------
+procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
+begin
+  //
+end;
+
+//---------------------------------------------------
+// Показать разрез с ядром и мантией
+//---------------------------------------------------
+procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
 begin
   with frmAstroScene do
+  if CheckBoxCore.Checked then
   begin
-    // Make ffPlanet invisible and replace it with sfPlanet and glDisks visible
+    // Переключить невидимую модель планеты типа GLFreeForm
+    // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
     PlanetPath := CurrentStar + tvMoons.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    sfCore.Visible := chbCore.Checked;
-    if sfCore.Visible then
-      sfPlanet.Stop := 180
-    else
-      sfPlanet.Stop := 360;
+    sfPlanet.Stop := 180;
+    Atmosphere.Visible := False;
+  end
+  else
+  begin
+    sfPlanet.Stop := 360;
+    Atmosphere.Visible := True;
   end;
 end;
 
-//-----------------------------------------------------------------
-// Show atmosphere
-//-----------------------------------------------------------------
-procedure TfrmOptions.chbAtmosphereClick(Sender: TObject);
+//------------------------------------------------------------------
+// Показать или скрыть небесное тело
+//------------------------------------------------------------------
+procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
 begin
-  frmAstroScene.DirectOpenGL.Visible := chbAtmosphere.Checked;
-end;
-
-//-----------------------------------------------------------------
-// Show axes for celestial bodies
-//-----------------------------------------------------------------
-procedure TfrmOptions.chbAxesClick(Sender: TObject);
-begin
-  frmAstroScene.sfPlanet.ShowAxes := chbAxes.Checked;
-end;
-
-//-----------------------------------------------------------------
-// Show lines, borders, figures and names of constellations
-//-----------------------------------------------------------------
-
-procedure TfrmOptions.chbPlanetGridClick(Sender: TObject);
-begin
-  frmAstroScene.TorusGreenwich.Visible := chbPlanetgrid.Checked;
-  frmAstroScene.TorusEquator.Visible := chbPlanetgrid.Checked;
-end;
-
-//-----------------------------------------------------------------
-// Show lines, borders, figures and names of constellations
-//-----------------------------------------------------------------
-procedure TfrmOptions.chbConstellationsClick(Sender: TObject);
-begin
-  CurrDir := frmAstroScene.DataDir + '\constellation\';
-  SetCurrentDir(CurrDir);
-  if chbConstLines.Checked then
-    frmAstroScene.LoadConstLines(CurrDir)
+  if CheckBoxHidePlanet.Checked then
+  begin
+    frmAstroScene.sfPlanet.Visible := False;
+    frmAstroScene.ffPlanet.Visible := False;
+    frmAstroScene.DirectOpenGL.Visible := False;
+  end
   else
-    frmAstroScene.ConstLines.Nodes.Clear;
-  if chbConstBounds.Checked then
-    frmAstroScene.LoadConstBorders(CurrDir)
-  else
-    frmAstroScene.ConstBorders.Nodes.Clear;
-  // Also Figures
+  begin
+    frmAstroScene.sfPlanet.Visible := True;
+    frmAstroScene.ffPlanet.Visible := True;
+    frmAstroScene.DirectOpenGL.Visible := True;
+  end;
 end;
 
-//------------------------------------------------------------------
-// Show/Hide panels and the planet
-//------------------------------------------------------------------
-procedure TfrmOptions.chbHideClick(Sender: TObject);
-begin
-  frmAstroScene.PanelLeft.Visible := chbHide.Checked;
-  frmAstroScene.PanelRight.Visible := chbHide.Checked;
-  frmAstroScene.StatusBar.Visible := chbHide.Checked;
-  frmAstroScene.ControlBarTop.Visible := chbHide.Checked;
-  frmAstroScene.sfPlanet.Visible := chbHide.Checked;
-  (*
-  if chbHide.Checked then
-    frmAstroScene.BorderStyle := bsNone
-  else
-    frmAstroScene.BorderStyle := bsSizeable;
-  *)
-end;
-
-//------------------------------------------------------------------
-// Planet rotations
-//------------------------------------------------------------------
-procedure TfrmOptions.chbRotateClick(Sender: TObject);
-begin
-  frmAstroScene.GLCadencer.Enabled := chbRotate.Checked;
-end;
-
-//-----------------------------------------------------------------
-// Active page of PageControl
-//-----------------------------------------------------------------
+//---------------------------------------------------------
+// Выбор страниц опций
+//---------------------------------------------------------
 procedure TfrmOptions.tvOptionsClick(Sender: TObject);
 begin
-  inherited;
   tvOptions.Items[1].DropHighlighted := False;
-  case tvOptions.Selected.Index of
+  case tvOptions.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
      1: PageControl.ActivePage := tsInterface;
      2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsDatatime;
-     4: PageControl.ActivePage := tsPlanets;
-     5: PageControl.ActivePage := tsStars;
-     6: PageControl.ActivePage := tsGalaxy;
+     3: PageControl.ActivePage := tsPlanets;
+     4: PageControl.ActivePage := tsStars;
   end;
 end;
 
-//---------------------------------------------------------
-// Writing settingd in ini file
-//---------------------------------------------------------
+//------------------------------------------------------------
+// Чтение установок из ини файла
+//------------------------------------------------------------
+procedure TfrmOptions.ReadIniFile;
+var
+  IniFile: TIniFile;
+begin
+  inherited;
+  IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
+  finally
+    IniFile.Free;
+  end;
+end;
+
+//------------------------------------------------------------
+// Запись установок в инифайл
+//------------------------------------------------------------
 procedure TfrmOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmOptions.Name, chbAxes.Name, chbAxes.Checked);
-    IniFile.WriteBool(frmOptions.Name, chbRotate.Name, chbRotate.Checked);
+    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
   inherited;
 end;
 
-//-----------------------------------------------------------
-// OK click
-//-----------------------------------------------------------
+//--------------------------------------------------------------
+// Изменение и запись в файл при нажатии на кнопку ОК
+//--------------------------------------------------------------
 procedure TfrmOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
   FileName := ChangeFileExt(ParamStr(0), '.ini');
   if FileExists(UpperCase(FileName)) then
-    DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
+      DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
   frmOptions.Close;
+end;
+
+
+//--------------------------------------------------------------
+// Запись при закрытии формы
+//--------------------------------------------------------------
+procedure TfrmOptions.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  WriteIniFile;
+  inherited;
 end;
 
 end.

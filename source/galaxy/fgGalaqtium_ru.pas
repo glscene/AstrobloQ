@@ -48,14 +48,14 @@ uses
   GLS.SpaceText,
   GLS.VectorLists,
 
-  fmFormFirst,
-  fmAbout_ru,
-
   dmImages,
   dmDialogs,
   dmBase,
 
   Astro.Globals,
+
+  fmFormFirst,
+  fmAbout,
 
   fgAnalyser_ru,
   fgMonitor_ru,

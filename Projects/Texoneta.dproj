@@ -162,7 +162,7 @@
             <Form>frmTexoneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_ru.pas">
+        <DCCReference Include="..\source\fmAbout.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>

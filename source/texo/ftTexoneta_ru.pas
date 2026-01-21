@@ -47,7 +47,7 @@ uses
   GLS.Context,
   GLS.GeomObjects,
 
-  fmAbout_ru,
+  fmAbout,
   Astro.Utils;
 
 type

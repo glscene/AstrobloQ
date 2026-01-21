@@ -150,7 +150,7 @@
             <Form>frmOption</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout.pas">
+        <DCCReference Include="..\source\fmAbout_en.pas">
             <Form>FormAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -181,7 +181,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\fmSettings.pas">
+        <DCCReference Include="..\source\fmSettings_en.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
