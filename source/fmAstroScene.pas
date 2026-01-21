@@ -199,6 +199,7 @@ type
     procedure ToolButtonPlanetsClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
     procedure miSkyAreasClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -255,7 +256,7 @@ begin
   SetCurrentDir(DataDir) ;
   StarDir := DataDir + 'stars';
 
-  // указываем путь к каталогам Hipparcos, Hyg и Gaia DR4
+  // указываем путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
 //  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
@@ -291,12 +292,27 @@ begin
   (**)
   tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
   tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
-  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
+  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'RuWiki...';
 
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
 
-  ///tvMoons.LoadFromFile(CurrentStar + 'sun_moons.csv');
+  ///tvMoons.LoadFromFile(CurrentStar + 'sol_moons.csv');
 end;
+
+//----------------------------------------------------------------------------
+procedure TfrmAstroScene.FormShow(Sender: TObject);
+begin
+  // Луны, но фокус на тулбаре планет
+(*
+  tvMoons.Select(tvMoons.Items[0]); // show Moon
+  tvMoons.FullExpand;
+  tvMoonsClick(Self);
+*)
+  miHelpWiki.Caption := tbPlanets.Buttons[3].ImageName + ' in ' + 'Wikipedia...';
+  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
+  TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
+end;
+
 
 //------------------  Скрыть или показать панели и тулбары -------------------
 procedure TfrmAstroScene.miViewHidePanelsClick(Sender: TObject);
@@ -353,8 +369,8 @@ begin
 //    acPlanet.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[4]);
     acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
     end
-  else  // StateIndex = 1
-  // Planetoid of freeform
+  else  // StateIndex = 1   // заменить !
+  // Планетоид с фриформой в формате 3ds
   begin
     sfPlanet.Visible := False;
 
@@ -665,7 +681,7 @@ begin
 end;
 
 
-//------------------------- Процесс каденсера --------------------------------
+//------------------------- Прогресс каденсера --------------------------------
 procedure TfrmAstroScene.GLCadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
@@ -760,7 +776,6 @@ begin
   end;
   Handled := True;
 end;
-
 
 //------------------------- Двойной клик мыши ---------------------------------
 procedure TfrmAstroScene.SceneViewerDblClick(Sender: TObject);

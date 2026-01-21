@@ -272,7 +272,7 @@ begin
   SetCurrentDir(DataDir) ;
   StarDir := DataDir + '\' + 'stars';
 
-  // Path to Hipparcos, Hyg or Gaia DR4
+  // Path to catalogs
   CatalogName := DataDir + '\catalog\hipparcos.stars';
 //  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
@@ -305,13 +305,15 @@ begin
     tvMoons.Items[I].ExpandedImageIndex := I;   // ?
   end;
   (**)
+  ///tvMoons.LoadFromFile(CurrentStar + 'sol_moons.csv');
+  miHelpWiki.Caption := tvMoons.Selected.Text + ' in ' + 'Wikipedia...';
 end;
 
 //------------------------- Form Show ----------------------------------------
 procedure TfrmAstroScene.FormShow(Sender: TObject);
 begin
   // Planets
-  tvMoons.Select(tvMoons.Items[3]); // show Earth
+  tvMoons.Select(tvMoons.Items[0]); // show Moon
   tvMoons.FullExpand;
   tvMoonsClick(Self);
 
