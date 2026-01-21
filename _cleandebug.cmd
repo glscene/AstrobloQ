@@ -22,6 +22,7 @@ del *.local /s
 del *.ini /s
 del *.pof /s
 del *.dsv /s
+del *.rsm /s
 
 rem delete more files
 
@@ -34,7 +35,7 @@ del *.stat /s
 del *.~dbg /s
 del *.spider /s
 
-rem delete c/cpp files
+rem delete some c/cpp files
 
 rem del *.hpp /s
 del *.obj /s
@@ -50,8 +51,6 @@ del *.pdb /s
 del *.vlb /s
 del *.user /s
 del *.lnk /s
-
-
 
 echo _
 echo ************************************************

@@ -5,23 +5,22 @@ uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgGalaqtium in '..\source\galaxy\fgGalaqtium.pas' {frmGalaqtium},
+  fgMonitor_ru in '..\source\galaxy\fgMonitor_ru.pas' {FormMonitor},
+  fgParadox_ru in '..\source\galaxy\fgParadox_ru.pas' {FormParadox},
+  fgExoplanets_ru in '..\source\galaxy\fgExoplanets_ru.pas' {FormExoplanets},
+  fgAstrocube_ru in '..\source\galaxy\fgAstrocube_ru.pas' {FormNewStarcube},
+  fgOptions_ru in '..\source\galaxy\fgOptions_ru.pas' {frmOptions},
+  fgGalaqtium_ru in '..\source\galaxy\fgGalaqtium_ru.pas' {frmGalaqtium},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fgOptions in '..\source\galaxy\fgOptions.pas' {frmOption},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
-  Astro.Globals in '..\source\astro\Astro.Globals.pas',
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
-  fgAstrocube in '..\source\galaxy\fgAstrocube.pas' {FormAstrocube},
-  fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
-  fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
-  fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
-  fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser},
+  fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  fmSettings in '..\source\fmSettings.pas' {frmSettings},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection};
 
 {$R *.res}
@@ -34,9 +33,8 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmOption, frmOption);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
-  Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TFormProjection, FormProjection);
   Application.Run;
 end.
