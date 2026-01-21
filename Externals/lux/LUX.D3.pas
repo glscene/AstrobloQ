@@ -129,26 +129,17 @@ type
     class operator Positive(const V_: TCardinal3D): TCardinal3D; inline;
     class operator Add(const A_, B_: TCardinal3D): TCardinal3D; inline;
     class operator Subtract(const A_, B_: TCardinal3D): TCardinal3D; inline;
-    class operator Multiply(const A_: TCardinal3D; const B_: Cardinal)
-      : TCardinal3D; inline;
-    class operator Multiply(const A_: Cardinal; const B_: TCardinal3D)
-      : TCardinal3D; inline;
-    class operator IntDivide(const A_: TCardinal3D; const B_: Cardinal)
-      : TCardinal3D; inline;
-    class operator Modulus(const A_: TCardinal3D; const B_: Cardinal)
-      : TCardinal3D; inline;
-    class operator LeftShift(const A_: TCardinal3D; const B_: Integer)
-      : TCardinal3D; inline;
-    class operator RightShift(const A_: TCardinal3D; const B_: Integer)
-      : TCardinal3D; inline;
+    class operator Multiply(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D; inline;
+    class operator Multiply(const A_: Cardinal; const B_: TCardinal3D): TCardinal3D; inline;
+    class operator IntDivide(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D; inline;
+    class operator Modulus(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D; inline;
+    class operator LeftShift(const A_: TCardinal3D; const B_: Integer): TCardinal3D; inline;
+    class operator RightShift(const A_: TCardinal3D; const B_: Integer): TCardinal3D; inline;
     class operator Equal(const A_, B_: TCardinal3D): Boolean; inline;
     class operator NotEqual(const A_, B_: TCardinal3D): Boolean; inline;
-    class operator BitwiseAnd(const A_: TCardinal3D; const B_: Cardinal)
-      : TCardinal3D; inline;
-    class operator BitwiseOr(const A_: TCardinal3D; const B_: Cardinal)
-      : TCardinal3D; inline;
-    class operator BitwiseXor(const A_: TCardinal3D; const B_: Cardinal)
-      : TCardinal3D; inline;
+    class operator BitwiseAnd(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D; inline;
+    class operator BitwiseOr(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D; inline;
+    class operator BitwiseXor(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D; inline;
     class operator Explicit(const V_: TCardinal3D): TByte3D; inline;
     class operator Explicit(const V_: TByte3D): TCardinal3D; inline;
     class operator Explicit(const V_: TCardinal3D): TShortint3D; inline;
@@ -185,26 +176,17 @@ type
     class operator Positive(const V_: TInteger3D): TInteger3D; inline;
     class operator Add(const A_, B_: TInteger3D): TInteger3D; inline;
     class operator Subtract(const A_, B_: TInteger3D): TInteger3D; inline;
-    class operator Multiply(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
-    class operator Multiply(const A_: Integer; const B_: TInteger3D)
-      : TInteger3D; inline;
-    class operator IntDivide(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
-    class operator Modulus(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
-    class operator LeftShift(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
-    class operator RightShift(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
+    class operator Multiply(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
+    class operator Multiply(const A_: Integer; const B_: TInteger3D): TInteger3D; inline;
+    class operator IntDivide(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
+    class operator Modulus(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
+    class operator LeftShift(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
+    class operator RightShift(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
     class operator Equal(const A_, B_: TInteger3D): Boolean; inline;
     class operator NotEqual(const A_, B_: TInteger3D): Boolean; inline;
-    class operator BitwiseAnd(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
-    class operator BitwiseOr(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
-    class operator BitwiseXor(const A_: TInteger3D; const B_: Integer)
-      : TInteger3D; inline;
+    class operator BitwiseAnd(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
+    class operator BitwiseOr(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
+    class operator BitwiseXor(const A_: TInteger3D; const B_: Integer): TInteger3D; inline;
     class operator Explicit(const V_: TInteger3D): TByte3D; inline;
     class operator Explicit(const V_: TByte3D): TInteger3D; inline;
     class operator Explicit(const V_: TInteger3D): TShortint3D; inline;
@@ -261,12 +243,9 @@ type
     class operator Positive(const V_: TSingle3D): TSingle3D; inline;
     class operator Add(const A_, B_: TSingle3D): TSingle3D; inline;
     class operator Subtract(const A_, B_: TSingle3D): TSingle3D; inline;
-    class operator Multiply(const A_: TSingle3D; const B_: Single)
-      : TSingle3D; inline;
-    class operator Multiply(const A_: Single; const B_: TSingle3D)
-      : TSingle3D; inline;
-    class operator Divide(const A_: TSingle3D; const B_: Single)
-      : TSingle3D; inline;
+    class operator Multiply(const A_: TSingle3D; const B_: Single): TSingle3D; inline;
+    class operator Multiply(const A_: Single; const B_: TSingle3D): TSingle3D; inline;
+    class operator Divide(const A_: TSingle3D; const B_: Single): TSingle3D; inline;
     class operator Implicit(const V_: TInteger3D): TSingle3D; inline;
     class operator Implicit(const V_: TSingle2D): TSingle3D; inline;
     class operator Explicit(const V_: TSingle3D): TSingle2D; inline;
@@ -334,12 +313,9 @@ type
     class operator Positive(const V_: TDouble3D): TDouble3D; inline;
     class operator Add(const A_, B_: TDouble3D): TDouble3D; inline;
     class operator Subtract(const A_, B_: TDouble3D): TDouble3D; inline;
-    class operator Multiply(const A_: TDouble3D; const B_: Double)
-      : TDouble3D; inline;
-    class operator Multiply(const A_: Double; const B_: TDouble3D)
-      : TDouble3D; inline;
-    class operator Divide(const A_: TDouble3D; const B_: Double)
-      : TDouble3D; inline;
+    class operator Multiply(const A_: TDouble3D; const B_: Double): TDouble3D; inline;
+    class operator Multiply(const A_: Double; const B_: TDouble3D): TDouble3D; inline;
+    class operator Divide(const A_: TDouble3D; const B_: Double): TDouble3D; inline;
     class operator Implicit(const V_: TInteger3D): TDouble3D; inline;
     class operator Implicit(const V_: TDouble2D): TDouble3D; inline;
     class operator Explicit(const V_: TDouble3D): TDouble2D; inline;
@@ -401,12 +377,9 @@ type
     class operator Positive(const V_: TdSingle3D): TdSingle3D; inline;
     class operator Add(const A_, B_: TdSingle3D): TdSingle3D; inline;
     class operator Subtract(const A_, B_: TdSingle3D): TdSingle3D; inline;
-    class operator Multiply(const A_: TdSingle3D; const B_: TdSingle)
-      : TdSingle3D; inline;
-    class operator Multiply(const A_: TdSingle; const B_: TdSingle3D)
-      : TdSingle3D; inline;
-    class operator Divide(const A_: TdSingle3D; const B_: TdSingle)
-      : TdSingle3D; inline;
+    class operator Multiply(const A_: TdSingle3D; const B_: TdSingle): TdSingle3D; inline;
+    class operator Multiply(const A_: TdSingle; const B_: TdSingle3D): TdSingle3D; inline;
+    class operator Divide(const A_: TdSingle3D; const B_: TdSingle): TdSingle3D; inline;
     class operator Implicit(const V_: TSingle3D): TdSingle3D;
     class operator Implicit(const V_: TdSingle3D): TSingle3D; inline;
     case Byte of
@@ -453,12 +426,9 @@ type
     class operator Positive(const V_: TdDouble3D): TdDouble3D; inline;
     class operator Add(const A_, B_: TdDouble3D): TdDouble3D; inline;
     class operator Subtract(const A_, B_: TdDouble3D): TdDouble3D; inline;
-    class operator Multiply(const A_: TdDouble3D; const B_: TdDouble)
-      : TdDouble3D; inline;
-    class operator Multiply(const A_: TdDouble; const B_: TdDouble3D)
-      : TdDouble3D; inline;
-    class operator Divide(const A_: TdDouble3D; const B_: TdDouble)
-      : TdDouble3D; inline;
+    class operator Multiply(const A_: TdDouble3D; const B_: TdDouble): TdDouble3D; inline;
+    class operator Multiply(const A_: TdDouble; const B_: TdDouble3D): TdDouble3D; inline;
+    class operator Divide(const A_: TdDouble3D; const B_: TdDouble): TdDouble3D; inline;
     class operator Implicit(const V_: TDouble3D): TdDouble3D;
     class operator Implicit(const V_: TdDouble3D): TDouble3D; inline;
     case Byte of
@@ -490,12 +460,9 @@ type
     class operator Positive(const V_: TSingleSiz3D): TSingleSiz3D; inline;
     class operator Add(const A_, B_: TSingleSiz3D): TSingleSiz3D; inline;
     class operator Subtract(const A_, B_: TSingleSiz3D): TSingleSiz3D; inline;
-    class operator Multiply(const A_: TSingleSiz3D; const B_: Single)
-      : TSingleSiz3D; inline;
-    class operator Multiply(const A_: Single; const B_: TSingleSiz3D)
-      : TSingleSiz3D; inline;
-    class operator Divide(const A_: TSingleSiz3D; const B_: Single)
-      : TSingleSiz3D; inline;
+    class operator Multiply(const A_: TSingleSiz3D; const B_: Single): TSingleSiz3D; inline;
+    class operator Multiply(const A_: Single; const B_: TSingleSiz3D): TSingleSiz3D; inline;
+    class operator Divide(const A_: TSingleSiz3D; const B_: Single): TSingleSiz3D; inline;
     class operator Implicit(const V_: TPoint3D): TSingleSiz3D; inline;
     class operator Implicit(const V_: TSingleSiz3D): TPoint3D; inline;
     class operator Implicit(const V_: TVector3D): TSingleSiz3D; inline;
@@ -504,6 +471,7 @@ type
     class operator Implicit(const V_: TSingleSiz3D): TSingle3D; inline;
   end;
 
+  // -----------------------------------------------------------------------
   TDoubleSiz3D = record
   private
   public
@@ -515,12 +483,9 @@ type
     class operator Positive(const V_: TDoubleSiz3D): TDoubleSiz3D; inline;
     class operator Add(const A_, B_: TDoubleSiz3D): TDoubleSiz3D; inline;
     class operator Subtract(const A_, B_: TDoubleSiz3D): TDoubleSiz3D; inline;
-    class operator Multiply(const A_: TDoubleSiz3D; const B_: Double)
-      : TDoubleSiz3D; inline;
-    class operator Multiply(const A_: Double; const B_: TDoubleSiz3D)
-      : TDoubleSiz3D; inline;
-    class operator Divide(const A_: TDoubleSiz3D; const B_: Double)
-      : TDoubleSiz3D; inline;
+    class operator Multiply(const A_: TDoubleSiz3D; const B_: Double): TDoubleSiz3D; inline;
+    class operator Multiply(const A_: Double; const B_: TDoubleSiz3D): TDoubleSiz3D; inline;
+    class operator Divide(const A_: TDoubleSiz3D; const B_: Double): TDoubleSiz3D; inline;
     class operator Implicit(const V_: TPoint3D): TDoubleSiz3D; inline;
     class operator Implicit(const V_: TDoubleSiz3D): TPoint3D; inline;
     class operator Implicit(const V_: TVector3D): TDoubleSiz3D; inline;
@@ -528,6 +493,8 @@ type
     class operator Implicit(const V_: TDouble3D): TDoubleSiz3D; inline;
     class operator Implicit(const V_: TDoubleSiz3D): TDouble3D; inline;
   end;
+
+  // --------------------------------------------------------------------------
 
   TSingleArea3D = record
   private
@@ -550,8 +517,7 @@ type
     Min: TSingle3D;
     Max: TSingle3D;
     constructor Create(const Min_, Max_: Single); overload;
-    constructor Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_,
-      MaxZ_: Single); overload;
+    constructor Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_, MaxZ_: Single); overload;
     constructor Create(const Min_, Max_: TSingle3D); overload;
     property Poin[const I_: Integer]: TSingle3D read GetPoin;
     property Sign: Shortint read GetSign;
@@ -574,6 +540,8 @@ type
     function Collision(const Area_: TSingleArea3D): Boolean;
   end;
 
+  //--------------------------------------------------------------------------
+
   TDoubleArea3D = record
   private
     function GetPoin(const I_: Integer): TDouble3D;
@@ -595,8 +563,7 @@ type
     Min: TDouble3D;
     Max: TDouble3D;
     constructor Create(const Min_, Max_: Double); overload;
-    constructor Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_,
-      MaxZ_: Double); overload;
+    constructor Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_, MaxZ_: Double); overload;
     constructor Create(const Min_, Max_: TDouble3D); overload;
     property Poin[const I_: Integer]: TDouble3D read GetPoin;
     property Sign: Shortint read GetSign;
@@ -619,6 +586,8 @@ type
     function Collision(const Area_: TDoubleArea3D): Boolean;
   end;
 
+  // -------------------------------------------------------------------------
+
   TSingleRay3D = record
   private
     function GetUnitor: TSingleRay3D; inline;
@@ -629,6 +598,8 @@ type
     property Unitor: TSingleRay3D read GetUnitor write SetUnitor;
     function GoPos(const Len_: Single): TSingle3D;
   end;
+
+  // -------------------------------------------------------------------------
 
   TDoubleRay3D = record
   private
@@ -643,51 +614,53 @@ type
 
 function DotProduct(const A_, B_: TSingleVec3D): Single; inline; overload;
 function DotProduct(const A_, B_: TDoubleVec3D): Double; inline; overload;
+
 function DotProduct(const A_, B_: TdSingleVec3D): TdSingle; inline; overload;
 function DotProduct(const A_, B_: TdDoubleVec3D): TdDouble; inline; overload;
 
-function CrossProduct(const A_, B_: TSingleVec3D): TSingleVec3D;
-  inline; overload;
-function CrossProduct(const A_, B_: TDoubleVec3D): TDoubleVec3D;
-  inline; overload;
-function CrossProduct(const A_, B_: TdSingleVec3D): TdSingleVec3D;
-  inline; overload;
-function CrossProduct(const A_, B_: TdDoubleVec3D): TdDoubleVec3D;
-  inline; overload;
+function CrossProduct(const A_, B_: TSingleVec3D): TSingleVec3D; inline; overload;
+function CrossProduct(const A_, B_: TDoubleVec3D): TDoubleVec3D; inline; overload;
+
+function CrossProduct(const A_, B_: TdSingleVec3D): TdSingleVec3D; inline; overload;
+function CrossProduct(const A_, B_: TdDoubleVec3D): TdDoubleVec3D; inline; overload;
 
 function Distanc2(const A_, B_: TSinglePos3D): Single; inline; overload;
 function Distanc2(const A_, B_: TDoublePos3D): Double; inline; overload;
+
 function Distance(const A_, B_: TSinglePos3D): Single; inline; overload;
 function Distance(const A_, B_: TDoublePos3D): Double; inline; overload;
+
 function Distanc2(const A_, B_: TdSinglePos3D): TdSingle; inline; overload;
 function Distanc2(const A_, B_: TdDoublePos3D): TdDouble; inline; overload;
+
 function Distance(const A_, B_: TdSinglePos3D): TdSingle; inline; overload;
 function Distance(const A_, B_: TdDoublePos3D): TdDouble; inline; overload;
 
 function Ave(const P1_, P2_: TSingle3D): TSingle3D; inline; overload;
 function Ave(const P1_, P2_: TDouble3D): TDouble3D; inline; overload;
+
 function Ave(const P1_, P2_, P3_: TSingle3D): TSingle3D; inline; overload;
 function Ave(const P1_, P2_, P3_: TDouble3D): TDouble3D; inline; overload;
+
 function Ave(const P1_, P2_, P3_, P4_: TSingle3D): TSingle3D; inline; overload;
 function Ave(const P1_, P2_, P3_, P4_: TDouble3D): TDouble3D; inline; overload;
+
 function Ave(const P1_, P2_: TdSingle3D): TdSingle3D; inline; overload;
 function Ave(const P1_, P2_: TdDouble3D): TdDouble3D; inline; overload;
+
 function Ave(const P1_, P2_, P3_: TdSingle3D): TdSingle3D; inline; overload;
 function Ave(const P1_, P2_, P3_: TdDouble3D): TdDouble3D; inline; overload;
-function Ave(const P1_, P2_, P3_, P4_: TdSingle3D): TdSingle3D; inline;
-  overload;
-function Ave(const P1_, P2_, P3_, P4_: TdDouble3D): TdDouble3D; inline;
-  overload;
 
-function Nabla(const Func_: TConstFunc<TdSingle3D, TdSingle>;
-  const P_: TSingle3D): TSingle3D; inline; overload;
-function Nabla(const Func_: TConstFunc<TdDouble3D, TdDouble>;
-  const P_: TDouble3D): TDouble3D; inline; overload;
+function Ave(const P1_, P2_, P3_, P4_: TdSingle3D): TdSingle3D; inline; overload;
+function Ave(const P1_, P2_, P3_, P4_: TdDouble3D): TdDouble3D; inline; overload;
 
-function PolySolveReal(const Ks_: TSingle3D; out Xs_: TSingle2D): Byte;
-  overload;
-function PolySolveReal(const Ks_: TDouble3D; out Xs_: TDouble2D): Byte;
-  overload;
+function Nabla(const Func_: TConstFunc<TdSingle3D, TdSingle>; const P_: TSingle3D): TSingle3D;
+  inline; overload;
+function Nabla(const Func_: TConstFunc<TdDouble3D, TdDouble>; const P_: TDouble3D): TDouble3D;
+  inline; overload;
+
+function PolySolveReal(const Ks_: TSingle3D; out Xs_: TSingle2D): Byte; overload;
+function PolySolveReal(const Ks_: TDouble3D; out Xs_: TDouble2D): Byte; overload;
 
 implementation // -------------------------------------------------------------
 
@@ -869,8 +842,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.Multiply(const A_: TCardinal3D; const B_: Cardinal)
-  : TCardinal3D;
+class operator TCardinal3D.Multiply(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D;
 begin
   with Result do
   begin
@@ -880,8 +852,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.Multiply(const A_: Cardinal; const B_: TCardinal3D)
-  : TCardinal3D;
+class operator TCardinal3D.Multiply(const A_: Cardinal; const B_: TCardinal3D): TCardinal3D;
 begin
   with Result do
   begin
@@ -891,8 +862,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.IntDivide(const A_: TCardinal3D; const B_: Cardinal)
-  : TCardinal3D;
+class operator TCardinal3D.IntDivide(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D;
 begin
   with Result do
   begin
@@ -902,8 +872,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.Modulus(const A_: TCardinal3D; const B_: Cardinal)
-  : TCardinal3D;
+class operator TCardinal3D.Modulus(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D;
 begin
   with Result do
   begin
@@ -913,8 +882,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.LeftShift(const A_: TCardinal3D; const B_: Integer)
-  : TCardinal3D;
+class operator TCardinal3D.LeftShift(const A_: TCardinal3D; const B_: Integer): TCardinal3D;
 begin
   with Result do
   begin
@@ -924,8 +892,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.RightShift(const A_: TCardinal3D; const B_: Integer)
-  : TCardinal3D;
+class operator TCardinal3D.RightShift(const A_: TCardinal3D; const B_: Integer): TCardinal3D;
 begin
   with Result do
   begin
@@ -945,8 +912,7 @@ begin
   Result := not(A_ = B_);
 end;
 
-class operator TCardinal3D.BitwiseAnd(const A_: TCardinal3D; const B_: Cardinal)
-  : TCardinal3D;
+class operator TCardinal3D.BitwiseAnd(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D;
 begin
   with Result do
   begin
@@ -956,8 +922,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.BitwiseOr(const A_: TCardinal3D; const B_: Cardinal)
-  : TCardinal3D;
+class operator TCardinal3D.BitwiseOr(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D;
 begin
   with Result do
   begin
@@ -967,8 +932,7 @@ begin
   end;
 end;
 
-class operator TCardinal3D.BitwiseXor(const A_: TCardinal3D; const B_: Cardinal)
-  : TCardinal3D;
+class operator TCardinal3D.BitwiseXor(const A_: TCardinal3D; const B_: Cardinal): TCardinal3D;
 begin
   with Result do
   begin
@@ -1126,8 +1090,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.Multiply(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.Multiply(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1137,8 +1100,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.Multiply(const A_: Integer; const B_: TInteger3D)
-  : TInteger3D;
+class operator TInteger3D.Multiply(const A_: Integer; const B_: TInteger3D): TInteger3D;
 begin
   with Result do
   begin
@@ -1148,8 +1110,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.IntDivide(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.IntDivide(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1159,8 +1120,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.Modulus(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.Modulus(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1170,8 +1130,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.LeftShift(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.LeftShift(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1181,8 +1140,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.RightShift(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.RightShift(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1202,8 +1160,7 @@ begin
   Result := not(A_ = B_);
 end;
 
-class operator TInteger3D.BitwiseAnd(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.BitwiseAnd(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1213,8 +1170,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.BitwiseOr(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.BitwiseOr(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1224,8 +1180,7 @@ begin
   end;
 end;
 
-class operator TInteger3D.BitwiseXor(const A_: TInteger3D; const B_: Integer)
-  : TInteger3D;
+class operator TInteger3D.BitwiseXor(const A_: TInteger3D; const B_: Integer): TInteger3D;
 begin
   with Result do
   begin
@@ -1472,8 +1427,7 @@ begin
   end;
 end;
 
-class operator TSingle3D.Multiply(const A_: TSingle3D; const B_: Single)
-  : TSingle3D;
+class operator TSingle3D.Multiply(const A_: TSingle3D; const B_: Single): TSingle3D;
 begin
   with Result do
   begin
@@ -1483,8 +1437,7 @@ begin
   end;
 end;
 
-class operator TSingle3D.Multiply(const A_: Single; const B_: TSingle3D)
-  : TSingle3D;
+class operator TSingle3D.Multiply(const A_: Single; const B_: TSingle3D): TSingle3D;
 begin
   with Result do
   begin
@@ -1494,8 +1447,7 @@ begin
   end;
 end;
 
-class operator TSingle3D.Divide(const A_: TSingle3D; const B_: Single)
-  : TSingle3D;
+class operator TSingle3D.Divide(const A_: TSingle3D; const B_: Single): TSingle3D;
 begin
   with Result do
   begin
@@ -1800,8 +1752,7 @@ begin
   end;
 end;
 
-class operator TDouble3D.Multiply(const A_: TDouble3D; const B_: Double)
-  : TDouble3D;
+class operator TDouble3D.Multiply(const A_: TDouble3D; const B_: Double): TDouble3D;
 begin
   with Result do
   begin
@@ -1811,8 +1762,7 @@ begin
   end;
 end;
 
-class operator TDouble3D.Multiply(const A_: Double; const B_: TDouble3D)
-  : TDouble3D;
+class operator TDouble3D.Multiply(const A_: Double; const B_: TDouble3D): TDouble3D;
 begin
   with Result do
   begin
@@ -1822,8 +1772,7 @@ begin
   end;
 end;
 
-class operator TDouble3D.Divide(const A_: TDouble3D; const B_: Double)
-  : TDouble3D;
+class operator TDouble3D.Divide(const A_: TDouble3D; const B_: Double): TDouble3D;
 begin
   with Result do
   begin
@@ -2098,8 +2047,7 @@ begin
   end;
 end;
 
-class operator TdSingle3D.Multiply(const A_: TdSingle3D; const B_: TdSingle)
-  : TdSingle3D;
+class operator TdSingle3D.Multiply(const A_: TdSingle3D; const B_: TdSingle): TdSingle3D;
 begin
   with Result do
   begin
@@ -2109,8 +2057,7 @@ begin
   end;
 end;
 
-class operator TdSingle3D.Multiply(const A_: TdSingle; const B_: TdSingle3D)
-  : TdSingle3D;
+class operator TdSingle3D.Multiply(const A_: TdSingle; const B_: TdSingle3D): TdSingle3D;
 begin
   with Result do
   begin
@@ -2120,8 +2067,7 @@ begin
   end;
 end;
 
-class operator TdSingle3D.Divide(const A_: TdSingle3D; const B_: TdSingle)
-  : TdSingle3D;
+class operator TdSingle3D.Divide(const A_: TdSingle3D; const B_: TdSingle): TdSingle3D;
 begin
   with Result do
   begin
@@ -2158,7 +2104,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function TdDouble3D.Geto: TDouble3D;
 begin
   Result.X := X.o;
@@ -2264,8 +2209,7 @@ begin
   end;
 end;
 
-class operator TdDouble3D.Multiply(const A_: TdDouble3D; const B_: TdDouble)
-  : TdDouble3D;
+class operator TdDouble3D.Multiply(const A_: TdDouble3D; const B_: TdDouble): TdDouble3D;
 begin
   with Result do
   begin
@@ -2275,8 +2219,7 @@ begin
   end;
 end;
 
-class operator TdDouble3D.Multiply(const A_: TdDouble; const B_: TdDouble3D)
-  : TdDouble3D;
+class operator TdDouble3D.Multiply(const A_: TdDouble; const B_: TdDouble3D): TdDouble3D;
 begin
   with Result do
   begin
@@ -2286,8 +2229,7 @@ begin
   end;
 end;
 
-class operator TdDouble3D.Divide(const A_: TdDouble3D; const B_: TdDouble)
-  : TdDouble3D;
+class operator TdDouble3D.Divide(const A_: TdDouble3D; const B_: TdDouble): TdDouble3D;
 begin
   with Result do
   begin
@@ -2360,8 +2302,7 @@ begin
   end;
 end;
 
-class operator TSingleSiz3D.Multiply(const A_: TSingleSiz3D; const B_: Single)
-  : TSingleSiz3D;
+class operator TSingleSiz3D.Multiply(const A_: TSingleSiz3D; const B_: Single): TSingleSiz3D;
 begin
   with Result do
   begin
@@ -2371,8 +2312,7 @@ begin
   end;
 end;
 
-class operator TSingleSiz3D.Multiply(const A_: Single; const B_: TSingleSiz3D)
-  : TSingleSiz3D;
+class operator TSingleSiz3D.Multiply(const A_: Single; const B_: TSingleSiz3D): TSingleSiz3D;
 begin
   with Result do
   begin
@@ -2382,8 +2322,7 @@ begin
   end;
 end;
 
-class operator TSingleSiz3D.Divide(const A_: TSingleSiz3D; const B_: Single)
-  : TSingleSiz3D;
+class operator TSingleSiz3D.Divide(const A_: TSingleSiz3D; const B_: Single): TSingleSiz3D;
 begin
   with Result do
   begin
@@ -2490,8 +2429,7 @@ begin
   end;
 end;
 
-class operator TDoubleSiz3D.Multiply(const A_: TDoubleSiz3D; const B_: Double)
-  : TDoubleSiz3D;
+class operator TDoubleSiz3D.Multiply(const A_: TDoubleSiz3D; const B_: Double): TDoubleSiz3D;
 begin
   with Result do
   begin
@@ -2501,8 +2439,7 @@ begin
   end;
 end;
 
-class operator TDoubleSiz3D.Multiply(const A_: Double; const B_: TDoubleSiz3D)
-  : TDoubleSiz3D;
+class operator TDoubleSiz3D.Multiply(const A_: Double; const B_: TDoubleSiz3D): TDoubleSiz3D;
 begin
   with Result do
   begin
@@ -2512,8 +2449,7 @@ begin
   end;
 end;
 
-class operator TDoubleSiz3D.Divide(const A_: TDoubleSiz3D; const B_: Double)
-  : TDoubleSiz3D;
+class operator TDoubleSiz3D.Divide(const A_: TDoubleSiz3D; const B_: Double): TDoubleSiz3D;
 begin
   with Result do
   begin
@@ -2703,8 +2639,7 @@ begin
   Create(Min_, Min_, Min_, Max_, Max_, Max_);
 end;
 
-constructor TSingleArea3D.Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_,
-  MaxZ_: Single);
+constructor TSingleArea3D.Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_, MaxZ_: Single);
 begin
   with Min do
   begin
@@ -2729,8 +2664,7 @@ end;
 
 class function TSingleArea3D.NeInf: TSingleArea3D;
 begin
-  Result := TSingleArea3D.Create(Single.PositiveInfinity,
-    Single.NegativeInfinity);
+  Result := TSingleArea3D.Create(Single.PositiveInfinity, Single.NegativeInfinity);
 end;
 
 class function TSingleArea3D.NeMax: TSingleArea3D;
@@ -2750,8 +2684,7 @@ end;
 
 class function TSingleArea3D.PoInf: TSingleArea3D;
 begin
-  Result := TSingleArea3D.Create(Single.NegativeInfinity,
-    Single.PositiveInfinity);
+  Result := TSingleArea3D.Create(Single.NegativeInfinity, Single.PositiveInfinity);
 end;
 
 function TSingleArea3D.ProjVec(const Vec_: TSingle3D): TSingleArea;
@@ -2906,8 +2839,7 @@ begin
   Create(Min_, Min_, Min_, Max_, Max_, Max_);
 end;
 
-constructor TDoubleArea3D.Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_,
-  MaxZ_: Double);
+constructor TDoubleArea3D.Create(const MinX_, MinY_, MinZ_, MaxX_, MaxY_, MaxZ_: Double);
 begin
   with Min do
   begin
@@ -2932,8 +2864,7 @@ end;
 
 class function TDoubleArea3D.NeInf: TDoubleArea3D;
 begin
-  Result := TDoubleArea3D.Create(Double.PositiveInfinity,
-    Double.NegativeInfinity);
+  Result := TDoubleArea3D.Create(Double.PositiveInfinity, Double.NegativeInfinity);
 end;
 
 class function TDoubleArea3D.NeMax: TDoubleArea3D;
@@ -2953,8 +2884,7 @@ end;
 
 class function TDoubleArea3D.PoInf: TDoubleArea3D;
 begin
-  Result := TDoubleArea3D.Create(Double.NegativeInfinity,
-    Double.PositiveInfinity);
+  Result := TDoubleArea3D.Create(Double.NegativeInfinity, Double.PositiveInfinity);
 end;
 
 function TDoubleArea3D.ProjVec(const Vec_: TDouble3D): TDoubleArea;
@@ -3181,8 +3111,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function Nabla(const Func_: TConstFunc<TdSingle3D, TdSingle>;
-  const P_: TSingle3D): TSingle3D;
+function Nabla(const Func_: TConstFunc<TdSingle3D, TdSingle>; const P_: TSingle3D): TSingle3D;
 var
   P, F: TdSingle3D;
 begin
@@ -3200,8 +3129,7 @@ begin
   Result.Z := F.Z.d;
 end;
 
-function Nabla(const Func_: TConstFunc<TdDouble3D, TdDouble>;
-  const P_: TDouble3D): TDouble3D;
+function Nabla(const Func_: TConstFunc<TdDouble3D, TdDouble>; const P_: TDouble3D): TDouble3D;
 var
   P, F: TdDouble3D;
 begin
@@ -3287,6 +3215,6 @@ end;
 
 initialization // --------------------------------------------------------------
 
-finalization
+finalization //================================================================
 
 end.

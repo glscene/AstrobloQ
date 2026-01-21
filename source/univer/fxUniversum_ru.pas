@@ -27,11 +27,11 @@ uses
   FMX.ActnList,
   FMX.StdCtrls,
 
-  //  fxVolumeRenderR,
   fxForm,
   fxAbout_ru,
   fxSettings_ru,
-  fxAstrogen_ru
+  fxAstrogen_ru,
+  fxVolumeRender
   ;
 
 type
@@ -66,7 +66,7 @@ type
     acFileExit: TAction;
     tviPlanetoid: TTreeViewItem;
     tviStar: TTreeViewItem;
-    miScatterPlot: TMenuItem;
+    miScatterStars: TMenuItem;
     miVolumeRender: TMenuItem;
     procedure frmCreate(Sender: TObject);
     procedure miExitClick(Sender: TObject);
@@ -75,7 +75,7 @@ type
     procedure miStarsysGenClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
     procedure miWikiClick(Sender: TObject);
-    procedure miScatterPlotClick(Sender: TObject);
+    procedure miScatterStarsClick(Sender: TObject);
     procedure miVolumeRenderClick(Sender: TObject);
   private
   public
@@ -195,21 +195,17 @@ end;
 
 procedure TfrmUniversum.miVolumeRenderClick(Sender: TObject);
 begin
-  inherited;
-(*
   with TFormTexture3D.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
-*)
 end;
 
 //---------------------------------------------------------------------------
-procedure TfrmUniversum.miScatterPlotClick(Sender: TObject);
+procedure TfrmUniversum.miScatterStarsClick(Sender: TObject);
 begin
-  inherited;
   with TFormScatterPlot.Create(Self) do
     try
       ShowModal;

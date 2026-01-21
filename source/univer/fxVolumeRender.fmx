@@ -31,7 +31,6 @@ object FormTexture3D: TFormTexture3D
       CustomIcon = <
         item
         end>
-      TextSettings.Trimming = None
       IsSelected = True
       Size.Width = 46.000000000000000000
       Size.Height = 26.000000000000000000
@@ -113,7 +112,6 @@ object FormTexture3D: TFormTexture3D
       CustomIcon = <
         item
         end>
-      TextSettings.Trimming = None
       IsSelected = False
       Size.Width = 57.000000000000000000
       Size.Height = 26.000000000000000000
@@ -144,7 +142,6 @@ object FormTexture3D: TFormTexture3D
           CustomIcon = <
             item
             end>
-          TextSettings.Trimming = None
           IsSelected = False
           Size.Width = 53.000000000000000000
           Size.Height = 26.000000000000000000
@@ -175,7 +172,6 @@ object FormTexture3D: TFormTexture3D
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = True
               Size.Width = 41.000000000000000000
               Size.Height = 26.000000000000000000
@@ -199,15 +195,14 @@ object FormTexture3D: TFormTexture3D
                 Size.Height = 510.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 808.000000000000000000
-                Viewport.Height = 506.000000000000000000
+                Viewport.Width = 812.000000000000000000
+                Viewport.Height = 510.000000000000000000
               end
             end
             object TabItemSVE: TTabItem
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = False
               Size.Width = 65.000000000000000000
               Size.Height = 26.000000000000000000
@@ -231,8 +226,8 @@ object FormTexture3D: TFormTexture3D
                 Size.Height = 510.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 808.000000000000000000
-                Viewport.Height = 506.000000000000000000
+                Viewport.Width = 812.000000000000000000
+                Viewport.Height = 510.000000000000000000
               end
             end
           end
@@ -241,7 +236,6 @@ object FormTexture3D: TFormTexture3D
           CustomIcon = <
             item
             end>
-          TextSettings.Trimming = None
           IsSelected = True
           Size.Width = 45.000000000000000000
           Size.Height = 26.000000000000000000
@@ -272,7 +266,6 @@ object FormTexture3D: TFormTexture3D
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = True
               Size.Width = 48.000000000000000000
               Size.Height = 26.000000000000000000
@@ -299,15 +292,14 @@ object FormTexture3D: TFormTexture3D
                 Size.Height = 510.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 808.000000000000000000
-                Viewport.Height = 506.000000000000000000
+                Viewport.Width = 812.000000000000000000
+                Viewport.Height = 510.000000000000000000
               end
             end
             object TabItemSPE: TTabItem
               CustomIcon = <
                 item
                 end>
-              TextSettings.Trimming = None
               IsSelected = False
               Size.Width = 46.000000000000000000
               Size.Height = 26.000000000000000000
@@ -331,8 +323,8 @@ object FormTexture3D: TFormTexture3D
                 Size.Height = 510.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 808.000000000000000000
-                Viewport.Height = 506.000000000000000000
+                Viewport.Width = 812.000000000000000000
+                Viewport.Height = 510.000000000000000000
               end
             end
           end

@@ -7,7 +7,6 @@ uses
   fxSettings_ru in '..\source\univer\fxSettings_ru.pas' {frmSettings},
   fxAbout_ru in '..\source\univer\fxAbout_ru.pas' {FrmAbout},
   fxAstrogen_ru in '..\source\univer\fxAstrogen_ru.pas' {FormAstrogen},
-  Uni.Material in '..\Source\univer\Uni.Material.pas',
   fxScatterPlot_ru in '..\source\univer\fxScatterPlot_ru.pas' {FormScatterPlot},
   LUX.FMX.ScatterPlotFrame in '..\externals\lux\LUX.FMX.ScatterPlotFrame.pas' {ScatterPlotFrame: TFrame},
   LUX in '..\externals\lux\LUX.pas',
@@ -19,7 +18,9 @@ uses
   LUX.FMX.Material in '..\externals\lux\LUX.FMX.Material.pas',
   LUX.FMX.Types3D in '..\externals\lux\LUX.FMX.Types3D.pas',
   fxForm in '..\source\univer\fxForm.pas' {FormX},
-  Uni.Utils in '..\source\univer\Uni.Utils.pas';
+  Uni.Utils in '..\source\univer\Uni.Utils.pas',
+  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D},
+  Uni.Material in '..\source\univer\Uni.Material.pas';
 
 {$R *.res}
 
@@ -27,6 +28,5 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmUniversum, frmUniversum);
   Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormX, FormX);
   Application.Run;
 end.

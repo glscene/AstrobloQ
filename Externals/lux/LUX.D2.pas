@@ -687,6 +687,8 @@ type
     procedure Add(const Poins_: TArray<TDouble2D>); overload;
   end;
 
+// ---------------------------------------------------------------------------
+
 function DotProduct(const A_, B_: TSingleVec2D): Single; inline; overload;
 function DotProduct(const A_, B_: TDoubleVec2D): Double; inline; overload;
 
@@ -732,7 +734,7 @@ function RotAngle(const V0_, V1_: TDouble2D): Double; overload;
 function PolySolveReal(const Ks_: TSingle2D; out X1_: Single): Byte; overload;
 function PolySolveReal(const Ks_: TDouble2D; out X1_: Double): Byte; overload;
 
-implementation // -------------------------------------------------------------
+implementation //=============================================================
 
 function TByte2D.Gets(const X_: Integer): Byte;
 begin
@@ -1156,7 +1158,7 @@ begin
     Result := Result or 2;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 constructor TDouble2D.Create(const X_, Y_: Double);
 begin
@@ -1230,7 +1232,7 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class operator TDouble2D.Implicit(const V_: TPointF): TDouble2D;
 begin
@@ -1270,7 +1272,7 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class function TDouble2D.IdentityX: TDouble2D;
 begin
@@ -1290,7 +1292,7 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 function TDouble2D.VectorTo(const P_: TDouble2D): TDouble2D;
 begin
@@ -1444,7 +1446,7 @@ begin
   Y := Y_;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class operator TdSingle2D.Negative(const V_: TdSingle2D): TdSingle2D;
 begin
@@ -1512,7 +1514,7 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class operator TdSingle2D.Implicit(const P_: TPointF): TdSingle2D;
 begin
@@ -1618,7 +1620,7 @@ begin
   Self := Size * Unitor_;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 constructor TdDouble2D.Create(const X_, Y_: TdDouble);
 begin
@@ -1626,7 +1628,7 @@ begin
   Y := Y_;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class operator TdDouble2D.Negative(const V_: TdDouble2D): TdDouble2D;
 begin
@@ -1694,7 +1696,7 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class operator TdDouble2D.Implicit(const P_: TPointF): TdDouble2D;
 begin
@@ -1854,7 +1856,7 @@ begin
   Y := Y_;
 end;
 
-/// / -------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 class operator TDoubleSiz2D.Negative(const V_: TDoubleSiz2D): TDoubleSiz2D;
 begin
@@ -1985,7 +1987,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 constructor TdSingleSiz2D.Create(const X_, Y_: TdSingle);
 begin
   X := X_;
@@ -2062,7 +2063,6 @@ begin
 end;
 
 // -------------------------------------------------------------------
-
 class operator TdSingleSiz2D.Implicit(const V_: TdSingle2D): TdSingleSiz2D;
 begin
   with Result do
@@ -2205,7 +2205,6 @@ begin
 end;
 
 // TdSingleCircle2D
-
 function TdSingleCircle2D.Geto: TSingleCircle2D;
 begin
   Result.Center := Center.o;
@@ -2921,6 +2920,6 @@ end;
 
 initialization // ---------------------------------------------------
 
-finalization
+finalization // ==============================================================
 
 end.

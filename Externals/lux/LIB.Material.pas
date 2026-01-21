@@ -70,8 +70,7 @@ type
     property Material: TMyMaterialSource read _Material;
   end;
 
-
-implementation
+implementation //=============================================================
 
 // TMyMaterial
 
@@ -95,6 +94,7 @@ begin
   _ShaderP.SendVars(Context_);
 end;
 
+//---------------------------------------------------------------------------
 constructor TMyMaterial.Create;
 begin
   inherited;
@@ -115,6 +115,7 @@ begin
   _ShaderP.Vars := [_MatrixLG, _MatrixGL, _Light, _EyePos, _Opacity, _Size, _Texture3D];
 end;
 
+//---------------------------------------------------------------------------
 destructor TMyMaterial.Destroy;
 begin
   _MatrixLS.Free;
@@ -129,25 +130,29 @@ begin
   inherited;
 end;
 
+//---------------------------------------------------------------------------
 // TMyMaterialSource
-
+//---------------------------------------------------------------------------
 function TMyMaterialSource.GetSize: TPoint3D;
 begin
   Result := _Material.Size.Value;
 end;
 
+//---------------------------------------------------------------------------
 procedure TMyMaterialSource.SetSize(const Size_: TPoint3D);
 begin
   _Material.Size.Value := Size_;
 end;
 
+//---------------------------------------------------------------------------
 function TMyMaterialSource.GetTexture3D: TTexture3DRGBA32F;
 begin
   Result := _Material.Texture3D.Value;
 end;
 
+//---------------------------------------------------------------------------
 // TVolumeCube
-
+//---------------------------------------------------------------------------
 procedure TVolumeCube.MakeModel;
 begin
   _Material.Size := TPoint3D.Create(Width, Height, Depth);
@@ -229,6 +234,7 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TVolumeCube.SetWidth(const Value_: Single);
 begin
   inherited;
@@ -236,23 +242,27 @@ begin
   MakeModel;
 end;
 
+//---------------------------------------------------------------------------
 procedure TVolumeCube.SetHeight(const Value_: Single);
 begin
   inherited;
   MakeModel;
 end;
 
+//---------------------------------------------------------------------------
 procedure TVolumeCube.SetDepth(const Value_: Single);
 begin
   inherited;
   MakeModel;
 end;
 
+//---------------------------------------------------------------------------
 function TVolumeCube.GetTexture3D: TTexture3DRGBA32F;
 begin
   Result := _Material.Texture3D;
 end;
 
+//---------------------------------------------------------------------------
 procedure TVolumeCube.Render;
 begin
   Context.SetMatrix(TMatrix3D.CreateTranslation(TPoint3D.Create(-Width / 2, -Height / 2, -Depth / 2)
@@ -261,6 +271,7 @@ begin
   _Geometry.Render(Context, TMaterialSource.ValidMaterial(_Material), AbsoluteOpacity);
 end;
 
+//---------------------------------------------------------------------------
 constructor TVolumeCube.Create(Owner_: TComponent);
 begin
   inherited;
@@ -270,15 +281,17 @@ begin
   MakeModel;
 end;
 
+//---------------------------------------------------------------------------
 destructor TVolumeCube.Destroy;
 begin
   _Geometry.Free;
   _Material.Free;
+
   inherited;
 end;
 
-initialization
+initialization //-----------------------------------------------------------
 
-finalization
+finalization //-------------------------------------------------------------
 
 end.

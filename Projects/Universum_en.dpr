@@ -19,7 +19,8 @@ uses
   LUX.FMX.Material in '..\externals\lux\LUX.FMX.Material.pas',
   LUX.FMX.Types3D in '..\externals\lux\LUX.FMX.Types3D.pas',
   fxForm in '..\Source\univer\fxForm.pas' {FormX},
-  Uni.Utils in '..\source\univer\Uni.Utils.pas';
+  Uni.Utils in '..\source\univer\Uni.Utils.pas',
+  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D};
 
 {$R *.res}
 

@@ -1,20 +1,22 @@
 ﻿unit fxVolumeRender;
-// error in LUX.FMX.Context.DX11.pas for Rad 12.3
+
 interface
 
 uses
+  System.StartUpCopy,
   System.Math,
   System.SysUtils,
   System.Types,
   System.UITypes,
   System.Classes,
   System.Variants,
+  System.Math.Vectors,
+
   FMX.Types,
   FMX.Controls,
   FMX.Forms,
   FMX.Graphics,
   FMX.Dialogs,
-  System.Math.Vectors,
   FMX.Types3D,
   FMX.Objects3D,
   FMX.Controls.Presentation,
@@ -23,12 +25,12 @@ uses
   FMX.Controls3D,
   FMX.Viewport3D,
   FMX.TabControl,
+  FMX.Memo.Types,
 
   LUX,
   LUX.D3,
-  LUX.FMX.Context.DX11,
+///  LUX.FMX.Context.DX11,
   LUX.FMX.Types3D,
-  FMX.Memo.Types,
   LIB.Material;
 
 type
@@ -171,6 +173,7 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormTexture3D.FormCreate(Sender: TObject);
 var
   T: String;
@@ -178,6 +181,7 @@ begin
   Assert(Viewport3D1.Context.ClassName = 'TLuxDX11Context',
     'TLuxDX11Context class is not applied!');
 
+  // remake with glsl shaders without DX11 !
   MemoSVC.Lines.LoadFromFile('..\Data\shader\ShaderV.hlsl');
   MemoSPC.Lines.LoadFromFile('..\Data\shader\ShaderP.hlsl');
 

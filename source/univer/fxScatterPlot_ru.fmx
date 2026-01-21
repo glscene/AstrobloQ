@@ -1,7 +1,7 @@
 object FormScatterPlot: TFormScatterPlot
   Left = 0
   Top = 0
-  Caption = 'ScatterPlot'
+  Caption = #1047#1074#1105#1079#1076#1085#1086#1077' '#1089#1082#1086#1087#1083#1077#1085#1080#1077
   ClientHeight = 620
   ClientWidth = 620
   Position = ScreenCenter

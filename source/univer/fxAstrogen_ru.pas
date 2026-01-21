@@ -80,6 +80,7 @@ implementation //--------------------------------------------------------------
 uses
   fxUniversum_ru;
 
+//----------------------------------------------------------------------------
 procedure TFormAstrogen.FormCreate(Sender: TObject);
 var
   M: TAstroMaterialSource;

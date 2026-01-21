@@ -3,9 +3,13 @@
 interface
 
 uses
+  System.SysUtils,
+  System.Math,
+
   LUX;
 
 type
+
   TSingle = record
   private
   public
@@ -185,8 +189,7 @@ type
     property Parent: TParent_ read _Parent write SetParent;
   end;
 
-  TArrayIter<TValue_, TElement_> = class(TIter1D < TValue_,
-    TArray < TElement_ >> )
+  TArrayIter<TValue_, TElement_> = class(TIter1D<TValue_, TArray<TElement_>>)
     // ------------------------------
   type
     PElement_ = ^TElement_;
@@ -197,7 +200,7 @@ type
   public
     constructor Create(const Parent_: TArray<TElement_>;
       const HeadI_: Integer = 0; const StepX_: Integer = 1);
-    /// // メソッド
+
     procedure GoHead; override;
     procedure GoPrev; overload; override;
     procedure GoNext; overload; override;
@@ -276,10 +279,8 @@ function Ln(const X_: TdDouble): TdDouble; overload;
 function Power(const X_, N_: TdSingle): TdSingle; overload;
 function Power(const X_, N_: TdDouble): TdDouble; overload;
 
-implementation
 
-uses
-  System.SysUtils, System.Math;
+implementation //=========================================================
 
 class function TSingle.RandBS1: Single;
 begin
@@ -420,7 +421,7 @@ begin
   Result := (A_.o <= B_.o);
 end;
 
-/// ////////////////////////////////////////////////////////////////////// 型変換
+//==================================================================================
 
 class operator TdSingle.Implicit(const V_: Integer): TdSingle;
 begin
@@ -558,6 +559,7 @@ begin
   Result := (A_.o <= B_.o);
 end;
 
+//==================================================================================
 class operator TdDouble.Implicit(const V_: Integer): TdDouble;
 begin
   with Result do
@@ -602,8 +604,6 @@ begin
     d := V_.d;
   end;
 end;
-
-//--------------------------------------------------------------------------
 
 constructor TSingleArea.Create(const Min_, Max_: Single);
 begin
@@ -655,6 +655,7 @@ begin
   end;
 end;
 
+//==================================================================================
 class function TSingleArea.NeInf: TSingleArea;
 begin
   Result := TSingleArea.Create(Single.PositiveInfinity,
@@ -681,6 +682,8 @@ begin
   Result := TSingleArea.Create(Single.NegativeInfinity,
     Single.PositiveInfinity);
 end;
+
+//==================================================================================
 
 function TSingleArea.Collision(const Area_: TSingleArea): Boolean;
 begin
@@ -737,8 +740,7 @@ begin
   end;
 end;
 
-//
-
+//==================================================================================
 class function TDoubleArea.NeInf: TDoubleArea;
 begin
   Result := TDoubleArea.Create(Double.PositiveInfinity,
@@ -766,16 +768,19 @@ begin
     Double.PositiveInfinity);
 end;
 
+//==================================================================================
 function TDoubleArea.Collision(const Area_: TDoubleArea): Boolean;
 begin
   Result := (Area_.Min <= Max) and (Min <= Area_.Max);
 end;
 
+//==================================================================================
 procedure TIter1D<TValue_>.CalCount;
 begin
   _Count := (_TailI - _HeadI) div _StepX + 1;
 end;
 
+//==================================================================================
 function TIter1D<TValue_>.GetHeadI: Integer;
 begin
   Result := _HeadI;
@@ -980,6 +985,7 @@ begin
   _CurrentP := @_Parent[_HeadI + _StepX * I_];
 end;
 
+//==================================================================================
 function TArrayIter<TValue_>.GetValue: TValue_;
 begin
   Result := _CurrentP^;
@@ -990,6 +996,7 @@ begin
   _CurrentP^ := Value_;
 end;
 
+//==================================================================================
 function Pow2(const X_: TdSingle): TdSingle;
 begin
   with X_ do
@@ -1009,7 +1016,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function Pow3(const X_: TdSingle): TdSingle;
 begin
   with X_ do
@@ -1029,7 +1035,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function Roo2(const X_: TdSingle): TdSingle;
 begin
   with X_ do
@@ -1049,7 +1054,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function ArcCos(const C_: TdSingle): TdSingle;
 begin
   with C_ do
@@ -1069,7 +1073,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function Abso(const V_: TdSingle): TdSingle;
 begin
   Result := Sign(V_.o) * V_;
@@ -1081,7 +1084,6 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function Sin(const X_: TdSingle): TdSingle;
 begin
   with X_ do
@@ -1091,6 +1093,7 @@ begin
   end;
 end;
 
+//=============================================================================
 function Sin(const X_: TdDouble): TdDouble;
 begin
   with X_ do
@@ -1100,7 +1103,7 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 function Cos(const X_: TdSingle): TdSingle;
 begin

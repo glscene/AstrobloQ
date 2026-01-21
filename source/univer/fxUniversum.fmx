@@ -47,10 +47,10 @@ object frmUniversum: TfrmUniversum
         Locked = True
         Text = 'Solar system...'
       end
-      object miScatterPlot: TMenuItem
+      object miScatterStars: TMenuItem
         Locked = True
-        Text = 'Scatter Plot...'
-        OnClick = miScatterPlotClick
+        Text = 'Scatter Stars...'
+        OnClick = miScatterStarsClick
       end
       object miStarsysGen: TMenuItem
         Locked = True
