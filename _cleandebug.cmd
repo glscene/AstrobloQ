@@ -1,5 +1,5 @@
 echo off
-rem del *.exe /s  
+del *.exe /s  
 del *.scr /s
 del *.dcu /s 
 rem del *.res /s  !!!!!

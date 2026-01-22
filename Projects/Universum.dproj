@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{5A868737-E493-4A63-A8BC-67F6DD4928F9}</ProjectGuid>
+        <ProjectGuid>{A17C4DFB-82FE-4608-BF6F-A004B5F6EC8A}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
@@ -171,9 +171,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -191,19 +191,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\univer\fxUniversum_ru.pas">
+        <DCCReference Include="..\Source\univer\fxUniversum.pas">
             <Form>frmUniversum</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxSettings_ru.pas">
+        <DCCReference Include="..\Source\univer\fxSettings.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAbout_ru.pas">
-            <Form>FrmAbout</Form>
+        <DCCReference Include="..\Source\univer\fxAbout.pas">
+            <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAstrogen_ru.pas">
+        <DCCReference Include="..\Source\univer\fxAstrogen.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxScatterPlot_ru.pas">
+        <DCCReference Include="..\Source\univer\Uni.Material.pas"/>
+        <DCCReference Include="..\Source\univer\fxScatterPlot.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
         <DCCReference Include="..\externals\lux\LUX.FMX.ScatterPlotFrame.pas">
@@ -218,7 +219,7 @@
         <DCCReference Include="..\externals\lux\LIB.Material.pas"/>
         <DCCReference Include="..\externals\lux\LUX.FMX.Material.pas"/>
         <DCCReference Include="..\externals\lux\LUX.FMX.Types3D.pas"/>
-        <DCCReference Include="..\source\univer\fxForm.pas">
+        <DCCReference Include="..\Source\univer\fxForm.pas">
             <Form>FormX</Form>
             <FormType>fmx</FormType>
         </DCCReference>
@@ -227,7 +228,6 @@
             <Form>FormTexture3D</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

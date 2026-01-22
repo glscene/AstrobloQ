@@ -23,9 +23,10 @@ uses
   GLS.SceneViewer,
   GLS.BaseClasses,
   GLS.Scene,
+  GLS.Cadencer,
 
   Astro.Utils,
-  fmFormFirst, GLS.Cadencer;
+  fmFormFirst;
 
 type
   TFormSkyAreas = class(TfrmFirst)

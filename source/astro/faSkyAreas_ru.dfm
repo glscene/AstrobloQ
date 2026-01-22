@@ -1,7 +1,7 @@
 object FormSkyAreas: TFormSkyAreas
   Left = 0
   Top = 0
-  Caption = #1055#1083#1086#1097#1072#1076#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+  Caption = #1055#1086#1083#1080#1075#1086#1085#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
   ClientHeight = 633
   ClientWidth = 1000
   Color = clBtnFace
@@ -20,6 +20,7 @@ object FormSkyAreas: TFormSkyAreas
     Height = 633
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 608
     object tvShortNames: TTreeView
       Left = 1
       Top = 1
@@ -42,9 +43,7 @@ object FormSkyAreas: TFormSkyAreas
         000000000000FFFFFFFFFFFFFFFF000000000000000000000000000103410072
         0069000000250000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000103410075007200}
-      ExplicitTop = 41
-      ExplicitWidth = 151
-      ExplicitHeight = 344
+      ExplicitHeight = 566
     end
     object PanelNames: TPanel
       Left = 1
@@ -55,8 +54,7 @@ object FormSkyAreas: TFormSkyAreas
       Caption = 'Name'
       ShowCaption = False
       TabOrder = 1
-      ExplicitLeft = -4
-      ExplicitTop = 0
+      ExplicitTop = 567
       object CheckBoxData: TCheckBox
         Left = 40
         Top = 12

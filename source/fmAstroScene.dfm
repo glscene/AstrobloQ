@@ -2,175 +2,145 @@ object frmAstroScene: TfrmAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
-  Hint = #1053#1077#1087#1090#1091#1085
   Caption = 'AstroScene'
-  ClientHeight = 751
-  ClientWidth = 1415
+  ClientHeight = 732
+  ClientWidth = 1412
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -19
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
   Menu = MainMenu
   Position = poScreenCenter
-  OnClick = ToolButtonPlanetsClick
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   OnMouseWheel = FormMouseWheel
   OnShow = FormShow
-  TextHeight = 24
+  TextHeight = 17
   object SceneViewer: TGLSceneViewer
-    Left = 313
+    Left = 297
     Top = 57
-    Width = 815
-    Height = 655
+    Width = 860
+    Height = 647
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 146.185989379882800000
+    FieldOfView = 145.645248413085900000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
-    OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
   end
   object PanelLeft: TPanel
     Left = 0
     Top = 57
-    Width = 313
-    Height = 655
+    Width = 297
+    Height = 647
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 630
+    ExplicitHeight = 622
     object tvMoons: TTreeView
       Left = 1
-      Top = 111
-      Width = 311
-      Height = 543
-      Hint = #1051#1091#1085#1099
-      Align = alClient
+      Top = 107
+      Width = 295
+      Height = 527
+      Hint = 'Moons'
+      Align = alTop
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -20
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
       Images = DataModuleImages.VirtMoonMaps
       Indent = 35
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
       StateImages = DataModuleImages.VirtPlanetSymbols
       TabOrder = 0
       OnClick = tvMoonsClick
       Items.NodeData = {
-        072F00000009540054007200650065004E006F0064006500270000000A000000
-        0A00000005000000FFFFFFFF0000000000000000000000000001041B0443043D
-        043004000029000000020000000200000004000000FFFFFFFF00000000000000
-        000000000000010524043E0431043E04410400002B0000000300000003000000
-        04000000FFFFFFFF0000000000000000000000000001061404350439043C043E
-        044104000023000000040000000400000005000000FFFFFFFF00000000000000
-        000000000000010218043E0400002B000000050000000500000005000000FFFF
-        FFFF0000000000000000000000000001061504320440043E043F04300400002D
-        000000060000000600000005000000FFFFFFFF00000000000000000000000000
-        0107130430043D0438043C043504340400002F00000007000000070000000500
-        0000FFFFFFFF0000000000000000000000000001081A0430043B043B04380441
-        0442043E0400002F000000080000000800000005000000FFFFFFFF0000000000
-        0000000000000000010810043C0430043B044C04420435044F0400002D000000
-        090000000900000005000000FFFFFFFF00000000000000000000000000010713
-        0438043C0430043B0438044F040000290000000A0000000A00000005000000FF
-        FFFFFF0000000000000000000000000001052D043B0430044004300400002B00
-        00000B0000000B00000005000000FFFFFFFF0000000000000000000000000001
-        061F043004410438044404350400002B0000000C0000000C00000005000000FF
-        FFFFFF000000000000000000000000000106210438043D043E043F0435040000
-        2D0000000D0000000D00000005000000FFFFFFFF000000000000000000000000
-        0001071B04380441043804420435044F040000290000000E0000000E00000005
-        000000FFFFFFFF0000000000000000000000000001051A04300440043C043504
-        00002B0000000F0000000F00000005000000FFFFFFFF00000000000000000000
-        000000010610043D0430043D043A043504000027000000100000001000000005
-        000000FFFFFFFF0000000000000000000000000001041B043504340430040000
-        27000000110000001100000005000000FFFFFFFF000000000000000000000000
-        000104240435043104350400002F000000120000001200000005000000FFFFFF
-        FF00000000000000000000000000010810043404400430044104420435044F04
-        00002B000000130000001300000005000000FFFFFFFF00000000000000000000
-        00000001061C043504420438043404300400002F000000140000001400000005
-        000000FFFFFFFF0000000000000000000000000001081A0430043B043B043804
-        40043E04350400002D000000150000001500000005000000FFFFFFFF00000000
-        0000000000000000000107240435043C043804410442043E0400003100000016
-        0000001600000005000000FFFFFFFF0000000000000000000000000001091C04
-        3504330430043A043B0438044204350400002D00000017000000170000000500
-        0000FFFFFFFF0000000000000000000000000001072204300439043304350442
-        04350400002D000000180000001800000005000000FFFFFFFF00000000000000
-        0000000000000107270430043B04340435043D04350400003100000019000000
-        1900000005000000FFFFFFFF0000000000000000000000000001092504300440
-        043F0430043B0438043A04350400002B0000001A0000001A00000005000000FF
-        FFFFFF0000000000000000000000000001061A0430043B0438043A0435040000
-        29000000620000006200000006000000FFFFFFFF000000000000000000000000
-        0001051C0438043C043004410400002D000000630000006300000006000000FF
-        FFFFFF0000000000000000000000000001072D043D04460435043B0430043404
-        000029000000640000006400000006000000FFFFFFFF00000000000000000000
-        000000010522043504440438044F040000290000006500000065000000060000
-        00FFFFFFFF000000000000000000000000000105140438043E043D0430040000
-        29000000670000006700000006000000FFFFFFFF000000000000000000000000
-        00010522043804420430043D040000250000000600000006000000FFFFFFFFFF
-        FFFFFF000000000000000000000000000103200435044F0400002B0000000600
-        000006000000FFFFFFFFFFFFFFFF0000000000000000000000000001062F043F
-        0435044204430441040000270000000600000006000000FFFFFFFFFFFFFFFF00
-        00000000000000000000000001042F043D044304410400002F00000006000000
-        06000000FFFFFFFFFFFFFFFF000000000000000000000000000108130438043F
-        043504400438043E043D0400002F0000000600000006000000FFFFFFFFFFFFFF
-        FF0000000000000000000000000001081F0440043E043C043504420435043904
-        0000270000000600000006000000FFFFFFFFFFFFFFFF00000000000000000000
-        0000000104240435043104350400002D0000000600000006000000FFFFFFFFFF
-        FFFFFF0000000000000000000000000001071F0430043D0434043E0440043004
-        00002D0000000700000007000000FFFFFFFFFFFFFFFF00000000000000000000
-        00000001071C043804400430043D043404300400002B00000007000000070000
-        00FFFFFFFFFFFFFFFF0000000000000000000000000001061004400438043504
-        3B044C0400002F0000000700000007000000FFFFFFFFFFFFFFFF000000000000
-        00000000000000010823043C0431044004380435043B044C0400002D00000007
-        00000007000000FFFFFFFFFFFFFFFF0000000000000000000000000001072204
-        3804420430043D0438044F0400002B0000000700000007000000FFFFFFFFFFFF
-        FFFF0000000000000000000000000001061E043104350440043E043D0400002D
-        000000080000000800000001000000FFFFFFFF00000000000000000000000000
-        01071B0430044004380441044104300400002D0000000800000008000000FFFF
-        FFFFFFFFFFFF0000000000000000000000000001071D04350440043504380434
-        04300400002B0000000800000008000000FFFFFFFFFFFFFFFF00000000000000
-        000000000000010622044004380442043E043D0400002D000000080000000800
-        000001000000FFFFFFFF0000000000000000000000000001071F0440043E0442
-        04350443044104}
-    end
-    object StaticText1: TStaticText
-      Left = 1
-      Top = 83
-      Width = 311
-      Height = 28
-      Align = alTop
-      Alignment = taCenter
-      Caption = #1051#1091#1085#1099
-      TabOrder = 1
-    end
-    object StaticText3: TStaticText
-      Left = 1
-      Top = 1
-      Width = 311
-      Height = 28
-      Align = alTop
-      Alignment = taCenter
-      Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
-      TabOrder = 2
+        072A00000009540054007200650065004E006F00640065002700000001000000
+        0100000003000000FFFFFFFF0000000000000000000000000001044D006F006F
+        006E0000002B000000020000000200000004000000FFFFFFFF00000000000000
+        0000000000000106500068006F0062006F00730000002B000000030000000300
+        000004000000FFFFFFFF0000000000000000000000000001064400650069006D
+        006F007300000023000000040000000400000005000000FFFFFFFF0000000000
+        0000000000000000010249006F0000002B000000050000000500000005000000
+        FFFFFFFF0000000000000000000000000001064500750072006F007000610000
+        002F000000060000000600000005000000FFFFFFFF0000000000000000000000
+        00000108470061006E0079006D0065006400650000002F000000070000000700
+        000005000000FFFFFFFF000000000000000000000000000108430061006C006C
+        006900730074006F0000002F000000080000000800000005000000FFFFFFFF00
+        000000000000000000000000010841006D0061006C0074006800650061000000
+        2D000000090000000900000005000000FFFFFFFF000000000000000000000000
+        000107480069006D0061006C00690061000000290000000A0000000A00000005
+        000000FFFFFFFF00000000000000000000000000010545006C00610072006100
+        00002F0000000B0000000B00000005000000FFFFFFFF00000000000000000000
+        00000001085000610073006900700068006100650000002B0000000C0000000C
+        00000005000000FFFFFFFF000000000000000000000000000106530069006E00
+        6F007000650000002F0000000D0000000D00000005000000FFFFFFFF00000000
+        00000000000000000001084C0079007300690074006800650061000000290000
+        000E0000000E00000005000000FFFFFFFF000000000000000000000000000105
+        4300610072006D00650000002B0000000F0000000F00000005000000FFFFFFFF
+        00000000000000000000000000010641006E0061006E006B0065000000270000
+        00100000001000000005000000FFFFFFFF000000000000000000000000000104
+        4C00650064006100000029000000110000001100000005000000FFFFFFFF0000
+        000000000000000000000001055400680065006200650000002F000000120000
+        001200000005000000FFFFFFFF00000000000000000000000000010841006400
+        720061007300740065006100000029000000130000001300000005000000FFFF
+        FFFF0000000000000000000000000001054D0065007400690073000000330000
+        00140000001400000005000000FFFFFFFF00000000000000000000000000010A
+        430061006C006C0069007200720068006F00650000002F000000150000001500
+        000005000000FFFFFFFF0000000000000000000000000001085400680065006D
+        006900730074006F000000310000000600000006000000FFFFFFFFFFFFFFFF00
+        000000000000000000000000010945006E00630065006C006100640075007300
+        0000290000000600000006000000FFFFFFFFFFFFFFFF00000000000000000000
+        000000010554006900740061006E000000290000000600000006000000FFFFFF
+        FFFFFFFFFF0000000000000000000000000001054D0069006D00610073000000
+        2B0000000600000006000000FFFFFFFFFFFFFFFF000000000000000000000000
+        0001065400650074006800790073000000290000000600000006000000FFFFFF
+        FFFFFFFFFF000000000000000000000000000105440069006F006E0065000000
+        270000000600000006000000FFFFFFFFFFFFFFFF000000000000000000000000
+        000104520068006500610000002D0000000600000006000000FFFFFFFFFFFFFF
+        FF00000000000000000000000000010749006100700065007400750073000000
+        29000000060000000600000001000000FFFFFFFF000000000000000000000000
+        0001054A0061006E007500730000002F000000060000000600000001000000FF
+        FFFFFF0000000000000000000000000001084800790070006500720069006F00
+        6E00000033000000060000000600000001000000FFFFFFFF0000000000000000
+        0000000000010A500072006F006D0065007400680065007500730000002B0000
+        00060000000600000001000000FFFFFFFF000000000000000000000000000106
+        500068006F0065006200650000002D000000060000000600000001000000FFFF
+        FFFF000000000000000000000000000107500061006E0064006F007200610000
+        002D0000000700000007000000FFFFFFFFFFFFFFFF0000000000000000000000
+        000001074D006900720061006E00640061000000290000000700000007000000
+        FFFFFFFFFFFFFFFF00000000000000000000000000010541007200690065006C
+        0000002D0000000700000007000000FFFFFFFFFFFFFFFF000000000000000000
+        00000000010755006D0062007200690065006C0000002D000000070000000700
+        0000FFFFFFFFFFFFFFFF00000000000000000000000000010754006900740061
+        006E006900610000002B0000000700000007000000FFFFFFFFFFFFFFFF000000
+        0000000000000000000001064F006200650072006F006E0000002D0000000800
+        00000800000001000000FFFFFFFF0000000000000000000000000001074C0061
+        007200690073007300610000002B0000000800000008000000FFFFFFFFFFFFFF
+        FF0000000000000000000000000001064E006500720065006900640000002B00
+        00000800000008000000FFFFFFFFFFFFFFFF0000000000000000000000000001
+        0654007200690074006F006E0000002D000000080000000800000001000000FF
+        FFFFFF000000000000000000000000000107500072006F007400650075007300}
     end
     object tbPlanets: TToolBar
-      AlignWithMargins = True
-      Left = 4
-      Top = 32
-      Width = 305
+      Left = 1
+      Top = 30
+      Width = 295
       Height = 48
       ButtonHeight = 45
-      ButtonWidth = 31
+      ButtonWidth = 32
       EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -180,16 +150,16 @@ object frmAstroScene: TfrmAstroScene
       Images = DataModuleImages.VirtPlanetSymbols
       List = True
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 1
       object ToolButtonSun: TToolButton
         Left = 0
         Top = 0
-        Hint = #1057#1086#1083#1085#1094#1077
+        Hint = 'Sun'
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1057#1086#1083#1085#1094#1077
+        Caption = 'Sun'
         ImageIndex = 0
         ImageName = 'Sun'
         ParentShowHint = False
@@ -197,14 +167,14 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonMercury: TToolButton
-        Left = 31
+        Left = 32
         Top = 0
-        Hint = #1052#1077#1088#1082#1091#1088#1080#1081
+        Hint = 'Mercury'
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1052#1077#1088#1082#1091#1088#1080#1081
+        Caption = 'Mercury'
         ImageIndex = 1
         ImageName = 'Mercury'
         ParentShowHint = False
@@ -212,14 +182,14 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonVenus: TToolButton
-        Left = 62
+        Left = 64
         Top = 0
-        Hint = #1042#1077#1085#1077#1088#1072
+        Hint = 'Venus'
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1042#1077#1085#1077#1088#1072
+        Caption = 'Venus'
         ImageIndex = 2
         ImageName = 'Venus'
         ParentShowHint = False
@@ -227,14 +197,14 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonEarth: TToolButton
-        Left = 93
+        Left = 96
         Top = 0
-        Hint = #1047#1077#1084#1083#1103
+        Hint = 'Earth'
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1047#1077#1084#1083#1103
+        Caption = 'Earth'
         ImageIndex = 3
         ImageName = 'Earth'
         ParentShowHint = False
@@ -242,10 +212,10 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonMars: TToolButton
-        Left = 124
+        Left = 128
         Top = 0
-        Hint = #1052#1072#1088#1089
-        Caption = #1052#1072#1088#1089
+        Hint = 'Mars'
+        Caption = 'Mars'
         ImageIndex = 4
         ImageName = 'Mars'
         ParentShowHint = False
@@ -253,10 +223,10 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonJupiter: TToolButton
-        Left = 155
+        Left = 160
         Top = 0
-        Hint = #1070#1087#1080#1090#1077#1088
-        Caption = #1070#1087#1080#1090#1077#1088
+        Hint = 'Jupiter'
+        Caption = 'Jupiter'
         ImageIndex = 5
         ImageName = 'Jupiter'
         ParentShowHint = False
@@ -264,10 +234,10 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonSaturn: TToolButton
-        Left = 186
+        Left = 192
         Top = 0
-        Hint = #1057#1072#1090#1091#1088#1085
-        Caption = #1057#1072#1090#1091#1088#1085
+        Hint = 'Saturn'
+        Caption = 'Saturn'
         ImageIndex = 6
         ImageName = 'Saturn'
         ParentShowHint = False
@@ -275,10 +245,10 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonUranus: TToolButton
-        Left = 217
+        Left = 224
         Top = 0
-        Hint = #1059#1088#1072#1085
-        Caption = #1059#1088#1072#1085
+        Hint = 'Uranus'
+        Caption = 'Uranus'
         ImageIndex = 7
         ImageName = 'Uranus'
         ParentShowHint = False
@@ -286,10 +256,10 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
       object ToolButtonNeptune: TToolButton
-        Left = 248
+        Left = 256
         Top = 0
-        Hint = #1053#1077#1087#1090#1091#1085
-        Caption = #1053#1077#1087#1090#1091#1085
+        Hint = 'Neptune'
+        Caption = 'Neptune'
         ImageIndex = 8
         ImageName = 'Neptune'
         ParentShowHint = False
@@ -297,12 +267,44 @@ object frmAstroScene: TfrmAstroScene
         OnClick = ToolButtonPlanetsClick
       end
     end
+    object StaticText3: TStaticText
+      Left = 1
+      Top = 1
+      Width = 295
+      Height = 29
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Sun and planets'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object StaticText1: TStaticText
+      Left = 1
+      Top = 78
+      Width = 295
+      Height = 29
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Moons'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+    end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 712
-    Width = 1415
-    Height = 39
+    Top = 704
+    Width = 1412
+    Height = 28
     Panels = <
       item
         Text = 'FPS: '
@@ -320,98 +322,27 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 687
-    ExplicitWidth = 1407
-  end
-  object PanelRight: TPanel
-    Left = 1128
-    Top = 57
-    Width = 287
-    Height = 655
-    Align = alRight
-    TabOrder = 3
-    ExplicitLeft = 1120
-    ExplicitHeight = 630
-    object tvAsteroids: TTreeView
-      Left = 1
-      Top = 29
-      Width = 285
-      Height = 625
-      Hint = #1040#1089#1090#1077#1088#1086#1080#1076#1099
-      Align = alClient
-      AutoExpand = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -18
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      HideSelection = False
-      Images = DataModuleImages.VirtPlanetSymbols
-      Indent = 35
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 0
-      OnClick = tvMoonsClick
-      Items.NodeData = {
-        071000000009540054007200650065004E006F00640065002B00000009000000
-        09000000FFFFFFFFFFFFFFFF0000000000000000000100000001061F043B0443
-        0442043E043D040000290000000A0000000A000000FFFFFFFFFFFFFFFF000000
-        0000000000000000000001052504300440043E043D0400002B0000000B000000
-        0B000000FFFFFFFFFFFFFFFF0000000000000000000000000001062604350440
-        043504400430040000270000000B0000000B000000FFFFFFFFFFFFFFFF000000
-        0000000000000000000001042D0440043804410400002B0000000B0000000B00
-        0000FFFFFFFFFFFFFFFF0000000000000000000000000001062504300443043C
-        0435044F040000290000000B0000000B00000001000000FFFFFFFF0000000000
-        0000000000000000010512043504410442043004000025000000F3000000F300
-        000001000000FFFFFFFF00000000000000000000000000010318043404300400
-        0027000000B1010000B101000001000000FFFFFFFF0000000000000000000000
-        000001042D0440043E04410400002B000000B7030000B703000001000000FFFF
-        FFFF0000000000000000000000000001061304300441043F0440043004000031
-        000000540600005406000001000000FFFFFFFF00000000000000000000000000
-        0109130435043E0433044004300444043E044104000031000000120700001207
-        000001000000FFFFFFFF0000000000000000000000000001092D043F0438043C
-        0435044204380443044104000027000000CE070000CE07000001000000FFFFFF
-        FF0000000000000000000000000001044B005900320036000000290000000F08
-        00000F08000001000000FFFFFFFF000000000000000000000000000105110443
-        0445044304410400002F000000531000005310000001000000FFFFFFFF000000
-        0000000000000000000001082204300443044204300442043804410400002F00
-        0000A1120000A112000001000000FFFFFFFF0000000000000000000000000001
-        081A0430044104420430043B0438044F0400002D000000591900005919000001
-        000000FFFFFFFF00000000000000000000000000010713043E043B0435043204
-        3A0430040000290000000961010009610100FFFFFFFFFFFFFFFF000000000000
-        0000000000000001052104350434043D043004}
-      ExplicitHeight = 600
-    end
-    object StaticText2: TStaticText
-      Left = 1
-      Top = 1
-      Width = 285
-      Height = 28
-      Align = alTop
-      Alignment = taCenter
-      Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
-      TabOrder = 1
-    end
+    ExplicitTop = 679
+    ExplicitWidth = 1404
   end
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1415
+    Width = 1412
     Height = 57
     Align = alTop
-    TabOrder = 4
-    ExplicitWidth = 1407
+    TabOrder = 3
+    ExplicitWidth = 1404
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
-      Width = 262
+      Width = 222
       Height = 48
       ButtonHeight = 45
-      ButtonWidth = 33
+      ButtonWidth = 27
       Images = DataModuleImages.ImageListInterface
       TabOrder = 0
-      object ToolButton1: TToolButton
+      object ToolButton11: TToolButton
         Left = 0
         Top = 0
         Hint = 'Skybody'
@@ -425,8 +356,8 @@ object frmAstroScene: TfrmAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton2: TToolButton
-        Left = 33
+      object ToolButton13: TToolButton
+        Left = 27
         Top = 0
         Hint = 'View from cosmos'
         Margins.Left = 2
@@ -439,8 +370,8 @@ object frmAstroScene: TfrmAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton3: TToolButton
-        Left = 66
+      object ToolButton12: TToolButton
+        Left = 54
         Top = 0
         Hint = 'View from low orbit'
         Margins.Left = 2
@@ -453,8 +384,8 @@ object frmAstroScene: TfrmAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton4: TToolButton
-        Left = 99
+      object ToolButton14: TToolButton
+        Left = 81
         Top = 0
         Hint = 'Walk on surface'
         Margins.Left = 2
@@ -467,8 +398,8 @@ object frmAstroScene: TfrmAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton5: TToolButton
-        Left = 132
+      object ToolButton15: TToolButton
+        Left = 108
         Top = 0
         Hint = 'Zoom in'
         Caption = 'ToolButton5'
@@ -477,8 +408,8 @@ object frmAstroScene: TfrmAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton6: TToolButton
-        Left = 165
+      object ToolButton16: TToolButton
+        Left = 135
         Top = 0
         Hint = 'Zoom out'
         Caption = 'ToolButton6'
@@ -487,8 +418,8 @@ object frmAstroScene: TfrmAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton7: TToolButton
-        Left = 198
+      object ToolButton17: TToolButton
+        Left = 162
         Top = 0
         Caption = 'ToolButton7'
         ImageIndex = 6
@@ -500,14 +431,14 @@ object frmAstroScene: TfrmAstroScene
     object ToolBar2: TToolBar
       Left = 512
       Top = 2
-      Width = 177
+      Width = 153
       Height = 48
       ButtonHeight = 45
       ButtonWidth = 32
       Caption = 'ToolBar2'
       Images = DataModuleImages.ImageListInterface
       TabOrder = 1
-      object ToolButton17: TToolButton
+      object ToolButton18: TToolButton
         Left = 0
         Top = 0
         Caption = 'ToolButton17'
@@ -533,11 +464,121 @@ object frmAstroScene: TfrmAstroScene
       end
     end
   end
+  object PanelRight: TPanel
+    Left = 1157
+    Top = 57
+    Width = 255
+    Height = 647
+    Align = alRight
+    TabOrder = 4
+    ExplicitLeft = 1149
+    ExplicitHeight = 622
+    object Image1: TImage
+      Left = 72
+      Top = 560
+      Width = 105
+      Height = 105
+    end
+    object tvAsteroids: TTreeView
+      Left = 1
+      Top = 30
+      Width = 253
+      Height = 616
+      Hint = 'Asteroids'
+      Align = alClient
+      AutoExpand = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -18
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      HideSelection = False
+      Images = DataModuleImages.VirtPlanetSymbols
+      Indent = 35
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      OnClick = tvMoonsClick
+      Items.NodeData = {
+        071000000009540054007200650065004E006F00640065002900000009000000
+        09000000FFFFFFFFFFFFFFFF00000000000000000001000000010550006C0075
+        0074006F0000002B0000000A0000000A000000FFFFFFFFFFFFFFFF0000000000
+        0000000000000000010643006800610072006F006E000000290000000B000000
+        0B000000FFFFFFFFFFFFFFFF0000000000000000000000000001054300650072
+        00650073000000450000000B0000000B000000FFFFFFFFFFFFFFFF0000000000
+        0000000000000000011345007200690073005F00280064007700610072006600
+        5F0070006C0061006E0065007400290000002B0000000B0000000B000000FFFF
+        FFFFFFFFFFFF0000000000000000000000000001064800610075006D00650061
+        000000290000000B0000000B00000001000000FFFFFFFF000000000000000000
+        0000000001055600650073007400610000002D0000000B0000000B0000000100
+        0000FFFFFFFF0000000000000000000000000001073200340033005F00490064
+        00610000002F0000000B0000000B00000001000000FFFFFFFF00000000000000
+        00000000000001083400330033005F00450072006F0073000000330000000B00
+        00000B00000001000000FFFFFFFF00000000000000000000000000010A390035
+        0031005F0047006100730070007200610000003D0000000B0000000B00000001
+        000000FFFFFFFF00000000000000000000000000010F31003600320030005F00
+        470065006F00670072006100700068006F00730000003D0000000B0000000B00
+        000001000000FFFFFFFF00000000000000000000000000010F31003800310030
+        005F004500700069006D006500740068006500750073000000310000000B0000
+        000B00000001000000FFFFFFFF00000000000000000000000000010931003900
+        390038005F004B005900320036000000370000000B0000000B00000001000000
+        FFFFFFFF00000000000000000000000000010C32003000360033005F00420061
+        00630063006800750073000000390000000B0000000B00000001000000FFFFFF
+        FF00000000000000000000000000010D34003100370039005F0054006F007500
+        740061007400690073000000390000000B0000000B00000001000000FFFFFFFF
+        00000000000000000000000000010D34003700360039005F0043006100730074
+        0061006C00690061000000370000000B0000000B00000001000000FFFFFFFF00
+        000000000000000000000000010C36003400380039005F0047006F006C006500
+        76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
+        000000000000000000010B390030003300370037005F005300650064006E0061
+        00}
+      ExplicitHeight = 591
+    end
+    object StaticText2: TStaticText
+      Left = 1
+      Top = 1
+      Width = 253
+      Height = 29
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Asteroids'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
   object GLScene: TGLScene
     ObjectsSorting = osNone
-    Left = 386
-    Top = 83
-    object StarSkyDome: TGLSkyDome
+    Left = 378
+    Top = 67
+    object Camera: TGLCamera
+      DepthOfView = 100000.000000000000000000
+      FocalLength = 100.000000000000000000
+      NearPlaneBias = 0.100000001490116100
+      TargetObject = ffPlanet
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Direction.Coordinates = {0000803F000000000000008000000000}
+      Up.Coordinates = {00000000000000000000803F00000000}
+      object LensStar: TGLLensFlare
+        Seed = 1465
+        FlareIsNotOccluded = True
+      end
+    end
+    object CameraControler: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 100.000000000000000000
+      TargetObject = dcPlanet
+      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Direction.Coordinates = {0000803F000000000000008000000000}
+      Up.Coordinates = {00000000000000000000803F00000000}
+    end
+    object SkyDome: TGLSkyDome
       Bands = <
         item
           StartColor.Color = {0000803F0000803F0000803F0000803F}
@@ -576,47 +617,21 @@ object frmAstroScene: TfrmAstroScene
         NodesAspect = lnaInvisible
         Options = []
       end
-    end
-    object Camera: TGLCamera
-      DepthOfView = 200000.000000000000000000
-      FocalLength = 99.545860290527340000
-      NearPlaneBias = 0.100000001490116100
-      TargetObject = dcStar
-      CameraStyle = csInfinitePerspective
-      Position.Coordinates = {0000803F000000000000803F0000803F}
-      Direction.Coordinates = {0000803F000000000000008000000000}
-      Up.Coordinates = {00000000000000000000803F00000000}
-      object LensStar: TGLLensFlare
-        Seed = 1465
-        FlareIsNotOccluded = True
+      object PolygonAndromeda: TGLPolygon
+        Nodes = <>
       end
     end
-    object CameraControler: TGLCamera
-      DepthOfView = 10000.000000000000000000
-      FocalLength = 50.000000000000000000
-      TargetObject = dcStar
-      Position.Coordinates = {0000803F000000000000803F0000803F}
-      Direction.Coordinates = {0000803F000000000000008000000000}
-      Up.Coordinates = {00000000000000000000803F00000000}
-    end
     object dcStar: TGLDummyCube
-      ObjectsSorting = osNone
-      CubeSize = 1000.000000000000000000
+      CubeSize = 1.000000000000000000
       object dcPlanet: TGLDummyCube
-        CubeSize = 1.000000000000000000
-        object acPlanet: TGLActor
-          Interval = 100
-          MaterialLibrary = GLMatLib
-          LightmapLibrary = GLMatLib
-        end
-        object Atmosphere: TGLAtmosphere
-          Visible = False
-        end
+        ObjectsSorting = osNone
+        CubeSize = 1000.000000000000000000
         object ffPlanet: TGLFreeForm
           Material.MaterialLibrary = GLMatLib
           Direction.Coordinates = {00000000000080BF0000000000000000}
+          Position.Coordinates = {00000000000000000000A0C00000803F}
           Up.Coordinates = {00000000000000000000803F00000000}
-          Visible = False
+          AutoScaling.Coordinates = {0000204100002041000020410000803F}
           MaterialLibrary = GLMatLib
           object dcMoon: TGLDummyCube
             Up.Coordinates = {FC9D7FB10000803F0000000000000000}
@@ -635,14 +650,102 @@ object frmAstroScene: TfrmAstroScene
             end
           end
         end
+        object Atmosphere: TGLAtmosphere
+          Visible = False
+        end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
           Direction.Coordinates = {000000000000803F0000000000000000}
           TurnAngle = -150.000000000000000000
-          Up.Coordinates = {00000000000000800000803F00000000}
+          Up.Coordinates = {00000000000000000000803F00000000}
+          Visible = False
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
+          object dcArrows: TGLDummyCube
+            Visible = False
+            CubeSize = 1.000000000000000000
+            object ArrowLineX: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+              Direction.Coordinates = {0000803F000000000000000000000000}
+              Position.Coordinates = {00007A4500000000000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_X: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+              Direction.Coordinates = {000080BF000000000000000000000000}
+              Position.Coordinates = {00007AC500000000000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object ArrowLineY: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+              Direction.Coordinates = {000000000000803F0000000000000000}
+              Position.Coordinates = {0000000000007A45000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              Up.Coordinates = {00000000000000000000803F00000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_Y: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+              Direction.Coordinates = {00000000000080BF0000000000000000}
+              Position.Coordinates = {0000000000007AC5000000000000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              Up.Coordinates = {00000000000000000000803F00000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object ArrowLineZ: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+              Position.Coordinates = {000000000000000000007A450000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_Z: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+              Direction.Coordinates = {0000000000000000000080BF00000000}
+              Position.Coordinates = {000000000000000000007AC50000803F}
+              Scale.Coordinates = {0000C8420000C8420000484400000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Stacks = 8
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+          end
           object diskRingDn: TGLDisk
             Material.Texture.Disabled = False
             Direction.Coordinates = {000000000000803F2EBD3BB300000000}
@@ -684,8 +787,36 @@ object frmAstroScene: TfrmAstroScene
             Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
             Radius = 0.200000002980232200
             Slices = 64
-            Stacks = 64
           end
+          object TorusGreenwich: TGLTorus
+            Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+            Direction.Coordinates = {0000803F000000002EBD3BB300000000}
+            TurnAngle = 90.000000000000000000
+            MajorRadius = 6371.000000000000000000
+            MinorRadius = 50.000000000000000000
+            Rings = 256
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object TorusEquator: TGLTorus
+            Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+            Direction.Coordinates = {3A69BCB3000080BF7719C1A500000000}
+            Up.Coordinates = {BBF46E3201F03B190000803F00000000}
+            MajorRadius = 6371.000000000000000000
+            MinorRadius = 50.000000000000000000
+            Rings = 256
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+        end
+        object DirectOpenGL: TGLDirectOpenGL
+          Visible = False
+          UseBuildList = False
+          OnRender = DirectOpenGLRender
+          Blend = False
         end
       end
       object dcAsteroid: TGLDummyCube
@@ -694,12 +825,6 @@ object frmAstroScene: TfrmAstroScene
       object dcComet: TGLDummyCube
         CubeSize = 1.000000000000000000
       end
-    end
-    object DirectOpenGL: TGLDirectOpenGL
-      Visible = False
-      UseBuildList = False
-      OnRender = DirectOpenGLRender
-      Blend = False
     end
     object LensFlare: TGLLensFlare
       Size = 100
@@ -719,12 +844,12 @@ object frmAstroScene: TfrmAstroScene
     Scene = GLScene
     MaxDeltaTime = 0.050000000000000000
     OnProgress = GLCadencerProgress
-    Left = 382
-    Top = 153
+    Left = 374
+    Top = 145
   end
   object Timer: TTimer
     OnTimer = TimerTimer
-    Left = 1005
+    Left = 1037
     Top = 84
   end
   object GLMatLib: TGLMaterialLibrary
@@ -88975,8 +89100,8 @@ object frmAstroScene: TfrmAstroScene
         Name = 'clouds'
         Tag = 0
       end>
-    Left = 504
-    Top = 85
+    Left = 496
+    Top = 69
   end
   object GLTexCombiner: TGLTexCombineShader
     Combiners.Strings = (
@@ -88985,106 +89110,99 @@ object frmAstroScene: TfrmAstroScene
       '')
     DesignTimeEnabled = False
     MaterialLibrary = GLMatLib
-    Left = 506
-    Top = 152
+    Left = 498
+    Top = 144
   end
   object MainMenu: TMainMenu
-    Left = 389
-    Top = 264
+    Images = DataModuleImages.ImageListInterface
+    Left = 373
+    Top = 256
     object miOpen: TMenuItem
-      Caption = '&'#1060#1072#1081#1083
+      Caption = '&File'
       object miFileOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        Caption = 'Open...'
+        ImageIndex = 8
         OnClick = miFileOpenClick
       end
       object miFileSaveAs: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+        Caption = 'Save as...'
         OnClick = miFileSaveAsClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object miFileExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
+        ImageIndex = 3
         OnClick = miFileExitClick
       end
     end
     object miView: TMenuItem
-      Caption = '&'#1042#1080#1076
-      object miViewConstlines: TMenuItem
-        Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
-        OnClick = miViewConstlinesClick
+      Caption = '&View'
+      object Constellations1: TMenuItem
+        Caption = 'Constellations...'
+        OnClick = Constellations1Click
       end
-      object miViewConstborders: TMenuItem
-        Caption = #1043#1088#1072#1085#1080#1094#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
-        OnClick = miViewConstbordersClick
+      object miConstPolygons: TMenuItem
+        Caption = 'Const Polygons...'
+        OnClick = miConstPolygonsClick
       end
       object N4: TMenuItem
         Caption = '-'
       end
-      object miSolarSystem: TMenuItem
-        Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miSolarSystemClick
+      object miStellarSystem: TMenuItem
+        Caption = 'Stellar system...'
+        OnClick = miStellarSystemClick
+      end
+      object miPointTo: TMenuItem
+        Caption = 'PointTo...'
+        OnClick = miPointToClick
+      end
+      object miCoordinates: TMenuItem
+        Caption = 'Coordinates...'
+        OnClick = miCoordinatesClick
       end
       object N6: TMenuItem
         Caption = '-'
       end
-      object miViewHidePanels: TMenuItem
-        Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
-        OnClick = miViewHidePanelsClick
-      end
-      object miClearTreeView: TMenuItem
-        Caption = #1054#1095#1080#1089#1090#1080#1090#1100
+      object ClearTreeView1: TMenuItem
+        Caption = 'Clear TreeView'
         Enabled = False
-        OnClick = miClearTreeViewClick
-      end
-      object NightLights1: TMenuItem
-        Caption = #1057#1074#1077#1090' '#1075#1086#1088#1086#1076#1086#1074
+        OnClick = ClearTreeView1Click
       end
     end
-    object N5: TMenuItem
-      Caption = #1050#1072#1088#1090#1099
-      object miConstAtlas: TMenuItem
-        Caption = #1040#1090#1083#1072#1089' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
-        OnClick = miConstAtlasClick
+    object Model1: TMenuItem
+      Caption = 'Model'
+      object miHygStars: TMenuItem
+        Caption = 'Hyg stars...'
+        OnClick = miHygStarsClick
       end
-      object miSkyAreas: TMenuItem
-        Caption = #1055#1086#1083#1080#1075#1086#1085#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
-        OnClick = miSkyAreasClick
+      object miHertsRussel: TMenuItem
+        Caption = 'HertsRussel plot...'
+        OnClick = miHertsRusselClick
       end
-    end
-    object miMonitor: TMenuItem
-      Caption = '&'#1052#1086#1076#1077#1083#1100
-      object Hyg1: TMenuItem
-        Caption = #1047#1074#1105#1079#1076#1099' '#1082#1072#1090#1072#1083#1086#1075#1072' Hyg...'
-      end
-      object N1: TMenuItem
-        Caption = '-'
-      end
-      object N8: TMenuItem
-        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
+      object miGenStarsys: TMenuItem
+        Caption = 'Starsys generator...'
+        OnClick = miGenStarsysClick
       end
     end
     object miTools: TMenuItem
-      Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
-      object miSettings: TMenuItem
-        Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
-        OnClick = miSettingsClick
+      Caption = '&Tools'
+      object Settings1: TMenuItem
+        Caption = 'Settings...'
+        ImageIndex = 130
+        OnClick = Settings1Click
       end
-      object miOptions: TMenuItem
-        Caption = #1054#1087#1094#1080#1080'...'
-        OnClick = miOptionsClick
+      object miToolsOptions: TMenuItem
+        Caption = 'Options...'
+        OnClick = miToolsOptionsClick
       end
       object N7: TMenuItem
         Caption = '-'
       end
-      object miGenExosys: TMenuItem
-        Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
-        OnClick = miGenExosysClick
-      end
     end
     object miHelp: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = '&Help'
       object miHelpWiki: TMenuItem
         Caption = 'Ruwiki...'
         Hint = 'Information'
@@ -89094,18 +89212,18 @@ object frmAstroScene: TfrmAstroScene
       object N3: TMenuItem
         Caption = '-'
       end
-      object About1: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
-        OnClick = About1Click
+      object miHelpAbout: TMenuItem
+        Caption = 'About...'
+        OnClick = miHelpAboutClick
       end
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 868
-    Top = 161
+    Left = 924
+    Top = 177
   end
   object SaveDialog: TSaveDialog
-    Left = 1001
-    Top = 171
+    Left = 1041
+    Top = 179
   end
 end

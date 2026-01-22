@@ -3,11 +3,12 @@ program Universum;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxUniversum_ru in '..\source\univer\fxUniversum_ru.pas' {frmUniversum},
-  fxSettings_ru in '..\source\univer\fxSettings_ru.pas' {frmSettings},
-  fxAbout_ru in '..\source\univer\fxAbout_ru.pas' {FrmAbout},
-  fxAstrogen_ru in '..\source\univer\fxAstrogen_ru.pas' {FormAstrogen},
-  fxScatterPlot_ru in '..\source\univer\fxScatterPlot_ru.pas' {FormScatterPlot},
+  fxUniversum in '..\Source\univer\fxUniversum.pas' {frmUniversum},
+  fxSettings in '..\Source\univer\fxSettings.pas' {frmSettings},
+  fxAbout in '..\Source\univer\fxAbout.pas' {FormAbout},
+  fxAstrogen in '..\Source\univer\fxAstrogen.pas' {FormAstrogen},
+  Uni.Material in '..\Source\univer\Uni.Material.pas',
+  fxScatterPlot in '..\Source\univer\fxScatterPlot.pas' {FormScatterPlot},
   LUX.FMX.ScatterPlotFrame in '..\externals\lux\LUX.FMX.ScatterPlotFrame.pas' {ScatterPlotFrame: TFrame},
   LUX in '..\externals\lux\LUX.pas',
   LUX.D2 in '..\externals\lux\LUX.D2.pas',
@@ -17,10 +18,9 @@ uses
   LIB.Material in '..\externals\lux\LIB.Material.pas',
   LUX.FMX.Material in '..\externals\lux\LUX.FMX.Material.pas',
   LUX.FMX.Types3D in '..\externals\lux\LUX.FMX.Types3D.pas',
-  fxForm in '..\source\univer\fxForm.pas' {FormX},
+  fxForm in '..\Source\univer\fxForm.pas' {FormX},
   Uni.Utils in '..\source\univer\Uni.Utils.pas',
-  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D},
-  Uni.Material in '..\source\univer\Uni.Material.pas';
+  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D};
 
 {$R *.res}
 
@@ -28,5 +28,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmUniversum, frmUniversum);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormX, FormX);
   Application.Run;
 end.

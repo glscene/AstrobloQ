@@ -55,7 +55,7 @@ uses
   Astro.Globals,
 
   fmFormFirst,
-  fmAbout,
+  fmAbout_ru,
 
   fgAnalyser_ru,
   fgMonitor_ru,
