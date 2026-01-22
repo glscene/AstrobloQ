@@ -201,6 +201,7 @@ type
     procedure miSkyAreasClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure miDiagramHRClick(Sender: TObject);
+    procedure tvAsteroidsClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
@@ -356,28 +357,9 @@ begin
 end;
 
 
-//-------------------------- Справка Wiki ----------------------------------
-procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
-var
-  S: String;
-
-begin
-/// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
-/// tvMoons.Selected.Text надо перевести на русский язык для ruwiki
-/// но, однако, некоторые названия звёзд остаются на латинице,
-/// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
-/// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
-
-  S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
-
-//  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-end;
-
 //----------------------------------------------------------------------------
 //------------------ Луны в дереве просмотра  --------------------------------
 //----------------------------------------------------------------------------
-
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 begin
   PlanetPath := CurrentStar + tvMoons.Selected.Text;
@@ -419,7 +401,6 @@ begin
 
 *)
   // Кольца планет
-
   if (tvMoons.Selected.Text = 'Сатурн') or (tvMoons.Selected.Text = 'Уран') then
   begin
     diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
@@ -434,13 +415,54 @@ begin
   end;
 
   // Вызов веб-справки - как перевести на ru ?
-  miHelpWiki.Caption := tvMoons.Selected.Text + ' в Ruwiki';
+  miHelpWiki.Caption := tvMoons.Selected.Text; // + ' в Ruwiki';
 
   // Показать атмосферу
   if tvMoons.Selected.Text = 'Earth' then
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
+end;
+
+//----------------------------------------------------------------------------
+//------------------ Астероиды в дереве просмотра  ---------------------------
+//----------------------------------------------------------------------------
+procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
+begin
+///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
+
+  // Вызов веб-справки - как перевести на ru ?
+  miHelpWiki.Caption := tvAsteroids.Selected.Text; // + ' в Ruwiki';
+
+end;
+
+
+//-------------------------- Справка Wiki ----------------------------------
+procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
+var
+  S: String;
+
+begin
+/// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
+/// tvMoons.Selected.Text надо перевести на русский язык для ruwiki
+/// но, однако, некоторые названия звёзд остаются на латинице,
+/// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
+/// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
+
+  S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
+(*
+  HINSTANCE ShellExecuteA(
+  [in, optional] HWND   hwnd,
+  [in, optional] LPCSTR lpOperation,
+  [in]           LPCSTR lpFile,
+  [in, optional] LPCSTR lpParameters,
+  [in, optional] LPCSTR lpDirectory,
+  [in]           INT    nShowCmd
+  );
+*)
+//  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+  // тоже самое, показывает страницу, но выдаёт, что контекст справка не установлена
+  ShellExecute(0, '', PWideChar(S), '', '', SW_SHOW);
 end;
 
 

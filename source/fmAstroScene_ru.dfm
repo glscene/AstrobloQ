@@ -353,7 +353,7 @@ object frmAstroScene: TfrmAstroScene
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      OnClick = tvMoonsClick
+      OnClick = tvAsteroidsClick
       Items.NodeData = {
         071000000009540054007200650065004E006F00640065002B00000009000000
         09000000FFFFFFFFFFFFFFFF0000000000000000000100000001061F043B0443
