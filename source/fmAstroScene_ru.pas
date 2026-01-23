@@ -36,6 +36,7 @@ uses
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.TextureFormat,
+  Stage.Keyboard,
   Stage.Utils,
 
   GLS.Material,
@@ -260,7 +261,7 @@ begin
 
   // указываем путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
-//  CatalogName := DataDir + '\catalog\hyg.csv';
+// д.б.  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
   begin
     StarSkyDome.Bands.Clear;
@@ -269,7 +270,7 @@ begin
     StarSkyDome.StructureChanged;
   end;
 
-  // переходим в директорию солнечной системы
+  // переходим по умолчанию в директорию солнечной системы
   if DirectoryExists('starsys\sun') then
         ChDir('starsys\sun');
   CurrentStar := DataDir + '\starsys\sun\';
@@ -298,10 +299,10 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.FormShow(Sender: TObject);
 begin
-  // Планеты - Земля 3
+  // Планеты - первоначально показываем Землю, 3-ю планету
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
-  // Луны пока фокус на планетах
+  // Луны - меняем фокус
 (*
   tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
   tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
@@ -309,13 +310,11 @@ begin
   tvMoonsClick(Self);
   miHelpWiki.Caption := tvMoons.Selected.Text; // + ' in ' + 'RuWiki...';
 *)
-  TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
   // Астероиды
   tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto
 ///  miHelpWiki.Caption := tvAsteroids.Selected.Text + ' в ' + 'RuWiki...';
-  TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
+  TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
 end;
-
 
 //------------------  Скрыть или показать панели и тулбары -------------------
 procedure TfrmAstroScene.miViewHidePanelsClick(Sender: TObject);
@@ -349,20 +348,53 @@ procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 var
   PlanetName: TFileName;
 begin
+  PlanetPath := CurrentStar; // кириллица + tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint;
+
   PlanetName := CurrentStar + TToolButton(Sender).ImageName;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
+
+  // Показать атмосферы планет на case
+  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Земля') or
+     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Венера')
+  then
+    DirectOpenGL.Visible := True
+  else
+    DirectOpenGL.Visible := False;
+ (*
+  // Недра планет
+  if miInnerCore.Checked then
+  begin
+    if FileExists(FileName  + '_core.jpg') then
+      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '_core.jpg')
+    else
+      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
+  end;
+*)
+  // Кольца Сатурна
+  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
+  (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
+  begin
+    diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + 'saturn_ring.png');
+    diskRingUp.Visible := True;
+    diskRingDn.Material.Texture.Image.LoadFromFile(PlanetPath  + 'saturn_ring.png');
+    diskRingDn.Visible := True;
+  end
+  else
+  begin
+    diskRingUp.Visible := False;
+    diskRingDn.Visible := False;
+  end;
 
   // Справка + ' в ' + 'RuWiki...';
   miHelpWiki.Caption := tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint;
 end;
-
 
 //----------------------------------------------------------------------------
 //------------------ Луны в дереве просмотра  --------------------------------
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 begin
-  PlanetPath := CurrentStar + tvMoons.Selected.Text;
+///  PlanetPath := CurrentStar + tvMoons.Selected.Text; // ?
 
   //  From LibMaterial or virtualimage collection
 ///  tvMoons.Images := dmImages.ImgVirtPlanets;
@@ -389,39 +421,14 @@ begin
     Camera.TagObject := acPlanet;
   end;
 
- (*
-  // Недра планет
-  if miInnerCore.Checked then
-  begin
-    if FileExists(FileName  + '_core.jpg') then
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '_core.jpg')
-    else
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
-  end;
-
-*)
-  // Кольца планет
-  if (tvMoons.Selected.Text = 'Сатурн') or (tvMoons.Selected.Text = 'Уран') then
-  begin
-    diskRingUp.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
-    diskRingUp.Visible := True;
-    diskRingDn.Material.Texture.Image.LoadFromFile(PlanetPath  + '_ring.png');
-    diskRingDn.Visible := True;
-  end
-  else
-  begin
-    diskRingUp.Visible := False;
-    diskRingDn.Visible := False;
-  end;
-
-  // Вызов веб-справки - как перевести на ru ?
-  miHelpWiki.Caption := tvMoons.Selected.Text; // + ' в Ruwiki';
-
-  // Показать атмосферу
-  if tvMoons.Selected.Text = 'Earth' then
+  // Показать атмосферу Титана
+  if tvMoons.Selected.Text = 'Титан' then
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
+
+  // Название луны для веб-справки ruwiki
+  miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';
 end;
 
 //----------------------------------------------------------------------------
@@ -430,14 +437,12 @@ end;
 procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
 begin
 ///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
-
-  // Вызов веб-справки - как перевести на ru ?
-  miHelpWiki.Caption := tvAsteroids.Selected.Text; // + ' в Ruwiki';
-
+  // Название астероида для веб-справки ruwiki
+  miHelpWiki.Caption := tvAsteroids.Selected.Text; // + '_(астероид)';
 end;
 
 
-//-------------------------- Справка Wiki ----------------------------------
+//-------------------------- Меню справки Wiki -------------------------------
 procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
 var
   S: String;
@@ -448,25 +453,13 @@ begin
 /// но, однако, некоторые названия звёзд остаются на латинице,
 /// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
-
   S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
-(*
-  HINSTANCE ShellExecuteA(
-  [in, optional] HWND   hwnd,
-  [in, optional] LPCSTR lpOperation,
-  [in]           LPCSTR lpFile,
-  [in, optional] LPCSTR lpParameters,
-  [in, optional] LPCSTR lpDirectory,
-  [in]           INT    nShowCmd
-  );
-*)
-//  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-  // тоже самое, показывает страницу, но выдаёт, что контекст справка не установлена
-  ShellExecute(0, '', PWideChar(S), '', '', SW_SHOW);
+  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
 end;
 
-
-//--------------------- Генератор экзопланетной системы -----------------------
+//----------------------------------------------------------------------------
+//--------------------- Генератор экзопланетной системы ----------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.miGenExosysClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -481,24 +474,27 @@ begin
     finally
       Free;
     end;
-
   Timer.Enabled := True;
   GLCadencer.Enabled := True;
 end;
 
 //----------------------------------------------------------------------------
+// Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.miDiagramHRClick(Sender: TObject);
 begin
-  // Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg
+  Timer.Enabled := False;
+  GLCadencer.Enabled := False;
+
   with TFormHercRussel.Create(Self) do
   try
     ShowModal;
   finally
     Free;
   end;
-
+  Timer.Enabled := True;
+  GLCadencer.Enabled := True;
 end;
-
 
 //------------------- Перед рендером включение огней городов -----------------
 procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
@@ -744,13 +740,13 @@ begin
  // ConstLines.Nodes.Clear;
 end;
 
-
 //------------------------- Прогресс каденсера --------------------------------
 procedure TfrmAstroScene.GLCadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
-  d : Double;
-  p : TAffineVector;
+  S: String;
+  d: Double;
+  p: TAffineVector;
 begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
 
@@ -802,6 +798,7 @@ begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
   end;
+
 end;
 
 //------------------------ Опускаем мышь -------------------------------------
@@ -825,6 +822,56 @@ begin
     Camera.FocalLength := Camera.FocalLength * Power(1.05, (my - y) * 0.1);
   mx := x;
   my := y;
+end;
+
+//--------------------- Загрузка текстуры высокого разрешения -----------------
+procedure TfrmAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
+begin
+  if FileExists(FileName) then
+  begin
+    LibMat.Material.Texture.Compression := tcStandard;
+    LibMat.Material.Texture.Image.LoadFromFile(fileName);
+  end;
+end;
+
+//------------------------ Обработка нажатия клавиш ---------------------------
+procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
+var
+  S: String;
+begin
+  case Key of
+    'e', 'E': // Планета
+      begin
+        Camera.MoveTo(dcStar);
+        CameraControler.MoveTo(dcStar);
+        Camera.TargetObject := dcStar;
+        CameraControler.TargetObject := dcStar;
+      end;
+    'h':  // Высокое разрешение
+      if not highResResourcesLoaded then
+      begin
+        SceneViewer.Cursor := crHourGlass;
+        try
+          if DirectoryExists(CurrentStar) then
+          begin
+            LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
+          end;
+          SceneViewer.Buffer.AntiAliasing := aa2x;
+        finally
+          SceneViewer.Cursor := crDefault;
+        end;
+        highResResourcesLoaded := True;
+      end;
+    'w','W','ц','Ц': // Выход на WIKI по клавише
+      begin
+         S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
+         ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+      end;
+    '0'..'9': timeMultiplier := Power(Integer(Key) - Integer('0'), 3);
+    #27: Close;
+  end;
 end;
 
 //-------------------------- Колесо мыши -------------------------------------
@@ -862,49 +909,6 @@ begin
     BorderStyle := bsNone;
   end;
   SceneViewer.OnMouseMove := SceneViewerMouseMove;
-end;
-
-//--------------------- Загрузка текстуры высокого разрешения -----------------
-procedure TfrmAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
-begin
-  if FileExists(FileName) then
-  begin
-    LibMat.Material.Texture.Compression := tcStandard;
-    LibMat.Material.Texture.Image.LoadFromFile(fileName);
-  end;
-end;
-
-//-------------------------- Обработка клавиш --------------------------------
-procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
-begin
-  case Key of
-    'e', 'E': // Планета
-      begin
-        Camera.MoveTo(dcStar);
-        CameraControler.MoveTo(dcStar);
-        Camera.TargetObject := dcStar;
-        CameraControler.TargetObject := dcStar;
-      end;
-    'h':  // Высокое разрешение
-      if not highResResourcesLoaded then
-      begin
-        SceneViewer.Cursor := crHourGlass;
-        try
-          if DirectoryExists(CurrentStar) then
-          begin
-            LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
-            LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
-            LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
-          end;
-          SceneViewer.Buffer.AntiAliasing := aa2x;
-        finally
-          SceneViewer.Cursor := crDefault;
-        end;
-        highResResourcesLoaded := True;
-      end;
-    '0'..'9': timeMultiplier := Power(Integer(Key) - Integer('0'), 3);
-    #27: Close;
-  end;
 end;
 
 //---------------- Таймер с частотой кадров FPS в статус строке ---------------

@@ -973,7 +973,7 @@ var
 var
   i: Integer;
 begin
-  sl := TStringList.CReate;
+  sl := TStringList.Create;
   Line := TStringList.CReate;
   sl.LoadFromFile(DataDir + 'ConstLines.dat');
 //  sl.LoadFromFile(DataDir + 'asterisms.csv');

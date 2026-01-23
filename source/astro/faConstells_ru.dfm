@@ -12,6 +12,7 @@ object FormConstells: TFormConstells
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
   TextHeight = 15
   object VirtualImageChart: TVirtualImage
     Left = 209

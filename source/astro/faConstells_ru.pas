@@ -5,6 +5,7 @@ interface
 uses
   Winapi.Windows,
   Winapi.Messages,
+  Winapi.ShellAPI,
   System.SysUtils,
   System.Variants,
   System.Classes,
@@ -81,9 +82,11 @@ type
     procedure tvZodiacsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     DataDir, CatalogDir, StarDir, FileName : TFileName;
     ConstNames, PlanetMap: TFileName;
+    HelpWiki : String;
   public
     procedure HandleKeys(d: Double);
   end;
@@ -130,8 +133,10 @@ begin
   ConstNames := DataDir + 'constellation\ConstShortNames.dat';
     tvConstellations.LoadFromFile(ConstNames);
   *)
-
   ffPlanet.Assign(sfPlanet);
+
+  tvConstellations.Select(tvConstellations.Items[0]);  // по умолчанию Andromede
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
 //-----------------------------------------------------------------------
@@ -139,6 +144,7 @@ end;
 //-----------------------------------------------------------------------
 procedure TFormConstells.Open1Click(Sender: TObject);
 begin
+{
   // Load next skyculture for constellations ...
   DataModuleDialogs.OpenDialog.Filter := 'Constellation (*.dat)|*.dat';
   DataModuleDialogs.OpenDialog.InitialDir := DataDir;
@@ -150,6 +156,7 @@ begin
     tvConstellations.Select(tvConstellations.Items[0]);  // goto to new const
     tvConstellationsClick(Sender);
   end;
+}
 end;
 
 //-----------------------------------------------------------------------
@@ -172,6 +179,7 @@ procedure TFormConstells.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
   VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
 //-----------------------------------------------------------------------------
@@ -181,6 +189,7 @@ procedure TFormConstells.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
 //-----------------------------------------------------------------------
@@ -194,6 +203,22 @@ procedure TFormConstells.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
+
+//-----------------------------------------------------------------------
+procedure TFormConstells.FormKeyPress(Sender: TObject; var Key: Char);
+var
+  S: String;
+begin
+  case Key of
+    'w','W': // ¬ыход на WIKI по клавише
+      begin
+         S:=  'https://ru.ruwiki.ru/wiki/' + HelpWiki + '_(созвездие)';
+         ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+      end;
+    #27: Close;
+  end;
+end;
+
 
 //-----------------------------------------------------------------------
 procedure TFormConstells.GLCadencerProgress(Sender: TObject;
@@ -211,7 +236,10 @@ end;
 
 //-----------------------------------------------------------------------
 procedure TFormConstells.HandleKeys(d: Double);
+var
+  S:String;
 begin
+
   if (IsKeyDown('W') or IsKeyDown('Z')) then
     Camera.Move(d);
   if (IsKeyDown('S')) then
