@@ -85,7 +85,7 @@ type
     DirectOpenGL: TGLDirectOpenGL;
     GLCadencer: TGLCadencer;
     Timer: TTimer;
-    Moon: TGLSphere;
+    sfMoon: TGLSphere;
     dcStar: TGLDummyCube;
     dcMoon: TGLDummyCube;
     LensStar: TGLLensFlare;
@@ -127,7 +127,6 @@ type
     N1: TMenuItem;
     miMonitor: TMenuItem;
     miGenExosys: TMenuItem;
-    acPlanet: TGLActor;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -167,10 +166,13 @@ type
     miConstAtlas: TMenuItem;
     miSkyAreas: TMenuItem;
     dcPlanet: TGLDummyCube;
-    dcAsteroid: TGLDummyCube;
-    dcComet: TGLDummyCube;
     Hyg1: TMenuItem;
     miDiagramHR: TMenuItem;
+    dcAsteroid: TGLDummyCube;
+    dcComet: TGLDummyCube;
+    ffMoon: TGLFreeForm;
+    ffAsteroid: TGLFreeForm;
+    sfAsteroid: TGLSphere;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -280,9 +282,9 @@ begin
   sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 
   // разрешаем текстурирование планетоида
-  acPlanet.Material.Texture.Disabled := False;
-  acPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
-  acPlanet.Scale.Scale(0.1);
+  ffPlanet.Material.Texture.Disabled := False;
+  ffPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
+  ffPlanet.Scale.Scale(0.1);
 
   // индексируем узлы дерева компонент TreeView
   for I := 0 to tvMoons.Items.Count - 1 do
@@ -342,18 +344,23 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//------------------ Планеты в тулбаре  --------------------------------------
+//--------------------------- Планеты   --------------------------------------
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 var
   PlanetName: TFileName;
 begin
+  // видимость
+  sfPlanet.Visible := True;
+  sfMoon.Visible := False;
+  sfAsteroid.Visible := False;
+
   PlanetPath := CurrentStar; // кириллица + tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint;
 
   PlanetName := CurrentStar + TToolButton(Sender).ImageName;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
 
-  // Показать атмосферы планет на case
+  // Показать атмосферы планет, заменить на case
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Земля') or
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Венера')
   then
@@ -390,36 +397,35 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//------------------ Луны в дереве просмотра  --------------------------------
+//----------------------------- Луны -----------------------------------------
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
+var
+  MoonName, Moon: TFileName;
 begin
-///  PlanetPath := CurrentStar + tvMoons.Selected.Text; // ?
+  // видимость
+  sfPlanet.Visible := False;
+  sfMoon.Visible := True;
+  sfAsteroid.Visible := False;
 
-  //  From LibMaterial or virtualimage collection
-///  tvMoons.Images := dmImages.ImgVirtPlanets;
+  MoonName := GetCurrentDir();
+///  MoonName := OpenCSV(sol_moons.csv, name_ru);  // находим по полю name_ru
+  Moon := 'Moon';
+  MoonName := MoonName + '\' + Moon;
 
-  if tvMoons.Selected.StateIndex = -1 then   // planet.3ds
-  begin
-    sfPlanet.Visible := True;
-    sfPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+  // сфера
+  sfMoon.Material.Texture.Image.LoadFromFile(MoonName + '.jpg');
 
-    // actor model to support octotrees !
-    acPlanet.LoadFromFile(DataDir + '\model\planet.3ds');
+(*
+  // меш форма
+  ffMoon.Visible := False;
+  ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
+  ffMoon.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+  Camera.TagObject := ffPlanet;
+*)
 
-    // loading maps from VirtPlanetMaps
-//    acPlanet.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[4]);
-    acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    end
-  else  // StateIndex = 1   // заменить !
-  // Планетоид с фриформой в формате 3ds
-  begin
-    sfPlanet.Visible := False;
-
-    acPlanet.LoadFromFile(PlanetPath + '.3ds');
-    acPlanet.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    Camera.TagObject := acPlanet;
-  end;
+//  если карты из VirtPlanetMaps
+//  ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
 
   // Показать атмосферу Титана
   if tvMoons.Selected.Text = 'Титан' then
@@ -432,7 +438,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//------------------ Астероиды в дереве просмотра  ---------------------------
+//------------------------------ Астероиды -----------------------------------
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
 begin
@@ -511,18 +517,18 @@ var
   i, n: Integer;
   atmPoint, normal: TGLVector;
   altColor: TGLColorVector;
-  alt, rayLength, contrib, decay, intensity, invN: Single;
+  alt, RayLength, Contrib, Decay, Intensity, invN: Single;
 
 begin
   Result := clrTransparent;
-  rayLength := VectorDistance(rayStart, rayEnd);
-  n := Round(3 * rayLength * invAtmosphereHeight) + 2;
+  RayLength := VectorDistance(RayStart, RayEnd);
+  n := Round(3 * RayLength * invAtmosphereHeight) + 2;
   if (n > 10) then
     n := 10;
   invN := cIntDivTable[n]; // 1/n;
   contrib := rayLength * invN * cOpacity;
-  decay := 1 - contrib * 0.5;
-  contrib := contrib * (1 / 1.1);
+  Decay := 1 - contrib * 0.5;
+  Contrib := contrib * (1 / 1.1);
   for i := n - 1 downto 0 do
   begin
     VectorLerp(rayStart, rayEnd, i * invN, atmPoint);
@@ -759,7 +765,7 @@ begin
   p := ComputePlanetPosition(cMoonOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
-  Moon.TurnAngle := 180 - dcMoon.TurnAngle;
+  sfMoon.TurnAngle := 180 - dcMoon.TurnAngle;
 
   // плавное перемещение камеры
   if (dmy <> 0) or (dmx <> 0) then

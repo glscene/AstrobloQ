@@ -157,7 +157,7 @@ object FormStellarSys: TFormStellarSys
     ExplicitWidth = 971
   end
   object Scene: TGLScene
-    Left = 254
+    Left = 46
     Top = 28
     object SkyDome: TGLSkyDome
       Bands = <
@@ -740,15 +740,15 @@ object FormStellarSys: TFormStellarSys
     Mode = cmApplicationIdle
     SleepLength = 1
     OnProgress = CadencerProgress
-    Left = 24
-    Top = 72
+    Left = 40
+    Top = 112
   end
   object AsyncTimer: TGLAsyncTimer
     Enabled = True
     Interval = 800
     OnTimer = AsyncTimerTimer
-    Left = 88
-    Top = 16
+    Left = 136
+    Top = 104
   end
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -768,8 +768,8 @@ object FormStellarSys: TFormStellarSys
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 378
-    Top = 180
+    Left = 34
+    Top = 300
   end
   object MatLib: TGLMaterialLibrary
     Left = 40
@@ -789,12 +789,12 @@ object FormStellarSys: TFormStellarSys
     ParticleInterval = 0.500000000000000000
     UseInterval = False
     Reference = Sun
-    Left = 152
-    Top = 256
+    Left = 120
+    Top = 200
   end
   object MainMenu: TMainMenu
-    Left = 358
-    Top = 32
+    Left = 278
+    Top = 104
     object Window1: TMenuItem
       Caption = #1042#1080#1076
       object miInnerCore: TMenuItem
@@ -812,7 +812,7 @@ object FormStellarSys: TFormStellarSys
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 590
-    Top = 38
+    Left = 398
+    Top = 102
   end
 end

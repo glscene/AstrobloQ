@@ -66,6 +66,7 @@ object frmAstroScene: TfrmAstroScene
       ParentFont = False
       StateImages = DataModuleImages.VirtPlanetSymbols
       TabOrder = 0
+      StyleName = 'Windows'
       OnClick = tvMoonsClick
       Items.NodeData = {
         079600000009540054007200650065004E006F00640065002700000001000000
@@ -302,7 +303,6 @@ object frmAstroScene: TfrmAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 518
     end
     object StaticText1: TStaticText
       Left = 1
@@ -765,37 +765,6 @@ object frmAstroScene: TfrmAstroScene
       CubeSize = 1000.000000000000000000
       object dcPlanet: TGLDummyCube
         CubeSize = 1.000000000000000000
-        object acPlanet: TGLActor
-          Interval = 100
-          MaterialLibrary = GLMatLib
-          LightmapLibrary = GLMatLib
-        end
-        object Atmosphere: TGLAtmosphere
-          Visible = False
-        end
-        object ffPlanet: TGLFreeForm
-          Material.MaterialLibrary = GLMatLib
-          Direction.Coordinates = {00000000000080BF0000000000000000}
-          Up.Coordinates = {00000000000000000000803F00000000}
-          Visible = False
-          MaterialLibrary = GLMatLib
-          object dcMoon: TGLDummyCube
-            Up.Coordinates = {FC9D7FB10000803F0000000000000000}
-            CubeSize = 1.000000000000000000
-            object Moon: TGLSphere
-              Material.MaterialLibrary = GLMatLib
-              Material.LibMaterialName = 'moon'
-              Direction.Coordinates = {D947AABE616D713F0000000000000000}
-              Position.Coordinates = {CDCCECC100000000000000000000803F}
-              Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
-              TurnAngle = -170.000000000000000000
-              Up.Coordinates = {00000000000000000000803F00000000}
-              Radius = 0.500000000000000000
-              Slices = 64
-              Stacks = 64
-            end
-          end
-        end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
           Direction.Coordinates = {000000000000803F0000000000000000}
@@ -848,9 +817,41 @@ object frmAstroScene: TfrmAstroScene
             Stacks = 64
           end
         end
+        object ffPlanet: TGLFreeForm
+          Material.MaterialLibrary = GLMatLib
+          Direction.Coordinates = {00000000000080BF0000000000000000}
+          Up.Coordinates = {00000000000000000000803F00000000}
+          Visible = False
+          MaterialLibrary = GLMatLib
+        end
+        object dcMoon: TGLDummyCube
+          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+          CubeSize = 1.000000000000000000
+          object sfMoon: TGLSphere
+            Material.MaterialLibrary = GLMatLib
+            Material.LibMaterialName = 'moon'
+            Direction.Coordinates = {D947AABE616D713F0000000000000000}
+            Position.Coordinates = {CDCCECC100000000000000000000803F}
+            TurnAngle = -170.000000000000000000
+            Up.Coordinates = {00000000000000000000803F00000000}
+            Radius = 0.500000000000000000
+            Slices = 128
+            Stacks = 128
+          end
+          object ffMoon: TGLFreeForm
+          end
+        end
+        object Atmosphere: TGLAtmosphere
+          Visible = False
+        end
       end
       object dcAsteroid: TGLDummyCube
         CubeSize = 1.000000000000000000
+        object sfAsteroid: TGLSphere
+          Radius = 0.500000000000000000
+        end
+        object ffAsteroid: TGLFreeForm
+        end
       end
       object dcComet: TGLDummyCube
         CubeSize = 1.000000000000000000

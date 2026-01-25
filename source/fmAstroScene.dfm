@@ -626,33 +626,6 @@ object frmAstroScene: TfrmAstroScene
       object dcPlanet: TGLDummyCube
         ObjectsSorting = osNone
         CubeSize = 1000.000000000000000000
-        object ffPlanet: TGLFreeForm
-          Material.MaterialLibrary = GLMatLib
-          Direction.Coordinates = {00000000000080BF0000000000000000}
-          Position.Coordinates = {00000000000000000000A0C00000803F}
-          Up.Coordinates = {00000000000000000000803F00000000}
-          AutoScaling.Coordinates = {0000204100002041000020410000803F}
-          MaterialLibrary = GLMatLib
-          object dcMoon: TGLDummyCube
-            Up.Coordinates = {FC9D7FB10000803F0000000000000000}
-            CubeSize = 1.000000000000000000
-            object Moon: TGLSphere
-              Material.MaterialLibrary = GLMatLib
-              Material.LibMaterialName = 'moon'
-              Direction.Coordinates = {D947AABE616D713F0000000000000000}
-              Position.Coordinates = {CDCCECC100000000000000000000803F}
-              Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
-              TurnAngle = -170.000000000000000000
-              Up.Coordinates = {00000000000000000000803F00000000}
-              Radius = 0.500000000000000000
-              Slices = 64
-              Stacks = 64
-            end
-          end
-        end
-        object Atmosphere: TGLAtmosphere
-          Visible = False
-        end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
           Direction.Coordinates = {000000000000803F0000000000000000}
@@ -812,11 +785,32 @@ object frmAstroScene: TfrmAstroScene
             Parts = [toSides, toStartDisk, toStopDisk]
           end
         end
-        object DirectOpenGL: TGLDirectOpenGL
+        object ffPlanet: TGLFreeForm
+          Material.MaterialLibrary = GLMatLib
+          Direction.Coordinates = {00000000000080BF0000000000000000}
+          Position.Coordinates = {00000000000000000000A0C00000803F}
+          Up.Coordinates = {00000000000000000000803F00000000}
+          AutoScaling.Coordinates = {0000204100002041000020410000803F}
+          MaterialLibrary = GLMatLib
+          object dcMoon: TGLDummyCube
+            Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+            CubeSize = 1.000000000000000000
+            object Moon: TGLSphere
+              Material.MaterialLibrary = GLMatLib
+              Material.LibMaterialName = 'moon'
+              Direction.Coordinates = {D947AABE616D713F0000000000000000}
+              Position.Coordinates = {CDCCECC100000000000000000000803F}
+              Scale.Coordinates = {713D8A3E713D8A3E713D8A3E00000000}
+              TurnAngle = -170.000000000000000000
+              Up.Coordinates = {00000000000000000000803F00000000}
+              Radius = 0.500000000000000000
+              Slices = 64
+              Stacks = 64
+            end
+          end
+        end
+        object Atmosphere: TGLAtmosphere
           Visible = False
-          UseBuildList = False
-          OnRender = DirectOpenGLRender
-          Blend = False
         end
       end
       object dcAsteroid: TGLDummyCube
@@ -825,6 +819,12 @@ object frmAstroScene: TfrmAstroScene
       object dcComet: TGLDummyCube
         CubeSize = 1.000000000000000000
       end
+    end
+    object DirectOpenGL: TGLDirectOpenGL
+      Visible = False
+      UseBuildList = False
+      OnRender = DirectOpenGLRender
+      Blend = False
     end
     object LensFlare: TGLLensFlare
       Size = 100
