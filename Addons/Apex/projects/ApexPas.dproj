@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{883E2C47-479D-44F5-AAB7-56191F81B900}</ProjectGuid>
+        <ProjectGuid>{3DD00329-20F2-4DC2-87A3-D215D2B7567C}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -102,7 +102,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\pas\fpApex.pas">
+        <DCCReference Include="..\pas\fdApex.pas">
             <Form>FormApex</Form>
         </DCCReference>
         <DCCReference Include="..\pas\fpCoco.pas">

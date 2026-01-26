@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpEclipse_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormEclipse = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormEclipse: TFormEclipse;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

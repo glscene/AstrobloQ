@@ -71,7 +71,7 @@ object frmFracLands: TfrmFracLands
           Width = 97
           Height = 25
           HelpContext = 45
-          Position = 3
+          Position = 2
           TabOrder = 0
           ThumbLength = 10
           OnChange = OnTopographyChanged
@@ -165,7 +165,7 @@ object frmFracLands: TfrmFracLands
           Width = 97
           Height = 25
           HelpContext = 45
-          Position = 4
+          Position = 7
           TabOrder = 1
           ThumbLength = 10
           OnChange = OnTopographyChanged
@@ -193,7 +193,7 @@ object frmFracLands: TfrmFracLands
           Max = 200
           Min = 1
           Frequency = 10
-          Position = 60
+          Position = 50
           TabOrder = 3
           ThumbLength = 10
           OnChange = OnTopographyChanged
@@ -1040,7 +1040,7 @@ object frmFracLands: TfrmFracLands
       Height = 13
     end
     object btApply: TBitBtn
-      Left = 242
+      Left = 234
       Top = -1
       Width = 75
       Height = 25
@@ -1051,7 +1051,7 @@ object frmFracLands: TfrmFracLands
       NumGlyphs = 2
       TabOrder = 0
       OnClick = btApplyClick
-      ExplicitLeft = 234
+      ExplicitLeft = 226
     end
   end
   object GLScene1: TGLScene

@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpOccult_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormOccult = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormOccult: TFormOccult;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

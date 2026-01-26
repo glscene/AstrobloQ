@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpNumint_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormNumint = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormNumint: TFormNumint;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

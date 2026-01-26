@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpEcltimer_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormEcltimer = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormEcltimer: TFormEcltimer;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

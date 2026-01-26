@@ -2,7 +2,7 @@ program ApexPas;
 
 uses
   Vcl.Forms,
-  fpApex in '..\pas\fpApex.pas' {FormApex},
+  fdApex in '..\pas\fdApex.pas' {FormApex},
   fpCoco in '..\pas\fpCoco.pas' {FormCoco},
   fpComet in '..\pas\fpComet.pas' {FormComet},
   fpControl in '..\pas\fpControl.pas' {FormControl},

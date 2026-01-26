@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpComet_ru;
 
 interface
 
@@ -14,7 +14,7 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormComet = class(TForm)
   private
 
   public
@@ -22,9 +22,9 @@ type
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormComet: TFormComet;
 
-implementation  //=============================================================
+implementation //=============================================================
 
 {$R *.dfm}
 

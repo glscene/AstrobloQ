@@ -3,6 +3,9 @@
         <ProjectGuid>{61D3BE0B-A81E-4D68-8672-8EAC452F27D2}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="projects\ApexPas_ru.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="projects\ApexPas.dproj">
             <Dependencies/>
         </Projects>
@@ -59,6 +62,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="ApexPas_ru">
+        <MSBuild Projects="projects\ApexPas_ru.dproj"/>
+    </Target>
+    <Target Name="ApexPas_ru:Clean">
+        <MSBuild Projects="projects\ApexPas_ru.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApexPas_ru:Make">
+        <MSBuild Projects="projects\ApexPas_ru.dproj" Targets="Make"/>
+    </Target>
     <Target Name="ApexPas">
         <MSBuild Projects="projects\ApexPas.dproj"/>
     </Target>
@@ -204,13 +216,13 @@
         <MSBuild Projects="pas\sunset.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ApexPas;coco;comet;control;eclipse;ecltimer;foto;luna;newmoon;numint;occult;orbdet;phys;planetpos;planetrise;sunset"/>
+        <CallTarget Targets="ApexPas_ru;ApexPas;coco;comet;control;eclipse;ecltimer;foto;luna;newmoon;numint;occult;orbdet;phys;planetpos;planetrise;sunset"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ApexPas:Clean;coco:Clean;comet:Clean;control:Clean;eclipse:Clean;ecltimer:Clean;foto:Clean;luna:Clean;newmoon:Clean;numint:Clean;occult:Clean;orbdet:Clean;phys:Clean;planetpos:Clean;planetrise:Clean;sunset:Clean"/>
+        <CallTarget Targets="ApexPas_ru:Clean;ApexPas:Clean;coco:Clean;comet:Clean;control:Clean;eclipse:Clean;ecltimer:Clean;foto:Clean;luna:Clean;newmoon:Clean;numint:Clean;occult:Clean;orbdet:Clean;phys:Clean;planetpos:Clean;planetrise:Clean;sunset:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ApexPas:Make;coco:Make;comet:Make;control:Make;eclipse:Make;ecltimer:Make;foto:Make;luna:Make;newmoon:Make;numint:Make;occult:Make;orbdet:Make;phys:Make;planetpos:Make;planetrise:Make;sunset:Make"/>
+        <CallTarget Targets="ApexPas_ru:Make;ApexPas:Make;coco:Make;comet:Make;control:Make;eclipse:Make;ecltimer:Make;foto:Make;luna:Make;newmoon:Make;numint:Make;occult:Make;orbdet:Make;phys:Make;planetpos:Make;planetrise:Make;sunset:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

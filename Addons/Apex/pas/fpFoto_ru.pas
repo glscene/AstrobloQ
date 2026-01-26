@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpFoto_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormFoto = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormFoto: TFormFoto;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

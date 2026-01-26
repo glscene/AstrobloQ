@@ -3,19 +3,19 @@
         <ProjectGuid>{5A43B545-F091-413C-987F-D9F2CC2201C0}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Landscapes\ShortLands.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Landscapes\DuneFighter.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Landscapes\FracArchip.dproj">
+        <Projects Include="Landscapes\FracLands_ru.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Landscapes\FracLands.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Landscapes\FracLands_ru.dproj">
+        <Projects Include="Landscapes\DuneFighter.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Landscapes\ShortLands.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Landscapes\FracArchip.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,32 +26,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ShortLands">
-        <MSBuild Projects="Landscapes\ShortLands.dproj"/>
+    <Target Name="FracLands_ru">
+        <MSBuild Projects="Landscapes\FracLands_ru.dproj"/>
     </Target>
-    <Target Name="ShortLands:Clean">
-        <MSBuild Projects="Landscapes\ShortLands.dproj" Targets="Clean"/>
+    <Target Name="FracLands_ru:Clean">
+        <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ShortLands:Make">
-        <MSBuild Projects="Landscapes\ShortLands.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="DuneFighter">
-        <MSBuild Projects="Landscapes\DuneFighter.dproj"/>
-    </Target>
-    <Target Name="DuneFighter:Clean">
-        <MSBuild Projects="Landscapes\DuneFighter.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="DuneFighter:Make">
-        <MSBuild Projects="Landscapes\DuneFighter.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="FracArchip">
-        <MSBuild Projects="Landscapes\FracArchip.dproj"/>
-    </Target>
-    <Target Name="FracArchip:Clean">
-        <MSBuild Projects="Landscapes\FracArchip.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="FracArchip:Make">
-        <MSBuild Projects="Landscapes\FracArchip.dproj" Targets="Make"/>
+    <Target Name="FracLands_ru:Make">
+        <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="FracLands">
         <MSBuild Projects="Landscapes\FracLands.dproj"/>
@@ -62,23 +44,41 @@
     <Target Name="FracLands:Make">
         <MSBuild Projects="Landscapes\FracLands.dproj" Targets="Make"/>
     </Target>
-    <Target Name="FracLands_ru">
-        <MSBuild Projects="Landscapes\FracLands_ru.dproj"/>
+    <Target Name="DuneFighter">
+        <MSBuild Projects="Landscapes\DuneFighter.dproj"/>
     </Target>
-    <Target Name="FracLands_ru:Clean">
-        <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Clean"/>
+    <Target Name="DuneFighter:Clean">
+        <MSBuild Projects="Landscapes\DuneFighter.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="FracLands_ru:Make">
-        <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Make"/>
+    <Target Name="DuneFighter:Make">
+        <MSBuild Projects="Landscapes\DuneFighter.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ShortLands">
+        <MSBuild Projects="Landscapes\ShortLands.dproj"/>
+    </Target>
+    <Target Name="ShortLands:Clean">
+        <MSBuild Projects="Landscapes\ShortLands.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ShortLands:Make">
+        <MSBuild Projects="Landscapes\ShortLands.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FracArchip">
+        <MSBuild Projects="Landscapes\FracArchip.dproj"/>
+    </Target>
+    <Target Name="FracArchip:Clean">
+        <MSBuild Projects="Landscapes\FracArchip.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FracArchip:Make">
+        <MSBuild Projects="Landscapes\FracArchip.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ShortLands;DuneFighter;FracArchip;FracLands;FracLands_ru"/>
+        <CallTarget Targets="FracLands_ru;FracLands;DuneFighter;ShortLands;FracArchip"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ShortLands:Clean;DuneFighter:Clean;FracArchip:Clean;FracLands:Clean;FracLands_ru:Clean"/>
+        <CallTarget Targets="FracLands_ru:Clean;FracLands:Clean;DuneFighter:Clean;ShortLands:Clean;FracArchip:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ShortLands:Make;DuneFighter:Make;FracArchip:Make;FracLands:Make;FracLands_ru:Make"/>
+        <CallTarget Targets="FracLands_ru:Make;FracLands:Make;DuneFighter:Make;ShortLands:Make;FracArchip:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

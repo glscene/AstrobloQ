@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpNewmoon_ru;
 
 interface
 

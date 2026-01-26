@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpPlanetpos_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormPlanetpos = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormPlanetpos: TFormPlanetpos;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

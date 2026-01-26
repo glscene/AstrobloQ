@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpOrbdet_ru;
 
 interface
 
@@ -14,17 +14,17 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormOrbdet = class(TForm)
   private
-
+    { Private declarations }
   public
-
+    { Public declarations }
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormOrbdet: TFormOrbdet;
 
-implementation  //=============================================================
+implementation
 
 {$R *.dfm}
 

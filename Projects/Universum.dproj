@@ -152,6 +152,9 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <DCC_UnitSearchPath>..\external\lux;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -191,37 +194,36 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Source\univer\fxUniversum.pas">
+        <DCCReference Include="..\source\univer\fxUniversum.pas">
             <Form>frmUniversum</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\univer\fxSettings.pas">
+        <DCCReference Include="..\source\univer\fxSettings.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\univer\fxAbout.pas">
+        <DCCReference Include="..\source\univer\fxAbout.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\univer\fxAstrogen.pas">
+        <DCCReference Include="..\source\univer\fxAstrogen.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
-        <DCCReference Include="..\Source\univer\Uni.Material.pas"/>
-        <DCCReference Include="..\Source\univer\fxScatterPlot.pas">
+        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
+        <DCCReference Include="..\source\univer\fxScatterPlot.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
-        <DCCReference Include="..\externals\lux\LUX.FMX.ScatterPlotFrame.pas">
+        <DCCReference Include="..\external\lux\LUX.FMX.ScatterPlotFrame.pas">
             <Form>ScatterPlotFrame</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\externals\lux\LUX.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.D2.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.D1.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.FMX.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.D3.pas"/>
-        <DCCReference Include="..\externals\lux\LIB.Material.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.FMX.Material.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.FMX.Types3D.pas"/>
-        <DCCReference Include="..\Source\univer\fxForm.pas">
+        <DCCReference Include="..\external\lux\LUX.pas"/>
+        <DCCReference Include="..\external\lux\LUX.D2.pas"/>
+        <DCCReference Include="..\external\lux\LUX.D1.pas"/>
+        <DCCReference Include="..\external\lux\LUX.FMX.pas"/>
+        <DCCReference Include="..\external\lux\LUX.D3.pas"/>
+        <DCCReference Include="..\external\lux\LIB.Material.pas"/>
+        <DCCReference Include="..\external\lux\LUX.FMX.Material.pas"/>
+        <DCCReference Include="..\external\lux\LUX.FMX.Types3D.pas"/>
+        <DCCReference Include="..\source\univer\fxForm.pas">
             <Form>FormX</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
         <DCCReference Include="..\source\univer\fxVolumeRender.pas">

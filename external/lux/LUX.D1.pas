@@ -9,7 +9,6 @@ uses
   LUX;
 
 type
-
   TSingle = record
   private
   public

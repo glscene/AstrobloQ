@@ -30,13 +30,13 @@ object frmFracLands: TfrmFracLands
     Top = 441
     Width = 828
     Height = 120
-    ActivePage = TabSheet5
+    ActivePage = TabSheet1
     Align = alBottom
     HotTrack = True
     TabOrder = 0
     OnChange = PageControl1Change
     ExplicitTop = 416
-    ExplicitWidth = 740
+    ExplicitWidth = 820
     object TabSheet1: TTabSheet
       Caption = #1058#1086#1087#1086#1075#1088#1072#1092#1080#1103
       object GroupBox1: TGroupBox
@@ -71,7 +71,7 @@ object frmFracLands: TfrmFracLands
           Width = 97
           Height = 25
           HelpContext = 45
-          Position = 3
+          Position = 2
           TabOrder = 0
           ThumbLength = 10
           OnChange = OnTopographyChanged
@@ -165,7 +165,7 @@ object frmFracLands: TfrmFracLands
           Width = 97
           Height = 25
           HelpContext = 45
-          Position = 4
+          Position = 7
           TabOrder = 1
           ThumbLength = 10
           OnChange = OnTopographyChanged
@@ -193,7 +193,7 @@ object frmFracLands: TfrmFracLands
           Max = 200
           Min = 1
           Frequency = 10
-          Position = 60
+          Position = 50
           TabOrder = 3
           ThumbLength = 10
           OnChange = OnTopographyChanged
@@ -460,8 +460,6 @@ object frmFracLands: TfrmFracLands
         Align = alClient
         Caption = #1064#1072#1075' '#1101#1088#1086#1079#1080#1080
         TabOrder = 3
-        ExplicitLeft = 457
-        ExplicitWidth = 283
         object Label26: TLabel
           Left = 6
           Top = 40
@@ -745,7 +743,6 @@ object frmFracLands: TfrmFracLands
         Caption = 'Default texture'
         TabOrder = 3
         Visible = False
-        ExplicitLeft = 457
         object Label27: TLabel
           Left = 9
           Top = 16
@@ -1023,7 +1020,6 @@ object frmFracLands: TfrmFracLands
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 2
-    ExplicitWidth = 749
   end
   object Panel1: TPanel
     Left = 0
@@ -1033,7 +1029,7 @@ object frmFracLands: TfrmFracLands
     Align = alBottom
     TabOrder = 1
     ExplicitTop = 536
-    ExplicitWidth = 740
+    ExplicitWidth = 820
     DesignSize = (
       828
       25)
@@ -1044,7 +1040,7 @@ object frmFracLands: TfrmFracLands
       Height = 13
     end
     object btApply: TBitBtn
-      Left = 377
+      Left = 369
       Top = -1
       Width = 75
       Height = 25
@@ -1055,7 +1051,7 @@ object frmFracLands: TfrmFracLands
       NumGlyphs = 2
       TabOrder = 0
       OnClick = btApplyClick
-      ExplicitLeft = 289
+      ExplicitLeft = 361
     end
   end
   object GLScene1: TGLScene

@@ -1,4 +1,4 @@
-unit fpNewmoon;
+unit fpLuna_ru;
 
 interface
 
@@ -14,17 +14,15 @@ uses
   Vcl.Dialogs;
 
 type
-  TFormNewmoon = class(TForm)
+  TFormLuna = class(TForm)
   private
-
   public
-
   end;
 
 var
-  FormNewmoon: TFormNewmoon;
+  FormLuna: TFormLuna;
 
-implementation  //=============================================================
+implementation //=============================================================
 
 {$R *.dfm}
 

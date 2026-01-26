@@ -152,6 +152,9 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <DCC_UnitSearchPath>..\external\lux;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -206,18 +209,18 @@
         <DCCReference Include="..\source\univer\fxScatterPlot_ru.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
-        <DCCReference Include="..\externals\lux\LUX.FMX.ScatterPlotFrame.pas">
+        <DCCReference Include="..\external\lux\LUX.FMX.ScatterPlotFrame.pas">
             <Form>ScatterPlotFrame</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\externals\lux\LUX.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.D2.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.D1.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.FMX.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.D3.pas"/>
-        <DCCReference Include="..\externals\lux\LIB.Material.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.FMX.Material.pas"/>
-        <DCCReference Include="..\externals\lux\LUX.FMX.Types3D.pas"/>
+        <DCCReference Include="..\external\lux\LUX.pas"/>
+        <DCCReference Include="..\external\lux\LUX.D2.pas"/>
+        <DCCReference Include="..\external\lux\LUX.D1.pas"/>
+        <DCCReference Include="..\external\lux\LUX.FMX.pas"/>
+        <DCCReference Include="..\external\lux\LUX.D3.pas"/>
+        <DCCReference Include="..\external\lux\LIB.Material.pas"/>
+        <DCCReference Include="..\external\lux\LUX.FMX.Material.pas"/>
+        <DCCReference Include="..\external\lux\LUX.FMX.Types3D.pas"/>
         <DCCReference Include="..\source\univer\fxForm.pas">
             <Form>FormX</Form>
             <FormType>fmx</FormType>
