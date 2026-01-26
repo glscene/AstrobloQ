@@ -3,34 +3,34 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Projects\AstroScene.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Projects\AstroScene_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Bioneta.dproj">
+        <Projects Include="Projects\AstroScene.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Bioneta_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Texoneta.dproj">
+        <Projects Include="Projects\Bioneta.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Texoneta_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Galaqtium.dproj">
+        <Projects Include="Projects\Texoneta.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Galaqtium_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Projects\Universum.dproj">
+        <Projects Include="Projects\Galaqtium.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Projects\Universum_ru.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Universum.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -41,15 +41,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="AstroScene">
-        <MSBuild Projects="Projects\AstroScene.dproj"/>
-    </Target>
-    <Target Name="AstroScene:Clean">
-        <MSBuild Projects="Projects\AstroScene.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="AstroScene:Make">
-        <MSBuild Projects="Projects\AstroScene.dproj" Targets="Make"/>
-    </Target>
     <Target Name="AstroScene_ru">
         <MSBuild Projects="Projects\AstroScene_ru.dproj"/>
     </Target>
@@ -59,14 +50,14 @@
     <Target Name="AstroScene_ru:Make">
         <MSBuild Projects="Projects\AstroScene_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Bioneta">
-        <MSBuild Projects="Projects\Bioneta.dproj"/>
+    <Target Name="AstroScene">
+        <MSBuild Projects="Projects\AstroScene.dproj"/>
     </Target>
-    <Target Name="Bioneta:Clean">
-        <MSBuild Projects="Projects\Bioneta.dproj" Targets="Clean"/>
+    <Target Name="AstroScene:Clean">
+        <MSBuild Projects="Projects\AstroScene.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Bioneta:Make">
-        <MSBuild Projects="Projects\Bioneta.dproj" Targets="Make"/>
+    <Target Name="AstroScene:Make">
+        <MSBuild Projects="Projects\AstroScene.dproj" Targets="Make"/>
     </Target>
     <Target Name="Bioneta_ru">
         <MSBuild Projects="Projects\Bioneta_ru.dproj"/>
@@ -77,14 +68,14 @@
     <Target Name="Bioneta_ru:Make">
         <MSBuild Projects="Projects\Bioneta_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Texoneta">
-        <MSBuild Projects="Projects\Texoneta.dproj"/>
+    <Target Name="Bioneta">
+        <MSBuild Projects="Projects\Bioneta.dproj"/>
     </Target>
-    <Target Name="Texoneta:Clean">
-        <MSBuild Projects="Projects\Texoneta.dproj" Targets="Clean"/>
+    <Target Name="Bioneta:Clean">
+        <MSBuild Projects="Projects\Bioneta.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Texoneta:Make">
-        <MSBuild Projects="Projects\Texoneta.dproj" Targets="Make"/>
+    <Target Name="Bioneta:Make">
+        <MSBuild Projects="Projects\Bioneta.dproj" Targets="Make"/>
     </Target>
     <Target Name="Texoneta_ru">
         <MSBuild Projects="Projects\Texoneta_ru.dproj"/>
@@ -95,14 +86,14 @@
     <Target Name="Texoneta_ru:Make">
         <MSBuild Projects="Projects\Texoneta_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Galaqtium">
-        <MSBuild Projects="Projects\Galaqtium.dproj"/>
+    <Target Name="Texoneta">
+        <MSBuild Projects="Projects\Texoneta.dproj"/>
     </Target>
-    <Target Name="Galaqtium:Clean">
-        <MSBuild Projects="Projects\Galaqtium.dproj" Targets="Clean"/>
+    <Target Name="Texoneta:Clean">
+        <MSBuild Projects="Projects\Texoneta.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Galaqtium:Make">
-        <MSBuild Projects="Projects\Galaqtium.dproj" Targets="Make"/>
+    <Target Name="Texoneta:Make">
+        <MSBuild Projects="Projects\Texoneta.dproj" Targets="Make"/>
     </Target>
     <Target Name="Galaqtium_ru">
         <MSBuild Projects="Projects\Galaqtium_ru.dproj"/>
@@ -113,14 +104,14 @@
     <Target Name="Galaqtium_ru:Make">
         <MSBuild Projects="Projects\Galaqtium_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Universum">
-        <MSBuild Projects="Projects\Universum.dproj"/>
+    <Target Name="Galaqtium">
+        <MSBuild Projects="Projects\Galaqtium.dproj"/>
     </Target>
-    <Target Name="Universum:Clean">
-        <MSBuild Projects="Projects\Universum.dproj" Targets="Clean"/>
+    <Target Name="Galaqtium:Clean">
+        <MSBuild Projects="Projects\Galaqtium.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Universum:Make">
-        <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
+    <Target Name="Galaqtium:Make">
+        <MSBuild Projects="Projects\Galaqtium.dproj" Targets="Make"/>
     </Target>
     <Target Name="Universum_ru">
         <MSBuild Projects="Projects\Universum_ru.dproj"/>
@@ -131,14 +122,23 @@
     <Target Name="Universum_ru:Make">
         <MSBuild Projects="Projects\Universum_ru.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Universum">
+        <MSBuild Projects="Projects\Universum.dproj"/>
+    </Target>
+    <Target Name="Universum:Clean">
+        <MSBuild Projects="Projects\Universum.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Universum:Make">
+        <MSBuild Projects="Projects\Universum.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene;AstroScene_ru;Bioneta;Bioneta_ru;Texoneta;Texoneta_ru;Galaqtium;Galaqtium_ru;Universum;Universum_ru"/>
+        <CallTarget Targets="AstroScene_ru;AstroScene;Bioneta_ru;Bioneta;Texoneta_ru;Texoneta;Galaqtium_ru;Galaqtium;Universum_ru;Universum"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene:Clean;AstroScene_ru:Clean;Bioneta:Clean;Bioneta_ru:Clean;Texoneta:Clean;Texoneta_ru:Clean;Galaqtium:Clean;Galaqtium_ru:Clean;Universum:Clean;Universum_ru:Clean"/>
+        <CallTarget Targets="AstroScene_ru:Clean;AstroScene:Clean;Bioneta_ru:Clean;Bioneta:Clean;Texoneta_ru:Clean;Texoneta:Clean;Galaqtium_ru:Clean;Galaqtium:Clean;Universum_ru:Clean;Universum:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene:Make;AstroScene_ru:Make;Bioneta:Make;Bioneta_ru:Make;Texoneta:Make;Texoneta_ru:Make;Galaqtium:Make;Galaqtium_ru:Make;Universum:Make;Universum_ru:Make"/>
+        <CallTarget Targets="AstroScene_ru:Make;AstroScene:Make;Bioneta_ru:Make;Bioneta:Make;Texoneta_ru:Make;Texoneta:Make;Galaqtium_ru:Make;Galaqtium:Make;Universum_ru:Make;Universum:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

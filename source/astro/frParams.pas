@@ -1,4 +1,4 @@
-unit frParams_ru;
+unit frParams;
 
 interface
 
@@ -15,7 +15,7 @@ uses
   GLS.GeomObjects;
 
 type
-  TFrameParamsR = class(TFrame)
+  TFrameParams = class(TFrame)
     procedure edKeyPress(Sender: TObject; var Key: Char);
     procedure edChange(Sender: TObject);
   public
@@ -23,16 +23,15 @@ type
     procedure ShowParams;
   end;
 
-implementation // -------------------------------------------------------------
+implementation //==============================================================
 
 uses
-  fmStellarSys_ru;
+  faStarSys;
 
 {$R *.dfm}
 
 // ShowParams
-//
-procedure TFrameParamsR.ShowParams;
+procedure TFrameParams.ShowParams;
 
   procedure addLabel(x, y: integer; cap: string);
   var
@@ -80,7 +79,7 @@ var
 
 begin
 {
-  with FormSolarSys do
+  with FormSolarsys do
   begin
     if (lastPickObject <> PickObject) or (PickObject = nil) then
       for i := self.ControlCount - 1 downto 0 do
@@ -122,8 +121,7 @@ begin
 end;
 
 // edKeyPress
-//
-procedure TFrameParamsR.edKeyPress;
+procedure TFrameParams.edKeyPress;
 begin
   case Key of
     '0' .. '9', ',', '-', #13, #8:
@@ -134,8 +132,7 @@ begin
 end;
 
 // edChange
-//
-procedure TFrameParamsR.edChange;
+procedure TFrameParams.edChange;
 var
   param: PPropInfo;
   i: integer;

@@ -11,7 +11,7 @@ program AstroScene;
 
 uses
   Forms,
-  fmAstroScene in '..\source\fmAstroScene.pas' {frmAstroScene},
+  faAstroScene in '..\source\astro\faAstroScene.pas' {frmAstroScene},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
@@ -22,8 +22,8 @@ uses
   Vcl.Styles,
   faOptions in '..\source\astro\faOptions.pas' {frmOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  fmStellarSys in '..\source\fmStellarSys.pas' {FormStellarSys},
-  frParams in '..\source\frParams.pas' {FrameParams: TFrame},
+  faStarSys in '..\source\astro\faStarSys.pas' {FormStellarSys},
+  frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   faConstells in '..\source\astro\faConstells.pas' {frmConstells},

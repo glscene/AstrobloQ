@@ -142,13 +142,13 @@ type
 var
   frmOptions: TfrmOptions;
 
-implementation //------------------------------------------------------------
+implementation //==============================================================
 
 
 {$R *.dfm}
 
 uses
-  fmAstroScene;
+  faAstroScene;
 
 //-------------------------------------------------------------
 // Form Create

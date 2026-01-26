@@ -14,10 +14,10 @@ uses
   Vcl.Imaging.jpeg,
 
 
-  GLS.Objects,
-  GLS.Scene,
   Stage.VectorTypes,
   Stage.VectorGeometry,
+  GLS.Objects,
+  GLS.Scene,
   GLS.Cadencer,
   GLS.SceneViewer,
   GLS.GeomObjects,
@@ -58,7 +58,7 @@ type
 var
   FormPointto: TFormPointto;
 
-implementation
+implementation //==============================================================
 
 {$R *.DFM}
 

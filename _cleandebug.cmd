@@ -3,6 +3,7 @@ del *.exe /s
 del *.scr /s
 del *.dcu /s 
 rem del *.res /s  !!!!!
+del *.ini /s
 del *.ddp /s
 del *.ppu /s
 del *.o /s
@@ -19,7 +20,6 @@ del *.map /s
 del *.rsm /s
 del *.drc /s
 del *.local /s
-del *.ini /s
 del *.pof /s
 del *.dsv /s
 del *.rsm /s

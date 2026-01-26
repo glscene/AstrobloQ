@@ -89,7 +89,5 @@ inherited FormParadox: TFormParadox
     Margins.Right = 5
     Margins.Bottom = 5
     Panels = <>
-    ExplicitTop = 724
-    ExplicitWidth = 1149
   end
 end

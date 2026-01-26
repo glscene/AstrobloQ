@@ -33,15 +33,15 @@ type
     procedure tvAnalyzerClick(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
   FormAnalyser: TFormAnalyser;
 
-implementation
+implementation //==============================================================
 
 {$R *.dfm}
 

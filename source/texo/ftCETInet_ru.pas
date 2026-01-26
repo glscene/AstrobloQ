@@ -204,11 +204,8 @@ type
     procedure ApplyBgColor;
     procedure ApplyTexturing;
     procedure ApplyFPS;
-
     procedure DoOpen(const fileName: String);
-
   public
-
     md, nthShow: Boolean;
     mx, my: Integer;
     hlShader: TGLShader;
@@ -219,7 +216,7 @@ type
 var
   FormCETI: TFormCETI;
 
-implementation
+implementation //==============================================================
 
 {$R *.dfm}
 

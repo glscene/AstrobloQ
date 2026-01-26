@@ -32,7 +32,7 @@ type
 var
   FormMonitor: TFormMonitor;
 
-implementation
+implementation //=============================================================
 
 {$R *.dfm}
 

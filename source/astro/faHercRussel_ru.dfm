@@ -21,6 +21,7 @@ object FormHercrussel: TFormHercrussel
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 504
   end
   object PanelRight: TPanel
     Left = 496

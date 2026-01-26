@@ -111,12 +111,12 @@ type
 var
   frmOptions: TfrmOptions;
 
-implementation //-----------------------------------------------------------
+implementation //==============================================================
 
 {$R *.dfm}
 
 uses
-  fmAstroScene_ru;
+  faAstroScene_ru;
 
 //-------------------------------------------------------------
 procedure TfrmOptions.FormCreate(Sender: TObject);
@@ -175,18 +175,20 @@ begin
   end;
 end;
 
-//---------------------------------------------------
-// Показать картографическую сетку
-//---------------------------------------------------
+//-----------------------------------------------------------------------------
+// Картографическая сетка
+//-----------------------------------------------------------------------------
 procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
 begin
   //
 end;
 
-//---------------------------------------------------
-// Показать разрез с ядром и мантией
-//---------------------------------------------------
+//-----------------------------------------------------------------------------
+// Разрез с ядром и мантией
+//-----------------------------------------------------------------------------
 procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
+var
+  PlanetPath: TFileName;
 begin
   with frmAstroScene do
   if CheckBoxCore.Checked then
@@ -246,8 +248,6 @@ end;
 // Чтение установок из ини файла
 //------------------------------------------------------------
 procedure TfrmOptions.ReadIniFile;
-var
-  IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
@@ -263,8 +263,6 @@ end;
 // Запись установок в инифайл
 //------------------------------------------------------------
 procedure TfrmOptions.WriteIniFile;
-var
-  IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
@@ -283,10 +281,11 @@ procedure TfrmOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
+  inherited;
   FileName := ChangeFileExt(ParamStr(0), '.ini');
   if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
-  WriteIniFile;
+  WriteIniFile;   // запись опций в ини файл
   frmOptions.Close;
 end;
 

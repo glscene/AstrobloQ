@@ -55,7 +55,6 @@ object FormStellarSys: TFormStellarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
-      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -87,6 +86,7 @@ object FormStellarSys: TFormStellarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
+      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -119,7 +119,6 @@ object FormStellarSys: TFormStellarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
-      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29

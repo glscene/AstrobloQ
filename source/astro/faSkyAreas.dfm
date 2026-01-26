@@ -43,7 +43,6 @@ object FormConstPolygons: TFormConstPolygons
         000000000000FFFFFFFFFFFFFFFF000000000000000000000000000103410072
         0069000000250000000000000000000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000103410075007200}
-      ExplicitHeight = 538
     end
     object PanelNames: TPanel
       Left = 1
@@ -75,6 +74,7 @@ object FormConstPolygons: TFormConstPolygons
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 721
   end
   object MemoData: TMemo
     Left = 352

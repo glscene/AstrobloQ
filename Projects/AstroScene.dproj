@@ -106,7 +106,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\fmAstroScene.pas">
+        <DCCReference Include="..\source\astro\faAstroScene.pas">
             <Form>frmAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
@@ -133,11 +133,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\fmStellarSys.pas">
+        <DCCReference Include="..\source\astro\faStarSys.pas">
             <Form>FormStellarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\frParams.pas">
+        <DCCReference Include="..\source\astro\frParams.pas">
             <Form>FrameParams</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>

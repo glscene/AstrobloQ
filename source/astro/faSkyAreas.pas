@@ -19,13 +19,14 @@ uses
   Vcl.VirtualImage,
 
 
-  dmImages,
   GLS.SceneViewer,
   GLS.BaseClasses,
   GLS.Scene,
+  GLS.Cadencer,
+  dmImages,
 
   Astro.Utils,
-  fmFormFirst, GLS.Cadencer;
+  fmFormFirst;
 
 type
   TFormConstPolygons = class(TfrmFirst)
@@ -51,7 +52,7 @@ type
 var
   FormConstPolygons: TFormConstPolygons;
 
-implementation //-------------------------------------------------------------
+implementation //==============================================================
 
 {$R *.dfm}
 
