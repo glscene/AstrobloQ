@@ -1,11 +1,12 @@
 unit Astro.ReadCSV;
-
 (*
   CSV parser for Free. Fields as String, Integer or Extended.
-  Usage:
 
+  Usage:
   begin
-  var Source: TspDataSourceCSV;
+  var
+    Source: TspDataSourceCSV;
+
   Source := TspDataSourceCSV.Create;
   try
     Source.SetDelimiter(Char(59));  // this is ;
@@ -20,13 +21,13 @@ unit Astro.ReadCSV;
   end;
   end;
 *)
-
 interface
 
 uses
   Winapi.Windows,
   System.Classes,
-  System.SysUtils;
+  System.SysUtils,
+  Vcl.Dialogs;
 
 type
   TspDataSourceCSV = class(TObject)
@@ -44,8 +45,8 @@ type
     procedure SetDateSeparator(const Separator: Char);
     procedure First;
     function GetTotal(): Integer;
-    function GetRowString(): String;
-    function FieldByNameAsString(Column: ShortString): String;
+    function GetRowString(): string;
+    function FieldByNameAsString(Column: ShortString): string;
     function FieldByNameAsInteger(Column: ShortString): Integer;
     function FieldByNameAsFloat(Column: ShortString): Extended;
     function FieldByNameAsDate(Column: ShortString): TDate;
@@ -59,8 +60,41 @@ type
   published
   end;
 
-implementation // -------------------------------------------
+function GetFileNameFromCSV(const FileName: TFileName; var Name: string; const Index: Integer): TFileName;
 
+implementation //=============================================================
+
+
+//-----------------------------------------------------------------------------
+function GetFileNameFromCSV(const FileName: TFileName; var Name: string; const Index: Integer): TFileName;
+var
+  Source: TspDataSourceCSV;
+  Number: Integer;
+  S, S1 : string;
+
+begin
+  Source := TspDataSourceCSV.Create;
+  try
+///    Source.SetDelimiter(Char(59));  // this is ';'
+    Source.SetDelimiter(',');  // this is ','
+    Source.LoadFromFile(FileName);
+    while not Source.Eof do
+    begin
+      S:= IntToStr(Index);
+      S1 := Source.FieldByNameAsString(S);
+      ShowMessage(S1);
+//      Number := Source.FieldByNameAsInteger(IntToStr(Index));
+//      if (Name = Name + '_ru') then
+//      if Number = Index  then Break;
+      Source.Next;
+    end;
+  finally
+    Source.Free;
+  end;
+  Result := Name;
+end;
+
+//-----------------------------------------------------------------------------
 constructor TspDataSourceCSV.Create;
 begin
   Self._columns := TStringList.Create;
@@ -71,6 +105,7 @@ begin
   Self._date_separator := '-';
 end;
 
+//----------------------------------------------------------------------------
 procedure TspDataSourceCSV.LoadFromFile(const FileName: ShortString);
 var
   loadedFile, Row: TStringList;
@@ -89,7 +124,6 @@ begin
   begin
     Self._columns.Add(Row.Strings[I]);
   end;
-
   // load rows
   for I := 1 to loadedFile.Count - 1 do
   begin
@@ -100,11 +134,13 @@ begin
   Self._feof := False;
 end;
 
+//----------------------------------------------------------------------------
 procedure TspDataSourceCSV.SetDelimiter(const Character: Char);
 begin
   Self._delimiter := Character;
 end;
 
+//----------------------------------------------------------------------------
 procedure TspDataSourceCSV.SetDateSeparator(const Separator: Char);
 begin
   Self._date_separator := Separator;
@@ -115,6 +151,7 @@ begin
   Self._index := 0;
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.GetTotal: Integer;
 begin
   Result := Self._rows.Count;
@@ -125,6 +162,7 @@ begin
   Result := Self._rows.Strings[Self._index];
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.GetColumnIndex(Column: ShortString): Integer;
 var
   ColumnIndex: Integer;
@@ -136,6 +174,7 @@ begin
     raise Exception.Create('Error: Column "' + Column + '" not found !');
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.FieldByNameAsString(Column: ShortString): String;
 var
   ColumnIndex: Integer;
@@ -149,6 +188,7 @@ begin
   Result := Row.Strings[ColumnIndex];
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.FieldByNameAsInteger(Column: ShortString): Integer;
 var
   ColumnIndex: Integer;
@@ -162,6 +202,7 @@ begin
   Result := StrToIntDef(Row.Strings[ColumnIndex], 0);
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.FieldByNameAsFloat(Column: ShortString): Extended;
 var
   ColumnIndex: Integer;
@@ -175,6 +216,7 @@ begin
   Result := StrToFloatDef(Row.Strings[ColumnIndex], 0);
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.FieldByNameAsDate(Column: ShortString): TDate;
 var
   ColumnIndex: Integer;
@@ -192,6 +234,7 @@ begin
   Result := StrToDate(Row.Strings[ColumnIndex], MySettings);
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.FieldByNameAsTime(Column: ShortString): TTime;
 var
   ColumnIndex: Integer;
@@ -205,6 +248,7 @@ begin
   Result := StrToTime(Row.Strings[ColumnIndex]);
 end;
 
+//----------------------------------------------------------------------------
 function TspDataSourceCSV.FieldByNameAsDateTime(Column: ShortString): TDateTime;
 var
   ColumnIndex: Integer;
@@ -222,6 +266,7 @@ begin
   Result := StrToDateTime(Row.Strings[ColumnIndex], MySettings);
 end;
 
+//----------------------------------------------------------------------------
 procedure TspDataSourceCSV.Next;
 begin
   Inc(Self._index);

@@ -71,7 +71,9 @@ uses
   faStarSys_ru,
   faConstells_ru,
   faHercRussel_ru,
-  faSkyAreas_ru
+  faSkyAreas_ru,
+
+  Astro.ReadCSV
   ;
 
 
@@ -406,17 +408,24 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 var
-  MoonName, Moon: TFileName;
+  MoonName, Moon : string;
+  FileCSV: TFileName;
+  Index: Integer;
 begin
   // видимость
   sfPlanet.Visible := False;
   sfMoon.Visible := True;
   sfAsteroid.Visible := False;
 
-  MoonName := CurrentStar + tvMoons.Selected.Text;
+  FileCSV := CurrentStar + 'sol_moons.csv';
+  // находим по полю name_ru
+  MoonName := tvMoons.Selected.Text;
+  // Index := 1; // a какой индекс узла tvMoon ?
+  Index := tvMoons.Selected.Index;
+  Moon := GetFileNameFromCSV(FileCSV, MoonName, Index);
+
   sfMoon.Material.Texture.Image.LoadFromFile(MoonName + '.jpg');
 
-///  MoonName := OpenCSV(sol_moons.csv, name_ru);  // находим по полю name_ru
   Moon := 'Moon';
   MoonName := MoonName + '\' + Moon;
 
@@ -427,7 +436,7 @@ begin
   // меш форма
   ffMoon.Visible := False;
   ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
-  ffMoon.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+  ffMoon.Material.Texture.Image.LoadFromFile(MoonPath + '.jpg');
   Camera.TagObject := ffPlanet;
 *)
 

@@ -190,7 +190,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762
@@ -609,7 +608,7 @@ object frmGalaqtium: TfrmGalaqtium
     object Camera: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
-      TargetObject = dcGalacube
+      TargetObject = dcGalaxy
       CameraStyle = csInfinitePerspective
       Position.Coordinates = {0050434700606A4700B888470000803F}
       object Lighting: TGLLightSource
@@ -727,7 +726,7 @@ object frmGalaqtium: TfrmGalaqtium
         SpotCutOff = 180.000000000000000000
       end
     end
-    object dcGalacube: TGLDummyCube
+    object dcGalaxy: TGLDummyCube
       CubeSize = 100000.000000000000000000
       VisibleAtRunTime = True
       object diskGalaxy: TGLDisk
@@ -754,6 +753,33 @@ object frmGalaqtium: TfrmGalaqtium
         ZSamplingScale.Origin = -500.000000000000000000
         ZSamplingScale.Step = 1000.000000000000000000
         Parts = [gpX, gpY, gpZ]
+      end
+      object celGalaxy: TGLCylinder
+        BottomRadius = 0.500000000000000000
+        Height = 1.000000000000000000
+        TopRadius = 0.500000000000000000
+      end
+      object sphGalaxy: TGLSphere
+        Material.PolygonMode = pmLines
+        Radius = 50000.000000000000000000
+      end
+      object ansGHZ: TGLAnnulus
+        Material.BackProperties.Ambient.Color = {00000000000000000000000000000000}
+        Material.BackProperties.Diffuse.Color = {EBE0E03EE4DB5B3F9A93133F0000803F}
+        Material.BackProperties.Emission.Color = {00000000000000000000000000000000}
+        Material.BackProperties.Specular.Color = {00000000000000000000000000000000}
+        Material.FrontProperties.Ambient.Color = {00000000000000000000000000000000}
+        Material.FrontProperties.Diffuse.Color = {EBE0E03EE4DB5B3F9A93133F0000803F}
+        Material.FrontProperties.Emission.Color = {00000000000000000000000000000000}
+        Material.FrontProperties.Specular.Color = {00000000000000000000000000000000}
+        Material.BlendingMode = bmAdditive
+        BottomRadius = 30000.000000000000000000
+        Height = 3000.000000000000000000
+        Slices = 64
+        Stacks = 8
+        BottomInnerRadius = 10000.000000000000000000
+        TopInnerRadius = 10000.000000000000000000
+        TopRadius = 30000.000000000000000000
       end
     end
   end
