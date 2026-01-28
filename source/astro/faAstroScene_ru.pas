@@ -117,7 +117,6 @@ type
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
-    miViewHidePanels: TMenuItem;
     N3: TMenuItem;
     StatusBar: TStatusBar;
     miSolarSystem: TMenuItem;
@@ -196,7 +195,6 @@ type
     procedure miFileSaveAsClick(Sender: TObject);
     procedure miClearTreeViewClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
-    procedure miViewHidePanelsClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
     procedure miGenExosysClick(Sender: TObject);
@@ -318,7 +316,8 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.FormShow(Sender: TObject);
 begin
-  // Планеты - первоначально показываем Землю, 3-ю планету
+
+  // Планеты - показываем Землю, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
   // Луны - меняем фокус
@@ -330,34 +329,9 @@ begin
   miHelpWiki.Caption := tvMoons.Selected.Text; // + ' in ' + 'RuWiki...';
 *)
   // Астероиды
-  tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto
+  tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto by default
 ///  miHelpWiki.Caption := tvAsteroids.Selected.Text + ' в ' + 'RuWiki...';
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
-end;
-
-//------------------  Скрыть или показать панели и тулбары -------------------
-procedure TfrmAstroScene.miViewHidePanelsClick(Sender: TObject);
-begin
-  miViewHidePanels.Checked := not miViewHidePanels.Checked;
-  if miViewHidePanels.Checked then
-  begin
-    miViewHidePanels.Caption := 'Показать панели';
-    PanelLeft.Visible := False;
-    PanelRight.Visible := False;
-    StatusBar.Visible := False;
-    ControlBarTop.Visible := False;
-    frmAstroScene.BorderStyle := bsNone;
-  end
-  else
-  begin
-    miViewHidePanels.Caption := 'Скрыть панели';
-    PanelLeft.Visible := True;
-    PanelRight.Visible := True;
-    StatusBar.Visible := True;
-    StatusBar.Align := alBottom;
-    ControlBarTop.Visible := True;
-    frmAstroScene.BorderStyle := bsSizeable;
-  end;
 end;
 
 //----------------------------------------------------------------------------
@@ -366,6 +340,7 @@ end;
 procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 var
   PlanetName: TFileName;
+
 begin
   // видимость
   sfPlanet.Visible := True;
@@ -375,9 +350,13 @@ begin
   PlanetName := CurrentStar + TToolButton(Sender).ImageName;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
 
-  // Показать атмосферы планет, заменить на case
-  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Земля') or
-     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Венера')
+  // Показать атмосферы планет, заменить на case, толщина атмосфер разная
+  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Earth') or
+     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Venus') or
+     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Jupiter') or
+     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Saturn') or
+     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Uranus') or
+     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Neptune')
   then
     DirectOpenGL.Visible := True
   else
@@ -444,13 +423,12 @@ begin
   sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
 
 (*
-  // меш форма
+  // фри форма
   ffMoon.Visible := False;
   ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
   ffMoon.Material.Texture.Image.LoadFromFile(MoonPath + '.jpg');
   Camera.TagObject := ffPlanet;
 *)
-
 //  если карты из VirtPlanetMaps
 //  ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
 
@@ -985,7 +963,7 @@ begin
   OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
-  begin  // new star
+  begin  // новая звезда
     tvMoons.LoadFromFile(OpenDialog.FileName, TEncoding.UTF8);
     // tvMoons.Images := dfImages.ImgVirtPlanets; // не загружаются символы
     CurrentStar := ExtractFilePath(OpenDialog.FileName);

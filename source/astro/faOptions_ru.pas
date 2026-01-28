@@ -83,25 +83,27 @@ type
     chbConstBounds: TCheckBox;
     chbClouds: TCheckBox;
     chbCartographicGrid: TCheckBox;
-    CheckBoxHidePlanet: TCheckBox;
+    chbHidePlanet: TCheckBox;
     gbShowStars: TGroupBox;
     chbSkyGrid: TCheckBox;
     tsInterface: TTabSheet;
     cbSplashStart: TCheckBox;
-    ComboBoxVclStyles: TComboBox;
+    ComboBoxStyles: TComboBox;
     lbStyle: TLabel;
     rgUnits: TRadioGroup;
     GroupBox1: TGroupBox;
     CheckBox1: TCheckBox;
+    chbHidePanels: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure CheckBoxCoreClick(Sender: TObject);
     procedure CheckBoxAtmosferaClick(Sender: TObject);
-    procedure CheckBoxHidePlanetClick(Sender: TObject);
+    procedure chbHidePlanetClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
     procedure chbCartographicGridClick(Sender: TObject);
+    procedure chbHidePanelsClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -130,8 +132,8 @@ begin
 
   // Включение стилей интерфейса в комбобокс
   for StyleName in TStyleManager.StyleNames do
-    ComboBoxVclStyles.Items.Add(StyleName);
-  ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
+    ComboBoxStyles.Items.Add(StyleName);
+  ComboBoxStyles.ItemIndex := ComboBoxStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 
   // Заполнение индексов узлов дерева установок
   for I := 0 to tvOptions.Items.Count - 1 do
@@ -160,7 +162,9 @@ end;
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
- // frmAllPlanets.Atmosphere;
+  inherited; // считывает ini файл, не все планеты с атмосферой
+  with frmAstroScene do
+    DirectOpenGL.Visible := not DirectOpenGL.Visible;
 end;
 
 //---------------------------------------------------
@@ -168,19 +172,40 @@ end;
 //---------------------------------------------------
 procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
 begin
+  inherited; // считывает параметры из ini файла
+  with frmAstroScene do
   if CheckBoxAxes.Checked then
   begin
-    frmAstroScene.sfPlanet.ShowAxes := not frmAstroScene.sfPlanet.ShowAxes;
-    frmAstroScene.ffPlanet.ShowAxes := not frmAstroScene.ffPlanet.ShowAxes;
+    sfPlanet.ShowAxes := not sfPlanet.ShowAxes;
+    ffPlanet.ShowAxes := not ffPlanet.ShowAxes;
+  end else
+  begin
+    sfPlanet.ShowAxes := not sfPlanet.ShowAxes;
+    ffPlanet.ShowAxes := not ffPlanet.ShowAxes;
   end;
 end;
 
-//-----------------------------------------------------------------------------
-// Картографическая сетка
-//-----------------------------------------------------------------------------
-procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TfrmOptions.chbHidePanelsClick(Sender: TObject);
 begin
-  //
+  inherited;  // считывает параметры из ini файла
+  with frmAstroScene do
+  if chbHidePanels.Checked then // Показать панели
+  begin
+    PanelLeft.Visible := not PanelLeft.Visible;
+    PanelRight.Visible := not PanelRight.Visible;
+    StatusBar.Visible := not StatusBar.Visible;
+    ControlBarTop.Visible := not ControlBarTop.Visible;
+    frmAstroScene.BorderStyle := bsNone;
+  end
+  else  // Скрыть панели
+  begin
+    PanelLeft.Visible := not PanelLeft.Visible;
+    PanelRight.Visible := not PanelRight.Visible;
+    StatusBar.Visible := not StatusBar.Visible;
+    ControlBarTop.Visible := not ControlBarTop.Visible;
+    frmAstroScene.BorderStyle := bsSizeable;
+  end;
 end;
 
 //-----------------------------------------------------------------------------
@@ -190,6 +215,7 @@ procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
 var
   PlanetPath: TFileName;
 begin
+  inherited;  // считывает параметры из ini файла
   with frmAstroScene do
   if CheckBoxCore.Checked then
   begin
@@ -210,22 +236,33 @@ begin
   end;
 end;
 
+//-----------------------------------------------------------------------------
+// Картографическая сетка
+//-----------------------------------------------------------------------------
+procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
+begin
+  //
+end;
+
 //------------------------------------------------------------------
 // Показать или скрыть небесное тело
 //------------------------------------------------------------------
-procedure TfrmOptions.CheckBoxHidePlanetClick(Sender: TObject);
+procedure TfrmOptions.chbHidePlanetClick(Sender: TObject);
 begin
-  if CheckBoxHidePlanet.Checked then
+  with frmAstroScene do
+  if chbHidePlanet.Checked then
   begin
-    frmAstroScene.sfPlanet.Visible := False;
-    frmAstroScene.ffPlanet.Visible := False;
-    frmAstroScene.DirectOpenGL.Visible := False;
+    dcPlanet.Visible := not dcPlanet.Visible;
+//    sfPlanet.Visible := False;
+//    ffPlanet.Visible := False;
+    DirectOpenGL.Visible := False;
   end
   else
   begin
-    frmAstroScene.sfPlanet.Visible := True;
-    frmAstroScene.ffPlanet.Visible := True;
-    frmAstroScene.DirectOpenGL.Visible := True;
+    dcPlanet.Visible := not dcPlanet.Visible;
+//    sfPlanet.Visible := True;
+//    ffPlanet.Visible := True;
+    DirectOpenGL.Visible := True;
   end;
 end;
 

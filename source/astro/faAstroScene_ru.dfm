@@ -351,7 +351,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1057#1086#1083#1085#1094#1077
+        Caption = 'Sol'
         ImageIndex = 0
         ImageName = 'Sun'
         ParentShowHint = False
@@ -366,7 +366,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1052#1077#1088#1082#1091#1088#1080#1081
+        Caption = 'Mercury'
         ImageIndex = 1
         ImageName = 'Mercury'
         ParentShowHint = False
@@ -381,7 +381,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1042#1077#1085#1077#1088#1072
+        Caption = 'Venus'
         ImageIndex = 2
         ImageName = 'Venus'
         ParentShowHint = False
@@ -396,7 +396,7 @@ object frmAstroScene: TfrmAstroScene
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = #1047#1077#1084#1083#1103
+        Caption = 'Earth'
         ImageIndex = 3
         ImageName = 'Earth'
         ParentShowHint = False
@@ -407,7 +407,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 124
         Top = 0
         Hint = #1052#1072#1088#1089
-        Caption = #1052#1072#1088#1089
+        Caption = 'Mars'
         ImageIndex = 4
         ImageName = 'Mars'
         ParentShowHint = False
@@ -418,7 +418,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 155
         Top = 0
         Hint = #1070#1087#1080#1090#1077#1088
-        Caption = #1070#1087#1080#1090#1077#1088
+        Caption = 'Jupiter'
         ImageIndex = 5
         ImageName = 'Jupiter'
         ParentShowHint = False
@@ -429,7 +429,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 186
         Top = 0
         Hint = #1057#1072#1090#1091#1088#1085
-        Caption = #1057#1072#1090#1091#1088#1085
+        Caption = 'Saturn'
         ImageIndex = 6
         ImageName = 'Saturn'
         ParentShowHint = False
@@ -440,7 +440,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 217
         Top = 0
         Hint = #1059#1088#1072#1085
-        Caption = #1059#1088#1072#1085
+        Caption = 'Uranus'
         ImageIndex = 7
         ImageName = 'Uranus'
         ParentShowHint = False
@@ -451,7 +451,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 248
         Top = 0
         Hint = #1053#1077#1087#1090#1091#1085
-        Caption = #1053#1077#1087#1090#1091#1085
+        Caption = 'Neptune'
         ImageIndex = 8
         ImageName = 'Neptune'
         ParentShowHint = False
@@ -781,6 +781,7 @@ object frmAstroScene: TfrmAstroScene
             Stacks = 128
           end
           object ffMoon: TGLFreeForm
+            Visible = False
           end
         end
         object sfPlanet: TGLSphere
@@ -788,7 +789,6 @@ object frmAstroScene: TfrmAstroScene
           Direction.Coordinates = {000000000000803F0000000000000000}
           TurnAngle = -150.000000000000000000
           Up.Coordinates = {00000000000000800000803F00000000}
-          Visible = False
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
@@ -853,6 +853,7 @@ object frmAstroScene: TfrmAstroScene
           Radius = 0.500000000000000000
         end
         object ffAsteroid: TGLFreeForm
+          Visible = False
         end
       end
       object dcComet: TGLDummyCube
@@ -861,6 +862,7 @@ object frmAstroScene: TfrmAstroScene
           Radius = 0.500000000000000000
         end
         object ffComet: TGLFreeForm
+          Visible = False
         end
       end
     end
@@ -89197,10 +89199,6 @@ object frmAstroScene: TfrmAstroScene
       end
       object N6: TMenuItem
         Caption = '-'
-      end
-      object miViewHidePanels: TMenuItem
-        Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
-        OnClick = miViewHidePanelsClick
       end
       object miClearTreeView: TMenuItem
         Caption = #1054#1095#1080#1089#1090#1080#1090#1100

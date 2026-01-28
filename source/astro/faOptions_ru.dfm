@@ -30,7 +30,7 @@ object frmOptions: TfrmOptions
       750
       41)
     object ButtonOK: TButton
-      Left = 402
+      Left = 394
       Top = 1
       Width = 99
       Height = 31
@@ -39,7 +39,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 394
+      ExplicitLeft = 386
     end
   end
   object PanelMiddle: TPanel
@@ -106,14 +106,14 @@ object frmOptions: TfrmOptions
           ParentFont = False
         end
         object cbSplashStart: TCheckBox
-          Left = 187
-          Top = 280
+          Left = 189
+          Top = 304
           Width = 131
           Height = 18
           Caption = #1047#1072#1089#1090#1072#1074#1082#1072
           TabOrder = 0
         end
-        object ComboBoxVclStyles: TComboBox
+        object ComboBoxStyles: TComboBox
           Left = 248
           Top = 25
           Width = 193
@@ -128,22 +128,31 @@ object frmOptions: TfrmOptions
           ParentFont = False
           TabOrder = 1
         end
+        object chbHidePanels: TCheckBox
+          Left = 75
+          Top = 104
+          Width = 174
+          Height = 17
+          Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
+          TabOrder = 2
+          OnClick = chbHidePanelsClick
+        end
       end
       object tsDisplay: TTabSheet
         Caption = #1044#1080#1089#1087#1083#1077#1081
         ImageIndex = 4
         TabVisible = False
         object GroupBox1: TGroupBox
-          Left = 120
-          Top = 88
+          Left = 88
+          Top = 104
           Width = 297
           Height = 105
           Caption = 'GroupBox1'
           TabOrder = 0
           object CheckBox1: TCheckBox
-            Left = 64
+            Left = 32
             Top = 40
-            Width = 185
+            Width = 217
             Height = 17
             Caption = #1054#1089#1074#1077#1097#1077#1085#1080#1077' '#1085#1086#1095#1085#1086#1081' '#1089#1090#1086#1088#1086#1085#1099
             TabOrder = 0
@@ -158,7 +167,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = -54
+          Left = -62
           Top = 137
           Width = 104
           Height = 128
@@ -360,8 +369,8 @@ object frmOptions: TfrmOptions
             StyleName = 'Windows'
           end
           object CheckBoxAxes: TCheckBox
-            Left = 33
-            Top = 104
+            Left = 167
+            Top = 30
             Width = 82
             Height = 25
             Caption = #1054#1089#1080
@@ -372,15 +381,15 @@ object frmOptions: TfrmOptions
           object CheckBox4: TCheckBox
             Left = 167
             Top = 109
-            Width = 105
+            Width = 121
             Height = 20
-            Caption = 'Shading'
+            Caption = #1044#1077#1085#1100' '#1080' '#1085#1086#1095#1100
             TabOrder = 2
             StyleName = 'Windows'
           end
           object CheckBoxCore: TCheckBox
-            Left = 167
-            Top = 31
+            Left = 304
+            Top = 103
             Width = 98
             Height = 27
             Caption = #1071#1076#1088#1086
@@ -400,7 +409,7 @@ object frmOptions: TfrmOptions
           end
           object chbClouds: TCheckBox
             Left = 167
-            Top = 73
+            Top = 65
             Width = 98
             Height = 24
             Caption = #1054#1073#1083#1072#1082#1072
@@ -418,15 +427,15 @@ object frmOptions: TfrmOptions
             StyleName = 'Windows'
             OnClick = chbCartographicGridClick
           end
-          object CheckBoxHidePlanet: TCheckBox
+          object chbHidePlanet: TCheckBox
             Left = 304
             Top = 34
-            Width = 122
+            Width = 169
             Height = 25
-            Caption = #1057#1082#1088#1099#1090#1100
+            Caption = #1057#1082#1088#1099#1090#1100' '#1087#1083#1072#1085#1077#1090#1091
             TabOrder = 7
             StyleName = 'Windows'
-            OnClick = CheckBoxHidePlanetClick
+            OnClick = chbHidePlanetClick
           end
         end
         object grbPlanetParams: TGroupBox
