@@ -400,9 +400,9 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 var
-  MoonName, Moon: string;
+  Moon: string;
   MoonFile, FileCSV, FileJpg: TFileName;
-  Index: Integer;
+  NLine: Integer;
 
 begin
   // видимость
@@ -412,10 +412,11 @@ begin
 
   // читаем CSV file для трансляции и загрузки имени карты луны
   FileCSV := CurrentStar + 'sol_moons.csv';
-  MoonName := tvMoons.Selected.Text;  // находим по полю name_ru
-  Index := tvMoons.Selected.Index;    // индекс узла дерева просмотра
+  Moon := tvMoons.Selected.Text;  // находим по полю name_ru
 
-  MoonFile := GetStringFromCSV(FileCSV, Index, MoonName);
+  // передача индекса узла дерева просмотра в CSV
+  NLine := tvMoons.Selected.Index;
+  MoonFile := GetMoonNameFromCSV(FileCSV, NLine, Moon);
   FileJpg := CurrentStar + LowerCase(MoonFile) + '.jpg';
   sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
 
@@ -959,7 +960,7 @@ procedure TfrmAstroScene.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
 begin
-  OpenDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
+  OpenDialog.Filter := '(*.star)|*.star';
   OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
@@ -968,7 +969,7 @@ begin
     // tvMoons.Images := dfImages.ImgVirtPlanets; // не загружаются символы
     CurrentStar := ExtractFilePath(OpenDialog.FileName);
 
-    // Assigning indices
+    // Присвоение индексов
     for I := 0 to tvMoons.Items.Count - 1 do
     begin
       tvMoons.Items[I].ImageIndex := I; // and may be .Item[J] ?
@@ -1006,6 +1007,7 @@ begin
   frmSettings.Show;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.miSkyAreasClick(Sender: TObject);
 begin
   with TFormSkyAreas.Create(Self) do
@@ -1019,6 +1021,7 @@ end;
 //------------------------ Атлас созвездий -----------------------------------
 procedure TfrmAstroScene.miConstAtlasClick(Sender: TObject);
 begin
+  inherited;
   with TFormConstells.Create(Self) do
   try
     ShowModal;

@@ -61,67 +61,30 @@ type
   end;
 
 function GetFieldNameFromCSV(const FileName: TFileName; const Index: Integer; var FieldName: string): string;
-function GetStringFromCSV(const FileName: TFileName; const Index: Integer; var Name: string): string;
+function GetMoonNameFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
 
 
 implementation //=============================================================
 
 //----------------------------------------------------------------------------
-function GetStringFromCSV(const FileName: TFileName; const Index: Integer; var Name: string): string;
+function GetMoonNameFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
 var
   Sl,Tl: TStringList;
-  radius, diameter, color, x,y,z: Single;
-  I, IndState, Ind, Fname, Fname_ru, Fx, Fy, Fz, Fspect: Integer;
-  S, sIndex: string;
+  index, radius, diameter: Single;
+  end_time,begin_time,planet_name,number,state_index: string;
 
 begin
   Sl := TStringList.Create;
   Tl := TStringList.Create;
+  Result := Moon;
   try
     Sl.LoadFromFile(FileName);
-    Tl.CommaText := Sl[0];  // the fieled names
-    Tl.Delimiter :=',';
-    // Определяем индексы столбцов name, name_ru, x, y, z и spect
-    for I := 0 to Tl.Count -1 do
-    begin
-      if Tl[I] = 'name' then
-      begin
-        Fname := I;
-
-      end
-      else if Tl[I] = 'name_ru' then
-        Fname_ru := I
-      (*
-      else if Tl[I] = 'x' then
-        Fx := I
-      else if Tl[I] = 'y' then
-        Fy := I
-      else if Tl[I] = 'z' then
-        Fz := I
-      else if Tl[I] = 'spect' then
-        Fspect := I *)
-      ;
-    end;
-
- //   Ind := Tl.IndexOf('name');
- //   Tl.Find('state_index', IndState); // planet index for symbol
- //
-    Tl.CommaText := Sl[Index + 1];  // the line with Index and Title
-
-    Name := Tl[Fname];              // translation
-
-    (*
-    for I := 1 to Sl.Count - 1 do
-    begin
-      Tl.CommaText := Sl[I];
-      if ... then ...
-    end;
-    *)
+    Tl.CommaText := Sl[NLine + 1]; // the lines with values without title
+    Result := Tl[1];        // translation of moon for name field 1
   finally
     Sl.Free;
     Tl.Free;
   end;
-  Result := Name;
 end;
 
 //-----------------------------------------------------------------------------
@@ -137,8 +100,8 @@ var
 begin
   Source := TspDataSourceCSV.Create;
   try
-    Source.SetDelimiter(Char(59));  // this is ';'
-///    Source.SetDelimiter(',');  // this is ','
+///    Source.SetDelimiter(Char(59));  // this is ';'
+    Source.SetDelimiter(',');  // this is ','
     Source.LoadFromFile(FileName);
     while not Source.Eof do
     begin
