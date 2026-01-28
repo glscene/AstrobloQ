@@ -342,10 +342,13 @@ var
   PlanetName: TFileName;
 
 begin
-  // видимость
+  // видимость планет
   sfPlanet.Visible := True;
-  sfMoon.Visible := False;
-  sfAsteroid.Visible := False;
+  ffPlanet.Visible := False;
+  // луны, астероиды и кометы не видны
+  dcMoon.Visible := False;
+  dcAsteroid.Visible := False;
+  dcComet.Visible := False;
 
   PlanetName := CurrentStar + TToolButton(Sender).ImageName;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
@@ -405,10 +408,14 @@ var
   NLine: Integer;
 
 begin
-  // видимость
+  // видимость лун
   sfMoon.Visible := True;
+  ffMoon.Visible := True;
+  // планеты, астероиды и кометы не видны
   sfPlanet.Visible := False;
+  ffPlanet.Visible := False;
   sfAsteroid.Visible := False;
+  ffAsteroid.Visible := False;
 
   // читаем CSV file для трансляции и загрузки имени карты луны
   FileCSV := CurrentStar + 'sol_moons.csv';

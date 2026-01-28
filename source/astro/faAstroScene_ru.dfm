@@ -848,6 +848,7 @@ object frmAstroScene: TfrmAstroScene
         end
       end
       object dcAsteroid: TGLDummyCube
+        Visible = False
         CubeSize = 1.000000000000000000
         object sfAsteroid: TGLSphere
           Radius = 0.500000000000000000
@@ -859,6 +860,7 @@ object frmAstroScene: TfrmAstroScene
       object dcComet: TGLDummyCube
         CubeSize = 1.000000000000000000
         object sfComet: TGLSphere
+          Visible = False
           Radius = 0.500000000000000000
         end
         object ffComet: TGLFreeForm
