@@ -3,10 +3,10 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="StarboxC\StarboxС_ru.cbproj">
+        <Projects Include="StarboxC\HygViewerC_ru.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\HygViewerC_ru.cbproj">
+        <Projects Include="StarboxC\StarboxС_ru.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarboxC\StarlifeС.cbproj">
@@ -29,15 +29,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="StarboxС_ru">
-        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj"/>
-    </Target>
-    <Target Name="StarboxС_ru:Clean">
-        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="StarboxС_ru:Make">
-        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="HygViewerC_ru">
         <MSBuild Projects="StarboxC\HygViewerC_ru.cbproj"/>
     </Target>
@@ -46,6 +37,15 @@
     </Target>
     <Target Name="HygViewerC_ru:Make">
         <MSBuild Projects="StarboxC\HygViewerC_ru.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarboxС_ru">
+        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj"/>
+    </Target>
+    <Target Name="StarboxС_ru:Clean">
+        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarboxС_ru:Make">
+        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Make"/>
     </Target>
     <Target Name="StarlifeС">
         <MSBuild Projects="StarboxC\StarlifeС.cbproj"/>
@@ -84,13 +84,13 @@
         <MSBuild Projects="StarboxC\HygViewerC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarboxС_ru;HygViewerC_ru;StarlifeС;StarCubeС_ru;HygSQLiteС;HygViewerC"/>
+        <CallTarget Targets="HygViewerC_ru;StarboxС_ru;StarlifeС;StarCubeС_ru;HygSQLiteС;HygViewerC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarboxС_ru:Clean;HygViewerC_ru:Clean;StarlifeС:Clean;StarCubeС_ru:Clean;HygSQLiteС:Clean;HygViewerC:Clean"/>
+        <CallTarget Targets="HygViewerC_ru:Clean;StarboxС_ru:Clean;StarlifeС:Clean;StarCubeС_ru:Clean;HygSQLiteС:Clean;HygViewerC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarboxС_ru:Make;HygViewerC_ru:Make;StarlifeС:Make;StarCubeС_ru:Make;HygSQLiteС:Make;HygViewerC:Make"/>
+        <CallTarget Targets="HygViewerC_ru:Make;StarboxС_ru:Make;StarlifeС:Make;StarCubeС_ru:Make;HygSQLiteС:Make;HygViewerC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

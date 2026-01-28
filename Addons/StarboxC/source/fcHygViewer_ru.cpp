@@ -24,8 +24,8 @@ TFormViewer* FormViewer;
 
 int mx, my;
 unsigned int start, end;
-TStringList* S1 = new TStringList;
-TStringList* T1 = new TStringList;
+TStringList* Sl = new TStringList; // все строки файла
+TStringList* Tl = new TStringList; // текущая строка
 
 unsigned char FX, FY, FZ, FSpect;
 
@@ -108,34 +108,31 @@ void __fastcall TFormViewer::OpenCSV1Click(TObject* Sender) {
   FormatSettings.DecimalSeparator = '.';
 
   if (OpenTextFileDialog1->Execute()) {
-	S1->LoadFromFile(OpenTextFileDialog1->FileName);
-	// CSV
-	T1->CommaText = S1->Strings[0];
+	Sl->LoadFromFile(OpenTextFileDialog1->FileName); //загрузка всего CSV файла
+	Tl->CommaText = Sl->Strings[0];   //чтение первой строки с именами полей
 
-	for (int i = 0; i < T1->Count; i++) {
-	  if (T1[0][i] == "x")
+	for (int i = 0; i < Tl->Count; i++) {
+	  if (Tl[0][i] == "x")
 		FX = i;
-	  else if (T1[0][i] == "y")
+	  else if (Tl[0][i] == "y")
 		FY = i;
-	  else if (T1[0][i] == "z")
+	  else if (Tl[0][i] == "z")
 		FZ = i;
-	  else if (T1[0][i] == "spect")
+	  else if (Tl[0][i] == "spect")
 		FSpect = i;
 	}
 
 	start = clock();
-
 	count = 0;
 
-
-	for (int i = 1; i < S1->Count; i++) {
-	  T1->CommaText = S1->Strings[i];
+	for (int i = 1; i < Sl->Count; i++) {
+	  Tl->CommaText = Sl->Strings[i];
 	  try {
-		X = StrToFloat(T1[0][FX]) * 0.2;
-		Y = StrToFloat(T1[0][FY]) * 0.2;
-		Z = StrToFloat(T1[0][FZ]) * 0.2;
+		X = StrToFloat(Tl[0][FX]) * 0.2;
+		Y = StrToFloat(Tl[0][FY]) * 0.2;
+		Z = StrToFloat(Tl[0][FZ]) * 0.2;
 
-		String FullType = T1[0][FSpect];
+		String FullType = Tl[0][FSpect];
 
 		// CSV)
 		if (FullType == "") FullType = "A";
@@ -192,12 +189,12 @@ void __fastcall TFormViewer::OpenCSV1Click(TObject* Sender) {
 	end = clock();
 	ex_time = (end - start) / (double)CLOCKS_PER_SEC;
 
-	delete S1;
-	delete T1;
+	delete Sl;
+	delete Tl;
   }
 }
-//---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
 void __fastcall TFormViewer::Button1Click(TObject* Sender) {
   GLTypeO->Free();
   GLTypeB->Free();
@@ -219,49 +216,49 @@ void __fastcall TFormViewer::Button1Click(TObject* Sender) {
 
 void __fastcall TFormViewer::chbOClick(TObject *Sender)
 {
-	 // Class  "O"
+	 // Класс  "O"
 	 GLTypeO->Visible =  chbO->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewer::chbBClick(TObject *Sender)
 {
-	// Class "B"
+	// Класс "B"
 	GLTypeB->Visible =  chbB->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewer::chbAClick(TObject *Sender)
 {
-	// Class "A"
+	// Класс "A"
 	GLTypeA->Visible =  chbA->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewer::chbFClick(TObject *Sender)
 {
-		// Class "F"
-		GLTypeF->Visible =  chbF->Checked;
+	// Класс "F"
+	GLTypeF->Visible =  chbF->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewer::chbGClick(TObject *Sender)
 {
-	// Class "G"
+	// Класс "G"
 	GLTypeG->Visible =  chbG->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewer::chbKClick(TObject *Sender)
 {
-	// Class "K"
+	// Класс "K"
 	GLTypeK->Visible =  chbK->Checked;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormViewer::chbMClick(TObject *Sender)
 {
-	// Class "M"
+	// Класс "M"
 	GLTypeM->Visible =  chbM->Checked;
 }
 //---------------------------------------------------------------------------

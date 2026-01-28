@@ -174,6 +174,8 @@ type
     ffMoon: TGLFreeForm;
     ffAsteroid: TGLFreeForm;
     sfAsteroid: TGLSphere;
+    sfComet: TGLSphere;
+    ffComet: TGLFreeForm;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -265,7 +267,7 @@ begin
   SetCurrentDir(DataDir) ;
   StarDir := DataDir + 'stars';
 
-  // указываем путь к каталогам
+  // путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
 // д.б.  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
@@ -276,19 +278,31 @@ begin
     StarSkyDome.StructureChanged;
   end;
 
-  // переходим по умолчанию в директорию солнечной системы
+  // переход по умолчанию в директорию солнечной системы
   if DirectoryExists('starsys\sun') then
         ChDir('starsys\sun');
   CurrentStar := DataDir + '\starsys\sun\';
 
-  // разрешаем текстурирование планеты
+  // разрешенo текстурирования планет
   sfPlanet.Material.Texture.Disabled := False;
-  sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
-
-  // разрешаем текстурирование планетоида
   ffPlanet.Material.Texture.Disabled := False;
-  ffPlanet.Material.Texture.Image.LoadFromFile('deimos.jpg');
-  ffPlanet.Scale.Scale(0.1);
+  sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+//  ffPlanet.Scale.Scale(1); // масштаб фриформ планет
+
+  // разрешенo текстурирования лун
+  sfMoon.Material.Texture.Disabled := False;
+  ffMoon.Material.Texture.Disabled := False;
+  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
+// ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
+
+  // разрешенo текстурирования астероидов
+  sfAsteroid.Material.Texture.Disabled := False;
+  ffAsteroid.Material.Texture.Disabled := False;
+// ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
+
+  // разрешенo текстурирования комет
+  sfComet.Material.Texture.Disabled := False;
+  ffComet.Material.Texture.Disabled := False;
 
   // индексируем узлы дерева компонент TreeView
   for I := 0 to tvMoons.Items.Count - 1 do
@@ -299,7 +313,6 @@ begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-  ///tvMoons.LoadFromFile(CurrentStar + 'sol_moons.csv');
 end;
 
 //----------------------------------------------------------------------------
@@ -408,29 +421,27 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
 var
-  MoonName, Moon : string;
-  FileCSV: TFileName;
+  MoonName, Moon: string;
+  MoonFile, FileCSV, FileJpg: TFileName;
   Index: Integer;
+
 begin
   // видимость
-  sfPlanet.Visible := False;
   sfMoon.Visible := True;
+  sfPlanet.Visible := False;
   sfAsteroid.Visible := False;
 
+  // читаем CSV file для трансляции и загрузки имени карты луны
   FileCSV := CurrentStar + 'sol_moons.csv';
-  // находим по полю name_ru
-  MoonName := tvMoons.Selected.Text;
-  // Index := 1; // a какой индекс узла tvMoon ?
-  Index := tvMoons.Selected.Index;
-  Moon := GetFileNameFromCSV(FileCSV, MoonName, Index);
+  MoonName := tvMoons.Selected.Text;  // находим по полю name_ru
+  Index := tvMoons.Selected.Index;    // индекс узла дерева просмотра
 
-  sfMoon.Material.Texture.Image.LoadFromFile(MoonName + '.jpg');
-
-  Moon := 'Moon';
-  MoonName := MoonName + '\' + Moon;
+  MoonFile := GetStringFromCSV(FileCSV, Index, MoonName);
+  FileJpg := CurrentStar + LowerCase(MoonFile) + '.jpg';
+  sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
 
   // сфера
-  sfMoon.Material.Texture.Image.LoadFromFile(MoonName + '.jpg');
+  sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
 
 (*
   // меш форма
@@ -458,7 +469,13 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
 begin
+  // видимость
+  sfAsteroid.Visible := True;
+  sfMoon.Visible := False;
+  sfPlanet.Visible := False;
+
 ///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
+
   // Название астероида для веб-справки ruwiki
   miHelpWiki.Caption := tvAsteroids.Selected.Text; // + '_(астероид)';
 end;

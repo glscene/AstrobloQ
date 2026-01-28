@@ -766,11 +766,29 @@ object frmAstroScene: TfrmAstroScene
       CubeSize = 1000.000000000000000000
       object dcPlanet: TGLDummyCube
         CubeSize = 1.000000000000000000
+        object dcMoon: TGLDummyCube
+          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
+          CubeSize = 1.000000000000000000
+          object sfMoon: TGLSphere
+            Material.MaterialLibrary = GLMatLib
+            Material.LibMaterialName = 'moon'
+            Direction.Coordinates = {D947AABE616D713F0000000000000000}
+            Position.Coordinates = {CDCCECC100000000000000000000803F}
+            TurnAngle = -170.000000000000000000
+            Up.Coordinates = {00000000000000000000803F00000000}
+            Radius = 0.500000000000000000
+            Slices = 128
+            Stacks = 128
+          end
+          object ffMoon: TGLFreeForm
+          end
+        end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
           Direction.Coordinates = {000000000000803F0000000000000000}
           TurnAngle = -150.000000000000000000
           Up.Coordinates = {00000000000000800000803F00000000}
+          Visible = False
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
@@ -825,23 +843,6 @@ object frmAstroScene: TfrmAstroScene
           Visible = False
           MaterialLibrary = GLMatLib
         end
-        object dcMoon: TGLDummyCube
-          Up.Coordinates = {FC9D7FB10000803F0000000000000000}
-          CubeSize = 1.000000000000000000
-          object sfMoon: TGLSphere
-            Material.MaterialLibrary = GLMatLib
-            Material.LibMaterialName = 'moon'
-            Direction.Coordinates = {D947AABE616D713F0000000000000000}
-            Position.Coordinates = {CDCCECC100000000000000000000803F}
-            TurnAngle = -170.000000000000000000
-            Up.Coordinates = {00000000000000000000803F00000000}
-            Radius = 0.500000000000000000
-            Slices = 128
-            Stacks = 128
-          end
-          object ffMoon: TGLFreeForm
-          end
-        end
         object Atmosphere: TGLAtmosphere
           Visible = False
         end
@@ -856,6 +857,11 @@ object frmAstroScene: TfrmAstroScene
       end
       object dcComet: TGLDummyCube
         CubeSize = 1.000000000000000000
+        object sfComet: TGLSphere
+          Radius = 0.500000000000000000
+        end
+        object ffComet: TGLFreeForm
+        end
       end
     end
     object DirectOpenGL: TGLDirectOpenGL

@@ -6,7 +6,6 @@ unit Astro.ReadCSV;
   begin
   var
     Source: TspDataSourceCSV;
-
   Source := TspDataSourceCSV.Create;
   try
     Source.SetDelimiter(Char(59));  // this is ;
@@ -39,6 +38,7 @@ type
     _feof: Boolean;
     _date_separator: Char;
   public
+    Sl,Tl: TStringList;
     constructor Create();
     procedure LoadFromFile(const FileName: ShortString);
     procedure SetDelimiter(const Character: Char);
@@ -57,41 +57,101 @@ type
     property Count: Integer read GetTotal;
   private
     function GetColumnIndex(Column: ShortString): Integer;
-  published
+  public
   end;
 
-function GetFileNameFromCSV(const FileName: TFileName; var Name: string; const Index: Integer): TFileName;
+function GetFieldNameFromCSV(const FileName: TFileName; const Index: Integer; var FieldName: string): string;
+function GetStringFromCSV(const FileName: TFileName; const Index: Integer; var Name: string): string;
+
 
 implementation //=============================================================
 
+//----------------------------------------------------------------------------
+function GetStringFromCSV(const FileName: TFileName; const Index: Integer; var Name: string): string;
+var
+  Sl,Tl: TStringList;
+  radius, diameter, color, x,y,z: Single;
+  I, IndState, Ind, Fname, Fname_ru, Fx, Fy, Fz, Fspect: Integer;
+  S, sIndex: string;
+
+begin
+  Sl := TStringList.Create;
+  Tl := TStringList.Create;
+  try
+    Sl.LoadFromFile(FileName);
+    Tl.CommaText := Sl[0];  // the fieled names
+    Tl.Delimiter :=',';
+    // Определяем индексы столбцов name, name_ru, x, y, z и spect
+    for I := 0 to Tl.Count -1 do
+    begin
+      if Tl[I] = 'name' then
+      begin
+        Fname := I;
+
+      end
+      else if Tl[I] = 'name_ru' then
+        Fname_ru := I
+      (*
+      else if Tl[I] = 'x' then
+        Fx := I
+      else if Tl[I] = 'y' then
+        Fy := I
+      else if Tl[I] = 'z' then
+        Fz := I
+      else if Tl[I] = 'spect' then
+        Fspect := I *)
+      ;
+    end;
+
+ //   Ind := Tl.IndexOf('name');
+ //   Tl.Find('state_index', IndState); // planet index for symbol
+ //
+    Tl.CommaText := Sl[Index + 1];  // the line with Index and Title
+
+    Name := Tl[Fname];              // translation
+
+    (*
+    for I := 1 to Sl.Count - 1 do
+    begin
+      Tl.CommaText := Sl[I];
+      if ... then ...
+    end;
+    *)
+  finally
+    Sl.Free;
+    Tl.Free;
+  end;
+  Result := Name;
+end;
 
 //-----------------------------------------------------------------------------
-function GetFileNameFromCSV(const FileName: TFileName; var Name: string; const Index: Integer): TFileName;
+// Needs to debug, don't workable yet
+//-----------------------------------------------------------------------------
+function GetFieldNameFromCSV(const FileName: TFileName; const Index: Integer;
+  var FieldName: string): string;
 var
   Source: TspDataSourceCSV;
   Number: Integer;
-  S, S1 : string;
+  S, sField: string;
 
 begin
   Source := TspDataSourceCSV.Create;
   try
-///    Source.SetDelimiter(Char(59));  // this is ';'
-    Source.SetDelimiter(',');  // this is ','
+    Source.SetDelimiter(Char(59));  // this is ';'
+///    Source.SetDelimiter(',');  // this is ','
     Source.LoadFromFile(FileName);
     while not Source.Eof do
     begin
       S:= IntToStr(Index);
-      S1 := Source.FieldByNameAsString(S);
-      ShowMessage(S1);
-//      Number := Source.FieldByNameAsInteger(IntToStr(Index));
-//      if (Name = Name + '_ru') then
-//      if Number = Index  then Break;
+      sField := Source.FieldByNameAsString(FieldName);
+      ShowMessage(sField);
+      Number := Source.FieldByNameAsInteger(IntToStr(Index));
       Source.Next;
     end;
   finally
     Source.Free;
   end;
-  Result := Name;
+  Result := FieldName;
 end;
 
 //-----------------------------------------------------------------------------

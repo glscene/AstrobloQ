@@ -132,7 +132,6 @@ void __fastcall TFormBox::FormCreate(TObject* Sender)
 }
 
 //---------------------------------------------------------------------------
-
 void __fastcall TFormBox::FormShow(TObject* Sender)
 {
 	TGLVector AColor;

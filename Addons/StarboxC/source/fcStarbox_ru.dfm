@@ -38,6 +38,8 @@ object FormBox: TFormBox
     Align = alClient
     OnMouseDown = GLSceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 795
+    ExplicitHeight = 647
   end
   object PanelRight: TPanel
     Left = 924
