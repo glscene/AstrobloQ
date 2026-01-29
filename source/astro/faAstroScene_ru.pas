@@ -158,7 +158,7 @@ type
     ToolButtonUranus: TToolButton;
     ToolButtonNeptune: TToolButton;
     ToolBar2: TToolBar;
-    ToolButton17: TToolButton;
+    ToolButtonReset: TToolButton;
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
@@ -314,14 +314,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
+//--------------------------- Шоу --------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.FormShow(Sender: TObject);
 begin
+  tbPlanets.SetFocus;
+  ToolButtonEarth.ImageIndex := 3;
+  tbPlanets.Buttons[ToolButtonEarth.ImageIndex].Click;
 
-  // Планеты - показываем Землю, имя 3-й планеты на кириллице
+  // Справка - показываем Землю, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
-  // Луны - меняем фокус
+  // Cмена фокуса на Луны
 (*
+  tvMoons.SetFocus;
   tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
   tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
@@ -409,13 +415,13 @@ var
 
 begin
   // видимость лун
-  sfMoon.Visible := True;
-  ffMoon.Visible := True;
+  dcMoon.Visible := True;
   // планеты, астероиды и кометы не видны
   sfPlanet.Visible := False;
   ffPlanet.Visible := False;
-  sfAsteroid.Visible := False;
-  ffAsteroid.Visible := False;
+
+  dcAsteroid.Visible := False;
+  dcComet.Visible := False;
 
   // читаем CSV file для трансляции и загрузки имени карты луны
   FileCSV := CurrentStar + 'sol_moons.csv';
@@ -425,20 +431,25 @@ begin
   NLine := tvMoons.Selected.Index;
   MoonFile := GetMoonNameFromCSV(FileCSV, NLine, Moon);
   FileJpg := CurrentStar + LowerCase(MoonFile) + '.jpg';
-  sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
-
-  // сфера
-  sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
+  if FileExists(FileJpg, True) then
+  begin
+    sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
+    ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // фриформа
+    // ffMoon.LoadFromFile(DataDir + '\model\object.3ds'); // модель
+  end
+  else
+  begin
+    FileJpg := CurrentStar + 'aPlanet.jpg';
+    sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
+    ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
+    // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
+  end;
 
 (*
-  // фри форма
-  ffMoon.Visible := False;
-  ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
-  ffMoon.Material.Texture.Image.LoadFromFile(MoonPath + '.jpg');
+  если карты из VirtPlanetMaps
+  ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
   Camera.TagObject := ffPlanet;
 *)
-//  если карты из VirtPlanetMaps
-//  ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
 
   // Показать атмосферу Титана
   if tvMoons.Selected.Text = 'Титан' then
@@ -456,9 +467,9 @@ end;
 procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
 begin
   // видимость
-  sfAsteroid.Visible := True;
-  sfMoon.Visible := False;
-  sfPlanet.Visible := False;
+  dcAsteroid.Visible := True;
+  dcMoon.Visible := False;
+  dcPlanet.Visible := False;
 
 ///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
 
@@ -777,15 +788,15 @@ begin
 
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
- /// LSSun.Position.AsAffineVector := p;   //стоп движения солнца
+ /// LSSun.Position.AsAffineVector := p; //остановка движения Солнца
 
-  // вращение Луны вокруг себя и Земли
-  // направление вращения можно изменить!
+  // вращение Луны вокруг себя и Земли, направление вращения можно менять
   p := ComputePlanetPosition(cMoonOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
+  (*
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   sfMoon.TurnAngle := 180 - dcMoon.TurnAngle;
-
+  *)
   // плавное перемещение камеры
   if (dmy <> 0) or (dmx <> 0) then
   begin
@@ -818,12 +829,19 @@ begin
     ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
   end;
 
+  // вращение небесных тел для демонстрации
   if frmOptions.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
-  end;
 
+    sfMoon.TurnAngle := sfMoon.TurnAngle + deltaTime * TimeMultiplier;
+    ffMoon.TurnAngle := ffMoon.TurnAngle + deltaTime * TimeMultiplier;
+
+    sfAsteroid.TurnAngle := sfAsteroid.TurnAngle + deltaTime * TimeMultiplier;
+    ffAsteroid.TurnAngle := ffAsteroid.TurnAngle + deltaTime * TimeMultiplier;
+
+  end;
 end;
 
 //------------------------ Опускаем мышь -------------------------------------
