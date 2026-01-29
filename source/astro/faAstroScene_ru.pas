@@ -256,8 +256,6 @@ implementation // =============================================================
 
 // -------------------- Создание главной формы --------------------------------
 procedure TfrmAstroScene.FormCreate(Sender: TObject);
-var
-  I: Integer;
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
@@ -302,6 +300,32 @@ begin
   sfComet.Material.Texture.Disabled := False;
   ffComet.Material.Texture.Disabled := False;
 
+end;
+
+//----------------------------------------------------------------------------
+//--------------------------- Шоу --------------------------------------------
+//----------------------------------------------------------------------------
+procedure TfrmAstroScene.FormShow(Sender: TObject);
+var
+  I: Integer;
+
+begin
+  tbPlanets.SetFocus;
+  tbnEarth.ImageIndex := 3;
+  tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
+
+  // Справка - показываем Землю, имя 3-й планеты на кириллице
+  miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
+
+  // Луны cмена фокуса
+(*
+  tvMoons.SetFocus;
+  tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
+  tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
+  TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
+  tvMoonsClick(Self);
+  miHelpWiki.Caption := tvMoons.Selected.Text; // + ' in ' + 'RuWiki...';
+*)
   // индексируем узлы дерева компонент TreeView
   for I := 0 to tvMoons.Items.Count - 1 do
   begin
@@ -311,32 +335,11 @@ begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
   (**)
-end;
 
-//----------------------------------------------------------------------------
-//--------------------------- Шоу --------------------------------------------
-//----------------------------------------------------------------------------
-procedure TfrmAstroScene.FormShow(Sender: TObject);
-begin
-  tbPlanets.SetFocus;
-  tbnEarth.ImageIndex := 3;
-  tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
-
-  // Справка - показываем Землю, имя 3-й планеты на кириллице
-  miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
-
-  // Cмена фокуса на Луны
-(*
-  tvMoons.SetFocus;
-  tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
-  tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
-  TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
-  tvMoonsClick(Self);
-  miHelpWiki.Caption := tvMoons.Selected.Text; // + ' in ' + 'RuWiki...';
-*)
-  // Астероиды
-  tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto by default
-///  miHelpWiki.Caption := tvAsteroids.Selected.Text + ' в ' + 'RuWiki...';
+  //  Астероиды
+  //  Открыть файл sol_asteroids.csv и загрузить в tvAsteroids
+  //  tvAsteroids.SetFocus;
+  //  tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto by default
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
 end;
 
@@ -429,17 +432,19 @@ begin
 
   // передача индекса узла дерева просмотра в CSV
   NLine := tvMoons.Selected.Index;
-  MoonFile := GetMoonNameFromCSV(FileCSV, NLine, Moon);
+  MoonFile := GetMoonFromCSV(FileCSV, NLine, Moon (*Radous*));
   FileJpg := CurrentStar + LowerCase(MoonFile) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
+//    sfMoon.Radius := Radius; // считывается из csv файла
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
     ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // фриформа
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds'); // модель
   end
   else
   begin
-    FileJpg := CurrentStar + 'aPlanet.jpg';
+    sfMoon.Radius := 0.3; // Radius;
+    FileJpg := CurrentStar + 'aMoon.jpg';
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
@@ -453,11 +458,18 @@ begin
 
   // Показать атмосферу Титана
   if tvMoons.Selected.Text = 'Титан' then
+  begin
+    sfMoon.Radius := 0.5;
     DirectOpenGL.Visible := True
+  end
   else
+  begin
+    sfMoon.Radius := 0.3;
     DirectOpenGL.Visible := False;
+  end;
 
-  // Название луны для веб-справки ruwiki
+  // Имя луны или спутника для веб-справки ruwiki
+  // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
   miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';
 end;
 
@@ -475,7 +487,8 @@ begin
 ///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
 
   // Название астероида для веб-справки ruwiki
-  miHelpWiki.Caption := tvAsteroids.Selected.Text; // + '_(астероид)';
+  // miHelpWiki->Caption = tvAsteroids->Selected->Text + "_(астероид)";
+  miHelpWiki.Caption := tvAsteroids.Selected.Text + '_(астероид)';
 end;
 
 
@@ -486,7 +499,6 @@ var
 
 begin
 /// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
-/// tvMoons.Selected.Text надо перевести на русский язык для ruwiki
 /// но, однако, некоторые названия звёзд остаются на латинице,
 /// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')

@@ -771,12 +771,11 @@ object frmAstroScene: TfrmAstroScene
           CubeSize = 1.000000000000000000
           object sfMoon: TGLSphere
             Direction.Coordinates = {D947AABE616D713F0000000000000000}
-            Position.Coordinates = {000080BF00000000000080BF0000803F}
             TurnAngle = -170.000000000000000000
             Up.Coordinates = {00000000000000000000803F00000000}
-            Radius = 0.500000000000000000
-            Slices = 128
-            Stacks = 128
+            Radius = 0.300000011920929000
+            Slices = 64
+            Stacks = 64
           end
           object ffMoon: TGLFreeForm
             Visible = False

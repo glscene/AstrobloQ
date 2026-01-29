@@ -61,13 +61,13 @@ type
   end;
 
 function GetFieldNameFromCSV(const FileName: TFileName; const Index: Integer; var FieldName: string): string;
-function GetMoonNameFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
+function GetMoonFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
 
 
 implementation //=============================================================
 
 //----------------------------------------------------------------------------
-function GetMoonNameFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
+function GetMoonFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
 var
   Sl,Tl: TStringList;
   index, radius, diameter: Single;
