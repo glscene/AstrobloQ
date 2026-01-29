@@ -148,15 +148,15 @@ type
     StaticText2: TStaticText;
     StaticText3: TStaticText;
     tbPlanets: TToolBar;
-    ToolButtonSun: TToolButton;
-    ToolButtonMercury: TToolButton;
-    ToolButtonVenus: TToolButton;
-    ToolButtonEarth: TToolButton;
-    ToolButtonMars: TToolButton;
-    ToolButtonJupiter: TToolButton;
-    ToolButtonSaturn: TToolButton;
-    ToolButtonUranus: TToolButton;
-    ToolButtonNeptune: TToolButton;
+    tbnSol: TToolButton;
+    tbnMercury: TToolButton;
+    tbnVenus: TToolButton;
+    tbnEarth: TToolButton;
+    tbnMars: TToolButton;
+    tbnJupiter: TToolButton;
+    tbnSaturn: TToolButton;
+    tbnUranus: TToolButton;
+    tbnNeptune: TToolButton;
     ToolBar2: TToolBar;
     ToolButtonReset: TToolButton;
     ToolButton19: TToolButton;
@@ -319,8 +319,8 @@ end;
 procedure TfrmAstroScene.FormShow(Sender: TObject);
 begin
   tbPlanets.SetFocus;
-  ToolButtonEarth.ImageIndex := 3;
-  tbPlanets.Buttons[ToolButtonEarth.ImageIndex].Click;
+  tbnEarth.ImageIndex := 3;
+  tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
 
   // Справка - показываем Землю, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
@@ -466,11 +466,12 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
 begin
-  // видимость
+  // видимости пока нет, отладка sol_asteroids.csv
+(*
   dcAsteroid.Visible := True;
   dcMoon.Visible := False;
   dcPlanet.Visible := False;
-
+*)
 ///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
 
   // Название астероида для веб-справки ruwiki
@@ -793,10 +794,12 @@ begin
   // вращение Луны вокруг себя и Земли, направление вращения можно менять
   p := ComputePlanetPosition(cMoonOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
+
   (*
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   sfMoon.TurnAngle := 180 - dcMoon.TurnAngle;
   *)
+
   // плавное перемещение камеры
   if (dmy <> 0) or (dmx <> 0) then
   begin
@@ -1101,7 +1104,7 @@ end;
 procedure TfrmAstroScene.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
-  WriteIniFile;   // запись установок в ини файл
+  WriteIniFile;   // запись установок в ini файл
 end;
 
 

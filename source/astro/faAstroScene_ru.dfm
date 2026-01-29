@@ -343,7 +343,7 @@ object frmAstroScene: TfrmAstroScene
       List = True
       ParentFont = False
       TabOrder = 3
-      object ToolButtonSun: TToolButton
+      object tbnSol: TToolButton
         Left = 0
         Top = 0
         Hint = #1057#1086#1083#1085#1094#1077
@@ -353,12 +353,12 @@ object frmAstroScene: TfrmAstroScene
         Margins.Bottom = 2
         Caption = 'Sol'
         ImageIndex = 0
-        ImageName = 'Sun'
+        ImageName = 'Sol'
         ParentShowHint = False
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonMercury: TToolButton
+      object tbnMercury: TToolButton
         Left = 31
         Top = 0
         Hint = #1052#1077#1088#1082#1091#1088#1080#1081
@@ -373,7 +373,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonVenus: TToolButton
+      object tbnVenus: TToolButton
         Left = 62
         Top = 0
         Hint = #1042#1077#1085#1077#1088#1072
@@ -388,7 +388,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonEarth: TToolButton
+      object tbnEarth: TToolButton
         Left = 93
         Top = 0
         Hint = #1047#1077#1084#1083#1103
@@ -403,7 +403,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonMars: TToolButton
+      object tbnMars: TToolButton
         Left = 124
         Top = 0
         Hint = #1052#1072#1088#1089
@@ -414,7 +414,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonJupiter: TToolButton
+      object tbnJupiter: TToolButton
         Left = 155
         Top = 0
         Hint = #1070#1087#1080#1090#1077#1088
@@ -425,7 +425,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonSaturn: TToolButton
+      object tbnSaturn: TToolButton
         Left = 186
         Top = 0
         Hint = #1057#1072#1090#1091#1088#1085
@@ -436,7 +436,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonUranus: TToolButton
+      object tbnUranus: TToolButton
         Left = 217
         Top = 0
         Hint = #1059#1088#1072#1085
@@ -447,7 +447,7 @@ object frmAstroScene: TfrmAstroScene
         ShowHint = True
         OnClick = ToolButtonPlanetsClick
       end
-      object ToolButtonNeptune: TToolButton
+      object tbnNeptune: TToolButton
         Left = 248
         Top = 0
         Hint = #1053#1077#1087#1090#1091#1085
