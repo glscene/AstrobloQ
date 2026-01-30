@@ -34,7 +34,7 @@ unit flFracLand;
   they are not related directly to landscape generation.
 
   The original code of this unit was based on the demo SynthTerr and
-  Alexandre Hirzel fractal improvements, 2003
+  Alexandre Hirzel fractal improvements
 *)
 interface
 
@@ -306,9 +306,10 @@ end;
 procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
-  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
-  SetCurrentDir(MediaPath);
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'astrobloq\assets\media';
+  SetCurrentDir(MediaPath) ;
 
   // Terrain Renderer initialisation
   GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;

@@ -91,7 +91,7 @@ type
     procedure GLCadencer1Progress(Sender: TObject; const deltaTime, newTime: Double);
     procedure FormActivate(Sender: TObject);
   private
-    MediaPath: TFileName;
+    MediaPath, FileJpg: TFileName;
     hdsDunes: TGLFractalHDS;
     DataPath: TFileName;
     procedure AddMushrooms;
@@ -117,11 +117,13 @@ const
 var
   FirstActivate: boolean = True;
 
+//-----------------------------------------------------------------------------
 procedure TfrmDuneFighter.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
-  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'astrobloq\assets\media';
   SetCurrentDir(MediaPath) ;
 
   // Create terrain
@@ -188,6 +190,7 @@ begin
   GLCadencer1.Enabled := True;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmDuneFighter.HandleKeys(const deltaTime: Double);
 var
   moving: String;
@@ -290,6 +293,7 @@ begin
   end;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmDuneFighter.GLCadencer1Progress(Sender: TObject; const deltaTime, newTime: Double);
 begin
   HandleKeys(deltaTime);
@@ -299,8 +303,9 @@ begin
   GLUserInterface1.MouseUpdate;
 end;
 
+//-----------------------------------------------------------------------------
 // add a few mushrooms to make the "landscape"
-
+//-----------------------------------------------------------------------------
 procedure TfrmDuneFighter.AddMushrooms;
 var
   i: Integer;
@@ -344,6 +349,7 @@ begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmDuneFighter.FormActivate(Sender: TObject);
 begin
   (* Duplicate our reference mushroom (but not its mesh data !)

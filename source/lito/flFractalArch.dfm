@@ -2,8 +2,8 @@ object frmFracArchip: TfrmFracArchip
   Left = 241
   Top = 123
   Caption = 'Fractal Archipelago'
-  ClientHeight = 361
-  ClientWidth = 601
+  ClientHeight = 483
+  ClientWidth = 682
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,13 +17,13 @@ object frmFracArchip: TfrmFracArchip
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignSize = (
-    601
-    361)
+    682
+    483)
   TextHeight = 13
   object Label1: TLabel
     Left = 0
     Top = 184
-    Width = 568
+    Width = 649
     Height = 20
     Alignment = taCenter
     Anchors = [akLeft, akTop, akRight]
@@ -42,8 +42,8 @@ object frmFracArchip: TfrmFracArchip
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 601
-    Height = 336
+    Width = 682
+    Height = 458
     Camera = GLCamera1
     Buffer.FogEnvironment.FogColor.Color = {FCA9313F9CC4603F91ED7C3F0000803F}
     Buffer.FogEnvironment.FogStart = 700.000000000000000000
@@ -52,16 +52,18 @@ object frmFracArchip: TfrmFracArchip
     Buffer.BackgroundColor = clSkyBlue
     Buffer.FogEnable = True
     Buffer.Lighting = False
-    FieldOfView = 146.851989746093800000
+    FieldOfView = 155.366592407226600000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
+    ExplicitWidth = 601
+    ExplicitHeight = 336
   end
   object Panel1: TPanel
     Left = 0
-    Top = 336
-    Width = 601
+    Top = 458
+    Width = 682
     Height = 25
     Align = alBottom
     TabOrder = 0

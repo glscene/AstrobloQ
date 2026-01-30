@@ -55,7 +55,7 @@ type
       WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
     procedure GLSceneViewer1DblClick(Sender: TObject);
   private
-    DataPath, MediaPath: TFileName;
+    DataPath, MediaPath, FileJpg: TFileName;
     hdsLandscape: TGLFractalHDS; // Declare the landscape manually
     mx, my: Integer;
   public
@@ -72,8 +72,9 @@ implementation // =============================================================
 procedure TfrmShortLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
-  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'astrobloq\assets\media\';
   SetCurrentDir(MediaPath) ;
 
   (* Setting up terrain renderer. This could be done at design time but you have

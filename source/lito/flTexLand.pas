@@ -69,9 +69,12 @@ implementation //============================================================
 procedure TfrmTexland.FormCreate;
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath));
-  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'astrobloq\assets\media\';
   SetCurrentDir(MediaPath) ;
+
+
 
   BitmapHDS.Picture.LoadFromFile('heightmap.bmp');
   // diffuse

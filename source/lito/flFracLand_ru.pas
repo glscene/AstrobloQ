@@ -1,40 +1,43 @@
 unit flFracLand_ru;
 (*
-  The FractaLandscape demonstrates the used of the TGLFractalHDS and other functions
-  included into the GLS.RandomHDS unit. The dialogbox interfaces almost all object
-  properties allowing you to get a feeling about what they are controlling.
+FractaLandscape демонстрирует использование TGLFractalHDS и других функций,
 
-  The TGLFractalHDS is used in the same way as the other GLScene HDS. You must
-  link it to a TGLTerrainRenderer to see something. But it does much more as it
-  actually:
-  1) builds its own HDS on the base of a few user-chosen parameters,
-  2) computes lighting and
-  3) computes its own texture. The user really has not
-  much to do apart choosing the parameter combination that fits its needs. Its
-  creativity is to be used in the OnDrawtexture event which defines how colors will
-  be draped on the heightfield according to coordinates and topography.
+входящих в модуль GLS.RandomHDS. Диалоговое окно взаимодействует практически со всеми свойствами объекта,
+позволяя понять, чем они управляют.
 
-  To understand how everything works, give a look at the agGLRandomHDS unit and
-  at the following methods of the present unit:
-  - FormCreate: How to declare and create the FractalHDS (not a plug-and-play component)
-  - btApplyClick: Setting the properties
-  - GenerateLandscape: How to load textures, build the landscape and free them
-  afterward
-  - OnDrawTexture: This function select the right color to display at a particular
-  cell on the landscape, depending on its coordinates, elevation and slope. This
-  function use the textures loaded in the GenerateLandscape procedure to drape
-  them on the height field. Although the Drawtexture allows you to completely
-  control the look of your landscape and to produce the most dramatic effects,
-  it is not mandatory. If no OnDrawTexture event handler is supplied to the
-  TGLFractalHDS, a default function will be used:
-  - DummyCube for scaling;
-  - Cadencer replaced by an TGLAsyncTimer.
+TGLFractalHDS используется так же, как и другие HDS GLScene. Для просмотра результатов необходимо
+связать его с TGLTerrainRenderer. Но он делает следующее:
 
-  All the other methods on this form are just maintenance code for the demo;
-  they are not related directly to landscape generation.
+1) создает свой собственный HDS на основе нескольких параметров, выбранных пользователем,
+2) вычисляет освещение и
+3) вычисляет свою собственную текстуру. Пользователю практически ничего не нужно делать, кроме выбора комбинации параметров, соответствующей его потребностям. Его
+творческий потенциал используется в событии OnDrawtexture, которое определяет, как цвета будут
+накладываться на поле высот в соответствии с координатами и топографией.
 
-  The original code of this unit was based on the demo SynthTerr and
-  Alexandre Hirzel fractal improvements, 2003
+Чтобы понять, как всё работает, взгляните на модуль agGLRandomHDS и
+на следующие методы этого модуля:
+
+- FormCreate: Как объявить и создать FractalHDS (не компонент типа «подключи и работай»)
+- btApplyClick: Установка свойств
+- GenerateLandscape: Как загрузить текстуры, построить ландшафт и освободить их
+
+после этого
+- OnDrawTexture: Эта функция выбирает правильный цвет для отображения в определенной
+ячейке ландшафта в зависимости от её координат, высоты и уклона. Эта
+функция использует текстуры, загруженные в процедуре GenerateLandscape, для наложения
+их на поле высоты. Хотя Drawtexture позволяет полностью
+контролировать внешний вид вашего ландшафта и создавать наиболее впечатляющие эффекты,
+он не является обязательным. Если обработчик события OnDrawTexture не предоставлен для
+TGLFractalHDS, будет использоваться функция по умолчанию:
+
+- DummyCube для масштабирования;
+- Cadencer заменен на TGLAsyncTimer.
+
+Все остальные методы на данной форме — это просто код для поддержки версии и
+они не имеют прямого отношения к генерации ландшафта.
+
+Исходный код этого модуля основан на демоверсии SynthTerr и улучшениях фрактала
+от Александра Хирзеля.
 *)
 interface
 
@@ -306,9 +309,10 @@ end;
 procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(MediaPath, Pos('bin', MediaPath), Length(MediaPath)); // if bin dir for exe
-  MediaPath := IncludeTrailingPathDelimiter(MediaPath) + 'assets\media';
-  SetCurrentDir(MediaPath);
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'astrobloq\assets\media';
+  SetCurrentDir(MediaPath) ;
 
   // Terrain Renderer initialisation
   GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;

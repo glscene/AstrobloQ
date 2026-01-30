@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{50D58D9C-43EB-42C7-A0BD-6E64A37E75F0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BumpCreature\BumpBeast.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Dolphin\Dolphin.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Grass\Grass.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Grass\GrassLan.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Forests\ForestHills.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FishTank\FishTank.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BumpBeast">
+        <MSBuild Projects="BumpCreature\BumpBeast.dproj"/>
+    </Target>
+    <Target Name="BumpBeast:Clean">
+        <MSBuild Projects="BumpCreature\BumpBeast.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BumpBeast:Make">
+        <MSBuild Projects="BumpCreature\BumpBeast.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Dolphin">
+        <MSBuild Projects="Dolphin\Dolphin.dproj"/>
+    </Target>
+    <Target Name="Dolphin:Clean">
+        <MSBuild Projects="Dolphin\Dolphin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Dolphin:Make">
+        <MSBuild Projects="Dolphin\Dolphin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Grass">
+        <MSBuild Projects="Grass\Grass.dproj"/>
+    </Target>
+    <Target Name="Grass:Clean">
+        <MSBuild Projects="Grass\Grass.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Grass:Make">
+        <MSBuild Projects="Grass\Grass.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GrassLan">
+        <MSBuild Projects="Grass\GrassLan.dproj"/>
+    </Target>
+    <Target Name="GrassLan:Clean">
+        <MSBuild Projects="Grass\GrassLan.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GrassLan:Make">
+        <MSBuild Projects="Grass\GrassLan.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ForestHills">
+        <MSBuild Projects="Forests\ForestHills.dproj"/>
+    </Target>
+    <Target Name="ForestHills:Clean">
+        <MSBuild Projects="Forests\ForestHills.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ForestHills:Make">
+        <MSBuild Projects="Forests\ForestHills.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FishTank">
+        <MSBuild Projects="FishTank\FishTank.dproj"/>
+    </Target>
+    <Target Name="FishTank:Clean">
+        <MSBuild Projects="FishTank\FishTank.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FishTank:Make">
+        <MSBuild Projects="FishTank\FishTank.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BumpBeast;Dolphin;Grass;GrassLan;ForestHills;FishTank"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BumpBeast:Clean;Dolphin:Clean;Grass:Clean;GrassLan:Clean;ForestHills:Clean;FishTank:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BumpBeast:Make;Dolphin:Make;Grass:Make;GrassLan:Make;ForestHills:Make;FishTank:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
