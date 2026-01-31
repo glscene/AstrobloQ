@@ -1,8 +1,8 @@
-program BumpBeast;
+program Beast;
 
 uses
   Forms,
-  fBumpBeast in 'fBumpBeast.pas' {Form3};
+  fdBeast in 'fdBeast.pas' {Form3};
 
 {$R *.res}
 

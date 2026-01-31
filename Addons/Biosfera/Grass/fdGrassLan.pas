@@ -66,8 +66,8 @@ var
   a: integer;
 begin
   //load mesh
-  grass.LoadFromFile('../media/grass_.smd');
-  grass.AddDataFromFile('../media/grass_w.smd');
+  grass.LoadFromFile('..\media\model\grass_.smd');
+  grass.AddDataFromFile('..\media\model\grass_w.smd');
   grass.animationmode:=aambounceforward; grass.SwitchToAnimation(1); // you can switch
   //grass.animationmode:=aamnone; grass.currentframe:=18;            // between them
 

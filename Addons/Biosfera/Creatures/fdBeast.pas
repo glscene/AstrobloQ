@@ -1,4 +1,4 @@
-unit fBumpBeast;
+unit fdBeast;
 
 interface
 
@@ -32,15 +32,16 @@ uses
   GLS.GeomObjects,
   GLS.Material,
   GLS.Coordinates,
-  GLS.BaseClasses, GLS.SimpleNavigation;
+  GLS.BaseClasses,
+  GLS.SimpleNavigation;
 
 type
   TForm3 = class(TForm)
     GLScene1: TGLScene;
     GLSceneViewer1: TGLSceneViewer;
-    GLCamera1: TGLCamera;
+    Camera1: TGLCamera;
     ActorDumni: TGLDummyCube;
-    GLActor1: TGLActor;
+    acCreature: TGLActor;
     GLLightSource3: TGLLightSource;
     GLSphere1: TGLSphere;
     GLSphere2: TGLSphere;
@@ -54,13 +55,13 @@ type
     CheckBox3: TCheckBox;
     GLZShadows1: TGLZShadows;
     caster: TGLDummyCube;
-    GLCamera2: TGLCamera;
+    Camera2: TGLCamera;
     GLMemoryViewer1: TGLMemoryViewer;
     GLSceneViewer2: TGLSceneViewer;
-    GLFreeForm1: TGLFreeForm;
-    GLLightSource1: TGLLightSource;
-    GLLightSource2: TGLLightSource;
-    GLCylinder1: TGLCylinder;
+    ffMap: TGLFreeForm;
+    LightSource1: TGLLightSource;
+    LightSource2: TGLLightSource;
+    Cylinder: TGLCylinder;
     GLSimpleNavigation1: TGLSimpleNavigation;
     procedure CheckBox3Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
@@ -70,6 +71,7 @@ type
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
   private
+    MediaPath, FileJpg: TFileName;
   public
     IsInitialized: Boolean;
     zViewer, zCaster: TGLzBuffer;
@@ -78,34 +80,53 @@ type
 var
   Form3: TForm3;
 
-implementation
+implementation //==============================================================
 
 {$R *.dfm}
 
+//----------------------------------------------------------------------------
 procedure TForm3.CheckBox1Click(Sender: TObject);
 begin
   GLBumpShader1.Enabled := CheckBox1.Checked;
 end;
 
+//----------------------------------------------------------------------------
 procedure TForm3.CheckBox2Click(Sender: TObject);
 begin
-  GLLightSource1.Shining := CheckBox2.Checked;
+  LightSource1.Shining := CheckBox2.Checked;
 end;
 
+//----------------------------------------------------------------------------
 procedure TForm3.CheckBox3Click(Sender: TObject);
 begin
-  GLLightSource2.Shining := CheckBox3.Checked;
+  LightSource2.Shining := CheckBox3.Checked;
 end;
 
+//----------------------------------------------------------------------------
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-  GLFreeForm1.LoadFromFile('mapmain.3ds');
-  GLActor1.LoadFromFile('ps2_slave_reference.smd');
-  GLActor1.AddDataFromFile('idle1.smd');
-  GLActor1.Animations[1].MakeSkeletalTranslationStatic;
-  GLActor1.SwitchToAnimation(1);
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('biosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'biosfera\media\model\';
+  SetCurrentDir(MediaPath) ;
+
+
+  FileJpg := MediaPath + 'sand_cav.tga';
+
+  if FileExists(FileJpg, true) then
+    ffMap.Material.Texture.Image.LoadFromFile(FileJpg)
+  else
+    Exit;
+
+  ffMap.LoadFromFile('mapmain.3ds');
+  acCreature.LoadFromFile('ps2_slave_reference.smd');
+  acCreature.AddDataFromFile('idle1.smd');
+  acCreature.Animations[1].MakeSkeletalTranslationStatic;
+  acCreature.SwitchToAnimation(1);
 end;
 
+//----------------------------------------------------------------------------
 procedure TForm3.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
@@ -114,6 +135,7 @@ begin
   GLSceneViewer1.Invalidate;
 end;
 
+//----------------------------------------------------------------------------
 procedure TForm3.GLSceneViewer1BeforeRender(Sender: TObject);
 begin
   if IsInitialized then

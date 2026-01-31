@@ -44,10 +44,10 @@ object FormForestHills: TFormForestHills
       UseBuildList = False
       OnRender = doglRender
       Blend = False
-      object ff: TGLFreeForm
+      object ffForest: TGLFreeForm
         Material.BlendingMode = bmAlphaTest50
         Material.Texture.ImageClassName = 'TGLPicFileImage'
-        Material.Texture.Image.PictureFileName = '..\media\tree.tga'
+        Material.Texture.Image.PictureFileName = '..\media\texture\tree.tga'
         Material.Texture.Disabled = False
         Visible = False
       end

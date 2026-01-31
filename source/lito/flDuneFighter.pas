@@ -93,7 +93,6 @@ type
   private
     MediaPath, FileJpg: TFileName;
     hdsDunes: TGLFractalHDS;
-    DataPath: TFileName;
     procedure AddMushrooms;
   public
   end;
@@ -122,8 +121,8 @@ procedure TfrmDuneFighter.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'astrobloq\assets\media';
+  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'litosfera\media\';
   SetCurrentDir(MediaPath) ;
 
   // Create terrain

@@ -55,7 +55,7 @@ type
     procedure handleMouse(dt: single);
     procedure handleKeyboard(dt: single);
   private
-    DataPath, MediaPath: TFileName;
+    DataPath, MediaPath, FileJpg: TFileName;
   end;
 
 var
@@ -70,13 +70,16 @@ procedure TfrmTexland.FormCreate;
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'astrobloq\assets\media\';
+  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'litosfera\media\';
   SetCurrentDir(MediaPath) ;
 
+  FileJpg := MediaPath + 'heightmap.bmp';
+  if FileExists(FileJpg, true) then
+    BitmapHDS.Picture.LoadFromFile('heightmap.bmp')
+  else
+    Close;
 
-
-  BitmapHDS.Picture.LoadFromFile('heightmap.bmp');
   // diffuse
   with Terrain.Material.TextureEx.Add do
   begin

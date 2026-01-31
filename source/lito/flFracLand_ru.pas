@@ -210,7 +210,7 @@ type
     procedure AsyncTimer1Timer(Sender: TObject);
     procedure btDefaultTextureClick(Sender: TObject);
   private
-    DataPath, MediaPath: TFileName;
+    MediaPath, FileJpg: TFileName;
     mx, my: Integer;
     FCamHeight: Single;
     LandscapeGenerated: Boolean;
@@ -310,12 +310,18 @@ procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'astrobloq\assets\media';
+  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'litosfera\media\';
   SetCurrentDir(MediaPath) ;
 
+  FileJpg := MediaPath + 'Forest.jpg';
+  if FileExists(FileJpg, True) then
+    GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1
+  else
+    // Change dir
+    Exit;
+
   // Terrain Renderer initialisation
-  GLTerrainRenderer1.MaterialLibrary := GLMaterialLibrary1;
   GLTerrainRenderer1.TileSize := 32;
 
   TopographyChanged := True;

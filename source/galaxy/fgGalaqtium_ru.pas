@@ -105,7 +105,6 @@ type
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
     XYZGrid: TGLXYZGrid;
-    miProjection: TMenuItem;
     ControlBar: TControlBar;
     diskGalaxy: TGLDisk;
     ToolBarMain: TToolBar;
@@ -176,9 +175,7 @@ type
     miNewStarcube: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
-    miLithosphere: TMenuItem;
     miBiosphere: TMenuItem;
-    miTechnosphere: TMenuItem;
     N3: TMenuItem;
     miMethod: TMenuItem;
     miGridding: TMenuItem;
@@ -191,6 +188,10 @@ type
     celGalaxy: TGLCylinder;
     sphGalaxy: TGLSphere;
     ansGHZ: TGLAnnulus;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    N8: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -217,11 +218,9 @@ type
     procedure miExoplanetsClick(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
     procedure miNewStarcubeClick(Sender: TObject);
-    procedure miLithosphereClick(Sender: TObject);
-    procedure miBiosphereClick(Sender: TObject);
-    procedure miTechnosphereClick(Sender: TObject);
     procedure GLSimpleNavigationMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
+    procedure miBiosphereClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -634,31 +633,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miLithosphereClick(Sender: TObject);
-begin
-(*
-  with TfrmLitosphere.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
-end;
-
-//----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miTechnosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
     try
@@ -703,6 +678,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
 begin
+  inherited;
   with TFormProjection.Create(Self) do
     try
       ShowModal;

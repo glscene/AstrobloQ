@@ -34,7 +34,7 @@ uses
   GLS.File3DS,
   GLS.Coordinates,
   GLS.BaseClasses,
-  GLS.Vehicles;  // FishTank and Robots
+  GLS.Vehicles;  // FishTank with Robots
 
 type
   TFormFishTank = class(TForm)
@@ -127,13 +127,14 @@ implementation //=============================================================
 
 {$R *.dfm}
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.FormCreate(Sender: TObject);
 var
   newSteering: TGLBVehicle;
 begin
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
   BSphere.Radius := GLCube2.BoundingSphereRadius;
-  GLFreeForm1.LoadFromFile('..\media\BoxedIn.3ds');
+  GLFreeForm1.LoadFromFile('..\media\model\BoxedIn.3ds');
   GLFreeForm1.BuildOctree;
 
   Randomize;
@@ -288,11 +289,10 @@ begin
     WorldCollision.Ratio := 1;
     WorldCollision.TurnRate := 0.3;
   end;
-
   FSteeringManager.SteerInterval := 0.02;
-
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
@@ -305,6 +305,7 @@ begin
   GLSceneViewer1.Invalidate;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.TimerForFpsTimer(Sender: TObject);
 begin
   Caption := Format('%.1f FPS', [GLSceneViewer1.FramesPerSecond]);
@@ -313,6 +314,7 @@ begin
   Label1.Caption := FloatToStr(RoundTo(GetOrCreateVehicle(GLCube2).Speed, -2));
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.TimerForSpeedTimer(Sender: TObject);
 begin
   // TimerForSpeed.Interval := trunc(5000 * random) + 1000;
@@ -320,18 +322,21 @@ begin
   // MaxSpeed := RandomRange(1, 20);
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.Button1Click(Sender: TObject);
 begin
   with GetOrCreateVehicle(GLCube2) do
     MaxSpeed := MaxSpeed + 5;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.Button2Click(Sender: TObject);
 begin
   with GetOrCreateVehicle(GLCube2) do
     MaxSpeed := MaxSpeed - 5;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.BtnForTarget1Click(Sender: TObject);
 begin
   Target1.EdgeColor.Color := clrYellow;
@@ -341,6 +346,7 @@ begin
   Target4.EdgeColor.Color := clrLimeGreen;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.BtnForTarget2Click(Sender: TObject);
 begin
   Target1.EdgeColor.Color := clrLimeGreen;
@@ -350,6 +356,7 @@ begin
   Target4.EdgeColor.Color := clrLimeGreen;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.BtnForTarget3Click(Sender: TObject);
 begin
   Target1.EdgeColor.Color := clrLimeGreen;
@@ -359,6 +366,7 @@ begin
   Target4.EdgeColor.Color := clrLimeGreen;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormFishTank.BtnForTarget4Click(Sender: TObject);
 begin
   Target1.EdgeColor.Color := clrLimeGreen;

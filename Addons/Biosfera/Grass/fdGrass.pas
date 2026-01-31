@@ -55,6 +55,8 @@ type
     procedure CadencerProgress(Sender: TObject; const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
+  private
+     MediaPath, FileDDS: TFileName;
   end;
 
 var
@@ -67,10 +69,23 @@ implementation //=============================================================
 //----------------------------------------------------------------------------
 procedure TForm1.FormCreate;
 begin
-  ff.LoadFromFile('..\media\grass.3ds');
-  ff.Scale.Scale(8 / ff.BoundingSphereRadius);
-  DDSTex(matlib, 'grass', '..\media\grass.dds');
-  DDSTex(matlib, 'dirt', '..\media\dirt.dds');
+  MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
+  Delete(MediaPath, Pos('biosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'biosfera\media\model\';
+  SetCurrentDir(MediaPath);
+
+
+  FileDDS := MediaPath + 'grass.dds';
+  if FileExists(FileDDS, true) then
+  begin
+     DDSTex(matlib, 'grass', 'grass.dds');
+     DDSTex(matlib, 'dirt', 'dirt.dds');
+     ff.LoadFromFile('grass.3ds');
+     ff.Scale.Scale(8 / ff.BoundingSphereRadius);
+  end
+  else
+    Exit;
 end;
 
 //----------------------------------------------------------------------------

@@ -73,8 +73,8 @@ procedure TfrmShortLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'astrobloq\assets\media\';
+  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'litosfera\media\';
   SetCurrentDir(MediaPath) ;
 
   (* Setting up terrain renderer. This could be done at design time but you have

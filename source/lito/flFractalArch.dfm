@@ -23,7 +23,7 @@ object frmFracArchip: TfrmFracArchip
   object Label1: TLabel
     Left = 0
     Top = 184
-    Width = 649
+    Width = 641
     Height = 20
     Alignment = taCenter
     Anchors = [akLeft, akTop, akRight]
@@ -57,8 +57,6 @@ object frmFracArchip: TfrmFracArchip
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
-    ExplicitWidth = 601
-    ExplicitHeight = 336
   end
   object Panel1: TPanel
     Left = 0
@@ -67,8 +65,8 @@ object frmFracArchip: TfrmFracArchip
     Height = 25
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 311
-    ExplicitWidth = 593
+    ExplicitTop = 433
+    ExplicitWidth = 674
     object lblDebug: TLabel
       Left = 8
       Top = 4

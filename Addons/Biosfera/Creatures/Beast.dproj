@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{43399FC2-82DC-4D5F-8CA5-B6383CEE7244}</ProjectGuid>
-        <MainSource>BumpBeast.dpr</MainSource>
+        <MainSource>Beast.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
@@ -9,7 +9,7 @@
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>20.3</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">BumpBeast</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Beast</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -55,7 +55,7 @@
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;$(DCC_Namespace)</DCC_Namespace>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>BumpBeast</SanitizedProjectName>
+        <SanitizedProjectName>Beast</SanitizedProjectName>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -102,7 +102,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="fBumpBeast.pas">
+        <DCCReference Include="fdBeast.pas">
             <Form>Form3</Form>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -123,7 +123,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">BumpBeast.dpr</Source>
+                    <Source Name="MainSource">Beast.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\GBComp.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\GBComp.bpl not found</Excluded_Packages>

@@ -39,7 +39,7 @@ type
     dc_cam: TGLDummyCube;
     cam: TGLCamera;
     dogl: TGLDirectOpenGL;
-    ff: TGLFreeForm;
+    ffForest: TGLFreeForm;
     procedure doglRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure AsyncTimer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -68,8 +68,8 @@ begin
   if not InitDGL then
   begin
     GLSL := TGLProgramHandle.CreateAndAllocate;
-    GLSL.AddShader(TGLVertexShaderHandle, LoadAnsiStringFromFile('..\media\forest.vp'));
-    GLSL.AddShader(TGLFragmentShaderHandle, LoadAnsiStringFromFile('..\media\forest.fp'));
+    GLSL.AddShader(TGLVertexShaderHandle, LoadAnsiStringFromFile('..\media\shader\forest.vp'));
+    GLSL.AddShader(TGLFragmentShaderHandle, LoadAnsiStringFromFile('..\media\shader\forest.fp'));
     if not GLSL.LinkProgram then
       raise Exception.Create(GLSL.InfoLog);
     if not GLSL.ValidateProgram then
@@ -83,7 +83,7 @@ begin
       UseProgramObject;
       Uniform1i['BaseTex'] := 0;
       Uniform4f['cam'] := cam.AbsolutePosition;
-      ff.Render(rci);
+      ffForest.Render(rci);
       EndUseProgramObject;
     end;
 end;
@@ -157,8 +157,8 @@ end;
 begin
   Randomize;
   ts := TBitmap.Create;
-  ts.LoadFromFile('..\media\ts.bmp');
-  mObj := TGLMeshObject.CreateOwned(ff.MeshObjects);
+  ts.LoadFromFile('..\media\texture\ts.bmp');
+  mObj := TGLMeshObject.CreateOwned(ffForest.MeshObjects);
   mObj.Mode := momTriangles;
   for i := 0 to tree_cnt - 1 do
     genTree;

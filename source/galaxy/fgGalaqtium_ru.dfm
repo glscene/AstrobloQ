@@ -804,7 +804,7 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
       end
       object miSaveAs: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1089#1094#1077#1085#1091' '#1082#1072#1082'...'
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
         OnClick = miSaveAsClick
       end
       object miN2: TMenuItem
@@ -819,59 +819,41 @@ object frmGalaqtium: TfrmGalaqtium
     object miEdit: TMenuItem
       Caption = '&'#1055#1088#1072#1074#1082#1072
       object miUndo: TMenuItem
-        Caption = 'Cancel'
+        Caption = #1054#1090#1084#1077#1085#1072
         ShortCut = 16474
       end
       object miN4: TMenuItem
         Caption = '-'
       end
       object miCut: TMenuItem
-        Caption = 'Cut'
+        Caption = #1042#1099#1088#1077#1079#1072#1090#1100
         ShortCut = 16472
       end
       object miCopy: TMenuItem
-        Caption = 'Copy'
+        Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
         ShortCut = 16451
       end
       object miPaste: TMenuItem
-        Caption = 'Insert'
+        Caption = #1042#1089#1090#1072#1074#1080#1090#1100
         ShortCut = 16470
       end
       object miN3: TMenuItem
         Caption = '-'
       end
       object miFind: TMenuItem
-        Caption = 'Find...'
+        Caption = #1055#1086#1080#1089#1082'...'
       end
       object miReplace: TMenuItem
-        Caption = 'Replace...'
+        Caption = #1047#1072#1084#1077#1085#1072'...'
       end
       object miGoTo: TMenuItem
-        Caption = 'Go to...'
+        Caption = #1055#1077#1088#1077#1093#1086#1076' '#1082'...'
       end
       object miN1: TMenuItem
         Caption = '-'
       end
       object miObject: TMenuItem
-        Caption = 'Object'
-      end
-    end
-    object miMethod: TMenuItem
-      Caption = '&'#1052#1077#1090#1086#1076
-      object miGridding: TMenuItem
-        Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
-      end
-      object miInterpolation: TMenuItem
-        Caption = #1048#1085#1090#1077#1088#1087#1086#1083#1103#1094#1080#1103'...'
-      end
-      object miTetralization: TMenuItem
-        Caption = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object ranslator1: TMenuItem
-        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
+        Caption = #1054#1073#1098#1077#1082#1090
       end
     end
     object miView: TMenuItem
@@ -883,31 +865,65 @@ object frmGalaqtium: TfrmGalaqtium
       object N3: TMenuItem
         Caption = '-'
       end
-      object miLithosphere: TMenuItem
-        Caption = 'Lithosphere...'
-        OnClick = miLithosphereClick
-      end
       object miBiosphere: TMenuItem
-        Caption = 'Biosphere...'
-        OnClick = miBiosphereClick
-      end
-      object miTechnosphere: TMenuItem
-        Caption = 'Technosphere...'
-        OnClick = miTechnosphereClick
+        Caption = #1055#1088#1086#1077#1082#1094#1080#1103'...'
+        OnClick = miProjectionClick
       end
       object N2: TMenuItem
         Caption = '-'
       end
       object miPanelShow: TMenuItem
-        Caption = 'Panels'
+        Caption = #1055#1072#1085#1077#1083#1080
         Checked = True
         OnClick = miPanelShowClick
+      end
+    end
+    object miMethod: TMenuItem
+      Caption = '&'#1052#1077#1090#1086#1076
+      object miTetralization: TMenuItem
+        Caption = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
+      end
+      object miGridding: TMenuItem
+        Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
+      end
+      object miInterpolation: TMenuItem
+        Caption = #1048#1085#1090#1077#1088#1087#1086#1083#1103#1094#1080#1103'...'
+      end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object ranslator1: TMenuItem
+        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
+      end
+    end
+    object N5: TMenuItem
+      Caption = #1040#1085#1072#1083#1080#1079
+      object miParadox: TMenuItem
+        Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080'...'
+        OnClick = miParadoxClick
+      end
+      object miMonitor: TMenuItem
+        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
+        OnClick = miMonitorClick
+      end
+      object N6: TMenuItem
+        Caption = '-'
+      end
+      object N7: TMenuItem
+        Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072'...'
+      end
+      object miAnalyser: TMenuItem
+        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
+        OnClick = miAnalyserClick
       end
     end
     object miTools: TMenuItem
       Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+      end
+      object N8: TMenuItem
+        Caption = '-'
       end
       object miOptions: TMenuItem
         Caption = #1054#1087#1094#1080#1080'...'
@@ -916,22 +932,6 @@ object frmGalaqtium: TfrmGalaqtium
       end
       object miN5: TMenuItem
         Caption = '-'
-      end
-      object miAnalyser: TMenuItem
-        Caption = #1040#1085#1072#1083#1080#1079#1072#1090#1086#1088'...'
-        OnClick = miAnalyserClick
-      end
-      object miMonitor: TMenuItem
-        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
-        OnClick = miMonitorClick
-      end
-      object miProjection: TMenuItem
-        Caption = 'Star projections...'
-        OnClick = miProjectionClick
-      end
-      object miParadox: TMenuItem
-        Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1062'...'
-        OnClick = miParadoxClick
       end
     end
     object miHelp: TMenuItem

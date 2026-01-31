@@ -3,7 +3,7 @@
         <ProjectGuid>{50D58D9C-43EB-42C7-A0BD-6E64A37E75F0}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="BumpCreature\BumpBeast.dproj">
+        <Projects Include="Creatures\Beast.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Dolphin\Dolphin.dproj">
@@ -29,14 +29,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="BumpBeast">
-        <MSBuild Projects="BumpCreature\BumpBeast.dproj"/>
+    <Target Name="Beast">
+        <MSBuild Projects="Creatures\Beast.dproj"/>
     </Target>
-    <Target Name="BumpBeast:Clean">
-        <MSBuild Projects="BumpCreature\BumpBeast.dproj" Targets="Clean"/>
+    <Target Name="Beast:Clean">
+        <MSBuild Projects="Creatures\Beast.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="BumpBeast:Make">
-        <MSBuild Projects="BumpCreature\BumpBeast.dproj" Targets="Make"/>
+    <Target Name="Beast:Make">
+        <MSBuild Projects="Creatures\Beast.dproj" Targets="Make"/>
     </Target>
     <Target Name="Dolphin">
         <MSBuild Projects="Dolphin\Dolphin.dproj"/>
@@ -84,13 +84,13 @@
         <MSBuild Projects="FishTank\FishTank.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="BumpBeast;Dolphin;Grass;GrassLan;ForestHills;FishTank"/>
+        <CallTarget Targets="Beast;Dolphin;Grass;GrassLan;ForestHills;FishTank"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="BumpBeast:Clean;Dolphin:Clean;Grass:Clean;GrassLan:Clean;ForestHills:Clean;FishTank:Clean"/>
+        <CallTarget Targets="Beast:Clean;Dolphin:Clean;Grass:Clean;GrassLan:Clean;ForestHills:Clean;FishTank:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="BumpBeast:Make;Dolphin:Make;Grass:Make;GrassLan:Make;ForestHills:Make;FishTank:Make"/>
+        <CallTarget Targets="Beast:Make;Dolphin:Make;Grass:Make;GrassLan:Make;ForestHills:Make;FishTank:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
