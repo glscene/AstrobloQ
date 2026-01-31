@@ -79,8 +79,8 @@ type
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
   private
-    MediaPath: TFileName;
-    DataPath: TFileName;
+    MediaPath, FileShader: TFileName;
+    dirTextures, dirShaders: TFileName;
 
     mx, my: Integer;
     bg_w1, bg_w2, c_w1, c_w2, m_w, a_w: single;
@@ -93,7 +93,6 @@ type
 
 var
   MainForm: TMainForm;
-  dirBin, dirTextures, dirShaders: TFileName;
 
 const
   Coeff = 0.1;
@@ -105,17 +104,20 @@ implementation // ============================================================
 // ---------------------------FormCreate--------------------------------------
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  //GetDir(0, dirBin); or dirBin := GetCurrentDir();
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('astrobloq', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-
-  MediaPath := MediaPath + 'astrobloq\assets\media';
-
+  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'litosfera\media\';
   SetCurrentDir(MediaPath) ;
 
-  dirTextures := MediaPath + '\texture\';
-  dirShaders := MediaPath + '\shader\';
+
+  dirTextures := MediaPath + 'texture\';
+  dirShaders := MediaPath + 'shader\';
+
+  FileShader := dirShaders + 'fragment_moon.cg';
+
+  if not FileExists(FileShader, true) then
+    Exit;
 
   CreateMaterials;
   AssignMaterials;
@@ -308,13 +310,13 @@ end;
 // ---------------------------HandleKeys--------------------
 procedure TMainForm.HandleKeys;
 begin
-  if IsKeyDown('c') then           // weather1
+  if (IsKeyDown('c') or IsKeyDown('ñ')) then   // weather1
     WeatherMode := 0
-  else if IsKeyDown('s') then      // weather2
+  else if (IsKeyDown('s') or IsKeyDown('û')) then      // weather2
     WeatherMode := 1
-  else if IsKeyDown('n') then      // night
+  else if (IsKeyDown('n') or IsKeyDown('ò')) then      // night
     DayMode := 2
-  else if IsKeyDown('d') then      // day
+  else if (IsKeyDown('d') or IsKeyDown('â')) then      // day
     DayMode := 1
   else
 end;
