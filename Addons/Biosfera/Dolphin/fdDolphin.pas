@@ -72,16 +72,16 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
   Count: Integer;
 begin
-  GLFreeForm1.LoadFromFile('..\media\model\dolphin.3ds');
+  GLFreeForm1.LoadFromFile('.\media\model\dolphin.3ds');
   // We save the initial state of the dolphin
   Fig := TGLAffineVectorList.Create;
   Fig.Assign(GLFreeForm1.MeshObjects.Items[0].Vertices);
   Count := Fig.Count; // the number of vertices
   // we load the seabed ...
   GLBitmapHDS1.MaxPoolSize := 8 * 1024 * 1024;
-  GLBitmapHDS1.Picture.LoadFromFile('..\media\texture\terrain.bmp');
+  GLBitmapHDS1.Picture.LoadFromFile('.\media\texture\terrain.bmp');
   GLTerrainRenderer1.TilesPerTexture := 256 / GLTerrainRenderer1.TileSize;
-  GLTerrainRenderer1.Material.Texture.Image.LoadFromFile('..\media\texture\tex.jpg');
+  GLTerrainRenderer1.Material.Texture.Image.LoadFromFile('.\media\texture\tex.jpg');
   GLTerrainRenderer1.Material.Texture.Disabled := False;
 
   GLSceneViewer1.Buffer.BackgroundColor := rgb(0, 0, 160);

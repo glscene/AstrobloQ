@@ -310,8 +310,8 @@ procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'litosfera\media\';
+//  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'media\';
   SetCurrentDir(MediaPath) ;
 
   FileJpg := MediaPath + 'Forest.jpg';
@@ -505,7 +505,7 @@ procedure TfrmFracLands.GenerateLandscape;
 begin
   try
     Rendering := False; // No rendering while the landscape is built
-    frmProgress.lblTask.Caption := 'Landscape generation';
+    frmProgress.lblTask.Caption := 'Создание ландшафта';
     frmProgress.Execute;
     Screen.Cursor := crHourGlass;
 
@@ -518,7 +518,7 @@ begin
     Grass := LoadJPGtexture('Grass.jpg');
     Beach := LoadJPGtexture('Beach.jpg');
 
-  {
+(*
     Forest := LoadJPGtexture('mousse_1.jpg');
     Sea := LoadJPGtexture('Sea.jpg');
     Snow := LoadJPGtexture('004_neige.jpg');
@@ -527,7 +527,7 @@ begin
     Grass := LoadJPGtexture('nature073-Terre+Herbe.jpg');
     // or Grass:=LoadJPGTexture('nature093-Gazon.jpg');
     Beach := LoadJPGtexture('057terresable-Clair.jpg');
-  }
+*)
 
     with FractalHDS do
     begin

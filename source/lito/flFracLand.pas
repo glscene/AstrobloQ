@@ -307,8 +307,8 @@ procedure TfrmFracLands.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'litosfera\media\';
+//  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'media\';
   SetCurrentDir(MediaPath) ;
 
   FileJpg := MediaPath + 'Forest.jpg';
@@ -318,7 +318,7 @@ begin
     // Change dir
     Exit;
 
-   // Terrain Renderer initialisation
+  // Terrain Renderer initialisation
   GLTerrainRenderer1.TileSize := 32;
 
   TopographyChanged := True;

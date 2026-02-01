@@ -17,7 +17,8 @@ program FracArchip;
 uses
   Forms,
   Winapi.MMSystem,
-  flFractalArch in '..\..\..\source\lito\flFractalArch.pas' {frmFracArchip};
+  flFractalArch in '..\..\..\source\lito\flFractalArch.pas' {frmFracArchip},
+  flShortLands in '..\..\..\source\lito\flShortLands.pas' {frmShortLands};
 
 {$R *.res}
 
@@ -32,7 +33,7 @@ begin
     NeedToChangeTimerPrecsion := timeBeginPeriod(TimeCaps.wPeriodMin) = TIMERR_NOERROR;
 
   Application.Initialize;
-  Application.CreateForm(TfrmFracArchip, frmFracArchip);
+  Application.CreateForm(TfrmShortLands, frmShortLands);
   Application.Run;
 
   // stops high precision timer

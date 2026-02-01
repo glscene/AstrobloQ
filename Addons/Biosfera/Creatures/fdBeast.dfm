@@ -1,7 +1,7 @@
-object Form3: TForm3
+object FormBeast: TFormBeast
   Left = 0
   Top = 0
-  Caption = 'Bump Beast'
+  Caption = 'Beast'
   ClientHeight = 442
   ClientWidth = 697
   Color = clBtnFace
@@ -24,6 +24,8 @@ object Form3: TForm3
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 538
+    ExplicitHeight = 417
   end
   object Panel1: TPanel
     Left = 546
@@ -117,6 +119,7 @@ object Form3: TForm3
       object Cylinder: TGLCylinder
         Position.Coordinates = {9A99993FCDCCCC3DCDCC4C3E0000803F}
         Scale.Coordinates = {6666A63F000020406666A63F00000000}
+        Visible = False
         BottomRadius = 0.100000001490116100
         Height = 1.000000000000000000
         TopRadius = 0.100000001490116100
@@ -4676,7 +4679,7 @@ object Form3: TForm3
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
-    FormCaption = 'Bump Demo+ZShadows - %FPS'
+    FormCaption = 'Beast+ZShadows - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

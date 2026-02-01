@@ -18,9 +18,6 @@
         <Projects Include="Landscapes\FracLands_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Landscapes\ShortLands.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -74,23 +71,14 @@
     <Target Name="FracLands_ru:Make">
         <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ShortLands">
-        <MSBuild Projects="Landscapes\ShortLands.dproj"/>
-    </Target>
-    <Target Name="ShortLands:Clean">
-        <MSBuild Projects="Landscapes\ShortLands.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="ShortLands:Make">
-        <MSBuild Projects="Landscapes\ShortLands.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="CloudySky;DuneFighter;FracArchip;FracLands;FracLands_ru;ShortLands"/>
+        <CallTarget Targets="CloudySky;DuneFighter;FracArchip;FracLands;FracLands_ru"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CloudySky:Clean;DuneFighter:Clean;FracArchip:Clean;FracLands:Clean;FracLands_ru:Clean;ShortLands:Clean"/>
+        <CallTarget Targets="CloudySky:Clean;DuneFighter:Clean;FracArchip:Clean;FracLands:Clean;FracLands_ru:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CloudySky:Make;DuneFighter:Make;FracArchip:Make;FracLands:Make;FracLands_ru:Make;ShortLands:Make"/>
+        <CallTarget Targets="CloudySky:Make;DuneFighter:Make;FracArchip:Make;FracLands:Make;FracLands_ru:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

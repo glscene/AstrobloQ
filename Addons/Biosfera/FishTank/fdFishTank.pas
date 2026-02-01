@@ -134,7 +134,7 @@ var
 begin
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
   BSphere.Radius := GLCube2.BoundingSphereRadius;
-  GLFreeForm1.LoadFromFile('..\media\model\BoxedIn.3ds');
+  GLFreeForm1.LoadFromFile('.\media\model\BoxedIn.3ds');
   GLFreeForm1.BuildOctree;
 
   Randomize;

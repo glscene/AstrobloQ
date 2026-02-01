@@ -1,8 +1,8 @@
-program ShortLands;
+program GrassLand;
 
 uses
   Forms,
-  flTexLand in '..\..\..\source\lito\flTexLand.pas' {frmTexland};
+  fbGrassLand in 'fbGrassLand.pas' {frmTexland};
 
 {$R *.res}
 

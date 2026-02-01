@@ -2,12 +2,12 @@ program Beast;
 
 uses
   Forms,
-  fdBeast in 'fdBeast.pas' {Form3};
+  fdBeast in 'fdBeast.pas' {FormBeast};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TFormBeast, FormBeast);
   Application.Run;
 end.

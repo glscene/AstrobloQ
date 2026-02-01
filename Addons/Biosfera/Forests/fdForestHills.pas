@@ -68,8 +68,8 @@ begin
   if not InitDGL then
   begin
     GLSL := TGLProgramHandle.CreateAndAllocate;
-    GLSL.AddShader(TGLVertexShaderHandle, LoadAnsiStringFromFile('..\media\shader\forest.vp'));
-    GLSL.AddShader(TGLFragmentShaderHandle, LoadAnsiStringFromFile('..\media\shader\forest.fp'));
+    GLSL.AddShader(TGLVertexShaderHandle, LoadAnsiStringFromFile('.\media\shader\forest.vp'));
+    GLSL.AddShader(TGLFragmentShaderHandle, LoadAnsiStringFromFile('.\media\shader\forest.fp'));
     if not GLSL.LinkProgram then
       raise Exception.Create(GLSL.InfoLog);
     if not GLSL.ValidateProgram then
@@ -157,7 +157,7 @@ end;
 begin
   Randomize;
   ts := TBitmap.Create;
-  ts.LoadFromFile('..\media\texture\ts.bmp');
+  ts.LoadFromFile('.\media\texture\ts.bmp');
   mObj := TGLMeshObject.CreateOwned(ffForest.MeshObjects);
   mObj.Mode := momTriangles;
   for i := 0 to tree_cnt - 1 do

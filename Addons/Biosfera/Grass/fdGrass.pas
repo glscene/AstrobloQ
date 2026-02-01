@@ -71,8 +71,8 @@ procedure TForm1.FormCreate;
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('biosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'biosfera\media\model\';
+//  Delete(MediaPath, Pos('biosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'media\model\';
   SetCurrentDir(MediaPath);
 
 

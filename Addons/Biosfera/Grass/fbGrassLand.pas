@@ -1,4 +1,4 @@
-unit flTexLand;
+unit fbGrassLand;
 
 interface
 
@@ -55,7 +55,7 @@ type
     procedure handleMouse(dt: single);
     procedure handleKeyboard(dt: single);
   private
-    DataPath, MediaPath, FileJpg: TFileName;
+    DataPath, MediaPath, FileBmp: TFileName;
   end;
 
 var
@@ -70,12 +70,12 @@ procedure TfrmTexland.FormCreate;
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'litosfera\media\';
+//  Delete(MediaPath, Pos('litosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'media\';
   SetCurrentDir(MediaPath) ;
 
-  FileJpg := MediaPath + 'heightmap.bmp';
-  if FileExists(FileJpg, true) then
+  FileBmp := MediaPath + 'heightmap.bmp';
+  if FileExists(FileBmp, true) then
     BitmapHDS.Picture.LoadFromFile('heightmap.bmp')
   else
     Close;

@@ -36,7 +36,7 @@ uses
   GLS.SimpleNavigation;
 
 type
-  TForm3 = class(TForm)
+  TFormBeast = class(TForm)
     GLScene1: TGLScene;
     GLSceneViewer1: TGLSceneViewer;
     Camera1: TGLCamera;
@@ -78,37 +78,37 @@ type
   end;
 
 var
-  Form3: TForm3;
+  FormBeast: TFormBeast;
 
 implementation //==============================================================
 
 {$R *.dfm}
 
 //----------------------------------------------------------------------------
-procedure TForm3.CheckBox1Click(Sender: TObject);
+procedure TFormBeast.CheckBox1Click(Sender: TObject);
 begin
   GLBumpShader1.Enabled := CheckBox1.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TForm3.CheckBox2Click(Sender: TObject);
+procedure TFormBeast.CheckBox2Click(Sender: TObject);
 begin
   LightSource1.Shining := CheckBox2.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TForm3.CheckBox3Click(Sender: TObject);
+procedure TFormBeast.CheckBox3Click(Sender: TObject);
 begin
   LightSource2.Shining := CheckBox3.Checked;
 end;
 
 //----------------------------------------------------------------------------
-procedure TForm3.FormCreate(Sender: TObject);
+procedure TFormBeast.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
-  Delete(MediaPath, Pos('biosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
-  MediaPath := MediaPath + 'biosfera\media\model\';
+//  Delete(MediaPath, Pos('biosfera', MediaPath), Length(MediaPath)); // if litosfera dir for exe
+  MediaPath := MediaPath + 'media\model\';
   SetCurrentDir(MediaPath) ;
 
 
@@ -127,7 +127,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TForm3.GLCadencer1Progress(Sender: TObject;
+procedure TFormBeast.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 begin
   GLZShadows1.CastShadow;
@@ -136,7 +136,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TForm3.GLSceneViewer1BeforeRender(Sender: TObject);
+procedure TFormBeast.GLSceneViewer1BeforeRender(Sender: TObject);
 begin
   if IsInitialized then
     exit;

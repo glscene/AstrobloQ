@@ -19,7 +19,7 @@ object frmShortLands: TfrmShortLands
     Top = 0
     Width = 688
     Height = 441
-    Camera = GLCamera1
+    Camera = Camera
     Buffer.Lighting = False
     FieldOfView = 154.447631835937500000
     PenAsTouch = False
@@ -34,12 +34,13 @@ object frmShortLands: TfrmShortLands
     Top = 8
     object GLDummyCube1: TGLDummyCube
       CubeSize = 1.000000000000000000
-      object GLCamera1: TGLCamera
+      object Camera: TGLCamera
         DepthOfView = 1000.000000000000000000
         FocalLength = 50.000000000000000000
         TargetObject = GLDummyCube1
+        CameraStyle = csInfinitePerspective
       end
-      object GLTerrainRenderer1: TGLTerrainRenderer
+      object TerrainRenderer: TGLTerrainRenderer
         Direction.Coordinates = {00000000000080BF0000000000000000}
         Up.Coordinates = {00000000000000000000803F00000000}
         TilesPerTexture = 1.000000000000000000
