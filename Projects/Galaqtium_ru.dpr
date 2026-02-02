@@ -22,7 +22,7 @@ uses
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
   fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
-  fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormHercrussel},
+  fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings};
 
 {$R *.res}

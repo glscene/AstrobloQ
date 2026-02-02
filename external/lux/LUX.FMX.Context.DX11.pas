@@ -7,9 +7,14 @@ interface
 {$SCOPEDENUMS ON}
 
 uses
+  Winapi.Windows,
+  Winapi.DXTypes,
+  Winapi.DxgiType,
+  Winapi.DxgiFormat,
   Winapi.DXGI,
   Winapi.D3D11,
   Winapi.D3DCommon,
+
   System.Types,
   System.UITypes,
   System.SysUtils,
@@ -17,6 +22,16 @@ uses
   System.Math,
   System.Generics.Collections,
   System.Math.Vectors,
+  System.Win.ComObj,
+
+  FMX.Forms,
+  FMX.Platform.Win,
+  FMX.Context.DX9,
+  FMX.Canvas.GPU,
+  FMX.Graphics,
+  FMX.Consts,
+  FMX.Utils,
+  FMX.Platform,
   FMX.Types3D,
   FMX.Types;
 
@@ -62,22 +77,9 @@ type
 procedure RegisterContextClasses;
 procedure UnregisterContextClasses;
 
-implementation //--------------------------------------------------------------
+implementation // ==================================================================
 
 uses
-  Winapi.Windows,
-  Winapi.DXTypes,
-  Winapi.DxgiType,
-  Winapi.DxgiFormat,
-  System.Win.ComObj,
-  FMX.Forms,
-  FMX.Platform.Win,
-  FMX.Context.DX9,
-  FMX.Canvas.GPU,
-  FMX.Graphics,
-  FMX.Consts,
-  FMX.Utils,
-  FMX.Platform,
   LUX.FMX.Types3D;
 
 type
@@ -107,11 +109,9 @@ type
     _StencilRef: Integer;
     _BufferSize: TSize;
   private
-    /// // メソッド
     class function AddResource(const Resource_: IInterface): THandle;
     class procedure RemoveResource(Resource_: THandle);
-    class function ResourceToVertexShader(Resource_: THandle)
-      : ID3D11VertexShader;
+    class function ResourceToVertexShader(Resource_: THandle): ID3D11VertexShader;
     class function ResourceToPixelShader(Resource_: THandle): ID3D11PixelShader;
     class function ResourceToTexture(Resource_: THandle): ID3D11Texture2D;
     class function ResourceToTexture3D(Resource_: THandle): ID3D11Texture3D;
@@ -130,8 +130,8 @@ type
     _RenderTargetMSTex: ID3D11Texture2D;
     { copy }
     _CopyBuffer: ID3D11Texture2D;
-    procedure FindBestMultisampleType(Format_: DXGI_FORMAT;
-      Multisample_: TMultisample; out SampleCount_, QualityLevel_: Integer);
+    procedure FindBestMultisampleType(Format_: DXGI_FORMAT; Multisample_: TMultisample;
+      out SampleCount_, QualityLevel_: Integer);
     procedure SetTexture(const Unit_: Integer; const Texture_: TTexture);
     procedure SetTexture2D(const Unit_: Integer; const Texture_: TTexture);
     procedure SetTexture3D(const Unit_: Integer; const Texture_: TTexture3D);
@@ -144,57 +144,56 @@ type
     procedure DoCreateBuffer; override;
     procedure DoResize; override;
     procedure DoFreeBuffer; override;
-    procedure DoCopyToBitmap(const Dest_: TBitmap; const Rect_: TRect);
-      override;
+    procedure DoCopyToBitmap(const Dest_: TBitmap; const Rect_: TRect); override;
     procedure DoCopyToBits(const Bits_: Pointer; const Pitch_: Integer;
       const Rect_: TRect); override;
     { scene }
     function DoBeginScene: Boolean; override;
     procedure DoEndScene; override;
     { states }
-    procedure DoClear(const Target_: TClearTargets; const Color_: TAlphaColor;
-      const Depth_: Single; const Stencil_: Cardinal); override;
+    procedure DoClear(const Target_: TClearTargets; const Color_: TAlphaColor; const Depth_: Single;
+      const Stencil_: Cardinal); override;
     procedure DoSetContextState(State_: TContextState); override;
     procedure DoSetStencilOp(const Fail_, ZFail_, ZPass_: TStencilOp); override;
-    procedure DoSetStencilFunc(const Func_: TStencilfunc;
-      Ref_, Mask_: Cardinal); override;
-    procedure DoSetScissorRect(const ScissorRect_: TRect); override;
+    procedure DoSetStencilFunc(const Func_: TStencilfunc; Ref_, Mask_: Cardinal); override;
+    procedure DoSetScissorRect(const ScissorRect_: TRectF); override;
     { drawing }
     procedure DoDrawPrimitivesBatch(const Kind_: TPrimitivesKind;
-      const Vertices_, Indices_: Pointer;
-      const VertexDeclaration_: TVertexDeclaration;
-      const VertexSize_, VertexCount_, IndexSize_,
-      IndexCount_: Integer); override;
+      const Vertices_, Indices_: Pointer; const VertexDeclaration_: TVertexDeclaration;
+      const VertexSize_, VertexCount_, IndexSize_, IndexCount_: Integer); override;
     { texture }
     class procedure DoInitializeTexture(const Texture_: TTexture); override;
     class procedure DoInitializeTexture2D(const Texture_: TTexture);
     class procedure DoInitializeTexture3D(const Texture_: TTexture3D);
     class procedure DoFinalizeTexture(const Texture_: TTexture); override;
-    class procedure DoUpdateTexture(const Texture_: TTexture;
-      const Bits_: Pointer; const Pitch_: Integer); override;
-    class procedure DoUpdateTexture2D(const Texture_: TTexture;
-      const Bits_: Pointer; const Pitch_: Integer);
+    class procedure DoUpdateTexture(const Texture_: TTexture; const Bits_: Pointer;
+      const Pitch_: Integer); override;
+    class procedure DoUpdateTexture2D(const Texture_: TTexture; const Bits_: Pointer;
+      const Pitch_: Integer);
     class procedure DoUpdateTexture3D(const Texture_: TTexture3D);
     { bitmap }
-    class function DoBitmapToTexture(const Bitmap_: TBitmap): TTexture;
-      override;
+    class function DoBitmapToTexture(const Bitmap_: TBitmap): TTexture; override;
     { shaders }
     class procedure DoInitializeShader(const Shader_: TContextShader); override;
     class procedure DoFinalizeShader(const Shader_: TContextShader); override;
-    procedure DoSetShaders(const VertexShader_, PixelShader_
-      : TContextShader); override;
-    procedure DoSetShaderVariable(const Name_: string;
-      const Data_: array of TVector3D); override;
-    procedure DoSetShaderVariable(const Name_: string;
-      const Texture_: TTexture); override;
-    procedure DoSetShaderVariable(const Name_: string;
-      const Matrix_: TMatrix3D); override;
+    procedure DoSetShaders(const VertexShader_, PixelShader_: TContextShader); override;
+    procedure DoSetShaderVariable(const Name_: string; const Data_: array of TVector3D); override;
+    procedure DoSetShaderVariable(const Name_: string; const Texture_: TTexture); override;
+    procedure DoSetShaderVariable(const Name_: string; const Matrix_: TMatrix3D); override;
     { constructors }
-    constructor CreateFromWindow(const Parent_: TWindowHandle;
-      const Width_, Height_: Integer; const Multisample_: TMultisample;
-      const DepthStencil_: Boolean); override;
-    constructor CreateFromTexture(const Texture_: TTexture;
-      const Multisample_: TMultisample; const DepthStencil_: Boolean); override;
+
+ (*
+    constructor CreateFromWindow(const AParent: TWindowHandle; const AWidth, AHeight: Single;
+      const AMultisample: TMultisample; const ADepthStencil: Boolean); virtual;
+    constructor CreateFromTexture(const ATexture: TTexture; const AMultisample: TMultisample;
+      const ADepthStencil: Boolean); virtual;
+ *)
+
+
+    constructor CreateFromWindow(const AParent: TWindowHandle; const AWidth, AHeight: Single;
+      const AMultisample: TMultisample; const ADepthStencil: Boolean); override;
+    constructor CreateFromTexture(const ATexture: TTexture; const AMultisample: TMultisample;
+      const ADepthStencil: Boolean); override;
     class function PixelFormat: TPixelFormat; override;
   end;
 
@@ -202,7 +201,6 @@ var
   HR: HResult;
   VBSize: Integer = $FFFF * 56;
   IBSize: Integer = $FFFF * 2 * 2;
-
   PrevFPUState: TArithmeticExceptionMask;
 
 procedure SaveClearFPUState; inline;
@@ -278,18 +276,17 @@ function D3D11CreateDevice1Ex(DriverType_: D3D_DRIVER_TYPE; Flags_: LongWord;
   out FeatureLevel_: TD3D_FEATURE_LEVEL): HResult;
 const
   RequestLevels: array [0 .. 5] of D3D_FEATURE_LEVEL = (D3D_FEATURE_LEVEL_11_0,
-    D3D_FEATURE_LEVEL_10_1, D3D_FEATURE_LEVEL_10_0, D3D_FEATURE_LEVEL_9_3,
-    D3D_FEATURE_LEVEL_9_2, D3D_FEATURE_LEVEL_9_1);
-  DX9Levels: array [0 .. 2] of D3D_FEATURE_LEVEL = (D3D_FEATURE_LEVEL_9_3,
-    D3D_FEATURE_LEVEL_9_2, D3D_FEATURE_LEVEL_9_1);
+    D3D_FEATURE_LEVEL_10_1, D3D_FEATURE_LEVEL_10_0, D3D_FEATURE_LEVEL_9_3, D3D_FEATURE_LEVEL_9_2,
+    D3D_FEATURE_LEVEL_9_1);
+  DX9Levels: array [0 .. 2] of D3D_FEATURE_LEVEL = (D3D_FEATURE_LEVEL_9_3, D3D_FEATURE_LEVEL_9_2,
+    D3D_FEATURE_LEVEL_9_1);
 begin
   if GlobalUseDXInDX9Mode then
-    Result := D3D11CreateDevice(nil, DriverType_, 0, Flags_, @DX9Levels[0],
-      Length(DX9Levels), D3D11_SDK_VERSION, Device_, FeatureLevel_, Context_)
+    Result := D3D11CreateDevice(nil, DriverType_, 0, Flags_, @DX9Levels[0], Length(DX9Levels),
+      D3D11_SDK_VERSION, Device_, FeatureLevel_, Context_)
   else
     Result := D3D11CreateDevice(nil, DriverType_, 0, Flags_, @RequestLevels[0],
-      Length(RequestLevels), D3D11_SDK_VERSION, Device_, FeatureLevel_,
-      Context_);
+      Length(RequestLevels), D3D11_SDK_VERSION, Device_, FeatureLevel_, Context_);
 end;
 
 class function TLuxCustomDX11Context.GetBlankTexture: ID3D11Texture2D;
@@ -298,6 +295,8 @@ begin
 
   Result := _BlankTexture;
 end;
+
+// TCustomDX11Context
 
 class function TLuxCustomDX11Context.GetSharedDevice: ID3D11Device;
 begin
@@ -323,34 +322,29 @@ begin
       Flags := {$IFDEF DXDEBUG}D3D11_CREATE_DEVICE_DEBUG{$ELSE}0{$ENDIF};
       Flags := Flags or D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 
-      if Succeeded(D3D11CreateDevice1Ex(_DriverType, Flags, _SharedDevice,
-        _SharedContext, _FeatureLevel)) then
+      if Succeeded(D3D11CreateDevice1Ex(_DriverType, Flags, _SharedDevice, _SharedContext,
+        _FeatureLevel)) then
       begin
-        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(VBSize,
-          D3D11_BIND_VERTEX_BUFFER, D3D11_USAGE_DYNAMIC,
-          D3D11_CPU_ACCESS_WRITE), nil, _VB);
-        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(IBSize,
-          D3D11_BIND_INDEX_BUFFER, D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE),
-          nil, _IB);
+        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(VBSize, D3D11_BIND_VERTEX_BUFFER,
+          D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE), nil, _VB);
+        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(IBSize, D3D11_BIND_INDEX_BUFFER,
+          D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE), nil, _IB);
 
         DXGIAdapter := nil;
         _DXGIFactory := nil;
 
-        if Succeeded(_SharedDevice.QueryInterface(IDXGIDevice, DXGIDevice)) and
-          (DXGIDevice <> nil) and
-          Succeeded(DXGIDevice.GetParent(IDXGIAdapter, DXGIAdapter)) and
-          (DXGIAdapter <> nil) then
+        if Succeeded(_SharedDevice.QueryInterface(IDXGIDevice, DXGIDevice)) and (DXGIDevice <> nil)
+          and Succeeded(DXGIDevice.GetParent(IDXGIAdapter, DXGIAdapter)) and (DXGIAdapter <> nil)
+        then
         begin
           DXGIAdapter.GetParent(IDXGIFactory, _DXGIFactory);
         end;
 
         if _DXGIFactory = nil then
-          raise ECannotAcquireDXGIFactory.CreateFmt(SCannotAcquireDXGIFactory,
-            [ClassName]);
+          raise ECannotAcquireDXGIFactory.CreateFmt(SCannotAcquireDXGIFactory, [ClassName]);
       end
       else
-        raise ECannotCreateD3DDevice.CreateFmt(SCannotCreateD3DDevice,
-          [ClassName]);
+        raise ECannotCreateD3DDevice.CreateFmt(SCannotCreateD3DDevice, [ClassName]);
 
     finally
       RestoreFPUState;
@@ -386,14 +380,11 @@ begin
     TLuxDX11Context._BlendDesc.AlphaToCoverageEnable := False;
     TLuxDX11Context._BlendDesc.RenderTarget[0].BlendEnable := True;
     TLuxDX11Context._BlendDesc.RenderTarget[0].SrcBlend := D3D11_BLEND_ONE;
-    TLuxDX11Context._BlendDesc.RenderTarget[0].DestBlend :=
-      D3D11_BLEND_INV_SRC_ALPHA;
+    TLuxDX11Context._BlendDesc.RenderTarget[0].DestBlend := D3D11_BLEND_INV_SRC_ALPHA;
     TLuxDX11Context._BlendDesc.RenderTarget[0].BlendOp := D3D11_BLEND_OP_ADD;
     TLuxDX11Context._BlendDesc.RenderTarget[0].SrcBlendAlpha := D3D11_BLEND_ONE;
-    TLuxDX11Context._BlendDesc.RenderTarget[0].DestBlendAlpha :=
-      D3D11_BLEND_INV_SRC_ALPHA;
-    TLuxDX11Context._BlendDesc.RenderTarget[0].BlendOpAlpha :=
-      D3D11_BLEND_OP_ADD;
+    TLuxDX11Context._BlendDesc.RenderTarget[0].DestBlendAlpha := D3D11_BLEND_INV_SRC_ALPHA;
+    TLuxDX11Context._BlendDesc.RenderTarget[0].BlendOpAlpha := D3D11_BLEND_OP_ADD;
     TLuxDX11Context._BlendDesc.RenderTarget[0].RenderTargetWriteMask :=
       Byte(D3D11_COLOR_WRITE_ENABLE_ALL);
     TLuxDX11Context._BlendStateModified := True;
@@ -410,12 +401,10 @@ begin
     TLuxDX11Context._RasterizerDesc.AntialiasedLineEnable := True;
     TLuxDX11Context._RasterizerStateModified := True;
 
-    FillChar(TLuxDX11Context._DepthStencilDesc,
-      SizeOf(TLuxDX11Context._DepthStencilDesc), 0);
+    FillChar(TLuxDX11Context._DepthStencilDesc, SizeOf(TLuxDX11Context._DepthStencilDesc), 0);
 
     TLuxDX11Context._DepthStencilDesc.DepthEnable := False;
-    TLuxDX11Context._DepthStencilDesc.DepthWriteMask :=
-      D3D11_DEPTH_WRITE_MASK_ALL;
+    TLuxDX11Context._DepthStencilDesc.DepthWriteMask := D3D11_DEPTH_WRITE_MASK_ALL;
     TLuxDX11Context._DepthStencilDesc.DepthFunc := D3D11_COMPARISON_LESS_EQUAL;
     TLuxDX11Context._DepthStencilDesc.StencilEnable := False;
     TLuxDX11Context._DepthStencilModified := True;
@@ -508,9 +497,13 @@ begin
   if not _DriverSupportTested then
   begin
     _DriverSupportTested := True;
+
     _DriverType := D3D_DRIVER_TYPE_NULL;
+
     _FeatureLevel := D3D_FEATURE_LEVEL_11_0;
+
     DX11Lib := LoadLibrary(D3D11dll);
+
     if DX11Lib <> 0 then
       try
         if GlobalUseDX then
@@ -546,7 +539,9 @@ begin
         FreeLibrary(DX11Lib);
       end;
   end;
+
   DriverType_ := _DriverType;
+
   FeatureLevel_ := _FeatureLevel;
 end;
 
@@ -582,8 +577,9 @@ begin
   end;
 end;
 
-class function TLuxDX11Context.AddResource(const Resource_: IInterface)
-  : THandle;
+// TDX11Context
+
+class function TLuxDX11Context.AddResource(const Resource_: IInterface): THandle;
 begin
   if _Resources = nil then
   begin
@@ -609,48 +605,40 @@ begin
     _Resources[Resource_] := nil;
 end;
 
-class function TLuxDX11Context.ResourceToVertexShader(Resource_: THandle)
-  : ID3D11VertexShader;
+class function TLuxDX11Context.ResourceToVertexShader(Resource_: THandle): ID3D11VertexShader;
 begin
-  if (_Resources <> nil) and (Resource_ > 0) and
-    (Resource_ < UInt(_Resources.Count)) then
+  if (_Resources <> nil) and (Resource_ > 0) and (Resource_ < UInt(_Resources.Count)) then
     Result := _Resources[Resource_] as ID3D11VertexShader
   else
     Result := nil;
 end;
 
-class function TLuxDX11Context.ResourceToPixelShader(Resource_: THandle)
-  : ID3D11PixelShader;
+class function TLuxDX11Context.ResourceToPixelShader(Resource_: THandle): ID3D11PixelShader;
 begin
-  if (_Resources <> nil) and (Resource_ > 0) and
-    (Resource_ < UInt(_Resources.Count)) then
+  if (_Resources <> nil) and (Resource_ > 0) and (Resource_ < UInt(_Resources.Count)) then
     Result := _Resources[Resource_] as ID3D11PixelShader
   else
     Result := nil;
 end;
 
-class function TLuxDX11Context.ResourceToTexture(Resource_: THandle)
-  : ID3D11Texture2D;
+class function TLuxDX11Context.ResourceToTexture(Resource_: THandle): ID3D11Texture2D;
 begin
-  if (_Resources <> nil) and (Resource_ > 0) and
-    (Resource_ < UInt(_Resources.Count)) then
+  if (_Resources <> nil) and (Resource_ > 0) and (Resource_ < UInt(_Resources.Count)) then
     Result := _Resources[Resource_] as ID3D11Texture2D
   else
     Result := nil;
 end;
 
-class function TLuxDX11Context.ResourceToTexture3D(Resource_: THandle)
-  : ID3D11Texture3D;
+class function TLuxDX11Context.ResourceToTexture3D(Resource_: THandle): ID3D11Texture3D;
 begin
-  if (_Resources <> nil) and (Resource_ > 0) and
-    (Resource_ < UInt(_Resources.Count)) then
+  if (_Resources <> nil) and (Resource_ > 0) and (Resource_ < UInt(_Resources.Count)) then
     Result := _Resources[Resource_] as ID3D11Texture3D
   else
     Result := nil;
 end;
 
-procedure TLuxDX11Context.FindBestMultisampleType(Format_: DXGI_FORMAT;
-  Multisample_: TMultisample; out SampleCount_, QualityLevel_: Integer);
+procedure TLuxDX11Context.FindBestMultisampleType(Format_: DXGI_FORMAT; Multisample_: TMultisample;
+  out SampleCount_, QualityLevel_: Integer);
 var
   I, MaxSampleNo: Integer;
   QuaLevels: Cardinal;
@@ -667,8 +655,7 @@ begin
 
   QualityLevel_ := 0;
 
-  if (SharedDevice = nil) or (MultisampleCount < 2) or
-    (Format_ = DXGI_FORMAT_UNKNOWN) then
+  if (SharedDevice = nil) or (MultisampleCount < 2) or (Format_ = DXGI_FORMAT_UNKNOWN) then
     Exit;
 
   MaxSampleNo := Min(MultisampleCount, D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT);
@@ -678,8 +665,7 @@ begin
   try
     for I := MaxSampleNo downto 2 do
     begin
-      if Failed(SharedDevice.CheckMultisampleQualityLevels(Format_, I,
-        QuaLevels)) then
+      if Failed(SharedDevice.CheckMultisampleQualityLevels(Format_, I, QuaLevels)) then
         Continue;
 
       if QuaLevels > 0 then
@@ -752,8 +738,7 @@ begin
 
     _ResourceViews[Unit_] := nil;
 
-    if Succeeded(SharedDevice.CreateShaderResourceView(Tex, nil,
-      _ResourceViews[Unit_])) then
+    if Succeeded(SharedDevice.CreateShaderResourceView(Tex, nil, _ResourceViews[Unit_])) then
     begin
       SharedContext.PSSetShaderResources(Unit_, 1, _ResourceViews[Unit_]);
 
@@ -764,8 +749,7 @@ begin
   end;
 end;
 
-procedure TLuxDX11Context.SetTexture3D(const Unit_: Integer;
-  const Texture_: TTexture3D);
+procedure TLuxDX11Context.SetTexture3D(const Unit_: Integer; const Texture_: TTexture3D);
 var
   Tex: ID3D11Texture3D;
   Desc: TD3D11_SAMPLER_DESC;
@@ -792,8 +776,7 @@ begin
 
       _SampleStates[Unit_] := nil;
 
-      if Succeeded(SharedDevice.CreateSamplerState(Desc, _SampleStates[Unit_]))
-      then
+      if Succeeded(SharedDevice.CreateSamplerState(Desc, _SampleStates[Unit_])) then
       begin
         SharedContext.PSSetSamplers(Unit_, 1, _SampleStates[Unit_]);
 
@@ -812,8 +795,7 @@ begin
 
     _ResourceViews[Unit_] := nil;
 
-    if Succeeded(SharedDevice.CreateShaderResourceView(Tex, nil,
-      _ResourceViews[Unit_])) then
+    if Succeeded(SharedDevice.CreateShaderResourceView(Tex, nil, _ResourceViews[Unit_])) then
     begin
       SharedContext.PSSetShaderResources(Unit_, 1, _ResourceViews[Unit_]);
 
@@ -824,8 +806,8 @@ begin
   end;
 end;
 
-class procedure TLuxDX11Context.FindBestShaderSource(const Shader_
-  : TContextShader; out Source_: TContextShaderSource);
+class procedure TLuxDX11Context.FindBestShaderSource(const Shader_: TContextShader;
+  out Source_: TContextShaderSource);
 var
   MatchFound: Boolean;
 begin
@@ -838,16 +820,14 @@ begin
     MatchFound := Source_.IsDefined;
   end;
 
-  if not MatchFound and (TLuxCustomDX11Context.FeatureLevel >=
-    D3D_FEATURE_LEVEL_10_0) then
+  if not MatchFound and (TLuxCustomDX11Context.FeatureLevel >= D3D_FEATURE_LEVEL_10_0) then
   begin
     Source_ := Shader_.GetSourceByArch(TContextShaderArch.DX10);
 
     MatchFound := Source_.IsDefined;
   end;
 
-  if not MatchFound and (TLuxCustomDX11Context.FeatureLevel >=
-    D3D_FEATURE_LEVEL_9_1) then
+  if not MatchFound and (TLuxCustomDX11Context.FeatureLevel >= D3D_FEATURE_LEVEL_9_1) then
   begin
     Source_ := Shader_.GetSourceByArch(TContextShaderArch.DX11_level_9);
 
@@ -855,8 +835,7 @@ begin
   end;
 
   if not MatchFound then
-    raise ECannotFindShader.CreateFmt(SCannotFindSuitableShader,
-      [Shader_.Name]);
+    raise ECannotFindShader.CreateFmt(SCannotFindSuitableShader, [Shader_.Name]);
 end;
 
 function TLuxDX11Context.GetValid: Boolean;
@@ -882,8 +861,8 @@ begin
   try
     if Texture <> nil then
     begin
-      FindBestMultisampleType(TexturePixelFormatToDX(Texture.PixelFormat),
-        Multisample, SampleCount, QualityLevel);
+      FindBestMultisampleType(TexturePixelFormatToDX(Texture.PixelFormat), Multisample, SampleCount,
+        QualityLevel);
 
       if (Multisample <> TMultisample.None) and (SampleCount > 1) then
       begin
@@ -909,8 +888,7 @@ begin
 
         if _RenderTargetMSTex <> nil then
         begin
-          HR := SharedDevice.CreateRenderTargetView(_RenderTargetMSTex, nil,
-            _RenderTargetView);
+          HR := SharedDevice.CreateRenderTargetView(_RenderTargetMSTex, nil, _RenderTargetView);
 
           if DepthStencil then
           begin
@@ -931,8 +909,7 @@ begin
             HR := SharedDevice.CreateTexture2D(Desc, nil, _DepthStencilTex);
 
             if Succeeded(HR) then
-              HR := SharedDevice.CreateDepthStencilView(_DepthStencilTex, nil,
-                _DepthStencilView);
+              HR := SharedDevice.CreateDepthStencilView(_DepthStencilTex, nil, _DepthStencilView);
           end;
         end;
       end
@@ -944,8 +921,7 @@ begin
         begin
           Tex.GetDesc(TexDesc);
 
-          HR := SharedDevice.CreateRenderTargetView(Tex, nil,
-            _RenderTargetView);
+          HR := SharedDevice.CreateRenderTargetView(Tex, nil, _RenderTargetView);
 
           if DepthStencil then
           begin
@@ -964,8 +940,7 @@ begin
             HR := SharedDevice.CreateTexture2D(Desc, nil, _DepthStencilTex);
 
             if Succeeded(HR) then
-              HR := SharedDevice.CreateDepthStencilView(_DepthStencilTex, nil,
-                _DepthStencilView);
+              HR := SharedDevice.CreateDepthStencilView(_DepthStencilTex, nil, _DepthStencilView);
           end;
         end;
       end;
@@ -980,14 +955,12 @@ begin
 
       Stencil := DepthStencil;
 
-      _BufferSize := TSize.Create(WindowHandleToPlatform(Parent)
-        .WndClientSize.Width, WindowHandleToPlatform(Parent)
-        .WndClientSize.Height);
+      _BufferSize := TSize.Create(WindowHandleToPlatform(Parent).WndClientSize.Width,
+        WindowHandleToPlatform(Parent).WndClientSize.Height);
 
-      if TPlatformServices.Current.SupportsPlatformService
-        (IFMXRenderingSetupService, RenderingSetupService) then
-        RenderingSetupService.Invoke(ColorBits, DepthBits, Stencil,
-          Multisamples);
+      if TPlatformServices.Current.SupportsPlatformService(IFMXRenderingSetupService,
+        RenderingSetupService) then
+        RenderingSetupService.Invoke(ColorBits, DepthBits, Stencil, Multisamples);
 
       FillChar(SwapDesc, SizeOf(SwapDesc), 0);
 
@@ -998,8 +971,8 @@ begin
       SwapDesc.BufferUsage := DXGI_USAGE_RENDER_TARGET_OUTPUT;
       SwapDesc.OutputWindow := WindowHandleToPlatform(Parent).Wnd;
 
-      FindBestMultisampleType(SwapDesc.BufferDesc.Format,
-        TMultisample(Multisamples div 2), SampleCount, QualityLevel);
+      FindBestMultisampleType(SwapDesc.BufferDesc.Format, TMultisample(Multisamples div 2),
+        SampleCount, QualityLevel);
 
       SwapDesc.SampleDesc.Count := SampleCount;
       SwapDesc.SampleDesc.Quality := QualityLevel;
@@ -1015,8 +988,7 @@ begin
         HR := _SwapChain.GetBuffer(0, ID3D11Texture2D, BackBuffer);
 
         if Succeeded(HR) then
-          HR := SharedDevice.CreateRenderTargetView(BackBuffer, nil,
-            _RenderTargetView);
+          HR := SharedDevice.CreateRenderTargetView(BackBuffer, nil, _RenderTargetView);
 
         if (DepthBits > 0) or Stencil then
         begin
@@ -1035,8 +1007,7 @@ begin
           HR := SharedDevice.CreateTexture2D(Desc, nil, _DepthStencilTex);
 
           if Succeeded(HR) then
-            HR := SharedDevice.CreateDepthStencilView(_DepthStencilTex, nil,
-              _DepthStencilView);
+            HR := SharedDevice.CreateDepthStencilView(_DepthStencilTex, nil, _DepthStencilView);
         end;
       end;
     end;
@@ -1058,24 +1029,21 @@ begin
   _DepthStencilView := nil;
 end;
 
-procedure TLuxDX11Context.DoCopyToBitmap(const Dest_: TBitmap;
-  const Rect_: TRect);
+procedure TLuxDX11Context.DoCopyToBitmap(const Dest_: TBitmap; const Rect_: TRect);
 var
-  CopyRect: TRect;
+  CopyRect: TRectF;
 begin
-  if (TCanvasStyle.NeedGPUSurface in Dest_.CanvasClass.GetCanvasStyle) and
-    (Texture <> nil) then
+  if (TCanvasStyle.NeedGPUSurface in Dest_.CanvasClass.GetCanvasStyle) and (Texture <> nil) then
   begin
     if TCustomCanvasGpu(Dest_.Canvas).BeginScene then
       try
-        CopyRect := TRect.Intersect(Rect_, TRect.Create(0, 0, Width, Height));
+        CopyRect := TRectF.Intersect(Rect_, TRectF.Create(0, 0, Width, Height));
 
         TCustomCanvasGpu(Dest_.Canvas).Clear(0);
         TCustomCanvasGpu(Dest_.Canvas).SetMatrix(TMatrix.Identity);
-        TCustomCanvasGpu(Dest_.Canvas)
-          .DrawTexture(TRectF.Create(CopyRect.Left, CopyRect.Top,
-          CopyRect.Right, CopyRect.Bottom), TRectF.Create(0, 0, CopyRect.Width,
-          CopyRect.Height), $FFFFFFFF, Texture);
+        TCustomCanvasGpu(Dest_.Canvas).DrawTexture(TRectF.Create(CopyRect.Left, CopyRect.Top,
+          CopyRect.Right, CopyRect.Bottom), TRectF.Create(0, 0, CopyRect.Width, CopyRect.Height),
+          $FFFFFFFF, Texture);
 
       finally
         TCustomCanvasGpu(Dest_.Canvas).EndScene;
@@ -1085,8 +1053,8 @@ begin
     inherited;
 end;
 
-procedure TLuxDX11Context.DoCopyToBits(const Bits_: Pointer;
-  const Pitch_: Integer; const Rect_: TRect);
+procedure TLuxDX11Context.DoCopyToBits(const Bits_: Pointer; const Pitch_: Integer;
+  const Rect_: TRect);
 var
   Desc: TD3D11_TEXTURE2D_DESC;
   BackBuffer: ID3D11Texture2D;
@@ -1101,8 +1069,8 @@ begin
       FillChar(Desc, SizeOf(D3D11_TEXTURE2D_DESC), 0);
 
       Desc.Format := DXGI_FORMAT_B8G8R8A8_UNORM;
-      Desc.Width := Width;
-      Desc.Height := Height;
+      Desc.Width := Round(Width);
+      Desc.Height := Round(Height);
       Desc.MipLevels := 1;
       Desc.ArraySize := 1;
       Desc.SampleDesc.Count := 1;
@@ -1118,17 +1086,15 @@ begin
     else
       BackBuffer := ResourceToTexture(Texture.Handle);
 
-    SharedContext.CopySubresourceRegion(_CopyBuffer, 0, 0, 0, 0,
-      BackBuffer, 0, nil);
+    SharedContext.CopySubresourceRegion(_CopyBuffer, 0, 0, 0, 0, BackBuffer, 0, nil);
 
-    if Succeeded(SharedContext.Map(_CopyBuffer, 0, D3D11_MAP_READ, 0, Mapped))
-    then
+    if Succeeded(SharedContext.Map(_CopyBuffer, 0, D3D11_MAP_READ, 0, Mapped)) then
       try
         if (Rect_.Left = 0) and (Rect_.Top = 0) and (Rect_.Width = Width) and
-          (Rect_.Height = Height) and (Mapped.RowPitch = Cardinal(Pitch_)) and
-          (Pitch_ = Width * 4) then
+          (Rect_.Height = Height) and (Mapped.RowPitch = Cardinal(Pitch_)) and (Pitch_ = Width * 4)
+        then
         begin
-          Move(Mapped.pData^, Bits_^, Pitch_ * Height);
+          Move(Mapped.pData^, Bits_^, Pitch_ * Round(Height));
         end
         else
         begin
@@ -1136,9 +1102,9 @@ begin
           begin
             W := Rect_.Left;
 
-            Move(PAlphaColorArray(Mapped.pData)[W + (I * (Mapped.RowPitch div 4)
-              )], PAlphaColorArray(Bits_)[I * (UInt(Pitch_) div 4) +
-              UInt(Rect_.Left)], Rect_.Width * 4);
+            Move(PAlphaColorArray(Mapped.pData)[W + (I * (Mapped.RowPitch div 4))],
+              PAlphaColorArray(Bits_)[I * (UInt(Pitch_) div 4) + UInt(Rect_.Left)],
+              Rect_.Width * 4);
           end;
         end;
       finally
@@ -1150,23 +1116,17 @@ begin
 end;
 
 // ------------------------------------------------------------------------------
-
 function TLuxDX11Context.DoBeginScene: Boolean;
 var
   Viewport: TD3D11_Viewport;
 begin
   SaveClearFPUState;
-
   try
     SharedContext.OMGetRenderTargets(1, _SavedRT, _SavedDepth);
-
     SharedContext.RSGetViewports(_SavedViewportNum, nil);
-
     if _SavedViewportNum > 0 then
       SharedContext.RSGetViewports(_SavedViewportNum, @_SavedViewport);
-
     SharedContext.OMSetRenderTargets(1, _RenderTargetView, _DepthStencilView);
-
     FillChar(Viewport, SizeOf(D3D11_VIEWPORT), 0);
 
     if Texture <> nil then
@@ -1182,11 +1142,8 @@ begin
 
     Viewport.MinDepth := 0.0;
     Viewport.MaxDepth := 1.0;
-
     SharedContext.RSSetViewports(1, @Viewport);
-
     Result := inherited;
-
   finally
     RestoreFPUState;
   end;
@@ -1198,8 +1155,8 @@ begin
 
   try
     if (_RenderTargetMSTex <> nil) and (Texture <> nil) then
-      SharedContext.ResolveSubresource(ResourceToTexture(Texture.Handle), 0,
-        _RenderTargetMSTex, 0, TexturePixelFormatToDX(Texture.PixelFormat));
+      SharedContext.ResolveSubresource(ResourceToTexture(Texture.Handle), 0, _RenderTargetMSTex, 0,
+        TexturePixelFormatToDX(Texture.PixelFormat));
 
     if (BeginSceneCount = 1) and (Texture = nil) then
       HR := _SwapChain.Present(0, 0);
@@ -1216,14 +1173,13 @@ begin
   finally
     RestoreFPUState;
   end;
-
   inherited;
 end;
 
 // ------------------------------------------------------------------------------
 
-procedure TLuxDX11Context.DoClear(const Target_: TClearTargets;
-  const Color_: TAlphaColor; const Depth_: Single; const Stencil_: Cardinal);
+procedure TLuxDX11Context.DoClear(const Target_: TClearTargets; const Color_: TAlphaColor;
+  const Depth_: Single; const Stencil_: Cardinal);
 var
   Flags: TD3D11_CLEAR_FLAG;
 begin
@@ -1239,13 +1195,11 @@ begin
       if TClearTarget.Stencil in Target_ then
         Flags := Flags or D3D11_CLEAR_STENCIL;
 
-      SharedContext.ClearDepthStencilView(_DepthStencilView, Flags, Depth_,
-        Stencil_);
+      SharedContext.ClearDepthStencilView(_DepthStencilView, Flags, Depth_, Stencil_);
     end;
 
     if (TClearTarget.Color in Target_) and (_RenderTargetView <> nil) then
-      SharedContext.ClearRenderTargetView(_RenderTargetView,
-        ColorToD3DColor(Color_));
+      SharedContext.ClearRenderTargetView(_RenderTargetView, ColorToD3DColor(Color_));
 
   finally
     RestoreFPUState;
@@ -1297,8 +1251,7 @@ begin
       end;
     TContextState.csColorWriteOn:
       begin
-        _BlendDesc.RenderTarget[0].RenderTargetWriteMask :=
-          Byte(D3D11_COLOR_WRITE_ENABLE_ALL);
+        _BlendDesc.RenderTarget[0].RenderTargetWriteMask := Byte(D3D11_COLOR_WRITE_ENABLE_ALL);
         _BlendStateModified := True;
       end;
     TContextState.csColorWriteOff:
@@ -1334,8 +1287,7 @@ begin
   end;
 end;
 
-procedure TLuxDX11Context.DoSetStencilOp(const Fail_, ZFail_,
-  ZPass_: TStencilOp);
+procedure TLuxDX11Context.DoSetStencilOp(const Fail_, ZFail_, ZPass_: TStencilOp);
 begin
   case Fail_ of
     TStencilOp.Keep:
@@ -1358,14 +1310,11 @@ begin
     TStencilOp.Zero:
       _DepthStencilDesc.FrontFace.StencilDepthFailOp := D3D11_STENCIL_OP_ZERO;
     TStencilOp.Replace:
-      _DepthStencilDesc.FrontFace.StencilDepthFailOp :=
-        D3D11_STENCIL_OP_REPLACE;
+      _DepthStencilDesc.FrontFace.StencilDepthFailOp := D3D11_STENCIL_OP_REPLACE;
     TStencilOp.Increase:
-      _DepthStencilDesc.FrontFace.StencilDepthFailOp :=
-        D3D11_STENCIL_OP_INCR_SAT;
+      _DepthStencilDesc.FrontFace.StencilDepthFailOp := D3D11_STENCIL_OP_INCR_SAT;
     TStencilOp.Decrease:
-      _DepthStencilDesc.FrontFace.StencilDepthFailOp :=
-        D3D11_STENCIL_OP_DECR_SAT;
+      _DepthStencilDesc.FrontFace.StencilDepthFailOp := D3D11_STENCIL_OP_DECR_SAT;
     TStencilOp.Invert:
       _DepthStencilDesc.FrontFace.StencilDepthFailOp := D3D11_STENCIL_OP_INVERT;
   end;
@@ -1390,8 +1339,7 @@ begin
   _DepthStencilModified := True;
 end;
 
-procedure TLuxDX11Context.DoSetStencilFunc(const Func_: TStencilfunc;
-  Ref_, Mask_: Cardinal);
+procedure TLuxDX11Context.DoSetStencilFunc(const Func_: TStencilfunc; Ref_, Mask_: Cardinal);
 begin
   case Func_ of
     TStencilfunc.Never:
@@ -1419,7 +1367,7 @@ begin
   _DepthStencilModified := True;
 end;
 
-procedure TLuxDX11Context.DoSetScissorRect(const ScissorRect_: TRect);
+procedure TLuxDX11Context.DoSetScissorRect(const ScissorRect_: TRectF);
 begin
   SaveClearFPUState;
 
@@ -1434,9 +1382,8 @@ end;
 // ------------------------------------------------------------------------------
 
 procedure TLuxDX11Context.DoDrawPrimitivesBatch(const Kind_: TPrimitivesKind;
-  const Vertices_, Indices_: Pointer;
-  const VertexDeclaration_: TVertexDeclaration; const VertexSize_, VertexCount_,
-  IndexSize_, IndexCount_: Integer);
+  const Vertices_, Indices_: Pointer; const VertexDeclaration_: TVertexDeclaration;
+  const VertexSize_, VertexCount_, IndexSize_, IndexCount_: Integer);
 var
   PhysIndexSize, I: Integer;
   VtxStride, VtxOffset: LongWord;
@@ -1461,8 +1408,7 @@ begin
     try
       PhysIndexSize := IndexSize_;
 
-      if (IndexSize_ = SizeOf(LongInt)) and
-        (IndexBufferSupport <> TIndexBufferSupport.Int32) then
+      if (IndexSize_ = SizeOf(LongInt)) and (IndexBufferSupport <> TIndexBufferSupport.Int32) then
         PhysIndexSize := SizeOf(Word);
 
       if VertexSize_ * VertexCount_ > VBSize then
@@ -1471,9 +1417,8 @@ begin
 
         VBSize := VertexSize_ * VertexCount_;
 
-        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(VBSize,
-          D3D11_BIND_VERTEX_BUFFER, D3D11_USAGE_DYNAMIC,
-          D3D11_CPU_ACCESS_WRITE), nil, _VB);
+        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(VBSize, D3D11_BIND_VERTEX_BUFFER,
+          D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE), nil, _VB);
       end;
 
       if _VBLockPos + VertexSize_ * VertexCount_ > VBSize then
@@ -1487,8 +1432,7 @@ begin
 
       if Succeeded(SharedContext.Map(_VB, 0, Flags, 0, Mapped)) then
         try
-          Move(Vertices_^, PByteArray(Mapped.pData)[_VBLockPos],
-            VertexSize_ * VertexCount_);
+          Move(Vertices_^, PByteArray(Mapped.pData)[_VBLockPos], VertexSize_ * VertexCount_);
         finally
           SharedContext.Unmap(_VB, 0);
         end;
@@ -1499,9 +1443,8 @@ begin
 
         IBSize := IndexCount_ * PhysIndexSize;
 
-        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(IBSize,
-          D3D11_BIND_INDEX_BUFFER, D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE),
-          nil, _IB);
+        HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(IBSize, D3D11_BIND_INDEX_BUFFER,
+          D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE), nil, _IB);
       end;
 
       if _IBLockPos + IndexCount_ * PhysIndexSize > IBSize then
@@ -1539,13 +1482,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'POSITION';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32B32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32B32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.Normal:
@@ -1554,13 +1494,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'NORMAL';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32B32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32B32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.Color0:
@@ -1569,13 +1506,11 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'COLOR';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R8G8B8A8_UNORM; // 9_1 doesn't support BGRA
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R8G8B8A8_UNORM;
+              // 9_1 doesn't support BGRA
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.Color1:
@@ -1584,13 +1519,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'COLOR';
               InputElements[High(InputElements)].SemanticIndex := 1;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R8G8B8A8_UNORM;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R8G8B8A8_UNORM;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.Color2:
@@ -1599,13 +1531,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'COLOR';
               InputElements[High(InputElements)].SemanticIndex := 2;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R8G8B8A8_UNORM;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R8G8B8A8_UNORM;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.Color3:
@@ -1614,13 +1543,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'COLOR';
               InputElements[High(InputElements)].SemanticIndex := 3;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R8G8B8A8_UNORM;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R8G8B8A8_UNORM;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.TexCoord0:
@@ -1629,13 +1555,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'TEXCOORD';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.TexCoord1:
@@ -1644,13 +1567,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'TEXCOORD';
               InputElements[High(InputElements)].SemanticIndex := 1;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.TexCoord2:
@@ -1659,13 +1579,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'TEXCOORD';
               InputElements[High(InputElements)].SemanticIndex := 2;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.TexCoord3:
@@ -1674,13 +1591,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'TEXCOORD';
               InputElements[High(InputElements)].SemanticIndex := 3;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.BiNormal:
@@ -1689,13 +1603,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'BINORMAL';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32B32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32B32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.Tangent:
@@ -1704,13 +1615,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'TANGENT';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32B32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32B32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
           TVertexFormat.ColorF0:
@@ -1719,13 +1627,10 @@ begin
 
               InputElements[High(InputElements)].SemanticName := 'COLOR';
               InputElements[High(InputElements)].SemanticIndex := 0;
-              InputElements[High(InputElements)].Format :=
-                DXGI_FORMAT_R32G32B32A32_FLOAT;
+              InputElements[High(InputElements)].Format := DXGI_FORMAT_R32G32B32A32_FLOAT;
               InputElements[High(InputElements)].InputSlot := 0;
-              InputElements[High(InputElements)].AlignedByteOffset :=
-                Element.Offset;
-              InputElements[High(InputElements)].InputSlotClass :=
-                D3D11_INPUT_PER_VERTEX_DATA;
+              InputElements[High(InputElements)].AlignedByteOffset := Element.Offset;
+              InputElements[High(InputElements)].InputSlotClass := D3D11_INPUT_PER_VERTEX_DATA;
               InputElements[High(InputElements)].InstanceDataStepRate := 0;
             end;
         end;
@@ -1749,16 +1654,13 @@ begin
 
           _VSSlot := nil;
 
-          HR := _SharedDevice.CreateBuffer
-            (TD3D11_BUFFER_DESC.Create(Length(_VSBuf),
-            D3D11_BIND_CONSTANT_BUFFER, D3D11_USAGE_DYNAMIC,
-            D3D11_CPU_ACCESS_WRITE), nil, _VSSlot);
+          HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(Length(_VSBuf),
+            D3D11_BIND_CONSTANT_BUFFER, D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE), nil, _VSSlot);
         end;
 
         if _VSSlot <> nil then
         begin
-          if Succeeded(SharedContext.Map(_VSSlot, 0, D3D11_MAP_WRITE_DISCARD, 0,
-            Mapped)) then
+          if Succeeded(SharedContext.Map(_VSSlot, 0, D3D11_MAP_WRITE_DISCARD, 0, Mapped)) then
             try
               Move(_VSBuf[0], Mapped.pData^, Length(_VSBuf));
             finally
@@ -1791,16 +1693,13 @@ begin
 
           _PSSlot := nil;
 
-          HR := _SharedDevice.CreateBuffer
-            (TD3D11_BUFFER_DESC.Create(Length(_PSBuf),
-            D3D11_BIND_CONSTANT_BUFFER, D3D11_USAGE_DYNAMIC,
-            D3D11_CPU_ACCESS_WRITE), nil, _PSSlot);
+          HR := _SharedDevice.CreateBuffer(TD3D11_BUFFER_DESC.Create(Length(_PSBuf),
+            D3D11_BIND_CONSTANT_BUFFER, D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE), nil, _PSSlot);
         end;
 
         if _PSSlot <> nil then
         begin
-          if Succeeded(SharedContext.Map(_PSSlot, 0, D3D11_MAP_WRITE_DISCARD, 0,
-            Mapped)) then
+          if Succeeded(SharedContext.Map(_PSSlot, 0, D3D11_MAP_WRITE_DISCARD, 0, Mapped)) then
             try
               Move(_PSBuf[0], Mapped.pData^, Length(_PSBuf));
 
@@ -1819,35 +1718,21 @@ begin
       if _BlendStateModified then
       begin
         OldBlendState := _BlendState;
-
         _BlendState := nil;
-
         SharedDevice.CreateBlendState(_BlendDesc, _BlendState);
-
-        SharedContext.OMSetBlendState(_BlendState, ColorToD3DColor($FFFFFFFF),
-          $FFFFFFFF);
-
+        SharedContext.OMSetBlendState(_BlendState, ColorToD3DColor($FFFFFFFF), $FFFFFFFF);
         OldBlendState := nil;
-
         _BlendStateModified := False;
       end
       else
-        SharedContext.OMSetBlendState(_BlendState, ColorToD3DColor($FFFFFFFF),
-          $FFFFFFFF);
-
+        SharedContext.OMSetBlendState(_BlendState, ColorToD3DColor($FFFFFFFF), $FFFFFFFF);
       if _DepthStencilModified then
       begin
         OldDepthStencilState := _DepthStencilState;
-
         _DepthStencilState := nil;
-
-        SharedDevice.CreateDepthStencilState(_DepthStencilDesc,
-          _DepthStencilState);
-
+        SharedDevice.CreateDepthStencilState(_DepthStencilDesc, _DepthStencilState);
         SharedContext.OMSetDepthStencilState(_DepthStencilState, _StencilRef);
-
         OldDepthStencilState := nil;
-
         _DepthStencilModified := False;
       end
       else
@@ -1856,40 +1741,27 @@ begin
       if _RasterizerStateModified then
       begin
         OldRasterizerState := _RasterizerState;
-
         _RasterizerState := nil;
-
         SharedDevice.CreateRasterizerState(_RasterizerDesc, _RasterizerState);
-
         SharedContext.RSSetState(_RasterizerState);
-
         OldRasterizerState := nil;
-
         _RasterizerStateModified := False;
       end
       else
         SharedContext.RSSetState(_RasterizerState);
 
       FindBestShaderSource(CurrentVertexShader, Source);
-
       OldInputLayout := _InputLayout;
-
       _InputLayout := nil;
-
-      HR := SharedDevice.CreateInputLayout(@InputElements[0],
-        Length(InputElements), @Source.Code[0], Length(Source.Code),
-        _InputLayout);
+      HR := SharedDevice.CreateInputLayout(@InputElements[0], Length(InputElements),
+        @Source.Code[0], Length(Source.Code), _InputLayout);
 
       if Succeeded(HR) then
       begin
         VtxStride := VertexSize_;
-
         VtxOffset := _VBLockPos;
-
         SharedContext.IASetVertexBuffers(0, 1, _VB, @VtxStride, @VtxOffset);
-
         SharedContext.IASetInputLayout(_InputLayout);
-
         if PhysIndexSize = SizeOf(LongInt) then
           SharedContext.IASetIndexBuffer(_IB, DXGI_FORMAT_R32_UINT, _IBLockPos)
         else
@@ -1897,25 +1769,18 @@ begin
 
         case Kind_ of
           TPrimitivesKind.Points:
-            SharedContext.IASetPrimitiveTopology
-              (D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
+            SharedContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
           TPrimitivesKind.Lines:
-            SharedContext.IASetPrimitiveTopology
-              (D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
+            SharedContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
         else
-          SharedContext.IASetPrimitiveTopology
-            (D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+          SharedContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
         end;
 
         SharedContext.DrawIndexed(IndexCount_, 0, 0);
-
         OldInputLayout := nil;
       end;
-
       _VBLockPos := _VBLockPos + VertexSize_ * VertexCount_;
-
       _IBLockPos := _IBLockPos + IndexCount_ * PhysIndexSize;
-
     finally
       RestoreFPUState;
     end;
@@ -1962,8 +1827,8 @@ begin
   Desc.SampleDesc.Count := 1;
   Desc.SampleDesc.Quality := 0;
 
-  if (TTextureStyle.Dynamic in Texture_.Style) and
-    not(TTextureStyle.RenderTarget in Texture_.Style) then
+  if (TTextureStyle.Dynamic in Texture_.Style) and not(TTextureStyle.RenderTarget in Texture_.Style)
+  then
   begin
     Desc.CPUAccessFlags := D3D11_CPU_ACCESS_WRITE;
     Desc.Usage := D3D11_USAGE_DYNAMIC;
@@ -1989,8 +1854,7 @@ begin
     ITextureAccess(Texture_).Handle := AddResource(Tex);
 end;
 
-class procedure TLuxDX11Context.DoInitializeTexture3D(const Texture_
-  : TTexture3D);
+class procedure TLuxDX11Context.DoInitializeTexture3D(const Texture_: TTexture3D);
 var
   Tex: ID3D11Texture3D;
   Desc: TD3D11_TEXTURE3D_DESC;
@@ -2017,8 +1881,8 @@ begin
   else
     Desc.MipLevels := 1;
 
-  if (TTextureStyle.Dynamic in Texture_.Style) and
-    not(TTextureStyle.RenderTarget in Texture_.Style) then
+  if (TTextureStyle.Dynamic in Texture_.Style) and not(TTextureStyle.RenderTarget in Texture_.Style)
+  then
   begin
     Desc.CPUAccessFlags := D3D11_CPU_ACCESS_WRITE;
     Desc.Usage := D3D11_USAGE_DYNAMIC;
@@ -2058,8 +1922,8 @@ begin
   end;
 end;
 
-class procedure TLuxDX11Context.DoUpdateTexture(const Texture_: TTexture;
-  const Bits_: Pointer; const Pitch_: Integer);
+class procedure TLuxDX11Context.DoUpdateTexture(const Texture_: TTexture; const Bits_: Pointer;
+  const Pitch_: Integer);
 begin
   if Texture_ is TTexture3D then
     DoUpdateTexture3D(Texture_ as TTexture3D)
@@ -2067,8 +1931,8 @@ begin
     DoUpdateTexture2D(Texture_, Bits_, Pitch_);
 end;
 
-class procedure TLuxDX11Context.DoUpdateTexture2D(const Texture_: TTexture;
-  const Bits_: Pointer; const Pitch_: Integer);
+class procedure TLuxDX11Context.DoUpdateTexture2D(const Texture_: TTexture; const Bits_: Pointer;
+  const Pitch_: Integer);
 var
   Mapped: D3D11_MAPPED_SUBRESOURCE;
   I, BytesToCopy: UInt;
@@ -2100,8 +1964,7 @@ begin
 
         HR := SharedDevice.CreateTexture2D(Desc, nil, CopyBuffer);
 
-        if Succeeded(SharedContext.Map(CopyBuffer, 0, D3D11_MAP_WRITE, 0,
-          Mapped)) then
+        if Succeeded(SharedContext.Map(CopyBuffer, 0, D3D11_MAP_WRITE, 0, Mapped)) then
           try
             if UInt(Pitch_) = Mapped.RowPitch then
               Move(Bits_^, Mapped.pData^, Texture_.Height * Pitch_)
@@ -2110,20 +1973,18 @@ begin
               BytesToCopy := Min(Pitch_, Mapped.RowPitch);
 
               for I := 0 to Texture_.Height - 1 do
-                Move(PByteArray(Bits_)[UInt(Pitch_) * I],
-                  PByteArray(Mapped.pData)[Mapped.RowPitch * I], BytesToCopy);
+                Move(PByteArray(Bits_)[UInt(Pitch_) * I], PByteArray(Mapped.pData)
+                  [Mapped.RowPitch * I], BytesToCopy);
             end;
           finally
             SharedContext.Unmap(CopyBuffer, 0);
           end;
 
-        SharedContext.CopySubresourceRegion(Tex, 0, 0, 0, 0,
-          CopyBuffer, 0, nil);
+        SharedContext.CopySubresourceRegion(Tex, 0, 0, 0, 0, CopyBuffer, 0, nil);
       end
       else
       begin
-        if Succeeded(SharedContext.Map(Tex, 0, D3D11_MAP_WRITE_DISCARD, 0,
-          Mapped)) then
+        if Succeeded(SharedContext.Map(Tex, 0, D3D11_MAP_WRITE_DISCARD, 0, Mapped)) then
           try
             if UInt(Pitch_) = Mapped.RowPitch then
               Move(Bits_^, Mapped.pData^, Texture_.Height * Pitch_)
@@ -2132,8 +1993,8 @@ begin
               BytesToCopy := Min(Pitch_, Mapped.RowPitch);
 
               for I := 0 to Texture_.Height - 1 do
-                Move(PByteArray(Bits_)[UInt(Pitch_) * I],
-                  PByteArray(Mapped.pData)[Mapped.RowPitch * I], BytesToCopy);
+                Move(PByteArray(Bits_)[UInt(Pitch_) * I], PByteArray(Mapped.pData)
+                  [Mapped.RowPitch * I], BytesToCopy);
             end;
           finally
             SharedContext.Unmap(Tex, 0);
@@ -2173,8 +2034,7 @@ begin
 
         HR := SharedDevice.CreateTexture3D(@Desc, nil, CopyBuffer);
 
-        if Succeeded(SharedContext.Map(CopyBuffer, 0, D3D11_MAP_WRITE, 0,
-          Mapped)) then
+        if Succeeded(SharedContext.Map(CopyBuffer, 0, D3D11_MAP_WRITE, 0, Mapped)) then
           try
             with Texture_.Map do
             begin
@@ -2191,13 +2051,11 @@ begin
             SharedContext.Unmap(CopyBuffer, 0);
           end;
 
-        SharedContext.CopySubresourceRegion(Tex, 0, 0, 0, 0,
-          CopyBuffer, 0, nil);
+        SharedContext.CopySubresourceRegion(Tex, 0, 0, 0, 0, CopyBuffer, 0, nil);
       end
       else
       begin
-        if Succeeded(SharedContext.Map(Tex, 0, D3D11_MAP_WRITE_DISCARD, 0,
-          Mapped)) then
+        if Succeeded(SharedContext.Map(Tex, 0, D3D11_MAP_WRITE_DISCARD, 0, Mapped)) then
           try
             with Texture_.Map do
             begin
@@ -2222,8 +2080,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-class function TLuxDX11Context.DoBitmapToTexture(const Bitmap_: TBitmap)
-  : TTexture;
+class function TLuxDX11Context.DoBitmapToTexture(const Bitmap_: TBitmap): TTexture;
 begin
   if Bitmap_.CanvasClass.InheritsFrom(TCustomCanvasGpu) then
     Result := TBitmapCtx(Bitmap_.Handle).PaintingTexture
@@ -2233,8 +2090,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-class procedure TLuxDX11Context.DoInitializeShader(const Shader_
-  : TContextShader);
+class procedure TLuxDX11Context.DoInitializeShader(const Shader_: TContextShader);
 var
   VSShader: ID3D11VertexShader;
   PSShader: ID3D11PixelShader;
@@ -2251,16 +2107,14 @@ begin
     try
       if Shader_.Kind = TContextShaderKind.VertexShader then
       begin
-        HR := SharedDevice.CreateVertexShader(Source.Code, Length(Source.Code),
-          nil, @VSShader);
+        HR := SharedDevice.CreateVertexShader(Source.Code, Length(Source.Code), nil, @VSShader);
 
         if VSShader <> nil then
           Shader_.Handle := AddResource(VSShader);
       end
       else
       begin
-        HR := SharedDevice.CreatePixelShader(Source.Code, Length(Source.Code),
-          nil, PSShader);
+        HR := SharedDevice.CreatePixelShader(Source.Code, Length(Source.Code), nil, PSShader);
 
         if PSShader <> nil then
           Shader_.Handle := AddResource(PSShader);
@@ -2285,18 +2139,15 @@ begin
   Shader_.Handle := 0;
 end;
 
-procedure TLuxDX11Context.DoSetShaders(const VertexShader_,
-  PixelShader_: TContextShader);
+procedure TLuxDX11Context.DoSetShaders(const VertexShader_, PixelShader_: TContextShader);
 var
   Source: TContextShaderSource;
 begin
   SaveClearFPUState;
 
   try
-    SharedContext.VSSetShader
-      (ResourceToVertexShader(VertexShader_.Handle), nil, 0);
-    SharedContext.PSSetShader
-      (ResourceToPixelShader(PixelShader_.Handle), nil, 0);
+    SharedContext.VSSetShader(ResourceToVertexShader(VertexShader_.Handle), nil, 0);
+    SharedContext.PSSetShader(ResourceToPixelShader(PixelShader_.Handle), nil, 0);
 
   finally
     RestoreFPUState;
@@ -2321,8 +2172,7 @@ begin
   end;
 end;
 
-procedure TLuxDX11Context.DoSetShaderVariable(const Name_: string;
-  const Data_: array of TVector3D);
+procedure TLuxDX11Context.DoSetShaderVariable(const Name_: string; const Data_: array of TVector3D);
 var
   I: Integer;
   Source: TContextShaderSource;
@@ -2364,8 +2214,7 @@ begin
   end;
 end;
 
-procedure TLuxDX11Context.DoSetShaderVariable(const Name_: string;
-  const Texture_: TTexture);
+procedure TLuxDX11Context.DoSetShaderVariable(const Name_: string; const Texture_: TTexture);
 var
   I: Integer;
   Source: TContextShaderSource;
@@ -2386,17 +2235,15 @@ begin
   end;
 end;
 
-procedure TLuxDX11Context.DoSetShaderVariable(const Name_: string;
-  const Matrix_: TMatrix3D);
+procedure TLuxDX11Context.DoSetShaderVariable(const Name_: string; const Matrix_: TMatrix3D);
 begin
   SetShaderVariable(Name_, Matrix_.M);
 end;
 
 // ------------------------------------------------------------------------------
 
-constructor TLuxDX11Context.CreateFromWindow(const Parent_: TWindowHandle;
-  const Width_, Height_: Integer; const Multisample_: TMultisample;
-  const DepthStencil_: Boolean);
+constructor TLuxDX11Context.CreateFromWindow(const AParent: TWindowHandle;
+  const AWidth, AHeight: Single; const AMultisample: TMultisample; const ADepthStencil: Boolean);
 begin
   inherited;
 
@@ -2405,8 +2252,8 @@ begin
   CreateBuffer;
 end;
 
-constructor TLuxDX11Context.CreateFromTexture(const Texture_: TTexture;
-  const Multisample_: TMultisample; const DepthStencil_: Boolean);
+constructor TLuxDX11Context.CreateFromTexture(const ATexture: TTexture;
+  const AMultisample: TMultisample; const ADepthStencil: Boolean);
 begin
   inherited;
 
@@ -2442,7 +2289,6 @@ initialization //--------------------------------------------------------------
 RegisterContextClasses;
 
 finalization
-
 UnregisterContextClasses;
 
 end.

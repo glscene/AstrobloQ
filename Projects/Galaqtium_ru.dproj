@@ -149,7 +149,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgDiagramHR_ru.pas">
-            <Form>FormHercrussel</Form>
+            <Form>FormDiagramHR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmSettings_ru.pas">

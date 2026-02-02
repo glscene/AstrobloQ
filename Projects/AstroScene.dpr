@@ -28,7 +28,7 @@ uses
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   faConstells in '..\source\astro\faConstells.pas' {frmConstells},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
-  fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormHercrussel},
+  fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',

@@ -1,0 +1,5 @@
+object GLViewer: TGLViewer
+  Size.Width = 564.000000000000000000
+  Size.Height = 412.000000000000000000
+  Size.PlatformDefault = False
+end

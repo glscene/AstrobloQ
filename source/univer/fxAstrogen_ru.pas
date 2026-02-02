@@ -38,9 +38,9 @@ type
     Camera1: TCamera;
     Light1: TLight;
     Grid3D1: TGrid3D;
-    Sphere1: TSphere;
+    Planet1: TSphere;
     LightMaterialSource1: TLightMaterialSource;
-    Sphere2: TSphere;
+    Planet2: TSphere;
     Timer1: TTimer;
     TabItemS: TTabItem;
     TabControlS: TTabControl;
@@ -56,6 +56,7 @@ type
     MemoSPC: TMemo;
     TabItemSPE: TTabItem;
     MemoSPE: TMemo;
+    LightMaterialSource2: TLightMaterialSource;
     procedure FormCreate(Sender: TObject);
     procedure Viewport3D1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
@@ -73,7 +74,7 @@ type
 var
   FormAstrogen: TFormAstrogen;
 
-implementation //--------------------------------------------------------------
+implementation //=============================================================
 
 {$R *.fmx}
 
@@ -93,16 +94,16 @@ begin
     Diffuse := TAlphaColors.White;
     Specular := TAlphaColors.White;
     Shininess := 50;
-    Texture.LoadFromFile(frmUniversum.DataDir + '\map\Earth.jpg');
+    Texture.LoadFromFile(frmUniversum.StarDir + '\Sun\Earth.jpg');
   end;
 
   M := TAstroMaterialSource.Create(Self);
 
-  Sphere2.MaterialSource := M;
-  Sphere2.TwoSide := True;
+  Planet2.MaterialSource := M;
+  Planet2.TwoSide := True;
 
-  MemoSVC.Lines.LoadFromFile(frmUniversum.DataDir + '\shader\ShaderV.hlsl');
-  MemoSPC.Lines.LoadFromFile(frmUniversum.DataDir + '\shader\ShaderP.hlsl');
+  MemoSVC.Lines.LoadFromFile(frmUniversum.AssetDir + '\shader\ShaderV.hlsl');
+  MemoSPC.Lines.LoadFromFile(frmUniversum.AssetDir + '\shader\ShaderP.hlsl');
 
   with M do
   begin
@@ -111,8 +112,9 @@ begin
     DiffRatio := TAlphaColorF.Create(1, 1, 1);
     SpecRatio := TAlphaColorF.Create(1, 1, 1);
     SpecShiny := 50;
-    DiffImage.LoadFromFile(frmUniversum.DataDir + '\map\Earth.jpg');
+    DiffImage.LoadFromFile(frmUniversum.StarDir + '\Sun\Mars.jpg');
 
+(*
     ShaderV.Source.Text := MemoSVC.Text;
     for T in ShaderV.Errors.Keys do
     begin
@@ -132,11 +134,11 @@ begin
         Add(ShaderP.Errors[T]);
       end;
     end;
+*)
   end;
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Viewport3D1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
@@ -145,7 +147,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Viewport3D1MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Single);
 var
@@ -163,7 +164,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Viewport3D1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
@@ -173,16 +173,15 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Timer1Timer(Sender: TObject);
 begin
-  with Sphere1.RotationAngle do
+  with Planet1.RotationAngle do
     Y := Y + 1;
-  with Sphere2.RotationAngle do
+  with Planet2.RotationAngle do
     Y := Y + 1;
 end;
 
-initialization //------------------------------------------------------------
+initialization //=============================================================
 
 // GlobalUseDX := False;
 

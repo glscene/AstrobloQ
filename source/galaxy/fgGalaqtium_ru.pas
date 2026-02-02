@@ -671,7 +671,7 @@ end;
 // Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg
 procedure TfrmGalaqtium.miDiagramHRClick(Sender: TObject);
 begin
-  with TFormHercRussel.Create(Self) do
+  with TFormDiagramHR.Create(Self) do
   try
     Timer1.Enabled := False;
     GLCadencer1.Enabled := False;

@@ -19,7 +19,7 @@ object FormAstrogen: TFormAstrogen
     Size.Width = 780.000000000000000000
     Size.Height = 580.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     TabPosition = PlatformDefault
     Sizes = (
@@ -31,7 +31,7 @@ object FormAstrogen: TFormAstrogen
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 46.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -84,7 +84,7 @@ object FormAstrogen: TFormAstrogen
           HitTest = False
           Quanternion = '(0.707106649875641,0,0,-0.707106947898865)'
         end
-        object Sphere1: TSphere
+        object Planet1: TSphere
           Position.X = -3.000000000000000000
           Width = 5.000000000000000000
           Height = 5.000000000000000000
@@ -103,7 +103,7 @@ object FormAstrogen: TFormAstrogen
             Top = 60
           end
         end
-        object Sphere2: TSphere
+        object Planet2: TSphere
           Position.X = 3.000000000000000000
           Width = 5.000000000000000000
           Height = 5.000000000000000000
@@ -111,6 +111,16 @@ object FormAstrogen: TFormAstrogen
           HitTest = False
           SubdivisionsAxes = 50
           SubdivisionsHeight = 25
+          MaterialSource = LightMaterialSource2
+          object LightMaterialSource2: TLightMaterialSource
+            Diffuse = claWhite
+            Ambient = claNull
+            Emissive = claNull
+            Specular = claWhite
+            Shininess = 50
+            Left = 88
+            Top = 68
+          end
         end
         object Light1: TLight
           Color = claWhite
@@ -134,7 +144,7 @@ object FormAstrogen: TFormAstrogen
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 57.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -217,8 +227,8 @@ object FormAstrogen: TFormAstrogen
                 Size.Height = 442.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 720.000000000000000000
-                Viewport.Height = 442.000000000000000000
+                Viewport.Width = 716.000000000000000000
+                Viewport.Height = 438.000000000000000000
               end
             end
             object TabItemSVE: TTabItem
@@ -246,8 +256,8 @@ object FormAstrogen: TFormAstrogen
                 Size.Height = 442.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 720.000000000000000000
-                Viewport.Height = 442.000000000000000000
+                Viewport.Width = 716.000000000000000000
+                Viewport.Height = 438.000000000000000000
               end
             end
           end
@@ -309,8 +319,8 @@ object FormAstrogen: TFormAstrogen
                 Size.Height = 442.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 720.000000000000000000
-                Viewport.Height = 442.000000000000000000
+                Viewport.Width = 716.000000000000000000
+                Viewport.Height = 438.000000000000000000
               end
             end
             object TabItemSPE: TTabItem
@@ -338,8 +348,8 @@ object FormAstrogen: TFormAstrogen
                 Size.Height = 442.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
-                Viewport.Width = 720.000000000000000000
-                Viewport.Height = 442.000000000000000000
+                Viewport.Width = 716.000000000000000000
+                Viewport.Height = 438.000000000000000000
               end
             end
           end

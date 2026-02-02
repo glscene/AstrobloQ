@@ -20,6 +20,7 @@ uses
   LUX.FMX.Types3D;
 
 type
+
   TShaderVar = class;
   TShaderVar<_TValue_> = class;
   TShaderVarPrim<_TValue_> = class;
@@ -39,8 +40,6 @@ type
   TShaderSourceP = class;
 
   TLuxMaterial = class;
-
-  // ================================================================================
 
   TShaderVars = array of TShaderVar;
 
@@ -88,9 +87,11 @@ type
   TShaderVarSingle = class(TShaderVarPrim<Single>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
   end;
@@ -100,9 +101,11 @@ type
   TShaderVarPointF = class(TShaderVarPrim<TPointF>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
   end;
@@ -112,9 +115,11 @@ type
   TShaderVarPoint3D = class(TShaderVarPrim<TPoint3D>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
   end;
@@ -124,9 +129,11 @@ type
   TShaderVarVector3D = class(TShaderVarPrim<TVector3D>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
   end;
@@ -136,9 +143,11 @@ type
   TShaderVarColor = class(TShaderVarPrim<TAlphaColor>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
   end;
@@ -148,9 +157,11 @@ type
   TShaderVarColorF = class(TShaderVarPrim<TAlphaColorF>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
   end;
@@ -160,9 +171,11 @@ type
   TShaderVarMatrix3D = class(TShaderVarPrim<TMatrix3D>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     function GetVars(var I_, T_: Integer; const U_: Byte): TContextShaderVariables; override;
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
@@ -173,9 +186,11 @@ type
   TShaderVarTexture = class(TShaderVarPrim<TTexture>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetVars(var I_, T_: Integer; const U_: Byte): TContextShaderVariables; override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
@@ -186,11 +201,13 @@ type
   TShaderVarTexture3D<_TValue_: TTexture3D> = class(TShaderVarPrim<_TValue_>)
   private
   protected
+
     function GetKind: TContextShaderVariableKind; override;
     function GetSize: Integer; override;
   public
     constructor Create(const Name_: String);
     destructor Destroy; override;
+
     procedure SendVar(const Context_: TContext3D); override;
     function GetVars(var I_, T_: Integer; const U_: Byte): TContextShaderVariables; override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
@@ -205,11 +222,13 @@ type
     _Dir: TShaderVarPoint3D;
     _Col: TShaderVarColor;
   protected
+
     function GetSize: Integer; override;
     procedure SetValue(const Value_: TLightDescription); override;
   public
     constructor Create(const Name_: String);
     destructor Destroy; override;
+
     function GetVars(var I_, T_: Integer; const U_: Byte): TContextShaderVariables; override;
     procedure SendVar(const Context_: TContext3D); override;
     function GetSource(var C_: Integer; var T_: Integer): String; override;
@@ -227,11 +246,13 @@ type
     _Source: TStringList;
     _Targets: TDictionary<TContextShaderArch, AnsiString>;
     _Errors: TDictionary<String, String>;
+
     function GetKind: TContextShaderKind; virtual; abstract;
     procedure SetSource(Sender_: TObject);
   public
     constructor Create;
     destructor Destroy; override;
+
     property Name: String read _Name write _Name;
     property Shader: TContextShader read _Shader write _Shader;
     property Kind: TContextShaderKind read GetKind;
@@ -239,6 +260,7 @@ type
     property Entry: AnsiString read _Entry write _Entry;
     property Source: TStringList read _Source;
     property Errors: TDictionary<String, String> read _Errors;
+
     procedure LoadFromFile(const Name_: String);
     procedure LoadFromStream(const Stream_: TStream);
     procedure LoadFromResource(const Name_: String);
@@ -253,6 +275,7 @@ type
   TShaderSourceV = class(TShaderSource)
   private
   protected
+
     function GetKind: TContextShaderKind; override;
   public
     constructor Create;
@@ -263,6 +286,7 @@ type
   TShaderSourceP = class(TShaderSource)
   private
   protected
+
     function GetKind: TContextShaderKind; override;
   public
     constructor Create;
@@ -275,10 +299,12 @@ type
   protected
     _ShaderV: TShaderSourceV;
     _ShaderP: TShaderSourceP;
+
     procedure DoInitialize; override;
   public
     constructor Create; override;
     destructor Destroy; override;
+
     property ShaderV: TShaderSourceV read _ShaderV;
     property ShaderP: TShaderSourceP read _ShaderP;
   end;
@@ -287,20 +313,26 @@ type
 
   TLuxMaterialSource<_TMaterial_: TLuxMaterial> = class(TMaterialSource)
   private
+
     function GetMaterial: _TMaterial_;
   protected
+
     function GetShaderV: TShaderSourceV;
     function GetShaderP: TShaderSourceP;
+
     property _Material: _TMaterial_ read GetMaterial;
+
     function CreateMaterial: TMaterial; override;
   public
+
     property ShaderV: TShaderSourceV read GetShaderV;
     property ShaderP: TShaderSourceP read GetShaderP;
   end;
 
 const
 
-  VARUNIT: array [TContextShaderArch] of Byte = (1, // Undefined,
+  VARUNIT: array [TContextShaderArch] of Byte =
+   (1, // Undefined,
     1, // DX9,
     16, // DX10,
     16, // DX11_level_9,
@@ -310,10 +342,7 @@ const
     1, // Mac,
     1, // IOS,
     1, // Android
-    1); // SKSL
-
-
-// =================================================================================
+    0);
 
 function PixelFormatToColorN(const PF_: TPixelFormat): Byte;
 
@@ -339,6 +368,7 @@ procedure TShaderVar<_TValue_>.SetValue(const Value_: _TValue_);
 begin
   _Value := Value_;
 end;
+
 
 // TShaderVarPrim<_TValue_>
 
@@ -446,7 +476,7 @@ begin
   Inc(C_, Size);
 end;
 
-//  TShaderVarColor
+// TShaderVarColor
 
 function TShaderVarColor.GetKind: TContextShaderVariableKind;
 begin
@@ -573,8 +603,6 @@ begin
   inherited;
 end;
 
-// =========================================================================
-
 function TShaderVarTexture3D<_TValue_>.GetKind: TContextShaderVariableKind;
 begin
   Result := TContextShaderVariableKind.Texture;
@@ -644,8 +672,6 @@ begin
   _Col.Free;
 end;
 
-// =========================================================================================
-
 function TShaderVarLight.GetVars(var I_, T_: Integer; const U_: Byte): TContextShaderVariables;
 begin
   Result := _Opt.GetVars(I_, T_, U_) + _Pos.GetVars(I_, T_, U_) + _Dir.GetVars(I_, T_, U_) +
@@ -697,19 +723,21 @@ begin
   inherited;
 end;
 
-// ===========================================================================
-
 procedure TShaderSource.LoadFromFile(const Name_: String);
 begin
   _Source.LoadFromFile(Name_);
+
   _Name := TPath.GetFileName(Name_);
+
   Compile;
 end;
 
 procedure TShaderSource.LoadFromStream(const Stream_: TStream);
 begin
   _Source.LoadFromStream(Stream_);
+
   _Name := '';
+
   Compile;
 end;
 
@@ -718,12 +746,13 @@ var
   RS: TResourceStream;
 begin
   RS := TResourceStream.Create(HInstance, Name_, RT_RCDATA);
+
   LoadFromStream(RS);
+
   RS.Free;
+
   _Name := Name_;
 end;
-
-//===================================================================================
 
 function TShaderSource.GetVars(const A_: TContextShaderArch): TContextShaderVariables;
 var
@@ -737,8 +766,6 @@ begin
   for V in _Vars do
     Result := Result + V.GetVars(C, T, VARUNIT[A_]);
 end;
-
-//---------------------------------------------------------------------
 
 procedure TShaderSource.Compile;
 var
@@ -769,15 +796,19 @@ begin
     if Assigned(B) then
     begin
       SetLength(Bs, B.GetBufferSize);
+
       Move(B.GetBufferPointer^, Bs[0], B.GetBufferSize);
+
       CSSs := CSSs + [TContextShaderSource.Create(A, Bs, GetVars(A))];
     end
     else
     begin
       SetString(M, PAnsiChar(E.GetBufferPointer), E.GetBufferSize);
+
       _Errors.Add(String(T), M);
     end;
   end;
+
   if Assigned(CSSs) then
     _Shader := TShaderManager.RegisterShaderFromData(_Name, GetKind, '', CSSs);
 end;
@@ -880,8 +911,6 @@ begin
   Result := _Material.ShaderP;
 end;
 
-//-------------------------------------------------------------------
-
 function TLuxMaterialSource<_TMaterial_>.CreateMaterial: TMaterial;
 begin
   Result := _TMaterial_.Create;
@@ -941,8 +970,8 @@ begin
   end;
 end;
 
-initialization //-------------------------------------------------------------
+initialization
 
-finalization //---------------------------------------------------------------
+finalization
 
 end.

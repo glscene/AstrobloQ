@@ -158,7 +158,7 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\galaxy\fgDiagramHR_ru.pas">
-            <Form>FormHercrussel</Form>
+            <Form>FormDiagramHR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>

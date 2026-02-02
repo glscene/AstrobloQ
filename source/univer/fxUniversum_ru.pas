@@ -79,73 +79,38 @@ type
     procedure miVolumeRenderClick(Sender: TObject);
   private
   public
-    DataDir, StarDir, CurrentStar: TFileName;
+    BinPath, DataDir, AssetDir, StarDir, CurrentStar: TFileName;
     PlanetPath, CatalogName: TFileName;
-    procedure ProcessMenu(const AMainMenu: TMainMenu; IsAuto: Boolean);
   end;
 
 var
   frmUniversum: TfrmUniversum;
 
-implementation //-------------------------------------------------------------
+implementation //==============================================================
 
 {$R *.fmx}
 
 uses
   fxScatterPlot_ru;
 
-
-procedure TfrmUniversum.ProcessMenu(const AMainMenu: TMainMenu; IsAuto: Boolean);
-var
-  I: Integer;
-begin
-  // MainMenu items translations
-  miFile.AutoTranslate := IsAuto;
-  for I := 0 to miFile.ItemsCount - 1 do
-  begin
-    miFile.Items[I].AutoTranslate := IsAuto;
-  end;
-  miMethod.AutoTranslate := IsAuto;
-  for I := 0 to miMethod.ItemsCount - 1 do
-  begin
-    miMethod.Items[I].AutoTranslate := IsAuto;
-  end;
-  miView.AutoTranslate := IsAuto;
-  for I := 0 to miView.ItemsCount - 1 do
-  begin
-    miView.Items[I].AutoTranslate := IsAuto;
-  end;
-  miTools.AutoTranslate := IsAuto;
-  for I := 0 to miTools.ItemsCount - 1 do
-  begin
-    miTools.Items[I].AutoTranslate := IsAuto;
-  end;
-  miHelp.AutoTranslate := IsAuto;
-  for I := 0 to miHelp.ItemsCount - 1 do
-  begin
-    miHelp.Items[I].AutoTranslate := IsAuto;
-  end;
-end;
-
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmUniversum.frmCreate(Sender: TObject);
 var
   I: Integer;
 begin
   ReadInifile;
-  DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(DataDir, Pos('astrobloq', DataDir) + Length('astrobloq'), Length(DataDir));
-  DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
+  BinPath := LowerCase(ExtractFilePath(ParamStr(0)));
+  Delete(BinPath, Pos('astrobloq', BinPath) + Length('astrobloq'), Length(BinPath));
+  DataDir := IncludeTrailingPathDelimiter(BinPath) + 'data';
+  AssetDir := IncludeTrailingPathDelimiter(BinPath) + 'assets';
   SetCurrentDir(DataDir);
 
-  // MainMenu Translation
-  ProcessMenu(MainMenu, True);
-
-  StarDir := DataDir + '\star\';
+  StarDir := DataDir + '\starsys\';
   tvPlanets.ExpandAll;
   inherited;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmUniversum.miSettingsClick(Sender: TObject);
 begin
   inherited;
@@ -180,7 +145,7 @@ begin
 end;
 
 
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmUniversum.miStarsysGenClick(Sender: TObject);
 begin
   inherited;
@@ -217,14 +182,12 @@ end;
 
 
 //---------------------------------------------------------------------------
-
 procedure TfrmUniversum.miWikiClick(Sender: TObject);
 begin
   //
 end;
 
 //--------------------------------------------------------------------------
-
 procedure TfrmUniversum.miAboutClick(Sender: TObject);
 begin
   inherited;
@@ -234,7 +197,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TfrmUniversum.miExitClick(Sender: TObject);
 begin
   inherited;

@@ -24,16 +24,22 @@ uses
 
   fmFormFirst,
   Astro.ReadHyg,
-  Astro.Utils, GLS.Cadencer;
+  Astro.Utils, GLS.Cadencer, VCLTee.TeeData, Data.DB, VCLTee.TeEngine,
+  VCLTee.TeeProcs, VCLTee.Chart, VCLTee.Series;
 
 type
-  TFormHercrussel = class(TfrmFirst)
+  TFormDiagramHR = class(TfrmFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLMaterialLibrary1: TGLMaterialLibrary;
     PanelRight: TPanel;
     GLCadencer1: TGLCadencer;
     Timer1: TTimer;
+    Chart1: TChart;
+    SeriesDataSet1: TSeriesDataSet;
+    ChartDataSet1: TChartDataSet;
+    Series1: TLineSeries;
+    Series2: TPointSeries;
     procedure FormCreate(Sender: TObject);
   private
     // Recalculation of B-V and Mag into screen coordinates x, y
@@ -44,7 +50,7 @@ type
   end;
 
 var
-  FormHercrussel: TFormHercrussel;
+  FormDiagramHR: TFormDiagramHR;
 
 const
   MagLow = 15.0;
@@ -63,7 +69,7 @@ implementation //=============================================================
 {$R *.dfm}
 
 // --------------------------------------------------------------------
-procedure TFormHercrussel.XY(B_V, Mag: single; var x, y: integer);
+procedure TFormDiagramHR.XY(B_V, Mag: single; var x, y: integer);
 begin
   x := Border + Round((B_V - BVLow) * ScaleBV);
   y := Border + Round((Mag - MagHi) * ScaleMg);
@@ -71,13 +77,13 @@ end;
 
 // --------------------------------------------------------------------
 
-procedure TFormHercrussel.FormCreate(Sender: TObject);
+procedure TFormDiagramHR.FormCreate(Sender: TObject);
 begin
   //
   inherited;
 end;
 
-procedure TFormHercrussel.HerpResBV;
+procedure TFormDiagramHR.HerpResBV;
 var
   mode: smallint; // Для инициализации графики
   HipRec: THipparcos; // Звезда в Hipparcos

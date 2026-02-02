@@ -73,13 +73,14 @@ type
 var
   FormAstrogen: TFormAstrogen;
 
-implementation //--------------------------------------------------------------
+implementation //============================================================
 
 {$R *.fmx}
 
 uses
   fxUniversum;
 
+//----------------------------------------------------------------------------
 procedure TFormAstrogen.FormCreate(Sender: TObject);
 var
   M: TAstroMaterialSource;
@@ -92,7 +93,7 @@ begin
     Diffuse := TAlphaColors.White;
     Specular := TAlphaColors.White;
     Shininess := 50;
-    Texture.LoadFromFile(frmUniversum.DataDir + '\map\Earth.jpg');
+    Texture.LoadFromFile(frmUniversum.StarDir + '\Sun\Earth.jpg');
   end;
 
   M := TAstroMaterialSource.Create(Self);
@@ -100,8 +101,8 @@ begin
   Sphere2.MaterialSource := M;
   Sphere2.TwoSide := True;
 
-  MemoSVC.Lines.LoadFromFile(frmUniversum.DataDir + '\shader\ShaderV.hlsl');
-  MemoSPC.Lines.LoadFromFile(frmUniversum.DataDir + '\shader\ShaderP.hlsl');
+  MemoSVC.Lines.LoadFromFile(frmUniversum.AssetDir + '\shader\ShaderV.hlsl');
+  MemoSPC.Lines.LoadFromFile(frmUniversum.AssetDir + '\shader\ShaderP.hlsl');
 
   with M do
   begin
@@ -110,7 +111,7 @@ begin
     DiffRatio := TAlphaColorF.Create(1, 1, 1);
     SpecRatio := TAlphaColorF.Create(1, 1, 1);
     SpecShiny := 50;
-    DiffImage.LoadFromFile(frmUniversum.DataDir + '\map\Earth.jpg');
+    DiffImage.LoadFromFile(frmUniversum.StarDir + '\Sun\Mars.jpg');
 
     ShaderV.Source.Text := MemoSVC.Text;
     for T in ShaderV.Errors.Keys do
@@ -135,7 +136,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Viewport3D1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
@@ -144,7 +144,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Viewport3D1MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Single);
 var
@@ -162,7 +161,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Viewport3D1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
@@ -172,7 +170,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TFormAstrogen.Timer1Timer(Sender: TObject);
 begin
   with Sphere1.RotationAngle do
@@ -181,7 +178,7 @@ begin
     Y := Y + 1;
 end;
 
-initialization //------------------------------------------------------------
+initialization //=============================================================
 
 // GlobalUseDX := False;
 

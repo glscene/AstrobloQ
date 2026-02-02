@@ -126,7 +126,7 @@ type
     property BricsZ: Integer read GetBricsZ write SetBricsZ;
   end;
 
-implementation  //-------------------------------------------------------------
+implementation //=====================================================================
 
 // TArray3D
 

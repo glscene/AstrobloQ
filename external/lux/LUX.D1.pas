@@ -604,6 +604,8 @@ begin
   end;
 end;
 
+//--------------------------------------------------------------------------
+
 constructor TSingleArea.Create(const Min_, Max_: Single);
 begin
   Min := Min_;

@@ -18,14 +18,17 @@ uses
   LUX;
 
 type
-  HBitmapData = record helper for TBitmapData
-  private
-    function GetPixels(const X_, Y_: Integer): TAlphaColor;
-    procedure SetPixels(const X_, Y_: Integer; const Pixels_: TAlphaColor);
-  public
-    property Pixels[const X_, Y_: Integer]: TAlphaColor read GetPixels
-      write SetPixels;
-  end;
+   // HBitmapData
+
+     HBitmapData = record helper for TBitmapData
+     private
+       function GetPixels( const X_,Y_:Integer ) :TAlphaColor;
+       procedure SetPixels( const X_,Y_:Integer; const Pixels_:TAlphaColor );
+     public
+       property Pixels[ const X_,Y_:Integer ] :TAlphaColor read GetPixels write SetPixels;
+     end;
+
+     // HCanvas
 
   HCanvas = class helper for TCanvas
   private
@@ -43,39 +46,41 @@ type
       const Opacity_: Single = 1);
   end;
 
-  HMeshData = class helper for TMeshData
-  private
-  protected
-  public
-    procedure SaveToFileBinSTL(const FileName_: String;
-      const Text_: AnsiString = '');
-  end;
+     // HMeshData
 
-  HControl3D = class helper for TControl3D
-  private
-  protected
-    function GetAbsolMatrix: TMatrix3D;
-    procedure SetAbsoluteMatrix(const AbsoluteMatrix_: TMatrix3D); virtual;
-    function GetLocalMatrix: TMatrix3D; virtual;
-    procedure SetLocalMatrix(const LocalMatrix_: TMatrix3D); virtual;
-    procedure RecalcFamilyAbsolute;
-    procedure RecalcChildrenAbsolute;
-  public
-    property AbsoluteMatrix: TMatrix3D read GetAbsolMatrix
-      write SetAbsoluteMatrix;
-    property LocalMatrix: TMatrix3D read GetLocalMatrix write SetLocalMatrix;
-    procedure RenderInternalTo(const Context_: TContext3D);
-  end;
+     HMeshData = class helper for TMeshData
+     private
+     protected
+     public
+       procedure SaveToFileBinSTL( const FileName_:String; const Text_:AnsiString = '' );
+     end;
 
-  // HCustomMesh
+     // HControl3D
 
-  HCustomMesh = class helper for TCustomMesh
-  private
-  protected
-    function GetMeshData: TMeshData;
-  public
-    property MeshData: TMeshData read GetMeshData;
-  end;
+     HControl3D = class helper for TControl3D
+     private
+     protected
+       function GetAbsolMatrix :TMatrix3D;
+       procedure SetAbsoluteMatrix( const AbsoluteMatrix_:TMatrix3D ); virtual;
+       function GetLocalMatrix :TMatrix3D; virtual;
+       procedure SetLocalMatrix( const LocalMatrix_:TMatrix3D ); virtual;
+       procedure RecalcFamilyAbsolute;
+       procedure RecalcChildrenAbsolute;
+     public
+       property AbsoluteMatrix :TMatrix3D read GetAbsolMatrix write SetAbsoluteMatrix;
+       property LocalMatrix    :TMatrix3D read GetLocalMatrix write SetLocalMatrix;
+       procedure RenderInternalTo( const Context_:TContext3D );
+     end;
+
+     // HCustomMesh
+
+     HCustomMesh = class helper for TCustomMesh
+     private
+     protected
+       function GetMeshData :TMeshData;
+     public
+       property MeshData :TMeshData read GetMeshData;
+     end;
 
   // TTrueViewport3D
 
@@ -106,7 +111,6 @@ type
     _MaterialZ: TColorMaterialSource;
     _MeshData: TMeshData;
     _AxisLeng: Single;
-    /// // アクセス
     procedure SetMeshData(const MeshData_: TMeshData);
     procedure SetAxisLeng(const AxisLeng_: Single);
     function GetColorX: TAlphaColor;
@@ -129,24 +133,29 @@ type
 
 function GapFit(const P0_, P1_: TPoint3D): TMatrix3D;
 
-implementation //------------------------------------------------------------
+implementation //=============================================================
 
 uses
   System.SysUtils,
-  System.RTLConsts, System.AnsiStrings,
+  System.RTLConsts,
+  System.AnsiStrings,
   FMX.Controls,
   LUX.D3;
+
+// HBitmapData
 
 function HBitmapData.GetPixels(const X_, Y_: Integer): TAlphaColor;
 begin
   Result := GetPixel(X_, Y_);
 end;
 
-procedure HBitmapData.SetPixels(const X_, Y_: Integer;
-  const Pixels_: TAlphaColor);
+procedure HBitmapData.SetPixels(const X_, Y_: Integer; const Pixels_: TAlphaColor);
 begin
   SetPixel(X_, Y_, Pixels_);
 end;
+
+
+// HCanvas
 
 function HCanvas.GetMatrix: TMatrix;
 begin
@@ -239,7 +248,8 @@ procedure HMeshData.SaveToFileBinSTL(const FileName_: String;
 var
   Cs: array [0 .. 80 - 1] of AnsiChar;
   N, I: Cardinal;
-  Face: packed record Nor: TSingle3D;
+Face: packed record 
+  Nor: TSingle3D;
   Pos1: TSingle3D;
   Pos2: TSingle3D;
   Pos3: TSingle3D;
