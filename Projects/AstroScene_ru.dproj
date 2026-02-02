@@ -178,10 +178,6 @@
             <Form>FormCoords</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faHercRussel_ru.pas">
-            <Form>FormHercrussel</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\astro\faPointto_ru.pas">
             <Form>FormPointto</Form>
             <FormType>dfm</FormType>

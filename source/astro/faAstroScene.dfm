@@ -43,6 +43,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 622
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 597
     object tvMoons: TTreeView
       Left = 1
       Top = 107
@@ -159,7 +160,6 @@ object frmAstroScene: TfrmAstroScene
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'Sun'
-        ImageIndex = 0
         ImageName = 'Sun'
         ParentShowHint = False
         ShowHint = True
@@ -281,7 +281,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitWidth = 139
     end
     object StaticText1: TStaticText
       Left = 1
@@ -298,7 +297,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      ExplicitWidth = 62
     end
   end
   object StatusBar: TStatusBar
@@ -323,6 +321,8 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 654
+    ExplicitWidth = 1396
   end
   object ControlBarTop: TControlBar
     Left = 0
@@ -331,6 +331,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 57
     Align = alTop
     TabOrder = 3
+    ExplicitWidth = 1396
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -469,6 +470,8 @@ object frmAstroScene: TfrmAstroScene
     Height = 622
     Align = alRight
     TabOrder = 4
+    ExplicitLeft = 1141
+    ExplicitHeight = 597
     object Image1: TImage
       Left = 72
       Top = 560
@@ -529,7 +532,7 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
-      ExplicitHeight = 300
+      ExplicitHeight = 566
     end
     object StaticText2: TStaticText
       Left = 1
@@ -546,7 +549,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 82
     end
   end
   object GLScene: TGLScene
@@ -89172,15 +89174,9 @@ object frmAstroScene: TfrmAstroScene
       Caption = 'Model'
       object miHygStars: TMenuItem
         Caption = 'Hyg stars...'
-        OnClick = miHygStarsClick
       end
       object miHertsRussel: TMenuItem
         Caption = 'HertsRussel plot...'
-        OnClick = miHertsRusselClick
-      end
-      object miGenStarsys: TMenuItem
-        Caption = 'Starsys generator...'
-        OnClick = miGenStarsysClick
       end
     end
     object miTools: TMenuItem
@@ -89196,6 +89192,10 @@ object frmAstroScene: TfrmAstroScene
       end
       object N7: TMenuItem
         Caption = '-'
+      end
+      object miGenStarsys: TMenuItem
+        Caption = 'Starsys generator...'
+        OnClick = miGenStarsysClick
       end
     end
     object miHelp: TMenuItem

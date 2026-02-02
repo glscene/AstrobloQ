@@ -157,11 +157,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\astro\faHipparcos.pas">
-            <Form>FormHipparcos</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faHercRussel.pas">
+        <DCCReference Include="..\source\galaxy\fgDiagramHR_ru.pas">
             <Form>FormHercrussel</Form>
             <FormType>dfm</FormType>
         </DCCReference>

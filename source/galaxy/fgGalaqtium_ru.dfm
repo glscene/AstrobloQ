@@ -902,25 +902,27 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080'...'
         OnClick = miParadoxClick
       end
-      object miMonitor: TMenuItem
-        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
-        OnClick = miMonitorClick
+      object miDiagramHR: TMenuItem
+        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
+        OnClick = miDiagramHRClick
       end
       object N6: TMenuItem
         Caption = '-'
       end
-      object N7: TMenuItem
-        Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072'...'
-      end
       object miAnalyser: TMenuItem
-        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
+        Caption = #1040#1085#1072#1083#1080#1079#1072#1090#1086#1088'...'
         OnClick = miAnalyserClick
+      end
+      object miMonitor: TMenuItem
+        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
+        OnClick = miMonitorClick
       end
     end
     object miTools: TMenuItem
       Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+        OnClick = miSettingsClick
       end
       object N8: TMenuItem
         Caption = '-'

@@ -89218,23 +89218,6 @@ object frmAstroScene: TfrmAstroScene
         OnClick = miSkyAreasClick
       end
     end
-    object miMonitor: TMenuItem
-      Caption = '&'#1052#1086#1076#1077#1083#1100
-      object Hyg1: TMenuItem
-        Caption = #1047#1074#1105#1079#1076#1099' '#1082#1072#1090#1072#1083#1086#1075#1072' Hyg...'
-      end
-      object N1: TMenuItem
-        Caption = '-'
-      end
-      object miDiagramHR: TMenuItem
-        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
-        OnClick = miDiagramHRClick
-      end
-      object miGenExosys: TMenuItem
-        Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
-        OnClick = miGenExosysClick
-      end
-    end
     object miTools: TMenuItem
       Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
@@ -89247,6 +89230,10 @@ object frmAstroScene: TfrmAstroScene
       end
       object N7: TMenuItem
         Caption = '-'
+      end
+      object miGenExosys: TMenuItem
+        Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
+        OnClick = miGenExosysClick
       end
     end
     object miHelp: TMenuItem

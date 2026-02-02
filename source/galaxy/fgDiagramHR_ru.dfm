@@ -1,7 +1,7 @@
 object FormHercrussel: TFormHercrussel
   Left = 0
   Top = 0
-  Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1077#1088#1094#1096#1087#1088#1091#1085#1075#1072'-'#1056#1072#1089#1089#1077#1083#1072
+  Caption = 'Hercshprung-Russel Diagram'
   ClientHeight = 433
   ClientWidth = 630
   Color = clBtnFace
@@ -21,7 +21,6 @@ object FormHercrussel: TFormHercrussel
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 504
   end
   object PanelRight: TPanel
     Left = 496
@@ -38,5 +37,13 @@ object FormHercrussel: TFormHercrussel
   object GLMaterialLibrary1: TGLMaterialLibrary
     Left = 50
     Top = 134
+  end
+  object GLCadencer1: TGLCadencer
+    Left = 168
+    Top = 32
+  end
+  object Timer1: TTimer
+    Left = 168
+    Top = 128
   end
 end

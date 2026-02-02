@@ -2080,6 +2080,7 @@ procedure TfrmTexoneta.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.CReate(Self) do
     try
+      PageControl.ActivePageIndex := 3;
       ShowModal;
     finally
       Free;

@@ -101,6 +101,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
+        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\galaxy\fgMonitor_ru.pas">
             <Form>FormMonitor</Form>
         </DCCReference>
@@ -119,7 +123,6 @@
         <DCCReference Include="..\source\galaxy\fgGalaqtium_ru.pas">
             <Form>frmGalaqtium</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <DesignClass>TDataModule</DesignClass>
@@ -135,17 +138,22 @@
         <DCCReference Include="..\source\fmAbout_ru.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>frmFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgAnalyser_ru.pas">
             <Form>FormAnalyser</Form>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\galaxy\fgStarProj.pas">
             <Form>FormProjection</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgDiagramHR_ru.pas">
+            <Form>FormHercrussel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\fmSettings_ru.pas">
+            <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

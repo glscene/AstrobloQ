@@ -1,4 +1,4 @@
-unit faHercRussel;
+unit fgDiagramHR;
 
 interface
 

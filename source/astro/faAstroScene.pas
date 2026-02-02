@@ -71,9 +71,7 @@ uses
   faSkyAreas,
   faStarSys,
   faCoordinates,
-  faPointto,
-  faHipparcos,
-  faHercRussel
+  faPointto
   ;
 
 
@@ -201,8 +199,6 @@ type
     procedure miGenStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure miHygStarsClick(Sender: TObject);
-    procedure miHertsRusselClick(Sender: TObject);
     procedure miPointToClick(Sender: TObject);
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miCoordinatesClick(Sender: TObject);
@@ -783,27 +779,6 @@ begin
   Handled := True;
 end;
 
-//--------------------  Herts Russel diagram  --------------------------------
-procedure TfrmAstroScene.miHertsRusselClick(Sender: TObject);
-begin
-  with TFormHercRussel.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
-//---------------------  Hipparcos viewer -----------------------------------
-procedure TfrmAstroScene.miHygStarsClick(Sender: TObject);
-begin
-  with TFormHipparcos.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
 
 //--------------------- SceneViewer DblClick ----------------------------------
 procedure TfrmAstroScene.SceneViewerDblClick(Sender: TObject);
@@ -1023,6 +998,7 @@ begin
   inherited;
   with TFormAbout.Create(Self) do
   try
+    PageControl.ActivePageIndex := 0;
     ShowModal;
   finally
     Free;

@@ -61,7 +61,8 @@ uses
   fgMonitor_ru,
   fgParadox_ru,
   fgAstrocube_ru,
-  fgOptions_ru
+  fgOptions_ru,
+  fgDiagramHR_ru
   ;
 
 type
@@ -158,7 +159,7 @@ type
     DBGrid: TDBGrid;
     MemoTable: TMemo;
     ToolButton4: TToolButton;
-    miAnalyser: TMenuItem;
+    miDiagramHR: TMenuItem;
     miMonitor: TMenuItem;
     ToolBarView: TToolBar;
     tbSolarcube: TToolButton;
@@ -190,7 +191,7 @@ type
     ansGHZ: TGLAnnulus;
     N5: TMenuItem;
     N6: TMenuItem;
-    N7: TMenuItem;
+    miAnalyser: TMenuItem;
     N8: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
@@ -211,7 +212,7 @@ type
     procedure seNStarsChange(Sender: TObject);
     procedure miSaveAsClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
-    procedure miAnalyserClick(Sender: TObject);
+    procedure miDiagramHRClick(Sender: TObject);
     procedure miMonitorClick(Sender: TObject);
     procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
@@ -221,6 +222,8 @@ type
     procedure GLSimpleNavigationMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
     procedure miBiosphereClick(Sender: TObject);
+    procedure miSettingsClick(Sender: TObject);
+    procedure miAnalyserClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -480,6 +483,121 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
+//                         Меню Файл
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miOpenClick(Sender: TObject);
+begin
+//  dcSolcube.DeleteChildren();
+  Stars.Free();
+  Stars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
+
+  sl := TStringList.Create;
+  tl := TStringList.Create;
+  DataDir := ExtractFilePath(ParamStr(0));
+  DataDir := DataDir + 'data\catalog';
+  // SetCurrentDir(DataDir);
+  DataModuleDialogs.OpenTextFileDialog.InitialDir := DataDir;
+  DataModuleDialogs.OpenTextFileDialog.FilterIndex := 1;
+  if DataModuleDialogs.OpenTextFileDialog.Execute then
+  try
+    sl.LoadFromFile(DataModuleDialogs.OpenTextFileDialog.FileName);
+    ReadHygStars;
+  finally
+    sl.Free;
+    tl.Free;
+  end;
+  svGalacube.Invalidate();
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miSaveAsClick(Sender: TObject);
+begin
+  if DataModuleDialogs.SaveTextFileDialog.Execute then
+    if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
+      raise Exception.Create('Файл существует. Нельзя переписывать')
+    else
+      MemoTable.Lines.SaveToFile(DataModuleDialogs.SaveTextFileDialog.FileName);
+  // Edit1.Text := SaveTextFileDialog.Encodings[SaveTextFileDialog.EncodingIndex];
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.seNStarsChange(Sender: TObject);
+begin
+  nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
+  nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
+  nbAn.Value := Round(nbA.Value * seNStars.Value / 100);
+  nbFn.Value := Round(nbF.Value * seNStars.Value / 100);
+  nbGn.Value := Round(nbG.Value * seNStars.Value / 100);
+  nbKn.Value := Round(nbK.Value * seNStars.Value / 100);
+  nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
+end;
+
+
+//----------------------------------------------------------------------------
+//                              Меню вид
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miExoplanetsClick(Sender: TObject);
+begin
+  with TFormExoplanets.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
+begin
+  with TFormProjection.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miPanelShowClick(Sender: TObject);
+begin
+  miPanelShow.Checked := not miPanelShow.Checked;
+  PanelRight.Visible := not PanelRight.Visible;
+  dcAxes.Visible := not dcAxes.Visible;
+end;
+
+procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
+begin
+  with TFormMonitor.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+(*
+  with TFormAnalyser.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+*)
+
+end;
+
+//----------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miNewStarcubeClick(Sender: TObject);
+begin
+  with TFormNewStarcube.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
 //---------------------------------------------------------------------------
 function TfrmGalaqtium.ReadHygStars: Boolean;
 var
@@ -531,8 +649,7 @@ begin
       dotStars.Size := 7.0;
     else
 *)
-      Stars.Size := 5.0;
-
+    Stars.Size := 5.0;
     Stars.Style := psSmooth;    // size of dots
 
     // Stars with real spectral class colors
@@ -549,142 +666,22 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//                         File menu
+//                             Меню Анализ
 //----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miOpenClick(Sender: TObject);
+// Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg
+procedure TfrmGalaqtium.miDiagramHRClick(Sender: TObject);
 begin
-//  dcSolcube.DeleteChildren();
-  Stars.Free();
-  Stars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
-
-  sl := TStringList.Create;
-  tl := TStringList.Create;
-  DataDir := ExtractFilePath(ParamStr(0));
-  DataDir := DataDir + 'data\catalog';
-  // SetCurrentDir(DataDir);
-  DataModuleDialogs.OpenTextFileDialog.InitialDir := DataDir;
-  DataModuleDialogs.OpenTextFileDialog.FilterIndex := 1;
-  if DataModuleDialogs.OpenTextFileDialog.Execute then
+  with TFormHercRussel.Create(Self) do
   try
-    sl.LoadFromFile(DataModuleDialogs.OpenTextFileDialog.FileName);
-    ReadHygStars;
+    Timer1.Enabled := False;
+    GLCadencer1.Enabled := False;
+
+    ShowModal;
   finally
-    sl.Free;
-    tl.Free;
+    Timer1.Enabled := True;
+    GLCadencer1.Enabled := True;
+    Free;
   end;
-  svGalacube.Invalidate();
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miSaveAsClick(Sender: TObject);
-begin
-  if DataModuleDialogs.SaveTextFileDialog.Execute then
-    if FileExists(DataModuleDialogs.SaveTextFileDialog.FileName) then
-      raise Exception.Create('File exists. Can not overwrite')
-    else
-      MemoTable.Lines.SaveToFile(DataModuleDialogs.SaveTextFileDialog.FileName);
-  // Edit1.Text := SaveTextFileDialog.Encodings[SaveTextFileDialog.EncodingIndex];
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.seNStarsChange(Sender: TObject);
-begin
-  nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
-  nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
-  nbAn.Value := Round(nbA.Value * seNStars.Value / 100);
-  nbFn.Value := Round(nbF.Value * seNStars.Value / 100);
-  nbGn.Value := Round(nbG.Value * seNStars.Value / 100);
-  nbKn.Value := Round(nbK.Value * seNStars.Value / 100);
-  nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
-end;
-
-//----------------------------------------------------------------------------
-// Опции и настройки
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
-begin
-  frmOptions.Show;
-end;
-
-//----------------------------------------------------------------------------
-//
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miNewStarcubeClick(Sender: TObject);
-begin
-  with TFormNewStarcube.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-//                           View menu
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miExoplanetsClick(Sender: TObject);
-begin
-  with TFormExoplanets.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miPanelShowClick(Sender: TObject);
-begin
-  miPanelShow.Checked := not miPanelShow.Checked;
-  PanelRight.Visible := not PanelRight.Visible;
-  dcAxes.Visible := not dcAxes.Visible;
-end;
-
-//----------------------------------------------------------------------------
-//                         Tools menu
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
-begin
-  with TFormMonitor.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miAnalyserClick(Sender: TObject);
-begin
-  with TFormAnalyser.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
-begin
-  inherited;
-  with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 //----------------------------------------------------------------------------
@@ -698,6 +695,49 @@ begin
     end;
 end;
 
+//-------------------------- Проекции звёзд -----------------------------------
+procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
+begin
+  inherited;
+  with TFormProjection.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TfrmGalaqtium.miAnalyserClick(Sender: TObject);
+begin
+  inherited;
+  with TFormAnalyser.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+
+end;
+
+
+//----------------------------------------------------------------------------
+//                            Меню инструменты
+//----------------------------------------------------------------------------
+
+//----------------------------- Настройки ------------------------------------
+procedure TfrmGalaqtium.miSettingsClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+
+//----------------------- Опции ----------------------------------------------
+procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
+begin
+  frmOptions.Show;
+end;
+
 //----------------------------------------------------------------------------
 //                                Help menu
 //----------------------------------------------------------------------------
@@ -705,6 +745,7 @@ procedure TfrmGalaqtium.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
     try
+      PageControl.ActivePageIndex := 5;
       ShowModal;
     finally
       Free;

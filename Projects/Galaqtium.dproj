@@ -191,6 +191,10 @@
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgDiagramHR.pas">
+            <Form>FormHercrussel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

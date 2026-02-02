@@ -70,7 +70,6 @@ uses
   faOptions_ru,
   faStarSys_ru,
   faConstells_ru,
-  faHercRussel_ru,
   faSkyAreas_ru,
 
   Astro.ReadCSV
@@ -124,8 +123,6 @@ type
     miOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
-    N1: TMenuItem;
-    miMonitor: TMenuItem;
     miGenExosys: TMenuItem;
     miTools: TMenuItem;
     N7: TMenuItem;
@@ -166,8 +163,6 @@ type
     miConstAtlas: TMenuItem;
     miSkyAreas: TMenuItem;
     dcPlanet: TGLDummyCube;
-    Hyg1: TMenuItem;
-    miDiagramHR: TMenuItem;
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;
     ffMoon: TGLFreeForm;
@@ -204,7 +199,6 @@ type
     procedure miConstAtlasClick(Sender: TObject);
     procedure miSkyAreasClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure miDiagramHRClick(Sender: TObject);
     procedure tvAsteroidsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   public
@@ -254,7 +248,7 @@ implementation // =============================================================
 
 {$R *.dfm}
 
-// -------------------- Создание главной формы --------------------------------
+// --------------------------- Главная форма ----------------------------------
 procedure TfrmAstroScene.FormCreate(Sender: TObject);
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
@@ -523,24 +517,6 @@ begin
     finally
       Free;
     end;
-  Timer.Enabled := True;
-  GLCadencer.Enabled := True;
-end;
-
-//----------------------------------------------------------------------------
-// Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg
-//----------------------------------------------------------------------------
-procedure TfrmAstroScene.miDiagramHRClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  GLCadencer.Enabled := False;
-
-  with TFormHercRussel.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
   Timer.Enabled := True;
   GLCadencer.Enabled := True;
 end;
@@ -1106,6 +1082,7 @@ procedure TfrmAstroScene.About1Click(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
   try
+    PageControl.ActivePageIndex := 0;
     ShowModal;
   finally
     Free;

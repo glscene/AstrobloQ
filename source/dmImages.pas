@@ -25,11 +25,11 @@ type
     ImageListInterface: TImageList;
     PlanetMaps: TImageCollection;
     VirtPlanetMaps: TVirtualImageList;
-    MatLibStars: TGLMaterialLibrary;
+    MLStarTypes: TGLMaterialLibrary;
     MoonMaps: TImageCollection;
     VirtMoonMaps: TVirtualImageList;
     StarSymbols: TImageCollection;
-    MatLibPlanets: TGLMaterialLibrary;
+    MLExoPlanets: TGLMaterialLibrary;
     MatLibAsteroids: TGLMaterialLibrary;
     MatLibComets: TGLMaterialLibrary;
     MatLibMoons: TGLMaterialLibrary;

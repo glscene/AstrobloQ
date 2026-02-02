@@ -18,15 +18,15 @@ type
   TFormNewStarcube = class(TForm)
     ButtonOk: TButton;
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
   FormNewStarcube: TFormNewStarcube;
 
-implementation
+implementation //=============================================================
 
 {$R *.dfm}
 

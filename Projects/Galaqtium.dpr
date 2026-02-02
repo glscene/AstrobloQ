@@ -22,7 +22,8 @@ uses
   fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
-  fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection};
+  fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
+  fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {FormHercrussel};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -37,7 +38,6 @@ begin
   Application.CreateForm(TfrmOption, frmOption);
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormProjection, FormProjection);
   Application.Run;
 end.
 

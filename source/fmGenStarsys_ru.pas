@@ -18,9 +18,9 @@ unit fmGenStarsys_ru;
   Линии и границы созвездий отображаются с помощью TGLLines.
 
   Дополнительно:
-  - Создать генерацию и рендеринг полнофуцнкциональной атмосферы по планетным данным
+  - Создать генерацию и рендеринг полнофункциональной атмосферы по планетным данным
   --Bump Mapping для улучшения текстурной 'глубины'
-  ..Плывущие и меняющиеся облака "Clouds" при изменении скорости транспорта
+  ..Плывущие и изменяющиеся облака "Clouds" при изменении положения наблюдателя
   ..Layers of Clouds rotate counter each other..or faster..or Turbulent 'spots'
   - Add Legend for space entities and constellations (THudText)
     Элементы орбит:
@@ -403,6 +403,7 @@ type
 
     procedure SunShineCBClick(Sender: TObject);
     procedure SunShineTBChange(Sender: TObject);
+
     procedure RunBtnClick(Sender: TObject);
     procedure StopBtnClick(Sender: TObject);
     procedure GLSceneViewerAMouseDown(Sender: TObject; Button: TMouseButton;
@@ -484,11 +485,10 @@ type
     // Read from Data as Sun ScaleObjectEdit: Earth Diameter
     // Change Scale to change Object when running
     SolarScaleDivisor,
-    // Read from Data as Sun ScaleDistanceEdit: a kludged divisor
-    // change x,y,z when running
+    // Читает Data as Sun ScaleDistanceEdit:a kludged divisor change x,y,z when running
     SolarDistance, { Default 10000 ? Range: 100 .. 100000 }
-    // Sun  Radius:=((SunDataTmp.Radius)/(SolarScaleDivisor))/200;
-    // All others Radius:=(PlanetDataTmpArray[i].Radius)/(SolarScaleDivisor);
+    // Радиус светила:=((SunDataTmp.Radius)/(SolarScaleDivisor))/200;
+    // Другие радиусы:=(PlanetDataTmpArray[i].Radius)/(SolarScaleDivisor);
     // x:={((SundataTmp.Radius)/(SolarScaleDivisor))+}
     // ((PlanetDataTmpArray[i].Radius)/(SolarScaleDivisor/2))
     // +((PlanetDataTmpArray[i].distance/SolarDistance)) ;
@@ -513,6 +513,7 @@ var
 
 {$R *.DFM}
 
+//----------------------------------------------------------------------------
 procedure TFormGenStarsys.FormCreate(Sender: TObject);
 begin
  // top := ABCreatorFormY; left := ABCreatorFormX;
@@ -559,6 +560,7 @@ begin
   ClearBtnClick(Sender);
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormGenStarsys.FormShow(Sender: TObject);
 begin
   dmx := 1;
@@ -566,6 +568,7 @@ begin
   GLSceneViewerA.SetFocus;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormGenStarsys.FormClose(Sender: TObject; var Action: TCloseAction);
 var
   j: Integer;
@@ -791,7 +794,7 @@ begin
   MVarEdit.Text := '0';
 end;
 
-//----------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TFormGenStarsys.LoadBtnClick(Sender: TObject);
 begin
 //  SetCurrentDir(Application.ExeName);
@@ -819,6 +822,7 @@ end;
   GetTurnAngle   FRotation.Y;
   GetRollAngle    FRotation.Z; }
 
+  //----------------------------------------------------------------------------
 procedure TFormGenStarsys.CreateGLSolarSystem(filename: string);
 var
   RingType, LevelCount, Level2Count, i, j, k: Integer;
@@ -960,13 +964,13 @@ begin
       GLSceneA.EndUpdate;
       exit;
     end;
-    {
+(*
      But it Would crash later when Rotating.. DO NOT ADD if NOT THERE!
      Maybe create an "asteroid" freeform
-    }
+*)
     FFS3ds := TGLS3ds.Create(self);
     with (FFS3ds As TGLS3ds) do
-    begin { SunDataTmp }
+    begin // SunDataTmp
       ExtraData := S3dsDataTmpArray[0, 0, j];
       Name := 'FF' + S3dsDataTmpArray[0, 0, j].Name;
       Tag := 8;
@@ -994,19 +998,24 @@ begin
           libMat := Materials.Add;
           FFS3ds.Material.LibMaterialName := libMat.Name;
           libMat.Material.FrontProperties.Diffuse.Red := 0;
-          { for i:=0 to Materials.Count-1 do
-            with Materials[i].Material do BackProperties.Assign(FrontProperties); }
+          (*
+          for i:=0 to Materials.Count-1 do
+          with Materials[i].Material do
+            BackProperties.Assign(FrontProperties);
+          *)
         end;
-        { Material.MaterialLibrary:=GLMaterialLibrary;
-          Material.LibMaterialName:=S3dsDataTmpArray[1,i,j].Name;
-          Material.Texture.TextureMode:=tmDecal;
-          Material.Texture.Disabled:=False; }
+        (*
+        Material.MaterialLibrary:=GLMaterialLibrary;
+        Material.LibMaterialName:=S3dsDataTmpArray[1,i,j].Name;
+        Material.Texture.TextureMode:=tmDecal;
+        Material.Texture.Disabled:=False;
+        *)
       end
       else
       begin
         If FileExists(EarthModelPath + S3dsDataTmpArray[0, 0, j].Name + '.jpg')
         then
-        begin { Create the matlib }
+        begin // Create the matlib
           GLMaterialLibraryA.AddTextureMaterial(S3dsDataTmpArray[0, 0, j].Name,
             EarthModelPath + S3dsDataTmpArray[0, 0, j].Name + '.jpg');
           Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1015,10 +1024,10 @@ begin
           Material.Texture.Disabled := False;
         end
         else
-        begin { Set some  kinda Color to the FFS3ds }
+        begin // Set some  kinda Color to the FFS3ds
           If ((S3dsLoadFakeTexture.Checked) and
             (FileExists(EarthModelPath + 'allfake.jpg'))) then  // ?
-          begin { Create the matlib }
+          begin // Create the matlib
             GLMaterialLibraryA.AddTextureMaterial
               (S3dsDataTmpArray[0, 0, j].Name, EarthModelPath + 'allfake.jpg');
             Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1031,7 +1040,7 @@ begin
               ]; { 0..10 }
         end;
       end;
-    end; { FFS3ds }
+    end; // FFS3ds
 
     DCSolarSystem.Children[0].Children[0].Children[Level2Count]
       .AddChild(FFS3ds);
@@ -1040,7 +1049,7 @@ begin
     z := 0;
     DCSolarSystem.Children[0].Children[0].Children[Level2Count].Children[0]
       .Translate(X, Y, z);
-  end; { for j:=0   FFS3ds }
+  end; // for j:=0   FFS3ds
 
   // ------- Load & Create planets ---------------------------------
   for i := 0 to SystemDataTmp.NbPlanet - 1 do
@@ -1054,7 +1063,7 @@ begin
     PlanetPickerCB.Items.Add(PlanetDataTmpArray[i].Name);
     DCSolarSystem.AddChild(DCCenter);
     inc(LevelCount);
-    Level2Count := -1; { Reset each Loop to place the Rings and Moons }
+    Level2Count := -1;// Сброс на какждом цикле для отображения колец и спутников
     SPPlanet := TGLPlanet.Create(self);
     with (SPPlanet as TGLPlanet) do
     begin
@@ -1075,7 +1084,7 @@ begin
       TurnAngle := 24 / PlanetDataTmpArray[i].ObjectRotation;
       // RollAngle:=0;
       If FileExists(EarthModelPath + PlanetDataTmpArray[i].Name + '.jpg') then
-      begin { Create the matlib }
+      begin // Добавление в коллекцию материалов
         GLMaterialLibraryA.AddTextureMaterial(PlanetDataTmpArray[i].Name,
           EarthModelPath + PlanetDataTmpArray[i].Name + '.jpg');
 
@@ -1085,10 +1094,10 @@ begin
         Material.Texture.Disabled := False;
       end
       else
-      begin { Set some  kinda Color to the Sphere }
+      begin // Set some  kinda Color to the Sphere
         If ((PlanetsLoadFakeTexture.Checked) and
           (FileExists(EarthModelPath + 'allfake.jpg'))) then
-        begin { Create the matlib }
+        begin // Create the matlib
           GLMaterialLibraryA.AddTextureMaterial(PlanetDataTmpArray[i].Name,
             EarthModelPath + 'allfake.jpg');
           Material.MaterialLibrary := GLMaterialLibraryA;
@@ -1098,7 +1107,7 @@ begin
         end
         else
           Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
-            ]; { 0..10 }
+            ]; // 0..10
       end;
     end;
 
@@ -1215,14 +1224,14 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the Ring }
+          begin // Set some  kinda Color to the Ring
             Material.FrontProperties.Diffuse.Color := ColorArray[Random(11)
               ]; { 0..10 }
             Material.BackProperties.Diffuse.Color :=
               Material.FrontProperties.Diffuse.Color;
           end;
           Material.FaceCulling := fcNoCull;
-          { Material.BackProperties:=Material.FrontProperties; }
+          /// Material.BackProperties:=Material.FrontProperties;
         end;
         DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
           .AddChild(SPRing);
@@ -1358,7 +1367,6 @@ begin
 
       end
       else
-
       // Must have a 'catch-all' for anything else
       // If Trunc(RingDataTmpArray[i,j].Eccentricity)=3 then
       { FFRing TGLRingFreeForm=Class(TGLFreeForm) }
@@ -1441,8 +1449,7 @@ begin
             AddNewChild(TGLFreeForm);
           end;
       end; { FFRing Eccentricty }
-
-    end; { TGLRing }
+    end; // TGLRing
     // ----------- Load & Create Moon ------------------------------------------
     SetLength(MoonDataTmpArray[i], PlanetDataTmpArray[i].nbMoons);
     for j := 0 to PlanetDataTmpArray[i].nbMoons - 1 do
@@ -1503,7 +1510,6 @@ begin
               ]; { 0..10 }
         end;
       end;
-
       DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
         .AddChild(SPMoon);
       X := ((PlanetDataTmpArray[i].Radius) / (SolarScaleDivisor)) +
@@ -1514,12 +1520,12 @@ begin
       z := 0;
       DCSolarSystem.Children[LevelCount].Children[0].Children[Level2Count]
         .Children[0].Translate(X, Y, z);
-    end; { Moon }
+    end; // Moon
 
     // ----------- Load & Create FFS3ds ------------------------------------------
     SetLength(S3dsDataTmpArray[1, i], PlanetDataTmpArray[i].nbS3ds);
     for j := 0 to PlanetDataTmpArray[i].nbS3ds - 1 do
-    begin { FFS3ds          : TGLFreeForm; }
+    begin // FFS3ds          : TGLFreeForm;
       BlockRead(F, S3dsDataTmpArray[1, i, j], sizeof(TGLMoonRingData));
       DCCenter := TGLDummyCube.Create(self);
       DCCenter.Name := 'DC' + S3dsDataTmpArray[1, i, j].Name;
@@ -1527,6 +1533,7 @@ begin
       DCCenter.PitchAngle := S3dsDataTmpArray[1, i, j].Inclination;
       DCSolarSystem.Children[LevelCount].Children[0].AddChild(DCCenter);
       inc(Level2Count);
+
       If (not(FileExists(S3dsDataTmpArray[1, i, j].Name + '.3ds'))) then
       begin
         ShowMessage(S3dsDataTmpArray[1, i, j].Name + '.3ds' +
@@ -1534,7 +1541,8 @@ begin
         Closefile(F);
         GLSceneA.EndUpdate;
         exit;
-      End;
+      end;
+
       FFS3ds := TGLS3ds.Create(self);
       with (FFS3ds As TGLS3ds) do
       begin
@@ -1745,10 +1753,10 @@ begin
             Material.Texture.Disabled := False;
           end
           else
-          begin { Set some  kinda Color to the FFS3ds }
+          begin // Set some  kinda Color to the FFS3ds
             If ((S3dsLoadFakeTexture.Checked) and
               (FileExists(EarthModelPath + 'allfake.jpg'))) then
-            begin { Create the matlib }
+            begin // Create the matlib
               GLMaterialLibraryA.AddTextureMaterial
                 (S3dsDataTmpArray[2, i, j].Name,
                 EarthModelPath + 'allfake.jpg');
@@ -1774,7 +1782,7 @@ begin
   end; // Asteroid
 
 
-    // ------- Load & Create NbComet ---------------------------------
+  // ------- Load & Create NbComet ---------------------------------
   for i := 0 to SystemDataTmp.NbComet - 1 do
   begin
     // ------- NbComet ----------------
@@ -5276,7 +5284,7 @@ begin
   S3dsScalerScaleLabel.Caption := Inttostr(Scale);
 
   Case SSORG.ItemIndex of // to control which 3ds objects get scaled
-    // Sun
+    // Светило
     0:
       begin
         for j := 0 to SunDataTmp.nbS3ds - 1 do
@@ -5296,7 +5304,7 @@ begin
           DCSolarSystem.StructureChanged;
         end;
       end;
-    // Planets
+    // Планеты
     1:
       begin
         i := PlanetUpDown.Position - 1;
@@ -5311,7 +5319,7 @@ begin
           DCSolarSystem.StructureChanged;
         end;
       end;
-    // Asteroids
+    // Астероиды
     2:
       begin
         // AsteroidDataTmpArray CometDataTmpArray  DebrisDataTmpArray
@@ -5327,7 +5335,7 @@ begin
           DCSolarSystem.StructureChanged;
         end;
       end;
-    // Comets  CometDataTmpArray
+    // Кометы  CometDataTmpArray
     3:
       begin
         // AsteroidDataTmpArray CometDataTmpArray  DebrisDataTmpArray
@@ -5346,7 +5354,7 @@ begin
           DCSolarSystem.StructureChanged;
         end;
       end;
-    // Debris  DebrisDataTmpArray
+    // Обломки  DebrisDataTmpArray
     4:
       begin
         // AsteroidDataTmpArray CometDataTmpArray  DebrisDataTmpArray
@@ -5365,7 +5373,7 @@ begin
           DCSolarSystem.StructureChanged;
         end;
       end;
-  end; { case }
+  end; // case
 end;
 
 //----------------------------------------------------------------------------
@@ -5562,8 +5570,7 @@ begin
               [PlanetDataTmpArray[i - 1].nbRings + j].TurnAngle +
               (365 / MoonDataTmpArray[i - 1, j].OrbitRotation) * deltaTime *
               SolarTimeMultiplier;
-            // Rotate Sphere
-            // ObjectRotation   OrbitRotation
+            // Вращение сферы
             DCSolarSystem.Children[i].Children[0].Children
               [PlanetDataTmpArray[i - 1].nbRings + j].Children[0].TurnAngle :=
               DCSolarSystem.Children[i].Children[0].Children

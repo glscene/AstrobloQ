@@ -39,7 +39,6 @@ uses
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
   faSkyAreas_ru in '..\source\astro\faSkyAreas_ru.pas' {FormSkyAreas},
   faCoordinates_ru in '..\source\astro\faCoordinates_ru.pas' {FormCoords},
-  faHercRussel_ru in '..\source\astro\faHercRussel_ru.pas' {FormHercrussel},
   faPointto_ru in '..\source\astro\faPointto_ru.pas' {FormPointto};
 
 {$R *.res}
