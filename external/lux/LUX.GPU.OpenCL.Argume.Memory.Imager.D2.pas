@@ -1,6 +1,6 @@
 ﻿unit LUX.GPU.OpenCL.Argume.Memory.Imager.D2;
 
-interface //#################################################################### ■
+interface  
 
 uses cl_version, cl_platform, cl,
      LUX,
@@ -10,7 +10,7 @@ uses cl_version, cl_platform, cl,
      LUX.GPU.OpenCL.Argume.Memory,
      LUX.GPU.OpenCL.Argume.Memory.Imager.D1;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+type  
 
      TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_:class;TValue_:record> = class;
 
@@ -21,11 +21,11 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      TCLImager2DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
      TCLImager2DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+      
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+     
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+     //  TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
      TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_:class;TValue_:record> = class( TCLImager1D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_> )
      private
@@ -47,7 +47,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property CountY :Integer    read GetCountY write SetCountY;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImaDat2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+     //  TCLImaDat2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
      TCLImaDat2D<TCLSystem_,TCLPlatfo_,TCLContex_:class;TValue_:record> = class( TCLImaDat1D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_> )
      private
@@ -66,7 +66,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Values[ const X_,Y_:Integer ] :TValue_    read GetValues write SetValues; default;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLImager2DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLImager2DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TByteRGBA> )
      private
@@ -77,7 +77,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLImager2DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLImager2DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TByteRGBA> )
      private
@@ -88,7 +88,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLImager2DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLImager2DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TUInt32xRGBA> )
      private
@@ -99,7 +99,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLImager2DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLImager2DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TSingleRGBA> )
      private
@@ -110,23 +110,23 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      public
      end;
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
+//const // 
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【変数】
+//var //$$ 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-implementation //############################################################### ■
+implementation // 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+//  
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+//  
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+// %%%%% TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -166,7 +166,7 @@ begin
      _CountY := CountY_;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLImager2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.Create;
 begin
@@ -175,11 +175,11 @@ begin
      _CountY := 1;
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImaDat2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+// %%%%% TCLImaDat2D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -207,13 +207,13 @@ begin
      PValue_( ValueP[ X_, Y_ ] )^ := Values_;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLImager2DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -227,13 +227,13 @@ begin
      Result := CL_UNSIGNED_INT8;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLImager2DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -247,13 +247,13 @@ begin
      Result := CL_UNORM_INT8;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLImager2DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -267,13 +267,13 @@ begin
      Result := CL_UNSIGNED_INT32;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLImager2DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLImager2DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -287,8 +287,8 @@ begin
      Result := CL_FLOAT;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-end. //######################################################################### ■
+end. // 

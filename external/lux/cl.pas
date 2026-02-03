@@ -16,7 +16,7 @@
  * limitations under the License.
  ******************************************************************************)
 
-interface //#################################################################### ■
+interface  
 
 uses LUX.Code.C,
      cl_version,
@@ -1957,6 +1957,6 @@ clEnqueueTask(       command_queue_           :T_cl_command_queue;
                const event_wait_list_         :P_cl_event;
                      event_                   :P_cl_event ) :T_cl_int; stdcall; external DLLNAME; {CL_API_SUFFIX__VERSION_1_2_DEPRECATED}
 
-implementation //############################################################### ■
+implementation // 
 
-end. //######################################################################### ■
+end. // 

@@ -1,6 +1,6 @@
 ﻿unit LUX.GPU.OpenCL.Queuer;
 
-interface //#################################################################### ■
+interface  
 
 uses System.Generics.Collections,
      cl_version, cl_platform, cl,
@@ -9,16 +9,16 @@ uses System.Generics.Collections,
      LUX.GPU.OpenCL.core,
      LUX.GPU.OpenCL.Device;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+type  
 
      TCLQueuers <TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
        TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+      
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+     
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TListChildr<TCLContex_,TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>> )
      private
@@ -46,7 +46,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Device  :TCLDevice_         read GetDevice write SetDevice;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TListParent<TCLContex_,TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>> )
      private
@@ -73,25 +73,25 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function GetDeviceIDs :TArray<T_cl_device_id>;
      end;
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
+//const // 
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【変数】
+//var //$$ 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-implementation //############################################################### ■
+implementation // 
 
 uses LUX.GPU.OpenCL.Contex;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+//  
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+//  
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -147,7 +147,7 @@ begin
      _Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -172,11 +172,11 @@ begin
      inherited;
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -210,7 +210,7 @@ begin
      _DevQues.Remove( Childr_.Device );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -253,6 +253,6 @@ begin
      for I := 0 to Count-1 do Result[ I ] := Items[ I ].Device.Handle;
 end;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-end. //######################################################################### ■
+end. // 

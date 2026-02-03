@@ -1,6 +1,6 @@
 ﻿unit LUX.GPU.OpenCL.Argume.Memory;
 
-interface //#################################################################### ■
+interface  
 
 uses cl_version, cl_platform, cl,
      LUX.Data.List,
@@ -9,17 +9,17 @@ uses cl_version, cl_platform, cl,
      LUX.GPU.OpenCL.Queuer,
      LUX.GPU.OpenCL.Argume;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+type  
 
      TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
 
      TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+      
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+     
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLArgume<TCLSystem_,TCLPlatfo_,TCLContex_> )
      private
@@ -57,7 +57,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Queuer :TCLQueuer_     read GetQueuer write SetQueuer;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class
      private
@@ -91,23 +91,23 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        procedure Unmap; virtual;
      end;
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
+//const // 
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【変数】
+//var //$$ 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-implementation //############################################################### ■
+implementation // 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+//  
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+//  
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -186,7 +186,7 @@ begin
      _Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -215,9 +215,9 @@ begin
      inherited;
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -272,7 +272,7 @@ begin
      _Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -310,6 +310,6 @@ begin
      Handle := nil;
 end;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-end. //######################################################################### ■
+end. // 

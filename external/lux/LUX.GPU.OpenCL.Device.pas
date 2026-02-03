@@ -1,22 +1,22 @@
 ﻿unit LUX.GPU.OpenCL.Device;
 
-interface //#################################################################### ■
+interface  
 
 uses cl_version, cl_platform, cl,
      LUX.Data.List,
      LUX.Code.C,
      LUX.GPU.OpenCL.core;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+type  
 
      TCLDevices <TCLSystem_,TCLPlatfo_:class> = class;
        TCLDevice<TCLSystem_,TCLPlatfo_:class> = class;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+      
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+     
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLDevice<TCLSystem_,TCLPlatfo_>
+     //  TCLDevice<TCLSystem_,TCLPlatfo_>
 
      TCLDevice<TCLSystem_,TCLPlatfo_:class> = class( TListChildr<TCLPlatfo_,TCLDevices<TCLSystem_,TCLPlatfo_>> )
      private
@@ -288,7 +288,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        {$ENDIF}
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLDevices<TCLSystem_,TCLPlatfo_>
+     //  TCLDevices<TCLSystem_,TCLPlatfo_>
 
      TCLDevices<TCLSystem_,TCLPlatfo_:class> = class( TListParent<TCLPlatfo_,TCLDevice<TCLSystem_,TCLPlatfo_>> )
      private
@@ -303,24 +303,24 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Platfo :TCLPlatfo_ read GetOwnere;
      end;
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
+//const // 
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【変数】
+//var //$$ 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-implementation //############################################################### ■
+implementation // 
 
 uses System.SysUtils, System.RegularExpressions,
      LUX.GPU.OpenCL.Platfo;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+//  
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+//  
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLDevice<TCLSystem_,TCLPlatfo_>
+// %%%%% TCLDevice<TCLSystem_,TCLPlatfo_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -350,7 +350,7 @@ begin
      Result := TrimRight( String( P_char( GetInfos<T_char>( Name_ ) ) ) );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -492,7 +492,7 @@ function TCLDevice<TCLSystem_,TCLPlatfo_>.GetDEVICE_PIPE_SUPPORT :T_cl_bool; beg
 function TCLDevice<TCLSystem_,TCLPlatfo_>.GetDEVICE_LATEST_CONFORMANCE_VERSION_PASSED :String; begin Result := GetInfoString( CL_DEVICE_LATEST_CONFORMANCE_VERSION_PASSED ); end;
 {$ENDIF}
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLDevice<TCLSystem_,TCLPlatfo_>.Create( const Devices_:TCLDevices_; const Handle_:T_cl_device_id );
 begin
@@ -507,11 +507,11 @@ begin
      inherited;
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLDevices<TCLSystem_,TCLPlatfo_>
+// %%%%% TCLDevices<TCLSystem_,TCLPlatfo_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -539,8 +539,8 @@ begin
      FindDevices;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-end. //######################################################################### ■
+end. // 

@@ -1,6 +1,6 @@
 ﻿unit LUX.GPU.OpenCL.Kernel;
 
-interface //#################################################################### ■
+interface  
 
 uses System.Generics.Collections,
      cl_version, cl_platform, cl,
@@ -11,24 +11,24 @@ uses System.Generics.Collections,
      LUX.GPU.OpenCL.Queuer,
      LUX.GPU.OpenCL.Argume;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+type  
 
      TCLKernels     <TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class;
        TCLKernel    <TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class;
          TCLParames <TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class;
            TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+      
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TLoop3D
+     //  TLoop3D
 
      TLoop3D = record
        X, Y, Z :T_size_t;
      end;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+     
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+     //  TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
      TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class( TListChildr<TCLKernel <TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>,
                                                                                        TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>> )
@@ -60,7 +60,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function Bind :T_cl_int;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+     //  TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
      TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class( TListParent<TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>,
                                                                                         TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>> )
@@ -101,7 +101,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function Add( const Name_:String; const Argume_:TCLArgume_ ) :TCLParame_; overload;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+     //  TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
      TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class( TListChildr<TCLExecut_,TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>> )
      private
@@ -209,7 +209,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        procedure Run;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+     //  TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
      TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_:class> = class( TListParent<TCLExecut_,TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>> )
      private
@@ -224,26 +224,26 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function Add( const Name_:String; const Queuer_:TCLQueuer_ ) :TCLKernel_; overload;
      end;
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
+//const // 
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【変数】
+//var //$$ 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-implementation //############################################################### ■
+implementation // 
 
 uses System.SysUtils,
      LUX.GPU.OpenCL.Progra;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+//  
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+//  
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+// %%%%% TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -282,7 +282,7 @@ begin
      if Assigned( Parames ) then Parames.BindsOK := False;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Create;
 begin
@@ -321,11 +321,11 @@ begin
                                @H );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+// %%%%% TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -430,7 +430,7 @@ begin
      _NamPars.Remove( Childr_.Name );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Create;
 begin
@@ -470,9 +470,9 @@ begin
      Result := TCLParame_.Create( Self, Name_, Argume_ );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+// %%%%% TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -530,7 +530,7 @@ begin
      Result := TrimRight( String( P_char( GetArgInfos<T_char>( I_, Name_ ) ) ) );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -747,7 +747,7 @@ begin
      _Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Create;
 begin
@@ -812,13 +812,13 @@ begin
      AssertCL( clFinish( Queuer.Handle ), 'TCLKernel.Run is Error!' );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+// %%%%% TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 function TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Add( const Name_:String ) :TCLKernel_;
 begin
@@ -830,6 +830,6 @@ begin
      Result := TCLKernel_.Create( Execut, Name_, Queuer_ );
 end;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-end. //######################################################################### ■
+end. // 

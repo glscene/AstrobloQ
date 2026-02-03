@@ -1,6 +1,6 @@
 ﻿unit LUX.GPU.OpenCL.Progra;
 
-interface //#################################################################### ■
+interface  
 
 uses System.SysUtils, System.Classes, System.Generics.Collections,
      cl_version, cl_platform, cl,
@@ -10,7 +10,7 @@ uses System.SysUtils, System.Classes, System.Generics.Collections,
      LUX.GPU.OpenCL.Device,
      LUX.GPU.OpenCL.Kernel;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+type  
 
      TCLProgras   <TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgra_ :class> = class;
        TCLProgra  <TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_:class> = class;
@@ -24,11 +24,11 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
          TCLBuildrs <TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
            TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+      
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+     
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TListChildr<TCLExecut <TCLSystem_,TCLPlatfo_,TCLContex_>,
                                                                             TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_>> )
@@ -80,7 +80,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property LinkLog       :String            read   _LinkLog                       ;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TListParent<TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>,
                                                                              TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_>> )
@@ -108,7 +108,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function Add( const Device_:TCLDevice_ ) :TCLBuildr_; overload;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLSource<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
+     //  TCLSource<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
 
      TCLSource<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_:class> = class( TStringList )
      private
@@ -127,7 +127,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        procedure LoadFromFile( const FileName_:String; Encoding_:TEncoding ); override;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
+     //  TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
 
      TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_:class> = class( TListChildr<TCLContex_,TCLProgras_> )
      private
@@ -196,7 +196,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        {$ENDIF}
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLLibrars<TCLSystem_,TCLPlatfo_,TCLContex_>> )
      private
@@ -208,7 +208,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Librars :TCLLibrars_ read GetParent;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecuts<TCLSystem_,TCLPlatfo_,TCLContex_>> )
      private
@@ -235,7 +235,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function BuildTo( const Device_:TCLDevice_ ) :TCLBuildr_;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgra_>
+     //  TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgra_>
 
      TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgra_:class> = class( TListParent<TCLContex_,TCLProgra_> )
      private
@@ -245,7 +245,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Contex :TCLContex_ read GetOwnere;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLLibrars<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLLibrars<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLLibrars<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_>> )
      private
@@ -256,7 +256,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function Add :TCLLibrar_; overload;
      end;
 
-     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLExecuts<TCLSystem_,TCLPlatfo_,TCLContex_>
+     //  TCLExecuts<TCLSystem_,TCLPlatfo_,TCLContex_>
 
      TCLExecuts<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>> )
      private
@@ -267,24 +267,24 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function Add :TCLExecut_; overload;
      end;
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
+//const // 
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【変数】
+//var //$$ 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-implementation //############################################################### ■
+implementation // 
 
 uses System.IOUtils, System.AnsiStrings,
      LUX.GPU.OpenCL.Contex;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
+//  
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
+//  
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -314,7 +314,7 @@ begin
      Result := TrimRight( String( P_char( GetInfos<T_char>( Handle_, Name_ ) ) ) );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -441,7 +441,7 @@ begin
      _Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLBuildr<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -475,11 +475,11 @@ begin
      inherited;
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -513,7 +513,7 @@ begin
      _DevBuis.Remove( Childr_.Device );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLBuildrs<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -545,11 +545,11 @@ begin
      Result := TCLBuildr_.Create( Self, Device_ );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLSource<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
+// %%%%% TCLSource<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -560,7 +560,7 @@ begin
      _Progra.Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLSource<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>.Create;
 begin
@@ -591,9 +591,9 @@ begin
      Progra.Name := TPath.GetFileName( FileName_ );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
+// %%%%% TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -623,7 +623,7 @@ begin
      Result := TrimRight( String( P_char( GetInfos<T_char>( Name_ ) ) ) );
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -680,7 +680,7 @@ begin
      _Handle := nil;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLProgra<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgras_>.Create;
 begin
@@ -700,24 +700,24 @@ begin
      inherited;
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLLibrar<TCLSystem_,TCLPlatfo_,TCLContex_>.Create( const Contex_:TCLContex_ );
 begin
      inherited Create( TCLContex<TCLSystem_,TCLPlatfo_>( Contex_ ).Librars );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -728,7 +728,7 @@ begin
      Result := inherited;
 end;
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 constructor TCLExecut<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -758,21 +758,21 @@ begin
      Result := Buildrs[ Device_ ];
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgra_>
+// %%%%% TCLProgras<TCLSystem_,TCLPlatfo_,TCLContex_,TCLProgra_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLLibrars<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLLibrars<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -781,13 +781,13 @@ begin
      Result := TCLLibrar_.Create( Contex );
 end;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TCLExecuts<TCLSystem_,TCLPlatfo_,TCLContex_>
+// %%%%% TCLExecuts<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& protected
+//  protected
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+// & public
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
@@ -796,6 +796,6 @@ begin
      Result := TCLExecut_.Create( Contex );
 end;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+//  
 
-end. //######################################################################### ■
+end. // 

@@ -649,7 +649,7 @@ begin
   end;
 end;
 
-// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+//  & public
 
 constructor TdSingleM2.Create(const _11_, _12_, _21_, _22_: TdSingle);
 begin

@@ -1,6 +1,6 @@
 ﻿unit LUX.FMX.TTrueViewport3D;
 
-interface //#################################################################### ■
+interface  
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
@@ -29,11 +29,11 @@ type
     procedure RebuildRenderingList;
   end;
 
-implementation //############################################################### ■
+implementation // 
 
 {$R *.fmx}
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
+//  private
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
@@ -88,4 +88,4 @@ begin
      _Viewport3D.RebuildRenderingList;
 end;
 
-end. //######################################################################### ■
+end. // 
