@@ -40,7 +40,7 @@ type
        _Name    :String;
        _ParameI :Integer;
        _Argume  :TCLArgume_;
-       ///// アクセス
+       
        function GetName :String; virtual;
        procedure SetName( const Name_:String ); virtual;
        function GetParameI :Integer; virtual;
@@ -50,13 +50,13 @@ type
        constructor Create; override;
        constructor Create( const Parames_:TCLParames_; const Name_:String ); overload; virtual;
        constructor Create( const Parames_:TCLParames_; const Name_:String; const Argume_:TCLArgume_ ); overload; virtual;
-       ///// プロパティ
+       
        property Kernel  :TCLKernel_  read GetOwnere                 ;
        property Parames :TCLParames_ read GetParent                 ;
        property Name    :String      read GetName    write SetName  ;
        property ParameI :Integer     read GetParameI                ;
        property Argume  :TCLArgume_  read GetArgume  write SetArgume;
-       ///// メソッド
+       
        function Bind :T_cl_int;
      end;
 
@@ -73,7 +73,7 @@ type
        _NamPars :TCLNamPars_;
        _FindsOK :Boolean;
        _BindsOK :Boolean;
-       ///// アクセス
+       
        function GetChildr( const Name_:String ) :TCLParame_; overload; virtual;
        procedure SetChildr( const Name_:String; const Childr_:TCLParame_ ); overload; virtual;
        function GetArgumes( const Name_:String ) :TCLArgume_; virtual;
@@ -82,20 +82,20 @@ type
        procedure SetFindsOK( const FindsOK_:Boolean ); virtual;
        function GetBindsOK :Boolean; virtual;
        procedure SetBindsOK( const BindsOK_:Boolean ); virtual;
-       ///// イベント
+       //-----------
        procedure OnInsertChild( const Childr_:TCLParame_ ); override;
        procedure OnRemoveChild( const Childr_:TCLParame_ ); override;
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Kernel                        :TCLKernel_ read GetOwnere                  ;
        property Childrs[ const Name_:String ] :TCLParame_ read GetChildr  write SetChildr ;
        property Items  [ const Name_:String ] :TCLParame_ read GetChildr  write SetChildr ;
        property Argumes[ const Name_:String ] :TCLArgume_ read GetArgumes write SetArgumes; default;
        property FindsOK                       :Boolean    read GetFindsOK write SetFindsOK;
        property BindsOK                       :Boolean    read GetBindsOK write SetBindsOK;
-       ///// メソッド
+       
        function Contains( const Name_:String ) :Boolean;
        function Add( const Name_:String ) :TCLParame_; overload;
        function Add( const Name_:String; const Argume_:TCLArgume_ ) :TCLParame_; overload;
@@ -108,7 +108,7 @@ type
        type TCLQueuer_  = TCLQueuer <TCLSystem_,TCLPlatfo_,TCLContex_>;
             TCLKernels_ = TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>;
             TCLParames_ = TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>;
-       ///// メソッド
+       
        function GetInfo<_TYPE_>( const Name_:T_cl_kernel_info ) :_TYPE_;
        function GetInfoSize( const Name_:T_cl_kernel_info ) :T_size_t;
        function GetInfos<_TYPE_>( const Name_:T_cl_kernel_info ) :TArray<_TYPE_>;
@@ -124,7 +124,7 @@ type
        _Parames :TCLParames_;
        _GloMin  :TLoop3D;
        _GloSiz  :TLoop3D;
-       ///// アクセス
+       
        function GetHandle :T_cl_kernel; virtual;
        procedure SetHandle( const Handle_:T_cl_kernel ); virtual;
        function GetName :String; virtual;
@@ -163,7 +163,7 @@ type
        function GetKERNEL_ARG_TYPE_NAME( const I_:T_cl_uint ) :String;
        function GetKERNEL_ARG_TYPE_QUALIFIER( const I_:T_cl_uint ) :T_cl_kernel_arg_type_qualifier;
        function GetKERNEL_ARG_NAME( const I_:T_cl_uint ) :String;
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; virtual;
        function DestroHandle :T_cl_int; virtual;
      public
@@ -173,7 +173,7 @@ type
        constructor Create( const Execut_:TCLExecut_; const Queuer_:TCLQueuer_ ); overload; virtual;
        constructor Create( const Execut_:TCLExecut_; const Name_:String; const Queuer_:TCLQueuer_ ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Execut  :TCLExecut_  read GetOwnere                  ;
        property Kernels :TCLKernels_ read GetParent                  ;
        property Handle  :T_cl_kernel read GetHandle  write SetHandle ;
@@ -205,7 +205,7 @@ type
        property KERNEL_ARG_TYPE_NAME[ const I_:T_cl_uint ]         :String                            read GetKERNEL_ARG_TYPE_NAME;
        property KERNEL_ARG_TYPE_QUALIFIER[ const I_:T_cl_uint ]    :T_cl_kernel_arg_type_qualifier    read GetKERNEL_ARG_TYPE_QUALIFIER;
        property KERNEL_ARG_NAME[ const I_:T_cl_uint ]              :String                            read GetKERNEL_ARG_NAME;
-       ///// メソッド
+       
        procedure Run;
      end;
 
@@ -217,16 +217,16 @@ type
             TCLKernel_ = TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>;
      protected
      public
-       ///// プロパティ
+       
        property Execut :TCLExecut_ read GetOwnere;
-       ///// メソッド
+       
        function Add( const Name_:String ) :TCLKernel_; overload;
        function Add( const Name_:String; const Queuer_:TCLQueuer_ ) :TCLKernel_; overload;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -239,13 +239,13 @@ uses System.SysUtils,
 
 //  
 
-// %%%%% TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+//TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.GetName :String;
 begin
@@ -282,7 +282,7 @@ begin
      if Assigned( Parames ) then Parames.BindsOK := False;
 end;
 
-// & public
+
 
 constructor TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Create;
 begin
@@ -307,7 +307,7 @@ begin
      _Argume := Argume_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLParame<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Bind :T_cl_int;
 var
@@ -321,13 +321,13 @@ begin
                                @H );
 end;
 
-// %%%%% TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+//TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.GetChildr( const Name_:String ) :TCLParame_;
 begin
@@ -412,7 +412,7 @@ begin
      _BindsOK := BindsOK_;
 end;
 
-/////////////////////////////////////////////////////////////////////// イベント
+//-------------------------------------------------------//-----------
 
 procedure TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.OnInsertChild( const Childr_:TCLParame_ );
 begin
@@ -430,7 +430,7 @@ begin
      _NamPars.Remove( Childr_.Name );
 end;
 
-// & public
+
 
 constructor TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Create;
 begin
@@ -451,7 +451,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLParames<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Contains( const Name_:String ) :Boolean;
 begin
@@ -470,11 +470,11 @@ begin
      Result := TCLParame_.Create( Self, Name_, Argume_ );
 end;
 
-// %%%%% TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+//TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 function TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.GetInfo<_TYPE_>( const Name_:T_cl_kernel_info ) :_TYPE_;
 begin
@@ -530,9 +530,9 @@ begin
      Result := TrimRight( String( P_char( GetArgInfos<T_char>( I_, Name_ ) ) ) );
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.GetHandle :T_cl_kernel;
 begin
@@ -729,7 +729,7 @@ begin
      Result := GetArgInfoString( I_, CL_KERNEL_ARG_NAME );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.CreateHandle :T_cl_int;
 var
@@ -747,7 +747,7 @@ begin
      _Handle := nil;
 end;
 
-// & public
+
 
 constructor TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Create;
 begin
@@ -799,7 +799,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TCLKernel<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Run;
 begin
@@ -812,13 +812,13 @@ begin
      AssertCL( clFinish( Queuer.Handle ), 'TCLKernel.Run is Error!' );
 end;
 
-// %%%%% TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
+//TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 function TCLKernels<TCLSystem_,TCLPlatfo_,TCLContex_,TCLExecut_>.Add( const Name_:String ) :TCLKernel_;
 begin
@@ -832,4 +832,4 @@ end;
 
 //  
 
-end. // 
+end.

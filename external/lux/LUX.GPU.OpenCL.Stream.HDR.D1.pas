@@ -21,9 +21,9 @@ type
        function GetImage :TCLImager_;
        procedure SetImage( const Imager_:TCLImager_ );
      {public}
-       ///// プロパティ
+       
        property Imager :TCLImager_ read GetImage write SetImage;
-       ///// メソッド
+       
        procedure CopyFrom( const Grid_:TCellColorGrid2D_TByteRGBE );
        procedure LoadFromFile( const FileName_:String );
      end;
@@ -32,22 +32,22 @@ type
      private
      protected
        _Imager :TCLImager_;
-       ///// アクセス
+       
        function GetImage :TCLImager_;
        procedure SetImage( const Imager_:TCLImager_ );
      public
        constructor Create; overload;
        constructor Create( const Imager_:TCLImager_ ); overload;
-       ///// プロパティ
+       
        property Imager :TCLImager_ read GetImage write SetImage;
-       ///// メソッド
+       
        procedure CopyFrom( const Grid_:TCellColorGrid2D_TByteRGBE ); overload; virtual; abstract;
        procedure LoadFromFile( const FileName_:String ); virtual; abstract;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -59,13 +59,13 @@ uses LUX.Color.Format.HDR;
 
 //  
 
-// %%%%% TCLStream1D_HDR<TCLImager_>
+//TCLStream1D_HDR<TCLImager_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLStream1D_HDR<TCLImager_>.GetImage :TCLImager_;
 begin
@@ -77,7 +77,7 @@ begin
      _Imager := Imager_;
 end;
 
-// & public
+
 
 constructor TCLStream1D_HDR<TCLImager_>.Create;
 begin
@@ -94,4 +94,4 @@ end;
 
 //  
 
-end. // 
+end.

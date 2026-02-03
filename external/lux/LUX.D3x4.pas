@@ -12,11 +12,11 @@ type
 
      TSingle4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_:Integer ) :TSingle3D; inline;
        procedure Sets( const Y_:Integer; const V_:TSingle3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_:Integer ] :TSingle3D read Gets write Sets; default;
      case Byte of
       0:( _YXs :array [ 1..4, 1..3 ] of Single; );
@@ -35,11 +35,11 @@ type
 
      TDouble4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_:Integer ) :TDouble3D; inline;
        procedure Sets( const Y_:Integer; const V_:TDouble3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_:Integer ] :TDouble3D read Gets write Sets; default;
 
      case Byte of
@@ -59,11 +59,11 @@ type
 
      TdSingle4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_:Integer ) :TdSingle3D; inline;
        procedure Sets( const Y_:Integer; const V_:TdSingle3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_:Integer ] :TdSingle3D read Gets write Sets; default;
      case Byte of
       0:( _YXs :array [ 1..4, 1..3 ] of TdSingle; );
@@ -82,11 +82,11 @@ type
 
      TdDouble4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_:Integer ) :TdDouble3D; inline;
        procedure Sets( const Y_:Integer; const V_:TdDouble3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_:Integer ] :TdDouble3D read Gets write Sets; default;
      case Byte of
       0:( _YXs :array [ 1..4, 1..3 ] of TdDouble; );
@@ -103,9 +103,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -113,11 +113,11 @@ implementation //
 
 //  
 
-// %%%%% TSingle4x3D
+//TSingle4x3D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle4x3D.Gets( const Y_:Integer ) :TSingle3D;
 begin
@@ -129,13 +129,13 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// & public
 
-// %%%%% TDouble4x3D
 
-//  private
+//TDouble4x3D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDouble4x3D.Gets( const Y_:Integer ) :TDouble3D;
 begin
@@ -147,11 +147,11 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// %%%%% TdSingle4x3D
+//TdSingle4x3D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle4x3D.Gets( const Y_:Integer ) :TdSingle3D;
 begin
@@ -163,13 +163,13 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// & public
 
-// %%%%% TdDouble4x3D
 
-//  private
+//TdDouble4x3D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TdDouble4x3D.Gets( const Y_:Integer ) :TdDouble3D;
 begin
@@ -181,7 +181,7 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// & public
+
 
 //  
 
@@ -193,4 +193,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

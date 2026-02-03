@@ -166,9 +166,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -178,13 +178,13 @@ implementation //
 
 //  
 
-// %%%%% TFrameTran
+//TFrameTran
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameTran.Create;
 begin
@@ -198,13 +198,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameTmSt
+//TFrameTmSt
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameTmSt.Create;
 begin
@@ -218,13 +218,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameFrmt
+//TFrameFrmt
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameFrmt.Create;
 begin
@@ -238,13 +238,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameBpGa
+//TFrameBpGa
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameBpGa.Create;
 begin
@@ -258,13 +258,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameRflt
+//TFrameRflt
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameRflt.Create;
 begin
@@ -278,13 +278,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameClip
+//TFrameClip
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameClip.Create;
 begin
@@ -298,13 +298,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameGsim
+//TFrameGsim
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameGsim.Create;
 begin
@@ -318,13 +318,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameFrze
+//TFrameFrze
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameFrze.Create;
 begin
@@ -338,13 +338,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameRevs
+//TFrameRevs
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameRevs.Create;
 begin
@@ -358,13 +358,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameImag
+//TFrameImag
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameImag.Create;
 begin
@@ -378,13 +378,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameBrkp
+//TFrameBrkp
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameBrkp.Create;
 begin
@@ -398,13 +398,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameSurf
+//TFrameSurf
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameSurf.Create;
 begin
@@ -418,13 +418,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameBand
+//TFrameBand
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameBand.Create;
 begin
@@ -438,13 +438,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameNoiz
+//TFrameNoiz
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameNoiz.Create;
 begin
@@ -466,4 +466,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

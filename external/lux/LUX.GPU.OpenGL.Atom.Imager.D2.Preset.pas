@@ -32,7 +32,7 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure CopyFrom( const BMP_:TBitmap ); overload;
        procedure CopyTo( const BMP_:TBitmap ); overload;
        procedure LoadFromFile( const FileName_:String );
@@ -48,7 +48,7 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure CopyFrom( const BMP_:TBitmap ); overload;
        procedure CopyTo( const BMP_:TBitmap ); overload;
        procedure LoadFromFile( const FileName_:String );
@@ -56,9 +56,9 @@ type
        procedure LoadFromFileHDR( const FileName_:String );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -72,13 +72,13 @@ uses System.Threading,
 
 //  
 
-// %%%%% TGLCelIma2D_TInt32u4D
+//TGLCelIma2D_TInt32u4D
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLCelIma2D_TInt32u4D.Create;
 begin
@@ -95,13 +95,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLPoiIma2D_TAlphaColorF
+//TGLPoiIma2D_TAlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLPoiIma2D_TAlphaColorF.Create;
 begin
@@ -118,7 +118,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLPoiIma2D_TAlphaColorF.CopyFrom( const BMP_:TBitmap );
 var
@@ -229,13 +229,13 @@ begin
      F.Free;
 end;
 
-// %%%%% TGLCelIma2D_TAlphaColorF
+//TGLCelIma2D_TAlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLCelIma2D_TAlphaColorF.Create;
 begin
@@ -252,7 +252,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLCelIma2D_TAlphaColorF.CopyFrom( const BMP_:TBitmap );
 var
@@ -379,4 +379,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

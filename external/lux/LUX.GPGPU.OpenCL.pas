@@ -32,9 +32,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -139,7 +139,7 @@ begin
      end;
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function GetDevicesN( var DN_:T_cl_uint; const PI_:T_cl_platform_id; const DT_:T_cl_device_type  ) :T_cl_int;
 begin
@@ -191,7 +191,7 @@ begin
      Texts_ := T.Split( [ '  ', ' ' ] );
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function GetPlatformsN( var PN_:T_cl_uint ) :T_cl_int;
 begin
@@ -243,7 +243,7 @@ begin
      Texts_ := T.Split( [ '  ', ' ' ] );
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function GetDevice( var D_:TCLDevice; const DI_:T_cl_device_id ) :T_cl_int;
 begin
@@ -300,7 +300,7 @@ begin
      end;
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function GetPlatform( var P_:TCLPlatform; const ID_:T_cl_platform_id; const DT_:T_cl_device_type ) :T_cl_int;
 begin
@@ -363,4 +363,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -23,7 +23,7 @@ type
 
      TGLInform = class
      private
-       ///// メソッド
+       
        procedure MakeModel;
      protected
        _BouBox  :TSingleArea3D;
@@ -31,27 +31,27 @@ type
        _PosBuf  :TGLVerBufS<TSingle3D>;
        _EleBuf  :TGLEleBufLine32;
        _Visible :Boolean;
-       ///// アクセス
+       
        function GetBouBox :TSingleArea3D; virtual;
        procedure SetBouBox( const BouBox_:TSingleArea3D ); virtual;
-       ///// メソッド
+       
        procedure BeginDraw; virtual;
        procedure DrawMain; virtual;
        procedure EndDraw; virtual;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property BouBox  :TSingleArea3D  read GetBouBox  write SetBouBox ;
        property Matery  :IGLMateryColor read   _Matery                  ;
        property Visible :Boolean        read   _Visible write   _Visible;
-       ///// メソッド
+       
        procedure Draw;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -61,11 +61,11 @@ implementation //
 
 //  
 
-// %%%%% TGLInform
+//TGLInform
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLInform.MakeModel;
 begin
@@ -90,9 +90,9 @@ begin
      end;
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TGLInform.GetBouBox :TSingleArea3D;
 begin
@@ -104,7 +104,7 @@ begin
      _BouBox := BouBox_;  MakeModel;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLInform.BeginDraw;
 begin
@@ -127,7 +127,7 @@ begin
      _Matery.Unuse;
 end;
 
-// & public
+
 
 constructor TGLInform.Create;
 begin
@@ -174,7 +174,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLInform.Draw;
 begin
@@ -196,4 +196,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

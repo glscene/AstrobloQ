@@ -17,7 +17,7 @@ type
      TRandom32SMT607 = class( TRandom32SMT )
      private
      protected
-       ///// アクセス
+       
        function GetSFMT_MEXP :Int32s; override;
        function GetSFMT_POS1 :Int32s; override;
        function GetSFMT_SL1 :Int32s; override;
@@ -41,7 +41,7 @@ type
      TRandom64SMT607 = class( TRandom64SMT )
      private
      protected
-       ///// アクセス
+       
        function GetSFMT_MEXP :Int32s; override;
        function GetSFMT_POS1 :Int32s; override;
        function GetSFMT_SL1 :Int32s; override;
@@ -60,9 +60,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -74,13 +74,13 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom32SMT607
+//TRandom32SMT607
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TRandom32SMT607.GetSFMT_MEXP :Int32s;
 begin
@@ -157,15 +157,15 @@ begin
      Result := 'SFMT-607:2-15-3-13-3:fdff37ff-ef7f3f7d-ff777b7d-7ff7fb2f';
 end;
 
-// & public
 
-// %%%%% TRandom64SMT607
 
-//  private
+//TRandom64SMT607
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TRandom64SMT607.GetSFMT_MEXP :Int32s;
 begin
@@ -242,7 +242,7 @@ begin
      Result := 'SFMT-607:2-15-3-13-3:fdff37ff-ef7f3f7d-ff777b7d-7ff7fb2f';
 end;
 
-// & public
+
 
 //  
 
@@ -252,4 +252,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

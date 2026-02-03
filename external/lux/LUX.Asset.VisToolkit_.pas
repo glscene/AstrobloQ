@@ -19,13 +19,13 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property ID :Integer read _ID write _ID;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -35,13 +35,13 @@ implementation //
 
 //  
 
-// %%%%% TvtkElem
+//TvtkElem
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkElem.Create;
 begin
@@ -63,4 +63,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

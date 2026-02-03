@@ -1,24 +1,15 @@
 unit LUX.DiscreteTrans.Fourier.D1;
 
-interface //############### 
+interface 
 
 uses LUX, LUX.D1, LUX.DiscreteTrans.D1, LUX.Complex;
 
-type // $$$$$$$$$$$$$$$【型】
-
-     // $$$$$$$$$$$$$$$ 
-
-     // $$$$$$$$$$$$$$$ 
-
-     // %%%%%%%%%%%%%%%%%%%% TComplexDFT
-
+type 
      TComplexDFT = class( TDiscreteTrans )
      private
      protected
-       ///// フィールド
        _Wave :array of TDoubleC;
        _Freq :array of TDoubleC;
-       ///// アクセス
        procedure SetCount( const Count_:Integer ); override;
        function GetWave( const I_:Integer ) :TDoubleC;
        procedure SetWave( const I_:Integer; const W_:TDoubleC );
@@ -27,47 +18,47 @@ type // $$$$$$$$$$$$$$$【型】
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Wave [ const I_:Integer ] :TDoubleC read GetWave write SetWave;
        property Freq [ const I_:Integer ] :TDoubleC read GetFreq write SetFreq;
-       ///// メソッド
+       
        procedure TransWF; override;
        procedure TransFW; override;
      end;
 
-     // %%%%%%%%%%%%%%%%%%%% TRealDFT
+     // TRealDFT
 
      TRealDFT = class( TDiscreteTrans )
      private
      protected
        _WaveIter :TIter1D<Double>;
        _FreqIter :TIter1D<TDoubleC>;
-       ///// アクセス
+       
        procedure SetCount( const Count_:Integer ); override;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property WaveIter :TIter1D<Double>   read _WaveIter write _WaveIter;
        property FreqIter :TIter1D<TDoubleC> read _FreqIter write _FreqIter;
-       ///// メソッド
+       
        procedure TransWF; override;
        procedure TransFW; override;
      end;
 
-//const // $$$$$$$$$$$$ 
 
-//var // $$$$$$$$$$$$$$ 
 
-// $$$$$$$$$$$$$$$$$$$$ 
+ 
+
+
 
 implementation //########## 
 
 uses Math;
 
-// $$$$$$$$$$$$$$$$$$$$ 
 
-// $$$$$$$$$$$$$$$$$$$$ 
+
+
 
 // %%%%%%%%%%%%%%%%%%%%%%%%% TComplexDFT
 
@@ -93,7 +84,7 @@ begin
      SetLength( _Freq, _Count );
 end;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////////////////////////
 
 function TComplexDFT.GetWave( const I_:Integer ) :TDoubleC;
 begin
@@ -130,7 +121,7 @@ begin
      inherited;
 end;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////////////////////////
 
 procedure TComplexDFT.TransWF;
 begin
@@ -191,7 +182,7 @@ begin
 end;
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////////////////////////
 
 procedure TRealDFT.TransWF;
 var
@@ -292,12 +283,10 @@ begin
      end
 end;
 
-// $$$$$$$$$$$$$$$$$$$$ 
 
-//########## 
 
-initialization //################################################################## 初期化
+initialization //
 
-finalization //#################################################################### 終了化
+finalization //
 
-end. //#################### 
+end. 

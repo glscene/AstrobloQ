@@ -30,7 +30,7 @@ type
        M2    = 481;
        M3    = 229;
      private
-       ///// アクセス
+       
        function GetV0 :Int32u;
        procedure SetV0( const V0_:Int32u );
        function GetVM1Over :Int32u;
@@ -72,7 +72,7 @@ type
        state_i :Int32u;
        STATE   :array [ 0..R-1 ] of Int32u;
        case_i  :Byte;
-       ///// プロパティ
+       
        property V0           :Int32u read GetV0           write SetV0          ;
        property VM1Over      :Int32u read GetVM1Over      write SetVM1Over     ;
        property VM1          :Int32u read GetVM1          write SetVM1         ;
@@ -100,7 +100,7 @@ type
 
      TRandom32WEL44497a = class( TRandomWEL<TSeed32WEL44497a> )
      protected
-       ///// メソッド
+       
        procedure case_1;
        procedure case_2;
        procedure case_3;
@@ -111,7 +111,7 @@ type
        function CalcRandInt32u :Int32u; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
-       ///// メソッド
+       
        function MAT0POS( const t:Int32u; const v:Int32u ) :Int32u; inline;
        function MAT0NEG( const t:Int32s; const v:Int32u ) :Int32u; inline;
        function MAT1( const v:Int32u ) :Int32u; inline;
@@ -132,7 +132,7 @@ type
        TEMPERC = $fa118000;
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt32u :Int32u; override;
      public
      end;
@@ -144,14 +144,14 @@ type
        BITMASK = $48000000;
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt32u :Int32u; override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -159,11 +159,11 @@ implementation //
 
 //  
 
-// %%%%% TSeed32WEL44497a
+//TSeed32WEL44497a
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSeed32WEL44497a.GetV0 :Int32u;
 begin
@@ -347,19 +347,19 @@ begin
      STATE[ state_i+M2+1 ] := newVM2_;
 end;
 
-// & public
+
 
 //  
 
-// %%%%% TRandom32WEL44497a
+//TRandom32WEL44497a
 
 { http://www.iro.umontreal.ca/~panneton/well/WELL44497a.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32WEL44497a.case_1;
 var
@@ -530,7 +530,7 @@ begin
      Result := _Seed.V0;
 end;
 
-// & public
+
 
 constructor TRandom32WEL44497a.CreateFromRand( const Random_:IRandom );
 var
@@ -548,7 +548,7 @@ begin
      Create( S );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TRandom32WEL44497a.MAT0POS( const t:Int32u; const v:Int32u ) :Int32u;
 begin
@@ -602,13 +602,13 @@ begin
      Result := 0;
 end;
 
-// %%%%% TRandom32WEL44497b
+//TRandom32WEL44497b
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32WEL44497b.CalcRandInt32u :Int32u;
 begin
@@ -619,17 +619,17 @@ begin
      end;
 end;
 
-// & public
 
-// %%%%% TRandom32WEL44497anew
+
+//TRandom32WEL44497anew
 
 { http://www.ritsumei.ac.jp/~harase/WELL44497a_new.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32WEL44497anew.CalcRandInt32u :Int32u;
 begin
@@ -647,7 +647,7 @@ begin
      end;
 end;
 
-// & public
+
 
 //  
 
@@ -657,4 +657,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

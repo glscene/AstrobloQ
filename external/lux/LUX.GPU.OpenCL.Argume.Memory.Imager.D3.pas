@@ -33,7 +33,7 @@ type
             TCLImaDat_ = TCLImaDat3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>;
      protected
        _CountZ :Integer;
-       ///// アクセス
+       
        function NewData :TCLMemDat_; override;
        function GetData :TCLImaDat_; reintroduce; virtual;
        procedure SetData( const Data_:TCLImaDat_ ); reintroduce; virtual;
@@ -42,7 +42,7 @@ type
        procedure SetCountZ( const CountZ_:Integer ); override;
      public
        constructor Create; override;
-       ///// プロパティ
+       
        property Data   :TCLImaDat_ read GetData   write SetData  ;
        property CountZ :Integer    read GetCountZ write SetCountZ;
      end;
@@ -54,13 +54,13 @@ type
        type TCLImager_ = TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>;
             PValue_    = ^TValue_;
      protected
-       ///// アクセス
+       
        function GetImager :TCLImager_; reintroduce; virtual;
        function GetValueP( const X_,Y_,Z_:Integer ) :PByte;
        function GetValues( const X_,Y_,Z_:Integer ) :TValue_;
        procedure SetValues( const X_,Y_,Z_:Integer; const Values_:TValue_ );
      public
-       ///// プロパティ
+       
        property Imager                           :TCLImager_ read GetImager                ;
        property ValueP[ const X_,Y_,Z_:Integer ] :PByte      read GetValueP                ;
        property Values[ const X_,Y_,Z_:Integer ] :TValue_    read GetValues write SetValues; default;
@@ -71,7 +71,7 @@ type
      TCLImager3DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TByteRGBA> )
      private
      protected
-       ///// アクセス
+       
        function GetPixCha :T_cl_channel_order; override;
        function GetPixTyp :T_cl_channel_type; override;
      public
@@ -82,7 +82,7 @@ type
      TCLImager3DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TByteRGBA> )
      private
      protected
-       ///// アクセス
+       
        function GetPixCha :T_cl_channel_order; override;
        function GetPixTyp :T_cl_channel_type; override;
      public
@@ -93,7 +93,7 @@ type
      TCLImager3DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TUInt32xRGBA> )
      private
      protected
-       ///// アクセス
+       
        function GetPixCha :T_cl_channel_order; override;
        function GetPixTyp :T_cl_channel_type; override;
      public
@@ -104,15 +104,15 @@ type
      TCLImager3DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_:class> = class( TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TSingleRGBA> )
      private
      protected
-       ///// アクセス
+       
        function GetPixCha :T_cl_channel_order; override;
        function GetPixTyp :T_cl_channel_type; override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -122,13 +122,13 @@ implementation //
 
 //  
 
-// %%%%% TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+//TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.NewData :TCLMemDat_;
 begin
@@ -166,7 +166,7 @@ begin
      _CountZ := CountZ_;
 end;
 
-// & public
+
 
 constructor TCLImager3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.Create;
 begin
@@ -175,13 +175,13 @@ begin
      _CountZ := 1;
 end;
 
-// %%%%% TCLImaDat3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+//TCLImaDat3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLImaDat3D<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.GetImager :TCLImager_;
 begin
@@ -207,15 +207,15 @@ begin
      PValue_( ValueP[ X_, Y_, Z_ ] )^ := Values_;
 end;
 
-// & public
 
-// %%%%% TCLImager3DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
+//TCLImager3DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TCLImager3DxBGRAxUInt8<TCLSystem_,TCLPlatfo_,TCLContex_>.GetPixCha :T_cl_channel_order;
 begin
@@ -227,15 +227,15 @@ begin
      Result := CL_UNSIGNED_INT8;
 end;
 
-// & public
 
-// %%%%% TCLImager3DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
+//TCLImager3DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TCLImager3DxBGRAxUFix8<TCLSystem_,TCLPlatfo_,TCLContex_>.GetPixCha :T_cl_channel_order;
 begin
@@ -247,15 +247,15 @@ begin
      Result := CL_UNORM_INT8;
 end;
 
-// & public
 
-// %%%%% TCLImager3DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
+//TCLImager3DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TCLImager3DxRGBAxUInt32<TCLSystem_,TCLPlatfo_,TCLContex_>.GetPixCha :T_cl_channel_order;
 begin
@@ -267,15 +267,15 @@ begin
      Result := CL_UNSIGNED_INT32;
 end;
 
-// & public
 
-// %%%%% TCLImager3DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
+//TCLImager3DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TCLImager3DxRGBAxSFlo32<TCLSystem_,TCLPlatfo_,TCLContex_>.GetPixCha :T_cl_channel_order;
 begin
@@ -287,8 +287,8 @@ begin
      Result := CL_FLOAT;
 end;
 
-// & public
+
 
 //  
 
-end. // 
+end.

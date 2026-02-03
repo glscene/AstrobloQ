@@ -21,18 +21,18 @@ type
      public
        constructor Create; overload;
        constructor Create( const FileName_:String ); overload;
-       ///// プロパティ
+       
        property Gamma :Single read _Gamma write _Gamma;
-       ///// メソッド
+       
        procedure LoadFromBitmap( const Bitmap_:TBitmap );
        procedure LoadFromFile( const FileName_:String );
        function Interp( const X_,Y_:Single ) :TSingleRGBA; overload;
        function Interp( const P_:TSingle2D ) :TSingleRGBA; overload;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -44,13 +44,13 @@ uses System.Math;
 
 //  
 
-// %%%%% TTexture2D
+//TTexture2D
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TTexture2D.Create;
 begin
@@ -66,7 +66,7 @@ begin
      LoadFromFile( FileName_ );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TTexture2D.LoadFromBitmap( const Bitmap_:TBitmap );
 var
@@ -154,4 +154,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

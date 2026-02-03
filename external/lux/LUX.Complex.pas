@@ -26,7 +26,7 @@ type
        I :Single;
        /////
        constructor Create( const R_,I_:Single );
-       ///// プロパティ
+       
        property Siz2   :Single   read GetSiz2                  ;
        property Size   :Single   read GetSize   write SetSize  ;
        property Unitor :TSingleC read GetUnitor write SetUnitor;
@@ -64,7 +64,7 @@ type
        I :Double;
        /////
        constructor Create( const R_,I_:Double );
-       ///// プロパティ
+       
        property Siz2   :Double   read GetSiz2                  ;
        property Size   :Double   read GetSize   write SetSize  ;
        property Unitor :TDoubleC read GetUnitor write SetUnitor;
@@ -109,7 +109,7 @@ type
        /////
        constructor Create( const Min_,Max_:TDoubleC ); overload;
        constructor Create( const MinR_,MinI_,MaxR_,MaxI_:Double ); overload;
-       ///// プロパティ
+       
        property Min     :TDoubleC read   _Min     write   _Min    ;
        property Max     :TDoubleC read   _Max     write   _Max    ;
        property Center  :TDoubleC read GetCenter  write SetCenter ;
@@ -134,7 +134,7 @@ const //
 
 Imaginary :TDoubleC = ( R:0; I:1 );
 
-//var //$$$ 
+ 
 
 //$$$$$$$ 
 
@@ -169,9 +169,9 @@ uses System.Math;
 
 //  
 
-// %%%%% TSingleC
+//TSingleC
 
-//  private
+
 
 function TSingleC.GetSiz2 :Single;
 begin
@@ -215,7 +215,7 @@ begin
      Result := ArcTan2( I, R )
 end;
 
-// & public
+
 
 constructor TSingleC.Create( const R_,I_:Single );
 begin
@@ -321,9 +321,9 @@ begin
      end
 end;
 
-// %%%%% TDoubleC
+//TDoubleC
 
-//  private
+
 
 function TDoubleC.GetSiz2 :Double;
 begin
@@ -367,7 +367,7 @@ begin
      Result := ArcTan2( I, R )
 end;
 
-// & public
+
 
 constructor TDoubleC.Create( const R_,I_:Double );
 begin
@@ -491,9 +491,9 @@ begin
      end
 end;
 
-// %%%%% TDoubleAreaC
+//TDoubleAreaC
 
-//  private
+
 
 function TDoubleAreaC.GetCenter :TDoubleC;
 begin
@@ -571,7 +571,7 @@ begin
      _Max.I := C + S;
 end;
 
-// & public
+
 
 constructor TDoubleAreaC.Create( const Min_,Max_:TDoubleC );
 begin
@@ -687,7 +687,7 @@ begin
      Result.I := S * Sin( A );
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function Roo2( const X_:TSingleC ) :TSingleC;
 var
@@ -711,7 +711,7 @@ begin
      Result.I := S * Sin( A );
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function Cos( const A_:TSingleC ) :TSingleC;
 begin
@@ -731,7 +731,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function Sin( const A_:TSingleC ) :TSingleC;
 begin
@@ -751,7 +751,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function Tan( const A_:TSingleC ) :TSingleC;
 begin
@@ -763,7 +763,7 @@ begin
      Result := Sin( A_ ) / Cos( A_ );
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function Exp( const A_:TSingleC ) :TSingleC;
 var
@@ -791,7 +791,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function Ln( const A_:TSingleC ) :TSingleC;
 begin
@@ -811,7 +811,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function ArcCos( const X_:TDoubleC ) :TDoubleC;
 begin
@@ -829,4 +829,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

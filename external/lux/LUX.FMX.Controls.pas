@@ -20,13 +20,13 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        function MousePos :TPointF;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -36,15 +36,15 @@ implementation //
 
 //  
 
-// %%%%% HControl
+//HControl
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 function HControl.MousePos :TPointF;
 begin
@@ -59,4 +59,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

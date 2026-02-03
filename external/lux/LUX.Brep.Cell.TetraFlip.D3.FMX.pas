@@ -21,21 +21,21 @@ type
        _Material   :TMaterialSource;
        _TetraModel :TTetraModel3D;
        _EdgeRadius :Single;
-       ///// アクセス
+       
        procedure SetTetraModel( const TetraModel_:TTetraModel3D );
        procedure SetEdgeRadius( const EdgeRadius_:Single );
-       ///// メソッド
+       
        procedure Render; override;
        procedure MakeMesh( const Ps_:array of TSingle3D );
      public
        constructor Create( AOwner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Geometry   :TMeshData       read _Geometry                      ;
        property Material   :TMaterialSource read _Material   write _Material    ;
        property TetraModel :TTetraModel3D   read _TetraModel write SetTetraModel;
        property EdgeRadius :Single          read _EdgeRadius write SetEdgeRadius;
-       ///// メソッド
+       
        procedure MakeModel; virtual; abstract;
      end;
 
@@ -45,7 +45,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure MakeModel; override;
      end;
 
@@ -55,19 +55,19 @@ type
      private
      protected
        _EdgeLength :Single;
-       ///// アクセス
+       
        procedure SetEdgeLength( const EdgeLength_:Single );
      public
        constructor Create( AOwner_:TComponent ); override;
-       ///// プロパティ
+       
        property EdgeLength :Single read _EdgeLength write SetEdgeLength;
-       ///// メソッド
+       
        procedure MakeModel; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -79,13 +79,13 @@ uses System.SysUtils, System.RTLConsts;
 
 //  
 
-// %%%%% TEdges
+//TEdges
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TEdges.SetTetraModel( const TetraModel_:TTetraModel3D );
 begin
@@ -97,7 +97,7 @@ begin
      _EdgeRadius := EdgeRadius_;  MakeModel;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TEdges.Render;
 begin
@@ -132,7 +132,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TEdges.Create( AOwner_:TComponent );
 begin
@@ -150,15 +150,15 @@ begin
      inherited;
 end;
 
-// %%%%% TDelaEdges
+//TDelaEdges
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TDelaEdges.MakeModel;
 var
@@ -225,20 +225,20 @@ begin
      MakeMesh( Ps );
 end;
 
-// %%%%% TVoroEdges
+//TVoroEdges
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TVoroEdges.SetEdgeLength( const EdgeLength_:Single );
 begin
      _EdgeLength := EdgeLength_;  MakeModel;
 end;
 
-// & public
+
 
 constructor TVoroEdges.Create( AOwner_:TComponent );
 begin
@@ -247,7 +247,7 @@ begin
      _EdgeLength := 10;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TVoroEdges.MakeModel;
 var
@@ -338,4 +338,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

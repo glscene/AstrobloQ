@@ -18,7 +18,7 @@ type
      private const
      private
      protected
-       ///// アクセス
+       
        function GetSFMT_MEXP :Int32s; override;
        function GetSFMT_POS1 :Int32s; override;
        function GetSFMT_SL1 :Int32s; override;
@@ -43,7 +43,7 @@ type
      private const
      private
      protected
-       ///// アクセス
+       
        function GetSFMT_MEXP :Int32s; override;
        function GetSFMT_POS1 :Int32s; override;
        function GetSFMT_SL1 :Int32s; override;
@@ -62,9 +62,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -76,11 +76,11 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom32SMT216091
+//TRandom32SMT216091
 
-//  private
 
-//  protected
+
+
 
 function TRandom32SMT216091.GetSFMT_MEXP :Int32s;
 begin
@@ -157,13 +157,13 @@ begin
      Result := 'SFMT-216091:627-11-3-10-1:bff7bff7-bfffffff-bffffa7f-ffddfbfb';
 end;
 
-// & public
 
-// %%%%% TRandom64SMT216091
 
-//  private
+//TRandom64SMT216091
 
-//  protected
+
+
+
 
 function TRandom64SMT216091.GetSFMT_MEXP :Int32s;
 begin
@@ -240,7 +240,7 @@ begin
      Result := 'SFMT-216091:627-11-3-10-1:bff7bff7-bfffffff-bffffa7f-ffddfbfb';
 end;
 
-// & public
+
 
 //  
 
@@ -250,4 +250,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

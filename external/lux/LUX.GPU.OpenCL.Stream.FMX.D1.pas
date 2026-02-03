@@ -27,9 +27,9 @@ type
        function GetImage :TCLImager_;
        procedure SetImage( const Imager_:TCLImager_ );
      {public}
-       ///// プロパティ
+       
        property Imager :TCLImager_ read GetImage write SetImage;
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); overload;
        procedure CopyFrom( const Bitmap_:TBitmap ); overload;
        procedure SaveToFile( const FileName_:String );
@@ -40,15 +40,15 @@ type
      private
      protected
        _Imager :TCLImager_;
-       ///// アクセス
+       
        function GetImage :TCLImager_;
        procedure SetImage( const Imager_:TCLImager_ );
      public
        constructor Create; overload;
        constructor Create( const Imager_:TCLImager_ ); overload;
-       ///// プロパティ
+       
        property Imager :TCLImager_ read GetImage write SetImage;
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); overload; virtual; abstract;
        procedure CopyFrom( const Bitmap_:TBitmap ); overload; virtual; abstract;
        procedure SaveToFile( const FileName_:String ); virtual;
@@ -63,7 +63,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
@@ -76,7 +76,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
@@ -89,7 +89,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
@@ -102,14 +102,14 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -121,13 +121,13 @@ uses System.Threading;
 
 //  
 
-// %%%%% TCLStream1D_FMX<TCLImager_>
+//TCLStream1D_FMX<TCLImager_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLStream1D_FMX<TCLImager_>.GetImage :TCLImager_;
 begin
@@ -139,7 +139,7 @@ begin
      _Imager := Imager_;
 end;
 
-// & public
+
 
 constructor TCLStream1D_FMX<TCLImager_>.Create;
 begin
@@ -154,7 +154,7 @@ begin
      Imager := Imager_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TCLStream1D_FMX<TCLImager_>.SaveToFile( const FileName_:String );
 var
@@ -182,15 +182,15 @@ begin
      B.Free;
 end;
 
-// %%%%% TCLStream1DxBGRAxUInt8_FMX
+//TCLStream1DxBGRAxUInt8_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream1DxBGRAxUInt8_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -236,15 +236,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream1DxBGRAxUFix8_FMX
+//TCLStream1DxBGRAxUFix8_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream1DxBGRAxUFix8_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -290,15 +290,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream1DxRGBAxUInt32_FMX
+//TCLStream1DxRGBAxUInt32_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream1DxRGBAxUInt32_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -342,15 +342,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream1DxRGBAxSFlo32_FMX
+//TCLStream1DxRGBAxSFlo32_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream1DxRGBAxSFlo32_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -402,4 +402,4 @@ end;
 
 //  
 
-end. // 
+end.

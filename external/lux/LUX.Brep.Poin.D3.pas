@@ -25,18 +25,18 @@ type
      TPoinModel3D<_TPoin_:TPoin<TSingle3D>> = class( TPoinModel<TSingle3D,_TPoin_> )
      private
      protected
-       ///// アクセス
+       
        function GetBarycenter :TSingle3D;
      public
-       ///// プロパティ
+       
        property Barycenter :TSingle3D read GetBarycenter;
-       ///// メソッド
+       
        function GetBoundingBox :TSingleArea3D;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -46,21 +46,21 @@ implementation //
 
 //  
 
-// %%%%% TPoin3D
+//TPoin3D
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TPoinModel3D<_TPoin_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//TPoinModel3D<_TPoin_>
+
+
+
+
+
+//-------------------------------------------------------
 
 function TPoinModel3D<_TPoin_>.GetBarycenter :TSingle3D;
 var
@@ -76,9 +76,9 @@ begin
      Result := Result / ChildsN;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 function TPoinModel3D<_TPoin_>.GetBoundingBox :TSingleArea3D;
 var
@@ -109,4 +109,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

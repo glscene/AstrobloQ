@@ -27,17 +27,17 @@ type
      public type
        _PItem_ = TGLPixBufIter2D<_TItem_>._PItem_;
      protected
-       ///// アクセス
+       
        function GetParen :IGLPixBuf3D;
        function GetElemsZ :Integer;
        function GetItemsZ :Integer;
        function GetMargsZ :Integer;
        function GetPoinsZ :Integer;
        function GetCellsZ :Integer;
-       ///// メソッド
+       
        function ItemsI( const X_,Y_,Z_:Integer ) :Integer;
      public
-       ///// プロパティ
+       
        property Paren  :IGLPixBuf3D read GetParen ;
        property ElemsZ :Integer     read GetElemsZ;
        property ItemsZ :Integer     read GetItemsZ;
@@ -51,7 +51,7 @@ type
      IGLPixBuf3D = interface( IGLPixBuf2D )
      ['{68D24B25-0598-466A-BD4D-BBAFC369B5CD}']
      {protected}
-       ///// アクセス
+       
        function GetElemsZ :Integer;
        function GetItemsZ :Integer;
        procedure SetItemsZ( const ItemsZ_:Integer );
@@ -62,7 +62,7 @@ type
        function GetCellsZ :Integer;
        procedure SetCellsZ( const CellsZ_:Integer );
      {public}
-       ///// プロパティ
+       
        property ElemsZ :Integer read GetElemsZ                ;
        property ItemsZ :Integer read GetItemsZ write SetItemsZ;
        property MargsZ :Integer read GetMargsZ write SetMargsZ;
@@ -78,7 +78,7 @@ type
      protected
        _ItemsZ :Integer;
        _MargsZ :Integer;
-       ///// アクセス
+       
        function GetElemsN :Integer; override;
        function GetPoinsN :Integer; override;
        function GetCellsN :Integer; override;
@@ -93,13 +93,13 @@ type
        procedure SetCellsZ( const CellsZ_:Integer ); virtual; abstract;
      public
        constructor Create( const Usage_:GLenum ); override;
-       ///// プロパティ
+       
        property ElemsZ :Integer read GetElemsZ                ;
        property ItemsZ :Integer read GetItemsZ write SetItemsZ;
        property MargsZ :Integer read GetMargsZ write SetMargsZ;
        property PoinsZ :Integer read GetPoinsZ write SetPoinsZ;
        property CellsZ :Integer read GetCellsZ write SetCellsZ;
-       ///// メソッド
+       
        procedure Read( const Stream_:TStream );
        procedure Write( const Stream_:TStream );
      end;
@@ -110,12 +110,12 @@ type
      public type
        _PItem_ = TGLPixBufIter3D<_TItem_>._PItem_;
      protected
-       ///// アクセス
+       
        function GetPoins( const X_,Y_,Z_:Integer ) :_TItem_;
        procedure SetPoins( const X_,Y_,Z_:Integer; const Item_:_TItem_ );
        function GetPoinsP( const X_,Y_,Z_:Integer ) :_PItem_;
      public
-       ///// プロパティ
+       
        property Poins [ const X_,Y_,Z_:Integer ] :_TItem_ read GetPoins  write SetPoins; default;
        property PoinsP[ const X_,Y_,Z_:Integer ] :_PItem_ read GetPoinsP               ;
      end;
@@ -133,7 +133,7 @@ type
      TGLPoiPix3D<_TItem_:record> = class( TGLPixBuf3D<_TItem_,TGLPoiPixIter3D<_TItem_>>, IGLPoiPix3D )
      private
      protected
-       ///// アクセス
+       
        function GetPoinsX :Integer; override;
        procedure SetPoinsX( const PoinsX_:Integer ); override;
        function GetPoinsY :Integer; override;
@@ -155,12 +155,12 @@ type
      public type
        _PItem_ = TGLPixBufIter3D<_TItem_>._PItem_;
      protected
-       ///// アクセス
+       
        function GetCells( const X_,Y_,Z_:Integer ) :_TItem_;
        procedure SetCells( const X_,Y_,Z_:Integer; const Item_:_TItem_ );
        function GetCellsP( const X_,Y_,Z_:Integer ) :_PItem_;
      public
-       ///// プロパティ
+       
        property Cells [ const X_,Y_,Z_:Integer ] :_TItem_ read GetCells  write SetCells; default;
        property CellsP[ const X_,Y_,Z_:Integer ] :_PItem_ read GetCellsP               ;
      end;
@@ -178,7 +178,7 @@ type
      TGLCelPix3D<_TItem_:record> = class( TGLPixBuf3D<_TItem_,TGLCelPixIter3D<_TItem_>>, IGLCelPix3D )
      private
      protected
-       ///// アクセス
+       
        function GetPoinsX :Integer; override;
        procedure SetPoinsX( const PoinsX_:Integer ); override;
        function GetPoinsY :Integer; override;
@@ -194,9 +194,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -206,13 +206,13 @@ implementation //
 
 //  
 
-// %%%%% TGLPixBufIter3D<_TItem_>
+//TGLPixBufIter3D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLPixBufIter3D<_TItem_>.GetParen :IGLPixBuf3D;
 begin
@@ -244,22 +244,22 @@ begin
      Result := Paren.CellsZ;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TGLPixBufIter3D<_TItem_>.ItemsI( const X_,Y_,Z_:Integer ) :Integer;
 begin
      Result := ( ( MargsZ + Z_ ) * ElemsY + ( MargsY + Y_ ) ) * ElemsX + ( MargsX + X_ );
 end;
 
-// & public
 
-// %%%%% TGLPixBuf3D<_TItem_,_TIter_>
 
-//  private
+//TGLPixBuf3D<_TItem_,_TIter_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TGLPixBuf3D<_TItem_,_TIter_>.GetElemsN :Integer;
 begin
@@ -305,7 +305,7 @@ begin
      _MargsZ := MargsZ_;  MakeBuffer;
 end;
 
-// & public
+
 
 constructor TGLPixBuf3D<_TItem_,_TIter_>.Create( const Usage_:GLenum );
 begin
@@ -315,7 +315,7 @@ begin
      _MargsZ := 0;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLPixBuf3D<_TItem_,_TIter_>.Read( const Stream_:TStream );
 var
@@ -365,9 +365,9 @@ begin
      inherited;
 end;
 
-// %%%%% TGLPoiPixIter3D<_TItem_>
+//TGLPoiPixIter3D<_TItem_>
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//-------------------------------------------------------
 
 function TGLPoiPixIter3D<_TItem_>.GetPoins( const X_,Y_,Z_:Integer ) :_TItem_;
 begin
@@ -386,13 +386,13 @@ begin
      Result := inherited ItemsP[ ItemsI( X_, Y_, Z_ ) ];
 end;
 
-// %%%%% TGLPoiPix3D<_TItem_>
+//TGLPoiPix3D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLPoiPix3D<_TItem_>.GetPoinsX :Integer;
 begin
@@ -456,11 +456,11 @@ begin
      ItemsZ := CellsZ_ + 1;
 end;
 
-// & public
 
-// %%%%% TGLCelPixIter3D<_TItem_>
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//TGLCelPixIter3D<_TItem_>
+
+//-------------------------------------------------------
 
 function TGLCelPixIter3D<_TItem_>.GetCells( const X_,Y_,Z_:Integer ) :_TItem_;
 begin
@@ -479,13 +479,13 @@ begin
      Result := inherited ItemsP[ ItemsI( X_, Y_, Z_ ) ];
 end;
 
-// %%%%% TGLCelPix3D<_TItem_>
+//TGLCelPix3D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLCelPix3D<_TItem_>.GetPoinsX :Integer;
 begin
@@ -549,7 +549,7 @@ begin
      ItemsZ := CellsZ_;
 end;
 
-// & public
+
 
 //  
 
@@ -559,4 +559,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

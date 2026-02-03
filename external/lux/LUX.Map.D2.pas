@@ -14,7 +14,7 @@ type
      private
        _AllX :Integer;
        _AllY :Integer;
-       ///// メソッド
+       
        procedure MakeArray;
        function XYtoI( const X_,Y_:Integer ) :Integer; inline;
      protected
@@ -23,7 +23,7 @@ type
        _MarginX :Integer;
        _MarginY :Integer;
        _Item    :array of T_Item;
-       ///// アクセス
+       
        procedure SetCountX( const CountX_:Integer );
        procedure SetCountY( const CountY_:Integer );
        procedure SetMarginX( const MarginX_:Integer );
@@ -37,13 +37,13 @@ type
        constructor Create( const CountX_,CountY_,MarginX_,MarginY_:Integer ); overload;
        procedure AfterConstruction; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property CountX                      :Integer read   _CountX  write SetCountX ;
        property CountY                      :Integer read   _CountY  write SetCountY ;
        property MarginX                     :Integer read   _MarginX write SetMarginX;
        property MarginY                     :Integer read   _MarginY write SetMarginY;
        property Item[ const X_,Y_:Integer ] :T_Item  read GetItem    write SetItem   ; default;
-       ///// メソッド
+       
        class procedure Swap( var Array0_,Array1_:TArray2D<T_Item> ); static;
        procedure MakeEdgeLoop;
      end;
@@ -53,13 +53,13 @@ type
      TBricArray2D<T_Item> = class( TArray2D<T_Item> )
      private
      protected
-       ///// アクセス
+       
        function GetGridX :Integer;
        procedure SetGridX( const GridX_:Integer );
        function GetGridY :Integer;
        procedure SetGridY( const GridY_:Integer );
      public
-       ///// プロパティ
+       
        property Bric[ const X_,Y_:Integer ] :T_Item  read GetItem   write SetItem  ; default;
        property BricX                       :Integer read   _CountX write SetCountX;
        property BricY                       :Integer read   _CountY write SetCountY;
@@ -72,7 +72,7 @@ type
      TGridArray2D<T_Item> = class( TArray2D<T_Item> )
      private
      protected
-       ///// アクセス
+       
        function GetBricX :Integer;
        procedure SetBricX( const BricX_:Integer );
        function GetBricY :Integer;
@@ -82,7 +82,7 @@ type
        constructor Create( const BricX_,BricY_:Integer ); overload;
        constructor Create( const BricX_,BricY_,MarginX_,MarginY_:Integer ); overload;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Grid[ const X_,Y_:Integer ] :T_Item  read GetItem   write SetItem  ; default;
        property GridX                       :Integer read   _CountX write SetCountX;
        property GridY                       :Integer read   _CountY write SetCountY;
@@ -90,9 +90,9 @@ type
        property BricY                       :Integer read GetBricY  write SetBricY ;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -102,11 +102,11 @@ implementation //
 
 //  
 
-// %%%%% TArray2D<T_Item>
+//TArray2D<T_Item>
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TArray2D<T_Item>.MakeArray;
 begin
@@ -121,9 +121,9 @@ begin
      Result := ( _MarginX + X_ ) + _AllX * ( _MarginY + Y_ );
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 procedure TArray2D<T_Item>.SetCountX( const CountX_:Integer );
 begin
@@ -155,7 +155,7 @@ begin
      _Item[ XYtoI( X_, Y_ ) ] := Item_;
 end;
 
-// & public
+
 
 constructor TArray2D<T_Item>.Create;
 begin
@@ -193,7 +193,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 class procedure TArray2D<T_Item>.Swap( var Array0_,Array1_:TArray2D<T_Item> );
 var
@@ -232,13 +232,13 @@ begin
      end;
 end;
 
-// %%%%% TBricArray2D<T_Item>
+//TBricArray2D<T_Item>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TBricArray2D<T_Item>.GetGridX :Integer;
 begin
@@ -260,15 +260,15 @@ begin
      BricY := GridY_ - 1;
 end;
 
-// & public
 
-// %%%%% TGridArray2D<T_Item>
 
-//  private
+//TGridArray2D<T_Item>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TGridArray2D<T_Item>.GetBricX :Integer;
 begin
@@ -290,7 +290,7 @@ begin
      _CountY  := BricY_ + 1;  MakeArray;
 end;
 
-// & public
+
 
 constructor TGridArray2D<T_Item>.Create;
 begin
@@ -324,4 +324,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

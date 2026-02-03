@@ -88,7 +88,7 @@ type
        _Poins  :TArray<TvtkPoin>;
        _Scalar :Single;
        _Vector :TSingle3D;
-       ///// アクセス
+       
        function GetPoins( const I_:Integer ) :TvtkPoin;
        procedure SetPoins( const I_:Integer; const Poin_:TvtkPoin );
        function GetPoinsN :Integer;
@@ -97,7 +97,7 @@ type
        class function New( const Kind_:TCellTypes ) :TvtkCell;
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Kind                      :TCellTypes read   _Kind   write   _Kind  ;
        property Poins[ const I_:Integer ] :TvtkPoin   read GetPoins  write SetPoins ;
        property PoinsN                    :Integer    read GetPoinsN write SetPoinsN;
@@ -105,9 +105,9 @@ type
        property Vector                    :TSingle3D  read   _Vector write   _Vector;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -126,11 +126,11 @@ uses LUX.Asset.VisToolkit.Cells.LINEAR,
 
 //  
 
-// %%%%% TvtkCell
+//TvtkCell
 
-//  private
 
-//  protected
+
+
 
 function TvtkCell.GetPoins( const I_:Integer ) :TvtkPoin;
 begin
@@ -154,7 +154,7 @@ begin
      SetLength( _Poins, PoinsN_ );
 end;
 
-// & public
+
 
 class function TvtkCell.New( const Kind_:TCellTypes ) :TvtkCell;
 begin
@@ -248,4 +248,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

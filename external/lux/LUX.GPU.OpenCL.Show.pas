@@ -13,9 +13,9 @@ uses System.Classes,
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -281,4 +281,4 @@ begin
      Strings_.Add( '' );
 end;
 
-end. // 
+end.

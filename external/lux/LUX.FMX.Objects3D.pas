@@ -16,7 +16,7 @@ type
 
      TTwistRod = class( TControl3D )
      private
-       ///// メソッド
+       
        function XYtoI( const X_,Y_:Integer ) :Integer; inline;
        procedure MakeModel;
      protected
@@ -27,19 +27,19 @@ type
        _DivR     :Integer;
        _AngleT   :Single;
        _AngleB   :Single;
-       ///// アクセス
+       
        procedure SetHeight( const Radius_:Single ); override;
        procedure SetRadius( const Radius_:Single ); virtual;
        procedure SetDivH( const DivH_:Integer ); virtual;
        procedure SetDivR( const DivR_:Integer ); virtual;
        procedure SetAngleT( const AngleT_:Single ); virtual;
        procedure SetAngleB( const AngleB_:Single ); virtual;
-       ///// メソッド
+       
        procedure Render; override;
      public
        constructor Create( Owner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Material :TMaterialSource read _Material write   _Material;
        property Radius   :Single          read _Radius   write SetRadius  ;
        property DivH     :Integer         read _DivH     write SetDivH    ;
@@ -48,9 +48,9 @@ type
        property AngleB   :Single          read _AngleB   write SetAngleB  ;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -62,9 +62,9 @@ uses System.SysUtils, System.RTLConsts, System.Math;
 
 //  
 
-// %%%%% TTwistRod
+//TTwistRod
 
-//  private
+
 
 function TTwistRod.XYtoI( const X_,Y_:Integer ) :Integer;
 begin
@@ -147,9 +147,9 @@ begin
      end;
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 procedure TTwistRod.SetHeight( const Radius_:Single );
 begin
@@ -182,7 +182,7 @@ begin
      _AngleB := AngleB_;  MakeModel;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TTwistRod.Render;
 begin
@@ -191,7 +191,7 @@ begin
      _Geometry.Render( Context, TMaterialSource.ValidMaterial(_Material), AbsoluteOpacity );
 end;
 
-// & public
+
 
 constructor TTwistRod.Create( Owner_:TComponent );
 begin
@@ -224,4 +224,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

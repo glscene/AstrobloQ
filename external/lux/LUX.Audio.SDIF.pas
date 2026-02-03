@@ -26,7 +26,7 @@ type
        _FrameSize :Cardinal;
        _Version   :Cardinal;
        _Padding   :Cardinal;
-       ///// アクセス
+       
        function GetSignature :TAnsiChar4;
        procedure SetSignature( const Signature_:TAnsiChar4 );
        function GetFrameSize :Cardinal;
@@ -51,7 +51,7 @@ type
        _Time        :Double;
        _StreamID    :Integer;
        _MatrixCount :Integer;
-       ///// アクセス
+       
        function GetSignature :TAnsiChar4;
        procedure SetSignature( const Signature_:TAnsiChar4 );
        function GetSize :Integer;
@@ -78,7 +78,7 @@ type
        _DataType  :Integer;
        _RowCount  :Integer;
        _ColCount  :Integer;
-       ///// アクセス
+       
        function GetSignature :TAnsiChar4;
        procedure SetSignature( const Signature_:TAnsiChar4 );
        function GetDataType :Integer;
@@ -106,14 +106,14 @@ type
        _DataType  :Integer;
        _RowCount  :Integer;
        _ColCount  :Integer;
-       ///// アクセス
+       
        function GetRowCount :Integer; virtual;
        procedure SetRowCount( const RowCount_:Integer ); virtual;
        function GetColCount :Integer; virtual;
        procedure SetColCount( const ColCount_:Integer ); virtual;
        function GetTexts( const Y_,X_:Integer ) :String; virtual; abstract;
        procedure SetTexts( const Y_,X_:Integer; const Text_:String ); virtual; abstract;
-       ///// メソッド
+       
        procedure ReadValues( const F_:TFileStream ); overload; virtual; abstract;
        procedure ReadValues( const F_:TStreamReader ); overload; virtual; abstract;
      public
@@ -123,7 +123,7 @@ type
        class function ReadCreate( const F_:TFileStream; const P_:TFrameSDIF ) :TMatrixSDIF; overload;
        class function ReadCreate( const F_:TStreamReader ) :TMatrixSDIF; overload;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Signature                    :String  read   _Signature write   _Signature;
        property DataType                     :Integer read   _DataType  write   _DataType ;
        property ColCount                     :Integer read GetColCount  write SetColCount ;
@@ -145,12 +145,12 @@ type
        class function ReadCreate( const F_:TFileStream; const P_:TFileSDIF ) :TFrameSDIF; overload;
        class function ReadCreate( const F_:TFileStream; const H_:TFrameHeaderSDIF; const P_:TFileSDIF ) :TFrameSDIF; overload; virtual; abstract;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Signature :String  read _Signature write _Signature;
        property StreamID  :Integer read _StreamID  write _StreamID ;
        property Time      :Single  read _Time      write _Time     ;
        property TimeMin   :Single  read _Time      write _Time     ;
-       ///// メソッド
+       
        function FindMatrix( const Signature_:String ) :TMatrixSDIF;
      end;
 
@@ -165,7 +165,7 @@ type
        class constructor Create;
        constructor Create; override;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure LoadFromFileBin( const FileName_:String );
        procedure SaveToFileBin( const FileName_:String );
        procedure LoadFromFileTex( const FileName_:String );
@@ -175,9 +175,9 @@ type
 
      TFileSDIF = class( TFileSDIF<TFrameSDIF> ) end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -188,11 +188,11 @@ uses System.SysUtils,
 
 //  
 
-// %%%%% THeaderSDIF
+//THeaderSDIF
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function THeaderSDIF.GetSignature :TAnsiChar4;
 begin
@@ -234,13 +234,13 @@ begin
      _Padding := RevBytes( Padding_ );
 end;
 
-// & public
 
-// %%%%% TFrameHeaderSDIF
 
-//  private
+//TFrameHeaderSDIF
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TFrameHeaderSDIF.GetSignature :TAnsiChar4;
 begin
@@ -292,13 +292,13 @@ begin
      _MatrixCount := RevBytes( MatrixCount_ );
 end;
 
-// & public
 
-// %%%%% TMatrixHeaderSDIF
 
-//  private
+//TMatrixHeaderSDIF
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TMatrixHeaderSDIF.GetSignature :TAnsiChar4;
 begin
@@ -340,15 +340,15 @@ begin
      _ColCount := RevBytes( ColCount_ );
 end;
 
-// & public
+
 
 //  
 
-// %%%%% TMatrixSDIF
+//TMatrixSDIF
 
-//  private
 
-//  protected
+
+
 
 function TMatrixSDIF.GetRowCount :Integer;
 begin
@@ -370,7 +370,7 @@ begin
      _ColCount := ColCount_;
 end;
 
-// & public
+
 
 class constructor TMatrixSDIF.Create;
 begin
@@ -463,13 +463,13 @@ begin
      inherited;
 end;
 
-// %%%%% TFrameSDIF
+//TFrameSDIF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TFrameSDIF.Create;
 begin
@@ -514,7 +514,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TFrameSDIF.FindMatrix( const Signature_:String ) :TMatrixSDIF;
 var
@@ -530,13 +530,13 @@ begin
      Result := nil;
 end;
 
-// %%%%% TFileSDIF<_TFrame_>
+//TFileSDIF<_TFrame_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 class constructor TFileSDIF<_TFrame_>.Create;
 begin
@@ -564,7 +564,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TFileSDIF<_TFrame_>.LoadFromFileBin( const FileName_:String );
 var
@@ -695,13 +695,13 @@ begin
      F.Free;
 end;
 
-// %%%%% TFileSDIF
+//TFileSDIF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
@@ -711,4 +711,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

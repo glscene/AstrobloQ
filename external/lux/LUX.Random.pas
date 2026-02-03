@@ -15,7 +15,7 @@ type
        TRandom<_TSeed_:record> = class;
          TRandomZero           = class;
 
-     ///////////////////////////////////////////////////////////////////////////
+     //-------------------------------------------------------/////////
 
      CRandom = class of TRandom;
 
@@ -29,7 +29,7 @@ type
      ['{333C851D-AEE2-4145-A5A0-33934B32B117}']
      {protected}
      {public}
-       ///// メソッド
+       
        procedure GoNextSeed;
        procedure DrawRand( out Rand_:Int08u ); overload;
        procedure DrawRand( out Rand_:Int16u ); overload;
@@ -53,7 +53,7 @@ type
      private
      protected
        _SeedCS :TCriticalSection;
-       ///// メソッド
+       
        procedure CalcNextSeed; virtual; abstract;
        function CalcRandInt08u :Int08u; virtual;
        function CalcRandInt16u :Int16u; virtual;
@@ -65,7 +65,7 @@ type
        constructor Create( const Random_:IRandom; const _:Byte = 0 ); overload; virtual; abstract;
        constructor CreateFromRand( const Random_:IRandom ); overload; virtual; abstract;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure GoNextSeed;
        procedure DrawRand( out Rand_:Int08u ); overload;  // 0 <= Value < 256                        = $100                   = 2^08
        procedure DrawRand( out Rand_:Int16u ); overload;  // 0 <= Value < 65,536                     = $1,0000                = 2^16
@@ -86,13 +86,13 @@ type
      IRandom<_TSeed_:record> = interface( IRandom )
      ['{BF700E87-C812-4802-9470-4922D1653C72}']
      {protected}
-       ///// アクセス
+       
        function GetSeed :_TSeed_;
        procedure SetSeed( const Seed_:_TSeed_ );
      {public}
-       ///// プロパティ
+       
        property Seed :_TSeed_ read GetSeed write SetSeed;
-       ///// メソッド
+       
        procedure DrawSeed( out Rand_:_TSeed_ ); overload;
        function DrawSeed :_TSeed_; overload;
      end;
@@ -103,7 +103,7 @@ type
      private
      protected
        _Seed :_TSeed_;
-       ///// アクセス
+       
        function GetSeed :_TSeed_;
        procedure SetSeed( const Seed_:_TSeed_ );
      public
@@ -111,9 +111,9 @@ type
        constructor Create( const Random_:IRandom; const _:Byte = 0 ); overload; override;
        constructor CreateFromSeed( const Random_:IRandom<_TSeed_> );
        constructor Create( const Seed_:_TSeed_ ); overload; virtual;
-       ///// プロパティ
+       
        property Seed :_TSeed_ read GetSeed write SetSeed;
-       ///// メソッド
+       
        procedure DrawSeed( out Rand_:_TSeed_ ); overload;
        function DrawSeed :_TSeed_; overload;
      end;
@@ -134,7 +134,7 @@ type
        _TimeCS :TCriticalSection;
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt64u :Int64u; override;
      public
@@ -144,9 +144,9 @@ type
        class destructor Destroy;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -167,13 +167,13 @@ uses System.SysUtils
 
 //  
 
-// %%%%% TRandom
+//TRandom
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom.CalcRandInt08u :Int08u;
 begin
@@ -197,7 +197,7 @@ begin
      Result := ( Result shl 32 ) or CalcRandInt32u;
 end;
 
-// & public
+
 
 class constructor TRandom.Create;
 begin
@@ -220,7 +220,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TRandom.GoNextSeed;
 begin
@@ -311,13 +311,13 @@ begin
      DrawRand( Result );
 end;
 
-// %%%%% TRandom<_TSeed_>
+//TRandom<_TSeed_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TRandom<_TSeed_>.GetSeed :_TSeed_;
 begin
@@ -329,7 +329,7 @@ begin
      _Seed := Seed_;
 end;
 
-// & public
+
 
 constructor TRandom<_TSeed_>.Create;
 begin
@@ -355,7 +355,7 @@ begin
      _Seed := Seed_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TRandom<_TSeed_>.DrawSeed( out Rand_:_TSeed_ );
 begin
@@ -371,13 +371,13 @@ begin
      DrawSeed( Result );
 end;
 
-// %%%%% TRandomZero
+//TRandomZero
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandomZero.CalcNextSeed;
 begin
@@ -389,7 +389,7 @@ begin
      Result := _Seed;
 end;
 
-// & public
+
 
 class constructor TRandomZero.Create;
 begin
@@ -451,4 +451,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

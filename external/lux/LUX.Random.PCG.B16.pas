@@ -44,12 +44,12 @@ type
      TRandom16PCG<_TSeed_:record> = class( TRandomPCG<_TSeed_> )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt08u :Int08u; override;
        function CalcRandInt32u :Int32u; override;
        function CalcRandInt64u :Int64u; override;
      public
-       ///// メソッド
+       
        // Rotate helper functions.
        class function pcg_rotr_8( value:Int08u; rot:Int32u ) :Int08u;
        class function pcg_rotr_16( value:Int16u; rot:Int32u ) :Int16u;
@@ -133,7 +133,7 @@ type
      TRandom16PCG16 = class( TRandom16PCG<T_pcg_state_16> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt16u :Int16u; override;
      public
@@ -145,7 +145,7 @@ type
      TRandom16PCG16x15 = class( TRandom16PCG<T_pcg_state_setseq_16> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt16u :Int16u; override;
      public
@@ -170,7 +170,7 @@ const //$$
       PCG16SI_INITIALIZER             :T_pcg_state_16        = ( state:$20df            );  //= PCG_STATE_ONESEQ_16_INITIALIZER
       PCG16I_INITIALIZER              :T_pcg_state_setseq_16 = ( state:$e39b; inc:$5bdb );  //= PCG_STATE_SETSEQ_16_INITIALIZER
 
-//var //$$ 
+ 
 
 //  
 
@@ -182,15 +182,15 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom16PCG<_TSeed_>
+//TRandom16PCG<_TSeed_>
 
 { https://github.com/imneme/pcg-c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom16PCG<_TSeed_>.CalcRandInt08u :Int08u;
 begin
@@ -207,9 +207,9 @@ begin
      Result := Int64u( CalcRandInt32u ) shl 32 or CalcRandInt32u;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 { https://github.com/imneme/pcg-c/blob/master/include/pcg_variants.h }
 
@@ -662,7 +662,7 @@ end;
 
 //------------------------------------------- Generation functions for XSL RR RR
 
-/////////////////////////////////////////////////////////////////////// random_r
+//-------------------------------------------------------///// random_r
 
 class function TRandom16PCG<_TSeed_>.pcg16si_random_r( var rng:T_pcg_state_16 ) :Int16u;
 begin
@@ -674,7 +674,7 @@ begin
      Result := pcg_setseq_16_rxs_m_xs_16_random_r( rng );
 end;
 
-////////////////////////////////////////////////////////////////// boundedrand_r
+//------------------------------------------------------- boundedrand_r
 
 class function TRandom16PCG<_TSeed_>.pcg16si_boundedrand_r( var rng:T_pcg_state_16; bound:Int16u ) :Int16u;
 begin
@@ -686,7 +686,7 @@ begin
      Result := pcg_setseq_16_rxs_m_xs_16_boundedrand_r( rng, bound );
 end;
 
-////////////////////////////////////////////////////////////////////// srandom_r
+//-------------------------------------------------------//// srandom_r
 
 class procedure TRandom16PCG<_TSeed_>.pcg16si_srandom_r( var rng:T_pcg_state_16; initstate:Int16u );
 begin
@@ -698,7 +698,7 @@ begin
      pcg_setseq_16_srandom_r( rng, initstate, initseq );
 end;
 
-////////////////////////////////////////////////////////////////////// advance_r
+//-------------------------------------------------------//// advance_r
 
 class procedure TRandom16PCG<_TSeed_>.pcg16si_advance_r( var rng:T_pcg_state_16; delta:Int16u );
 begin
@@ -710,13 +710,13 @@ begin
      pcg_setseq_16_advance_r( rng, delta );
 end;
 
-// %%%%% TRandom16PCG16
+//TRandom16PCG16
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom16PCG16.CalcNextSeed;
 begin
@@ -730,7 +730,7 @@ begin
      Result := pcg_output_rxs_m_xs_16_16( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom16PCG16.CreateFromRand( const Random_:IRandom );
 var
@@ -741,13 +741,13 @@ begin
      Create( S );
 end;
 
-// %%%%% TRandom16PCG16x15
+//TRandom16PCG16x15
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom16PCG16x15.CalcNextSeed;
 begin
@@ -761,7 +761,7 @@ begin
      Result := pcg_output_rxs_m_xs_16_16( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom16PCG16x15.CreateFromRand( const Random_:IRandom );
 var
@@ -780,4 +780,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

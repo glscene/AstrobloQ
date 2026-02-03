@@ -44,12 +44,12 @@ type
      TRandom08PCG<_TSeed_:record> = class( TRandomPCG<_TSeed_> )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt16u :Int16u; override;
        function CalcRandInt32u :Int32u; override;
        function CalcRandInt64u :Int64u; override;
      public
-       ///// メソッド
+       
        // Rotate helper functions.
        class function pcg_rotr_8( value:Int08u; rot:Int32u ) :Int08u;
        class function pcg_rotr_16( value:Int16u; rot:Int32u ) :Int16u;
@@ -105,7 +105,7 @@ type
      TRandom08PCG08 = class( TRandom08PCG<T_pcg_state_8> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt08u :Int08u; override;
      public
@@ -117,7 +117,7 @@ type
      TRandom08PCG08x07 = class( TRandom08PCG<T_pcg_state_setseq_8> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt08u :Int08u; override;
      public
@@ -142,7 +142,7 @@ const //$$
       PCG8SI_INITIALIZER              :T_pcg_state_8         = ( state:$d7          );  //= PCG_STATE_ONESEQ_8_INITIALIZER
       PCG8I_INITIALIZER               :T_pcg_state_setseq_8  = ( state:$9b; inc:$db );  //= PCG_STATE_SETSEQ_8_INITIALIZER
 
-//var //$$ 
+ 
 
 //  
 
@@ -154,15 +154,15 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom08PCG<_TSeed_>
+//TRandom08PCG<_TSeed_>
 
 { https://github.com/imneme/pcg-c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom08PCG<_TSeed_>.CalcRandInt16u :Int16u;
 begin
@@ -179,9 +179,9 @@ begin
      Result := Int64u( CalcRandInt32u ) shl 32 or CalcRandInt32u;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 { https://github.com/imneme/pcg-c/blob/master/include/pcg_variants.h }
 
@@ -415,7 +415,7 @@ end;
 
 //------------------------------------------- Generation functions for XSL RR RR
 
-/////////////////////////////////////////////////////////////////////// random_r
+//-------------------------------------------------------///// random_r
 
 class function TRandom08PCG<_TSeed_>.pcg8si_random_r( var rng:T_pcg_state_8 ) :Int08u;
 begin
@@ -427,7 +427,7 @@ begin
      Result := pcg_setseq_8_rxs_m_xs_8_random_r( rng );
 end;
 
-////////////////////////////////////////////////////////////////// boundedrand_r
+//------------------------------------------------------- boundedrand_r
 
 class function TRandom08PCG<_TSeed_>.pcg8si_boundedrand_r( var rng:T_pcg_state_8; bound:Int08u ) :Int08u;
 begin
@@ -439,7 +439,7 @@ begin
      Result := pcg_setseq_8_rxs_m_xs_8_boundedrand_r( rng, bound );
 end;
 
-////////////////////////////////////////////////////////////////////// srandom_r
+//-------------------------------------------------------//// srandom_r
 
 class procedure TRandom08PCG<_TSeed_>.pcg8si_srandom_r( var rng:T_pcg_state_8; initstate:Int08u );
 begin
@@ -451,7 +451,7 @@ begin
      pcg_setseq_8_srandom_r( rng, initstate, initseq );
 end;
 
-////////////////////////////////////////////////////////////////////// advance_r
+//-------------------------------------------------------//// advance_r
 
 class procedure TRandom08PCG<_TSeed_>.pcg8si_advance_r( var rng:T_pcg_state_8; delta:Int08u );
 begin
@@ -463,13 +463,13 @@ begin
      pcg_setseq_8_advance_r( rng, delta );
 end;
 
-// %%%%% TRandom08PCG08
+//TRandom08PCG08
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom08PCG08.CalcNextSeed;
 begin
@@ -483,7 +483,7 @@ begin
      Result := pcg_output_rxs_m_xs_8_8( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom08PCG08.CreateFromRand( const Random_:IRandom );
 var
@@ -494,13 +494,13 @@ begin
      Create( S );
 end;
 
-// %%%%% TRandom08PCG08x07
+//TRandom08PCG08x07
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom08PCG08x07.CalcNextSeed;
 begin
@@ -514,7 +514,7 @@ begin
      Result := pcg_output_rxs_m_xs_8_8( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom08PCG08x07.CreateFromRand( const Random_:IRandom );
 var
@@ -533,4 +533,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

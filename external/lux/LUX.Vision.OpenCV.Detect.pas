@@ -24,13 +24,13 @@ type
        _MinSize     :TCvSize;
        _MaxSize     :TCvSize;
        _Faces        :pCvSeq;
-       ///// アクセス
+       
        function GetFaceN :Integer;
        function GetBox( const I_:Integer ) :TRect;
      public
        constructor Create( const FileName_:AnsiString );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property ScaleFactor             :Double  read _ScaleFactor    write _ScaleFactor;
        property MinNeighbors            :Integer read _MinNeighbors   write _MinNeighbors;
        property MinSizeX                :Integer read _MinSize.width  write _MinSize.width;
@@ -40,13 +40,13 @@ type
        property Faces                   :pCvSeq  read _Faces;
        property FaceN                   :Integer read GetFaceN;
        property Box[ const I_:Integer ] :TRect   read GetBox;
-       ///// メソッド
+       
        procedure Search( const Image_:TocvImage );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -56,13 +56,13 @@ implementation //
 
 //  
 
-// %%%%% THaarCascade
+//THaarCascade
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function THaarCascade.GetFaceN :Integer;
 begin
@@ -80,7 +80,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor THaarCascade.Create( const FileName_:AnsiString );
 begin
@@ -107,7 +107,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure THaarCascade.Search( const Image_:TocvImage );
 begin
@@ -131,4 +131,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

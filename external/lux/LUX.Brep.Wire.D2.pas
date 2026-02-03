@@ -17,7 +17,7 @@ type
      TWire2D<_TPoin_:TPoin<TSingle2D>> = class( TWire<TSingle2D,_TPoin_> )
      private
      protected
-       ///// アクセス
+       
        function GetLeng :Single;
        function GetVector :TSingle2D;
        function GetUnitor :TSingle2D;
@@ -25,7 +25,7 @@ type
        property Leng   :Single    read GetLeng  ;
        property Vector :TSingle2D read GetVector;
        property Unitor :TSingle2D read GetUnitor;
-       ///// メソッド
+       
        function DistanTo( const Wire_:TWire2D<_TPoin_> ) :TSingle2D; overload;
      end;
 
@@ -38,9 +38,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -50,13 +50,13 @@ implementation //
 
 //  
 
-// %%%%% TWire2D<_TPoin_>
+//TWire2D<_TPoin_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TWire2D<_TPoin_>.GetLeng :Single;
 begin
@@ -73,9 +73,9 @@ begin
      Result := Poin0.Pos.UnitorTo( Poin1.Pos );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 function TWire2D<_TPoin_>.DistanTo( const Wire_:TWire2D<_TPoin_> ) :TSingle2D;
 var
@@ -114,13 +114,13 @@ begin
      Result := P0.VectorTo( P1 );
 end;
 
-// %%%%% TWireModel2D<_TPoin_,_TWire_>
+//TWireModel2D<_TPoin_,_TWire_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
@@ -130,4 +130,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

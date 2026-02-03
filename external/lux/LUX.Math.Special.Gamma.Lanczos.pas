@@ -70,7 +70,7 @@ const //$$
            - 0.26190838401581408670e-4,
            + 0.36899182659531622704e-5 );
 
-//var //$$ 
+ 
 
 //  
 
@@ -137,21 +137,21 @@ implementation //
 
 //  
 
-// %%%%% {RECORD}
+//{RECORD}
 
-//  private
 
-// & public
+
+
 
 //  
 
-// %%%%% {CLASS}
+//{CLASS}
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
@@ -471,4 +471,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

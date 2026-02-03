@@ -21,16 +21,16 @@ type
      IGLMatery = interface
      ['{13071090-B024-474A-BDA2-AB604AD10B16}']
      {protected}
-       ///// アクセス
+       
        function GetEngine  :TGLEngine;
        function GetShaderV :TGLShaderV;
        function GetShaderF :TGLShaderF;
      {public}
-       ///// プロパティ
+       
        property Engine  :TGLEngine  read GetEngine ;
        property ShaderV :TGLShaderV read GetShaderV;
        property ShaderF :TGLShaderF read GetShaderF;
-       ///// メソッド
+       
        procedure Use;
        procedure Unuse;
      end;
@@ -43,18 +43,18 @@ type
        _Engine  :TGLEngine;
        _ShaderV :TGLShaderV;
        _ShaderF :TGLShaderF;
-       ///// アクセス
+       
        function GetEngine  :TGLEngine;
        function GetShaderV :TGLShaderV;
        function GetShaderF :TGLShaderF;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Engine  :TGLEngine  read GetEngine ;
        property ShaderV :TGLShaderV read GetShaderV;
        property ShaderF :TGLShaderF read GetShaderF;
-       ///// メソッド
+       
        procedure Use; virtual;
        procedure Unuse; virtual;
      end;
@@ -100,10 +100,10 @@ type
      IGLMateryG = interface( IGLMatery )
      ['{6BF0D994-51C2-4884-9C64-4E02EF5B5226}']
      {protected}
-       ///// アクセス
+       
        function GetShaderG :TGLShaderG;
      {public}
-       ///// プロパティ
+       
        property ShaderG :TGLShaderG read GetShaderG;
      end;
 
@@ -113,12 +113,12 @@ type
      private
      protected
        _ShaderG :TGLShaderG;
-       ///// アクセス
+       
        function GetShaderG :TGLShaderG;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property ShaderG :TGLShaderG read GetShaderG;
      end;
 
@@ -127,10 +127,10 @@ type
      IGLMateryNorTexG = interface( IGLMateryNorTex )
      ['{ED414C59-0A0B-493C-B497-A7D18A1487F4}']
      {protected}
-       ///// アクセス
+       
        function GetShaderG :TGLShaderG;
      {public}
-       ///// プロパティ
+       
        property ShaderG :TGLShaderG read GetShaderG;
      end;
 
@@ -140,18 +140,18 @@ type
      private
      protected
        _ShaderG :TGLShaderG;
-       ///// アクセス
+       
        function GetShaderG :TGLShaderG;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property ShaderG :TGLShaderG read GetShaderG;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -161,13 +161,13 @@ implementation //
 
 //  
 
-// %%%%% TGLMatery
+//TGLMatery
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMatery.GetShaderV :TGLShaderV;
 begin
@@ -184,7 +184,7 @@ begin
      Result := _Engine;
 end;
 
-// & public
+
 
 constructor TGLMatery.Create;
 begin
@@ -261,7 +261,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMatery.Use;
 begin
@@ -273,13 +273,13 @@ begin
      _Engine.Unuse;
 end;
 
-// %%%%% TGLMateryNor
+//TGLMateryNor
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLMateryNor.Create;
 begin
@@ -371,13 +371,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryNorTex
+//TGLMateryNorTex
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLMateryNorTex.Create;
 begin
@@ -438,20 +438,20 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryG
+//TGLMateryG
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryG.GetShaderG :TGLShaderG;
 begin
      Result := _ShaderG;
 end;
 
-// & public
+
 
 constructor TGLMateryG.Create;
 begin
@@ -616,20 +616,20 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryNorTexG
+//TGLMateryNorTexG
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryNorTexG.GetShaderG :TGLShaderG;
 begin
      Result := _ShaderG;
 end;
 
-// & public
+
 
 constructor TGLMateryNorTexG.Create;
 begin
@@ -658,4 +658,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -17,11 +17,11 @@ type
 
      IGLEleBuf = interface( IGLBuffer )
      ['{BCD91AB4-D6E5-49E1-8670-D4C4ED39AFD3}']
-       ///// アクセス
+       
        function GetElemT :GLenum;
-       ///// プロパティ
+       
        property ElemT :GLenum read GetElemT;
-       ///// メソッド
+       
        procedure Draw;
      end;
 
@@ -30,14 +30,14 @@ type
      TGLEleBuf<_TItem_:record> = class( TGLBuffer<_TItem_,TGLBufferData<_TItem_>>, IGLEleBuf )
      private
      protected
-       ///// アクセス
+       
        function GetKind :GLenum; override;
        function GetElemN :GLint; virtual; abstract;
        function GetElemT :GLenum; virtual; abstract;
      public
-       ///// プロパティ
+       
        property ElemT :GLenum read GetElemT;
-       ///// メソッド
+       
        procedure Draw; virtual; abstract;
      end;
 
@@ -52,11 +52,11 @@ type
      TGLEleBufFace<_TItem_:record> = class( TGLEleBuf<_TItem_>, IGLEleBufFace )
      private
      protected
-       ///// アクセス
+       
        function GetElemN :GLint; override;
        function GetElemT :GLenum; override;
      public
-       ///// メソッド
+       
        procedure Draw; override;
      end;
 
@@ -75,11 +75,11 @@ type
      TGLEleBufLine<_TItem_:record> = class( TGLEleBuf<_TItem_>, IGLEleBufLine )
      private
      protected
-       ///// アクセス
+       
        function GetElemN :GLint; override;
        function GetElemT :GLenum; override;
      public
-       ///// メソッド
+       
        procedure Draw; override;
      end;
 
@@ -98,11 +98,11 @@ type
      TGLEleBufQuadLines<_TItem_:record> = class( TGLEleBuf<_TItem_>, IGLEleBufLine )
      private
      protected
-       ///// アクセス
+       
        function GetElemN :GLint; override;
        function GetElemT :GLenum; override;
      public
-       ///// メソッド
+       
        procedure Draw; override;
      end;
 
@@ -110,9 +110,9 @@ type
      TGLEleBufQuadLines16 = TGLEleBufQuadLines<TWord4D>;
      TGLEleBufQuadLines32 = TGLEleBufQuadLines<TCardinal4D>;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -122,28 +122,28 @@ implementation //
 
 //  
 
-// %%%%% TGLEleBuf<_TItem_>
+//TGLEleBuf<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLEleBuf<_TItem_>.GetKind :GLenum;
 begin
      Result := GL_ELEMENT_ARRAY_BUFFER;
 end;
 
-// & public
 
-// %%%%% TGLEleBufFace<_TItem_>
 
-//  private
+//TGLEleBufFace<_TItem_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TGLEleBufFace<_TItem_>.GetElemN :GLint;
 begin
@@ -160,9 +160,9 @@ begin
      end;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLEleBufFace<_TItem_>.Draw;
 begin
@@ -173,13 +173,13 @@ begin
      Unbind;
 end;
 
-// %%%%% TGLEleBufLine<_TItem_>
+//TGLEleBufLine<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLEleBufLine<_TItem_>.GetElemN :GLint;
 begin
@@ -196,9 +196,9 @@ begin
      end;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLEleBufLine<_TItem_>.Draw;
 begin
@@ -209,13 +209,13 @@ begin
      Unbind;
 end;
 
-// %%%%% TGLEleBufQuadLines<_TItem_>
+//TGLEleBufQuadLines<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLEleBufQuadLines<_TItem_>.GetElemN :GLint;
 begin
@@ -232,9 +232,9 @@ begin
      end;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLEleBufQuadLines<_TItem_>.Draw;
 begin
@@ -253,4 +253,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

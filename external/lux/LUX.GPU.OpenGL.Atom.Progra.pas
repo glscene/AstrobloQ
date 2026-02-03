@@ -19,10 +19,10 @@ type
      IGLProgra = interface( LUX.GPU.OpenGL.Atom.IGLProgra )
      ['{8EB00198-A04B-4632-8B23-1DF1B171A75F}']
      {protected}
-       ///// アクセス
+       
        function GetFramers :TGLPorterF;
      {public}
-       ///// プロパティ
+       
        property Framers :TGLPorterF read GetFramers;
      end;
 
@@ -34,29 +34,29 @@ type
        _Status  :Boolean;
        _Errors  :TStringList;
        _Framers :TGLPorterF;
-       ///// イベント
+       //-----------
        _OnLinked :TProc;
-       ///// アクセス
+       
        function GetStatus :Boolean;
        function GetErrors :TStringList;
        function GetFramers :TGLPorterF;
-       ///// イベント
+       //-----------
        function GetOnLinked :TProc;
        procedure SetOnLinked( const OnLinked_:TProc );
        procedure DoOnLinked; virtual;
-       ///// メソッド
+       
        function glGetStatus :Boolean;
        function glGetErrors :String;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Status  :Boolean     read GetStatus ;
        property Errors  :TStringList read GetErrors ;
        property Framers :TGLPorterF  read GetFramers;
-       ///// イベント
+       //-----------
        property OnLinked :TProc read GetOnLinked write SetOnLinked;
-       ///// メソッド
+       
        function GetAttribLocation( const Name_:String ) :GLuint;
        function GetUniformLocation( const Name_:String ) :GLuint;
        function GetProgramResourceLocation( const Kind_:GLenum; const Name_:String ) :GLuint;
@@ -70,9 +70,9 @@ type
        procedure Unuse; virtual;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -82,13 +82,13 @@ implementation //
 
 //  
 
-// %%%%% TGLProgra
+//TGLProgra
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLProgra.GetStatus :Boolean;
 begin
@@ -107,7 +107,7 @@ begin
      Result := _Framers;
 end;
 
-/////////////////////////////////////////////////////////////////////// イベント
+//-------------------------------------------------------//-----------
 
 function TGLProgra.GetOnLinked :TProc;
 begin
@@ -124,7 +124,7 @@ begin
      if Assigned( _OnLinked ) then _OnLinked;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TGLProgra.glGetStatus :Boolean;
 var
@@ -150,7 +150,7 @@ begin
      SetString( Result, PGLchar( Cs ), CsN );
 end;
 
-// & public
+
 
 constructor TGLProgra.Create;
 begin
@@ -177,7 +177,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TGLProgra.GetAttribLocation( const Name_:String ) :GLuint;
 begin
@@ -257,4 +257,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -26,7 +26,7 @@ type
      public
        constructor Create( const Paren_:TGLFramer );
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure Attach( const I_:Integer; const Render_:IGLChaner );
        procedure Detach( const I_:Integer );
      end;
@@ -40,14 +40,14 @@ type
        _Colors :TGLColors;
        _SizeX  :Integer;
        _SizeY  :Integer;
-       ///// アクセス
+       
        function GetDepth :IGLChaner;
        procedure SetDepth( const Depth_:IGLChaner );
        function GetSizeX :Integer;
        procedure SetSizeX( const SizeX_:Integer ); virtual;
        function GetSizeY :Integer;
        procedure SetSizeY( const SizeY_:Integer ); virtual;
-       ///// メソッド
+       
        procedure InitDepth( const Depth_:IGLChaner ); virtual; abstract;
        procedure InitColor( const Color_:IGLChaner ); virtual; abstract;
        procedure InitBuffers;
@@ -55,12 +55,12 @@ type
        constructor Create;
        procedure AfterConstruction; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Depth  :IGLChaner read GetDepth  write SetDepth;
        property Colors :TGLColors read   _Colors               ;
        property SizeX  :Integer   read GetSizeX  write SetSizeX;
        property SizeY  :Integer   read GetSizeY  write SetSizeY;
-       ///// メソッド
+       
        procedure Bind( const Mode_:GLenum = GL_FRAMEBUFFER );
        procedure Unbind( const Mode_:GLenum = GL_FRAMEBUFFER );
        procedure Attach( const Channel_:GLenum; const Render_:TGLChaner );
@@ -74,7 +74,7 @@ type
      TGLFramer1 = class( TGLFramer )
      private
      protected
-       ///// メソッド
+       
        procedure InitDepth( const Depth_:IGLChaner ); override;
        procedure InitColor( const Color_:IGLChaner ); override;
      public
@@ -88,22 +88,22 @@ type
      private
      protected
        _SampleN :Byte;
-       ///// アクセス
+       
        function GetSampleN :Byte;
        procedure SetSampleN( const SampleN_:Byte );
-       ///// メソッド
+       
        procedure InitDepth( const Depth_:IGLChaner ); override;
        procedure InitColor( const Color_:IGLChaner ); override;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property SampleN :Byte read GetSampleN write SetSampleN;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -113,13 +113,13 @@ implementation //
 
 //  
 
-// %%%%% TGLColors
+//TGLColors
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLColors.Create( const Paren_:TGLFramer );
 begin
@@ -134,7 +134,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLColors.Attach( const I_:Integer; const Render_:IGLChaner );
 begin
@@ -150,13 +150,13 @@ begin
      _Paren.Detach( GL_COLOR_ATTACHMENT0 + I_ );
 end;
 
-// %%%%% TGLFramer
+//TGLFramer
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLFramer.GetDepth :IGLChaner;
 begin
@@ -194,7 +194,7 @@ begin
      _SizeY := SizeY_;  InitBuffers;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLFramer.InitBuffers;
 var
@@ -205,7 +205,7 @@ begin
      for C in _Colors.Values do InitColor( C );
 end;
 
-// & public
+
 
 constructor TGLFramer.Create;
 begin
@@ -235,7 +235,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLFramer.Bind( const Mode_:GLenum = GL_FRAMEBUFFER );
 begin
@@ -293,13 +293,13 @@ begin
      Framer_.Unbind( GL_DRAW_FRAMEBUFFER );
 end;
 
-// %%%%% TGLFramer1
+//TGLFramer1
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLFramer1.InitDepth( const Depth_:IGLChaner );
 begin
@@ -319,7 +319,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TGLFramer1.Create;
 begin
@@ -338,13 +338,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLFramerN
+//TGLFramerN
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLFramerN.GetSampleN :Byte;
 begin
@@ -356,7 +356,7 @@ begin
      _SampleN := SampleN_;  InitBuffers;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLFramerN.InitDepth( const Depth_:IGLChaner );
 begin
@@ -378,7 +378,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TGLFramerN.Create;
 begin
@@ -404,4 +404,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

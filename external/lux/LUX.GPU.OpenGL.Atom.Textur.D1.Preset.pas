@@ -29,9 +29,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -41,21 +41,21 @@ implementation //
 
 //  
 
-// %%%%% TGLPoiTex1D_TAlphaColorF
+//TGLPoiTex1D_TAlphaColorF
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TGLCelTex1D_TAlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+//TGLCelTex1D_TAlphaColorF
+
+
+
+
+
+
 
 //  
 
@@ -65,4 +65,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -17,16 +17,16 @@ type
      TWire3D<_TPoin_:TPoin<TSingle3D>> = class( TWire<TSingle3D,_TPoin_> )
      private
      protected
-       ///// アクセス
+       
        function GetLeng :Single;
        function GetVector :TSingle3D;
        function GetUnitor :TSingle3D;
      public
-       ///// プロパティ
+       
        property Leng   :Single    read GetLeng  ;
        property Vector :TSingle3D read GetVector;
        property Unitor :TSingle3D read GetUnitor;
-       ///// メソッド
+       
        function DistanTo( const Wire_:TWire3D<_TPoin_> ) :TSingle3D; overload;
      end;
 
@@ -36,16 +36,16 @@ type
                   _TWire_:TWire3D<_TPoin_>> = class( TWireModel<TSingle3D,_TPoin_,_TWire_> )
      private
      protected
-       ///// アクセス
+       
        function GetBarycenter :TSingle3D;
      public
-       ///// プロパティ
+       
        property Barycenter :TSingle3D read GetBarycenter;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -55,13 +55,13 @@ implementation //
 
 //  
 
-// %%%%% TWire3D<_TPoin_>
+//TWire3D<_TPoin_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TWire3D<_TPoin_>.GetLeng :Single;
 begin
@@ -78,9 +78,9 @@ begin
      Result := Poin0.Pos.UnitorTo( Poin1.Pos );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 function TWire3D<_TPoin_>.DistanTo( const Wire_:TWire3D<_TPoin_> ) :TSingle3D;
 var
@@ -119,13 +119,13 @@ begin
      Result := P0.VectorTo( P1 );
 end;
 
-// %%%%% TWireModel3D<_TPoin_,_TWire_>
+//TWireModel3D<_TPoin_,_TWire_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TWireModel3D<_TPoin_,_TWire_>.GetBarycenter :TSingle3D;
 var
@@ -144,7 +144,7 @@ begin
      end;
 end;
 
-// & public
+
 
 //  
 
@@ -154,4 +154,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

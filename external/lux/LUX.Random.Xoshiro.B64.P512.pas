@@ -21,7 +21,7 @@ type
      TRandom64XOS512p = class( TRandom64XOS512 )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt64u :Int64u; override;
      public
      end;
@@ -31,14 +31,14 @@ type
      TRandom64XOS512ss = class( TRandom64XOS512 )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt64u :Int64u; override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -50,39 +50,39 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom64XOS512p
+//TRandom64XOS512p
 
 { http://xoshiro.di.unimi.it/xoshiro256plus.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom64XOS512p.CalcRandInt64u :Int64u;
 begin
      with _Seed do Result := s[ 0 ] + s[ 2 ];
 end;
 
-// & public
 
-// %%%%% TRandom64XOS512ss
+
+//TRandom64XOS512ss
 
 { http://xoshiro.di.unimi.it/xoshiro256starstar.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom64XOS512ss.CalcRandInt64u :Int64u;
 begin
      Result := rotl( _Seed.s[ 1 ] * 5, 7 ) * 9;
 end;
 
-// & public
+
 
 //  
 
@@ -92,4 +92,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

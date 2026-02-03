@@ -19,7 +19,7 @@ type
      TPoinColorGrid2D<_TItem_> = class( TPoinArray2D<_TItem_> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TAlphaColor> ); overload;
        procedure DrawFrom( const BMP_:TBitmap; const Func_:TConstFunc<TAlphaColor,_TItem_> ); overload;
      public
@@ -30,15 +30,15 @@ type
      TCellColorGrid2D<_TItem_> = class( TCellArray2D<_TItem_> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TAlphaColor> ); overload;
        procedure DrawFrom( const BMP_:TBitmap; const Func_:TConstFunc<TAlphaColor,_TItem_> ); overload;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -50,13 +50,13 @@ uses System.Threading;
 
 //  
 
-// %%%%% TPoinColorGrid2D<_TItem_>
+//TPoinColorGrid2D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D<_TItem_>.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TAlphaColor> );
 var
@@ -107,15 +107,15 @@ begin
      BMP_.Unmap( B );
 end;
 
-// & public
 
-// %%%%% TCellColorGrid2D
 
-//  private
+//TCellColorGrid2D
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D<_TItem_>.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TAlphaColor> );
 var
@@ -167,7 +167,7 @@ begin
      BMP_.Unmap( B );
 end;
 
-// & public
+
 
 //  
 
@@ -177,4 +177,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

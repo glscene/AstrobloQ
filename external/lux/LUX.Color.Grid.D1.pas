@@ -19,7 +19,7 @@ type
      TPoinColorGrid1D<_TItem_> = class( TPoinArray1D<_TItem_> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,TAlphaColor> ); overload;
      public
      end;
@@ -29,14 +29,14 @@ type
      TCellColorGrid1D<_TItem_> = class( TCellArray1D<_TItem_> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,TAlphaColor> ); overload;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -46,13 +46,13 @@ implementation //
 
 //  
 
-// %%%%% TPoinColorGrid1D<_TItem_>
+//TPoinColorGrid1D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid1D<_TItem_>.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,TAlphaColor> );
 var
@@ -74,15 +74,15 @@ begin
      BMP_.Unmap( B );
 end;
 
-// & public
 
-// %%%%% TCellColorGrid1D
 
-//  private
+//TCellColorGrid1D
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid1D<_TItem_>.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,TAlphaColor> );
 var
@@ -104,7 +104,7 @@ begin
      BMP_.Unmap( B );
 end;
 
-// & public
+
 
 //  
 
@@ -114,4 +114,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

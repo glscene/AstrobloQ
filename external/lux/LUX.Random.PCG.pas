@@ -46,13 +46,13 @@ type
      TRandom32PCG64x63basic = class( TRandomPCG<T_pcg32_random_t> )
      public
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
        constructor CreateFromRand( const Random_:IRandom; const Stream_:Int64u ); overload;
-       ///// メソッド
+       
        procedure pcg32_srandom_r( var rng:T_pcg32_random_t; initstate,initseq:Int64u );
        procedure pcg32_srandom( seed,seq:Int64u );
        function pcg32_random_r( var rng:T_pcg32_random_t ) :Int32u;
@@ -66,7 +66,7 @@ const //$$
       PCG32_INITIALIZER :T_pcg32_random_t = ( state:$853c49e6748fea9b;
                                               inc  :$da3e39cb94b95bdb );
 
-//var //$$ 
+ 
 
 //  
 
@@ -78,23 +78,23 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandomPCG<_TSeed_>
+//TRandomPCG<_TSeed_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TRandom32PCG64basic
+
+
+
+//TRandom32PCG64basic
 
 { https://github.com/imneme/pcg-c-basic }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32PCG64x63basic.CalcNextSeed;
 begin
@@ -115,7 +115,7 @@ begin
      Result := ( xorshifted shr rot ) or ( xorshifted shl ( -rot and 31 ) );
 end;
 
-// & public
+
 
 constructor TRandom32PCG64x63basic.CreateFromRand( const Random_:IRandom );
 begin
@@ -131,7 +131,7 @@ begin
      Create( S );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TRandom32PCG64x63basic.pcg32_srandom_r( var rng:T_pcg32_random_t; initstate,initseq:Int64u );
 begin
@@ -198,4 +198,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

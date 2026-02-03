@@ -17,10 +17,10 @@ type
      TPoinColorGrid2D_TSingleRGB = class( TPoinColorGrid2D<TSingleRGB> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGB>; const Gamm_:Single = 1; const Tone_:Single = 1 ); overload;
      public
-       ///// メソッド
+       
        procedure CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
        procedure CopyFrom( const BMP_:TBitmap );
        procedure LoadFromFile( const FileName_:String );
@@ -31,10 +31,10 @@ type
      TCellColorGrid2D_TSingleRGB = class( TCellColorGrid2D<TSingleRGB> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGB>; const Gamm_:Single = 1; const Tone_:Single = 1 ); overload;
      public
-       ///// メソッド
+       
        procedure CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
        procedure CopyFrom( const BMP_:TBitmap );
        procedure LoadFromFile( const FileName_:String );
@@ -45,10 +45,10 @@ type
      TPoinColorGrid2D_TSingleRGBA = class( TPoinColorGrid2D<TSingleRGBA> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGBA>; const Gamm_:Single = 1; const Tone_:Single = 1 ); overload;
      public
-       ///// メソッド
+       
        procedure CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
        procedure CopyFrom( const BMP_:TBitmap );
        procedure LoadFromFile( const FileName_:String );
@@ -59,10 +59,10 @@ type
      TCellColorGrid2D_TSingleRGBA = class( TCellColorGrid2D<TSingleRGBA> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGBA>; const Gamm_:Single = 1; const Tone_:Single = 1 ); overload;
      public
-       ///// メソッド
+       
        procedure CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
        procedure CopyFrom( const BMP_:TBitmap );
        procedure LoadFromFile( const FileName_:String );
@@ -73,10 +73,10 @@ type
      TPoinColorGrid2D_TByteRGBE = class( TPoinColorGrid2D<TByteRGBE> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TByteRGBE>; const Gamm_:Single = 1; const Tone_:Single = 1 ); overload;
      public
-       ///// メソッド
+       
        procedure CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
      end;
 
@@ -85,16 +85,16 @@ type
      TCellColorGrid2D_TByteRGBE = class( TCellColorGrid2D<TByteRGBE> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TByteRGBE>; const Gamm_:Single = 1; const Tone_:Single = 1 ); overload;
      public
-       ///// メソッド
+       
        procedure CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -106,13 +106,13 @@ uses System.Threading;
 
 //  
 
-// %%%%% TPoinColorGrid2D_TSingleRGB
+//TPoinColorGrid2D_TSingleRGB
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D_TSingleRGB.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGB>; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -122,9 +122,9 @@ begin
      end );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D_TSingleRGB.CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -157,13 +157,13 @@ begin
      B.Free;
 end;
 
-// %%%%% TCellColorGrid2D_TSingleRGB
+//TCellColorGrid2D_TSingleRGB
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D_TSingleRGB.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGB>; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -173,9 +173,9 @@ begin
      end );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D_TSingleRGB.CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -208,13 +208,13 @@ begin
      B.Free;
 end;
 
-// %%%%% TPoinColorGrid2D_TSingleRGBA
+//TPoinColorGrid2D_TSingleRGBA
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D_TSingleRGBA.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGBA>; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -224,9 +224,9 @@ begin
      end );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D_TSingleRGBA.CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -259,13 +259,13 @@ begin
      B.Free;
 end;
 
-// %%%%% TCellColorGrid2D_TSingleRGBA
+//TCellColorGrid2D_TSingleRGBA
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D_TSingleRGBA.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TSingleRGBA>; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -275,9 +275,9 @@ begin
      end );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D_TSingleRGBA.CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -310,13 +310,13 @@ begin
      B.Free;
 end;
 
-// %%%%% TPoinColorGrid2D_TByteRGBE
+//TPoinColorGrid2D_TByteRGBE
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D_TByteRGBE.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TByteRGBE>; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -326,9 +326,9 @@ begin
      end );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid2D_TByteRGBE.CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -339,13 +339,13 @@ begin
      end, Gamm_, Tone_ );
 end;
 
-// %%%%% TCellColorGrid2D_TByteRGBE
+//TCellColorGrid2D_TByteRGBE
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D_TByteRGBE.DrawTo( const BMP_:TBitmap; const Func_:TConstFunc<Integer,Integer,TByteRGBE>; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -355,9 +355,9 @@ begin
      end );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid2D_TByteRGBE.CopyTo( const BMP_:TBitmap; const Gamm_:Single = 1; const Tone_:Single = 1 );
 begin
@@ -376,4 +376,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

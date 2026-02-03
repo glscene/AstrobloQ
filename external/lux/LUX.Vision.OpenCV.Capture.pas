@@ -18,7 +18,7 @@ type
      protected
        _Frame :TocvImage3;
        _Core  :pCvCapture;
-       ///// アクセス
+       
        function GetPosMsec :Double;
        procedure SetPosMsec( const PosMsec_:Double );
        function GetPosFrames :Integer;
@@ -37,7 +37,7 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Core        :pCvCapture read _Core;
        property Frame       :TocvImage3 read _Frame;
        property PosMsec     :Double     read GetPosMsec     write SetPosMsec;
@@ -48,7 +48,7 @@ type
        property FPS         :Double     read GetFPS         write SetFPS;
        property FourCC      :String     read GetFourCC      write SetFourCC;
        property FrameCount  :Integer    read GetFrameCount;
-       ///// メソッド
+       
        procedure QueryFrame;
      end;
 
@@ -60,7 +60,7 @@ type
        _FileName :AnsiString;
      public
        constructor Create( const FileName_:AnsiString );
-       ///// プロパティ
+       
        property FileName :AnsiString read _FileName;
      end;
 
@@ -72,13 +72,13 @@ type
        _CameraI :Integer;
      public
        constructor Create( const CameraI_:Integer = 0 );
-       ///// プロパティ
+       
        property CameraI :Integer read _CameraI;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -90,13 +90,13 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TocvCapture
+//TocvCapture
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TocvCapture.GetPosMsec :Double;
 begin
@@ -173,7 +173,7 @@ begin
      Result := Round( cvGetCaptureProperty( _Core, CV_CAP_PROP_FRAME_COUNT ) );
 end;
 
-// & public
+
 
 constructor TocvCapture.Create;
 begin
@@ -191,20 +191,20 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TocvCapture.QueryFrame;
 begin
      _Frame.Core := cvQueryFrame( _Core );
 end;
 
-// %%%%% TocvVideo
+//TocvVideo
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TocvVideo.Create( const FileName_:AnsiString );
 begin
@@ -215,13 +215,13 @@ begin
      _Core := cvCreateFileCapture( PAnsiChar( _FileName ) );
 end;
 
-// %%%%% TocvCamera
+//TocvCamera
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TocvCamera.Create( const CameraI_:Integer = 0 );
 begin
@@ -240,4 +240,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

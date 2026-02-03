@@ -35,20 +35,20 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Version  :String                read _Version ;
        property Caption  :String                read _Caption ;
        property FileType :String                read _FileType;
        property DataType :String                read _DataType;
        property Poins    :TObjectList<TvtkPoin> read _Poins   ;
        property Cells    :TObjectList<TvtkCell> read _Cells   ;
-       ///// メソッド
+       
        procedure LoadFromFile( const FileName_:String );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -60,13 +60,13 @@ uses System.SysUtils, System.Classes;
 
 //  
 
-// %%%%% TVisToolkit
+//TVisToolkit
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TVisToolkit.Create;
 begin
@@ -84,7 +84,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TVisToolkit.LoadFromFile( const FileName_:String );
 var
@@ -296,4 +296,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

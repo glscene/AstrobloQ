@@ -16,21 +16,21 @@ type
      IGLChaner = interface
      ['{F8641443-EDC3-4EB0-AA1F-4B35C82B0515}']
      {protected}
-       ///// アクセス
+       
        function GetFormat :GLenum;
        procedure SetFormat( const Format_:GLenum );
        function GetSizeX :Integer;
        procedure SetSizeX( const SizeX_:Integer );
        function GetSizeY :Integer;
        procedure SetSizeY( const SizeY_:Integer );
-       ///// メソッド
+       
        procedure MakeBuffer;
      {public}
-       ///// プロパティ
+       
        property Format :GLenum  read GetFormat write SetFormat;
        property SizeX  :Integer read GetSizeX  write SetSizeX ;
        property SizeY  :Integer read GetSizeY  write SetSizeY ;
-       ///// メソッド
+       
        procedure Bind;
        procedure Unbind;
      end;
@@ -43,24 +43,24 @@ type
        _Format :GLenum;
        _SizeX  :Integer;
        _SizeY  :Integer;
-       ///// アクセス
+       
        function GetFormat :GLenum;
        procedure SetFormat( const Format_:GLenum );
        function GetSizeX :Integer;
        procedure SetSizeX( const SizeX_:Integer );
        function GetSizeY :Integer;
        procedure SetSizeY( const SizeY_:Integer );
-       ///// メソッド
+       
        procedure MakeBuffer; virtual; abstract;
      public
        constructor Create( const Format_:Integer );
        procedure AfterConstruction; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Format :GLenum  read GetFormat write SetFormat;
        property SizeX  :Integer read GetSizeX  write SetSizeX ;
        property SizeY  :Integer read GetSizeY  write SetSizeY ;
-       ///// メソッド
+       
        procedure Bind;
        procedure Unbind;
      end;
@@ -78,7 +78,7 @@ type
      TGLChaner1 = class( TGLChaner, IGLChaner1 )
      private
      protected
-       ///// メソッド
+       
        procedure MakeBuffer; override;
      public
      end;
@@ -88,13 +88,13 @@ type
      IGLChanerN = interface( IGLChaner )
      ['{756CB1F9-93C5-4AD6-A3AE-C7F94381BF26}']
      {protected}
-       ///// アクセス
+       
        function GetSampleN :Byte;
        procedure SetSampleN( const SampleN_:Byte );
-       ///// メソッド
+       
        procedure MakeBuffer;
      {public}
-       ///// プロパティ
+       
        property SampleN :Byte read GetSampleN write SetSampleN;
      end;
 
@@ -104,21 +104,21 @@ type
      private
      protected
        _SampleN :Byte;
-       ///// アクセス
+       
        function GetSampleN :Byte;
        procedure SetSampleN( const SampleN_:Byte );
-       ///// メソッド
+       
        procedure MakeBuffer; override;
      public
        constructor Create( const Format_:Integer );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property SampleN :Byte read GetSampleN write SetSampleN;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -128,13 +128,13 @@ implementation //
 
 //  
 
-// %%%%% TGLChaner
+//TGLChaner
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLChaner.GetFormat :GLenum;
 begin
@@ -168,7 +168,7 @@ begin
      _SizeY := SizeY_;  MakeBuffer;
 end;
 
-// & public
+
 
 constructor TGLChaner.Create( const Format_:Integer );
 begin
@@ -193,7 +193,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLChaner.Bind;
 begin
@@ -205,13 +205,13 @@ begin
      glBindRenderbuffer( GL_RENDERBUFFER, 0 );
 end;
 
-// %%%%% TGLChaner1
+//TGLChaner1
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLChaner1.MakeBuffer;
 begin
@@ -222,15 +222,15 @@ begin
      Unbind;
 end;
 
-// & public
 
-// %%%%% TGLChanerN
 
-//  private
+//TGLChanerN
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TGLChanerN.GetSampleN :Byte;
 begin
@@ -242,7 +242,7 @@ begin
      _SampleN := SampleN_;  MakeBuffer;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLChanerN.MakeBuffer;
 begin
@@ -253,7 +253,7 @@ begin
      Unbind;
 end;
 
-// & public
+
 
 constructor TGLChanerN.Create( const Format_:Integer );
 begin
@@ -276,4 +276,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

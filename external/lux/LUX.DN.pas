@@ -13,7 +13,7 @@ type
 
      TSingleND = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :Single; inline;
        procedure Sets( const X_:Integer; const o_:Single ); inline;
        function GetDimN :Integer; inline;
@@ -31,7 +31,7 @@ type
        constructor Create( const V_:Single; const N_:Integer ); overload;
        constructor Create( const Vs_:array of Single ); overload;
        constructor Create( const D_:TSingleND ); overload;
-       ///// プロパティ
+       
        property _s[ const I_:Integer ] :Single    read Gets     write Sets    ; default;
        property DimN                   :Integer   read GetDimN   write SetDimN  ;
        property Siz2                   :Single    read GetSiz2   write SetSiz2  ;
@@ -52,7 +52,7 @@ type
        class operator Explicit( const V_:TSingleND ) :TSingle3D; inline;
        class operator Explicit( const V_:TSingleND ) :TSingle4D; inline;
        class operator Explicit( const V_:TSingleND ) :TSingle5D; inline;
-       ///// メソッド
+       
        function VectorTo( const P_:TSingleND ) :TSingleND;
        function UnitorTo( const P_:TSingleND ) :TSingleND;
        function DistanTo( const P_:TSingleND ) :Single;
@@ -69,7 +69,7 @@ type
 
      TDoubleND = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :Double; inline;
        procedure Sets( const X_:Integer; const o_:Double ); inline;
        function GetDimN :Integer; inline;
@@ -87,7 +87,7 @@ type
        constructor Create( const V_:Double; const N_:Integer ); overload;
        constructor Create( const Vs_:array of Double ); overload;
        constructor Create( const D_:TDoubleND ); overload;
-       ///// プロパティ
+       
        property _s[ const I_:Integer ] :Double    read Gets     write Sets    ; default;
        property DimN                   :Integer   read GetDimN   write SetDimN  ;
        property Siz2                   :Double    read GetSiz2   write SetSiz2  ;
@@ -108,7 +108,7 @@ type
        class operator Explicit( const V_:TDoubleND ) :TDouble3D; inline;
        class operator Explicit( const V_:TDoubleND ) :TDouble4D; inline;
        class operator Explicit( const V_:TDoubleND ) :TDouble5D; inline;
-       ///// メソッド
+       
        function VectorTo( const P_:TDoubleND ) :TDoubleND;
        function UnitorTo( const P_:TDoubleND ) :TDoubleND;
        function DistanTo( const P_:TDoubleND ) :Double;
@@ -125,7 +125,7 @@ type
 
      TdSingleND = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :TdSingle; inline;
        procedure Sets( const X_:Integer; const o_:TdSingle ); inline;
        function GetDimN :Integer; inline;
@@ -147,7 +147,7 @@ type
        constructor Create( const V_:TdSingle; const N_:Integer ); overload;
        constructor Create( const Vs_:array of TdSingle ); overload;
        constructor Create( const D_:TdSingleND ); overload;
-       ///// プロパティ
+       
        property _s[ const I_:Integer ] :TdSingle   read Gets     write Sets    ; default;
        property DimN                   :Integer    read GetDimN   write SetDimN  ;
        property o                      :TSingleND  read Geto      write Seto     ;
@@ -177,7 +177,7 @@ type
 
      TdDoubleND = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :TdDouble; inline;
        procedure Sets( const X_:Integer; const o_:TdDouble ); inline;
        function GetDimN :Integer; inline;
@@ -199,7 +199,7 @@ type
        constructor Create( const V_:TdDouble; const N_:Integer ); overload;
        constructor Create( const Vs_:array of TdDouble ); overload;
        constructor Create( const D_:TdDoubleND ); overload;
-       ///// プロパティ
+       
        property _s[ const I_:Integer ] :TdDouble   read Gets     write Sets    ; default;
        property DimN                   :Integer    read GetDimN   write SetDimN  ;
        property o                      :TDoubleND  read Geto      write Seto     ;
@@ -227,9 +227,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -269,11 +269,11 @@ uses System.SysUtils, System.Math;
 
 //  
 
-// %%%%% TSingleND
+//TSingleND
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingleND.Gets( const X_:Integer ) :Single;
 begin
@@ -333,7 +333,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TSingleND.Create( const N_:Integer );
 begin
@@ -363,7 +363,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TSingleND.Negative( const V_:TSingleND ) :TSingleND;
 var
@@ -507,7 +507,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TSingleND.Explicit( const V_:TSingleND ) :TSingle2D;
 begin
@@ -551,7 +551,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TSingleND.VectorTo( const P_:TSingleND ) :TSingleND;
 begin
@@ -608,11 +608,11 @@ begin
      for I := 0 to Result.DimN-1 do Result[ I ] := TSingle.RandBS4;
 end;
 
-// %%%%% TDoubleND
+//TDoubleND
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TDoubleND.Gets( const X_:Integer ) :Double;
 begin
@@ -672,7 +672,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TDoubleND.Create( const N_:Integer );
 begin
@@ -702,7 +702,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TDoubleND.Negative( const V_:TDoubleND ) :TDoubleND;
 var
@@ -845,7 +845,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TDoubleND.Explicit( const V_:TDoubleND ) :TDouble2D;
 begin
@@ -889,7 +889,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TDoubleND.VectorTo( const P_:TDoubleND ) :TDoubleND;
 begin
@@ -946,11 +946,11 @@ begin
      for I := 0 to Result.DimN-1 do Result[ I ] := TSingle.RandBS4;
 end;
 
-// %%%%% TdSingleND
+//TdSingleND
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingleND.Gets( const X_:Integer ) :TdSingle;
 begin
@@ -1046,7 +1046,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TdSingleND.Create( const N_:Integer );
 begin
@@ -1076,7 +1076,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdSingleND.Negative( const V_:TdSingleND ) :TdSingleND;
 var
@@ -1219,7 +1219,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TdSingleND.Implicit( const V_:TSingleND ) :TdSingleND;
 var
@@ -1246,11 +1246,11 @@ begin
      for I := 0 to Result.DimN-1 do Result[ I ] := V_[ I ].o;
 end;
 
-// %%%%% TdDoubleND
+//TdDoubleND
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdDoubleND.Gets( const X_:Integer ) :TdDouble;
 begin
@@ -1346,7 +1346,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TdDoubleND.Create( const N_:Integer );
 begin
@@ -1376,7 +1376,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdDoubleND.Negative( const V_:TdDoubleND ) :TdDoubleND;
 var
@@ -1519,7 +1519,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TdDoubleND.Implicit( const V_:TDoubleND ) :TdDoubleND;
 var
@@ -1718,4 +1718,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

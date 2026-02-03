@@ -18,13 +18,13 @@ type
      protected
        _Poin0 :_TPoin_;
        _Poin1 :_TPoin_;
-       ///// アクセス
+       
        function GetPoin0 :_TPoin_; virtual;
        procedure SetPoin0( const Poin0_:_TPoin_ ); virtual;
        function GetPoin1 :_TPoin_; virtual;
        procedure SetPoin1( const Poin1_:_TPoin_ ); virtual;
      public
-       ///// プロパティ
+       
        property Poin0 :_TPoin_ read GetPoin0 write SetPoin0;
        property Poin1 :_TPoin_ read GetPoin1 write SetPoin1;
      end;
@@ -40,15 +40,15 @@ type
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property PoinModel :TPoinModel<_TPos_,_TPoin_> read _PoinModel;
-       ///// メソッド
+       
        procedure DeleteChilds; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -58,13 +58,13 @@ implementation //
 
 //  
 
-// %%%%% TWire<_TPos_,_TPoin_>
+//TWire<_TPos_,_TPoin_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TWire<_TPos_,_TPoin_>.GetPoin0 :_TPoin_;
 begin
@@ -86,15 +86,15 @@ begin
      _Poin1 := Poin1_;
 end;
 
-// & public
 
-// %%%%% TWireModel<_TPos_,_TPoin_,_TWire_>
 
-//  private
+//TWireModel<_TPos_,_TPoin_,_TWire_>
 
-//  protected
 
-// & public
+
+
+
+
 
 constructor TWireModel<_TPos_,_TPoin_,_TWire_>.Create;
 begin
@@ -110,7 +110,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TWireModel<_TPos_,_TPoin_,_TWire_>.DeleteChilds;
 begin
@@ -127,4 +127,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

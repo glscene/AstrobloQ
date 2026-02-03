@@ -17,15 +17,15 @@ type
 
      IGLVerBuf = interface( IGLBuffer )
      ['{1DDD600E-0FA5-4D07-A280-72B96722D0C7}']
-       ///// アクセス
+       
        function GetElemT :GLenum;
        function GetElemS :Integer;
        function GetElemN :GLint;
-       ///// プロパティ
+       
        property ElemT :GLenum read GetElemT;
        property ElemS :GLint  read GetElemS;
        property ElemN :GLint  read GetElemN;
-       ///// メソッド
+       
        procedure Use( const BinP_:GLuint );
        procedure Unuse( const BinP_:GLuint );
      end;
@@ -35,17 +35,17 @@ type
      TGLVerBuf<_TItem_:record> = class( TGLBuffer<_TItem_,TGLBufferData<_TItem_>>, IGLVerBuf )
      private
      protected
-       ///// アクセス
+       
        function GetKind :GLenum; override;
        function GetElemT :GLenum; virtual; abstract;
        function GetElemS :Integer; virtual; abstract;
        function GetElemN :GLint;
      public
-       ///// プロパティ
+       
        property ElemT :GLenum read GetElemT;
        property ElemS :GLint  read GetElemS;
        property ElemN :GLint  read GetElemN;
-       ///// メソッド
+       
        procedure Use( const BinP_:GLuint );
        procedure Unuse( const BinP_:GLuint );
      end;
@@ -55,7 +55,7 @@ type
      TGLVerBufI<_TItem_:record> = class( TGLVerBuf<_TItem_> )
      private
      protected
-       ///// アクセス
+       
        function GetElemT :GLenum; override;
        function GetElemS :Integer; override;
      public
@@ -66,15 +66,15 @@ type
      TGLVerBufS<_TItem_:record> = class( TGLVerBuf<_TItem_> )
      private
      protected
-       ///// アクセス
+       
        function GetElemT :GLenum; override;
        function GetElemS :Integer; override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -84,13 +84,13 @@ implementation //
 
 //  
 
-// %%%%% TGLVerBuf<_TItem_>
+//TGLVerBuf<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLVerBuf<_TItem_>.GetKind :GLenum;
 begin
@@ -102,9 +102,9 @@ begin
      Result := SizeOf( _TItem_ ) div GetElemS;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLVerBuf<_TItem_>.Use( const BinP_:GLuint );
 begin
@@ -116,13 +116,13 @@ begin
      glBindVertexBuffer( BinP_, 0, 0, 0 );
 end;
 
-// %%%%% TGLVerBufI<_TItem_>
+//TGLVerBufI<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLVerBufI<_TItem_>.GetElemT :GLenum;
 begin
@@ -134,13 +134,13 @@ begin
      Result := SizeOf( Integer );
 end;
 
-// %%%%% TGLVerBufS<_TItem_>
+//TGLVerBufS<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLVerBufS<_TItem_>.GetElemT :GLenum;
 begin
@@ -152,7 +152,7 @@ begin
      Result := SizeOf( Single );
 end;
 
-// & public
+
 
 //  
 
@@ -162,4 +162,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -19,13 +19,13 @@ type
      private
      protected
        _Pos :_TPos_;
-       ///// アクセス
+       
        function GetPos :_TPos_; virtual;
        procedure SetPos( const Pos_:_TPos_ ); virtual;
      public
        constructor Create( const Pos_:_TPos_ ); overload;
        constructor Create( const Pos_:_TPos_; const Paren_:TTreeNode ); overload;
-       ///// プロパティ
+       
        property Pos :_TPos_ read GetPos write SetPos;
      end;
 
@@ -37,9 +37,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -49,13 +49,13 @@ implementation //
 
 //  
 
-// %%%%% TPoin<_TPos_>
+//TPoin<_TPos_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TPoin<_TPos_>.GetPos :_TPos_;
 begin
@@ -67,7 +67,7 @@ begin
      _Pos := Pos_;
 end;
 
-// & public
+
 
 constructor TPoin<_TPos_>.Create( const Pos_:_TPos_ );
 begin
@@ -83,13 +83,13 @@ begin
      _Pos := Pos_;
 end;
 
-// %%%%% TPoinModel<_TPos_,_TPoin_>
+//TPoinModel<_TPos_,_TPoin_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
@@ -99,4 +99,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

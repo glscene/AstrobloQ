@@ -25,7 +25,7 @@ type
      private
        type TCLImaDat_ = TCLImaDat<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>;
      protected
-       ///// アクセス
+       
        function GetKind :T_cl_mem_flags; override;
        function GetData :TCLImaDat_; reintroduce; virtual;
        procedure SetData( const Data_:TCLImaDat_ ); reintroduce; virtual;
@@ -41,10 +41,10 @@ type
        function GetCountZ :Integer; virtual;
        procedure SetCountZ( const CountZ_:Integer ); virtual;
        function GetDescri :T_cl_image_desc; virtual;
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; override;
      public
-       ///// プロパティ
+       
        property Data   :TCLImaDat_           read GetData   write SetData  ;
        property PixCha :T_cl_channel_order   read GetPixCha                ;
        property PixTyp :T_cl_channel_type    read GetPixTyp                ;
@@ -54,7 +54,7 @@ type
        property CountY :Integer              read GetCountY write SetCountY;
        property CountZ :Integer              read GetCountZ write SetCountZ;
        property Descri :T_cl_image_desc      read GetDescri                ;
-       ///// メソッド
+       
        procedure Fill( const Value_:TValue_ );
      end;
 
@@ -68,19 +68,19 @@ type
        _PitchX :Integer;
        _PitchY :Integer;
        _PitchZ :Integer;
-       ///// アクセス
+       
        function GetImager :TCLImager_; virtual;
        function GetValueP :PByte;
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; override;
      public
-       ///// プロパティ
+       
        property Imager :TCLImager_ read GetImager;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -92,13 +92,13 @@ uses LUX.GPU.OpenCL.Contex;
 
 //  
 
-// %%%%% TCLImager<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+//TCLImager<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLImager<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.GetKind :T_cl_mem_flags;
 begin
@@ -186,7 +186,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLImager<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.CreateHandle :T_cl_int;
 var
@@ -201,9 +201,9 @@ begin
      _Handle := clCreateImage( TCLContex<TCLSystem_,TCLPlatfo_>( Contex ).Handle, Kind, @F, @D, nil, @Result );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TCLImager<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.Fill( const Value_:TValue_ );
 var
@@ -220,13 +220,13 @@ begin
                                    0, nil, nil ), 'TCLImager.Fill is Error!' );
 end;
 
-// %%%%% TCLImaDat<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
+//TCLImaDat<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLImaDat<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.GetImager :TCLImager_;
 begin
@@ -238,7 +238,7 @@ begin
      Result := Handle;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLImaDat<TCLSystem_,TCLPlatfo_,TCLContex_,TValue_>.CreateHandle :T_cl_int;
 var
@@ -258,8 +258,8 @@ begin
      _Handle := clEnqueueMapImage( Queuer.Handle, Imager.Handle, CL_TRUE, Mode, @O, @R, @_PitchY, @_PitchZ, 0, nil, @V, @Result );
 end;
 
-// & public
+
 
 //  
 
-end. // 
+end.

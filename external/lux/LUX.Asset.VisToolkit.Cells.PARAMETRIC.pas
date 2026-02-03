@@ -71,9 +71,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -83,13 +83,13 @@ implementation //
 
 //  
 
-// %%%%% TvtkCell51
+//TvtkCell51
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell51.Create;
 begin
@@ -103,13 +103,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell52
+//TvtkCell52
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell52.Create;
 begin
@@ -123,13 +123,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell53
+//TvtkCell53
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell53.Create;
 begin
@@ -143,13 +143,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell54
+//TvtkCell54
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell54.Create;
 begin
@@ -163,13 +163,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell55
+//TvtkCell55
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell55.Create;
 begin
@@ -183,13 +183,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell56
+//TvtkCell56
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell56.Create;
 begin
@@ -211,4 +211,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

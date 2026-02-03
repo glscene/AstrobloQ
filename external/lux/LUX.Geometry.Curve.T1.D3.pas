@@ -11,9 +11,9 @@ uses LUX, LUX.D3,
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -54,4 +54,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

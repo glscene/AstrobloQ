@@ -24,7 +24,7 @@ type
        _Key   :_TKey_;
        _Order :Integer;
        _Value :_TValue_;
-       ///// アクセス
+       
        function GetParen :TIndexDictionary<_TKey_,_TValue_>;
        function GetKey :_TKey_;
        function GetOrder :Integer;
@@ -33,7 +33,7 @@ type
      public
        constructor Create( const Paren_:TIndexDictionary<_TKey_,_TValue_> );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Paren :TIndexDictionary<_TKey_,_TValue_> read GetParen;
        property Key   :_TKey_                            read GetKey  ;
        property Order :Integer                           read GetOrder;
@@ -45,21 +45,21 @@ type
      TIndexDictionary<_TKey_,_TValue_> = class( TObjectDictionary<_TKey_,TDictItem<_TKey_,_TValue_>> )
      private
      protected
-       ///// イベント
+       //-----------
        _OnChange :TConstProc<TDictItem<_TKey_,_TValue_>>;
      public
        constructor Create( Capacity_:Integer = 0 );
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure Add( const Key_:_TKey_; const Value_:_TValue_ );
        procedure Del( const Key_:_TKey_ );
-       ///// イベント
+       //-----------
        property OnChange :TConstProc<TDictItem<_TKey_,_TValue_>> read _OnChange write _OnChange;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -69,11 +69,11 @@ implementation //
 
 //  
 
-// %%%%% TDictItem<_TKey_,_TValue_>
+//TDictItem<_TKey_,_TValue_>
 
-//  private
 
-//  protected
+
+
 
 function TDictItem<_TKey_,_TValue_>.GetParen :TIndexDictionary<_TKey_,_TValue_>;
 begin
@@ -105,7 +105,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TDictItem<_TKey_,_TValue_>.Create( const Paren_:TIndexDictionary<_TKey_,_TValue_> );
 begin
@@ -129,11 +129,11 @@ begin
      inherited;
 end;
 
-// %%%%% TIndexDictionary<_TKey_,_TValue_>
+//TIndexDictionary<_TKey_,_TValue_>
 
-//  private
 
-//  protected
+
+
 
 constructor TIndexDictionary<_TKey_,_TValue_>.Create( Capacity_:Integer = 0 );
 begin
@@ -168,7 +168,7 @@ begin
      Remove( Key_ );
 end;
 
-// & public
+
 
 //  
 
@@ -178,4 +178,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

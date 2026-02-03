@@ -52,12 +52,12 @@ type
      TRandom32PCG<_TSeed_:record> = class( TRandomPCG<_TSeed_> )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt08u :Int08u; override;
        function CalcRandInt16u :Int16u; override;
        function CalcRandInt64u :Int64u; override;
      public
-       ///// メソッド
+       
        // Rotate helper functions.
        class function pcg_rotr_8( value:Int08u; rot:Int32u ) :Int08u;
        class function pcg_rotr_16( value:Int16u; rot:Int32u ) :Int16u;
@@ -157,7 +157,7 @@ type
      TRandom32PCG32 = class( TRandom32PCG<T_pcg_state_32> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -169,7 +169,7 @@ type
      TRandom32PCG32x31 = class( TRandom32PCG<T_pcg_state_setseq_32> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -203,7 +203,7 @@ const //$$
       PCG32SI_INITIALIZER             :T_pcg_state_32        = ( state:$46b56677                                );  //= PCG_STATE_ONESEQ_32_INITIALIZER
       PCG32I_INITIALIZER              :T_pcg_state_setseq_32 = ( state:$ec02d89b;         inc:$94b95bdb         );  //= PCG_STATE_SETSEQ_32_INITIALIZER
 
-//var //$$ 
+ 
 
 //  
 
@@ -215,15 +215,15 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom32PCG<_TSeed_>
+//TRandom32PCG<_TSeed_>
 
 { https://github.com/imneme/pcg-c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32PCG<_TSeed_>.CalcRandInt08u :Int08u;
 begin
@@ -240,9 +240,9 @@ begin
      Result := Int64u( CalcRandInt32u ) shl 32 or CalcRandInt32u;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 { https://github.com/imneme/pcg-c/blob/master/include/pcg_variants.h }
 
@@ -695,7 +695,7 @@ end;
 
 //------------------------------------------- Generation functions for XSL RR RR
 
-/////////////////////////////////////////////////////////////////////// random_r
+//-------------------------------------------------------///// random_r
 
 class function TRandom32PCG<_TSeed_>.pcg32_random_r( var rng:T_pcg_state_setseq_64 ) :Int32u;
 begin
@@ -727,7 +727,7 @@ begin
      Result := pcg_setseq_32_rxs_m_xs_32_random_r( rng );
 end;
 
-////////////////////////////////////////////////////////////////// boundedrand_r
+//------------------------------------------------------- boundedrand_r
 
 class function TRandom32PCG<_TSeed_>.pcg32_boundedrand_r( var rng:T_pcg_state_setseq_64; bound:Int32u ) :Int32u;
 begin
@@ -759,7 +759,7 @@ begin
      Result := pcg_setseq_32_rxs_m_xs_32_boundedrand_r( rng, bound );
 end;
 
-////////////////////////////////////////////////////////////////////// srandom_r
+//-------------------------------------------------------//// srandom_r
 
 class procedure TRandom32PCG<_TSeed_>.pcg32_srandom_r( var rng:T_pcg_state_setseq_64; initstate:Int64u; initseq:Int64u );
 begin
@@ -791,7 +791,7 @@ begin
      pcg_setseq_32_srandom_r( rng, initstate, initseq );
 end;
 
-////////////////////////////////////////////////////////////////////// advance_r
+//-------------------------------------------------------//// advance_r
 
 class procedure TRandom32PCG<_TSeed_>.pcg32_advance_r( var rng:T_pcg_state_setseq_64; delta:Int64u );
 begin
@@ -823,13 +823,13 @@ begin
      pcg_setseq_32_advance_r( rng, delta );
 end;
 
-// %%%%% TRandom32PCG32
+//TRandom32PCG32
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32PCG32.CalcNextSeed;
 begin
@@ -843,7 +843,7 @@ begin
      Result := pcg_output_rxs_m_xs_32_32( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom32PCG32.CreateFromRand( const Random_:IRandom );
 var
@@ -854,13 +854,13 @@ begin
      Create( S );
 end;
 
-// %%%%% TRandom32PCG32x31
+//TRandom32PCG32x31
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32PCG32x31.CalcNextSeed;
 begin
@@ -874,7 +874,7 @@ begin
      Result := pcg_output_rxs_m_xs_32_32( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom32PCG32x31.CreateFromRand( const Random_:IRandom );
 var
@@ -893,4 +893,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

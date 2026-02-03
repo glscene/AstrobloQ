@@ -13,7 +13,7 @@ type
 
      TSingle5D = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :Single; inline;
        procedure Sets( const X_:Integer; const V_:Single ); inline;
        function GetSiz2 :Single; inline;
@@ -25,7 +25,7 @@ type
      public
        constructor Create( const V_:Single ); overload;
        constructor Create( const V1_,V2_,V3_,V4_,V5_:Single ); overload;
-       ///// プロパティ
+       
        property _s[ const X_:Integer ] :Single    read Gets      write Sets     ; default;
        property Siz2                   :Single    read GetSiz2   write SetSiz2  ;
        property Size                   :Single    read GetSize   write SetSize  ;
@@ -48,7 +48,7 @@ type
        class function Identity3 :TSingle5D; inline; static;
        class function Identity4 :TSingle5D; inline; static;
        class function Identity5 :TSingle5D; inline; static;
-       ///// メソッド
+       
        function VectorTo( const P_:TSingle5D ) :TSingle5D;
        function UnitorTo( const P_:TSingle5D ) :TSingle5D;
        function DistanTo( const P_:TSingle5D ) :Single;
@@ -72,7 +72,7 @@ type
 
      TDouble5D = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :Double; inline;
        procedure Sets( const X_:Integer; const V_:Double ); inline;
        function GetSiz2 :Double; inline;
@@ -84,7 +84,7 @@ type
      public
        constructor Create( const V_:Double ); overload;
        constructor Create( const V1_,V2_,V3_,V4_,V5_:Double ); overload;
-       ///// プロパティ
+       
        property _s[ const X_:Integer ] :Double    read Gets      write Sets     ; default;
        property Siz2                   :Double    read GetSiz2   write SetSiz2  ;
        property Size                   :Double    read GetSize   write SetSize  ;
@@ -107,7 +107,7 @@ type
        class function Identity3 :TDouble5D; inline; static;
        class function Identity4 :TDouble5D; inline; static;
        class function Identity5 :TDouble5D; inline; static;
-       ///// メソッド
+       
        function VectorTo( const P_:TDouble5D ) :TDouble5D;
        function UnitorTo( const P_:TDouble5D ) :TDouble5D;
        function DistanTo( const P_:TDouble5D ) :Double;
@@ -131,7 +131,7 @@ type
 
      TdSingle5D = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :TdSingle; inline;
        procedure Sets( const X_:Integer; const V_:TdSingle ); inline;
        function Geto :TSingle5D; inline;
@@ -146,7 +146,7 @@ type
        procedure SetUnitor( const Unitor_:TdSingle5D ); inline;
      public
        constructor Create( const V1_,V2_,V3_,V4_,V5_:TdSingle );
-       ///// プロパティ
+       
        property _s[ const X_:Integer ] :TdSingle   read Gets      write Sets     ; default;
        property o                      :TSingle5D  read Geto      write Seto     ;
        property d                      :TSingle5D  read Getd      write Setd     ;
@@ -180,7 +180,7 @@ type
 
      TdDouble5D = record
      private
-       ///// アクセス
+       
        function Gets( const X_:Integer ) :TdDouble; inline;
        procedure Sets( const X_:Integer; const V_:TdDouble ); inline;
        function Geto :TDouble5D; inline;
@@ -195,7 +195,7 @@ type
        procedure SetUnitor( const Unitor_:TdDouble5D ); inline;
      public
        constructor Create( const V1_,V2_,V3_,V4_,V5_:TdDouble );
-       ///// プロパティ
+       
        property _s[ const X_:Integer ] :TdDouble   read Gets      write Sets     ; default;
        property o                      :TDouble5D  read Geto      write Seto     ;
        property d                      :TDouble5D  read Getd      write Setd     ;
@@ -227,9 +227,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -272,11 +272,11 @@ uses System.SysUtils, System.Math;
 
 //  
 
-// %%%%% TSingle5D
+//TSingle5D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle5D.Gets( const X_:Integer ) :Single;
 begin
@@ -320,7 +320,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TSingle5D.Create( const V_:Single );
 begin
@@ -340,7 +340,7 @@ begin
      _5 := V5_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TSingle5D.Negative( const V_:TSingle5D ) :TSingle5D;
 begin
@@ -426,7 +426,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TSingle5D.Explicit( const V_:TSingle5D ) :TSingle2D;
 begin
@@ -458,7 +458,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////////// 定数
+//-------------------------------------------------------///////// 定数
 
 class function TSingle5D.Identity1 :TSingle5D;
 begin
@@ -520,7 +520,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TSingle5D.VectorTo( const P_:TSingle5D ) :TSingle5D;
 begin
@@ -589,11 +589,11 @@ begin
      end;
 end;
 
-// %%%%% TDouble5D
+//TDouble5D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TDouble5D.Gets( const X_:Integer ) :Double;
 begin
@@ -637,7 +637,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TDouble5D.Create( const V_:Double );
 begin
@@ -657,7 +657,7 @@ begin
      _5 := V5_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TDouble5D.Negative( const V_:TDouble5D ) :TDouble5D;
 begin
@@ -743,7 +743,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TDouble5D.Explicit( const V_:TDouble5D ) :TDouble2D;
 begin
@@ -775,7 +775,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////////// 定数
+//-------------------------------------------------------///////// 定数
 
 class function TDouble5D.Identity1 :TDouble5D;
 begin
@@ -837,7 +837,7 @@ begin
      end;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TDouble5D.VectorTo( const P_:TDouble5D ) :TDouble5D;
 begin
@@ -906,11 +906,11 @@ begin
      end;
 end;
 
-// %%%%% TdSingle5D
+//TdSingle5D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle5D.Gets( const X_:Integer ) :TdSingle;
 begin
@@ -990,7 +990,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TdSingle5D.Create( const V1_,V2_,V3_,V4_,V5_:TdSingle );
 begin
@@ -1001,7 +1001,7 @@ begin
      _5 := V5_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdSingle5D.Negative( const V_:TdSingle5D ) :TdSingle5D;
 begin
@@ -1087,7 +1087,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TdSingle5D.Implicit( const V_:TSingle5D ) :TdSingle5D;
 const
@@ -1105,11 +1105,11 @@ begin
      Result := V_.o;
 end;
 
-// %%%%% TdDouble5D
+//TdDouble5D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdDouble5D.Gets( const X_:Integer ) :TdDouble;
 begin
@@ -1189,7 +1189,7 @@ begin
      Self := Size * Unitor_;
 end;
 
-// & public
+
 
 constructor TdDouble5D.Create( const V1_,V2_,V3_,V4_,V5_:TdDouble );
 begin
@@ -1200,7 +1200,7 @@ begin
      _5 := V5_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdDouble5D.Negative( const V_:TdDouble5D ) :TdDouble5D;
 begin
@@ -1286,7 +1286,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TdDouble5D.Implicit( const V_:TDouble5D ) :TdDouble5D;
 const
@@ -1676,4 +1676,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

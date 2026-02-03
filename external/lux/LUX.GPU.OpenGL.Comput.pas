@@ -26,7 +26,7 @@ type
      IGLComput = interface
      ['{13071090-B024-474A-BDA2-AB604AD10B16}']
      {protected}
-       ///// アクセス
+       
        function GetEngine  :TGLEngine;
        function GetShaderC :TGLShaderC;
        function GetBuffers :TIndexDictionary<String,IGLBuffer>;
@@ -50,7 +50,7 @@ type
        function GetWorksZ :GLuint;
        procedure SetWorksZ( const WorksZ_:GLuint );
      {public}
-       ///// プロパティ
+       
        property Engine  :TGLEngine                          read GetEngine  ;
        property ShaderC :TGLShaderC                         read GetShaderC ;
        property Buffers :TIndexDictionary<String,IGLBuffer> read GetBuffers ;
@@ -64,7 +64,7 @@ type
        property WorksX  :GLuint                             read GetWorksX  write SetWorksX;
        property WorksY  :GLuint                             read GetWorksY  write SetWorksY;
        property WorksZ  :GLuint                             read GetWorksZ  write SetWorksZ;
-       ///// メソッド
+       
        procedure Run;
      end;
 
@@ -84,7 +84,7 @@ type
        _GrupsX  :GLuint;
        _GrupsY  :GLuint;
        _GrupsZ  :GLuint;
-       ///// アクセス
+       
        function GetEngine  :TGLEngine;
        function GetShaderC :TGLShaderC;
        function GetBuffers :TIndexDictionary<String,IGLBuffer>;
@@ -115,7 +115,7 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Engine  :TGLEngine                          read GetEngine  ;
        property ShaderC :TGLShaderC                         read GetShaderC ;
        property Buffers :TIndexDictionary<String,IGLBuffer> read GetBuffers ;
@@ -130,14 +130,14 @@ type
        property WorksX  :GLuint                             read GetWorksX  write SetWorksX;
        property WorksY  :GLuint                             read GetWorksY  write SetWorksY;
        property WorksZ  :GLuint                             read GetWorksZ  write SetWorksZ;
-       ///// メソッド
+       
        procedure Run;
        procedure RunARB;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -147,13 +147,13 @@ implementation //
 
 //  
 
-// %%%%% TGLComput
+//TGLComput
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLComput.GetEngine :TGLEngine;
 begin
@@ -357,7 +357,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TGLComput.Create;
 begin
@@ -393,7 +393,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLComput.Run;
 begin
@@ -428,4 +428,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

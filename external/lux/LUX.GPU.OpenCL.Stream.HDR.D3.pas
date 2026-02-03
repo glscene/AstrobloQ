@@ -20,7 +20,7 @@ type
      ['{519564A2-6DEB-407F-B078-5147AD141A1A}']
      {protected}
      {public}
-       ///// メソッド
+       
        procedure CopyFrom( const Z_:Integer; const Grider_:TCellColorGrid2D_TByteRGBE );
      end;
 
@@ -28,7 +28,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyFrom( const Z_:Integer; const Grider_:TCellColorGrid2D_TByteRGBE ); overload; virtual; abstract;
      end;
 
@@ -40,13 +40,13 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyFrom( const Z_:Integer; const Grider_:TCellColorGrid2D_TByteRGBE ); override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -58,23 +58,23 @@ uses System.Threading;
 
 //  
 
-// %%%%% TCLStream3D_HDR<TCLImager_>
+//TCLStream3D_HDR<TCLImager_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TCLStream3DxRGBAxSFlo32_HDR
 
-//  private
 
-//  protected
 
-// & public
+//TCLStream3DxRGBAxSFlo32_HDR
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream3DxRGBAxSFlo32_HDR.CopyFrom( const Z_:Integer; const Grider_:TCellColorGrid2D_TByteRGBE );
 begin
@@ -101,4 +101,4 @@ end;
 
 //  
 
-end. // 
+end.

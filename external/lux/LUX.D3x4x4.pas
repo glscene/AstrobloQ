@@ -12,11 +12,11 @@ type
 
      TSingle4x4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :TSingle3D; inline;
        procedure Sets( const Y_,X_:Integer; const M_:TSingle3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :TSingle3D read Gets write Sets; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of TSingle3D; );
@@ -30,11 +30,11 @@ type
 
      TDouble4x4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :TDouble3D; inline;
        procedure Sets( const Y_,X_:Integer; const M_:TDouble3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :TDouble3D read Gets write Sets; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of TDouble3D; );
@@ -48,11 +48,11 @@ type
 
      TdSingle4x4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :TdSingle3D; inline;
        procedure Sets( const Y_,X_:Integer; const M_:TdSingle3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :TdSingle3D read Gets write Sets; default;
        ///// 型変換
        class operator Implicit( const M_:TSingle4x4x3D ) :TdSingle4x4x3D; inline;
@@ -69,11 +69,11 @@ type
 
      TdDouble4x4x3D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :TdDouble3D; inline;
        procedure Sets( const Y_,X_:Integer; const M_:TdDouble3D ); inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :TdDouble3D read Gets write Sets; default;
        ///// 型変換
        class operator Implicit( const M_:TDouble4x4x3D ) :TdDouble4x4x3D; inline;
@@ -88,9 +88,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -98,11 +98,11 @@ implementation //
 
 //  
 
-// %%%%% TSingle4x4x3D
+//TSingle4x4x3D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle4x4x3D.Gets( const Y_,X_:Integer ) :TSingle3D;
 begin
@@ -114,13 +114,13 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
 
-// %%%%% TDouble4x4x3D
 
-//  private
+//TDouble4x4x3D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDouble4x4x3D.Gets( const Y_,X_:Integer ) :TDouble3D;
 begin
@@ -132,11 +132,11 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// %%%%% TdSingle4x4x3D
+//TdSingle4x4x3D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle4x4x3D.Gets( const Y_,X_:Integer ) :TdSingle3D;
 begin
@@ -148,9 +148,9 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
 
-///////////////////////////////////////////////////////////////////////// 型変換
+
+//-------------------------------------------------------/////// 型変換
 
 class operator TdSingle4x4x3D.Implicit( const M_:TSingle4x4x3D ) :TdSingle4x4x3D;
 begin
@@ -174,11 +174,11 @@ begin
      end;
 end;
 
-// %%%%% TdDouble4x4x3D
+//TdDouble4x4x3D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdDouble4x4x3D.Gets( const Y_,X_:Integer ) :TdDouble3D;
 begin
@@ -190,9 +190,9 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
 
-///////////////////////////////////////////////////////////////////////// 型変換
+
+//-------------------------------------------------------/////// 型変換
 
 class operator TdDouble4x4x3D.Implicit( const M_:TDouble4x4x3D ) :TdDouble4x4x3D;
 begin
@@ -226,4 +226,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

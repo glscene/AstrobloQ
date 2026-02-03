@@ -45,7 +45,7 @@ type
        _ScaleY    :TArray<TScaleLine>;
        _ScaleN    :Integer;
        _FontColor :TAlphaColor;
-       ///// アクセス
+       
        procedure SetMargin( const Margin_:Single ); virtual;
        procedure SetMinX( const MinX_:Single ); virtual;
        procedure SetMaxX( const MaxX_:Single ); virtual;
@@ -66,7 +66,7 @@ type
        procedure SetScaleY( const I_:Integer; const ScaleY_:TScaleLine ); virtual;
        procedure SetScaleN( const ScaleN_:Integer ); virtual;
        procedure SetFontColor( const FontColor_:TAlphaColor ); virtual;
-       ///// メソッド
+       
        procedure MouseDown( Button_:TMouseButton; Shift_:TShiftState; X_,Y_:Single ); override;
        procedure MouseMove( Shift_:TShiftState; X_,Y_:Single); override;
        procedure MouseUp( Button_:TMouseButton; Shift_:TShiftState; X_,Y_:Single ); override;
@@ -80,13 +80,13 @@ type
        procedure DrawScaleY( const Interval_:Single );
        procedure DrawValuesX( const Interval_:Single; const Digits_:Integer );
        procedure DrawValuesY( const Interval_:Single; const Digits_:Integer );
-       ///// プロパティ
+       
        property Hover :Integer read _Hover write SetHover;
      public
         
        constructor Create( AOwner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Margin                     :Single      read   _Margin    write SetMargin   ;
        property Area                       :TRectF      read   _Area                        ;
        property MinX                       :Single      read   _MinX      write SetMinX     ;
@@ -104,7 +104,7 @@ type
        property ScaleY[ const I_:Integer ] :TScaleLine  read GetScaleY    write SetScaleY   ;
        property ScaleN                     :Integer     read   _ScaleN    write SetScaleN   ;
        property FontColor                  :TAlphaColor read   _FontColor write SetFontColor;
-       ///// メソッド
+       
        function FindNearPlot( const Scr_:TPointF ) :Integer; overload;
        function FindNearPlot( const Pos_:TSingle2D ) :Integer; overload;
      end;
@@ -119,11 +119,11 @@ uses System.Math;
 
 //  
 
-// %%%%% TScaleLine
+//TScaleLine
 
-//  private
 
-// & public
+
+
 
 constructor TScaleLine.Create( const Scale_,Thick_:Single; const Color_:TAlphacolor );
 begin
@@ -132,13 +132,13 @@ begin
      Color := Color_;
 end;
 
-// %%%%% TScatterPlotFrame
+//TScatterPlotFrame
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TScatterPlotFrame.SetMargin( const Margin_:Single );
 begin
@@ -257,7 +257,7 @@ begin
      _FontColor := FontColor_;  Repaint;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TScatterPlotFrame.MouseDown( Button_:TMouseButton; Shift_:TShiftState; X_,Y_:Single );
 begin
@@ -519,7 +519,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TScatterPlotFrame.Create( AOwner_:TComponent );
 begin
@@ -564,7 +564,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TScatterPlotFrame.FindNearPlot( const Scr_:TPointF ) :Integer;
 var
@@ -602,4 +602,4 @@ begin
      end;
 end;
 
-end. // 
+end.

@@ -91,9 +91,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -103,13 +103,13 @@ implementation //
 
 //  
 
-// %%%%% TvtkCell60
+//TvtkCell60
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell60.Create;
 begin
@@ -123,13 +123,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell61
+//TvtkCell61
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell61.Create;
 begin
@@ -143,13 +143,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell62
+//TvtkCell62
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell62.Create;
 begin
@@ -163,13 +163,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell63
+//TvtkCell63
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell63.Create;
 begin
@@ -183,13 +183,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell64
+//TvtkCell64
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell64.Create;
 begin
@@ -203,13 +203,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell65
+//TvtkCell65
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell65.Create;
 begin
@@ -223,13 +223,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell66
+//TvtkCell66
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell66.Create;
 begin
@@ -243,13 +243,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell67
+//TvtkCell67
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell67.Create;
 begin
@@ -271,4 +271,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

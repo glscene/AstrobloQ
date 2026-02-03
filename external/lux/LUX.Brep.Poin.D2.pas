@@ -28,9 +28,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -40,21 +40,21 @@ implementation //
 
 //  
 
-// %%%%% TPoin2D
+//TPoin2D
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TPoinModel2D
 
-//  private
 
-//  protected
 
-// & public
+//TPoinModel2D
+
+
+
+
+
+
 
 //  
 
@@ -64,4 +64,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

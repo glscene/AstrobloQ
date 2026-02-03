@@ -19,7 +19,7 @@ type
      TPoinColorGrid3D<_TItem_> = class( TPoinArray3D<_TItem_> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawToXY( const BMP_:TBitmap; Z_:Integer; const Func_:TConstFunc<Integer,Integer,Integer,TAlphaColor> ); overload;
      public
      end;
@@ -29,14 +29,14 @@ type
      TCellColorGrid3D<_TItem_> = class( TCellArray3D<_TItem_> )
      private
      protected
-       ///// メソッド
+       
        procedure DrawToXY( const BMP_:TBitmap; Z_:Integer; const Func_:TConstFunc<Integer,Integer,Integer,TAlphaColor> ); overload;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -48,13 +48,13 @@ uses System.Threading;
 
 //  
 
-// %%%%% TPoinColorGrid3D<_TItem_>
+//TPoinColorGrid3D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TPoinColorGrid3D<_TItem_>.DrawToXY( const BMP_:TBitmap; Z_:Integer; const Func_:TConstFunc<Integer,Integer,Integer,TAlphaColor> );
 var
@@ -80,15 +80,15 @@ begin
      BMP_.Unmap( B );
 end;
 
-// & public
 
-// %%%%% TCellColorGrid3D
 
-//  private
+//TCellColorGrid3D
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCellColorGrid3D<_TItem_>.DrawToXY( const BMP_:TBitmap; Z_:Integer; const Func_:TConstFunc<Integer,Integer,Integer,TAlphaColor> );
 var
@@ -114,7 +114,7 @@ begin
      BMP_.Unmap( B );
 end;
 
-// & public
+
 
 //  
 
@@ -124,4 +124,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

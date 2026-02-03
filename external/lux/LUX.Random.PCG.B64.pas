@@ -44,12 +44,12 @@ type
      TRandom64PCG<_TSeed_:record> = class( TRandomPCG<_TSeed_> )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt08u :Int08u; override;
        function CalcRandInt16u :Int16u; override;
        function CalcRandInt32u :Int32u; override;
      public
-       ///// メソッド
+       
        // Rotate helper functions.
        class function pcg_rotr_8( value:Int08u; rot:Int32u ) :Int08u;
        class function pcg_rotr_16( value:Int16u; rot:Int32u ) :Int16u;
@@ -149,7 +149,7 @@ type
      TRandom64PCG64 = class( TRandom64PCG<T_pcg_state_64> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt64u :Int64u; override;
      public
@@ -161,7 +161,7 @@ type
      TRandom64PCG64x63 = class( TRandom64PCG<T_pcg_state_setseq_64> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt64u :Int64u; override;
      public
@@ -186,7 +186,7 @@ const //$$
       PCG64SI_INITIALIZER             :T_pcg_state_64        = ( state:$4d595df4d0f33173                        );  //= PCG_STATE_ONESEQ_64_INITIALIZER
       PCG64I_INITIALIZER              :T_pcg_state_setseq_64 = ( state:$853c49e6748fea9b; inc:$da3e39cb94b95bdb );  //= PCG_STATE_SETSEQ_64_INITIALIZER
 
-//var //$$ 
+ 
 
 //  
 
@@ -198,15 +198,15 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom64PCG<_TSeed_>
+//TRandom64PCG<_TSeed_>
 
 { https://github.com/imneme/pcg-c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom64PCG<_TSeed_>.CalcRandInt08u :Int08u;
 begin
@@ -223,9 +223,9 @@ begin
      Result := CalcRandInt64u shr 32;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 { https://github.com/imneme/pcg-c/blob/master/include/pcg_variants.h }
 
@@ -859,7 +859,7 @@ begin
      Result := r mod bound;
 end;
 
-/////////////////////////////////////////////////////////////////////// random_r
+//-------------------------------------------------------///// random_r
 
 class function TRandom64PCG<_TSeed_>.pcg64si_random_r( var rng:T_pcg_state_64 ) :Int64u;
 begin
@@ -871,7 +871,7 @@ begin
      Result := pcg_setseq_64_rxs_m_xs_64_random_r( rng );
 end;
 
-////////////////////////////////////////////////////////////////// boundedrand_r
+//------------------------------------------------------- boundedrand_r
 
 class function TRandom64PCG<_TSeed_>.pcg64si_boundedrand_r( var rng:T_pcg_state_64; bound:Int64u ) :Int64u;
 begin
@@ -883,7 +883,7 @@ begin
      Result := pcg_setseq_64_rxs_m_xs_64_boundedrand_r( rng, bound );
 end;
 
-////////////////////////////////////////////////////////////////////// srandom_r
+//-------------------------------------------------------//// srandom_r
 
 class procedure TRandom64PCG<_TSeed_>.pcg64si_srandom_r( var rng:T_pcg_state_64; initstate:Int64u );
 begin
@@ -895,7 +895,7 @@ begin
      pcg_setseq_64_srandom_r( rng, initstate, initseq );
 end;
 
-////////////////////////////////////////////////////////////////////// advance_r
+//-------------------------------------------------------//// advance_r
 
 class procedure TRandom64PCG<_TSeed_>.pcg64si_advance_r( var rng:T_pcg_state_64; delta:Int64u );
 begin
@@ -907,13 +907,13 @@ begin
      pcg_setseq_64_advance_r( rng, delta );
 end;
 
-// %%%%% TRandom64PCG64
+//TRandom64PCG64
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64PCG64.CalcNextSeed;
 begin
@@ -927,7 +927,7 @@ begin
      Result := pcg_output_rxs_m_xs_64_64( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom64PCG64.CreateFromRand( const Random_:IRandom );
 var
@@ -938,13 +938,13 @@ begin
      Create( S );
 end;
 
-// %%%%% TRandom64PCG64x63
+//TRandom64PCG64x63
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64PCG64x63.CalcNextSeed;
 begin
@@ -958,7 +958,7 @@ begin
      Result := pcg_output_rxs_m_xs_64_64( _Seed.state );
 end;
 
-// & public
+
 
 constructor TRandom64PCG64x63.CreateFromRand( const Random_:IRandom );
 var
@@ -977,4 +977,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

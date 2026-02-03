@@ -23,7 +23,7 @@ type
        M2 =  9;
        M3 =  5;
      private
-       ///// アクセス
+       
        function GetV0 :Int32u;
        procedure SetV0( const V0_:Int32u );
        function GetVM1 :Int32u;
@@ -64,21 +64,21 @@ type
      TRandom32WEL512a = class( TRandomWEL<TSeed32WEL512a> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
-       ///// メソッド
+       
        function MAT0POS( const t:Int32u; const v:Int32u ) :Int32u; inline;
        function MAT0NEG( const t:Int32s; const v:Int32u ) :Int32u; inline;
        function MAT3NEG( const t:Int32s; const v:Int32u ) :Int32u; inline;
        function MAT4NEG( const t:Int32s; const b,v:Int32u ) :Int32u; inline;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -88,11 +88,11 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TSeed32WEL512a
+//TSeed32WEL512a
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSeed32WEL512a.GetV0 :Int32u;
 begin
@@ -184,19 +184,19 @@ begin
      STATE[ ( state_i + 14 ) and $0000000f ] := newVRm1_;
 end;
 
-// & public
+
 
 //  
 
-// %%%%% TRandom32WEL512a
+//TRandom32WEL512a
 
 { http://www.iro.umontreal.ca/~panneton/well/WELL512a.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32WEL512a.CalcNextSeed;
 var
@@ -225,7 +225,7 @@ begin
      Result := _Seed.V0;
 end;
 
-// & public
+
 
 constructor TRandom32WEL512a.CreateFromRand( const Random_:IRandom );
 var
@@ -242,7 +242,7 @@ begin
      Create( S );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TRandom32WEL512a.MAT0POS( const t:Int32u; const v:Int32u ) :Int32u;
 begin
@@ -272,4 +272,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

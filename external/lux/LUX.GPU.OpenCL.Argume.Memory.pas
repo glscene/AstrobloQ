@@ -30,7 +30,7 @@ type
        _Kind   :T_cl_mem_flags;
        _Data   :TCLMemDat_;
        _Queuer :TCLQueuer_;
-       ///// アクセス
+       
        function GetHanPtr :P_void; override;
        function GetHanSiz :T_size_t; override;
        function GetHandle :T_cl_mem; virtual;
@@ -43,13 +43,13 @@ type
        function GetSize :T_size_t; virtual; abstract;
        function GetQueuer :TCLQueuer_; virtual;
        procedure SetQueuer( const Queuer_:TCLQueuer_ ); virtual;
-       ///// メソッド
+       
        function DestroHandle :T_cl_int; override;
      public
        constructor Create; override;
        constructor Create( const Contex_:TCLContex_; const Queuer_:TCLQueuer_ ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Handle :T_cl_mem       read GetHandle write SetHandle;
        property Kind   :T_cl_mem_flags read GetKind   write SetKind  ;
        property Data   :TCLMemDat_     read GetData   write SetData  ;
@@ -67,33 +67,33 @@ type
        _Memory :TCLMemory_;
        _Mode   :T_cl_map_flags;
        _Handle :P_void;
-       ///// アクセス
+       
        function GetQueuer :TCLQueuer_; virtual;
        function GetMemory :TCLMemory_; virtual;
        function GetMode :T_cl_map_flags; virtual;
        procedure SetMode( const Mode_:T_cl_map_flags ); virtual;
        function GetHandle :P_void; virtual;
        procedure SetHandle( const Handle_:P_void ); virtual;
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; virtual; abstract;
        function DestroHandle :T_cl_int; virtual;
      public
        constructor Create; overload; virtual;
        constructor Create( const Memory_:TCLMemory_ ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Queuer :TCLQueuer_     read GetQueuer                ;
        property Memory :TCLMemory_     read GetMemory                ;
        property Mode   :T_cl_map_flags read GetMode   write SetMode  ;
        property Handle :P_void         read GetHandle write SetHandle;
-       ///// メソッド
+       
        procedure Map; virtual;
        procedure Unmap; virtual;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -103,13 +103,13 @@ implementation //
 
 //  
 
-// %%%%% TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>.GetHanPtr :P_void;
 begin
@@ -177,7 +177,7 @@ begin
      Data.Handle := nil;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>.DestroHandle :T_cl_int;
 begin
@@ -186,7 +186,7 @@ begin
      _Handle := nil;
 end;
 
-// & public
+
 
 constructor TCLMemory<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -215,11 +215,11 @@ begin
      inherited;
 end;
 
-// %%%%% TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>.GetQueuer :TCLQueuer_;
 begin
@@ -263,7 +263,7 @@ begin
      _Handle := Handle_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>.DestroHandle :T_cl_int;
 begin
@@ -272,7 +272,7 @@ begin
      _Handle := nil;
 end;
 
-// & public
+
 
 constructor TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -298,7 +298,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TCLMemDat<TCLSystem_,TCLPlatfo_,TCLContex_>.Map;
 begin
@@ -312,4 +312,4 @@ end;
 
 //  
 
-end. // 
+end.

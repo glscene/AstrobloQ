@@ -32,7 +32,7 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure SendPixBuf; override;
      end;
 
@@ -68,9 +68,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -82,13 +82,13 @@ uses System.Math;
 
 //  
 
-// %%%%% TGLImager1D<_TItem_,_TIter_,_TGrid_>
+//TGLImager1D<_TItem_,_TIter_,_TGrid_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLImager1D<_TItem_,_TIter_,_TGrid_>.Create;
 begin
@@ -102,7 +102,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLImager1D<_TItem_,_TIter_,_TGrid_>.SendPixBuf;
 begin
@@ -113,21 +113,21 @@ begin
      Unbind;
 end;
 
-// %%%%% TGLPoiIma1D<_TItem_>
+//TGLPoiIma1D<_TItem_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TGLCelIma1D<_TItem_>
 
-//  private
 
-//  protected
 
-// & public
+//TGLCelIma1D<_TItem_>
+
+
+
+
+
+
 
 //  
 
@@ -137,4 +137,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

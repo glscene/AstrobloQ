@@ -12,11 +12,11 @@ type
 
      TSingle4DV4 = record
      private
-       ///// アクセス
+       
        function GetV( const I_:Integer ) :TSingle4D; inline;
        procedure SetV( const I_:Integer; const V_:TSingle4D ); inline;
      public
-       ///// プロパティ
+       
        property V[ const I_:Integer ] :TSingle4D read GetV write SetV; default;
      case Integer of
       0:( _ :array [ 1..4 ] of TSingle4D; );
@@ -27,11 +27,11 @@ type
 
      TDouble4DV4 = record
      private
-       ///// アクセス
+       
        function GetV( const I_:Integer ) :TDouble4D; inline;
        procedure SetV( const I_:Integer; const V_:TDouble4D ); inline;
      public
-       ///// プロパティ
+       
        property V[ const I_:Integer ] :TDouble4D read GetV write SetV; default;
      case Integer of
       0:( _ :array [ 1..4 ] of TDouble4D; );
@@ -42,11 +42,11 @@ type
 
      TdSingle4DV4 = record
      private
-       ///// アクセス
+       
        function GetV( const I_:Integer ) :TdSingle4D; inline;
        procedure SetV( const I_:Integer; const V_:TdSingle4D ); inline;
      public
-       ///// プロパティ
+       
        property V[ const I_:Integer ] :TdSingle4D read GetV write SetV; default;
      case Integer of
       0:( _ :array [ 1..4 ] of TdSingle4D; );
@@ -57,11 +57,11 @@ type
 
      TdDouble4DV4 = record
      private
-       ///// アクセス
+       
        function GetV( const I_:Integer ) :TdDouble4D; inline;
        procedure SetV( const I_:Integer; const V_:TdDouble4D ); inline;
      public
-       ///// プロパティ
+       
        property V[ const I_:Integer ] :TdDouble4D read GetV write SetV; default;
      case Integer of
       0:( _ :array [ 1..4 ] of TdDouble4D; );
@@ -70,9 +70,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -80,11 +80,11 @@ implementation //
 
 //  
 
-// %%%%% TSingle4DV4
+//TSingle4DV4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle4DV4.GetV( const I_:Integer ) :TSingle4D;
 begin
@@ -96,13 +96,13 @@ begin
      _[ I_ ] := V_;
 end;
 
-// & public
 
-// %%%%% TDouble4DV4
 
-//  private
+//TDouble4DV4
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDouble4DV4.GetV( const I_:Integer ) :TDouble4D;
 begin
@@ -114,11 +114,11 @@ begin
      _[ I_ ] := V_;
 end;
 
-// %%%%% TdSingle4DV4
+//TdSingle4DV4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle4DV4.GetV( const I_:Integer ) :TdSingle4D;
 begin
@@ -130,13 +130,13 @@ begin
      _[ I_ ] := V_;
 end;
 
-// & public
 
-// %%%%% TdDouble4DV4
 
-//  private
+//TdDouble4DV4
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TdDouble4DV4.GetV( const I_:Integer ) :TdDouble4D;
 begin
@@ -148,7 +148,7 @@ begin
      _[ I_ ] := V_;
 end;
 
-// & public
+
 
 //  
 
@@ -160,4 +160,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

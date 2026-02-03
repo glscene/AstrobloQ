@@ -17,7 +17,7 @@ type
      protected
        _Inside :ShortInt;
      public
-       ///// プロパティ
+       
        property Inside :ShortInt read _Inside write _Inside;
      end;
 
@@ -27,10 +27,10 @@ type
      private
      protected
        _Inside :Boolean;
-       ///// アクセス
+       
        procedure SetPoin( const I_:Byte; const Poin_:TDelaPoin2D ); override;
      public
-       ///// プロパティ
+       
        property Inside :Boolean read _Inside write _Inside;
      end;
 
@@ -46,18 +46,18 @@ type
        /////
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Radius :Single read _Radius write _Radius;
-       ///// メソッド
+       
        procedure MakeMesh( const Ps_:TArray<TSingle2D> );
        function InsideEdges( const P_:TSingle2D ) :Single;
        procedure PoissonSubDiv;
        procedure FairMesh;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -70,19 +70,19 @@ uses System.Math,
 
 //  
 
-// %%%%% TTriGenPoin
+//TTriGenPoin
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TTriGenFace
 
-//  private
 
-//  protected
+
+//TTriGenFace
+
+
+
+
 
 procedure TTriGenFace.SetPoin( const I_:Byte; const Poin_:TDelaPoin2D );
 begin
@@ -94,15 +94,15 @@ begin
             and ( TTriGenModel<TTriGenPoin,TTriGenFace>( Paren ).InsideEdges( Circle.Center ) < -0.5 );
 end;
 
-// & public
 
-// %%%%% TTriGenModel
 
-//  private
+//TTriGenModel
 
-//  protected
 
-// & public
+
+
+
+
 
 constructor TTriGenModel<_TPoin_,_TFace_>.Create;
 begin
@@ -118,7 +118,7 @@ begin
      inherited;
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 procedure TTriGenModel<_TPoin_,_TFace_>.MakeMesh( const Ps_:TArray<TSingle2D> );
 var
@@ -266,4 +266,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -27,19 +27,19 @@ type
      protected
        _Device :TCLDevice_;
        _Handle :T_cl_command_queue;
-       ///// アクセス
+       
        function GetHandle :T_cl_command_queue;
        procedure SetHandle( const Handle_:T_cl_command_queue );
        function GetDevice :TCLDevice_;
        procedure SetDevice( const Device_:TCLDevice_ );
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; virtual;
        function DestroHandle :T_cl_int; virtual;
      public
        constructor Create; override;
        constructor Create( const Contex_:TCLContex_; const Device_:TCLDevice_ ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Contex  :TCLContex_         read GetOwnere                ;
        property Queuers :TCLQueuers_        read GetParent                ;
        property Handle  :T_cl_command_queue read GetHandle write SetHandle;
@@ -55,27 +55,27 @@ type
             TCLDevQues_ = TDictionary<TCLDevice_,TCLQueuer_>;
      protected
        _DevQues :TCLDevQues_;
-       ///// アクセス
+       
        function GetQueuers( const Device_:TCLDevice_ ) :TCLQueuer_;
        procedure SetQueuers( const Device_:TCLDevice_; const Queuer_:TCLQueuer_ );
-       ///// イベント
+       //-----------
        procedure OnInsertChild( const Childr_:TCLQueuer_ ); override;
        procedure OnRemoveChild( const Childr_:TCLQueuer_ ); override;
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Contex                              :TCLContex_ read GetOwnere                  ;
        property Queuers[ const Device_:TCLDevice_ ] :TCLQueuer_ read GetQueuers write SetQueuers; default;
-       ///// メソッド
+       
        function Contains( const Device_:TCLDevice_ ) :Boolean;
        function Add( const Device_:TCLDevice_ ) :TCLQueuer_; overload;
        function GetDeviceIDs :TArray<T_cl_device_id>;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -87,13 +87,13 @@ uses LUX.GPU.OpenCL.Contex;
 
 //  
 
-// %%%%% TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>.GetHandle :T_cl_command_queue;
 begin
@@ -123,7 +123,7 @@ begin
      Handle := nil;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>.CreateHandle :T_cl_int;
 begin
@@ -147,7 +147,7 @@ begin
      _Handle := nil;
 end;
 
-// & public
+
 
 constructor TCLQueuer<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -172,13 +172,13 @@ begin
      inherited;
 end;
 
-// %%%%% TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>.GetQueuers( const Device_:TCLDevice_ ) :TCLQueuer_;
 begin
@@ -192,7 +192,7 @@ begin
      Queuer_.Parent := Self;
 end;
 
-/////////////////////////////////////////////////////////////////////// イベント
+//-------------------------------------------------------//-----------
 
 procedure TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>.OnInsertChild( const Childr_:TCLQueuer_ );
 begin
@@ -210,7 +210,7 @@ begin
      _DevQues.Remove( Childr_.Device );
 end;
 
-// & public
+
 
 constructor TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -228,7 +228,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLQueuers<TCLSystem_,TCLPlatfo_,TCLContex_>.Contains( const Device_:TCLDevice_ ) :Boolean;
 begin
@@ -255,4 +255,4 @@ end;
 
 //  
 
-end. // 
+end.

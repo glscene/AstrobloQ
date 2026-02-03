@@ -22,10 +22,10 @@ type
        _Nor :TSingle3D;
        _Tex :TSingle3D;
      public
-       ///// プロパティ
+       
        property Nor :TSingle3D read _Nor write _Nor;
        property Tex :TSingle3D read _Tex write _Tex;
-       ///// メソッド
+       
        procedure MakeNormal;
      end;
 
@@ -34,11 +34,11 @@ type
      TTriFace3D = class( TTriFace<TSingle3D> )
      private
      protected
-       ///// アクセス
+       
        function GetEdge( const I_:Byte ) :TSingle3D;
        function GetCircumSphere :TSingleSphere;
      public
-       ///// プロパティ
+       
        property Edge[ const I_:Byte ] :TSingle3D     read GetEdge        ;
        property CircumSphere          :TSingleSphere read GetCircumSphere;
      end;
@@ -48,13 +48,13 @@ type
      TTriFaceModel3D<_TPoin_:TTriPoin3D;
                      _TFace_:TTriFace3D> = class( TTriFaceModel<TSingle3D,_TPoin_,_TFace_> )
      private
-       ///// メソッド
+       
        function GetVec( const G_:TGroupCollection ) :TSingle3D;
        function GetPoin( const M_:TMatch; const Ts_,Ns_:TArray<TSingle3D> ) :TTriPoin3D;
        procedure AddFace( const P1_,P2_,P3_:TTriPoin3D );
      protected
      public
-       ///// メソッド
+       
        procedure JoinEdges;
        procedure MakeNormals;
        procedure LoadFromFile( const FileName_:String );
@@ -64,9 +64,9 @@ type
 
      TTriFaceModel3D = TTriFaceModel3D<TTriPoin3D,TTriFace3D>;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -78,15 +78,15 @@ uses System.Classes, System.SysUtils;
 
 //  
 
-// %%%%% TTriPoin3D
+//TTriPoin3D
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TTriPoin3D.MakeNormal;
 var
@@ -125,13 +125,13 @@ begin
                       else _Nor := V / Roo2( L2 );
 end;
 
-// %%%%% TTriFace3D
+//TTriFace3D
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TTriFace3D.GetEdge( const I_:Byte ) :TSingle3D;
 begin
@@ -143,13 +143,13 @@ begin
      Result := TSingleSphere.Create( Poin[ 1 ].Pos, Poin[ 2 ].Pos, Poin[ 3 ].Pos );
 end;
 
-// & public
 
-// %%%%% TTriFaceModel3D<_TPoin_,_TFace_>
 
-//  private
+//TTriFaceModel3D<_TPoin_,_TFace_>
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TTriFaceModel3D<_TPoin_,_TFace_>.GetVec( const G_:TGroupCollection ) :TSingle3D;
 begin
@@ -185,11 +185,11 @@ begin
      end;
 end;
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TTriFaceModel3D<_TPoin_,_TFace_>.JoinEdges;
 var
@@ -336,5 +336,5 @@ initialization //
 
 finalization // 
 
-end. // 
+end.
 

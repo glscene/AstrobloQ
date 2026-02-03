@@ -26,7 +26,7 @@ type
        class operator Multiply( const A_:TSingle2D; const B_:TSingleM2 ) :TSingle2D;
        class operator Multiply( const A_:TSingleM2; const B_:TSingle2D ) :TSingle2D;
        class operator Divide( const A_:TSingleM2; const B_:Single ) :TSingleM2;
-       ///// メソッド
+       
        function Det :Single;
        class function Rotate( const Angle_:Single ) :TSingleM2; static;
 
@@ -54,7 +54,7 @@ type
        class operator Multiply( const A_:TDouble2D; const B_:TDoubleM2 ) :TDouble2D;
        class operator Multiply( const A_:TDoubleM2; const B_:TDouble2D ) :TDouble2D;
        class operator Divide( const A_:TDoubleM2; const B_:Double ) :TDoubleM2;
-       ///// メソッド
+       
        function Det :Double;
        class function Rotate( const Angle_:Double ) :TDoubleM2; static;
 
@@ -82,7 +82,7 @@ type
        class operator Multiply( const A_:TdSingle2D; const B_:TdSingleM2 ) :TdSingle2D;
        class operator Multiply( const A_:TdSingleM2; const B_:TdSingle2D ) :TdSingle2D;
        class operator Divide( const A_:TdSingleM2; const B_:TdSingle ) :TdSingleM2;
-       ///// メソッド
+       
        function Det :TdSingle;
        class function Rotate( const Angle_:TdSingle ) :TdSingleM2; static;
 
@@ -110,7 +110,7 @@ type
        class operator Multiply( const A_:TdDouble2D; const B_:TdDoubleM2 ) :TdDouble2D;
        class operator Multiply( const A_:TdDoubleM2; const B_:TdDouble2D ) :TdDouble2D;
        class operator Divide( const A_:TdDoubleM2; const B_:TdDouble ) :TdDoubleM2;
-       ///// メソッド
+       
        function Det :TdDouble;
        class function Rotate( const Angle_:TdDouble ) :TdDoubleM2; static;
 
@@ -122,9 +122,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -134,11 +134,11 @@ uses System.Math;
 
 //  
 
-// %%%%% TSingleM2
+//TSingleM2
 
-//  private
 
-// & public
+
+
 
 constructor TSingleM2.Create( const _11_,_12_, _21_,_22_:Single );
 begin
@@ -146,7 +146,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TSingleM2.Positive( const V_:TSingleM2 ) :TSingleM2;
 begin
@@ -254,7 +254,7 @@ begin
      end
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TSingleM2.Det :Single;
 begin
@@ -274,11 +274,11 @@ begin
      end
 end;
 
-// %%%%% TDoubleM2
+//TDoubleM2
 
-//  private
 
-// & public
+
+
 
 constructor TDoubleM2.Create( const _11_,_12_, _21_,_22_:Double );
 begin
@@ -286,7 +286,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TDoubleM2.Positive( const V_:TDoubleM2 ) :TDoubleM2;
 begin
@@ -394,7 +394,7 @@ begin
      end
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TDoubleM2.Det :Double;
 begin
@@ -414,11 +414,11 @@ begin
      end
 end;
 
-// %%%%% TdSingleM2
+//TdSingleM2
 
-//  private
 
-// & public
+
+
 
 constructor TdSingleM2.Create( const _11_,_12_, _21_,_22_:TdSingle );
 begin
@@ -426,7 +426,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdSingleM2.Positive( const V_:TdSingleM2 ) :TdSingleM2;
 begin
@@ -534,7 +534,7 @@ begin
      end
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TdSingleM2.Det :TdSingle;
 begin
@@ -554,11 +554,11 @@ begin
      end
 end;
 
-// %%%%% TdDoubleM2
+//TdDoubleM2
 
-//  private
 
-// & public
+
+
 
 constructor TdDoubleM2.Create( const _11_,_12_, _21_,_22_:TdDouble );
 begin
@@ -566,7 +566,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdDoubleM2.Positive( const V_:TdDoubleM2 ) :TdDoubleM2;
 begin
@@ -674,7 +674,7 @@ begin
      end
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TdDoubleM2.Det :TdDouble;
 begin
@@ -694,14 +694,8 @@ begin
      end
 end;
 
-//  
-
-//  
-
-// 
-
 initialization // 
 
-finalization //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 終了化
+finalization //
 
-end. // 
+end.

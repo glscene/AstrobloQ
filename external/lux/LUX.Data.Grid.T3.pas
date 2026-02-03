@@ -24,7 +24,7 @@ type
      IArray3D = interface( IArray2D )
      ['{2ED01C38-BB77-4958-83DE-E4F723A74774}']
      {protected}
-       ///// アクセス
+       
        function GetElemsZ :Integer;
        function GetItemsZ :Integer;
        procedure SetItemsZ( const ItemsZ_:Integer );
@@ -41,7 +41,7 @@ type
        function GetLines( const Y_,Z_:Integer ) :PByteArray;
        function GetLineSize :Integer;
      {public}
-       ///// プロパティ
+       
        property ElemsZ :Integer read GetElemsZ                ;
        property ItemsZ :Integer read GetItemsZ write SetItemsZ;
        property MargsZ :Integer read GetMargsZ write SetMargsZ;
@@ -63,14 +63,14 @@ type
      public type
        _PItem_ = TCoreArray<_TItem_>._PElem_;
      private
-       ///// メソッド
+       
        function ElemsI( const X_,Y_,Z_:Integer ) :Integer; inline;
        function ItemsI( const X_,Y_,Z_:Integer ) :Integer; inline;
      protected
        _ElemsZ :Integer;
        _ItemsZ :Integer;
        _MargsZ :Integer;
-       ///// アクセス
+       
        function GetElemsN :Integer; override;
        function GetElemsZ :Integer;
        function GetElems( const X_,Y_,Z_:Integer ) :_TItem_;
@@ -94,7 +94,7 @@ type
        function GetByteStepZ :Integer;
        function GetLines( const Y_,Z_:Integer ) :PByteArray;
        function GetLineSize :Integer;
-       ///// メソッド
+       
        procedure MakeArray; override;
      public
        constructor Create; overload;
@@ -102,7 +102,7 @@ type
        constructor Create( const ItemsX_,ItemsY_,ItemsZ_,Margs_:Integer ); reintroduce; overload;
        constructor Create( const ItemsX_,ItemsY_,ItemsZ_,MargsX_,MargsY_,MargsZ_:Integer ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property ItemByte                         :Integer    read GetElemByte                 ;
        property ElemsZ                           :Integer    read GetElemsZ                   ;
        property Elems[ const X_,Y_,Z_:Integer ]  :_TItem_    read GetElems     write SetElems ;
@@ -122,7 +122,7 @@ type
        property ByteStepZ                        :Integer    read GetByteStepZ                ;
        property Lines[ const Y_,Z_:Integer ]     :PByteArray read GetLines                    ;
        property LineSize                         :Integer    read GetLineSize                 ;
-       ///// メソッド
+       
        procedure Read( const Stream_:TStream ); virtual;
        procedure Write( const Stream_:TStream ); virtual;
      end;
@@ -131,14 +131,14 @@ type
 
      ICellArray3D = interface( IArray3D )
      ['{40BD11E7-4BF9-43F3-BE98-846C78B22EFD}']
-       ///// アクセス
+       
        function GetPoinsX :Integer;
        procedure SetPoinsX( const PoinX_:Integer );
        function GetPoinsY :Integer;
        procedure SetPoinsY( const PoinY_:Integer );
        function GetPoinsZ :Integer;
        procedure SetPoinsZ( const PoinZ_:Integer );
-       ///// プロパティ
+       
        property CellsX :Integer read GetItemsX write SetItemsX;
        property CellsY :Integer read GetItemsY write SetItemsY;
        property CellsZ :Integer read GetItemsZ write SetItemsZ;
@@ -152,7 +152,7 @@ type
      TCellArray3D<_TItem_> = class( TArray3D<_TItem_>, ICellArray3D )
      private
      protected
-       ///// アクセス
+       
        function GetPoinsX :Integer;
        procedure SetPoinsX( const PoinX_:Integer );
        function GetPoinsY :Integer;
@@ -160,7 +160,7 @@ type
        function GetPoinsZ :Integer;
        procedure SetPoinsZ( const PoinZ_:Integer );
      public
-       ///// プロパティ
+       
        property Cells[ const X_,Y_,Z_:Integer ] :_TItem_ read GetItems  write SetItems ; default;
        property CellsX                          :Integer read GetItemsX write SetItemsX;
        property CellsY                          :Integer read GetItemsY write SetItemsY;
@@ -168,7 +168,7 @@ type
        property PoinsX                          :Integer read GetPoinsX write SetPoinsX;
        property PoinsY                          :Integer read GetPoinsY write SetPoinsY;
        property PoinsZ                          :Integer read GetPoinsZ write SetPoinsZ;
-       ///// メソッド
+       
        procedure MakeEdgePerio; override;
        procedure MakeEdgeMirro; override;
      end;
@@ -177,14 +177,14 @@ type
 
      IPoinArray3D = interface( IArray3D )
      ['{60135172-47A4-4183-8CE9-B590E8F21835}']
-       ///// アクセス
+       
        function GetCellsX :Integer;
        procedure SetCellsX( const CellsX_:Integer );
        function GetCellsY :Integer;
        procedure SetCellsY( const CellsY_:Integer );
        function GetCellsZ :Integer;
        procedure SetCellsZ( const CellsZ_:Integer );
-       ///// プロパティ
+       
        property PoinsX :Integer read GetItemsX write SetItemsX;
        property PoinsY :Integer read GetItemsY write SetItemsY;
        property PoinsZ :Integer read GetItemsZ write SetItemsZ;
@@ -198,7 +198,7 @@ type
      TPoinArray3D<_TItem_> = class( TArray3D<_TItem_>, IPoinArray3D )
      private
      protected
-       ///// アクセス
+       
        function GetCellsX :Integer;
        procedure SetCellsX( const CellsX_:Integer );
        function GetCellsY :Integer;
@@ -206,12 +206,12 @@ type
        function GetCellsZ :Integer;
        procedure SetCellsZ( const CellsZ_:Integer );
        function GetCellsN :Integer;
-       ///// メソッド
+       
        function NewCellIter :TCellIterPoinArray3D<_TItem_>; virtual;
      public
        constructor Create( const CellsX_,CellsY_,CellsZ_,MargsX_,MargsY_,MargsZ_:Integer ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Poins[ const X_,Y_,Z_:Integer ] :_TItem_ read GetItems  write SetItems ; default;
        property PoinsX                          :Integer read GetItemsX write SetItemsX;
        property PoinsY                          :Integer read GetItemsY write SetItemsY;
@@ -221,14 +221,14 @@ type
        property CellsY                          :Integer read GetCellsY write SetCellsY;
        property CellsZ                          :Integer read GetCellsZ write SetCellsZ;
        property CellsN                          :Integer read GetCellsN                ;
-       ///// メソッド
+       
        procedure Read( const Stream_:TStream ); override;
        procedure Write( const Stream_:TStream ); override;
        procedure ForCells( const Proc_:TConstProc<TCellIterPoinArray3D<_TItem_>> );
        procedure ForEdgesX( const Proc_:TConstProc<TCellIterPoinArray3D<_TItem_>> );
        procedure ForEdgesY( const Proc_:TConstProc<TCellIterPoinArray3D<_TItem_>> );
        procedure ForEdgesZ( const Proc_:TConstProc<TCellIterPoinArray3D<_TItem_>> );
-       ///// メソッド
+       
        procedure MakeEdgePerio; override;
        procedure MakeEdgeMirro; override;
      end;
@@ -251,7 +251,7 @@ type
        property GiX[ const I_:Shortint ]         :Integer    read GetGiX;
        property GiY[ const I_:Shortint ]         :Integer    read GetGiY;
        property GiZ[ const I_:Shortint ]         :Integer    read GetGiZ;
-       ///// メソッド
+       
        procedure GoPrevX; overload;
        procedure GoNextX; overload;
        procedure GoPrevY; overload;
@@ -282,7 +282,7 @@ type
        _GX    :array [ -1..+2 ] of Integer;
        _GY    :array [ -1..+2 ] of Integer;
        _GZ    :array [ -1..+2 ] of Integer;
-       ///// アクセス
+       
        function GetPosX :Integer;
        procedure SetPosX( const PosX_:Integer );
        function GetPosY :Integer;
@@ -300,7 +300,7 @@ type
      public
        constructor Create( const Array_:TPoinArray3D<_TItem_> );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property PosX                             :Integer    read GetPosX  write SetPosX ;
        property PosY                             :Integer    read GetPosY  write SetPosY ;
        property PosZ                             :Integer    read GetPosZ  write SetPosZ ;
@@ -310,7 +310,7 @@ type
        property GiY[ const I_:Shortint ]         :Integer    read GetGiY                 ;
        property GiZ[ const I_:Shortint ]         :Integer    read GetGiZ                 ;
        property Gi[ const X_,Y_,Z_:Shortint ]    :TInteger3D read GetGi                  ;
-       ///// メソッド
+       
        procedure GoPrevX; overload;
        procedure GoNextX; overload;
        procedure GoPrevY; overload;
@@ -331,9 +331,9 @@ type
        procedure ForEdgesZ( const Proc_:TProc );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -345,11 +345,11 @@ uses System.Math;
 
 //  
 
-// %%%%% TArray3D<_TItem_>
+//TArray3D<_TItem_>
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 function TArray3D<_TItem_>.ElemsI( const X_,Y_,Z_:Integer ) :Integer;
 begin
@@ -361,9 +361,9 @@ begin
      Result := ( ( _MargsZ + Z_ ) * _ElemsY + ( _MargsY + Y_ ) ) * _ElemsX + ( _MargsX + X_ );
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TArray3D<_TItem_>.GetElemsN :Integer;
 begin
@@ -489,7 +489,7 @@ begin
      Result := ItemByte * _ItemsX;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TArray3D<_TItem_>.MakeArray;
 begin
@@ -498,7 +498,7 @@ begin
      inherited;
 end;
 
-// & public
+
 
 constructor TArray3D<_TItem_>.Create;
 begin
@@ -529,7 +529,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TArray3D<_TItem_>.Read( const Stream_:TStream );
 begin
@@ -541,13 +541,13 @@ begin
      Stream_.Write( _Elems[ 0 ], GetElemsByte );
 end;
 
-// %%%%% TCellArray3D<_TItem_>
+//TCellArray3D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCellArray3D<_TItem_>.GetPoinsX :Integer;
 begin
@@ -655,15 +655,15 @@ begin
      end;
 end;
 
-// & public
 
-// %%%%% TPoinArray3D<_TItem_>
 
-//  private
+//TPoinArray3D<_TItem_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TPoinArray3D<_TItem_>.GetCellsX :Integer;
 begin
@@ -700,14 +700,14 @@ begin
      Result := CellsZ * CellsY * CellsX;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TPoinArray3D<_TItem_>.NewCellIter :TCellIterPoinArray3D<_TItem_>;
 begin
      Result := TCellIterPoinArray3D<_TItem_>.Create( Self );
 end;
 
-// & public
+
 
 constructor TPoinArray3D<_TItem_>.Create( const CellsX_,CellsY_,CellsZ_,MargsX_,MargsY_,MargsZ_:Integer );
 begin
@@ -722,7 +722,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TPoinArray3D<_TItem_>.Read( const Stream_:TStream );
 var
@@ -894,13 +894,13 @@ begin
      end;
 end;
 
-// %%%%% TCellIterPoinArray3D<_TItem_>
+//TCellIterPoinArray3D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCellIterPoinArray3D<_TItem_>.GetPosX :Integer;
 begin
@@ -1024,7 +1024,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TCellIterPoinArray3D<_TItem_>.Create( const Array_:TPoinArray3D<_TItem_> );
 begin
@@ -1041,7 +1041,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TCellIterPoinArray3D<_TItem_>.GoPrevX;
 var
@@ -1312,4 +1312,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

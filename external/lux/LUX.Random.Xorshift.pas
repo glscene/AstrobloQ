@@ -39,7 +39,7 @@ type
      TRandom32XOR32 = class( TRandomXOR<Int32u> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -51,7 +51,7 @@ type
      TRandom32XOR64 = class( TRandomXOR<Int64u> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -63,7 +63,7 @@ type
      TRandom32XOR96 = class( TRandomXOR<TInt32u3D> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -75,7 +75,7 @@ type
      TRandom32XOR128 = class( TRandomXOR<TInt32u4D> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -87,16 +87,16 @@ type
      TRandom64XOR64 = class( TRandomXOR<Int64u> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt64u :Int64u; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -108,21 +108,21 @@ uses System.SysUtils, System.SyncObjs;
 
 //  
 
-// %%%%% TRandomXOR<_TSeed_>
+//TRandomXOR<_TSeed_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TRandom32XOR32
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//TRandom32XOR32
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TRandom32XOR32.CalcNextSeed;
 begin
@@ -136,20 +136,20 @@ begin
      Result := _Seed;
 end;
 
-// & public
+
 
 constructor TRandom32XOR32.CreateFromRand( const Random_:IRandom );
 begin
      Create( Random_.DrawRandInt32u );
 end;
 
-// %%%%% TRandom32XOR64
+//TRandom32XOR64
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32XOR64.CalcNextSeed;
 begin
@@ -163,20 +163,20 @@ begin
      Result := _Seed;
 end;
 
-// & public
+
 
 constructor TRandom32XOR64.CreateFromRand( const Random_:IRandom );
 begin
      Create( Random_.DrawRandInt64u );
 end;
 
-// %%%%% TRandom32XOR96
+//TRandom32XOR96
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32XOR96.CalcNextSeed;
 var
@@ -197,7 +197,7 @@ begin
      Result := _Seed.Z;
 end;
 
-// & public
+
 
 constructor TRandom32XOR96.CreateFromRand( const Random_:IRandom );
 begin
@@ -206,13 +206,13 @@ begin
                                Random_.DrawRandInt32u ) );
 end;
 
-// %%%%% TRandom32XOR128
+//TRandom32XOR128
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32XOR128.CalcNextSeed;
 var
@@ -234,7 +234,7 @@ begin
      Result := _Seed.W;
 end;
 
-// & public
+
 
 constructor TRandom32XOR128.CreateFromRand( const Random_:IRandom );
 begin
@@ -244,13 +244,13 @@ begin
                                Random_.DrawRandInt32u ) );
 end;
 
-// %%%%% TRandom64XOR64
+//TRandom64XOR64
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64XOR64.CalcNextSeed;
 begin
@@ -263,7 +263,7 @@ begin
      Result := _Seed;
 end;
 
-// & public
+
 
 constructor TRandom64XOR64.CreateFromRand( const Random_:IRandom );
 begin
@@ -278,4 +278,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

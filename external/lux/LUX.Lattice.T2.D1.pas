@@ -22,7 +22,7 @@ type
        constructor Create; overload;
        constructor Create( const BricX_,BricY_:Integer ); overload;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure Patch( const T_:TSingle2D; out M_:TSingleM4 ); overload;
        procedure Patch( const T_:TSingle2D; out M_:TdSingleM4 ); overload;
        function Interp( const T_:TSingle2D ) :Single; overload;
@@ -30,9 +30,9 @@ type
        function Nabla( const T_:TSingle2D ) :TSingle2D;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -44,13 +44,13 @@ uses System.Math;
 
 //  
 
-// %%%%% TSingleGridMap2T
+//TSingleGridMap2T
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TSingleGridMap2T.Create;
 begin
@@ -68,7 +68,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TSingleGridMap2T.Patch( const T_:TSingle2D; out M_:TSingleM4 );
 var
@@ -157,4 +157,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

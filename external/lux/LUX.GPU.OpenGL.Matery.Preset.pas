@@ -21,11 +21,11 @@ type
      IGLMateryColor = interface( IGLMatery )
      ['{F155A433-8EE7-45D5-A550-CA8E75677E0F}']
      {protected}
-       ///// アクセス
+       
        function GetColor :TAlphaColorF;
        procedure SetColor( const Color_:TAlphaColorF );
      {public}
-       ///// プロパティ
+       
        property Color :TAlphaColorF read GetColor write SetColor;
      end;
 
@@ -35,15 +35,15 @@ type
      private
      protected
        _Color :TGLUniBuf<TAlphaColorF>;
-       ///// アクセス
+       
        function GetColor :TAlphaColorF;
        procedure SetColor( const Color_:TAlphaColorF );
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Color :TAlphaColorF read GetColor write SetColor;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -53,11 +53,11 @@ type
      IGLMateryRGB = interface( IGLMateryNor )
      ['{5729E984-EB08-43A2-A1DD-86A0A569D79C}']
      {protected}
-       ///// アクセス
+       
        function GetAmbient :TAlphaColorF;
        procedure SetAmbient( const Ambient_:TAlphaColorF );
      {public}
-       ///// プロパティ
+       
        property Ambient :TAlphaColorF read GetAmbient write SetAmbient;
      end;
 
@@ -67,15 +67,15 @@ type
      private
      protected
        _Ambient :TGLUniBuf<TAlphaColorF>;
-       ///// アクセス
+       
        function GetAmbient :TAlphaColorF;
        procedure SetAmbient( const Ambient_:TAlphaColorF );
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Ambient :TAlphaColorF read GetAmbient write SetAmbient;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -85,11 +85,11 @@ type
      IGLMateryDiffuse = interface( IGLMateryNor )
      ['{8724B083-6A8B-43CA-8368-B60A28E26522}']
      {protected}
-       ///// アクセス
+       
        function GetAmbient :TAlphaColorF;
        procedure SetAmbient( const Ambient_:TAlphaColorF );
      {public}
-       ///// プロパティ
+       
        property Ambient :TAlphaColorF read GetAmbient write SetAmbient;
      end;
 
@@ -100,7 +100,7 @@ type
      protected
        _Ambient :TGLUniBuf<TAlphaColorF>;
        _Diffuse :TGLUniBuf<TAlphaColorF>;
-       ///// アクセス
+       
        function GetAmbient :TAlphaColorF;
        procedure SetAmbient( const Ambient_:TAlphaColorF );
        function GetDiffuse :TAlphaColorF;
@@ -108,10 +108,10 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Ambient :TAlphaColorF read GetAmbient write SetAmbient;
        property Diffuse :TAlphaColorF read GetDiffuse write SetDiffuse;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -121,7 +121,7 @@ type
      IGLMateryPlastic = interface( IGLMateryImag )
      ['{6BFC6C55-3773-424E-8140-EAB4F4812101}']
      {protected}
-       ///// アクセス
+       
        function GetAmbient :TAlphaColorF;
        procedure SetAmbient( const Ambient_:TAlphaColorF );
        function GetDiffuse :TAlphaColorF;
@@ -129,7 +129,7 @@ type
        function GetRefI :Single;
        procedure SetRefI( const RefI_:Single );
      {public}
-       ///// プロパティ
+       
        property Ambient :TAlphaColorF read GetAmbient write SetAmbient;
        property Diffuse :TAlphaColorF read GetDiffuse write SetDiffuse;
        property RefI    :Single       read GetRefI    write SetRefI   ;
@@ -143,7 +143,7 @@ type
        _Ambient :TGLUniBuf<TAlphaColorF>;
        _Diffuse :TGLUniBuf<TAlphaColorF>;
        _RefI    :TGLUniBuf<Single>;
-       ///// アクセス
+       
        function GetAmbient :TAlphaColorF;
        procedure SetAmbient( const Ambient_:TAlphaColorF );
        function GetDiffuse :TAlphaColorF;
@@ -153,11 +153,11 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Ambient :TAlphaColorF read GetAmbient write SetAmbient;
        property Diffuse :TAlphaColorF read GetDiffuse write SetDiffuse;
        property RefI    :Single       read GetRefI    write SetRefI   ;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -167,11 +167,11 @@ type
      IGLMateryMirror = interface( IGLMateryImag )
      ['{2B1DD157-1296-4201-8285-8063CCF6CD03}']
      {protected}
-       ///// アクセス
+       
        function GetColor :TAlphaColorF;
        procedure SetColor( const Color_:TAlphaColorF );
      {public}
-       ///// プロパティ
+       
        property Color :TAlphaColorF read GetColor write SetColor;
      end;
 
@@ -181,15 +181,15 @@ type
      private
      protected
        _Color :TGLUniBuf<TAlphaColorF>;
-       ///// アクセス
+       
        function GetColor :TAlphaColorF;
        procedure SetColor( const Color_:TAlphaColorF );
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Color :TAlphaColorF read GetColor write SetColor;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -199,11 +199,11 @@ type
      IGLMateryGlass = interface( IGLMateryImag )
      ['{960FE1E6-E27F-499A-BFB3-EA2C72DA09A5}']
      {protected}
-       ///// アクセス
+       
        function GetRefI :Single;
        procedure SetRefI( const RefI_:Single );
      {public}
-       ///// プロパティ
+       
        property RefI :Single read GetRefI write SetRefI;
      end;
 
@@ -213,22 +213,22 @@ type
      private
      protected
        _RefI :TGLUniBuf<Single>;
-       ///// アクセス
+       
        function GetRefI :Single;
        procedure SetRefI( const RefI_:Single );
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property RefI :Single read GetRefI write SetRefI;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -238,13 +238,13 @@ implementation //
 
 //  
 
-// %%%%% TGLMateryColor
+//TGLMateryColor
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryColor.GetColor :TAlphaColorF;
 begin
@@ -256,7 +256,7 @@ begin
      _Color[ 0 ] := Color_;
 end;
 
-// & public
+
 
 constructor TGLMateryColor.Create;
 begin
@@ -309,7 +309,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryColor.Use;
 begin
@@ -325,13 +325,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryRGB
+//TGLMateryRGB
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryRGB.GetAmbient :TAlphaColorF;
 begin
@@ -343,7 +343,7 @@ begin
      _Ambient[ 0 ] := Ambient_;
 end;
 
-// & public
+
 
 constructor TGLMateryRGB.Create;
 begin
@@ -400,7 +400,7 @@ begin
      _Ambient.Free;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryRGB.Use;
 begin
@@ -416,13 +416,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryDiffuse
+//TGLMateryDiffuse
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryDiffuse.GetAmbient :TAlphaColorF;
 begin
@@ -444,7 +444,7 @@ begin
      _Diffuse[ 0 ] := Diffuse_;
 end;
 
-// & public
+
 
 constructor TGLMateryDiffuse.Create;
 begin
@@ -508,7 +508,7 @@ begin
      _Diffuse.Free;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryDiffuse.Use;
 begin
@@ -526,13 +526,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryPlastic
+//TGLMateryPlastic
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryPlastic.GetAmbient :TAlphaColorF;
 begin
@@ -568,7 +568,7 @@ begin
      _RefI[ 0 ] := RefI_;
 end;
 
-// & public
+
 
 constructor TGLMateryPlastic.Create;
 begin
@@ -682,7 +682,7 @@ begin
      _RefI   .Free;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryPlastic.Use;
 begin
@@ -702,13 +702,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryMirror
+//TGLMateryMirror
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryMirror.GetColor :TAlphaColorF;
 begin
@@ -720,7 +720,7 @@ begin
      _Color[ 0 ] := Color_;
 end;
 
-// & public
+
 
 constructor TGLMateryMirror.Create;
 begin
@@ -802,7 +802,7 @@ begin
      _Color.Free;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryMirror.Use;
 begin
@@ -818,13 +818,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryGlass
+//TGLMateryGlass
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryGlass.GetRefI :Single;
 begin
@@ -836,7 +836,7 @@ begin
      _RefI[ 0 ] := RefI_;
 end;
 
-// & public
+
 
 constructor TGLMateryGlass.Create;
 begin
@@ -941,7 +941,7 @@ begin
      _RefI.Free;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryGlass.Use;
 begin
@@ -965,4 +965,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

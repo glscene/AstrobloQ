@@ -14,13 +14,13 @@ type
 
      TSingle4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :Single; overload; inline;
        procedure Sets( const Y_,X_:Integer; const V_:Single ); overload; inline;
        function Gets( const Y_:Integer ) :TSingle2D; overload; inline;
        procedure Sets( const Y_:Integer; const V_:TSingle2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :Single    read Gets write Sets; default;
        property _s[ const Y_   :Integer ] :TSingle2D read Gets write Sets; default;
      case Byte of
@@ -42,13 +42,13 @@ type
 
      TDouble4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :Double; overload; inline;
        procedure Sets( const Y_,X_:Integer; const V_:Double ); overload; inline;
        function Gets( const Y_:Integer ) :TDouble2D; overload; inline;
        procedure Sets( const Y_:Integer; const V_:TDouble2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :Double    read Gets write Sets; default;
        property _s[ const Y_   :Integer ] :TDouble2D read Gets write Sets; default;
      case Byte of
@@ -70,13 +70,13 @@ type
 
      TdSingle4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :TdSingle; overload; inline;
        procedure Sets( const Y_,X_:Integer; const V_:TdSingle ); overload; inline;
        function Gets( const Y_:Integer ) :TdSingle2D; overload; inline;
        procedure Sets( const Y_:Integer; const V_:TdSingle2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :TdSingle   read Gets write Sets; default;
        property _s[ const Y_   :Integer ] :TdSingle2D read Gets write Sets; default;
      case Byte of
@@ -98,13 +98,13 @@ type
 
      TdDouble4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Y_,X_:Integer ) :TdDouble; overload; inline;
        procedure Sets( const Y_,X_:Integer; const V_:TdDouble ); overload; inline;
        function Gets( const Y_:Integer ) :TdDouble2D; overload; inline;
        procedure Sets( const Y_:Integer; const V_:TdDouble2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Y_,X_:Integer ] :TdDouble   read Gets write Sets; default;
        property _s[ const Y_   :Integer ] :TdDouble2D read Gets write Sets; default;
      case Byte of
@@ -124,9 +124,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -134,11 +134,11 @@ implementation //
 
 //  
 
-// %%%%% TSingle4x2D
+//TSingle4x2D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle4x2D.Gets( const Y_,X_:Integer ) :Single;
 begin
@@ -160,13 +160,13 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// & public
 
-// %%%%% TDouble4x2D
 
-//  private
+//TDouble4x2D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDouble4x2D.Gets( const Y_,X_:Integer ) :Double;
 begin
@@ -188,11 +188,11 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// %%%%% TdSingle4x2D
+//TdSingle4x2D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle4x2D.Gets( const Y_,X_:Integer ) :TdSingle;
 begin
@@ -214,13 +214,13 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// & public
 
-// %%%%% TdDouble4x2D
 
-//  private
+//TdDouble4x2D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TdDouble4x2D.Gets( const Y_,X_:Integer ) :TdDouble;
 begin
@@ -242,7 +242,7 @@ begin
      _Ys[ Y_ ] := V_;
 end;
 
-// & public
+
 
 //  
 
@@ -254,4 +254,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -47,7 +47,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure ForCells( const Proc_:TConstProc<TSingleCellIterPoinArray3D> );
        procedure ForEdgesX( const Proc_:TConstProc<TSingleCellIterPoinArray3D> );
        procedure ForEdgesY( const Proc_:TConstProc<TSingleCellIterPoinArray3D> );
@@ -68,16 +68,16 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        function Interp( const Xd_,Yd_,Zd_:Single ) :Single; override;
        function FracGrad( const Xd_,Yd_,Zd_:Single ) :TSingle3D; overload;
        function Grad( const d_:TSingle3D ) :TSingle3D; overload;
        function AbsoGrad( const X_,Y_,Z_:Single ) :TSingle3D;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -89,23 +89,23 @@ uses System.Math;
 
 //  
 
-// %%%%% TSingleCellArray3D
+//TSingleCellArray3D
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TSinglePoinArray3D
 
-//  private
 
-//  protected
 
-// & public
+//TSinglePoinArray3D
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TSinglePoinArray3D.ForCells( const Proc_:TConstProc<TSingleCellIterPoinArray3D> );
 begin
@@ -139,15 +139,15 @@ begin
      end );
 end;
 
-// %%%%% TSingleCellIterPoinArray3D
+//TSingleCellIterPoinArray3D
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 function TSingleCellIterPoinArray3D.Interp( const Xd_,Yd_,Zd_:Single ) :Single;
 var
@@ -216,4 +216,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

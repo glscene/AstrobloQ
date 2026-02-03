@@ -31,7 +31,7 @@ type
      TRandom64ROS128 = class( TRandom64SHI<TInt64u2D> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
@@ -42,7 +42,7 @@ type
      TRandom64XOS256 = class( TRandom64SHI<TInt64u4D> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
@@ -53,15 +53,15 @@ type
      TRandom64XOS512 = class( TRandom64SHI<TSeedXOS512> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -71,11 +71,11 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TSeedXOS512
+//TSeedXOS512
 
-//  private
 
-// & public
+
+
 
 constructor TSeedXOS512.Create( const s0_,s1_,s2_,s3_,s4_,s5_,s6_,s7_:Int64u );
 begin
@@ -91,13 +91,13 @@ end;
 
 //  
 
-// %%%%% TRandom64ROS128
+//TRandom64ROS128
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64ROS128.CalcNextSeed;
 var
@@ -114,7 +114,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TRandom64ROS128.CreateFromRand( const Random_:IRandom );
 begin
@@ -122,13 +122,13 @@ begin
                                Random_.DrawRandInt64u ) );
 end;
 
-// %%%%% TRandom64XOS256
+//TRandom64XOS256
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64XOS256.CalcNextSeed;
 var
@@ -149,7 +149,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TRandom64XOS256.CreateFromRand( const Random_:IRandom );
 begin
@@ -159,13 +159,13 @@ begin
                                Random_.DrawRandInt64u ) );
 end;
 
-// %%%%% TRandom64XOS512
+//TRandom64XOS512
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64XOS512.CalcNextSeed;
 var
@@ -188,7 +188,7 @@ begin
           s[ 7 ] := rotl( s[ 7 ], 21 );     end;
 end;
 
-// & public
+
 
 constructor TRandom64XOS512.CreateFromRand( const Random_:IRandom );
 begin
@@ -210,4 +210,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -17,9 +17,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -31,4 +31,4 @@ implementation //
 
 //  
 
-end. // 
+end.

@@ -19,7 +19,7 @@ type
 
      IGLSamplr = interface( IGLAtomer )
      ['{E95328D2-B7D7-4A7C-9367-8A4E554E4F81}']
-       ///// アクセス
+       
        function GetWrapU :GLint;
        procedure SetWrapU( const WrapU_:GLint );
        function GetWrapV :GLint;
@@ -30,7 +30,7 @@ type
        procedure SetMinFilter( const MinFilter_:GLint );
        function GetMagFilter :GLint;
        procedure SetMagFilter( const MagFilter_:GLint );
-       ///// プロパティ
+       
        property WrapU     :GLint read GetWrapU     write SetWrapU    ;
        property WrapV     :GLint read GetWrapV     write SetWrapV    ;
        property WrapW     :GLint read GetWrapW     write SetWrapW    ;
@@ -51,7 +51,7 @@ type
        _WrapW     :GLint;
        _MinFilter :GLint;
        _MagFilter :GLint;
-       ///// アクセス
+       
        function GetWrapU :GLint;
        procedure SetWrapU( const WrapU_:GLint );
        function GetWrapV :GLint;
@@ -62,19 +62,19 @@ type
        procedure SetMinFilter( const MinFilter_:GLint );
        function GetMagFilter :GLint;
        procedure SetMagFilter( const MagFilter_:GLint );
-       ///// メソッド
+       
        procedure SetParamI( const Name_:GLenum; const Value_:GLint );
        procedure SetParamF( const Name_:GLenum; const Value_:GLfloat );
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property WrapU     :GLint read GetWrapU     write SetWrapU    ;
        property WrapV     :GLint read GetWrapV     write SetWrapV    ;
        property WrapW     :GLint read GetWrapW     write SetWrapW    ;
        property MinFilter :GLint read GetMinFilter write SetMinFilter;
        property MagFilter :GLint read GetMagFilter write SetMagFilter;
-       ///// メソッド
+       
        procedure Use( const BindI_:GLuint );
        procedure Unuse( const BindI_:GLuint );
      end;
@@ -83,11 +83,11 @@ type
 
      IGLTextur = interface
      ['{22F971D6-65FD-4F42-80ED-743253890A8C}']
-       ///// アクセス
+       
        function GetSamplr :TGLSamplr;
-       ///// プロパティ
+       
        property Samplr :TGLSamplr read GetSamplr;
-       ///// メソッド
+       
        procedure Use( const BindI_:GLuint );
        procedure Unuse( const BindI_:GLuint );
      end;
@@ -102,24 +102,24 @@ type
      protected
        _Samplr :TGLSamplr;
        _Imager :_TImager_;
-       ///// アクセス
+       
        function GetSamplr :TGLSamplr;
        function GetImager :_TImager_;
      public
        constructor Create; overload;
        constructor Create( const Imager_:_TImager_ ); overload;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Samplr :TGLSamplr read GetSamplr;
        property Imager :_TImager_ read GetImager;
-       ///// メソッド
+       
        procedure Use( const BindI_:GLuint );
        procedure Unuse( const BindI_:GLuint );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -129,13 +129,13 @@ implementation //
 
 //  
 
-// %%%%% TGLSamplr
+//TGLSamplr
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLSamplr.GetWrapU :GLint;
 begin
@@ -199,7 +199,7 @@ begin
      SetParamI( GL_TEXTURE_MAG_FILTER, _MagFilter );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLSamplr.SetParamI( const Name_:GLenum; const Value_:GLint );
 begin
@@ -211,7 +211,7 @@ begin
      glSamplerParameterf( _ID, Name_, Value_ );
 end;
 
-// & public
+
 
 constructor TGLSamplr.Create;
 begin
@@ -230,7 +230,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLSamplr.Use( const BindI_:GLuint );
 begin
@@ -242,13 +242,13 @@ begin
      glBindSampler( BindI_, 0 );
 end;
 
-// %%%%% TGLTextur<_TItem_,_TIter_,_TGrid_,_TImager_>
+//TGLTextur<_TItem_,_TIter_,_TGrid_,_TImager_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLTextur<_TItem_,_TIter_,_TGrid_,_TImager_>.GetSamplr :TGLSamplr;
 begin
@@ -260,7 +260,7 @@ begin
      Result := _Imager;
 end;
 
-// & public
+
 
 constructor TGLTextur<_TItem_,_TIter_,_TGrid_,_TImager_>.Create;
 begin
@@ -286,7 +286,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLTextur<_TItem_,_TIter_,_TGrid_,_TImager_>.Use( const BindI_:GLuint );
 begin
@@ -312,4 +312,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

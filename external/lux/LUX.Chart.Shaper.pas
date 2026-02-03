@@ -24,19 +24,19 @@ type
        _Pos    :TSingle2D;
        _Radius :Single;
        _Border :Single;
-       ///// アクセス
+       
        function GetPos :TSingle2D;
        procedure SetPos( const Pos_:TSingle2D );
        function GetRadius :Single;
        procedure SetRadius( const Radius_:Single );
        function GetBorder :Single;
        procedure SetBorder( const Border_:Single );
-       ///// メソッド
+       
        procedure DrawMain; override;
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Pos    :TSingle2D read GetPos    write SetPos   ;
        property Radius :Single    read GetRadius write SetRadius;
        property Border :Single    read GetBorder write SetBorder;
@@ -50,17 +50,17 @@ type
      protected
        _Poins   :TArray<TSingle2D>;
        _PoinsN  :Integer;
-       ///// アクセス
+       
        function GetPoins( const I_:Integer ) :TSingle2D;
        procedure SetPoins( const I_:Integer; const Value_:TSingle2D );
        function GetPoinsN :Integer;
        procedure SetPoinsN( const ValuesN_:Integer );
-       ///// メソッド
+       
        procedure DrawMain; override;
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Poins[ const I_:Integer ] :TSingle2D read GetPoins  write SetPoins ; default;
        property PoinsN                    :Integer   read GetPoinsN write SetPoinsN;
      end;
@@ -70,13 +70,13 @@ type
      TChartScal = class( TChartNode )
      protected
        _Interv :Single;
-       ///// アクセス
+       
        function GetInterv :Single;
        procedure SetInterv( const Interv_:Single );
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Interv :Single read GetInterv write SetInterv;
      end;
 
@@ -84,7 +84,7 @@ type
 
      TChartScaX = class( TChartScal )
      protected
-       ///// メソッド
+       
        procedure DrawMain; override;
      public
        constructor Create; override;
@@ -95,7 +95,7 @@ type
 
      TChartScaY = class( TChartScal )
      protected
-       ///// メソッド
+       
        procedure DrawMain; override;
      public
        constructor Create; override;
@@ -106,7 +106,7 @@ type
 
      TChartAxis = class( TChartNode )
      protected
-       ///// メソッド
+       
        procedure DrawMain; override;
      public
        constructor Create; override;
@@ -117,13 +117,13 @@ implementation //
 
 uses System.Math;
 
-// %%%%% TChartPoin
+//TChartPoin
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TChartPoin.GetPos :TSingle2D;
 begin
@@ -157,7 +157,7 @@ begin
      _Border := Border_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TChartPoin.DrawMain;
 begin
@@ -169,7 +169,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TChartPoin.Create;
 begin
@@ -186,13 +186,13 @@ begin
      inherited;
 end;
 
-// %%%%% TChartCurv
+//TChartCurv
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TChartCurv.GetPoins( const I_:Integer ) :TSingle2D;
 begin
@@ -216,7 +216,7 @@ begin
      SetLength( _Poins, _PoinsN );
 end;
 
-// & public
+
 
 constructor TChartCurv.Create;
 begin
@@ -234,7 +234,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TChartCurv.DrawMain;
 var
@@ -257,13 +257,13 @@ begin
      end;
 end;
 
-// %%%%% TChartGrid
+//TChartGrid
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TChartScal.GetInterv :Single;
 begin
@@ -275,7 +275,7 @@ begin
      _Interv := Interv_;
 end;
 
-// & public
+
 
 constructor TChartScal.Create;
 begin
@@ -290,15 +290,15 @@ begin
      inherited;
 end;
 
-// %%%%% TChartScaX
+//TChartScaX
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
 
-// & public
+
+//-------------------------------------------------------
+
+
 
 constructor TChartScaX.Create;
 begin
@@ -312,7 +312,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TChartScaX.DrawMain;
 var
@@ -341,15 +341,15 @@ begin
      end;
 end;
 
-// %%%%% TChartScaY
+//TChartScaY
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
 
-// & public
+
+//-------------------------------------------------------
+
+
 
 constructor TChartScaY.Create;
 begin
@@ -363,7 +363,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TChartScaY.DrawMain;
 var
@@ -392,15 +392,15 @@ begin
      end;
 end;
 
-// %%%%% TChartAxis
+//TChartAxis
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
+
+//-------------------------------------------------------
 
 procedure TChartAxis.DrawMain;
 var
@@ -425,7 +425,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TChartAxis.Create;
 begin
@@ -440,4 +440,4 @@ begin
      inherited;
 end;
 
-end. // 
+end.

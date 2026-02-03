@@ -14,11 +14,11 @@ type
 
      TSingle4x4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Z_,Y_:Integer ) :TSingle2D; overload; inline;
        procedure Sets( const Z_,Y_:Integer; const M_:TSingle2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Z_,Y_:Integer ] :TSingle2D read Gets write Sets; default;
      case Byte of
       0:( _ZYX :array [ 1..4, 1..4, 1..2 ] of Single; );
@@ -46,11 +46,11 @@ type
 
      TDouble4x4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Z_,Y_:Integer ) :TDouble2D; overload; inline;
        procedure Sets( const Z_,Y_:Integer; const M_:TDouble2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Z_,Y_:Integer ] :TDouble2D read Gets write Sets; default;
      case Byte of
       0:( _ZYX :array [ 1..4, 1..4, 1..2 ] of Double; );
@@ -78,11 +78,11 @@ type
 
      TdSingle4x4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Z_,Y_:Integer ) :TdSingle2D; overload; inline;
        procedure Sets( const Z_,Y_:Integer; const M_:TdSingle2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Z_,Y_:Integer ] :TdSingle2D read Gets write Sets; default;
      case Byte of
       0:( _ZYX :array [ 1..4, 1..4, 1..2 ] of TdSingle; );
@@ -110,11 +110,11 @@ type
 
      TdDouble4x4x2D = record
      private
-       ///// アクセス
+       
        function Gets( const Z_,Y_:Integer ) :TdDouble2D; overload; inline;
        procedure Sets( const Z_,Y_:Integer; const M_:TdDouble2D ); overload; inline;
      public
-       ///// プロパティ
+       
        property _s[ const Z_,Y_:Integer ] :TdDouble2D read Gets write Sets; default;
      case Byte of
       0:( _ZYX :array [ 1..4, 1..4, 1..2 ] of TdDouble; );
@@ -140,9 +140,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -150,11 +150,11 @@ implementation //
 
 //  
 
-// %%%%% TSingle4x4x2D
+//TSingle4x4x2D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle4x4x2D.Gets( const Z_,Y_:Integer ) :TSingle2D;
 begin
@@ -166,13 +166,13 @@ begin
      _ZY[ Z_, Y_ ] := M_;
 end;
 
-// & public
 
-// %%%%% TDouble4x4x2D
 
-//  private
+//TDouble4x4x2D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDouble4x4x2D.Gets( const Z_,Y_:Integer ) :TDouble2D;
 begin
@@ -184,11 +184,11 @@ begin
      _ZY[ Z_, Y_ ] := M_;
 end;
 
-// %%%%% TdSingle4x4x2D
+//TdSingle4x4x2D
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle4x4x2D.Gets( const Z_,Y_:Integer ) :TdSingle2D;
 begin
@@ -200,13 +200,13 @@ begin
      _ZY[ Z_, Y_ ] := M_;
 end;
 
-// & public
 
-// %%%%% TdDouble4x4x2D
 
-//  private
+//TdDouble4x4x2D
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TdDouble4x4x2D.Gets( const Z_,Y_:Integer ) :TdDouble2D;
 begin
@@ -218,7 +218,7 @@ begin
      _ZY[ Z_, Y_ ] := M_;
 end;
 
-// & public
+
 
 //  
 
@@ -230,4 +230,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -23,26 +23,26 @@ type
        type TCLArgumes_ = TCLArgumes<TCLSystem_,TCLPlatfo_,TCLContex_>;
      protected
        _Handle :T_cl_sampler;
-       ///// アクセス
+       
        function GetHanPtr :P_void; override;
        function GetHanSiz :T_size_t; override;
        function GetHandle :T_cl_sampler;
        procedure SetHandle( const Handle_:T_cl_sampler );
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; override;
        function DestroHandle :T_cl_int; override;
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Contex  :TCLContex_   read GetOwnere                ;
        property Argumes :TCLArgumes_  read GetParent                ;
        property Handle  :T_cl_sampler read GetHandle write SetHandle;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -54,13 +54,13 @@ uses LUX.GPU.OpenCL.Contex;
 
 //  
 
-// %%%%% TCLSamplr<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLSamplr<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLSamplr<TCLSystem_,TCLPlatfo_,TCLContex_>.GetHanPtr :P_void;
 begin
@@ -86,7 +86,7 @@ begin
      _Handle := Handle_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLSamplr<TCLSystem_,TCLPlatfo_,TCLContex_>.CreateHandle :T_cl_int;
 var
@@ -120,7 +120,7 @@ begin
      _Handle := nil;
 end;
 
-// & public
+
 
 constructor TCLSamplr<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -138,4 +138,4 @@ end;
 
 //  
 
-end. // 
+end.

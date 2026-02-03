@@ -13,11 +13,11 @@ type
 
      TIntegerM4 = record
      private
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :Integer;
        procedure SetM( const Y_,X_:Integer; const M_:Integer );
      public
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :Integer read GetM write SetM; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of Integer; );
@@ -31,7 +31,7 @@ type
 
      TSingleM4 = record
      public
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :Single;
        procedure SetM( const Y_,X_:Integer; const M_:Single );
        function GetAxisX :TSingle3D;
@@ -48,7 +48,7 @@ type
                                  _31_,_32_,_33_,_34_,
                                  _41_,_42_,_43_,_44_ :Single ); overload;
        constructor Create( const X_,Y_,Z_,P_:TSingle3D ); overload;
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :Single    read GetM     write SetM    ; default;
        property AxisX                    :TSingle3D read GetAxisX write SetAxisX;
        property AxisY                    :TSingle3D read GetAxisY write SetAxisY;
@@ -66,7 +66,7 @@ type
        class operator Explicit( const V_:TSingleM4 ) :TMatrix3D;
        class operator Implicit( const V_:TSingleM3 ) :TSingleM4;
        class operator Explicit( const V_:TSingleM4 ) :TSingleM3;
-       ///// メソッド
+       
        function MultPos( const B_:TSingle3D ) :TSingle3D;
        function MultVec( const B_:TSingle3D ) :TSingle3D;
        function Adjugate :TSingleM4;
@@ -92,7 +92,7 @@ type
 
      TDoubleM4 = record
      public
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :Double;
        procedure SetM( const Y_,X_:Integer; const M_:Double );
        function GetAxisX :TDouble3D;
@@ -109,7 +109,7 @@ type
                                  _31_,_32_,_33_,_34_,
                                  _41_,_42_,_43_,_44_ :Double ); overload;
        constructor Create( const X_,Y_,Z_,P_:TDouble3D ); overload;
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :Double    read GetM     write SetM    ; default;
        property AxisX                    :TDouble3D read GetAxisX write SetAxisX;
        property AxisY                    :TDouble3D read GetAxisY write SetAxisY;
@@ -129,7 +129,7 @@ type
        class operator Explicit( const V_:TDoubleM4 ) :TSingleM4;
        class operator Implicit( const V_:TDoubleM3 ) :TDoubleM4;
        class operator Explicit( const V_:TDoubleM4 ) :TDoubleM3;
-       ///// メソッド
+       
        function MultPos( const B_:TDouble3D ) :TDouble3D;
        function MultVec( const B_:TDouble3D ) :TDouble3D;
        function Adjugate :TDoubleM4;
@@ -155,7 +155,7 @@ type
 
      TdSingleM4 = record
      public
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :TdSingle;
        procedure SetM( const Y_,X_:Integer; const M_:TdSingle );
        function GetAxisX :TdSingle3D;
@@ -172,7 +172,7 @@ type
                                  _31_,_32_,_33_,_34_,
                                  _41_,_42_,_43_,_44_ :TdSingle ); overload;
        constructor Create( const X_,Y_,Z_,P_:TdSingle3D ); overload;
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :TdSingle   read GetM     write SetM    ; default;
        property AxisX                    :TdSingle3D read GetAxisX write SetAxisX;
        property AxisY                    :TdSingle3D read GetAxisY write SetAxisY;
@@ -189,7 +189,7 @@ type
        class operator Explicit( const V_:TdSingleM4 ) :TMatrix3D;
        class operator Implicit( const V_:TdSingleM3 ) :TdSingleM4;
        class operator Explicit( const V_:TdSingleM4 ) :TdSingleM3;
-       ///// メソッド
+       
        function MultPos( const B_:TdSingle3D ) :TdSingle3D;
        function MultVec( const B_:TdSingle3D ) :TdSingle3D;
        function Adjugate :TdSingleM4;
@@ -215,7 +215,7 @@ type
 
      TdDoubleM4 = record
      public
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :TdDouble;
        procedure SetM( const Y_,X_:Integer; const M_:TdDouble );
        function GetAxisX :TdDouble3D;
@@ -232,7 +232,7 @@ type
                                  _31_,_32_,_33_,_34_,
                                  _41_,_42_,_43_,_44_ :TdDouble ); overload;
        constructor Create( const X_,Y_,Z_,P_:TdDouble3D ); overload;
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :TdDouble   read GetM     write SetM    ; default;
        property AxisX                    :TdDouble3D read GetAxisX write SetAxisX;
        property AxisY                    :TdDouble3D read GetAxisY write SetAxisY;
@@ -251,7 +251,7 @@ type
        class operator Explicit( const V_:TdDoubleM4 ) :TdSingleM4;
        class operator Implicit( const V_:TdDoubleM3 ) :TdDoubleM4;
        class operator Explicit( const V_:TdDoubleM4 ) :TdDoubleM3;
-       ///// メソッド
+       
        function MultPos( const B_:TdDouble3D ) :TdDouble3D;
        function MultVec( const B_:TdDouble3D ) :TdDouble3D;
        function Adjugate :TdDoubleM4;
@@ -279,11 +279,11 @@ type
      private
        _o :TSingleM4;
        _i :TSingleM4;
-       ///// アクセス
+       
        procedure Seto( const o_:TSingleM4 );
        procedure Seti( const i_:TSingleM4 );
      public
-       ///// プロパティ
+       
        property o :TSingleM4 read _o write Seto;
        property i :TSingleM4 read _i write Seti;
        ///// 演算子
@@ -302,9 +302,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -314,11 +314,11 @@ uses System.Math;
 
 //  
 
-// %%%%% TIntegerM4
+//TIntegerM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TIntegerM4.GetM( const Y_,X_:Integer ) :Integer;
 begin
@@ -330,13 +330,13 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
 
-// %%%%% TSingleM4
 
-//  private
+//TSingleM4
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TSingleM4.GetM( const Y_,X_:Integer ) :Single;
 begin
@@ -430,7 +430,7 @@ begin
      end
 end;
 
-// & public
+
 
 constructor TSingleM4.Create( const _11_, _12_, _13_, _14_,
                                     _21_, _22_, _23_, _24_,
@@ -451,7 +451,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TSingleM4.Multiply( const A_,B_:TSingleM4 ) :TSingleM4;
 begin
@@ -521,7 +521,7 @@ begin
      end
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TSingleM4.Implicit( const V_:Single ) :TSingleM4;
 begin
@@ -577,7 +577,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function TSingleM4.MultPos( const B_:TSingle3D ) :TSingle3D;
 begin
@@ -777,11 +777,11 @@ begin
      end
 end;
 
-// %%%%% TDoubleM4
+//TDoubleM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TDoubleM4.GetM( const Y_,X_:Integer ) :Double;
 begin
@@ -875,7 +875,7 @@ begin
      end
 end;
 
-// & public
+
 
 constructor TDoubleM4.Create( const _11_, _12_, _13_, _14_,
                                     _21_, _22_, _23_, _24_,
@@ -896,7 +896,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TDoubleM4.Multiply( const A_,B_:TDoubleM4 ) :TDoubleM4;
 begin
@@ -966,7 +966,7 @@ begin
      end
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TDoubleM4.Implicit( const V_:Double ) :TDoubleM4;
 begin
@@ -1044,7 +1044,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function TDoubleM4.MultPos( const B_:TDouble3D ) :TDouble3D;
 begin
@@ -1166,7 +1166,7 @@ begin
                    + _14 * A._41 )
 end;
 
-/////////////////////////////////////////////////////////////////////////// 定数
+//-------------------------------------------------------///////// 定数
 
 class function TDoubleM4.Translate( const X_,Y_,Z_:Double ) :TDoubleM4;
 begin
@@ -1246,11 +1246,11 @@ begin
      end
 end;
 
-// %%%%% TdSingleM4
+//TdSingleM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingleM4.GetM( const Y_,X_:Integer ) :TdSingle;
 begin
@@ -1344,7 +1344,7 @@ begin
      end
 end;
 
-// & public
+
 
 constructor TdSingleM4.Create( const _11_,_12_,_13_,_14_,
                                      _21_,_22_,_23_,_24_,
@@ -1365,7 +1365,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdSingleM4.Multiply( const A_,B_:TdSingleM4 ) :TdSingleM4;
 begin
@@ -1426,7 +1426,7 @@ begin
      end
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TdSingleM4.Implicit( const V_:TdSingle ) :TdSingleM4;
 begin
@@ -1482,7 +1482,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function TdSingleM4.MultPos( const B_:TdSingle3D ) :TdSingle3D;
 begin
@@ -1682,11 +1682,11 @@ begin
      end
 end;
 
-// %%%%% TdDoubleM4
+//TdDoubleM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdDoubleM4.GetM( const Y_,X_:Integer ) :TdDouble;
 begin
@@ -1780,7 +1780,7 @@ begin
      end
 end;
 
-// & public
+
 
 constructor TdDoubleM4.Create( const _11_,_12_,_13_,_14_,
                                      _21_,_22_,_23_,_24_,
@@ -1801,7 +1801,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-///////////////////////////////////////////////////////////////////////// 演算子
+//-------------------------------------------------------/////// 演算子
 
 class operator TdDoubleM4.Multiply( const A_,B_:TdDoubleM4 ) :TdDoubleM4;
 begin
@@ -1862,7 +1862,7 @@ begin
      end
 end;
 
-///////////////////////////////////////////////////////////////////////// 型変換
+//-------------------------------------------------------/////// 型変換
 
 class operator TdDoubleM4.Implicit( const V_:TdDouble ) :TdDoubleM4;
 begin
@@ -1940,7 +1940,7 @@ begin
      end
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 function TdDoubleM4.MultPos( const B_:TdDouble3D ) :TdDouble3D;
 begin
@@ -2062,7 +2062,7 @@ begin
                    + _14 * A._41 )
 end;
 
-/////////////////////////////////////////////////////////////////////////// 定数
+//-------------------------------------------------------///////// 定数
 
 class function TdDoubleM4.Translate( const X_,Y_,Z_:TdDouble ) :TdDoubleM4;
 begin
@@ -2142,11 +2142,11 @@ begin
      end
 end;
 
-// %%%%% TSingleDualM4
+//TSingleDualM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 procedure TSingleDualM4.Seto( const o_:TSingleM4 );
 begin
@@ -2160,9 +2160,9 @@ begin
      _i := i_        ;
 end;
 
-// & public
 
-///////////////////////////////////////////////////////////////////////// 演算子
+
+//-------------------------------------------------------/////// 演算子
 
 class operator TSingleDualM4.Multiply( const A_,B_:TSingleDualM4 ) :TSingleDualM4;
 begin
@@ -2200,7 +2200,7 @@ begin
      end
 end;
 
-/////////////////////////////////////////////////////////////////////////// 定数
+//-------------------------------------------------------///////// 定数
 
 class function TSingleDualM4.Translate( const X_,Y_,Z_:Single ) :TSingleDualM4;
 begin
@@ -2266,4 +2266,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

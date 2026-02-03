@@ -23,13 +23,13 @@ type
      private
      protected
        _Core :pIplImage;
-       ///// アクセス
+       
        procedure SetCore( const Core_:pIplImage ); virtual;
        function GetWidth :Integer; virtual;
        function GetHeight :Integer; virtual;
        function GetChannelN :Integer; virtual;
      public
-       ///// プロパティ
+       
        property Core     :pIplImage read _Core       write SetCore;
        property Width    :Integer   read GetWidth;
        property Height   :Integer   read GetHeight;
@@ -42,7 +42,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyFrom( const Image_:TocvImage4 );
        procedure CopyTo( const Image_:TocvImage4 );
      end;
@@ -53,7 +53,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyFrom( const Image_:TocvImage3 ); overload;
        procedure CopyTo( const Image_:TocvImage3 ); overload;
        procedure CopyFrom( const Image_:TBitmap ); overload;
@@ -65,7 +65,7 @@ type
      TocvBitmap3 = class( TocvImage3 )
      private
      protected
-       ///// アクセス
+       
        procedure SetCore( const Core_:pIplImage ); override;
      public
        constructor Create( const Width_,Height_:Integer );
@@ -77,16 +77,16 @@ type
      TocvBitmap4 = class( TocvImage4 )
      private
      protected
-       ///// アクセス
+       
        procedure SetCore( const Core_:pIplImage ); override;
      public
        constructor Create( const Width_,Height_:Integer );
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -98,13 +98,13 @@ uses ocv.imgproc_c, ocv.imgproc.types_c;
 
 //  
 
-// %%%%% TocvImage
+//TocvImage
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TocvImage.SetCore( const Core_:pIplImage );
 begin
@@ -126,17 +126,17 @@ begin
      Result := _Core.nChannels;
 end;
 
-// & public
 
-// %%%%% TocvImage3
 
-//  private
+//TocvImage3
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+
+//-------------------------------------------------------
 
 procedure TocvImage3.CopyFrom( const Image_:TocvImage4 );
 begin
@@ -148,15 +148,15 @@ begin
      cvCvtColor( _Core, Image_.Core, CV_BGR2BGRA );
 end;
 
-// %%%%% TocvImage4
+//TocvImage4
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TocvImage4.CopyFrom( const Image_:TocvImage3 );
 begin
@@ -196,13 +196,13 @@ begin
      end;
 end;
 
-// %%%%% TocvBitmap3
+//TocvBitmap3
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TocvBitmap3.SetCore( const Core_:pIplImage );
 begin
@@ -211,7 +211,7 @@ begin
      _Core := Core_;
 end;
 
-// & public
+
 
 constructor TocvBitmap3.Create( const Width_,Height_:Integer );
 begin
@@ -227,13 +227,13 @@ begin
      inherited;
 end;
 
-// %%%%% TocvBitmap4
+//TocvBitmap4
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TocvBitmap4.SetCore( const Core_:pIplImage );
 begin
@@ -242,7 +242,7 @@ begin
      _Core := Core_;
 end;
 
-// & public
+
 
 constructor TocvBitmap4.Create( const Width_,Height_:Integer );
 begin
@@ -266,4 +266,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

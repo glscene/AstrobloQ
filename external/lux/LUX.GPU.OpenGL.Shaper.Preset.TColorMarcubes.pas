@@ -36,9 +36,9 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Textur :TGLCelTex2D_TAlphaColorF read _Textur;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -51,7 +51,7 @@ type
        _Textur    :TGLPoiTex3D_TAlphaColorF;
        _Size      :TGLUniBuf<TSingle3D>;
        _Threshold :TGLUniBuf<Single>;
-       ///// アクセス
+       
        function GetSizeX :Single;
        procedure SetSizeX( const SizeX_:Single );
        function GetSizeY :Single;
@@ -63,21 +63,21 @@ type
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Textur    :TGLPoiTex3D_TAlphaColorF read   _Textur                          ;
        property SizeX     :Single                   read GetSizeX       write SetSizeX      ;
        property SizeY     :Single                   read GetSizeY       write SetSizeY      ;
        property SizeZ     :Single                   read GetSizeZ       write SetSizeZ      ;
        property Threshold :Single                   read GetThreshold   write SetThreshold  ;
-       ///// メソッド
+       
        procedure BeginDraw; override;
        procedure EndDraw; override;
        procedure MakeModel;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -87,15 +87,15 @@ implementation //
 
 //  
 
-// %%%%% TColorMarcubesMateryFaces
+//TColorMarcubesMateryFaces
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
 
-// & public
+
+//-------------------------------------------------------
+
+
 
 constructor TColorMarcubesMateryFaces.Create;
 begin
@@ -136,7 +136,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TColorMarcubesMateryFaces.Use;
 begin
@@ -152,13 +152,13 @@ begin
      inherited;
 end;
 
-// %%%%% TColorMarcubes
+//TColorMarcubes
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TColorMarcubes.GetSizeX :Single;
 begin
@@ -201,7 +201,7 @@ begin
      _Threshold[ 0 ] := Threshold_;
 end;
 
-// & public
+
 
 constructor TColorMarcubes.Create;
 begin
@@ -239,7 +239,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TColorMarcubes.BeginDraw;
 begin
@@ -272,4 +272,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

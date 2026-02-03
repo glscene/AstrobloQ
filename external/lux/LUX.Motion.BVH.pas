@@ -50,15 +50,15 @@ type
      protected
        _Name :string;
        _Offs :TSingle3D;
-       ///// アクセス
+       
        function GetRelaPoses( const I_:Integer ) :TSingleM4; virtual;
        function GetAbsoPoses( const I_:Integer ) :TSingleM4; virtual;
-       ///// メソッド
+       
        procedure SetFrameN( const FrameN_:Integer ); virtual;
        procedure AddMove( const I_:Integer; const Move_:TSingleM4 ); virtual;
      public
        constructor Create( const Name_:string );
-       ///// プロパティ
+       
        property Name                          :String    read   _Name     ;
        property Offs                          :TSingle3D read   _Offs     ;
        property     Poses[ const I_:Integer ] :TSingleM4 read GetRelaPoses;
@@ -72,18 +72,18 @@ type
      private
      protected
        _Moves :TArray<TSingleM4>;
-       ///// アクセス
+       
        function GetMoves( const I_:Integer ) :TSingleM4;
        function GetRelaPoses( const I_:Integer ) :TSingleM4; override;
-       ///// メソッド
+       
        procedure SetFrameN( const FrameN_:Integer ); override;
        procedure AddMove( const I_:Integer; const Move_:TSingleM4 ); override;
      public
        constructor Create( const Name_:string );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Moves[ const I_:Integer ] :TSingleM4 read GetMoves;
-       ///// メソッド
+       
      end;
 
      //  TBoneRoot
@@ -91,7 +91,7 @@ type
      TBoneRoot = class( TBoneJoin )
      private
      protected
-       ///// アクセス
+       
        function GetAbsoPoses( const I_:Integer ) :TSingleM4; override;
      public
      end;
@@ -120,21 +120,21 @@ type
        _Root   :TBoneRoot;
        _FrameN :Integer;
        _FrameT :Single;
-       ///// アクセス
+       
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Root   :TBoneRoot   read _Root;
        property FrameN :Integer read _FrameN;
        property FrameT :Single  read _FrameT;
-       ///// メソッド
+       
        procedure LoadFromFileBVH( const FileName_:string );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -144,7 +144,7 @@ uses System.Classes, System.SysUtils, System.Math;
 
 //  
 
-// %%%%% HMoveKind
+//HMoveKind
 
 class function HMoveKind.Create( const Tag_:string ) :TMoveKind;
 begin
@@ -186,13 +186,13 @@ end;
 
 //  
 
-// %%%%% TBoneNode
+//TBoneNode
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TBoneNode.GetRelaPoses( const I_:Integer ) :TSingleM4;
 begin
@@ -204,7 +204,7 @@ begin
      Result := Paren.AbsoPoses[ I_ ] * RelaPoses[ I_ ];
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TBoneNode.SetFrameN( const FrameN_:Integer );
 begin
@@ -216,7 +216,7 @@ begin
 
 end;
 
-// & public
+
 
 constructor TBoneNode.Create( const Name_:string );
 begin
@@ -225,13 +225,13 @@ begin
      _Name := Name_;
 end;
 
-// %%%%% TBoneJoin
+//TBoneJoin
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TBoneJoin.GetMoves( const I_:Integer ) :TSingleM4;
 begin
@@ -243,7 +243,7 @@ begin
      Result := inherited * _Moves[ I_ ];
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TBoneJoin.SetFrameN( const FrameN_:Integer );
 var
@@ -267,7 +267,7 @@ begin
      P := @_Moves[ I_ ];  P^ := P^ * Move_;
 end;
 
-// & public
+
 
 constructor TBoneJoin.Create( const Name_:string );
 begin
@@ -281,44 +281,44 @@ begin
      inherited;
 end;
 
-// %%%%% TBoneRoot
+//TBoneRoot
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TBoneRoot.GetAbsoPoses( const I_:Integer ) :TSingleM4;
 begin
      Result := RelaPoses[ I_ ];
 end;
 
-// & public
 
-// %%%%% TBoneEdge
 
-//  private
+//TBoneEdge
 
-//  protected
 
-// & public
 
-// %%%%% TBoneLeaf
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TBones
+//TBoneLeaf
 
-//  private
 
-//  protected
 
-// & public
+
+
+
+
+//TBones
+
+
+
+
+
+
 
 constructor TBones.Create;
 begin
@@ -334,7 +334,7 @@ begin
      inherited;
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 procedure TBones.LoadFromFileBVH( const FileName_:string );
 var
@@ -497,4 +497,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

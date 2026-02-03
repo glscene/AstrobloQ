@@ -26,7 +26,7 @@ type
      IOcNode3D = interface( IOcNode )
      ['{828065B3-3378-4052-8ECA-FF2BD612970F}']
      {protected}
-       ///// アクセス
+       
        function GetRoot :IOctree3D;
        function GetParen :IOcNode3D;
        procedure SetParen( const Paren_:IOcNode3D );
@@ -34,12 +34,12 @@ type
        procedure SetChilds( const I_:Byte; const Child_:IOcNode3D );
        function GetCubo :TSingleCubo3D;
      {public}
-       ///// プロパティ
+       
        property Root                    :IOctree3D     read GetRoot                  ;
        property Paren                   :IOcNode3D     read GetParen  write SetParen ;
        property Childs[ const I_:Byte ] :IOcNode3D     read GetChilds write SetChilds;
        property Cubo                    :TSingleCubo3D read GetCubo                  ;
-       ///// メソッド
+       
        function ForChilds( const Func_:TConstFunc<IOcNode3D,Boolean> ) :Boolean;
        procedure ForFamily( const Proc_:TConstProc<IOcNode3D> );
        function ForChildPairs( const Node_:IOcNode3D; const Func_:TConstFunc<IOcNode3D,IOcNode3D,Boolean> ) :Boolean;
@@ -68,7 +68,7 @@ type
      ['{E8A174D1-4F6F-4F03-9182-D8BE1A631541}']
      {protected}
      {public}
-       ///// メソッド
+       
        function GetCubo( const Lev_:Cardinal; const Ind_:TCardinal3D ) :TSingleCubo3D; overload;
      end;
 
@@ -79,15 +79,15 @@ type
      TOcLeaf3D = class( TOcLeaf<IOcNode3D,IOctree3D>, IOcLeaf3D, IOcNode3D )
      private
      protected
-       ///// アクセス
+       
        function GetCubo :TSingleCubo3D;
      public
        class constructor Create;
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Cubo :TSingleCubo3D read GetCubo;
-       ///// メソッド
+       
        function Collision( const Node_:IOcNode3D ) :Boolean;
      end;
 
@@ -96,15 +96,15 @@ type
      TOcKnot3D = class( TOcKnot<IOcNode3D,IOctree3D>, IOcKnot3D, IOcNode3D )
      private
      protected
-       ///// アクセス
+       
        function GetCubo :TSingleCubo3D;
      public
        class constructor Create;
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Cubo :TSingleCubo3D read GetCubo;
-       ///// メソッド
+       
        function Collision( const Node_:IOcNode3D ) :Boolean;
      end;
 
@@ -115,24 +115,24 @@ type
      protected
        _Area :TSingleArea3D;
        _Pose :TSingleM4;
-       ///// アクセス
+       
        function GetCubo :TSingleCubo3D; overload;
      public
        class constructor Create;
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Cubo :TSingleCubo3D read GetCubo            ;
        property Area :TSingleArea3D read   _Area write _Area;
        property Pose :TSingleM4     read   _Pose write _Pose;
-       ///// メソッド
+       
        function GetCubo( const Lev_:Cardinal; const Ind_:TCardinal3D ) :TSingleCubo3D; overload;
        function Collision( const Node_:IOcNode3D ) :Boolean;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -144,22 +144,22 @@ uses System.SysUtils, System.Math;
 
 //  
 
-// %%%%% TOcNode3D
+//TOcNode3D
 
-// %%%%% TOcLeaf3D
+//TOcLeaf3D
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcLeaf3D.GetCubo :TSingleCubo3D;
 begin
      Result := Root.GetCubo( Lev, Ind );
 end;
 
-// & public
+
 
 class constructor TOcLeaf3D.Create;
 begin
@@ -184,7 +184,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOcLeaf3D.Collision( const Node_:IOcNode3D ) :Boolean;
 begin
@@ -195,20 +195,20 @@ begin
                end );
 end;
 
-// %%%%% TOcKnot3D
+//TOcKnot3D
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcKnot3D.GetCubo :TSingleCubo3D;
 begin
      Result := Root.GetCubo( Lev, Ind );
 end;
 
-// & public
+
 
 class constructor TOcKnot3D.Create;
 begin
@@ -233,7 +233,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOcKnot3D.Collision( const Node_:IOcNode3D ) :Boolean;
 begin
@@ -244,20 +244,20 @@ begin
                end );
 end;
 
-// %%%%% TOctree3D
+//TOctree3D
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOctree3D.GetCubo :TSingleCubo3D;
 begin
      Result := Root.GetCubo( Lev, Ind );
 end;
 
-// & public
+
 
 class constructor TOctree3D.Create;
 begin
@@ -282,7 +282,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOctree3D.GetCubo( const Lev_:Cardinal; const Ind_:TCardinal3D ) :TSingleCubo3D;
 var
@@ -337,4 +337,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

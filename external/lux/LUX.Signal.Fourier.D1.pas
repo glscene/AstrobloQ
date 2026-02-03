@@ -23,7 +23,7 @@ type
        _TempF :TArray<TSingleC>;
        _IterW :TDoubleIter1D;
        _IterF :TDoubleCIter1D;
-       ///// メソッド
+       
        procedure InitMap;
      protected
        _MapTF    :TArray2<TSingleC>;
@@ -31,7 +31,7 @@ type
        _FreqN    :Integer;
        _WindN    :Integer;
        _WaveIter :TIter1D<Single>;
-       ///// アクセス
+       
        function GetMapTF( const T_,F_:Integer ) :TSingleC;
        procedure SetTimeN( const TimeN_:Integer );
        procedure SetFreqN( const FreqN_:Integer );
@@ -39,19 +39,19 @@ type
      public
        constructor Create( const TimeN_,FreqN_:Integer; const WaveIter_:TIter1D<Single> );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property MapTF[ const T_,F_:Integer ] :TSingleC        read GetMapTF                     ;
        property TimeN                        :Integer         read   _TimeN    write SetTimeN   ;
        property FreqN                        :Integer         read   _FreqN    write SetFreqN   ;
        property WindN                        :Integer         read   _WindN    write SetWindN   ;
        property WaveIter                     :TIter1D<Single> read   _WaveIter write   _WaveIter;
-       ///// メソッド
+       
        procedure Analyze;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -61,9 +61,9 @@ implementation //
 
 //  
 
-// %%%%% FourierTimes
+//FourierTimes
 
-//  private
+
 
 procedure TFourierTimes.InitMap;
 begin
@@ -78,7 +78,7 @@ begin
      _RDFT.Count := _WindN;
 end;
 
-//  protected
+
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX アクセス
 
@@ -114,7 +114,7 @@ end;
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX メソッド
 
-// & public
+
 
 constructor TFourierTimes.Create( const TimeN_,FreqN_:Integer; const WaveIter_:TIter1D<Single> );
 begin
@@ -186,4 +186,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

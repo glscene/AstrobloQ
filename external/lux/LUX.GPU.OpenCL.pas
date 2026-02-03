@@ -76,12 +76,12 @@ type
      private
      protected
        _Platfos :TCLPlatfos;
-       ///// アクセス
+       
        function GetPlatfos :TCLPlatfos;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Platfos :TCLPlatfos read GetPlatfos;
      end;
 
@@ -91,20 +91,20 @@ type
      private
        class var _System :TCLSystem;
      protected
-       ///// アクセス
+       
        class function GetPlatfos :TCLPlatfos; static;
      public
        class constructor Create;
        class destructor Destroy;
-       ///// プロパティ
+       
        class property Platfos :TCLPlatfos read GetPlatfos;
-       ///// メソッド
+       
        class procedure Show( const Strings_:TStrings );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -114,20 +114,20 @@ implementation //
 
 //  
 
-// %%%%% TCLSystem
+//TCLSystem
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLSystem.GetPlatfos :TCLPlatfos;
 begin
      Result := _Platfos;
 end;
 
-// & public
+
 
 constructor TCLSystem.Create;
 begin
@@ -143,20 +143,20 @@ begin
      inherited;
 end;
 
-// %%%%% TOpenCL
+//TOpenCL
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 class function TOpenCL.GetPlatfos :TCLPlatfos;
 begin
      Result := _System.Platfos;
 end;
 
-// & public
+
 
 class constructor TOpenCL.Create;
 begin
@@ -168,7 +168,7 @@ begin
      _System.Free;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 class procedure TOpenCL.Show( const Strings_:TStrings );
 begin
@@ -177,4 +177,4 @@ end;
 
 //  
 
-end. // 
+end.

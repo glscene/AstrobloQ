@@ -42,7 +42,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
@@ -55,7 +55,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
@@ -68,7 +68,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
@@ -81,14 +81,14 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Bitmap_:TBitmap ); override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -100,23 +100,23 @@ uses System.Threading;
 
 //  
 
-// %%%%% TCLStream2D_FMX<TCLImager_>
+//TCLStream2D_FMX<TCLImager_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TCLStream2DxBGRAxUInt8_FMX
 
-//  private
 
-//  protected
 
-// & public
+//TCLStream2DxBGRAxUInt8_FMX
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream2DxBGRAxUInt8_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -169,15 +169,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream2DxBGRAxUFix8_FMX
+//TCLStream2DxBGRAxUFix8_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream2DxBGRAxUFix8_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -230,15 +230,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream2DxRGBAxUInt32_FMX
+//TCLStream2DxRGBAxUInt32_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream2DxRGBAxUInt32_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -297,15 +297,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream2DxRGBAxSFlo32_FMX
+//TCLStream2DxRGBAxSFlo32_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream2DxRGBAxSFlo32_FMX.CopyTo( const Bitmap_:TBitmap );
 var
@@ -366,4 +366,4 @@ end;
 
 //  
 
-end. // 
+end.

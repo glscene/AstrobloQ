@@ -20,10 +20,10 @@ type
      IGLMateryImag = interface( IGLMatery )
      ['{426B4B0E-FDA1-44B2-9B2A-0B7371E2E7D0}']
      {protected}
-       ///// アクセス
+       
        function GetTextur :TGLCelTex2D_TAlphaColorF;
      {public}
-       ///// プロパティ
+       
        property Textur :TGLCelTex2D_TAlphaColorF read GetTextur;
      end;
 
@@ -33,14 +33,14 @@ type
      private
      protected
        _Textur :TGLCelTex2D_TAlphaColorF;
-       ///// アクセス
+       
        function GetTextur :TGLCelTex2D_TAlphaColorF;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Textur :TGLCelTex2D_TAlphaColorF read GetTextur;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
@@ -50,10 +50,10 @@ type
      IGLMateryImagG = interface( IGLMatery )
      ['{A3108C6C-0E37-467C-94DF-F99E30B528FA}']
      {protected}
-       ///// アクセス
+       
        function GetTextur :TGLCelTex2D_TAlphaColorF;
      {public}
-       ///// プロパティ
+       
        property Textur :TGLCelTex2D_TAlphaColorF read GetTextur;
      end;
 
@@ -63,21 +63,21 @@ type
      private
      protected
        _Textur :TGLCelTex2D_TAlphaColorF;
-       ///// アクセス
+       
        function GetTextur :TGLCelTex2D_TAlphaColorF;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Textur :TGLCelTex2D_TAlphaColorF read GetTextur;
-       ///// メソッド
+       
        procedure Use; override;
        procedure Unuse; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -87,20 +87,20 @@ implementation //
 
 //  
 
-// %%%%% TGLMateryImag
+//TGLMateryImag
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryImag.GetTextur :TGLCelTex2D_TAlphaColorF;
 begin
      Result := _Textur;
 end;
 
-// & public
+
 
 constructor TGLMateryImag.Create;
 begin
@@ -124,7 +124,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryImag.Use;
 begin
@@ -140,20 +140,20 @@ begin
      inherited;
 end;
 
-// %%%%% TGLMateryImagG
+//TGLMateryImagG
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLMateryImagG.GetTextur :TGLCelTex2D_TAlphaColorF;
 begin
      Result := _Textur;
 end;
 
-// & public
+
 
 constructor TGLMateryImagG.Create;
 begin
@@ -177,7 +177,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLMateryImagG.Use;
 begin
@@ -201,4 +201,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

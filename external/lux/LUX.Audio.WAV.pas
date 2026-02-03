@@ -329,7 +329,7 @@ type
 
      TChunkFMT = packed record
      private
-       ///// アクセス
+       
        function GetName :TAnsiChar4;
        function GetSize :Cardinal;
        function GetChunk :TChunk;
@@ -342,11 +342,11 @@ type
        SampleBits  :Word;
        ExtSize     :Word;
        ExtData     :array of Byte;
-       ///// プロパティ
+       
        property Name  :TAnsiChar4 read GetName;
        property Size  :Cardinal   read GetSize;
        property Chunk :TChunk     read GetChunk;
-       ///// メソッド
+       
        procedure Load( const F_:TFileStream; const Size_:Cardinal );
        procedure Save( const F_:TFileStream );
      end;
@@ -420,7 +420,7 @@ type
        _Format  :TChunkFMT;
        _SampleN :Integer;
        _Wave    :TArray<TWave16c2>;
-       ///// アクセス
+       
        function GetTotalTime :Single;
        function GetTypePCM :String;
        function GetWave( const I_:Integer ) :TWave16c2;
@@ -429,14 +429,14 @@ type
        constructor Create; overload;
        constructor Create( const FileName_:String ); overload;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property RIFF                     :THeaderRIFF read   _RIFF                   ;
        property Format                   :TChunkFMT   read   _Format                 ;
        property SampleN                  :Integer     read   _SampleN                ;
        property TotalTime                :Single      read GetTotalTime              ;
        property TypePCM                  :String      read GetTypePCM                ;
        property Wave[ const I_:Integer ] :TWave16c2   read GetWave      write SetWave;
-       ///// メソッド
+       
        procedure LoadFromFile( const FileName_:String );
        procedure SaveToFile( const FileName_:String );
      end;
@@ -449,7 +449,7 @@ type
        _CurrentP :PWave16c2;
      public
        constructor Create( const Parent_:TFileWAV; const HeadI_:Integer = 0; const StepX_:Integer = 1 );
-       ///// メソッド
+       
        procedure GoHead; override;
        procedure GoPrev; overload; override;
        procedure GoNext; overload; override;
@@ -463,7 +463,7 @@ type
      TFileWAVIterL = class( TFileWAVIter< Single > )
      private
      protected
-       ///// アクセス
+       
        function GetValue :Single; override;
        procedure SetValue( const Value_:Single ); override;
      public
@@ -474,7 +474,7 @@ type
      TFileWAVIterR = class( TFileWAVIter< Single > )
      private
      protected
-       ///// アクセス
+       
        function GetValue :Single; override;
        procedure SetValue( const Value_:Single ); override;
      public
@@ -485,7 +485,7 @@ type
      TSingleWave2IterL = class( TArrayIter< Single, TSingleWave2 > )
      private
      protected
-       ///// アクセス
+       
        function GetValue :Single; override;
        procedure SetValue( const Value_:Single ); override;
      public
@@ -496,13 +496,13 @@ type
      TSingleWave2IterR = class( TArrayIter< Single, TSingleWave2 > )
      private
      protected
-       ///// アクセス
+       
        function GetValue :Single; override;
        procedure SetValue( const Value_:Single ); override;
      public
      end;
 
-//const // 
+
 
 var //$$$$ 
 
@@ -518,21 +518,21 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% THeaderRIFF
+//THeaderRIFF
 
-//  private
 
-// & public
 
-// %%%%% TChunk
 
-//  private
 
-// & public
+//TChunk
 
-// %%%%% TChunkFMT
 
-//  private
+
+
+
+//TChunkFMT
+
+
 
 function TChunkFMT.GetName :TAnsiChar4;
 begin
@@ -551,7 +551,7 @@ begin
      Result.Size := Size;
 end;
 
-// & public
+
 
 procedure TChunkFMT.Load( const F_:TFileStream; const Size_:Cardinal );
 begin
@@ -590,13 +590,13 @@ begin
      end;
 end;
 
-// %%%%% TWave8c1
+//TWave8c1
 
-//  private
 
-// & public
 
-///////////////////////////////////////////////////////////////////////// 型変換
+
+
+//-------------------------------------------------------/////// 型変換
 
 class operator TWave8c1.Implicit( const X_:Single ) :TWave8c1;
 begin
@@ -608,19 +608,19 @@ begin
      Result := ( X_.o - 128 ) / 127;
 end;
 
-// %%%%% TWave8c2
+//TWave8c2
 
-//  private
 
-// & public
 
-// %%%%% TWave16c1
 
-//  private
 
-// & public
+//TWave16c1
 
-///////////////////////////////////////////////////////////////////////// 型変換
+
+
+
+
+//-------------------------------------------------------/////// 型変換
 
 class operator TWave16c1.Implicit( const X_:Single ) :TWave16c1;
 begin
@@ -632,17 +632,17 @@ begin
      Result := X_.o / 32767;
 end;
 
-// %%%%% TWave16c2
+//TWave16c2
 
-//  private
 
-// & public
 
-// %%%%% TSingleWave2
 
-//  private
 
-// & public
+//TSingleWave2
+
+
+
+
 
 constructor TSingleWave2.Create( const L_,R_:Single );
 begin
@@ -690,11 +690,11 @@ end;
 
 //  
 
-// %%%%% TFileWAV
+//TFileWAV
 
-//  private
 
-//  protected
+
+
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX アクセス
 
@@ -718,7 +718,7 @@ begin
      _Wave[ I_ ] := Wave_;
 end;
 
-// & public
+
 
 constructor TFileWAV.Create;
 begin
@@ -827,7 +827,7 @@ begin
      F.Free;
 end;
 
-// %%%%% TFileWAVIter
+//TFileWAVIter
 
 constructor TFileWAVIter< TValue_ >.Create( const Parent_:TFileWAV; const HeadI_:Integer = 0; const StepX_:Integer = 1 );
 begin
@@ -868,7 +868,7 @@ begin
      _CurrentP := @_Parent._Wave[ _HeadI + StepX * I_ ];
 end;
 
-// %%%%% TFileWAVIterL
+//TFileWAVIterL
 
 function TFileWAVIterL.GetValue :Single;
 begin
@@ -880,7 +880,7 @@ begin
      _CurrentP^ := TSingleWave2.Create( Value_, _CurrentP^.R );
 end;
 
-// %%%%% TFileWAVIterR
+//TFileWAVIterR
 
 function TFileWAVIterR.GetValue :Single;
 begin
@@ -892,7 +892,7 @@ begin
      _CurrentP^ := TSingleWave2.Create( _CurrentP^.L, Value_ );
 end;
 
-// %%%%% TSingleWave2IterL
+//TSingleWave2IterL
 
 function TSingleWave2IterL.GetValue :Single;
 begin
@@ -904,7 +904,7 @@ begin
      _CurrentP.L := Value_;
 end;
 
-// %%%%% TSingleWave2IterR
+//TSingleWave2IterR
 
 function TSingleWave2IterR.GetValue :Single;
 begin
@@ -1020,4 +1020,4 @@ finalization //
 
      _ListPCM_.Free;
 
-end. // 
+end.

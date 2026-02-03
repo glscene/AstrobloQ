@@ -22,7 +22,7 @@ type
      protected
        _Text :TArray<AnsiChar>;
      public
-       ///// メソッド
+       
        class function ReadCreate( const F_:TFileStream; const H_:TFrameHeaderSDIF; const P_:TFileSDIF ) :TFrameSDIF; override;
      end;
 
@@ -32,7 +32,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        class function ReadCreate( const F_:TFileStream; const H_:TFrameHeaderSDIF; const P_:TFileSDIF ) :TFrameSDIF; override;
      end;
 
@@ -41,23 +41,23 @@ type
      TFrame1ASO = class( TFrameSDIF )
      private
      protected
-       ///// アクセス
+       
        function GetClss :String;
        function GetDura :Single;
        function GetTimeMax :Single;
      public
-       ///// プロパティ
+       
        property Clss    :String read GetClss   ;
        property Dura    :Single read GetDura   ;
        property TimeMax :Single read GetTimeMax;
-       ///// メソッド
+       
        class function Select( const Clss_:String ) :CFrameSDIF; reintroduce; virtual;
        class function ReadCreate( const F_:TFileStream; const H_:TFrameHeaderSDIF; const P_:TFileSDIF ) :TFrameSDIF; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -70,15 +70,15 @@ uses System.SysUtils,
 
 //  
 
-// %%%%% TFrame1TYP
+//TFrame1TYP
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 class function TFrame1TYP.ReadCreate( const F_:TFileStream; const H_:TFrameHeaderSDIF; const P_:TFileSDIF ) :TFrameSDIF;
 begin
@@ -92,15 +92,15 @@ begin
      end;
 end;
 
-// %%%%% TFrameASTI
+//TFrameASTI
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 class function TFrameASTI.ReadCreate( const F_:TFileStream; const H_:TFrameHeaderSDIF; const P_:TFileSDIF ) :TFrameSDIF;
 var
@@ -118,13 +118,13 @@ begin
      P.Free;
 end;
 
-// %%%%% TFrame1ASO
+//TFrame1ASO
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TFrame1ASO.GetClss :String;
 begin
@@ -141,9 +141,9 @@ begin
      Result := Time + Dura;
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 class function TFrame1ASO.Select( const Clss_:String ) :CFrameSDIF;
 begin
@@ -203,4 +203,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

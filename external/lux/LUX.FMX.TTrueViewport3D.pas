@@ -13,7 +13,7 @@ type
   private
      
     _Viewport3D :TTrueViewport3DFrame;
-    ///// アクセス
+    
     function GetColor :TAlphaColor;
     procedure SetColor( const Color_:TAlphaColor );
     function GetCamera :TCamera;
@@ -22,10 +22,10 @@ type
      
     constructor Create( Owner_:TComponent ); override;
     destructor Destroy; override;
-    ///// プロパティ
+    
     property Color  :TAlphaColor read GetColor  write SetColor;
     property Camera :TCamera     read GetCamera write SetCamera;
-    ///// メソッド
+    
     procedure RebuildRenderingList;
   end;
 
@@ -33,9 +33,9 @@ implementation //
 
 {$R *.fmx}
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TTrueViewport3DFrame.GetColor :TAlphaColor;
 begin
@@ -57,7 +57,7 @@ begin
      _Viewport3D.Camera := Camera_;
 end;
 
-// public
+
 
 constructor TTrueViewport3DFrame.Create( Owner_:TComponent );
 begin
@@ -81,11 +81,11 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TTrueViewport3DFrame.RebuildRenderingList;
 begin
      _Viewport3D.RebuildRenderingList;
 end;
 
-end. // 
+end.

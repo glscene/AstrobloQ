@@ -73,14 +73,14 @@ type
      private
      protected
        _Progra :IGLProgra;
-       ///// メソッド
+       
        procedure AddPort( const BinP_:GLuint; const Port_:_TPort_ ); virtual; abstract;
        procedure DelPort( const BinP_:GLuint; const Port_:_TPort_ ); virtual; abstract;
      public
        constructor Create( const Progra_:IGLProgra );
-       ///// プロパティ
+       
        property Progra :IGLProgra read _Progra;
-       ///// メソッド
+       
        procedure Add( const BindI_:GLuint; const Port_:_TPort_ );
        procedure Remove( const BindI_:GLuint );
        procedure Del( const BindI_:GLuint );
@@ -95,11 +95,11 @@ type
      TGLPorterF = class( TGLPorter<TGLPortF> )
      private
      protected
-       ///// メソッド
+       
        procedure AddPort( const BinP_:GLuint; const Port_:TGLPortF ); override;
        procedure DelPort( const BinP_:GLuint; const Port_:TGLPortF ); override;
      public
-       ///// メソッド
+       
        procedure Add( const BinP_:GLuint; const Name_:String );
      end;
 
@@ -109,13 +109,13 @@ type
      private
      protected
        _Varray :TGLVarray;
-       ///// メソッド
+       
        procedure AddPort( const BinP_:GLuint; const Port_:TGLPortV ); override;
        procedure DelPort( const BinP_:GLuint; const Port_:TGLPortV ); override;
      public
        constructor Create( const Progra_:IGLProgra );
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure Add( const BinP_:GLuint; const Name_:String;
                                           const EleN_:GLint;
                                           const EleT_:GLenum;
@@ -129,11 +129,11 @@ type
      TGLPorterU = class( TGLPorter<TGLPortU> )
      private
      protected
-       ///// メソッド
+       
        procedure AddPort( const BinP_:GLuint; const Port_:TGLPortU ); override;
        procedure DelPort( const BinP_:GLuint; const Port_:TGLPortU ); override;
      public
-       ///// メソッド
+       
        procedure Add( const BinP_:GLuint; const Name_:String );
      end;
 
@@ -142,11 +142,11 @@ type
      TGLPorterT = class( TGLPorter<TGLPortT> )
      private
      protected
-       ///// メソッド
+       
        procedure AddPort( const BinP_:GLuint; const Port_:TGLPortT ); override;
        procedure DelPort( const BinP_:GLuint; const Port_:TGLPortT ); override;
      public
-       ///// メソッド
+       
        procedure Add( const BinP_:GLuint; const Name_:String );
      end;
 
@@ -155,17 +155,17 @@ type
      TGLPorterS = class( TGLPorter<TGLPortS> )
      private
      protected
-       ///// メソッド
+       
        procedure AddPort( const BinP_:GLuint; const Port_:TGLPortS ); override;
        procedure DelPort( const BinP_:GLuint; const Port_:TGLPortS ); override;
      public
-       ///// メソッド
+       
        procedure Add( const BinP_:GLuint; const Name_:String );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -173,17 +173,17 @@ implementation //
 
 //  
 
-// %%%%% TGLPortF
+//TGLPortF
 
-//  private
 
-// & public
 
-// %%%%% TGLPortV
 
-//  private
 
-// & public
+//TGLPortV
+
+
+
+
 
 constructor TGLPortV.Create( const Name_:String;
                              const EleN_:GLint;
@@ -196,33 +196,33 @@ begin
      Offs := Offs_;
 end;
 
-// %%%%% TGLPortU
+//TGLPortU
 
-//  private
 
-// & public
+
+
 
 constructor TGLPortU.Create( const Name_:String );
 begin
      Name := Name_;
 end;
 
-// %%%%% TGLPortT
+//TGLPortT
 
-//  private
 
-// & public
+
+
 
 constructor TGLPortT.Create( const Name_:String );
 begin
      Name := Name_;
 end;
 
-// %%%%% TGLPortS
+//TGLPortS
 
-//  private
 
-// & public
+
+
 
 constructor TGLPortS.Create( const Name_:String );
 begin
@@ -231,13 +231,13 @@ end;
 
 //  
 
-// %%%%% TGLPorter<_TPort_>
+//TGLPorter<_TPort_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLPorter<_TPort_>.Create( const Progra_:IGLProgra );
 begin
@@ -246,7 +246,7 @@ begin
      _Progra := Progra_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLPorter<_TPort_>.Add( const BindI_:GLuint; const Port_:_TPort_ );
 begin
@@ -301,13 +301,13 @@ begin
 
 end;
 
-// %%%%% TGLPorterF
+//TGLPorterF
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLPorterF.AddPort( const BinP_:GLuint; const Port_:TGLPortF );
 begin
@@ -319,9 +319,9 @@ begin
 
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLPorterF.Add( const BinP_:GLuint; const Name_:String );
 var
@@ -335,13 +335,13 @@ begin
      inherited Add( BinP_, P );
 end;
 
-// %%%%% TGLPorterV
+//TGLPorterV
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLPorterV.AddPort( const BinP_:GLuint; const Port_:TGLPortV );
 var
@@ -385,7 +385,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TGLPorterV.Create( const Progra_:IGLProgra );
 begin
@@ -401,7 +401,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLPorterV.Use;
 begin
@@ -433,13 +433,13 @@ begin
      inherited Add( BinP_, P );
 end;
 
-// %%%%% TGLPorterU
+//TGLPorterU
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLPorterU.AddPort( const BinP_:GLuint; const Port_:TGLPortU );
 var
@@ -458,9 +458,9 @@ begin
 
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLPorterU.Add( const BinP_:GLuint; const Name_:String );
 var
@@ -474,13 +474,13 @@ begin
      inherited Add( BinP_, P );
 end;
 
-// %%%%% TGLPorterT
+//TGLPorterT
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLPorterT.AddPort( const BinP_:GLuint; const Port_:TGLPortT );
 var
@@ -499,9 +499,9 @@ begin
 
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLPorterT.Add( const BinP_:GLuint; const Name_:String );
 var
@@ -515,13 +515,13 @@ begin
      inherited Add( BinP_, P );
 end;
 
-// %%%%% TGLPorterS
+//TGLPorterS
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TGLPorterS.AddPort( const BinP_:GLuint; const Port_:TGLPortS );
 var
@@ -540,9 +540,9 @@ begin
 
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLPorterS.Add( const BinP_:GLuint; const Name_:String );
 var
@@ -564,4 +564,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

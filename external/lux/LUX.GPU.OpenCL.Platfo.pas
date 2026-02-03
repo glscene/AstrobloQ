@@ -37,7 +37,7 @@ type
             TCLExtenss_ = TCLExtenss<TCLSystem_,TCLPlatfo_>;
             TCLDevices_ = TCLDevices<TCLSystem_,TCLPlatfo_>;
             TCLContexs_ = TCLContexs<TCLSystem_,TCLPlatfo_>;
-       ///// メソッド
+       
        function GetInfo<_TYPE_>( const Name_:T_cl_platform_info ) :_TYPE_;
        function GetInfoSize( const Name_:T_cl_platform_info ) :T_size_t;
        function GetInfos<_TYPE_>( const Name_:T_cl_platform_info ) :TArray<_TYPE_>;
@@ -47,7 +47,7 @@ type
        _Extenss :TCLExtenss_;
        _Devices :TCLDevices_;
        _Contexs :TCLContexs_;
-       ///// アクセス
+       
        function GetProfile :String;
        function GetVersion :String;
        function GetName :String;
@@ -63,7 +63,7 @@ type
        constructor Create; override;
        constructor Create( const Platfos_:TCLPlatfos_; const Handle_:T_cl_platform_id ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property System                :TCLSystem_                read GetOwnere               ;
        property Platfos               :TCLPlatfos_               read GetParent               ;
        property Handle                :T_cl_platform_id          read   _Handle               ;
@@ -89,18 +89,18 @@ type
      private
        type TCLPlatfo_ = TCLPlatfo<TCLSystem_>;
      protected
-       ///// メソッド
+       
        procedure FindPlatfos;
-       ///// イベント
+       //-----------
        procedure OnInit; override;
      public
-       ///// プロパティ
+       
        property System :TCLSystem_ read GetOwnere;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -112,19 +112,19 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TCLExtenss<TCLSystem_,TCLPlatfo_>
+//TCLExtenss<TCLSystem_,TCLPlatfo_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TCLPlatfo<TCLSystem_>
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//TCLPlatfo<TCLSystem_>
+
+
+
+//-------------------------------------------------------
 
 function TCLPlatfo<TCLSystem_>.GetInfo<_TYPE_>( const Name_:T_cl_platform_info ) :_TYPE_;
 begin
@@ -152,9 +152,9 @@ begin
      Result := TrimRight( String( P_char( GetInfos<T_char>( Name_ ) ) ) );
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TCLPlatfo<TCLSystem_>.GetProfile :String;
 begin
@@ -194,7 +194,7 @@ begin
 end;
 {$ENDIF}
 
-// & public
+
 
 constructor TCLPlatfo<TCLSystem_>.Create;
 begin
@@ -226,13 +226,13 @@ begin
      inherited;
 end;
 
-// %%%%% TCLPlatfos<TCLSystem_>
+//TCLPlatfos<TCLSystem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TCLPlatfos<TCLSystem_>.FindPlatfos;
 var
@@ -249,15 +249,15 @@ begin
      for P in Ps do TCLPlatfo_.Create( Self, P );
 end;
 
-/////////////////////////////////////////////////////////////////////// イベント
+//-------------------------------------------------------//-----------
 
 procedure TCLPlatfos<TCLSystem_>.OnInit;
 begin
      FindPlatfos;
 end;
 
-// & public
+
 
 //  
 
-end. // 
+end.

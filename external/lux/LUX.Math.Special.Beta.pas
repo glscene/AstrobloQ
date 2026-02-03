@@ -15,9 +15,9 @@ uses LUX, LUX.D1,
 
      //  {CLASS}
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -48,21 +48,21 @@ uses System.Math,
 
 //  
 
-// %%%%% {RECORD}
+//{RECORD}
 
-//  private
 
-// & public
+
+
 
 //  
 
-// %%%%% {CLASS}
+//{CLASS}
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
@@ -240,4 +240,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

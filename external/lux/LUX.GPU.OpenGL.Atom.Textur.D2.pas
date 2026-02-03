@@ -35,9 +35,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -47,13 +47,13 @@ implementation //
 
 //  
 
-// %%%%% TGLPoiTex2D<_TItem_>
+//TGLPoiTex2D<_TItem_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLPoiTex2D<_TItem_,_TImager_>.Create;
 begin
@@ -72,13 +72,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLCelTex2D<_TItem_>
+//TGLCelTex2D<_TItem_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLCelTex2D<_TItem_,_TImager_>.Create;
 begin
@@ -105,4 +105,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

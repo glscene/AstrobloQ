@@ -31,19 +31,19 @@ type
        class var _Reg :TRegEx;
      protected
        _Values :TArray<TVALUE>;
-       ///// アクセス
+       
        procedure SetColCount( const ColCount_:Integer ); override;
        procedure SetRowCount( const RowCount_:Integer ); override;
        function GetValues( const Y_,X_:Integer ) :TVALUE; virtual;
        procedure SetValues( const Y_,X_:Integer; const Value_:TVALUE ); virtual;
-       ///// メソッド
+       
        procedure ReadValues( const F_:TFileStream ); override;
        procedure ReadValues( const F_:TStreamReader ); override;
      public
        class constructor Create;
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Values[ const Y_,X_:Integer ] :TVALUE read GetValues write SetValues;
      end;
 
@@ -52,12 +52,12 @@ type
      TMatrixChar = class( TMatrixSDIF<AnsiChar> )
      private
      protected
-       ///// アクセス
+       
        function GetTexts( const Y_,X_:Integer ) :String; override;
        procedure SetTexts( const Y_,X_:Integer; const Text_:String ); override;
        function GetLines( const Y_:Integer ) :String; virtual;
      public
-       ///// プロパティ
+       
        property Lines[ const Y_:Integer ] :String read GetLines;
      end;
 
@@ -66,7 +66,7 @@ type
      TMatrixFlo4 = class( TMatrixSDIF<Single> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :Single; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:Single ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -79,7 +79,7 @@ type
      TMatrixFlo8 = class( TMatrixSDIF<Double> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :Double; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:Double ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -92,7 +92,7 @@ type
      TMatrixInt1 = class( TMatrixSDIF<Int8> )
      private
      protected
-       ///// アクセス
+       
        function GetTexts( const Y_,X_:Integer ) :String; override;
        procedure SetTexts( const Y_,X_:Integer; const Text_:String ); override;
      public
@@ -103,7 +103,7 @@ type
      TMatrixInt2 = class( TMatrixSDIF<Int16> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :Int16; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:Int16 ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -116,7 +116,7 @@ type
      TMatrixInt4 = class( TMatrixSDIF<Int32> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :Int32; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:Int32 ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -129,7 +129,7 @@ type
      TMatrixInt8 = class( TMatrixSDIF<Int64> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :Int64; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:Int64 ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -142,7 +142,7 @@ type
      TMatrixUIn1 = class( TMatrixSDIF<UInt8> )
      private
      protected
-       ///// アクセス
+       
        function GetTexts( const Y_,X_:Integer ) :String; override;
        procedure SetTexts( const Y_,X_:Integer; const Text_:String ); override;
      public
@@ -153,7 +153,7 @@ type
      TMatrixUIn2 = class( TMatrixSDIF<UInt16> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :UInt16; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:UInt16 ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -166,7 +166,7 @@ type
      TMatrixUIn4 = class( TMatrixSDIF<UInt32> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :UInt32; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:UInt32 ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -179,7 +179,7 @@ type
      TMatrixUIn8 = class( TMatrixSDIF<UInt64> )
      private
      protected
-       ///// アクセス
+       
        function GetValues( const Y_,X_:Integer ) :UInt64; override;
        procedure SetValues( const Y_,X_:Integer; const Value_:UInt64 ); override;
        function GetTexts( const Y_,X_:Integer ) :String; override;
@@ -187,9 +187,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -201,13 +201,13 @@ uses System.SysUtils, System.Math;
 
 //  
 
-// %%%%% TMatrixSDIF<TVALUE>
+//TMatrixSDIF<TVALUE>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 procedure TMatrixSDIF<TVALUE>.SetRowCount( const RowCount_:Integer );
 begin
@@ -233,7 +233,7 @@ begin
      _Values[ Y_ * _ColCount + X_ ] := Value_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TMatrixSDIF<TVALUE>.ReadValues( const F_:TFileStream );
 var
@@ -261,7 +261,7 @@ begin
      end;
 end;
 
-// & public
+
 
 class constructor TMatrixSDIF<TVALUE>.Create;
 begin
@@ -282,13 +282,13 @@ begin
      inherited;
 end;
 
-// %%%%% TMatrixChar
+//TMatrixChar
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TMatrixChar.GetTexts( const Y_,X_:Integer ) :String;
 begin
@@ -309,15 +309,15 @@ begin
      for X := 0 to ColCount-1 do Result := Result + Char( Values[ Y_, X ] );
 end;
 
-// & public
 
-// %%%%% TMatrixFlo4
 
-//  private
+//TMatrixFlo4
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixFlo4.GetValues( const Y_,X_:Integer ) :Single;
 begin
@@ -340,15 +340,15 @@ begin
                       else Values[ Y_, X_ ] := Text_.ToSingle;
 end;
 
-// & public
 
-// %%%%% TMatrixFlo8
 
-//  private
+//TMatrixFlo8
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixFlo8.GetValues( const Y_,X_:Integer ) :Double;
 begin
@@ -371,15 +371,15 @@ begin
                       else Values[ Y_, X_ ] := Text_.ToDouble;
 end;
 
-// & public
 
-// %%%%% TMatrixInt1
 
-//  private
+//TMatrixInt1
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixInt1.GetTexts( const Y_,X_:Integer ) :String;
 begin
@@ -391,15 +391,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInteger;
 end;
 
-// & public
 
-// %%%%% TMatrixInt2
 
-//  private
+//TMatrixInt2
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixInt2.GetValues( const Y_,X_:Integer ) :Int16;
 begin
@@ -421,15 +421,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInteger;
 end;
 
-// & public
 
-// %%%%% TMatrixInt4
 
-//  private
+//TMatrixInt4
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixInt4.GetValues( const Y_,X_:Integer ) :Int32;
 begin
@@ -451,15 +451,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInteger;
 end;
 
-// & public
 
-// %%%%% TMatrixInt8
 
-//  private
+//TMatrixInt8
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixInt8.GetValues( const Y_,X_:Integer ) :Int64;
 begin
@@ -481,15 +481,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInt64;
 end;
 
-// & public
 
-// %%%%% TMatrixUIn1
 
-//  private
+//TMatrixUIn1
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixUIn1.GetTexts( const Y_,X_:Integer ) :String;
 begin
@@ -501,15 +501,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInteger;
 end;
 
-// & public
 
-// %%%%% TMatrixUIn2
 
-//  private
+//TMatrixUIn2
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixUIn2.GetValues( const Y_,X_:Integer ) :UInt16;
 begin
@@ -531,15 +531,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInteger;
 end;
 
-// & public
 
-// %%%%% TMatrixUIn4
 
-//  private
+//TMatrixUIn4
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixUIn4.GetValues( const Y_,X_:Integer ) :UInt32;
 begin
@@ -561,15 +561,15 @@ begin
      Values[ Y_, X_ ] := Text_.ToInteger;
 end;
 
-// & public
 
-// %%%%% TMatrixUIn8
 
-//  private
+//TMatrixUIn8
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TMatrixUIn8.GetValues( const Y_,X_:Integer ) :UInt64;
 begin
@@ -591,7 +591,7 @@ begin
      Values[ Y_, X_ ] := Text_.ToInt64;
 end;
 
-// & public
+
 
 //  
 
@@ -601,4 +601,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -26,7 +26,7 @@ type
      ['{C78BBF2F-7207-49D2-BA4D-B5B955687593}']
      {protected}
      {public}
-       ///// メソッド
+       
        procedure CopyTo( const Z_:Integer; const Bitmap_:TBitmap );
        procedure CopyFrom( const Z_:Integer; const Bitmap_:TBitmap );
      end;
@@ -35,7 +35,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Z_:Integer; const Bitmap_:TBitmap ); overload; virtual; abstract;
        procedure CopyFrom( const Z_:Integer; const Bitmap_:TBitmap ); overload; virtual; abstract;
      end;
@@ -48,7 +48,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Z_:Integer; const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Z_:Integer; const Bitmap_:TBitmap ); override;
      end;
@@ -61,7 +61,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Z_:Integer; const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Z_:Integer; const Bitmap_:TBitmap ); override;
      end;
@@ -74,7 +74,7 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Z_:Integer; const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Z_:Integer; const Bitmap_:TBitmap ); override;
      end;
@@ -87,14 +87,14 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyTo( const Z_:Integer; const Bitmap_:TBitmap ); override;
        procedure CopyFrom( const Z_:Integer; const Bitmap_:TBitmap ); override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -106,23 +106,23 @@ uses System.Threading;
 
 //  
 
-// %%%%% TCLStream3D_FMX<TCLImager_>
+//TCLStream3D_FMX<TCLImager_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TCLStream3DxBGRAxUInt8_FMX
 
-//  private
 
-//  protected
 
-// & public
+//TCLStream3DxBGRAxUInt8_FMX
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream3DxBGRAxUInt8_FMX.CopyTo( const Z_:Integer; const Bitmap_:TBitmap );
 var
@@ -175,15 +175,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream3DxBGRAxUFix8_FMX
+//TCLStream3DxBGRAxUFix8_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream3DxBGRAxUFix8_FMX.CopyTo( const Z_:Integer; const Bitmap_:TBitmap );
 var
@@ -236,15 +236,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream3DxRGBAxUInt32_FMX
+//TCLStream3DxRGBAxUInt32_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream3DxRGBAxUInt32_FMX.CopyTo( const Z_:Integer; const Bitmap_:TBitmap );
 var
@@ -303,15 +303,15 @@ begin
      end;
 end;
 
-// %%%%% TCLStream3DxRGBAxSFlo32_FMX
+//TCLStream3DxRGBAxSFlo32_FMX
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream3DxRGBAxSFlo32_FMX.CopyTo( const Z_:Integer; const Bitmap_:TBitmap );
 var
@@ -372,4 +372,4 @@ end;
 
 //  
 
-end. // 
+end.

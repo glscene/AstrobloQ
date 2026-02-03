@@ -24,7 +24,7 @@ type
      IOcNode = interface
      ['{2330A1DE-B3EC-4072-8F50-CEAB5A583E02}']
      {protected}
-       ///// アクセス
+       
        function GetRoot :IOctree;
        function GetLev :Cardinal;
        function GetInd :TCardinal3D;
@@ -33,13 +33,13 @@ type
        function GetChilds( const I_:Byte ) :IOcNode;
        procedure SetChilds( const I_:Byte; const Child_:IOcNode );
      {public}
-       ///// プロパティ
+       
        property Root                    :IOctree     read GetRoot                  ;
        property Lev                     :Cardinal    read GetLev                   ;
        property Ind                     :TCardinal3D read GetInd                   ;
        property Paren                   :IOcNode     read GetParen  write SetParen ;
        property Childs[ const I_:Byte ] :IOcNode     read GetChilds write SetChilds;
-       ///// メソッド
+       
        procedure Clear;
        function ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean;
        procedure ForFamily( const Proc_:TConstProc<IOcNode> );
@@ -51,7 +51,7 @@ type
      TOcNode = class( TInterfacedBase, IOcNode )
      private
      protected
-       ///// アクセス
+       
        function GetRoot :IOctree; virtual;
        function GetLev :Cardinal; virtual;
        function GetInd :TCardinal3D;  virtual; abstract;
@@ -62,13 +62,13 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Root                    :IOctree     read GetRoot                  ;
        property Lev                     :Cardinal    read GetLev                   ;
        property Ind                     :TCardinal3D read GetInd                   ;
        property Paren                   :IOcNode     read GetParen  write SetParen ;
        property Childs[ const I_:Byte ] :IOcNode     read GetChilds write SetChilds;
-       ///// メソッド
+       
        procedure Clear;
        function ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean; virtual; abstract;
        procedure ForFamily( const Proc_:TConstProc<IOcNode> ); virtual; abstract;
@@ -90,7 +90,7 @@ type
      protected
        _Paren :IOcNode;
        _Id    :T1Bit3D;
-       ///// アクセス
+       
        function GetInd :TCardinal3D;  override;
        function GetParen :IOcNode; override;
        procedure SetParen( const Paren_:IOcNode ); override;
@@ -99,8 +99,8 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
-       ///// メソッド
+       
+       
        function ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean; override;
        procedure ForFamily( const Proc_:TConstProc<IOcNode> ); override;
        function ForChildPairs( const Node_:IOcNode; const Func_:TConstFunc<IOcNode,IOcNode,Boolean> ) :Boolean; override;
@@ -122,7 +122,7 @@ type
        _Paren  :IOcNode;
        _Id     :T1Bit3D;
        _Childs :array [ 0..7 ] of IOcNode;
-       ///// アクセス
+       
        function GetInd :TCardinal3D;  override;
        function GetParen :IOcNode; override;
        procedure SetParen( const Paren_:IOcNode ); override;
@@ -131,8 +131,8 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
-       ///// メソッド
+       
+       
        function ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean; override;
        procedure ForFamily( const Proc_:TConstProc<IOcNode> ); override;
      end;
@@ -142,16 +142,16 @@ type
      IOctree = interface( IOcNode )
      ['{C4E87A83-EA71-4145-913A-E856DC00B6B1}']
      {protected}
-       ///// アクセス
+       
        function GetDivL :Integer;
        procedure SetDivL( const DivL_:Integer );
        function GetDivN :Integer;
        procedure SetDivN( const DivN_:Integer );
      {public}
-       ///// プロパティ
+       
        property DivL :Integer read GetDivL write SetDivL;
        property DivN :Integer read GetDivN write SetDivN;
-       ///// メソッド
+       
        function GetNode( const Lev_:cardinal; const Ind_:TCardinal3D ) :IOcNode;
      end;
 
@@ -163,7 +163,7 @@ type
      protected
        _Childs :array [ 0..7 ] of IOcNode;
        _DivL   :Integer;
-       ///// アクセス
+       
        function GetRoot :IOctree; override;
        function GetLev :Cardinal; override;
        function GetInd :TCardinal3D; override;
@@ -178,10 +178,10 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property DivL :Integer read GetDivL write SetDivL;
        property DivN :Integer read GetDivN write SetDivN;
-       ///// メソッド
+       
        class function DivLtoN( const DivL_:Cardinal ) :Cardinal;
        class function DivNtoL( const DivN_:Cardinal ) :Cardinal;
        function ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean; override;
@@ -191,9 +191,9 @@ type
        function GetLeaf( const Ind_:TCardinal3D ) :_TLeaf_;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -205,13 +205,13 @@ uses System.Math;
 
 //  
 
-// %%%%% TOcNode
+//TOcNode
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcNode.GetRoot :IOctree;
 begin
@@ -225,7 +225,7 @@ begin
      Result := Paren.Lev + 1;
 end;
 
-// & public
+
 
 constructor TOcNode.Create;
 begin
@@ -239,7 +239,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TOcNode.Clear;
 var
@@ -261,13 +261,13 @@ begin
      end );
 end;
 
-// %%%%% TOcLeaf
+//TOcLeaf
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcLeaf.GetInd :TCardinal3D;
 begin
@@ -303,7 +303,7 @@ begin
 
 end;
 
-// & public
+
 
 constructor TOcLeaf.Create;
 begin
@@ -317,7 +317,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOcLeaf.ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean;
 begin
@@ -338,13 +338,13 @@ begin
                end );
 end;
 
-// %%%%% TOcKnot
+//TOcKnot
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcKnot.GetInd :TCardinal3D;
 begin
@@ -380,7 +380,7 @@ begin
      _Childs[ I_ ] := Child_;
 end;
 
-// & public
+
 
 constructor TOcKnot.Create;
 var
@@ -398,7 +398,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOcKnot.ForChilds( const Func_:TConstFunc<IOcNode,Boolean> ) :Boolean;
 var
@@ -430,13 +430,13 @@ begin
      end;
 end;
 
-// %%%%% TOctree<_TOcKnot_,_TOcLeaf_>
+//TOctree<_TOcKnot_,_TOcLeaf_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOctree<_TKnot_,_TLeaf_>.GetRoot :IOctree;
 begin
@@ -503,7 +503,7 @@ begin
      DivL := DivNtoL( DivN_ );
 end;
 
-// & public
+
 
 constructor TOctree<_TKnot_,_TLeaf_>.Create;
 begin
@@ -518,7 +518,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 class function TOctree<_TKnot_,_TLeaf_>.DivLtoN( const DivL_:Cardinal ) :Cardinal;
 begin
@@ -714,4 +714,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

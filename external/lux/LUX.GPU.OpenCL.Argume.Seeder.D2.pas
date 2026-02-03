@@ -30,23 +30,23 @@ type
        _Execut :TCLExecut_;
        _MakerY :TCLKernel_;
        _MakerX :TCLKernel_;
-       ///// アクセス
+       
        function GetPixCha :T_cl_channel_order; override;
        function GetPixTyp :T_cl_channel_type; override;
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; override;
      public
        constructor Create( const Contex_:TCLContex_; const Queuer_:TCLQueuer_ ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Execut :TCLExecut_ read _Execut;
        property MakerY :TCLKernel_ read _MakerY;
        property MakerX :TCLKernel_ read _MakerX;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -58,13 +58,13 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TCLSeeder2D<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLSeeder2D<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLSeeder2D<TCLSystem_,TCLPlatfo_,TCLContex_>.GetPixCha :T_cl_channel_order;
 begin
@@ -76,7 +76,7 @@ begin
      Result := CL_UNSIGNED_INT32;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLSeeder2D<TCLSystem_,TCLPlatfo_,TCLContex_>.CreateHandle :T_cl_int;
 begin
@@ -96,7 +96,7 @@ begin
      _MakerX.Run;
 end;
 
-// & public
+
 
 constructor TCLSeeder2D<TCLSystem_,TCLPlatfo_,TCLContex_>.Create( const Contex_:TCLContex_; const Queuer_:TCLQueuer_ );
 begin
@@ -195,4 +195,4 @@ end;
 
 //  
 
-end. // 
+end.

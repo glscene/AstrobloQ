@@ -2,8 +2,12 @@
 
 interface  
 
-uses LUX, LUX.D1, LUX.D2, LUX.D3,
-     LUX.Asset.VisToolkit.Cells;
+uses 
+  LUX, 
+  LUX.D1, 
+  LUX.D2, 
+  LUX.D3,
+  LUX.Asset.VisToolkit.Cells;
 
 type  
 
@@ -21,25 +25,13 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
-
-//var // 
-
-//  
-
 implementation // 
 
-//  
 
-//  
 
-// TvtkCell41
 
-//  private
 
-//  protected
 
-// & public
 
 constructor TvtkCell41.Create;
 begin
@@ -57,8 +49,8 @@ end;
 
 // 
 
-initialization // 
+initialization //========================================================= 
 
-finalization // 
+finalization //===========================================================
 
-end. // 
+end.  

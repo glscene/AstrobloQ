@@ -29,9 +29,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -43,13 +43,13 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandomWEL<_TSeed_>
+//TRandomWEL<_TSeed_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
@@ -59,4 +59,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -24,7 +24,7 @@ type
      TRandom32XOS128p = class( TRandom32XOS128 )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt32u :Int32u; override;
      public
      end;
@@ -34,7 +34,7 @@ type
      TRandom32XOS128ss = class( TRandom32XOS128 )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt32u :Int32u; override;
      public
      end;
@@ -44,7 +44,7 @@ type
      TRandom32XOS128x64 = class( TRandom32XOS128 )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
      public
      end;
@@ -54,7 +54,7 @@ type
      TRandom32XOS128x64p = class( TRandom32XOS128x64 )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt32u :Int32u; override;
      public
      end;
@@ -64,14 +64,14 @@ type
      TRandom32XOS128x64ss = class( TRandom32XOS128x64 )
      private
      protected
-       ///// メソッド
+       
        function CalcRandInt32u :Int32u; override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -83,47 +83,47 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom32XOS128p
+//TRandom32XOS128p
 
 { http://xoshiro.di.unimi.it/xoshiro128plus.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32XOS128p.CalcRandInt32u :UInt32;
 begin
      with _Seed do Result := X + W;
 end;
 
-// & public
 
-// %%%%% TRandom32XOS128ss
+
+//TRandom32XOS128ss
 
 { http://xoshiro.di.unimi.it/xoshiro128plus.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32XOS128ss.CalcRandInt32u :UInt32;
 begin
      Result := rotl( _Seed.X * 5, 7 ) * 9;
 end;
 
-// & public
 
-// %%%%% TRandom32XOS128x64
 
-//  private
+//TRandom32XOS128x64
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 procedure TRandom32XOS128x64.CalcNextSeed;
 const
@@ -159,41 +159,41 @@ begin
      _Seed := S;
 end;
 
-// & public
 
-// %%%%% TRandom32XOS128x64p
+
+//TRandom32XOS128x64p
 
 { http://xoshiro.di.unimi.it/xoshiro128plus.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32XOS128x64p.CalcRandInt32u :UInt32;
 begin
      with _Seed do Result := X + W;
 end;
 
-// & public
 
-// %%%%% TRandom32XOS128x64ss
+
+//TRandom32XOS128x64ss
 
 { http://xoshiro.di.unimi.it/xoshiro128plus.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TRandom32XOS128x64ss.CalcRandInt32u :UInt32;
 begin
      Result := rotl( _Seed.X * 5, 7 ) * 9;
 end;
 
-// & public
+
 
 //  
 
@@ -203,4 +203,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

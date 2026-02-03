@@ -21,14 +21,14 @@ type
      TCLDevice<TCLSystem_,TCLPlatfo_:class> = class( TListChildr<TCLPlatfo_,TCLDevices<TCLSystem_,TCLPlatfo_>> )
      private
        type TCLDevices_ = TCLDevices<TCLSystem_,TCLPlatfo_>;
-       ///// メソッド
+       
        function GetInfo<_TYPE_>( const Name_:T_cl_device_info ) :_TYPE_;
        function GetInfoSize( const Name_:T_cl_device_info ) :T_size_t;
        function GetInfos<_TYPE_>( const Name_:T_cl_device_info ) :TArray<_TYPE_>;
        function GetInfoString( const Name_:T_cl_device_info ) :String;
      protected
        _Handle :T_cl_device_id;
-       ///// アクセス
+       
        function GetLanVer :TCLVersion;
        (* cl_device_info *)
        function GetDEVICE_TYPE :T_cl_device_type;
@@ -157,7 +157,7 @@ type
      public
        constructor Create( const Devices_:TCLDevices_; const Handle_:T_cl_device_id ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Platfo                                         :TCLPlatfo_                              read GetOwnere;
        property Devices                                        :TCLDevices_                             read GetParent;
        property Handle                                         :T_cl_device_id                          read   _Handle;
@@ -294,18 +294,18 @@ type
      private
        type TCLDevice_ = TCLDevice<TCLSystem_,TCLPlatfo_>;
      protected
-       ///// メソッド
+       
        procedure FindDevices;
-       ///// イベント
+       //-----------
        procedure OnInit; override;
      public
-       ///// プロパティ
+       
        property Platfo :TCLPlatfo_ read GetOwnere;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -318,11 +318,11 @@ uses System.SysUtils, System.RegularExpressions,
 
 //  
 
-// %%%%% TCLDevice<TCLSystem_,TCLPlatfo_>
+//TCLDevice<TCLSystem_,TCLPlatfo_>
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 function TCLDevice<TCLSystem_,TCLPlatfo_>.GetInfo<_TYPE_>( const Name_:T_cl_device_info ) :_TYPE_;
 begin
@@ -350,9 +350,9 @@ begin
      Result := TrimRight( String( P_char( GetInfos<T_char>( Name_ ) ) ) );
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TCLDevice<TCLSystem_,TCLPlatfo_>.GetLanVer :TCLVersion;
 var
@@ -492,7 +492,7 @@ function TCLDevice<TCLSystem_,TCLPlatfo_>.GetDEVICE_PIPE_SUPPORT :T_cl_bool; beg
 function TCLDevice<TCLSystem_,TCLPlatfo_>.GetDEVICE_LATEST_CONFORMANCE_VERSION_PASSED :String; begin Result := GetInfoString( CL_DEVICE_LATEST_CONFORMANCE_VERSION_PASSED ); end;
 {$ENDIF}
 
-// & public
+
 
 constructor TCLDevice<TCLSystem_,TCLPlatfo_>.Create( const Devices_:TCLDevices_; const Handle_:T_cl_device_id );
 begin
@@ -507,13 +507,13 @@ begin
      inherited;
 end;
 
-// %%%%% TCLDevices<TCLSystem_,TCLPlatfo_>
+//TCLDevices<TCLSystem_,TCLPlatfo_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TCLDevices<TCLSystem_,TCLPlatfo_>.FindDevices;
 const
@@ -532,15 +532,15 @@ begin
      for D in Ds do TCLDevice_.Create( Self, D );
 end;
 
-/////////////////////////////////////////////////////////////////////// イベント
+//-------------------------------------------------------//-----------
 
 procedure TCLDevices<TCLSystem_,TCLPlatfo_>.OnInit;
 begin
      FindDevices;
 end;
 
-// & public
+
 
 //  
 
-end. // 
+end.

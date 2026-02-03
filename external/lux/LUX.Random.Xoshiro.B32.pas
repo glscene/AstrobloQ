@@ -28,7 +28,7 @@ type
      TRandom32ROS64 = class( TRandom32SHI<TInt32u2D>, IRandom32ROS64 )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
@@ -47,15 +47,15 @@ type
      TRandom32XOS128 = class( TRandom32SHI<TInt32u4D>, IRandom32XOS128 )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -67,13 +67,13 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandom32ROS64
+//TRandom32ROS64
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32ROS64.CalcNextSeed;
 var
@@ -90,7 +90,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TRandom32ROS64.CreateFromRand( const Random_:IRandom );
 begin
@@ -98,13 +98,13 @@ begin
                                Random_.DrawRandInt32u ) );
 end;
 
-// %%%%% TRandom32XOS128
+//TRandom32XOS128
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32XOS128.CalcNextSeed;
 var
@@ -125,7 +125,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TRandom32XOS128.CreateFromRand( const Random_:IRandom );
 begin
@@ -143,4 +143,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

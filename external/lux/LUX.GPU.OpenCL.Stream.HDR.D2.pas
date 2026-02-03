@@ -37,14 +37,14 @@ type
      private
      protected
      public
-       ///// メソッド
+       
        procedure CopyFrom( const Grid_:TCellColorGrid2D_TByteRGBE ); override;
        procedure LoadFromFile( const FileName_:String ); override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -57,23 +57,23 @@ uses System.Threading,
 
 //  
 
-// %%%%% TCLStream2D_HDR<TCLImager_>
+//TCLStream2D_HDR<TCLImager_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TCLStream2DxRGBAxSFlo32_HDR
 
-//  private
 
-//  protected
 
-// & public
+//TCLStream2DxRGBAxSFlo32_HDR
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TCLStream2DxRGBAxSFlo32_HDR.CopyFrom( const Grid_:TCellColorGrid2D_TByteRGBE );
 begin
@@ -115,4 +115,4 @@ end;
 
 //  
 
-end. // 
+end.

@@ -19,9 +19,9 @@ uses LUX,
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -550,4 +550,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

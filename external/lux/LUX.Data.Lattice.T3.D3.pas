@@ -20,7 +20,7 @@ type
   ISingleBricArray3D = interface(IBricArray3D)
     ['{07DD7FC2-8BD0-4D64-86E5-7FFDE4CF7CA3}']
     // protected
-    // public
+    
   end;
 
   // -------------------------------------------------------------------------
@@ -34,7 +34,7 @@ type
   ISingleGridArray3D = interface(IGridArray3D)
     ['{9E07E15D-0E29-4541-A755-53BABC4AC560}']
     // protected
-    // public
+    
   end;
 
   // -------------------------------------------------------------------------
@@ -52,7 +52,7 @@ type
   ISingleBricIterGridArray3D = interface(IBricIterGridArray3D<Single>)
     ['{1FA11B62-B22A-4966-815F-48EF06FDBF3B}']
     // protected
-    // public
+    
   end;
 
   // -------------------------------------------------------------------------

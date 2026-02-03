@@ -26,17 +26,17 @@ type
      public type
        _PItem_ = TGLPixBufIter1D<_TItem_>._PItem_;
      protected
-       ///// アクセス
+       
        function GetParen :IGLPixBuf2D;
        function GetElemsY :Integer;
        function GetItemsY :Integer;
        function GetMargsY :Integer;
        function GetPoinsY :Integer;
        function GetCellsY :Integer;
-       ///// メソッド
+       
        function ItemsI( const X_,Y_:Integer ) :Integer;
      public
-       ///// プロパティ
+       
        property Paren  :IGLPixBuf2D read GetParen ;
        property ElemsY :Integer     read GetElemsY;
        property ItemsY :Integer     read GetItemsY;
@@ -50,7 +50,7 @@ type
      IGLPixBuf2D = interface( IGLPixBuf1D )
      ['{127179DF-CB40-4505-8805-59C0E3A6E411}']
      {protected}
-       ///// アクセス
+       
        function GetElemsY :Integer;
        function GetItemsY :Integer;
        procedure SetItemsY( const ItemsY_:Integer );
@@ -61,7 +61,7 @@ type
        function GetCellsY :Integer;
        procedure SetCellsY( const CellsY_:Integer );
      {public}
-       ///// プロパティ
+       
        property ElemsY :Integer read GetElemsY                ;
        property ItemsY :Integer read GetItemsY write SetItemsY;
        property MargsY :Integer read GetMargsY write SetMargsY;
@@ -77,7 +77,7 @@ type
      protected
        _ItemsY :Integer;
        _MargsY :Integer;
-       ///// アクセス
+       
        function GetElemsN :Integer; override;
        function GetPoinsN :Integer; override;
        function GetCellsN :Integer; override;
@@ -92,7 +92,7 @@ type
        procedure SetCellsY( const CellsY_:Integer ); virtual; abstract;
      public
        constructor Create( const Usage_:GLenum ); override;
-       ///// プロパティ
+       
        property ElemsY :Integer read GetElemsY                ;
        property ItemsY :Integer read GetItemsY write SetItemsY;
        property MargsY :Integer read GetMargsY write SetMargsY;
@@ -106,12 +106,12 @@ type
      public type
        _PItem_ = TGLPixBufIter2D<_TItem_>._PItem_;
      protected
-       ///// アクセス
+       
        function GetPoins( const X_,Y_:Integer ) :_TItem_;
        procedure SetPoins( const X_,Y_:Integer; const Item_:_TItem_ );
        function GetPoinsP( const X_,Y_:Integer ) :_PItem_;
      public
-       ///// プロパティ
+       
        property Poins [ const X_,Y_:Integer ] :_TItem_ read GetPoins  write SetPoins; default;
        property PoinsP[ const X_,Y_:Integer ] :_PItem_ read GetPoinsP               ;
      end;
@@ -129,7 +129,7 @@ type
      TGLPoiPix2D<_TItem_:record> = class( TGLPixBuf2D<_TItem_,TGLPoiPixIter2D<_TItem_>>, IGLPoiPix2D )
      private
      protected
-       ///// アクセス
+       
        function GetPoinsX :Integer; override;
        procedure SetPoinsX( const PoinsX_:Integer ); override;
        function GetPoinsY :Integer; override;
@@ -147,12 +147,12 @@ type
      public type
        _PItem_ = TGLPixBufIter2D<_TItem_>._PItem_;
      protected
-       ///// アクセス
+       
        function GetCells( const X_,Y_:Integer ) :_TItem_;
        procedure SetCells( const X_,Y_:Integer; const Item_:_TItem_ );
        function GetCellsP( const X_,Y_:Integer ) :_PItem_;
      public
-       ///// プロパティ
+       
        property Cells [ const X_,Y_:Integer ] :_TItem_ read GetCells  write SetCells; default;
        property CellsP[ const X_,Y_:Integer ] :_PItem_ read GetCellsP               ;
      end;
@@ -170,7 +170,7 @@ type
      TGLCelPix2D<_TItem_:record> = class( TGLPixBuf2D<_TItem_,TGLCelPixIter2D<_TItem_>>, IGLCelPix2D )
      private
      protected
-       ///// アクセス
+       
        function GetPoinsX :Integer; override;
        procedure SetPoinsX( const PoinsX_:Integer ); override;
        function GetPoinsY :Integer; override;
@@ -182,9 +182,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -194,13 +194,13 @@ implementation //
 
 //  
 
-// %%%%% TGLPixBufIter2D<_TItem_>
+//TGLPixBufIter2D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLPixBufIter2D<_TItem_>.GetParen :IGLPixBuf2D;
 begin
@@ -232,22 +232,22 @@ begin
      Result := Paren.CellsY;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TGLPixBufIter2D<_TItem_>.ItemsI( const X_,Y_:Integer ) :Integer;
 begin
      Result := ( MargsY + Y_ ) * ElemsX + ( MargsX + X_ );
 end;
 
-// & public
 
-// %%%%% TGLPixBuf2D<_TItem_,_TIter_>
 
-//  private
+//TGLPixBuf2D<_TItem_,_TIter_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+
+//-------------------------------------------------------
 
 function TGLPixBuf2D<_TItem_,_TIter_>.GetElemsN :Integer;
 begin
@@ -293,7 +293,7 @@ begin
      _MargsY := MargsY_;  MakeBuffer;
 end;
 
-// & public
+
 
 constructor TGLPixBuf2D<_TItem_,_TIter_>.Create( const Usage_:GLenum );
 begin
@@ -303,9 +303,9 @@ begin
      _MargsY := 0;
 end;
 
-// %%%%% TGLPoiPixIter2D<_TItem_>
+//TGLPoiPixIter2D<_TItem_>
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//-------------------------------------------------------
 
 function TGLPoiPixIter2D<_TItem_>.GetPoins( const X_,Y_:Integer ) :_TItem_;
 begin
@@ -324,13 +324,13 @@ begin
      Result := inherited ItemsP[ ItemsI( X_, Y_ ) ];
 end;
 
-// %%%%% TGLPoiPix2D<_TItem_>
+//TGLPoiPix2D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLPoiPix2D<_TItem_>.GetPoinsX :Integer;
 begin
@@ -374,11 +374,11 @@ begin
      ItemsY := CellsY_ + 1;
 end;
 
-// & public
 
-// %%%%% TGLCelPixIter2D<_TItem_>
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//TGLCelPixIter2D<_TItem_>
+
+//-------------------------------------------------------
 
 function TGLCelPixIter2D<_TItem_>.GetCells( const X_,Y_:Integer ) :_TItem_;
 begin
@@ -397,13 +397,13 @@ begin
      Result := inherited ItemsP[ ItemsI( X_, Y_ ) ];
 end;
 
-// %%%%% TGLCelPix2D<_TItem_>
+//TGLCelPix2D<_TItem_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLCelPix2D<_TItem_>.GetPoinsX :Integer;
 begin
@@ -447,7 +447,7 @@ begin
      ItemsY := CellsY_;
 end;
 
-// & public
+
 
 //  
 
@@ -457,4 +457,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

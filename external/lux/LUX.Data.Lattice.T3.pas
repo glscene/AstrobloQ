@@ -264,7 +264,7 @@ type
     function GetGiX(const I_: Shortint): Integer;
     function GetGiY(const I_: Shortint): Integer;
     function GetGiZ(const I_: Shortint): Integer;
-    // public
+    
     property Pos: TInteger3D read GetPos write SetPos;
     property Grids[const X_, Y_, Z_: Shortint]: _TItem_ read GetGrids
       write SetGrids; default;

@@ -12,11 +12,11 @@ type
 
      TSingle2DM4 = record
      private
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :TSingle2D; inline;
        procedure SetM( const Y_,X_:Integer; const M_:TSingle2D ); inline;
      public
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :TSingle2D read GetM write SetM; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of TSingle2D; );
@@ -30,11 +30,11 @@ type
 
      TDouble2DM4 = record
      private
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :TDouble2D; inline;
        procedure SetM( const Y_,X_:Integer; const M_:TDouble2D ); inline;
      public
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :TDouble2D read GetM write SetM; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of TDouble2D; );
@@ -48,11 +48,11 @@ type
 
      TdSingle2DM4 = record
      private
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :TdSingle2D; inline;
        procedure SetM( const Y_,X_:Integer; const M_:TdSingle2D ); inline;
      public
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :TdSingle2D read GetM write SetM; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of TdSingle2D; );
@@ -66,11 +66,11 @@ type
 
      TdDouble2DM4 = record
      private
-       ///// アクセス
+       
        function GetM( const Y_,X_:Integer ) :TdDouble2D; inline;
        procedure SetM( const Y_,X_:Integer; const M_:TdDouble2D ); inline;
      public
-       ///// プロパティ
+       
        property M[ const Y_,X_:Integer ] :TdDouble2D read GetM write SetM; default;
      case Integer of
       0:( _ :array [ 1..4, 1..4 ] of TdDouble2D; );
@@ -82,9 +82,9 @@ type
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -92,11 +92,11 @@ implementation //
 
 //  
 
-// %%%%% TSingle2DM4
+//TSingle2DM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSingle2DM4.GetM( const Y_,X_:Integer ) :TSingle2D;
 begin
@@ -108,13 +108,13 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
 
-// %%%%% TDouble2DM4
 
-//  private
+//TDouble2DM4
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDouble2DM4.GetM( const Y_,X_:Integer ) :TDouble2D;
 begin
@@ -126,11 +126,11 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// %%%%% TdSingle2DM4
+//TdSingle2DM4
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TdSingle2DM4.GetM( const Y_,X_:Integer ) :TdSingle2D;
 begin
@@ -142,13 +142,13 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
 
-// %%%%% TdDouble2DM4
 
-//  private
+//TdDouble2DM4
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TdDouble2DM4.GetM( const Y_,X_:Integer ) :TdDouble2D;
 begin
@@ -160,7 +160,7 @@ begin
      _[ Y_, X_ ] := M_;
 end;
 
-// & public
+
 
 //  
 
@@ -172,4 +172,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

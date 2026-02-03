@@ -28,11 +28,11 @@ type
      IGLPixBuf = interface( IGLBuffer )
      ['{60D83A80-BD20-414E-8E71-5B96473F13EC}']
      {protected}
-       ///// アクセス
+       
        function GetPoinsN :Integer;
        function GetCellsN :Integer;
      {public}
-       ///// メソッド
+       
        procedure BindRead;
        procedure UnbindRead;
        procedure BindWrite;
@@ -45,20 +45,20 @@ type
                _TIter_:TGLPixBufIter<_TItem_>,constructor> = class( TGLBuffer<_TItem_,_TIter_>, IGLPixBuf )
      private
      protected
-       ///// アクセス
+       
        function GetKind :GLenum; override;
        function GetElemsN :Integer; virtual; abstract;
        function GetPoinsN :Integer; virtual; abstract;
        function GetCellsN :Integer; virtual; abstract;
-       ///// メソッド
+       
        function InitAlign :GLint; override;
        procedure MakeBuffer; override;
      public
-       ///// プロパティ
+       
        property ElemsN :Integer read GetElemsN;
        property PoinsN :Integer read GetPoinsN;
        property CellsN :Integer read GetCellsN;
-       ///// メソッド
+       
        procedure BindRead;
        procedure UnbindRead;
        procedure BindWrite;
@@ -67,9 +67,9 @@ type
        procedure Write( const Stream_:TStream );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -79,28 +79,28 @@ implementation //
 
 //  
 
-// %%%%% TGLPixBufIter<_TItem_>
+//TGLPixBufIter<_TItem_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TGLPixBuf<_TItem_,_TIter_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//TGLPixBuf<_TItem_,_TIter_>
+
+
+
+
+
+//-------------------------------------------------------
 
 function TGLPixBuf<_TItem_,_TIter_>.GetKind :GLenum;
 begin
      Result := GL_ARRAY_BUFFER;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TGLPixBuf<_TItem_,_TIter_>.InitAlign :GLint;
 begin
@@ -122,9 +122,9 @@ begin
      if Assigned( _OnUnmap ) then _OnUnmap( Self );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLPixBuf<_TItem_,_TIter_>.BindRead;
 begin
@@ -180,4 +180,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

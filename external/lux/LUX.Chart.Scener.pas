@@ -23,12 +23,12 @@ type
        _ScalY1 :TChartScaY;
        _ScalX2 :TChartScaX;
        _ScalY2 :TChartScaY;
-       ///// アクセス
-       ///// メソッド
+       
+       
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Axis   :TChartAxis read _Axis  ;
        property ScalX0 :TChartScaX read _ScalX0;
        property ScalY0 :TChartScaY read _ScalY0;
@@ -42,17 +42,17 @@ implementation //
 
 uses System.Math;
 
-// %%%%% TChartPlots
+//TChartPlots
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
 
-/////////////////////////////////////////////////////////////////////// メソッド
 
-// & public
+//-------------------------------------------------------
+
+//-------------------------------------------------------
+
+
 
 constructor TChartPlots.Create;
 begin
@@ -109,4 +109,4 @@ begin
      inherited;
 end;
 
-end. // 
+end.

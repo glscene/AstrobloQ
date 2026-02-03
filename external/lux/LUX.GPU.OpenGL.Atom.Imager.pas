@@ -19,7 +19,7 @@ type
 
      IGLImager = interface( IGLAtomer )
      ['{E2F97606-18B0-4E45-88D2-ABE16446AD6F}']
-       ///// アクセス
+       
        function GetKind :GLenum;
        procedure SetKind( const Kind_:GLenum );
        function GetTexelF :GLenum;
@@ -28,7 +28,7 @@ type
        procedure SetPixelF( const PixelF_:GLenum );
        function GetPixelT :GLenum;
        procedure SetPixelT( const PixelT_:GLenum );
-       ///// プロパティ
+       
        property Kind   :GLenum read GetKind   write SetKind  ;
        property TexelF :GLenum read GetTexelF write SetTexelF;
        property PixelF :GLenum read GetPixelF write SetPixelF;
@@ -58,7 +58,7 @@ type
        _TexelF :GLenum;
        _PixelF :GLenum;
        _PixelT :GLenum;
-       ///// アクセス
+       
        function GetKind :GLenum;
        procedure SetKind( const Kind_:GLenum );
        function GetTexelF :GLenum;
@@ -70,13 +70,13 @@ type
      public
        constructor Create( const Kind_:GLenum );
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Grid   :_TGrid_ read   _Grid                  ;
        property Kind   :GLenum  read GetKind   write SetKind  ;
        property TexelF :GLenum  read GetTexelF write SetTexelF;
        property PixelF :GLenum  read GetPixelF write SetPixelF;
        property PixelT :GLenum  read GetPixelT write SetPixelT;
-       ///// メソッド
+       
        procedure Bind;
        procedure Unbind;
        procedure Use( const BindI_:GLuint ); virtual;
@@ -89,9 +89,9 @@ type
        procedure CopyTo( const PixBuf_:IGLPixBuf ); overload;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -101,13 +101,13 @@ implementation //
 
 //  
 
-// %%%%% TGLImager<_TItem_,_TIter_,_TGrid_>
+//TGLImager<_TItem_,_TIter_,_TGrid_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TGLImager<_TItem_,_TIter_,_TGrid_>.GetKind :GLenum;
 begin
@@ -149,7 +149,7 @@ begin
      _PixelT := PixelT_;
 end;
 
-// & public
+
 
 constructor TGLImager<_TItem_,_TIter_,_TGrid_>.Create( const Kind_:GLenum );
 begin
@@ -187,7 +187,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLImager<_TItem_,_TIter_,_TGrid_>.Bind;
 begin
@@ -270,4 +270,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

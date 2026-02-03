@@ -52,9 +52,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -66,13 +66,13 @@ uses Winapi.OpenGL, Winapi.OpenGLext;
 
 //  
 
-// %%%%% TGLPoiIma3D_Single
+//TGLPoiIma3D_Single
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLPoiIma3D_Single.Create;
 begin
@@ -89,13 +89,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLCelIma3D_Single
+//TGLCelIma3D_Single
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLCelIma3D_Single.Create;
 begin
@@ -112,13 +112,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLPoiIma3D_AlphaColorF
+//TGLPoiIma3D_AlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLPoiIma3D_TAlphaColorF.Create;
 begin
@@ -135,13 +135,13 @@ begin
      inherited;
 end;
 
-// %%%%% TGLCelIma3D_AlphaColorF
+//TGLCelIma3D_AlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLCelIma3D_TAlphaColorF.Create;
 begin
@@ -166,4 +166,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

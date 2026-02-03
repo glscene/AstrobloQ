@@ -6,7 +6,7 @@ uses System.Generics.Collections,
 　　 FMX.Platform,
      Winapi.Windows;
 
-//const // 
+
 
 type  
 
@@ -26,14 +26,14 @@ type
      private
        class var OldAppService :IFMXApplicationService;
        class var NewAppService :IFMXApplicationService;
-       ///// メソッド
+       
        class procedure AddPlatformService;
      protected
        class var _EventList :TMessageEventList;
      public
        class constructor Create;
        class destructor Destroy;
-       ///// メソッド
+       
        procedure Run;
        function HandleMessage :Boolean;
        procedure WaitMessage;
@@ -44,16 +44,16 @@ type
        procedure Terminate;
        function Terminating :Boolean;
        function Running :Boolean;
-       ///// プロパティ
+       
        class property EventList    :TMessageEventList read   _EventList                   ;
              property DefaultTitle :String            read GetDefaultTitle                ;
              property Title        :String            read GetTitle         write SetTitle;
              property AppVersion   :String            read GetVersionString               ;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -63,9 +63,9 @@ implementation //
 
 //  
 
-// %%%%% TMessageService
+//TMessageService
 
-// & public
+
 
 class constructor TMessageService.Create;
 begin
@@ -81,7 +81,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 class procedure TMessageService.AddPlatformService;
 begin
@@ -173,4 +173,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -86,7 +86,7 @@ type
        property SFMT_PARITY3 :Int32u read GetSFMT_PARITY3;
        property SFMT_PARITY4 :Int32u read GetSFMT_PARITY4;
        property SFMT_IDSTR   :String read GetSFMT_IDSTR  ;
-       ///// メソッド
+       
        class procedure rshift128( out out_:T_w128_t; const in_:T_w128_t; shift:Int32s ); inline;
        class procedure lshift128( out out_:T_w128_t; const in_:T_w128_t; shift:Int32s ); inline;
        procedure do_recursion( out r:T_w128_t; const a,b,c,d:T_w128_t ); inline;
@@ -126,7 +126,7 @@ type
      TRandom32SMT = class( TRandomSMT )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -137,15 +137,15 @@ type
      TRandom64SMT = class( TRandomSMT )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt64u :Int64u; override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -155,17 +155,17 @@ uses System.SysUtils, System.Math;
 
 //  
 
-// %%%%% T_w128_t
+//T_w128_t
 
-//  private
 
-// & public
 
-// %%%%% T_sfmt_t
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+//T_sfmt_t
+
+
+
+//-------------------------------------------------------
 
 function T_sfmt_t.Getpsfmt32( const I_:Int32s ) :Int32u;
 begin
@@ -187,7 +187,7 @@ begin
      TArray<Int64u>( state )[ I_ ] := sfmt64_;
 end;
 
-// & public
+
 
 constructor T_sfmt_t.Create( const stateN_:Int32s );
 begin
@@ -205,13 +205,13 @@ end;
 
 //  
 
-// %%%%% TRandomSMT
+//TRandomSMT
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TRandomSMT.GetSFMT_N :Int32s;
 begin
@@ -228,7 +228,7 @@ begin
      Result := SFMT_N * 2;
 end;
 
-// & public
+
 
 constructor TRandomSMT.CreateFromRand( const Random_:IRandom );
 begin
@@ -274,7 +274,7 @@ begin
      inherited Create( S );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 class procedure TRandomSMT.rshift128( out out_:T_w128_t; const in_:T_w128_t; shift:Int32s );
 var
@@ -323,7 +323,7 @@ begin
      r.u[ 3 ] := a.u[ 3 ] xor x.u[ 3 ] xor ( ( b.u[ 3 ] shr SFMT_SR1 ) and SFMT_MSK4 ) xor y.u[ 3 ] xor ( d.u[ 3 ] shl SFMT_SL1 );
 end;
 
-////////////////////////////////////////////////////////////////////////////////
+//-------------------------------------------------------//////////////
 
 (**
  * This function generates and returns 32-bit pseudorandom number.
@@ -878,11 +878,11 @@ begin
      period_certification( sfmt );
 end;
 
-// %%%%% TRandom32SMT
+//TRandom32SMT
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TRandom32SMT.CalcNextSeed;
 begin
@@ -905,13 +905,13 @@ begin
      Result := _Seed.psfmt32[ _Seed.idx ];
 end;
 
-//  protected
 
-// %%%%% TRandom64SMT
 
-//  private
+//TRandom64SMT
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64SMT.CalcNextSeed;
 begin
@@ -934,7 +934,7 @@ begin
      Result := _Seed.psfmt64[ _Seed.idx div 2 ];
 end;
 
-//  protected
+
 
 //  
 
@@ -944,4 +944,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

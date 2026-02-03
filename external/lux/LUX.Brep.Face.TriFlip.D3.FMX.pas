@@ -16,27 +16,27 @@ type
 
      TTriFaceShape3D = class( TControl3D )
      private
-       ///// メソッド
+       
        procedure MakeGeometry;
      protected
        _Geometry :TMeshData;
        _Material :TMaterialSource;
        _Model    :TTriFaceModel3D;
-       ///// アクセス
+       
        procedure SetModel( const Model_:TTriFaceModel3D );
-       ///// メソッド
+       
        procedure Render; override;
      public
        constructor Create( Owner_:TComponent ); override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Material :TMaterialSource read _Material write   _Material;
        property Model    :TTriFaceModel3D read _Model    write SetModel   ;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -48,9 +48,9 @@ uses System.SysUtils, System.RTLConsts;
 
 //  
 
-// %%%%% TTriFaceShape3D
+//TTriFaceShape3D
 
-//  private
+
 
 procedure TTriFaceShape3D.MakeGeometry;
 var
@@ -91,16 +91,16 @@ begin
      end;
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 procedure TTriFaceShape3D.SetModel( const Model_:TTriFaceModel3D );
 begin
      _Model := Model_;  MakeGeometry;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TTriFaceShape3D.Render;
 begin
@@ -109,7 +109,7 @@ begin
      _Geometry.Render( Context, TMaterialSource.ValidMaterial(_Material), AbsoluteOpacity );
 end;
 
-// & public
+
 
 constructor TTriFaceShape3D.Create( Owner_:TComponent );
 begin
@@ -133,4 +133,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -23,7 +23,7 @@ type
        FChildsN  :Integer;
        FMaxOrder :Integer;
      protected
-       ///// アクセス
+       
        function Get_Links( const I_:Integer ) :TTreeItem; override;
        procedure Set_Links( const I_:Integer; const Link_:TTreeItem ); override;
        function Get_LinksN :Integer; override;
@@ -45,7 +45,7 @@ type
        FPrev :TTreeItem;
        FNext :TTreeItem;
      protected
-       ///// アクセス
+       
        function Get_Prev :TTreeItem; override;
        procedure Set_Prev( const Prev_:TTreeItem ); override;
        function Get_Next :TTreeItem; override;
@@ -64,7 +64,7 @@ type
        FChildsN  :Integer;
        FMaxOrder :Integer;
      protected
-       ///// アクセス
+       
        function Get_Parent :TTreeItem; override;
        procedure Set_Parent( const Parent_:TTreeItem ); override;
        function Get_Order :Integer; override;
@@ -91,7 +91,7 @@ type
        FParent :TTreeItem;
        FOrder  :Integer;
      protected
-       ///// アクセス
+       
        function Get_Parent :TTreeItem; override;
        procedure Set_Parent( const Parent_:TTreeItem ); override;
        function Get_Order :Integer; override;
@@ -103,9 +103,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -115,11 +115,11 @@ implementation //
 
 //  
 
-// %%%%% TTreeRoot
+//TTreeRoot
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TTreeRoot.Get_Links( const I_:Integer ) :TTreeItem;
 begin
@@ -161,9 +161,9 @@ begin
      FMaxOrder := MaxOrder_;
 end;
 
-//  protected
 
-// & public
+
+
 
 constructor TTreeRoot.Create;
 begin
@@ -192,11 +192,11 @@ begin
      inherited;
 end;
 
-// %%%%% TTreeZero
+//TTreeZero
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TTreeZero.Get_Prev :TTreeItem;
 begin
@@ -218,9 +218,9 @@ begin
      FNext := Next_;
 end;
 
-//  protected
 
-// & public
+
+
 
 constructor TTreeZero.Create;
 begin
@@ -230,11 +230,11 @@ begin
      FNext := Self;
 end;
 
-// %%%%% TTreeNode
+//TTreeNode
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TTreeNode.Get_Parent :TTreeItem;
 begin
@@ -296,9 +296,9 @@ begin
      FMaxOrder := MaxOrder_;
 end;
 
-//  protected
 
-// & public
+
+
 
 constructor TTreeNode.Create;
 begin
@@ -340,11 +340,11 @@ begin
      inherited;
 end;
 
-// %%%%% TTreeLeaf
+//TTreeLeaf
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TTreeLeaf.Get_Parent :TTreeItem;
 begin
@@ -366,9 +366,9 @@ begin
      FOrder := Order_;
 end;
 
-//  protected
 
-// & public
+
+
 
 constructor TTreeLeaf.Create;
 begin
@@ -401,4 +401,4 @@ end;
 
 //  
 
-end. // 
+end.

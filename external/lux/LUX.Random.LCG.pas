@@ -32,7 +32,7 @@ type
      TRandom32LCG32 = class( TRandomLCG<Int32u> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
@@ -44,7 +44,7 @@ type
      TRandom48LCG48 = class( TRandomLCG<Int64u> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
        function CalcRandInt48u :Int64u;
@@ -52,7 +52,7 @@ type
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
        constructor Create( const Seed_:Int64u ); overload; override;
-       ///// メソッド
+       
        function DrawRandInt48u :Int64u;
      end;
 
@@ -61,7 +61,7 @@ type
      TRandom64LCG64 = class( TRandomLCG<Int64u> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
        function CalcRandInt64u :Int64u; override;
@@ -69,9 +69,9 @@ type
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -83,21 +83,21 @@ uses System.SysUtils, System.SyncObjs;
 
 //  
 
-// %%%%% TRandomLCG<_TSeed_>
+//TRandomLCG<_TSeed_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TRandom32LCG32
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//TRandom32LCG32
+
+
+
+
+
+//-------------------------------------------------------
 
 procedure TRandom32LCG32.CalcNextSeed;
 const
@@ -155,20 +155,20 @@ begin
      Result := _Seed;
 end;
 
-// & public
+
 
 constructor TRandom32LCG32.CreateFromRand( const Random_:IRandom );
 begin
      Create( Random_.DrawRandInt32u );
 end;
 
-// %%%%% TRandom48LCG48
+//TRandom48LCG48
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom48LCG48.CalcNextSeed;
 const
@@ -221,7 +221,7 @@ begin
      Result := ( Result shl 32 ) or ( CalcRandInt48u shr 16 );
 end;
 
-// & public
+
 
 constructor TRandom48LCG48.CreateFromRand( const Random_:IRandom );
 begin
@@ -233,7 +233,7 @@ begin
      inherited Create( Seed_ and $FFFFFFFFFFFF{= 2^48-1 } );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TRandom48LCG48.DrawRandInt48u :Int64u;
 begin
@@ -244,13 +244,13 @@ begin
      _SeedCS.Leave;
 end;
 
-// %%%%% TRandom64LCG64
+//TRandom64LCG64
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom64LCG64.CalcNextSeed;
 const
@@ -295,7 +295,7 @@ begin
      Result := _Seed;
 end;
 
-// & public
+
 
 constructor TRandom64LCG64.CreateFromRand( const Random_:IRandom );
 begin
@@ -310,4 +310,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

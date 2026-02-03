@@ -22,7 +22,7 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure CopyFrom( const BMP_:TBitmap ); overload;
        procedure CopyTo( const BMP_:TBitmap ); overload;
        procedure LoadFromFile( const FileName_:String );
@@ -37,16 +37,16 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// メソッド
+       
        procedure CopyFrom( const BMP_:TBitmap ); overload;
        procedure CopyTo( const BMP_:TBitmap ); overload;
        procedure LoadFromFile( const FileName_:String );
        procedure SaveToFile( const FileName_:String );
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -58,13 +58,13 @@ uses Winapi.OpenGL, Winapi.OpenGLext;
 
 //  
 
-// %%%%% TGLPoiIma1D_TAlphaColorF
+//TGLPoiIma1D_TAlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLPoiIma1D_TAlphaColorF.Create;
 begin
@@ -81,7 +81,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLPoiIma1D_TAlphaColorF.CopyFrom( const BMP_:TBitmap );
 var
@@ -155,13 +155,13 @@ begin
      B.Free;
 end;
 
-// %%%%% TGLCelIma1D_TAlphaColorF
+//TGLCelIma1D_TAlphaColorF
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TGLCelIma1D_TAlphaColorF.Create;
 begin
@@ -178,7 +178,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TGLCelIma1D_TAlphaColorF.CopyFrom( const BMP_:TBitmap );
 var
@@ -260,4 +260,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

@@ -26,7 +26,7 @@ type
 
      TGLText = class( TGLShaperFace )
      private
-       ///// メソッド
+       
        procedure MakeModel;
      protected
        _SizeX :Single;
@@ -34,7 +34,7 @@ type
        _Text  :String;
        _BMP   :TBitmap;
        _Font  :TFont;
-       ///// アクセス
+       
        function GetText :String;
        procedure SetText( const Text_:String );
        function GetFont :TFont;
@@ -42,14 +42,14 @@ type
      public
        constructor Create; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Text :String read GetText write SetText;
        property Font :TFont  read GetFont              ;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -61,11 +61,11 @@ uses System.Types, System.Math, System.SysUtils;
 
 //  
 
-// %%%%% TGLText
+//TGLText
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TGLText.MakeModel;
 var
@@ -82,9 +82,9 @@ begin
      CalcBouBox;
 end;
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TGLText.GetText :String;
 begin
@@ -130,7 +130,7 @@ begin
      _BMP.Canvas.Font.Assign( _Font );
 end;
 
-// & public
+
 
 constructor TGLText.Create;
 begin
@@ -184,4 +184,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

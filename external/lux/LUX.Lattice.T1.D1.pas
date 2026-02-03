@@ -15,17 +15,17 @@ type
      TSingleIrreMap1D = class( TIrreMap1D<Single> )
      private
      protected
-       ///// メソッド
+       
        function Interp( const G0_,G1_,G2_,G3_:Single; const Id_:Single ) :Single; overload; override;
        function InterpPos( const G0_,G1_,G2_,G3_:TPosval1D<Single>; const Pos_:Single ) :Single; overload; override;
      public
-       ///// メソッド
+       
        procedure MakeEdgeExtra;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -35,13 +35,13 @@ implementation //
 
 //  
 
-// %%%%% TSingleIrreMap1D
+//TSingleIrreMap1D
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 function TSingleIrreMap1D.Interp( const G0_,G1_,G2_,G3_:Single; const Id_:Single ) :Single;
 begin
@@ -54,9 +54,9 @@ begin
                            G0_.Pos, G1_.Pos, G2_.Pos, G3_.Pos, Pos_ );
 end;
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TSingleIrreMap1D.MakeEdgeExtra;
 var
@@ -115,4 +115,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

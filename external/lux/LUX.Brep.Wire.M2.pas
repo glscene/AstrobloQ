@@ -29,9 +29,9 @@ type
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -41,23 +41,23 @@ implementation //
 
 //  
 
-// %%%%% TWireM2<_TPoin_>
+//TWireM2<_TPoin_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
 
-// & public
 
-// %%%%% TWireModelM2<_TPoin_,_TWire_>
+//-------------------------------------------------------
 
-//  private
 
-//  protected
 
-// & public
+//TWireModelM2<_TPoin_,_TWire_>
+
+
+
+
+
+
 
 //  
 
@@ -67,4 +67,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

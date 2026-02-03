@@ -22,17 +22,17 @@ type
      private
        type TCLArgumes_ = TCLArgumes<TCLSystem_,TCLPlatfo_,TCLContex_>;
      protected
-       ///// アクセス
+       
        function GetHanPtr :P_void; virtual; abstract;
        function GetHanSiz :T_size_t; virtual; abstract;
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; virtual; abstract;
        function DestroHandle :T_cl_int; virtual; abstract;
      public
        constructor Create; override;
        constructor Create( const Contex_:TCLContex_ ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Contex  :TCLContex_  read GetOwnere;
        property Argumes :TCLArgumes_ read GetParent;
        property HanPtr  :P_void      read GetHanPtr;
@@ -45,13 +45,13 @@ type
      private
      protected
      public
-       ///// プロパティ
+       
        property Contex :TCLContex_ read GetOwnere;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -63,13 +63,13 @@ uses LUX.GPU.OpenCL.Contex;
 
 //  
 
-// %%%%% TCLArgume<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLArgume<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TCLArgume<TCLSystem_,TCLPlatfo_,TCLContex_>.Create;
 begin
@@ -88,14 +88,14 @@ begin
      inherited;
 end;
 
-// %%%%% TCLArgumes<TCLSystem_,TCLPlatfo_,TCLContex_>
+//TCLArgumes<TCLSystem_,TCLPlatfo_,TCLContex_>
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 //  
 
-end. // 
+end.

@@ -1959,4 +1959,4 @@ clEnqueueTask(       command_queue_           :T_cl_command_queue;
 
 implementation // 
 
-end. // 
+end.

@@ -24,15 +24,15 @@ type
      {private}
      {public}
        class function From( const Value_:String ) :TCLVersion; static;
-       ///// メソッド
+       
        function ToString :String;
      end;
 
      
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -46,11 +46,11 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TCLVersion
+//TCLVersion
 
-//  private
 
-// & public
+
+
 
 class function HCLVersion.From( const Value_:String ) :TCLVersion;
 begin
@@ -174,4 +174,4 @@ begin
      Assert( Error_ = CL_SUCCESS, '【' + ErrorToMessage( Error_ ) + '】' + Comment_ );
 end;
 
-end. // 
+end.

@@ -38,7 +38,7 @@ type
      TRandom32SHI<_TSeed_:record> = class( TRandomSHI<_TSeed_> )
      private
      protected
-       ///// メソッド
+       
        function rotl( const X_:Int32u; const K_:Int32s ) :Int32u; overload; inline;
      public
      end;
@@ -48,14 +48,14 @@ type
      TRandom64SHI<_TSeed_:record> = class( TRandomSHI<_TSeed_> )
      private
      protected
-       ///// メソッド
+       
        function rotl( const X_:Int64u; const K_:Int64s ) :Int64u; overload; inline;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -67,43 +67,43 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TRandomSHI<_TSeed_>
+//TRandomSHI<_TSeed_>
 
-//  private
 
-//  protected
 
-// & public
 
-// %%%%% TRandom32SHI<_TSeed_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//TRandom32SHI<_TSeed_>
+
+
+
+
+
+//-------------------------------------------------------
 
 function TRandom32SHI<_TSeed_>.rotl( const X_:Int32u; const K_:Int32s ) :Int32u;
 begin
      Result := ( X_ shl K_ ) or ( X_ shr ( 32 - K_ ) );
 end;
 
-// & public
 
-// %%%%% TRandom64SHI<_TSeed_>
 
-//  private
+//TRandom64SHI<_TSeed_>
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 function TRandom64SHI<_TSeed_>.rotl( const X_:Int64u; const K_:Int64s ) :Int64u;
 begin
      Result := ( X_ shl K_ ) or ( X_ shr ( 64 - K_ ) );
 end;
 
-// & public
+
 
 //  
 
@@ -113,4 +113,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

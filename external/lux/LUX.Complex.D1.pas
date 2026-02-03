@@ -15,15 +15,15 @@ type
      TDoubleCIter1D = class( TTransIter1D< TDoubleC, TSingleC > )
      private
      protected
-       ///// アクセス
+       
        function GetValue :TDoubleC; override;
        procedure SetValue( const Value_:TDoubleC ); override;
      public
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -33,11 +33,11 @@ implementation //
 
 //  
 
-// %%%%% TDoubleCIter1D
+//TDoubleCIter1D
 
-//  private
 
-//  protected
+
+
 
 function TDoubleCIter1D.GetValue :TDoubleC;
 begin
@@ -49,7 +49,7 @@ begin
      _Iter.Value := Value_;
 end;
 
-// & public
+
 
 //  
 
@@ -59,4 +59,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

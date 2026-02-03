@@ -37,17 +37,17 @@ type
        _Argumes :TCLArgumes_;
        _Librars :TCLLibrars_;
        _Executs :TCLExecuts_;
-       ///// アクセス
+       
        function GetHandle :T_cl_context;
        procedure SetHandle( const Handle_:T_cl_context );
-       ///// メソッド
+       
        function CreateHandle :T_cl_int; virtual;
        function DestroHandle :T_cl_int; virtual;
      public
        constructor Create; override;
        constructor Create( const Platfo_:TCLPlatfo_ ); overload; virtual;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Platfo  :TCLPlatfo_   read GetOwnere                 ;
        property Contexs :TCLContexs_  read GetParent                 ;
        property Queuers :TCLQueuers_  read   _Queuers                ;
@@ -64,15 +64,15 @@ type
        type TCLContex_ = TCLContex<TCLSystem_,TCLPlatfo_>;
      protected
      public
-       ///// プロパティ
+       
        property Platfo :TCLPlatfo_ read GetOwnere;
-       ///// メソッド
+       
        function Add :TCLContex_; overload;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -84,13 +84,13 @@ uses LUX.GPU.OpenCL.Platfo;
 
 //  
 
-// %%%%% TCLContex<TCLSystem_,TCLPlatfo_>
+//TCLContex<TCLSystem_,TCLPlatfo_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TCLContex<TCLSystem_,TCLPlatfo_>.GetHandle :T_cl_context;
 begin
@@ -106,7 +106,7 @@ begin
      _Handle := Handle_;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TCLContex<TCLSystem_,TCLPlatfo_>.CreateHandle :T_cl_int;
 var
@@ -132,7 +132,7 @@ begin
      _Handle := nil;
 end;
 
-// & public
+
 
 constructor TCLContex<TCLSystem_,TCLPlatfo_>.Create;
 begin
@@ -163,15 +163,15 @@ begin
      inherited;
 end;
 
-// %%%%% TCLContexs<TCLSystem_,TCLPlatfo_>
+//TCLContexs<TCLSystem_,TCLPlatfo_>
 
-//  private
 
-//  protected
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+
+//-------------------------------------------------------
 
 function TCLContexs<TCLSystem_,TCLPlatfo_>.Add :TCLContex_;
 begin
@@ -180,4 +180,4 @@ end;
 
 //  
 
-end. // 
+end.

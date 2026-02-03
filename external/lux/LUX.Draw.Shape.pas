@@ -19,18 +19,18 @@ type
      TDrawCirc = class( TDrawShape )
      private
      protected
-       ///// アクセス
+       
        function GetRadius :Single;
        procedure SetRadius( const Radius_:Single );
-       ///// メソッド
+       
        procedure DrawMain( const Canvas_:TCanvas ); override;
      public
        constructor Create; override;
        procedure AfterConstruction; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Radius :Single read GetRadius write SetRadius;
-       ///// メソッド
+       
      end;
 
      //  TDrawCurv
@@ -40,21 +40,21 @@ type
        _Path :TPathData;
      protected
        _Poins :TArray<TSingle2D>;  upPoins :Boolean;
-       ///// アクセス
+       
        function GetPoins( const I_:Integer ) :TSingle2D;
        procedure SetPoins( const I_:Integer; const Value_:TSingle2D );
        function GetPoinsN :Integer;
        procedure SetPoinsN( const PoinsN_:Integer );
-       ///// メソッド
+       
        procedure DrawMain( const Canvas_:TCanvas ); override;
      public
        constructor Create; override;
        procedure AfterConstruction; override;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Poins[ const I_:Integer ] :TSingle2D read GetPoins  write SetPoins ; default;
        property PoinsN                    :Integer   read GetPoinsN write SetPoinsN;
-       ///// メソッド
+       
      end;
 
      //  TDrawCurv1D
@@ -64,20 +64,20 @@ type
      protected
        _MinX :Single;
        _MaxX :Single;
-       ///// アクセス
+       
        function GetMinX :Single;
        procedure SetMinX( const MinX_:Single );
        function GetMaxX :Single;
        procedure SetMaxX( const MaxX_:Single );
        function GetDivN :Integer;
        procedure SetDivN( const DivN_:Integer );
-       ///// メソッド
+       
      public
-       ///// プロパティ
+       
        property MinX :Single  read GetMinX write SetMinX;
        property MaxX :Single  read GetMaxX write SetMaxX;
        property DivN :Integer read GetDivN write SetDivN;
-       ///// メソッド
+       
        procedure Func( const Func_:TConstFunc<Single,Single> );
      end;
 
@@ -87,13 +87,13 @@ uses System.Math;
 
 //  
 
-// %%%%% TDrawCirc
+//TDrawCirc
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDrawCirc.GetRadius :Single;
 begin
@@ -112,7 +112,7 @@ begin
      Area := A;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TDrawCirc.DrawMain( const Canvas_:TCanvas );
 begin
@@ -123,7 +123,7 @@ begin
      if Stroke.Kind <> TBrushKind.None then Canvas_.DrawEllipse( Area, _Opacity );
 end;
 
-// & public
+
 
 constructor TDrawCirc.Create;
 begin
@@ -144,15 +144,15 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
-// %%%%% TDrawCurv
+//TDrawCurv
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDrawCurv.GetPoins( const I_:Integer ) :TSingle2D;
 begin
@@ -174,7 +174,7 @@ begin
      SetLength( _Poins, PoinsN_ );  upPoins := True;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 procedure TDrawCurv.DrawMain( const Canvas_:TCanvas );
 var
@@ -203,7 +203,7 @@ begin
      Canvas_.DrawPath( _Path, _Opacity );
 end;
 
-// & public
+
 
 constructor TDrawCurv.Create;
 begin
@@ -226,15 +226,15 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
-// %%%%% TDrawCurv1D
+//TDrawCurv1D
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TDrawCurv1D.GetMinX :Single;
 begin
@@ -268,11 +268,11 @@ begin
      PoinsN := DivN_ + 1;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
-// & public
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+//-------------------------------------------------------
 
 procedure TDrawCurv1D.Func( const Func_:TConstFunc<Single,Single> );
 var
@@ -287,4 +287,4 @@ begin
      end;
 end;
 
-end. // 
+end.

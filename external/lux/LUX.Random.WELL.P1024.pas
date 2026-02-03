@@ -23,7 +23,7 @@ type
        M2 = 24;
        M3 = 10;
      private
-       ///// アクセス
+       
        function GetV0 :Int32u;
        procedure SetV0( const V0_:Int32u );
        function GetVM1 :Int32u;
@@ -58,20 +58,20 @@ type
      TRandom32WEL1024a = class( TRandomWEL<TSeed32WEL1024a> )
      private
      protected
-       ///// メソッド
+       
        procedure CalcNextSeed; override;
        function CalcRandInt32u :Int32u; override;
      public
        constructor CreateFromRand( const Random_:IRandom ); overload; override;
-       ///// メソッド
+       
        function MAT0POS( const t:Int32u; const v:Int32u ) :Int32u; inline;
        function MAT0NEG( const t:Int32s; const v:Int32u ) :Int32u; inline;
        function Identity( const v:Int32u ) :Int32u; inline;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -81,11 +81,11 @@ uses System.SysUtils;
 
 //  
 
-// %%%%% TSeed32WEL1024a
+//TSeed32WEL1024a
 
-//  private
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+//-------------------------------------------------------
 
 function TSeed32WEL1024a.GetV0 :Int32u;
 begin
@@ -157,19 +157,19 @@ begin
      STATE[ state_i ] := newV1_;
 end;
 
-// & public
+
 
 //  
 
-// %%%%% TRandom32WEL1024a
+//TRandom32WEL1024a
 
 { http://www.iro.umontreal.ca/~panneton/well/WELL1024a.c }
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// メソッド
+
+
+//-------------------------------------------------------
 
 procedure TRandom32WEL1024a.CalcNextSeed;
 var
@@ -197,7 +197,7 @@ begin
      Result := _Seed.V0;
 end;
 
-// & public
+
 
 constructor TRandom32WEL1024a.CreateFromRand( const Random_:IRandom );
 var
@@ -214,7 +214,7 @@ begin
      Create( S );
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TRandom32WEL1024a.MAT0POS( const t:Int32u; const v:Int32u ) :Int32u;
 begin
@@ -239,4 +239,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

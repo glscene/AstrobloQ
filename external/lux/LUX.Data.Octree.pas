@@ -20,7 +20,7 @@ type
        _CastNode :TConstFunc<IOcNode,_INode_>;
        _CastRoot :TConstFunc<IOctree,_IRoot_>;
      protected
-       ///// アクセス
+       
        function GetRoot :_IRoot_; reintroduce;
        function GetParen :_INode_; reintroduce;
        procedure SetParen( const Paren_:_INode_ ); reintroduce;
@@ -29,11 +29,11 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Root                    :_IRoot_ read GetRoot                  ;
        property Paren                   :_INode_ read GetParen  write SetParen ;
        property Childs[ const I_:Byte ] :_INode_ read GetChilds write SetChilds;
-       ///// メソッド
+       
        function ForChilds( const Func_:TConstFunc<_INode_,Boolean> ) :Boolean; reintroduce;
        procedure ForFamily( const Proc_:TConstProc<_INode_> ); reintroduce;
        function ForChildPairs( const Node_:_INode_; const Func_:TConstFunc<_INode_,_INode_,Boolean> ) :Boolean; reintroduce;
@@ -48,7 +48,7 @@ type
        _CastNode :TConstFunc<IOcNode,_INode_>;
        _CastRoot :TConstFunc<IOctree,_IRoot_>;
      protected
-       ///// アクセス
+       
        function GetRoot :_IRoot_; reintroduce;
        function GetParen :_INode_; reintroduce;
        procedure SetParen( const Paren_:_INode_ ); reintroduce;
@@ -57,11 +57,11 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Root                    :_IRoot_ read GetRoot                  ;
        property Paren                   :_INode_ read GetParen  write SetParen ;
        property Childs[ const I_:Byte ] :_INode_ read GetChilds write SetChilds;
-       ///// メソッド
+       
        function ForChilds( const Func_:TConstFunc<_INode_,Boolean> ) :Boolean; reintroduce;
        procedure ForFamily( const Proc_:TConstProc<_INode_> ); reintroduce;
        function ForChildPairs( const Node_:_INode_; const Func_:TConstFunc<_INode_,_INode_,Boolean> ) :Boolean; reintroduce;
@@ -78,7 +78,7 @@ type
        _CastNode :TConstFunc<IOcNode,_INode_>;
        _CastRoot :TConstFunc<IOctree,_IRoot_>;
      protected
-       ///// アクセス
+       
        function GetRoot :_IRoot_; reintroduce;
        function GetParen :_INode_; reintroduce;
        procedure SetParen( const Paren_:_INode_ ); reintroduce;
@@ -87,19 +87,19 @@ type
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Root                    :_IRoot_ read GetRoot                  ;
        property Paren                   :_INode_ read GetParen  write SetParen ;
        property Childs[ const I_:Byte ] :_INode_ read GetChilds write SetChilds;
-       ///// メソッド
+       
        function ForChilds( const Func_:TConstFunc<_INode_,Boolean> ) :Boolean; reintroduce;
        procedure ForFamily( const Proc_:TConstProc<_INode_> ); reintroduce;
        function ForChildPairs( const Node_:_INode_; const Func_:TConstFunc<_INode_,_INode_,Boolean> ) :Boolean; reintroduce;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -109,13 +109,13 @@ implementation //
 
 //  
 
-// %%%%% TOcLeaf<_INode_,_IRoot_>
+//TOcLeaf<_INode_,_IRoot_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcLeaf<_INode_,_IRoot_>.GetRoot :_IRoot_;
 begin
@@ -144,7 +144,7 @@ begin
      inherited SetChilds( I_, Child_ );
 end;
 
-// & public
+
 
 constructor TOcLeaf<_INode_,_IRoot_>.Create;
 begin
@@ -158,7 +158,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOcLeaf<_INode_,_IRoot_>.ForChilds( const Func_:TConstFunc<_INode_,Boolean> ) :Boolean;
 begin
@@ -185,13 +185,13 @@ begin
                          end );
 end;
 
-// %%%%% TOcKnot<_INode_,_IRoot_>
+//TOcKnot<_INode_,_IRoot_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOcKnot<_INode_,_IRoot_>.GetRoot :_IRoot_;
 begin
@@ -220,7 +220,7 @@ begin
      inherited SetChilds( I_, Child_ );
 end;
 
-// & public
+
 
 constructor TOcKnot<_INode_,_IRoot_>.Create;
 begin
@@ -234,7 +234,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOcKnot<_INode_,_IRoot_>.ForChilds( const Func_:TConstFunc<_INode_,Boolean> ) :Boolean;
 begin
@@ -261,13 +261,13 @@ begin
                          end );
 end;
 
-// %%%%% TOctree<_INode_,_IRoot_,_TKnot_,_TLeaf_>
+//TOctree<_INode_,_IRoot_,_TKnot_,_TLeaf_>
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TOctree<_INode_,_IRoot_,_TKnot_,_TLeaf_>.GetRoot :_IRoot_;
 begin
@@ -296,7 +296,7 @@ begin
      inherited SetChilds( I_, Child_ );
 end;
 
-// & public
+
 
 constructor TOctree<_INode_,_IRoot_,_TKnot_,_TLeaf_>.Create;
 begin
@@ -310,7 +310,7 @@ begin
      inherited;
 end;
 
-/////////////////////////////////////////////////////////////////////// メソッド
+//-------------------------------------------------------
 
 function TOctree<_INode_,_IRoot_,_TKnot_,_TLeaf_>.ForChilds( const Func_:TConstFunc<_INode_,Boolean> ) :Boolean;
 begin
@@ -345,4 +345,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

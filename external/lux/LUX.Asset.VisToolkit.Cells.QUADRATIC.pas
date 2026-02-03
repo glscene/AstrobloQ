@@ -67,12 +67,12 @@ type
      TvtkCell25 = class( TvtkCell )
      private
      protected
-       ///// アクセス
+       
        function GetGrids( const X_,Y_,Z_:Byte ) :TvtkPoin;
      public
        constructor Create;
        destructor Destroy; override;
-       ///// プロパティ
+       
        property Grids[ const X_,Y_,Z_:Byte ] :TvtkPoin read GetGrids;
      end;
 
@@ -166,9 +166,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -178,13 +178,13 @@ implementation //
 
 //  
 
-// %%%%% TvtkCell21
+//TvtkCell21
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell21.Create;
 begin
@@ -198,13 +198,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell22
+//TvtkCell22
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell22.Create;
 begin
@@ -218,13 +218,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell23
+//TvtkCell23
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell23.Create;
 begin
@@ -238,13 +238,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell36
+//TvtkCell36
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell36.Create;
 begin
@@ -258,13 +258,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell24
+//TvtkCell24
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell24.Create;
 begin
@@ -278,13 +278,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell25
+//TvtkCell25
 
-//  private
 
-//  protected
 
-/////////////////////////////////////////////////////////////////////// アクセス
+
+
+//-------------------------------------------------------
 
 function TvtkCell25.GetGrids( const X_,Y_,Z_:Byte ) :TvtkPoin;
 begin
@@ -341,7 +341,7 @@ begin
      end;
 end;
 
-// & public
+
 
 constructor TvtkCell25.Create;
 begin
@@ -355,13 +355,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell26
+//TvtkCell26
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell26.Create;
 begin
@@ -375,13 +375,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell27
+//TvtkCell27
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell27.Create;
 begin
@@ -395,13 +395,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell28
+//TvtkCell28
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell28.Create;
 begin
@@ -415,13 +415,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell29
+//TvtkCell29
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell29.Create;
 begin
@@ -435,13 +435,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell30
+//TvtkCell30
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell30.Create;
 begin
@@ -455,13 +455,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell31
+//TvtkCell31
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell31.Create;
 begin
@@ -475,13 +475,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell32
+//TvtkCell32
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell32.Create;
 begin
@@ -495,13 +495,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell33
+//TvtkCell33
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell33.Create;
 begin
@@ -515,13 +515,13 @@ begin
      inherited;
 end;
 
-// %%%%% TvtkCell34
+//TvtkCell34
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell34.Create;
 begin
@@ -543,4 +543,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.

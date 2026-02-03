@@ -21,9 +21,9 @@ type
        destructor Destroy; override;
      end;
 
-//const // 
 
-//var //$$ 
+
+ 
 
 //  
 
@@ -33,13 +33,13 @@ implementation //
 
 //  
 
-// %%%%% TvtkCell35
+//TvtkCell35
 
-//  private
 
-//  protected
 
-// & public
+
+
+
 
 constructor TvtkCell35.Create;
 begin
@@ -61,4 +61,4 @@ initialization //
 
 finalization // 
 
-end. // 
+end.
