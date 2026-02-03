@@ -33,7 +33,7 @@ type
     procedure MakeModel;
   end;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 procedure TMarcubes.Render;
 begin
@@ -279,7 +279,7 @@ begin
   Repaint;
 end;
 
-initialization // -------------------------------------------------------------
+initialization //==============================================================
 
 finalization
 

@@ -48,7 +48,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Threading,
      LUX.Color.Format.HDR;

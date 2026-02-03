@@ -70,7 +70,7 @@ type
     constructor Create;
   end;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 function TGLShader.GetKind: GLenum;
 begin
@@ -220,7 +220,7 @@ begin
 
 end;
 
-initialization // -------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

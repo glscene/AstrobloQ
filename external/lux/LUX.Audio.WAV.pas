@@ -512,7 +512,7 @@ var //$$$$
 
 function ChunkToKind( const Name_:TAnsiChar4 ) :TChunkKind;
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils;
 
@@ -739,7 +739,7 @@ begin
      inherited;
 end;
 
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX メソッド
+
 
 procedure TFileWAV.LoadFromFile( const FileName_:String );
 var
@@ -836,7 +836,7 @@ begin
      TailI := High( _Parent._Wave );
 end;
 
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX メソッド
+
 
 procedure TFileWAVIter< TValue_ >.GoHead;
 begin
@@ -1012,7 +1012,8 @@ begin
      end;
 end;
 
-initialization // 
+initialization //===================== 
+
 
      MakeListPCM;
 

@@ -32,7 +32,7 @@ type
        property Unitor :TSingleC read GetUnitor write SetUnitor;
        property Conj   :TSingleC read GetConj   write SetConj  ;
        property Angle  :Single   read GetAngle                 ;
-       ///// 演算子
+       
        class operator Negative( const V_:TSingleC ) :TSingleC;
        class operator Positive( const V_:TSingleC ) :TSingleC;
        class operator Add( const A_,B_:TSingleC ) :TSingleC;
@@ -70,7 +70,7 @@ type
        property Unitor :TDoubleC read GetUnitor write SetUnitor;
        property Conj   :TDoubleC read GetConj   write SetConj  ;
        property Angle  :Double   read GetAngle                 ;
-       ///// 演算子
+       
        class operator Negative( const V_:TDoubleC ) :TDoubleC;
        class operator Positive( const V_:TDoubleC ) :TDoubleC;
        class operator Add( const A_,B_:TDoubleC ) :TDoubleC;
@@ -117,7 +117,7 @@ type
        property CenterI :Double   read GetCenterI write SetCenterI;
        property SizeR   :Double   read GetSizeR   write SetSizeR  ;
        property SizeI   :Double   read GetSizeI   write SetSizeI  ;
-       ///// 演算子
+       
        class operator Negative( const V_:TDoubleAreaC ) :TDoubleAreaC;
        class operator Positive( const V_:TDoubleAreaC ) :TDoubleAreaC;
        class operator Add( const A_,B_:TDoubleAreaC ) :TDoubleAreaC;
@@ -163,7 +163,7 @@ function ArcCos( const X_:TDoubleC ) :TDoubleC; overload;
 
 function ArcSin( const X_:TDoubleC ) :TDoubleC; overload;
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 
@@ -687,7 +687,7 @@ begin
      Result.I := S * Sin( A );
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function Roo2( const X_:TSingleC ) :TSingleC;
 var
@@ -711,7 +711,7 @@ begin
      Result.I := S * Sin( A );
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function Cos( const A_:TSingleC ) :TSingleC;
 begin
@@ -731,7 +731,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function Sin( const A_:TSingleC ) :TSingleC;
 begin
@@ -751,7 +751,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function Tan( const A_:TSingleC ) :TSingleC;
 begin
@@ -763,7 +763,7 @@ begin
      Result := Sin( A_ ) / Cos( A_ );
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function Exp( const A_:TSingleC ) :TSingleC;
 var
@@ -791,7 +791,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function Ln( const A_:TSingleC ) :TSingleC;
 begin
@@ -811,7 +811,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function ArcCos( const X_:TDoubleC ) :TDoubleC;
 begin
@@ -825,7 +825,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

@@ -78,7 +78,7 @@ implementation
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLEngine.GetVerBufs: TGLPorterV;
 begin
@@ -112,7 +112,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 //  & public
 
@@ -136,7 +136,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLEngine.Attach(const Shader_: IGLShader);
 begin
@@ -178,7 +178,8 @@ end;
 
 //  
 
-initialization //  
+initialization //===================== 
+ 
 
 finalization //  
 

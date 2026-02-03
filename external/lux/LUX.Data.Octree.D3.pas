@@ -136,7 +136,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils, System.Math;
 
@@ -333,7 +333,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

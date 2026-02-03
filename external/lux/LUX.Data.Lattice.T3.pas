@@ -349,7 +349,7 @@ type
     procedure ForEdgesZ(const Proc_: TProc);
   end;
 
-implementation // --------------------------------------------------------------
+implementation //=========================================
 
 procedure TArray3D<_TItem_>.MakeArray;
 begin
@@ -1249,7 +1249,7 @@ begin
   end;
 end;
 
-initialization //--------------------------------------------------------------
+initialization //==============================================================
 
 finalization //----------------------------------------------------------------
 

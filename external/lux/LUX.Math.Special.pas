@@ -4,7 +4,7 @@ interface
 
 uses LUX, LUX.D1;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -31,7 +31,7 @@ function HypGeo21A( const B_,C_,X_:Double ) :Double; overload;
 function HypGeo21A( const B_,C_,X_:TdSingle ) :TdSingle; overload;
 function HypGeo21A( const B_,C_,X_:TdDouble ) :TdDouble; overload;
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -229,7 +229,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

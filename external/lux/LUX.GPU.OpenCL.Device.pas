@@ -309,7 +309,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils, System.RegularExpressions,
      LUX.GPU.OpenCL.Platfo;

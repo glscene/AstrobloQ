@@ -54,7 +54,7 @@ type
        property AxisY                    :TSingle3D read GetAxisY write SetAxisY;
        property AxisZ                    :TSingle3D read GetAxisZ write SetAxisZ;
        property AxisP                    :TSingle3D read GetAxisP write SetAxisP;
-       ///// 演算子
+       
        class operator Multiply( const A_,B_:TSingleM4 ) :TSingleM4;
        class operator Multiply( const A_:Single; const B_:TSingleM4 ) :TSingleM4;
        class operator Multiply( const A_:TSingleM4; const B_:Single ) :TSingleM4;
@@ -115,7 +115,7 @@ type
        property AxisY                    :TDouble3D read GetAxisY write SetAxisY;
        property AxisZ                    :TDouble3D read GetAxisZ write SetAxisZ;
        property AxisP                    :TDouble3D read GetAxisP write SetAxisP;
-       ///// 演算子
+       
        class operator Multiply( const A_,B_:TDoubleM4 ) :TDoubleM4;
        class operator Multiply( const A_:Double; const B_:TDoubleM4 ) :TDoubleM4;
        class operator Multiply( const A_:TDoubleM4; const B_:Double ) :TDoubleM4;
@@ -178,7 +178,7 @@ type
        property AxisY                    :TdSingle3D read GetAxisY write SetAxisY;
        property AxisZ                    :TdSingle3D read GetAxisZ write SetAxisZ;
        property AxisP                    :TdSingle3D read GetAxisP write SetAxisP;
-       ///// 演算子
+       
        class operator Multiply( const A_,B_:TdSingleM4 ) :TdSingleM4;
        class operator Multiply( const A_:TdSingle; const B_:TdSingleM4 ) :TdSingleM4;
        class operator Multiply( const A_:TdSingleM4; const B_:TdSingle ) :TdSingleM4;
@@ -238,7 +238,7 @@ type
        property AxisY                    :TdDouble3D read GetAxisY write SetAxisY;
        property AxisZ                    :TdDouble3D read GetAxisZ write SetAxisZ;
        property AxisP                    :TdDouble3D read GetAxisP write SetAxisP;
-       ///// 演算子
+       
        class operator Multiply( const A_,B_:TdDoubleM4 ) :TdDoubleM4;
        class operator Multiply( const A_:TdDouble; const B_:TdDoubleM4 ) :TdDoubleM4;
        class operator Multiply( const A_:TdDoubleM4; const B_:TdDouble ) :TdDoubleM4;
@@ -286,7 +286,7 @@ type
        
        property o :TSingleM4 read _o write Seto;
        property i :TSingleM4 read _i write Seti;
-       ///// 演算子
+       
        class operator Multiply( const A_,B_:TSingleDualM4 ) :TSingleDualM4;
        class operator Multiply( const A_:Single; B_:TSingleDualM4 ) :TSingleDualM4;
        class operator Multiply( const A_:TSingleDualM4; B_:Single ) :TSingleDualM4;
@@ -308,7 +308,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 
@@ -451,7 +451,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TSingleM4.Multiply( const A_,B_:TSingleM4 ) :TSingleM4;
 begin
@@ -577,7 +577,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function TSingleM4.MultPos( const B_:TSingle3D ) :TSingle3D;
 begin
@@ -896,7 +896,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TDoubleM4.Multiply( const A_,B_:TDoubleM4 ) :TDoubleM4;
 begin
@@ -1044,7 +1044,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function TDoubleM4.MultPos( const B_:TDouble3D ) :TDouble3D;
 begin
@@ -1365,7 +1365,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdSingleM4.Multiply( const A_,B_:TdSingleM4 ) :TdSingleM4;
 begin
@@ -1482,7 +1482,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function TdSingleM4.MultPos( const B_:TdSingle3D ) :TdSingle3D;
 begin
@@ -1801,7 +1801,7 @@ begin
      _41 :=    0;  _42 :=    0;  _43 :=    0;  _44 :=    1;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdDoubleM4.Multiply( const A_,B_:TdDoubleM4 ) :TdDoubleM4;
 begin
@@ -1940,7 +1940,7 @@ begin
      end
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function TdDoubleM4.MultPos( const B_:TdDouble3D ) :TdDouble3D;
 begin
@@ -2162,7 +2162,7 @@ end;
 
 
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TSingleDualM4.Multiply( const A_,B_:TSingleDualM4 ) :TSingleDualM4;
 begin
@@ -2262,7 +2262,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

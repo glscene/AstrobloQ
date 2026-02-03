@@ -11,7 +11,7 @@ uses LUX,
      LUX.D5,
      LUX.DN;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -55,7 +55,7 @@ function PolyToBezi( const P_:TDoubleND ) :TDoubleND; overload;
 function BeziToPoly( const P_:TSingleND ) :TSingleND; overload;
 function BeziToPoly( const P_:TDoubleND ) :TDoubleND; overload;
 
-implementation // 
+implementation //=========================================
 
 uses LUX.Curve;
 
@@ -439,7 +439,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

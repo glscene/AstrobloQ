@@ -73,7 +73,7 @@ uses
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 //  & public
 
@@ -247,7 +247,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 // TGLShaperVoxels
 
@@ -332,7 +332,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperVoxels.BeginDraw;
 begin
@@ -354,7 +354,8 @@ end;
 
 //  
 
-initialization //  
+initialization //===================== 
+ 
 
 finalization //  
 

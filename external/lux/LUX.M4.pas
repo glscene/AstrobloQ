@@ -317,7 +317,7 @@ function Tensor(const T_: TDouble2D;
 function ArrowPose(const P0_, P1_: TSingle3D): TSingleM4; overload;
 function ArrowPose(const P0_, P1_: TDouble3D): TDoubleM4; overload;
 
-implementation // --------------------------------------------------------------
+implementation //=========================================
 
 function TIntegerM4.GetM(const Y_, X_: Integer): Integer;
 begin
@@ -3408,7 +3408,7 @@ begin
   Result.AxisP := (P1_ + P0_) / 2;
 end;
 
-initialization // ------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

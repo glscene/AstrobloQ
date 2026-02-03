@@ -38,7 +38,7 @@ type
        property ScalY2 :TChartScaY read _ScalY2;
      end;
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 

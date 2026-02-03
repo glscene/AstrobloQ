@@ -35,27 +35,16 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils;
 
-//  
-
-//  
 
 //TRandomWEL<_TSeed_>
 
 
+initialization //===================== 
 
-
-
-
-
-//  
-
-// 
-
-initialization // 
 
 finalization // 
 

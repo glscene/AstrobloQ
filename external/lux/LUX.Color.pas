@@ -897,7 +897,7 @@ begin
   Result.E := 128 + E;
 end;
 
-initialization //---------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

@@ -7,7 +7,7 @@ uses LUX,
      LUX.D2,
      LUX.Curve;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -25,7 +25,7 @@ function Delta( const X_,Y_:Double ) :Double; overload;
 function Sinc( const X_,Y_:Single ) :Single; overload;
 function Sinc( const X_,Y_:Double ) :Double; overload;
 
-implementation // 
+implementation //=========================================
 
 uses LUX.Curve.BSpline, LUX.Curve.Bezier;
 
@@ -59,7 +59,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

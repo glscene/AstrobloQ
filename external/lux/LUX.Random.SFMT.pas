@@ -149,7 +149,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils, System.Math;
 
@@ -323,7 +323,7 @@ begin
      r.u[ 3 ] := a.u[ 3 ] xor x.u[ 3 ] xor ( ( b.u[ 3 ] shr SFMT_SR1 ) and SFMT_MSK4 ) xor y.u[ 3 ] xor ( d.u[ 3 ] shl SFMT_SL1 );
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 (**
  * This function generates and returns 32-bit pseudorandom number.
@@ -940,7 +940,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

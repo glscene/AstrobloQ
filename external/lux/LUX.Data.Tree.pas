@@ -659,7 +659,7 @@ begin
   inherited SetChilds(I_, TTreeNode(Child_));
 end;
 
-initialization //--------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

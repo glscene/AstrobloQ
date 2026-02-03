@@ -122,7 +122,7 @@ type
     property Paren;
   end;
 
-implementation // --------------------------------------------------------------
+implementation //=========================================
 
 constructor TTreeItem.Create;
 begin
@@ -513,7 +513,7 @@ begin
   inherited SetChilds(I_, TTreeNode(Child_));
 end;
 
-initialization // --------------------------------------------------------------
+initialization //==============================================================
 
 finalization
 

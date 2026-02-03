@@ -1,7 +1,5 @@
 ﻿#version 430
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%【共通定数】
-
 layout( std140 ) uniform TViewerScal{ layout( row_major ) mat4 _ViewerScal; };
 layout( std140 ) uniform TCameraProj{ layout( row_major ) mat4 _CameraProj; };
 layout( std140 ) uniform TCameraPose{ layout( row_major ) mat4 _CameraPose; };
@@ -45,8 +43,6 @@ const ivec3 _ItemCellsN = _ItemPoinsN - ivec3( 1 );
 
 const vec3 _CellSize = _GridSize / _ItemCellsN;
 
-//############################################################################## ■
-
 layout( points ) in;
 
 in TSenderVG
@@ -68,8 +64,6 @@ out TSenderGF
   vec4 Pos;
 }
 _Result;
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%【ルーチン】
 
 float GetPoins( int X, int Y, int Z )
 {
@@ -97,8 +91,6 @@ void AddEdge( vec3 Pos1, vec3 Pos2 )
   EndPrimitive();
 }
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
 const float G000 = GetPoins( X0, Y0, Z0 );
 const float G001 = GetPoins( X1, Y0, Z0 );
 const float G010 = GetPoins( X0, Y1, Z0 );
@@ -124,7 +116,7 @@ int CubeKind()
   return Result;
 }
 
-////////////////////////////////////////////////////////////////////////////////
+//
 
 void main()
 {
@@ -148,5 +140,3 @@ void main()
     AddEdge( vec3( X1, Y1, Z0 ), vec3( X1, Y1, Z1 ) );
   }
 }
-
-//############################################################################## ■

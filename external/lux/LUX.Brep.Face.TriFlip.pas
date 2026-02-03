@@ -112,7 +112,7 @@ const
   _Inc_: array [1 .. 3] of Byte = (2, 3, 1);
   _Dec_: array [1 .. 3] of Byte = (3, 1, 2);
 
-implementation // --------------------------------------------------------------
+implementation //=========================================
 
 function TCornIter<_TPos_>.GetFlip: TCornIter<_TPos_>;
 begin
@@ -566,7 +566,7 @@ begin
   end
 end;
 
-initialization // --------------------------------------------------------------
+initialization //==============================================================
 
 finalization
 

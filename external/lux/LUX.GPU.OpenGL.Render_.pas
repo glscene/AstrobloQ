@@ -42,7 +42,7 @@ type
     procedure Render;
   end;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 function TGL_Render.GetSizeX: Integer;
 begin
@@ -146,7 +146,7 @@ begin
 end;
 
 
-initialization //--------------------------------------------------------------
+initialization //==============================================================
 
 finalization
 

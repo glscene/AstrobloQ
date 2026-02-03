@@ -51,7 +51,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses LUX.Color.Format.HDR;
 

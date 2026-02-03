@@ -6,7 +6,7 @@ uses LUX,
      LUX.D1,
      LUX.D4;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -70,7 +70,7 @@ function Bezie4( const Ps_:TDouble4D; const T_:Double ) :Double; overload;
 function Bezie4( const Ps_:TdSingle4D; const T_:TdSingle ) :TdSingle; overload;
 function Bezie4( const Ps_:TdDouble4D; const T_:TdDouble ) :TdDouble; overload;
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -712,7 +712,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

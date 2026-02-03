@@ -102,7 +102,7 @@ begin
   Result := (P1_ - P0_) * T_ + P0_;
 end;
 
-initialization //-------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

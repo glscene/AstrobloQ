@@ -62,7 +62,7 @@ function GetDevices( var Ds_:TArray<TCLDevice>; const PI_:T_cl_platform_id; cons
 function GetPlatform( var P_:TCLPlatform; const ID_:T_cl_platform_id; const DT_:T_cl_device_type ) :T_cl_int;
 function GetPlatforms( var Ps_:TArray<TCLPlatform>; const DT_:T_cl_device_type ) :T_cl_int;
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils;
 
@@ -139,7 +139,7 @@ begin
      end;
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function GetDevicesN( var DN_:T_cl_uint; const PI_:T_cl_platform_id; const DT_:T_cl_device_type  ) :T_cl_int;
 begin
@@ -191,7 +191,7 @@ begin
      Texts_ := T.Split( [ '  ', ' ' ] );
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function GetPlatformsN( var PN_:T_cl_uint ) :T_cl_int;
 begin
@@ -243,7 +243,7 @@ begin
      Texts_ := T.Split( [ '  ', ' ' ] );
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function GetDevice( var D_:TCLDevice; const DI_:T_cl_device_id ) :T_cl_int;
 begin
@@ -300,7 +300,7 @@ begin
      end;
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 function GetPlatform( var P_:TCLPlatform; const ID_:T_cl_platform_id; const DT_:T_cl_device_type ) :T_cl_int;
 begin
@@ -359,7 +359,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

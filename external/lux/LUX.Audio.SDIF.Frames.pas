@@ -61,7 +61,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils,
      LUX.Audio.SDIF.Matrixs, LUX.Audio.SDIF.Frames.ASO1;
@@ -199,7 +199,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

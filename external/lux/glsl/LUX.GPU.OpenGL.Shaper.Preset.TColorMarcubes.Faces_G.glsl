@@ -1,6 +1,6 @@
 ﻿#version 430
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%【共通定数】
+//
 
 layout( std140 ) uniform TViewerScal{ layout( row_major ) mat4 _ViewerScal; };
 layout( std140 ) uniform TCameraProj{ layout( row_major ) mat4 _CameraProj; };
@@ -45,7 +45,7 @@ const ivec3 _ItemCellsN = _ItemPoinsN - ivec3( 1 );
 
 const vec3 _CellSize = _GridSize / _ItemCellsN;
 
-//############################################################################## ■
+//
 
 layout( points ) in;
 
@@ -71,7 +71,7 @@ out TSenderGF
 }
 _Result;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%【型】
+//
 
 struct TTrias
 {
@@ -86,7 +86,7 @@ struct TPoin
   vec4 Nor;
 };
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%【定数】
+//
 
 const TTrias TRIASTABLE[ 256 ] = TTrias[ 256 ](
   TTrias( 0, ivec3[ 5 ]( ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ) ) ),
@@ -347,7 +347,7 @@ const TTrias TRIASTABLE[ 256 ] = TTrias[ 256 ](
   TTrias( 0, ivec3[ 5 ]( ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ), ivec3( -1, -1, -1 ) ) )
 );
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%【ルーチン】
+//
 
 float GetPoins( int X, int Y, int Z )
 {
@@ -403,7 +403,7 @@ void AddFace( TPoin P1, TPoin P2, TPoin P3 )
   EndPrimitive();
 }
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//
 
 const float G000 = GetPoins( X0, Y0, Z0 );
 const float G001 = GetPoins( X1, Y0, Z0 );
@@ -474,7 +474,7 @@ TPoin MakePoin( int I )
   return Result;
 }
 
-////////////////////////////////////////////////////////////////////////////////
+//
 
 void main()
 {
@@ -491,5 +491,3 @@ void main()
     AddFace( P1, P2, P3 );
   }
 }
-
-//############################################################################## ■

@@ -532,7 +532,7 @@ begin
   Result := InterpPos(G0, G1, G2, G3, Pos_);
 end;
 
-initialization //--------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

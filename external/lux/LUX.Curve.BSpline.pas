@@ -144,7 +144,7 @@ function BSpline4(const Ps_: TdSingle4D; const T_: TdSingle): TdSingle;
 function BSpline4(const Ps_: TdDouble4D; const T_: TdDouble): TdDouble;
   overload;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 uses
   System.Math,
@@ -957,7 +957,7 @@ begin
   Result := Ws._1 * Ps_._1 + Ws._2 * Ps_._2 + Ws._3 * Ps_._3 + Ws._4 * Ps_._4;
 end;
 
-initialization //-------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

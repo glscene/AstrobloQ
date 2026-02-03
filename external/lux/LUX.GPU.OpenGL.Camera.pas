@@ -83,7 +83,7 @@ implementation //-------------------------------------------------------------
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLCamera.GetProj: TSingleM4;
 begin
@@ -127,7 +127,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLCamera.HitRay(const AbsoRay_: TSingleRay3D; var Len_: Single;
   var Obj_: TGLObject);
@@ -155,7 +155,7 @@ end;
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLCameraOrth.GetSize: Single;
 begin
@@ -168,7 +168,7 @@ begin
   CalcProj;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLCameraOrth.CalcProj;
 var
@@ -203,7 +203,7 @@ end;
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLCameraPers.GetAngl: Single;
 begin
@@ -216,7 +216,7 @@ begin
   CalcProj;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLCameraPers.CalcProj;
 var
@@ -249,7 +249,8 @@ end;
 
 //  
 
-initialization //  
+initialization //===================== 
+ 
 
 finalization //  
 

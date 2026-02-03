@@ -1411,6 +1411,6 @@ type T_cl_double16 = record
 //    #pragma warning( pop )
 //#endif
 
-implementation // 
+implementation //=========================================
 
 end.

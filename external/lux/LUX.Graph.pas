@@ -41,7 +41,7 @@ type
   public
   end;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 constructor TNodeLink<_TYPE_>.Create(const o_: _TYPE_; const i_: Integer);
 begin
@@ -65,7 +65,7 @@ begin
   Result := Link_.o;
 end;
 
-initialization // -------------------------------------------------------------
+initialization //==============================================================
 
 finalization
 

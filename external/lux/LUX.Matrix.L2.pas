@@ -15,7 +15,7 @@ type
      public
        constructor Create( const _11_,_12_,
                                  _21_,_22_:Single );
-       ///// 演算子
+       
        class operator Negative( const V_:TSingleM2 ) :TSingleM2;
        class operator Positive( const V_:TSingleM2 ) :TSingleM2;
        class operator Add( const A_,B_:TSingleM2 ) :TSingleM2;
@@ -43,7 +43,7 @@ type
      public
        constructor Create( const _11_,_12_,
                                  _21_,_22_:Double );
-       ///// 演算子
+       
        class operator Negative( const V_:TDoubleM2 ) :TDoubleM2;
        class operator Positive( const V_:TDoubleM2 ) :TDoubleM2;
        class operator Add( const A_,B_:TDoubleM2 ) :TDoubleM2;
@@ -71,7 +71,7 @@ type
      public
        constructor Create( const _11_,_12_,
                                  _21_,_22_:TdSingle );
-       ///// 演算子
+       
        class operator Negative( const V_:TdSingleM2 ) :TdSingleM2;
        class operator Positive( const V_:TdSingleM2 ) :TdSingleM2;
        class operator Add( const A_,B_:TdSingleM2 ) :TdSingleM2;
@@ -99,7 +99,7 @@ type
      public
        constructor Create( const _11_,_12_,
                                  _21_,_22_:TdDouble );
-       ///// 演算子
+       
        class operator Negative( const V_:TdDoubleM2 ) :TdDoubleM2;
        class operator Positive( const V_:TdDoubleM2 ) :TdDoubleM2;
        class operator Add( const A_,B_:TdDoubleM2 ) :TdDoubleM2;
@@ -128,7 +128,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 
@@ -146,7 +146,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TSingleM2.Positive( const V_:TSingleM2 ) :TSingleM2;
 begin
@@ -286,7 +286,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TDoubleM2.Positive( const V_:TDoubleM2 ) :TDoubleM2;
 begin
@@ -426,7 +426,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdSingleM2.Positive( const V_:TdSingleM2 ) :TdSingleM2;
 begin
@@ -566,7 +566,7 @@ begin
      _21 := _21_;  _22 := _22_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdDoubleM2.Positive( const V_:TdDoubleM2 ) :TdDoubleM2;
 begin
@@ -694,7 +694,8 @@ begin
      end
 end;
 
-initialization // 
+initialization //===================== 
+
 
 finalization //
 

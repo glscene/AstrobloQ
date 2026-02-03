@@ -70,7 +70,7 @@ type
     property Material: TMyMaterialSource read _Material;
   end;
 
-implementation //=============================================================
+implementation //===
 
 // TMyMaterial
 
@@ -290,7 +290,8 @@ begin
   inherited;
 end;
 
-initialization //-----------------------------------------------------------
+initialization //===================== 
+-----------------------------------------------------------
 
 finalization //-------------------------------------------------------------
 

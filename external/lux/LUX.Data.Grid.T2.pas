@@ -494,7 +494,7 @@ begin
   end;
 end;
 
-initialization //--------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

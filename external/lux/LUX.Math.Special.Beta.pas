@@ -5,7 +5,7 @@ interface
 uses LUX, LUX.D1,
      LUX.Math.Special;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -41,7 +41,7 @@ function RegIncBeta( const X_,A_,B_:Double ) :Double; overload;
 function RegIncBeta( const X_,A_,B_:TdSingle ) :TdSingle; overload;
 function RegIncBeta( const X_,A_,B_:TdDouble ) :TdDouble; overload;
 
-implementation // 
+implementation //=========================================
 
 uses System.Math,
      LUX.Math.Special.Gamma.Ooura;
@@ -236,7 +236,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

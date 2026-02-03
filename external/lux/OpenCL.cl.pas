@@ -1,6 +1,6 @@
 unit OpenCL.cl;
 
-interface //########################################################## Å°
+interface // 
 
 (*******************************************************************************
  * Copyright (c) 2008-2015 The Khronos Group Inc.
@@ -1505,6 +1505,6 @@ clEnqueueTask(       command_queue_           :T_cl_command_queue;
                const event_wait_list_         :P_cl_event;
                      event_ :P_cl_event                           ) :T_cl_int; stdcall; external DLLNAME; deprecated;
 
-implementation //##################################################### Å°
+implementation //##################################################### 
 
-end. //############################################################### Å°
+end. 

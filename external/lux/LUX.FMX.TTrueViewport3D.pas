@@ -29,7 +29,7 @@ type
     procedure RebuildRenderingList;
   end;
 
-implementation // 
+implementation //=========================================
 
 {$R *.fmx}
 

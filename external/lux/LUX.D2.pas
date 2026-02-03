@@ -734,7 +734,7 @@ function RotAngle(const V0_, V1_: TDouble2D): Double; overload;
 function PolySolveReal(const Ks_: TSingle2D; out X1_: Single): Byte; overload;
 function PolySolveReal(const Ks_: TDouble2D; out X1_: Double): Byte; overload;
 
-implementation //=============================================================
+implementation //===
 
 function TByte2D.Gets(const X_: Integer): Byte;
 begin
@@ -2918,8 +2918,8 @@ begin
   end;
 end;
 
-initialization // ---------------------------------------------------
+initialization //============================================================
 
-finalization // ==============================================================
+finalization
 
 end.

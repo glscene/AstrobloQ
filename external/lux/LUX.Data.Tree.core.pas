@@ -92,7 +92,7 @@ type
     procedure RunFamily(const Proc_: TNodeProc<TTreeItem>);
   end;
 
-//=====================================================================
+//===========
 implementation
 
 function TTreeAtom.Get_Parent: TTreeItem;

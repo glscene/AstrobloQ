@@ -412,7 +412,7 @@ begin
     Childs[I].HitRay(AbsoRay_, Len_, Obj_);
 end;
 
-initialization //--------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

@@ -113,7 +113,7 @@ type
        destructor Destroy; override;
      end;
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 

@@ -167,7 +167,7 @@ function InsideLoop(const P_: TSingle2D; const Ps_: TArray<TSingle2D>)
 function InsideLoop(const P_: TDouble2D; const Ps_: TArray<TDouble2D>)
   : Double; overload;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 constructor TSingleCircl2.Create(const P1_, P2_, P3_: TSingle2D);
 begin
@@ -818,7 +818,7 @@ begin
   Result := Result / Pi2;
 end;
 
-initialization //------------------------------------------------------------
+initialization //==============================================================
 
 finalization
 

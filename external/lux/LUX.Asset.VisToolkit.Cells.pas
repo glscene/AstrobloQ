@@ -111,7 +111,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses LUX.Asset.VisToolkit.Cells.LINEAR,
      LUX.Asset.VisToolkit.Cells.QUADRATIC,
@@ -244,7 +244,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

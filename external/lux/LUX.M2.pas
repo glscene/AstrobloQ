@@ -167,7 +167,7 @@ type
         );
   end;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 function TSingleM2.GetM(const Y_, X_: Integer): Single;
 begin
@@ -1035,7 +1035,7 @@ begin
   end
 end;
 
-initialization // --------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

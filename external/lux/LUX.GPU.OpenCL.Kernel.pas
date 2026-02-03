@@ -230,7 +230,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils,
      LUX.GPU.OpenCL.Progra;

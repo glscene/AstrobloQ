@@ -37,7 +37,7 @@ type
       X_, Y_: Single; DoClick_: Boolean = True); override;
   end;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 function HCommonCustomForm.MousePos: TPointF;
 begin
@@ -68,7 +68,7 @@ begin
   inherited;
 end;
 
-initialization // --------------------------------------------------------------
+initialization //===================== 
 
 finalization // ----------------------------------------------------------------
 

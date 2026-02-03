@@ -1,6 +1,6 @@
 unit OpenCL.cl_platform;
 
-interface //########################################################## Å°
+interface // 
 
 (**********************************************************************************
  * Copyright (c) 2008-2015 The Khronos Group Inc.
@@ -1287,6 +1287,6 @@ type T_cl_double16 = packed record
 /////#define  _CL_STRINGIFY( _x )                __CL_STRINGIFY( _x )
 /////#define  CL_PROGRAM_STRING_DEBUG_INFO       "#line "  _CL_STRINGIFY(__LINE__) " \"" __FILE__ "\" \n\n"
 
-implementation //##################################################### Å°
+implementation //##################################################### 
 
-end. //############################################################### Å°
+end. 

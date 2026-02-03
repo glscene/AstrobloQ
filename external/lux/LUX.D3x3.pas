@@ -35,7 +35,7 @@ type
        property AxisY                     :TSingle3D read GetAxisY write SetAxisY;
        property AxisZ                     :TSingle3D read GetAxisZ write SetAxisZ;
        property Sum                       :Single    read GetSum;
-       ///// 演算子
+       
        class operator Negative( const V_:TSingleM3 ) :TSingleM3;
        class operator Positive( const V_:TSingleM3 ) :TSingleM3;
        class operator Add( const A_,B_:TSingleM3 ) :TSingleM3;
@@ -81,7 +81,7 @@ type
        property AxisX                     :TDouble3D read GetAxisX write SetAxisX;
        property AxisY                     :TDouble3D read GetAxisY write SetAxisY;
        property AxisZ                     :TDouble3D read GetAxisZ write SetAxisZ;
-       ///// 演算子
+       
        class operator Negative( const V_:TDoubleM3 ) :TDoubleM3;
        class operator Positive( const V_:TDoubleM3 ) :TDoubleM3;
        class operator Add( const A_,B_:TDoubleM3 ) :TDoubleM3;
@@ -129,7 +129,7 @@ type
        property AxisY                     :TdSingle3D read GetAxisY write SetAxisY;
        property AxisZ                     :TdSingle3D read GetAxisZ write SetAxisZ;
        property Sum   :TdSingle    read GetSum;
-       ///// 演算子
+       
        class operator Negative( const V_:TdSingleM3 ) :TdSingleM3;
        class operator Positive( const V_:TdSingleM3 ) :TdSingleM3;
        class operator Add( const A_,B_:TdSingleM3 ) :TdSingleM3;
@@ -175,7 +175,7 @@ type
        property AxisX                     :TdDouble3D read GetAxisX write SetAxisX;
        property AxisY                     :TdDouble3D read GetAxisY write SetAxisY;
        property AxisZ                     :TdDouble3D read GetAxisZ write SetAxisZ;
-       ///// 演算子
+       
        class operator Negative( const V_:TdDoubleM3 ) :TdDoubleM3;
        class operator Positive( const V_:TdDoubleM3 ) :TdDoubleM3;
        class operator Add( const A_,B_:TdDoubleM3 ) :TdDoubleM3;
@@ -210,7 +210,7 @@ type
 function ArrowRot( const P0_,P1_:TSingle3D ) :TSingleM3; overload;
 function ArrowRot( const P0_,P1_:TDouble3D ) :TDoubleM3; overload;
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -310,7 +310,7 @@ begin
      _31 := _31_;  _32 := _32_;  _33 := _33_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TSingleM3.Positive( const V_:TSingleM3 ) :TSingleM3;
 begin
@@ -593,7 +593,7 @@ begin
      _31 := _31_;  _32 := _32_;  _33 := _33_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TDoubleM3.Positive( const V_:TDoubleM3 ) :TDoubleM3;
 begin
@@ -884,7 +884,7 @@ begin
      _31 := _31_;  _32 := _32_;  _33 := _33_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdSingleM3.Positive( const V_:TdSingleM3 ) :TdSingleM3;
 begin
@@ -1167,7 +1167,7 @@ begin
      _31 := _31_;  _32 := _32_;  _33 := _33_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdDoubleM3.Positive( const V_:TdDoubleM3 ) :TdDoubleM3;
 begin
@@ -1421,7 +1421,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

@@ -77,7 +77,7 @@ type
 procedure RegisterContextClasses;
 procedure UnregisterContextClasses;
 
-implementation // ==================================================================
+implementation //=========================================
 
 uses
   LUX.FMX.Types3D;
@@ -2284,11 +2284,12 @@ begin
 end;
 
 
-initialization //--------------------------------------------------------------
+initialization //==============================================================
 
 RegisterContextClasses;
 
-finalization
+finalization //================================================================
+
 UnregisterContextClasses;
 
 end.

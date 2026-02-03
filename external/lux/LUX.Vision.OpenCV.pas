@@ -90,7 +90,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses ocv.imgproc_c, ocv.imgproc.types_c;
 
@@ -262,7 +262,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

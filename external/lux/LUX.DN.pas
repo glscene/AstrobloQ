@@ -37,7 +37,7 @@ type
        property Siz2                   :Single    read GetSiz2   write SetSiz2  ;
        property Size                   :Single    read GetSize   write SetSize  ;
        property Unitor                 :TSingleND read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TSingleND ) :TSingleND;
        class operator Positive( const V_:TSingleND ) :TSingleND;
        class operator Add( const A_,B_:TSingleND ) :TSingleND;
@@ -93,7 +93,7 @@ type
        property Siz2                   :Double    read GetSiz2   write SetSiz2  ;
        property Size                   :Double    read GetSize   write SetSize  ;
        property Unitor                 :TDoubleND read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TDoubleND ) :TDoubleND;
        class operator Positive( const V_:TDoubleND ) :TDoubleND;
        class operator Add( const A_,B_:TDoubleND ) :TDoubleND;
@@ -155,7 +155,7 @@ type
        property Siz2                   :TdSingle   read GetSiz2   write SetSiz2  ;
        property Size                   :TdSingle   read GetSize   write SetSize  ;
        property Unitor                 :TdSingleND read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TdSingleND ) :TdSingleND; inline;
        class operator Positive( const V_:TdSingleND ) :TdSingleND; inline;
        class operator Add( const A_,B_:TdSingleND ) :TdSingleND; inline;
@@ -207,7 +207,7 @@ type
        property Siz2                   :TdDouble   read GetSiz2   write SetSiz2  ;
        property Size                   :TdDouble   read GetSize   write SetSize  ;
        property Unitor                 :TdDoubleND read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TdDoubleND ) :TdDoubleND; inline;
        class operator Positive( const V_:TdDoubleND ) :TdDoubleND; inline;
        class operator Add( const A_,B_:TdDoubleND ) :TdDoubleND; inline;
@@ -263,7 +263,7 @@ function Ave( const P1_,P2_,P3_,P4_:TDoubleND ) :TDoubleND; inline; overload;
 function Ave( const P1_,P2_,P3_,P4_:TdSingleND ) :TdSingleND; inline; overload;
 function Ave( const P1_,P2_,P3_,P4_:TdDoubleND ) :TdDoubleND; inline; overload;
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils, System.Math;
 
@@ -363,7 +363,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TSingleND.Negative( const V_:TSingleND ) :TSingleND;
 var
@@ -702,7 +702,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TDoubleND.Negative( const V_:TDoubleND ) :TDoubleND;
 var
@@ -1076,7 +1076,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdSingleND.Negative( const V_:TdSingleND ) :TdSingleND;
 var
@@ -1376,7 +1376,7 @@ begin
      _Xs := Copy( D_._Xs );
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdDoubleND.Negative( const V_:TdDoubleND ) :TdDoubleND;
 var
@@ -1714,7 +1714,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

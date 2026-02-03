@@ -40,7 +40,7 @@ function ErrorToMessage( const Error_:T_cl_int ) :String;
 
 procedure AssertCL( const Error_:T_cl_int; const Comment_:String = '' );
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils;
 

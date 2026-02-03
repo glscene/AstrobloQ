@@ -133,7 +133,7 @@ type
 
 function GapFit(const P0_, P1_: TPoint3D): TMatrix3D;
 
-implementation //=============================================================
+implementation //===
 
 uses
   System.SysUtils,

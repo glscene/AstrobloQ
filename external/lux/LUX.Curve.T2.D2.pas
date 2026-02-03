@@ -9,7 +9,7 @@ uses LUX,
      LUX.Curve.T1.D1, LUX.Curve.T1.D2,
      LUX.Curve.T2.D1;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -26,7 +26,7 @@ function Bezie4( const Ps_:TDouble2DM4; const T_:TDouble2D ) :TDouble2D; overloa
 function Bezie4( const Ps_:TdSingle2DM4; const T_:TdSingle2D ) :TdSingle2D; overload;
 function Bezie4( const Ps_:TdDouble2DM4; const T_:TdDouble2D ) :TdDouble2D; overload;
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -124,7 +124,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

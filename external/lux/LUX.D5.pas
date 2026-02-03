@@ -30,7 +30,7 @@ type
        property Siz2                   :Single    read GetSiz2   write SetSiz2  ;
        property Size                   :Single    read GetSize   write SetSize  ;
        property Unitor                 :TSingle5D read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TSingle5D ) :TSingle5D;
        class operator Positive( const V_:TSingle5D ) :TSingle5D;
        class operator Add( const A_,B_:TSingle5D ) :TSingle5D;
@@ -89,7 +89,7 @@ type
        property Siz2                   :Double    read GetSiz2   write SetSiz2  ;
        property Size                   :Double    read GetSize   write SetSize  ;
        property Unitor                 :TDouble5D read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TDouble5D ) :TDouble5D;
        class operator Positive( const V_:TDouble5D ) :TDouble5D;
        class operator Add( const A_,B_:TDouble5D ) :TDouble5D;
@@ -153,7 +153,7 @@ type
        property Siz2                   :TdSingle   read GetSiz2   write SetSiz2  ;
        property Size                   :TdSingle   read GetSize   write SetSize  ;
        property Unitor                 :TdSingle5D read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TdSingle5D ) :TdSingle5D; inline;
        class operator Positive( const V_:TdSingle5D ) :TdSingle5D; inline;
        class operator Add( const A_,B_:TdSingle5D ) :TdSingle5D; inline;
@@ -202,7 +202,7 @@ type
        property Siz2                   :TdDouble   read GetSiz2   write SetSiz2  ;
        property Size                   :TdDouble   read GetSize   write SetSize  ;
        property Unitor                 :TdDouble5D read GetUnitor write SetUnitor;
-       ///// 演算子
+       
        class operator Negative( const V_:TdDouble5D ) :TdDouble5D; inline;
        class operator Positive( const V_:TdDouble5D ) :TdDouble5D; inline;
        class operator Add( const A_,B_:TdDouble5D ) :TdDouble5D; inline;
@@ -266,7 +266,7 @@ function Ave( const P1_,P2_,P3_,P4_:TdDouble5D ) :TdDouble5D; inline; overload;
 function PolySolveReal( const Ks_:TSingle5D; out Xs_:TSingle4D ) :Byte; overload;
 function PolySolveReal( const Ks_:TDouble5D; out Xs_:TDouble4D ) :Byte; overload;
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils, System.Math;
 
@@ -340,7 +340,7 @@ begin
      _5 := V5_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TSingle5D.Negative( const V_:TSingle5D ) :TSingle5D;
 begin
@@ -657,7 +657,7 @@ begin
      _5 := V5_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TDouble5D.Negative( const V_:TDouble5D ) :TDouble5D;
 begin
@@ -1001,7 +1001,7 @@ begin
      _5 := V5_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdSingle5D.Negative( const V_:TdSingle5D ) :TdSingle5D;
 begin
@@ -1200,7 +1200,7 @@ begin
      _5 := V5_;
 end;
 
-//-------------------------------------------------------/////// 演算子
+//-------------------------------------------------------//
 
 class operator TdDouble5D.Negative( const V_:TdDouble5D ) :TdDouble5D;
 begin
@@ -1672,7 +1672,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

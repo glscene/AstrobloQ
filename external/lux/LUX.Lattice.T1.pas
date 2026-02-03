@@ -139,7 +139,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 
@@ -510,7 +510,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

@@ -2,17 +2,13 @@ unit LUX.Vision.OpenCV.Capture;
 
 interface  
 
-uses ocv.core.types_c, ocv.highgui_c,
-     LUX.Vision.OpenCV;
+uses 
+  OCV.core.types_c, 
+  OCV.highgui_c,
+  LUX.Vision.OpenCV;
 
 type  
-
-      
-
-     
-
      //  TocvCapture
-
      TocvCapture = class abstract
      private
      protected
@@ -50,10 +46,8 @@ type
        property FrameCount  :Integer    read GetFrameCount;
        
        procedure QueryFrame;
-     end;
 
      //  TocvVideo
-
      TocvVideo = class( TocvCapture )
      private
      protected
@@ -77,27 +71,12 @@ type
      end;
 
 
-
- 
-
-//  
-
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils;
 
-//  
-
-//  
-
 //TocvCapture
-
-
-
-
-
 //-------------------------------------------------------
-
 function TocvCapture.GetPosMsec :Double;
 begin
      Result := cvGetCaptureProperty( _Core, CV_CAP_PROP_POS_MSEC );
@@ -232,11 +211,8 @@ begin
      _Core := cvCreateCameraCapture( _CameraI );
 end;
 
-//  
+initialization //===================== 
 
-// 
-
-initialization // 
 
 finalization // 
 

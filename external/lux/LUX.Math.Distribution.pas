@@ -4,7 +4,7 @@ interface
 
 uses LUX, LUX.D1;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -36,7 +36,7 @@ function CumDistT( const X_:TdDouble; const V_:Double ) :TdDouble; overload;
 function InvCumDistT( const P_,V_:Single ) :Single; overload;
 function InvCumDistT( const P_,V_:Double ) :Double; overload;
 
-implementation // 
+implementation //=========================================
 
 uses System.Math,
      LUX.Math.Special.Beta;
@@ -194,7 +194,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

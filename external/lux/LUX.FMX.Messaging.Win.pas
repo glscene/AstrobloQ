@@ -57,7 +57,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -167,7 +167,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
      TMessageService.AddPlatformService;
 

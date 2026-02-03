@@ -20,7 +20,7 @@ uses LUX, LUX.GPU.OpenGL.FMX;
 
 //  
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -44,7 +44,8 @@ implementation //
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

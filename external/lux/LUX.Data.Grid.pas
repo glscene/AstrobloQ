@@ -143,7 +143,7 @@ begin
   Array1_ := A;
 end;
 
-initialization //--------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

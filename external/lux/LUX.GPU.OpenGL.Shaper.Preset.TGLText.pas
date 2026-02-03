@@ -53,7 +53,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Types, System.Math, System.SysUtils;
 
@@ -180,7 +180,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

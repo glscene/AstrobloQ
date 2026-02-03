@@ -454,7 +454,7 @@ function RealMod(const X_, Range_: Integer): Integer; overload;
 function RealMod(const X_, Range_: Int64): Int64; overload;
 
 
-implementation // ------------------------------------------------------------
+implementation //=========================================
 
 function RealMod(const X_, Range_: Integer): Integer;
 begin
@@ -2280,7 +2280,7 @@ begin
   FreeMem(PP^);
 end;
 
-initialization // ------------------------------------------------------------
+initialization //=====================
 
   _ThreadPool_ := TThreadPool.Create;
 

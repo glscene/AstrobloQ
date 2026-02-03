@@ -58,7 +58,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses Winapi.OpenGL, Winapi.OpenGLext;
 
@@ -162,7 +162,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

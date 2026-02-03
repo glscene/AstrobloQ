@@ -174,7 +174,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaper.BeginDraw;
 begin
@@ -198,7 +198,7 @@ end;
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLShaperZeroPoins.GetPoinsN: Integer;
 begin
@@ -225,7 +225,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperZeroPoins.BeginDraw;
 begin
@@ -250,7 +250,7 @@ end;
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLShaperZeroLines.GetLinesN: Integer;
 begin
@@ -277,7 +277,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperZeroLines.BeginDraw;
 begin
@@ -302,7 +302,7 @@ end;
 
 //   protected
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 function TGLShaperZeroTrias.GetTriasN: Integer;
 begin
@@ -329,7 +329,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperZeroTrias.BeginDraw;
 begin
@@ -374,7 +374,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperPoin.BeginDraw;
 begin
@@ -744,7 +744,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperLine.BeginDraw;
 begin
@@ -1090,7 +1090,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperQuadLine.BeginDraw;
 begin
@@ -1132,7 +1132,7 @@ begin
   inherited;
 end;
 
-/// ///////////////////////////////////////////////////////////////
+/// ///////
 
 procedure TGLShaperFace.DrawMain;
 begin
@@ -1444,7 +1444,8 @@ end;
 
 //  
 
-initialization //  
+initialization //===================== 
+ 
 
 finalization //  
 

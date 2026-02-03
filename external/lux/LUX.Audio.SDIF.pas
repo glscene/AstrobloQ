@@ -181,7 +181,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils,
      LUX.Audio.SDIF.Frames, LUX.Audio.SDIF.Matrixs;
@@ -707,7 +707,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

@@ -13,7 +13,7 @@ uses LUX,
      LUX.D5,
      LUX.DN;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -64,7 +64,7 @@ procedure RandPoly( out Ks_:TDouble4D ); overload;
 procedure RandPoly( out Ks_:TSingle5D ); overload;
 procedure RandPoly( out Ks_:TDouble5D ); overload;
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -546,7 +546,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

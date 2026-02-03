@@ -62,7 +62,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Threading,
      Winapi.OpenGL, Winapi.OpenGLext,
@@ -375,7 +375,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

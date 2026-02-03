@@ -438,7 +438,7 @@ function PolySolveReal(const Ks_: TSingle4D; out Xs_: TSingle3D): Byte;
 function PolySolveReal(const Ks_: TDouble4D; out Xs_: TDouble3D): Byte;
   overload;
 
-//===========================================================================
+//=================
 implementation
 
 uses

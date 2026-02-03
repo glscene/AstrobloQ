@@ -689,7 +689,7 @@ function PolySolveReal(const Ks_: TSingle3D; out Xs_: TSingle2D): Byte;
 function PolySolveReal(const Ks_: TDouble3D; out Xs_: TDouble2D): Byte;
   overload;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 function T1Bit3D.Gets(const X_: Byte): Byte;
 begin
@@ -3285,7 +3285,7 @@ begin
   end;
 end;
 
-initialization // --------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

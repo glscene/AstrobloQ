@@ -63,8 +63,8 @@ begin
   glBindBufferBase(GetKind, BinP_, 0);
 end;
 
-initialization //---------------------------------------------------------------
+initialization //===================== 
 
-finalization //---------------------------------------------------------------
+finalization
 
 end.

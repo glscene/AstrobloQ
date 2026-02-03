@@ -53,25 +53,15 @@ type
      public
      end;
 
+  
 
-
- 
-
-//  
-
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils;
 
-//  
 
-//  
 
 //TRandomSHI<_TSeed_>
-
-
-
-
 
 
 
@@ -103,13 +93,10 @@ begin
      Result := ( X_ shl K_ ) or ( X_ shr ( 64 - K_ ) );
 end;
 
+ 
 
+initialization //===================== 
 
-//  
-
-// 
-
-initialization // 
 
 finalization // 
 

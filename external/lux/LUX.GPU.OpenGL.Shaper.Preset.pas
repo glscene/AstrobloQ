@@ -409,7 +409,7 @@ begin
   inherited;
 end;
 
-initialization //-------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

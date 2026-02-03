@@ -2,18 +2,18 @@
 
 interface  
 
-uses System.Types, System.SysUtils, System.Classes,
-     System.UITypes, System.Math, System.Math.Vectors,
-     FMX.Types, FMX.Graphics, FMX.Controls, FMX.Objects,
-     FMX.Types3D, FMX.Controls3D, FMX.MaterialSources, FMX.Objects3D,
-     LUX, LUX.D1, LUX.Complex, LUX.Complex.D1, LUX.DiscreteTrans.Fourier.D1;
+uses 
+  System.Types, System.SysUtils, System.Classes,
+  System.UITypes, System.Math, System.Math.Vectors,
+  FMX.Types, FMX.Graphics, FMX.Controls, 
+  FMX.Objects,
+  FMX.Types3D, FMX.Controls3D, 
+  FMX.MaterialSources, 
+  FMX.Objects3D,
+  LUX, LUX.D1, LUX.Complex, LUX.Complex.D1, 
+  LUX.DiscreteTrans.Fourier.D1;
 
 type  
-
-      
-
-     
-
      //  FourierTimes
 
      TFourierTimes = class
@@ -55,11 +55,8 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
-//  
-
-//  
 
 //FourierTimes
 
@@ -112,7 +109,7 @@ begin
      InitMap;
 end;
 
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX メソッド
+
 
 
 
@@ -145,7 +142,7 @@ begin
      inherited;
 end;
 
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX メソッド
+
 
 function Blackman( const X_:Double ) :Double;
 begin
@@ -178,11 +175,7 @@ begin
      end;
 end;
 
-//  
-
-// 
-
-initialization // 
+initialization //===================== 
 
 finalization // 
 

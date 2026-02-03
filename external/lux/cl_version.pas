@@ -79,6 +79,6 @@ const CL_VERSION_1_0  = 1;
 //{$DEFINE CL_USE_DEPRECATED_OPENCL_1_0_APIS }
 //{$ENDIF}
 
-implementation // 
+implementation //=========================================
 
 end.

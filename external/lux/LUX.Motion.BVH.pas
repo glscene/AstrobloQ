@@ -138,7 +138,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Classes, System.SysUtils, System.Math;
 
@@ -334,7 +334,7 @@ begin
      inherited;
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 procedure TBones.LoadFromFileBVH( const FileName_:string );
 var
@@ -493,7 +493,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

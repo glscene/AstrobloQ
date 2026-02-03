@@ -4,47 +4,22 @@ interface
 
 uses LUX;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
-
-      
-
-     //  {RECORD}
-
-     
-
-     //  {CLASS}
 
 
+implementation //=========================================
 
- 
 
-//  
-
-implementation // 
-
-//  
 
 //{RECORD}
 
 
 
-
-
-//  
-
 //{CLASS}
 
 
 
+initialization //===================== 
 
-
-
-
-//  
-
-// 
-
-initialization // 
 
 finalization // 
 

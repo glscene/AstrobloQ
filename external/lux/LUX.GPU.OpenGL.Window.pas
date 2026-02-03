@@ -43,7 +43,7 @@ type
   public
   end;
 
-implementation // ------------------------------------------------------------
+implementation //=========================================
 
 uses
   FMX.Controls,
@@ -150,12 +150,12 @@ begin
   _Form.Free;
 end;
 
-initialization //-------------------------------------------------------------
+initialization //============================================================
 
 _OpenGL_ := TOepnGL_FMX.Create;
 
 InitOpenGLext;
 
-finalization //---------------------------------------------------------------
+finalization
 
 end.

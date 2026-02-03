@@ -208,7 +208,7 @@ type
     procedure GoJump(const I_: Integer); override;
   end;
 
-  // ======================================================
+  // =========================
 
   TArrayIter<TValue_> = class(TArrayIter<TValue_, TValue_>)
   private
@@ -279,7 +279,7 @@ function Power(const X_, N_: TdSingle): TdSingle; overload;
 function Power(const X_, N_: TdDouble): TdDouble; overload;
 
 
-implementation //=========================================================
+implementation //=========================================
 
 class function TSingle.RandBS1: Single;
 begin
@@ -420,7 +420,7 @@ begin
   Result := (A_.o <= B_.o);
 end;
 
-//==================================================================================
+//========================
 
 class operator TdSingle.Implicit(const V_: Integer): TdSingle;
 begin
@@ -558,7 +558,7 @@ begin
   Result := (A_.o <= B_.o);
 end;
 
-//==================================================================================
+//========================
 class operator TdDouble.Implicit(const V_: Integer): TdDouble;
 begin
   with Result do
@@ -656,7 +656,7 @@ begin
   end;
 end;
 
-//==================================================================================
+//========================
 class function TSingleArea.NeInf: TSingleArea;
 begin
   Result := TSingleArea.Create(Single.PositiveInfinity,
@@ -684,7 +684,7 @@ begin
     Single.PositiveInfinity);
 end;
 
-//==================================================================================
+//========================
 
 function TSingleArea.Collision(const Area_: TSingleArea): Boolean;
 begin
@@ -741,7 +741,7 @@ begin
   end;
 end;
 
-//==================================================================================
+//========================
 class function TDoubleArea.NeInf: TDoubleArea;
 begin
   Result := TDoubleArea.Create(Double.PositiveInfinity,
@@ -769,19 +769,19 @@ begin
     Double.PositiveInfinity);
 end;
 
-//==================================================================================
+//========================
 function TDoubleArea.Collision(const Area_: TDoubleArea): Boolean;
 begin
   Result := (Area_.Min <= Max) and (Min <= Area_.Max);
 end;
 
-//==================================================================================
+//========================
 procedure TIter1D<TValue_>.CalCount;
 begin
   _Count := (_TailI - _HeadI) div _StepX + 1;
 end;
 
-//==================================================================================
+//========================
 function TIter1D<TValue_>.GetHeadI: Integer;
 begin
   Result := _HeadI;
@@ -986,7 +986,7 @@ begin
   _CurrentP := @_Parent[_HeadI + _StepX * I_];
 end;
 
-//==================================================================================
+//========================
 function TArrayIter<TValue_>.GetValue: TValue_;
 begin
   Result := _CurrentP^;
@@ -997,7 +997,7 @@ begin
   _CurrentP^ := Value_;
 end;
 
-//==================================================================================
+//========================
 function Pow2(const X_: TdSingle): TdSingle;
 begin
   with X_ do
@@ -1094,7 +1094,7 @@ begin
   end;
 end;
 
-//=============================================================================
+//===================
 function Sin(const X_: TdDouble): TdDouble;
 begin
   with X_ do
@@ -1446,7 +1446,7 @@ begin
   end;
 end;
 
-initialization //---------------------------------------------------------------
+initialization //===================== 
 
 finalization
 

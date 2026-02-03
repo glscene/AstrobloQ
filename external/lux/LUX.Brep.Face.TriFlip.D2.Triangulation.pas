@@ -61,7 +61,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.Math,
      LUX.Geometry.D2;
@@ -118,7 +118,7 @@ begin
      inherited;
 end;
 
-//-------------------------------------------------------//////////////
+//-------------------------------------------------------
 
 procedure TTriGenModel<_TPoin_,_TFace_>.MakeMesh( const Ps_:TArray<TSingle2D> );
 var
@@ -262,7 +262,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

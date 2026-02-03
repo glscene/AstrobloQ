@@ -25,7 +25,7 @@ type
        destructor Destroy; override;
      end;
 
-implementation // 
+implementation //=========================================
 
 
 
@@ -49,8 +49,9 @@ end;
 
 // 
 
-initialization //========================================================= 
+initialization //===================== 
+============================
 
-finalization //===========================================================
+finalization //=
 
 end.  

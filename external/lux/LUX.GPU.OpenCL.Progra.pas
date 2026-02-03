@@ -273,7 +273,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses System.IOUtils, System.AnsiStrings,
      LUX.GPU.OpenCL.Contex;

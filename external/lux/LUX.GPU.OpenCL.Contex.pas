@@ -76,7 +76,7 @@ type
 
 //  
 
-implementation // 
+implementation //=========================================
 
 uses LUX.GPU.OpenCL.Platfo;
 

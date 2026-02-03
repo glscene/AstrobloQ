@@ -7,7 +7,7 @@ uses
 
 function GetDisplayScale: Single;
 
-implementation // -------------------------------------------------------------
+implementation //=========================================
 
 function GetDisplayScale: Single;
 var
@@ -20,8 +20,8 @@ begin
     Result := 1;
 end;
 
-initialization // --------------------------------------------------------------
+initialization //=====================
 
-finalization // --------------------------------------------------------------
+finalization
 
 end.

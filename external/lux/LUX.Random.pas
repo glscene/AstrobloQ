@@ -15,7 +15,7 @@ type
        TRandom<_TSeed_:record> = class;
          TRandomZero           = class;
 
-     //-------------------------------------------------------/////////
+     //-------------------------------------------------------
 
      CRandom = class of TRandom;
 
@@ -152,7 +152,7 @@ type
 
 function GetTimeCount :Int64u;
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils
      {$IF Defined( MSWINDOWS ) }
@@ -447,7 +447,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

@@ -257,8 +257,8 @@ begin
   Winapi.OpenGL.glGetIntegerv(Name_, @Result);
 end;
 
-initialization //--------------------------------------------------------------
+initialization //===================== 
 
-finalization //----------------------------------------------------------------
+finalization
 
 end.

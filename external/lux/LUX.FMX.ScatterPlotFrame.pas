@@ -109,7 +109,7 @@ type
        function FindNearPlot( const Pos_:TSingle2D ) :Integer; overload;
      end;
 
-implementation // 
+implementation //=========================================
 
 {$R *.fmx}
 

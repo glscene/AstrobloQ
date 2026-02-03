@@ -4,7 +4,7 @@ interface
 
 uses LUX, LUX.D1, LUX.Math.Special;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
+
 
       
 
@@ -133,7 +133,7 @@ function Gamma11( const X_:Double ) :Double; overload;
 function Gamma15( const X_:Single ) :Single; overload;
 function Gamma15( const X_:Double ) :Double; overload;
 
-implementation // 
+implementation //=========================================
 
 //  
 
@@ -467,7 +467,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

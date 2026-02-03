@@ -81,7 +81,7 @@ type
        procedure Func( const Func_:TConstFunc<Single,Single> );
      end;
 
-implementation // 
+implementation //=========================================
 
 uses System.Math;
 

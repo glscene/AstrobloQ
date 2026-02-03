@@ -6,11 +6,6 @@ uses LUX, LUX.D3, LUX.D4,
      LUX.Random;
 
 type  
-
-      
-
-     
-
      //  TRandomLCG<_TSeed_>
 
      IRandomLCG<_TSeed_:record> = interface( IRandom<_TSeed_> )
@@ -71,30 +66,15 @@ type
 
 
 
- 
-
-//  
-
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils, System.SyncObjs;
 
-//  
-
-//  
 
 //TRandomLCG<_TSeed_>
 
 
-
-
-
-
-
 //TRandom32LCG32
-
-
-
 
 
 //-------------------------------------------------------
@@ -306,7 +286,8 @@ end;
 
 // 
 
-initialization // 
+initialization //===================== 
+
 
 finalization // 
 

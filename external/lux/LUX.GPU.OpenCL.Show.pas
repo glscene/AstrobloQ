@@ -7,30 +7,16 @@ uses System.Classes,
      LUX.Code.C,
      LUX.GPU.OpenCL.core;
 
-//type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【型】
-
-      
-
-     
-
-
-
  
-
-//  
 
 procedure ShowSystem( const Strings_:TStrings );
 
-implementation // 
+implementation //=========================================
 
 uses System.SysUtils,
      LUX.GPU.OpenCL;
 
-//  
 
-//  
-
-//  
 
 procedure ShowParames( const Strings_:TStrings; const Parames_:TCLParames );
 var
