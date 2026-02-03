@@ -138,7 +138,7 @@ void __fastcall TfrmAstroScene::miHipparcosClick(TObject* Sender)
     TFormHipparcos* FormHipparcos;
     FormHipparcos = new TFormHipparcos(this);
     try {
-        FormHipparcos->ShowModal();
+		FormHipparcos->ShowModal();
     } __finally
     {
         FormHipparcos->Free();

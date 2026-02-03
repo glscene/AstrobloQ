@@ -25,8 +25,6 @@ object frmAstroScene: TfrmAstroScene
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 214
-    ExplicitTop = -43
   end
   object PageControl: TPageControl
     Left = 0
@@ -42,7 +40,7 @@ object frmAstroScene: TfrmAstroScene
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitHeight = 456
+    ExplicitHeight = 528
     object tsPlanets: TTabSheet
       Caption = #1055#1083#1072#1085#1077#1090#1099
       ImageIndex = -1
@@ -154,7 +152,7 @@ object frmAstroScene: TfrmAstroScene
           380039005F0013043E043B04350432043A0430040000350000000B0000000B00
           0000FFFFFFFFFFFFFFFF00000000000000000000000000010B39003000330037
           0037005F002104350434043D043004}
-        ExplicitHeight = 421
+        ExplicitHeight = 493
       end
     end
     object tsConstCharts: TTabSheet
@@ -335,7 +333,6 @@ object frmAstroScene: TfrmAstroScene
           0000000000000000000000010C1B04350442044304470430044F045F0020044B
           043104300400002D0000005700000057000000FFFFFFFFFFFFFFFF0000000000
           000000000000000001071B0438044104380447043A043004}
-        ExplicitHeight = 446
       end
     end
   end
@@ -346,7 +343,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 29
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 883
+    ExplicitWidth = 958
     object ToolBar1: TToolBar
       Left = 232
       Top = 2

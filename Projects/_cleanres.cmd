@@ -6,6 +6,8 @@ del *.identcache /s
 del *.res /s  
 del *.obj /s
 del *.dcu /s 
+del *.dsv /s
+del *.rsm /s
 
 echo---------------------------------------------------------
 echo delete debug and Platform directories with all subdirectories and files 

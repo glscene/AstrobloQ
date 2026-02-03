@@ -1040,9 +1040,9 @@ begin
   inherited;
   with TFormConstells.Create(Self) do
   try
-    ShowModal;
+    ShowModal
   finally
-    Free;
+    Free
   end;
 end;
 
