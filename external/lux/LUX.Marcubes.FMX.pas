@@ -58,8 +58,8 @@ end;
 
 destructor TMarcubes.Destroy;
 begin
-  _Grids.DisposeOf;
-  _Geometry.DisposeOf;
+  _Grids.Free ;
+  _Geometry.Free ;
   inherited;
 end;
 
@@ -232,11 +232,11 @@ begin
 
   FsN := Length(Fs);
 
-  EsX.DisposeOf;
-  EsY.DisposeOf;
-  EsZ.DisposeOf;
+  EsX.Free ;
+  EsY.Free ;
+  EsZ.Free ;
 
-  C.DisposeOf;
+  C.Free ;
 
   // Mesh Generation
 

@@ -74,7 +74,7 @@ const
   _BondTable: array [1 .. 3] of TByteArray4 = ((_: (0, 1, 3, 2)),
     (_: (0, 3, 2, 1)), (_: (0, 2, 1, 3)));
 
-implementation //-------------------------------------------------------------
+implementation //==============================================================
 
 uses
   System.SysUtils;
@@ -154,7 +154,7 @@ begin
       C0 := TTetraCell<_TPoin_, _TCell_>(C1.Cell[Vert[i]]);
 
       if C0 = Self then
-        C1.Cell[Vert[i]] := nil; { ToDO: 相互接続されていない場合があるらしい }
+        C1.Cell[Vert[i]] := nil; // ToDO: It seems that they may not be interconnected
     end;
   end;
 
@@ -184,6 +184,6 @@ end;
 
 initialization
 
-finalization //----------------------------------------------------------------
+finalization //================================================================
 
 end.

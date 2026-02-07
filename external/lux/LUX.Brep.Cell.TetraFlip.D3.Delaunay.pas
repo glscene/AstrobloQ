@@ -59,7 +59,7 @@ type
       overload;
   end;
 
-implementation //-------------------------------------------------------------
+implementation //==============================================================
 
 function TDelaCell.HitOK(const Pos_: TSingle3D): Boolean;
 begin

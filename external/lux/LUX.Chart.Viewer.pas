@@ -201,8 +201,8 @@ destructor TChartAtom.Destroy;
 begin
   _Paren._Elems.Remove(Self);
 
-  _Stroke.DisposeOf;
-  _Filler.DisposeOf;
+  _Stroke.Free ;
+  _Filler.Free ;
 
   inherited;
 end;
@@ -306,7 +306,7 @@ end;
 
 destructor TChartCurv.Destroy;
 begin
-  _Path.DisposeOf;
+  _Path.Free ;
 
   inherited;
 end;
@@ -590,10 +590,10 @@ end;
 
 destructor TChartViewer.Destroy;
 begin
-  _ScaXs.DisposeOf;
-  _ScaYs.DisposeOf;
+  _ScaXs.Free ;
+  _ScaYs.Free ;
 
-  _Elems.DisposeOf;
+  _Elems.Free ;
 
   inherited;
 end;

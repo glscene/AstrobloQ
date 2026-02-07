@@ -2,15 +2,12 @@ unit LUX.Vision.OpenCV;
 
 interface  
 
-uses FMX.Graphics,
-     ocv.core_c, ocv.core.types_c;
+uses
+  FMX.Graphics,
+  ocv.core_c,
+  ocv.core.types_c;
 
 type  
-
-      
-
-     
-
      TocvImage       = class;
        TocvImage3    = class;
          TocvBitmap3 = class;
@@ -85,9 +82,6 @@ type
      end;
 
 
-
- 
-
 //  
 
 implementation //=========================================
@@ -149,13 +143,6 @@ begin
 end;
 
 //TocvImage4
-
-
-
-
-
-
-
 //-------------------------------------------------------
 
 procedure TocvImage4.CopyFrom( const Image_:TocvImage3 );
@@ -197,11 +184,6 @@ begin
 end;
 
 //TocvBitmap3
-
-
-
-
-
 //-------------------------------------------------------
 
 procedure TocvBitmap3.SetCore( const Core_:pIplImage );
@@ -228,11 +210,6 @@ begin
 end;
 
 //TocvBitmap4
-
-
-
-
-
 //-------------------------------------------------------
 
 procedure TocvBitmap4.SetCore( const Core_:pIplImage );
@@ -258,13 +235,10 @@ begin
      inherited;
 end;
 
-//  
 
-// 
-
-initialization //===================== 
+initialization
 
 
-finalization // 
+finalization //================================================================
 
 end.

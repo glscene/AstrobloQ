@@ -772,7 +772,7 @@ begin
       Proc_(B);
     end);
 
-  B.DisposeOf;
+  B.Free ;
 end;
 
 procedure TGridArray3D<_TItem_>.ForEdgesX(const Proc_: TConstProc <
@@ -788,7 +788,7 @@ begin
       Proc_(E);
     end);
 
-  E.DisposeOf;
+  E.Free ;
 end;
 
 procedure TGridArray3D<_TItem_>.ForEdgesY(const Proc_: TConstProc <
@@ -804,7 +804,7 @@ begin
       Proc_(E);
     end);
 
-  E.DisposeOf;
+  E.Free ;
 end;
 
 procedure TGridArray3D<_TItem_>.ForEdgesZ(const Proc_: TConstProc <
@@ -820,7 +820,7 @@ begin
       Proc_(E);
     end);
 
-  E.DisposeOf;
+  E.Free ;
 end;
 
 function TBricIterGridArray3D<_TItem_>.GetPosX: Integer;

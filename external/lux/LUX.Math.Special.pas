@@ -33,25 +33,7 @@ function HypGeo21A( const B_,C_,X_:TdDouble ) :TdDouble; overload;
 
 implementation //=========================================
 
-//  
 
-//{RECORD}
-
-
-
-
-
-//  
-
-//{CLASS}
-
-
-
-
-
-
-
-//  
 
 function HypGeo21( const A_,B_,C_,X_:Single ) :Single;
 var

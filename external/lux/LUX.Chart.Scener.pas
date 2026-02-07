@@ -2,20 +2,23 @@
 
 interface  
 
-uses System.Types, System.UITypes,
-     FMX.Graphics,
-     LUX, LUX.D1, LUX.D2,
-     LUX.Chart.Viewer, LUX.Chart.Shaper;
+uses 
+  System.Types, 
+  System.UITypes,
+  FMX.Graphics,
+  LUX, 
+  LUX.D1, 
+  LUX.D2,
+  LUX.Chart.Viewer, 
+  LUX.Chart.Shaper;
 
 type  
+  TChartPlots = class;
 
-     TChartPlots = class;
-
-     //  TChartPlots
-
-     TChartPlots = class( TChartScener )
-     private
-     protected
+  //  TChartPlots
+  TChartPlots = class( TChartScener )
+  private
+  protected
        _Axis   :TChartAxis;
        _ScalX0 :TChartScaX;
        _ScalY0 :TChartScaY;
@@ -45,15 +48,7 @@ uses System.Math;
 //TChartPlots
 
 
-
-
-
 //-------------------------------------------------------
-
-//-------------------------------------------------------
-
-
-
 constructor TChartPlots.Create;
 begin
      inherited;

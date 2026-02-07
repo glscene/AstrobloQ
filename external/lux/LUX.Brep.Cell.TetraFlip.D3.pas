@@ -82,11 +82,11 @@ type
     procedure SaveToFile(const FileName_: String);
   end;
 
-implementation
+implementation //==============================================================
 
 function TTetraCell3D<_TPoin_, _TCell_>.GetVolum2: Single;
 begin
-  Result := HeronVolum2(TTetraPoin3D(_Poin[0]).Pos, { ToDo: 本来キャスト不要 }
+  Result := HeronVolum2(TTetraPoin3D(_Poin[0]).Pos, // ToDo: No casting required
     TTetraPoin3D(_Poin[1]).Pos, TTetraPoin3D(_Poin[2]).Pos,
     TTetraPoin3D(_Poin[3]).Pos);
 end;
@@ -143,14 +143,14 @@ end;
 
 function TTetraCell3D<_TPoin_, _TCell_>.GetCircumSpher2: TSingleSpher2;
 begin
-  Result := TSingleSpher2.Create(TTetraPoin3D(_Poin[0]).Pos, { ToDo: No need to cast }
+  Result := TSingleSpher2.Create(TTetraPoin3D(_Poin[0]).Pos, // ToDo: No need to cast
     TTetraPoin3D(_Poin[1]).Pos, TTetraPoin3D(_Poin[2]).Pos,
     TTetraPoin3D(_Poin[3]).Pos);
 end;
 
 function TTetraCell3D<_TPoin_, _TCell_>.GetCircumSphere: TSingleSphere;
 begin
-  Result := TSingleSphere.Create(TTetraPoin3D(_Poin[0]).Pos, { ToDo: No need to cast }
+  Result := TSingleSphere.Create(TTetraPoin3D(_Poin[0]).Pos, // ToDo: No need to cast
     TTetraPoin3D(_Poin[1]).Pos, TTetraPoin3D(_Poin[2]).Pos,
     TTetraPoin3D(_Poin[3]).Pos);
 end;
@@ -161,7 +161,7 @@ function TTetraCell3D<_TPoin_, _TCell_>.GetFaceArea(const I_: Byte): Single;
 begin
   with _VertTable[I_] do
   begin
-    Result := HeronArea(TTetraPoin3D(_Poin[_[1]]).Pos, { ToDo: No need to cast }
+    Result := HeronArea(TTetraPoin3D(_Poin[_[1]]).Pos, // ToDo: No need to cast
       TTetraPoin3D(_Poin[_[2]]).Pos, TTetraPoin3D(_Poin[_[3]]).Pos);
   end;
 end;
@@ -172,7 +172,7 @@ function TTetraCell3D<_TPoin_, _TCell_>.GetFaceNorm(const I_: Byte): TSingle3D;
 begin
   with _VertTable[I_] do
   begin
-    Result := TriNormal(TTetraPoin3D(_Poin[_[1]]).Pos, { ToDo: No need to cast }
+    Result := TriNormal(TTetraPoin3D(_Poin[_[1]]).Pos, // ToDo: No need to cast
       TTetraPoin3D(_Poin[_[2]]).Pos, TTetraPoin3D(_Poin[_[3]]).Pos);
   end;
 end;

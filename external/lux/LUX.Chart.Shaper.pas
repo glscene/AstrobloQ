@@ -229,7 +229,7 @@ end;
 
 destructor TChartCurv.Destroy;
 begin
-     _Path.DisposeOf;
+     _Path.Free ;
 
      inherited;
 end;

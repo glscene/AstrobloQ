@@ -19,7 +19,7 @@ function Bezie4( const Ps_:TdDouble3DM4; const T_:TdDouble2D ) :TdDouble3D; over
 function TensorBezie4( const Ps_:TSingle3DM4; const T_:TSingle2D ) :TSingleM4; overload;
 function TensorBezie4( const Ps_:TDouble3DM4; const T_:TDouble2D ) :TDoubleM4; overload;
 
-implementation
+implementation //=================================================================
 
 function Bezie4( const Ps_:TSingle3DM4; const T_:TSingle2D ) :TSingle3D;
 var

@@ -10,17 +10,6 @@ uses LUX,
      LUX.Curve.T1.D1;
 
 
-
-      
-
-     
-
-
-
- 
-
-//  
-
 procedure BSplin4( const T_:TSingle2D; out Ws_:TSingleM4 ); overload;
 procedure BSplin4( const T_:TDouble2D; out Ws_:TDoubleM4 ); overload;
 procedure BSplin4( const T_:TdSingle2D; out Ws_:TdSingleM4 ); overload;
@@ -41,13 +30,9 @@ function Bezie4( const Ps_:TDoubleM4; const T_:TDouble2D ) :Double; overload;
 function Bezie4( const Ps_:TdSingleM4; const T_:TdSingle2D ) :TdSingle; overload;
 function Bezie4( const Ps_:TdDoubleM4; const T_:TdDouble2D ) :TdDouble; overload;
 
-implementation //=========================================
+implementation //=============================================================
 
-//  
 
-//  
-
-//  
 
 procedure BSplin4( const T_:TSingle2D; out Ws_:TSingleM4 );
 var
@@ -361,7 +346,7 @@ end;
 
 // 
 
-initialization //===================== 
+initialization //==================================================================== 
 
 
 finalization // 

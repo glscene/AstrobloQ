@@ -8,15 +8,7 @@ uses LUX,
 
 
 
-      
-
-     
-
-
-
- 
-
-//  
+  
 
 function Lerp( const P0_,P1_,T0_,T1_,T_:Single ) :Single; overload;
 function Lerp( const P0_,P1_,T0_,T1_,T_:Double ) :Double; overload;
@@ -70,13 +62,8 @@ function Bezie4( const Ps_:TDouble4D; const T_:Double ) :Double; overload;
 function Bezie4( const Ps_:TdSingle4D; const T_:TdSingle ) :TdSingle; overload;
 function Bezie4( const Ps_:TdDouble4D; const T_:TdDouble ) :TdDouble; overload;
 
-implementation //=========================================
+implementation //==============================================================
 
-//  
-
-//  
-
-//  
 
 function Lerp( const P0_,P1_,T0_,T1_,T_:Single ) :Single;
 begin

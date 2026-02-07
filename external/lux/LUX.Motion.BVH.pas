@@ -329,7 +329,7 @@ end;
 
 destructor TBones.Destroy;
 begin
-     _Root.DisposeOf;
+     _Root.Free ;
 
      inherited;
 end;
@@ -436,7 +436,7 @@ begin
           end
      end;
 
-     S.DisposeOf;
+     S.Free ;
 
      while not F.EndOfStream do
      begin
@@ -484,9 +484,9 @@ begin
           end;
      end;
 
-     L.DisposeOf;
+     L.Free ;
 
-     F.DisposeOf;
+     F.Free ;
 end;
 
 //  

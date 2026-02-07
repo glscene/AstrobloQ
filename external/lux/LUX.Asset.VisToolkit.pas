@@ -78,8 +78,8 @@ end;
 
 destructor TVisToolkit.Destroy;
 begin
-     _Poins.DisposeOf;
-     _Cells.DisposeOf;
+     _Poins.Free ;
+     _Cells.Free ;
 
      inherited;
 end;
@@ -250,7 +250,7 @@ begin
         end;
 
      finally
-            S.DisposeOf;
+            S.Free ;
      end;
 
      _Poins.Clear;

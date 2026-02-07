@@ -296,7 +296,7 @@ end;
 
 destructor TBlocks.Destroy;
 begin
-  _Geometry.DisposeOf;
+  _Geometry.Free ;
   inherited;
 end;
 

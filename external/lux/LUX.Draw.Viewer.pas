@@ -33,24 +33,26 @@ type
     property Camera: TDrawCamera read GetCamera write SetCamera;
   end;
 
-implementation
+implementation //==============================================================
 
 {$R *.fmx}
 
 uses
   System.Math.Vectors;
 
-// ------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 function TDrawViewer.GetCamera: TDrawCamera;
 begin
   Result := _Camera;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TDrawViewer.SetCamera(const Camera_: TDrawCamera);
 begin
   _Camera := Camera_;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TDrawViewer.Paint;
 var
   V: TVector;
@@ -104,6 +106,7 @@ begin
   end;
 end;
 
+// ----------------------------------------------------------------------------
 constructor TDrawViewer.Create(Owner_: TComponent);
 begin
   inherited;
@@ -111,6 +114,7 @@ begin
   _Camera := nil;
 end;
 
+// ----------------------------------------------------------------------------
 destructor TDrawViewer.Destroy;
 begin
   inherited;
