@@ -190,7 +190,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 770
       end
       object PanelRight: TPanel
         Left = 762
@@ -785,7 +784,7 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object MainMenu: TMainMenu
-    Left = 448
+    Left = 632
     Top = 91
     object miFile: TMenuItem
       Caption = '&'#1060#1072#1081#1083

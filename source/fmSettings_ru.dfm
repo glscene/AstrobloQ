@@ -76,6 +76,7 @@ inherited frmSettings: TfrmSettings
         000000000000000106170432045104370434044B040000330000000000000000
         000000FFFFFFFFFFFFFFFF07000000000000000000000000010A220440043004
         35043A0442043E04400438044F04}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -86,7 +87,7 @@ inherited frmSettings: TfrmSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsInterface
+      ActivePage = tsPathway
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -96,8 +97,29 @@ inherited frmSettings: TfrmSettings
       ParentFont = False
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1085
-      ExplicitHeight = 660
+      object tsGeneral: TTabSheet
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'General'
+        ImageIndex = 5
+        TabVisible = False
+        object CheckBoxCoordinates: TCheckBox
+          Left = 385
+          Top = 293
+          Width = 230
+          Height = 35
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099
+          Checked = True
+          State = cbChecked
+          TabOrder = 0
+        end
+      end
       object tsInterface: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -179,20 +201,6 @@ inherited frmSettings: TfrmSettings
         Caption = 'Display'
         ImageIndex = 2
         TabVisible = False
-        object CheckBoxCoordinates: TCheckBox
-          Left = 361
-          Top = 61
-          Width = 230
-          Height = 35
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Coordinates'
-          Checked = True
-          State = cbChecked
-          TabOrder = 0
-        end
       end
       object tsMaterial: TTabSheet
         Margins.Left = 5
@@ -232,15 +240,15 @@ inherited frmSettings: TfrmSettings
           ViewStyle = vsReport
         end
         object ButtonModifyMat: TButton
-          Left = 254
-          Top = 478
+          Left = 430
+          Top = 518
           Width = 182
           Height = 42
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Change...'
+          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100'...'
           TabOrder = 1
         end
       end
@@ -267,7 +275,7 @@ inherited frmSettings: TfrmSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 82
+          Left = 562
           Top = 53
           Width = 149
           Height = 200
@@ -305,7 +313,7 @@ inherited frmSettings: TfrmSettings
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Constellations'
+          Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
           TabOrder = 2
           object chbConstFigures: TCheckBox
             Left = 45
@@ -316,7 +324,7 @@ inherited frmSettings: TfrmSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Figures'
+            Caption = #1060#1080#1075#1091#1088#1099
             TabOrder = 0
           end
           object chbConstLines: TCheckBox
@@ -328,7 +336,7 @@ inherited frmSettings: TfrmSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Lines'
+            Caption = #1051#1080#1085#1080#1080
             Checked = True
             State = cbChecked
             TabOrder = 1
@@ -342,7 +350,7 @@ inherited frmSettings: TfrmSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Borders'
+            Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
           end
         end
@@ -369,57 +377,57 @@ inherited frmSettings: TfrmSettings
           object LabelStarI: TLabel
             Left = 75
             Top = 70
-            Width = 42
+            Width = 68
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Star I'
+            Caption = #1047#1074#1077#1079#1076#1072' I'
           end
           object LabelStarII: TLabel
-            Left = 566
+            Left = 542
             Top = 70
-            Width = 47
+            Width = 73
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Star II'
+            Caption = #1047#1074#1077#1079#1076#1072' II'
           end
           object LabelDistance: TLabel
             Left = 409
             Top = 195
-            Width = 72
+            Width = 100
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Distance'
+            Caption = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077
           end
           object LabelVelocity: TLabel
             Left = 409
             Top = 281
-            Width = 66
+            Width = 81
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Velocity'
+            Caption = #1057#1082#1086#1088#1086#1089#1090#1100
           end
           object LabelFlightTime: TLabel
-            Left = 404
+            Left = 409
             Top = 362
-            Width = 89
+            Width = 144
             Height = 25
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Flight time'
+            Caption = #1055#1086#1083#1105#1090#1085#1086#1077' '#1074#1088#1077#1084#1103
           end
           object SearchBoxA: TSearchBox
             Left = 181
@@ -437,8 +445,8 @@ inherited frmSettings: TfrmSettings
             ButtonWidth = 42
           end
           object trbVelocity: TTrackBar
-            Left = 500
-            Top = 272
+            Left = 564
+            Top = 281
             Width = 292
             Height = 51
             Margins.Left = 5
@@ -453,7 +461,7 @@ inherited frmSettings: TfrmSettings
             OnChange = trbVelocityChange
           end
           object stFlightTime: TStaticText
-            Left = 574
+            Left = 641
             Top = 362
             Width = 200
             Height = 33
@@ -468,7 +476,7 @@ inherited frmSettings: TfrmSettings
             TabOrder = 2
           end
           object SearchBoxB: TSearchBox
-            Left = 644
+            Left = 641
             Top = 67
             Width = 197
             Height = 40
@@ -483,7 +491,7 @@ inherited frmSettings: TfrmSettings
             ButtonWidth = 42
           end
           object EditDistance: TEdit
-            Left = 512
+            Left = 579
             Top = 192
             Width = 262
             Height = 33
@@ -496,15 +504,15 @@ inherited frmSettings: TfrmSettings
             Text = '101.4'
           end
           object stTrackBar: TStaticText
-            Left = 802
+            Left = 866
             Top = 281
-            Width = 77
+            Width = 61
             Height = 29
             Margins.Left = 5
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'TrackBar'
+            Caption = #1082#1084'/'#1089#1077#1082
             TabOrder = 5
           end
           object gbFindPath: TGroupBox
@@ -516,7 +524,7 @@ inherited frmSettings: TfrmSettings
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Shortest path'
+            Caption = #1050#1088#1072#1090#1095#1072#1081#1096#1080#1081' '#1087#1091#1090#1100
             TabOrder = 6
             object chbIsTetranet: TCheckBox
               Left = 31
@@ -527,7 +535,7 @@ inherited frmSettings: TfrmSettings
               Margins.Top = 5
               Margins.Right = 5
               Margins.Bottom = 5
-              Caption = 'Tetranet'
+              Caption = #1058#1077#1090#1088#1072#1085#1077#1090
               TabOrder = 0
             end
             object chbIsPolynet: TCheckBox
@@ -539,7 +547,7 @@ inherited frmSettings: TfrmSettings
               Margins.Top = 5
               Margins.Right = 5
               Margins.Bottom = 5
-              Caption = 'Polynet'
+              Caption = #1055#1086#1083#1080#1085#1077#1090
               TabOrder = 1
             end
             object chbIsGridnet: TCheckBox
@@ -551,7 +559,7 @@ inherited frmSettings: TfrmSettings
               Margins.Top = 5
               Margins.Right = 5
               Margins.Bottom = 5
-              Caption = 'Gridnet'
+              Caption = #1043#1088#1080#1076#1085#1077#1090
               Checked = True
               State = cbChecked
               TabOrder = 2

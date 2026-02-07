@@ -49,7 +49,6 @@ type
     CheckBoxSaveProject: TCheckBox;
     CheckBoxSplashStart: TCheckBox;
     tsDisplay: TTabSheet;
-    CheckBoxCoordinates: TCheckBox;
     tsMaterial: TTabSheet;
     ListView: TListView;
     ButtonModifyMat: TButton;
@@ -80,6 +79,8 @@ type
     ComboBoxVclStyles: TComboBox;
     Label2: TLabel;
     ImageList: TImageList;
+    tsGeneral: TTabSheet;
+    CheckBoxCoordinates: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);

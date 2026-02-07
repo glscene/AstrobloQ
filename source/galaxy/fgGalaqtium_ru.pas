@@ -268,7 +268,7 @@ implementation //=============================================================
 
 uses
   fgStarProj,
-  fgExoplanets_ru;
+  fgExoplanets_ru, fmSettings_ru;
 
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.FormCreate(Sender: TObject);
@@ -728,7 +728,7 @@ end;
 procedure TfrmGalaqtium.miSettingsClick(Sender: TObject);
 begin
   inherited;
-  //
+  frmSettings.Show;
 end;
 
 
