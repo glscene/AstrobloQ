@@ -42,7 +42,6 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -787,7 +786,7 @@ object frmGalaqtium: TfrmGalaqtium
     Left = 632
     Top = 91
     object miFile: TMenuItem
-      Caption = '&'#1060#1072#1081#1083
+      Caption = #1060#1072#1081#1083
       object miNewStarcube: TMenuItem
         Caption = #1053#1086#1074#1099#1081'...'
         OnClick = miNewStarcubeClick
@@ -817,7 +816,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
     end
     object miEdit: TMenuItem
-      Caption = '&'#1055#1088#1072#1074#1082#1072
+      Caption = #1055#1088#1072#1074#1082#1072
       object miUndo: TMenuItem
         Caption = #1054#1090#1084#1077#1085#1072
         ShortCut = 16474
@@ -857,7 +856,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
     end
     object miView: TMenuItem
-      Caption = '&'#1042#1080#1076
+      Caption = #1042#1080#1076
       object miExoplanets: TMenuItem
         Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
         OnClick = miExoplanetsClick
@@ -879,7 +878,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
     end
     object miMethod: TMenuItem
-      Caption = '&'#1052#1077#1090#1086#1076
+      Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
       object miTetralization: TMenuItem
         Caption = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
       end
@@ -902,16 +901,20 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080'...'
         OnClick = miParadoxClick
       end
-      object miDiagramHR: TMenuItem
-        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
-        OnClick = miDiagramHRClick
+      object miDrakeEquation: TMenuItem
+        Caption = #1059#1088#1072#1074#1085#1077#1085#1080#1077' '#1044#1088#1077#1081#1082#1072'...'
+        OnClick = miDrakeEquationClick
       end
       object N6: TMenuItem
         Caption = '-'
       end
-      object miAnalyser: TMenuItem
-        Caption = #1040#1085#1072#1083#1080#1079#1072#1090#1086#1088'...'
-        OnClick = miAnalyserClick
+      object miDiagramHR: TMenuItem
+        Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
+        OnClick = miDiagramHRClick
+      end
+      object miCETI: TMenuItem
+        Caption = #1057#1077#1090#1100' CETI...'
+        OnClick = miCETIClick
       end
       object miMonitor: TMenuItem
         Caption = #1052#1086#1085#1080#1090#1086#1088'...'
@@ -919,7 +922,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
     end
     object miTools: TMenuItem
-      Caption = '&'#1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
+      Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
       object miSettings: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
         OnClick = miSettingsClick
@@ -937,7 +940,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
     end
     object miHelp: TMenuItem
-      Caption = '&'#1057#1087#1088#1072#1074#1082#1072
+      Caption = #1057#1087#1088#1072#1074#1082#1072
       object miRuwiki: TMenuItem
         Caption = 'Ruwiki...'
       end

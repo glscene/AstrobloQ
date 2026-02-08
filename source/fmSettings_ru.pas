@@ -80,7 +80,10 @@ type
     Label2: TLabel;
     ImageList: TImageList;
     tsGeneral: TTabSheet;
-    CheckBoxCoordinates: TCheckBox;
+    RadioGroup1: TRadioGroup;
+    rgUnits: TRadioGroup;
+    SpinEditPrecision: TSpinEdit;
+    LabelPrecision: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);

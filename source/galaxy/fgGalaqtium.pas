@@ -56,7 +56,7 @@ uses
   dmDialogs,
   dmBase,
 
-  fgAnalyser,
+  fgCETInet,
   fgMonitor,
   fgParadox,
   fgAstrocube,
@@ -436,6 +436,7 @@ begin
   Screen.Cursor := crRotate;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.svGalaxyMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -449,7 +450,6 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 procedure TfrmGalaqtium.tbSolarcubeClick(Sender: TObject);
 begin
   dcGalacube.Visible := not dcGalacube.Visible;
@@ -470,11 +470,9 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-
 function TfrmGalaqtium.ReadHygStars: Boolean;
 var
   i: Integer;
-
 begin
   // NSpectralClass := RadioGroupValue.ItemIndex + 5;
   //tl.CommaText := sl[0];
@@ -616,6 +614,7 @@ begin
     end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miLithosphereClick(Sender: TObject);
 begin
 {
@@ -628,6 +627,7 @@ begin
 }
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
@@ -638,6 +638,7 @@ begin
     end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miTechnosphereClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
@@ -648,6 +649,7 @@ begin
     end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
@@ -668,9 +670,10 @@ begin
     end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miAnalyserClick(Sender: TObject);
 begin
-  with TFormAnalyser.Create(Self) do
+  with TFormCETInet.Create(Self) do
     try
       ShowModal;
     finally
@@ -678,6 +681,7 @@ begin
     end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
 begin
   with TFormProjection.Create(Self) do
@@ -688,6 +692,7 @@ begin
     end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miParadoxClick(Sender: TObject);
 begin
   with TFormParadox.Create(Self) do
@@ -698,9 +703,9 @@ begin
     end;
 end;
 
-// -------------------------------------------------------------
+//---------------------------------------------------------------------------
 //                                Help menu
-// -------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.Create(Self) do
@@ -713,13 +718,13 @@ begin
 end;
 
 
-// -------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TfrmGalaqtium.miExitClick(Sender: TObject);
 begin
   Close();
 end;
 
-initialization //-------------------------------------------------------------
+initialization //------------------------------------------------------------
 
 FormatSettings.DecimalSeparator := '.';
 

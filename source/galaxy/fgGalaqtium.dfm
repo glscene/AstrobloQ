@@ -2,8 +2,8 @@ object frmGalaqtium: TfrmGalaqtium
   Left = 0
   Top = 0
   Caption = 'Galaqtium'
-  ClientHeight = 601
-  ClientWidth = 982
+  ClientHeight = 576
+  ClientWidth = 974
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object frmGalaqtium: TfrmGalaqtium
   TextHeight = 21
   object StatusBar: TStatusBar
     Left = 0
-    Top = 585
-    Width = 982
+    Top = 560
+    Width = 974
     Height = 16
     Panels = <
       item
@@ -32,17 +32,14 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 560
-    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 982
+    Width = 974
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -170,13 +167,11 @@ object frmGalaqtium: TfrmGalaqtium
   object PageControl1: TPageControl
     Left = 0
     Top = 33
-    Width = 982
-    Height = 552
+    Width = 974
+    Height = 527
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = 'Stars'
       object svGalacube: TGLSceneViewer
@@ -190,6 +185,8 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
+        ExplicitWidth = 754
+        ExplicitHeight = 491
       end
       object PanelRight: TPanel
         Left = 762
@@ -757,8 +754,8 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object MainMenu: TMainMenu
-    Left = 728
-    Top = 179
+    Left = 680
+    Top = 187
     object miFile: TMenuItem
       Caption = '&File'
       object miNewStarcube: TMenuItem
@@ -932,7 +929,7 @@ object frmGalaqtium: TfrmGalaqtium
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = svGalacube
-    FormCaption = 'GalaxyCETI'
+    FormCaption = 'Galaqtium'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

@@ -24,7 +24,7 @@ uses
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
   fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
-  fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser};
+  fgCETInet_ru in '..\source\galaxy\fgCETInet_ru.pas' {FormCETInet};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -39,7 +39,7 @@ begin
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormAnalyser, FormAnalyser);
+  Application.CreateForm(TFormCETInet, FormCETInet);
   Application.Run;
 end.
 

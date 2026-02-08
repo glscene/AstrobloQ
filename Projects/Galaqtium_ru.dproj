@@ -156,8 +156,8 @@
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgAnalyser_ru.pas">
-            <Form>FormAnalyser</Form>
+        <DCCReference Include="..\source\galaxy\fgCETInet_ru.pas">
+            <Form>FormCETInet</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

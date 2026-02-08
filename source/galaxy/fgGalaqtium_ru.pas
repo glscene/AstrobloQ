@@ -57,11 +57,12 @@ uses
   fmFormFirst,
   fmAbout_ru,
 
-  fgAnalyser_ru,
+  fgCETInet_ru,
   fgMonitor_ru,
-  fgParadox_ru,
   fgAstrocube_ru,
   fgOptions_ru,
+  fgParadox_ru,
+  fgDrakeEquation_ru,
   fgDiagramHR_ru
   ;
 
@@ -191,8 +192,9 @@ type
     ansGHZ: TGLAnnulus;
     N5: TMenuItem;
     N6: TMenuItem;
-    miAnalyser: TMenuItem;
+    miCETI: TMenuItem;
     N8: TMenuItem;
+    miDrakeEquation: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -223,7 +225,8 @@ type
       X, Y: Integer);
     procedure miBiosphereClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miAnalyserClick(Sender: TObject);
+    procedure miCETIClick(Sender: TObject);
+    procedure miDrakeEquationClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -668,26 +671,24 @@ end;
 //----------------------------------------------------------------------------
 //                             Меню Анализ
 //----------------------------------------------------------------------------
-// Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg
-procedure TfrmGalaqtium.miDiagramHRClick(Sender: TObject);
-begin
-  with TFormDiagramHR.Create(Self) do
-  try
-    Timer1.Enabled := False;
-    GLCadencer1.Enabled := False;
 
-    ShowModal;
-  finally
-    Timer1.Enabled := True;
-    GLCadencer1.Enabled := True;
-    Free;
-  end;
-end;
-
-//----------------------------------------------------------------------------
+//---------------------- Парадокс Ферми --------------------------------------
 procedure TfrmGalaqtium.miParadoxClick(Sender: TObject);
 begin
+  inherited;
   with TFormParadox.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//----------------------- Уравнение Дрейка -----------------------------------
+procedure TfrmGalaqtium.miDrakeEquationClick(Sender: TObject);
+begin
+  inherited;
+  with TFormDrakeQuation.Create(Self) do
     try
       ShowModal;
     finally
@@ -707,18 +708,33 @@ begin
     end;
 end;
 
-procedure TfrmGalaqtium.miAnalyserClick(Sender: TObject);
+// -------------- Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg ------
+procedure TfrmGalaqtium.miDiagramHRClick(Sender: TObject);
+begin
+  with TFormDiagramHR.Create(Self) do
+  try
+    Timer1.Enabled := False;
+    GLCadencer1.Enabled := False;
+
+    ShowModal;
+  finally
+    Timer1.Enabled := True;
+    GLCadencer1.Enabled := True;
+    Free;
+  end;
+end;
+
+// ----------------------- Сеть CETI -----------------------------------------
+procedure TfrmGalaqtium.miCETIClick(Sender: TObject);
 begin
   inherited;
-  with TFormAnalyser.Create(Self) do
+  with TFormCETInet.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
-
 end;
-
 
 //----------------------------------------------------------------------------
 //                            Меню инструменты
@@ -731,7 +747,6 @@ begin
   frmSettings.Show;
 end;
 
-
 //----------------------- Опции ----------------------------------------------
 procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
 begin
@@ -739,7 +754,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//                                Help menu
+//                             Меню справки
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miAboutClick(Sender: TObject);
 begin
@@ -752,14 +767,13 @@ begin
     end;
 end;
 
-
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miExitClick(Sender: TObject);
 begin
   Close();
 end;
 
-initialization //-------------------------------------------------------------
+initialization //=============================================================
 
 FormatSettings.DecimalSeparator := '.';
 

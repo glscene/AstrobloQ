@@ -87,7 +87,7 @@ inherited frmSettings: TfrmSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsPathway
+      ActivePage = tsGeneral
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -97,6 +97,8 @@ inherited frmSettings: TfrmSettings
       ParentFont = False
       Style = tsButtons
       TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsGeneral: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -105,19 +107,72 @@ inherited frmSettings: TfrmSettings
         Caption = 'General'
         ImageIndex = 5
         TabVisible = False
-        object CheckBoxCoordinates: TCheckBox
-          Left = 385
-          Top = 293
-          Width = 230
-          Height = 35
+        object LabelPrecision: TLabel
+          Left = 580
+          Top = 379
+          Width = 81
+          Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1099
-          Checked = True
-          State = cbChecked
+          Caption = #1058#1086#1095#1085#1086#1089#1090#1100
+        end
+        object RadioGroup1: TRadioGroup
+          Left = 70
+          Top = 42
+          Width = 309
+          Height = 295
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1050#1086#1086#1088#1076#1080#1085#1072#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
+          ItemIndex = 0
+          Items.Strings = (
+            #1069#1082#1074#1072#1090#1086#1088#1080#1072#1083#1100#1085#1072#1103
+            #1043#1086#1088#1080#1079#1086#1085#1090#1072#1083#1100#1085#1072#1103
+            #1043#1077#1086#1094#1077#1085#1090#1088#1080#1095#1077#1089#1082#1072#1103
+            #1043#1077#1083#1080#1086#1094#1077#1085#1090#1088#1080#1095#1077#1089#1082#1072#1103
+            #1043#1072#1083#1072#1082#1090#1080#1095#1077#1089#1082#1072#1103
+            #1057#1074#1077#1088#1093#1075#1072#1083#1072#1082#1090#1080#1095#1077#1089#1082#1072#1103)
           TabOrder = 0
+        end
+        object rgUnits: TRadioGroup
+          Left = 565
+          Top = 74
+          Width = 342
+          Height = 253
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1045#1076#1080#1085#1080#1094#1099' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1081
+          ItemIndex = 1
+          Items.Strings = (
+            #1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1080#1077', au'
+            #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076', ly'
+            #1058#1099#1089#1103#1095#1072' '#1089#1074#1077#1090#1086#1074#1099#1093' '#1083#1077#1090', kly'
+            #1055#1072#1088#1089#1077#1082', pc'
+            #1050#1080#1083#1086#1087#1072#1088#1089#1077#1082', kpc')
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 1
+        end
+        object SpinEditPrecision: TSpinEdit
+          Left = 838
+          Top = 368
+          Width = 71
+          Height = 36
+          Hint = 'Precision'
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          MaxValue = 18
+          MinValue = 0
+          TabOrder = 2
+          Value = 2
         end
       end
       object tsInterface: TTabSheet
@@ -275,7 +330,7 @@ inherited frmSettings: TfrmSettings
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 562
+          Left = 546
           Top = 53
           Width = 149
           Height = 200
@@ -303,6 +358,7 @@ inherited frmSettings: TfrmSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
+          ExplicitLeft = 538
         end
         object GroupBox2: TGroupBox
           Left = 56

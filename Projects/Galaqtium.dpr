@@ -19,7 +19,7 @@ uses
   fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
   fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
   fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
-  fgAnalyser in '..\source\galaxy\fgAnalyser.pas' {FormAnalyser},
+  fgCETInet in '..\source\galaxy\fgCETInet.pas' {FormCETInet},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
