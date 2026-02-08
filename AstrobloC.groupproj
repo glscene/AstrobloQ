@@ -3,7 +3,7 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Projects\AstroSceneC.cbproj">
+        <Projects Include="project\AstroSceneC.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -15,13 +15,13 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="AstroSceneC">
-        <MSBuild Projects="Projects\AstroSceneC.cbproj"/>
+        <MSBuild Projects="project\AstroSceneC.cbproj"/>
     </Target>
     <Target Name="AstroSceneC:Clean">
-        <MSBuild Projects="Projects\AstroSceneC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="project\AstroSceneC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="AstroSceneC:Make">
-        <MSBuild Projects="Projects\AstroSceneC.cbproj" Targets="Make"/>
+        <MSBuild Projects="project\AstroSceneC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="AstroSceneC"/>
