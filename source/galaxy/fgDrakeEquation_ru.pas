@@ -1,4 +1,4 @@
-unit fgAnalyser_ru;
+unit fgDrakeEquation_ru;
 
 interface
 
@@ -20,7 +20,7 @@ uses
   fmFormFirst;
 
 type
-  TFormAnalyser = class(TfrmFirst)
+  TFormDrakeQuation = class(TfrmFirst)
     tvAnalyzer: TTreeView;
     PageControl: TPageControl;
     tsAverageDistance: TTabSheet;
@@ -39,19 +39,19 @@ type
   end;
 
 var
-  FormAnalyser: TFormAnalyser;
+  FormDrakeQuation: TFormDrakeQuation;
 
 implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormAnalyser.ButtonOkClick(Sender: TObject);
+procedure TFormDrakeQuation.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;
 end;
 
-procedure TFormAnalyser.tvAnalyzerClick(Sender: TObject);
+procedure TFormDrakeQuation.tvAnalyzerClick(Sender: TObject);
 begin
   inherited;
   tvAnalyzer.Items[1].DropHighlighted := False;

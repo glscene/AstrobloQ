@@ -20,10 +20,11 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
-  fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser},
+  fgDrakeEquation_ru in '..\source\galaxy\fgDrakeEquation_ru.pas' {FormDrakeQuation},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
   fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},
-  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings};
+  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
+  fgAnalyser_ru in '..\source\galaxy\fgAnalyser_ru.pas' {FormAnalyser};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -38,6 +39,7 @@ begin
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormAnalyser, FormAnalyser);
   Application.Run;
 end.
 

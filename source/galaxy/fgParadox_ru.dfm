@@ -1,12 +1,12 @@
 inherited FormParadox: TFormParadox
-  Caption = 'Paradox'
+  Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080
   ClientHeight = 779
   ClientWidth = 1157
   StyleElements = [seFont, seClient, seBorder]
   ExplicitWidth = 1173
   ExplicitHeight = 818
   TextHeight = 30
-  object tvParadox: TTreeView
+  object tvScenariosFP: TTreeView
     Left = 0
     Top = 0
     Width = 393
@@ -78,6 +78,7 @@ inherited FormParadox: TFormParadox
       043104300400004D0000000000000000000000FFFFFFFFFFFFFFFF0000000000
       000000000000000001171F044304410442043E0439042000410435043A044204
       3E0440042000330430043B0430043A04420438043A043804}
+    ExplicitHeight = 724
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -89,5 +90,7 @@ inherited FormParadox: TFormParadox
     Margins.Right = 5
     Margins.Bottom = 5
     Panels = <>
+    ExplicitTop = 724
+    ExplicitWidth = 1149
   end
 end

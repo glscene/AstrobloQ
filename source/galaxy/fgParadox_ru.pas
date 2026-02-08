@@ -18,7 +18,7 @@ uses
 
 type
   TFormParadox = class(TfrmFirst)
-    tvParadox: TTreeView;
+    tvScenariosFP: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
   private
@@ -37,8 +37,8 @@ var
   FileName: TFileName;
 begin
   // Load Paradox items
- /// tvParadox.LoadFromFile(FileName);
-  tvParadox.FullExpand();
+ /// tvScenariosFP.LoadFromFile(FileName);
+  tvScenariosFP.FullExpand();
 end;
 
 end.

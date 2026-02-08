@@ -1,4 +1,4 @@
-inherited FormAnalyser: TFormAnalyser
+inherited FormDrakeQuation: TFormDrakeQuation
   Caption = 'Analyser'
   ClientHeight = 744
   ClientWidth = 1182
