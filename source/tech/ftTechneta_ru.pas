@@ -1,4 +1,4 @@
-unit ftTechnoneta_ru;
+unit ftTechneta_ru;
 
 interface
 

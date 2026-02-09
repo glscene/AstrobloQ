@@ -117,17 +117,19 @@ var
 implementation // =============================================================
 
 uses
-  ftTechnoneta_ru,
+  ftTechneta_ru,
   Tech.Globals;
 
 {$R *.DFM}
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
 {}
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.FormCreate(Sender: TObject);
 var
   S : string;
@@ -154,7 +156,7 @@ begin
   end;
 end;
 
-
+//----------------------------------------------------------------------------
 procedure TFormLocations.AddtoTypeBtnClick(Sender: TObject);
 begin
   {cbTypes   TypeEdit.Text    ColorPanel.Color}
@@ -166,12 +168,14 @@ begin
   SaveTypeList;
   SaveColors;
 end;
+
+//----------------------------------------------------------------------------
 procedure TFormLocations.SaveTypeList;
 var
   F :TextFile;
   i : integer;
   sType : string;
-begin     {cbTypes   TypeEdit.Text    ColorPanel.Color}
+begin     //cbTypes   TypeEdit.Text    ColorPanel.Color
   AssignFile(F,EarthDataPath+'EarthLocoList.txt');
   Rewrite(F);
   try
@@ -185,6 +189,7 @@ begin     {cbTypes   TypeEdit.Text    ColorPanel.Color}
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.SaveColors;
 var
   F :TextFile;
@@ -204,7 +209,9 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 // Add to List AND Save
+//----------------------------------------------------------------------------
 procedure TFormLocations.OkBitBtnClick(Sender: TObject);
 var
   F:TextFile;
@@ -215,17 +222,17 @@ var
     sEMail, sUrl, sDemoName, sTypeName, sDescription,
   sDateGLS,sDateDOB,sWhoWhereFormat : string;
   mp : TMarkerPosition;
-  {iIndex : integer;}
+  //iIndex : integer;
 begin
   AssignFile(F,EarthDataPath+'EarthLoco.txt');
     Append(f);
     try
-      Writeln(F);{End the last one ?}
-      {makes the date read right.. ignored later...}
+      Writeln(F); // End the last one ?
+      // makes the date read right.. ignored later...
       sDateFormat := FormatSettings.ShortDateFormat; // save it
       FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
       mp := Tmarkerposition.Create;
-      {inc(markerIndex);} {now or later}
+      // inc(markerIndex); // now or later
       markers.AddObject(IntToStr(markerIndex),mp);
       with TMarkerPosition(markers.Objects[markerIndex]) do
       begin
@@ -312,7 +319,7 @@ begin
         sCity+','+ sState+','+ sCountry+','+
         sDateGLS+','+sDateDOB+','+ sPhoto+','+
         sEMail+','+ sUrl+','+ sDemoName+','+sDescription;
-        Writeln(F,{Lon,Lat,byteType,byteType2,}
+        Writeln(F, //Lon,Lat,byteType,byteType2,
         sWhoWhereFormat);
         Flush(f); // MAKE it write NOW
       end;
@@ -323,26 +330,31 @@ begin
   FormatSettings.ShortDateFormat := sDateFormat;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.OpenBtnClick(Sender: TObject);
 begin
   RichEdit1.Lines.LoadFromFile(EarthDataPath+'EarthLoco.txt');
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.WordWrapCBClick(Sender: TObject);
 begin
   RichEdit1.WordWrap:= WordWrapCB.Checked;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.SaveBtnClick(Sender: TObject);
 begin
   RichEdit1.Lines.SavetoFile(EarthDataPath+'EarthLoco.txt');
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.PrintBtnClick(Sender: TObject);
 begin
   RichEdit1.Print(EarthDataPath+'EarthLoco.txt');
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.ColorPanelClick(Sender: TObject);
 begin
   ColorDialog1.Color:= ColorPanel.Color;
@@ -350,6 +362,7 @@ begin
   ColorPanel.Color := ColorDialog1.Color;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.ResetDefaultsBtnClick(Sender: TObject);
 begin
   ColorIndex := 7;
@@ -378,16 +391,19 @@ begin
   frmTexoneta.cbTypes.ItemIndex := 0;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);
 begin
   SaveTypeList;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.SaveColorsBtnClick(Sender: TObject);
 begin
   SaveColors;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.PhotoBtnClick(Sender: TObject);
 begin
   OpenDialog1.InitialDir:=EarthPhotoPath;
@@ -398,6 +414,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormLocations.HelpBtnClick(Sender: TObject);
 begin
   Application.HelpContext(1300);

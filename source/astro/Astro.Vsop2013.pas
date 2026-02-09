@@ -601,7 +601,8 @@ function T_VSOP2013_File.calculate_coordinates(ip: integer; const jde: Double;
 
 var
   i, j, ifile, iper, iad, ncf, nsi, ik, iloc, jt, jp: integer;
-  r1, rng: TDateRange;
+  rng: TDateRange;
+  // r1: TDateRange; // not used
   aPeriod: T_VSOP2013_Period;
   delta2, dj0: Double;
   x: Extended;

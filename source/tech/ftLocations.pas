@@ -114,7 +114,7 @@ var
 implementation // ============================================================
 
 uses
-  ftTechnoneta,
+  ftTechneta,
   Tech.Globals;
 
 {$R *.DFM}

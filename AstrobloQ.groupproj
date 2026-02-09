@@ -21,10 +21,10 @@
         <Projects Include="project\Bioneta.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="project\Technoneta_ru.dproj">
+        <Projects Include="project\Techneta_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="project\Technoneta.dproj">
+        <Projects Include="project\Techneta.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="project\Universum_ru.dproj">
@@ -95,23 +95,23 @@
     <Target Name="Bioneta:Make">
         <MSBuild Projects="project\Bioneta.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Technoneta_ru">
-        <MSBuild Projects="project\Technoneta_ru.dproj"/>
+    <Target Name="Techneta_ru">
+        <MSBuild Projects="project\Techneta_ru.dproj"/>
     </Target>
-    <Target Name="Technoneta_ru:Clean">
-        <MSBuild Projects="project\Technoneta_ru.dproj" Targets="Clean"/>
+    <Target Name="Techneta_ru:Clean">
+        <MSBuild Projects="project\Techneta_ru.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Technoneta_ru:Make">
-        <MSBuild Projects="project\Technoneta_ru.dproj" Targets="Make"/>
+    <Target Name="Techneta_ru:Make">
+        <MSBuild Projects="project\Techneta_ru.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Technoneta">
-        <MSBuild Projects="project\Technoneta.dproj"/>
+    <Target Name="Techneta">
+        <MSBuild Projects="project\Techneta.dproj"/>
     </Target>
-    <Target Name="Technoneta:Clean">
-        <MSBuild Projects="project\Technoneta.dproj" Targets="Clean"/>
+    <Target Name="Techneta:Clean">
+        <MSBuild Projects="project\Techneta.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Technoneta:Make">
-        <MSBuild Projects="project\Technoneta.dproj" Targets="Make"/>
+    <Target Name="Techneta:Make">
+        <MSBuild Projects="project\Techneta.dproj" Targets="Make"/>
     </Target>
     <Target Name="Universum_ru">
         <MSBuild Projects="project\Universum_ru.dproj"/>
@@ -132,13 +132,13 @@
         <MSBuild Projects="project\Universum.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaqtium_ru;Galaqtium;AstroScene_ru;AstroScene;Bioneta_ru;Bioneta;Technoneta_ru;Technoneta;Universum_ru;Universum"/>
+        <CallTarget Targets="Galaqtium_ru;Galaqtium;AstroScene_ru;AstroScene;Bioneta_ru;Bioneta;Techneta_ru;Techneta;Universum_ru;Universum"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaqtium_ru:Clean;Galaqtium:Clean;AstroScene_ru:Clean;AstroScene:Clean;Bioneta_ru:Clean;Bioneta:Clean;Technoneta_ru:Clean;Technoneta:Clean;Universum_ru:Clean;Universum:Clean"/>
+        <CallTarget Targets="Galaqtium_ru:Clean;Galaqtium:Clean;AstroScene_ru:Clean;AstroScene:Clean;Bioneta_ru:Clean;Bioneta:Clean;Techneta_ru:Clean;Techneta:Clean;Universum_ru:Clean;Universum:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaqtium_ru:Make;Galaqtium:Make;AstroScene_ru:Make;AstroScene:Make;Bioneta_ru:Make;Bioneta:Make;Technoneta_ru:Make;Technoneta:Make;Universum_ru:Make;Universum:Make"/>
+        <CallTarget Targets="Galaqtium_ru:Make;Galaqtium:Make;AstroScene_ru:Make;AstroScene:Make;Bioneta_ru:Make;Bioneta:Make;Techneta_ru:Make;Techneta:Make;Universum_ru:Make;Universum:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

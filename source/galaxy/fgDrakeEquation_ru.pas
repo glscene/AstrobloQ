@@ -28,7 +28,7 @@ type
     PanelMiddle: TPanel;
     grbDrakeFormula: TGroupBox;
     lbNs: TLabel;
-    lbNt: TLabel;
+    lbNc: TLabel;
     lbFl: TLabel;
     lbFb: TLabel;
     lbFn: TLabel;
@@ -38,7 +38,7 @@ type
     nbFn: TNumberBox;
     nbFb: TNumberBox;
     nbNl: TNumberBox;
-    EditNt: TEdit;
+    EditNc: TEdit;
     stMult1: TStaticText;
     stMult2: TStaticText;
     stMult3: TStaticText;
@@ -50,6 +50,29 @@ type
     stMult5: TStaticText;
     nbNs: TNumberBox;
     ButtonCalculate: TButton;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    NumberBox1: TNumberBox;
+    NumberBox2: TNumberBox;
+    NumberBox3: TNumberBox;
+    Edit1: TEdit;
+    StaticText1: TStaticText;
+    StaticText2: TStaticText;
+    StaticText3: TStaticText;
+    StaticText4: TStaticText;
+    StaticText5: TStaticText;
+    NumberBox4: TNumberBox;
+    Edit2: TEdit;
+    NumberBox5: TNumberBox;
+    StaticText6: TStaticText;
+    NumberBox6: TNumberBox;
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
   private
@@ -72,11 +95,11 @@ uses
 //--------------------------- Вычисление --------------------------------------
 procedure TFormDrakeQuation.ButtonCalculateClick(Sender: TObject);
 var
-  Ns, Nt, Np : Extended;
-  Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
-  Ds, // Расстояние между звёздами
-  Dp: Extended; // Расстояние между планетами
-  Lc, Ls: LONG64;
+  Ns, Np, Nc: Extended; // число звёзд, планет и цивилизаций
+  Fp, Fb, Fn, Ft, Vg, Ratio: Extended; // фракции лито-, био-, ноо- и техносфер
+  Ds, // среднее расстояние между звёздами
+  Dp: Extended; // среднее расстояние между планетами
+  Ls, Lc: LONG64;  // долголетие звезды и цивилизации
 begin
   Ns := nbNs.Value;
   frmOptions.EditNs.Text := FloatToStr(Ns);
@@ -86,13 +109,13 @@ begin
   Fn := nbFn.Value;
   Ft := nbFt.Value;
 (*
-  Lc := StrToInt64(EditLc.Text);
   Ls := StrToInt64(EditLs.Text);
+  Lc := StrToInt64(EditLc.Text);
   Ratio := Lc/Ls;
 *)
   // Число звёзд с экзопланетами без учёта долголетия в Ratio
-  Nt := {1 Earth +} Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));
-  EditNt.Text := FloatToStr(Nt);
+  Nc := {1 Earth +} Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));
+  EditNc.Text := FloatToStr(Nc);
 
   // Определение объёма цилиндра галактики
   Vg := Pi*Sqr(frmOptions.nbRg.Value)*frmOptions.nbHg.Value;
@@ -103,8 +126,8 @@ begin
   // Расстояние между звёздами
   frmOptions.EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
 
-  // Среднее расстояние между планетными системами
-  Ratio := Np*Vg/Nt;
+  // Среднее расстояние между планетными системами с цивилизациями
+  Ratio := Np*Vg/Nc;
   Dp := Power(Ratio, 1/3);
   // Вывод расстояния между экзопланетными системами
   EditDp.Text := FloatToStrF(Dp, ffFixed, 25, 2);

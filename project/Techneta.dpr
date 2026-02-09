@@ -1,7 +1,7 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Technoneta;
+program Techneta;
 uses
   Forms,
   ftMeshEditor in '..\source\tech\ftMeshEditor.pas' {frmMeshEditor},
@@ -20,7 +20,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTechnoneta in '..\source\tech\ftTechnoneta.pas' {frmTechnoneta},
+  ftTechneta in '..\source\tech\ftTechneta.pas' {frmTechnoneta},
   ftLocations in '..\source\tech\ftLocations.pas' {FormLocations},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   ftEmpire in '..\source\tech\ftEmpire.pas' {FormCETI};

@@ -1,4 +1,4 @@
-unit ftTechnoneta;
+unit ftTechneta;
 
 interface
 
