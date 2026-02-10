@@ -217,7 +217,7 @@ type
     N7: TMenuItem;
     miSpacePilot: TMenuItem;
     N8: TMenuItem;
-    miCETInet: TMenuItem;
+    miContacthull: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -300,7 +300,7 @@ type
     procedure miCoreClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miSpacePilotClick(Sender: TObject);
-    procedure miCETInetClick(Sender: TObject);
+    procedure miContacthullClick(Sender: TObject);
   private
     TexoDir, StarDir, CurrentStar: TFileName;
     DataDir, FileName, CatalogName: TFileName;
@@ -372,7 +372,7 @@ begin
   Result.Z := dRadius * so * ca;
 end;
 
-// --------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.FormCreate(Sender: TObject);
 var
   Temp: TGLMeshObject;
@@ -563,12 +563,14 @@ begin
         sWhoWhereFormat := Copy(sDateSmuoosh, pos(',', sDateSmuoosh) + 1,
           Length(sDateSmuoosh));
         Description := sWhoWhereFormat;
-        { fLatitude : single;
+        (*
+         fLatitude : single;
           fLongitude : single;
           fmembertype, fGlow  : byte; // 0..255
           fTypeName, fName, fNickName, fCity, fState, fCountry: String;
           fDateAdded, fDateDOB: TDate;
-          fEMail, fUrl, fDemoName,  fDescription: String; }
+          fEMail, fUrl, fDemoName,  fDescription: String;
+        *)
       end;
       Inc(markerIndex);
     end; // while
@@ -596,12 +598,14 @@ begin
   DateTimePicker1.DateTime := Now; // calls DrawPoints; ?
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.FormShow(Sender: TObject);
 begin
   GlowUpDown.Position := GlowUpDowni;
   NameCBChange(Sender);
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   FormPlanetY := frmTexoneta.top;
@@ -628,7 +632,9 @@ begin
   markers.Clear;
 end;
 
-// ----- Draw people locations as points ---------------------------
+//-----------------------------------------------------------------------------
+// ----- Показать позиции станций в виде точек ---------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.DrawPoints;
 var
   i: Integer;
@@ -658,7 +664,7 @@ begin
           ptsLocations.Positions.Add(TMarkerPosition(markers.Objects[i])
             .GetCartesian(PlanetLocation));
         end;
-      1: // Display by Type, cbTypes
+      1: // Дисплей по Типу, cbTypes
         begin
           if (TMarkerPosition(markers.Objects[i]).membertype = cbTypes.ItemIndex)
           then
@@ -678,7 +684,7 @@ begin
               .GetCartesian(PlanetLocation));
           end;
         end;
-      2: // Display by Date
+      2: // Дисплей по Дате
         begin // only add dates prior to display date
           If ((DateForwardCB.Checked and (TMarkerPosition(markers.Objects[i])
             .DateAdded < DateTimePicker1.DateTime)) or
@@ -740,7 +746,7 @@ begin
   ptsLocations.StructureChanged;
 end;
 
-// ----------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.GLSceneViewerBeforeRender(Sender: TObject);
 begin
   if miSunFlare.Checked then
@@ -756,21 +762,21 @@ begin
     MatLib.Materials[0].Texture2Name := 'earthBump'
 end;
 
-{ Tex0:=Tex0;
-  Tex1:=InterPolate(Tex0, Tex1, PrimaryColor); }
-{ Tex0:=Tex0;
+//-----------------------------------------------------------------------------
+(*
+  Tex0:=Tex0;
   Tex1:=InterPolate(Tex0, Tex1, PrimaryColor);
 
   Syntax Examples:
-
-  Tex1:=Tex0;   // replace texture 1 with texture 0
+  Tex1:=Tex0;   // замена texture 1 на texture 0
   Tex1:=Tex0+Tex1; // additive blending between textures 0 and 1
   Tex1:=Tex0-Tex1; // subtractive blending between textures 0 and 1
   Tex1:=Tex0*Tex1; // modulation between textures 0 and 1
   Tex1:=Tex0+Tex1-0.5; // signed additive blending between textures 0 and 1
   Tex1:=Interpolate(Tex0, Tex1, PrimaryColor); // interpolation between textures 0 and 1 using primary color as factor
   Tex1:=Dot3(Tex0, Tex1); // dot3 product between textures 0 and 1
-}
+*)
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.DirectOGLRender(Sender: TObject;
   var rci: TGLRenderContextInfo);
 const
@@ -789,8 +795,7 @@ var
   sunPos, eyePos, lightingVector: TGLVector;
   diskNormal, diskRight, diskUp: TGLVector;
 
-  // -------------------------------------------------------------------
-
+//-----------------------------------------------------------------------------
   function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
   var
     i, n: Integer;
@@ -1029,8 +1034,8 @@ var
   d: Double;
   p: TAffineVector;
 begin
-  { sun Position X8500 Y8500 Z0 }
-  { Sun: 9880  6375  0 }
+  // sun Position X8500 Y8500 Z0
+  // Sun: 9880  6375  0
   (*
     Moon cube Up X-3.719719E-9 Y1Z0
     Moon Position X-29.6 Y0Z0
@@ -1044,7 +1049,7 @@ begin
     Uranus 209552 -104695 -3108  Scale XYZ 4.007  Position X -3108
     Neptune 241251  -255428 -291 Scale XYZ 3.883  Position X -291
   *)
-  { Pluto... }
+  // Pluto...
   // d := GMTDateTimeToJulianDay(Now-2+newTime*timeMultiplier);
   // make earth rotate with clouds
   Earth.TurnAngle := Earth.TurnAngle + deltaTime * timeMultiplier;
@@ -1056,7 +1061,7 @@ begin
     p := ComputePlanetPosition(cSunOrbitalElements, d);
     ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
     LSSun.Position.AsAffineVector := p;
-    { showmessage('Sun: '+Floattostr(LSSun.Position.x)  +' , '+Floattostr(LSSun.Position.y)  +' , '+Floattostr(LSSun.Position.z)); }
+    // showmessage('Sun '+Floattostr(LSSun.Position.x)+' , '+Floattostr(LSSun.Position.y)+' , '+Floattostr(LSSun.Position.z));
   end;
   If miAsteroids.Checked then
   begin
@@ -1089,7 +1094,7 @@ begin
     ScaleVector(p, 0.5*cAUToKilometers*(1/cEarthRadius));
     Moon.Position.AsAffineVector := p;
   *)
-  { showmessage('Moon: '+Floattostr(p[0])  +' , '+Floattostr(p[1])  +' , '+Floattostr(p[2])); }
+  // showmessage('Moon '+Floattostr(p[0])  +' , '+Floattostr(p[1])  +' , '+Floattostr(p[2])); }
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   Moon.TurnAngle := 180 - dcMoon.TurnAngle;
 
@@ -1114,7 +1119,7 @@ begin
     p:=ComputePlanetPosition(cNeptuneOrbitalElements, d);
     //ScaleVector(p, 0.5*cAUToKilometers*(1/cEarthRadius));
     showmessage('Neptune: '+Floattostr(p[0])  +' , '+Floattostr(p[1])  +' , '+Floattostr(p[2])); }
-  { Pluto... }
+  // Pluto...
   // honour camera movements
   if (dmy <> 0) or (dmx <> 0) then
   begin
@@ -1165,6 +1170,7 @@ begin
   my := Y;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.GLSceneViewerMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -1244,13 +1250,14 @@ begin
   end;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.GLSceneViewerMouseEnter(Sender: TObject);
 begin
   GLSceneViewer.SetFocus;
   GLSceneViewer.Focused;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miRoundClick(Sender: TObject);
 begin
   miRound.Checked := True;
@@ -1260,6 +1267,7 @@ begin
   ptsLocations.Style := psRound;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miSmoothClick(Sender: TObject);
 begin
   miSmooth.Checked := True;
@@ -1269,6 +1277,7 @@ begin
   ptsLocations.Style := psSmooth;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miSmoothAdditiveClick(Sender: TObject);
 begin
   miSmoothAdditive.Checked := True;
@@ -1278,6 +1287,7 @@ begin
   ptsLocations.Style := psSmoothAdditive;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miSquareClick(Sender: TObject);
 begin
   miSquare.Checked := True;
@@ -1308,20 +1318,20 @@ begin
     GlsGlowLF.Visible := False;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miAddaPeopleClick(Sender: TObject);
 begin
   FormLocations.Show;
 end;
 
-// -------------------------------------------------------------------
-
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miSpinThePlanetClick(Sender: TObject);
 begin
   miSpinThePlanet.Checked := (not miSpinThePlanet.Checked);
   Cadencer.Enabled := miSpinThePlanet.Checked; // on autocheck
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miSpinSolarSystemClick(Sender: TObject);
 begin
   miSpinSolarSystem.Checked := (not miSpinSolarSystem.Checked);
@@ -1343,6 +1353,7 @@ begin
   GLLensFlare1.Visible := miSunFlare.Checked;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miLocationsClick(Sender: TObject);
 begin
   // remove to settings
@@ -1351,6 +1362,7 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miAsteroidsClick(Sender: TObject);
 begin
   miAsteroids.Checked := (not miAsteroids.Checked);
@@ -1358,7 +1370,7 @@ begin
   GlsGlowLF.Visible := False;
 end;
 
-//------------------------ miConstLines -------------------------------
+//------------------------ miConstLines ---------------------------------------
 procedure TfrmTexoneta.miConstLinesClick(Sender: TObject);
 begin
   miConstLines.Checked := (not miConstLines.Checked);
@@ -1375,11 +1387,13 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miAtmosphereClick(Sender: TObject);
 begin
   miAtmosphere.Checked := (not miAtmosphere.Checked);
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.NightSkyorBumpyLand1Click(Sender: TObject);
 begin
   NightSkyorBumpyLand1.Checked := not NightSkyorBumpyLand1.Checked;
@@ -1736,6 +1750,7 @@ begin
     showmessage(ShpPath + 'CAPITALS.dat missing');
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.DisplayCapitals(Show: Boolean);
 begin
   If (not Show) then
@@ -1913,7 +1928,7 @@ begin
     MarkersDisplaySelection := ChoiceRG.ItemIndex;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.FlowTimerTimer(Sender: TObject);
 begin
   { Every 'tick' of time Cycle the display according to GLS Start Date
@@ -1994,7 +2009,7 @@ begin
 *)
 end;
 
-//
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miCyborgClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -2012,7 +2027,7 @@ begin
   Cadencer.Enabled := True;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miRobotClick(Sender: TObject);
 begin
   Timer.Enabled := False;
@@ -2049,27 +2064,28 @@ begin
 end;
 
 //---------------------------- miCETInet --------------------------------------
-procedure TfrmTexoneta.miCETInetClick(Sender: TObject);
+procedure TfrmTexoneta.miContacthullClick(Sender: TObject);
 begin
   //
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Справочный контент
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miContentsClick(Sender: TObject);
 begin
   Application.HelpCommand(HELP_CONTENTS, 0);
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miOnHelpClick(Sender: TObject);
 begin
   Application.HelpCommand(HELP_HELPONHELP, 0);
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // О программе
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miAboutClick(Sender: TObject);
 begin
   with TFormAbout.CReate(Self) do
@@ -2081,9 +2097,9 @@ begin
     end;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Дисплей точек на сфера
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.ChoiceRGClick(Sender: TObject);
 begin
   MarkersDisplaySelection := ChoiceRG.ItemIndex;
@@ -2101,18 +2117,19 @@ begin
   *)
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.cbTypesChange(Sender: TObject);
 begin
   DrawPoints; // cbTypes
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.DateTimePicker1Change(Sender: TObject);
 begin
   DrawPoints; // redraw points based on new date constraint
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.NameCBChange(Sender: TObject);
 var
   i: Integer;
@@ -2210,9 +2227,9 @@ begin
   DrawPoints; // NameCB
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Страны
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.CountryColorPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CountryColorPanel.Color;
@@ -2223,6 +2240,7 @@ begin
     LoadCountryShapes; // DVDORedraw;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.CapitolPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CapitolPanel.Color;
@@ -2233,6 +2251,7 @@ begin
     LoadCapitalShapes; // DVDORedraw;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.CityPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CityPanel.Color;
@@ -2243,9 +2262,9 @@ begin
     LoadCityShapes; // DVDORedraw;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Скрыть панель
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.PeopleColorPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := PeopleColorPanel.Color;
@@ -2277,7 +2296,7 @@ begin
   ShellExecute(0, 'open', PChar(lblDemoName.Caption), '', '', SW_SHOW);
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.GlowUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   { if (Button = btNext) then
@@ -2288,23 +2307,23 @@ begin
   GlsGlowLF.Size := GlowUpDown.Position;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   ptsFlashLocations.Size := ptsSizeUpDown.Position;
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Глабальные настройки и установки
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miSettingsClick(Sender: TObject);
 begin
   // fmSettings with TreeView and Pages
 end;
 
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Выход
-// -------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TfrmTexoneta.miExitClick(Sender: TObject);
 begin
   Close;

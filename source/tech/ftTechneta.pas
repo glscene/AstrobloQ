@@ -114,7 +114,7 @@ type
     miN2: TMenuItem;
     miAddaPeople: TMenuItem;
     miTools: TMenuItem;
-    miNoosfera: TMenuItem;
+    miContacthull: TMenuItem;
     miMeshEditor: TMenuItem;
     miHelp: TMenuItem;
     miAbout: TMenuItem;
@@ -276,7 +276,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure CountryColorPanelClick(Sender: TObject);
     procedure miSatelliteLightClick(Sender: TObject);
-    procedure miNoosferaClick(Sender: TObject);
+    procedure miContacthullClick(Sender: TObject);
     procedure miMeshEditorClick(Sender: TObject);
     procedure miSmdQcClick(Sender: TObject);
     procedure miMdlQcClick(Sender: TObject);
@@ -1994,7 +1994,7 @@ begin
 end;
 
 // Tehnofera Viewer
-procedure TfrmTechnoneta.miNoosferaClick(Sender: TObject);
+procedure TfrmTechnoneta.miContacthullClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;

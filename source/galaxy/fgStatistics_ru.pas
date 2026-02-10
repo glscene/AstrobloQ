@@ -1,4 +1,4 @@
-unit fgDrakeEquation_ru;
+unit fgStatistics_ru;
 
 interface
 
@@ -21,14 +21,14 @@ uses
   fmFormFirst;
 
 type
-  TFormDrakeQuation = class(TfrmFirst)
+  TFormStatistics = class(TfrmFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;
     PanelMiddle: TPanel;
     grbDrakeFormula: TGroupBox;
     lbNs: TLabel;
-    lbNc: TLabel;
+    lbNp: TLabel;
     lbFl: TLabel;
     lbFb: TLabel;
     lbFn: TLabel;
@@ -45,14 +45,13 @@ type
     stMult4: TStaticText;
     stEqual: TStaticText;
     nbFt: TNumberBox;
-    EditDp: TEdit;
+    EditDt: TEdit;
     nbFp: TNumberBox;
     stMult5: TStaticText;
     nbNs: TNumberBox;
-    ButtonCalculate: TButton;
     GroupBox1: TGroupBox;
     Label1: TLabel;
-    Label2: TLabel;
+    lbNc: TLabel;
     Label3: TLabel;
     Label5: TLabel;
     Label6: TLabel;
@@ -73,6 +72,32 @@ type
     NumberBox5: TNumberBox;
     StaticText6: TStaticText;
     NumberBox6: TNumberBox;
+    GroupBox2: TGroupBox;
+    Label10: TLabel;
+    lbNh: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    NumberBox7: TNumberBox;
+    NumberBox8: TNumberBox;
+    NumberBox9: TNumberBox;
+    Edit3: TEdit;
+    StaticText7: TStaticText;
+    StaticText8: TStaticText;
+    StaticText9: TStaticText;
+    StaticText10: TStaticText;
+    StaticText11: TStaticText;
+    NumberBox10: TNumberBox;
+    Edit4: TEdit;
+    NumberBox11: TNumberBox;
+    StaticText12: TStaticText;
+    NumberBox12: TNumberBox;
+    Label18: TLabel;
+    StaticText13: TStaticText;
+    ButtonCalculate: TButton;
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
   private
@@ -82,7 +107,7 @@ type
   end;
 
 var
-  FormDrakeQuation: TFormDrakeQuation;
+  FormStatistics: TFormStatistics;
 
 implementation //==============================================================
 
@@ -92,8 +117,8 @@ uses
 {$R *.dfm}
 
 
-//--------------------------- Вычисление --------------------------------------
-procedure TFormDrakeQuation.ButtonCalculateClick(Sender: TObject);
+//--------------------------- Телепорталы -------------------------------------
+procedure TFormStatistics.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Np, Nc: Extended; // число звёзд, планет и цивилизаций
   Fp, Fb, Fn, Ft, Vg, Ratio: Extended; // фракции лито-, био-, ноо- и техносфер
@@ -130,10 +155,10 @@ begin
   Ratio := Np*Vg/Nc;
   Dp := Power(Ratio, 1/3);
   // Вывод расстояния между экзопланетными системами
-  EditDp.Text := FloatToStrF(Dp, ffFixed, 25, 2);
+  EditDt.Text := FloatToStrF(Dp, ffFixed, 25, 2);
 end;
 
-procedure TFormDrakeQuation.ButtonOkClick(Sender: TObject);
+procedure TFormStatistics.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;

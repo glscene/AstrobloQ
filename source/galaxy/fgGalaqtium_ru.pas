@@ -62,7 +62,7 @@ uses
   fgAstrocube_ru,
   fgOptions_ru,
   fgParadox_ru,
-  fgDrakeEquation_ru,
+  fgStatistics_ru,
   fgDiagramHR_ru
   ;
 
@@ -190,11 +190,11 @@ type
     celGalaxy: TGLCylinder;
     sphGalaxy: TGLSphere;
     ansGHZ: TGLAnnulus;
-    N5: TMenuItem;
+    miAnalytics: TMenuItem;
     N6: TMenuItem;
     miCETI: TMenuItem;
     N8: TMenuItem;
-    miDrakeEquation: TMenuItem;
+    miStatistics: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -226,7 +226,7 @@ type
     procedure miBiosphereClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miCETIClick(Sender: TObject);
-    procedure miDrakeEquationClick(Sender: TObject);
+    procedure miStatisticsClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -685,10 +685,10 @@ begin
 end;
 
 //----------------------- Уравнение Дрейка -----------------------------------
-procedure TfrmGalaqtium.miDrakeEquationClick(Sender: TObject);
+procedure TfrmGalaqtium.miStatisticsClick(Sender: TObject);
 begin
   inherited;
-  with TFormDrakeQuation.Create(Self) do
+  with TFormStatistics.Create(Self) do
     try
       ShowModal;
     finally

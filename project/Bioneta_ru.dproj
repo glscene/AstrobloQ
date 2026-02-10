@@ -116,9 +116,8 @@
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_Build>0</VerInfo_Build>
         <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
-        <Icon_MainIcon>..\data\icon\Biosfera.ico</Icon_MainIcon>
+        <Icon_MainIcon>..\Assets\icon\Bioneta.ico</Icon_MainIcon>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
-        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>

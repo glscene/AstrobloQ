@@ -32,8 +32,6 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 560
-    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -42,7 +40,6 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -175,8 +172,6 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalacube: TGLSceneViewer
@@ -198,8 +193,6 @@ object frmGalaqtium: TfrmGalaqtium
         Height = 516
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 754
-        ExplicitHeight = 491
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -896,15 +889,15 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
       end
     end
-    object N5: TMenuItem
-      Caption = #1040#1085#1072#1083#1080#1079
+    object miAnalytics: TMenuItem
+      Caption = #1040#1085#1072#1083#1080#1090#1080#1082#1072
       object miParadox: TMenuItem
         Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080'...'
         OnClick = miParadoxClick
       end
-      object miDrakeEquation: TMenuItem
-        Caption = #1059#1088#1072#1074#1085#1077#1085#1080#1077' '#1044#1088#1077#1081#1082#1072'...'
-        OnClick = miDrakeEquationClick
+      object miStatistics: TMenuItem
+        Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072'...'
+        OnClick = miStatisticsClick
       end
       object N6: TMenuItem
         Caption = '-'

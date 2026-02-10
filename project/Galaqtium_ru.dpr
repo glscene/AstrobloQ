@@ -20,7 +20,7 @@ uses
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
-  fgDrakeEquation_ru in '..\source\galaxy\fgDrakeEquation_ru.pas' {FormDrakeQuation},
+  fgStatistics_ru in '..\source\galaxy\fgStatistics_ru.pas' {FormStatistics},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
   fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},

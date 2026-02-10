@@ -32,6 +32,8 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 535
+    ExplicitWidth = 966
   end
   object ControlBar: TControlBar
     Left = 0
@@ -40,6 +42,7 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 966
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -172,31 +175,31 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 966
+    ExplicitHeight = 502
     object tsGalacube: TTabSheet
       Caption = 'Stars'
       object svGalacube: TGLSceneViewer
         Left = 0
         Top = 0
-        Width = 762
-        Height = 516
+        Width = 754
+        Height = 491
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 145.545028686523400000
+        FieldOfView = 143.901992797851600000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 754
-        ExplicitHeight = 491
       end
       object PanelRight: TPanel
-        Left = 762
+        Left = 754
         Top = 0
         Width = 212
-        Height = 516
+        Height = 491
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 754
-        ExplicitHeight = 491
+        ExplicitLeft = 746
+        ExplicitHeight = 466
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -591,7 +594,7 @@ object frmGalaqtium: TfrmGalaqtium
         Left = 0
         Top = 0
         Width = 377
-        Height = 516
+        Height = 491
         Align = alLeft
         Lines.Strings = (
           'MemoTable')
@@ -826,8 +829,8 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = 'Object'
       end
     end
-    object miMethod: TMenuItem
-      Caption = '&Method'
+    object miModelling: TMenuItem
+      Caption = 'Modelling'
       object miGridding: TMenuItem
         Caption = 'Gridding...'
       end
@@ -849,6 +852,10 @@ object frmGalaqtium: TfrmGalaqtium
       object miExoplanets: TMenuItem
         Caption = 'Exoplanets...'
         OnClick = miExoplanetsClick
+      end
+      object miProjection: TMenuItem
+        Caption = 'Star projections...'
+        OnClick = miProjectionClick
       end
       object N3: TMenuItem
         Caption = '-'
@@ -874,8 +881,27 @@ object frmGalaqtium: TfrmGalaqtium
         OnClick = miPanelShowClick
       end
     end
+    object miAnalytics: TMenuItem
+      Caption = 'Analytics'
+      object miParadox: TMenuItem
+        Caption = 'Paradox...'
+        OnClick = miParadoxClick
+      end
+      object miAnalyser: TMenuItem
+        Caption = 'Statistics...'
+        OnClick = miAnalyserClick
+      end
+      object miMonitor: TMenuItem
+        Caption = 'Monitor...'
+        OnClick = miMonitorClick
+      end
+    end
     object miTools: TMenuItem
       Caption = '&Tools'
+      object Settings1: TMenuItem
+        Caption = 'Settings...'
+        OnClick = Settings1Click
+      end
       object miOptions: TMenuItem
         Caption = 'Options...'
         ImageIndex = 130
@@ -883,22 +909,6 @@ object frmGalaqtium: TfrmGalaqtium
       end
       object miN5: TMenuItem
         Caption = '-'
-      end
-      object miAnalyser: TMenuItem
-        Caption = 'Analyser...'
-        OnClick = miAnalyserClick
-      end
-      object miMonitor: TMenuItem
-        Caption = 'Monitor...'
-        OnClick = miMonitorClick
-      end
-      object miProjection: TMenuItem
-        Caption = 'Star projections...'
-        OnClick = miProjectionClick
-      end
-      object miParadox: TMenuItem
-        Caption = 'Paradox...'
-        OnClick = miParadoxClick
       end
     end
     object miHelp: TMenuItem
