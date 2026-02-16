@@ -38,7 +38,7 @@ type
     nbFn: TNumberBox;
     nbFb: TNumberBox;
     nbNl: TNumberBox;
-    EditNc: TEdit;
+    EditNt: TEdit;
     stMult1: TStaticText;
     stMult2: TStaticText;
     stMult3: TStaticText;
@@ -50,28 +50,28 @@ type
     stMult5: TStaticText;
     nbNs: TNumberBox;
     GroupBox1: TGroupBox;
-    Label1: TLabel;
-    lbNc: TLabel;
-    Label3: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
+    LabelNs: TLabel;
+    LabelNc: TLabel;
+    Labelne: TLabel;
+    Labelfl: TLabel;
+    Labelfi: TLabel;
+    Labelfc: TLabel;
+    Labelfp: TLabel;
     Label9: TLabel;
-    NumberBox1: TNumberBox;
-    NumberBox2: TNumberBox;
-    NumberBox3: TNumberBox;
-    Edit1: TEdit;
+    NumberBox_fi: TNumberBox;
+    NumberBox_fl: TNumberBox;
+    NumberBox_fp: TNumberBox;
+    Edit_Nc: TEdit;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
     StaticText4: TStaticText;
     StaticText5: TStaticText;
-    NumberBox4: TNumberBox;
+    NumberBox_fc: TNumberBox;
     Edit2: TEdit;
-    NumberBox5: TNumberBox;
+    NumberBox_ne: TNumberBox;
     StaticText6: TStaticText;
-    NumberBox6: TNumberBox;
+    NumberBox_Ns: TNumberBox;
     GroupBox2: TGroupBox;
     Label10: TLabel;
     lbNh: TLabel;
@@ -98,6 +98,9 @@ type
     Label18: TLabel;
     StaticText13: TStaticText;
     ButtonCalculate: TButton;
+    StaticText14: TStaticText;
+    NumberBox_L: TNumberBox;
+    LabelL: TLabel;
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
   private
@@ -117,10 +120,10 @@ uses
 {$R *.dfm}
 
 
-//--------------------------- Телепорталы -------------------------------------
+//---------------------- Число техносфер с телепорталами -------------------
 procedure TFormStatistics.ButtonCalculateClick(Sender: TObject);
 var
-  Ns, Np, Nc: Extended; // число звёзд, планет и цивилизаций
+  Ns, Np, Nc, Nt: Extended; // число звёзд, планет, цивилизаций и техносфер
   Fp, Fb, Fn, Ft, Vg, Ratio: Extended; // фракции лито-, био-, ноо- и техносфер
   Ds, // среднее расстояние между звёздами
   Dp: Extended; // среднее расстояние между планетами
@@ -140,12 +143,14 @@ begin
 *)
   // Число звёзд с экзопланетами без учёта долголетия в Ratio
   Nc := {1 Earth +} Round(Ns*Np*Fp*Fb*Fn*Ft (*Ratio*));
-  EditNc.Text := FloatToStr(Nc);
+///  Nt :=
+  Edit_Nc.Text := FloatToStr(Nc);
+  EditNt.Text := FloatToStr(Nt);
 
   // Определение объёма цилиндра галактики
   Vg := Pi*Sqr(frmOptions.nbRg.Value)*frmOptions.nbHg.Value;
   frmOptions.EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
-  // Средне расстояние между звёздами в галактике
+  // Среднее расстояние между звёздами в галактике
   Ratio := Vg/Ns;
   Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
   // Расстояние между звёздами

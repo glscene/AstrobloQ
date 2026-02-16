@@ -1,17 +1,17 @@
 inherited FormStatistics: TFormStatistics
   Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1043#1072#1083#1072#1082#1090#1080#1082#1077
   ClientHeight = 835
-  ClientWidth = 1142
+  ClientWidth = 1211
   StyleElements = [seFont, seClient, seBorder]
   ExplicitLeft = 4
   ExplicitTop = 4
-  ExplicitWidth = 1158
+  ExplicitWidth = 1227
   ExplicitHeight = 874
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
     Top = 763
-    Width = 1142
+    Width = 1211
     Height = 72
     Margins.Left = 5
     Margins.Top = 5
@@ -20,8 +20,8 @@ inherited FormStatistics: TFormStatistics
     Align = alBottom
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 647
-    ExplicitWidth = 1174
+    ExplicitTop = 738
+    ExplicitWidth = 1134
     object ButtonOk: TButton
       Left = 937
       Top = 10
@@ -59,7 +59,7 @@ inherited FormStatistics: TFormStatistics
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 1142
+    Width = 1211
     Height = 72
     Margins.Left = 5
     Margins.Top = 5
@@ -69,12 +69,12 @@ inherited FormStatistics: TFormStatistics
     Caption = 'PanelTop'
     ShowCaption = False
     TabOrder = 1
-    ExplicitWidth = 1174
+    ExplicitWidth = 1134
   end
   object PanelMiddle: TPanel
     Left = 0
     Top = 72
-    Width = 1142
+    Width = 1211
     Height = 691
     Margins.Left = 5
     Margins.Top = 5
@@ -84,12 +84,12 @@ inherited FormStatistics: TFormStatistics
     Caption = 'PanelMiddle'
     ShowCaption = False
     TabOrder = 2
-    ExplicitWidth = 1174
-    ExplicitHeight = 575
+    ExplicitWidth = 1134
+    ExplicitHeight = 666
     object grbDrakeFormula: TGroupBox
       Left = 1
       Top = 443
-      Width = 1140
+      Width = 1209
       Height = 221
       Margins.Left = 5
       Margins.Top = 5
@@ -104,9 +104,7 @@ inherited FormStatistics: TFormStatistics
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 32
-      ExplicitTop = 510
-      ExplicitWidth = 1121
+      ExplicitWidth = 1132
       object lbNs: TLabel
         Left = 287
         Top = 54
@@ -265,7 +263,7 @@ inherited FormStatistics: TFormStatistics
         ParentFont = False
       end
       object Label18: TLabel
-        Left = 1039
+        Left = 1056
         Top = 54
         Width = 28
         Height = 38
@@ -354,7 +352,7 @@ inherited FormStatistics: TFormStatistics
         Value = 3.000000000000000000
         SpinButtonOptions.ButtonWidth = 30
       end
-      object EditNc: TEdit
+      object EditNt: TEdit
         Left = 0
         Top = 102
         Width = 193
@@ -553,7 +551,7 @@ inherited FormStatistics: TFormStatistics
     object GroupBox1: TGroupBox
       Left = 1
       Top = 1
-      Width = 1140
+      Width = 1209
       Height = 221
       Margins.Left = 5
       Margins.Top = 5
@@ -568,20 +566,18 @@ inherited FormStatistics: TFormStatistics
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 32
-      ExplicitTop = 10
-      ExplicitWidth = 1121
-      object Label1: TLabel
+      ExplicitWidth = 1132
+      object LabelNs: TLabel
         Left = 287
         Top = 54
-        Width = 31
+        Width = 34
         Height = 38
         Hint = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'R*'
+        Caption = 'Ns'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -28
@@ -591,7 +587,7 @@ inherited FormStatistics: TFormStatistics
         ParentShowHint = False
         ShowHint = True
       end
-      object lbNc: TLabel
+      object LabelNc: TLabel
         Left = 65
         Top = 54
         Width = 35
@@ -611,8 +607,8 @@ inherited FormStatistics: TFormStatistics
         ParentShowHint = False
         ShowHint = True
       end
-      object Label3: TLabel
-        Left = 417
+      object Labelne: TLabel
+        Left = 547
         Top = 54
         Width = 32
         Height = 38
@@ -631,7 +627,7 @@ inherited FormStatistics: TFormStatistics
         ParentShowHint = False
         ShowHint = True
       end
-      object Label5: TLabel
+      object Labelfl: TLabel
         Left = 668
         Top = 54
         Width = 20
@@ -651,7 +647,7 @@ inherited FormStatistics: TFormStatistics
         ParentShowHint = False
         ShowHint = True
       end
-      object Label6: TLabel
+      object Labelfi: TLabel
         Left = 795
         Top = 54
         Width = 20
@@ -671,7 +667,7 @@ inherited FormStatistics: TFormStatistics
         ParentShowHint = False
         ShowHint = True
       end
-      object Label7: TLabel
+      object Labelfc: TLabel
         Left = 935
         Top = 54
         Width = 24
@@ -691,8 +687,8 @@ inherited FormStatistics: TFormStatistics
         ParentShowHint = False
         ShowHint = True
       end
-      object Label8: TLabel
-        Left = 547
+      object Labelfp: TLabel
+        Left = 443
         Top = 54
         Width = 28
         Height = 38
@@ -728,7 +724,27 @@ inherited FormStatistics: TFormStatistics
         Font.Style = []
         ParentFont = False
       end
-      object NumberBox1: TNumberBox
+      object LabelL: TLabel
+        Left = 1095
+        Top = 50
+        Width = 25
+        Height = 38
+        Hint = #1044#1086#1083#1103' '#1090#1077#1093#1085#1086#1089#1092#1077#1088' '#1074' '#1085#1086#1086#1089#1092#1077#1088#1072#1093
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = 'fL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -28
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object NumberBox_fi: TNumberBox
         Left = 771
         Top = 102
         Width = 92
@@ -751,9 +767,9 @@ inherited FormStatistics: TFormStatistics
         Value = 0.001000000000000000
         SpinButtonOptions.ButtonWidth = 30
       end
-      object NumberBox2: TNumberBox
+      object NumberBox_fl: TNumberBox
         Left = 645
-        Top = 100
+        Top = 102
         Width = 89
         Height = 39
         Margins.Left = 5
@@ -774,7 +790,7 @@ inherited FormStatistics: TFormStatistics
         Value = 0.001000000000000000
         SpinButtonOptions.ButtonWidth = 30
       end
-      object NumberBox3: TNumberBox
+      object NumberBox_fp: TNumberBox
         Left = 417
         Top = 102
         Width = 76
@@ -798,7 +814,7 @@ inherited FormStatistics: TFormStatistics
         Value = 3.000000000000000000
         SpinButtonOptions.ButtonWidth = 30
       end
-      object Edit1: TEdit
+      object Edit_Nc: TEdit
         Left = 0
         Top = 102
         Width = 193
@@ -820,8 +836,8 @@ inherited FormStatistics: TFormStatistics
         Text = '1'
       end
       object StaticText1: TStaticText
-        Left = 360
-        Top = 52
+        Left = 393
+        Top = 50
         Width = 12
         Height = 42
         Margins.Left = 5
@@ -879,7 +895,7 @@ inherited FormStatistics: TFormStatistics
         Caption = '='
         TabOrder = 8
       end
-      object NumberBox4: TNumberBox
+      object NumberBox_fc: TNumberBox
         Left = 900
         Top = 98
         Width = 102
@@ -923,7 +939,7 @@ inherited FormStatistics: TFormStatistics
         TabOrder = 10
         Text = '1'
       end
-      object NumberBox5: TNumberBox
+      object NumberBox_ne: TNumberBox
         Left = 532
         Top = 102
         Width = 76
@@ -957,7 +973,7 @@ inherited FormStatistics: TFormStatistics
         Caption = '.'
         TabOrder = 12
       end
-      object NumberBox6: TNumberBox
+      object NumberBox_Ns: TNumberBox
         Left = 213
         Top = 102
         Width = 172
@@ -981,11 +997,46 @@ inherited FormStatistics: TFormStatistics
         Value = 10.000000000000000000
         SpinButtonOptions.ButtonWidth = 30
       end
+      object StaticText14: TStaticText
+        Left = 1025
+        Top = 50
+        Width = 12
+        Height = 42
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = '.'
+        TabOrder = 14
+      end
+      object NumberBox_L: TNumberBox
+        Left = 1056
+        Top = 98
+        Width = 122
+        Height = 39
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Alignment = taCenter
+        Decimal = 5
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -23
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Mode = nbmFloat
+        MaxValue = 1.000000000000000000
+        ParentFont = False
+        TabOrder = 15
+        Value = 0.001000000000000000
+        SpinButtonOptions.ButtonWidth = 30
+      end
     end
     object GroupBox2: TGroupBox
       Left = 1
       Top = 222
-      Width = 1140
+      Width = 1209
       Height = 221
       Margins.Left = 5
       Margins.Top = 5
@@ -1000,9 +1051,7 @@ inherited FormStatistics: TFormStatistics
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 2
-      ExplicitLeft = 66
-      ExplicitTop = 250
-      ExplicitWidth = 1121
+      ExplicitWidth = 1132
       object Label10: TLabel
         Left = 287
         Top = 54
