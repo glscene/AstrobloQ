@@ -149,7 +149,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgOptions.pas">
-            <Form>frmOption</Form>
+            <Form>frmOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
@@ -193,6 +193,10 @@
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgDiagramHR.pas">
             <Form>FormHercrussel</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgEquations.pas">
+            <Form>FormStatistics</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

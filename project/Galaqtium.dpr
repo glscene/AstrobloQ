@@ -10,7 +10,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fgOptions in '..\source\galaxy\fgOptions.pas' {frmOption},
+  fgOptions in '..\source\galaxy\fgOptions.pas' {frmOptions},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
@@ -23,7 +23,8 @@ uses
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
-  fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {FormHercrussel};
+  fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {FormHercrussel},
+  fgEquations in '..\source\galaxy\fgEquations.pas' {FormStatistics};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -35,9 +36,10 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmOption, frmOption);
+  Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormStatistics, FormStatistics);
   Application.Run;
 end.
 

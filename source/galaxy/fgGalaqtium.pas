@@ -281,7 +281,7 @@ end;
 procedure TfrmGalaqtium.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if frmOption.CheckBoxRotate.Checked and
+  if frmOptions.CheckBoxRotate.Checked and
      not tbRotation.Down then
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -598,7 +598,7 @@ end;
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
 begin
-  frmOption.Show;
+  frmOptions.Show;
 end;
 
 //-----------------------------------------------------------------------------

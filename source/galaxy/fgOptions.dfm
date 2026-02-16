@@ -1,4 +1,4 @@
-inherited frmOption: TfrmOption
+inherited frmOptions: TfrmOptions
   HelpContext = 0
   Caption = 'Options'
   ClientHeight = 759
@@ -1150,7 +1150,7 @@ inherited frmOption: TfrmOption
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 66
+          Left = 58
           Top = 53
           Width = 149
           Height = 200

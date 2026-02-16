@@ -142,9 +142,6 @@
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>frmFirst</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgStatistics_ru.pas">
-            <Form>FormStatistics</Form>
-        </DCCReference>
         <DCCReference Include="..\source\galaxy\fgStarProj.pas">
             <Form>FormProjection</Form>
             <FormType>dfm</FormType>
@@ -159,6 +156,14 @@
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgCETInet_ru.pas">
             <Form>FormCETInet</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgEquations_ru.pas">
+            <Form>FormEquations</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgStatistics_ru.pas">
+            <Form>FormStatistics</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
