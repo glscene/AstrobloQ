@@ -13,13 +13,18 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.ComCtrls,
+  Vcl.VirtualImage,
 
-  fmFormFirst;
+  dmImages,
+  fmFormFirst, Vcl.ExtCtrls;
 
 type
   TFormParadox = class(TfrmFirst)
     tvThesis: TTreeView;
     StatusBar1: TStatusBar;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    VirtualImageFP: TVirtualImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private

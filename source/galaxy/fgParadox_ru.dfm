@@ -1,17 +1,17 @@
 inherited FormParadox: TFormParadox
   Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080
-  ClientHeight = 779
-  ClientWidth = 1285
+  ClientHeight = 780
+  ClientWidth = 1271
   StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 1301
-  ExplicitHeight = 818
+  ExplicitWidth = 1287
+  ExplicitHeight = 819
   TextHeight = 30
   object tvThesis: TTreeView
     Left = 0
     Top = 0
     Width = 569
-    Height = 749
+    Height = 750
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -233,18 +233,55 @@ inherited FormParadox: TFormParadox
       40043E043804410445043E0434043804420420003D0430043F04400430043204
       3B0435043D043D0430044F0420003F0430043D0441043F04350440043C043804
       4F04}
+    ExplicitHeight = 725
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 749
-    Width = 1285
+    Top = 750
+    Width = 1271
     Height = 30
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
     Margins.Bottom = 5
     Panels = <>
-    ExplicitTop = 724
-    ExplicitWidth = 1277
+    ExplicitTop = 725
+    ExplicitWidth = 1263
+  end
+  object PanelFP: TPanel
+    Left = 569
+    Top = 0
+    Width = 702
+    Height = 750
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alClient
+    Caption = 'PanelFP'
+    ShowCaption = False
+    TabOrder = 2
+    ExplicitLeft = 1330
+    ExplicitTop = 504
+    ExplicitWidth = 324
+    ExplicitHeight = 72
+    object VirtualImageFP: TVirtualImage
+      Left = 1
+      Top = 1
+      Width = 700
+      Height = 748
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alClient
+      ImageWidth = 0
+      ImageHeight = 0
+      ImageIndex = -1
+      ExplicitLeft = 208
+      ExplicitTop = 222
+      ExplicitWidth = 184
+      ExplicitHeight = 184
+    end
   end
 end

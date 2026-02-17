@@ -66,7 +66,7 @@ type
     tvZodiacs: TTreeView;
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
-    Panel1: TPanel;
+    PanelRightTitle: TPanel;
     VirtualImageFigures: TVirtualImage;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);

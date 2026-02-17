@@ -13,13 +13,17 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.ComCtrls,
+  Vcl.VirtualImage,
 
-  fmFormFirst, Vcl.VirtualImage;
+  dmImages,
+  fmFormFirst, Vcl.ExtCtrls;
 
 type
   TFormParadox = class(TfrmFirst)
     tvThesis: TTreeView;
     StatusBar1: TStatusBar;
+    PanelFP: TPanel;
+    VirtualImageFP: TVirtualImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tvThesisClick(Sender: TObject);
@@ -40,7 +44,7 @@ var
 begin
   // Load Paradox items
  /// tvScenariosFP.LoadFromFile(FileName);
-
+///  VirtualImageFP.ImageCollection.UnitName.LowerCase(FileName);
 end;
 
 procedure TFormParadox.FormShow(Sender: TObject);

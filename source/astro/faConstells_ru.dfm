@@ -257,7 +257,7 @@ object FormConstells: TFormConstells
         04350439040000270000004100000041000000FFFFFFFFFFFFFFFF0000000000
         0000000000000000010420044B0431044B04}
     end
-    object Panel1: TPanel
+    object PanelRightTitle: TPanel
       Left = 1
       Top = 1
       Width = 172

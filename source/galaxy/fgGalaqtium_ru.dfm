@@ -172,6 +172,8 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 974
+    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalacube: TGLSceneViewer
@@ -587,7 +589,7 @@ object frmGalaqtium: TfrmGalaqtium
         Left = 0
         Top = 0
         Width = 377
-        Height = 516
+        Height = 491
         Align = alLeft
         Lines.Strings = (
           'MemoTable')

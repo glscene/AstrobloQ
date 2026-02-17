@@ -1,16 +1,18 @@
 inherited FormParadox: TFormParadox
   Caption = 'Paradox'
   ClientHeight = 779
-  ClientWidth = 1157
+  ClientWidth = 1332
   StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 1173
+  ExplicitLeft = 4
+  ExplicitTop = 4
+  ExplicitWidth = 1348
   ExplicitHeight = 818
   TextHeight = 30
   object tvThesis: TTreeView
     Left = 0
     Top = 0
-    Width = 489
+    Width = 553
     Height = 749
     Margins.Left = 5
     Margins.Top = 5
@@ -222,11 +224,12 @@ inherited FormParadox: TFormParadox
       0065006E00730000004F000000410000004100000003000000FFFFFFFF000000
       0000000000000000000001184300360035002E00200044006900720065006300
       7400650064002000500061006E0073007000650072006D0069006100}
+    ExplicitHeight = 724
   end
   object StatusBar1: TStatusBar
     Left = 0
     Top = 749
-    Width = 1157
+    Width = 1332
     Height = 30
     Margins.Left = 5
     Margins.Top = 5
@@ -235,5 +238,53 @@ inherited FormParadox: TFormParadox
     Panels = <>
     ExplicitTop = 724
     ExplicitWidth = 1149
+  end
+  object Panel1: TPanel
+    Left = 1386
+    Top = 644
+    Width = 324
+    Height = 72
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Caption = 'Panel1'
+    TabOrder = 2
+  end
+  object Panel2: TPanel
+    Left = 553
+    Top = 0
+    Width = 779
+    Height = 749
+    Margins.Left = 5
+    Margins.Top = 5
+    Margins.Right = 5
+    Margins.Bottom = 5
+    Align = alClient
+    Caption = 'PanelFP'
+    ShowCaption = False
+    TabOrder = 3
+    ExplicitLeft = 808
+    ExplicitTop = 336
+    ExplicitWidth = 324
+    ExplicitHeight = 72
+    object VirtualImageFP: TVirtualImage
+      Left = 1
+      Top = 1
+      Width = 777
+      Height = 747
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Align = alClient
+      ImageWidth = 0
+      ImageHeight = 0
+      ImageIndex = -1
+      ExplicitLeft = 208
+      ExplicitTop = 222
+      ExplicitWidth = 184
+      ExplicitHeight = 184
+    end
   end
 end
