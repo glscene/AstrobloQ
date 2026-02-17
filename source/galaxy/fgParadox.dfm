@@ -3,13 +3,14 @@ inherited FormParadox: TFormParadox
   ClientHeight = 779
   ClientWidth = 1157
   StyleElements = [seFont, seClient, seBorder]
+  OnShow = FormShow
   ExplicitWidth = 1173
   ExplicitHeight = 818
   TextHeight = 30
-  object tvParadox: TTreeView
+  object tvThesis: TTreeView
     Left = 0
     Top = 0
-    Width = 393
+    Width = 489
     Height = 749
     Margins.Left = 5
     Margins.Top = 5

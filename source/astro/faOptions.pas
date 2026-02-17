@@ -39,8 +39,8 @@ type
     ButtonOK: TButton;
     PanelMiddle: TPanel;
     PageControl: TPageControl;
-    tsInterface: TTabSheet;
-    tsDisplay: TTabSheet;
+    tsMap: TTabSheet;
+    tsScene: TTabSheet;
     tsDatatime: TTabSheet;
     PanelScale: TPanel;
     lblScaleX: TLabel;
@@ -82,9 +82,6 @@ type
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
     CheckBox2: TCheckBox;
-    ComboBoxVclStyles: TComboBox;
-    lbStyle: TLabel;
-    cbSplashStart: TCheckBox;
     grbShowPlanets: TGroupBox;
     chbRotate: TCheckBox;
     chbAxes: TCheckBox;
@@ -119,9 +116,9 @@ type
     nbGravityAccel: TNumberBox;
     NumberBox7: TNumberBox;
     CheckBoxCubemap: TCheckBox;
+    cbSplashStart: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ComboBoxVclStylesChange(Sender: TObject);
     procedure chbConstellationsClick(Sender: TObject);
     procedure chbAxesClick(Sender: TObject);
     procedure chbRotateClick(Sender: TObject);
@@ -161,11 +158,6 @@ begin
   // Read saved settings
   ReadIniFile;
 
-  // Styles for interface
-  for StyleName in TStyleManager.StyleNames do
-    ComboBoxVclStyles.Items.Add(StyleName);
-  ComboBoxVclStyles.ItemIndex := ComboBoxVclStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
-
   // Fill items with indices for TreeView
   for I := 0 to tvOptions.Items.Count - 1 do
   begin
@@ -180,14 +172,6 @@ begin
   tvOptions.Items[1].DropHighlighted := True;
   tvOptions.FullExpand;
   inherited;
-end;
-
-//---------------------------------------------------
-// Styles of Interface
-//---------------------------------------------------
-procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
-begin
-  TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
 //---------------------------------------------------
@@ -290,8 +274,8 @@ begin
   tvOptions.Items[1].DropHighlighted := False;
   case tvOptions.Selected.Index of
      0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsInterface;
-     2: PageControl.ActivePage := tsDisplay;
+     1: PageControl.ActivePage := tsMap;
+     2: PageControl.ActivePage := tsScene;
      3: PageControl.ActivePage := tsDatatime;
      4: PageControl.ActivePage := tsPlanets;
      5: PageControl.ActivePage := tsStars;

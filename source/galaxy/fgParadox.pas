@@ -18,9 +18,10 @@ uses
 
 type
   TFormParadox = class(TfrmFirst)
-    tvParadox: TTreeView;
+    tvThesis: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
   public
   end;
@@ -37,8 +38,18 @@ var
   FileName: TFileName;
 begin
   // Load Paradox items
-  tvParadox.LoadFromFile(FileName);
-  tvParadox.FullExpand();
+///  tvThesis.LoadFromFile(FileName);
+end;
+
+procedure TFormParadox.FormShow(Sender: TObject);
+begin
+  inherited;
+  tvThesis.SetFocus;
+  tvThesis.FullExpand(); // вначале раскрываем все узлы дерева просмотра
+  tvThesis.Select(tvThesis.Items[1]);  // узел по умолчанию
+///  tvtvThesisClick(Self);
+///  miHelpWiki.Caption := tvThesis.Selected.Text; // + ' in ' + 'Wiki...';
+
 end;
 
 end.

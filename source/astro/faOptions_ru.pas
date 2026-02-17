@@ -41,7 +41,7 @@ type
     ButtonOK: TButton;
     PanelMiddle: TPanel;
     PageControl: TPageControl;
-    tsDisplay: TTabSheet;
+    tsScene: TTabSheet;
     tvOptions: TTreeView;
     PanelTop: TPanel;
     ImageList: TImageList;
@@ -86,14 +86,13 @@ type
     chbHidePlanet: TCheckBox;
     gbShowStars: TGroupBox;
     chbSkyGrid: TCheckBox;
-    tsInterface: TTabSheet;
+    tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
-    ComboBoxStyles: TComboBox;
-    lbStyle: TLabel;
     rgUnits: TRadioGroup;
     GroupBox1: TGroupBox;
     CheckBox1: TCheckBox;
     chbHidePanels: TCheckBox;
+    tsMap: TTabSheet;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
@@ -129,11 +128,6 @@ var
 begin
   // Загрузка сохранённых опций интерфейса
   ReadIniFile;
-
-  // Включение стилей интерфейса в комбобокс
-  for StyleName in TStyleManager.StyleNames do
-    ComboBoxStyles.Items.Add(StyleName);
-  ComboBoxStyles.ItemIndex := ComboBoxStyles.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 
   // Заполнение индексов узлов дерева установок
   for I := 0 to tvOptions.Items.Count - 1 do
@@ -274,10 +268,11 @@ begin
   tvOptions.Items[1].DropHighlighted := False;
   case tvOptions.Selected.StateIndex of
      0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsInterface;
-     2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsPlanets;
-     4: PageControl.ActivePage := tsStars;
+     1: PageControl.ActivePage := tsMap;
+     2: PageControl.ActivePage := tsScene;
+     3: PageControl.ActivePage := tsDataTim;
+     4: PageControl.ActivePage := tsPlanets;
+     5: PageControl.ActivePage := tsStars;
   end;
 end;
 

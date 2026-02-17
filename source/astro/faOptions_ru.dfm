@@ -30,7 +30,7 @@ object frmOptions: TfrmOptions
       750
       41)
     object ButtonOK: TButton
-      Left = 394
+      Left = 386
       Top = 1
       Width = 99
       Height = 31
@@ -39,7 +39,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 386
+      ExplicitLeft = 378
     end
   end
   object PanelMiddle: TPanel
@@ -58,14 +58,11 @@ object frmOptions: TfrmOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 568
-      ExplicitHeight = 358
       object tsGeneral: TTabSheet
-        Caption = #1054#1073#1097#1080#1077
+        Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
         TabVisible = False
         object rgUnits: TRadioGroup
@@ -88,45 +85,17 @@ object frmOptions: TfrmOptions
           TabOrder = 0
         end
       end
-      object tsInterface: TTabSheet
-        Caption = #1048#1085#1090#1077#1088#1092#1077#1081#1089
+      object tsDataTim: TTabSheet
+        Caption = #1044#1072#1090#1072' '#1080' '#1074#1088#1077#1084#1103
         ImageIndex = 4
         TabVisible = False
-        object lbStyle: TLabel
-          Left = 75
-          Top = 28
-          Width = 131
-          Height = 21
-          Caption = #1057#1090#1080#1083#1100' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
         object cbSplashStart: TCheckBox
-          Left = 189
-          Top = 304
+          Left = 333
+          Top = 103
           Width = 131
           Height = 18
           Caption = #1047#1072#1089#1090#1072#1074#1082#1072
           TabOrder = 0
-        end
-        object ComboBoxStyles: TComboBox
-          Left = 248
-          Top = 25
-          Width = 193
-          Height = 29
-          Style = csDropDownList
-          DropDownCount = 5
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
         end
         object chbHidePanels: TCheckBox
           Left = 75
@@ -134,12 +103,12 @@ object frmOptions: TfrmOptions
           Width = 174
           Height = 17
           Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
-          TabOrder = 2
+          TabOrder = 1
           OnClick = chbHidePanelsClick
         end
       end
-      object tsDisplay: TTabSheet
-        Caption = #1044#1080#1089#1087#1083#1077#1081
+      object tsScene: TTabSheet
+        Caption = #1057#1094#1077#1085#1072
         ImageIndex = 4
         TabVisible = False
         object GroupBox1: TGroupBox
@@ -167,7 +136,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = -62
+          Left = -70
           Top = 137
           Width = 104
           Height = 128
@@ -544,6 +513,11 @@ object frmOptions: TfrmOptions
           end
         end
       end
+      object tsMap: TTabSheet
+        Caption = 'tsMap'
+        ImageIndex = 5
+        TabVisible = False
+      end
     end
     object tvOptions: TTreeView
       Left = 5
@@ -558,15 +532,18 @@ object frmOptions: TfrmOptions
       TabOrder = 1
       OnClick = tvOptionsClick
       Items.NodeData = {
-        070500000009540054007200650065004E006F00640065002900000000000000
-        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
-        04380435040000310000000000000000000000FFFFFFFFFFFFFFFF0000000000
-        0000000000000000010918043D04420435044004440435043904410400002F00
-        00000000000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001
-        081C043004420435044004380430043B0400002D0000000000000000000000FF
-        FFFFFFFFFFFFFF0000000000000000000000000001071F043B0430043D043504
-        42044B0400002B0000000000000000000000FFFFFFFFFFFFFFFF000000000000
-        000000000000000106170432045104370434044B04}
+        070700000009540054007200650065004E006F00640065002D00000000000000
+        0000000000000000FFFFFFFF00000000000000000000000000010713043B0430
+        0432043D043E043504000029000000000000000000000001000000FFFFFFFF00
+        00000000000000000000000001051A0430044004420430040000290000000000
+        00000000000002000000FFFFFFFF000000000000000000000000000105210446
+        0435043D043004000037000000000000000000000003000000FFFFFFFF000000
+        00000000000000000000010C1404300442043004200038042000320440043504
+        3C044F0400002F000000000000000000000004000000FFFFFFFF000000000000
+        0000000000000001081C043004420435044004380430043B0400002D00000000
+        0000000000000005000000FFFFFFFF0000000000000000000000000001071F04
+        3B0430043D04350442044B0400002B000000000000000000000006000000FFFF
+        FFFF000000000000000000000000000106170432045104370434044B04}
       ExplicitHeight = 358
     end
   end

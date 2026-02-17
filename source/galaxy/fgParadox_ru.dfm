@@ -4,12 +4,10 @@ inherited FormParadox: TFormParadox
   ClientWidth = 1285
   StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1301
   ExplicitHeight = 818
   TextHeight = 30
-  object tvSolutions: TTreeView
+  object tvThesis: TTreeView
     Left = 0
     Top = 0
     Width = 569
@@ -22,7 +20,7 @@ inherited FormParadox: TFormParadox
     AutoExpand = True
     Indent = 33
     TabOrder = 0
-    OnClick = tvSolutionsClick
+    OnClick = tvThesisClick
     Items.NodeData = {
       070300000009540054007200650065004E006F00640065003700000000000000
       0000000001000000FFFFFFFF00000000000000000019000000010C23043D0438
@@ -247,6 +245,6 @@ inherited FormParadox: TFormParadox
     Margins.Bottom = 5
     Panels = <>
     ExplicitTop = 724
-    ExplicitWidth = 1149
+    ExplicitWidth = 1277
   end
 end

@@ -14,15 +14,15 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
 
-  fmFormFirst;
+  fmFormFirst, Vcl.VirtualImage;
 
 type
   TFormParadox = class(TfrmFirst)
-    tvSolutions: TTreeView;
+    tvThesis: TTreeView;
     StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure tvSolutionsClick(Sender: TObject);
+    procedure tvThesisClick(Sender: TObject);
   private
   public
   end;
@@ -41,20 +41,19 @@ begin
   // Load Paradox items
  /// tvScenariosFP.LoadFromFile(FileName);
 
-
 end;
 
 procedure TFormParadox.FormShow(Sender: TObject);
 begin
   inherited;
-  tvSolutions.SetFocus;
-  tvSolutions.FullExpand(); // вначале раскрываем все узлы дерева просмотра
-  tvSolutions.Select(tvSolutions.Items[1]);  // узел по умолчанию
-///  tvSolutionsClick(Self);
-///  miHelpWiki.Caption := tvSolutions.Selected.Text; // + ' in ' + 'RuWiki...';
+  tvThesis.SetFocus;
+  tvThesis.FullExpand(); // вначале раскрываем все узлы дерева просмотра
+  tvThesis.Select(tvThesis.Items[1]);  // узел по умолчанию
+///  tvtvThesisClick(Self);
+///  miHelpWiki.Caption := tvThesis.Selected.Text; // + ' in ' + 'RuWiki...';
 end;
 
-procedure TFormParadox.tvSolutionsClick(Sender: TObject);
+procedure TFormParadox.tvThesisClick(Sender: TObject);
 begin
   inherited;
   ///

@@ -26,7 +26,7 @@ object frmOptions: TfrmOptions
       811
       29)
     object ButtonOK: TButton
-      Left = 416
+      Left = 408
       Top = 3
       Width = 70
       Height = 23
@@ -35,7 +35,7 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 424
+      ExplicitLeft = 400
     end
   end
   object PanelMiddle: TPanel
@@ -54,7 +54,7 @@ object frmOptions: TfrmOptions
       Top = 5
       Width = 643
       Height = 554
-      ActivePage = tsPlanets
+      ActivePage = tsMap
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -135,38 +135,21 @@ object frmOptions: TfrmOptions
           TabOrder = 2
           Value = 2
         end
-      end
-      object tsInterface: TTabSheet
-        Caption = 'Interface'
-        TabVisible = False
-        object lbStyle: TLabel
-          Left = 99
-          Top = 25
-          Width = 88
-          Height = 15
-          Caption = 'Style of interface'
-        end
-        object ComboBoxVclStyles: TComboBox
-          Left = 240
-          Top = 22
-          Width = 117
-          Height = 23
-          Style = csDropDownList
-          DropDownCount = 5
-          TabOrder = 0
-          OnChange = ComboBoxVclStylesChange
-        end
         object cbSplashStart: TCheckBox
-          Left = 158
-          Top = 280
+          Left = 54
+          Top = 472
           Width = 131
           Height = 18
           Caption = 'Start splash'
-          TabOrder = 1
+          TabOrder = 3
         end
       end
-      object tsDisplay: TTabSheet
-        Caption = 'Display'
+      object tsMap: TTabSheet
+        Caption = 'Map'
+        TabVisible = False
+      end
+      object tsScene: TTabSheet
+        Caption = 'Scene'
         ImageIndex = 2
         TabVisible = False
         object CheckBoxCubemap: TCheckBox
@@ -804,16 +787,17 @@ object frmOptions: TfrmOptions
       Items.NodeData = {
         070700000009540054007200650065004E006F00640065002D00000000000000
         00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
-        006500720061006C000000310000000100000001000000FFFFFFFFFFFFFFFF00
-        000000000000000000000000010949006E007400650072006600610063006500
-        00002D0000000200000002000000FFFFFFFFFFFFFFFF02000000000000000000
-        000000010744006900730070006C006100790000002700000003000000030000
-        00FFFFFFFFFFFFFFFF0300000000000000000000000001044400610074006500
-        00002D0000000400000004000000FFFFFFFFFFFFFFFF00000000000000000000
-        000000010750006C0061006E0065007400730000002900000005000000050000
-        00FFFFFFFFFFFFFFFF0000000000000000000000000001055300740061007200
-        730000002B0000000600000006000000FFFFFFFFFFFFFFFF0000000000000000
-        00000000000106470061006C00610078007900}
+        006500720061006C000000250000000100000001000000FFFFFFFFFFFFFFFF00
+        00000000000000000000000001034D0061007000000029000000020000000200
+        0000FFFFFFFFFFFFFFFF0200000000000000000000000001055300630065006E
+        0065000000330000000300000003000000FFFFFFFFFFFFFFFF03000000000000
+        000000000000010A44006100740065002C002000740069006D00650000002D00
+        00000400000004000000FFFFFFFFFFFFFFFF0000000000000000000000000001
+        0750006C0061006E006500740073000000290000000500000005000000FFFFFF
+        FFFFFFFFFF000000000000000000000000000105530074006100720073000000
+        2B0000000600000006000000FFFFFFFFFFFFFFFF000000000000000000000000
+        000106470061006C00610078007900}
+      ExplicitHeight = 529
     end
   end
   object PanelTop: TPanel

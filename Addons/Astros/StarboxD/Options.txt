@@ -1,0 +1,11 @@
+
+dcEarth\Camera
+  DepthOfView 20000
+  FocalLength 100
+  TargetObject dcEarth
+dcEarth\CameraController
+  DepthOfView 100
+  FocalLength 50
+  TargetObject dcEarth
+
+TexCombiner: TGLTexCombineShader
