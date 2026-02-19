@@ -65,17 +65,20 @@ inherited frmSettings: TfrmSettings
       TabOrder = 0
       OnClick = tvSettingsClick
       Items.NodeData = {
-        070600000009540054007200650065004E006F00640065002900000000000000
+        070800000009540054007200650065004E006F00640065002900000000000000
         00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
         04380435040000310000000000000000000000FFFFFFFFFFFFFFFF0100000000
         0000000000000000010918043D04420435044004440435043904410400002D00
         00000000000000000000FFFFFFFFFFFFFFFF0200000000000000000000000001
         071404380441043F043B043504390400002F0000000000000000000000FFFFFF
         FFFFFFFFFF0300000000000000000000000001081C0430044204350440043804
-        30043B0400002B0000000000000000000000FFFFFFFFFFFFFFFF050000000000
-        000000000000000106170432045104370434044B040000330000000000000000
-        000000FFFFFFFFFFFFFFFF07000000000000000000000000010A220440043004
-        35043A0442043E04400438044F04}
+        30043B040000310000000000000000000000FFFFFFFFFFFFFFFF000000000000
+        000000000000000109130430043B0430043A04420438043A04300400002B0000
+        000000000000000000FFFFFFFFFFFFFFFF050000000000000000000000000106
+        170432045104370434044B0400002D0000000000000000000000FFFFFFFFFFFF
+        FFFF0000000000000000000000000001071F043B0430043D04350442044B0400
+        00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
+        000001041F04430442044C04}
       ExplicitHeight = 660
     end
     object PageControl: TPageControl
@@ -87,7 +90,7 @@ inherited frmSettings: TfrmSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGeneral
+      ActivePage = tsGalaxy
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -97,14 +100,12 @@ inherited frmSettings: TfrmSettings
       ParentFont = False
       Style = tsButtons
       TabOrder = 1
-      ExplicitWidth = 1085
-      ExplicitHeight = 660
       object tsGeneral: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'General'
+        Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 5
         TabVisible = False
         object LabelPrecision: TLabel
@@ -180,7 +181,7 @@ inherited frmSettings: TfrmSettings
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Interface'
+        Caption = #1048#1085#1090#1077#1088#1092#1077#1081#1089
         TabVisible = False
         object Label2: TLabel
           Left = 271
@@ -253,7 +254,7 @@ inherited frmSettings: TfrmSettings
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Display'
+        Caption = #1044#1080#1089#1087#1083#1077#1081
         ImageIndex = 2
         TabVisible = False
       end
@@ -262,7 +263,7 @@ inherited frmSettings: TfrmSettings
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Material'
+        Caption = #1052#1072#1090#1077#1088#1080#1072#1083
         ImageIndex = 4
         TabVisible = False
         object ListView: TListView
@@ -312,7 +313,7 @@ inherited frmSettings: TfrmSettings
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Stars'
+        Caption = #1047#1074#1105#1079#1076#1099
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
@@ -358,7 +359,6 @@ inherited frmSettings: TfrmSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 1
-          ExplicitLeft = 538
         end
         object GroupBox2: TGroupBox
           Left = 56
@@ -416,7 +416,7 @@ inherited frmSettings: TfrmSettings
         Margins.Top = 5
         Margins.Right = 5
         Margins.Bottom = 5
-        Caption = 'Pathway'
+        Caption = #1055#1091#1090#1100
         ImageIndex = 8
         TabVisible = False
         object PanelTitle: TPanel
@@ -621,6 +621,438 @@ inherited frmSettings: TfrmSettings
               TabOrder = 2
             end
           end
+        end
+      end
+      object tsPlanets: TTabSheet
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = #1055#1083#1072#1085#1077#1090#1099
+        ImageIndex = 6
+        TabVisible = False
+      end
+      object tsGalaxy: TTabSheet
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072
+        ImageIndex = 7
+        TabVisible = False
+        object LabelDs: TLabel
+          Left = 658
+          Top = 135
+          Width = 269
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1079#1074#1105#1079#1076#1072#1084#1080', ly'
+        end
+        object LabelVg: TLabel
+          Left = 658
+          Top = 34
+          Width = 105
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1054#1073#1098#1105#1084', ly^3'
+        end
+        object LabelHg: TLabel
+          Left = 42
+          Top = 98
+          Width = 116
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1042#1099#1089#1086#1090#1072' '#1076#1080#1089#1082#1072
+        end
+        object LabelLt: TLabel
+          Left = 42
+          Top = 231
+          Width = 184
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1090#1077#1093#1085#1086#1085#1077#1090
+        end
+        object LabelLs: TLabel
+          Left = 42
+          Top = 183
+          Width = 152
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1079#1074#1105#1079#1076
+        end
+        object LabelNs: TLabel
+          Left = 42
+          Top = 138
+          Width = 105
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076
+        end
+        object LabelRg: TLabel
+          Left = 42
+          Top = 44
+          Width = 65
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1056#1072#1076#1080#1091#1089' '
+        end
+        object EditNs: TEdit
+          Left = 385
+          Top = 127
+          Width = 153
+          Height = 38
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+          Text = '400000000000'
+        end
+        object EditLr: TEdit
+          Left = 749
+          Top = 224
+          Width = 246
+          Height = 39
+          Hint = #1050#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090' '#1076#1086#1083#1075#1086#1083#1077#1090#1080#1103
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          Color = clMoneyGreen
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -23
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 1
+          Text = '1'
+        end
+        object StaticTextLr: TStaticText
+          Left = 658
+          Top = 237
+          Width = 22
+          Height = 29
+          Hint = #1050#1086#1101#1092#1092#1080#1094#1080#1077#1085#1090' '#1076#1086#1083#1075#1086#1083#1077#1090#1080#1103
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Lr'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -19
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+        end
+        object StaticTextDs: TStaticText
+          Left = 658
+          Top = 179
+          Width = 26
+          Height = 29
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Ds'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -19
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 3
+        end
+        object EditDs: TEdit
+          Left = 749
+          Top = 170
+          Width = 246
+          Height = 39
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          Color = clMoneyGreen
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -23
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 4
+          Text = '1'
+        end
+        object EditVg: TEdit
+          Left = 749
+          Top = 74
+          Width = 246
+          Height = 39
+          Hint = 'Number os noospheres'
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          Color = clMoneyGreen
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -23
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 5
+          Text = '1'
+        end
+        object StaticTextVg: TStaticText
+          Left = 658
+          Top = 74
+          Width = 30
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Vg'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 6
+        end
+        object StaticTextHg: TStaticText
+          Left = 327
+          Top = 92
+          Width = 32
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Hg'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 7
+        end
+        object nbHg: TNumberBox
+          Left = 385
+          Top = 80
+          Width = 150
+          Height = 33
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taRightJustify
+          Decimal = 0
+          Mode = nbmInt64
+          MinValue = 1.000000000000000000
+          MaxValue = 1000000.000000000000000000
+          TabOrder = 8
+          Value = 1000.000000000000000000
+          SpinButtonOptions.ButtonWidth = 30
+          NegativeValueColor = clRed
+        end
+        object StaticTextLs: TStaticText
+          Left = 327
+          Top = 180
+          Width = 24
+          Height = 34
+          Hint = 'Longevity of stars'
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Ls'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 9
+        end
+        object EditLs: TEdit
+          Left = 385
+          Top = 176
+          Width = 150
+          Height = 38
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taRightJustify
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 10
+          Text = '10000000000'
+          TextHint = 'Mean lifitime for planet'
+        end
+        object EditLt: TEdit
+          Left = 385
+          Top = 224
+          Width = 153
+          Height = 38
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taRightJustify
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 11
+          Text = '10000'
+          TextHint = 'Avarage life time for civilisation'
+        end
+        object StaticTextLt: TStaticText
+          Left = 327
+          Top = 232
+          Width = 23
+          Height = 34
+          Hint = 'Longevity of technospheres'
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Lt'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 12
+        end
+        object StaticTextNs: TStaticText
+          Left = 327
+          Top = 136
+          Width = 30
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Ns'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 13
+        end
+        object StaticTextRg: TStaticText
+          Left = 327
+          Top = 40
+          Width = 29
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Rg'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 14
+        end
+        object nbRg: TNumberBox
+          Left = 385
+          Top = 32
+          Width = 150
+          Height = 33
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taRightJustify
+          Decimal = 0
+          Mode = nbmInt64
+          MinValue = 1.000000000000000000
+          MaxValue = 1000000.000000000000000000
+          TabOrder = 15
+          Value = 50000.000000000000000000
+          SpinButtonOptions.ButtonWidth = 30
+          NegativeValueColor = clRed
+        end
+        object ButtonCalculate: TButton
+          Left = 427
+          Top = 615
+          Width = 164
+          Height = 43
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1042#1099#1095#1080#1089#1083#1077#1085#1080#1077
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -23
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 16
+          OnClick = ButtonCalculateClick
         end
       end
     end

@@ -4,8 +4,6 @@ inherited FormParadox: TFormParadox
   ClientWidth = 1332
   StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1348
   ExplicitHeight = 818
   TextHeight = 30
@@ -224,7 +222,6 @@ inherited FormParadox: TFormParadox
       0065006E00730000004F000000410000004100000003000000FFFFFFFF000000
       0000000000000000000001184300360035002E00200044006900720065006300
       7400650064002000500061006E0073007000650072006D0069006100}
-    ExplicitHeight = 724
   end
   object StatusBar1: TStatusBar
     Left = 0

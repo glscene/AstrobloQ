@@ -56,7 +56,6 @@ type
     ButtonModifyMat: TButton;
     tsGalaxy: TTabSheet;
     nbRg: TNumberBox;
-    grbDrakeFormula: TGroupBox;
     tsStars: TTabSheet;
     ColorGrid1: TColorGrid;
     chlbStarClasses: TCheckListBox;
@@ -93,46 +92,21 @@ type
     StaticTextRg: TStaticText;
     LabelNs: TLabel;
     StaticTextNs: TStaticText;
-    lbNs: TLabel;
-    lbNt: TLabel;
-    nbFn: TNumberBox;
-    nbFb: TNumberBox;
-    nbNl: TNumberBox;
-    EditNt: TEdit;
-    stMult1: TStaticText;
-    stMult2: TStaticText;
-    stMult3: TStaticText;
-    stMult4: TStaticText;
-    stEqual: TStaticText;
-    lbFl: TLabel;
-    lbFb: TLabel;
     StaticTextLt: TStaticText;
     EditLt: TEdit;
     EditLs: TEdit;
     StaticTextLs: TStaticText;
-    lbFn: TLabel;
     LabelLs: TLabel;
     LabelLt: TLabel;
-    nbFt: TNumberBox;
-    lbFt: TLabel;
     nbHg: TNumberBox;
     StaticTextHg: TStaticText;
     LabelHg: TLabel;
-    LabelDt: TLabel;
-    EditDt: TEdit;
     LabelVg: TLabel;
     StaticTextVg: TStaticText;
     EditVg: TEdit;
-    nbFp: TNumberBox;
-    lbFp: TLabel;
-    stMult5: TStaticText;
     EditNs: TEdit;
-    nbNs: TNumberBox;
     EditDs: TEdit;
     LabelDs: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    ButtonCalculate: TButton;
     ComboBoxVclStyles: TComboBox;
     Label2: TLabel;
     grbPlanetShow: TGroupBox;
@@ -168,6 +142,10 @@ type
     NumberBox7: TNumberBox;
     ImageList: TImageList;
     CheckBoxRotate: TCheckBox;
+    ButtonCalculate: TButton;
+    StaticTextDs: TStaticText;
+    StaticTextLr: TStaticText;
+    EditLr: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -233,23 +211,6 @@ begin
 end;
 
 //--------------------------------------------------------------------
-procedure TfrmSettings.tvSettingsClick(Sender: TObject);
-begin
-  inherited;
-  tvSettings.Items[1].DropHighlighted := False;
-  case tvSettings.Selected.StateIndex of
-     0: PageControl.ActivePage := tsGeneral;
-     1: PageControl.ActivePage := tsInterface;
-     2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsMaterial;
-     4: PageControl.ActivePage := tsGalaxy;
-     5: PageControl.ActivePage := tsStars;
-     6: PageControl.ActivePage := tsPlanets;
-     7: PageControl.ActivePage := tsPathway;
-  end;
-end;
-
-//--------------------------------------------------------------------
 procedure TfrmSettings.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
@@ -267,42 +228,27 @@ end;
 //-----------------------------------------------------
 procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
 var
-  Ns, Nt, Nl : Extended;
-  Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
-  Ds, // Distance between stars
-  Dt: Extended; // Distance between technospheres
-  Lc, Ls: LONG64;
+  Ns: Uint64;
+  Vg, Ratio : Extended;
+  Ds: Extended; // Distance between stars
+  Ls, Lt: LONG64;
 begin
-  Ns := nbNs.Value;
-  EditNs.Text := FloatToStr(Ns);
-  Fp := nbFp.Value;
-  Nl := nbNl.Value;
-  Fb := nbFb.Value;
-  Fn := nbFn.Value;
-  Ft := nbFt.Value;
-(*
-  Lc := StrToInt64(EditLc.Text);
-  Ls := StrToInt64(EditLs.Text);
-  Ratio := Lc/Ls;
-*)
-  // Number of technospheres
-  Nt := Round(Ns*Fp*Nl*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
-  EditNt.Text := FloatToStr(Nt);
-
+  Ns := StrToUInt64(EditNs.Text);
   // Calculating volume of galaxy cylinder
   Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
-  EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
+  EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 0);
   // Average distance betweem galaxy stars
   Ratio := Vg/Ns;
   Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
   // Distance betweem stars
   EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
 
-  // Average distance betweem galaxy technospheres
-  Ratio := Vg/Nt;
-  Dt := Power(Ratio, 1/3);
-  // Distance betweem technospheres
-  EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
+  Ls := StrToInt64(EditLs.Text); // Longevity of stars
+  Lt := StrToInt64(EditLt.Text); // Longevity of technets
+  Ratio := Lt/Ls;
+  // Ratio of longevities
+  EditLr.Text := FloatToStrF(Ratio, ffFixed, 25, 10);
+
 end;
 
 procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
@@ -345,6 +291,23 @@ begin
     IniFile.Free;
   end;
   inherited;
+end;
+
+//--------------------------------------------------------------------
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
+begin
+  inherited;
+  tvSettings.Items[1].DropHighlighted := False;
+  case tvSettings.Selected.StateIndex of
+     0: PageControl.ActivePage := tsGeneral;
+     1: PageControl.ActivePage := tsInterface;
+     2: PageControl.ActivePage := tsDisplay;
+     3: PageControl.ActivePage := tsMaterial;
+     4: PageControl.ActivePage := tsGalaxy;
+     5: PageControl.ActivePage := tsStars;
+     6: PageControl.ActivePage := tsPlanets;
+     7: PageControl.ActivePage := tsPathway;
+  end;
 end;
 
 // -----------------------------------------------------------------------

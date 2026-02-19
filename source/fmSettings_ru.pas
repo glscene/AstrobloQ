@@ -84,11 +84,38 @@ type
     rgUnits: TRadioGroup;
     SpinEditPrecision: TSpinEdit;
     LabelPrecision: TLabel;
+    tsPlanets: TTabSheet;
+    tsGalaxy: TTabSheet;
+    EditNs: TEdit;
+    EditLr: TEdit;
+    StaticTextLr: TStaticText;
+    StaticTextDs: TStaticText;
+    EditDs: TEdit;
+    EditVg: TEdit;
+    StaticTextVg: TStaticText;
+    StaticTextHg: TStaticText;
+    nbHg: TNumberBox;
+    StaticTextLs: TStaticText;
+    EditLs: TEdit;
+    EditLt: TEdit;
+    StaticTextLt: TStaticText;
+    StaticTextNs: TStaticText;
+    StaticTextRg: TStaticText;
+    nbRg: TNumberBox;
+    LabelDs: TLabel;
+    LabelVg: TLabel;
+    LabelHg: TLabel;
+    LabelLt: TLabel;
+    LabelLs: TLabel;
+    LabelNs: TLabel;
+    LabelRg: TLabel;
+    ButtonCalculate: TButton;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure ComboBoxVclStylesChange(Sender: TObject);
+    procedure ButtonCalculateClick(Sender: TObject);
   private
   public
     CurLangID : Word;
@@ -142,20 +169,6 @@ begin
 
   trbVelocityChange(Self);
   inherited;
-end;
-
-//--------------------------------------------------------------------
-procedure TfrmSettings.tvSettingsClick(Sender: TObject);
-begin
-  inherited;
-  tvSettings.Items[1].DropHighlighted := False;
-  case tvSettings.Selected.StateIndex of
-     1: PageControl.ActivePage := tsInterface;
-     2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsMaterial;
-     4: PageControl.ActivePage := tsStars;
-     5: PageControl.ActivePage := tsPathway;
-  end;
 end;
 
 //--------------------------------------------------------------------
@@ -216,7 +229,49 @@ begin
   inherited;
 end;
 
+//--------------------------------------------------------------------
+procedure TfrmSettings.tvSettingsClick(Sender: TObject);
+begin
+  inherited;
+  tvSettings.Items[1].DropHighlighted := False;
+  case tvSettings.Selected.StateIndex of
+     0: PageControl.ActivePage := tsGeneral;
+     1: PageControl.ActivePage := tsInterface;
+     2: PageControl.ActivePage := tsDisplay;
+     3: PageControl.ActivePage := tsMaterial;
+     4: PageControl.ActivePage := tsGalaxy;
+     5: PageControl.ActivePage := tsStars;
+     6: PageControl.ActivePage := tsPlanets;
+     7: PageControl.ActivePage := tsPathway;
+  end;
+end;
+
 // -----------------------------------------------------------------------
+procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
+var
+  Ns: Uint64;
+  Vg, Ratio : Extended;
+  Ds: Extended; // Distance between stars
+  Ls, Lt: LONG64;
+begin
+  Ns := StrToUInt64(EditNs.Text);
+  // Calculating volume of galaxy cylinder
+  Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
+  EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 0);
+  // Average distance betweem galaxy stars
+  Ratio := Vg/Ns;
+  Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
+  // Distance betweem stars
+  EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
+
+  Ls := StrToInt64(EditLs.Text); // Longevity of stars
+  Lt := StrToInt64(EditLt.Text); // Longevity of technets
+  Ratio := Lt/Ls;
+  // Ratio of longevities
+  EditLr.Text := FloatToStrF(Ratio, ffFixed, 25, 10);
+
+end;
+
 procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
