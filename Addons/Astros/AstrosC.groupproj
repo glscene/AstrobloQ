@@ -3,6 +3,9 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="StarboxC\SolarBlock_ru.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="StarboxC\StarsysCx.cbproj">
             <Dependencies/>
         </Projects>
@@ -32,6 +35,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="SolarBlock_ru">
+        <MSBuild Projects="StarboxC\SolarBlock_ru.cbproj"/>
+    </Target>
+    <Target Name="SolarBlock_ru:Clean">
+        <MSBuild Projects="StarboxC\SolarBlock_ru.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SolarBlock_ru:Make">
+        <MSBuild Projects="StarboxC\SolarBlock_ru.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="StarsysCx">
         <MSBuild Projects="StarboxC\StarsysCx.cbproj"/>
     </Target>
@@ -96,13 +108,13 @@
         <MSBuild Projects="StarboxC\HygSQLiteС.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="StarsysCx;StarboxС_ru;StarCubeС_ru;StarlifeС;HygViewerC_ru;HygViewerC;HygSQLiteС"/>
+        <CallTarget Targets="SolarBlock_ru;StarsysCx;StarboxС_ru;StarCubeС_ru;StarlifeС;HygViewerC_ru;HygViewerC;HygSQLiteС"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="StarsysCx:Clean;StarboxС_ru:Clean;StarCubeС_ru:Clean;StarlifeС:Clean;HygViewerC_ru:Clean;HygViewerC:Clean;HygSQLiteС:Clean"/>
+        <CallTarget Targets="SolarBlock_ru:Clean;StarsysCx:Clean;StarboxС_ru:Clean;StarCubeС_ru:Clean;StarlifeС:Clean;HygViewerC_ru:Clean;HygViewerC:Clean;HygSQLiteС:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="StarsysCx:Make;StarboxС_ru:Make;StarCubeС_ru:Make;StarlifeС:Make;HygViewerC_ru:Make;HygViewerC:Make;HygSQLiteС:Make"/>
+        <CallTarget Targets="SolarBlock_ru:Make;StarsysCx:Make;StarboxС_ru:Make;StarCubeС_ru:Make;StarlifeС:Make;HygViewerC_ru:Make;HygViewerC:Make;HygSQLiteС:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
