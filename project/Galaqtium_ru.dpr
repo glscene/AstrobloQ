@@ -33,6 +33,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+//  TStyleManager.TrySetStyle('Windows10 Dark');
   Application.CreateForm(TfrmGalaqtium, frmGalaqtium);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
