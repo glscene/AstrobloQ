@@ -100,6 +100,8 @@ inherited frmSettings: TfrmSettings
       ParentFont = False
       Style = tsButtons
       TabOrder = 1
+      ExplicitWidth = 1085
+      ExplicitHeight = 660
       object tsGeneral: TTabSheet
         Margins.Left = 5
         Margins.Top = 5
@@ -319,20 +321,9 @@ inherited frmSettings: TfrmSettings
         DesignSize = (
           1085
           675)
-        object ColorGrid1: TColorGrid
-          Left = 784
-          Top = 53
-          Width = 172
-          Height = 172
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          TabOrder = 0
-        end
         object chlbStarClasses: TCheckListBox
-          Left = 546
-          Top = 53
+          Left = 890
+          Top = 42
           Width = 149
           Height = 200
           Margins.Left = 5
@@ -358,7 +349,7 @@ inherited frmSettings: TfrmSettings
           ParentFont = False
           ParentShowHint = False
           ShowHint = False
-          TabOrder = 1
+          TabOrder = 0
         end
         object GroupBox2: TGroupBox
           Left = 56
@@ -370,7 +361,7 @@ inherited frmSettings: TfrmSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
-          TabOrder = 2
+          TabOrder = 1
           object chbConstFigures: TCheckBox
             Left = 45
             Top = 120
@@ -409,6 +400,56 @@ inherited frmSettings: TfrmSettings
             Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
           end
+        end
+        object stStarDensity: TStaticText
+          Left = 56
+          Top = 342
+          Width = 175
+          Height = 29
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076' '#1074' '#1055#1082'^3'
+          TabOrder = 2
+        end
+        object EditStarDensityPC: TEdit
+          Left = 277
+          Top = 338
+          Width = 156
+          Height = 33
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          TabOrder = 3
+          Text = '0.12'
+        end
+        object StaticText1: TStaticText
+          Left = 56
+          Top = 398
+          Width = 184
+          Height = 29
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076' '#1074' '#1082#1055#1089'^3'
+          TabOrder = 4
+        end
+        object EditStarDensityKPC: TEdit
+          Left = 277
+          Top = 394
+          Width = 156
+          Height = 33
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taCenter
+          TabOrder = 5
+          Text = '120000000'
         end
       end
       object tsPathway: TTabSheet
@@ -633,6 +674,7 @@ inherited frmSettings: TfrmSettings
         TabVisible = False
       end
       object tsGalaxy: TTabSheet
+        Hint = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1079#1074#1105#1079#1076#1072#1084#1080
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -665,35 +707,35 @@ inherited frmSettings: TfrmSettings
         object LabelHg: TLabel
           Left = 42
           Top = 98
-          Width = 116
+          Width = 133
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1042#1099#1089#1086#1090#1072' '#1076#1080#1089#1082#1072
+          Caption = #1058#1086#1083#1097#1080#1085#1072' '#1076#1080#1089#1082#1072
         end
         object LabelLt: TLabel
           Left = 42
-          Top = 231
-          Width = 184
+          Top = 287
+          Width = 198
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1090#1077#1093#1085#1086#1085#1077#1090
+          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1090#1077#1093#1085#1086#1089#1092#1077#1088
         end
         object LabelLs: TLabel
           Left = 42
-          Top = 183
-          Width = 152
+          Top = 243
+          Width = 232
           Height = 25
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = #1044#1086#1083#1075#1086#1083#1077#1090#1080#1077' '#1079#1074#1105#1079#1076
+          Caption = #1057#1088#1077#1076#1085#1080#1081' '#1089#1088#1086#1082' '#1078#1080#1079#1085#1080' '#1079#1074#1105#1079#1076
         end
         object LabelNs: TLabel
           Left = 42
@@ -716,6 +758,17 @@ inherited frmSettings: TfrmSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1056#1072#1076#1080#1091#1089' '
+        end
+        object Label1: TLabel
+          Left = 42
+          Top = 191
+          Width = 198
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = #1044#1086#1083#1103' '#1086#1076#1080#1085#1086#1095#1085#1099#1093' '#1079#1074#1105#1079#1076
         end
         object EditNs: TEdit
           Left = 385
@@ -787,6 +840,7 @@ inherited frmSettings: TfrmSettings
           Top = 179
           Width = 26
           Height = 29
+          Hint = #1056#1072#1089#1089#1090#1086#1103#1085#1080#1077' '#1084#1077#1078#1076#1091' '#1079#1074#1105#1079#1076#1072#1084#1080
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -899,8 +953,8 @@ inherited frmSettings: TfrmSettings
           NegativeValueColor = clRed
         end
         object StaticTextLs: TStaticText
-          Left = 327
-          Top = 180
+          Left = 332
+          Top = 234
           Width = 24
           Height = 34
           Hint = 'Longevity of stars'
@@ -921,7 +975,7 @@ inherited frmSettings: TfrmSettings
         end
         object EditLs: TEdit
           Left = 385
-          Top = 176
+          Top = 226
           Width = 150
           Height = 38
           Margins.Left = 5
@@ -941,7 +995,7 @@ inherited frmSettings: TfrmSettings
         end
         object EditLt: TEdit
           Left = 385
-          Top = 224
+          Top = 274
           Width = 153
           Height = 38
           Margins.Left = 5
@@ -960,8 +1014,8 @@ inherited frmSettings: TfrmSettings
           TextHint = 'Avarage life time for civilisation'
         end
         object StaticTextLt: TStaticText
-          Left = 327
-          Top = 232
+          Left = 328
+          Top = 278
           Width = 23
           Height = 34
           Hint = 'Longevity of technospheres'
@@ -1053,6 +1107,37 @@ inherited frmSettings: TfrmSettings
           ParentFont = False
           TabOrder = 16
           OnClick = ButtonCalculateClick
+        end
+        object EditKs: TEdit
+          Left = 385
+          Top = 183
+          Width = 153
+          Height = 33
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taRightJustify
+          TabOrder = 17
+          Text = '0.5'
+        end
+        object StaticText2: TStaticText
+          Left = 326
+          Top = 190
+          Width = 27
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Ks'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 18
         end
       end
     end

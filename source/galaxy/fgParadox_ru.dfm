@@ -233,6 +233,7 @@ inherited FormParadox: TFormParadox
       40043E043804410445043E0434043804420420003D0430043F04400430043204
       3B0435043D043D0430044F0420003F0430043D0441043F04350440043C043804
       4F04}
+    ExplicitHeight = 725
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -260,10 +261,8 @@ inherited FormParadox: TFormParadox
     Caption = 'PanelFP'
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 1330
-    ExplicitTop = 504
-    ExplicitWidth = 324
-    ExplicitHeight = 72
+    ExplicitWidth = 694
+    ExplicitHeight = 725
     object VirtualImageFP: TVirtualImage
       Left = 1
       Top = 1

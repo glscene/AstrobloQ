@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit fgGalaqtium_ru;
 
 interface
@@ -237,17 +240,14 @@ type
     DataDir, StarDir, CurrentStar: TFileName;
     mx, my, dmx, dmy: Integer;
     sl, tl: TStringList;
-
     x, y, z, g: Single; // Current coordinates of a star
     spect: string; // Spectral class of stars
     Color: TVector3f;
     StarColor: TGLColorVector;
-
     NStars: Integer;
     NSpectralClass: Byte;
     RealColor: TColor;
     RealGLColor: TGLColor;
-
   end;
 
 const
@@ -569,6 +569,7 @@ begin
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
 begin
   with TFormMonitor.Create(Self) do
@@ -585,7 +586,6 @@ begin
       Free;
     end;
 *)
-
 end;
 
 //----------------------------------------------------------------------------

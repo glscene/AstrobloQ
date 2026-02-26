@@ -795,6 +795,17 @@ object FormStellarSys: TFormStellarSys
   object MainMenu: TMainMenu
     Left = 278
     Top = 104
+    object N2: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object miOpen: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100
+        OnClick = miOpenClick
+      end
+      object miExit: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = miExitClick
+      end
+    end
     object Window1: TMenuItem
       Caption = #1042#1080#1076
       object miInnerCore: TMenuItem

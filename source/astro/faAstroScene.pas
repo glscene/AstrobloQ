@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit faAstroScene;
 
 interface
@@ -73,7 +76,6 @@ uses
   faCoordinates,
   faPointto
   ;
-
 
 type
   TfrmAstroScene = class(TfrmFirst)
@@ -624,7 +626,9 @@ begin
   line.Free;
 end;
 
-//----------------------- Loading constellation borders -----------------------
+//----------------------------------------------------------------------------
+//----------------------- Loading constellation borders ----------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.LoadConstBorders(const aDataPath: TFileName);
 var
   sl,                        // all string lines in A file
@@ -652,7 +656,7 @@ begin
  // ConstLines.Nodes.Clear;
 end;
 
-//------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.LoadStarBayers(const aDataPath: TFileName);
 begin
   //
@@ -726,7 +730,7 @@ begin
 //  tvMoons.Items.Clear;
 end;
 
-//------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -734,7 +738,7 @@ begin
   my := y;
 end;
 
-//-----------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -763,7 +767,6 @@ begin
   PlanetName := CurrentStar + TToolButton(Sender).ImageName;
   ffPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
 end;
-
 
 //----------------------  FormMouseWheel  ------------------------------------
 procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
@@ -923,12 +926,13 @@ begin
 end;
 
 
-//---------------------- Tools Options ----------------------------------------
+//----------------------------------------------------------------------------
+//---------------------- Tools Options ---------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
-
 
 //------------------- Tools - the generator of star systems ------------------
 procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
@@ -957,8 +961,6 @@ begin
   Timer.Enabled := True;
   GLCadencer.Enabled := True;
 end;
-
-
 
 //------------------  Help from wiki ------------------------------------------
 procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
@@ -1020,7 +1022,7 @@ begin
 end;
 
 
-//------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmAstroScene.miFileExitClick(Sender: TObject);
 begin
   Close;

@@ -13,10 +13,11 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.ComCtrls,
+  Vcl.ExtCtrls,
   Vcl.VirtualImage,
 
   dmImages,
-  fmFormFirst, Vcl.ExtCtrls;
+  fmFormFirst;
 
 type
   TFormParadox = class(TfrmFirst)
@@ -38,6 +39,7 @@ implementation //==============================================================
 
 {$R *.dfm}
 
+//-----------------------------------------------------------------------------
 procedure TFormParadox.FormCreate(Sender: TObject);
 var
   FileName: TFileName;
@@ -47,6 +49,7 @@ begin
 ///  VirtualImageFP.ImageCollection.UnitName.LowerCase(FileName);
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormParadox.FormShow(Sender: TObject);
 begin
   inherited;
@@ -57,6 +60,7 @@ begin
 ///  miHelpWiki.Caption := tvThesis.Selected.Text; // + ' in ' + 'RuWiki...';
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormParadox.tvThesisClick(Sender: TObject);
 begin
   inherited;

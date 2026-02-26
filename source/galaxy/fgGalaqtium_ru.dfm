@@ -32,6 +32,8 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 560
+    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -40,6 +42,7 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -195,6 +198,8 @@ object frmGalaqtium: TfrmGalaqtium
         Height = 516
         Align = alRight
         TabOrder = 1
+        ExplicitLeft = 754
+        ExplicitHeight = 491
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -589,7 +594,7 @@ object frmGalaqtium: TfrmGalaqtium
         Left = 0
         Top = 0
         Width = 377
-        Height = 491
+        Height = 516
         Align = alLeft
         Lines.Strings = (
           'MemoTable')

@@ -271,8 +271,9 @@ begin
   inherited;   // inheritance for translation
 end;
 
+//----------------------------------------------------------------------------
 // FormShow
-//
+//----------------------------------------------------------------------------
 procedure TFormStellarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
@@ -281,8 +282,9 @@ begin
   UpdateBBox; // ?
 end;
 
+//----------------------------------------------------------------------------
 // Hide Panels
-//
+//----------------------------------------------------------------------------
 procedure TFormStellarSys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;

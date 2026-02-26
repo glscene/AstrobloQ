@@ -149,6 +149,9 @@ type
     StatusBarSol: TStatusBar;
     JupiterRing: TGLDisk;
     FrameParamsR: TFrameParamsR;
+    N2: TMenuItem;
+    miOpen: TMenuItem;
+    miExit: TMenuItem;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -160,11 +163,11 @@ type
     procedure cbOrbitClick(Sender: TObject);
     procedure cbRotationClick(Sender: TObject);
     procedure cbHabitableZoneClick(Sender: TObject);
-    procedure Open1Click(Sender: TObject);
+    procedure miOpenClick(Sender: TObject);
     procedure TreeViewClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
-    procedure Exit1Click(Sender: TObject);
+    procedure miExitClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
   public
@@ -191,6 +194,7 @@ implementation //==============================================================
 
 {$R *.dfm}
 
+//----------------------------------------------------------------------------
 procedure TFormStellarSys.FormCreate;
 begin
   PathToData := GetDataPath();
@@ -260,8 +264,9 @@ begin
   inherited;   // inheritance for translation
 end;
 
+//----------------------------------------------------------------------------
 // FormShow
-//
+//----------------------------------------------------------------------------
 procedure TFormStellarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
@@ -270,7 +275,9 @@ begin
   UpdateBBox; // ?
 end;
 
-// ------------------- Скрыть или показать панели -----------------------------
+//----------------------------------------------------------------------------
+// ------------------- Скрыть или показать панели ----------------------------
+//----------------------------------------------------------------------------
 procedure TFormStellarSys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
@@ -282,6 +289,7 @@ begin
     miHidePanels.Caption := 'Показать панели';
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormStellarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
@@ -289,10 +297,10 @@ begin
   SceneViewer.Invalidate;
 end;
 
-//
+//----------------------------------------------------------------------------
 // Open File dialog
-//
-procedure TFormStellarSys.Open1Click(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormStellarSys.miOpenClick(Sender: TObject);
 begin
   // not ready csv files
 end;
@@ -881,7 +889,7 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TFormStellarSys.Exit1Click(Sender: TObject);
+procedure TFormStellarSys.miExitClick(Sender: TObject);
 begin
   Close;
 end;
