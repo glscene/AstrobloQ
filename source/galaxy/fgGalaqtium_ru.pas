@@ -65,6 +65,7 @@ uses
   fgAstrocube_ru,
   fgOptions_ru,
   fgParadox_ru,
+  fgEquations_ru,
   fgStatistics_ru,
   fgDiagramHR_ru
   ;
@@ -105,7 +106,7 @@ type
     Camera: TGLCamera;
     Lighting: TGLLightSource;
     dcGalaxy: TGLDummyCube;
-    dcSolcube: TGLDummyCube;
+    dcSolarBlock: TGLDummyCube;
     ArrowZ: TGLArrowLine;
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
@@ -118,43 +119,10 @@ type
     ToolButton3: TToolButton;
     PageControl1: TPageControl;
     tsGalacube: TTabSheet;
-    svGalacube: TGLSceneViewer;
+    svGalaxyBlock: TGLSceneViewer;
     LightSol: TGLLightSource;
     GLSimpleNavigation: TGLSimpleNavigation;
     dcAxes: TGLDummyCube;
-    PanelRight: TPanel;
-    gbStars: TGroupBox;
-    shO: TShape;
-    shB: TShape;
-    shA: TShape;
-    shG: TShape;
-    shK: TShape;
-    shF: TShape;
-    shM: TShape;
-    Label1: TLabel;
-    Label2: TLabel;
-    chbO: TCheckBox;
-    chbB: TCheckBox;
-    chbA: TCheckBox;
-    chbF: TCheckBox;
-    chbG: TCheckBox;
-    chbK: TCheckBox;
-    chbM: TCheckBox;
-    nbO: TNumberBox;
-    nbB: TNumberBox;
-    nbA: TNumberBox;
-    nbF: TNumberBox;
-    nbG: TNumberBox;
-    nbK: TNumberBox;
-    nbM: TNumberBox;
-    nbAn: TNumberBox;
-    nbMn: TNumberBox;
-    nbKn: TNumberBox;
-    nbGn: TNumberBox;
-    nbFn: TNumberBox;
-    nbBn: TNumberBox;
-    nbOn: TNumberBox;
-    seNStars: TSpinEdit;
     Stars: TGLPoints;
     SpaceTextX: TGLSpaceText;
     SpaceTextY: TGLSpaceText;
@@ -169,23 +137,19 @@ type
     tbSolarcube: TToolButton;
     tbAddStars: TToolButton;
     tbClearCubes: TToolButton;
-    chbAll: TCheckBox;
     tbAxes: TToolButton;
     miParadox: TMenuItem;
-    shW: TShape;
-    chbD: TCheckBox;
-    nbWn: TNumberBox;
     miExoplanets: TMenuItem;
     tbRotation: TToolButton;
-    miNewStarcube: TMenuItem;
+    miNewStarblock: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
-    miBiosphere: TMenuItem;
+    miProjection: TMenuItem;
     N3: TMenuItem;
     miMethod: TMenuItem;
     miGridding: TMenuItem;
     miInterpolation: TMenuItem;
-    miTetralization: TMenuItem;
+    miTetranet: TMenuItem;
     N4: TMenuItem;
     ranslator1: TMenuItem;
     GLMatLib: TGLMaterialLibrary;
@@ -198,6 +162,7 @@ type
     miCETI: TMenuItem;
     N8: TMenuItem;
     miStatistics: TMenuItem;
+    miEquations: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -223,13 +188,14 @@ type
     procedure miParadoxClick(Sender: TObject);
     procedure miExoplanetsClick(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
-    procedure miNewStarcubeClick(Sender: TObject);
+    procedure miNewStarblockClick(Sender: TObject);
     procedure GLSimpleNavigationMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
     procedure miBiosphereClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miCETIClick(Sender: TObject);
     procedure miStatisticsClick(Sender: TObject);
+    procedure miEquationsClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -293,13 +259,13 @@ begin
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
 //    ffPlanet.TurnAngle := ffPlanet.TurnAngle + DeltaTime * TimeMultiplier;
-    dcSolcube.Roll(0.001);
+    dcSolarBlock.Roll(0.001);
     dcGalaxy.Turn(0.001);
     dcAxes.Turn(0.001);
   end
   else
   begin
-    dcSolcube.Roll(0);
+    dcSolarBlock.Roll(0);
     dcGalaxy.Turn(0);
     dcAxes.Turn(0);
   end;
@@ -333,90 +299,90 @@ begin
   Edge05 := Edge div 2;
 
   // O class
-  if (chbO.Checked) then
+  if (frmOptions.chbO.Checked) then
   begin
-    NStars := Round(nbOn.Value);
+    NStars := Round(frmOptions.nbOn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shO.Brush.Color); // clBlue;
+      StarColor := ConvertWinColor(frmOptions.shO.Brush.Color); // clBlue;
       Stars.Colors.Add(StarColor);
     end
   end;
   // B class
-  if (chbB.Checked) then
+  if (frmOptions.chbB.Checked) then
   begin
-    NStars := Round(nbBn.Value);
+    NStars := Round(frmOptions.nbBn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shB.Brush.Color); // clLightBlue;
+      StarColor := ConvertWinColor(frmOptions.shB.Brush.Color); // clLightBlue;
       Stars.Colors.Add(StarColor);
     end
   end;
   // A class
-  if (chbA.Checked) then
+  if (frmOptions.chbA.Checked) then
   begin
-    NStars := Round(nbAn.Value);
+    NStars := Round(frmOptions.nbAn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shA.Brush.Color); // clCream;
+      StarColor := ConvertWinColor(frmOptions.shA.Brush.Color); // clCream;
       Stars.Colors.Add(StarColor);
     end
   end;
   // F class
-  if (chbF.Checked) then
+  if (frmOptions.chbF.Checked) then
   begin
-    NStars := Round(nbFn.Value);
+    NStars := Round(frmOptions.nbFn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shF.Brush.Color); // clKhaki
+      StarColor := ConvertWinColor(frmOptions.shF.Brush.Color); // clKhaki
       Stars.Colors.Add(StarColor);
     end
   end;
   // G class
-  if (chbG.Checked) then
+  if (frmOptions.chbG.Checked) then
   begin
-    NStars := Round(nbGn.Value);
+    NStars := Round(frmOptions.nbGn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shG.Brush.Color); // clYellow
+      StarColor := ConvertWinColor(frmOptions.shG.Brush.Color); // clYellow
       Stars.Colors.Add(StarColor);
     end
   end;
   // K class
-  if (chbK.Checked) then
+  if (frmOptions.chbK.Checked) then
   begin
-    NStars := Round(nbKn.Value);
+    NStars := Round(frmOptions.nbKn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shK.Brush.Color); // clOrange
+      StarColor := ConvertWinColor(frmOptions.shK.Brush.Color); // clOrange
       Stars.Colors.Add(StarColor);
     end
   end;
   // M class
-  if (chbM.Checked) then
+  if (frmOptions.chbM.Checked) then
   begin
-    NStars := Round(nbMn.Value);
+    NStars := Round(frmOptions.nbMn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shM.Brush.Color); // clRed
+      StarColor := ConvertWinColor(frmOptions.shM.Brush.Color); // clRed
       Stars.Colors.Add(StarColor);
     end
   end;
   // D class of white dwarf
-  if (chbD.Checked) then
+  if (frmOptions.chbD.Checked) then
   begin
-    NStars := Round(nbWn.Value);
+    NStars := Round(frmOptions.nbWn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(shW.Brush.Color); // clWhite
+      StarColor := ConvertWinColor(frmOptions.shW.Brush.Color); // clWhite
       Stars.Colors.Add(StarColor);
     end
   end;
@@ -425,8 +391,8 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.ButtonClearClick(Sender: TObject);
 begin
-  dcSolcube.DeleteChildren();
-  svGalacube.Invalidate();
+  dcSolarBlock.DeleteChildren();
+  svGalaxyBlock.Invalidate();
 end;
 
 //----------------------------------------------------------------------------
@@ -438,13 +404,16 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.chbAllClick(Sender: TObject);
 begin
-  chbO.Checked := chbAll.Checked;
-  chbB.Checked := chbAll.Checked;
-  chbA.Checked := chbAll.Checked;
-  chbF.Checked := chbAll.Checked;
-  chbG.Checked := chbAll.Checked;
-  chbK.Checked := chbAll.Checked;
-  chbM.Checked := chbAll.Checked;
+  with frmOptions do
+  begin
+    chbO.Checked := chbAll.Checked;
+    chbB.Checked := chbAll.Checked;
+    chbA.Checked := chbAll.Checked;
+    chbF.Checked := chbAll.Checked;
+    chbG.Checked := chbAll.Checked;
+    chbK.Checked := chbAll.Checked;
+    chbM.Checked := chbAll.Checked;
+  end;
 end;
 
 //----------------------------------------------------------------------------
@@ -493,7 +462,7 @@ procedure TfrmGalaqtium.miOpenClick(Sender: TObject);
 begin
 //  dcSolcube.DeleteChildren();
   Stars.Free();
-  Stars := TGLPoints(dcSolcube.AddNewChild(TGLPoints));
+  Stars := TGLPoints(dcSolarBlock.AddNewChild(TGLPoints));
 
   sl := TStringList.Create;
   tl := TStringList.Create;
@@ -510,7 +479,7 @@ begin
     sl.Free;
     tl.Free;
   end;
-  svGalacube.Invalidate();
+  svGalaxyBlock.Invalidate();
 end;
 
 //----------------------------------------------------------------------------
@@ -527,13 +496,16 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.seNStarsChange(Sender: TObject);
 begin
-  nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
-  nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
-  nbAn.Value := Round(nbA.Value * seNStars.Value / 100);
-  nbFn.Value := Round(nbF.Value * seNStars.Value / 100);
-  nbGn.Value := Round(nbG.Value * seNStars.Value / 100);
-  nbKn.Value := Round(nbK.Value * seNStars.Value / 100);
-  nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
+  with frmOptions do
+  begin
+    nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
+    nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
+    nbAn.Value := Round(nbA.Value * seNStars.Value / 100);
+    nbFn.Value := Round(nbF.Value * seNStars.Value / 100);
+    nbGn.Value := Round(nbG.Value * seNStars.Value / 100);
+    nbKn.Value := Round(nbK.Value * seNStars.Value / 100);
+    nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
+  end;
 end;
 
 
@@ -565,7 +537,6 @@ end;
 procedure TfrmGalaqtium.miPanelShowClick(Sender: TObject);
 begin
   miPanelShow.Checked := not miPanelShow.Checked;
-  PanelRight.Visible := not PanelRight.Visible;
   dcAxes.Visible := not dcAxes.Visible;
 end;
 
@@ -591,7 +562,7 @@ end;
 //----------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miNewStarcubeClick(Sender: TObject);
+procedure TfrmGalaqtium.miNewStarblockClick(Sender: TObject);
 begin
   with TFormNewStarcube.Create(Self) do
     try
@@ -684,7 +655,20 @@ begin
     end;
 end;
 
-//----------------------- Уравнение Дрейка -----------------------------------
+//--------------------- Уравнени Дрейка, Дойла и CETI ------------------------
+
+procedure TfrmGalaqtium.miEquationsClick(Sender: TObject);
+begin
+  inherited;
+  with TFormEquations.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miStatisticsClick(Sender: TObject);
 begin
   inherited;
@@ -767,7 +751,6 @@ begin
     end;
 end;
 
-//----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miExitClick(Sender: TObject);
 begin
   Close();

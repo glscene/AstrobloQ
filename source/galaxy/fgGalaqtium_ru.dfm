@@ -58,7 +58,7 @@ object frmGalaqtium: TfrmGalaqtium
         Margins.Right = 2
         Margins.Bottom = 2
         ImageIndex = 0
-        OnClick = miNewStarcubeClick
+        OnClick = miNewStarblockClick
       end
       object ToolButton3: TToolButton
         Left = 23
@@ -179,10 +179,10 @@ object frmGalaqtium: TfrmGalaqtium
     ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
-      object svGalacube: TGLSceneViewer
+      object svGalaxyBlock: TGLSceneViewer
         Left = 0
         Top = 0
-        Width = 762
+        Width = 974
         Height = 516
         Camera = Camera
         Buffer.BackgroundColor = clBlack
@@ -190,389 +190,7 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-      end
-      object PanelRight: TPanel
-        Left = 762
-        Top = 0
-        Width = 212
-        Height = 516
-        Align = alRight
-        TabOrder = 1
-        ExplicitLeft = 754
-        ExplicitHeight = 491
-        object gbStars: TGroupBox
-          Left = 6
-          Top = 47
-          Width = 201
-          Height = 330
-          Caption = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1077' '#1082#1083#1072#1089#1089#1099
-          TabOrder = 0
-          object shO: TShape
-            Left = 48
-            Top = 39
-            Width = 29
-            Height = 24
-            Brush.Color = clHotLight
-          end
-          object shB: TShape
-            Left = 48
-            Top = 69
-            Width = 29
-            Height = 24
-            Brush.Color = clSkyBlue
-          end
-          object shA: TShape
-            Left = 48
-            Top = 103
-            Width = 29
-            Height = 24
-            Brush.Color = clCream
-          end
-          object shG: TShape
-            Left = 48
-            Top = 174
-            Width = 29
-            Height = 24
-            Brush.Color = clYellow
-          end
-          object shK: TShape
-            Left = 48
-            Top = 207
-            Width = 29
-            Height = 24
-            Brush.Color = clOrange
-          end
-          object shF: TShape
-            Left = 48
-            Top = 137
-            Width = 29
-            Height = 24
-            Brush.Color = clKhaki
-          end
-          object shM: TShape
-            Left = 48
-            Top = 240
-            Width = 29
-            Height = 24
-            Brush.Color = clRed
-          end
-          object Label1: TLabel
-            Left = 107
-            Top = 23
-            Width = 13
-            Height = 21
-            Caption = '%'
-          end
-          object Label2: TLabel
-            Left = 139
-            Top = 18
-            Width = 44
-            Height = 21
-            Caption = #1063#1080#1089#1083#1086
-          end
-          object shW: TShape
-            Left = 52
-            Top = 281
-            Width = 29
-            Height = 24
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object chbO: TCheckBox
-            Left = 8
-            Top = 42
-            Width = 34
-            Height = 17
-            Caption = 'O'
-            Color = clBtnFace
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 0
-          end
-          object chbB: TCheckBox
-            Left = 8
-            Top = 76
-            Width = 34
-            Height = 17
-            Caption = 'B'
-            Color = clBtnFace
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 1
-          end
-          object chbA: TCheckBox
-            Left = 8
-            Top = 110
-            Width = 34
-            Height = 17
-            Caption = 'A'
-            Color = clBtnFace
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 2
-          end
-          object chbF: TCheckBox
-            Left = 8
-            Top = 143
-            Width = 34
-            Height = 17
-            Caption = 'F'
-            Color = clBtnFace
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 3
-          end
-          object chbG: TCheckBox
-            Left = 8
-            Top = 177
-            Width = 34
-            Height = 17
-            Caption = 'G'
-            Checked = True
-            Color = clYellow
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            State = cbChecked
-            TabOrder = 4
-          end
-          object chbK: TCheckBox
-            Left = 8
-            Top = 217
-            Width = 34
-            Height = 17
-            Caption = 'K'
-            Checked = True
-            Color = clBtnFace
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            State = cbChecked
-            TabOrder = 5
-          end
-          object chbM: TCheckBox
-            Left = 8
-            Top = 245
-            Width = 34
-            Height = 17
-            Caption = 'M'
-            Color = clBtnFace
-            ParentColor = False
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 6
-          end
-          object nbO: TNumberBox
-            Left = 87
-            Top = 45
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 7
-            Value = 0.100000000000000000
-          end
-          object nbB: TNumberBox
-            Left = 88
-            Top = 75
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 8
-            Value = 0.400000000000000000
-          end
-          object nbA: TNumberBox
-            Left = 88
-            Top = 109
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 9
-            Value = 0.500000000000000000
-          end
-          object nbF: TNumberBox
-            Left = 88
-            Top = 144
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 10
-            Value = 3.000000000000000000
-          end
-          object nbG: TNumberBox
-            Left = 88
-            Top = 180
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 11
-            Value = 8.000000000000000000
-          end
-          object nbK: TNumberBox
-            Left = 88
-            Top = 211
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 12
-            Value = 12.000000000000000000
-          end
-          object nbM: TNumberBox
-            Left = 88
-            Top = 244
-            Width = 46
-            Height = 29
-            Alignment = taCenter
-            Decimal = 1
-            Mode = nbmFloat
-            MaxValue = 100.000000000000000000
-            TabOrder = 13
-            Value = 76.000000000000000000
-          end
-          object nbAn: TNumberBox
-            Left = 139
-            Top = 109
-            Width = 54
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 100000.000000000000000000
-            TabOrder = 14
-            Value = 50.000000000000000000
-          end
-          object nbMn: TNumberBox
-            Left = 139
-            Top = 244
-            Width = 54
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 1000000.000000000000000000
-            TabOrder = 15
-            Value = 7600.000000000000000000
-          end
-          object nbKn: TNumberBox
-            Left = 139
-            Top = 207
-            Width = 54
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 1000000.000000000000000000
-            TabOrder = 16
-            Value = 1200.000000000000000000
-          end
-          object nbGn: TNumberBox
-            Left = 139
-            Top = 179
-            Width = 54
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 1000000.000000000000000000
-            TabOrder = 17
-            Value = 800.000000000000000000
-          end
-          object nbFn: TNumberBox
-            Left = 141
-            Top = 143
-            Width = 53
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 1000000.000000000000000000
-            TabOrder = 18
-            Value = 300.000000000000000000
-          end
-          object nbBn: TNumberBox
-            Left = 139
-            Top = 74
-            Width = 54
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 100000.000000000000000000
-            TabOrder = 19
-            Value = 40.000000000000000000
-          end
-          object nbOn: TNumberBox
-            Left = 139
-            Top = 45
-            Width = 54
-            Height = 29
-            Alignment = taCenter
-            Decimal = 0
-            MaxValue = 100000.000000000000000000
-            TabOrder = 20
-            Value = 10.000000000000000000
-          end
-          object chbD: TCheckBox
-            Left = 6
-            Top = 281
-            Width = 40
-            Height = 24
-            Hint = 'White Dwaft'
-            Caption = 'D'
-            ParentShowHint = False
-            ShowHint = False
-            TabOrder = 21
-          end
-          object nbWn: TNumberBox
-            Left = 144
-            Top = 283
-            Width = 45
-            Height = 29
-            Alignment = taCenter
-            Mode = nbmInt64
-            MinValue = 100.000000000000000000
-            MaxValue = 100000.000000000000000000
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 22
-            Value = 100.000000000000000000
-          end
-        end
-        object seNStars: TSpinEdit
-          Left = 136
-          Top = 15
-          Width = 73
-          Height = 32
-          MaxValue = 1000000
-          MinValue = 1000
-          TabOrder = 1
-          Value = 10000
-          OnChange = seNStarsChange
-        end
-        object chbAll: TCheckBox
-          Left = 21
-          Top = 18
-          Width = 109
-          Height = 23
-          Caption = #1042#1089#1077' '#1079#1074#1105#1079#1076#1099
-          TabOrder = 2
-          OnClick = chbAllClick
-        end
+        ExplicitWidth = 762
       end
     end
     object tsDatacat: TTabSheet
@@ -712,7 +330,7 @@ object frmGalaqtium: TfrmGalaqtium
         CharacterRange = stcrAlphaNum
       end
     end
-    object dcSolcube: TGLDummyCube
+    object dcSolarBlock: TGLDummyCube
       Direction.Coordinates = {000000000000803F0000000000000000}
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1000.000000000000000000
@@ -788,9 +406,9 @@ object frmGalaqtium: TfrmGalaqtium
     Top = 91
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
-      object miNewStarcube: TMenuItem
+      object miNewStarblock: TMenuItem
         Caption = #1053#1086#1074#1099#1081'...'
-        OnClick = miNewStarcubeClick
+        OnClick = miNewStarblockClick
       end
       object N1: TMenuItem
         Caption = '-'
@@ -865,7 +483,7 @@ object frmGalaqtium: TfrmGalaqtium
       object N3: TMenuItem
         Caption = '-'
       end
-      object miBiosphere: TMenuItem
+      object miProjection: TMenuItem
         Caption = #1055#1088#1086#1077#1082#1094#1080#1103'...'
         OnClick = miProjectionClick
       end
@@ -880,8 +498,8 @@ object frmGalaqtium: TfrmGalaqtium
     end
     object miMethod: TMenuItem
       Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
-      object miTetralization: TMenuItem
-        Caption = #1058#1077#1090#1088#1072#1083#1080#1079#1072#1094#1080#1103'...'
+      object miTetranet: TMenuItem
+        Caption = #1058#1077#1090#1088#1072#1085#1077#1090'...'
       end
       object miGridding: TMenuItem
         Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
@@ -901,6 +519,10 @@ object frmGalaqtium: TfrmGalaqtium
       object miParadox: TMenuItem
         Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080'...'
         OnClick = miParadoxClick
+      end
+      object miEquations: TMenuItem
+        Caption = #1059#1088#1072#1074#1085#1077#1085#1080#1103'... '
+        OnClick = miEquationsClick
       end
       object miStatistics: TMenuItem
         Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072'...'
@@ -967,7 +589,7 @@ object frmGalaqtium: TfrmGalaqtium
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
-    GLSceneViewer = svGalacube
+    GLSceneViewer = svGalaxyBlock
     FormCaption = 'Galaqtium'
     KeyCombinations = <
       item

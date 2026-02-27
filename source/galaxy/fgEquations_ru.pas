@@ -101,6 +101,19 @@ type
     StaticText14: TStaticText;
     NumberBox_L: TNumberBox;
     LabelL: TLabel;
+    NumberBox1: TNumberBox;
+    NumberBox2: TNumberBox;
+    NumberBox3: TNumberBox;
+    NumberBox4: TNumberBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    NumberBox5: TNumberBox;
+    StaticText15: TStaticText;
+    StaticText16: TStaticText;
+    StaticText17: TStaticText;
+    StaticText18: TStaticText;
     procedure ButtonOkClick(Sender: TObject);
     procedure ButtonCalculateClick(Sender: TObject);
   private

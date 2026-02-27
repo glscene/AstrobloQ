@@ -41,9 +41,6 @@ begin
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmFirst, frmFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormCETInet, FormCETInet);
-  Application.CreateForm(TFormEquations, FormEquations);
-  Application.CreateForm(TFormStatistics, FormStatistics);
   Application.Run;
 end.
 
