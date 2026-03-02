@@ -35,7 +35,6 @@ object frmAstroScene: TfrmAstroScene
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 860
   end
   object PanelLeft: TPanel
     Left = 0
@@ -44,6 +43,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 622
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 597
     object tvMoons: TTreeView
       Left = 1
       Top = 107
@@ -281,7 +281,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitWidth = 139
     end
     object StaticText1: TStaticText
       Left = 1
@@ -298,7 +297,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      ExplicitWidth = 62
     end
   end
   object StatusBar: TStatusBar
@@ -472,6 +470,8 @@ object frmAstroScene: TfrmAstroScene
     Height = 622
     Align = alRight
     TabOrder = 4
+    ExplicitLeft = 1141
+    ExplicitHeight = 597
     object Image1: TImage
       Left = 72
       Top = 560
@@ -532,6 +532,7 @@ object frmAstroScene: TfrmAstroScene
         76006B0061000000350000000B0000000B000000FFFFFFFFFFFFFFFF00000000
         000000000000000000010B390030003300370037005F005300650064006E0061
         00}
+      ExplicitHeight = 566
     end
     object StaticText2: TStaticText
       Left = 1
@@ -548,7 +549,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 82
     end
   end
   object GLScene: TGLScene
@@ -89140,24 +89140,23 @@ object frmAstroScene: TfrmAstroScene
       Caption = '&View'
       object Constellations1: TMenuItem
         Caption = 'Constellations...'
-        OnClick = Constellations1Click
       end
       object miConstPolygons: TMenuItem
         Caption = 'Const Polygons...'
-        OnClick = miConstPolygonsClick
       end
       object N4: TMenuItem
         Caption = '-'
       end
       object miStellarSystem: TMenuItem
         Caption = 'Stellar system...'
-        OnClick = miStellarSystemClick
       end
       object miPointTo: TMenuItem
         Caption = 'PointTo...'
+        OnClick = miPointToClick
       end
       object miCoordinates: TMenuItem
         Caption = 'Coordinates...'
+        OnClick = miCoordinatesClick
       end
       object N6: TMenuItem
         Caption = '-'

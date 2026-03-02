@@ -12,7 +12,7 @@ uses
   ftRobot in '..\source\tech\ftRobot.pas' {frmRobot},
   Tech.BoneUtils in '..\source\tech\Tech.BoneUtils.pas',
   Tech.Globals in '..\source\tech\Tech.Globals.pas',
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  Tech.Utils in '..\source\tech\Tech.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},

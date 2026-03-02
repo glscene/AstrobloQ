@@ -132,7 +132,6 @@
             <Form>frmGalaqtium</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -199,6 +198,7 @@
             <Form>FormStatistics</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

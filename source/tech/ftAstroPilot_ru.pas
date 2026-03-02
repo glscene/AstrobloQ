@@ -1,7 +1,5 @@
-// This Form demonstrates basic "hierarchical" movements
-
 unit ftAstroPilot_ru;
-
+// Движение планет по орбитам
 interface
 
 uses
@@ -20,6 +18,7 @@ uses
   Vcl.Buttons,
 
   Stage.VectorGeometry,
+  GLS.SimpleNavigation,
   GLS.Scene,
   GLS.Objects,
   GLS.SceneViewer,
@@ -28,7 +27,8 @@ uses
   GLS.Material,
   GLS.Coordinates,
   GLS.BaseClasses,
-  Astro.Utils;
+  Tech.Utils
+  ;
 
 type
   TfrmSpacePilot = class(TForm)
@@ -123,6 +123,7 @@ type
     NeptuneProteusCube: TGLDummyCube;
     NeptuneProteusSphere: TGLSphere;
     GLMaterialLibrary: TGLMaterialLibrary;
+    GLSimpleNavigation1: TGLSimpleNavigation;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure GLCadencer1Progress(Sender: TObject; const deltaTime, newTime: Double);
@@ -158,15 +159,15 @@ var
 
 implementation //==============================================================
 
-{ uses  umGlobals; }
 
 {$R *.DFM}
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormCreate(Sender: TObject);
 begin
   CBPlay.Checked := False;
   Timer1.Enabled := False;
-  { top := SkypilotFormY; left := SkypilotFormX; }
+  // top := SkypilotFormY; left := SkypilotFormX;
 
   DataDir := GetDataPath() + 'starsys\sun\';
   SetCurrentDir(DataDir);
@@ -176,12 +177,14 @@ begin
   deltaTimeGlobal := 0;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormShow(Sender: TObject);
 begin
   Timer1.Enabled := True;
   GLCadencer1.Enabled := True;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormHide(Sender: TObject);
 begin
   CBPlay.Checked := False;
@@ -189,6 +192,7 @@ begin
   GLCadencer1.Enabled := False;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   // We need to stop playing here :
@@ -197,19 +201,23 @@ begin
   CBPlay.Checked := False;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   { SkyPilotFormY := SkyPilotForm.top;
     SkyPilotFormX := SkyPilotForm.left; }
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormResize(Sender: TObject);
 begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.LoadBtnClick(Sender: TObject);
-  procedure LoadHighResTexture(libMat: TGLLibMaterial; const fileName: String);
+  // загрузка текстуры высокого разрешения
+  (*sub*) procedure LoadHighResTexture(libMat: TGLLibMaterial; const fileName: String);
   begin
     if FileExists(fileName) then
     begin
@@ -229,7 +237,7 @@ begin
         If FileExists(EarthProjectPath + 'Sun.jpg') then
         begin
           with AddTextureMaterial('Sun', EarthProjectPath + 'Sun.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SunSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SunSphere.Material.LibMaterialName := 'Sun';
@@ -241,7 +249,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Mercury.jpg') then
           with AddTextureMaterial('Mercury', EarthProjectPath + 'Mercury.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             MercurySphere.Material.MaterialLibrary := GLMaterialLibrary;
             MercurySphere.Material.LibMaterialName := 'Mercury';
@@ -249,7 +257,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Venus.jpg') then
           with AddTextureMaterial('Venus', EarthProjectPath + 'Venus.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             VenusSphere.Material.MaterialLibrary := GLMaterialLibrary;
             VenusSphere.Material.LibMaterialName := 'Venus';
@@ -257,7 +265,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Earth.jpg') then
           with AddTextureMaterial('Earth', EarthProjectPath + 'Earth.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             EarthSphere.Material.MaterialLibrary := GLMaterialLibrary;
             EarthSphere.Material.LibMaterialName := 'Earth';
@@ -265,7 +273,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Moon.jpg') then
           with AddTextureMaterial('Moon', EarthProjectPath + 'Moon.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             MoonSphere.Material.MaterialLibrary := GLMaterialLibrary;
             MoonSphere.Material.LibMaterialName := 'Moon';
@@ -273,7 +281,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Mars.jpg') then
           with AddTextureMaterial('Mars', EarthProjectPath + 'Mars.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             MarsSphere.Material.MaterialLibrary := GLMaterialLibrary;
             MarsSphere.Material.LibMaterialName := 'Mars';
@@ -281,7 +289,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Phobos.jpg') then
           with AddTextureMaterial('Phobos', EarthProjectPath + 'Phobos.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             MarsPhobosSphere.Material.MaterialLibrary := GLMaterialLibrary;
             MarsPhobosSphere.Material.LibMaterialName := 'Phobos';
@@ -289,7 +297,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Deimos.jpg') then
           with AddTextureMaterial('Deimos', EarthProjectPath + 'Deimos.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             MarsDeimosSphere.Material.MaterialLibrary := GLMaterialLibrary;
             MarsDeimosSphere.Material.LibMaterialName := 'Deimos';
@@ -298,7 +306,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Jupiter.jpg') then
           with AddTextureMaterial('Jupiter', EarthProjectPath + 'Jupiter.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             JupiterSphere.Material.MaterialLibrary := GLMaterialLibrary;
             JupiterSphere.Material.LibMaterialName := 'Jupiter';
@@ -306,7 +314,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Io.jpg') then
           with AddTextureMaterial('Io', EarthProjectPath + 'Io.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             JupiterIoSphere.Material.MaterialLibrary := GLMaterialLibrary;
             JupiterIoSphere.Material.LibMaterialName := 'Io';
@@ -314,7 +322,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Europa.jpg') then
           with AddTextureMaterial('Europa', EarthProjectPath + 'Europa.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             JupiterEuropaSphere.Material.MaterialLibrary := GLMaterialLibrary;
             JupiterEuropaSphere.Material.LibMaterialName := 'Europa';
@@ -322,7 +330,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Ganymede.jpg') then
           with AddTextureMaterial('Ganymede', EarthProjectPath + 'Ganymede.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             JupiterGanymedeSphere.Material.MaterialLibrary := GLMaterialLibrary;
             JupiterGanymedeSphere.Material.LibMaterialName := 'Ganymede';
@@ -330,7 +338,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Callisto.jpg') then
           with AddTextureMaterial('Callisto', EarthProjectPath + 'Callisto.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             JupiterCallistoSphere.Material.MaterialLibrary := GLMaterialLibrary;
             JupiterCallistoSphere.Material.LibMaterialName := 'Callisto';
@@ -339,7 +347,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Saturn.jpg') then
           with AddTextureMaterial('Saturn', EarthProjectPath + 'Saturn.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnSphere.Material.LibMaterialName := 'Saturn';
@@ -347,7 +355,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Mimas.jpg') then
           with AddTextureMaterial('Mimas', EarthProjectPath + 'Mimas.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnMimasSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnMimasSphere.Material.LibMaterialName := 'Mimas';
@@ -355,7 +363,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Enceladus.jpg') then
           with AddTextureMaterial('Enceladus', EarthProjectPath + 'Enceladus.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnEnceladusSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnEnceladusSphere.Material.LibMaterialName := 'Enceladus';
@@ -363,7 +371,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Tethys.jpg') then
           with AddTextureMaterial('Tethys', EarthProjectPath + 'Tethys.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnTethysSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnTethysSphere.Material.LibMaterialName := 'Tethys';
@@ -371,7 +379,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Dione.jpg') then
           with AddTextureMaterial('Dione', EarthProjectPath + 'Dione.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnDioneSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnDioneSphere.Material.LibMaterialName := 'Dione';
@@ -379,7 +387,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Rhea.jpg') then
           with AddTextureMaterial('Rhea', EarthProjectPath + 'Rhea.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnRheaSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnRheaSphere.Material.LibMaterialName := 'Rhea';
@@ -387,7 +395,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Titan.jpg') then
           with AddTextureMaterial('Titan', EarthProjectPath + 'Titan.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnTitanSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnTitanSphere.Material.LibMaterialName := 'Titan';
@@ -395,7 +403,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Hyperion.jpg') then
           with AddTextureMaterial('Hyperion', EarthProjectPath + 'Hyperion.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnHyperionSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnHyperionSphere.Material.LibMaterialName := 'Hyperion';
@@ -403,7 +411,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Iapetus.jpg') then
           with AddTextureMaterial('Iapetus', EarthProjectPath + 'Iapetus.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnIapetusSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnIapetusSphere.Material.LibMaterialName := 'Iapetus';
@@ -411,7 +419,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Phoebe.jpg') then
           with AddTextureMaterial('Phoebe', EarthProjectPath + 'Phoebe.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             SaturnPhoebeSphere.Material.MaterialLibrary := GLMaterialLibrary;
             SaturnPhoebeSphere.Material.LibMaterialName := 'Phoebe';
@@ -420,7 +428,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Uranus.jpg') then
           with AddTextureMaterial('Uranus', EarthProjectPath + 'Uranus.jpg') do
-          begin { Create the matlib }
+          begin // Create the matlib
             Material.Texture.TextureMode := tmDecal;
             UranusSphere.Material.MaterialLibrary := GLMaterialLibrary;
             UranusSphere.Material.LibMaterialName := 'Uranus';
@@ -428,7 +436,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Ariel.jpg') then
           with AddTextureMaterial('Ariel', EarthProjectPath + 'Ariel.jpg') do
-          begin { Create the matlib }
+          begin // Create the matlib
             Material.Texture.TextureMode := tmDecal;
             UranusArielSphere.Material.MaterialLibrary := GLMaterialLibrary;
             UranusArielSphere.Material.LibMaterialName := 'Ariel';
@@ -436,7 +444,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Umbriel.jpg') then
           with AddTextureMaterial('Umbriel', EarthProjectPath + 'Umbriel.jpg') do
-          begin { Create the matlib }
+          begin // Create the matlib
             Material.Texture.TextureMode := tmDecal;
             UranusUmbrielSphere.Material.MaterialLibrary := GLMaterialLibrary;
             UranusUmbrielSphere.Material.LibMaterialName := 'Umbriel';
@@ -444,7 +452,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Titania.jpg') then
           with AddTextureMaterial('Titania', EarthProjectPath + 'Titania.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             UranusTitaniaSphere.Material.MaterialLibrary := GLMaterialLibrary;
             UranusTitaniaSphere.Material.LibMaterialName := 'Titania';
@@ -452,7 +460,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Oberon.jpg') then
           with AddTextureMaterial('Oberon', EarthProjectPath + 'Oberon.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             UranusOberonSphere.Material.MaterialLibrary := GLMaterialLibrary;
             UranusOberonSphere.Material.LibMaterialName := 'Oberon';
@@ -460,7 +468,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Miranda.jpg') then
           with AddTextureMaterial('Miranda', EarthProjectPath + 'Miranda.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             UranusMirandaSphere.Material.MaterialLibrary := GLMaterialLibrary;
             UranusMirandaSphere.Material.LibMaterialName := 'Miranda';
@@ -469,7 +477,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Neptune.jpg') then
           with AddTextureMaterial('Neptune', EarthProjectPath + 'Neptune.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             NeptuneSphere.Material.MaterialLibrary := GLMaterialLibrary;
             NeptuneSphere.Material.LibMaterialName := 'Neptune';
@@ -477,7 +485,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Triton.jpg') then
           with AddTextureMaterial('Triton', EarthProjectPath + 'Triton.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             NeptuneTritonSphere.Material.MaterialLibrary := GLMaterialLibrary;
             NeptuneTritonSphere.Material.LibMaterialName := 'Triton';
@@ -485,7 +493,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Nereid.jpg') then
           with AddTextureMaterial('Nereid', EarthProjectPath + 'Nereid.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             NeptuneNereidSphere.Material.MaterialLibrary := GLMaterialLibrary;
             NeptuneNereidSphere.Material.LibMaterialName := 'Nereid';
@@ -493,7 +501,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Larissa.jpg') then
           with AddTextureMaterial('Larissa', EarthProjectPath + 'Larissa.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             NeptuneLarissaSphere.Material.MaterialLibrary := GLMaterialLibrary;
             NeptuneLarissaSphere.Material.LibMaterialName := 'Larissa';
@@ -501,7 +509,7 @@ begin
           end;
         If FileExists(EarthProjectPath + 'Proteus.jpg') then
           with AddTextureMaterial('Proteus', EarthProjectPath + 'Proteus.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             NeptuneProteusSphere.Material.MaterialLibrary := GLMaterialLibrary;
             NeptuneProteusSphere.Material.LibMaterialName := 'Proteus';
@@ -510,7 +518,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Pluto.jpg') then
           with AddTextureMaterial('Pluto', EarthProjectPath + 'Pluto.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             PlutoSphere.Material.MaterialLibrary := GLMaterialLibrary;
             PlutoSphere.Material.LibMaterialName := 'Pluto';
@@ -519,7 +527,7 @@ begin
 
         If FileExists(EarthProjectPath + 'Charon.jpg') then
           with AddTextureMaterial('Charon', EarthProjectPath + 'Charon.jpg') do
-          begin { Create the matlib }
+          begin // Создание matlib
             Material.Texture.TextureMode := tmDecal;
             CharonSphere.Material.MaterialLibrary := GLMaterialLibrary;
             CharonSphere.Material.LibMaterialName := 'Charon';
@@ -579,11 +587,13 @@ begin
   end;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.SpeedButton1Click(Sender: TObject);
 begin
   Application.HelpContext(5000);
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.GLCadencer1Progress(Sender: TObject; const deltaTime, newTime: Double);
 begin
   if CBPlay.Checked and Visible then
@@ -600,6 +610,7 @@ begin
   end;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -607,11 +618,13 @@ begin
   my := Y;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.GLSceneViewer1MouseEnter(Sender: TObject);
 begin
   GLSceneViewer1.SetFocus; // GLSceneViewer.Focused;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -625,17 +638,21 @@ begin
   my := Y;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     #27:
       Close;
-    { They all orbit in the same direction
-      (counter-clockwise looking down
-      from above the Sun's north pole);
-      all but Venus, Uranus and Pluto
-      also rotate in that same sense.
-      'e', 'E' : begin
+    (*
+      Все они вращаются в одном направлении
+      (против часовой стрелки, если смотреть сверху,
+      с северного полюса Солнца);
+      все, кроме Венеры, Урана и Плутона,
+      также вращаются в этом же направлении
+      Клавиши -
+      'e', 'E' :
+      begin
       GLCamera.MoveTo(DCEarthSystem);
       GLCameraControler.MoveTo(DCEarthSystem);
       GLCamera.TargetObject:=DCEarthSystem;
@@ -651,7 +668,8 @@ begin
       U  Uranus,
       N  Neptune,
       P  Pluto,
-      T  Asteroids }
+      T  Asteroids
+    *)
     'm', 'M':
       begin
         SceneCamera.MoveTo(MercurySphere);
@@ -707,6 +725,7 @@ begin
   end;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.FormMouseWheel(Sender: TObject; Shift: TShiftState; WheelDelta: Integer;
   MousePos: TPoint; var Handled: Boolean);
 var
@@ -720,44 +739,53 @@ begin
   Handled := True;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.Timer1Timer(Sender: TObject);
 begin
   Caption := 'Space Pilot: ' + Format('%.1f FPS', [GLSceneViewer1.FramesPerSecond]);
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.TrackBarChange(Sender: TObject);
 begin
   MishMash;
 end;
 
-{
-  Mercury -3715  -3693  39     Scale XYZ 0.382  Position X -39
-  Venus -8392  -451  478       Scale XYZ 0.949  Position X -478
-  Earth
-  Moon: 277604 687816 29574    Scale Moon/Earth radii = 3475/12756
-  Mars -5882  17881  518       Scale XYZ 0.533  Position X 518
-  Jupiter -61941  13502  1329  Scale XYZ 11.209  Position X 1329
-  Saturn -25401  102463  -779  Scale XYZ 9.45  Position X -779
-  Uranus 209552 -104695 -3108  Scale XYZ 4.007  Position X -3108
-  Neptune 241251  -255428 -291 Scale XYZ 3.883  Position X -291
-  Pluto...
-  Charon
+//-----------------------------------------------------------------------------
+(*
+  Меркурий -3715  -3693  39     Scale XYZ 0.382  Position X -39
+  Венера -8392  -451  478       Scale XYZ 0.949  Position X -478
+  Земля
+  Луна: 277604 687816 29574    Scale Moon/Earth radii = 3475/12756
+  Марс -5882  17881  518       Scale XYZ 0.533  Position X 518
+  Юпитер -61941  13502  1329  Scale XYZ 11.209  Position X 1329
+  Сатурн -25401  102463  -779  Scale XYZ 9.45  Position X -779
+  Уран 209552 -104695 -3108  Scale XYZ 4.007  Position X -3108
+  Нептун 241251  -255428 -291 Scale XYZ 3.883  Position X -291
+  Плутон...
+  Шарон
   Ooort
   Kuiper Belt Asteroids
-  Comet Halley }
+  Комета Галлея
+*)
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.MishMash;
 var
   t: Double;
-Begin
-  { if CBPlay.Checked and Visible then
-    t:=TrackBar.Position else t:=deltaTimeGlobal*timeMultiplier; }
+begin
+  if (CBPlay.Checked and Visible) then
+    t := TrackBar.Position
+  else
+    t := deltaTimeGlobal*timeMultiplier;
+  (* *)
   t := TrackBar.Position;
-  { The Hierarchy is NOT exactly like demo..
-    All Planets Spin themselves }
-  { DummyCubeRed3.PitchAngle:=stage[3].rot_x*(Rotator);
+  // The Hierarchy is NOT exactly like demo.. All Planets Spin themselves
+  (*
+    DummyCubeRed3.PitchAngle:=stage[3].rot_x*(Rotator);
     DummyCubeRed3.RollAngle:=stage[3].rot_y*(Rotator);
-    DummyCubeRed3.TurnAngle:=stage[3].rot_z*(Rotator); }
+    DummyCubeRed3.TurnAngle:=stage[3].rot_z*(Rotator);
+  *)
   // the "sun" spins slowly
   SunCube.TurnAngle := -t;
   SunSphere.TurnAngle := t / 4;
@@ -810,12 +838,14 @@ Begin
   KuiperBeltCube.TurnAngle := t * 8;
   OortCloudCube.TurnAngle := t * 5;
   GLSceneViewer1.Invalidate;
-End;
+end;
 
+//-----------------------------------------------------------------------------
 procedure TfrmSpacePilot.CBPlayClick(Sender: TObject);
 begin
   Timer1.Enabled := True;
   GLCadencer1.Enabled := True;
 end;
 
+//-----------------------------------------------------------------------------
 end.

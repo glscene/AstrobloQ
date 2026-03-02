@@ -48,7 +48,7 @@ uses
   GLS.GeomObjects,
 
   fmAbout,
-  Astro.Utils;
+  Tech.Utils;
 
 type
   TMarkerPosition = class(TObject)

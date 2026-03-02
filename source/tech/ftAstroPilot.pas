@@ -29,7 +29,7 @@ uses
   GLS.Coordinates,
   GLS.BaseClasses,
 
-  Astro.Utils
+  Tech.Utils
   ;
 
 type

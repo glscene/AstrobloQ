@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit faAstroScene;
+unit flLithoneta;
 
 interface
 
@@ -69,10 +69,9 @@ uses
   fmGenStarsys,
   fmAbout,
 
-  faOptions,
-  faConstells,
-  faSkyAreas,
-  faStarSys
+  flOptions,
+  flCoordinates,
+  flPointto
   ;
 
 type
@@ -194,14 +193,13 @@ type
     procedure miFileSaveAsClick(Sender: TObject);
     procedure miClearTreeViewClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
-    procedure miStellarSystemClick(Sender: TObject);
     procedure miToolsOptionsClick(Sender: TObject);
     procedure miGenStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure miConstPolygonsClick(Sender: TObject);
+    procedure miPointToClick(Sender: TObject);
+    procedure miCoordinatesClick(Sender: TObject);
     procedure ClearTreeView1Click(Sender: TObject);
-    procedure Constellations1Click(Sender: TObject);
     procedure Settings1Click(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -820,16 +818,6 @@ begin
   SceneViewer.ResetPerformanceMonitor;
 end;
 
-//-----------------------  Stellar system -------------------------------------
-procedure TfrmAstroScene.miStellarSystemClick(Sender: TObject);
-begin
-  with TFormStellarSys.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
 
 //------------------------ Clear tvPlanets ------------------------------------
 procedure TfrmAstroScene.miClearTreeViewClick(Sender: TObject);
@@ -877,10 +865,10 @@ begin
   end;
 end;
 
-//------------------------ View Constellations ------------------------------
-procedure TfrmAstroScene.Constellations1Click(Sender: TObject);
+//------------------------ View Coordinates on Planet surface -----------------
+procedure TfrmAstroScene.miCoordinatesClick(Sender: TObject);
 begin
-  with TfrmConstells.Create(Self) do
+  with TFormCoords.Create(Self) do
   try
     ShowModal;
   finally
@@ -888,16 +876,17 @@ begin
   end;
 end;
 
-//--------------------- View Polygons for constellations ----------------------
-procedure TfrmAstroScene.miConstPolygonsClick(Sender: TObject);
+//--------------------- View PointToOrbit ------------------------------------
+procedure TfrmAstroScene.miPointToClick(Sender: TObject);
 begin
-  with TFormConstPolygons.Create(Self) do
+  with TFormPointto.Create(Self) do
   try
     ShowModal;
   finally
     Free;
   end;
 end;
+
 
 //----------------------------------------------------------------------------
 //---------------------- Tools Options ---------------------------------------

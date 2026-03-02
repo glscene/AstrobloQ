@@ -1,4 +1,4 @@
-unit faPointto_ru;
+unit flPointto;
 
 interface
 
@@ -14,23 +14,20 @@ uses
   Vcl.Imaging.jpeg,
 
 
-  Stage.VectorTypes,
-  Stage.VectorGeometry,
   GLS.Objects,
   GLS.Scene,
+  Stage.VectorTypes,
+  Stage.VectorGeometry,
   GLS.Cadencer,
   GLS.SceneViewer,
   GLS.GeomObjects,
 
   GLS.Coordinates,
   GLS.BaseClasses,
-  GLS.SimpleNavigation,
-
-  fmFormFirst
-  ;
+  GLS.SimpleNavigation;
 
 type
-  TFormPointto = class(TfrmFirst)
+  TFormPointto = class(TForm)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -58,13 +55,12 @@ type
 var
   FormPointto: TFormPointto;
 
-implementation //==============================================================
+implementation //------------------------------------------------------------
 
 {$R *.DFM}
 
 procedure TFormPointto.FormCreate(Sender: TObject);
 begin
-  DataDir := ExtractFilePath(ParamStr(0)) + 'data\';;
   DataDir := DataDir + 'map\';
   SetCurrentDir(DataDir);
 

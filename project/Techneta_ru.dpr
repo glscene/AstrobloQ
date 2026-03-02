@@ -21,7 +21,7 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   ftTechneta_ru in '..\source\tech\ftTechneta_ru.pas' {frmTexoneta},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  Tech.Utils in '..\source\tech\Tech.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}

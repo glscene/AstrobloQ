@@ -7,11 +7,11 @@
    Catalog of stars is built into the TGLSkyDome, but constellations are rendered
    via a TGLLines, which is filled in the LoadConstLines method.
 *)
-program AstroScene;
+program Lithoneta;
 
 uses
   Forms,
-  faAstroScene in '..\source\astro\faAstroScene.pas' {frmAstroScene},
+  flLithoneta in '..\source\lito\flLithoneta.pas' {frmAstroScene},
   fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
@@ -20,20 +20,19 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
-  faOptions in '..\source\astro\faOptions.pas' {frmOptions},
+  flOptions in '..\source\lito\flOptions.pas' {frmOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  faStarSys in '..\source\astro\faStarSys.pas' {FormStellarSys},
-  frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  faConstells in '..\source\astro\faConstells.pas' {frmConstells},
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  Tech.Utils in '..\source\tech\Tech.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
-  faSkyAreas in '..\source\astro\faSkyAreas.pas' {FormConstPolygons},
+  flPointto in '..\source\lito\flPointto.pas' {FormPointto},
+  flCoordinates in '..\source\lito\flCoordinates.pas' {FormCoords},
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
-  Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas';
+  Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
+  flMixTextures in '..\source\lito\flMixTextures.pas' {FormTexCombine};
 
 {$R *.res}
 

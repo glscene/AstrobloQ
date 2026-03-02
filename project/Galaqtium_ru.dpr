@@ -8,7 +8,6 @@ uses
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fgMonitor_ru in '..\source\galaxy\fgMonitor_ru.pas' {FormMonitor},
   fgParadox_ru in '..\source\galaxy\fgParadox_ru.pas' {FormParadox},
   fgExoplanets_ru in '..\source\galaxy\fgExoplanets_ru.pas' {FormExoplanets},
@@ -25,7 +24,8 @@ uses
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
   fgCETInet_ru in '..\source\galaxy\fgCETInet_ru.pas' {FormCETInet},
   fgEquations_ru in '..\source\galaxy\fgEquations_ru.pas' {FormEquations},
-  fgStatistics_ru in '..\source\galaxy\fgStatistics_ru.pas' {FormStatistics};
+  fgStatistics_ru in '..\source\galaxy\fgStatistics_ru.pas' {FormStatistics},
+  Astro.Utils in '..\source\astro\Astro.Utils.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

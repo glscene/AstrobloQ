@@ -43,8 +43,7 @@ uses
   Astro.Utils,
 
   dmImages,
-  dmDialogs,
-  faMixTextures_ru
+  dmDialogs
   ;
 
 type
@@ -76,7 +75,6 @@ type
     procedure tvConstellationsClick(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miTexCombineClick(Sender: TObject);
     procedure GLSimpleNavigation1MouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
     procedure tvZodiacsClick(Sender: TObject);
@@ -257,17 +255,6 @@ end;
 procedure TFormConstells.miSettingsClick(Sender: TObject);
 begin
 //
-end;
-
-//-----------------------------------------------------------------------
-procedure TFormConstells.miTexCombineClick(Sender: TObject);
-begin
-  with TFormTexCombine.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 //-----------------------------------------------------------------------

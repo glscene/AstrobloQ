@@ -106,7 +106,6 @@
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\galaxy\fgMonitor_ru.pas">
             <Form>FormMonitor</Form>
         </DCCReference>
@@ -167,6 +166,7 @@
             <Form>FormStatistics</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

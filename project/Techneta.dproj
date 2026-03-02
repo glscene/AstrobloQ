@@ -134,7 +134,7 @@
         </DCCReference>
         <DCCReference Include="..\source\tech\Tech.BoneUtils.pas"/>
         <DCCReference Include="..\source\tech\Tech.Globals.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\source\tech\Tech.Utils.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>

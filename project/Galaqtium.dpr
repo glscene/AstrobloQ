@@ -6,7 +6,6 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   fgGalaqtium in '..\source\galaxy\fgGalaqtium.pas' {frmGalaqtium},
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
@@ -24,7 +23,8 @@ uses
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
   fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {FormHercrussel},
-  fgEquations in '..\source\galaxy\fgEquations.pas' {FormStatistics};
+  fgEquations in '..\source\galaxy\fgEquations.pas' {FormStatistics},
+  Astro.Utils in '..\source\astro\Astro.Utils.pas';
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

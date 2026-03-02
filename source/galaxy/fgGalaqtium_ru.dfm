@@ -190,7 +190,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 762
       end
     end
     object tsDatacat: TTabSheet

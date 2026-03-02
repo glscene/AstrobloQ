@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{74582C24-83BE-4628-B9DF-28AF332780EE}</ProjectGuid>
+        <ProjectGuid>{5262A302-6C3C-4CC5-8A9F-7E09B16E32BE}</ProjectGuid>
         <MainSource>AstroScene_ru.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -149,12 +149,7 @@
         <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\astro\faMixTextures_ru.pas">
-            <Form>FormTexCombine</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -174,14 +169,7 @@
             <Form>FormSkyAreas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faCoordinates_ru.pas">
-            <Form>FormCoords</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faPointto_ru.pas">
-            <Form>FormPointto</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
