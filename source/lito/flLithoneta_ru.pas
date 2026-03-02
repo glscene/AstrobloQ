@@ -160,7 +160,6 @@ type
     ToolButton21: TToolButton;
     N5: TMenuItem;
     miConstAtlas: TMenuItem;
-    miSkyAreas: TMenuItem;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;

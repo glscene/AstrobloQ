@@ -3,7 +3,7 @@ object frmAstroScene: TfrmAstroScene
   Top = 123
   Cursor = crHelp
   Hint = #1053#1077#1087#1090#1091#1085
-  Caption = 'AstroScene'
+  Caption = 'Lithoneta'
   ClientHeight = 751
   ClientWidth = 1415
   Color = clBtnFace
@@ -89161,8 +89161,8 @@ object frmAstroScene: TfrmAstroScene
     Top = 152
   end
   object MainMenu: TMainMenu
-    Left = 389
-    Top = 264
+    Left = 869
+    Top = 88
     object miOpen: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object miFileOpen: TMenuItem
@@ -89195,7 +89195,7 @@ object frmAstroScene: TfrmAstroScene
         Caption = '-'
       end
       object miSolarSystem: TMenuItem
-        Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
       end
       object N6: TMenuItem
         Caption = '-'
@@ -89209,10 +89209,7 @@ object frmAstroScene: TfrmAstroScene
     object N5: TMenuItem
       Caption = #1050#1072#1088#1090#1099
       object miConstAtlas: TMenuItem
-        Caption = #1040#1090#1083#1072#1089' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
-      end
-      object miSkyAreas: TMenuItem
-        Caption = #1055#1086#1083#1080#1075#1086#1085#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
+        Caption = #1040#1090#1083#1072#1089' '#1087#1083#1072#1085#1077#1090#1099'...'
       end
     end
     object miTools: TMenuItem

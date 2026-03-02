@@ -24,7 +24,6 @@ uses
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  Tech.Utils in '..\source\tech\Tech.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
@@ -32,7 +31,8 @@ uses
   flCoordinates in '..\source\lito\flCoordinates.pas' {FormCoords},
   fmSettings in '..\source\fmSettings.pas' {frmSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  flMixTextures in '..\source\lito\flMixTextures.pas' {FormTexCombine};
+  flMixTextures in '..\source\lito\flMixTextures.pas' {FormTexCombine},
+  Litho.Utils in '..\source\lito\Litho.Utils.pas';
 
 {$R *.res}
 

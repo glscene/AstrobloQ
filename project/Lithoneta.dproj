@@ -143,7 +143,6 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\tech\Tech.Utils.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
         <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
@@ -164,6 +163,7 @@
             <Form>FormTexCombine</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\lito\Litho.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -26,7 +26,6 @@ uses
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  Tech.Utils in '..\source\tech\Tech.Utils.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
   flMixTextures_ru in '..\source\lito\flMixTextures_ru.pas' {FormTexCombine},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
@@ -34,7 +33,8 @@ uses
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
   flCoordinates_ru in '..\source\lito\flCoordinates_ru.pas' {FormCoords},
-  flPointto_ru in '..\source\lito\flPointto_ru.pas' {FormPointto};
+  flPointto_ru in '..\source\lito\flPointto_ru.pas' {FormPointto},
+  Litho.Utils in '..\source\lito\Litho.Utils.pas';
 
 {$R *.res}
 

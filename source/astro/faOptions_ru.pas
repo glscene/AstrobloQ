@@ -186,16 +186,16 @@ begin
   with frmAstroScene do
   if chbHidePanels.Checked then // Показать панели
   begin
-    PanelLeft.Visible := not PanelLeft.Visible;
-    PanelRight.Visible := not PanelRight.Visible;
+//    PanelLeft.Visible := not PanelLeft.Visible;
+//    PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
     frmAstroScene.BorderStyle := bsNone;
   end
   else  // Скрыть панели
   begin
-    PanelLeft.Visible := not PanelLeft.Visible;
-    PanelRight.Visible := not PanelRight.Visible;
+//    PanelLeft.Visible := not PanelLeft.Visible;
+//    PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
     frmAstroScene.BorderStyle := bsSizeable;
@@ -215,7 +215,7 @@ begin
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
-    PlanetPath := CurrentStar + tvMoons.Selected.Text;
+///    PlanetPath := CurrentStar + tvMoons.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
