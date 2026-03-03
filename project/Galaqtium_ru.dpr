@@ -17,7 +17,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
   fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},

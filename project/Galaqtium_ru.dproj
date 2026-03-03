@@ -137,7 +137,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout_ru.pas">
-            <Form>FormAbout</Form>
+            <Form>frmAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>FormFirst</Form>

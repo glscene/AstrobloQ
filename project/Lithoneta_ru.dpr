@@ -20,7 +20,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',

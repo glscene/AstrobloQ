@@ -53,6 +53,7 @@ object frmAstroScene: TfrmAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1277
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -188,7 +189,7 @@ object frmAstroScene: TfrmAstroScene
     ObjectsSorting = osNone
     Left = 386
     Top = 83
-    object StarSkyDome: TGLSkyDome
+    object SkyDome: TGLSkyDome
       Bands = <
         item
           StartColor.Color = {0000803F0000803F0000803F0000803F}
@@ -88657,9 +88658,9 @@ object frmAstroScene: TfrmAstroScene
       object N4: TMenuItem
         Caption = '-'
       end
-      object miSolarSystem: TMenuItem
+      object miStellarSystem: TMenuItem
         Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miSolarSystemClick
+        OnClick = miStellarSystemClick
       end
       object N6: TMenuItem
         Caption = '-'
@@ -88686,16 +88687,16 @@ object frmAstroScene: TfrmAstroScene
         Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
         OnClick = miSettingsClick
       end
-      object miOptions: TMenuItem
+      object miToolsOptions: TMenuItem
         Caption = #1054#1087#1094#1080#1080'...'
-        OnClick = miOptionsClick
+        OnClick = miToolsOptionsClick
       end
       object N7: TMenuItem
         Caption = '-'
       end
-      object miGenExosys: TMenuItem
+      object miGenStarsys: TMenuItem
         Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
-        OnClick = miGenExosysClick
+        OnClick = miGenStarsysClick
       end
     end
     object miHelp: TMenuItem
@@ -88708,9 +88709,9 @@ object frmAstroScene: TfrmAstroScene
       object N3: TMenuItem
         Caption = '-'
       end
-      object About1: TMenuItem
+      object miHelpAbout: TMenuItem
         Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
-        OnClick = About1Click
+        OnClick = miHelpAboutClick
       end
     end
   end
@@ -88719,12 +88720,12 @@ object frmAstroScene: TfrmAstroScene
     Top = 161
   end
   object SaveDialog: TSaveDialog
-    Left = 1001
-    Top = 171
+    Left = 993
+    Top = 163
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
     Left = 992
-    Top = 112
+    Top = 96
   end
 end

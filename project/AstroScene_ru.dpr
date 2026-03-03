@@ -21,7 +21,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   frParams_ru in '..\source\astro\frParams_ru.pas' {FrameParamsR: TFrame},
   faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStellarSys},

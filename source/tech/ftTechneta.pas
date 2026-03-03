@@ -2086,7 +2086,7 @@ end;
 
 procedure TfrmTechnoneta.miAboutClick(Sender: TObject);
 begin
-  with TFormAbout.CReate(Self) do
+  with TfrmAbout.CReate(Self) do
     try
       PageControl.ActivePageIndex := 3;
       ShowModal;

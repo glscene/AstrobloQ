@@ -11,10 +11,10 @@ program AstroScene;
 
 uses
   Forms,
-  faAstroScene in '..\source\astro\faAstroScene.pas' {frmAstroScene},
+  faAstroScene in '..\source\astro\faAstroScene.pas' {FormAstroScene},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  fmAbout in '..\source\fmAbout.pas' {frmAbout},
   fmGenStarsys in '..\source\fmGenStarsys.pas' {FormGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
@@ -40,12 +40,13 @@ uses
 begin
   Application.Initialize;
  // TStyleManager.TrySetStyle('Windows10 Dark');
-  Application.CreateForm(TfrmAstroScene, frmAstroScene);
+  Application.CreateForm(TFormAstroScene, FormAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormStellarSys, FormStellarSys);
   Application.Run;
 end.

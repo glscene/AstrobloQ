@@ -10,7 +10,7 @@ uses
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fgOptions in '..\source\galaxy\fgOptions.pas' {frmOptions},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  fmAbout in '..\source\fmAbout.pas' {frmAbout},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},

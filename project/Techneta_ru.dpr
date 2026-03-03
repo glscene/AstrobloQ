@@ -20,7 +20,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   ftTechneta_ru in '..\source\tech\ftTechneta_ru.pas' {frmTexoneta},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
   Tech.Utils in '..\source\tech\Tech.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 

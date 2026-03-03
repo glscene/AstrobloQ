@@ -960,7 +960,7 @@ end;
 procedure TfrmAstroScene.miHelpAboutClick(Sender: TObject);
 begin
   inherited;
-  with TFormAbout.Create(Self) do
+  with TfrmAbout.Create(Self) do
   try
     PageControl.ActivePageIndex := 0;
     ShowModal;

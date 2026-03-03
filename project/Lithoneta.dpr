@@ -14,7 +14,7 @@ uses
   flLithoneta in '..\source\lito\flLithoneta.pas' {frmAstroScene},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {FormAbout},
+  fmAbout in '..\source\fmAbout.pas' {frmAbout},
   fmGenStarsys in '..\source\fmGenStarsys.pas' {FormGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',

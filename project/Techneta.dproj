@@ -151,7 +151,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FormAbout</Form>
+            <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>

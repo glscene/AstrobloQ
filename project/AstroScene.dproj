@@ -107,7 +107,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\astro\faAstroScene.pas">
-            <Form>frmAstroScene</Form>
+            <Form>FormAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>FormFirst</Form>
@@ -119,7 +119,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
-            <Form>FormAbout</Form>
+            <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmGenStarsys.pas">

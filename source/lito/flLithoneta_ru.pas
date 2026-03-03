@@ -1019,7 +1019,7 @@ end;
 //----------------------- О программе -----------------------------------------
 procedure TfrmAstroScene.About1Click(Sender: TObject);
 begin
-  with TFormAbout.Create(Self) do
+  with TfrmAbout.Create(Self) do
   try
     PageControl.ActivePageIndex := 0;
     ShowModal;

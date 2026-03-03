@@ -91,7 +91,7 @@ type
     LensStar: TGLLensFlare;
     GLMatLib: TGLMaterialLibrary;
     CameraControler: TGLCamera;
-    StarSkyDome: TGLSkyDome;
+    SkyDome: TGLSkyDome;
     ConstLines: TGLLines;
     ConstBorders: TGLLines;
     MainMenu: TMainMenu;
@@ -115,17 +115,17 @@ type
     diskRingDn: TGLDisk;
     N3: TMenuItem;
     StatusBar: TStatusBar;
-    miSolarSystem: TMenuItem;
+    miStellarSystem: TMenuItem;
     N4: TMenuItem;
-    miOptions: TMenuItem;
+    miToolsOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
-    miGenExosys: TMenuItem;
+    miGenStarsys: TMenuItem;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
     LightStar: TGLLightSource;
-    About1: TMenuItem;
+    miHelpAbout: TMenuItem;
     miSettings: TMenuItem;
     ControlBarTop: TControlBar;
     ToolBar1: TToolBar;
@@ -166,10 +166,10 @@ type
     procedure miViewConstlinesClick(Sender: TObject);
     procedure miViewConstBordersClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
-    procedure miSolarSystemClick(Sender: TObject);
-    procedure miOptionsClick(Sender: TObject);
-    procedure miGenExosysClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
+    procedure miStellarSystemClick(Sender: TObject);
+    procedure miToolsOptionsClick(Sender: TObject);
+    procedure miGenStarsysClick(Sender: TObject);
+    procedure miHelpAboutClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
     procedure miSkyAreasClick(Sender: TObject);
@@ -236,10 +236,10 @@ begin
 // д.б.  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
   begin
-    StarSkyDome.Bands.Clear;
-    StarSkyDome.Stars.Clear;
-    StarSkyDome.Stars.LoadStarsFile(CatalogName);
-    StarSkyDome.StructureChanged;
+    SkyDome.Bands.Clear;
+    SkyDome.Stars.Clear;
+    SkyDome.Stars.LoadStarsFile(CatalogName);
+    SkyDome.StructureChanged;
   end;
 
   // переход по умолчанию в директорию солнечной системы
@@ -281,7 +281,7 @@ begin
   FormStellarSys.BorderStyle := bsNone;
   FormStellarSys.Show;
 
-
+  //  miHelpWiki.Caption := miItem.Text + ' in ' + 'Ruwili...';
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
 end;
 
@@ -314,7 +314,7 @@ end;
 //----------------------------------------------------------------------------
 //--------------------- Генератор экзопланетной системы ----------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.miGenExosysClick(Sender: TObject);
+procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
 begin
   Timer1.Enabled := False;
 //  GLCadencer.Enabled := False;
@@ -693,7 +693,7 @@ end;
 
 
 //-------------------------- Планетная система -------------------------------
-procedure TfrmAstroScene.miSolarSystemClick(Sender: TObject);
+procedure TfrmAstroScene.miStellarSystemClick(Sender: TObject);
 begin
   with TFormStellarSys.Create(Self) do
     try
@@ -705,7 +705,7 @@ end;
 
 
 //------------------------- Показать опции ------------------------------------
-procedure TfrmAstroScene.miOptionsClick(Sender: TObject);
+procedure TfrmAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
@@ -760,10 +760,7 @@ begin
   try
     // ToolBar Planets
     // ...
-    // tvMoons
-/////    IniFile.WriteInteger(frmAstroScene.Name, tvPlanets.Name, tvMoons.Selected.Index);
-    // tvAsteroids
-/////    IniFile.WriteInteger(frmAstroScene.Name, tvAsteroids.Name, tvAsteroids.Selected.Index);
+/////    IniFile.WriteInteger(FormAstroScene.Name, tvStarsys.Name, tvStarsys.Selected.Index);
   finally
     IniFile.Free;
   end;
@@ -771,9 +768,9 @@ end;
 
 
 //----------------------- О программе -----------------------------------------
-procedure TfrmAstroScene.About1Click(Sender: TObject);
+procedure TfrmAstroScene.miHelpAboutClick(Sender: TObject);
 begin
-  with TFormAbout.Create(Self) do
+  with TfrmAbout.Create(Self) do
   try
     PageControl.ActivePageIndex := 0;
     ShowModal;

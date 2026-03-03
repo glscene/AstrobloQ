@@ -164,7 +164,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout_ru.pas">
-            <Form>FormAbout</Form>
+            <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\tech\Tech.Utils.pas"/>

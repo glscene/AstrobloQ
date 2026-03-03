@@ -20,13 +20,11 @@ object frmOptions: TfrmOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 569
-    ExplicitWidth = 803
     DesignSize = (
       811
       29)
     object ButtonOK: TButton
-      Left = 400
+      Left = 392
       Top = 3
       Width = 70
       Height = 23
@@ -46,8 +44,6 @@ object frmOptions: TfrmOptions
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 803
-    ExplicitHeight = 539
     object PageControl: TPageControl
       Left = 163
       Top = 5
@@ -57,8 +53,6 @@ object frmOptions: TfrmOptions
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 635
-      ExplicitHeight = 529
       object tsGeneral: TTabSheet
         Caption = 'General'
         ImageIndex = 7
@@ -806,7 +800,6 @@ object frmOptions: TfrmOptions
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 803
   end
   object ImageList: TImageList
     Left = 79

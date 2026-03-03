@@ -719,7 +719,7 @@ end;
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miAboutClick(Sender: TObject);
 begin
-  with TFormAbout.Create(Self) do
+  with TfrmAbout.Create(Self) do
     try
       PageControl.ActivePageIndex := 5;
       ShowModal;
