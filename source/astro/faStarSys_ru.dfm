@@ -2,8 +2,8 @@ object FormStellarSys: TFormStellarSys
   Left = 193
   Top = 128
   Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
-  ClientHeight = 553
-  ClientWidth = 979
+  ClientHeight = 528
+  ClientWidth = 971
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,35 +19,37 @@ object FormStellarSys: TFormStellarSys
   object SceneViewer: TGLSceneViewer
     Left = 195
     Top = 0
-    Width = 637
-    Height = 535
+    Width = 629
+    Height = 510
     Camera = Camera
     Buffer.FogEnvironment.FogColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
     Buffer.FogEnvironment.FogStart = 10.000000000000000000
     Buffer.FogEnvironment.FogEnd = 1000.000000000000000000
     Buffer.FogEnvironment.FogDistance = fdEyePlane
     Buffer.BackgroundColor = clBackground
-    FieldOfView = 139.005325317382800000
+    FieldOfView = 137.174057006835900000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 645
+    ExplicitHeight = 560
   end
   object PanelLeft: TPanel
     Left = 0
     Top = 0
     Width = 195
-    Height = 535
+    Height = 510
     Align = alLeft
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
-    ExplicitHeight = 510
+    ExplicitHeight = 560
     object TreeView: TTreeView
       Left = 4
       Top = 4
       Width = 187
-      Height = 527
+      Height = 552
       Align = alClient
       BevelKind = bkTile
       BorderStyle = bsNone
@@ -55,18 +57,17 @@ object FormStellarSys: TFormStellarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
-      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
-    Left = 832
+    Left = 824
     Top = 0
     Width = 147
-    Height = 535
+    Height = 510
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 824
-    ExplicitHeight = 510
+    ExplicitLeft = 840
+    ExplicitHeight = 560
     object Splitter1: TSplitter
       Left = 1
       Top = 18
@@ -113,14 +114,13 @@ object FormStellarSys: TFormStellarSys
     end
     object MemoInfo: TMemo
       Left = 1
-      Top = 404
+      Top = 429
       Width = 145
       Height = 130
       Align = alBottom
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
-      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -149,12 +149,12 @@ object FormStellarSys: TFormStellarSys
   end
   object StatusBarSol: TStatusBar
     Left = 0
-    Top = 535
-    Width = 979
+    Top = 510
+    Width = 971
     Height = 18
     Panels = <>
-    ExplicitTop = 510
-    ExplicitWidth = 971
+    ExplicitTop = 560
+    ExplicitWidth = 987
   end
   object Scene: TGLScene
     Left = 46

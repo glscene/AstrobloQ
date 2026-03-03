@@ -30,7 +30,7 @@ object frmOptions: TfrmOptions
       750
       41)
     object ButtonOK: TButton
-      Left = 378
+      Left = 370
       Top = 1
       Width = 99
       Height = 31
@@ -39,7 +39,6 @@ object frmOptions: TfrmOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 370
     end
   end
   object PanelMiddle: TPanel
@@ -138,7 +137,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = -78
+          Left = -86
           Top = 137
           Width = 104
           Height = 128
@@ -546,7 +545,6 @@ object frmOptions: TfrmOptions
         0000000000000005000000FFFFFFFF0000000000000000000000000001071F04
         3B0430043D04350442044B0400002B000000000000000000000006000000FFFF
         FFFF000000000000000000000000000106170432045104370434044B04}
-      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel

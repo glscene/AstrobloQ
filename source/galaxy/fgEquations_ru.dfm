@@ -72,6 +72,7 @@ inherited FormEquations: TFormEquations
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
+    ExplicitWidth = 1203
   end
   object PanelMiddle: TPanel
     Left = 0
@@ -86,9 +87,8 @@ inherited FormEquations: TFormEquations
     Caption = 'PanelMiddle'
     ShowCaption = False
     TabOrder = 2
-    ExplicitTop = 72
     ExplicitWidth = 1203
-    ExplicitHeight = 666
+    ExplicitHeight = 625
     object grbDrakeFormula: TGroupBox
       Left = 1
       Top = 443
@@ -109,7 +109,7 @@ inherited FormEquations: TFormEquations
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 25
+      ExplicitWidth = 1201
       object lbNs: TLabel
         Left = 300
         Top = 54
@@ -1079,7 +1079,7 @@ inherited FormEquations: TFormEquations
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 2
-      ExplicitLeft = 33
+      ExplicitWidth = 1201
       object Label10: TLabel
         Left = 236
         Top = 54

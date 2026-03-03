@@ -27,7 +27,7 @@ uses
   Astro.Utils;
 
 type
-  TFormHercrussel = class(TfrmFirst)
+  TFormHercrussel = class(TFormFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLMaterialLibrary1: TGLMaterialLibrary;

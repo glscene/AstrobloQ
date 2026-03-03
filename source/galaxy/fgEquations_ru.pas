@@ -18,10 +18,10 @@ uses
   Vcl.NumberBox,
   Vcl.ExtCtrls,
 
-  fmFormFirst;
+  fmFormFirst, Vcl.Imaging.jpeg;
 
 type
-  TFormEquations = class(TfrmFirst)
+  TFormEquations = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;

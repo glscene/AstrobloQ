@@ -80,12 +80,11 @@ uses
 
 
 type
-  TfrmAstroScene = class(TfrmFirst)
+  TfrmAstroScene = class(TFormFirst)
     GLScene: TGLScene;
     Camera: TGLCamera;
     sfPlanet: TGLSphere;
     DirectOpenGL: TGLDirectOpenGL;
-    GLCadencer: TGLCadencer;
     sfMoon: TGLSphere;
     dcStar: TGLDummyCube;
     dcMoon: TGLDummyCube;
@@ -318,7 +317,7 @@ end;
 procedure TfrmAstroScene.miGenExosysClick(Sender: TObject);
 begin
   Timer1.Enabled := False;
-  GLCadencer.Enabled := False;
+//  GLCadencer.Enabled := False;
 (*
   if FileExists(AppPath + 'EarthAbcde.exe') then
     ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
@@ -330,7 +329,7 @@ begin
       Free;
     end;
   Timer1.Enabled := True;
-  GLCadencer.Enabled := True;
+//  GLCadencer.Enabled := True;
 end;
 
 //------------------- Перед рендером включение огней городов -----------------

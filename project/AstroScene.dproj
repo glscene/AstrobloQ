@@ -110,7 +110,7 @@
             <Form>frmAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
-            <Form>frmFirst</Form>
+            <Form>FormFirst</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>

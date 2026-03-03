@@ -53,7 +53,6 @@ object frmAstroScene: TfrmAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1277
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -376,13 +375,6 @@ object frmAstroScene: TfrmAstroScene
         SpotCutOff = 180.000000000000000000
       end
     end
-  end
-  object GLCadencer: TGLCadencer
-    Scene = GLScene
-    MaxDeltaTime = 0.050000000000000000
-    OnProgress = GLCadencerProgress
-    Left = 382
-    Top = 153
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <

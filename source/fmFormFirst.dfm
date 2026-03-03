@@ -1,4 +1,4 @@
-object frmFirst: TfrmFirst
+object FormFirst: TFormFirst
   Left = 392
   Top = 227
   HelpContext = 1

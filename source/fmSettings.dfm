@@ -1,5 +1,4 @@
 inherited frmSettings: TfrmSettings
-  HelpContext = 0
   Caption = 'Settings'
   ClientHeight = 759
   ClientWidth = 1313
@@ -79,6 +78,7 @@ inherited frmSettings: TfrmSettings
         0000000000000000000000010750006C0061006E0065007400730000002D0000
         000000000000000000FFFFFFFFFFFFFFFF070000000000000000000000000107
         5000610074006800770061007900}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -89,7 +89,7 @@ inherited frmSettings: TfrmSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsStars
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -302,7 +302,7 @@ inherited frmSettings: TfrmSettings
         end
         object LabelLs: TLabel
           Left = 42
-          Top = 183
+          Top = 244
           Width = 147
           Height = 25
           Margins.Left = 5
@@ -313,7 +313,7 @@ inherited frmSettings: TfrmSettings
         end
         object LabelLt: TLabel
           Left = 42
-          Top = 231
+          Top = 292
           Width = 179
           Height = 25
           Margins.Left = 5
@@ -354,6 +354,17 @@ inherited frmSettings: TfrmSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Average distance between stars, ly'
+        end
+        object Label1: TLabel
+          Left = 42
+          Top = 191
+          Width = 189
+          Height = 25
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Fraction of single stars'
         end
         object nbRg: TNumberBox
           Left = 385
@@ -412,7 +423,7 @@ inherited frmSettings: TfrmSettings
         end
         object StaticTextLt: TStaticText
           Left = 327
-          Top = 232
+          Top = 293
           Width = 23
           Height = 34
           Hint = 'Longevity of technospheres'
@@ -433,7 +444,7 @@ inherited frmSettings: TfrmSettings
         end
         object EditLt: TEdit
           Left = 385
-          Top = 224
+          Top = 285
           Width = 153
           Height = 38
           Margins.Left = 5
@@ -453,7 +464,7 @@ inherited frmSettings: TfrmSettings
         end
         object EditLs: TEdit
           Left = 385
-          Top = 176
+          Top = 237
           Width = 150
           Height = 38
           Margins.Left = 5
@@ -473,7 +484,7 @@ inherited frmSettings: TfrmSettings
         end
         object StaticTextLs: TStaticText
           Left = 327
-          Top = 180
+          Top = 241
           Width = 24
           Height = 34
           Hint = 'Longevity of stars'
@@ -692,6 +703,37 @@ inherited frmSettings: TfrmSettings
           TabOrder = 16
           Text = '1'
         end
+        object EditKs: TEdit
+          Left = 385
+          Top = 183
+          Width = 153
+          Height = 33
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Alignment = taRightJustify
+          TabOrder = 17
+          Text = '0.5'
+        end
+        object StaticText2: TStaticText
+          Left = 326
+          Top = 190
+          Width = 27
+          Height = 34
+          Margins.Left = 5
+          Margins.Top = 5
+          Margins.Right = 5
+          Margins.Bottom = 5
+          Caption = 'Ks'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -21
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          TabOrder = 18
+        end
       end
       object tsStars: TTabSheet
         Margins.Left = 5
@@ -704,19 +746,8 @@ inherited frmSettings: TfrmSettings
         DesignSize = (
           1085
           675)
-        object ColorGrid1: TColorGrid
-          Left = 784
-          Top = 53
-          Width = 172
-          Height = 172
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          TabOrder = 0
-        end
         object chlbStarClasses: TCheckListBox
-          Left = 578
+          Left = 562
           Top = 61
           Width = 149
           Height = 200
@@ -743,7 +774,7 @@ inherited frmSettings: TfrmSettings
           ParentFont = False
           ParentShowHint = False
           ShowHint = False
-          TabOrder = 1
+          TabOrder = 0
         end
         object GroupBox2: TGroupBox
           Left = 56
@@ -755,7 +786,7 @@ inherited frmSettings: TfrmSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = 'Constellations'
-          TabOrder = 2
+          TabOrder = 1
           object chbConstFigures: TCheckBox
             Left = 45
             Top = 120

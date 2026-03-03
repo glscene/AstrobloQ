@@ -21,7 +21,7 @@ uses
   fgStarProj;
 
 type
-  TFormMonitor = class(TfrmFirst)
+  TFormMonitor = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     TreeView1: TTreeView;

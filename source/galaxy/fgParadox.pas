@@ -19,7 +19,7 @@ uses
   fmFormFirst, Vcl.ExtCtrls;
 
 type
-  TFormParadox = class(TfrmFirst)
+  TFormParadox = class(TFormFirst)
     tvThesis: TTreeView;
     StatusBar1: TStatusBar;
     Panel1: TPanel;

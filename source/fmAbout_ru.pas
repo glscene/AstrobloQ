@@ -23,7 +23,7 @@ uses
   fmFormFirst;
 
 type
-  TFormAbout = class(TfrmFirst)
+  TFormAbout = class(TFormFirst)
     PanelAstrobloQ: TPanel;
     PageControl: TPageControl;
     tsDevelopers: TTabSheet;

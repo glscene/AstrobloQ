@@ -18,10 +18,14 @@ uses
   Vcl.NumberBox,
   Vcl.ExtCtrls,
 
-  fmFormFirst, VCLTee.TeeGDIPlus, VCLTee.TeeProcs, VCLTee.TeePreviewPanel;
+  fmFormFirst,
+
+  VCLTee.TeeGDIPlus,
+  VCLTee.TeeProcs,
+  VCLTee.TeePreviewPanel, Vcl.Imaging.jpeg;
 
 type
-  TFormStatistics = class(TfrmFirst)
+  TFormStatistics = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;

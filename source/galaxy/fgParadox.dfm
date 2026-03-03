@@ -3,7 +3,6 @@ inherited FormParadox: TFormParadox
   ClientHeight = 779
   ClientWidth = 1332
   StyleElements = [seFont, seClient, seBorder]
-  OnShow = FormShow
   ExplicitWidth = 1348
   ExplicitHeight = 818
   TextHeight = 30
@@ -222,6 +221,7 @@ inherited FormParadox: TFormParadox
       0065006E00730000004F000000410000004100000003000000FFFFFFFF000000
       0000000000000000000001184300360035002E00200044006900720065006300
       7400650064002000500061006E0073007000650072006D0069006100}
+    ExplicitHeight = 724
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -234,7 +234,7 @@ inherited FormParadox: TFormParadox
     Margins.Bottom = 5
     Panels = <>
     ExplicitTop = 724
-    ExplicitWidth = 1149
+    ExplicitWidth = 1324
   end
   object Panel1: TPanel
     Left = 1386
@@ -261,10 +261,8 @@ inherited FormParadox: TFormParadox
     Caption = 'PanelFP'
     ShowCaption = False
     TabOrder = 3
-    ExplicitLeft = 808
-    ExplicitTop = 336
-    ExplicitWidth = 324
-    ExplicitHeight = 72
+    ExplicitWidth = 771
+    ExplicitHeight = 724
     object VirtualImageFP: TVirtualImage
       Left = 1
       Top = 1

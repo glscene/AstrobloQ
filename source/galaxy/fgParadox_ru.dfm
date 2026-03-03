@@ -3,7 +3,6 @@ inherited FormParadox: TFormParadox
   ClientHeight = 780
   ClientWidth = 1271
   StyleElements = [seFont, seClient, seBorder]
-  OnShow = FormShow
   ExplicitWidth = 1287
   ExplicitHeight = 819
   TextHeight = 30

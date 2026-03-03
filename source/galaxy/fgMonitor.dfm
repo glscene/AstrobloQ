@@ -45,5 +45,6 @@ inherited FormMonitor: TFormMonitor
     Align = alLeft
     Indent = 33
     TabOrder = 1
+    ExplicitHeight = 485
   end
 end

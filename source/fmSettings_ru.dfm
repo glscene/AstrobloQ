@@ -322,7 +322,7 @@ inherited frmSettings: TfrmSettings
           1085
           675)
         object chlbStarClasses: TCheckListBox
-          Left = 890
+          Left = 882
           Top = 42
           Width = 149
           Height = 200

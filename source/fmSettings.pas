@@ -32,13 +32,14 @@ uses
   Vcl.NumberBox,
   Vcl.ImgList,
   Vcl.Themes,
+  Vcl.Imaging.jpeg,
 
   Astro.Globals,
   dmImages,
   fmFormFirst;
 
 type
-  TfrmSettings = class(TfrmFirst)
+  TfrmSettings = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -57,7 +58,6 @@ type
     tsGalaxy: TTabSheet;
     nbRg: TNumberBox;
     tsStars: TTabSheet;
-    ColorGrid1: TColorGrid;
     chlbStarClasses: TCheckListBox;
     GroupBox2: TGroupBox;
     chbConstFigures: TCheckBox;
@@ -146,6 +146,9 @@ type
     StaticTextDs: TStaticText;
     StaticTextLr: TStaticText;
     EditLr: TEdit;
+    EditKs: TEdit;
+    StaticText2: TStaticText;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -166,10 +169,6 @@ implementation //=============================================================
 
 {$R *.dfm}
 
-{
-uses
-  fgGalaxy;
-}
 
 //---------------------------------------------------------------------------
 procedure TfrmSettings.FormCreate(Sender: TObject);
@@ -226,31 +225,6 @@ end;
 
 
 //-----------------------------------------------------
-procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
-var
-  Ns: Uint64;
-  Vg, Ratio : Extended;
-  Ds: Extended; // Distance between stars
-  Ls, Lt: LONG64;
-begin
-  Ns := StrToUInt64(EditNs.Text);
-  // Calculating volume of galaxy cylinder
-  Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
-  EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 0);
-  // Average distance betweem galaxy stars
-  Ratio := Vg/Ns;
-  Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
-  // Distance betweem stars
-  EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
-
-  Ls := StrToInt64(EditLs.Text); // Longevity of stars
-  Lt := StrToInt64(EditLt.Text); // Longevity of technets
-  Ratio := Lt/Ls;
-  // Ratio of longevities
-  EditLr.Text := FloatToStrF(Ratio, ffFixed, 25, 10);
-
-end;
-
 procedure TfrmSettings.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
@@ -311,6 +285,31 @@ begin
 end;
 
 // -----------------------------------------------------------------------
+procedure TfrmSettings.ButtonCalculateClick(Sender: TObject);
+var
+  Ns: Uint64;
+  Vg, Ratio : Extended;
+  Ds: Extended; // Distance between stars
+  Ls, Lt: LONG64;
+begin
+  Ns := StrToUInt64(EditNs.Text);
+  // Calculating volume of galaxy cylinder
+  Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
+  EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 0);
+  // Average distance betweem galaxy stars
+  Ratio := Vg/Ns;
+  Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
+  // Distance betweem stars
+  EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
+
+  Ls := StrToInt64(EditLs.Text); // Longevity of stars
+  Lt := StrToInt64(EditLt.Text); // Longevity of technets
+  Ratio := Lt/Ls;
+  // Ratio of longevities
+  EditLr.Text := FloatToStrF(Ratio, ffFixed, 25, 10);
+end;
+
+//----------------------------------------------------------------------------
 procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;

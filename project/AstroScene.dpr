@@ -12,7 +12,7 @@ program AstroScene;
 uses
   Forms,
   faAstroScene in '..\source\astro\faAstroScene.pas' {frmAstroScene},
-  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst: TDataModule},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   fmGenStarsys in '..\source\fmGenStarsys.pas' {FormGenStarsys},
@@ -44,7 +44,7 @@ begin
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;

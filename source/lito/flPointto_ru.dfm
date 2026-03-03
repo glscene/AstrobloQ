@@ -25,6 +25,7 @@ object FormPointto: TFormPointto
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 852
   end
   object GLScene1: TGLScene
     Left = 16

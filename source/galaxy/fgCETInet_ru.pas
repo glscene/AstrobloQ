@@ -17,10 +17,10 @@ uses
   Vcl.NumberBox,
   Vcl.ExtCtrls,
 
-  fmFormFirst;
+  fmFormFirst, Vcl.Imaging.jpeg;
 
 type
-  TFormCETInet = class(TfrmFirst)
+  TFormCETInet = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;

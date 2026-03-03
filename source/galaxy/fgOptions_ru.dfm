@@ -1,5 +1,4 @@
 inherited frmOptions: TfrmOptions
-  HelpContext = 0
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 701
   ClientWidth = 1236
@@ -692,7 +691,7 @@ inherited frmOptions: TfrmOptions
           1008
           617)
         object chlbStarClasses: TCheckListBox
-          Left = -43
+          Left = -51
           Top = 53
           Width = 149
           Height = 200
@@ -720,6 +719,7 @@ inherited frmOptions: TfrmOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
+          ExplicitLeft = -59
         end
         object GroupBox2: TGroupBox
           Left = 128

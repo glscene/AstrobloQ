@@ -20,7 +20,7 @@ uses
   fmFormFirst;
 
 type
-  TFormCETInet = class(TfrmFirst)
+  TFormCETInet = class(TFormFirst)
     PageControl: TPageControl;
     PanelBottom: TPanel;
     ButtonOk: TButton;

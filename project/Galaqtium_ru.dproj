@@ -140,7 +140,7 @@
             <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
-            <Form>frmFirst</Form>
+            <Form>FormFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgStarProj.pas">
             <Form>FormProjection</Form>

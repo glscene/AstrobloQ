@@ -58,7 +58,7 @@ uses
   ;
 
 type
-  TFormStellarSys = class(TfrmFirst)
+  TFormStellarSys = class(TFormFirst)
     Scene: TGLScene;
     SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;

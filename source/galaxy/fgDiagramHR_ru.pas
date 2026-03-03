@@ -14,6 +14,12 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.ExtCtrls,
+  VCLTee.TeeData,
+  Data.DB,
+  VCLTee.TeEngine,
+  VCLTee.TeeProcs,
+  VCLTee.Chart,
+  VCLTee.Series,
 
   GLS.Material,
   GLS.Color,
@@ -24,11 +30,12 @@ uses
 
   fmFormFirst,
   Astro.ReadHyg,
-  Astro.Utils, GLS.Cadencer, VCLTee.TeeData, Data.DB, VCLTee.TeEngine,
-  VCLTee.TeeProcs, VCLTee.Chart, VCLTee.Series;
+  Astro.Utils,
+  GLS.Cadencer
+  ;
 
 type
-  TFormDiagramHR = class(TfrmFirst)
+  TFormDiagramHR = class(TFormFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLMaterialLibrary1: TGLMaterialLibrary;

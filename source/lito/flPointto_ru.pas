@@ -30,7 +30,7 @@ uses
   ;
 
 type
-  TFormPointto = class(TfrmFirst)
+  TFormPointto = class(TFormFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;

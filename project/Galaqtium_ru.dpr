@@ -18,7 +18,7 @@ uses
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
-  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
   fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {FormDiagramHR},
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
@@ -39,7 +39,7 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

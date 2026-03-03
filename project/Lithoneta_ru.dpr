@@ -21,7 +21,7 @@ uses
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
-  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
@@ -46,7 +46,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

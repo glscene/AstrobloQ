@@ -22,7 +22,7 @@ uses
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_ru in '..\source\fmAbout_ru.pas' {FormAbout},
-  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   frParams_ru in '..\source\astro\frParams_ru.pas' {FrameParamsR: TFrame},
   faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStellarSys},
   faConstells_ru in '..\source\astro\faConstells_ru.pas' {FormConstells},
@@ -48,7 +48,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TFormStellarSys, FormStellarSys);
   Application.Run;

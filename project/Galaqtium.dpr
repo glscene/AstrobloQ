@@ -13,7 +13,7 @@ uses
   fmAbout in '..\source\fmAbout.pas' {FormAbout},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   fgAstrocube in '..\source\galaxy\fgAstrocube.pas' {FormAstrocube},
   fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
   fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
@@ -37,7 +37,7 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TFormStatistics, FormStatistics);
   Application.Run;

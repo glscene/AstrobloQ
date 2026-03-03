@@ -75,7 +75,7 @@ uses
   ;
 
 type
-  TfrmAstroScene = class(TfrmFirst)
+  TfrmAstroScene = class(TFormFirst)
     GLScene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;

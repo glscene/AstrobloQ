@@ -23,7 +23,7 @@ uses
   fmFormFirst;
 
 type
-  TFormAbout = class(TfrmFirst)
+  TFormAbout = class(TFormFirst)
     Panel1: TPanel;
     PageControl: TPageControl;
     tsDevelopers: TTabSheet;

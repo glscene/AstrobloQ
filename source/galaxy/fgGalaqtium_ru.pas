@@ -71,7 +71,7 @@ uses
   ;
 
 type
-  TfrmGalaqtium = class(TfrmFirst)
+  TfrmGalaqtium = class(TFormFirst)
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;

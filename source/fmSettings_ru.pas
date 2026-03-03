@@ -38,7 +38,7 @@ uses
   fmFormFirst;
 
 type
-  TfrmSettings = class(TfrmFirst)
+  TfrmSettings = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -58,6 +58,9 @@ type
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
+    tsGalaxy: TTabSheet;
+    EditNs: TEdit;
+    EditLr: TEdit;
     tsPathway: TTabSheet;
     PanelTitle: TPanel;
     LabelStarI: TLabel;
@@ -84,9 +87,6 @@ type
     SpinEditPrecision: TSpinEdit;
     LabelPrecision: TLabel;
     tsPlanets: TTabSheet;
-    tsGalaxy: TTabSheet;
-    EditNs: TEdit;
-    EditLr: TEdit;
     StaticTextLr: TStaticText;
     StaticTextDs: TStaticText;
     EditDs: TEdit;

@@ -21,7 +21,7 @@ uses
   fmFormFirst;
 
 type
-  TFormStatistics = class(TfrmFirst)
+  TFormStatistics = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;

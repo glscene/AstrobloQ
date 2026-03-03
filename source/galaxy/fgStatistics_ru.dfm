@@ -18,6 +18,8 @@ inherited FormStatistics: TFormStatistics
     Align = alBottom
     ShowCaption = False
     TabOrder = 0
+    ExplicitTop = 738
+    ExplicitWidth = 1203
     object ButtonOk: TButton
       Left = 937
       Top = 10
@@ -65,6 +67,7 @@ inherited FormStatistics: TFormStatistics
     Caption = 'PanelTop'
     ShowCaption = False
     TabOrder = 1
+    ExplicitWidth = 1203
   end
   object PanelMiddle: TPanel
     Left = 0
@@ -79,6 +82,8 @@ inherited FormStatistics: TFormStatistics
     Caption = 'PanelMiddle'
     ShowCaption = False
     TabOrder = 2
+    ExplicitWidth = 1203
+    ExplicitHeight = 666
     object TeePreviewPanel1: TTeePreviewPanel
       Left = 88
       Top = -18

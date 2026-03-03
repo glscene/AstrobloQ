@@ -1,10 +1,9 @@
 //-------------------------------------
 // This unit is part of AstrobloQ
 //-------------------------------------
-
 unit fmFormFirst;
 
-(* The unit for TfrmFirst class as parent for all child forms *)
+(* The unit for TFormFirst class as parent for all child forms *)
 
 interface
 
@@ -20,7 +19,7 @@ uses
   Vcl.ExtDlgs;
 
 type
-  TfrmFirst = class(TForm)
+  TFormFirst = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
   public
@@ -33,20 +32,20 @@ type
   end;
 
 var
-  frmFirst: TfrmFirst;
+  FormFirst: TFormFirst;
 
 implementation //=============================================================
 
 {$R *.dfm}
 
-//
-procedure TfrmFirst.FormCreate(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormFirst.FormCreate(Sender: TObject);
 begin
   ReadInifile;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmFirst.ReadIniFile;
+procedure TFormFirst.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
@@ -64,13 +63,13 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmFirst.WriteIniFile;
+procedure TFormFirst.WriteIniFile;
 begin
   PathExe := ExtractFilePath(ParamStr(0));
   SetCurrentDir(PathExe);
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
 end;
 
-initialization
+initialization //=============================================================
 
 end.

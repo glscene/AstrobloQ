@@ -17,10 +17,10 @@ uses
   Vcl.VirtualImage,
 
   dmImages,
-  fmFormFirst;
+  fmFormFirst, Vcl.Imaging.jpeg;
 
 type
-  TFormParadox = class(TfrmFirst)
+  TFormParadox = class(TFormFirst)
     tvThesis: TTreeView;
     StatusBar1: TStatusBar;
     PanelFP: TPanel;

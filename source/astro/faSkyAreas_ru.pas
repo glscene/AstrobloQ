@@ -29,7 +29,7 @@ uses
   fmFormFirst;
 
 type
-  TFormSkyAreas = class(TfrmFirst)
+  TFormSkyAreas = class(TFormFirst)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;

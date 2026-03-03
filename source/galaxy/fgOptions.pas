@@ -38,7 +38,7 @@ uses
   fmFormFirst;
 
 type
-  TfrmOptions = class(TfrmFirst)
+  TfrmOptions = class(TFormFirst)
     PanelBottom: TPanel;
     PanelMain: TPanel;
     tvSettings: TTreeView;

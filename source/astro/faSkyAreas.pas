@@ -29,7 +29,7 @@ uses
   fmFormFirst;
 
 type
-  TFormConstPolygons = class(TfrmFirst)
+  TFormConstPolygons = class(TFormFirst)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;

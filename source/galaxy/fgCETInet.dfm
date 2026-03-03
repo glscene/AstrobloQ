@@ -3,8 +3,6 @@ inherited FormCETInet: TFormCETInet
   ClientHeight = 744
   ClientWidth = 1182
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1198
   ExplicitHeight = 783
   TextHeight = 30
@@ -19,8 +17,8 @@ inherited FormCETInet: TFormCETInet
     Margins.Bottom = 5
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 211
-    ExplicitWidth = 971
+    ExplicitWidth = 1174
+    ExplicitHeight = 647
   end
   object PanelBottom: TPanel
     Left = 0

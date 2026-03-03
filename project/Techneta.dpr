@@ -7,7 +7,7 @@ uses
   ftMeshEditor in '..\source\tech\ftMeshEditor.pas' {frmMeshEditor},
   ftMeshData in '..\source\tech\ftMeshData.pas' {FormMeshData},
   ftAstroPilot in '..\source\tech\ftAstroPilot.pas' {frmSpacePilot},
-  fmFormFirst in '..\source\fmFormFirst.pas' {frmFirst},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   ftCyborg in '..\source\tech\ftCyborg.pas' {frmCyborg},
   ftRobot in '..\source\tech\ftRobot.pas' {frmRobot},
   Tech.BoneUtils in '..\source\tech\Tech.BoneUtils.pas',
@@ -39,7 +39,7 @@ begin
   Application.CreateForm(TfrmCyborg, frmCyborg);
   Application.CreateForm(TfrmRobot, frmRobot);
   Application.CreateForm(TfrmSpacePilot, frmSpacePilot);
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormCETI, FormCETI);
   Application.Run;
 end.

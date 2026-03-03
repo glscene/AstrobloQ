@@ -33,10 +33,10 @@ uses
 
   Astro.Globals,
   dmImages,
-  fmFormFirst;
+  fmFormFirst, Vcl.Imaging.jpeg;
 
 type
-  TfrmOptions = class(TfrmFirst)
+  TfrmOptions = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;

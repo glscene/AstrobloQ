@@ -15,13 +15,14 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
+  Vcl.Imaging.jpeg,
 
   fmFormFirst,
 ///  fmStarLife,
   fgStarProj;
 
 type
-  TFormMonitor = class(TfrmFirst)
+  TFormMonitor = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     TreeView1: TTreeView;

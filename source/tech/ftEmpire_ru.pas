@@ -46,7 +46,7 @@ uses
   fmFormFirst;
 
 type
-  TFormEmpire = class(TfrmFirst)
+  TFormEmpire = class(TFormFirst)
     MainMenu: TMainMenu;
     ActionList: TActionList;
     ImageList: TImageList;
