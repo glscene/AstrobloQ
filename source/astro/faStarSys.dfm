@@ -32,7 +32,6 @@ object FormStellarSys: TFormStellarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 656
   end
   object PanelLeft: TPanel
     Left = 0
@@ -56,6 +55,7 @@ object FormStellarSys: TFormStellarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
@@ -87,7 +87,6 @@ object FormStellarSys: TFormStellarSys
       Alignment = taCenter
       Caption = 'stPickObject'
       TabOrder = 0
-      ExplicitWidth = 64
     end
     object cbOrbit: TCheckBox
       Left = 29
@@ -120,6 +119,7 @@ object FormStellarSys: TFormStellarSys
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
+      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -155,8 +155,8 @@ object FormStellarSys: TFormStellarSys
     ExplicitWidth = 971
   end
   object Scene: TGLScene
-    Left = 254
-    Top = 28
+    Left = 22
+    Top = 20
     object SkyDome: TGLSkyDome
       Bands = <
         item
@@ -195,7 +195,7 @@ object FormStellarSys: TFormStellarSys
           0458434F4C02010201060A54474C424669726546580201020006064669726546
           5802000200060D4669726546584D616E61676572}
       end
-      object HabitableZone: TGLDisk
+      object StarHZUp: TGLDisk
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.BlendingMode = bmTransparency
@@ -203,6 +203,23 @@ object FormStellarSys: TFormStellarSys
         Direction.Coordinates = {000000000000803F2EBD3BB300000000}
         PitchAngle = 90.000000000000000000
         Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+        Visible = False
+        Pickable = False
+        InnerRadius = 4.800000190734863000
+        Loops = 1
+        OuterRadius = 9.500000000000000000
+        Slices = 64
+        SweepAngle = 360.000000000000000000
+      end
+      object StarHZDown: TGLDisk
+        Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
+        Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
+        Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
+        Material.BlendingMode = bmTransparency
+        Material.FaceCulling = fcCull
+        Direction.Coordinates = {00000000000080BF0000000000000000}
+        PitchAngle = 90.000000000000000000
+        Up.Coordinates = {0000000000000000000080BF00000000}
         Visible = False
         Pickable = False
         InnerRadius = 4.800000190734863000
@@ -739,33 +756,12 @@ object FormStellarSys: TFormStellarSys
     Enabled = True
     Interval = 800
     OnTimer = AsyncTimerTimer
-    Left = 120
-    Top = 72
-  end
-  object SimpleNavigation: TGLSimpleNavigation
-    Form = Owner
-    GLSceneViewer = SceneViewer
-    FormCaption = 'Solar System'
-    Options = [snoMouseWheelHandled]
-    KeyCombinations = <
-      item
-        ShiftState = [ssLeft, ssRight]
-        Action = snaZoom
-      end
-      item
-        ShiftState = [ssLeft]
-        Action = snaMoveAroundTarget
-      end
-      item
-        ShiftState = [ssRight]
-        Action = snaMoveAroundTarget
-      end>
-    Left = 378
-    Top = 180
+    Left = 112
+    Top = 88
   end
   object MatLib: TGLMaterialLibrary
-    Left = 40
-    Top = 200
+    Left = 120
+    Top = 24
   end
   object FireFXManager: TGLFireFXManager
     FireDir.Coordinates = {00000000000000000000000000000000}
@@ -781,12 +777,12 @@ object FormStellarSys: TFormStellarSys
     ParticleInterval = 0.500000000000000000
     UseInterval = False
     Reference = Sun
-    Left = 152
-    Top = 256
+    Left = 72
+    Top = 176
   end
   object MainMenu: TMainMenu
-    Left = 38
-    Top = 280
+    Left = 414
+    Top = 40
     object File1: TMenuItem
       Caption = 'File'
       object New1: TMenuItem
@@ -835,8 +831,24 @@ object FormStellarSys: TFormStellarSys
       end
     end
   end
-  object OpenDialog: TOpenDialog
-    Left = 590
-    Top = 38
+  object GLSimpleNavigation1: TGLSimpleNavigation
+    Form = Owner
+    GLSceneViewer = SceneViewer
+    FormCaption = 'Stellar system - %FPS'
+    KeyCombinations = <
+      item
+        ShiftState = [ssLeft, ssRight]
+        Action = snaZoom
+      end
+      item
+        ShiftState = [ssLeft]
+        Action = snaMoveAroundTarget
+      end
+      item
+        ShiftState = [ssRight]
+        Action = snaMoveAroundTarget
+      end>
+    Left = 72
+    Top = 264
   end
 end

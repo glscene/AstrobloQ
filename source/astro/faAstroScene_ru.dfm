@@ -4,8 +4,8 @@ object frmAstroScene: TfrmAstroScene
   Cursor = crHelp
   Hint = #1053#1077#1087#1090#1091#1085
   Caption = 'AstroScene'
-  ClientHeight = 751
-  ClientWidth = 1285
+  ClientHeight = 726
+  ClientWidth = 1277
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -18,13 +18,12 @@ object frmAstroScene: TfrmAstroScene
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
-  OnMouseWheel = FormMouseWheel
   OnShow = FormShow
   TextHeight = 24
   object StatusBar: TStatusBar
     Left = 0
-    Top = 712
-    Width = 1285
+    Top = 687
+    Width = 1277
     Height = 39
     Panels = <
       item
@@ -43,17 +42,15 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 687
-    ExplicitWidth = 1277
   end
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1285
+    Width = 1277
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1277
+    ExplicitTop = 24
     object ToolBar1: TToolBar
       Left = 11
       Top = 2

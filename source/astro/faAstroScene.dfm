@@ -17,7 +17,6 @@ object FormAstroScene: TFormAstroScene
   Position = poScreenCenter
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
-  OnMouseWheel = FormMouseWheel
   OnShow = FormShow
   TextHeight = 17
   object StatusBar: TStatusBar

@@ -73,7 +73,6 @@ type
     bb_lines: TGLLines;
     AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
-    SimpleNavigation: TGLSimpleNavigation;
     Sun: TGLSphere;
     MatLib: TGLMaterialLibrary;
     dcEarth: TGLDummyCube;
@@ -130,7 +129,7 @@ type
     PlutoOrbit: TGLTorus;
     EarthOrbit: TGLTorus;
     UranusRing: TGLDisk;
-    HabitableZone: TGLDisk;
+    StarHZUp: TGLDisk;
     MainMenu: TMainMenu;
     PanelRight: TPanel;
     Window1: TMenuItem;
@@ -153,12 +152,13 @@ type
     MemoInfo: TMemo;
     cbRotation: TCheckBox;
     N7: TMenuItem;
-    OpenDialog: TOpenDialog;
     Phobos: TGLFreeForm;
     Deimos: TGLFreeForm;
     StatusBarSol: TStatusBar;
     JupiterRing: TGLDisk;
     FrameParams: TFrameParams;
+    GLSimpleNavigation1: TGLSimpleNavigation;
+    StarHZDown: TGLDisk;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -387,7 +387,8 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormStellarSys.cbHabitableZoneClick(Sender: TObject);
 begin
-  HabitableZone.Visible := cbHabitableZone.Checked;
+  StarHZUp.Visible := cbHabitableZone.Checked;
+  StarHZDown.Visible := cbHabitableZone.Checked;
 end;
 
 //----------------------------------------------------------------------------

@@ -32,8 +32,6 @@ object FormStellarSys: TFormStellarSys
     Align = alClient
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 645
-    ExplicitHeight = 560
   end
   object PanelLeft: TPanel
     Left = 0
@@ -44,12 +42,12 @@ object FormStellarSys: TFormStellarSys
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
-    ExplicitHeight = 560
+    ExplicitHeight = 485
     object TreeView: TTreeView
       Left = 4
       Top = 4
       Width = 187
-      Height = 552
+      Height = 502
       Align = alClient
       BevelKind = bkTile
       BorderStyle = bsNone
@@ -57,6 +55,7 @@ object FormStellarSys: TFormStellarSys
       TabOrder = 0
       OnChange = TreeViewChange
       OnClick = TreeViewClick
+      ExplicitHeight = 477
     end
   end
   object PanelRight: TPanel
@@ -66,8 +65,8 @@ object FormStellarSys: TFormStellarSys
     Height = 510
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 840
-    ExplicitHeight = 560
+    ExplicitLeft = 816
+    ExplicitHeight = 485
     object Splitter1: TSplitter
       Left = 1
       Top = 18
@@ -101,7 +100,7 @@ object FormStellarSys: TFormStellarSys
       TabOrder = 1
       OnClick = cbOrbitClick
     end
-    object cbHabitableZone: TCheckBox
+    object cbStarHZ: TCheckBox
       Left = 29
       Top = 196
       Width = 97
@@ -110,17 +109,18 @@ object FormStellarSys: TFormStellarSys
       Checked = True
       State = cbChecked
       TabOrder = 2
-      OnClick = cbHabitableZoneClick
+      OnClick = cbStarHZClick
     end
     object MemoInfo: TMemo
       Left = 1
-      Top = 429
+      Top = 379
       Width = 145
       Height = 130
       Align = alBottom
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
+      ExplicitTop = 354
     end
     object cbRotation: TCheckBox
       Left = 29
@@ -140,7 +140,6 @@ object FormStellarSys: TFormStellarSys
       Height = 65
       Align = alTop
       TabOrder = 5
-      Visible = False
       ExplicitLeft = 1
       ExplicitTop = 38
       ExplicitWidth = 145
@@ -153,8 +152,8 @@ object FormStellarSys: TFormStellarSys
     Width = 971
     Height = 18
     Panels = <>
-    ExplicitTop = 560
-    ExplicitWidth = 987
+    ExplicitTop = 485
+    ExplicitWidth = 963
   end
   object Scene: TGLScene
     Left = 46
@@ -195,16 +194,33 @@ object FormStellarSys: TFormStellarSys
         Stacks = 32
         EffectsData = {
           0458434F4C02010201060A54474C424669726546580201020006064669726546
-          58020002001200000000}
+          5802000200060D4669726546584D616E61676572}
       end
-      object HabitableZone: TGLDisk
+      object StarHZUp: TGLDisk
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.BlendingMode = bmTransparency
         Material.FaceCulling = fcCull
-        Direction.Coordinates = {000000000000803F2EBD3BB300000000}
+        Direction.Coordinates = {000000000000803F0000000000000000}
         PitchAngle = 90.000000000000000000
-        Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+        Up.Coordinates = {0000000000000000000080BF00000000}
+        Visible = False
+        Pickable = False
+        InnerRadius = 4.800000190734863000
+        Loops = 1
+        OuterRadius = 9.500000000000000000
+        Slices = 64
+        SweepAngle = 360.000000000000000000
+      end
+      object StarHZDown: TGLDisk
+        Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
+        Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
+        Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
+        Material.BlendingMode = bmTransparency
+        Material.FaceCulling = fcCull
+        Direction.Coordinates = {00000000000080BF0000000000000000}
+        PitchAngle = 90.000000000000000000
+        Up.Coordinates = {0000000000000000000080BF00000000}
         Visible = False
         Pickable = False
         InnerRadius = 4.800000190734863000
@@ -747,33 +763,12 @@ object FormStellarSys: TFormStellarSys
     Enabled = True
     Interval = 800
     OnTimer = AsyncTimerTimer
-    Left = 136
-    Top = 104
-  end
-  object SimpleNavigation: TGLSimpleNavigation
-    Form = Owner
-    GLSceneViewer = SceneViewer
-    FormCaption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
-    Options = [snoMouseWheelHandled]
-    KeyCombinations = <
-      item
-        ShiftState = [ssLeft, ssRight]
-        Action = snaZoom
-      end
-      item
-        ShiftState = [ssLeft]
-        Action = snaMoveAroundTarget
-      end
-      item
-        ShiftState = [ssRight]
-        Action = snaMoveAroundTarget
-      end>
-    Left = 34
-    Top = 300
+    Left = 128
+    Top = 112
   end
   object MatLib: TGLMaterialLibrary
-    Left = 40
-    Top = 200
+    Left = 128
+    Top = 32
   end
   object FireFXManager: TGLFireFXManager
     FireDir.Coordinates = {00000000000000000000000000000000}
@@ -789,8 +784,8 @@ object FormStellarSys: TFormStellarSys
     ParticleInterval = 0.500000000000000000
     UseInterval = False
     Reference = Sun
-    Left = 120
-    Top = 200
+    Left = 96
+    Top = 208
   end
   object MainMenu: TMainMenu
     Left = 278
@@ -822,8 +817,25 @@ object FormStellarSys: TFormStellarSys
       end
     end
   end
-  object OpenDialog: TOpenDialog
-    Left = 398
-    Top = 102
+  object SimpleNavigation: TGLSimpleNavigation
+    Form = Owner
+    GLSceneViewer = SceneViewer
+    FormCaption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
+    Options = [snoMouseWheelHandled]
+    KeyCombinations = <
+      item
+        ShiftState = [ssLeft, ssRight]
+        Action = snaZoom
+      end
+      item
+        ShiftState = [ssLeft]
+        Action = snaMoveAroundTarget
+      end
+      item
+        ShiftState = [ssRight]
+        Action = snaMoveAroundTarget
+      end>
+    Left = 274
+    Top = 180
   end
 end

@@ -73,7 +73,6 @@ type
     bb_lines: TGLLines;
     AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
-    SimpleNavigation: TGLSimpleNavigation;
     Sun: TGLSphere;
     MatLib: TGLMaterialLibrary;
     dcEarth: TGLDummyCube;
@@ -130,7 +129,7 @@ type
     PlutoOrbit: TGLTorus;
     EarthOrbit: TGLTorus;
     UranusRing: TGLDisk;
-    HabitableZone: TGLDisk;
+    StarHZUp: TGLDisk;
     MainMenu: TMainMenu;
     PanelRight: TPanel;
     Window1: TMenuItem;
@@ -140,10 +139,9 @@ type
     stPickObject: TStaticText;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
-    cbHabitableZone: TCheckBox;
+    cbStarHZ: TCheckBox;
     MemoInfo: TMemo;
     cbRotation: TCheckBox;
-    OpenDialog: TOpenDialog;
     Phobos: TGLFreeForm;
     Deimos: TGLFreeForm;
     StatusBarSol: TStatusBar;
@@ -152,6 +150,8 @@ type
     N2: TMenuItem;
     miOpen: TMenuItem;
     miExit: TMenuItem;
+    SimpleNavigation: TGLSimpleNavigation;
+    StarHZDown: TGLDisk;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -162,7 +162,7 @@ type
     procedure TreeViewChange(Sender: TObject; Node: TTreeNode);
     procedure cbOrbitClick(Sender: TObject);
     procedure cbRotationClick(Sender: TObject);
-    procedure cbHabitableZoneClick(Sender: TObject);
+    procedure cbStarHZClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
     procedure TreeViewClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
@@ -250,7 +250,7 @@ begin
     SkyDome.Stars.LoadStarsFile(FileName);
 
   UpdateTreeView;
-  TreeView.Select(TreeView.Items[0]); // goto to the first node
+  TreeView.Select(TreeView.Items[0]); // выбор первого узла
 (*
 //  ffAsteroid.LoadFromFile('asteroid.3ds');
 //  ffComet.LoadFromFile('comet.3ds');
@@ -259,7 +259,7 @@ begin
   ///Atmosphere := TGLAtmosphere.Create(Self);
   SceneViewer.Buffer.RenderingContext.Activate;
 
-  // возврат в ридекторию солнца
+  // возврат в папку солнца
   SetCurrentDir(CurrentDir);
   inherited;   // inheritance for translation
 end;
@@ -271,7 +271,7 @@ procedure TFormStellarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
-  cbHabitableZoneClick(Self);
+  cbStarHZClick(Self);
   UpdateBBox; // ?
 end;
 
@@ -370,9 +370,10 @@ begin
 end;
 
 //----------------------- ѕоказать обитаемую зону звезды ----------------------
-procedure TFormStellarSys.cbHabitableZoneClick(Sender: TObject);
+procedure TFormStellarSys.cbStarHZClick(Sender: TObject);
 begin
-  HabitableZone.Visible := cbHabitableZone.Checked;
+  StarHZUp.Visible := cbStarHZ.Checked;
+  StarHZDown.Visible := cbStarHZ.Checked;
 end;
 
 //--------------------- »зменение дерева просмотра ----------------------------
