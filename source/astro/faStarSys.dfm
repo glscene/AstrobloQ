@@ -1,4 +1,4 @@
-object FormStellarSys: TFormStellarSys
+object FormStarSys: TFormStarSys
   Left = 193
   Top = 128
   Caption = 'Stellar system'
@@ -43,7 +43,7 @@ object FormStellarSys: TFormStellarSys
     BorderWidth = 4
     TabOrder = 1
     ExplicitHeight = 510
-    object TreeView: TTreeView
+    object tvStarSys: TTreeView
       Left = 4
       Top = 4
       Width = 187
@@ -53,8 +53,8 @@ object FormStellarSys: TFormStellarSys
       BorderStyle = bsNone
       Indent = 19
       TabOrder = 0
-      OnChange = TreeViewChange
-      OnClick = TreeViewClick
+      OnChange = tvStarSysChange
+      OnClick = tvStarSysClick
       ExplicitHeight = 502
     end
   end

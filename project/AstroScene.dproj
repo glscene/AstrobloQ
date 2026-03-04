@@ -134,7 +134,7 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\faStarSys.pas">
-            <Form>FormStellarSys</Form>
+            <Form>FormStarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\frParams.pas">

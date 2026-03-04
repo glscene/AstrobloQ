@@ -1,4 +1,4 @@
-object FormStarSys: TFormStarSys
+object FormSolarSys: TFormSolarSys
   Left = 193
   Top = 128
   Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
@@ -43,7 +43,7 @@ object FormStarSys: TFormStarSys
     BorderWidth = 4
     TabOrder = 1
     ExplicitHeight = 485
-    object tvStarSys: TTreeView
+    object tvSolarSys: TTreeView
       Left = 4
       Top = 4
       Width = 187
@@ -53,8 +53,8 @@ object FormStarSys: TFormStarSys
       BorderStyle = bsNone
       Indent = 19
       TabOrder = 0
-      OnChange = tvStarSysChange
-      OnClick = tvStarSysClick
+      OnChange = tvSolarSysChange
+      OnClick = tvSolarSysClick
       ExplicitHeight = 477
     end
   end

@@ -1,11 +1,11 @@
-object frmAstroScene: TfrmAstroScene
+object FormAstroScene: TFormAstroScene
   Left = 412
   Top = 123
   Cursor = crHelp
   Hint = #1053#1077#1087#1090#1091#1085
   Caption = 'AstroScene'
   ClientHeight = 726
-  ClientWidth = 1277
+  ClientWidth = 1180
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -23,7 +23,7 @@ object frmAstroScene: TfrmAstroScene
   object StatusBar: TStatusBar
     Left = 0
     Top = 687
-    Width = 1277
+    Width = 1180
     Height = 39
     Panels = <
       item
@@ -42,15 +42,17 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 662
+    ExplicitWidth = 1172
   end
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1277
+    Width = 1180
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitTop = 24
+    ExplicitWidth = 1172
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -180,6 +182,30 @@ object frmAstroScene: TfrmAstroScene
         Caption = 'ToolButton21'
         ImageIndex = 30
       end
+    end
+  end
+  object PanelLeft: TPanel
+    Left = 0
+    Top = 57
+    Width = 225
+    Height = 630
+    Align = alLeft
+    Caption = 'PanelLeft'
+    ShowCaption = False
+    TabOrder = 2
+    Visible = False
+    object tvStellars: TTreeView
+      Left = 1
+      Top = 1
+      Width = 223
+      Height = 628
+      Align = alClient
+      Indent = 19
+      TabOrder = 0
+      ExplicitLeft = 79
+      ExplicitTop = 280
+      ExplicitWidth = 121
+      ExplicitHeight = 97
     end
   end
   object GLScene: TGLScene
@@ -88655,9 +88681,13 @@ object frmAstroScene: TfrmAstroScene
       object N4: TMenuItem
         Caption = '-'
       end
-      object miStellarSystem: TMenuItem
-        Caption = #1055#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miStellarSystemClick
+      object miSolarSystem: TMenuItem
+        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        OnClick = miSolarSystemClick
+      end
+      object miStarSys: TMenuItem
+        Caption = #1047#1074#1105#1079#1076#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+        OnClick = miStarSysClick
       end
       object N6: TMenuItem
         Caption = '-'

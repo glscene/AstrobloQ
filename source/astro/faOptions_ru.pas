@@ -157,7 +157,7 @@ end;
 procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
   inherited; // считывает ini файл, не все планеты с атмосферой
-  with frmAstroScene do
+  with FormAstroScene do
     DirectOpenGL.Visible := not DirectOpenGL.Visible;
 end;
 
@@ -167,7 +167,7 @@ end;
 procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
 begin
   inherited; // считывает параметры из ini файла
-  with frmAstroScene do
+  with FormAstroScene do
   if CheckBoxAxes.Checked then
   begin
     sfPlanet.ShowAxes := not sfPlanet.ShowAxes;
@@ -183,14 +183,14 @@ end;
 procedure TfrmOptions.chbHidePanelsClick(Sender: TObject);
 begin
   inherited;  // считывает параметры из ini файла
-  with frmAstroScene do
+  with FormAstroScene do
   if chbHidePanels.Checked then // Показать панели
   begin
 //    PanelLeft.Visible := not PanelLeft.Visible;
 //    PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
-    frmAstroScene.BorderStyle := bsNone;
+    FormAstroScene.BorderStyle := bsNone;
   end
   else  // Скрыть панели
   begin
@@ -198,7 +198,7 @@ begin
 //    PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
-    frmAstroScene.BorderStyle := bsSizeable;
+    FormAstroScene.BorderStyle := bsSizeable;
   end;
 end;
 
@@ -210,7 +210,7 @@ var
   PlanetPath: TFileName;
 begin
   inherited;  // считывает параметры из ini файла
-  with frmAstroScene do
+  with FormAstroScene do
   if CheckBoxCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
@@ -243,7 +243,7 @@ end;
 //------------------------------------------------------------------
 procedure TfrmOptions.chbHidePlanetClick(Sender: TObject);
 begin
-  with frmAstroScene do
+  with FormAstroScene do
   if chbHidePlanet.Checked then
   begin
     dcPlanet.Visible := not dcPlanet.Visible;

@@ -26,7 +26,7 @@ type
 implementation //==============================================================
 
 uses
-  faStarSys_ru;
+  faSolarSys_ru;
 
 {$R *.dfm}
 
@@ -61,7 +61,7 @@ procedure TFrameParamsR.ShowParams;
     ed.Height := 20;
     ed.OnKeyPress := edKeyPress;
     ed.OnChange := edChange;
-    param := GetPropInfo(FormStellarSys.PickObject, PChar(prm));
+    param := GetPropInfo(FormSolarSys.PickObject, PChar(prm));
     if param <> nil then
     begin
       if param.PropType^.Kind = tkInteger then
@@ -70,9 +70,9 @@ procedure TFrameParamsR.ShowParams;
         ed.Tag := 11;
       case ed.Tag of
         10:
-          ed.Text := IntToStr(GetOrdProp(FormStellarSys.PickObject, param));
+          ed.Text := IntToStr(GetOrdProp(FormSolarSys.PickObject, param));
         11:
-          ed.Text := Format('%.4f', [GetFloatProp(FormStellarSys.PickObject, param)]);
+          ed.Text := Format('%.4f', [GetFloatProp(FormSolarSys.PickObject, param)]);
       end;
     end;
   end;
@@ -148,7 +148,7 @@ var
 begin
   with TEdit(Sender) do
   begin
-    param := GetPropInfo(FormStellarSys.PickObject, pchar(Hint));
+    param := GetPropInfo(FormSolarSys.PickObject, pchar(Hint));
     if param <> nil then
     begin
       case Tag of
@@ -156,13 +156,13 @@ begin
           begin
             if not TryStrToInt(Text, i) then
               i := 0;
-            SetOrdProp(FormStellarSys.PickObject, param, i);
+            SetOrdProp(FormSolarSys.PickObject, param, i);
           end;
         11:
           begin
             if not TryStrToFloat(Text, f) then
               f := 0;
-            SetFloatProp(FormStellarSys.PickObject, param, f);
+            SetFloatProp(FormSolarSys.PickObject, param, f);
           end;
       end;
     end;

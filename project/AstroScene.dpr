@@ -22,7 +22,7 @@ uses
   Vcl.Styles,
   faOptions in '..\source\astro\faOptions.pas' {frmOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  faStarSys in '..\source\astro\faStarSys.pas' {FormStellarSys},
+  faStarSys in '..\source\astro\faStarSys.pas' {FormStarSys},
   frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
@@ -47,6 +47,6 @@ begin
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormStellarSys, FormStellarSys);
+  Application.CreateForm(TFormStarSys, FormStarSys);
   Application.Run;
 end.

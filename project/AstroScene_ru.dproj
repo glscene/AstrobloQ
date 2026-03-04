@@ -107,7 +107,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\astro\faAstroScene_ru.pas">
-            <Form>frmAstroScene</Form>
+            <Form>FormAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\faOptions_ru.pas">
             <Form>frmOptions</Form>
@@ -137,8 +137,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faStarSys_ru.pas">
-            <Form>FormStellarSys</Form>
+        <DCCReference Include="..\source\astro\faSolarSys_ru.pas">
+            <Form>FormSolarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\faConstells_ru.pas">
@@ -170,6 +170,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\source\astro\faStarSys_ru.pas">
+            <Form>FormStarSys</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -71,16 +71,18 @@ uses
 
   fmFormFirst,
   faOptions_ru,
-  faStarSys_ru,
   faConstells_ru,
   faSkyAreas_ru,
+
+  faSolarSys_ru,
+  faStarSys_ru,
 
   Astro.ReadCSV
   ;
 
 
 type
-  TfrmAstroScene = class(TFormFirst)
+  TFormAstroScene = class(TFormFirst)
     GLScene: TGLScene;
     Camera: TGLCamera;
     sfPlanet: TGLSphere;
@@ -115,7 +117,7 @@ type
     diskRingDn: TGLDisk;
     N3: TMenuItem;
     StatusBar: TStatusBar;
-    miStellarSystem: TMenuItem;
+    miSolarSystem: TMenuItem;
     N4: TMenuItem;
     miToolsOptions: TMenuItem;
     N6: TMenuItem;
@@ -153,6 +155,9 @@ type
     sfComet: TGLSphere;
     ffComet: TGLFreeForm;
     Timer1: TTimer;
+    miStarSys: TMenuItem;
+    PanelLeft: TPanel;
+    tvStellars: TTreeView;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure GLCadencerProgress(Sender: TObject; const deltaTime, newTime: Double);
@@ -166,7 +171,7 @@ type
     procedure miViewConstlinesClick(Sender: TObject);
     procedure miViewConstBordersClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
-    procedure miStellarSystemClick(Sender: TObject);
+    procedure miSolarSystemClick(Sender: TObject);
     procedure miToolsOptionsClick(Sender: TObject);
     procedure miGenStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
@@ -176,6 +181,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
+    procedure miStarSysClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -199,7 +205,7 @@ type
   end;
 
 var
-  frmAstroScene: TfrmAstroScene;
+  FormAstroScene: TFormAstroScene;
 
 const
   cOpacity: Single = 5;
@@ -223,7 +229,7 @@ implementation // =============================================================
 {$R *.dfm}
 
 // --------------------------- Главная форма ----------------------------------
-procedure TfrmAstroScene.FormCreate(Sender: TObject);
+procedure TFormAstroScene.FormCreate(Sender: TObject);
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
@@ -273,13 +279,14 @@ end;
 //----------------------------------------------------------------------------
 //--------------------------- Шоу --------------------------------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.FormShow(Sender: TObject);
+procedure TFormAstroScene.FormShow(Sender: TObject);
 
 begin
-  FormStellarSys.Parent := frmAstroScene;
-  FormStellarSys.Align := alClient;
-  FormStellarSys.BorderStyle := bsNone;
-  FormStellarSys.Show;
+//  На главной форме - Солнечная система, загружаются звёздные системы с планетами
+  FormStarSys.Parent := FormAstroScene;
+  FormStarSys.Align := alClient;
+  FormStarSys.BorderStyle := bsNone;
+  FormStarSys.Show;
 
   //  miHelpWiki.Caption := miItem.Text + ' in ' + 'Ruwili...';
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
@@ -298,7 +305,7 @@ end;
 //----------------------------------------------------------------------------
 
 //-------------------------- Меню справки Wiki -------------------------------
-procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
+procedure TFormAstroScene.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 
@@ -314,7 +321,7 @@ end;
 //----------------------------------------------------------------------------
 //--------------------- Генератор экзопланетной системы ----------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
+procedure TFormAstroScene.miGenStarsysClick(Sender: TObject);
 begin
   Timer1.Enabled := False;
 //  GLCadencer.Enabled := False;
@@ -333,7 +340,7 @@ begin
 end;
 
 //------------------- Перед рендером включение огней городов -----------------
-procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
+procedure TFormAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // если нет мультитекстурирования и combiner то без света городов
@@ -342,7 +349,7 @@ begin
 end;
 
 //----------------------------- Цвет атмосферы -------------------------------
-function TfrmAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TFormAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
   atmPoint, normal: TGLVector;
@@ -387,7 +394,7 @@ begin
 end;
 
 //--------------------- Вычисление цвета атмосферы ----------------------------
-function TfrmAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TFormAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
   rayVector: TGLVector;
@@ -416,7 +423,7 @@ begin
 end;
 
 //---------------- Атмосфера DirectOpenGLRender ------------------------------
-procedure TfrmAstroScene.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TFormAstroScene.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
   cSlices = 60;
 var
@@ -508,7 +515,7 @@ begin
 end;
 
 //------------------- Загрузка линий созвездий --------------------------------
-procedure TfrmAstroScene.LoadConstLines;
+procedure TFormAstroScene.LoadConstLines;
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -530,7 +537,7 @@ begin
 end;
 
 //---------------------- Меню линий созвездий --------------------------------
-procedure TfrmAstroScene.miViewConstlinesClick(Sender: TObject);
+procedure TFormAstroScene.miViewConstlinesClick(Sender: TObject);
 begin
   ConstLines.Nodes.Clear;
   miViewConstlines.Checked := not miViewConstlines.Checked;
@@ -542,7 +549,7 @@ begin
 end;
 
 //------------------- Загрузка границ созвездий ------------------------------
-procedure TfrmAstroScene.LoadConstBorders;
+procedure TFormAstroScene.LoadConstBorders;
 var
   sl, line: TStrings;
   skypos: TAffineVector;
@@ -564,7 +571,7 @@ begin
 end;
 
 //---------------------- Меню границ созвездий --------------------------------
-procedure TfrmAstroScene.miViewConstBordersClick(Sender: TObject);
+procedure TFormAstroScene.miViewConstBordersClick(Sender: TObject);
 begin
   ConstBorders.Nodes.Clear;
   miViewConstBorders.Checked := not miViewConstBorders.Checked;
@@ -577,7 +584,7 @@ begin
 end;
 
 //------------------------- Прогресс каденсера --------------------------------
-procedure TfrmAstroScene.GLCadencerProgress(Sender: TObject; const deltaTime,
+procedure TFormAstroScene.GLCadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   S: String;
@@ -647,7 +654,7 @@ begin
 end;
 
 //------------------------ Опускаем мышь -------------------------------------
-procedure TfrmAstroScene.SceneViewerMouseDown(Sender: TObject;
+procedure TFormAstroScene.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := x;
@@ -655,7 +662,7 @@ begin
 end;
 
 //------------------------ Движение мыши ------------------------------------
-procedure TfrmAstroScene.SceneViewerMouseMove(Sender: TObject;
+procedure TFormAstroScene.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -670,14 +677,14 @@ begin
 end;
 
 
-procedure TfrmAstroScene.Timer1Timer(Sender: TObject);
+procedure TFormAstroScene.Timer1Timer(Sender: TObject);
 begin
   inherited;
   ///
 end;
 
 //-------------------------- Колесо мыши -------------------------------------
-procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   F: Single;
@@ -692,32 +699,41 @@ end;
 
 
 
-//-------------------------- Планетная система -------------------------------
-procedure TfrmAstroScene.miStellarSystemClick(Sender: TObject);
+//-------------------------- Звёздная система ---------------------------------
+procedure TFormAstroScene.miSolarSystemClick(Sender: TObject);
 begin
-  with TFormStellarSys.Create(Self) do
+  FormStarSys.Show;    // ошибка если FormSolarSys ?
+(*
+  with TfrmStarSys.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
+*)
 end;
 
 
+procedure TFormAstroScene.miStarSysClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
 //------------------------- Показать опции ------------------------------------
-procedure TfrmAstroScene.miToolsOptionsClick(Sender: TObject);
+procedure TFormAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
 
 //------------------------ Показать настройки --------------------------------
-procedure TfrmAstroScene.miSettingsClick(Sender: TObject);
+procedure TFormAstroScene.miSettingsClick(Sender: TObject);
 begin
   frmSettings.Show;
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.miSkyAreasClick(Sender: TObject);
+procedure TFormAstroScene.miSkyAreasClick(Sender: TObject);
 begin
   with TFormSkyAreas.Create(Self) do
   try
@@ -728,7 +744,7 @@ begin
 end;
 
 //------------------------ Атлас созвездий -----------------------------------
-procedure TfrmAstroScene.miConstAtlasClick(Sender: TObject);
+procedure TFormAstroScene.miConstAtlasClick(Sender: TObject);
 begin
   inherited;
   with TFormConstells.Create(Self) do
@@ -740,7 +756,7 @@ begin
 end;
 
 //------------------------- ReadIniFile ---------------------------------------
-procedure TfrmAstroScene.ReadIniFile;
+procedure TFormAstroScene.ReadIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
@@ -754,7 +770,7 @@ begin
 end;
 
 //------------------------- WriteIniFile --------------------------------------
-procedure TfrmAstroScene.WriteIniFile;
+procedure TFormAstroScene.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
@@ -768,7 +784,7 @@ end;
 
 
 //----------------------- О программе -----------------------------------------
-procedure TfrmAstroScene.miHelpAboutClick(Sender: TObject);
+procedure TFormAstroScene.miHelpAboutClick(Sender: TObject);
 begin
   with TfrmAbout.Create(Self) do
   try
@@ -780,7 +796,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TfrmAstroScene.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormAstroScene.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
   WriteIniFile;   // запись установок в ini файл
@@ -788,7 +804,7 @@ end;
 
 
 //-----------------------------------------------------------------------------
-procedure TfrmAstroScene.miFileExitClick(Sender: TObject);
+procedure TFormAstroScene.miFileExitClick(Sender: TObject);
 begin
   Close;
 end;

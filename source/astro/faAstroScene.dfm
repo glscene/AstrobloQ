@@ -4,7 +4,7 @@ object FormAstroScene: TFormAstroScene
   Cursor = crHelp
   Caption = 'AstroScene'
   ClientHeight = 707
-  ClientWidth = 1404
+  ClientWidth = 1314
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object FormAstroScene: TFormAstroScene
   object StatusBar: TStatusBar
     Left = 0
     Top = 679
-    Width = 1404
+    Width = 1314
     Height = 28
     Panels = <
       item
@@ -42,16 +42,16 @@ object FormAstroScene: TFormAstroScene
         Width = 86
       end>
     ExplicitTop = 654
-    ExplicitWidth = 1396
+    ExplicitWidth = 1306
   end
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1404
+    Width = 1314
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1396
+    ExplicitWidth = 1306
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -184,11 +184,12 @@ object FormAstroScene: TFormAstroScene
     end
   end
   object SceneViewer1: TGLSceneViewer
-    Left = 40
-    Top = 96
+    Left = 560
+    Top = 168
     Width = 100
     Height = 100
     PenAsTouch = False
+    Visible = False
     OnDblClick = SceneViewerDblClick
     TabOrder = 2
   end

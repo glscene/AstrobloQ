@@ -15,7 +15,7 @@ uses
   Forms,
   Vcl.Themes,
   Vcl.Styles,
-  faAstroScene_ru in '..\source\astro\faAstroScene_ru.pas' {frmAstroScene},
+  faAstroScene_ru in '..\source\astro\faAstroScene_ru.pas' {FormAstroScene},
   faOptions_ru in '..\source\astro\faOptions_ru.pas' {frmOptions},
   fmGenStarsys_ru in '..\source\fmGenStarsys_ru.pas' {FormGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
@@ -24,7 +24,7 @@ uses
   fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   frParams_ru in '..\source\astro\frParams_ru.pas' {FrameParamsR: TFrame},
-  faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStellarSys},
+  faSolarSys_ru in '..\source\astro\faSolarSys_ru.pas' {FormSolarSys},
   faConstells_ru in '..\source\astro\faConstells_ru.pas' {FormConstells},
   Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
@@ -36,20 +36,22 @@ uses
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
   fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
   faSkyAreas_ru in '..\source\astro\faSkyAreas_ru.pas' {FormSkyAreas},
-  Astro.Utils in '..\source\astro\Astro.Utils.pas';
+  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStarSys};
 
 {$R *.res}
 
 begin
   Application.Initialize;
  // TStyleManager.TrySetStyle('Windows10');
-  Application.CreateForm(TfrmAstroScene, frmAstroScene);
+  Application.CreateForm(TFormAstroScene, FormAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormStellarSys, FormStellarSys);
+  Application.CreateForm(TFormSolarSys, FormSolarSys);
+  Application.CreateForm(TFormStarSys, FormStarSys);
   Application.Run;
 end.

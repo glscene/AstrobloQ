@@ -270,10 +270,10 @@ end;
 //------------------------- Form Show ----------------------------------------
 procedure TFormAstroScene.FormShow(Sender: TObject);
 begin
-  FormStellarSys.Parent := FormAstroScene;
-  FormStellarSys.Align := alClient;
-  FormStellarSys.BorderStyle := bsNone;
-  FormStellarSys.Show;
+  FormStarSys.Parent := FormAstroScene;
+  FormStarSys.Align := alClient;
+  FormStarSys.BorderStyle := bsNone;
+  FormStarSys.Show;
 
 
   //  miHelpWiki.Caption := miItem.Text + ' in ' + 'Wikipedia...';
@@ -697,10 +697,10 @@ begin
   SceneViewer1.ResetPerformanceMonitor;
 end;
 
-//-----------------------  Stellar system -------------------------------------
+//-----------------------  Star system -------------------------------------
 procedure TFormAstroScene.miStellarSystemClick(Sender: TObject);
 begin
-  with TFormStellarSys.Create(Self) do
+  with TFormStarSys.Create(Self) do
   try
     ShowModal;
   finally
