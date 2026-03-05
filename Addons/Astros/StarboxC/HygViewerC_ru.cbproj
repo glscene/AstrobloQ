@@ -160,7 +160,7 @@
             <BuildOrder>0</BuildOrder>
         </CppCompile>
         <CppCompile Include="source\fcHygViewer_ru.cpp">
-            <Form>FormViewer</Form>
+            <Form>FormHygViewer</Form>
             <FormType>dfm</FormType>
             <DependentOn>source\fcHygViewer_ru.h</DependentOn>
             <BuildOrder>2</BuildOrder>

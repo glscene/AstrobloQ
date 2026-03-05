@@ -9,19 +9,19 @@
         <Projects Include="Bumps\BumpSmoke.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\StarProj.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="StarboxD\StarMotion.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarboxD\SpaceLink.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="StarboxD\StarSyx.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="StarboxD\StarCells.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\StarSyx.dproj">
+        <Projects Include="StarboxD\StarCellx.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -50,15 +50,6 @@
     <Target Name="BumpSmoke:Make">
         <MSBuild Projects="Bumps\BumpSmoke.dproj" Targets="Make"/>
     </Target>
-    <Target Name="StarProj">
-        <MSBuild Projects="StarboxD\StarProj.dproj"/>
-    </Target>
-    <Target Name="StarProj:Clean">
-        <MSBuild Projects="StarboxD\StarProj.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="StarProj:Make">
-        <MSBuild Projects="StarboxD\StarProj.dproj" Targets="Make"/>
-    </Target>
     <Target Name="StarMotion">
         <MSBuild Projects="StarboxD\StarMotion.dproj"/>
     </Target>
@@ -77,15 +68,6 @@
     <Target Name="SpaceLink:Make">
         <MSBuild Projects="StarboxD\SpaceLink.dproj" Targets="Make"/>
     </Target>
-    <Target Name="StarCells">
-        <MSBuild Projects="StarboxD\StarCells.dproj"/>
-    </Target>
-    <Target Name="StarCells:Clean">
-        <MSBuild Projects="StarboxD\StarCells.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="StarCells:Make">
-        <MSBuild Projects="StarboxD\StarCells.dproj" Targets="Make"/>
-    </Target>
     <Target Name="StarSyx">
         <MSBuild Projects="StarboxD\StarSyx.dproj"/>
     </Target>
@@ -95,14 +77,32 @@
     <Target Name="StarSyx:Make">
         <MSBuild Projects="StarboxD\StarSyx.dproj" Targets="Make"/>
     </Target>
+    <Target Name="StarCells">
+        <MSBuild Projects="StarboxD\StarCells.dproj"/>
+    </Target>
+    <Target Name="StarCells:Clean">
+        <MSBuild Projects="StarboxD\StarCells.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarCells:Make">
+        <MSBuild Projects="StarboxD\StarCells.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarCellx">
+        <MSBuild Projects="StarboxD\StarCellx.dproj"/>
+    </Target>
+    <Target Name="StarCellx:Clean">
+        <MSBuild Projects="StarboxD\StarCellx.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarCellx:Make">
+        <MSBuild Projects="StarboxD\StarCellx.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="BumpEarth;BumpSmoke;StarProj;StarMotion;SpaceLink;StarCells;StarSyx"/>
+        <CallTarget Targets="BumpEarth;BumpSmoke;StarMotion;SpaceLink;StarSyx;StarCells;StarCellx"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="BumpEarth:Clean;BumpSmoke:Clean;StarProj:Clean;StarMotion:Clean;SpaceLink:Clean;StarCells:Clean;StarSyx:Clean"/>
+        <CallTarget Targets="BumpEarth:Clean;BumpSmoke:Clean;StarMotion:Clean;SpaceLink:Clean;StarSyx:Clean;StarCells:Clean;StarCellx:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="BumpEarth:Make;BumpSmoke:Make;StarProj:Make;StarMotion:Make;SpaceLink:Make;StarCells:Make;StarSyx:Make"/>
+        <CallTarget Targets="BumpEarth:Make;BumpSmoke:Make;StarMotion:Make;SpaceLink:Make;StarSyx:Make;StarCells:Make;StarCellx:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

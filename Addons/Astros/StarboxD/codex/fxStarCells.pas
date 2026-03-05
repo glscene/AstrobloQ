@@ -59,7 +59,7 @@ type
 var
   frmStarCellx: TfrmStarCellx;
 
-implementation
+implementation //==============================================================
 
 {$R *.fmx}
 

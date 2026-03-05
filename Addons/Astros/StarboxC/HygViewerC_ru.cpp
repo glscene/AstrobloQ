@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #include <Vcl.Styles.hpp>
 #include <Vcl.Themes.hpp>
-USEFORM("source\fcHygViewer_ru.cpp", FormViewer);
+USEFORM("source\fcHygViewer_ru.cpp", FormHygViewer);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -15,7 +15,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
 		TStyleManager::TrySetStyle("Windows10 Dark");
-		Application->CreateForm(__classid(TFormViewer), &FormViewer);
+		Application->CreateForm(__classid(TFormHygViewer), &FormHygViewer);
 		Application->Run();
 	}
 	catch (Exception &exception)

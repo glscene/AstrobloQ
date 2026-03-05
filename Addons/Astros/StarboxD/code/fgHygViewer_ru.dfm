@@ -1,24 +1,23 @@
 object FormHygViewer: TFormHygViewer
   Left = 0
   Top = 0
-  BorderStyle = bsSingle
-  Caption = 'HygViewer'
-  ClientHeight = 498
-  ClientWidth = 795
+  Caption = 'Hyg viewer'
+  ClientHeight = 552
+  ClientWidth = 910
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu1
   Position = poScreenCenter
   OnCreate = FormCreate
-  TextHeight = 13
+  TextHeight = 15
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 479
-    Width = 795
+    Top = 533
+    Width = 910
     Height = 19
     Panels = <
       item
@@ -29,32 +28,31 @@ object FormHygViewer: TFormHygViewer
         Text = #1042#1088#1077#1084#1103':'
         Width = 100
       end>
-    ExplicitTop = 454
-    ExplicitWidth = 787
+    ExplicitTop = 508
+    ExplicitWidth = 902
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 154
     Top = 0
-    Width = 641
-    Height = 479
+    Width = 756
+    Height = 533
     Camera = GLCamera1
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 147.415298461914100000
+    FieldOfView = 150.565795898437500000
     PenAsTouch = False
     Align = alClient
-    OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
-    ExplicitWidth = 633
-    ExplicitHeight = 454
+    ExplicitWidth = 748
+    ExplicitHeight = 508
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
     Width = 154
-    Height = 479
+    Height = 533
     Align = alLeft
     TabOrder = 2
-    ExplicitHeight = 454
+    ExplicitHeight = 508
     object Label2: TLabel
       Left = 26
       Top = 16
@@ -123,7 +121,6 @@ object FormHygViewer: TFormHygViewer
       Height = 25
       Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1089#1094#1077#1085#1091
       TabOrder = 0
-      OnClick = ButtonClearClick
     end
     object chbO: TCheckBox
       Left = 8
@@ -140,7 +137,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 1
-      OnClick = chbOClick
     end
     object chbB: TCheckBox
       Left = 8
@@ -157,7 +153,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 2
-      OnClick = chbBClick
     end
     object chbA: TCheckBox
       Left = 8
@@ -174,7 +169,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 3
-      OnClick = chbAClick
     end
     object chbF: TCheckBox
       Left = 8
@@ -191,7 +185,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 4
-      OnClick = chbFClick
     end
     object chbG: TCheckBox
       Left = 8
@@ -208,7 +201,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 5
-      OnClick = chbGClick
     end
     object chbK: TCheckBox
       Left = 8
@@ -225,7 +217,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 6
-      OnClick = chbKClick
     end
     object chbM: TCheckBox
       Left = 8
@@ -242,7 +233,6 @@ object FormHygViewer: TFormHygViewer
       ParentFont = False
       State = cbChecked
       TabOrder = 7
-      OnClick = chbMClick
     end
   end
   object GLScene1: TGLScene
@@ -299,18 +289,16 @@ object FormHygViewer: TFormHygViewer
   end
   object GLCadencer1: TGLCadencer
     Scene = GLScene1
-    OnProgress = GLCadencer1Progress
     Left = 372
     Top = 18
   end
   object Timer1: TTimer
-    OnTimer = Timer1Timer
     Left = 370
     Top = 106
   end
   object MainMenu1: TMainMenu
-    Left = 602
-    Top = 26
+    Left = 754
+    Top = 50
     object File1: TMenuItem
       Caption = #1060#1072#1081#1083
       object OpenCSV1: TMenuItem
@@ -322,13 +310,12 @@ object FormHygViewer: TFormHygViewer
       end
       object Exit1: TMenuItem
         Caption = #1042#1099#1093#1086#1076
-        OnClick = Exit1Click
       end
     end
   end
   object OpenTextFileDialog1: TOpenTextFileDialog
     Left = 604
-    Top = 116
+    Top = 36
   end
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
@@ -348,6 +335,6 @@ object FormHygViewer: TFormHygViewer
         Action = snaMoveAroundTarget
       end>
     Left = 256
-    Top = 112
+    Top = 104
   end
 end

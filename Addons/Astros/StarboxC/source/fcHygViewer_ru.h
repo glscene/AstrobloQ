@@ -23,7 +23,7 @@
 //----
 #include "GLS.BaseClasses.hpp"
 #include "GLS.Coordinates.hpp"-----------------------------------------------------------------------
-class TFormViewer : public TForm
+class TFormHygViewer : public TForm
 {
 __published:	// IDE-managed Components
 	TStatusBar *StatusBar1;
@@ -43,7 +43,7 @@ __published:	// IDE-managed Components
 	TGLPoints *GLPoints1;
 	TPanel *Panel1;
 	TGLSimpleNavigation *GLSimpleNavigation1;
-	TButton *Button1;
+	TButton *ButtonClear;
 	TGLPoints *GLTypeO;
 	TGLPoints *GLTypeB;
 	TGLPoints *GLTypeA;
@@ -76,7 +76,7 @@ __published:	// IDE-managed Components
 	void __fastcall Exit1Click(TObject *Sender);
 	void __fastcall btnClearClick(TObject *Sender);
 	void __fastcall OpenCSV1Click(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall ButtonClearClick(TObject *Sender);
 	void __fastcall chbOClick(TObject *Sender);
 	void __fastcall chbBClick(TObject *Sender);
 	void __fastcall chbAClick(TObject *Sender);
@@ -87,9 +87,9 @@ __published:	// IDE-managed Components
 
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFormViewer(TComponent* Owner);
+	__fastcall TFormHygViewer(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormViewer *FormViewer;
+extern PACKAGE TFormHygViewer *FormHygViewer;
 //---------------------------------------------------------------------------
 #endif
