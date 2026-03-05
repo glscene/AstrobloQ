@@ -155,7 +155,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmSettings.pas">
-            <Form>frmSettings</Form>
+            <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>

@@ -32,8 +32,6 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 560
-    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -42,7 +40,6 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -175,8 +172,6 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalaxyBlock: TGLSceneViewer
@@ -190,7 +185,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 982
       end
     end
     object tsDatacat: TTabSheet
@@ -402,12 +396,14 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object MainMenu: TMainMenu
-    Left = 632
-    Top = 91
+    Images = DataModuleImages.ImageListInterface
+    Left = 584
+    Top = 99
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object miNewStarblock: TMenuItem
-        Caption = #1053#1086#1074#1099#1081'...'
+        Caption = #1053#1086#1074#1099#1081' '#1089#1090#1072#1088#1073#1083#1086#1082'...'
+        ImageIndex = 8
         OnClick = miNewStarblockClick
       end
       object N1: TMenuItem
@@ -420,6 +416,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
       object miSave: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        ImageIndex = 6
       end
       object miSaveAs: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
@@ -474,18 +471,46 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = #1054#1073#1098#1077#1082#1090
       end
     end
+    object miMethod: TMenuItem
+      Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
+      object miTetranet: TMenuItem
+        Caption = #1058#1077#1090#1088#1072#1085#1077#1090'...'
+        ImageIndex = 52
+        OnClick = miTetranetClick
+      end
+      object miGridding: TMenuItem
+        Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
+        ImageIndex = 60
+        OnClick = miGriddingClick
+      end
+      object miInterpolate: TMenuItem
+        Caption = #1048#1085#1090#1077#1088#1087#1086#1083#1103#1094#1080#1103'...'
+        ImageIndex = 17
+        OnClick = miInterpolateClick
+      end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object miConvolute: TMenuItem
+        Caption = #1057#1074#1105#1088#1090#1082#1072' '#1082#1083#1072#1089#1089#1086#1074' '#1079#1074#1105#1079#1076'...'
+        OnClick = miConvoluteClick
+      end
+    end
     object miView: TMenuItem
       Caption = #1042#1080#1076
-      object miExoplanets: TMenuItem
-        Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
-        OnClick = miExoplanetsClick
+      object miOpenExoplanets: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
+        OnClick = miOpenExoplanetsClick
       end
       object N3: TMenuItem
         Caption = '-'
       end
       object miProjection: TMenuItem
-        Caption = #1055#1088#1086#1077#1082#1094#1080#1103'...'
+        Caption = #1055#1088#1086#1077#1082#1094#1080#1103' '#1079#1074#1105#1079#1076'...'
         OnClick = miProjectionClick
+      end
+      object ranslator1: TMenuItem
+        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
       end
       object N2: TMenuItem
         Caption = '-'
@@ -494,24 +519,6 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = #1055#1072#1085#1077#1083#1080
         Checked = True
         OnClick = miPanelShowClick
-      end
-    end
-    object miMethod: TMenuItem
-      Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
-      object miTetranet: TMenuItem
-        Caption = #1058#1077#1090#1088#1072#1085#1077#1090'...'
-      end
-      object miGridding: TMenuItem
-        Caption = #1043#1088#1080#1076#1076#1080#1085#1075'...'
-      end
-      object miInterpolation: TMenuItem
-        Caption = #1048#1085#1090#1077#1088#1087#1086#1083#1103#1094#1080#1103'...'
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object ranslator1: TMenuItem
-        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
       end
     end
     object miAnalytics: TMenuItem
@@ -604,7 +611,6 @@ object frmGalaqtium: TfrmGalaqtium
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    OnMouseMove = GLSimpleNavigationMouseMove
     Left = 300
     Top = 91
   end

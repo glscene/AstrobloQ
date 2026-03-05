@@ -20,7 +20,7 @@ uses
   fmFormFirst;
 
 type
-  TFormCETInet = class(TFormFirst)
+  TfrmCETInet = class(TFormFirst)
     PageControl: TPageControl;
     PanelBottom: TPanel;
     ButtonOk: TButton;
@@ -32,13 +32,13 @@ type
   end;
 
 var
-  FormCETInet: TFormCETInet;
+  frmCETInet: TfrmCETInet;
 
 implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormCETInet.ButtonOkClick(Sender: TObject);
+procedure TfrmCETInet.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;

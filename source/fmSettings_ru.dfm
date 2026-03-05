@@ -1,10 +1,12 @@
-inherited frmSettings: TfrmSettings
+inherited FormSettings: TFormSettings
   HelpContext = 0
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 759
   ClientWidth = 1313
   Font.Height = -19
   StyleElements = [seFont, seClient, seBorder]
+  ExplicitLeft = 4
+  ExplicitTop = 4
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 25

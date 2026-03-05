@@ -38,7 +38,7 @@ uses
   fmFormFirst;
 
 type
-  TfrmOptions = class(TFormFirst)
+  TFormOptions = class(TFormFirst)
     PanelBottom: TPanel;
     PanelMain: TPanel;
     tvSettings: TTreeView;
@@ -55,7 +55,6 @@ type
     ButtonModifyMat: TButton;
     tsGalaxy: TTabSheet;
     nbRg: TNumberBox;
-    grbDrakeFormula: TGroupBox;
     tsStars: TTabSheet;
     ColorGrid1: TColorGrid;
     chlbStarClasses: TCheckListBox;
@@ -90,38 +89,16 @@ type
     RadioGroup1: TRadioGroup;
     LabelRg: TLabel;
     LabelNs: TLabel;
-    lbNs: TLabel;
-    lbNt: TLabel;
-    nbFn: TNumberBox;
-    nbFb: TNumberBox;
-    nbNl: TNumberBox;
-    EditNt: TEdit;
-    stMult1: TStaticText;
-    stMult2: TStaticText;
-    stMult3: TStaticText;
-    stMult4: TStaticText;
-    stEqual: TStaticText;
-    lbFl: TLabel;
-    lbFb: TLabel;
     EditLt: TEdit;
     EditLs: TEdit;
-    lbFn: TLabel;
     LabelLs: TLabel;
     LabelLt: TLabel;
-    nbFt: TNumberBox;
-    lbFt: TLabel;
     nbHg: TNumberBox;
     LabelHg: TLabel;
-    EditDt: TEdit;
     LabelVg: TLabel;
     EditVg: TEdit;
-    nbFp: TNumberBox;
-    lbFp: TLabel;
-    stMult5: TStaticText;
     EditNs: TEdit;
-    nbNs: TNumberBox;
     EditDs: TEdit;
-    Label4: TLabel;
     Label5: TLabel;
     ButtonCalculate: TButton;
     ComboBoxVclStyles: TComboBox;
@@ -170,8 +147,6 @@ type
     Edit2: TEdit;
     Edit3: TEdit;
     Label7: TLabel;
-    StaticText1: TStaticText;
-    StaticText2: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -186,7 +161,7 @@ type
   end;
 
 var
-  frmOptions: TfrmOptions;
+  FormOptions: TFormOptions;
 
 implementation //==============================================================
 
@@ -196,7 +171,7 @@ uses
   fgGalaqtium;
 
 //---------------------------------------------------------------------------
-procedure TfrmOptions.FormCreate(Sender: TObject);
+procedure TFormOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -234,8 +209,8 @@ begin
   inherited;
 end;
 
-//--------------------------------------------------------------------
-procedure TfrmOptions.tvSettingsClick(Sender: TObject);
+// ---------------------------------------------------------------------------
+procedure TFormOptions.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -251,8 +226,8 @@ begin
   end;
 end;
 
-//--------------------------------------------------------------------
-procedure TfrmOptions.trbVelocityChange(Sender: TObject);
+// ---------------------------------------------------------------------------
+procedure TFormOptions.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   FlightTime: Extended;
@@ -266,8 +241,8 @@ begin
 end;
 
 
-//-----------------------------------------------------
-procedure TfrmOptions.ButtonCalculateClick(Sender: TObject);
+// ---------------------------------------------------------------------------
+procedure TFormOptions.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Nt, Nl : Extended;
   Fp, Fb, Fn, Ft, Vg, Ratio : Extended;
@@ -275,13 +250,7 @@ var
   Dt: Extended; // Distance between technospheres
   Lc, Ls: LONG64;
 begin
-  Ns := nbNs.Value;
   EditNs.Text := FloatToStr(Ns);
-  Fp := nbFp.Value;
-  Nl := nbNl.Value;
-  Fb := nbFb.Value;
-  Fn := nbFn.Value;
-  Ft := nbFt.Value;
 (*
   Lc := StrToInt64(EditLc.Text);
   Ls := StrToInt64(EditLs.Text);
@@ -289,7 +258,7 @@ begin
 *)
   // Number of technospheres
   Nt := Round(Ns*Fp*Nl*Fb*Fn*Ft (*Ratio*));  // wihout Ratio of longevities
-  EditNt.Text := FloatToStr(Nt);
+///  EditNt.Text := FloatToStr(Nt);
 
   // Calculating volume of galaxy cylinder
   Vg := Pi*Sqr(nbRg.Value)*nbHg.Value;
@@ -304,53 +273,53 @@ begin
   Ratio := Vg/Nt;
   Dt := Power(Ratio, 1/3);
   // Distance betweem technospheres
-  EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
+///  EditDt.Text := FloatToStrF(Dt, ffFixed, 25, 2);
 end;
 
-procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
+procedure TFormOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
-function TfrmOptions.Execute: boolean;
+function TFormOptions.Execute: boolean;
 begin
   Result := ShowModal = mrOk;
 end;
 
-//--------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 // Reading Inifile sections and setting the interface language
-//--------------------------------------------------------------------
-procedure TfrmOptions.ReadIniFile;
+// ---------------------------------------------------------------------------
+procedure TFormOptions.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
+    CheckBoxAxes.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
 end;
 
-// --------------------------------------------------------------------
-procedure TfrmOptions.WriteIniFile;
+// ---------------------------------------------------------------------------
+procedure TFormOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
   inherited;
 end;
 
-// -----------------------------------------------------------------------
-procedure TfrmOptions.ButtonOkClick(Sender: TObject);
+// ---------------------------------------------------------------------------
+procedure TFormOptions.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -358,7 +327,8 @@ begin
   if FileExists(UpperCase(FileName)) then
     DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
-  frmOptions.Close;
+  FormOptions.Close;
 end;
 
+// ---------------------------------------------------------------------------
 end.

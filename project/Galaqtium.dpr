@@ -9,22 +9,22 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fgOptions in '..\source\galaxy\fgOptions.pas' {frmOptions},
+  fgOptions in '..\source\galaxy\fgOptions.pas' {FormOptions},
   fmAbout in '..\source\fmAbout.pas' {frmAbout},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
-  fgAstrocube in '..\source\galaxy\fgAstrocube.pas' {FormAstrocube},
-  fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {FormExoplanets},
-  fgMonitor in '..\source\galaxy\fgMonitor.pas' {FormMonitor},
-  fgParadox in '..\source\galaxy\fgParadox.pas' {FormParadox},
-  fgCETInet in '..\source\galaxy\fgCETInet.pas' {FormCETInet},
+  fgNewStarblock in '..\source\galaxy\fgNewStarblock.pas' {frmNewStarblock},
+  fgExoplanets in '..\source\galaxy\fgExoplanets.pas' {frmOpenExoplanets},
+  fgMonitor in '..\source\galaxy\fgMonitor.pas' {frmMonitor},
+  fgParadox in '..\source\galaxy\fgParadox.pas' {frmParadox},
+  fgCETInet in '..\source\galaxy\fgCETInet.pas' {frmCETInet},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  fmSettings in '..\source\fmSettings.pas' {frmSettings},
-  fgStarProj in '..\source\galaxy\fgStarProj.pas' {FormProjection},
-  fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {FormHercrussel},
-  fgEquations in '..\source\galaxy\fgEquations.pas' {FormStatistics},
-  Astro.Utils in '..\source\astro\Astro.Utils.pas';
+  fmSettings in '..\source\fmSettings.pas' {FormSettings},
+  fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {frmDiagramHR},
+  fgEquations in '..\source\galaxy\fgEquations.pas' {frmEquations},
+  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  fgProjections in '..\source\galaxy\fgProjections.pas' {frmProjections};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -36,10 +36,10 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmSettings, frmSettings);
-  Application.CreateForm(TFormStatistics, FormStatistics);
+  Application.CreateForm(TFormSettings, FormSettings);
+  Application.CreateForm(TfrmProjections, frmProjections);
   Application.Run;
 end.
 

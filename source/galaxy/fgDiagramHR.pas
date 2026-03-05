@@ -27,7 +27,7 @@ uses
   Astro.Utils;
 
 type
-  TFormHercrussel = class(TFormFirst)
+  TfrmDiagramHR = class(TFormFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLMaterialLibrary1: TGLMaterialLibrary;
@@ -42,7 +42,7 @@ type
   end;
 
 var
-  FormHercrussel: TFormHercrussel;
+  frmDiagramHR: TfrmDiagramHR;
 
 const
   MagLow = 15.0;
@@ -61,7 +61,7 @@ implementation //=============================================================
 {$R *.dfm}
 
 // --------------------------------------------------------------------
-procedure TFormHercrussel.XY(B_V, Mag: single; var x, y: integer);
+procedure TfrmDiagramHR.XY(B_V, Mag: single; var x, y: integer);
 begin
   x := Border + Round((B_V - BVLow) * ScaleBV);
   y := Border + Round((Mag - MagHi) * ScaleMg);
@@ -69,13 +69,13 @@ end;
 
 // --------------------------------------------------------------------
 
-procedure TFormHercrussel.FormCreate(Sender: TObject);
+procedure TfrmDiagramHR.FormCreate(Sender: TObject);
 begin
   //
   inherited;
 end;
 
-procedure TFormHercrussel.HerpResBV;
+procedure TfrmDiagramHR.HerpResBV;
 var
   mode: smallint; // Для инициализации графики
   HipRec: THipparcos; // Звезда в Hipparcos

@@ -1,4 +1,4 @@
-inherited FormMonitor: TFormMonitor
+inherited frmMonitor: TfrmMonitor
   Caption = 'Monitor'
   ClientHeight = 573
   ClientWidth = 854
@@ -17,8 +17,6 @@ inherited FormMonitor: TFormMonitor
     Margins.Bottom = 5
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 485
-    ExplicitWidth = 846
     object ButtonOk: TButton
       Left = 687
       Top = 10
@@ -45,6 +43,5 @@ inherited FormMonitor: TFormMonitor
     Align = alLeft
     Indent = 33
     TabOrder = 1
-    ExplicitHeight = 485
   end
 end

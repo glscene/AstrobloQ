@@ -982,7 +982,7 @@ end;
 //------------------------ Показать настройки --------------------------------
 procedure TfrmAstroScene.miSettingsClick(Sender: TObject);
 begin
-  frmSettings.Show;
+  FormSettings.Show;
 end;
 
 //------------------------- ReadIniFile ---------------------------------------

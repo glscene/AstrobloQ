@@ -1,4 +1,4 @@
-unit fgStarProj;
+unit fgProjections_ru;
 //
 // Star projections on the galactic plane
 //
@@ -32,7 +32,7 @@ uses
   GLS.BaseClasses;
 
 type
-  TFormProjection = class(TForm)
+  TfrmProjections = class(TForm)
     GLScene1: TGLScene;
     SceneViewer: TGLSceneViewer;
     GLCamera: TGLCamera;
@@ -60,13 +60,13 @@ type
   end;
 
 var
-  FormProjection: TFormProjection;
+  frmProjections: TfrmProjections;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormProjection.FormCreate(Sender: TObject);
+procedure TfrmProjections.FormCreate(Sender: TObject);
 var
   i: Integer;
 begin
@@ -78,7 +78,7 @@ begin
   end;
 end;
 
-procedure TFormProjection.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TfrmProjections.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 var
   i: Integer;
   mat: TGLMatrix;
@@ -116,14 +116,14 @@ begin
   glEnd;
 end;
 
-procedure TFormProjection.SceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
+procedure TfrmProjections.SceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
   my := Y;
 end;
 
-procedure TFormProjection.SceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
+procedure TfrmProjections.SceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -134,7 +134,7 @@ begin
   my := Y;
 end;
 
-procedure TFormProjection.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TfrmProjections.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 begin
   GLPlane.Position.Y := GLPlane.Position.Y + WheelDelta * 0.001;

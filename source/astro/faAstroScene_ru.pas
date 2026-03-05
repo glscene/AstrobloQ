@@ -235,7 +235,7 @@ begin
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-  StarDir := DataDir + 'stars';
+  StarDir := DataDir + '\' + 'starsys';
 
   // путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -263,12 +263,12 @@ begin
   sfMoon.Material.Texture.Disabled := False;
   ffMoon.Material.Texture.Disabled := False;
   ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
-// ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
+  // ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
 
   // разрешенo текстурирования астероидов
   sfAsteroid.Material.Texture.Disabled := False;
   ffAsteroid.Material.Texture.Disabled := False;
-// ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
+  // ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
 
   // разрешенo текстурирования комет
   sfComet.Material.Texture.Disabled := False;
@@ -729,7 +729,7 @@ end;
 //------------------------ Показать настройки --------------------------------
 procedure TFormAstroScene.miSettingsClick(Sender: TObject);
 begin
-  frmSettings.Show;
+  FormSettings.Show;
 end;
 
 //----------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-inherited frmSettings: TfrmSettings
+inherited FormSettings: TFormSettings
   Caption = 'Settings'
   ClientHeight = 759
   ClientWidth = 1313
@@ -747,7 +747,7 @@ inherited frmSettings: TfrmSettings
           1085
           675)
         object chlbStarClasses: TCheckListBox
-          Left = 562
+          Left = 554
           Top = 61
           Width = 149
           Height = 200
@@ -775,6 +775,7 @@ inherited frmSettings: TfrmSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
+          ExplicitLeft = 546
         end
         object GroupBox2: TGroupBox
           Left = 56

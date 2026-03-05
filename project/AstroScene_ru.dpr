@@ -34,7 +34,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
+  fmSettings_ru in '..\source\fmSettings_ru.pas' {FormSettings},
   faSkyAreas_ru in '..\source\astro\faSkyAreas_ru.pas' {FormSkyAreas},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStarSys};
@@ -50,7 +50,7 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormSolarSys, FormSolarSys);
   Application.CreateForm(TFormStarSys, FormStarSys);
   Application.Run;

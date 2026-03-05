@@ -1,4 +1,4 @@
-unit fgStarcube;
+unit fgNewStarblock_ru;
 
 interface
 
@@ -15,18 +15,18 @@ uses
   Vcl.StdCtrls;
 
 type
-  TFormNewStarcube = class(TForm)
+  TfrmNewStarblock = class(TForm)
     ButtonOk: TButton;
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+
   end;
 
 var
-  FormNewStarcube: TFormNewStarcube;
+  frmNewStarblock: TfrmNewStarblock;
 
-implementation
+implementation //=============================================================
 
 {$R *.dfm}
 

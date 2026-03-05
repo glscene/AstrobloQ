@@ -1,4 +1,4 @@
-object FormExoplanets: TFormExoplanets
+object frmOpenExoplanets: TfrmOpenExoplanets
   Left = 0
   Top = 0
   Caption = 'Exoplanets'

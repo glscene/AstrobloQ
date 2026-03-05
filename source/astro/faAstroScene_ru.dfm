@@ -52,7 +52,6 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1172
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -194,6 +193,7 @@ object FormAstroScene: TFormAstroScene
     ShowCaption = False
     TabOrder = 2
     Visible = False
+    ExplicitHeight = 605
     object tvStellars: TTreeView
       Left = 1
       Top = 1
@@ -202,10 +202,7 @@ object FormAstroScene: TFormAstroScene
       Align = alClient
       Indent = 19
       TabOrder = 0
-      ExplicitLeft = 79
-      ExplicitTop = 280
-      ExplicitWidth = 121
-      ExplicitHeight = 97
+      ExplicitHeight = 603
     end
   end
   object GLScene: TGLScene

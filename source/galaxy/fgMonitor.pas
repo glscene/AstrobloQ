@@ -18,10 +18,10 @@ uses
 
   fmFormFirst,
 ///  fgStarLife,
-  fgStarProj;
+  fgProjections;
 
 type
-  TFormMonitor = class(TFormFirst)
+  TfrmMonitor = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     TreeView1: TTreeView;
@@ -30,7 +30,7 @@ type
   end;
 
 var
-  FormMonitor: TFormMonitor;
+  frmMonitor: TfrmMonitor;
 
 implementation //==============================================================
 

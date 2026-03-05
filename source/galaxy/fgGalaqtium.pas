@@ -56,10 +56,11 @@ uses
   dmDialogs,
   dmBase,
 
+  fgDiagramHR,
   fgCETInet,
   fgMonitor,
   fgParadox,
-  fgAstrocube,
+  fgNewStarblock,
   fgOptions,
 
   Astro.Globals,
@@ -174,22 +175,22 @@ type
     nbWn: TNumberBox;
     miExoplanets: TMenuItem;
     tbRotation: TToolButton;
-    miNewStarcube: TMenuItem;
+    miNewStarblock: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
-    miLithosphere: TMenuItem;
-    miBiosphere: TMenuItem;
-    miTechnosphere: TMenuItem;
     N3: TMenuItem;
     miModelling: TMenuItem;
     miGridding: TMenuItem;
     miInterpolation: TMenuItem;
     miTetralization: TMenuItem;
     N4: TMenuItem;
-    ranslator1: TMenuItem;
+    miTranslator: TMenuItem;
     GLMatLib: TGLMaterialLibrary;
     miAnalytics: TMenuItem;
-    Settings1: TMenuItem;
+    miSettings: TMenuItem;
+    N5: TMenuItem;
+    miDiagramHR: TMenuItem;
+    miConvolute: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -215,11 +216,14 @@ type
     procedure miParadoxClick(Sender: TObject);
     procedure miExoplanetsClick(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
-    procedure miNewStarcubeClick(Sender: TObject);
-    procedure miLithosphereClick(Sender: TObject);
-    procedure miBiosphereClick(Sender: TObject);
-    procedure miTechnosphereClick(Sender: TObject);
-    procedure Settings1Click(Sender: TObject);
+    procedure miNewStarblockClick(Sender: TObject);
+    procedure miSettingsClick(Sender: TObject);
+    procedure miDiagramHRClick(Sender: TObject);
+    procedure miConvoluteClick(Sender: TObject);
+    procedure miTetralizationClick(Sender: TObject);
+    procedure miGriddingClick(Sender: TObject);
+    procedure miInterpolationClick(Sender: TObject);
+    procedure miTranslatorClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -263,7 +267,7 @@ implementation //==============================================================
 {$R *.dfm}
 
 uses
-  fgStarProj,
+  fgProjections,
   fgExoplanets;
 
 
@@ -281,7 +285,7 @@ end;
 procedure TfrmGalaqtium.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if frmOptions.CheckBoxRotate.Checked and
+  if FormOptions.CheckBoxRotate.Checked and
      not tbRotation.Down then
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -588,36 +592,66 @@ begin
   nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
 end;
 
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.Settings1Click(Sender: TObject);
+//----------------------- New Starblock ---------------------------------------
+procedure TfrmGalaqtium.miNewStarblockClick(Sender: TObject);
 begin
-  inherited;
-  frmSettings.Show;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
-begin
-  frmOptions.Show;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miNewStarcubeClick(Sender: TObject);
-begin
-  with TFormAstrocube.Create(Self) do
+  with TfrmNewStarblock.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
 end;
+
+//-----------------------------------------------------------------------------
+//                         Modelling menu
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miTetralizationClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miGriddingClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miInterpolationClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miConvoluteClick(Sender: TObject);
+begin
+  inherited;
+  // Convolute stars
+end;
+
 
 //-----------------------------------------------------------------------------
 //                           View menu
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miExoplanetsClick(Sender: TObject);
 begin
-  with TFormExoplanets.Create(Self) do
+  with TfrmOpenExoplanets.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
+begin
+  with TfrmProjections.Create(Self) do
     try
       ShowModal;
     finally
@@ -626,39 +660,12 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miLithosphereClick(Sender: TObject);
+procedure TfrmGalaqtium.miTranslatorClick(Sender: TObject);
 begin
-{
-  with TfrmLitosphere.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-}
+  inherited;
+  //
 end;
 
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miTechnosphereClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
 
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miPanelShowClick(Sender: TObject);
@@ -669,33 +676,11 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-//                         Tools menu
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
-begin
-  with TFormMonitor.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
+//                         Analytics menu
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miAnalyserClick(Sender: TObject);
 begin
-  with TFormCETInet.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
+  with TfrmCETInet.Create(Self) do
     try
       ShowModal;
     finally
@@ -706,13 +691,52 @@ end;
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miParadoxClick(Sender: TObject);
 begin
-  with TFormParadox.Create(Self) do
+  with TfrmParadox.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
 end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miDiagramHRClick(Sender: TObject);
+begin
+  inherited;
+  with TfrmDiagramHR.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
+begin
+  with TfrmMonitor.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//-----------------------------------------------------------------------------
+//                         Tools menu
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miSettingsClick(Sender: TObject);
+begin
+  inherited;
+  FormSettings.Show;
+end;
+
+//-----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
+begin
+  FormOptions.Show;
+end;
+
 
 //-----------------------------------------------------------------------------
 //                                Help menu

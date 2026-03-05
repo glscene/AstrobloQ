@@ -19,7 +19,7 @@ uses
 
   fmFormFirst,
 ///  fmStarLife,
-  fgStarProj;
+  fgProjections_ru;
 
 type
   TFormMonitor = class(TFormFirst)

@@ -24,7 +24,7 @@ uses
   GLS.Coordinates;
 
 type
-  TFormExoplanets = class(TForm)
+  TfrmOpenExoplanets = class(TForm)
     ControlBar: TControlBar;
     StatusBar: TStatusBar;
     PanelLeft: TPanel;
@@ -46,7 +46,7 @@ type
   end;
 
 var
-  FormExoplanets: TFormExoplanets;
+  frmOpenExoplanets: TfrmOpenExoplanets;
 
 implementation
 

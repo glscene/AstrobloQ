@@ -1,4 +1,4 @@
-inherited FormCETInet: TFormCETInet
+inherited frmCETInet: TfrmCETInet
   Caption = #1057#1077#1090#1100' CETI'
   ClientHeight = 744
   ClientWidth = 1182

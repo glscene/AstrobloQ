@@ -1,4 +1,4 @@
-inherited FormStatistics: TFormStatistics
+inherited frmStatistics: TfrmStatistics
   Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1087#1086' '#1043#1072#1083#1072#1082#1090#1080#1082#1077
   ClientHeight = 835
   ClientWidth = 1211

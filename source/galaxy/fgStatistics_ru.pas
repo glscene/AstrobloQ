@@ -25,7 +25,7 @@ uses
   VCLTee.TeePreviewPanel, Vcl.Imaging.jpeg;
 
 type
-  TFormStatistics = class(TFormFirst)
+  TfrmStatistics = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;
@@ -42,7 +42,7 @@ type
   end;
 
 var
-  FormStatistics: TFormStatistics;
+  frmStatistics: TfrmStatistics;
 
 implementation //==============================================================
 
@@ -53,7 +53,7 @@ uses
 
 
 //---------------------- Число техносфер с телепорталами -------------------
-procedure TFormStatistics.ButtonCalculateClick(Sender: TObject);
+procedure TfrmStatistics.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Np, Nc, Nt: Extended; // число звёзд, планет, цивилизаций и техносфер
   Fp, Fb, Fn, Ft, Vg, Ratio: Extended; // фракции лито-, био-, ноо- и техносфер
@@ -63,7 +63,7 @@ var
 begin
 end;
 
-procedure TFormStatistics.ButtonOkClick(Sender: TObject);
+procedure TfrmStatistics.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;

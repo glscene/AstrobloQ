@@ -1,7 +1,7 @@
-object FormAstrocube: TFormAstrocube
+object frmNewStarblock: TfrmNewStarblock
   Left = 0
   Top = 0
-  Caption = 'New astrocube'
+  Caption = 'New starblock'
   ClientHeight = 374
   ClientWidth = 555
   Color = clBtnFace

@@ -1,4 +1,4 @@
-inherited frmOptions: TfrmOptions
+inherited FormOptions: TFormOptions
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
   ClientHeight = 701
   ClientWidth = 1236
@@ -691,7 +691,7 @@ inherited frmOptions: TfrmOptions
           1008
           617)
         object chlbStarClasses: TCheckListBox
-          Left = -51
+          Left = -59
           Top = 53
           Width = 149
           Height = 200
@@ -719,7 +719,7 @@ inherited frmOptions: TfrmOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
-          ExplicitLeft = -59
+          ExplicitLeft = -67
         end
         object GroupBox2: TGroupBox
           Left = 128
@@ -822,7 +822,7 @@ inherited frmOptions: TfrmOptions
           end
           object shM: TShape
             Left = 48
-            Top = 240
+            Top = 251
             Width = 29
             Height = 24
             Brush.Color = clRed
@@ -841,7 +841,7 @@ inherited frmOptions: TfrmOptions
             Height = 25
             Caption = #1063#1080#1089#1083#1086
           end
-          object shW: TShape
+          object shD: TShape
             Left = 52
             Top = 281
             Width = 29
@@ -927,7 +927,7 @@ inherited frmOptions: TfrmOptions
           end
           object chbM: TCheckBox
             Left = 8
-            Top = 245
+            Top = 258
             Width = 34
             Height = 17
             Caption = 'M'
@@ -1109,7 +1109,7 @@ inherited frmOptions: TfrmOptions
             ShowHint = False
             TabOrder = 21
           end
-          object nbWn: TNumberBox
+          object nbDn: TNumberBox
             Left = 144
             Top = 283
             Width = 45
@@ -1122,6 +1122,18 @@ inherited frmOptions: TfrmOptions
             ShowHint = True
             TabOrder = 22
             Value = 100.000000000000000000
+          end
+          object nbD: TNumberBox
+            Left = 87
+            Top = 283
+            Width = 46
+            Height = 33
+            Alignment = taCenter
+            Decimal = 1
+            Mode = nbmFloat
+            MaxValue = 100.000000000000000000
+            TabOrder = 23
+            Value = 76.000000000000000000
           end
         end
         object seNStars: TSpinEdit

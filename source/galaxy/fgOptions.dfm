@@ -1,4 +1,4 @@
-inherited frmOptions: TfrmOptions
+inherited FormOptions: TFormOptions
   Caption = 'Options'
   ClientHeight = 759
   ClientWidth = 1313
@@ -434,458 +434,6 @@ inherited frmOptions: TfrmOptions
           SpinButtonOptions.ButtonWidth = 30
           NegativeValueColor = clRed
         end
-        object grbDrakeFormula: TGroupBox
-          Left = 20
-          Top = 378
-          Width = 1025
-          Height = 215
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Drake'#39's Equation'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -28
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          object lbNs: TLabel
-            Left = 263
-            Top = 46
-            Width = 34
-            Height = 38
-            Hint = 'Number of stars'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Ns'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object lbNt: TLabel
-            Left = 65
-            Top = 46
-            Width = 33
-            Height = 38
-            Hint = 'Number of noospheres'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Nt'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object lbFl: TLabel
-            Left = 423
-            Top = 46
-            Width = 31
-            Height = 38
-            Hint = 'Number of lithospheres suitable for life'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Nl'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object lbFb: TLabel
-            Left = 668
-            Top = 46
-            Width = 32
-            Height = 38
-            Hint = 'Fraction of biospheres among lithospheres'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fb'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object lbFn: TLabel
-            Left = 795
-            Top = 46
-            Width = 32
-            Height = 38
-            Hint = 'Fraction of noospheres among biospheres'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fn'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object lbFt: TLabel
-            Left = 935
-            Top = 46
-            Width = 26
-            Height = 38
-            Hint = 'Fraction of technospheres among noospheres'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Ft'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object lbFp: TLabel
-            Left = 547
-            Top = 46
-            Width = 32
-            Height = 38
-            Hint = 'Fraction of stars with planetary systems'
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Fp'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -28
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold, fsItalic]
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = True
-          end
-          object Label4: TLabel
-            Left = 94
-            Top = 170
-            Width = 477
-            Height = 30
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = 'Average distance between stars with exoplanets, Dt'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -21
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            ParentFont = False
-          end
-          object nbFn: TNumberBox
-            Left = 771
-            Top = 102
-            Width = 102
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Decimal = 4
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            Mode = nbmFloat
-            MaxValue = 1.000000000000000000
-            ParentFont = False
-            TabOrder = 0
-            Value = 0.001000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object nbFb: TNumberBox
-            Left = 640
-            Top = 102
-            Width = 104
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Decimal = 3
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            Mode = nbmFloat
-            MaxValue = 1.000000000000000000
-            ParentFont = False
-            TabOrder = 1
-            Value = 0.001000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object nbNl: TNumberBox
-            Left = 417
-            Top = 102
-            Width = 88
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Decimal = 0
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            Mode = nbmInt64
-            MinValue = 1.000000000000000000
-            MaxValue = 100.000000000000000000
-            ParentFont = False
-            TabOrder = 2
-            Value = 3.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object EditNt: TEdit
-            Left = 5
-            Top = 102
-            Width = 188
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Color = clMoneyGreen
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 3
-            Text = '1'
-          end
-          object stMult1: TStaticText
-            Left = 368
-            Top = 100
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 4
-          end
-          object stMult2: TStaticText
-            Left = 604
-            Top = 100
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 5
-          end
-          object stMult3: TStaticText
-            Left = 744
-            Top = 50
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 6
-          end
-          object stMult4: TStaticText
-            Left = 873
-            Top = 50
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 7
-          end
-          object stEqual: TStaticText
-            Left = 187
-            Top = 50
-            Width = 24
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '='
-            TabOrder = 8
-          end
-          object nbFt: TNumberBox
-            Left = 883
-            Top = 102
-            Width = 126
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Decimal = 5
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            Mode = nbmFloat
-            MaxValue = 1.000000000000000000
-            ParentFont = False
-            TabOrder = 9
-            Value = 0.001000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object EditDt: TEdit
-            Left = 597
-            Top = 160
-            Width = 164
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Color = clMoneyGreen
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = [fsBold]
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 10
-            Text = '1'
-          end
-          object nbFp: TNumberBox
-            Left = 528
-            Top = 102
-            Width = 93
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            Mode = nbmFloat
-            MaxValue = 1.000000000000000000
-            ParentFont = False
-            TabOrder = 11
-            Value = 0.333000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object stMult5: TStaticText
-            Left = 368
-            Top = 50
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 12
-          end
-          object nbNs: TNumberBox
-            Left = 221
-            Top = 102
-            Width = 172
-            Height = 39
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Alignment = taCenter
-            Decimal = 0
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -23
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            Mode = nbmInt64
-            MinValue = 1.000000000000000000
-            MaxValue = 1000000000000.000000000000000000
-            ParentFont = False
-            TabOrder = 13
-            Value = 400000000000.000000000000000000
-            SpinButtonOptions.ButtonWidth = 30
-          end
-          object StaticText1: TStaticText
-            Left = 488
-            Top = 50
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 14
-          end
-          object StaticText2: TStaticText
-            Left = 616
-            Top = 48
-            Width = 17
-            Height = 42
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = '*'
-            TabOrder = 15
-          end
-        end
         object EditLt: TEdit
           Left = 873
           Top = 304
@@ -902,7 +450,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 1
           Text = '1000000'
           TextHint = 'Avarage life time for civilisation'
         end
@@ -922,7 +470,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 2
           Text = '10000000000'
           TextHint = 'Mean lifitime for planet'
         end
@@ -940,7 +488,7 @@ inherited frmOptions: TfrmOptions
           Mode = nbmInt64
           MinValue = 1.000000000000000000
           MaxValue = 1000000.000000000000000000
-          TabOrder = 4
+          TabOrder = 3
           Value = 1000.000000000000000000
           SpinButtonOptions.ButtonWidth = 30
           NegativeValueColor = clRed
@@ -964,7 +512,7 @@ inherited frmOptions: TfrmOptions
           Font.Style = [fsBold]
           ParentFont = False
           ReadOnly = True
-          TabOrder = 5
+          TabOrder = 4
           Text = '1'
         end
         object EditNs: TEdit
@@ -984,7 +532,7 @@ inherited frmOptions: TfrmOptions
           Font.Style = []
           ParentFont = False
           ReadOnly = True
-          TabOrder = 6
+          TabOrder = 5
           Text = '400000000000'
         end
         object EditDs: TEdit
@@ -1005,7 +553,7 @@ inherited frmOptions: TfrmOptions
           Font.Style = [fsBold]
           ParentFont = False
           ReadOnly = True
-          TabOrder = 7
+          TabOrder = 6
           Text = '1'
         end
         object ButtonCalculate: TButton
@@ -1024,7 +572,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 8
+          TabOrder = 7
           OnClick = ButtonCalculateClick
         end
         object NumberBoxRc: TNumberBox
@@ -1041,7 +589,7 @@ inherited frmOptions: TfrmOptions
           Mode = nbmInt64
           MinValue = 1.000000000000000000
           MaxValue = 1000000.000000000000000000
-          TabOrder = 9
+          TabOrder = 8
           Value = 10000.000000000000000000
           SpinButtonOptions.ButtonWidth = 30
           NegativeValueColor = clRed
@@ -1062,7 +610,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 10
+          TabOrder = 9
           OnClick = ButtonCalculateClick
         end
         object Edit1: TEdit
@@ -1081,7 +629,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 11
+          TabOrder = 10
           Text = '1000000000'
           TextHint = 'Avarage life time for civilisation'
         end
@@ -1101,7 +649,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 12
+          TabOrder = 11
           Text = '100000000'
           TextHint = 'Avarage life time for civilisation'
         end
@@ -1121,7 +669,7 @@ inherited frmOptions: TfrmOptions
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 13
+          TabOrder = 12
           Text = '10000000'
           TextHint = 'Avarage life time for civilisation'
         end
@@ -1149,7 +697,7 @@ inherited frmOptions: TfrmOptions
           TabOrder = 0
         end
         object chlbStarClasses: TCheckListBox
-          Left = 50
+          Left = 42
           Top = 53
           Width = 149
           Height = 200

@@ -1,7 +1,7 @@
-object FormExoplanets: TFormExoplanets
+object frmOpenExoplanets: TfrmOpenExoplanets
   Left = 0
   Top = 0
-  Caption = 'Exoplanets'
+  Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099
   ClientHeight = 446
   ClientWidth = 715
   Color = clBtnFace

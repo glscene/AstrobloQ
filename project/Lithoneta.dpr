@@ -29,7 +29,7 @@ uses
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
   flPointto in '..\source\lito\flPointto.pas' {FormPointto},
   flCoordinates in '..\source\lito\flCoordinates.pas' {FormCoords},
-  fmSettings in '..\source\fmSettings.pas' {frmSettings},
+  fmSettings in '..\source\fmSettings.pas' {FormSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
   flMixTextures in '..\source\lito\flMixTextures.pas' {FormTexCombine},
   Litho.Utils in '..\source\lito\Litho.Utils.pas';
@@ -45,6 +45,6 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
 end.

@@ -1,4 +1,4 @@
-object FormDiagramHR: TFormDiagramHR
+object frmDiagramHR: TfrmDiagramHR
   Left = 0
   Top = 0
   Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1077#1088#1094#1096#1087#1088#1091#1085#1075#1072'-'#1056#1072#1089#1089#1077#1083#1072
@@ -22,7 +22,6 @@ object FormDiagramHR: TFormDiagramHR
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 233
   end
   object PanelRight: TPanel
     Left = 296
@@ -31,6 +30,8 @@ object FormDiagramHR: TFormDiagramHR
     Height = 433
     Align = alRight
     TabOrder = 1
+    ExplicitLeft = 288
+    ExplicitHeight = 408
     object Chart1: TChart
       Left = 24
       Top = 56

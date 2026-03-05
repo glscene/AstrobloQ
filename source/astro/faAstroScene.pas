@@ -72,7 +72,7 @@ uses
   faOptions,
   faConstells,
   faSkyAreas,
-  faStarSys
+  faStarSys, Vcl.Grids, Vcl.Outline, Vcl.Samples.DirOutln
   ;
 
 type
@@ -157,6 +157,8 @@ type
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;
     SceneViewer1: TGLSceneViewer;
+    PanelLeft: TPanel;
+    DirectoryOutline: TDirectoryOutline;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -239,7 +241,7 @@ begin
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-  StarDir := DataDir + '\' + 'stars';
+  StarDir := DataDir + '\' + 'starsys';
 
   // Path to catalogs
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -275,6 +277,9 @@ begin
   FormStarSys.BorderStyle := bsNone;
   FormStarSys.Show;
 
+  // Initialize starsys folders view
+  DirectoryOutline.Directory := StarDir;
+  //...
 
   //  miHelpWiki.Caption := miItem.Text + ' in ' + 'Wikipedia...';
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
@@ -633,7 +638,7 @@ end;
 
 procedure TFormAstroScene.Settings1Click(Sender: TObject);
 begin
-  frmSettings.Show;
+  FormSettings.Show;
 end;
 
 

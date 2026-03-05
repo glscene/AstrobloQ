@@ -60,9 +60,10 @@ uses
   fmFormFirst,
   fmAbout_ru,
 
+  fgProjections_ru,
   fgCETInet_ru,
   fgMonitor_ru,
-  fgAstrocube_ru,
+  fgNewStarblock_ru,
   fgOptions_ru,
   fgParadox_ru,
   fgEquations_ru,
@@ -139,7 +140,7 @@ type
     tbClearCubes: TToolButton;
     tbAxes: TToolButton;
     miParadox: TMenuItem;
-    miExoplanets: TMenuItem;
+    miOpenExoplanets: TMenuItem;
     tbRotation: TToolButton;
     miNewStarblock: TMenuItem;
     N1: TMenuItem;
@@ -148,7 +149,7 @@ type
     N3: TMenuItem;
     miMethod: TMenuItem;
     miGridding: TMenuItem;
-    miInterpolation: TMenuItem;
+    miInterpolate: TMenuItem;
     miTetranet: TMenuItem;
     N4: TMenuItem;
     ranslator1: TMenuItem;
@@ -163,6 +164,7 @@ type
     N8: TMenuItem;
     miStatistics: TMenuItem;
     miEquations: TMenuItem;
+    miConvolute: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -186,16 +188,17 @@ type
     procedure miMonitorClick(Sender: TObject);
     procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
-    procedure miExoplanetsClick(Sender: TObject);
+    procedure miOpenExoplanetsClick(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
     procedure miNewStarblockClick(Sender: TObject);
-    procedure GLSimpleNavigationMouseMove(Sender: TObject; Shift: TShiftState;
-      X, Y: Integer);
-    procedure miBiosphereClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miCETIClick(Sender: TObject);
     procedure miStatisticsClick(Sender: TObject);
     procedure miEquationsClick(Sender: TObject);
+    procedure miTetranetClick(Sender: TObject);
+    procedure miGriddingClick(Sender: TObject);
+    procedure miInterpolateClick(Sender: TObject);
+    procedure miConvoluteClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -236,8 +239,8 @@ implementation //=============================================================
 {$R *.dfm}
 
 uses
-  fgStarProj,
-  fgExoplanets_ru, fmSettings_ru;
+  fgExoplanets_ru,
+  fmSettings_ru;
 
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.FormCreate(Sender: TObject);
@@ -254,7 +257,7 @@ end;
 procedure TfrmGalaqtium.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
-  if frmOptions.CheckBoxRotate.Checked and
+  if FormOptions.CheckBoxRotate.Checked and
      not tbRotation.Down then
   begin
 //    sfPlanet.TurnAngle := sfPlanet.TurnAngle + DeltaTime * TimeMultiplier;
@@ -269,14 +272,6 @@ begin
     dcGalaxy.Turn(0);
     dcAxes.Turn(0);
   end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.GLSimpleNavigationMouseMove(Sender: TObject;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  inherited;
-
 end;
 
 //----------------------------------------------------------------------------
@@ -299,90 +294,90 @@ begin
   Edge05 := Edge div 2;
 
   // O class
-  if (frmOptions.chbO.Checked) then
+  if (FormOptions.chbO.Checked) then
   begin
-    NStars := Round(frmOptions.nbOn.Value);
+    NStars := Round(FormOptions.nbOn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shO.Brush.Color); // clBlue;
+      StarColor := ConvertWinColor(FormOptions.shO.Brush.Color); // clBlue;
       Stars.Colors.Add(StarColor);
     end
   end;
   // B class
-  if (frmOptions.chbB.Checked) then
+  if (FormOptions.chbB.Checked) then
   begin
-    NStars := Round(frmOptions.nbBn.Value);
+    NStars := Round(FormOptions.nbBn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shB.Brush.Color); // clLightBlue;
+      StarColor := ConvertWinColor(FormOptions.shB.Brush.Color); // clLightBlue;
       Stars.Colors.Add(StarColor);
     end
   end;
   // A class
-  if (frmOptions.chbA.Checked) then
+  if (FormOptions.chbA.Checked) then
   begin
-    NStars := Round(frmOptions.nbAn.Value);
+    NStars := Round(FormOptions.nbAn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shA.Brush.Color); // clCream;
+      StarColor := ConvertWinColor(FormOptions.shA.Brush.Color); // clCream;
       Stars.Colors.Add(StarColor);
     end
   end;
   // F class
-  if (frmOptions.chbF.Checked) then
+  if (FormOptions.chbF.Checked) then
   begin
-    NStars := Round(frmOptions.nbFn.Value);
+    NStars := Round(FormOptions.nbFn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shF.Brush.Color); // clKhaki
+      StarColor := ConvertWinColor(FormOptions.shF.Brush.Color); // clKhaki
       Stars.Colors.Add(StarColor);
     end
   end;
   // G class
-  if (frmOptions.chbG.Checked) then
+  if (FormOptions.chbG.Checked) then
   begin
-    NStars := Round(frmOptions.nbGn.Value);
+    NStars := Round(FormOptions.nbGn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shG.Brush.Color); // clYellow
+      StarColor := ConvertWinColor(FormOptions.shG.Brush.Color); // clYellow
       Stars.Colors.Add(StarColor);
     end
   end;
   // K class
-  if (frmOptions.chbK.Checked) then
+  if (FormOptions.chbK.Checked) then
   begin
-    NStars := Round(frmOptions.nbKn.Value);
+    NStars := Round(FormOptions.nbKn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shK.Brush.Color); // clOrange
+      StarColor := ConvertWinColor(FormOptions.shK.Brush.Color); // clOrange
       Stars.Colors.Add(StarColor);
     end
   end;
   // M class
-  if (frmOptions.chbM.Checked) then
+  if (FormOptions.chbM.Checked) then
   begin
-    NStars := Round(frmOptions.nbMn.Value);
+    NStars := Round(FormOptions.nbMn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shM.Brush.Color); // clRed
+      StarColor := ConvertWinColor(FormOptions.shM.Brush.Color); // clRed
       Stars.Colors.Add(StarColor);
     end
   end;
   // D class of white dwarf
-  if (frmOptions.chbD.Checked) then
+  if (FormOptions.chbD.Checked) then
   begin
-    NStars := Round(frmOptions.nbWn.Value);
+    NStars := Round(FormOptions.nbDn.Value);
     for i := 0 to NStars - 1 do
     begin
       Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
-      StarColor := ConvertWinColor(frmOptions.shW.Brush.Color); // clWhite
+      StarColor := ConvertWinColor(FormOptions.shD.Brush.Color); // clWhite
       Stars.Colors.Add(StarColor);
     end
   end;
@@ -404,7 +399,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.chbAllClick(Sender: TObject);
 begin
-  with frmOptions do
+  with FormOptions do
   begin
     chbO.Checked := chbAll.Checked;
     chbB.Checked := chbAll.Checked;
@@ -413,6 +408,7 @@ begin
     chbG.Checked := chbAll.Checked;
     chbK.Checked := chbAll.Checked;
     chbM.Checked := chbAll.Checked;
+    chbD.Checked := chbAll.Checked;
   end;
 end;
 
@@ -496,7 +492,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.seNStarsChange(Sender: TObject);
 begin
-  with frmOptions do
+  with FormOptions do
   begin
     nbOn.Value := Round(nbO.Value * seNStars.Value / 100);
     nbBn.Value := Round(nbB.Value * seNStars.Value / 100);
@@ -505,6 +501,7 @@ begin
     nbGn.Value := Round(nbG.Value * seNStars.Value / 100);
     nbKn.Value := Round(nbK.Value * seNStars.Value / 100);
     nbMn.Value := Round(nbM.Value * seNStars.Value / 100);
+    nbDn.Value := Round(nbD.Value * seNStars.Value / 100);
   end;
 end;
 
@@ -512,20 +509,9 @@ end;
 //----------------------------------------------------------------------------
 //                              Меню вид
 //----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miExoplanetsClick(Sender: TObject);
+procedure TfrmGalaqtium.miOpenExoplanetsClick(Sender: TObject);
 begin
-  with TFormExoplanets.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miBiosphereClick(Sender: TObject);
-begin
-  with TFormProjection.Create(Self) do
+  with TfrmOpenExoplanets.Create(Self) do
     try
       ShowModal;
     finally
@@ -557,19 +543,6 @@ begin
       Free;
     end;
 *)
-end;
-
-//----------------------------------------------------------------------------
-//
-//----------------------------------------------------------------------------
-procedure TfrmGalaqtium.miNewStarblockClick(Sender: TObject);
-begin
-  with TFormNewStarcube.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 //---------------------------------------------------------------------------
@@ -640,14 +613,11 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//                             Меню Анализ
+//                      Создание нового старблока
 //----------------------------------------------------------------------------
-
-//---------------------- Парадокс Ферми --------------------------------------
-procedure TfrmGalaqtium.miParadoxClick(Sender: TObject);
+procedure TfrmGalaqtium.miNewStarblockClick(Sender: TObject);
 begin
-  inherited;
-  with TFormParadox.Create(Self) do
+  with TfrmNewStarblock.Create(Self) do
     try
       ShowModal;
     finally
@@ -655,12 +625,76 @@ begin
     end;
 end;
 
-//--------------------- Уравнени Дрейка, Дойла и CETI ------------------------
+
+//----------------------------------------------------------------------------
+//                             Меню Моделирование
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miTetranetClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miGriddingClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miInterpolateClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//----------------------------------------------------------------------------
+procedure TfrmGalaqtium.miConvoluteClick(Sender: TObject);
+begin
+  inherited;
+  //
+end;
+
+//----------------------------------------------------------------------------
+//                             Меню Вид
+//----------------------------------------------------------------------------
+//-------------------------- Проекции звёзд -----------------------------------
+procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
+begin
+  inherited;
+  with TfrmProjections.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+
+
+//----------------------------------------------------------------------------
+//                             Меню Анализ
+//----------------------------------------------------------------------------
+
+//---------------------- Парадокс Ферми --------------------------------------
+procedure TfrmGalaqtium.miParadoxClick(Sender: TObject);
+begin
+  inherited;
+  with TfrmParadox.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+//--------------------- Уравнения Дрейка, Дойла и CETI ------------------------
 
 procedure TfrmGalaqtium.miEquationsClick(Sender: TObject);
 begin
   inherited;
-  with TFormEquations.Create(Self) do
+  with TfrmEquations.Create(Self) do
     try
       ShowModal;
     finally
@@ -672,19 +706,7 @@ end;
 procedure TfrmGalaqtium.miStatisticsClick(Sender: TObject);
 begin
   inherited;
-  with TFormStatistics.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-//-------------------------- Проекции звёзд -----------------------------------
-procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
-begin
-  inherited;
-  with TFormProjection.Create(Self) do
+  with TfrmStatistics.Create(Self) do
     try
       ShowModal;
     finally
@@ -695,7 +717,7 @@ end;
 // -------------- Диаграмма Герцшпрунга-Рассела по звездам каталога Hyg ------
 procedure TfrmGalaqtium.miDiagramHRClick(Sender: TObject);
 begin
-  with TFormDiagramHR.Create(Self) do
+  with TfrmDiagramHR.Create(Self) do
   try
     Timer1.Enabled := False;
     GLCadencer1.Enabled := False;
@@ -712,7 +734,7 @@ end;
 procedure TfrmGalaqtium.miCETIClick(Sender: TObject);
 begin
   inherited;
-  with TFormCETInet.Create(Self) do
+  with TfrmCETInet.Create(Self) do
     try
       ShowModal;
     finally
@@ -728,17 +750,17 @@ end;
 procedure TfrmGalaqtium.miSettingsClick(Sender: TObject);
 begin
   inherited;
-  frmSettings.Show;
+  FormSettings.Show;
 end;
 
 //----------------------- Опции ----------------------------------------------
 procedure TfrmGalaqtium.miOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+  FormOptions.Show;
 end;
 
 //----------------------------------------------------------------------------
-//                             Меню справки
+//                             Меню справка
 //----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miAboutClick(Sender: TObject);
 begin

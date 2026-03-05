@@ -36,7 +36,7 @@ uses
   fmFormFirst, Vcl.Imaging.jpeg;
 
 type
-  TfrmOptions = class(TFormFirst)
+  TFormOptions = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelMain: TPanel;
@@ -151,7 +151,7 @@ type
     shM: TShape;
     Label4: TLabel;
     Label7: TLabel;
-    shW: TShape;
+    shD: TShape;
     chbO: TCheckBox;
     chbB: TCheckBox;
     chbA: TCheckBox;
@@ -174,9 +174,10 @@ type
     nbBn: TNumberBox;
     nbOn: TNumberBox;
     chbD: TCheckBox;
-    nbWn: TNumberBox;
+    nbDn: TNumberBox;
     seNStars: TSpinEdit;
     chbAll: TCheckBox;
+    nbD: TNumberBox;
     procedure FormCreate(Sender: TObject);
     procedure tvSettingsClick(Sender: TObject);
     procedure trbVelocityChange(Sender: TObject);
@@ -191,7 +192,7 @@ type
   end;
 
 var
-  frmOptions: TfrmOptions;
+  FormOptions: TFormOptions;
 
 implementation //=============================================================
 
@@ -201,7 +202,7 @@ uses
   fgGalaqtium_ru;
 
 //--------------------------- Создание формы ---------------------------------
-procedure TfrmOptions.FormCreate(Sender: TObject);
+procedure TFormOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -239,7 +240,7 @@ begin
 end;
 
 //---------------------- tvSettings -------------------------------------------
-procedure TfrmOptions.tvSettingsClick(Sender: TObject);
+procedure TFormOptions.tvSettingsClick(Sender: TObject);
 begin
   inherited;
   tvSettings.Items[1].DropHighlighted := False;
@@ -256,7 +257,7 @@ begin
 end;
 
 //---------------------- trbVelocity ------------------------------------------
-procedure TfrmOptions.trbVelocityChange(Sender: TObject);
+procedure TFormOptions.trbVelocityChange(Sender: TObject);
 var
   DistanceInYears: Single;
   FlightTime: Extended;
@@ -271,40 +272,40 @@ end;
 
 
 
-procedure TfrmOptions.ComboBoxVclStylesChange(Sender: TObject);
+procedure TFormOptions.ComboBoxVclStylesChange(Sender: TObject);
 begin
   TStyleManager.SetStyle(ComboBoxVclStyles.Text);
 end;
 
-function TfrmOptions.Execute: boolean;
+function TFormOptions.Execute: boolean;
 begin
   Result := ShowModal = mrOk;
 end;
 
 //--------------------- ReadIniFile --------------------------------------------
-procedure TfrmOptions.ReadIniFile;
+procedure TFormOptions.ReadIniFile;
 var
   IniFile: TIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
+    CheckBoxAxes.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
 end;
 
 // ---------------------- WriteIniFile -----------------------------------------
-procedure TfrmOptions.WriteIniFile;
+procedure TFormOptions.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -312,7 +313,7 @@ begin
 end;
 
 // ----------------------- ButtonOk -------------------------------------------
-procedure TfrmOptions.ButtonOkClick(Sender: TObject);
+procedure TFormOptions.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -320,7 +321,7 @@ begin
   if FileExists(UpperCase(FileName)) then
     DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;
-  frmOptions.Close;
+  FormOptions.Close;
 end;
 
 end.

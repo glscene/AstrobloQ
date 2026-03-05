@@ -749,7 +749,7 @@ end;
 
 procedure TfrmAstroScene.Settings1Click(Sender: TObject);
 begin
-  frmSettings.Show;
+  FormSettings.Show;
 end;
 
 

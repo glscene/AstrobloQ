@@ -32,8 +32,6 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 535
-    ExplicitWidth = 966
   end
   object ControlBar: TControlBar
     Left = 0
@@ -42,7 +40,6 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 966
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -58,7 +55,7 @@ object frmGalaqtium: TfrmGalaqtium
         Margins.Right = 2
         Margins.Bottom = 2
         ImageIndex = 0
-        OnClick = miNewStarcubeClick
+        OnClick = miNewStarblockClick
       end
       object ToolButton3: TToolButton
         Left = 23
@@ -175,8 +172,6 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 966
-    ExplicitHeight = 502
     object tsGalacube: TTabSheet
       Caption = 'Stars'
       object svGalacube: TGLSceneViewer
@@ -190,7 +185,6 @@ object frmGalaqtium: TfrmGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 762
       end
       object PanelRight: TPanel
         Left = 754
@@ -199,8 +193,6 @@ object frmGalaqtium: TfrmGalaqtium
         Height = 491
         Align = alRight
         TabOrder = 1
-        ExplicitLeft = 746
-        ExplicitHeight = 466
         object gbStars: TGroupBox
           Left = 6
           Top = 47
@@ -604,8 +596,8 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object GLScene: TGLScene
-    Left = 271
-    Top = 156
+    Left = 71
+    Top = 92
     object Camera: TGLCamera
       DepthOfView = 10000.000000000000000000
       FocalLength = 80.000000000000000000
@@ -758,13 +750,14 @@ object frmGalaqtium: TfrmGalaqtium
     end
   end
   object MainMenu: TMainMenu
-    Left = 680
-    Top = 187
+    Images = DataModuleImages.ImageListInterface
+    Left = 672
+    Top = 91
     object miFile: TMenuItem
       Caption = '&File'
-      object miNewStarcube: TMenuItem
-        Caption = 'New...'
-        OnClick = miNewStarcubeClick
+      object miNewStarblock: TMenuItem
+        Caption = 'New starblock...'
+        OnClick = miNewStarblockClick
       end
       object N1: TMenuItem
         Caption = '-'
@@ -832,20 +825,28 @@ object frmGalaqtium: TfrmGalaqtium
     end
     object miModelling: TMenuItem
       Caption = 'Modelling'
+      object miTetralization: TMenuItem
+        Caption = 'Tetralization...'
+        OnClick = miTetralizationClick
+      end
       object miGridding: TMenuItem
         Caption = 'Gridding...'
+        OnClick = miGriddingClick
       end
       object miInterpolation: TMenuItem
         Caption = 'Interpolation...'
-      end
-      object miTetralization: TMenuItem
-        Caption = 'Tetralization...'
+        OnClick = miInterpolationClick
       end
       object N4: TMenuItem
         Caption = '-'
       end
-      object ranslator1: TMenuItem
+      object miConvolute: TMenuItem
+        Caption = 'Convolute...'
+        OnClick = miConvoluteClick
+      end
+      object miTranslator: TMenuItem
         Caption = 'Translator...'
+        OnClick = miTranslatorClick
       end
     end
     object miView: TMenuItem
@@ -854,24 +855,12 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = 'Exoplanets...'
         OnClick = miExoplanetsClick
       end
-      object miProjection: TMenuItem
-        Caption = 'Star projections...'
-        OnClick = miProjectionClick
-      end
       object N3: TMenuItem
         Caption = '-'
       end
-      object miLithosphere: TMenuItem
-        Caption = 'Lithosphere...'
-        OnClick = miLithosphereClick
-      end
-      object miBiosphere: TMenuItem
-        Caption = 'Biosphere...'
-        OnClick = miBiosphereClick
-      end
-      object miTechnosphere: TMenuItem
-        Caption = 'Technosphere...'
-        OnClick = miTechnosphereClick
+      object miProjection: TMenuItem
+        Caption = 'Star projections...'
+        OnClick = miProjectionClick
       end
       object N2: TMenuItem
         Caption = '-'
@@ -896,12 +885,19 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = 'Monitor...'
         OnClick = miMonitorClick
       end
+      object N5: TMenuItem
+        Caption = '-'
+      end
+      object miDiagramHR: TMenuItem
+        Caption = 'Diagram HR...'
+        OnClick = miDiagramHRClick
+      end
     end
     object miTools: TMenuItem
       Caption = '&Tools'
-      object Settings1: TMenuItem
+      object miSettings: TMenuItem
         Caption = 'Settings...'
-        OnClick = Settings1Click
+        OnClick = miSettingsClick
       end
       object miOptions: TMenuItem
         Caption = 'Options...'
@@ -928,14 +924,14 @@ object frmGalaqtium: TfrmGalaqtium
   end
   object GLAsyncTimer: TGLAsyncTimer
     OnTimer = GLAsyncTimerTimer
-    Left = 537
-    Top = 179
+    Left = 273
+    Top = 91
   end
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 269
-    Top = 236
+    Left = 69
+    Top = 164
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -954,8 +950,8 @@ object frmGalaqtium: TfrmGalaqtium
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 532
-    Top = 243
+    Left = 180
+    Top = 171
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <
@@ -103807,7 +103803,7 @@ object frmGalaqtium: TfrmGalaqtium
           4E44AE426082}
         Material.Texture.Disabled = False
       end>
-    Left = 260
-    Top = 323
+    Left = 180
+    Top = 91
   end
 end

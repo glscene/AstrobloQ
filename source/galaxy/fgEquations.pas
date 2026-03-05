@@ -21,7 +21,7 @@ uses
   fmFormFirst;
 
 type
-  TFormStatistics = class(TFormFirst)
+  TfrmEquations = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;
@@ -110,7 +110,7 @@ type
   end;
 
 var
-  FormStatistics: TFormStatistics;
+  frmEquations: TfrmEquations;
 
 implementation //==============================================================
 
@@ -121,7 +121,7 @@ uses
 
 
 //---------------------- Number of technospheres -------------------
-procedure TFormStatistics.ButtonCalculateClick(Sender: TObject);
+procedure TfrmEquations.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Np, Nc, Nt: Extended; // stars, planets, civilizations and technospheres
   Fp, Fb, Fn, Ft, Vg, Ratio: Extended; // fractions
@@ -130,7 +130,7 @@ var
   Ls, Lc: LONG64;  // longevity of stars and civilizations
 begin
   Ns := nbNs.Value;
-  frmOptions.EditNs.Text := FloatToStr(Ns);
+  FormOptions.EditNs.Text := FloatToStr(Ns);
   Fp := nbFp.Value;
   Np := nbNl.Value;
   Fb := nbFb.Value;
@@ -148,12 +148,12 @@ begin
   EditNt.Text := FloatToStr(Nt);
 
   // Define a galactic volume
-  Vg := Pi*Sqr(frmOptions.nbRg.Value)*frmOptions.nbHg.Value;
-  frmOptions.EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
+  Vg := Pi*Sqr(FormOptions.nbRg.Value)*FormOptions.nbHg.Value;
+  FormOptions.EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
   // Mean distance between stars in MW
   Ratio := Vg/Ns;
   Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
-  frmOptions.EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
+  FormOptions.EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
 
   // Average distance between civilizations
   Ratio := Np*Vg/Nc;
@@ -161,7 +161,8 @@ begin
   EditDt.Text := FloatToStrF(Dp, ffFixed, 25, 2);
 end;
 
-procedure TFormStatistics.ButtonOkClick(Sender: TObject);
+//-----------------------------------------------------------------------------
+procedure TfrmEquations.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;

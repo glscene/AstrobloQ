@@ -1,8 +1,8 @@
-object FormProjection: TFormProjection
+object frmProjections: TfrmProjections
   Left = 160
   Top = 79
   BorderStyle = bsDialog
-  Caption = 'StarProj'
+  Caption = #1055#1088#1086#1077#1082#1094#1080#1080' '#1079#1074#1105#1079#1076' '#1085#1072' '#1087#1083#1086#1089#1082#1086#1089#1090#1100' '#1076#1080#1089#1082#1072
   ClientHeight = 408
   ClientWidth = 548
   Color = clBtnFace
@@ -30,7 +30,6 @@ object FormProjection: TFormProjection
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 556
   end
   object GLScene1: TGLScene
     ObjectsSorting = osNone

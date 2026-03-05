@@ -148,7 +148,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgOptions.pas">
-            <Form>frmOptions</Form>
+            <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmAbout.pas">
@@ -161,44 +161,44 @@
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgAstrocube.pas">
-            <Form>FormAstrocube</Form>
+        <DCCReference Include="..\source\galaxy\fgNewStarblock.pas">
+            <Form>frmNewStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgExoplanets.pas">
-            <Form>FormExoplanets</Form>
+            <Form>frmOpenExoplanets</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgMonitor.pas">
-            <Form>FormMonitor</Form>
+            <Form>frmMonitor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgParadox.pas">
-            <Form>FormParadox</Form>
+            <Form>frmParadox</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgCETInet.pas">
-            <Form>FormCETInet</Form>
+            <Form>frmCETInet</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\fmSettings.pas">
-            <Form>frmSettings</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgStarProj.pas">
-            <Form>FormProjection</Form>
+            <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgDiagramHR.pas">
-            <Form>FormHercrussel</Form>
+            <Form>frmDiagramHR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgEquations.pas">
-            <Form>FormStatistics</Form>
+            <Form>frmEquations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\source\galaxy\fgProjections.pas">
+            <Form>frmProjections</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

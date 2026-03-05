@@ -31,7 +31,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  fmSettings_ru in '..\source\fmSettings_ru.pas' {frmSettings},
+  fmSettings_ru in '..\source\fmSettings_ru.pas' {FormSettings},
   flCoordinates_ru in '..\source\lito\flCoordinates_ru.pas' {FormCoords},
   flPointto_ru in '..\source\lito\flPointto_ru.pas' {FormPointto},
   Litho.Utils in '..\source\lito\Litho.Utils.pas';
@@ -47,6 +47,6 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TfrmOptions, frmOptions);
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
 end.

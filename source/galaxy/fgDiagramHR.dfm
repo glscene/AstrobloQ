@@ -1,4 +1,4 @@
-object FormHercrussel: TFormHercrussel
+object frmDiagramHR: TfrmDiagramHR
   Left = 0
   Top = 0
   Caption = 'Hercshprung-Russel Diagram'
@@ -21,7 +21,6 @@ object FormHercrussel: TFormHercrussel
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 504
   end
   object PanelRight: TPanel
     Left = 496
@@ -30,6 +29,8 @@ object FormHercrussel: TFormHercrussel
     Height = 433
     Align = alRight
     TabOrder = 1
+    ExplicitLeft = 488
+    ExplicitHeight = 408
   end
   object GLScene1: TGLScene
     Left = 56

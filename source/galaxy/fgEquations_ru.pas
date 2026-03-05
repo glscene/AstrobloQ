@@ -21,7 +21,7 @@ uses
   fmFormFirst, Vcl.Imaging.jpeg;
 
 type
-  TFormEquations = class(TFormFirst)
+  TfrmEquations = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;
@@ -123,7 +123,7 @@ type
   end;
 
 var
-  FormEquations: TFormEquations;
+  frmEquations: TfrmEquations;
 
 implementation //==============================================================
 
@@ -135,7 +135,7 @@ uses
 //----------------------------------------------------------------------------
 //---------------------- Число техносфер с телепорталами ---------------------
 //----------------------------------------------------------------------------
-procedure TFormEquations.ButtonCalculateClick(Sender: TObject);
+procedure TfrmEquations.ButtonCalculateClick(Sender: TObject);
 var
   Ns, Np, Nc, Nt: Extended; // число звёзд, планет, цивилизаций и техносфер
   Fp, Fb, Fn, Ft, Vg, Ratio: Extended; // фракции лито-, био-, ноо- и техносфер
@@ -144,7 +144,7 @@ var
   Ls, Lc: LONG64;  // долголетие звезды и цивилизации
 begin
   Ns := nbNs.Value;
-  frmOptions.EditNs.Text := FloatToStr(Ns);
+  FormOptions.EditNs.Text := FloatToStr(Ns);
   Fp := nbFp.Value;
   Np := nbNl.Value;
   Fb := nbFb.Value;
@@ -162,13 +162,13 @@ begin
   EditNt.Text := FloatToStr(Nt);
 
   // Определение объёма цилиндра галактики
-  Vg := Pi*Sqr(frmOptions.nbRg.Value)*frmOptions.nbHg.Value;
-  frmOptions.EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
+  Vg := Pi*Sqr(FormOptions.nbRg.Value)*FormOptions.nbHg.Value;
+  FormOptions.EditVg.Text := FloatToStrF(Vg, ffFixed, 25, 2);
   // Среднее расстояние между звёздами в галактике
   Ratio := Vg/Ns;
   Ds := Power(Ratio, 1/3); // or  Ds := Exp(ln(Ratio)/3);
   // Расстояние между звёздами
-  frmOptions.EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
+  FormOptions.EditDs.Text := FloatToStrF(Ds, ffFixed, 25, 2);
 
   // Среднее расстояние между планетными системами с цивилизациями
   Ratio := Np*Vg/Nc;
@@ -178,7 +178,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TFormEquations.ButtonOkClick(Sender: TObject);
+procedure TfrmEquations.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;

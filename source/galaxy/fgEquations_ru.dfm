@@ -1,4 +1,4 @@
-inherited FormEquations: TFormEquations
+inherited frmEquations: TfrmEquations
   Caption = #1059#1088#1072#1074#1085#1077#1085#1080#1103
   ClientHeight = 835
   ClientWidth = 1211

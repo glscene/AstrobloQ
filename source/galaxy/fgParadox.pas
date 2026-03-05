@@ -16,15 +16,16 @@ uses
   Vcl.VirtualImage,
 
   dmImages,
-  fmFormFirst, Vcl.ExtCtrls;
+  fmFormFirst, Vcl.ExtCtrls, Vcl.StdCtrls, GLS.SceneViewer;
 
 type
-  TFormParadox = class(TFormFirst)
-    tvThesis: TTreeView;
+  TfrmParadox = class(TFormFirst)
     StatusBar1: TStatusBar;
     Panel1: TPanel;
     Panel2: TPanel;
-    VirtualImageFP: TVirtualImage;
+    tvSolutions: TTreeView;
+    StaticText1: TStaticText;
+    glsViewer: TGLSceneViewer;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -32,29 +33,31 @@ type
   end;
 
 var
-  FormParadox: TFormParadox;
+  frmParadox: TfrmParadox;
 
 implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormParadox.FormCreate(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TfrmParadox.FormCreate(Sender: TObject);
 var
   FileName: TFileName;
 begin
   // Load Paradox items
-///  tvThesis.LoadFromFile(FileName);
+  tvSolutions.FullExpand();
+  tvSolutions.Select(tvSolutions.Items[1]);
 end;
 
-procedure TFormParadox.FormShow(Sender: TObject);
+//-----------------------------------------------------------------------------
+procedure TfrmParadox.FormShow(Sender: TObject);
 begin
   inherited;
-  tvThesis.SetFocus;
-  tvThesis.FullExpand(); // вначале раскрываем все узлы дерева просмотра
-  tvThesis.Select(tvThesis.Items[1]);  // узел по умолчанию
-///  tvtvThesisClick(Self);
+  tvSolutions.SetFocus;
+///  tvSolutionsClick(Self);
 ///  miHelpWiki.Caption := tvThesis.Selected.Text; // + ' in ' + 'Wiki...';
 
 end;
 
+//-----------------------------------------------------------------------------
 end.

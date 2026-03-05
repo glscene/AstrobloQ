@@ -17,10 +17,11 @@ uses
   Vcl.NumberBox,
   Vcl.ExtCtrls,
 
-  fmFormFirst, Vcl.Imaging.jpeg;
+  fmFormFirst,
+  Vcl.Imaging.jpeg;
 
 type
-  TFormCETInet = class(TFormFirst)
+  TfrmCETInet = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOk: TButton;
     PanelTop: TPanel;
@@ -33,13 +34,13 @@ type
   end;
 
 var
-  FormCETInet: TFormCETInet;
+  frmCETInet: TfrmCETInet;
 
 implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormCETInet.ButtonOkClick(Sender: TObject);
+procedure TfrmCETInet.ButtonOkClick(Sender: TObject);
 begin
   inherited;
   Close;

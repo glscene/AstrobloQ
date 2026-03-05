@@ -32,7 +32,7 @@ uses
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
   faSkyAreas in '..\source\astro\faSkyAreas.pas' {FormConstPolygons},
-  fmSettings in '..\source\fmSettings.pas' {frmSettings},
+  fmSettings in '..\source\fmSettings.pas' {FormSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas';
 
 {$R *.res}
@@ -46,7 +46,7 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmOptions, frmOptions);
-  Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormStarSys, FormStarSys);
   Application.Run;
 end.
