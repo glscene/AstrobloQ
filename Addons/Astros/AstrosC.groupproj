@@ -3,19 +3,10 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="StarboxC\SolarBlockС_ru.cbproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="StarboxC\StarboxС_ru.cbproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarboxC\StarCubeС_ru.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="StarboxC\StarlifeС.cbproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="StarboxD\HygViewer_ru.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="StarboxC\HygViewerC_ru.cbproj">
@@ -30,6 +21,15 @@
         <Projects Include="StarboxC\StarsysCx.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="StarboxC\HygStarC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\RndStarC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarboxC\TetraVorC.cbproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -38,15 +38,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="SolarBlockС_ru">
-        <MSBuild Projects="StarboxC\SolarBlockС_ru.cbproj"/>
-    </Target>
-    <Target Name="SolarBlockС_ru:Clean">
-        <MSBuild Projects="StarboxC\SolarBlockС_ru.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="SolarBlockС_ru:Make">
-        <MSBuild Projects="StarboxC\SolarBlockС_ru.cbproj" Targets="Make"/>
-    </Target>
     <Target Name="StarboxС_ru">
         <MSBuild Projects="StarboxC\StarboxС_ru.cbproj"/>
     </Target>
@@ -64,24 +55,6 @@
     </Target>
     <Target Name="StarCubeС_ru:Make">
         <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="StarlifeС">
-        <MSBuild Projects="StarboxC\StarlifeС.cbproj"/>
-    </Target>
-    <Target Name="StarlifeС:Clean">
-        <MSBuild Projects="StarboxC\StarlifeС.cbproj" Targets="Clean"/>
-    </Target>
-    <Target Name="StarlifeС:Make">
-        <MSBuild Projects="StarboxC\StarlifeС.cbproj" Targets="Make"/>
-    </Target>
-    <Target Name="HygViewer_ru">
-        <MSBuild Projects="StarboxD\HygViewer_ru.dproj"/>
-    </Target>
-    <Target Name="HygViewer_ru:Clean">
-        <MSBuild Projects="StarboxD\HygViewer_ru.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="HygViewer_ru:Make">
-        <MSBuild Projects="StarboxD\HygViewer_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="HygViewerC_ru">
         <MSBuild Projects="StarboxC\HygViewerC_ru.cbproj"/>
@@ -119,14 +92,41 @@
     <Target Name="StarsysCx:Make">
         <MSBuild Projects="StarboxC\StarsysCx.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="HygStarC">
+        <MSBuild Projects="StarboxC\HygStarC.cbproj"/>
+    </Target>
+    <Target Name="HygStarC:Clean">
+        <MSBuild Projects="StarboxC\HygStarC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HygStarC:Make">
+        <MSBuild Projects="StarboxC\HygStarC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="RndStarC">
+        <MSBuild Projects="StarboxC\RndStarC.cbproj"/>
+    </Target>
+    <Target Name="RndStarC:Clean">
+        <MSBuild Projects="StarboxC\RndStarC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RndStarC:Make">
+        <MSBuild Projects="StarboxC\RndStarC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="TetraVorC">
+        <MSBuild Projects="StarboxC\TetraVorC.cbproj"/>
+    </Target>
+    <Target Name="TetraVorC:Clean">
+        <MSBuild Projects="StarboxC\TetraVorC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TetraVorC:Make">
+        <MSBuild Projects="StarboxC\TetraVorC.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="SolarBlockС_ru;StarboxС_ru;StarCubeС_ru;StarlifeС;HygViewer_ru;HygViewerC_ru;HygViewerC;HygSQLiteС;StarsysCx"/>
+        <CallTarget Targets="StarboxС_ru;StarCubeС_ru;HygViewerC_ru;HygViewerC;HygSQLiteС;StarsysCx;HygStarC;RndStarC;TetraVorC"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="SolarBlockС_ru:Clean;StarboxС_ru:Clean;StarCubeС_ru:Clean;StarlifeС:Clean;HygViewer_ru:Clean;HygViewerC_ru:Clean;HygViewerC:Clean;HygSQLiteС:Clean;StarsysCx:Clean"/>
+        <CallTarget Targets="StarboxС_ru:Clean;StarCubeС_ru:Clean;HygViewerC_ru:Clean;HygViewerC:Clean;HygSQLiteС:Clean;StarsysCx:Clean;HygStarC:Clean;RndStarC:Clean;TetraVorC:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="SolarBlockС_ru:Make;StarboxС_ru:Make;StarCubeС_ru:Make;StarlifeС:Make;HygViewer_ru:Make;HygViewerC_ru:Make;HygViewerC:Make;HygSQLiteС:Make;StarsysCx:Make"/>
+        <CallTarget Targets="StarboxС_ru:Make;StarCubeС_ru:Make;HygViewerC_ru:Make;HygViewerC:Make;HygSQLiteС:Make;StarsysCx:Make;HygStarC:Make;RndStarC:Make;TetraVorC:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

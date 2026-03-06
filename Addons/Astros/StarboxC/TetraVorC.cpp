@@ -4,8 +4,8 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("source\fcStarlife_ru.cpp", FormLife);
-USEFORM("source\fcStarbox_ru.cpp", FormBox);
+USEFORM("src\fcNetTable.cpp", FormNetTable);
+USEFORM("src\fcNetScene.cpp", FormNetScene);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -13,7 +13,8 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormBox), &FormBox);
+		Application->CreateForm(__classid(TFormNetScene), &FormNetScene);
+		Application->CreateForm(__classid(TFormNetTable), &FormNetTable);
 		Application->Run();
 	}
 	catch (Exception &exception)

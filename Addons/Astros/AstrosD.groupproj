@@ -3,6 +3,9 @@
         <ProjectGuid>{34D46BB1-B6F4-4B95-AAE8-B07CDB10AAC1}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="StarboxD\HygViewer_ru.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Bumps\BumpEarth.dproj">
             <Dependencies/>
         </Projects>
@@ -32,6 +35,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="HygViewer_ru">
+        <MSBuild Projects="StarboxD\HygViewer_ru.dproj"/>
+    </Target>
+    <Target Name="HygViewer_ru:Clean">
+        <MSBuild Projects="StarboxD\HygViewer_ru.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HygViewer_ru:Make">
+        <MSBuild Projects="StarboxD\HygViewer_ru.dproj" Targets="Make"/>
+    </Target>
     <Target Name="BumpEarth">
         <MSBuild Projects="Bumps\BumpEarth.dproj"/>
     </Target>
@@ -96,13 +108,13 @@
         <MSBuild Projects="StarboxD\StarCellx.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="BumpEarth;BumpSmoke;StarMotion;SpaceLink;StarSyx;StarCells;StarCellx"/>
+        <CallTarget Targets="HygViewer_ru;BumpEarth;BumpSmoke;StarMotion;SpaceLink;StarSyx;StarCells;StarCellx"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="BumpEarth:Clean;BumpSmoke:Clean;StarMotion:Clean;SpaceLink:Clean;StarSyx:Clean;StarCells:Clean;StarCellx:Clean"/>
+        <CallTarget Targets="HygViewer_ru:Clean;BumpEarth:Clean;BumpSmoke:Clean;StarMotion:Clean;SpaceLink:Clean;StarSyx:Clean;StarCells:Clean;StarCellx:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="BumpEarth:Make;BumpSmoke:Make;StarMotion:Make;SpaceLink:Make;StarSyx:Make;StarCells:Make;StarCellx:Make"/>
+        <CallTarget Targets="HygViewer_ru:Make;BumpEarth:Make;BumpSmoke:Make;StarMotion:Make;SpaceLink:Make;StarSyx:Make;StarCells:Make;StarCellx:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -42,8 +42,6 @@ object FormHygViewer: TFormHygViewer
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 748
-    ExplicitHeight = 508
   end
   object Panel1: TPanel
     Left = 0

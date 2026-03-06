@@ -3,9 +3,8 @@
 #include <vcl.h>
 #pragma hdrstop
 #include <tchar.h>
-#include "fcSolarBlock_ru.h"
 //---------------------------------------------------------------------------
-USEFORM("source\fcSolarBlock_ru.cpp", FormSolarblock);
+USEFORM("src\fcRndStars.cpp", Form1);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -13,7 +12,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormSolarBlock), &FormSolarBlock);
+		Application->CreateForm(__classid(TForm1), &Form1);
 		Application->Run();
 	}
 	catch (Exception &exception)

@@ -27,10 +27,12 @@
 #include "GLS.Color.hpp"
 #include "GLS.SimpleNavigation.hpp"
 
-#include "fcProjections_ru.h"
 #include "fcStarLife_ru.h"
+
+
 #include "GLS.BaseClasses.hpp"
 #include "GLS.Coordinates.hpp"
+
 
 // ---------------------------------------------------------------------------
 class TFormBox : public TForm {
@@ -66,7 +68,6 @@ __published: // IDE-managed Components
 	TMainMenu *MainMenu;
 	TMenuItem *miView;
 	TMenuItem *miStarLife;
-	TMenuItem *miProjections;
 	TMenuItem *N1;
 	TMenuItem *miFile;
 	TMenuItem *miNew;
@@ -75,13 +76,6 @@ __published: // IDE-managed Components
 	TMenuItem *miSaveAs;
 	TMenuItem *miExit;
 	TMenuItem *N2;
-	TPanel *PanelLeft;
-	TTreeView *TreeView;
-	TMenuItem *miTools;
-	TMenuItem *miSettings;
-	TMenuItem *miHide;
-	TMenuItem *miShow;
-	TMenuItem *N4;
 	TCheckBox *chbSmoothStars;
 	TVirtualImageList *VirtualImageList;
 	TImageCollection *ImageCollection;
@@ -116,7 +110,6 @@ __published: // IDE-managed Components
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall chbOClick(TObject *Sender);
 	void __fastcall miStarLifeClick(TObject *Sender);
-	void __fastcall miProjectionsClick(TObject *Sender);
 	void __fastcall ButtonClearClick(TObject *Sender);
 	void __fastcall SpinEditChange(TObject *Sender);
 private: // User declarations

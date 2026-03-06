@@ -26,9 +26,9 @@ object FormBox: TFormBox
     ExplicitWidth = 870
   end
   object GLSceneViewer: TGLSceneViewer
-    Left = 121
+    Left = 0
     Top = 0
-    Width = 803
+    Width = 924
     Height = 672
     Camera = Camera
     Buffer.BackgroundColor = clBlack
@@ -38,8 +38,6 @@ object FormBox: TFormBox
     Align = alClient
     OnMouseDown = GLSceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 795
-    ExplicitHeight = 647
   end
   object PanelRight: TPanel
     Left = 924
@@ -416,36 +414,6 @@ object FormBox: TFormBox
       OnClick = ButtonClearClick
     end
   end
-  object PanelLeft: TPanel
-    Left = 0
-    Top = 0
-    Width = 121
-    Height = 672
-    Align = alLeft
-    TabOrder = 2
-    ExplicitHeight = 647
-    object TreeView: TTreeView
-      Left = 1
-      Top = 1
-      Width = 119
-      Height = 670
-      Align = alClient
-      Images = VirtualImageList
-      Indent = 19
-      TabOrder = 0
-      Items.NodeData = {
-        070500000009540054007200650065004E006F00640065002500000000000000
-        0000000000000000FFFFFFFF0000000000000000000000000001031A04430431
-        040000250000000000000000000000FFFFFFFFFFFFFFFF000000000000000000
-        00000000010328043004400400002F0000000000000000000000FFFFFFFFFFFF
-        FFFF000000000000000000000000000108130435043A04410430044D04340440
-        0400002B000000010000000100000001000000FFFFFFFF000000000000000000
-        00000000010613043B043E0431044304410400002D0000000200000002000000
-        02000000FFFFFFFF000000000000000000000000000107260438043B0438043D
-        0434044004}
-      ExplicitHeight = 645
-    end
-  end
   object GLScene: TGLScene
     Left = 408
     Top = 32
@@ -573,31 +541,12 @@ object FormBox: TFormBox
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object miProjections: TMenuItem
-        Caption = '&'#1055#1088#1086#1077#1082#1094#1080#1080'...'
-        OnClick = miProjectionsClick
-      end
       object miStarLife: TMenuItem
         Caption = '&'#1042#1088#1077#1084#1103' '#1078#1080#1079#1085#1080'...'
         OnClick = miStarLifeClick
       end
       object N1: TMenuItem
         Caption = '-'
-      end
-    end
-    object miTools: TMenuItem
-      Caption = '&'#1054#1087#1094#1080#1080
-      object miSettings: TMenuItem
-        Caption = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object miHide: TMenuItem
-        Caption = '&'#1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
-      end
-      object miShow: TMenuItem
-        Caption = '&'#1055#1086#1082#1072#1079#1072#1090#1100'...'
       end
     end
   end

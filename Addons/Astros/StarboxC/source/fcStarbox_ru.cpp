@@ -3,7 +3,9 @@
 #include <tchar.h>
 #include <stdlib.h>
 #pragma hdrstop
+
 #include "fcStarbox_ru.h"
+
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "GLS.Scene"
@@ -137,7 +139,6 @@ void __fastcall TFormBox::FormShow(TObject* Sender)
 	TGLVector AColor;
     float d;
 
-    TreeView->FullExpand();
     // colorize shapes  ConvertColorVector(const aColor: TGLColorVector): TColor;
     ///  shO->Brush->Color = ConvertRGBColor() ConvertWinColor(
     ///  (MatLibColors->Materials->Items[0]->Material->FrontProperties->Diffuse->Color,0);
@@ -257,20 +258,6 @@ void __fastcall TFormBox::miStarLifeClick(TObject* Sender)
     } __finally
     {
         FormLife->Free();
-    }
-}
-
-//---------------------------------------------------------------------------
-
-void __fastcall TFormBox::miProjectionsClick(TObject* Sender)
-{
-    TFormProjections* FormProjections;
-    FormProjections = new TFormProjections(this);
-    try {
-        FormProjections->ShowModal();
-    } __finally
-    {
-        FormProjections->Free();
     }
 }
 

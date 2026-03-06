@@ -1,82 +1,67 @@
-
 //---------------------------------------------------------------------------
 
-#ifndef fcSolarBlock_ruH
-#define fcSolarBlock_ruH
+#ifndef fcHygStarsH
+#define fcHygStarsH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "GLS.SceneViewer.hpp"
+#include "GLS.BaseClasses.hpp"
 #include "GLS.Cadencer.hpp"
+#include "GLS.Coordinates.hpp"
+#include "GLS.Objects.hpp"
 #include "GLS.Scene.hpp"
+#include "GLS.SceneViewer.hpp"
 #include <Vcl.ComCtrls.hpp>
 #include <Vcl.ExtCtrls.hpp>
-#include "GLS.Objects.hpp"
 #include <Vcl.Menus.hpp>
-#include <Vcl.Samples.Spin.hpp>
-#include "GLS.BaseClasses.hpp"
-#include "GLS.Coordinates.hpp"
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ExtDlgs.hpp>
+#include <Vcl.CheckLst.hpp>
 //---------------------------------------------------------------------------
-class TFormSolarBlock : public TForm
+class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
+	TStatusBar *StatusBar1;
 	TGLSceneViewer *GLSceneViewer1;
 	TGLScene *GLScene1;
 	TGLCadencer *GLCadencer1;
 	TTimer *Timer1;
-	TGLCamera *GLCamera1;
-	TGLLightSource *GLLightSource1;
-	TGLDummyCube *dcBlock;
-	TPanel *PanelLeft;
-	TButton *btnDraw;
 	TMainMenu *MainMenu1;
-	TSpinEdit *seNStars;
-	TStaticText *StaticText1;
+	TMenuItem *File1;
+	TMenuItem *OpenCSV1;
 	TMenuItem *N1;
-	TMenuItem *N2;
-	TMenuItem *N3;
-	TComboBox *cbContainer;
-	TLabel *Label1;
-	TMenuItem *miOpen;
-	TMenuItem *miExit;
-	TMenuItem *miType;
-	TMenuItem *miAbout;
-	TGLPoints *Stars;
-	TButton *ButtonClear;
-	TMenuItem *N4;
-	TMenuItem *miTetranet;
-	TMenuItem *miUnifornet;
-	TMenuItem *miInterpolate;
-	TMenuItem *N5;
-	TMenuItem *miConvolute;
-	TMenuItem *N6;
-	TMenuItem *N7;
-	TMenuItem *N8;
-	TMenuItem *N9;
+	TMenuItem *Exit1;
+	TButton *ButtonDraw;
+	TButton *Button3;
+	TGLDummyCube *GLDummyCube1;
+	TGLLightSource *GLLightSource1;
+	TGLCamera *GLCamera1;
+	TOpenTextFileDialog *OpenTextFileDialog1;
+	TCheckListBox *CheckListBox1;
+	TGLPoints *GLPoints1;
+	TCheckBox *CheckBox1;
 	void __fastcall GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
-		  int X, int Y);
+          int X, int Y);
 	void __fastcall GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift, int X,
-		  int Y);
+          int Y);
 	void __fastcall FormMouseWheel(TObject *Sender, TShiftState Shift, int WheelDelta,
-		  TPoint &MousePos, bool &Handled);
+          TPoint &MousePos, bool &Handled);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall GLCadencer1Progress(TObject *Sender, const double deltaTime, const double newTime);
-	void __fastcall btnDrawClick(TObject *Sender);
-	void __fastcall miExitClick(TObject *Sender);
-	void __fastcall miAboutClick(TObject *Sender);
-	void __fastcall miTypeClick(TObject *Sender);
-	void __fastcall ButtonClearClick(TObject *Sender);
-	void __fastcall FormShow(TObject *Sender);
+	void __fastcall Exit1Click(TObject *Sender);
+	void __fastcall Button3Click(TObject *Sender);
+	void __fastcall OpenCSV1Click(TObject *Sender);
+	void __fastcall ButtonDrawClick(TObject *Sender);
+	void __fastcall CheckBox1Click(TObject *Sender);
 
-private:
-
+private:	// User declarations
 public:		// User declarations
-	__fastcall TFormSolarBlock(TComponent* Owner);
+	__fastcall TForm1(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormSolarBlock *FormSolarBlock;
+extern PACKAGE TForm1 *Form1;
 //---------------------------------------------------------------------------
 #endif

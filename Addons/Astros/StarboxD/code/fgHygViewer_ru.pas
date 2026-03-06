@@ -3,10 +3,27 @@ unit fgHygViewer_ru;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, GLS.SimpleNavigation, Vcl.ExtDlgs,
-  Vcl.Menus, Vcl.ExtCtrls, GLS.Cadencer, GLS.Scene, GLS.Objects,
-  GLS.Coordinates, GLS.BaseClasses, Vcl.StdCtrls, GLS.SceneViewer, Vcl.ComCtrls;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  GLS.SimpleNavigation,
+  Vcl.ExtDlgs,
+  Vcl.Menus,
+  Vcl.ExtCtrls,
+  GLS.Cadencer,
+  GLS.Scene,
+  GLS.Objects,
+  GLS.Coordinates,
+  GLS.BaseClasses,
+  Vcl.StdCtrls,
+  GLS.SceneViewer,
+  Vcl.ComCtrls;
 
 type
   TFormHygViewer = class(TForm)
