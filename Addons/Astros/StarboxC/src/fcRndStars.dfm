@@ -33,8 +33,6 @@ object Form1: TForm1
     OnMouseDown = GLSceneViewer1MouseDown
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 0
-    ExplicitWidth = 607
-    ExplicitHeight = 427
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -50,8 +48,6 @@ object Form1: TForm1
         Text = 'FPS:'
         Width = 50
       end>
-    ExplicitTop = 401
-    ExplicitWidth = 785
   end
   object PanelLeft: TPanel
     Left = 610
@@ -60,11 +56,9 @@ object Form1: TForm1
     Height = 522
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 599
-    ExplicitHeight = 401
     object Button2: TButton
       Left = 50
-      Top = 244
+      Top = 300
       Width = 86
       Height = 25
       Caption = 'Clear scene'
@@ -75,19 +69,20 @@ object Form1: TForm1
       Left = 19
       Top = 55
       Width = 149
-      Height = 138
+      Height = 178
       Caption = 'Container'
       Items.Strings = (
         'Cube'
         'Sphere'
         'Sphere Surface'
         'Cylinder'
-        'Cone')
+        'Cone'
+        'Thorus')
       TabOrder = 1
     end
     object btnDraw: TButton
       Left = 38
-      Top = 213
+      Top = 249
       Width = 116
       Height = 25
       Caption = 'Draw random stars'

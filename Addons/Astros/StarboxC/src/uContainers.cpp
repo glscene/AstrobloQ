@@ -24,6 +24,7 @@ float* generatePointsForCube()
 	}
 	return coords;
 }
+
 //---------------------------------------------------------------------------
 float* generatePointsForSphereSurface()
 {
@@ -94,3 +95,20 @@ float* generatePointsForCone()
 
 	return coords;
 }
+
+//---------------------------------------------------------------------------
+float* generatePointsForThorus()
+{
+	float* coords = new float[3];
+	float r = 0.5;
+	float theta = (((float)rand()) / (float)RAND_MAX) * 2.0 * M_PI;
+	float phi = (((float)rand()) / (float)RAND_MAX) * M_PI;
+
+	coords[0] = r * sin(phi) * cos(theta);
+	coords[1] = r * sin(phi) * sin(theta);
+	coords[2] = r * cos(phi);
+
+
+	return coords;
+}
+

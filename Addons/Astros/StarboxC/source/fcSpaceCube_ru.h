@@ -64,6 +64,7 @@ struct VoronoiBase
 };
 
 
+//---------------------------------------------------------------------------
 class TFormStarcube : public TForm
 {
 __published:	// IDE-managed Components

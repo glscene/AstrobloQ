@@ -51,86 +51,87 @@ float COLORS[7][3] = { { 0, 0.8, 1 }, { 0.803, 1, 1 }, { 1, 1, 1 },
     { 0.996, 1, 0.6 }, { 1, 1, 0.003 }, { 1, 0.4, 0 }, { 0.992, 0, 0.003 } };
 
 //---------------------------------------------------------------------------
-
 void __fastcall TFormStarcube::FormCreate(TObject* Sender)
 {
-	// Указываем путь к файлам данных
+	// Указываем путь к данным
 	datapath = ".\\..\\..\\DATA\\";
-	// Разделитель float . (для CSV)
-    FormatSettings.DecimalSeparator = '.';
+	// Используем десятичную точку в файлах CSV
+	FormatSettings.DecimalSeparator = '.';
 }
 
+//---------------------------------------------------------------------------
 // Получение данных для Тетраэдров Делоне
+//---------------------------------------------------------------------------
 DelaunayBase __fastcall TFormStarcube::InitDelaunay(String starClass)
 {
 	//======== ПОЛУЧЕНИЕ NODE.CSV
-    DelaunayBase dt_struct;
-    String path = "";
-    unsigned char FX, FY, FZ;
+	DelaunayBase dt_struct;
+	String path = "";
+	unsigned char FX, FY, FZ;
 
-    path = datapath + "/Delaunay/" + starClass + "/node.csv";
-    S1->LoadFromFile(path);
-    T1->CommaText = S1->Strings[0];
+	path = datapath + "/Delaunay/" + starClass + "/node.csv";
+	S1->LoadFromFile(path);
+	T1->CommaText = S1->Strings[0];
 
-    for (int i = 0; i < T1->Count; i++) {
-        if (T1[0][i] == "X")
-            FX = i;
-        else if (T1[0][i] == "Y")
-            FY = i;
-        else if (T1[0][i] == "Z")
-            FZ = i;
-    }
+	for (int i = 0; i < T1->Count; i++) {
+		if (T1[0][i] == "X")
+			FX = i;
+		else if (T1[0][i] == "Y")
+			FY = i;
+		else if (T1[0][i] == "Z")
+			FZ = i;
+	}
 
-    dt_struct.nodeCount = S1->Count;
-
+	dt_struct.nodeCount = S1->Count;
 	dt_struct.node = new double*[dt_struct.nodeCount]; // DT_node
-    for (int i = 0; i < dt_struct.nodeCount; ++i)
-        dt_struct.node[i] = new double[3];
+	for (int i = 0; i < dt_struct.nodeCount; ++i)
+		dt_struct.node[i] = new double[3];
 
-    for (int i = 1; i < dt_struct.nodeCount; i++) {
-        try {
-            T1->CommaText = S1->Strings[i];
-            dt_struct.node[i][0] = StrToFloat(T1[0][FX]) * MULTICOEF;
-            dt_struct.node[i][1] = StrToFloat(T1[0][FY]) * MULTICOEF;
-            dt_struct.node[i][2] = StrToFloat(T1[0][FZ]) * MULTICOEF;
+	for (int i = 1; i < dt_struct.nodeCount; i++) {
+		try {
+			T1->CommaText = S1->Strings[i];
+			dt_struct.node[i][0] = StrToFloat(T1[0][FX]) * MULTICOEF;
+			dt_struct.node[i][1] = StrToFloat(T1[0][FY]) * MULTICOEF;
+			dt_struct.node[i][2] = StrToFloat(T1[0][FZ]) * MULTICOEF;
 
-        } catch (...) {
-        }
-    }
+		} catch (...) {
+		}
+	}
 
-    //========================= ПОЛУЧЕНИЕ EDGE.CSV
-    path = datapath + "/Delaunay/" + starClass + "/edge.csv";
-    S1->LoadFromFile(path);
-    T1->CommaText = S1->Strings[0];
-    unsigned char FNode1, FNode2;
+	//========================= ПОЛУЧЕНИЕ EDGE.CSV
+	path = datapath + "/Delaunay/" + starClass + "/edge.csv";
+	S1->LoadFromFile(path);
+	T1->CommaText = S1->Strings[0];
+	unsigned char FNode1, FNode2;
 
-    for (int i = 0; i < T1->Count; i++) {
-        if (T1[0][i] == "Node1")
-            FNode1 = i;
-        else if (T1[0][i] == "Node2")
-            FNode2 = i;
-    }
+	for (int i = 0; i < T1->Count; i++) {
+		if (T1[0][i] == "Node1")
+			FNode1 = i;
+		else if (T1[0][i] == "Node2")
+			FNode2 = i;
+	}
 
 	dt_struct.edgeCount = S1->Count;
 
-    dt_struct.edge = new int*[dt_struct.edgeCount]; // DT_edge
-    for (int i = 0; i < dt_struct.edgeCount; ++i) {
-        dt_struct.edge[i] = new int[2];
-    }
+	dt_struct.edge = new int*[dt_struct.edgeCount]; // DT_edge
+	for (int i = 0; i < dt_struct.edgeCount; ++i) {
+		dt_struct.edge[i] = new int[2];
+	}
 
-    for (int i = 1; i < dt_struct.edgeCount; i++) {
-        try {
-            T1->CommaText = S1->Strings[i];
+	for (int i = 1; i < dt_struct.edgeCount; i++) {
+		try {
+			T1->CommaText = S1->Strings[i];
 
-            dt_struct.edge[i][0] = StrToFloat(T1[0][FNode1]) * MULTICOEF;
-            dt_struct.edge[i][1] = StrToFloat(T1[0][FNode2]) * MULTICOEF;
+			dt_struct.edge[i][0] = StrToFloat(T1[0][FNode1]) * MULTICOEF;
+			dt_struct.edge[i][1] = StrToFloat(T1[0][FNode2]) * MULTICOEF;
 
-        } catch (...) {
-        }
-    }
+		} catch (...) {
+		}
+	}
 
-    return dt_struct;
+	return dt_struct;
 }
+
 //-----------------------------------------------------------------------
 // Получение данных для полиэдров Вороного
 //-----------------------------------------------------------------------
@@ -140,11 +141,11 @@ VoronoiBase __fastcall TFormStarcube::InitVoronoi(String starClass)
 	String path = "";
 
 	//================= ПОЛУЧЕНИЕ NODE.CSV
-    unsigned char FX, FY, FZ;
+	unsigned char FX, FY, FZ;
 
-    path = datapath + "/Voronoi/" + starClass + "/node.csv";
-    S1->LoadFromFile(path);
-    T1->CommaText = S1->Strings[0];
+	path = datapath + "/Voronoi/" + starClass + "/node.csv";
+	S1->LoadFromFile(path);
+	T1->CommaText = S1->Strings[0];
 
     for (int i = 0; i < T1->Count; i++) {
         if (T1[0][i] == "X")
@@ -481,27 +482,27 @@ void __fastcall TFormStarcube::clbMethodsClickCheck(TObject* Sender)
         (TGLDummyCube*)(GLDummyCube1->AddNewChild(__classid(TGLDummyCube)));
     InitDraw();
 }
-//---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
 void __fastcall TFormStarcube::LoadFilesClick(TObject* Sender)
 {
-    LoadFiles->Caption = "Загрузка...";
+	LoadFiles->Caption = "Загрузка...";
 
-    for (int i = 0; i < STARS.size(); i++) {
-        String type = STAR_CLASS[i];
-        STARS[i].type = type;
-        STARS[i].delaunay = InitDelaunay(type);
-        STARS[i].voronoi = InitVoronoi(type);
-        STARS[i].R = COLORS[i][0];
-        STARS[i].G = COLORS[i][1];
-        STARS[i].B = COLORS[i][2];
-    }
+	for (int i = 0; i < STARS.size(); i++) {
+		String type = STAR_CLASS[i];
+		STARS[i].type = type;
+		STARS[i].delaunay = InitDelaunay(type);
+		STARS[i].voronoi = InitVoronoi(type);
+		STARS[i].R = COLORS[i][0];
+		STARS[i].G = COLORS[i][1];
+		STARS[i].B = COLORS[i][2];
+	}
 
-    LoadFiles->Caption = "Файлы загружены";
-    LoadFiles->Enabled = False;
+	LoadFiles->Caption = "Файлы загружены";
+	LoadFiles->Enabled = False;
 
-    // Visualization
-    InitDraw();
+	// Визуализация
+	InitDraw();
 }
 //---------------------------------------------------------------------------
 

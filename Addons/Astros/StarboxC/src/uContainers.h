@@ -14,3 +14,5 @@ float* generatePointsForSphereSurface();
 float* generatePointsForCylinder();
 
 float* generatePointsForCone();
+
+float* generatePointsForThorus();

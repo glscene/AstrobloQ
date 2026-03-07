@@ -109,6 +109,9 @@ void __fastcall TForm1::btnDrawClick(TObject* Sender)
 			case 4:
 				coords = generatePointsForCone();
 				break;
+			case 5:
+				coords = generatePointsForThorus();
+				break;
 		}
 
 		GLPoints1->Size = 2;

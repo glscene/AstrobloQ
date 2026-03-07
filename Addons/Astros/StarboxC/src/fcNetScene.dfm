@@ -29,8 +29,8 @@ object FormNetScene: TFormNetScene
         Text = 'FPS:'
         Width = 50
       end>
-    ExplicitTop = 401
-    ExplicitWidth = 778
+    ExplicitTop = 468
+    ExplicitWidth = 917
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
@@ -45,8 +45,6 @@ object FormNetScene: TFormNetScene
     OnMouseDown = GLSceneViewer1MouseDown
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 1
-    ExplicitWidth = 715
-    ExplicitHeight = 426
   end
   object PanelRight: TPanel
     Left = 739
@@ -57,8 +55,8 @@ object FormNetScene: TFormNetScene
     Caption = 'PanelRight'
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 760
-    ExplicitHeight = 426
+    ExplicitLeft = 731
+    ExplicitHeight = 468
     DesignSize = (
       186
       493)
@@ -66,14 +64,14 @@ object FormNetScene: TFormNetScene
       Left = 8
       Top = 24
       Width = 170
-      Height = 121
+      Height = 129
       Anchors = [akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = 15
       Font.Name = 'Tahoma'
       Font.Style = []
-      ItemHeight = 17
+      ItemHeight = 15
       Items.Strings = (
         '"A"'
         '"B"'
@@ -90,21 +88,20 @@ object FormNetScene: TFormNetScene
     end
     object rgrContainer: TRadioGroup
       Left = 19
-      Top = 183
+      Top = 167
       Width = 149
-      Height = 157
+      Height = 114
       Caption = 'Container'
+      ItemIndex = 0
       Items.Strings = (
         'Cube'
         'Sphere'
-        'Sphere Surface'
-        'Thorus'
-        'Cone')
+        'Sphere Surface')
       TabOrder = 1
     end
     object btnDraw: TButton
       Left = 38
-      Top = 373
+      Top = 309
       Width = 116
       Height = 25
       Caption = 'Draw random stars'
@@ -112,8 +109,8 @@ object FormNetScene: TFormNetScene
     end
   end
   object GLScene1: TGLScene
-    Left = 232
-    Top = 8
+    Left = 48
+    Top = 16
     object GLCamera1: TGLCamera
       DepthOfView = 200.000000000000000000
       FocalLength = 50.000000000000000000
@@ -160,17 +157,17 @@ object FormNetScene: TFormNetScene
   object GLCadencer1: TGLCadencer
     Scene = GLScene1
     OnProgress = GLCadencer1Progress
-    Left = 304
-    Top = 8
+    Left = 48
+    Top = 80
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    Left = 360
-    Top = 8
+    Left = 632
+    Top = 80
   end
   object MainMenu1: TMainMenu
-    Left = 168
-    Top = 8
+    Left = 632
+    Top = 16
     object Start1: TMenuItem
       Caption = 'Start'
       OnClick = Start1Click
@@ -215,16 +212,16 @@ object FormNetScene: TFormNetScene
         'Database=C:\Users\dgoni\Documents\Embarcadero\Studio\STARS_DB\DA' +
         'TA\A_Delaunay.sqlite'
       'DriverID=SQLite')
-    Left = 136
-    Top = 72
+    Left = 528
+    Top = 88
   end
   object FDQuery1: TFDQuery
     Connection = FDConnection1
-    Left = 216
-    Top = 72
+    Left = 424
+    Top = 80
   end
   object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
-    Left = 304
-    Top = 72
+    Left = 520
+    Top = 160
   end
 end
