@@ -4,8 +4,8 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("source\fcTableStars_ru.cpp", FormTable);
-USEFORM("source\fcSpaceCube_ru.cpp", FormStarcube);
+USEFORM("source\fcTableStars_ru.cpp", FormTableStars);
+USEFORM("source\fcStarCube_ru.cpp", FormStarcube);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
