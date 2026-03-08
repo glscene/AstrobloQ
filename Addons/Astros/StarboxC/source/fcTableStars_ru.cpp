@@ -6,16 +6,16 @@
 
 #pragma hdrstop
 
-#include "fcSpaceCube_ru.h"
+#include "fcStarCube_ru.h"
 #include "fcTableStars_ru.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TFormTable *FormTable;
+TFormTableStars *FormTableStars;
 int TablesCount;
 String DBname, TableName;
 //---------------------------------------------------------------------------
-__fastcall TFormTable::TFormTable(TComponent* Owner)
+__fastcall TFormTableStars::TFormTableStars(TComponent* Owner)
 	: TForm(Owner)
 {
 }

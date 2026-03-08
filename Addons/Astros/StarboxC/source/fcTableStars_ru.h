@@ -40,7 +40,7 @@
 #include <FireDAC.Phys.SQLiteWrapper.Stat.hpp>
 
 //---------------------------------------------------------------------------
-class TFormTable : public TForm
+class TFormTableStars : public TForm
 {
 __published:	// IDE-managed Components
 	TFDConnection *FDConnection1;
@@ -56,9 +56,9 @@ __published:	// IDE-managed Components
 
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFormTable(TComponent* Owner);
+	__fastcall TFormTableStars(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormTable *FormTable;
+extern PACKAGE TFormTableStars *FormTableStars;
 //---------------------------------------------------------------------------
 #endif

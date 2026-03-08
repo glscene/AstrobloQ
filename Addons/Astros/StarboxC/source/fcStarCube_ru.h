@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef fcSpaceCube_ruH
-#define fcSpaceCube_ruH
+#ifndef fcStarCube_ruH
+#define fcStarCube_ruH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>

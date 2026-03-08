@@ -8,7 +8,7 @@
 #include <string>
 #pragma hdrstop
 
-#include "fcSpaceCube_ru.h"
+#include "fcStarCube_ru.h"
 #include "fcTableStars_ru.h"
 #include <vector>
 //---------------------------------------------------------------------------
@@ -453,7 +453,7 @@ void __fastcall TFormStarcube::clbSpectrasClickCheck(TObject* Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormStarcube::Data1Click(TObject* Sender)
 {
-    FormTable->Show();
+    FormTableStars->Show();
 }
 //---------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-object FormTable: TFormTable
+object FormTableStars: TFormTableStars
   Left = 0
   Top = 0
   Caption = 'TableCSV'
@@ -19,8 +19,6 @@ object FormTable: TFormTable
     Height = 458
     Align = alRight
     TabOrder = 0
-    ExplicitLeft = 580
-    ExplicitHeight = 433
     DesignSize = (
       120
       458)
@@ -65,8 +63,6 @@ object FormTable: TFormTable
     Height = 458
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 580
-    ExplicitHeight = 433
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
