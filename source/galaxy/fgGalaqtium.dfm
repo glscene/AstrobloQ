@@ -1,4 +1,4 @@
-object frmGalaqtium: TfrmGalaqtium
+object FormGalaqtium: TFormGalaqtium
   Left = 0
   Top = 0
   Caption = 'Galaqtium'
@@ -823,8 +823,8 @@ object frmGalaqtium: TfrmGalaqtium
         Caption = 'Object'
       end
     end
-    object miModelling: TMenuItem
-      Caption = 'Modelling'
+    object miMethod: TMenuItem
+      Caption = 'Method'
       object miTetralization: TMenuItem
         Caption = 'Tetralization...'
         OnClick = miTetralizationClick
@@ -851,6 +851,10 @@ object frmGalaqtium: TfrmGalaqtium
     end
     object miView: TMenuItem
       Caption = '&View'
+      object miStarBlock: TMenuItem
+        Caption = 'Starblock...'
+        OnClick = miStarBlockClick
+      end
       object miExoplanets: TMenuItem
         Caption = 'Exoplanets...'
         OnClick = miExoplanetsClick

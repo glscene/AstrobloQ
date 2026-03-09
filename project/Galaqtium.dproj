@@ -129,7 +129,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\galaxy\fgGalaqtium.pas">
-            <Form>frmGalaqtium</Form>
+            <Form>FormGalaqtium</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
@@ -197,6 +197,10 @@
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
         <DCCReference Include="..\source\galaxy\fgProjections.pas">
             <Form>frmProjections</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgStarBlock.pas">
+            <Form>frmStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

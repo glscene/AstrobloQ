@@ -5,7 +5,7 @@ uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgGalaqtium in '..\source\galaxy\fgGalaqtium.pas' {frmGalaqtium},
+  fgGalaqtium in '..\source\galaxy\fgGalaqtium.pas' {FormGalaqtium},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
@@ -24,7 +24,8 @@ uses
   fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {frmDiagramHR},
   fgEquations in '..\source\galaxy\fgEquations.pas' {frmEquations},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
-  fgProjections in '..\source\galaxy\fgProjections.pas' {frmProjections};
+  fgProjections in '..\source\galaxy\fgProjections.pas' {frmProjections},
+  fgStarBlock in '..\source\galaxy\fgStarBlock.pas' {frmStarblock};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -32,14 +33,13 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmGalaqtium, frmGalaqtium);
+  Application.CreateForm(TFormGalaqtium, FormGalaqtium);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TfrmProjections, frmProjections);
   Application.Run;
 end.
 

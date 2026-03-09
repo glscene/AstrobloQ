@@ -64,6 +64,7 @@ uses
   fgCETInet_ru,
   fgMonitor_ru,
   fgNewStarblock_ru,
+  fgStarblock_ru,
   fgOptions_ru,
   fgParadox_ru,
   fgEquations_ru,
@@ -165,6 +166,7 @@ type
     miStatistics: TMenuItem;
     miEquations: TMenuItem;
     miConvolute: TMenuItem;
+    miStarBlock: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -199,6 +201,7 @@ type
     procedure miGriddingClick(Sender: TObject);
     procedure miInterpolateClick(Sender: TObject);
     procedure miConvoluteClick(Sender: TObject);
+    procedure miStarBlockClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -529,20 +532,12 @@ end;
 //-----------------------------------------------------------------------------
 procedure TfrmGalaqtium.miMonitorClick(Sender: TObject);
 begin
-  with TFormMonitor.Create(Self) do
+  with TfrmMonitor.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
-(*
-  with TFormAnalyser.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
 end;
 
 //---------------------------------------------------------------------------
@@ -659,6 +654,18 @@ end;
 //----------------------------------------------------------------------------
 //                             Меню Вид
 //----------------------------------------------------------------------------
+
+procedure TfrmGalaqtium.miStarBlockClick(Sender: TObject);
+begin
+  inherited;
+  with TfrmStarBlock.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
 //-------------------------- Проекции звёзд -----------------------------------
 procedure TfrmGalaqtium.miProjectionClick(Sender: TObject);
 begin

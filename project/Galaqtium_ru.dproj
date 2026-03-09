@@ -107,7 +107,7 @@
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\galaxy\fgMonitor_ru.pas">
-            <Form>FormMonitor</Form>
+            <Form>frmMonitor</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgParadox_ru.pas">
             <Form>frmParadox</Form>
@@ -167,6 +167,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\source\galaxy\fgStarBlock_ru.pas">
+            <Form>frmStarblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

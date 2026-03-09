@@ -472,7 +472,7 @@ object frmGalaqtium: TfrmGalaqtium
       end
     end
     object miMethod: TMenuItem
-      Caption = #1052#1086#1076#1077#1083#1080#1088#1086#1074#1072#1085#1080#1077
+      Caption = #1052#1077#1090#1086#1076
       object miTetranet: TMenuItem
         Caption = #1058#1077#1090#1088#1072#1085#1077#1090'...'
         ImageIndex = 52
@@ -498,6 +498,10 @@ object frmGalaqtium: TfrmGalaqtium
     end
     object miView: TMenuItem
       Caption = #1042#1080#1076
+      object miStarBlock: TMenuItem
+        Caption = #1057#1090#1072#1088#1073#1083#1086#1082'...'
+        OnClick = miStarBlockClick
+      end
       object miOpenExoplanets: TMenuItem
         Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
         OnClick = miOpenExoplanetsClick

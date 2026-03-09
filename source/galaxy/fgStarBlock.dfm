@@ -1,0 +1,341 @@
+object frmStarblock: TfrmStarblock
+  Left = 0
+  Top = 0
+  Caption = 'Solar Starblock'
+  ClientHeight = 517
+  ClientWidth = 874
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Menu = MainMenu1
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  TextHeight = 15
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 498
+    Width = 874
+    Height = 19
+    Panels = <
+      item
+        Text = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076':'
+        Width = 680
+      end
+      item
+        Text = #1042#1088#1077#1084#1103':'
+        Width = 100
+      end>
+    ExplicitTop = 508
+    ExplicitWidth = 902
+  end
+  object GLSceneViewer1: TGLSceneViewer
+    Left = 154
+    Top = 0
+    Width = 720
+    Height = 498
+    Camera = GLCamera1
+    Buffer.BackgroundColor = clBlack
+    FieldOfView = 148.596054077148400000
+    PenAsTouch = False
+    Align = alClient
+    TabOrder = 1
+    ExplicitWidth = 755
+    ExplicitHeight = 533
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 154
+    Height = 498
+    Align = alLeft
+    TabOrder = 2
+    ExplicitHeight = 508
+    object Label2: TLabel
+      Left = 26
+      Top = 16
+      Width = 69
+      Height = 16
+      Caption = 'Star classes'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object ShapeO: TShape
+      Left = 97
+      Top = 38
+      Width = 41
+      Height = 25
+      Brush.Color = clBlue
+    end
+    object ShapeA: TShape
+      Left = 97
+      Top = 100
+      Width = 41
+      Height = 25
+    end
+    object ShapeF: TShape
+      Left = 97
+      Top = 131
+      Width = 41
+      Height = 25
+      Brush.Color = clLime
+    end
+    object ShapeG: TShape
+      Left = 97
+      Top = 162
+      Width = 41
+      Height = 25
+      Brush.Color = clYellow
+    end
+    object ShapeK: TShape
+      Left = 97
+      Top = 193
+      Width = 41
+      Height = 25
+      Brush.Color = clFuchsia
+    end
+    object ShapeM: TShape
+      Left = 97
+      Top = 224
+      Width = 41
+      Height = 25
+      Brush.Color = clRed
+    end
+    object ShapeB: TShape
+      Left = 97
+      Top = 69
+      Width = 41
+      Height = 25
+      Brush.Color = clAqua
+    end
+    object ButtonClear: TButton
+      Left = 7
+      Top = 448
+      Width = 141
+      Height = 25
+      Caption = 'Clean starblock'
+      TabOrder = 0
+    end
+    object chbO: TCheckBox
+      Left = 8
+      Top = 38
+      Width = 33
+      Height = 25
+      Caption = 'O'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 1
+    end
+    object chbB: TCheckBox
+      Left = 8
+      Top = 69
+      Width = 41
+      Height = 25
+      Caption = 'B'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 2
+    end
+    object chbA: TCheckBox
+      Left = 8
+      Top = 100
+      Width = 34
+      Height = 25
+      Caption = 'A'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 3
+    end
+    object chbF: TCheckBox
+      Left = 8
+      Top = 131
+      Width = 33
+      Height = 25
+      Caption = 'F'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 4
+    end
+    object chbG: TCheckBox
+      Left = 8
+      Top = 162
+      Width = 33
+      Height = 25
+      Caption = 'G'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 5
+    end
+    object chbK: TCheckBox
+      Left = 8
+      Top = 193
+      Width = 33
+      Height = 25
+      Caption = 'K'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 6
+    end
+    object chbM: TCheckBox
+      Left = 8
+      Top = 224
+      Width = 33
+      Height = 25
+      Caption = 'M'
+      Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 7
+    end
+  end
+  object GLScene1: TGLScene
+    Left = 250
+    Top = 18
+    object GLCamera1: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 70.000000000000000000
+      TargetObject = GLDummyCube1
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {0000004000000040000000400000803F}
+    end
+    object GLDummyCube1: TGLDummyCube
+      ShowAxes = True
+      CubeSize = 1000.000000000000000000
+      VisibleAtRunTime = True
+      object GLTypeM: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLTypeK: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLTypeG: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLTypeF: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLTypeA: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLTypeB: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLTypeO: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+      object GLPoints1: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
+    end
+    object GLLightSource1: TGLLightSource
+      ConstAttenuation = 1.000000000000000000
+      SpotCutOff = 180.000000000000000000
+    end
+  end
+  object GLCadencer1: TGLCadencer
+    Scene = GLScene1
+    Left = 372
+    Top = 18
+  end
+  object Timer1: TTimer
+    Left = 370
+    Top = 106
+  end
+  object MainMenu1: TMainMenu
+    Left = 754
+    Top = 34
+    object File1: TMenuItem
+      Caption = 'File'
+      object OpenCSV1: TMenuItem
+        Caption = 'Open CSV...'
+        Hint = 'Catalog Hyg or random generation'
+        OnClick = OpenCSV1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+      end
+    end
+  end
+  object OpenTextFileDialog1: TOpenTextFileDialog
+    Left = 604
+    Top = 36
+  end
+  object GLSimpleNavigation1: TGLSimpleNavigation
+    Form = Owner
+    GLSceneViewer = GLSceneViewer1
+    FormCaption = 'HygViewer - %FPS'
+    KeyCombinations = <
+      item
+        ShiftState = [ssLeft, ssRight]
+        Action = snaZoom
+      end
+      item
+        ShiftState = [ssLeft]
+        Action = snaMoveAroundTarget
+      end
+      item
+        ShiftState = [ssRight]
+        Action = snaMoveAroundTarget
+      end>
+    Left = 256
+    Top = 104
+  end
+end
