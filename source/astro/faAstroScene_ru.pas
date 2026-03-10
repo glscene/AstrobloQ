@@ -639,7 +639,7 @@ begin
   end;
 
   // вращение небесных тел для демонстрации
-  if frmOptions.CheckBoxRotate.Checked then
+  if FormOptions.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -723,7 +723,7 @@ end;
 //------------------------- Показать опции ------------------------------------
 procedure TFormAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+  FormOptions.Show;
 end;
 
 //------------------------ Показать настройки --------------------------------

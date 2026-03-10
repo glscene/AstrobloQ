@@ -20,7 +20,7 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
-  faOptions in '..\source\astro\faOptions.pas' {frmOptions},
+  faOptions in '..\source\astro\faOptions.pas' {FormOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   faStarSys in '..\source\astro\faStarSys.pas' {FormStarSys},
   frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
@@ -45,7 +45,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormStarSys, FormStarSys);
   Application.Run;

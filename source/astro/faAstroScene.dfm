@@ -194,6 +194,7 @@ object FormAstroScene: TFormAstroScene
     Visible = False
     OnDblClick = SceneViewerDblClick
     TabOrder = 2
+    ExplicitWidth = 1087
   end
   object PanelLeft: TPanel
     Left = 0

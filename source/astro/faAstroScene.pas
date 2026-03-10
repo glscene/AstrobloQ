@@ -781,7 +781,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+  FormOptions.Show;
 end;
 
 //------------------- Tools - the generator of star systems ------------------

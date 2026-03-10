@@ -16,7 +16,7 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   faAstroScene_ru in '..\source\astro\faAstroScene_ru.pas' {FormAstroScene},
-  faOptions_ru in '..\source\astro\faOptions_ru.pas' {frmOptions},
+  faOptions_ru in '..\source\astro\faOptions_ru.pas' {FormOptions},
   fmGenStarsys_ru in '..\source\fmGenStarsys_ru.pas' {FormGenStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
@@ -48,7 +48,7 @@ begin
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TFormSolarSys, FormSolarSys);

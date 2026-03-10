@@ -110,7 +110,7 @@
             <Form>FormAstroScene</Form>
         </DCCReference>
         <DCCReference Include="..\source\astro\faOptions_ru.pas">
-            <Form>frmOptions</Form>
+            <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmGenStarsys_ru.pas">

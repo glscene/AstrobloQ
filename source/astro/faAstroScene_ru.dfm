@@ -52,6 +52,7 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1172
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
