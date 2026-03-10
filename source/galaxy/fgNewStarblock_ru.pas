@@ -12,8 +12,21 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  Vcl.StdCtrls, Vcl.ExtCtrls, GLS.BaseClasses, GLS.Scene, GLS.SceneViewer,
-  GLS.Cadencer, GLS.AsyncTimer, Vcl.Menus;
+  Vcl.StdCtrls,
+  Vcl.ExtCtrls,
+  Vcl.Menus,
+
+  GLS.BaseClasses,
+  GLS.Scene,
+  GLS.SceneViewer,
+  GLS.Cadencer,
+  GLS.AsyncTimer,
+  GLS.Objects,
+  GLS.Coordinates,
+  GLS.SimpleNavigation,
+
+  fgOptions_ru
+  ;
 
 type
   TfrmNewStarblock = class(TForm)
@@ -27,6 +40,15 @@ type
     miFile: TMenuItem;
     miOpen: TMenuItem;
     miSaveAs: TMenuItem;
+    Camera: TGLCamera;
+    LightSource: TGLLightSource;
+    dcStarblock: TGLDummyCube;
+    ñubeStarblock: TGLCube;
+    sphereStarblock: TGLSphere;
+    pntStars: TGLPoints;
+    GLSimpleNavigation1: TGLSimpleNavigation;
+    pntCube: TGLPoints;
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -39,5 +61,11 @@ var
 implementation //=============================================================
 
 {$R *.dfm}
+
+//----------------------------------------------------------------------------
+procedure TfrmNewStarblock.FormCreate(Sender: TObject);
+begin
+  //
+end;
 
 end.

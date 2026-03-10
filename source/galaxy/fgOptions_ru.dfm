@@ -691,7 +691,7 @@ inherited FormOptions: TFormOptions
           1008
           617)
         object chlbStarClasses: TCheckListBox
-          Left = -59
+          Left = -67
           Top = 53
           Width = 149
           Height = 200
@@ -719,9 +719,9 @@ inherited FormOptions: TFormOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
-          ExplicitLeft = -67
+          ExplicitLeft = -75
         end
-        object GroupBox2: TGroupBox
+        object gbConstells: TGroupBox
           Left = 128
           Top = 53
           Width = 253
@@ -730,7 +730,7 @@ inherited FormOptions: TFormOptions
           Margins.Top = 5
           Margins.Right = 5
           Margins.Bottom = 5
-          Caption = 'Constellations'
+          Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
           TabOrder = 1
           object chbConstFigures: TCheckBox
             Left = 45
@@ -741,7 +741,7 @@ inherited FormOptions: TFormOptions
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Figures'
+            Caption = #1060#1080#1075#1091#1088#1099
             TabOrder = 0
           end
           object chbConstLines: TCheckBox
@@ -753,7 +753,7 @@ inherited FormOptions: TFormOptions
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Lines'
+            Caption = #1051#1080#1085#1080#1080
             Checked = True
             State = cbChecked
             TabOrder = 1
@@ -767,13 +767,13 @@ inherited FormOptions: TFormOptions
             Margins.Top = 5
             Margins.Right = 5
             Margins.Bottom = 5
-            Caption = 'Borders'
+            Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
           end
         end
         object gbStars: TGroupBox
-          Left = 694
-          Top = 95
+          Left = 686
+          Top = 159
           Width = 201
           Height = 330
           Caption = #1057#1087#1077#1082#1090#1088#1072#1083#1100#1085#1099#1077' '#1082#1083#1072#1089#1089#1099
@@ -1137,9 +1137,9 @@ inherited FormOptions: TFormOptions
           end
         end
         object seNStars: TSpinEdit
-          Left = 816
-          Top = 53
-          Width = 73
+          Left = 734
+          Top = 93
+          Width = 129
           Height = 36
           MaxValue = 1000000
           MinValue = 1000
@@ -1149,7 +1149,7 @@ inherited FormOptions: TFormOptions
         object chbAll: TCheckBox
           Left = 701
           Top = 56
-          Width = 109
+          Width = 164
           Height = 23
           Caption = #1042#1089#1077' '#1079#1074#1105#1079#1076#1099
           TabOrder = 4

@@ -28,6 +28,8 @@ object frmStarblock: TfrmStarblock
         Text = #1042#1088#1077#1084#1103':'
         Width = 100
       end>
+    ExplicitTop = 508
+    ExplicitWidth = 902
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 154
@@ -48,6 +50,7 @@ object frmStarblock: TfrmStarblock
     Height = 533
     Align = alLeft
     TabOrder = 2
+    ExplicitHeight = 508
     object Label2: TLabel
       Left = 26
       Top = 16
@@ -316,7 +319,7 @@ object frmStarblock: TfrmStarblock
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
-    FormCaption = 'HygViewer - %FPS'
+    FormCaption = #1057#1090#1072#1088#1073#1083#1086#1082' '#1074#1100#1102#1077#1088' - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

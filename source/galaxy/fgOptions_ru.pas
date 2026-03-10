@@ -56,7 +56,7 @@ type
     nbRg: TNumberBox;
     tsStars: TTabSheet;
     chlbStarClasses: TCheckListBox;
-    GroupBox2: TGroupBox;
+    gbConstells: TGroupBox;
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
     chbConstBounds: TCheckBox;
