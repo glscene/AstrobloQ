@@ -65,14 +65,15 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  fmGenStarsys_ru,
+  fmFormFirst,
   fmSettings_ru,
   fmAbout_ru,
 
-  fmFormFirst,
+
+  faMakeStarsys_ru,
   faOptions_ru,
   faConstells_ru,
-  faSkyAreas_ru,
+  faSkyPolygons_ru,
 
   faSolarSys_ru,
   faStarSys_ru,
@@ -122,7 +123,7 @@ type
     miToolsOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
-    miGenStarsys: TMenuItem;
+    miMakeStarsys: TMenuItem;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -145,7 +146,7 @@ type
     ToolButton21: TToolButton;
     N5: TMenuItem;
     miConstAtlas: TMenuItem;
-    miSkyAreas: TMenuItem;
+    miSkyPolygons: TMenuItem;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;
@@ -173,11 +174,11 @@ type
     procedure miHelpWikiClick(Sender: TObject);
     procedure miSolarSystemClick(Sender: TObject);
     procedure miToolsOptionsClick(Sender: TObject);
-    procedure miGenStarsysClick(Sender: TObject);
+    procedure miMakeStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
-    procedure miSkyAreasClick(Sender: TObject);
+    procedure miSkyPolygonsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
@@ -319,24 +320,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//--------------------- Генератор экзопланетной системы ----------------------
+//--------------------- Конструктор планетных систем -------------------------
 //----------------------------------------------------------------------------
-procedure TFormAstroScene.miGenStarsysClick(Sender: TObject);
+procedure TFormAstroScene.miMakeStarsysClick(Sender: TObject);
 begin
   Timer1.Enabled := False;
-//  GLCadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenStarsys.Create(Self) do
+  with TfrmMakeStarsys.Create(Self) do
     try
+      GLCadencerA.Enabled := False;
       ShowModal;
     finally
+      GLCadencerA.Enabled := True;
       Free;
     end;
   Timer1.Enabled := True;
-//  GLCadencer.Enabled := True;
 end;
 
 //------------------- Перед рендером включение огней городов -----------------
@@ -733,9 +730,9 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormAstroScene.miSkyAreasClick(Sender: TObject);
+procedure TFormAstroScene.miSkyPolygonsClick(Sender: TObject);
 begin
-  with TFormSkyAreas.Create(Self) do
+  with TfrmSkyPolygons.Create(Self) do
   try
     ShowModal;
   finally
@@ -747,7 +744,7 @@ end;
 procedure TFormAstroScene.miConstAtlasClick(Sender: TObject);
 begin
   inherited;
-  with TFormConstells.Create(Self) do
+  with TfrmConstells.Create(Self) do
   try
     ShowModal
   finally

@@ -1,7 +1,7 @@
-object FormGenStarsys: TFormGenStarsys
+object frmMakeStarsys: TfrmMakeStarsys
   Left = 30
   Top = 20
-  Caption = 'Star system generator'
+  Caption = 'Construct star system'
   ClientHeight = 582
   ClientWidth = 953
   Color = clBtnFace

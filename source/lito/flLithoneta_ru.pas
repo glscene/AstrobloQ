@@ -122,7 +122,6 @@ type
     miOptions: TMenuItem;
     N6: TMenuItem;
     sfCore: TGLSphere;
-    miGenExosys: TMenuItem;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -223,7 +222,7 @@ var
 
 const
   cOpacity: Single = 5;
-  // более толстая атмосфера лучше выглядит
+  // более толстая атмосфера чем в действительности
   cAtmosphereRadius: Single = 0.55;
   // небольшой радиус взят чтобы исключить эффект наложения линий друг на друга
   cPlanetRadius: Single = 0.495;

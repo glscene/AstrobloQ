@@ -79,10 +79,10 @@ type
     procedure tvZodiacsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
-    procedure FormShow(Sender: TObject);
   private
     DataDir, CatalogDir, StarDir, FileName : TFileName;
     ConstNames, PlanetMap: TFileName;
+    HelpWiki : String;
   public
     procedure HandleKeys(d: Double);
   end;
@@ -131,17 +131,10 @@ begin
   *)
 
   ffPlanet.Assign(sfPlanet);
-end;
+  tvConstellations.Select(tvConstellations.Items[0]);  // goto to Andromede
+  tvConstellationsClick(Sender);
+  HelpWiki := tvConstellations.Selected.Text;
 
-//-----------------------------------------------------------------------
-procedure TfrmConstells.FormShow(Sender: TObject);
-begin
-  // Constellations, goto to And
-  frmConstells.tvConstellations.Select(frmConstells.tvConstellations.Items[0]);
-  frmConstells.tvConstellationsClick(Self);
-  // Zodiacs
-  frmConstells.tvZodiacs.Select(frmConstells.tvZodiacs.Items[0]);  // goto to Aries
-  frmConstells.tvZodiacsClick(Self);
 end;
 
 //-----------------------------------------------------------------------

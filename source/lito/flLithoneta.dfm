@@ -35,7 +35,6 @@ object frmAstroScene: TfrmAstroScene
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
-    ExplicitWidth = 860
   end
   object PanelLeft: TPanel
     Left = 0
@@ -44,7 +43,6 @@ object frmAstroScene: TfrmAstroScene
     Height = 622
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 597
     object tvMoons: TTreeView
       Left = 1
       Top = 107
@@ -282,7 +280,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      ExplicitWidth = 139
     end
     object StaticText1: TStaticText
       Left = 1
@@ -299,7 +296,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 3
-      ExplicitWidth = 62
     end
   end
   object StatusBar: TStatusBar
@@ -324,8 +320,6 @@ object frmAstroScene: TfrmAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 654
-    ExplicitWidth = 1396
   end
   object ControlBarTop: TControlBar
     Left = 0
@@ -334,7 +328,6 @@ object frmAstroScene: TfrmAstroScene
     Height = 57
     Align = alTop
     TabOrder = 3
-    ExplicitWidth = 1396
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -473,8 +466,6 @@ object frmAstroScene: TfrmAstroScene
     Height = 622
     Align = alRight
     TabOrder = 4
-    ExplicitLeft = 1141
-    ExplicitHeight = 597
     object Image1: TImage
       Left = 72
       Top = 560
@@ -551,7 +542,6 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 82
     end
   end
   object GLScene: TGLScene
@@ -89192,10 +89182,6 @@ object frmAstroScene: TfrmAstroScene
       end
       object N7: TMenuItem
         Caption = '-'
-      end
-      object miGenStarsys: TMenuItem
-        Caption = 'Starsys generator...'
-        OnClick = miGenStarsysClick
       end
     end
     object miHelp: TMenuItem

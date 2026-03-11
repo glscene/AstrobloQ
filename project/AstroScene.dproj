@@ -122,8 +122,8 @@
             <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmGenStarsys.pas">
-            <Form>FormGenStarsys</Form>
+        <DCCReference Include="..\source\astro\faMakeStarsys.pas">
+            <Form>frmMakeStarsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
@@ -160,8 +160,8 @@
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
         <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\astro\faSkyAreas.pas">
-            <Form>FormConstPolygons</Form>
+        <DCCReference Include="..\source\astro\faSkyPolygons.pas">
+            <Form>frmSkyPolygons</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmSettings.pas">

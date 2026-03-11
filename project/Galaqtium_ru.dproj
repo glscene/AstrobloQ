@@ -122,7 +122,7 @@
             <Form>FormOptions</Form>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgGalaqtium_ru.pas">
-            <Form>frmGalaqtium</Form>
+            <Form>FormGalaqtium</Form>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -167,7 +167,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\galaxy\fgStarBlock_ru.pas">
+        <DCCReference Include="..\source\galaxy\fgViewSolarblock_ru.pas">
             <Form>frmStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>

@@ -25,7 +25,7 @@ uses
   fgEquations in '..\source\galaxy\fgEquations.pas' {frmEquations},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   fgProjections in '..\source\galaxy\fgProjections.pas' {frmProjections},
-  fgStarBlock in '..\source\galaxy\fgStarBlock.pas' {frmStarblock};
+  fgViewSolarblock in '..\source\galaxy\fgViewSolarblock.pas' {frmStarblock};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

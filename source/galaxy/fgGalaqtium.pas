@@ -64,7 +64,7 @@ uses
   fgMonitor,
   fgParadox,
   fgNewStarblock,
-  fgStarblock,
+  fgViewSolarblock,
   fgOptions,
 
   Astro.Globals,

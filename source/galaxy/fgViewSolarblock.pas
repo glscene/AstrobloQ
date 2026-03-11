@@ -1,4 +1,4 @@
-unit fgStarBlock;
+unit fgViewSolarblock;
 
 interface
 

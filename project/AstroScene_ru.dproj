@@ -113,8 +113,8 @@
             <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmGenStarsys_ru.pas">
-            <Form>FormGenStarsys</Form>
+        <DCCReference Include="..\source\astro\faMakeStarsys_ru.pas">
+            <Form>frmMakeStarsys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
@@ -142,7 +142,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\faConstells_ru.pas">
-            <Form>FormConstells</Form>
+            <Form>frmConstells</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ConstBayers.pas"/>
@@ -165,8 +165,8 @@
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faSkyAreas_ru.pas">
-            <Form>FormSkyAreas</Form>
+        <DCCReference Include="..\source\astro\faSkyPolygons_ru.pas">
+            <Form>frmSkyPolygons</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>

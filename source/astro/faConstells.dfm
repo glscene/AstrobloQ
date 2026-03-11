@@ -12,7 +12,6 @@ object frmConstells: TfrmConstells
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
-  OnShow = FormShow
   TextHeight = 15
   object VirtualImageChart: TVirtualImage
     Left = 209
@@ -35,6 +34,7 @@ object frmConstells: TfrmConstells
     Height = 628
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 603
     object PanelBottom: TPanel
       Left = 1
       Top = 587
@@ -42,6 +42,7 @@ object frmConstells: TfrmConstells
       Height = 40
       Align = alBottom
       TabOrder = 0
+      ExplicitTop = 562
     end
     object tvConstellations: TTreeView
       Left = 1
@@ -204,6 +205,7 @@ object frmConstells: TfrmConstells
         FFFFFFFFFFFFFFFF00000000000000000000000000010656006F006C0061006E
         0073000000310000005700000057000000FFFFFFFFFFFFFFFF00000000000000
         0000000000000109560075006C0070006500630075006C006100}
+      ExplicitHeight = 561
     end
   end
   object StatusBar1: TStatusBar
@@ -212,6 +214,8 @@ object frmConstells: TfrmConstells
     Width = 1024
     Height = 19
     Panels = <>
+    ExplicitTop = 603
+    ExplicitWidth = 1016
   end
   object PanelRight: TPanel
     Left = 848
@@ -220,6 +224,8 @@ object frmConstells: TfrmConstells
     Height = 628
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 840
+    ExplicitHeight = 603
     object tvZodiacs: TTreeView
       Left = 1
       Top = 42

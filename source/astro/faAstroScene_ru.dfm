@@ -42,8 +42,6 @@ object FormAstroScene: TFormAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 662
-    ExplicitWidth = 1172
   end
   object ControlBarTop: TControlBar
     Left = 0
@@ -52,7 +50,6 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1172
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -194,7 +191,6 @@ object FormAstroScene: TFormAstroScene
     ShowCaption = False
     TabOrder = 2
     Visible = False
-    ExplicitHeight = 605
     object tvStellars: TTreeView
       Left = 1
       Top = 1
@@ -203,7 +199,6 @@ object FormAstroScene: TFormAstroScene
       Align = alClient
       Indent = 19
       TabOrder = 0
-      ExplicitHeight = 603
     end
   end
   object GLScene: TGLScene
@@ -88701,9 +88696,9 @@ object FormAstroScene: TFormAstroScene
         Caption = #1040#1090#1083#1072#1089' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
         OnClick = miConstAtlasClick
       end
-      object miSkyAreas: TMenuItem
-        Caption = #1055#1086#1083#1080#1075#1086#1085#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
-        OnClick = miSkyAreasClick
+      object miSkyPolygons: TMenuItem
+        Caption = #1055#1086#1083#1080#1075#1086#1085#1099' '#1085#1077#1073#1086#1089#1074#1086#1076#1072'...'
+        OnClick = miSkyPolygonsClick
       end
     end
     object miTools: TMenuItem
@@ -88719,9 +88714,9 @@ object FormAstroScene: TFormAstroScene
       object N7: TMenuItem
         Caption = '-'
       end
-      object miGenStarsys: TMenuItem
+      object miMakeStarsys: TMenuItem
         Caption = #1050#1086#1085#1089#1090#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084'...'
-        OnClick = miGenStarsysClick
+        OnClick = miMakeStarsysClick
       end
     end
     object miHelp: TMenuItem

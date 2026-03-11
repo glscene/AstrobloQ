@@ -1,4 +1,4 @@
-object FormGenStarsys: TFormGenStarsys
+object frmMakeStarsys: TfrmMakeStarsys
   Left = 30
   Top = 20
   Caption = #1050#1086#1085#1089#1090#1088#1091#1082#1090#1086#1088' '#1087#1083#1072#1085#1077#1090#1085#1099#1093' '#1089#1080#1089#1090#1077#1084

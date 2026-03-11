@@ -15,7 +15,7 @@ uses
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {frmAbout},
-  fmGenStarsys in '..\source\fmGenStarsys.pas' {FormGenStarsys},
+  faMakeStarsys in '..\source\astro\faMakeStarsys.pas' {frmMakeStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
@@ -31,7 +31,7 @@ uses
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
-  faSkyAreas in '..\source\astro\faSkyAreas.pas' {FormConstPolygons},
+  faSkyPolygons in '..\source\astro\faSkyPolygons.pas' {frmSkyPolygons},
   fmSettings in '..\source\fmSettings.pas' {FormSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas';
 

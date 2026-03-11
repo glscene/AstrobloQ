@@ -15,7 +15,7 @@ uses
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout in '..\source\fmAbout.pas' {frmAbout},
-  fmGenStarsys in '..\source\fmGenStarsys.pas' {FormGenStarsys},
+  faMakeStarsys in '..\source\astro\faMakeStarsys.pas' {frmMakeStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,

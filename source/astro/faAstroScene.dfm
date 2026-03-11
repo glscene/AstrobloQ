@@ -41,8 +41,6 @@ object FormAstroScene: TFormAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 654
-    ExplicitWidth = 1306
   end
   object ControlBarTop: TControlBar
     Left = 0
@@ -51,7 +49,6 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1306
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -194,7 +191,6 @@ object FormAstroScene: TFormAstroScene
     Visible = False
     OnDblClick = SceneViewerDblClick
     TabOrder = 2
-    ExplicitWidth = 1087
   end
   object PanelLeft: TPanel
     Left = 0
@@ -88813,14 +88809,6 @@ object FormAstroScene: TFormAstroScene
     end
     object miView: TMenuItem
       Caption = '&View'
-      object Constellations1: TMenuItem
-        Caption = 'Constellations...'
-        OnClick = Constellations1Click
-      end
-      object miConstPolygons: TMenuItem
-        Caption = 'Const Polygons...'
-        OnClick = miConstPolygonsClick
-      end
       object N4: TMenuItem
         Caption = '-'
       end
@@ -88844,7 +88832,18 @@ object FormAstroScene: TFormAstroScene
       end
     end
     object Model1: TMenuItem
-      Caption = 'Model'
+      Caption = 'Maps'
+      object Constellations1: TMenuItem
+        Caption = 'Atlas of constellations...'
+        OnClick = Constellations1Click
+      end
+      object miConstPolygons: TMenuItem
+        Caption = 'Const Polygons...'
+        OnClick = miConstPolygonsClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
       object miHygStars: TMenuItem
         Caption = 'Hyg stars...'
       end
@@ -88866,9 +88865,9 @@ object FormAstroScene: TFormAstroScene
       object N7: TMenuItem
         Caption = '-'
       end
-      object miGenStarsys: TMenuItem
-        Caption = 'Starsys generator...'
-        OnClick = miGenStarsysClick
+      object miMakeStarsys: TMenuItem
+        Caption = 'Make Starsys...'
+        OnClick = miMakeStarsysClick
       end
     end
     object miHelp: TMenuItem

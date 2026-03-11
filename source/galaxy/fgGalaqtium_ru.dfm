@@ -1,4 +1,4 @@
-object frmGalaqtium: TfrmGalaqtium
+object FormGalaqtium: TFormGalaqtium
   Left = 0
   Top = 0
   Caption = 'Galaqtium'
@@ -32,6 +32,8 @@ object frmGalaqtium: TfrmGalaqtium
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 560
+    ExplicitWidth = 974
   end
   object ControlBar: TControlBar
     Left = 0
@@ -40,6 +42,7 @@ object frmGalaqtium: TfrmGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 974
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -172,6 +175,8 @@ object frmGalaqtium: TfrmGalaqtium
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
+    ExplicitWidth = 974
+    ExplicitHeight = 527
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalaxyBlock: TGLSceneViewer

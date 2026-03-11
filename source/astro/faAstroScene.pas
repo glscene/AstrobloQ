@@ -33,6 +33,9 @@ uses
   Vcl.StdCtrls,
   Vcl.CheckLst,
   Vcl.ToolWin,
+  Vcl.Grids,
+  Vcl.Outline,
+  Vcl.Samples.DirOutln,
 
   Stage.VectorTypes,
   Stage.VectorGeometry,
@@ -66,13 +69,14 @@ uses
 
   fmFormFirst,
   fmSettings,
-  fmGenStarsys,
   fmAbout,
 
   faOptions,
+  faMakeStarsys,
   faConstells,
-  faSkyAreas,
-  faStarSys, Vcl.Grids, Vcl.Outline, Vcl.Samples.DirOutln
+  faSkyPolygons,
+  faStarSys
+
   ;
 
 type
@@ -115,7 +119,7 @@ type
     N6: TMenuItem;
     sfCore: TGLSphere;
     ControlBarTop: TControlBar;
-    miGenStarsys: TMenuItem;
+    miMakeStarsys: TMenuItem;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -159,6 +163,7 @@ type
     SceneViewer1: TGLSceneViewer;
     PanelLeft: TPanel;
     DirectoryOutline: TDirectoryOutline;
+    N1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -176,7 +181,7 @@ type
     procedure miHelpWikiClick(Sender: TObject);
     procedure miStellarSystemClick(Sender: TObject);
     procedure miToolsOptionsClick(Sender: TObject);
-    procedure miGenStarsysClick(Sender: TObject);
+    procedure miMakeStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure miConstPolygonsClick(Sender: TObject);
@@ -754,7 +759,7 @@ begin
   end;
 end;
 
-//------------------------ View Constellations ------------------------------
+//------------------------ Maps of Constellations ----------------------------
 procedure TFormAstroScene.Constellations1Click(Sender: TObject);
 begin
   with TfrmConstells.Create(Self) do
@@ -765,10 +770,10 @@ begin
   end;
 end;
 
-//--------------------- View Polygons for constellations ----------------------
+//--------------------- View Sky Polygons ------------------------------------
 procedure TFormAstroScene.miConstPolygonsClick(Sender: TObject);
 begin
-  with TFormConstPolygons.Create(Self) do
+  with TfrmSkyPolygons.Create(Self) do
   try
     ShowModal;
   finally
@@ -784,32 +789,19 @@ begin
   FormOptions.Show;
 end;
 
-//------------------- Tools - the generator of star systems ------------------
-procedure TFormAstroScene.miGenStarsysClick(Sender: TObject);
+//------------------- Tools - the creator of star systems ------------------
+procedure TFormAstroScene.miMakeStarsysClick(Sender: TObject);
 begin
   Timer.Enabled := False;
-//  GLCadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenStarsys.Create(Self) do
+  with TfrmMakeStarsys.Create(Self) do
     try
+      GLCadencerA.Enabled := False;
       ShowModal;
     finally
+      GLCadencerA.Enabled := True;
       Free;
     end;
- (*
-  // New exoplanet system
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
   Timer.Enabled := True;
-//  GLCadencer.Enabled := True;
 end;
 
 //------------------  Help from wiki ------------------------------------------

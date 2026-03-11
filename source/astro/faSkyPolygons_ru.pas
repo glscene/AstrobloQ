@@ -1,4 +1,4 @@
-unit faSkyAreas;
+unit faSkyPolygons_ru;
 
 interface
 
@@ -19,17 +19,17 @@ uses
   Vcl.VirtualImage,
 
 
+  dmImages,
   GLS.SceneViewer,
   GLS.BaseClasses,
   GLS.Scene,
   GLS.Cadencer,
-  dmImages,
 
   Astro.Utils,
   fmFormFirst;
 
 type
-  TFormConstPolygons = class(TFormFirst)
+  TfrmSkyPolygons = class(TFormFirst)
     PanelLeft: TPanel;
     tvShortNames: TTreeView;
     PanelNames: TPanel;
@@ -50,13 +50,13 @@ type
   end;
 
 var
-  FormConstPolygons: TFormConstPolygons;
+  frmSkyPolygons: TfrmSkyPolygons;
 
 implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TFormConstPolygons.FormCreate(Sender: TObject);
+procedure TfrmSkyPolygons.FormCreate(Sender: TObject);
 begin
   // ќпредел€ем путь к известной папке с файлами
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
@@ -87,7 +87,7 @@ ReplaceSel - если вы хотите заменить уже выбранный в Memo текст,
 то передайте в параметр ReplaceSel TRUE.
 FALSE используетс€ дл€ простой вставки текста;
 *)
-procedure TFormConstPolygons.InsertFileInMemo(Memo: TMemo; AFileName: string;
+procedure TfrmSkyPolygons.InsertFileInMemo(Memo: TMemo; AFileName: string;
   ReplaceSel: Boolean);
 var
   Stream: TMemoryStream;
@@ -95,9 +95,10 @@ var
 begin
   Stream := TMemoryStream.Create;
   try
-    // Loading text from file...
+    // «агружаем текст из файла...
     Stream.LoadFromFile(AFileName);
 
+    // ƒобавл€ем в конец текста терминирующий ноль...
 (*
     Stream.Seek(0, 2);
     NullTerminator := #0;
@@ -112,7 +113,8 @@ begin
   end;
 end;
 
-procedure TFormConstPolygons.tvShortNamesClick(Sender: TObject);
+//---------------------------- tvShortNames -----------------------------------
+procedure TfrmSkyPolygons.tvShortNamesClick(Sender: TObject);
 begin
   //
   FileName := DataDir + '\constellation\borders\'+
@@ -121,13 +123,13 @@ begin
   MemoData.Lines.LoadFromFile(FileName);
 end;
 
-procedure TFormConstPolygons.Button1Click(Sender: TObject);
+procedure TfrmSkyPolygons.Button1Click(Sender: TObject);
 begin
   tvShortNames.HideSelection := False;
 end;
 
 
-procedure TFormConstPolygons.CheckBoxDataClick(Sender: TObject);
+procedure TfrmSkyPolygons.CheckBoxDataClick(Sender: TObject);
 begin
   MemoData.Visible := CheckBoxData.Checked;
 end;

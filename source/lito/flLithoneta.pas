@@ -66,7 +66,6 @@ uses
 
   fmFormFirst,
   fmSettings,
-  fmGenStarsys,
   fmAbout,
 
   flOptions,
@@ -119,7 +118,6 @@ type
     N6: TMenuItem;
     sfCore: TGLSphere;
     ControlBarTop: TControlBar;
-    miGenStarsys: TMenuItem;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -194,7 +192,6 @@ type
     procedure miClearTreeViewClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
     procedure miToolsOptionsClick(Sender: TObject);
-    procedure miGenStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure miPointToClick(Sender: TObject);
@@ -896,33 +893,6 @@ begin
   frmOptions.Show;
 end;
 
-//------------------- Tools - the generator of star systems ------------------
-procedure TfrmAstroScene.miGenStarsysClick(Sender: TObject);
-begin
-  Timer.Enabled := False;
-  GLCadencer.Enabled := False;
-(*
-  if FileExists(AppPath + 'EarthAbcde.exe') then
-    ShellExecute(0, 'open', PChar(AppPath + 'EarthAbcde.exe'), '', '', SW_SHOW);
-*)
-  with TFormGenStarsys.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
- (*
-  // New exoplanet system
-  with TFormNewSystem.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
-  Timer.Enabled := True;
-  GLCadencer.Enabled := True;
-end;
 
 //------------------  Help from wiki ------------------------------------------
 procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);

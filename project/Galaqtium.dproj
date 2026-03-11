@@ -199,7 +199,7 @@
             <Form>frmProjections</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgStarBlock.pas">
+        <DCCReference Include="..\source\galaxy\fgViewSolarblock.pas">
             <Form>frmStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>

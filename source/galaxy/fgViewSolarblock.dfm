@@ -28,8 +28,8 @@ object frmStarblock: TfrmStarblock
         Text = #1042#1088#1077#1084#1103':'
         Width = 100
       end>
-    ExplicitTop = 508
-    ExplicitWidth = 902
+    ExplicitTop = 473
+    ExplicitWidth = 866
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 154
@@ -42,8 +42,6 @@ object frmStarblock: TfrmStarblock
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 755
-    ExplicitHeight = 533
   end
   object Panel1: TPanel
     Left = 0
@@ -52,7 +50,7 @@ object frmStarblock: TfrmStarblock
     Height = 498
     Align = alLeft
     TabOrder = 2
-    ExplicitHeight = 508
+    ExplicitHeight = 473
     object Label2: TLabel
       Left = 26
       Top = 16

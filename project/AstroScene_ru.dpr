@@ -17,7 +17,7 @@ uses
   Vcl.Styles,
   faAstroScene_ru in '..\source\astro\faAstroScene_ru.pas' {FormAstroScene},
   faOptions_ru in '..\source\astro\faOptions_ru.pas' {FormOptions},
-  fmGenStarsys_ru in '..\source\fmGenStarsys_ru.pas' {FormGenStarsys},
+  faMakeStarsys_ru in '..\source\astro\faMakeStarsys_ru.pas' {frmMakeStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
@@ -25,7 +25,7 @@ uses
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   frParams_ru in '..\source\astro\frParams_ru.pas' {FrameParamsR: TFrame},
   faSolarSys_ru in '..\source\astro\faSolarSys_ru.pas' {FormSolarSys},
-  faConstells_ru in '..\source\astro\faConstells_ru.pas' {FormConstells},
+  faConstells_ru in '..\source\astro\faConstells_ru.pas' {frmConstells},
   Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
@@ -35,7 +35,7 @@ uses
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
   fmSettings_ru in '..\source\fmSettings_ru.pas' {FormSettings},
-  faSkyAreas_ru in '..\source\astro\faSkyAreas_ru.pas' {FormSkyAreas},
+  faSkyPolygons_ru in '..\source\astro\faSkyPolygons_ru.pas' {frmSkyPolygons},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStarSys};
 

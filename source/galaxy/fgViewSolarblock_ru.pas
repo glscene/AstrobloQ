@@ -1,4 +1,4 @@
-unit fgStarBlock_ru;
+unit fgViewSolarblock_ru;
 
 interface
 
