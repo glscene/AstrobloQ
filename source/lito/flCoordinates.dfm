@@ -1,4 +1,4 @@
-object FormCoords: TFormCoords
+object frmCoordinates: TfrmCoordinates
   Left = 193
   Top = 108
   Caption = 'Coordinates'

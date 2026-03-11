@@ -1,4 +1,4 @@
-object frmLists: TfrmLists
+object FormLists: TFormLists
   Left = 103
   Top = 136
   Margins.Left = 2

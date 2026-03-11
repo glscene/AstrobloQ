@@ -18,7 +18,7 @@ uses
   Vcl.Imaging.jpeg;
 
 type
-  TFormAbout = class(TForm)
+  TfrmAbout = class(TForm)
     Panel3: TPanel;
     Panel4: TPanel;
     btnRun: TBitBtn;
@@ -78,7 +78,7 @@ type
   end;
 
 var
-  FormAbout: TFormAbout;
+  frmAbout: TfrmAbout;
 
 implementation //-------------------------------------------------------------
 
@@ -280,14 +280,14 @@ end;
 
 //-------------------------------------------------------------------------
 
-procedure TFormAbout.Button1Click(Sender: TObject);
+procedure TfrmAbout.Button1Click(Sender: TObject);
 begin
   ModalResult := mrOK;
 end;
 
 //-------------------------------------------------------------------------
 
-procedure TFormAbout.FormShow(Sender: TObject);
+procedure TfrmAbout.FormShow(Sender: TObject);
 var
   myAboutInfo: TAboutInfo;
 begin
@@ -304,7 +304,7 @@ begin
   myAboutInfo.Free;
 end;
 
-procedure TFormAbout.labBioSphereClick(Sender: TObject);
+procedure TfrmAbout.labBioSphereClick(Sender: TObject);
 begin
   ShellExecute(0, 'open', 'https://gitverse.ru/glscene/astrobloq', '',
     '', SW_SHOW);

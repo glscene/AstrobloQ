@@ -1,4 +1,4 @@
-object frmConstruction: TfrmConstruction
+object FormConstruction: TFormConstruction
   Left = 506
   Top = 118
   Margins.Left = 2

@@ -195,7 +195,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\univer\fxUniversum.pas">
-            <Form>frmUniversum</Form>
+            <Form>FormUniverse</Form>
         </DCCReference>
         <DCCReference Include="..\source\univer\fxSettings.pas">
             <Form>frmSettings</Form>

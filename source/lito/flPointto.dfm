@@ -1,4 +1,4 @@
-object FormPointto: TFormPointto
+object frmPointto: TfrmPointto
   Left = 173
   Top = 110
   BorderWidth = 3

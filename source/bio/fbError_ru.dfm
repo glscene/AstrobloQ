@@ -23,7 +23,6 @@ object FormError: TFormError
     BorderWidth = 10
     Caption = 'Biosfera '#1076#1072#1083#1072' '#1089#1073#1086#1081'.  '#1057#1083#1077#1076#1091#1081#1090#1077' '#1091#1082#1072#1079#1072#1085#1085#1099#1084' '#1074#1085#1080#1079#1091' '#1096#1072#1075#1072#1084'.'
     TabOrder = 0
-    ExplicitWidth = 605
   end
   object Panel2: TPanel
     Left = 0
@@ -32,8 +31,6 @@ object FormError: TFormError
     Height = 121
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 232
-    ExplicitWidth = 605
     object Label1: TLabel
       Left = 12
       Top = 78
@@ -109,8 +106,6 @@ object FormError: TFormError
     Align = alClient
     BorderWidth = 5
     TabOrder = 2
-    ExplicitWidth = 605
-    ExplicitHeight = 191
     object memReport: TMemo
       Left = 6
       Top = 6
@@ -139,8 +134,6 @@ object FormError: TFormError
     Height = 41
     Align = alBottom
     TabOrder = 3
-    ExplicitTop = 353
-    ExplicitWidth = 605
     object Button4: TButton
       Left = 494
       Top = 6

@@ -76,7 +76,7 @@ uses
 
 
 type
-  TfrmAstroScene = class(TFormFirst)
+  TFormLithoneta = class(TFormFirst)
     GLScene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -218,7 +218,7 @@ type
   end;
 
 var
-  frmAstroScene: TfrmAstroScene;
+  FormLithoneta: TFormLithoneta;
 
 const
   cOpacity: Single = 5;
@@ -242,7 +242,7 @@ implementation // =============================================================
 {$R *.dfm}
 
 // --------------------------- Главная форма ----------------------------------
-procedure TfrmAstroScene.FormCreate(Sender: TObject);
+procedure TFormLithoneta.FormCreate(Sender: TObject);
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
@@ -292,7 +292,7 @@ end;
 //----------------------------------------------------------------------------
 //--------------------------- Шоу --------------------------------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.FormShow(Sender: TObject);
+procedure TFormLithoneta.FormShow(Sender: TObject);
 var
   I: Integer;
 
@@ -333,7 +333,7 @@ end;
 //----------------------------------------------------------------------------
 //--------------------------- Планеты   --------------------------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.ToolButtonPlanetsClick(Sender: TObject);
+procedure TFormLithoneta.ToolButtonPlanetsClick(Sender: TObject);
 var
   PlanetName: TFileName;
 
@@ -397,7 +397,7 @@ end;
 //----------------------------------------------------------------------------
 //----------------------------- Луны -----------------------------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.tvMoonsClick(Sender: TObject);
+procedure TFormLithoneta.tvMoonsClick(Sender: TObject);
 var
   Moon: string;
   MoonFile, FileCSV, FileJpg: TFileName;
@@ -463,7 +463,7 @@ end;
 //----------------------------------------------------------------------------
 //------------------------------ Астероиды -----------------------------------
 //----------------------------------------------------------------------------
-procedure TfrmAstroScene.tvAsteroidsClick(Sender: TObject);
+procedure TFormLithoneta.tvAsteroidsClick(Sender: TObject);
 begin
   // видимости пока нет, отладка sol_asteroids.csv
 (*
@@ -480,7 +480,7 @@ end;
 
 
 //-------------------------- Меню справки Wiki -------------------------------
-procedure TfrmAstroScene.miHelpWikiClick(Sender: TObject);
+procedure TFormLithoneta.miHelpWikiClick(Sender: TObject);
 var
   S: String;
 
@@ -494,7 +494,7 @@ begin
 end;
 
 //------------------- Перед рендером включение огней городов -----------------
-procedure TfrmAstroScene.SceneViewerBeforeRender(Sender: TObject);
+procedure TFormLithoneta.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // если нет мультитекстурирования и combiner то без света городов
@@ -503,7 +503,7 @@ begin
 end;
 
 //----------------------------- Цвет атмосферы -------------------------------
-function TfrmAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TFormLithoneta.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
 var
   i, n: Integer;
   atmPoint, normal: TGLVector;
@@ -548,7 +548,7 @@ begin
 end;
 
 //--------------------- Вычисление цвета атмосферы ----------------------------
-function TfrmAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TFormLithoneta.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
 var
   ai1, ai2, pi1, pi2: TGLVector;
   rayVector: TGLVector;
@@ -577,7 +577,7 @@ begin
 end;
 
 //---------------- Атмосфера DirectOpenGLRender ------------------------------
-procedure TfrmAstroScene.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
+procedure TFormLithoneta.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 const
   cSlices = 60;
 var
@@ -669,7 +669,7 @@ begin
 end;
 
 //------------------- Загрузка линий созвездий --------------------------------
-procedure TfrmAstroScene.LoadConstLines;
+procedure TFormLithoneta.LoadConstLines;
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -691,7 +691,7 @@ begin
 end;
 
 //---------------------- Меню линий созвездий --------------------------------
-procedure TfrmAstroScene.miViewConstlinesClick(Sender: TObject);
+procedure TFormLithoneta.miViewConstlinesClick(Sender: TObject);
 begin
   ConstLines.Nodes.Clear;
   miViewConstlines.Checked := not miViewConstlines.Checked;
@@ -703,7 +703,7 @@ begin
 end;
 
 //------------------- Загрузка границ созвездий ------------------------------
-procedure TfrmAstroScene.LoadConstBorders;
+procedure TFormLithoneta.LoadConstBorders;
 var
   sl, line: TStrings;
   skypos: TAffineVector;
@@ -725,7 +725,7 @@ begin
 end;
 
 //---------------------- Меню границ созвездий --------------------------------
-procedure TfrmAstroScene.miViewConstBordersClick(Sender: TObject);
+procedure TFormLithoneta.miViewConstBordersClick(Sender: TObject);
 begin
   ConstBorders.Nodes.Clear;
   miViewConstBorders.Checked := not miViewConstBorders.Checked;
@@ -738,7 +738,7 @@ begin
 end;
 
 //------------------------- Прогресс каденсера --------------------------------
-procedure TfrmAstroScene.GLCadencerProgress(Sender: TObject; const deltaTime,
+procedure TFormLithoneta.GLCadencerProgress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   S: String;
@@ -793,7 +793,7 @@ begin
   end;
 
   // вращение небесных тел для демонстрации
-  if frmOptions.CheckBoxRotate.Checked then
+  if FormOptions.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
     ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
@@ -808,7 +808,7 @@ begin
 end;
 
 //------------------------ Опускаем мышь -------------------------------------
-procedure TfrmAstroScene.SceneViewerMouseDown(Sender: TObject;
+procedure TFormLithoneta.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := x;
@@ -816,7 +816,7 @@ begin
 end;
 
 //------------------------ Движение мыши ------------------------------------
-procedure TfrmAstroScene.SceneViewerMouseMove(Sender: TObject;
+procedure TFormLithoneta.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -831,7 +831,7 @@ begin
 end;
 
 //--------------------- Загрузка текстуры высокого разрешения -----------------
-procedure TfrmAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
+procedure TFormLithoneta.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
   if FileExists(FileName) then
   begin
@@ -841,7 +841,7 @@ begin
 end;
 
 //------------------------ Обработка нажатия клавиш ---------------------------
-procedure TfrmAstroScene.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormLithoneta.FormKeyPress(Sender: TObject; var Key: Char);
 var
   S: String;
 begin
@@ -881,7 +881,7 @@ begin
 end;
 
 //-------------------------- Колесо мыши -------------------------------------
-procedure TfrmAstroScene.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormLithoneta.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   F: Single;
@@ -895,7 +895,7 @@ begin
 end;
 
 //------------------------- Двойной клик мыши ---------------------------------
-procedure TfrmAstroScene.SceneViewerDblClick(Sender: TObject);
+procedure TFormLithoneta.SceneViewerDblClick(Sender: TObject);
 begin
   SceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -918,7 +918,7 @@ begin
 end;
 
 //---------------- Таймер с частотой кадров FPS в статус строке ---------------
-procedure TfrmAstroScene.TimerTimer(Sender: TObject);
+procedure TFormLithoneta.TimerTimer(Sender: TObject);
 begin
 //Caption := Format('Terrasfera ' + '%.1f FPS', [SceneViewer.FramesPerSecond]);
   StatusBar.Panels[0].Text:= SceneViewer.FramesPerSecondText(0);
@@ -927,13 +927,13 @@ end;
 
 
 //-------------------------- Очистить дерево просмотра -------------------------
-procedure TfrmAstroScene.miClearTreeViewClick(Sender: TObject);
+procedure TFormLithoneta.miClearTreeViewClick(Sender: TObject);
 begin
   tvMoons.Items.Clear;
 end;
 
 //---------------------- Открыть файл экзопланетной системы -----------------
-procedure TfrmAstroScene.miFileOpenClick(Sender: TObject);
+procedure TFormLithoneta.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
 begin
@@ -960,7 +960,7 @@ begin
 end;
 
 //-------------------- Меню FileSaveAs экзопланетной системы ------------------
-procedure TfrmAstroScene.miFileSaveAsClick(Sender: TObject);
+procedure TFormLithoneta.miFileSaveAsClick(Sender: TObject);
 begin
   SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
   SaveDialog.InitialDir := StarDir;
@@ -973,19 +973,19 @@ begin
 end;
 
 //------------------------- Показать опции ------------------------------------
-procedure TfrmAstroScene.miOptionsClick(Sender: TObject);
+procedure TFormLithoneta.miOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+  FormOptions.Show;
 end;
 
 //------------------------ Показать настройки --------------------------------
-procedure TfrmAstroScene.miSettingsClick(Sender: TObject);
+procedure TFormLithoneta.miSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;
 end;
 
 //------------------------- ReadIniFile ---------------------------------------
-procedure TfrmAstroScene.ReadIniFile;
+procedure TFormLithoneta.ReadIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
@@ -999,16 +999,16 @@ begin
 end;
 
 //------------------------- WriteIniFile --------------------------------------
-procedure TfrmAstroScene.WriteIniFile;
+procedure TFormLithoneta.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
     // ToolBar Planets
     // ...
     // tvMoons
-    IniFile.WriteInteger(frmAstroScene.Name, tvMoons.Name, tvMoons.Selected.Index);
+    IniFile.WriteInteger(FormLithoneta.Name, tvMoons.Name, tvMoons.Selected.Index);
     // tvAsteroids
-    IniFile.WriteInteger(frmAstroScene.Name, tvAsteroids.Name, tvAsteroids.Selected.Index);
+    IniFile.WriteInteger(FormLithoneta.Name, tvAsteroids.Name, tvAsteroids.Selected.Index);
   finally
     IniFile.Free;
   end;
@@ -1016,7 +1016,7 @@ end;
 
 
 //----------------------- О программе -----------------------------------------
-procedure TfrmAstroScene.About1Click(Sender: TObject);
+procedure TFormLithoneta.About1Click(Sender: TObject);
 begin
   with TfrmAbout.Create(Self) do
   try
@@ -1028,7 +1028,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TfrmAstroScene.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormLithoneta.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
   WriteIniFile;   // запись установок в ini файл
@@ -1036,7 +1036,7 @@ end;
 
 
 //-----------------------------------------------------------------------------
-procedure TfrmAstroScene.miFileExitClick(Sender: TObject);
+procedure TFormLithoneta.miFileExitClick(Sender: TObject);
 begin
   Close;
 end;

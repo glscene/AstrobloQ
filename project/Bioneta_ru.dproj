@@ -172,10 +172,10 @@
         <DCCReference Include="..\source\bio\Bio.FireTree.pas"/>
         <DCCReference Include="..\source\bio\Bio.MissileDefence.pas"/>
         <DCCReference Include="..\source\bio\fbAbout_ru.pas">
-            <Form>FormAbout</Form>
+            <Form>frmAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbConstruction_ru.pas">
-            <Form>frmConstruction</Form>
+            <Form>FormConstruction</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbCreatingGalaxy_ru.pas">
             <Form>FormCreatingGalaxy</Form>
@@ -193,7 +193,7 @@
             <Form>FormKeyboard</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbLists_ru.pas">
-            <Form>frmLists</Form>
+            <Form>FormLists</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbManager_ru.pas">
             <Form>FormManager</Form>
@@ -221,7 +221,7 @@
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
         <DCCReference Include="..\source\bio\fbFirstForm_ru.pas">
-            <Form>frmFirst</Form>
+            <Form>FormFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>
         <DCCReference Include="..\source\bio\fbPopulations_ru.pas">

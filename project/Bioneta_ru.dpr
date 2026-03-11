@@ -46,14 +46,14 @@ uses
   Bio.MatingSingle in '..\source\bio\Bio.MatingSingle.pas',
   Bio.FireTree in '..\source\bio\Bio.FireTree.pas',
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
-  fbAbout_ru in '..\source\bio\fbAbout_ru.pas' {FormAbout},
-  fbConstruction_ru in '..\source\bio\fbConstruction_ru.pas' {frmConstruction},
+  fbAbout_ru in '..\source\bio\fbAbout_ru.pas' {frmAbout},
+  fbConstruction_ru in '..\source\bio\fbConstruction_ru.pas' {FormConstruction},
   fbCreatingGalaxy_ru in '..\source\bio\fbCreatingGalaxy_ru.pas' {FormCreatingGalaxy},
   fbEditLine_ru in '..\source\bio\fbEditLine_ru.pas' {FormEditLine},
   fbEvents_ru in '..\source\bio\fbEvents_ru.pas' {FormEvents},
   fbIntro_ru in '..\source\bio\fbIntro_ru.pas' {FormIntro},
   fbKeyboard_ru in '..\source\bio\fbKeyboard_ru.pas' {FormKeyboard},
-  fbLists_ru in '..\source\bio\fbLists_ru.pas' {frmLists},
+  fbLists_ru in '..\source\bio\fbLists_ru.pas' {FormLists},
   fbManager_ru in '..\source\bio\fbManager_ru.pas' {FormManager},
   fbMaximums_ru in '..\source\bio\fbMaximums_ru.pas' {FormMaximums},
   fbNewReality_ru in '..\source\bio\fbNewReality_ru.pas' {FormNewReality},
@@ -63,7 +63,7 @@ uses
   fbOptions_ru in '..\source\bio\fbOptions_ru.pas' {FormOptions},
   fbSpirit_ru in '..\source\bio\fbSpirit_ru.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm_ru in '..\source\bio\fbFirstForm_ru.pas' {frmFirst},
+  fbFirstForm_ru in '..\source\bio\fbFirstForm_ru.pas' {FormFirst},
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
   fbPopulations_ru in '..\source\bio\fbPopulations_ru.pas' {FormPopulations},
   fbHeightField_ru in '..\source\bio\fbHeightField_ru.pas' {FormHeightField},
@@ -89,9 +89,9 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'Biosneta';
-  Application.CreateForm(TfrmFirst, frmFirst);
-  Application.CreateForm(TfrmLists, frmLists);
-  Application.CreateForm(TfrmConstruction, frmConstruction);
+  Application.CreateForm(TFormFirst, FormFirst);
+  Application.CreateForm(TFormLists, FormLists);
+  Application.CreateForm(TFormConstruction, FormConstruction);
   Application.CreateForm(TfrmImages, frmImages);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;

@@ -51,7 +51,7 @@ procedure TFormHumidityMap.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropHumidityMap;
+  FormFirst.RealityForm.ManagerForm.DropHumidityMap;
 end;
 
 end.

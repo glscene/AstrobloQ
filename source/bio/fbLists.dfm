@@ -1,4 +1,4 @@
-object frmLists: TfrmLists
+object FormLists: TFormLists
   Left = 103
   Top = 136
   Margins.Left = 2
@@ -55,8 +55,6 @@ object frmLists: TfrmLists
     BevelOuter = bvNone
     Caption = 'Panel15'
     TabOrder = 0
-    ExplicitWidth = 1043
-    ExplicitHeight = 612
     object Splitter2: TSplitter
       Left = 751
       Top = 0
@@ -76,8 +74,6 @@ object frmLists: TfrmLists
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 0
-      ExplicitWidth = 743
-      ExplicitHeight = 570
       object panCultureName: TPanel
         Left = 10
         Top = 10
@@ -94,7 +90,6 @@ object frmLists: TfrmLists
         Font.Style = [fsUnderline]
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 723
       end
       object lbThings: TListBox
         Left = 10
@@ -126,8 +121,6 @@ object frmLists: TfrmLists
         BevelOuter = bvNone
         Color = clBtnShadow
         TabOrder = 2
-        ExplicitTop = 505
-        ExplicitWidth = 723
         object btnDelete: TBitBtn
           Left = 104
           Top = 4
@@ -211,8 +204,6 @@ object frmLists: TfrmLists
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 1
-      ExplicitLeft = 750
-      ExplicitHeight = 570
       object ToolBar1: TToolBar
         Left = 10
         Top = 467
@@ -224,7 +215,6 @@ object frmLists: TfrmLists
         Caption = 'ToolBar1'
         ShowCaptions = True
         TabOrder = 0
-        ExplicitTop = 442
         object tbReality: TToolButton
           Left = 0
           Top = 0
@@ -391,8 +381,6 @@ object frmLists: TfrmLists
       Align = alBottom
       Color = clBtnShadow
       TabOrder = 2
-      ExplicitTop = 570
-      ExplicitWidth = 1043
       object Panel2: TPanel
         Left = 946
         Top = 1
@@ -402,7 +390,6 @@ object frmLists: TfrmLists
         BevelOuter = bvNone
         Color = clBtnShadow
         TabOrder = 0
-        ExplicitLeft = 938
         object btnClose: TBitBtn
           Left = 14
           Top = 8

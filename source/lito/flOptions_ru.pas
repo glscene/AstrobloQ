@@ -36,7 +36,7 @@ uses
   fmFormFirst;
 
 type
-  TfrmOptions = class(TFormFirst)
+  TFormOptions = class(TFormFirst)
     PanelBottom: TPanel;
     ButtonOK: TButton;
     PanelMiddle: TPanel;
@@ -110,7 +110,7 @@ type
   end;
 
 var
-  frmOptions: TfrmOptions;
+  FormOptions: TFormOptions;
 
 implementation //==============================================================
 
@@ -120,7 +120,7 @@ uses
   flLithoneta_ru;
 
 //-------------------------------------------------------------
-procedure TfrmOptions.FormCreate(Sender: TObject);
+procedure TFormOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
   StyleName: string;
@@ -151,23 +151,23 @@ begin
   inherited;
 end;
 
-//---------------------------------------------------
-// Показать кайму атмосферы
-//---------------------------------------------------
-procedure TfrmOptions.CheckBoxAtmosferaClick(Sender: TObject);
+//-----------------------------------------------------------------------------
+//                    Показать кайму атмосферы
+//-----------------------------------------------------------------------------
+procedure TFormOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
   inherited; // считывает ini файл, не все планеты с атмосферой
-  with frmAstroScene do
+  with FormLithoneta do
     DirectOpenGL.Visible := not DirectOpenGL.Visible;
 end;
 
-//---------------------------------------------------
-// Показать или скрыть оси X, Y, Z небесного тела
-//---------------------------------------------------
-procedure TfrmOptions.CheckBoxAxesClick(Sender: TObject);
+//-----------------------------------------------------------------------------
+//                 Показать или скрыть оси X, Y, Z небесного тела
+//-----------------------------------------------------------------------------
+procedure TFormOptions.CheckBoxAxesClick(Sender: TObject);
 begin
   inherited; // считывает параметры из ini файла
-  with frmAstroScene do
+  with FormLithoneta do
   if CheckBoxAxes.Checked then
   begin
     sfPlanet.ShowAxes := not sfPlanet.ShowAxes;
@@ -180,17 +180,17 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmOptions.chbHidePanelsClick(Sender: TObject);
+procedure TFormOptions.chbHidePanelsClick(Sender: TObject);
 begin
   inherited;  // считывает параметры из ini файла
-  with frmAstroScene do
+  with FormLithoneta do
   if chbHidePanels.Checked then // Показать панели
   begin
     PanelLeft.Visible := not PanelLeft.Visible;
     PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
-    frmAstroScene.BorderStyle := bsNone;
+    FormLithoneta.BorderStyle := bsNone;
   end
   else  // Скрыть панели
   begin
@@ -198,19 +198,19 @@ begin
     PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
-    frmAstroScene.BorderStyle := bsSizeable;
+    FormLithoneta.BorderStyle := bsSizeable;
   end;
 end;
 
 //-----------------------------------------------------------------------------
 // Разрез с ядром и мантией
 //-----------------------------------------------------------------------------
-procedure TfrmOptions.CheckBoxCoreClick(Sender: TObject);
+procedure TFormOptions.CheckBoxCoreClick(Sender: TObject);
 var
   PlanetPath: TFileName;
 begin
   inherited;  // считывает параметры из ini файла
-  with frmAstroScene do
+  with FormLithoneta do
   if CheckBoxCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
@@ -233,7 +233,7 @@ end;
 //-----------------------------------------------------------------------------
 // Картографическая сетка
 //-----------------------------------------------------------------------------
-procedure TfrmOptions.chbCartographicGridClick(Sender: TObject);
+procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
 begin
   //
 end;
@@ -241,9 +241,9 @@ end;
 //------------------------------------------------------------------
 // Показать или скрыть небесное тело
 //------------------------------------------------------------------
-procedure TfrmOptions.chbHidePlanetClick(Sender: TObject);
+procedure TFormOptions.chbHidePlanetClick(Sender: TObject);
 begin
-  with frmAstroScene do
+  with FormLithoneta do
   if chbHidePlanet.Checked then
   begin
     dcPlanet.Visible := not dcPlanet.Visible;
@@ -263,7 +263,7 @@ end;
 //---------------------------------------------------------
 // Выбор страниц опций
 //---------------------------------------------------------
-procedure TfrmOptions.tvOptionsClick(Sender: TObject);
+procedure TFormOptions.tvOptionsClick(Sender: TObject);
 begin
   tvOptions.Items[1].DropHighlighted := False;
   case tvOptions.Selected.StateIndex of
@@ -279,13 +279,13 @@ end;
 //------------------------------------------------------------
 // Чтение установок из ини файла
 //------------------------------------------------------------
-procedure TfrmOptions.ReadIniFile;
+procedure TFormOptions.ReadIniFile;
 begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    CheckBoxAxes.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxAxes.Name, True);
-    CheckBoxRotate.Checked := IniFile.ReadBool(frmOptions.Name, CheckBoxRotate.Name, True);
+    CheckBoxAxes.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxAxes.Name, True);
+    CheckBoxRotate.Checked := IniFile.ReadBool(FormOptions.Name, CheckBoxRotate.Name, True);
   finally
     IniFile.Free;
   end;
@@ -294,12 +294,12 @@ end;
 //------------------------------------------------------------
 // Запись установок в инифайл
 //------------------------------------------------------------
-procedure TfrmOptions.WriteIniFile;
+procedure TFormOptions.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteBool(frmOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
-    IniFile.WriteBool(frmOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxAxes.Name, CheckBoxAxes.Checked);
+    IniFile.WriteBool(FormOptions.Name, CheckBoxRotate.Name, CheckBoxRotate.Checked);
   finally
     IniFile.Free;
   end;
@@ -309,7 +309,7 @@ end;
 //--------------------------------------------------------------
 // Изменение и запись в файл при нажатии на кнопку ОК
 //--------------------------------------------------------------
-procedure TfrmOptions.ButtonOKClick(Sender: TObject);
+procedure TFormOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
 begin
@@ -318,14 +318,14 @@ begin
   if FileExists(UpperCase(FileName)) then
       DeleteFile(UpperCase(FileName)); //to avoid duplication of sections
   WriteIniFile;   // запись опций в ини файл
-  frmOptions.Close;
+  FormOptions.Close;
 end;
 
 
 //--------------------------------------------------------------
 // Запись при закрытии формы
 //--------------------------------------------------------------
-procedure TfrmOptions.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;

@@ -38,6 +38,7 @@ object FormBioneta: TFormBioneta
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 1543
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -46,6 +47,7 @@ object FormBioneta: TFormBioneta
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 1543
       object tbWater: TToolBar
         Left = 0
         Top = 56

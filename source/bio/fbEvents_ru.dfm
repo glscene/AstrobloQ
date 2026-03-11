@@ -66,8 +66,6 @@ object FormEvents: TFormEvents
       ReadOnly = True
       ScrollBars = ssBoth
       TabOrder = 0
-      ExplicitWidth = 279
-      ExplicitHeight = 399
     end
   end
   object StatusBar1: TStatusBar

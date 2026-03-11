@@ -20,18 +20,18 @@ uses
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
-  flOptions in '..\source\lito\flOptions.pas' {frmOptions},
+  flOptions in '..\source\lito\flOptions.pas' {FormOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
-  flPointto in '..\source\lito\flPointto.pas' {FormPointto},
-  flCoordinates in '..\source\lito\flCoordinates.pas' {FormCoords},
+  flPointto in '..\source\lito\flPointto.pas' {frmPointto},
+  flCoordinates in '..\source\lito\flCoordinates.pas' {frmCoordinates},
   fmSettings in '..\source\fmSettings.pas' {FormSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  flMixTextures in '..\source\lito\flMixTextures.pas' {FormTexCombine},
+  flTexCombine in '..\source\lito\flTexCombine.pas' {frmTexCombine},
   Litho.Utils in '..\source\lito\Litho.Utils.pas';
 
 {$R *.res}
@@ -44,7 +44,7 @@ begin
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;
 end.

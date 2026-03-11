@@ -25,7 +25,7 @@ uses
   GLS.SimpleNavigation, GLS.GeomObjects;
 
 type
-  TFormCoords = class(TForm)
+  TfrmCoordinates = class(TForm)
     GLScene1: TGLScene;
     GLSceneViewer1: TGLSceneViewer;
     GLCamera1: TGLCamera;
@@ -52,13 +52,13 @@ type
   end;
 
 var
-  FormCoords: TFormCoords;
+  frmCoordinates: TfrmCoordinates;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormCoords.GLCadencer1Progress(Sender: TObject; const deltaTime,
+procedure TfrmCoordinates.GLCadencer1Progress(Sender: TObject; const deltaTime,
   newTime: Double);
 var
   t, x, y: Single;
@@ -68,7 +68,7 @@ begin
   Ball.Position.SetPoint(VectorCombine(v1,v2,x,y));
 end;
 
-procedure TFormCoords.FormCreate(Sender: TObject);
+procedure TfrmCoordinates.FormCreate(Sender: TObject);
 begin
 
 

@@ -21,7 +21,7 @@ uses
   Bio.Satellites;
 
 type
-  TfrmLists = class(TForm)
+  TFormLists = class(TForm)
     Panel15: TPanel;
     Panel7: TPanel;
     panCultureName: TPanel;
@@ -99,7 +99,7 @@ type
   end;
 
 var
-  frmLists: TfrmLists;
+  FormLists: TFormLists;
 
 implementation //=============================================================
 
@@ -117,18 +117,18 @@ uses
   Bio.Weather,
   Bio.EvolvingTrees;
 
-procedure TfrmLists.Advance;
+procedure TFormLists.Advance;
 begin
   if cbAutoRefresh.Checked then
     RefreshAll;
 end;
 
-procedure TfrmLists.RefreshAll;
+procedure TFormLists.RefreshAll;
 begin
   RefreshThings;
 end;
 
-procedure TfrmLists.RefreshThings;
+procedure TFormLists.RefreshThings;
 var
   myIndex: integer;
   myThing: TaiThing;
@@ -160,7 +160,7 @@ begin
   LockWindowUpdate(0);
 end;
 
-procedure TfrmLists.RefreshGrids;
+procedure TFormLists.RefreshGrids;
 var
   X: integer;
   Y: integer;
@@ -175,23 +175,23 @@ begin
   end;
 end;
 
-procedure TfrmLists.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TFormLists.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropLists;
+  FormFirst.RealityForm.ManagerForm.DropLists;
 end;
 
-procedure TfrmLists.FormShow(Sender: TObject);
+procedure TFormLists.FormShow(Sender: TObject);
 begin
   RefreshThings;
 end;
 
-procedure TfrmLists.btnRefreshAllClick(Sender: TObject);
+procedure TFormLists.btnRefreshAllClick(Sender: TObject);
 begin
   RefreshThings;
 end;
 
-procedure TfrmLists.EditSatellite(aSatellite: TaiSatellite);
+procedure TFormLists.EditSatellite(aSatellite: TaiSatellite);
 var
   myFormSatellite: TFormSatellite;
 begin
@@ -200,7 +200,7 @@ begin
   myFormSatellite.Show;
 end;
 
-procedure TfrmLists.btnDeleteClick(Sender: TObject);
+procedure TFormLists.btnDeleteClick(Sender: TObject);
 var
   myThing: TaiThing;
 begin
@@ -211,152 +211,152 @@ begin
   end;
 end;
 
-procedure TfrmLists.btnViewClick(Sender: TObject);
+procedure TFormLists.btnViewClick(Sender: TObject);
 var
   myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
     myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
-    frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
+    FormFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
   end;
 end;
 
-procedure TfrmLists.lbThingsDblClick(Sender: TObject);
+procedure TFormLists.lbThingsDblClick(Sender: TObject);
 var
   myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
     myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
-    frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
+    FormFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit(myThing, true);
   end;
 end;
 
-procedure TfrmLists.btnCloseClick(Sender: TObject);
+procedure TFormLists.btnCloseClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmLists.btnTrackClick(Sender: TObject);
+procedure TFormLists.btnTrackClick(Sender: TObject);
 var
   myThing: TaiThing;
 begin
   if not (lbThings.ItemIndex = -1) then
   begin
     myThing := TaiThing(lbThings.Items.Objects[lbThings.ItemIndex]);
-    frmFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(myThing);
+    FormFirst.RealityForm.ManagerForm.SpaceForm.FindTarget(myThing);
   end;
 end;
 
-procedure TfrmLists.tbExistentsClick(Sender: TObject);
+procedure TFormLists.tbExistentsClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Existents.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbGridsClick(Sender: TObject);
+procedure TFormLists.tbGridsClick(Sender: TObject);
 begin
   RefreshGrids;
 end;
 
-procedure TfrmLists.tbAttachmentsClick(Sender: TObject);
+procedure TFormLists.tbAttachmentsClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Attachments.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbReferencesClick(Sender: TObject);
+procedure TFormLists.tbReferencesClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.References.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbCradleClick(Sender: TObject);
+procedure TFormLists.tbCradleClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Cradle.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbPurgatoryClick(Sender: TObject);
+procedure TFormLists.tbPurgatoryClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Purgatory.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbFormsClick(Sender: TObject);
+procedure TFormLists.tbFormsClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Forms.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbThingsClick(Sender: TObject);
+procedure TFormLists.tbThingsClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbSpaceClick(Sender: TObject);
+procedure TFormLists.tbSpaceClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Space.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbEnvironmentClick(Sender: TObject);
+procedure TFormLists.tbEnvironmentClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbEventRoundClick(Sender: TObject);
+procedure TFormLists.tbEventRoundClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Space.EventRound.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbEventQueueClick(Sender: TObject);
+procedure TFormLists.tbEventQueueClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Space.EventQueue.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbRealityClick(Sender: TObject);
+procedure TFormLists.tbRealityClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbFruitsClick(Sender: TObject);
+procedure TFormLists.tbFruitsClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Fruits.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbPreyClick(Sender: TObject);
+procedure TFormLists.tbPreyClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Prey.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbPredatorsClick(Sender: TObject);
+procedure TFormLists.tbPredatorsClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Predators.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tb3DViewClick(Sender: TObject);
+procedure TFormLists.tb3DViewClick(Sender: TObject);
 begin
   redView.Clear;
-  frmFirst.RealityForm.ManagerForm.SpaceForm.FullDisplay(redView.Lines);
+  FormFirst.RealityForm.ManagerForm.SpaceForm.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbCollidersClick(Sender: TObject);
+procedure TFormLists.tbCollidersClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Colliders.FullDisplay(redView.Lines);
 end;
 
-procedure TfrmLists.tbTrashClick(Sender: TObject);
+procedure TFormLists.tbTrashClick(Sender: TObject);
 begin
   redView.Clear;
   Reality.Environment.Things.Trash.FullDisplay(redView.Lines);

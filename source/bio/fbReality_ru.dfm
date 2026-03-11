@@ -53,7 +53,6 @@ object FormReality: TFormReality
     BevelOuter = bvLowered
     BorderWidth = 2
     TabOrder = 0
-    ExplicitWidth = 1077
     object Panel4: TPanel
       Left = 3
       Top = 3
@@ -339,7 +338,6 @@ object FormReality: TFormReality
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 4
-      ExplicitLeft = 995
       object btnExit: TBitBtn
         Left = 1
         Top = 2

@@ -35,6 +35,7 @@ object frmAstroScene: TfrmAstroScene
     OnDblClick = SceneViewerDblClick
     OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
+    ExplicitWidth = 860
   end
   object PanelLeft: TPanel
     Left = 0
@@ -280,6 +281,7 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      ExplicitWidth = 139
     end
     object StaticText1: TStaticText
       Left = 1
@@ -296,6 +298,7 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      ExplicitWidth = 62
     end
   end
   object StatusBar: TStatusBar
@@ -542,6 +545,7 @@ object frmAstroScene: TfrmAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 82
     end
   end
   object GLScene: TGLScene

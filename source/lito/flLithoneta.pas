@@ -865,7 +865,7 @@ end;
 //------------------------ View Coordinates on Planet surface -----------------
 procedure TfrmAstroScene.miCoordinatesClick(Sender: TObject);
 begin
-  with TFormCoords.Create(Self) do
+  with TfrmCoordinates.Create(Self) do
   try
     ShowModal;
   finally
@@ -876,7 +876,7 @@ end;
 //--------------------- View PointToOrbit ------------------------------------
 procedure TfrmAstroScene.miPointToClick(Sender: TObject);
 begin
-  with TFormPointto.Create(Self) do
+  with TfrmPointto.Create(Self) do
   try
     ShowModal;
   finally
@@ -890,7 +890,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TfrmAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
-  frmOptions.Show;
+  FormOptions.Show;
 end;
 
 

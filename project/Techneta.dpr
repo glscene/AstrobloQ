@@ -20,7 +20,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTechneta in '..\source\tech\ftTechneta.pas' {frmTechnoneta},
+  ftTechneta in '..\source\tech\ftTechneta.pas' {FormTechneta},
   ftLocations in '..\source\tech\ftLocations.pas' {FormLocations},
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   ftEmpire in '..\source\tech\ftEmpire.pas' {FormCETI};
@@ -30,8 +30,8 @@ uses
 begin
   Application.Initialize;
 
-  Application.Title := 'Tehneta';
-  Application.CreateForm(TfrmTechnoneta, frmTechnoneta);
+  Application.Title := 'Techneta';
+  Application.CreateForm(TFormTechneta, FormTechneta);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);

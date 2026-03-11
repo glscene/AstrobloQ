@@ -107,10 +107,10 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\lito\flLithoneta_ru.pas">
-            <Form>frmAstroScene</Form>
+            <Form>FormLithoneta</Form>
         </DCCReference>
         <DCCReference Include="..\source\lito\flOptions_ru.pas">
-            <Form>frmOptions</Form>
+            <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
@@ -133,8 +133,8 @@
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\lito\flMixTextures_ru.pas">
-            <Form>FormTexCombine</Form>
+        <DCCReference Include="..\source\lito\flTexCombine_ru.pas">
+            <Form>frmTexCombine</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
@@ -153,11 +153,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\lito\flCoordinates_ru.pas">
-            <Form>FormCoords</Form>
+            <Form>frmCoordinates</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\lito\flPointto_ru.pas">
-            <Form>FormPointto</Form>
+            <Form>frmPointto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\lito\Litho.Utils.pas"/>

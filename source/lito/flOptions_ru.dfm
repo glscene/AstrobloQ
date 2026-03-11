@@ -1,4 +1,4 @@
-object frmOptions: TfrmOptions
+object FormOptions: TFormOptions
   Left = 0
   Top = 0
   Hint = 'Longevity'
@@ -24,13 +24,11 @@ object frmOptions: TfrmOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 377
-    ExplicitWidth = 742
     DesignSize = (
       750
       41)
     object ButtonOK: TButton
-      Left = 370
+      Left = 362
       Top = 1
       Width = 99
       Height = 31
@@ -50,8 +48,6 @@ object frmOptions: TfrmOptions
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 742
-    ExplicitHeight = 368
     object PageControl: TPageControl
       Left = 169
       Top = 5
@@ -60,8 +56,6 @@ object frmOptions: TfrmOptions
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 568
-      ExplicitHeight = 358
       object tsGeneral: TTabSheet
         Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
@@ -137,7 +131,7 @@ object frmOptions: TfrmOptions
           568
           373)
         object chlbStarClasses: TCheckListBox
-          Left = -86
+          Left = -94
           Top = 137
           Width = 104
           Height = 128
@@ -555,7 +549,6 @@ object frmOptions: TfrmOptions
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 742
   end
   object ImageList: TImageList
     Left = 427

@@ -385,10 +385,10 @@ begin
   cbTypes.Items.Add('6: Научный партнёр [clrLime]');
   cbTypes.Items.Add('7: Спонсор [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  frmTexoneta.cbTypes.Clear;
-  // frmTexneta.cbTypes.Items.Add(S);
-  frmTexoneta.cbTypes.Items := cbTypes.Items; // copied items to main form
-  frmTexoneta.cbTypes.ItemIndex := 0;
+  FormTechneta.cbTypes.Clear;
+  // FormTechneta.cbTypes.Items.Add(S);
+  FormTechneta.cbTypes.Items := cbTypes.Items; // copied items to main form
+  FormTechneta.cbTypes.ItemIndex := 0;
 end;
 
 //----------------------------------------------------------------------------

@@ -179,7 +179,7 @@
             <Form>FormAbout</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbConstruction.pas">
-            <Form>frmConstruction</Form>
+            <Form>FormConstruction</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbCreatingGalaxy.pas">
             <Form>FormCreatingGalaxy</Form>
@@ -197,7 +197,7 @@
             <Form>FormKeyboard</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbLists.pas">
-            <Form>frmLists</Form>
+            <Form>FormLists</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\fbManager.pas">
             <Form>FormManager</Form>
@@ -225,7 +225,7 @@
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
         <DCCReference Include="..\source\bio\fbFirstForm.pas">
-            <Form>frmFirst</Form>
+            <Form>FormFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vSpiritManager.pas"/>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>

@@ -79,8 +79,6 @@ object FormOptions: TFormOptions
     Align = alBottom
     BevelOuter = bvLowered
     TabOrder = 2
-    ExplicitTop = 304
-    ExplicitWidth = 239
     object panOKButton: TPanel
       Left = 142
       Top = 1
@@ -89,7 +87,6 @@ object FormOptions: TFormOptions
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 134
       object btnOK: TBitBtn
         Left = 10
         Top = 8

@@ -81,7 +81,7 @@ type
   end;
 
 type
-  TfrmTechnoneta = class(TForm)
+  TFormTechneta = class(TForm)
     Scene: TGLScene;
     GLSceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
@@ -321,7 +321,7 @@ type
   end;
 
 var
-  frmTechnoneta: TfrmTechnoneta;
+  FormTechneta: TFormTechneta;
   AssetsDir, DataDir, CurrDir: TFileName;
 
   DotColorArray: array of TGLColorVector;
@@ -368,7 +368,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.FormCreate(Sender: TObject);
+procedure TFormTechneta.FormCreate(Sender: TObject);
 var
   Temp: TGLMeshObject;
   Seed: Integer;
@@ -593,22 +593,22 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.FormShow(Sender: TObject);
+procedure TFormTechneta.FormShow(Sender: TObject);
 begin
   GlowUpDown.Position := GlowUpDowni;
   NameCBChange(Sender);
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormTechneta.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FormPlanetY := frmTechnoneta.top;
-  FormPlanetX := frmTechnoneta.left;
+  FormPlanetY := FormTechneta.top;
+  FormPlanetX := FormTechneta.left;
   GlowUpDowni := GlowUpDown.Position;
   DoSaver;
 end;
 
-procedure TfrmTechnoneta.FormDestroy(Sender: TObject);
+procedure TFormTechneta.FormDestroy(Sender: TObject);
 begin
   SetLength(DotColorArray, 0);
   ClearLocations;
@@ -617,7 +617,7 @@ end;
 
 // ----- ClearLocations -------------------------------------------------
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.ClearLocations;
+procedure TFormTechneta.ClearLocations;
 begin
   while markers.Count > 0 do
   begin
@@ -629,7 +629,7 @@ end;
 
 // ----- Draw people locations as points ---------------------------
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.DrawPoints;
+procedure TFormTechneta.DrawPoints;
 var
   i: Integer;
   PlanetLocation: single;
@@ -741,7 +741,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.GLSceneViewerBeforeRender(Sender: TObject);
+procedure TFormTechneta.GLSceneViewerBeforeRender(Sender: TObject);
 begin
   if miSunFlare.Checked then
     GLLensFlare1.PreRender(Sender as TGLSceneBuffer);
@@ -772,7 +772,7 @@ end;
   Tex1:=Dot3(Tex0, Tex1); // dot3 product between textures 0 and 1
 }
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.DirectOGLRender(Sender: TObject;
+procedure TFormTechneta.DirectOGLRender(Sender: TObject;
   var rci: TGLRenderContextInfo);
 const
   // unrealisticly thick atmospheres look better :)
@@ -964,7 +964,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.LoadConstellationLines;
+procedure TFormTechneta.LoadConstellationLines;
 var
   sl, line: TStrings;
   pos1, pos2: TAffineVector;
@@ -988,7 +988,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.TimerTimer(Sender: TObject);
+procedure TFormTechneta.TimerTimer(Sender: TObject);
 begin
   If MarkersDisplaySelection < 4 then
     StatusBar.Panels[0].Text := (*
@@ -1001,7 +1001,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.CadencerProgress(Sender: TObject;
+procedure TFormTechneta.CadencerProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   d: Double;
@@ -1120,7 +1120,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.GLSceneViewerMouseDown(Sender: TObject;
+procedure TFormTechneta.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
@@ -1128,7 +1128,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.GLSceneViewerMouseMove(Sender: TObject;
+procedure TFormTechneta.GLSceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
@@ -1144,7 +1144,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.GLSceneViewerMouseUp(Sender: TObject;
+procedure TFormTechneta.GLSceneViewerMouseUp(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssCtrl] then
@@ -1156,7 +1156,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.FormMouseWheel(Sender: TObject; Shift: TShiftState;
+procedure TFormTechneta.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 var
   F: single;
@@ -1172,7 +1172,7 @@ end;
 // ----------------------------------------------------------------------------
 // FullScreen
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.GLSceneViewerDblClick(Sender: TObject);
+procedure TFormTechneta.GLSceneViewerDblClick(Sender: TObject);
 begin
   GLSceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -1189,7 +1189,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormTechneta.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     #27:
@@ -1199,9 +1199,9 @@ begin
         // the z gets into the memo too.. a bug.. dunno what to 'Focus'
         MenuVisible := (not MenuVisible);
         if (MenuVisible) then
-          frmTechnoneta.Menu := MainMenu
+          FormTechneta.Menu := MainMenu
         else
-          frmTechnoneta.Menu := nil;
+          FormTechneta.Menu := nil;
       end;
     'e', 'E': // Earth
       begin
@@ -1224,7 +1224,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TfrmTechnoneta.GLSceneViewerMouseEnter(Sender: TObject);
+procedure TFormTechneta.GLSceneViewerMouseEnter(Sender: TObject);
 begin
   GLSceneViewer.SetFocus;
   GLSceneViewer.Focused;
@@ -1232,7 +1232,7 @@ end;
 
 // ----------------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miRoundClick(Sender: TObject);
+procedure TFormTechneta.miRoundClick(Sender: TObject);
 begin
   miRound.Checked := True;
   miSmooth.Checked := not miRound.Checked;
@@ -1241,7 +1241,7 @@ begin
   ptsLocations.Style := psRound;
 end;
 
-procedure TfrmTechnoneta.miSmoothClick(Sender: TObject);
+procedure TFormTechneta.miSmoothClick(Sender: TObject);
 begin
   miSmooth.Checked := True;
   miRound.Checked := not miSmooth.Checked;
@@ -1250,7 +1250,7 @@ begin
   ptsLocations.Style := psSmooth;
 end;
 
-procedure TfrmTechnoneta.miSmoothAdditiveClick(Sender: TObject);
+procedure TFormTechneta.miSmoothAdditiveClick(Sender: TObject);
 begin
   miSmoothAdditive.Checked := True;
   miRound.Checked := not miSmoothAdditive.Checked;
@@ -1259,7 +1259,7 @@ begin
   ptsLocations.Style := psSmoothAdditive;
 end;
 
-procedure TfrmTechnoneta.miSquareClick(Sender: TObject);
+procedure TFormTechneta.miSquareClick(Sender: TObject);
 begin
   miSquare.Checked := True;
   miRound.Checked := not miSquare.Checked;
@@ -1270,13 +1270,13 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miSelectedSatelliteClick(Sender: TObject);
+procedure TFormTechneta.miSelectedSatelliteClick(Sender: TObject);
 begin
   miSelectedSatellite.Checked := not miSelectedSatellite.Checked;
   ptsFlashLocations.Visible := miSelectedSatellite.Checked;
 end;
 
-procedure TfrmTechnoneta.miSatelliteLightClick(Sender: TObject);
+procedure TFormTechneta.miSatelliteLightClick(Sender: TObject);
 begin
   miSatelliteLight.Checked := not miSatelliteLight.Checked;
   If miSatelliteLight.Checked then
@@ -1292,20 +1292,20 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miAddaPeopleClick(Sender: TObject);
+procedure TFormTechneta.miAddaPeopleClick(Sender: TObject);
 begin
   FormLocations.Show;
 end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miSpinThePlanetClick(Sender: TObject);
+procedure TFormTechneta.miSpinThePlanetClick(Sender: TObject);
 begin
   miSpinThePlanet.Checked := not miSpinThePlanet.Checked;
   Cadencer.Enabled := miSpinThePlanet.Checked; // on autocheck
 end;
 
-procedure TfrmTechnoneta.miSpinSolarSystemClick(Sender: TObject);
+procedure TFormTechneta.miSpinSolarSystemClick(Sender: TObject);
 begin
   miSpinSolarSystem.Checked := not miSpinSolarSystem.Checked;
 end;
@@ -1313,7 +1313,7 @@ end;
 // ------------------------------------------------------------
 // Show the stars
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miStarsClick(Sender: TObject);
+procedure TFormTechneta.miStarsClick(Sender: TObject);
 begin
   miStars.Checked := not miStars.Checked;
   SkyDome.Visible := miStars.Checked;
@@ -1322,20 +1322,20 @@ end;
 // ------------------------------------------------------------
 // Show the sun flare
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miSunFlareClick(Sender: TObject);
+procedure TFormTechneta.miSunFlareClick(Sender: TObject);
 begin
   miSunFlare.Checked := (not miSunFlare.Checked);
   GLLensFlare1.Visible := miSunFlare.Checked;
 end;
 
-procedure TfrmTechnoneta.miLocationsClick(Sender: TObject);
+procedure TFormTechneta.miLocationsClick(Sender: TObject);
 begin
   miLocations.Checked := (not miLocations.Checked);
   MemberGB.Visible := miLocations.Checked;
   GLSceneViewer.Invalidate;
 end;
 
-procedure TfrmTechnoneta.miAsteroidsClick(Sender: TObject);
+procedure TFormTechneta.miAsteroidsClick(Sender: TObject);
 begin
   miAsteroids.Checked := (not miAsteroids.Checked);
   MasterAsteroidF.Position.X := 3;
@@ -1345,7 +1345,7 @@ end;
 // ------------------------------------------------------------
 // Show the constellation lines
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miConstellationLinesClick(Sender: TObject);
+procedure TFormTechneta.miConstellationLinesClick(Sender: TObject);
 begin
   miConstellationLines.Checked := (not miConstellationLines.Checked);
   constellationsAlpha := 0.5 - constellationsAlpha;
@@ -1354,7 +1354,7 @@ end;
 // ------------------------------------------------------------
 // Show clouds
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miCloudsClick(Sender: TObject);
+procedure TFormTechneta.miCloudsClick(Sender: TObject);
 begin
   miClouds.Checked := not miClouds.Checked;
   sfPlanetClouds.Visible := miClouds.Checked;
@@ -1363,12 +1363,12 @@ begin
   GLSceneViewer.Invalidate;
 end;
 
-procedure TfrmTechnoneta.miAtmosphereClick(Sender: TObject);
+procedure TFormTechneta.miAtmosphereClick(Sender: TObject);
 begin
   miAtmosphere.Checked := (not miAtmosphere.Checked);
 end;
 
-procedure TfrmTechnoneta.NightSkyorBumpyLand1Click(Sender: TObject);
+procedure TFormTechneta.NightSkyorBumpyLand1Click(Sender: TObject);
 begin
   NightSkyorBumpyLand1.Checked := not NightSkyorBumpyLand1.Checked;
   ptsLocations.StructureChanged;
@@ -1378,7 +1378,7 @@ end;
 // ------------------------------------------------------------
 // Show the flip plap lands
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miFlipFlopLandClick(Sender: TObject);
+procedure TFormTechneta.miFlipFlopLandClick(Sender: TObject);
   procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
     if FileExists(FileName) then
@@ -1417,7 +1417,7 @@ end;
 // ------------------------------------------------------------
 // High resolution
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miHighResolutionClick(Sender: TObject);
+procedure TFormTechneta.miHighResolutionClick(Sender: TObject);
   procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
     if FileExists(FileName) then
@@ -1466,7 +1466,7 @@ end;
 // ------------------------------------------------------------
 // Show country borders
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miCountriesClick(Sender: TObject);
+procedure TFormTechneta.miCountriesClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'country.dat') then
   begin
@@ -1479,7 +1479,7 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.DisplayCountries(Show: Boolean);
+procedure TFormTechneta.DisplayCountries(Show: Boolean);
 begin
   If (not Show) then
   begin { off }
@@ -1505,7 +1505,7 @@ end;
 
 // -------------------------------------------------------------------
 
-function TfrmTechnoneta.LoadCountryShapes: Boolean;
+function TFormTechneta.LoadCountryShapes: Boolean;
 var
   INumparts, INumPoints, NumParts, NumPoints: Integer;
   winColor, i, Count: Integer;
@@ -1723,7 +1723,7 @@ end;
 // -------------------------------------------------------------------
 { CAPITALS.SHP }
 // -------------------------------------------------------------------
-procedure TfrmTechnoneta.miShowCapitalsClick(Sender: TObject);
+procedure TFormTechneta.miShowCapitalsClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'CAPITALS.dat') then
   begin
@@ -1737,7 +1737,7 @@ end;
 // ------------------------------------------------------------
 // Display Capitals
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.DisplayCapitals(Show: Boolean);
+procedure TFormTechneta.DisplayCapitals(Show: Boolean);
 begin
   If (not Show) then
   begin { off }
@@ -1762,7 +1762,7 @@ begin
 end;
 
 // -------------------------------------------------------------------
-function TfrmTechnoneta.LoadCapitalShapes: Boolean;
+function TFormTechneta.LoadCapitalShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
   dXTemp, dYTemp: Double;
@@ -1812,7 +1812,7 @@ begin
   ShpCapPoints.StructureChanged;
 end;
 
-procedure TfrmTechnoneta.miShowCitiesClick(Sender: TObject);
+procedure TFormTechneta.miShowCitiesClick(Sender: TObject);
 begin
   If FileExists(ShpPath + 'cities.dat') then
   begin
@@ -1824,7 +1824,7 @@ begin
 end;
 
 // -------------------------------------------------------------------
-procedure TfrmTechnoneta.DisplayCities(Show: Boolean);
+procedure TFormTechneta.DisplayCities(Show: Boolean);
 begin
   If (not Show) then
   begin { off }
@@ -1848,7 +1848,7 @@ begin
   end;
 end;
 
-function TfrmTechnoneta.LoadCityShapes: Boolean;
+function TFormTechneta.LoadCityShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
   dXTemp, dYTemp: Double;
@@ -1898,7 +1898,7 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miGLSTemporalFlowClick(Sender: TObject);
+procedure TFormTechneta.miGLSTemporalFlowClick(Sender: TObject);
 begin
   miGLSTemporalFlow.Checked := (not miGLSTemporalFlow.Checked);
   FlowTimer.Enabled := miGLSTemporalFlow.Checked;
@@ -1914,7 +1914,7 @@ begin
 end;
 
 // -------------------------------------------------------------------
-procedure TfrmTechnoneta.FlowTimerTimer(Sender: TObject);
+procedure TFormTechneta.FlowTimerTimer(Sender: TObject);
 begin
   { Every 'tick' of time Cycle the display according to GLS Start Date
     All Off .. Mike Liscke.. Roger Cao ..turn On according to Date }
@@ -1930,7 +1930,7 @@ begin
   end;
 end;
 
-procedure TfrmTechnoneta.miColorAlltheSameClick(Sender: TObject);
+procedure TFormTechneta.miColorAlltheSameClick(Sender: TObject);
 begin
   miColorAlltheSame.Checked := (not miColorAlltheSame.Checked);
   ColorAlltheSame := miColorAlltheSame.Checked;
@@ -1941,7 +1941,7 @@ end;
 // ------------------------------------------------------------
 // Display planet core
 // ------------------------------------------------------------
-procedure TfrmTechnoneta.miCoreClick(Sender: TObject);
+procedure TFormTechneta.miCoreClick(Sender: TObject);
 begin
   miCore.Checked := not miCore.Checked;
   if miCore.Checked then
@@ -1960,7 +1960,7 @@ end;
 // -------------------------------------------------------------------
 // Tools
 // -------------------------------------------------------------------
-procedure TfrmTechnoneta.miDisplayToolBarClick(Sender: TObject);
+procedure TFormTechneta.miDisplayToolBarClick(Sender: TObject);
 begin
   miDisplayToolBar.Checked := (not miDisplayToolBar.Checked);
   if miDisplayToolBar.Checked then
@@ -1984,7 +1984,7 @@ end;
 // -------------------------------------------------------------------
 
 // MeshShow
-procedure TfrmTechnoneta.miMeshEditorClick(Sender: TObject);
+procedure TFormTechneta.miMeshEditorClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -1994,7 +1994,7 @@ begin
 end;
 
 // Tehnofera Viewer
-procedure TfrmTechnoneta.miContacthullClick(Sender: TObject);
+procedure TFormTechneta.miContacthullClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -2015,7 +2015,7 @@ begin
 end;
 
 // SmdQc
-procedure TfrmTechnoneta.miSmdQcClick(Sender: TObject);
+procedure TFormTechneta.miSmdQcClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -2035,7 +2035,7 @@ end;
 // -------------------------------------------------------------------
 // Robot
 //--------------------------------------------------------------------
-procedure TfrmTechnoneta.miMdlQcClick(Sender: TObject);
+procedure TFormTechneta.miMdlQcClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -2053,7 +2053,7 @@ begin
 end;
 
 // StarPilot
-procedure TfrmTechnoneta.miSpacePilotClick(Sender: TObject);
+procedure TFormTechneta.miSpacePilotClick(Sender: TObject);
 begin
   Timer.Enabled := False;
   Cadencer.Enabled := False;
@@ -2072,19 +2072,19 @@ end;
 
 // ==============================================================
 
-procedure TfrmTechnoneta.miContentsClick(Sender: TObject);
+procedure TFormTechneta.miContentsClick(Sender: TObject);
 begin
   Application.HelpCommand(HELP_CONTENTS, 0);
 end;
 
-procedure TfrmTechnoneta.miOnHelpClick(Sender: TObject);
+procedure TFormTechneta.miOnHelpClick(Sender: TObject);
 begin
   Application.HelpCommand(HELP_HELPONHELP, 0);
 end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miAboutClick(Sender: TObject);
+procedure TFormTechneta.miAboutClick(Sender: TObject);
 begin
   with TfrmAbout.CReate(Self) do
     try
@@ -2097,7 +2097,7 @@ end;
 
 // ==============================================================
 
-procedure TfrmTechnoneta.ChoiceRGClick(Sender: TObject);
+procedure TFormTechneta.ChoiceRGClick(Sender: TObject);
 begin
   MarkersDisplaySelection := ChoiceRG.ItemIndex;
   (* Allows turning it Off ,,
@@ -2116,19 +2116,19 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.cbTypesChange(Sender: TObject);
+procedure TFormTechneta.cbTypesChange(Sender: TObject);
 begin
   DrawPoints; // cbTypes
 end;
 
-procedure TfrmTechnoneta.DateTimePicker1Change(Sender: TObject);
+procedure TFormTechneta.DateTimePicker1Change(Sender: TObject);
 begin
   DrawPoints; // redraw points based on new date constraint
 end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.NameCBChange(Sender: TObject);
+procedure TFormTechneta.NameCBChange(Sender: TObject);
 var
   i: Integer;
 begin
@@ -2227,7 +2227,7 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.CountryColorPanelClick(Sender: TObject);
+procedure TFormTechneta.CountryColorPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CountryColorPanel.Color;
   if ColorDialog.Execute then
@@ -2237,7 +2237,7 @@ begin
     LoadCountryShapes; // DVDORedraw;
 end;
 
-procedure TfrmTechnoneta.CapitolPanelClick(Sender: TObject);
+procedure TFormTechneta.CapitolPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CapitolPanel.Color;
   if ColorDialog.Execute then
@@ -2247,7 +2247,7 @@ begin
     LoadCapitalShapes; // DVDORedraw;
 end;
 
-procedure TfrmTechnoneta.CityPanelClick(Sender: TObject);
+procedure TFormTechneta.CityPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := CityPanel.Color;
   if ColorDialog.Execute then
@@ -2259,7 +2259,7 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.PeopleColorPanelClick(Sender: TObject);
+procedure TFormTechneta.PeopleColorPanelClick(Sender: TObject);
 begin
   ColorDialog.Color := PeopleColorPanel.Color;
   if ColorDialog.Execute then
@@ -2269,29 +2269,29 @@ begin
   end;
 end;
 
-procedure TfrmTechnoneta.lblEMailClick(Sender: TObject);
+procedure TFormTechneta.lblEMailClick(Sender: TObject);
 begin
   ShellExecute(0, 'open', PChar('mailto:' + lblEMail.Caption), '', '', SW_SHOW);
 end;
 
-procedure TfrmTechnoneta.LblWebUrlClick(Sender: TObject);
+procedure TFormTechneta.LblWebUrlClick(Sender: TObject);
 begin
   ShellExecute(0, 'open', PChar(LblWebUrl.Caption), '', '', SW_SHOW);
 end;
 
-procedure TfrmTechnoneta.lblPhotoNameClick(Sender: TObject);
+procedure TFormTechneta.lblPhotoNameClick(Sender: TObject);
 begin
   ShellExecute(0, 'open', PChar(lblPhotoName.Caption), '', '', SW_SHOW);
 end;
 
-procedure TfrmTechnoneta.lblDemoNameClick(Sender: TObject);
+procedure TFormTechneta.lblDemoNameClick(Sender: TObject);
 begin
   ShellExecute(0, 'open', PChar(lblDemoName.Caption), '', '', SW_SHOW);
 end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.GlowUpDownClick(Sender: TObject; Button: TUDBtnType);
+procedure TFormTechneta.GlowUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   { if (Button = btNext) then
     (ptsFlashLocations.Size:=ptsFlashLocations.Size+1 ) else
@@ -2303,19 +2303,19 @@ end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
+procedure TFormTechneta.ptsSizeUpDownClick(Sender: TObject; Button: TUDBtnType);
 begin
   ptsFlashLocations.Size := ptsSizeUpDown.Position;
 end;
 
 // -------------------------------------------------------------------
 
-procedure TfrmTechnoneta.miSettingsClick(Sender: TObject);
+procedure TFormTechneta.miSettingsClick(Sender: TObject);
 begin
   // fOptions with TreeView and Pages
 end;
 
-procedure TfrmTechnoneta.miExitClick(Sender: TObject);
+procedure TFormTechneta.miExitClick(Sender: TObject);
 begin
   Close;
 end;

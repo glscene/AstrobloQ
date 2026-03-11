@@ -357,10 +357,10 @@ begin
   cbTypes.Items.Add('6: Science Partner [clrLime]');
   cbTypes.Items.Add('7: Sponsor [clrFlesh]');
   cbTypes.ItemIndex := 0;
-  frmTechnoneta.cbTypes.Clear;
-  // frmTexoneta.cbTypes.Items.Add(S);
-  frmTechnoneta.cbTypes.Items := cbTypes.Items; // copied items to main form
-  frmTechnoneta.cbTypes.ItemIndex := 0;
+  FormTechneta.cbTypes.Clear;
+  // FormTechneta.cbTypes.Items.Add(S);
+  FormTechneta.cbTypes.Items := cbTypes.Items; // copied items to main form
+  FormTechneta.cbTypes.ItemIndex := 0;
 end;
 
 procedure TFormLocations.SaveListBtnClick(Sender: TObject);

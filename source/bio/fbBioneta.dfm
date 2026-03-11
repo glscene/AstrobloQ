@@ -641,7 +641,7 @@ object FormBioneta: TFormBioneta
           Left = 559
           Top = 0
           Width = 27
-          Height = 22
+          Height = 13
           Caption = 'Kind='
         end
         object cboxThings: TComboBox
@@ -940,7 +940,7 @@ object FormBioneta: TFormBioneta
           Left = 205
           Top = 0
           Width = 36
-          Height = 22
+          Height = 13
           Caption = 'Control:'
           Color = clInactiveBorder
           ParentColor = False
@@ -959,7 +959,7 @@ object FormBioneta: TFormBioneta
           Left = 307
           Top = 0
           Width = 38
-          Height = 22
+          Height = 13
           Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1027,7 +1027,7 @@ object FormBioneta: TFormBioneta
           Left = 880
           Top = 0
           Width = 22
-          Height = 22
+          Height = 13
           Caption = 'Use:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1379,7 +1379,7 @@ object FormBioneta: TFormBioneta
           Left = 173
           Top = 0
           Width = 28
-          Height = 22
+          Height = 13
           Caption = 'Trails:'
           Color = clInactiveBorder
           ParentColor = False
@@ -2661,8 +2661,6 @@ object FormBioneta: TFormBioneta
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 1416
-    ExplicitHeight = 167
     object Image1: TImage
       Left = 144
       Top = 32
@@ -2724,7 +2722,7 @@ object FormBioneta: TFormBioneta
           Left = 0
           Top = 0
           Width = 39
-          Height = 22
+          Height = 13
           Caption = 'Camera:'
         end
         object tbCameraPlanet: TToolButton

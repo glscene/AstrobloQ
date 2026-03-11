@@ -114,7 +114,7 @@ procedure TFormPopulations.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropPopulations;
+  FormFirst.RealityForm.ManagerForm.DropPopulations;
 end;
 
 procedure TFormPopulations.btnRunClick(Sender: TObject);

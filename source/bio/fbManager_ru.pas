@@ -66,7 +66,7 @@ type
     FSpiritWindows: TSpiritList;
     FSpaceForm: TFormBioneta;
     FEventsForm: TFormEvents;
-    FListsForm: TfrmLists;
+    FListsForm: TFormLists;
     FPopulations: TFormPopulations;
     FHeightField: TFormHeightField;
     FHumidityMap: TFormHumidityMap;
@@ -74,7 +74,7 @@ type
   public
     property SpaceForm: TFormBioneta read FSpaceForm;
     property EventsForm: TFormEvents read FEventsForm;
-    property ListsForm: TfrmLists read FListsForm;
+    property ListsForm: TFormLists read FListsForm;
     property SpiritWindows: TSpiritList read FSpiritWindows;
     property Populations: TFormPopulations read FPopulations;
     property HeightField: TFormHeightField read FHeightField;
@@ -120,13 +120,13 @@ procedure TFormManager.FormCreate(Sender: TObject);
 begin
   FStarted := false;
 
-  frmFirst.Construction.AddEvent('Создание fEventsForm...');
+  FormFirst.Construction.AddEvent('Создание fEventsForm...');
   FEventsForm := TFormEvents.Create(self);
 
-  frmFirst.Construction.AddEvent('Создание SpiritList...');
+  FormFirst.Construction.AddEvent('Создание SpiritList...');
   FSpiritWindows := TSpiritList.Create(self, tbSpirits);
 
-  frmFirst.Construction.AddEvent('Создание f3DEnvironment...');
+  FormFirst.Construction.AddEvent('Создание f3DEnvironment...');
   FSpaceForm := TFormBioneta.Create(self);
 end;
 
@@ -134,9 +134,9 @@ procedure TFormManager.FormShow(Sender: TObject);
 begin
   panSpirits.Left := panSpirits.Left + 1;
 
-  if frmFirst.UserSettings.RememberView then
+  if FormFirst.UserSettings.RememberView then
   begin
-    if frmFirst.UserSettings.ViewAligned then
+    if FormFirst.UserSettings.ViewAligned then
     begin
       SpaceForm.Align := alClient;
       SpaceForm.tbStickyFit.Down := true;
@@ -145,8 +145,8 @@ begin
     begin
       SpaceForm.Align := alNone;
       SpaceForm.tbStickyFit.Down := false;
-      SpaceForm.Width := frmFirst.UserSettings.ViewSizeX;
-      SpaceForm.Height := frmFirst.UserSettings.ViewSizeY;
+      SpaceForm.Width := FormFirst.UserSettings.ViewSizeX;
+      SpaceForm.Height := FormFirst.UserSettings.ViewSizeY;
     end;
   end;
 
@@ -157,8 +157,8 @@ begin
   SpaceForm.Height := SpaceForm.Height + 1;
   SpaceForm.Height := SpaceForm.Height - 1;
 
-  if not fStarted and frmFirst.UserSettings.TipOfTheDay then
-    frmFirst.RealityForm.ShowTipOfTheDay;
+  if not fStarted and FormFirst.UserSettings.TipOfTheDay then
+    FormFirst.RealityForm.ShowTipOfTheDay;
   fStarted := true;
 end;
 
@@ -304,18 +304,18 @@ var
 begin
   if not Assigned(fListsForm) then
   begin
-    frmFirst.Construction.AddEvent('Создание fListForm...');
-    fListsForm := TfrmLists.Create(self);
+    FormFirst.Construction.AddEvent('Создание fListForm...');
+    fListsForm := TFormLists.Create(self);
     fListsForm.Reality := gReality;
   end;
 
   tbLists.Down := true;
   ListsForm.Show;
 
-  myMonitor := frmFirst.Monitors - 1;  // last monitor
+  myMonitor := FormFirst.Monitors - 1;  // last monitor
 
-  ListsForm.Left := frmFirst.Screen.Monitors[myMonitor].Left;
-  ListsForm.Top := frmFirst.Screen.Monitors[myMonitor].Top;
+  ListsForm.Left := FormFirst.Screen.Monitors[myMonitor].Left;
+  ListsForm.Top := FormFirst.Screen.Monitors[myMonitor].Top;
 end;
 
 procedure TFormManager.DropLists;
@@ -338,13 +338,13 @@ end;
 procedure TFormManager.PopConstruction;
 begin
   tbConstruction.Down := true;
-  frmFirst.Construction.Show;
+  FormFirst.Construction.Show;
 end;
 
 procedure TFormManager.DropConstruction;
 begin
   tbConstruction.Down := false;
-  frmFirst.Construction.Visible := false;
+  FormFirst.Construction.Visible := false;
 end;
 
 //------------------------ Lists ---------------------------------------
@@ -374,7 +374,7 @@ end;
 procedure TFormManager.tbTimeClick(Sender: TObject);
 begin
   tbTime.Down := true;
-  frmFirst.RealityForm.Show;
+  FormFirst.RealityForm.Show;
 end;
 
 procedure TFormManager.tbConstructionClick(Sender: TObject);
@@ -391,7 +391,7 @@ procedure TFormManager.PopPopulations;
 begin
   if not Assigned(fPopulations) then
   begin
-    frmFirst.Construction.AddEvent('Создание окна популяций...');
+    FormFirst.Construction.AddEvent('Создание окна популяций...');
     fPopulations := TFormPopulations.Create(self);
   end;
 
@@ -420,7 +420,7 @@ procedure TFormManager.PopHeightField;
 begin
   if not Assigned(FHeightField) then
   begin
-    frmFirst.Construction.AddEvent('Создание карты температуры...');
+    FormFirst.Construction.AddEvent('Создание карты температуры...');
     FHeightField := TFormHeightField.Create(self);
   end;
 
@@ -453,7 +453,7 @@ procedure TFormManager.PopHumidityMap;
 begin
   if not Assigned(fHumidityMap) then
   begin
-    frmFirst.Construction.AddEvent('Создание карты влажности...');
+    FormFirst.Construction.AddEvent('Создание карты влажности...');
     fHumidityMap := TFormHumidityMap.Create(self);
   end;
 
@@ -506,7 +506,7 @@ end;
 
 procedure TFormManager.Verify;
 begin
-  frmFirst.RealityForm.Show;
+  FormFirst.RealityForm.Show;
   BigRestore;
 end;
 

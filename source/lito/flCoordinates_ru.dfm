@@ -1,4 +1,4 @@
-object FormCoords: TFormCoords
+object frmCoordinates: TfrmCoordinates
   Left = 193
   Top = 108
   Caption = #1054#1089#1080' '#1082#1086#1086#1088#1076#1080#1085#1072#1090

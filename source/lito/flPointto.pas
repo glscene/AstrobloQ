@@ -27,7 +27,7 @@ uses
   GLS.SimpleNavigation;
 
 type
-  TFormPointto = class(TForm)
+  TfrmPointto = class(TForm)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -53,13 +53,13 @@ type
   end;
 
 var
-  FormPointto: TFormPointto;
+  frmPointto: TfrmPointto;
 
 implementation //------------------------------------------------------------
 
 {$R *.DFM}
 
-procedure TFormPointto.FormCreate(Sender: TObject);
+procedure TfrmPointto.FormCreate(Sender: TObject);
 begin
   DataDir := DataDir + 'map\';
   SetCurrentDir(DataDir);
@@ -69,7 +69,7 @@ begin
 
 end;
 
-procedure TFormPointto.GLCadencer1Progress(Sender: TObject; const deltaTime,
+procedure TfrmPointto.GLCadencer1Progress(Sender: TObject; const deltaTime,
   newTime: Double);
 begin
    // Make the blue sphere turn and ride a sin

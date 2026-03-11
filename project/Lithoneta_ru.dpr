@@ -15,8 +15,8 @@ uses
   Forms,
   Vcl.Themes,
   Vcl.Styles,
-  flLithoneta_ru in '..\source\lito\flLithoneta_ru.pas' {frmAstroScene},
-  flOptions_ru in '..\source\lito\flOptions_ru.pas' {frmOptions},
+  flLithoneta_ru in '..\source\lito\flLithoneta_ru.pas' {FormLithoneta},
+  flOptions_ru in '..\source\lito\flOptions_ru.pas' {FormOptions},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
@@ -27,13 +27,13 @@ uses
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
-  flMixTextures_ru in '..\source\lito\flMixTextures_ru.pas' {FormTexCombine},
+  flTexCombine_ru in '..\source\lito\flTexCombine_ru.pas' {frmTexCombine},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
   fmSettings_ru in '..\source\fmSettings_ru.pas' {FormSettings},
-  flCoordinates_ru in '..\source\lito\flCoordinates_ru.pas' {FormCoords},
-  flPointto_ru in '..\source\lito\flPointto_ru.pas' {FormPointto},
+  flCoordinates_ru in '..\source\lito\flCoordinates_ru.pas' {frmCoordinates},
+  flPointto_ru in '..\source\lito\flPointto_ru.pas' {frmPointto},
   Litho.Utils in '..\source\lito\Litho.Utils.pas';
 
 {$R *.res}
@@ -41,11 +41,11 @@ uses
 begin
   Application.Initialize;
  // TStyleManager.TrySetStyle('Windows10');
-  Application.CreateForm(TfrmAstroScene, frmAstroScene);
+  Application.CreateForm(TFormLithoneta, FormLithoneta);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TfrmOptions, frmOptions);
+  Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormSettings, FormSettings);
   Application.Run;

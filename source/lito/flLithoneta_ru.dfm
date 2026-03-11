@@ -1,4 +1,4 @@
-object frmAstroScene: TfrmAstroScene
+object FormLithoneta: TFormLithoneta
   Left = 412
   Top = 123
   Cursor = crHelp

@@ -1048,7 +1048,7 @@ begin
 
   SphereMode := true;
 
-  frmFirst.Construction.AddEvent('Загрузка файлов');
+  FormFirst.Construction.AddEvent('Загрузка файлов');
   LoadMaterialLibrary;
   LoadModels;
   GenerateTextureMap;
@@ -1058,13 +1058,13 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    frmFirst.Construction.AddEvent('Активация Bass');
+    FormFirst.Construction.AddEvent('Активация Bass');
     GLBass.Active := true;
     if not GLBass.Active then
-      frmFirst.Construction.AddEventFailure(' Нет поддержки звука!');
+      FormFirst.Construction.AddEventFailure(' Нет поддержки звука!');
   end;
   LoadSounds;
-  frmFirst.Construction.AddEvent('Генерация звуковой системы');
+  FormFirst.Construction.AddEvent('Генерация звуковой системы');
   GenerateSoundSystem(64);
 
   CleanGalaxy;
@@ -1339,7 +1339,7 @@ begin
       end;
   end;
 
-  frmFirst.Construction.AddEvent('Смена режима камеры = ' +
+  FormFirst.Construction.AddEvent('Смена режима камеры = ' +
     CameraModeString(CameraMode));
 end;
 
@@ -1667,7 +1667,7 @@ begin
 
   // switch to walking mode
   if isKeyDown(VK_SPACE) then
-    frmFirst.RealityForm.FlipOnOffSwitch;
+    FormFirst.RealityForm.FlipOnOffSwitch;
 
   // switch to walking mode
   if isKeyDown(VK_TAB) then
@@ -1986,7 +1986,7 @@ end;
 procedure TFormBioneta.LoadTexture(aTexName: string; aFile: string);
 begin
   // Loading aTexName texture from aFile...
-  frmFirst.Construction.AddEvent('Загрузка текстуры ' + aTexName +
+  FormFirst.Construction.AddEvent('Загрузка текстуры ' + aTexName +
     ' из файла: ' + aFile + '...');
   if FileExists(aFile) then
   begin
@@ -1994,7 +1994,7 @@ begin
       Material.FrontProperties.Emission.Color := clrGray40;
     // Material.FrontProperties.Emission.Color:=clrGray60;
     // done.
-    frmFirst.Construction.AddEventSuccess(' сделано.');
+    FormFirst.Construction.AddEventSuccess(' сделано.');
   end
   else
   begin
@@ -2002,14 +2002,14 @@ begin
       imgDefaultTexture.Picture.Bitmap) do
       Material.FrontProperties.Emission.Color := clrGray50;
     // not found.
-    frmFirst.Construction.AddEventFailure(' не найдено!');
+    FormFirst.Construction.AddEventFailure(' не найдено!');
   end;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadMaterialLibrary;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки материалов:');
+  FormFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки материалов:');
   LoadTexture('landtex', 'textures\alltex.bmp');
   LoadTexture('sun', 'textures\sunfire.bmp');
   LoadTexture('moon', 'textures\moonshine.bmp');
@@ -2025,22 +2025,22 @@ end;
 procedure TFormBioneta.LoadModel(aFreeForm: TGLFreeForm; aFile: string);
 begin
   // Loading model aFile...
-  frmFirst.Construction.AddEvent('Загрузка модели из файла: ' + aFile
+  FormFirst.Construction.AddEvent('Загрузка модели из файла: ' + aFile
     + '...');
   if FileExists(aFile) then
   begin
     aFreeForm.LoadFromFile(aFile);
-    frmFirst.Construction.AddEventSuccess(' сделано.');
+    FormFirst.Construction.AddEventSuccess(' сделано.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' не найдено!');
+    FormFirst.Construction.AddEventFailure(' не найдено!');
   aFreeForm.BuildSilhouetteConnectivityData;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadModels;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки моделей:');
+  FormFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки моделей:');
   LoadModel(AppleTreeModel, 'models\newtree.3ds');
   LoadModel(OrangeTreeModel, 'models\orangetree.3ds');
   LoadModel(AppleModel, 'models\fruit.3ds');
@@ -2098,14 +2098,14 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-// Load random stars or from catalog
+// Load random stars or from a catalog
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.AddStars;
 var
   X: Integer;
 begin
   // create grey stars
-  frmFirst.Construction.AddEvent('Добавление звёзд');
+  FormFirst.Construction.AddEvent('Добавление звёзд');
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2113,7 +2113,7 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  frmFirst.Construction.AddEventSuccess(' Сделано');
+  FormFirst.Construction.AddEventSuccess(' Сделано');
 end;
 
 // ----------------------------------------------------------------------------
@@ -2384,7 +2384,7 @@ begin
       if Shift = [ssRight] then
       begin
         ViewDestination.MoveX((mouse_x - X) / 16);
-        if frmFirst.UserSettings.InvertPlanet then
+        if FormFirst.UserSettings.InvertPlanet then
           ViewDestination.MoveYNoPoles((mouse_y - Y) / 16)
         else
           ViewDestination.MoveYNoPoles((Y - mouse_y) / 16);
@@ -2396,7 +2396,7 @@ begin
         begin
           ViewDestination.DirectionXY := ViewDestination.DirectionXY +
             (mouse_x - X) / 64;
-          if frmFirst.UserSettings.InvertMouse then
+          if FormFirst.UserSettings.InvertMouse then
             ViewDestination.DirectionH := ViewDestination.DirectionH +
               (mouse_y - Y) / 64
           else
@@ -2424,7 +2424,7 @@ begin
       begin
         ViewDestination.DirectionXY := ViewDestination.DirectionXY -
           (mouse_x - X) / 64;
-        if frmFirst.UserSettings.InvertMouse then
+        if FormFirst.UserSettings.InvertMouse then
           ViewDestination.DirectionH := ViewDestination.DirectionH +
             (mouse_y - Y) / 128
         else
@@ -2479,7 +2479,7 @@ var
   myInvert: single;
 begin
   myInvert := 1;
-  if frmFirst.UserSettings.InvertMouseWheel then
+  if FormFirst.UserSettings.InvertMouseWheel then
     myInvert := -1;
   case CameraMode of
     camPlanet, camSatellite:
@@ -2711,7 +2711,7 @@ begin
     exit;
   myMoon := TaiMoon(Environment.Things.NewThing(cMoon));
   ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
-  frmFirst.Construction.AddEvent('Добавлена луна');
+  FormFirst.Construction.AddEvent('Добавлена луна');
   LastAction('Added=moon');
 end;
 
@@ -2729,7 +2729,7 @@ begin
   mySun := TaiSun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
     ReportUserEvent('Added sun' + mySun.OneLineDisplay);
-  frmFirst.Construction.AddEvent('Добавлено солнце');
+  FormFirst.Construction.AddEvent('Добавлено солнце');
   LastAction('Added=sun');
 end;
 
@@ -2758,8 +2758,8 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.ReportUserEvent(aEvent: string);
 begin
-  frmFirst.RealityForm.ManagerForm.EventsForm.AddEvent
-    (frmFirst.RealityForm.Reality.Creator + ' -> ' + aEvent);
+  FormFirst.RealityForm.ManagerForm.EventsForm.AddEvent
+    (FormFirst.RealityForm.Reality.Creator + ' -> ' + aEvent);
 end;
 
 // ----------------------------------------------------------------------------
@@ -3099,7 +3099,7 @@ procedure TFormBioneta.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropSpace;
+  FormFirst.RealityForm.ManagerForm.DropSpace;
   if tbAVIMovie.Down then
   begin
     AVIRecorder.CloseAVIFile();
@@ -3745,19 +3745,19 @@ procedure TFormBioneta.BuildGalaxy;
 begin
   CameraMode := camPlanet;
 
-  // clear everything
-  frmFirst.Construction.AddEvent('Клининг галактики');
+  // очистить всё
+  FormFirst.Construction.AddEvent('Клининг галактики');
   CleanGalaxy;
 
   SphereMode := Environment.Space.Spherical;
   tbSpherical.Down := SphereMode;
 
-  // build planet
-  frmFirst.Construction.AddEvent('Создание планеты');
+  // создать планету
+  FormFirst.Construction.AddEvent('Создание планеты');
   BuildFromMap;
 
-  // build new things
-  frmFirst.Construction.AddEvent('Добавление объектов');
+  // создать новые объекты
+  FormFirst.Construction.AddEvent('Добавление объектов');
   CheckCradle;
 end;
 
@@ -4139,7 +4139,7 @@ begin
 
   DirectCamera(FrameRate / 30);
 
-  if not frmFirst.RealityForm.RealityClock.Enabled then
+  if not FormFirst.RealityForm.RealityClock.Enabled then
     CalculateCursorPosition;
 
   if PlanetCursor.Visible then
@@ -4338,7 +4338,7 @@ begin
   fgLandTex.MaterialName := PlanetModel.MaterialLibrary.Materials.
     Items[0].Name;
 
-  frmFirst.Construction.AddEvent('Planet.Map' + ': ' + 'Высота' + ' = ' +
+  FormFirst.Construction.AddEvent('Planet.Map' + ': ' + 'Высота' + ' = ' +
      IntToStr(Height) + 'Ширина' + ' = ' + IntToStr(Width));
 
   // height loop
@@ -4526,7 +4526,7 @@ begin
     end;
   end;
 
-  frmFirst.Construction.AddEvent('Planet.Mesh: ' + 'Треугольников' + ' = ' +
+  FormFirst.Construction.AddEvent('Planet.Mesh: ' + 'Треугольников' + ' = ' +
     IntToStr(PlanetMesh.TriangleCount) + 'Вершин' + ' = ' +
     IntToStr(PlanetMesh.Vertices.Count));
 
@@ -4535,14 +4535,14 @@ begin
   PlanetModel.NormalsOrientation := mnoInvert;
   PlanetModel.StructureChanged;
 
-  frmFirst.Construction.AddEvent('Planet.Freeform: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Planet.Freeform: Треугольников = ' +
     IntToStr(PlanetModel.MeshObjects.TriangleCount));
 
   // build the octree for raycastintersect
   PlanetModel.BuildOctree;
   PlanetModel.BuildSilhouetteConnectivityData;
   InvalidOctree := false;
-  frmFirst.Construction.AddEvent('Planet.BuildOctree: passed');
+  FormFirst.Construction.AddEvent('Planet.BuildOctree: passed');
 end;
 
 // ----------------------------------------------------------------------------
@@ -5485,10 +5485,10 @@ begin
     StickyFit
   else
     UnStickyFit;
-  frmFirst.UserSettings.ViewAligned := tbStickyFit.Down;
-  frmFirst.UserSettings.ViewSizeX := Width;
-  frmFirst.UserSettings.ViewSizeY := Height;
-  frmFirst.UserSettings.SaveToRegistry;
+  FormFirst.UserSettings.ViewAligned := tbStickyFit.Down;
+  FormFirst.UserSettings.ViewSizeX := Width;
+  FormFirst.UserSettings.ViewSizeY := Height;
+  FormFirst.UserSettings.SaveToRegistry;
 end;
 
 // ----------------------------------------------------------------------------
@@ -5521,7 +5521,7 @@ begin
   begin
     mySun := TaiSun(Environment.Things.NewThing(cSun));
     ReportUserEvent('Добавить солнце: ' + mySun.OneLineDisplay);
-    frmFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
+    FormFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
       (TaiSatellite(mySun));
   end
   else
@@ -5540,7 +5540,7 @@ begin
     myMoon := TaiMoon(Environment.Things.NewThing(cMoon));
 
   ReportUserEvent('Добавить луну: ' + myMoon.OneLineDisplay);
-  frmFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
+  FormFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
     (TaiSatellite(myMoon));
 end;
 
@@ -5728,7 +5728,7 @@ begin
     end;
   end;
 
-  frmFirst.Construction.AddEvent('Water.Mesh: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Water.Mesh: Треугольников = ' +
     IntToStr(WaterMesh.TriangleCount) + ' Вершин = ' +
     IntToStr(WaterMesh.Vertices.Count));
 
@@ -5737,7 +5737,7 @@ begin
   WaterBubble.NormalsOrientation := mnoInvert;
   WaterBubble.StructureChanged;
 
-  frmFirst.Construction.AddEvent('Water.Freeform: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Water.Freeform: Треугольников = ' +
     IntToStr(WaterBubble.MeshObjects.TriangleCount));
 
   for Longitude := 0 to (Width - 1) do
@@ -5962,7 +5962,7 @@ begin
   // add mesh to freeform (a freeform holds meshes)
   Atmosphere.MeshObjects.Add(Mesh);
   Atmosphere.StructureChanged;
-  frmFirst.Construction.AddEvent('Atmosphere.Freeform: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Atmosphere.Freeform: Треугольников = ' +
     IntToStr(Atmosphere.MeshObjects.TriangleCount));
 end;
 
@@ -5997,7 +5997,7 @@ begin
   if not GLBass.Active then
     exit;
 
-  frmFirst.Construction.AddEvent('Генерация звуковой системы');
+  FormFirst.Construction.AddEvent('Генерация звуковой системы');
   for i := 0 to aNumberOfSpeakers - 1 do
   begin
     myCrossover := Speakers.NewCrossover;
@@ -6010,7 +6010,7 @@ begin
 
     myCrossover.Visuals.Add(mySpeaker);
 
-    frmFirst.Construction.AddEventSuccess(' ' + IntToStr(i));
+    FormFirst.Construction.AddEventSuccess(' ' + IntToStr(i));
   end;
 
   Speakers.SetFirstActive;
@@ -6049,7 +6049,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadSounds;
 begin
-  frmFirst.Construction.AddUnderlinedEvent('Загрузка звуков');
+  FormFirst.Construction.AddUnderlinedEvent('Загрузка звуков');
 
   LoadSound('audio\electronicping.wav'); // 0
   LoadSound('audio\fire.wav'); // 1
@@ -6086,15 +6086,15 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadSound(aFileName: string);
 begin
-  frmFirst.Construction.AddEvent('Загрузка звуков из файла ' + aFileName
+  FormFirst.Construction.AddEvent('Загрузка звуков из файла ' + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
     GLSoundLibrary.Samples.Add.LoadFromFile(aFileName);
-    frmFirst.Construction.AddEventSuccess(' выполнено.');
+    FormFirst.Construction.AddEventSuccess(' выполнено.');
   end
   else
-    frmFirst.Construction.AddEventFailure(' не найдено!');
+    FormFirst.Construction.AddEventFailure(' не найдено!');
 end;
 
 procedure TFormBioneta.tbPriorTargetClick(Sender: TObject);
@@ -6867,12 +6867,12 @@ begin
   if not tbTrackLines.Down then
   begin
     TrackLines.Visible := false;
-    frmFirst.Construction.AddEvent('Turned track lines off');
+    FormFirst.Construction.AddEvent('Turned track lines off');
   end
   else if (CameraMode = camTarget) then
   begin
     TrackLines.Visible := true;
-    frmFirst.Construction.AddEvent('Turned track lines on');
+    FormFirst.Construction.AddEvent('Turned track lines on');
   end;
 end;
 
@@ -6922,12 +6922,12 @@ begin
   begin
     PredictLines.Visible := false;
     PredictLines.Nodes.Clear;
-    frmFirst.Construction.AddEvent('Turned predict lines off');
+    FormFirst.Construction.AddEvent('Turned predict lines off');
   end
   else if (CameraMode = camTarget) then
   begin
     PredictLines.Visible := true;
-    frmFirst.Construction.AddEvent('Turned predict lines on');
+    FormFirst.Construction.AddEvent('Turned predict lines on');
   end;
 end;
 
@@ -7643,7 +7643,7 @@ procedure TFormBioneta.PopUpTargetWindow;
 begin
   if TargetToFollow <> nil then
   begin
-    frmFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit
+    FormFirst.RealityForm.ManagerForm.SpiritWindows.AddSpirit
       (TargetToFollow.Data, true);
   end;
 end;
@@ -7712,8 +7712,8 @@ begin
     mySun.Position.SetPosition(gHalfWorldWidth, gHalfWorldHeight, 420);
     mySun.Position.Velocity.Zero;
     mySun.Position.Acceleration.Zero;
-    ReportUserEvent('Added Frozen Sun: ' + mySun.OneLineDisplay);
-    frmFirst.Construction.AddEvent('Added fake sun');
+    ReportUserEvent('Добавить остывшее Солнце: ' + mySun.OneLineDisplay);
+    FormFirst.Construction.AddEvent('Added fake sun');
     LastAction('Added=fakesun');
   end;
 end;
@@ -7943,9 +7943,9 @@ begin
     panCamera.Height := 28 + 28;
     Splitter3D.Top := 250;
   end;
-  frmFirst.UserSettings.ViewSizeX := Width;
-  frmFirst.UserSettings.ViewSizeY := Height;
-  frmFirst.UserSettings.SaveToRegistry;
+  FormFirst.UserSettings.ViewSizeX := Width;
+  FormFirst.UserSettings.ViewSizeY := Height;
+  FormFirst.UserSettings.SaveToRegistry;
 end;
 
 // ----------------------------------------------------------------------------
@@ -8683,12 +8683,12 @@ begin
   with GLShadowVolume do
     if tbVolumes.Down then
     begin
-      frmFirst.Construction.AddEvent('Turned shadow volumes on');
+      FormFirst.Construction.AddEvent('Turned shadow volumes on');
       Options := Options + [svoShowVolumes];
     end
     else
     begin
-      frmFirst.Construction.AddEvent('Turned shadow volumes off');
+      FormFirst.Construction.AddEvent('Turned shadow volumes off');
       Options := Options - [svoShowVolumes];
     end;
 end;
@@ -8697,12 +8697,12 @@ procedure TFormBioneta.SetShadowMode(aMode: Boolean);
 begin
   if not aMode then
   begin
-    frmFirst.Construction.AddEvent('Отключить тени');
+    FormFirst.Construction.AddEvent('Отключить тени');
     GLShadowVolume.Mode := svmOff;
   end
   else
   begin
-    frmFirst.Construction.AddEvent('Включить тени');
+    FormFirst.Construction.AddEvent('Включить тени');
     GLShadowVolume.Mode := svmDarkening;
   end;
   tbShadows.Down := Environment.Shadows;
@@ -8712,7 +8712,7 @@ procedure TFormBioneta.tbComplexifyClick(Sender: TObject);
 begin
   if tbComplexify.Down then
   begin
-    frmFirst.Construction.AddEvent('Turned multicast shadows on');
+    FormFirst.Construction.AddEvent('Turned multicast shadows on');
     ForestCube.MoveTo(GLShadowVolume);
     FruitCube.MoveTo(GLShadowVolume);
     ProxyCube.MoveTo(GLShadowVolume);
@@ -8720,7 +8720,7 @@ begin
   end
   else
   begin
-    frmFirst.Construction.AddEvent('Turned multicast shadows off');
+    FormFirst.Construction.AddEvent('Turned multicast shadows off');
     ForestCube.MoveTo(GalaxyCube);
     FruitCube.MoveTo(GalaxyCube);
     ProxyCube.MoveTo(GalaxyCube);
@@ -8749,15 +8749,15 @@ end;
 
 procedure TFormBioneta.StatusBarClick(Sender: TObject);
 begin
-  frmFirst.RealityForm.BringToFront;
-  frmFirst.RealityForm.ManagerForm.BringToFront;
+  FormFirst.RealityForm.BringToFront;
+  FormFirst.RealityForm.ManagerForm.BringToFront;
   BringToFront;
 end;
 
 procedure TFormBioneta.tbRestoreParentClick(Sender: TObject);
 begin
-  frmFirst.RealityForm.BringToFront;
-  frmFirst.RealityForm.ManagerForm.BringToFront;
+  FormFirst.RealityForm.BringToFront;
+  FormFirst.RealityForm.ManagerForm.BringToFront;
   BringToFront;
 end;
 
@@ -8998,9 +8998,9 @@ end;
 procedure TFormBioneta.tbShowFireClick(Sender: TObject);
 begin
   if tbShowFire.Down then
-    frmFirst.Construction.AddEvent('Disabled fireFX')
+    FormFirst.Construction.AddEvent('Disabled fireFX')
   else
-    frmFirst.Construction.AddEvent('Enabled fireFX.');
+    FormFirst.Construction.AddEvent('Enabled fireFX.');
   tbShowFire.Enabled := false;
 end;
 
@@ -9157,8 +9157,8 @@ end;
 //-------------------------------------------------------------------
 procedure TFormBioneta.tbRestore2Click(Sender: TObject);
 begin
-  frmFirst.RealityForm.BringToFront;
-  frmFirst.RealityForm.ManagerForm.BringToFront;
+  FormFirst.RealityForm.BringToFront;
+  FormFirst.RealityForm.ManagerForm.BringToFront;
   BringToFront;
 end;
 

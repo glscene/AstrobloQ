@@ -84,7 +84,7 @@ type
 var
   FormHeightField: TFormHeightField;
 
-implementation //--------------------------------------------------------------
+implementation //=============================================================
 
 uses
   fbFirstForm_ru,
@@ -93,6 +93,7 @@ uses
 
 {$R *.dfm}
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.FormCreate(Sender: TObject);
 begin
   HeatField.OnGetHeight := HeatFormula;
@@ -116,6 +117,7 @@ begin
   YAxis.Position.Y := (gSpace.HeightSingle-1)/2;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.FormShow(Sender: TObject);
 begin
   GLSceneViewer.Invalidate;
@@ -124,23 +126,27 @@ begin
   GLSceneViewer.Buffer.Render;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.Advance;
 begin
   HeatField.StructureChanged;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
   CanClose := false;
-  frmFirst.RealityForm.ManagerForm.DropHeightField;
+  FormFirst.RealityForm.ManagerForm.DropHeightField;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.btnRunClick(Sender: TObject);
 begin
   Close;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.HeatFormula(const x, y: Single; var z: Single;
   var color: TGLColorVector; var texPoint: TTexPoint);
 var
@@ -155,6 +161,7 @@ begin
   color.W := 0.01*tbAlpha.Position;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.HumidityFormula(const x, y: Single; var z: Single;
   var color: TGLColorVector; var texPoint: TTexPoint);
 var
@@ -169,6 +176,7 @@ begin
   color.W := 0.01*tbAlpha.Position;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.GLSceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -184,6 +192,7 @@ begin
    mx := x; my := y;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.FormMouseWheel(Sender: TObject;
   Shift: TShiftState; WheelDelta: Integer; MousePos: TPoint;
   var Handled: Boolean);
@@ -191,12 +200,14 @@ begin
 	Camera.AdjustDistanceToTarget(Power(1.1, WheelDelta/-256));
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.cbGridClick(Sender: TObject);
 begin
   Grid.Visible := cbGrid.Checked;
   GLSceneViewer.SetFocus;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.cbAxisClick(Sender: TObject);
 begin
   XAxis.Visible := cbAxis.Checked;
@@ -204,6 +215,7 @@ begin
   GLSceneViewer.SetFocus;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.cbColorModeChange(Sender: TObject);
 begin
   tbAlpha.Enabled := true;
@@ -231,15 +243,18 @@ begin
   GLSceneViewer.SetFocus;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.cbLightingClick(Sender: TObject);
 begin
   Light.Shining := cbLighting.Checked;
   GLSceneViewer.SetFocus;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormHeightField.tbAlphaChange(Sender: TObject);
 begin
   GLSceneViewer.SetFocus;
 end;
 
+//-----------------------------------------------------------------------------
 end.

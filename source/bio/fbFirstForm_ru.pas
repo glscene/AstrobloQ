@@ -24,7 +24,7 @@ uses
   fbNewReality_ru;
 
 type
-  TfrmFirst = class(TForm)
+  TFormFirst = class(TForm)
     ShowTimer: TTimer;
     imgSplash: TImage;
     procedure FormShow(Sender: TObject);
@@ -38,14 +38,14 @@ type
     FMonitors: integer;
     FScreen: TScreen;
     FUserSettings: TaiUserSettings;
-    FConstruction: TfrmConstruction;
+    FConstruction: TFormConstruction;
     FErrorCount: integer;
   public
     property Screen: TScreen read FScreen;
     property DetectedMonitors: integer read FDetectedMonitors;
     property Monitors: integer read FMonitors write FMonitors;
     property UserSettings: TaiUserSettings read FUserSettings;
-    property Construction: TfrmConstruction read FConstruction;
+    property Construction: TFormConstruction read FConstruction;
     property RealityForm: TFormReality read FRealityForm;
     function MultipleMonitors: boolean;
     procedure AppException(Sender: TObject; E: Exception);
@@ -54,9 +54,9 @@ type
   end;
 
 var
-  frmFirst: TfrmFirst;
+  FormFirst: TFormFirst;
 
-implementation //--------------------------------------------------------------
+implementation //==============================================================
 
 uses
   fbIntro_ru,
@@ -68,13 +68,14 @@ uses
 
 {$R *.DFM}
 
-procedure TfrmFirst.FormCreate(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormFirst.FormCreate(Sender: TObject);
 begin
   FErrorCount := 0;
   Application.OnException := Self.AppException;
   SetCurrentDir(ExtractFilePath(ParamStr(0)));
   gVersion := 960;
-  FConstruction := TfrmConstruction.Create(Self);
+  FConstruction := TFormConstruction.Create(Self);
   Width := imgSplash.Picture.Bitmap.Width;
   Height := imgSplash.Picture.Bitmap.Height;
   SetWindowRgn(Handle, BitmapToRegion(imgSplash.Picture.Bitmap.Handle, clBlack, 10), True);
@@ -99,7 +100,8 @@ begin
   FRealityForm := TFormReality.Create(Self);
 end;
 
-procedure TfrmFirst.FormDestroy(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormFirst.FormDestroy(Sender: TObject);
 begin
   Construction.AddEvent('Сохранение установок...');
   UserSettings.SaveToRegistry;
@@ -112,7 +114,8 @@ begin
   FConstruction.Free;
 end;
 
-procedure TfrmFirst.FormShow(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormFirst.FormShow(Sender: TObject);
 var
   myFileName: string;
   myLoadTemp: boolean;
@@ -172,7 +175,8 @@ begin
   ShowTimer.Enabled := True;
 end;
 
-procedure TfrmFirst.ShowIntro;
+//----------------------------------------------------------------------------
+procedure TFormFirst.ShowIntro;
 var
   FormIntro: TFormIntro;
 begin
@@ -182,7 +186,8 @@ begin
   FormIntro.Free;
 end;
 
-procedure TfrmFirst.ShowSplash;
+//----------------------------------------------------------------------------
+procedure TFormFirst.ShowSplash;
 var
   mySplash: TFormSplash;
 begin
@@ -192,22 +197,26 @@ begin
   mySplash.Free;
 end;
 
-function TfrmFirst.MultipleMonitors: boolean;
+//----------------------------------------------------------------------------
+function TFormFirst.MultipleMonitors: boolean;
 begin
   result := Monitors > 1;
 end;
 
-procedure TfrmFirst.ShowTimerTimer(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormFirst.ShowTimerTimer(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmFirst.FormPaint(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormFirst.FormPaint(Sender: TObject);
 begin
   Canvas.Draw(0, 0, imgSplash.Picture.Bitmap);
 end;
 
-procedure TfrmFirst.AppException(Sender: TObject; E: Exception);
+//----------------------------------------------------------------------------
+procedure TFormFirst.AppException(Sender: TObject; E: Exception);
 var
   myFormError: TFormError;
   myAbout: TAboutInfo;
@@ -253,4 +262,5 @@ begin
   RealityForm.Close;
 end;
 
+//----------------------------------------------------------------------------
 end.

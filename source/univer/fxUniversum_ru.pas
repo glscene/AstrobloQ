@@ -35,7 +35,7 @@ uses
   ;
 
 type
-  TfrmUniversum = class(TFormX)
+  TFormUniverse = class(TFormX)
     MainMenu: TMainMenu;
     miFile: TMenuItem;
     miOpen: TMenuItem;
@@ -84,7 +84,7 @@ type
   end;
 
 var
-  frmUniversum: TfrmUniversum;
+  FormUniverse: TFormUniverse;
 
 implementation //==============================================================
 
@@ -94,7 +94,7 @@ uses
   fxScatterPlot_ru;
 
 //-----------------------------------------------------------------------------
-procedure TfrmUniversum.frmCreate(Sender: TObject);
+procedure TFormUniverse.frmCreate(Sender: TObject);
 var
   I: Integer;
 begin
@@ -111,14 +111,14 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TfrmUniversum.miSettingsClick(Sender: TObject);
+procedure TFormUniverse.miSettingsClick(Sender: TObject);
 begin
   inherited;
   frmSettings.Show;
 end;
 
 //--------------------------------------------------------------------------
-procedure TfrmUniversum.miOpenClick(Sender: TObject);
+procedure TFormUniverse.miOpenClick(Sender: TObject);
 var
   I, J: Integer;
 begin
@@ -146,7 +146,7 @@ end;
 
 
 //-----------------------------------------------------------------------------
-procedure TfrmUniversum.miStarsysGenClick(Sender: TObject);
+procedure TFormUniverse.miStarsysGenClick(Sender: TObject);
 begin
   inherited;
   // Load astrogenerator and exoplanet constructor
@@ -158,7 +158,7 @@ begin
     end;
 end;
 
-procedure TfrmUniversum.miVolumeRenderClick(Sender: TObject);
+procedure TFormUniverse.miVolumeRenderClick(Sender: TObject);
 begin
   with TFormTexture3D.Create(Self) do
     try
@@ -169,7 +169,7 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TfrmUniversum.miScatterStarsClick(Sender: TObject);
+procedure TFormUniverse.miScatterStarsClick(Sender: TObject);
 begin
   with TFormScatterPlot.Create(Self) do
     try
@@ -182,13 +182,13 @@ end;
 
 
 //---------------------------------------------------------------------------
-procedure TfrmUniversum.miWikiClick(Sender: TObject);
+procedure TFormUniverse.miWikiClick(Sender: TObject);
 begin
   //
 end;
 
 //--------------------------------------------------------------------------
-procedure TfrmUniversum.miAboutClick(Sender: TObject);
+procedure TFormUniverse.miAboutClick(Sender: TObject);
 begin
   inherited;
   FrmAbout := TFrmAbout.Create(Application);
@@ -197,7 +197,7 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TfrmUniversum.miExitClick(Sender: TObject);
+procedure TFormUniverse.miExitClick(Sender: TObject);
 begin
   inherited;
   Close;

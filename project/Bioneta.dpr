@@ -49,13 +49,13 @@ uses
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
   fbBioneta in '..\source\bio\fbBioneta.pas' {FormBioneta},
   fbAbout in '..\source\bio\fbAbout.pas' {FormAbout},
-  fbConstruction in '..\source\bio\fbConstruction.pas' {frmConstruction},
+  fbConstruction in '..\source\bio\fbConstruction.pas' {FormConstruction},
   fbCreatingGalaxy in '..\source\bio\fbCreatingGalaxy.pas' {FormCreatingGalaxy},
   fbEditLine in '..\source\bio\fbEditLine.pas' {FormEditLine},
   fbEvents in '..\source\bio\fbEvents.pas' {FormEvents},
   fbIntro in '..\source\bio\fbIntro.pas' {FormIntro},
   fbKeyboard in '..\source\bio\fbKeyboard.pas' {FormKeyboard},
-  fbLists in '..\source\bio\fbLists.pas' {frmLists},
+  fbLists in '..\source\bio\fbLists.pas' {FormLists},
   fbManager in '..\source\bio\fbManager.pas' {FormManager},
   fbMaximums in '..\source\bio\fbMaximums.pas' {FormMaximums},
   fbNewReality in '..\source\bio\fbNewReality.pas' {FormNewReality},
@@ -65,7 +65,7 @@ uses
   fbOptions in '..\source\bio\fbOptions.pas' {FormOptions},
   fbSpirit in '..\source\bio\fbSpirit.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm in '..\source\bio\fbFirstForm.pas' {frmFirst},
+  fbFirstForm in '..\source\bio\fbFirstForm.pas' {FormFirst},
   vSpiritManager in '..\source\bio\vSpiritManager.pas',
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
   fbPopulations in '..\source\bio\fbPopulations.pas' {FormPopulations},
@@ -89,10 +89,10 @@ uses
 begin
   Application.Initialize;
   Application.Title := 'Bioneta';
-  Application.CreateForm(TfrmFirst, frmFirst);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TfrmImages, frmImages);
-  Application.CreateForm(TfrmConstruction, frmConstruction);
-  Application.CreateForm(TfrmLists, frmLists);
+  Application.CreateForm(TFormConstruction, FormConstruction);
+  Application.CreateForm(TFormLists, FormLists);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.

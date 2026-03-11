@@ -158,7 +158,7 @@
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\tech\ftTechneta.pas">
-            <Form>frmTechnoneta</Form>
+            <Form>FormTechneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\tech\ftLocations.pas">

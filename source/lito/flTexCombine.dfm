@@ -1,7 +1,7 @@
-object FormTexCombine: TFormTexCombine
+object frmTexCombine: TfrmTexCombine
   Left = 117
   Top = 103
-  Caption = #1052#1080#1082#1096#1077#1088' '#1090#1077#1082#1089#1090#1091#1088
+  Caption = 'Texture Combine'
   ClientHeight = 422
   ClientWidth = 589
   Color = clBtnFace
@@ -30,9 +30,9 @@ object FormTexCombine: TFormTexCombine
   object Label1: TLabel
     Left = 7
     Top = 15
-    Width = 77
+    Width = 68
     Height = 19
-    Caption = #1058#1077#1082#1089#1090#1091#1088#1099
+    Caption = 'Textures'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -17

@@ -30,7 +30,7 @@ uses
   ;
 
 type
-  TFormPointto = class(TFormFirst)
+  TfrmPointto = class(TFormFirst)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -56,13 +56,13 @@ type
   end;
 
 var
-  FormPointto: TFormPointto;
+  frmPointto: TfrmPointto;
 
 implementation //==============================================================
 
 {$R *.DFM}
 
-procedure TFormPointto.FormCreate(Sender: TObject);
+procedure TfrmPointto.FormCreate(Sender: TObject);
 begin
   DataDir := ExtractFilePath(ParamStr(0)) + 'data\';;
   DataDir := DataDir + 'map\';
@@ -73,7 +73,7 @@ begin
 
 end;
 
-procedure TFormPointto.GLCadencer1Progress(Sender: TObject; const deltaTime,
+procedure TfrmPointto.GLCadencer1Progress(Sender: TObject; const deltaTime,
   newTime: Double);
 begin
    // Make the blue sphere turn and ride a sin

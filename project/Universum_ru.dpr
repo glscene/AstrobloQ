@@ -3,7 +3,7 @@ program Universum_ru;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxUniversum_ru in '..\source\univer\fxUniversum_ru.pas' {frmUniversum},
+  fxUniversum_ru in '..\source\univer\fxUniversum_ru.pas' {FormUniverse},
   fxSettings_ru in '..\source\univer\fxSettings_ru.pas' {frmSettings},
   fxAbout_ru in '..\source\univer\fxAbout_ru.pas' {FrmAbout},
   fxAstrogen_ru in '..\source\univer\fxAstrogen_ru.pas' {FormAstrogen},
@@ -26,7 +26,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmUniversum, frmUniversum);
+  Application.CreateForm(TFormUniverse, FormUniverse);
   Application.CreateForm(TfrmSettings, frmSettings);
   Application.Run;
 end.

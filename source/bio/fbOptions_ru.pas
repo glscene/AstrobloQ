@@ -101,9 +101,9 @@ begin
   UserSettings.SplashExit := cbSplashExit.Checked;
   UserSettings.SaveToRegistry;
   if UserSettings.SplashExit then
-    frmFirst.ShowTimer.Interval := 1500
+    FormFirst.ShowTimer.Interval := 1500
   else
-    frmFirst.ShowTimer.Interval := 1;
+    FormFirst.ShowTimer.Interval := 1;
 end;
 
 procedure TFormOptions.cbInvertMouseClick(Sender: TObject);
@@ -146,7 +146,7 @@ procedure TFormOptions.cbAdvancedModeClick(Sender: TObject);
 begin
   UserSettings.AdvancedMode := cbAdvancedMode.Checked;
   UserSettings.SaveToRegistry;
-  frmFirst.RealityForm.RefreshInterface;
+  FormFirst.RealityForm.RefreshInterface;
 end;
 
 end.

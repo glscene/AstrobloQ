@@ -1,4 +1,4 @@
-unit flMixTextures;
+unit flTexCombine;
 
 interface
 
@@ -27,7 +27,7 @@ uses
   GLS.SimpleNavigation;
 
 type
-  TFormTexCombine = class(TForm)
+  TfrmTexCombine = class(TForm)
     GLScene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Image1: TImage;
@@ -61,13 +61,13 @@ type
   end;
 
 var
-  FormTexCombine: TFormTexCombine;
+  frmTexCombine: TfrmTexCombine;
 
 implementation //------------------------------------------------------------
 
 {$R *.dfm}
 
-procedure TFormTexCombine.FormCreate(Sender: TObject);
+procedure TfrmTexCombine.FormCreate(Sender: TObject);
 begin
   // load the textures
   SetCurrentDir(DataPath + '\map');
@@ -90,7 +90,7 @@ begin
   Application.HintHidePause := 30000;
 end;
 
-procedure TFormTexCombine.BUApplyClick(Sender: TObject);
+procedure TfrmTexCombine.BUApplyClick(Sender: TObject);
 begin
   // Apply new combiner code
   // Depending on shader and hardware, errors may be triggered during render
@@ -100,7 +100,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormTexCombine.SceneViewerPostRender(Sender: TObject);
+procedure TfrmTexCombine.SceneViewerPostRender(Sender: TObject);
 begin
   // disable whatever texture units are not supported by the local hardware
   var n: integer := SceneViewer.Buffer.LimitOf[limNbTextureUnits];
@@ -111,7 +111,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormTexCombine.CBTex0Click(Sender: TObject);
+procedure TfrmTexCombine.CBTex0Click(Sender: TObject);
 var
   libMat: TGLLibMaterial;
 begin
@@ -124,7 +124,7 @@ end;
 
 //-----------------------------------------------------------------
 
-procedure TFormTexCombine.PAPrimaryClick(Sender: TObject);
+procedure TfrmTexCombine.PAPrimaryClick(Sender: TObject);
 begin
   // Allow choosing the primary color
   ColorDialog.Color := PAPrimary.Color;
