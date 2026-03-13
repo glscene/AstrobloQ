@@ -32,6 +32,7 @@ inherited frmParadox: TfrmParadox
     Caption = 'PanelFP'
     ShowCaption = False
     TabOrder = 1
+    ExplicitHeight = 725
     object tvSolutions: TTreeView
       Left = 1
       Top = 37
@@ -253,9 +254,7 @@ inherited frmParadox: TfrmParadox
         00FFFFFFFF0000000000000000000000000001214300360035002E0020001804
         34045104420420003D0430043F044004300432043B0435043D043D0430044F04
         20003F0430043D0441043F04350440043C0438044F04}
-      ExplicitTop = 42
-      ExplicitWidth = 543
-      ExplicitHeight = 707
+      ExplicitHeight = 687
     end
     object StaticText1: TStaticText
       Left = 1
@@ -276,7 +275,6 @@ inherited frmParadox: TfrmParadox
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitWidth = 102
     end
   end
   object glsViewer: TGLSceneViewer

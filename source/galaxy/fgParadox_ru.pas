@@ -15,9 +15,14 @@ uses
   Vcl.ComCtrls,
   Vcl.ExtCtrls,
   Vcl.VirtualImage,
+  Vcl.Imaging.jpeg,
+  Vcl.StdCtrls,
 
   dmImages,
-  fmFormFirst, Vcl.Imaging.jpeg, Vcl.StdCtrls, GLS.SceneViewer, GLS.BaseClasses,
+  fmFormFirst,
+
+  GLS.SceneViewer,
+  GLS.BaseClasses,
   GLS.Scene;
 
 type
