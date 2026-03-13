@@ -20,6 +20,7 @@ uses
 
   dmImages,
   fmFormFirst,
+  fgSolving_ru,
 
   GLS.SceneViewer,
   GLS.BaseClasses,
@@ -31,8 +32,7 @@ type
     PanelFP: TPanel;
     tvSolutions: TTreeView;
     StaticText1: TStaticText;
-    GLScene: TGLScene;
-    glsViewer: TGLSceneViewer;
+    PanelScene: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tvSolutionsClick(Sender: TObject);
@@ -56,7 +56,8 @@ begin
  /// tvScenariosFP.LoadFromFile(FileName);
 ///  VirtualImageFP.ImageCollection.UnitName.LowerCase(FileName);
   tvSolutions.FullExpand(); // раскрываем все узлы дерева просмотра
-  tvSolutions.Select(tvSolutions.Items[1]);  // узел по умолчанию
+  tvSolutions.Select(tvSolutions.Items[0]);  // узел по умолчанию
+  tvSolutionsClick(Sender);
 end;
 
 //-----------------------------------------------------------------------------
@@ -72,7 +73,36 @@ end;
 procedure TfrmParadox.tvSolutionsClick(Sender: TObject);
 begin
   inherited;
-  ///
+  /// tvSolutions.Items[0].DropHighlighted := False;
+  case tvSolutions.Selected.Index of
+    0: // Уникальность
+      begin // Терранеты редки
+        frmSolving := TfrmSolving.Create(frmParadox);
+        frmSolving.Parent := PanelScene; //frmParadox;
+        frmSolving.Show;
+        frmSolving.BorderStyle := bsNone;
+        frmSolving.Align := alClient;
+      end;
+(*
+    1:
+      begin //
+        frmSolving := TfrmSolving.Create(frmParadox);
+        frmSolving.Parent := frmParadox;
+        frmSolving.Align := alClient;
+        frmSolving.BorderStyle := bsNone;
+        frmSolving.Show;
+      end;
+    2:
+      begin //
+        frmSolving := TfrmSolving.Create(frmParadox);
+        frmSolving.Parent := frmParadox;
+        frmSolving.Align := alClient;
+        frmSolving.BorderStyle := bsNone;
+        frmSolving.Show;
+      end;
+*)
+  end;
+  //...
 end;
 
 end.

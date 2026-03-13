@@ -171,6 +171,10 @@
             <Form>frmStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgSolving_ru.pas">
+            <Form>frmSolving</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
