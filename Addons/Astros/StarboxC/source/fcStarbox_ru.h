@@ -97,6 +97,8 @@ __published: // IDE-managed Components
 	TNumberBox *nbOn;
 	TLabel *Label1;
 	TLabel *Label2;
+	TMenuItem *N3;
+	TMenuItem *miAbout;
 
 	void __fastcall FormMouseWheel(TObject *Sender, TShiftState Shift,
 		int WheelDelta, TPoint &MousePos, bool &Handled);
