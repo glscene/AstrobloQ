@@ -28,8 +28,6 @@ type
     PageControl: TPageControl;
     tsDevelopers: TTabSheet;
     tsTools: TTabSheet;
-    ButtonAstrobloQ: TSpeedButton;
-    OGLImage: TImage;
     GLSImage: TImage;
     tsLitosfera: TTabSheet;
     tsBiosphere: TTabSheet;
@@ -50,12 +48,11 @@ type
     PanelGalaktika: TPanel;
     PanelUniverse: TPanel;
     PanelBiosfera: TPanel;
-    procedure ImageGLSClick(Sender: TObject);
-    procedure GLSImageClick(Sender: TObject);
-    procedure OGLImageClick(Sender: TObject);
-    procedure ButtonAstrobloQClick(Sender: TObject);
-    procedure ImageGalaxyClick(Sender: TObject);
+    AGCImage: TImage;
     procedure FormCreate(Sender: TObject);
+    procedure AGCImageClick(Sender: TObject);
+    procedure GLSImageClick(Sender: TObject);
+    procedure PanelAstrobloQDblClick(Sender: TObject);
   private
   public
   end;
@@ -67,40 +64,35 @@ implementation //==============================================================
 
 {$R *.dfm}
 
-procedure TfrmAbout.ButtonAstrobloQClick(Sender: TObject);
-begin
-  ShellExecute(0, 'open',
-    'https://gitverse.ru/glscene/AstrobloQ', '', '', SW_SHOW);
-end;
-
+//-----------------------------------------------------------------------------
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
   inherited;
   //
 end;
 
+//-----------------------------------------------------------------------------
+procedure TfrmAbout.PanelAstrobloQDblClick(Sender: TObject);
+begin
+  ShellExecute(0, 'open',
+    'https://gitverse.ru/astrogeoscenter/AstrobloQ', '', '', SW_SHOW);
+end;
+
+//-----------------------------------------------------------------------------
+procedure TfrmAbout.AGCImageClick(Sender: TObject);
+begin
+  ShellExecute(0, 'open',
+    'https://gitverse.ru/glscene/GLXEngine', '', '', SW_SHOW);
+end;
+
+
+//-----------------------------------------------------------------------------
 procedure TfrmAbout.GLSImageClick(Sender: TObject);
 begin
   ShellExecute(0, 'open',
-   'https://gitflic.ru/project/glscene/glscene/', '', '', SW_SHOW);
+   'https://gitflic.ru/project/glscene/glxengine', '', '', SW_SHOW);
 end;
 
-procedure TfrmAbout.ImageGLSClick(Sender: TObject);
-begin
-  ShellExecute(0, 'open',
-    'https://gitverse.ru/glscene/GLScene', '', '', SW_SHOW);
-end;
 
-procedure TfrmAbout.ImageGalaxyClick(Sender: TObject);
-begin
-  ShellExecute(0, 'open',
-   'https://gitflic.ru/project/glscene/astrobloq/', '', '', SW_SHOW);
-end;
-
-procedure TfrmAbout.OGLImageClick(Sender: TObject);
-begin
-   ShellExecute(0, 'open',
-    'https://www.opengl.org/', '', '', SW_SHOW);
-end;
-
+//-----------------------------------------------------------------------------
 end.

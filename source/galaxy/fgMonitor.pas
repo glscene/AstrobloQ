@@ -18,7 +18,7 @@ uses
 
   fmFormFirst,
 ///  fgStarLife,
-  fgProjections;
+  fgGlobulars;
 
 type
   TfrmMonitor = class(TFormFirst)

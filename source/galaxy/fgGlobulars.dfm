@@ -1,8 +1,8 @@
-object frmProjections: TfrmProjections
+object frmGlobulars: TfrmGlobulars
   Left = 160
   Top = 79
   BorderStyle = bsDialog
-  Caption = 'Projections of stars'
+  Caption = 'Globular clysters'
   ClientHeight = 408
   ClientWidth = 548
   Color = clBtnFace

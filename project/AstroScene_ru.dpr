@@ -37,7 +37,9 @@ uses
   fmSettings_ru in '..\source\fmSettings_ru.pas' {FormSettings},
   faSkyPolygons_ru in '..\source\astro\faSkyPolygons_ru.pas' {frmSkyPolygons},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
-  faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStarSys};
+  faStarSys_ru in '..\source\astro\faStarSys_ru.pas' {FormStarSys},
+  faNewSolblock_ru in '..\source\astro\faNewSolblock_ru.pas' {frmNewSolblock},
+  faViewSolblock_ru in '..\source\astro\faViewSolblock_ru.pas' {frmViewSolblock};
 
 {$R *.res}
 

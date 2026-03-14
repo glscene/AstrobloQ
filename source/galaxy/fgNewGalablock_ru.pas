@@ -1,4 +1,4 @@
-unit fgNewStarblock_ru;
+unit fgNewGalablock_ru;
 
 interface
 

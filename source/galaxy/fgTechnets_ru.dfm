@@ -1,7 +1,7 @@
-object frmOpenExoplanets: TfrmOpenExoplanets
+object frmTechnets: TfrmTechnets
   Left = 0
   Top = 0
-  Caption = 'Exoplanets'
+  Caption = 'Technets'
   ClientHeight = 446
   ClientWidth = 715
   Color = clBtnFace
@@ -91,7 +91,7 @@ object frmOpenExoplanets: TfrmOpenExoplanets
       Height = 19
       Align = alTop
       Alignment = taCenter
-      Caption = 'Exoplanets'
+      Caption = 'Technets'
       TabOrder = 2
     end
   end

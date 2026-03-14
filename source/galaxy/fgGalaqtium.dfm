@@ -185,7 +185,6 @@ object FormGalaqtium: TFormGalaqtium
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 762
       end
       object PanelRight: TPanel
         Left = 754
@@ -853,19 +852,19 @@ object FormGalaqtium: TFormGalaqtium
     object miView: TMenuItem
       Caption = '&View'
       object miStarBlock: TMenuItem
-        Caption = 'Starblock...'
+        Caption = 'Galablock...'
         OnClick = miStarBlockClick
       end
-      object miExoplanets: TMenuItem
-        Caption = 'Exoplanets...'
-        OnClick = miExoplanetsClick
+      object miProjection: TMenuItem
+        Caption = 'Globular clusters...'
+        OnClick = miProjectionClick
       end
       object N3: TMenuItem
         Caption = '-'
       end
-      object miProjection: TMenuItem
-        Caption = 'Star projections...'
-        OnClick = miProjectionClick
+      object miExoplanets: TMenuItem
+        Caption = 'Technets...'
+        OnClick = miExoplanetsClick
       end
       object N2: TMenuItem
         Caption = '-'

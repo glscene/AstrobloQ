@@ -53,18 +53,17 @@ uses
 
   fmFormFirst,
   fmAbout,
-  fmSettings,
 
   dmImages,
   dmDialogs,
   dmBase,
 
   fgDiagramHR,
-  fgCETInet,
   fgMonitor,
   fgParadox,
-  fgNewStarblock,
-  fgViewSolarblock,
+  fgNewGalablock,
+  fgViewGalablock,
+  fgGlobulars,
   fgOptions,
 
   Astro.Globals,
@@ -273,8 +272,8 @@ implementation //==============================================================
 {$R *.dfm}
 
 uses
-  fgProjections,
-  fgExoplanets;
+  fgTechnets,
+  fmSettings;
 
 
 //-----------------------------------------------------------------------------
@@ -647,7 +646,7 @@ end;
 procedure TFormGalaqtium.miStarBlockClick(Sender: TObject);
 begin
   inherited;
-  with TfrmStarBlock.Create(Self) do
+  with TfrmGalablock.Create(Self) do
     try
       ShowModal;
     finally
@@ -658,25 +657,36 @@ end;
 //-----------------------------------------------------------------------------
 procedure TFormGalaqtium.miExoplanetsClick(Sender: TObject);
 begin
-  with TfrmOpenExoplanets.Create(Self) do
+  with TfrmTechnets.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
 end;
-
 
 //-----------------------------------------------------------------------------
 procedure TFormGalaqtium.miProjectionClick(Sender: TObject);
 begin
-  with TfrmProjections.Create(Self) do
+  with TfrmGlobulars.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
 end;
+
+//-----------------------------------------------------------------------------
+procedure TFormGalaqtium.miAnalyserClick(Sender: TObject);
+begin
+  with TfrmTechnets.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
 
 //-----------------------------------------------------------------------------
 procedure TFormGalaqtium.miTranslatorClick(Sender: TObject);
@@ -697,15 +707,6 @@ end;
 //-----------------------------------------------------------------------------
 //                         Analytics menu
 //-----------------------------------------------------------------------------
-procedure TFormGalaqtium.miAnalyserClick(Sender: TObject);
-begin
-  with TfrmCETInet.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
 
 //-----------------------------------------------------------------------------
 procedure TFormGalaqtium.miParadoxClick(Sender: TObject);

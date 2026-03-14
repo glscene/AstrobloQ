@@ -1,4 +1,4 @@
-unit fgNewStarblock;
+unit faNewSolblock;
 
 interface
 
@@ -12,11 +12,17 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  Vcl.StdCtrls, Vcl.Menus, Vcl.ExtCtrls, GLS.AsyncTimer, GLS.Cadencer,
-  GLS.BaseClasses, GLS.Scene, GLS.SceneViewer;
+  Vcl.StdCtrls,
+  Vcl.Menus,
+  Vcl.ExtCtrls,
+  GLS.AsyncTimer,
+  GLS.Cadencer,
+  GLS.BaseClasses,
+  GLS.Scene,
+  GLS.SceneViewer;
 
 type
-  TfrmNewStarblock = class(TForm)
+  TfrmNewSolblock = class(TForm)
     PanelRight: TPanel;
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
@@ -28,15 +34,13 @@ type
     miOpen: TMenuItem;
     miSaveAs: TMenuItem;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
-  frmNewStarblock: TfrmNewStarblock;
+  frmNewSolblock: TfrmNewSolblock;
 
-implementation
+implementation //==============================================================
 
 {$R *.dfm}
 

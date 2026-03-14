@@ -33,12 +33,6 @@
         <Projects Include="project\Techneta.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="project\Universum_ru.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="project\Universum.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -137,32 +131,14 @@
     <Target Name="Techneta:Make">
         <MSBuild Projects="project\Techneta.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Universum_ru">
-        <MSBuild Projects="project\Universum_ru.dproj"/>
-    </Target>
-    <Target Name="Universum_ru:Clean">
-        <MSBuild Projects="project\Universum_ru.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Universum_ru:Make">
-        <MSBuild Projects="project\Universum_ru.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="Universum">
-        <MSBuild Projects="project\Universum.dproj"/>
-    </Target>
-    <Target Name="Universum:Clean">
-        <MSBuild Projects="project\Universum.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Universum:Make">
-        <MSBuild Projects="project\Universum.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Galaqtium_ru;Galaqtium;AstroScene_ru;AstroScene;Lithoneta_ru;Lithoneta;Bioneta_ru;Bioneta;Techneta_ru;Techneta;Universum_ru;Universum"/>
+        <CallTarget Targets="Galaqtium_ru;Galaqtium;AstroScene_ru;AstroScene;Lithoneta_ru;Lithoneta;Bioneta_ru;Bioneta;Techneta_ru;Techneta"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Galaqtium_ru:Clean;Galaqtium:Clean;AstroScene_ru:Clean;AstroScene:Clean;Lithoneta_ru:Clean;Lithoneta:Clean;Bioneta_ru:Clean;Bioneta:Clean;Techneta_ru:Clean;Techneta:Clean;Universum_ru:Clean;Universum:Clean"/>
+        <CallTarget Targets="Galaqtium_ru:Clean;Galaqtium:Clean;AstroScene_ru:Clean;AstroScene:Clean;Lithoneta_ru:Clean;Lithoneta:Clean;Bioneta_ru:Clean;Bioneta:Clean;Techneta_ru:Clean;Techneta:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Galaqtium_ru:Make;Galaqtium:Make;AstroScene_ru:Make;AstroScene:Make;Lithoneta_ru:Make;Lithoneta:Make;Bioneta_ru:Make;Bioneta:Make;Techneta_ru:Make;Techneta:Make;Universum_ru:Make;Universum:Make"/>
+        <CallTarget Targets="Galaqtium_ru:Make;Galaqtium:Make;AstroScene_ru:Make;AstroScene:Make;Lithoneta_ru:Make;Lithoneta:Make;Bioneta_ru:Make;Bioneta:Make;Techneta_ru:Make;Techneta:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

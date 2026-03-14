@@ -1,9 +1,9 @@
-object frmStarblock: TfrmStarblock
+object frmGalablock: TfrmGalablock
   Left = 0
   Top = 0
-  Caption = #1057#1090#1072#1088#1073#1083#1086#1082' '#1057#1086#1083#1085#1094#1072
-  ClientHeight = 552
-  ClientWidth = 910
+  Caption = 'View Galablock'
+  ClientHeight = 517
+  ClientWidth = 874
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object frmStarblock: TfrmStarblock
   TextHeight = 15
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 533
-    Width = 910
+    Top = 498
+    Width = 874
     Height = 19
     Panels = <
       item
@@ -28,17 +28,15 @@ object frmStarblock: TfrmStarblock
         Text = #1042#1088#1077#1084#1103':'
         Width = 100
       end>
-    ExplicitTop = 508
-    ExplicitWidth = 902
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 154
     Top = 0
-    Width = 756
-    Height = 533
+    Width = 720
+    Height = 498
     Camera = GLCamera1
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 150.565795898437500000
+    FieldOfView = 148.596054077148400000
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
@@ -47,16 +45,15 @@ object frmStarblock: TfrmStarblock
     Left = 0
     Top = 0
     Width = 154
-    Height = 533
+    Height = 498
     Align = alLeft
     TabOrder = 2
-    ExplicitHeight = 508
     object Label2: TLabel
       Left = 26
       Top = 16
-      Width = 79
+      Width = 69
       Height = 16
-      Caption = #1050#1083#1072#1089#1089#1099' '#1079#1074#1105#1079#1076
+      Caption = 'Star classes'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -117,7 +114,7 @@ object frmStarblock: TfrmStarblock
       Top = 448
       Width = 141
       Height = 25
-      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1089#1090#1072#1088#1073#1083#1086#1082
+      Caption = 'Clean starblock'
       TabOrder = 0
     end
     object chbO: TCheckBox
@@ -295,20 +292,20 @@ object frmStarblock: TfrmStarblock
     Top = 106
   end
   object MainMenu1: TMainMenu
-    Left = 762
+    Left = 754
     Top = 34
     object File1: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = 'File'
       object OpenCSV1: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' CSV...'
-        Hint = #1050#1072#1090#1072#1083#1086#1075' Hyg '#1080#1083#1080' '#1089#1083#1091#1095#1072#1081#1085#1091#1102' '#1075#1077#1085#1077#1088#1072#1094#1080#1102
+        Caption = 'Open CSV...'
+        Hint = 'Catalog Hyg or random generation'
         OnClick = OpenCSV1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object Exit1: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Exit'
       end
     end
   end
@@ -319,7 +316,7 @@ object frmStarblock: TfrmStarblock
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
-    FormCaption = #1057#1090#1072#1088#1073#1083#1086#1082' '#1074#1100#1102#1077#1088' - %FPS'
+    FormCaption = 'HygViewer - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]

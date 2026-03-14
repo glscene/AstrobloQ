@@ -1,4 +1,4 @@
-unit fgViewSolarblock_ru;
+unit faViewSolblock;
 
 interface
 
@@ -28,7 +28,7 @@ uses
   ;
 
 type
-  TfrmStarblock = class(TForm)
+  TfrmViewSolblock = class(TForm)
     StatusBar1: TStatusBar;
     GLSceneViewer1: TGLSceneViewer;
     Panel1: TPanel;
@@ -79,29 +79,29 @@ type
   end;
 
 var
-  frmStarblock: TfrmStarblock;
+  frmViewSolblock: TfrmViewSolblock;
 
 implementation //=============================================================
 
 {$R *.dfm}
 
-//---------------------- Создание формы ---------------------------------------
-procedure TfrmStarblock.FormCreate(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TfrmViewSolblock.FormCreate(Sender: TObject);
 begin
   Path := GetCurrentDir();
   SetCurrentDir(Path);
 end;
 
-//---------------------- Загрузка CSV файла -----------------------------------
-procedure TfrmStarblock.OpenCSV1Click(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TfrmViewSolblock.OpenCSV1Click(Sender: TObject);
 var
   i, acount,
   start, finish: Integer;
-  FX, FY, FZ, FSpect, FVx, FVy, FVz: Byte; // номера полей координат и скорости
-  FH: Byte; // номер поля индекса обитаемости звёздной системы
+  FX, FY, FZ, FSpect, FVx, FVy, FVz: Byte; // coordinate fields and velocities
+  FH: Byte; // index of habitability of star system
   FullType: String;
-  Sl,               // весь файл CSV построчно,
-  Tl: TStringList;  // текущая строка с запятыми в виде разделителей полей
+  Sl,               // the whole CSV file,
+  Tl: TStringList;  // current line with comma delimeters for fileds
   aType: String;
 
 begin
@@ -109,13 +109,13 @@ begin
   OpenTextFileDialog1.Filter := 'CSV files (*.csv)';
   FormatSettings.DecimalSeparator := '.';
 
-  // Открываем файл hygdata.csv
+  // Open hygdata.csv
   if (OpenTextFileDialog1.Execute()) then
   begin
-	  Sl.LoadFromFile(OpenTextFileDialog1.FileName); //загрузка всего CSV файла
-	  Tl.CommaText := Sl.Strings[0];   //чтение первой строки с именами полей
+	  Sl.LoadFromFile(OpenTextFileDialog1.FileName); //loading CSV file
+	  Tl.CommaText := Sl.Strings[0];   // reading the first line with field names
 
-    // Определение индексов полей x, y, z и spect в строке заголовка
+    // Define indices of fields x, y, z and spect
     for i := 0 to Tl.Count - 1 do
     begin
       if (Tl[0][i] = 'x') then

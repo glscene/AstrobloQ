@@ -77,6 +77,8 @@ uses
 
   faSolarSys_ru,
   faStarSys_ru,
+  faNewSolblock_ru,
+  faViewSolblock_ru,
 
   Astro.ReadCSV
   ;
@@ -159,6 +161,9 @@ type
     miStarSys: TMenuItem;
     PanelLeft: TPanel;
     tvStellars: TTreeView;
+    miSolblock: TMenuItem;
+    N1: TMenuItem;
+    N8: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure GLCadencerProgress(Sender: TObject; const deltaTime, newTime: Double);
@@ -183,6 +188,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
     procedure miStarSysClick(Sender: TObject);
+    procedure miSolblockClick(Sender: TObject);
+    procedure N1Click(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -294,16 +301,35 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//--------------------------- Планеты   --------------------------------------
+//--------------------------- Меню файл --------------------------------------
 //----------------------------------------------------------------------------
 
-//----------------------------------------------------------------------------
-//----------------------------- Луны -----------------------------------------
-//----------------------------------------------------------------------------
+//------------------------ Новый соларблок -----------------------------------
+procedure TFormAstroScene.N1Click(Sender: TObject);
+begin
+  inherited;
+  with TfrmNewSolblock.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
 
 //----------------------------------------------------------------------------
-//------------------------------ Астероиды -----------------------------------
-//----------------------------------------------------------------------------
+procedure TFormAstroScene.miSolblockClick(Sender: TObject);
+begin
+  inherited;
+  with TfrmViewSolblock.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+
+end;
+
+
 
 //-------------------------- Меню справки Wiki -------------------------------
 procedure TFormAstroScene.miHelpWikiClick(Sender: TObject);

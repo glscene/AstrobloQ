@@ -75,6 +75,8 @@ uses
   faMakeStarsys,
   faConstells,
   faSkyPolygons,
+  faNewSolblock,
+  faViewSolblock,
   faStarSys
 
   ;
@@ -164,6 +166,10 @@ type
     PanelLeft: TPanel;
     DirectoryOutline: TDirectoryOutline;
     N1: TMenuItem;
+    Solarsystem1: TMenuItem;
+    Solblock1: TMenuItem;
+    N5: TMenuItem;
+    miNew: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -190,6 +196,8 @@ type
     procedure Settings1Click(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure miNewClick(Sender: TObject);
+    procedure Solblock1Click(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName, PlanetPath: TFileName;
@@ -673,7 +681,7 @@ end;
 
 procedure TFormAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
-
+  //
 end;
 
 //--------------------- SceneViewer DblClick ----------------------------------
@@ -707,10 +715,13 @@ begin
   SceneViewer1.ResetPerformanceMonitor;
 end;
 
-//-----------------------  Star system -------------------------------------
-procedure TFormAstroScene.miStellarSystemClick(Sender: TObject);
+//----------------------------------------------------------------------------
+//                            File menu
+//----------------------------------------------------------------------------
+procedure TFormAstroScene.miNewClick(Sender: TObject);
 begin
-  with TFormStarSys.Create(Self) do
+  inherited;
+  with TfrmNewSolblock.Create(Self) do
   try
     ShowModal;
   finally
@@ -759,6 +770,46 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
+//                            View menu
+//----------------------------------------------------------------------------
+
+//-----------------------  Stellar system ------------------------------------
+procedure TFormAstroScene.miStellarSystemClick(Sender: TObject);
+begin
+  with TFormStarSys.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//----------------------------------------------------------------------------
+procedure TFormAstroScene.Solblock1Click(Sender: TObject);
+begin
+  inherited;
+  with TfrmViewSolblock.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+
+//--------------------- View Sky Polygons ------------------------------------
+
+procedure TFormAstroScene.miConstPolygonsClick(Sender: TObject);
+begin
+  with TfrmSkyPolygons.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
 //------------------------ Maps of Constellations ----------------------------
 procedure TFormAstroScene.Constellations1Click(Sender: TObject);
 begin
@@ -770,19 +821,8 @@ begin
   end;
 end;
 
-//--------------------- View Sky Polygons ------------------------------------
-procedure TFormAstroScene.miConstPolygonsClick(Sender: TObject);
-begin
-  with TfrmSkyPolygons.Create(Self) do
-  try
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
 //----------------------------------------------------------------------------
-//---------------------- Tools Options ---------------------------------------
+//                        Tools Menu
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.miToolsOptionsClick(Sender: TObject);
 begin

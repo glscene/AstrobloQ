@@ -1,0 +1,71 @@
+unit faNewSolblock_ru;
+
+interface
+
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
+  Vcl.ExtCtrls,
+  Vcl.Menus,
+
+  GLS.BaseClasses,
+  GLS.Scene,
+  GLS.SceneViewer,
+  GLS.Cadencer,
+  GLS.AsyncTimer,
+  GLS.Objects,
+  GLS.Coordinates,
+  GLS.SimpleNavigation,
+
+  faOptions_ru
+  ;
+
+type
+  TfrmNewSolblock = class(TForm)
+    PanelRight: TPanel;
+    GLSceneViewer1: TGLSceneViewer;
+    GLScene1: TGLScene;
+    GLCadencer1: TGLCadencer;
+    GLAsyncTimer1: TGLAsyncTimer;
+    Timer1: TTimer;
+    MainMenu1: TMainMenu;
+    miFile: TMenuItem;
+    miOpen: TMenuItem;
+    miSaveAs: TMenuItem;
+    Camera: TGLCamera;
+    LightSource: TGLLightSource;
+    dcStarblock: TGLDummyCube;
+    ñubeStarblock: TGLCube;
+    sphereStarblock: TGLSphere;
+    pntStars: TGLPoints;
+    GLSimpleNavigation1: TGLSimpleNavigation;
+    pntCube: TGLPoints;
+    procedure FormCreate(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  frmNewSolblock: TfrmNewSolblock;
+
+implementation //=============================================================
+
+{$R *.dfm}
+
+//----------------------------------------------------------------------------
+procedure TfrmNewSolblock.FormCreate(Sender: TObject);
+begin
+  //
+end;
+
+end.

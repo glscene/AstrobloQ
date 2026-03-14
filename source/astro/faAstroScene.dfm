@@ -41,6 +41,8 @@ object FormAstroScene: TFormAstroScene
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 654
+    ExplicitWidth = 1306
   end
   object ControlBarTop: TControlBar
     Left = 0
@@ -49,6 +51,7 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1306
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -201,6 +204,7 @@ object FormAstroScene: TFormAstroScene
     Caption = 'PanelLeft'
     ShowCaption = False
     TabOrder = 3
+    ExplicitHeight = 597
     object DirectoryOutline: TDirectoryOutline
       Left = 1
       Top = 1
@@ -238,6 +242,7 @@ object FormAstroScene: TFormAstroScene
         8000800080008000800080008000800080008000800080008000800080008000
         80008000800080008000}
       TabOrder = 0
+      ExplicitHeight = 595
       Data = {10}
     end
   end
@@ -88789,6 +88794,13 @@ object FormAstroScene: TFormAstroScene
     Top = 96
     object miOpen: TMenuItem
       Caption = '&File'
+      object miNew: TMenuItem
+        Caption = 'New...'
+        OnClick = miNewClick
+      end
+      object N5: TMenuItem
+        Caption = '-'
+      end
       object miFileOpen: TMenuItem
         Caption = 'Open...'
         ImageIndex = 8
@@ -88809,18 +88821,19 @@ object FormAstroScene: TFormAstroScene
     end
     object miView: TMenuItem
       Caption = '&View'
-      object N4: TMenuItem
-        Caption = '-'
-      end
       object miStellarSystem: TMenuItem
         Caption = 'Stellar system...'
         OnClick = miStellarSystemClick
       end
-      object miPointTo: TMenuItem
-        Caption = 'PointTo...'
+      object Solarsystem1: TMenuItem
+        Caption = 'Solar system...'
       end
-      object miCoordinates: TMenuItem
-        Caption = 'Coordinates...'
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object Solblock1: TMenuItem
+        Caption = 'Solblock...'
+        OnClick = Solblock1Click
       end
       object N6: TMenuItem
         Caption = '-'
@@ -88868,6 +88881,12 @@ object FormAstroScene: TFormAstroScene
       object miMakeStarsys: TMenuItem
         Caption = 'Make Starsys...'
         OnClick = miMakeStarsysClick
+      end
+      object miPointTo: TMenuItem
+        Caption = 'PointTo...'
+      end
+      object miCoordinates: TMenuItem
+        Caption = 'Coordinates...'
       end
     end
     object miHelp: TMenuItem

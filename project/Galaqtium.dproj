@@ -161,24 +161,12 @@
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgNewStarblock.pas">
-            <Form>frmNewStarblock</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgExoplanets.pas">
-            <Form>frmOpenExoplanets</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\galaxy\fgMonitor.pas">
             <Form>frmMonitor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\fgParadox.pas">
             <Form>frmParadox</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgCETInet.pas">
-            <Form>frmCETInet</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
@@ -195,12 +183,20 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\galaxy\fgProjections.pas">
-            <Form>frmProjections</Form>
+        <DCCReference Include="..\source\galaxy\fgGlobulars.pas">
+            <Form>frmGlobulars</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgViewSolarblock.pas">
-            <Form>frmStarblock</Form>
+        <DCCReference Include="..\source\galaxy\fgViewGalablock.pas">
+            <Form>frmGalablock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgNewGalablock.pas">
+            <Form>frmNewStarblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgTechnets.pas">
+            <Form>frmTechnets</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

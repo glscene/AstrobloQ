@@ -1,4 +1,4 @@
-unit fgExoplanets_ru;
+unit fgTechnets_ru;
 
 interface
 
@@ -24,7 +24,7 @@ uses
   GLS.Coordinates;
 
 type
-  TfrmOpenExoplanets = class(TForm)
+  TfrmTechnets = class(TForm)
     ControlBar: TControlBar;
     StatusBar: TStatusBar;
     PanelLeft: TPanel;
@@ -46,7 +46,7 @@ type
   end;
 
 var
-  frmOpenExoplanets: TfrmOpenExoplanets;
+  frmTechnets: TfrmTechnets;
 
 implementation
 

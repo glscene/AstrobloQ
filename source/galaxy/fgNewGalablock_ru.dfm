@@ -1,7 +1,7 @@
 ﻿object frmNewStarblock: TfrmNewStarblock
   Left = 0
   Top = 0
-  Caption = #1053#1086#1074#1099#1081' '#1089#1090#1072#1088#1073#1083#1086#1082
+  Caption = #1053#1086#1074#1099#1081' '#1075#1072#1083#1072#1073#1083#1086#1082
   ClientHeight = 633
   ClientWidth = 1046
   Color = clBtnFace
@@ -23,8 +23,6 @@
     Caption = 'PanelRight'
     ShowCaption = False
     TabOrder = 0
-    ExplicitLeft = 791
-    ExplicitHeight = 608
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
@@ -89,8 +87,8 @@
     Top = 104
   end
   object MainMenu1: TMainMenu
-    Left = 640
-    Top = 176
+    Left = 552
+    Top = 112
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object miOpen: TMenuItem

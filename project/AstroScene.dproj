@@ -169,6 +169,14 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
+        <DCCReference Include="..\source\astro\faViewSolblock.pas">
+            <Form>frmViewSolblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\faNewSolblock.pas">
+            <Form>frmNewSolblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

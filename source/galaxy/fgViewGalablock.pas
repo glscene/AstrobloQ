@@ -1,4 +1,4 @@
-unit fgViewSolarblock;
+unit fgViewGalablock;
 
 interface
 
@@ -28,7 +28,7 @@ uses
   ;
 
 type
-  TfrmStarblock = class(TForm)
+  TfrmGalablock = class(TForm)
     StatusBar1: TStatusBar;
     GLSceneViewer1: TGLSceneViewer;
     Panel1: TPanel;
@@ -79,21 +79,21 @@ type
   end;
 
 var
-  frmStarblock: TfrmStarblock;
+  frmGalablock: TfrmGalablock;
 
 implementation //=============================================================
 
 {$R *.dfm}
 
 //----------------------------------------------------------------------------
-procedure TfrmStarblock.FormCreate(Sender: TObject);
+procedure TfrmGalablock.FormCreate(Sender: TObject);
 begin
   Path := GetCurrentDir();
   SetCurrentDir(Path);
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmStarblock.OpenCSV1Click(Sender: TObject);
+procedure TfrmGalablock.OpenCSV1Click(Sender: TObject);
 var
   i, acount,
   start, finish: Integer;

@@ -1,7 +1,7 @@
-object frmOpenExoplanets: TfrmOpenExoplanets
+object frmTechnets: TfrmTechnets
   Left = 0
   Top = 0
-  Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099
+  Caption = 'Technets'
   ClientHeight = 446
   ClientWidth = 715
   Color = clBtnFace
@@ -19,7 +19,6 @@ object frmOpenExoplanets: TfrmOpenExoplanets
     Height = 29
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 707
   end
   object StatusBar: TStatusBar
     Left = 0
@@ -27,8 +26,6 @@ object frmOpenExoplanets: TfrmOpenExoplanets
     Width = 715
     Height = 20
     Panels = <>
-    ExplicitTop = 401
-    ExplicitWidth = 707
   end
   object PanelLeft: TPanel
     Left = 0
@@ -37,7 +34,6 @@ object frmOpenExoplanets: TfrmOpenExoplanets
     Height = 397
     Align = alLeft
     TabOrder = 2
-    ExplicitHeight = 372
     object tvStellarSystems: TTreeView
       Left = 1
       Top = 20
@@ -65,8 +61,6 @@ object frmOpenExoplanets: TfrmOpenExoplanets
     Height = 397
     Align = alRight
     TabOrder = 3
-    ExplicitLeft = 580
-    ExplicitHeight = 372
     object tvExoplanets: TTreeView
       Left = 1
       Top = 20

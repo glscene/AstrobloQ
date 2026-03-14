@@ -33,7 +33,9 @@ uses
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
   faSkyPolygons in '..\source\astro\faSkyPolygons.pas' {frmSkyPolygons},
   fmSettings in '..\source\fmSettings.pas' {FormSettings},
-  Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas';
+  Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
+  faViewSolblock in '..\source\astro\faViewSolblock.pas' {frmViewSolblock},
+  faNewSolblock in '..\source\astro\faNewSolblock.pas' {frmNewSolblock};
 
 {$R *.res}
 

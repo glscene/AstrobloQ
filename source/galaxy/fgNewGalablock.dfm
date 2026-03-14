@@ -35,8 +35,7 @@ object frmNewStarblock: TfrmNewStarblock
     PenAsTouch = False
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 644
-    ExplicitHeight = 528
+    ExplicitWidth = 724
   end
   object GLScene1: TGLScene
     Left = 176

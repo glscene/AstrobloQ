@@ -1,4 +1,4 @@
-unit fgProjections;
+unit fgGlobulars_ru;
 //
 // Star projections on the galactic plane
 //

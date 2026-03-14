@@ -407,7 +407,7 @@ object FormGalaqtium: TFormGalaqtium
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object miNewStarblock: TMenuItem
-        Caption = #1053#1086#1074#1099#1081' '#1089#1090#1072#1088#1073#1083#1086#1082'...'
+        Caption = #1053#1086#1074#1099#1081' '#1075#1072#1083#1072#1073#1083#1086#1082'...'
         ImageIndex = 8
         OnClick = miNewStarblockClick
       end
@@ -503,23 +503,24 @@ object FormGalaqtium: TFormGalaqtium
     end
     object miView: TMenuItem
       Caption = #1042#1080#1076
-      object miStarBlock: TMenuItem
-        Caption = #1057#1090#1072#1088#1073#1083#1086#1082'...'
-        OnClick = miStarBlockClick
+      object miGalablock: TMenuItem
+        Caption = #1043#1072#1083#1072#1073#1083#1086#1082'...'
+        OnClick = miGalablockClick
       end
-      object miOpenExoplanets: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1101#1082#1079#1086#1087#1083#1072#1085#1077#1090#1099'...'
-        OnClick = miOpenExoplanetsClick
+      object miGlobulars: TMenuItem
+        Caption = #1064#1072#1088#1086#1074#1099#1077' '#1089#1082#1086#1087#1083#1077#1085#1080#1103'...'
+        OnClick = miGlobularsClick
       end
       object N3: TMenuItem
         Caption = '-'
       end
-      object miProjection: TMenuItem
-        Caption = #1055#1088#1086#1077#1082#1094#1080#1103' '#1079#1074#1105#1079#1076'...'
-        OnClick = miProjectionClick
+      object miTechnets: TMenuItem
+        Caption = #1040#1090#1083#1072#1089' '#1090#1077#1093#1085#1077#1090'...'
+        OnClick = miTechnetsClick
       end
-      object ranslator1: TMenuItem
-        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
+      object miMonitor: TMenuItem
+        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
+        OnClick = miMonitorClick
       end
       object N2: TMenuItem
         Caption = '-'
@@ -551,14 +552,6 @@ object FormGalaqtium: TFormGalaqtium
         Caption = #1044#1080#1072#1075#1088#1072#1084#1084#1072' '#1043#1056'...'
         OnClick = miDiagramHRClick
       end
-      object miCETI: TMenuItem
-        Caption = #1057#1077#1090#1100' CETI...'
-        OnClick = miCETIClick
-      end
-      object miMonitor: TMenuItem
-        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
-        OnClick = miMonitorClick
-      end
     end
     object miTools: TMenuItem
       Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
@@ -566,13 +559,16 @@ object FormGalaqtium: TFormGalaqtium
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
         OnClick = miSettingsClick
       end
-      object N8: TMenuItem
-        Caption = '-'
-      end
       object miOptions: TMenuItem
         Caption = #1054#1087#1094#1080#1080'...'
         ImageIndex = 130
         OnClick = miOptionsClick
+      end
+      object N8: TMenuItem
+        Caption = '-'
+      end
+      object ranslator1: TMenuItem
+        Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
       end
       object miN5: TMenuItem
         Caption = '-'

@@ -60,11 +60,10 @@ uses
   fmFormFirst,
   fmAbout_ru,
 
-  fgProjections_ru,
-  fgCETInet_ru,
+  fgGlobulars_ru,
   fgMonitor_ru,
-  fgNewStarblock_ru,
-  fgViewSolarblock_ru,
+  fgNewGalablock_ru,
+  fgViewGalablock_ru,
   fgOptions_ru,
   fgParadox_ru,
   fgEquations_ru,
@@ -141,12 +140,12 @@ type
     tbClearCubes: TToolButton;
     tbAxes: TToolButton;
     miParadox: TMenuItem;
-    miOpenExoplanets: TMenuItem;
+    miTechnets: TMenuItem;
     tbRotation: TToolButton;
     miNewStarblock: TMenuItem;
     N1: TMenuItem;
     N2: TMenuItem;
-    miProjection: TMenuItem;
+    miGlobulars: TMenuItem;
     N3: TMenuItem;
     miMethod: TMenuItem;
     miGridding: TMenuItem;
@@ -161,16 +160,15 @@ type
     ansGHZ: TGLAnnulus;
     miAnalytics: TMenuItem;
     N6: TMenuItem;
-    miCETI: TMenuItem;
     N8: TMenuItem;
     miStatistics: TMenuItem;
     miEquations: TMenuItem;
     miConvolute: TMenuItem;
-    miStarBlock: TMenuItem;
+    miGalablock: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
-    procedure miProjectionClick(Sender: TObject);
+    procedure miGlobularsClick(Sender: TObject);
     procedure miPanelShowClick(Sender: TObject);
     procedure GLAsyncTimerTimer(Sender: TObject);
     procedure GLCadencerProgress(Sender: TObject;
@@ -190,18 +188,17 @@ type
     procedure miMonitorClick(Sender: TObject);
     procedure tbSolarcubeClick(Sender: TObject);
     procedure miParadoxClick(Sender: TObject);
-    procedure miOpenExoplanetsClick(Sender: TObject);
+    procedure miTechnetsClick(Sender: TObject);
     procedure tbAxesClick(Sender: TObject);
     procedure miNewStarblockClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure miCETIClick(Sender: TObject);
     procedure miStatisticsClick(Sender: TObject);
     procedure miEquationsClick(Sender: TObject);
     procedure miTetranetClick(Sender: TObject);
     procedure miGriddingClick(Sender: TObject);
     procedure miInterpolateClick(Sender: TObject);
     procedure miConvoluteClick(Sender: TObject);
-    procedure miStarBlockClick(Sender: TObject);
+    procedure miGalablockClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -242,7 +239,7 @@ implementation //=============================================================
 {$R *.dfm}
 
 uses
-  fgExoplanets_ru,
+  fgTechnets_ru,
   fmSettings_ru;
 
 //----------------------------------------------------------------------------
@@ -512,9 +509,9 @@ end;
 //----------------------------------------------------------------------------
 //                              Меню вид
 //----------------------------------------------------------------------------
-procedure TFormGalaqtium.miOpenExoplanetsClick(Sender: TObject);
+procedure TFormGalaqtium.miTechnetsClick(Sender: TObject);
 begin
-  with TfrmOpenExoplanets.Create(Self) do
+  with TfrmTechnets.Create(Self) do
     try
       ShowModal;
     finally
@@ -655,7 +652,7 @@ end;
 //                             Меню Вид
 //----------------------------------------------------------------------------
 
-procedure TFormGalaqtium.miStarBlockClick(Sender: TObject);
+procedure TFormGalaqtium.miGalablockClick(Sender: TObject);
 begin
   inherited;
   with TfrmStarBlock.Create(Self) do
@@ -667,7 +664,7 @@ begin
 end;
 
 //-------------------------- Проекции звёзд -----------------------------------
-procedure TFormGalaqtium.miProjectionClick(Sender: TObject);
+procedure TFormGalaqtium.miGlobularsClick(Sender: TObject);
 begin
   inherited;
   with TfrmProjections.Create(Self) do
@@ -735,18 +732,6 @@ begin
     GLCadencer1.Enabled := True;
     Free;
   end;
-end;
-
-// ----------------------- Сеть CETI -----------------------------------------
-procedure TFormGalaqtium.miCETIClick(Sender: TObject);
-begin
-  inherited;
-  with TfrmCETInet.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 //----------------------------------------------------------------------------

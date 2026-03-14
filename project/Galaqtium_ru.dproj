@@ -112,12 +112,6 @@
         <DCCReference Include="..\source\galaxy\fgParadox_ru.pas">
             <Form>frmParadox</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgExoplanets_ru.pas">
-            <Form>frmOpenExoplanets</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgNewStarblock_ru.pas">
-            <Form>frmNewStarblock</Form>
-        </DCCReference>
         <DCCReference Include="..\source\galaxy\fgOptions_ru.pas">
             <Form>FormOptions</Form>
         </DCCReference>
@@ -142,7 +136,7 @@
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>FormFirst</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgProjections_ru.pas">
+        <DCCReference Include="..\source\galaxy\fgGlobulars_ru.pas">
             <Form>frmProjections</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -154,10 +148,6 @@
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgCETInet_ru.pas">
-            <Form>frmCETInet</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\galaxy\fgEquations_ru.pas">
             <Form>frmEquations</Form>
             <FormType>dfm</FormType>
@@ -167,12 +157,20 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\galaxy\fgViewSolarblock_ru.pas">
+        <DCCReference Include="..\source\galaxy\fgSolving_ru.pas">
+            <Form>frmSolving</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgNewGalablock_ru.pas">
+            <Form>frmNewStarblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\fgViewGalablock_ru.pas">
             <Form>frmStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgSolving_ru.pas">
-            <Form>frmSolving</Form>
+        <DCCReference Include="..\source\galaxy\fgTechnets_ru.pas">
+            <Form>frmTechnets</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
