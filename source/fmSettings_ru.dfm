@@ -5,8 +5,6 @@ inherited FormSettings: TFormSettings
   ClientWidth = 1313
   Font.Height = -19
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1329
   ExplicitHeight = 798
   TextHeight = 25
@@ -324,7 +322,7 @@ inherited FormSettings: TFormSettings
           1085
           675)
         object chlbStarClasses: TCheckListBox
-          Left = 882
+          Left = 874
           Top = 42
           Width = 149
           Height = 200
