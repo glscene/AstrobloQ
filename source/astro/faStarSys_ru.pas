@@ -59,8 +59,8 @@ uses
 
 type
   TFormStarSys = class(TFormFirst)
-    Scene: TGLScene;
-    SceneViewer: TGLSceneViewer;
+    GLSceneStarsys: TGLScene;
+    svStarsys: TGLSceneViewer;
     PanelLeft: TPanel;
     tvStarSys: TTreeView;
     Camera: TGLCamera;
@@ -156,7 +156,7 @@ type
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
     procedure Sys_doglRender(Sender: TObject; var rci: TGLRenderContextInfo);
-    procedure SceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure svStarsysMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure AsyncTimerTimer(Sender: TObject);
     procedure tvStarSysChange(Sender: TObject; Node: TTreeNode);
@@ -257,7 +257,7 @@ begin
 *)
   tvStarSys.FullExpand;
   ///Atmosphere := TGLAtmosphere.Create(Self);
-  SceneViewer.Buffer.RenderingContext.Activate;
+  svStarsys.Buffer.RenderingContext.Activate;
 
   // возврат в папку солнца
   SetCurrentDir(CurrentDir);
@@ -294,7 +294,7 @@ procedure TFormStarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   tvStarSysClick(Self);
-  SceneViewer.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //----------------------------------------------------------------------------
@@ -361,14 +361,14 @@ begin
   UranusOrbit.Visible := cbOrbit.Checked;
   NeptuneOrbit.Visible := cbOrbit.Checked;
   PlutoOrbit.Visible := cbOrbit.Checked;
-  SceneViewer.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //--------------------- Вращение планетной системы ----------------------------
 procedure TFormStarSys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
-  SceneViewer.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //----------------------- Показать обитаемую зону звезды ----------------------
@@ -740,13 +740,13 @@ begin
     Camera.Position.Y := 0;
     Camera.Position.Z := 1;
   end;
-  SceneViewer.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormStarSys.SceneViewerMouseDown;
+procedure TFormStarSys.svStarsysMouseDown;
 begin
-  newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
+  newPickObject := svStarsys.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
     exit;
   if newPickObject = nil then
@@ -886,8 +886,8 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormStarSys.AsyncTimerTimer;
 begin
-  Caption := 'Солнечная система' + ' / ' + SceneViewer.FramesPerSecondText(2);
-  SceneViewer.ResetPerformanceMonitor;
+  Caption := 'Звёздная система' + ' / ' + svStarsys.FramesPerSecondText(2);
+  svStarsys.ResetPerformanceMonitor;
 end;
 
 //----------------------------------------------------------------------------

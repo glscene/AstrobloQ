@@ -206,7 +206,7 @@ object FormAstroScene: TFormAstroScene
       ExplicitHeight = 603
     end
   end
-  object GLScene: TGLScene
+  object GLSceneAstro: TGLScene
     ObjectsSorting = osNone
     Left = 386
     Top = 83
@@ -88652,9 +88652,9 @@ object FormAstroScene: TFormAstroScene
     Top = 104
     object miOpen: TMenuItem
       Caption = '&'#1060#1072#1081#1083
-      object N1: TMenuItem
+      object miNew: TMenuItem
         Caption = #1053#1086#1074#1099#1081'...'
-        OnClick = N1Click
+        OnClick = miNewClick
       end
       object N8: TMenuItem
         Caption = '-'
@@ -88675,22 +88675,15 @@ object FormAstroScene: TFormAstroScene
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object miSolarSystem: TMenuItem
-        Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
-        OnClick = miSolarSystemClick
-      end
       object miStarSys: TMenuItem
         Caption = #1047#1074#1105#1079#1076#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
         OnClick = miStarSysClick
-      end
-      object N4: TMenuItem
-        Caption = '-'
       end
       object miSolblock: TMenuItem
         Caption = #1057#1086#1083#1072#1088#1073#1083#1086#1082'...'
         OnClick = miSolblockClick
       end
-      object N6: TMenuItem
+      object N4: TMenuItem
         Caption = '-'
       end
       object miViewConstlines: TMenuItem
@@ -88763,5 +88756,9 @@ object FormAstroScene: TFormAstroScene
     OnTimer = Timer1Timer
     Left = 992
     Top = 96
+  end
+  object GLMemoryViewer: TGLMemoryViewer
+    Left = 392
+    Top = 176
   end
 end

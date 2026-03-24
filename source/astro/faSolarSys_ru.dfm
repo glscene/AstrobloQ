@@ -16,7 +16,7 @@ object FormSolarSys: TFormSolarSys
   OnCreate = FormCreate
   OnShow = FormShow
   TextHeight = 13
-  object SceneViewer: TGLSceneViewer
+  object svSolarsys: TGLSceneViewer
     Left = 195
     Top = 0
     Width = 629
@@ -30,7 +30,7 @@ object FormSolarSys: TFormSolarSys
     FieldOfView = 137.174057006835900000
     PenAsTouch = False
     Align = alClient
-    OnMouseDown = SceneViewerMouseDown
+    OnMouseDown = svSolarsysMouseDown
     TabOrder = 0
   end
   object PanelLeft: TPanel
@@ -155,7 +155,7 @@ object FormSolarSys: TFormSolarSys
     ExplicitTop = 485
     ExplicitWidth = 963
   end
-  object Scene: TGLScene
+  object GLSceneSolarsys: TGLScene
     Left = 46
     Top = 28
     object SkyDome: TGLSkyDome
@@ -752,7 +752,7 @@ object FormSolarSys: TFormSolarSys
     end
   end
   object Cadencer: TGLCadencer
-    Scene = Scene
+    Scene = GLSceneSolarsys
     Mode = cmApplicationIdle
     SleepLength = 1
     OnProgress = CadencerProgress
@@ -819,7 +819,7 @@ object FormSolarSys: TFormSolarSys
   end
   object SimpleNavigation: TGLSimpleNavigation
     Form = Owner
-    GLSceneViewer = SceneViewer
+    GLSceneViewer = svSolarsys
     FormCaption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
     Options = [snoMouseWheelHandled]
     KeyCombinations = <

@@ -91,7 +91,7 @@ type
     GLMatLib: TGLMaterialLibrary;
     GLTexCombiner: TGLTexCombineShader;
     CameraControler: TGLCamera;
-    StarSkyDome: TGLSkyDome;
+    SkyDome: TGLSkyDome;
     ConstLines: TGLLines;
     ConstBorders: TGLLines;
     MainMenu: TMainMenu;
@@ -255,10 +255,10 @@ begin
 // д.б.  CatalogName := DataDir + '\catalog\hyg.csv';
   if FileExists(CatalogName) then
   begin
-    StarSkyDome.Bands.Clear;
-    StarSkyDome.Stars.Clear;
-    StarSkyDome.Stars.LoadStarsFile(CatalogName);
-    StarSkyDome.StructureChanged;
+    SkyDome.Bands.Clear;
+    SkyDome.Stars.Clear;
+    SkyDome.Stars.LoadStarsFile(CatalogName);
+    SkyDome.StructureChanged;
   end;
 
   // переход по умолчанию в директорию солнечной системы
@@ -272,7 +272,7 @@ begin
   sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 //  ffPlanet.Scale.Scale(1); // масштаб фриформ планет
 
-  // разрешенo текстурирования лун
+  // разрешенo текстурирование лун
   sfMoon.Material.Texture.Disabled := False;
   ffMoon.Material.Texture.Disabled := False;
   ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');

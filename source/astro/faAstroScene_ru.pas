@@ -86,7 +86,7 @@ uses
 
 type
   TFormAstroScene = class(TFormFirst)
-    GLScene: TGLScene;
+    GLSceneAstro: TGLScene;
     Camera: TGLCamera;
     sfPlanet: TGLSphere;
     DirectOpenGL: TGLDirectOpenGL;
@@ -120,10 +120,8 @@ type
     diskRingDn: TGLDisk;
     N3: TMenuItem;
     StatusBar: TStatusBar;
-    miSolarSystem: TMenuItem;
     N4: TMenuItem;
     miToolsOptions: TMenuItem;
-    N6: TMenuItem;
     sfCore: TGLSphere;
     miMakeStarsys: TMenuItem;
     miTools: TMenuItem;
@@ -162,8 +160,9 @@ type
     PanelLeft: TPanel;
     tvStellars: TTreeView;
     miSolblock: TMenuItem;
-    N1: TMenuItem;
+    miNew: TMenuItem;
     N8: TMenuItem;
+    GLMemoryViewer: TGLMemoryViewer;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure GLCadencerProgress(Sender: TObject; const deltaTime, newTime: Double);
@@ -177,7 +176,6 @@ type
     procedure miViewConstlinesClick(Sender: TObject);
     procedure miViewConstBordersClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
-    procedure miSolarSystemClick(Sender: TObject);
     procedure miToolsOptionsClick(Sender: TObject);
     procedure miMakeStarsysClick(Sender: TObject);
     procedure miHelpAboutClick(Sender: TObject);
@@ -189,7 +187,7 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure miStarSysClick(Sender: TObject);
     procedure miSolblockClick(Sender: TObject);
-    procedure N1Click(Sender: TObject);
+    procedure miNewClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -281,21 +279,20 @@ begin
   // разрешенo текстурирования комет
   sfComet.Material.Texture.Disabled := False;
   ffComet.Material.Texture.Disabled := False;
-
 end;
 
 //----------------------------------------------------------------------------
 //--------------------------- Шоу --------------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.FormShow(Sender: TObject);
-
 begin
+(*
 //  На главной форме - Солнечная система, загружаются звёздные системы с планетами
   FormStarSys.Parent := FormAstroScene;
   FormStarSys.Align := alClient;
   FormStarSys.BorderStyle := bsNone;
   FormStarSys.Show;
-
+*)
   //  miHelpWiki.Caption := miItem.Text + ' in ' + 'Ruwili...';
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
 end;
@@ -305,7 +302,7 @@ end;
 //----------------------------------------------------------------------------
 
 //------------------------ Новый соларблок -----------------------------------
-procedure TFormAstroScene.N1Click(Sender: TObject);
+procedure TFormAstroScene.miNewClick(Sender: TObject);
 begin
   inherited;
   with TfrmNewSolblock.Create(Self) do
@@ -328,8 +325,6 @@ begin
     end;
 
 end;
-
-
 
 //-------------------------- Меню справки Wiki -------------------------------
 procedure TFormAstroScene.miHelpWikiClick(Sender: TObject);
@@ -699,7 +694,7 @@ begin
   my := y;
 end;
 
-
+//----------------------------------------------------------------------------
 procedure TFormAstroScene.Timer1Timer(Sender: TObject);
 begin
   inherited;
@@ -723,35 +718,23 @@ end;
 
 
 //-------------------------- Звёздная система ---------------------------------
-procedure TFormAstroScene.miSolarSystemClick(Sender: TObject);
-begin
-  FormStarSys.Show;    // ошибка если FormSolarSys ?
-(*
-  with TfrmStarSys.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-*)
-end;
-
-
 procedure TFormAstroScene.miStarSysClick(Sender: TObject);
 begin
   inherited;
-  //
+  FormStarSys.Show;    // иначе FormSolarSys
 end;
 
 //------------------------- Показать опции ------------------------------------
 procedure TFormAstroScene.miToolsOptionsClick(Sender: TObject);
 begin
+  inherited;
   FormOptions.Show;
 end;
 
 //------------------------ Показать настройки --------------------------------
 procedure TFormAstroScene.miSettingsClick(Sender: TObject);
 begin
+  inherited;
   FormSettings.Show;
 end;
 

@@ -699,7 +699,7 @@ object FormLithoneta: TFormLithoneta
     ObjectsSorting = osNone
     Left = 386
     Top = 83
-    object StarSkyDome: TGLSkyDome
+    object SkyDome: TGLSkyDome
       Bands = <
         item
           StartColor.Color = {0000803F0000803F0000803F0000803F}
