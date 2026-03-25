@@ -53,7 +53,7 @@ inherited FormSettings: TFormSettings
       Left = 1
       Top = 1
       Width = 218
-      Height = 685
+      Height = 660
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -79,7 +79,6 @@ inherited FormSettings: TFormSettings
         FFFF0000000000000000000000000001071F043B0430043D04350442044B0400
         00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
         000001041F04430442044C04}
-      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219

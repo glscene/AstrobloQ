@@ -93,6 +93,7 @@ type
     CheckBox1: TCheckBox;
     chbHidePanels: TCheckBox;
     tsMap: TTabSheet;
+    rgMapType: TRadioGroup;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
@@ -103,6 +104,7 @@ type
     procedure CheckBoxAxesClick(Sender: TObject);
     procedure chbCartographicGridClick(Sender: TObject);
     procedure chbHidePanelsClick(Sender: TObject);
+    procedure chbConstLinesClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -236,6 +238,18 @@ end;
 procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
 begin
   //
+end;
+
+//---------------------- Вывод линий созвездий --------------------------------
+procedure TFormOptions.chbConstLinesClick(Sender: TObject);
+begin
+  FormLithoneta.ConstLines.Nodes.Clear;
+ // chbConstLines.Checked := not chbConstLines.Checked;
+  if chbConstLines.Checked then
+  begin
+    FormLithoneta.ConstLinesAlpha := 0.5 - FormLithoneta.ConstLinesAlpha;
+    FormLithoneta.LoadConstLines;
+  end;
 end;
 
 //------------------------------------------------------------------

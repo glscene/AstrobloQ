@@ -157,7 +157,6 @@ type
     ToolButton19: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
-    N5: TMenuItem;
     miConstAtlas: TMenuItem;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
@@ -180,7 +179,6 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure SceneViewerBeforeRender(Sender: TObject);
     procedure miFileExitClick(Sender: TObject);
-    procedure miViewConstlinesClick(Sender: TObject);
     procedure miViewConstBordersClick(Sender: TObject);
     procedure tvMoonsClick(Sender: TObject);
     procedure miFileOpenClick(Sender: TObject);
@@ -690,7 +688,7 @@ begin
   line.Free;
 end;
 
-//---------------------- Меню линий созвездий --------------------------------
+(*
 procedure TFormLithoneta.miViewConstlinesClick(Sender: TObject);
 begin
   ConstLines.Nodes.Clear;
@@ -701,6 +699,7 @@ begin
     LoadConstLines;
   end;
 end;
+*)
 
 //------------------- Загрузка границ созвездий ------------------------------
 procedure TFormLithoneta.LoadConstBorders;

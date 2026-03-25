@@ -89183,19 +89183,21 @@ object FormLithoneta: TFormLithoneta
     end
     object miView: TMenuItem
       Caption = '&'#1042#1080#1076
-      object miViewConstlines: TMenuItem
-        Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
-        OnClick = miViewConstlinesClick
+      object miSolarSystem: TMenuItem
+        Caption = #1054#1088#1073#1080#1090#1072#1083#1100#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
       end
-      object miViewConstborders: TMenuItem
-        Caption = #1043#1088#1072#1085#1080#1094#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
-        OnClick = miViewConstbordersClick
+      object miConstAtlas: TMenuItem
+        Caption = #1040#1090#1083#1072#1089' '#1087#1083#1072#1085#1077#1090#1099'...'
       end
       object N4: TMenuItem
         Caption = '-'
       end
-      object miSolarSystem: TMenuItem
-        Caption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072'...'
+      object miViewConstlines: TMenuItem
+        Caption = #1051#1080#1085#1080#1080' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+      end
+      object miViewConstborders: TMenuItem
+        Caption = #1043#1088#1072#1085#1080#1094#1099' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
+        OnClick = miViewConstbordersClick
       end
       object N6: TMenuItem
         Caption = '-'
@@ -89204,12 +89206,6 @@ object FormLithoneta: TFormLithoneta
         Caption = #1054#1095#1080#1089#1090#1080#1090#1100
         Enabled = False
         OnClick = miClearTreeViewClick
-      end
-    end
-    object N5: TMenuItem
-      Caption = #1050#1072#1088#1090#1099
-      object miConstAtlas: TMenuItem
-        Caption = #1040#1090#1083#1072#1089' '#1087#1083#1072#1085#1077#1090#1099'...'
       end
     end
     object miTools: TMenuItem
