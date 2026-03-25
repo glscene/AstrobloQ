@@ -30,19 +30,19 @@
 #pragma link "GLS.Coordinates"
 #pragma resource "*.dfm"
 
-TfrmAstroScene* frmAstroScene;
+TFormAstroScene* FormAstroScene;
 
 bool grid_on = false;
 
 //---------------------------------------------------------------------------
-__fastcall TfrmAstroScene::TfrmAstroScene(TComponent* Owner) : TFormC(Owner)
+__fastcall TFormAstroScene::TFormAstroScene(TComponent* Owner) : TFormC(Owner)
 {
 }
 
 //---------------------------------------------------------------------------
-TFileName __fastcall TfrmAstroScene::GetDataPath()
+TFileName __fastcall TFormAstroScene::GetDataPath()
 {
-	TFileName Path = ExtractFilePath(ParamStr(0)).LowerCase();
+	Path = ExtractFilePath(ParamStr(0)).LowerCase();
 	int N = Path.Pos("bin");
 	if (N > 0)
 		Path = Path.SubString(0, N - 1);
@@ -53,7 +53,7 @@ TFileName __fastcall TfrmAstroScene::GetDataPath()
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TfrmAstroScene::LoadPlanetMap(const String &fileName)
+void __fastcall TFormAstroScene::LoadPlanetMap(const String &fileName)
 {
 	String imagePath = GetDataPath() + fileName;
 	if (FileExists(imagePath)) {
@@ -64,7 +64,7 @@ void __fastcall TfrmAstroScene::LoadPlanetMap(const String &fileName)
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TfrmAstroScene::FormCreate(TObject* Sender)
+void __fastcall TFormAstroScene::FormCreate(TObject* Sender)
 {
 	DataDir = GetDataPath();
 	SetCurrentDir(DataDir);
@@ -101,7 +101,7 @@ void __fastcall TfrmAstroScene::FormCreate(TObject* Sender)
 
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::miPointtoClick(TObject* Sender)
+void __fastcall TFormAstroScene::miPointtoClick(TObject* Sender)
 {
 	/*
   TFormPointto*  FormPointto;
@@ -117,12 +117,11 @@ void __fastcall TfrmAstroScene::miPointtoClick(TObject* Sender)
 
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::GLCadencerProgress(
+void __fastcall TFormAstroScene::GLCadencerProgress(
     TObject* Sender, const double DeltaTime, const double NewTime)
 
 {
-
-	sfPlanet->TurnAngle = frmSettings->chbRotate->Checked ? 10 * NewTime : 0;
+	sfPlanet->TurnAngle = FormSettings->chbRotate->Checked ? 10 * NewTime : 0;
 	/*
 	if (chbRotate->Checked)
 		sfPlanet->TurnAngle = 10 * NewTime;
@@ -133,7 +132,7 @@ void __fastcall TfrmAstroScene::GLCadencerProgress(
 
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::miHipparcosClick(TObject* Sender)
+void __fastcall TFormAstroScene::miHipparcosClick(TObject* Sender)
 {
     TFormHipparcos* FormHipparcos;
     FormHipparcos = new TFormHipparcos(this);
@@ -146,7 +145,7 @@ void __fastcall TfrmAstroScene::miHipparcosClick(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::miHercRusselClick(TObject* Sender)
+void __fastcall TFormAstroScene::miHercRusselClick(TObject* Sender)
 {
     TFormHercRussel* FormHercRussel;
     FormHercRussel = new TFormHercRussel(this);
@@ -159,97 +158,97 @@ void __fastcall TfrmAstroScene::miHercRusselClick(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonMercuryClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonMercuryClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("mercury.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonVenusClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonVenusClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("venus.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonEarthClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonEarthClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("earth.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonMarsClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonMarsClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("mars.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonJupiterClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonJupiterClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("jupiter.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonSaturnClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonSaturnClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("saturn.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonUranusClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonUranusClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("uranus.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonNeptuneClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonNeptuneClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("neptune.jpg");
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::ButtonPlutoClick(TObject* Sender)
+void __fastcall TFormAstroScene::ButtonPlutoClick(TObject* Sender)
 {
     sfPlanet->Material->Texture->Image->LoadFromFile("pluto.jpg");
 }
 
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::chbAxesClick(TObject* Sender)
+void __fastcall TFormAstroScene::chbAxesClick(TObject* Sender)
 {
-	sfPlanet->ShowAxes = frmSettings->chbAxes->Checked;
-	ArrowX->Visible = frmSettings->chbAxes->Checked;
-	ArrowY->Visible = frmSettings->chbAxes->Checked;
-	ArrowZ->Visible = frmSettings->chbAxes->Checked;
-	Arrow_X->Visible = frmSettings->chbAxes->Checked;
-	Arrow_Y->Visible = frmSettings->chbAxes->Checked;
-	Arrow_Z->Visible = frmSettings->chbAxes->Checked;
+	sfPlanet->ShowAxes = FormSettings->chbAxes->Checked;
+	ArrowX->Visible = FormSettings->chbAxes->Checked;
+	ArrowY->Visible = FormSettings->chbAxes->Checked;
+	ArrowZ->Visible = FormSettings->chbAxes->Checked;
+	Arrow_X->Visible = FormSettings->chbAxes->Checked;
+	Arrow_Y->Visible = FormSettings->chbAxes->Checked;
+	Arrow_Z->Visible = FormSettings->chbAxes->Checked;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::chbPlanetClick(TObject* Sender)
+void __fastcall TFormAstroScene::chbPlanetClick(TObject* Sender)
 {
 	///    sfPlanet->Visible = chbPlanet->Checked;
-	if (frmSettings->chbPlanet->Checked)
+	if (FormSettings->chbPlanet->Checked)
 		sfPlanet->Material->PolygonMode = pmFill;
     else
         sfPlanet->Material->PolygonMode = pmLines;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::chbGridClick(TObject* Sender)
+void __fastcall TFormAstroScene::chbGridClick(TObject* Sender)
 {
-	dmMeridianGrid->Visible = frmSettings->chbGrid->Checked;
-	dmParallelGrid->Visible = frmSettings->chbGrid->Checked;
+	dmMeridianGrid->Visible = FormSettings->chbGrid->Checked;
+	dmParallelGrid->Visible = FormSettings->chbGrid->Checked;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::miSettingsClick(TObject* Sender)
+void __fastcall TFormAstroScene::miSettingsClick(TObject* Sender)
 {
-	frmSettings->Show();
+	FormSettings->Show();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::miAboutClick(TObject* Sender)
+void __fastcall TFormAstroScene::miAboutClick(TObject* Sender)
 {
 	TFormAbout* FormAbout;
 	FormAbout = new TFormAbout(this);
@@ -262,7 +261,7 @@ void __fastcall TfrmAstroScene::miAboutClick(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfrmAstroScene::miExitClick(TObject* Sender)
+void __fastcall TFormAstroScene::miExitClick(TObject* Sender)
 {
 	Close();
 }

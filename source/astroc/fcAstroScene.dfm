@@ -1,9 +1,9 @@
-object frmAstroScene: TfrmAstroScene
+object FormAstroScene: TFormAstroScene
   Left = 0
   Top = 0
   Caption = 'AstroScene'
-  ClientHeight = 582
-  ClientWidth = 966
+  ClientHeight = 778
+  ClientWidth = 1238
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,11 +17,11 @@ object frmAstroScene: TfrmAstroScene
   object GLSceneViewer: TGLSceneViewer
     Left = 222
     Top = 29
-    Width = 744
-    Height = 553
+    Width = 1016
+    Height = 749
     Camera = Camera
     Buffer.BackgroundColor = clBackground
-    FieldOfView = 159.499740600585900000
+    FieldOfView = 164.790664672851600000
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
@@ -30,7 +30,7 @@ object frmAstroScene: TfrmAstroScene
     Left = 0
     Top = 29
     Width = 222
-    Height = 553
+    Height = 749
     ActivePage = tsPlanets
     Align = alLeft
     Font.Charset = DEFAULT_CHARSET
@@ -40,7 +40,7 @@ object frmAstroScene: TfrmAstroScene
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitHeight = 528
+    ExplicitHeight = 724
     object tsPlanets: TTabSheet
       Caption = #1055#1083#1072#1085#1077#1090#1099
       ImageIndex = -1
@@ -49,7 +49,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 0
         Top = 0
         Width = 201
-        Height = 518
+        Height = 714
         Align = alLeft
         AutoExpand = True
         Font.Charset = DEFAULT_CHARSET
@@ -152,7 +152,8 @@ object frmAstroScene: TfrmAstroScene
           380039005F0013043E043B04350432043A0430040000350000000B0000000B00
           0000FFFFFFFFFFFFFFFF00000000000000000000000000010B39003000330037
           0037005F002104350434043D043004}
-        ExplicitHeight = 493
+        ExplicitLeft = -4
+        ExplicitTop = 16
       end
     end
     object tsConstCharts: TTabSheet
@@ -163,7 +164,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 192
         Top = 0
         Width = 22
-        Height = 518
+        Height = 714
         Align = alClient
         ImageWidth = 0
         ImageHeight = 0
@@ -176,7 +177,7 @@ object frmAstroScene: TfrmAstroScene
         Left = 0
         Top = 0
         Width = 192
-        Height = 518
+        Height = 714
         Align = alLeft
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -339,11 +340,11 @@ object frmAstroScene: TfrmAstroScene
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 966
+    Width = 1238
     Height = 29
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 958
+    ExplicitWidth = 1230
     object ToolBar1: TToolBar
       Left = 232
       Top = 2
@@ -386,8 +387,8 @@ object frmAstroScene: TfrmAstroScene
   object GLCadencer: TGLCadencer
     Scene = GLScene
     OnProgress = GLCadencerProgress
-    Left = 268
-    Top = 56
+    Left = 356
+    Top = 64
   end
   object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
@@ -406,12 +407,12 @@ object frmAstroScene: TfrmAstroScene
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 282
-    Top = 271
+    Left = 274
+    Top = 151
   end
   object GLScene: TGLScene
-    Left = 1071
-    Top = 177
+    Left = 271
+    Top = 65
     object Camera: TGLCamera
       DepthOfView = 100000.000000000000000000
       FocalLength = 50.000000000000000000
@@ -832,12 +833,12 @@ object frmAstroScene: TfrmAstroScene
     end
   end
   object Timer: TTimer
-    Left = 350
+    Left = 902
     Top = 58
   end
   object MainMenu: TMainMenu
-    Left = 270
-    Top = 172
+    Left = 990
+    Top = 60
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object Open1: TMenuItem

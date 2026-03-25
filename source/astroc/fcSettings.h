@@ -9,7 +9,7 @@
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TfrmSettings : public TForm
+class TFormSettings : public TForm
 {
 __published:	// IDE-managed Components
 	TPanel *PanelTop;
@@ -27,11 +27,12 @@ __published:	// IDE-managed Components
 	TCheckBox *chbAxes;
 	TCheckBox *chbPlanet;
 	TCheckBox *chbGrid;
+	void __fastcall chbAxesClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-	__fastcall TfrmSettings(TComponent* Owner);
+	__fastcall TFormSettings(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TfrmSettings *frmSettings;
+extern PACKAGE TFormSettings *FormSettings;
 //---------------------------------------------------------------------------
 #endif

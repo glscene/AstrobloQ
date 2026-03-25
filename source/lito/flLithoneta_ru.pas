@@ -248,7 +248,7 @@ begin
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-  StarDir := DataDir + 'stars';
+  StarDir := DataDir + '\starsys';
 
   // путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -413,7 +413,7 @@ begin
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
 
-  // читаем CSV file для трансляции и загрузки имени карты луны
+  // читаем CSV file для трансляции и загрузки карты луны
   FileCSV := CurrentStar + 'sol_moons.csv';
   Moon := tvMoons.Selected.Text;  // находим по полю name_ru
 

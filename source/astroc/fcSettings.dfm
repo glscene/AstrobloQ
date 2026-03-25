@@ -1,4 +1,4 @@
-object frmSettings: TfrmSettings
+object FormSettings: TFormSettings
   Left = 0
   Top = 0
   Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080
@@ -10,6 +10,7 @@ object frmSettings: TfrmSettings
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object PanelTop: TPanel
     Left = 0
@@ -19,14 +20,14 @@ object frmSettings: TfrmSettings
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 553
+    ExplicitWidth = 605
   end
   object Panel1: TPanel
-    Left = 494
+    Left = 0
     Top = 30
-    Width = 119
+    Width = 613
     Height = 432
-    Align = alRight
+    Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -34,8 +35,8 @@ object frmSettings: TfrmSettings
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = 434
-    ExplicitHeight = 310
+    ExplicitWidth = 605
+    ExplicitHeight = 407
     object ButtonMercury: TButton
       Left = 22
       Top = 24
@@ -109,34 +110,35 @@ object frmSettings: TfrmSettings
       TabOrder = 8
     end
     object chbRotate: TCheckBox
-      Left = 18
-      Top = 303
+      Left = 289
+      Top = 47
       Width = 87
       Height = 24
       Caption = #1042#1088#1072#1097#1077#1085#1080#1077
       TabOrder = 9
     end
     object chbAxes: TCheckBox
-      Left = 13
-      Top = 333
+      Left = 197
+      Top = 125
       Width = 76
       Height = 17
       Caption = #1054#1089#1080
       Checked = True
       State = cbChecked
       TabOrder = 10
+      OnClick = chbAxesClick
     end
     object chbPlanet: TCheckBox
-      Left = 16
-      Top = 378
+      Left = 440
+      Top = 125
       Width = 73
       Height = 17
       Caption = #1055#1083#1072#1085#1077#1090#1072
       TabOrder = 11
     end
     object chbGrid: TCheckBox
-      Left = 16
-      Top = 356
+      Left = 295
+      Top = 125
       Width = 81
       Height = 17
       Caption = #1043#1077#1086#1089#1077#1090#1082#1072

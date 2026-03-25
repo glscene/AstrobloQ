@@ -30,7 +30,7 @@
 
 
 //---------------------------------------------------------------------------
-class TfrmAstroScene : public TFormC
+class TFormAstroScene : public TFormC
 {
 __published:	// IDE-managed Components
 	TGLSceneViewer *GLSceneViewer;
@@ -132,12 +132,13 @@ private:	// User declarations
 	TFileName DataDir;
 	TFileName CurrDir;
 	TFileName FileName;
+    TFileName Path;
 public:		// User declarations
-	__fastcall TfrmAstroScene(TComponent* Owner);
+	__fastcall TFormAstroScene(TComponent* Owner);
 	__fastcall TFileName GetDataPath();
 	void __fastcall LoadPlanetMap(const String& fileName);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TfrmAstroScene *frmAstroScene;
+extern PACKAGE TFormAstroScene *FormAstroScene;
 //---------------------------------------------------------------------------
 #endif
