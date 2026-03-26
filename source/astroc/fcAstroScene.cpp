@@ -104,13 +104,13 @@ void __fastcall TFormAstroScene::FormCreate(TObject* Sender)
 void __fastcall TFormAstroScene::miPointtoClick(TObject* Sender)
 {
 	/*
-  TFormPointto*  FormPointto;
-  FormPointto = new TFormPointto(this);
+  TfrmPointto*  frmPointto;
+  frmPointto = new TfrmPointto(this);
   try {
-	  FormPointto->ShowModal();
+	  frmPointto->ShowModal();
 	}
 	__finally {
-	  FormPointto->Free();
+	  frmPointto->Free();
   }
 */
 }
@@ -134,28 +134,30 @@ void __fastcall TFormAstroScene::GLCadencerProgress(
 
 void __fastcall TFormAstroScene::miHipparcosClick(TObject* Sender)
 {
-    TFormHipparcos* FormHipparcos;
-    FormHipparcos = new TFormHipparcos(this);
-    try {
-		FormHipparcos->ShowModal();
-    } __finally
-    {
-        FormHipparcos->Free();
-    }
+	TfrmHipparcos* frmHipparcos;
+	frmHipparcos = new TfrmHipparcos(this);
+	try {
+		frmHipparcos->ShowModal();
+	} __finally
+	{
+		frmHipparcos->Free();
+	}
 }
+
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::miHercRusselClick(TObject* Sender)
 {
-    TFormHercRussel* FormHercRussel;
-    FormHercRussel = new TFormHercRussel(this);
-    try {
-        FormHercRussel->ShowModal();
-    } __finally
-    {
-        FormHercRussel->Free();
-    }
+	TfrmHercRussel* frmHercRussel;
+	frmHercRussel = new TfrmHercRussel(this);
+	try {
+		frmHercRussel->ShowModal();
+	} __finally
+	{
+		frmHercRussel->Free();
+	}
 }
+
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::ButtonMercuryClick(TObject* Sender)
@@ -166,7 +168,7 @@ void __fastcall TFormAstroScene::ButtonMercuryClick(TObject* Sender)
 
 void __fastcall TFormAstroScene::ButtonVenusClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("venus.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("venus.jpg");
 }
 //---------------------------------------------------------------------------
 
@@ -184,7 +186,7 @@ void __fastcall TFormAstroScene::ButtonMarsClick(TObject* Sender)
 
 void __fastcall TFormAstroScene::ButtonJupiterClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("jupiter.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("jupiter.jpg");
 }
 //---------------------------------------------------------------------------
 
@@ -223,6 +225,7 @@ void __fastcall TFormAstroScene::chbAxesClick(TObject* Sender)
 	Arrow_Y->Visible = FormSettings->chbAxes->Checked;
 	Arrow_Z->Visible = FormSettings->chbAxes->Checked;
 }
+
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::chbPlanetClick(TObject* Sender)
@@ -230,11 +233,13 @@ void __fastcall TFormAstroScene::chbPlanetClick(TObject* Sender)
 	///    sfPlanet->Visible = chbPlanet->Checked;
 	if (FormSettings->chbPlanet->Checked)
 		sfPlanet->Material->PolygonMode = pmFill;
-    else
-        sfPlanet->Material->PolygonMode = pmLines;
+	else
+		sfPlanet->Material->PolygonMode = pmLines;
 }
-//---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
+//                       Показать меридианы и параллели
+//---------------------------------------------------------------------------
 void __fastcall TFormAstroScene::chbGridClick(TObject* Sender)
 {
 	dmMeridianGrid->Visible = FormSettings->chbGrid->Checked;
@@ -250,13 +255,13 @@ void __fastcall TFormAstroScene::miSettingsClick(TObject* Sender)
 
 void __fastcall TFormAstroScene::miAboutClick(TObject* Sender)
 {
-	TFormAbout* FormAbout;
-	FormAbout = new TFormAbout(this);
+	TfrmAbout* frmAbout;
+	frmAbout = new TfrmAbout(this);
 	try {
-		FormAbout->ShowModal();
+		frmAbout->ShowModal();
 	} __finally
 	{
-		FormAbout->Free();
+		frmAbout->Free();
 	}
 }
 //---------------------------------------------------------------------------

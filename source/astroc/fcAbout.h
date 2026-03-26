@@ -9,15 +9,15 @@
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TFormAbout : public TForm
+class TfrmAbout : public TForm
 {
 __published:	// IDE-managed Components
 	TPanel *Panel1;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFormAbout(TComponent* Owner);
+	__fastcall TfrmAbout(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormAbout *FormAbout;
+extern PACKAGE TfrmAbout *frmAbout;
 //---------------------------------------------------------------------------
 #endif

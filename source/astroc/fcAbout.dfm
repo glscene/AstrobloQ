@@ -1,9 +1,9 @@
-object FormAbout: TFormAbout
+object frmAbout: TfrmAbout
   Left = 0
   Top = 0
   Caption = 'About'
-  ClientHeight = 178
-  ClientWidth = 385
+  ClientHeight = 297
+  ClientWidth = 464
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,8 +13,8 @@ object FormAbout: TFormAbout
   Position = poScreenCenter
   TextHeight = 15
   object Panel1: TPanel
-    Left = 88
-    Top = 64
+    Left = 136
+    Top = 112
     Width = 185
     Height = 41
     Caption = 'AstroScene C++ v. 1.0'

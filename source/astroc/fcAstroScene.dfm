@@ -25,6 +25,8 @@ object FormAstroScene: TFormAstroScene
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1008
+    ExplicitHeight = 724
   end
   object PageControl: TPageControl
     Left = 0
@@ -152,8 +154,7 @@ object FormAstroScene: TFormAstroScene
           380039005F0013043E043B04350432043A0430040000350000000B0000000B00
           0000FFFFFFFFFFFFFFFF00000000000000000000000000010B39003000330037
           0037005F002104350434043D043004}
-        ExplicitLeft = -4
-        ExplicitTop = 16
+        ExplicitHeight = 689
       end
     end
     object tsConstCharts: TTabSheet

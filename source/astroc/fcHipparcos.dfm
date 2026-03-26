@@ -1,4 +1,4 @@
-object FormHipparcos: TFormHipparcos
+object frmHipparcos: TfrmHipparcos
   Left = 0
   Top = 0
   Caption = 'Hipparcos C'

@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TFormHipparcos *FormHipparcos;
+TfrmHipparcos *frmHipparcos;
 //---------------------------------------------------------------------------
-__fastcall TFormHipparcos::TFormHipparcos(TComponent* Owner)
+__fastcall TfrmHipparcos::TfrmHipparcos(TComponent* Owner)
 	: TForm(Owner)
 {
 }

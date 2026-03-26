@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TFormHercRussel *FormHercRussel;
+TfrmHercRussel *frmHercRussel;
 //---------------------------------------------------------------------------
-__fastcall TFormHercRussel::TFormHercRussel(TComponent* Owner)
+__fastcall TfrmHercRussel::TfrmHercRussel(TComponent* Owner)
 	: TForm(Owner)
 {
 }

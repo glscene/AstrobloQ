@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TFormAbout *FormAbout;
+TfrmAbout *frmAbout;
 //---------------------------------------------------------------------------
-__fastcall TFormAbout::TFormAbout(TComponent* Owner)
+__fastcall TfrmAbout::TfrmAbout(TComponent* Owner)
 	: TForm(Owner)
 {
 }

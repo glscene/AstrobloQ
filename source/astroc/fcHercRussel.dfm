@@ -1,4 +1,4 @@
-object FormHercRussel: TFormHercRussel
+object frmHercRussel: TfrmHercRussel
   Left = 0
   Top = 0
   Caption = 'Hercshprung-Russel Diagram'

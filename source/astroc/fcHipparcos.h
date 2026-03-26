@@ -8,14 +8,14 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 //---------------------------------------------------------------------------
-class TFormHipparcos : public TForm
+class TfrmHipparcos : public TForm
 {
 __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFormHipparcos(TComponent* Owner);
+	__fastcall TfrmHipparcos(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormHipparcos *FormHipparcos;
+extern PACKAGE TfrmHipparcos *frmHipparcos;
 //---------------------------------------------------------------------------
 #endif
