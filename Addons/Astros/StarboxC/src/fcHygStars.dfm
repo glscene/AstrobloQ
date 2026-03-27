@@ -7,7 +7,7 @@ object Form1: TForm1
   Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'L2'
+  Caption = 'Stars of HYG catalog'
   ClientHeight = 446
   ClientWidth = 771
   Color = clBtnFace
@@ -35,8 +35,6 @@ object Form1: TForm1
         Text = 'FPS:'
         Width = 50
       end>
-    ExplicitTop = 402
-    ExplicitWidth = 763
   end
   object GLSceneViewer1: TGLSceneViewer
     Left = 135
