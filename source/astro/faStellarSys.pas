@@ -1,4 +1,4 @@
-unit faStarSys_ru;
+unit faStellarSys;
 
 interface
 
@@ -51,16 +51,16 @@ uses
   GLS.Atmosphere,
   GLS.LensFlare,
 
+  Astro.Utils,
   fmFormFirst,
-  faOptions_ru,
-  frParams_ru,
-  Astro.Utils
+  faOptions,
+  frParams
   ;
 
 type
-  TFormStarSys = class(TFormFirst)
-    GLSceneStarsys: TGLScene;
-    svStarsys: TGLSceneViewer;
+  TfrmStellarSys = class(TFormFirst)
+    Scene: TGLScene;
+    SceneViewer: TGLSceneViewer;
     PanelLeft: TPanel;
     tvStarSys: TTreeView;
     Camera: TGLCamera;
@@ -69,7 +69,7 @@ type
     Mercury: TGLSphere;
     sys_dogl: TGLDirectOpenGL;
     SolarSystem: TGLDummyCube;
-    lineAxis: TGLLines;
+    axis_lines: TGLLines;
     bb_lines: TGLLines;
     AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
@@ -136,38 +136,45 @@ type
     miInnerCore: TMenuItem;
     miHidePanels: TMenuItem;
     N1: TMenuItem;
+    File1: TMenuItem;
+    New1: TMenuItem;
+    Open1: TMenuItem;
+    Save1: TMenuItem;
+    SaveAs1: TMenuItem;
+    Exit1: TMenuItem;
+    N2: TMenuItem;
+    Help1: TMenuItem;
+    miWiki: TMenuItem;
     stPickObject: TStaticText;
     cbOrbit: TCheckBox;
     Splitter1: TSplitter;
-    cbStarHZ: TCheckBox;
+    cbHabitableZone: TCheckBox;
     MemoInfo: TMemo;
     cbRotation: TCheckBox;
+    N7: TMenuItem;
     Phobos: TGLFreeForm;
     Deimos: TGLFreeForm;
     StatusBarSol: TStatusBar;
     JupiterRing: TGLDisk;
-    FrameParamsR: TFrameParamsR;
-    N2: TMenuItem;
-    miOpen: TMenuItem;
-    miExit: TMenuItem;
-    SimpleNavigation: TGLSimpleNavigation;
+    FrameParams: TFrameParams;
+    GLSimpleNavigation1: TGLSimpleNavigation;
     StarHZDown: TGLDisk;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
     procedure Sys_doglRender(Sender: TObject; var rci: TGLRenderContextInfo);
-    procedure svStarsysMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure SceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure AsyncTimerTimer(Sender: TObject);
     procedure tvStarSysChange(Sender: TObject; Node: TTreeNode);
     procedure cbOrbitClick(Sender: TObject);
     procedure cbRotationClick(Sender: TObject);
-    procedure cbStarHZClick(Sender: TObject);
-    procedure miOpenClick(Sender: TObject);
+    procedure cbHabitableZoneClick(Sender: TObject);
+    procedure Open1Click(Sender: TObject);
     procedure tvStarSysClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
-    procedure miExitClick(Sender: TObject);
+    procedure Exit1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
   public
@@ -186,23 +193,23 @@ type
   end;
 
 var
-  FormStarSys: TFormStarSys;
+  frmStellarSys: TfrmStellarSys;
 const
-  cOmega = 10;  // угловая скорость
+  cOmega = 10;  // angular velocity
 
-implementation //==============================================================
+implementation //=============================================================
 
 {$R *.dfm}
 
 //----------------------------------------------------------------------------
-procedure TFormStarSys.FormCreate;
+procedure TfrmStellarSys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\starsys\sun\'; // вместо GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
-  // Текстуры карт
-  Sun.Material.Texture.Image.LoadFromFile('sun.jpg');
+  // Maps as cylindrical textures
+  Sun.Material.Texture.Image.LoadFromFile('sol.jpg');
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg');
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
 
@@ -236,13 +243,13 @@ begin
   Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
     Charon.Material.Texture.Image.LoadFromFile('charon.jpg');
 
-  // Загрузка моделей в FreeForms
+  // Models for FreeForms
   Phobos.LoadFromFile('phobos.3ds');
   Phobos.Scale.Scale(0.05 / Phobos.BoundingSphereRadius);
   Deimos.LoadFromFile('deimos.3ds');
   Deimos.Scale.Scale(0.05 / Deimos.BoundingSphereRadius);
 
-  // Загрузка каталогов звёзд в SkyDome
+  // Catalog of stars for SkyDome
   SetCurrentDir(PathToData + '\catalog');
   FileName := GetCurrentDir + '\Yale_BSC.stars';
   SkyDome.Bands.Clear;
@@ -250,16 +257,17 @@ begin
     SkyDome.Stars.LoadStarsFile(FileName);
 
   UpdateTreeView;
-  tvStarSys.Select(tvStarSys.Items[0]); // выбор первого узла
+  tvStarSys.Select(tvStarSys.Items[0]); // goto to the first node
 (*
+//  ffMoon.LoadFromFile('moon.3ds');
 //  ffAsteroid.LoadFromFile('asteroid.3ds');
 //  ffComet.LoadFromFile('comet.3ds');
 *)
   tvStarSys.FullExpand;
   ///Atmosphere := TGLAtmosphere.Create(Self);
-  svStarsys.Buffer.RenderingContext.Activate;
+  SceneViewer.Buffer.RenderingContext.Activate;
 
-  // возврат в папку солнца
+  // return to sun star dir
   SetCurrentDir(CurrentDir);
   inherited;   // inheritance for translation
 end;
@@ -267,48 +275,48 @@ end;
 //----------------------------------------------------------------------------
 // FormShow
 //----------------------------------------------------------------------------
-procedure TFormStarSys.FormShow(Sender: TObject);
+procedure TfrmStellarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
-  cbStarHZClick(Self);
+  cbHabitableZoneClick(Self);
   UpdateBBox; // ?
 end;
 
 //----------------------------------------------------------------------------
-// ------------------- Скрыть или показать панели ----------------------------
+// Hide Panels
 //----------------------------------------------------------------------------
-procedure TFormStarSys.miHidePanelsClick(Sender: TObject);
+procedure TfrmStellarSys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
    miHidePanels.Checked := not miHidePanels.Checked;
    if miHidePanels.Checked then
-     miHidePanels.Caption := 'Скрыть панели'
+     miHidePanels.Caption := 'Hide panels'
    else
-    miHidePanels.Caption := 'Показать панели';
+    miHidePanels.Caption := 'Show panels';
 end;
 
-//--------------------- Внутреннее ядро планеты -------------------------------
-procedure TFormStarSys.miInnerCoreClick(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
   tvStarSysClick(Self);
-  svStarsys.Invalidate;
+  SceneViewer.Invalidate;
 end;
 
 //----------------------------------------------------------------------------
-// Открыть файл и загрузить данные
+// Open File dialog
 //----------------------------------------------------------------------------
-procedure TFormStarSys.miOpenClick(Sender: TObject);
+procedure TfrmStellarSys.Open1Click(Sender: TObject);
 begin
-  // not ready csv files
+  //
 end;
 
 //----------------------------------------------------------------------------
-// ---------------------- Прогресс каденсера ---------------------------------
+// CadencerProgress
 //----------------------------------------------------------------------------
-procedure TFormStarSys.CadencerProgress(Sender: TObject;
+procedure TfrmStellarSys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
@@ -349,8 +357,10 @@ begin
     dcCharon.Turn(deltaTime * 100);
 end;
 
-//---------------------- Показать линии орбит --------------------------------
-procedure TFormStarSys.cbOrbitClick(Sender: TObject);
+//----------------------------------------------------------------------------
+// Show Orbit Lines
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
@@ -361,37 +371,45 @@ begin
   UranusOrbit.Visible := cbOrbit.Checked;
   NeptuneOrbit.Visible := cbOrbit.Checked;
   PlutoOrbit.Visible := cbOrbit.Checked;
-  svStarsys.Invalidate;
+  SceneViewer.Invalidate;
 end;
 
-//--------------------- Вращение планетной системы ----------------------------
-procedure TFormStarSys.cbRotationClick(Sender: TObject);
+//----------------------------------------------------------------------------
+// Rotate Solar System
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
-  svStarsys.Invalidate;
+  SceneViewer.Invalidate;
 end;
 
-//----------------------- Показать обитаемую зону звезды ----------------------
-procedure TFormStarSys.cbStarHZClick(Sender: TObject);
+//----------------------------------------------------------------------------
+// Show Habitable Zone
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.cbHabitableZoneClick(Sender: TObject);
 begin
-  StarHZUp.Visible := cbStarHZ.Checked;
-  StarHZDown.Visible := cbStarHZ.Checked;
+  StarHZUp.Visible := cbHabitableZone.Checked;
+  StarHZDown.Visible := cbHabitableZone.Checked;
 end;
 
-//--------------------- Изменение дерева просмотра ----------------------------
-procedure TFormStarSys.tvStarSysChange(Sender: TObject; Node: TTreeNode);
+//----------------------------------------------------------------------------
+// tvStarSysChange
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.tvStarSysChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
   begin
     PickObject := TGLBaseSceneObject(Node.Data);
     stPickObject.Caption := PickObject.Name;
     MemoInfo.Text := PickObject.Name + ': ' + PickObject.ClassName;
-    FrameParamsR.ShowParams;
+    FrameParams.ShowParams;
   end;
 end;
 
-//------------------------ клик мыши по узлу дерева ---------------------------
-procedure TFormStarSys.tvStarSysClick(Sender: TObject);
+//----------------------------------------------------------------------------
+// tvStarSysClick
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.tvStarSysClick(Sender: TObject);
 var
   i: integer;
 begin
@@ -672,7 +690,7 @@ begin
       Camera.Position.Y := 0;
       Camera.Position.Z := 5;
     end
-    else   // для лун Сатурна
+    else   // for Saturn moons
     begin
       Camera.Position.X := 1;
       Camera.Position.Y := 1;
@@ -740,13 +758,15 @@ begin
     Camera.Position.Y := 0;
     Camera.Position.Z := 1;
   end;
-  svStarsys.Invalidate;
+  SceneViewer.Invalidate;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormStarSys.svStarsysMouseDown;
+// MouseDown
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.SceneViewerMouseDown;
 begin
-  newPickObject := svStarsys.Buffer.GetPickedObject(X, Y);
+  newPickObject := SceneViewer.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
     exit;
   if newPickObject = nil then
@@ -756,8 +776,10 @@ begin
 end;
 
 
-//---------------------------------------------------------------------------
-procedure TFormStarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
+//----------------------------------------------------------------------------
+// GetObjects
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
   Node: TTreeNode;
@@ -774,15 +796,20 @@ begin
   end;
 end;
 
-//---------------------------------------------------------------------------
-procedure TFormStarSys.UpdateTreeView;
+//----------------------------------------------------------------------------
+// UpdatetvStarSys
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.UpdateTreeView;
+
 begin
   tvStarSys.Items.Clear;
   GetObjects(tvStarSys.TopItem, SolarSystem);
 end;
 
-//---------------------------------------------------------------------------
-procedure TFormStarSys.AddBBox;
+//----------------------------------------------------------------------------
+// AddBBox
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.AddBBox;
 const
   c = 0.5;
   d = 0.3;
@@ -843,8 +870,10 @@ begin
   end;
 end;
 
-//---------------------------------------------------------------------------
-procedure TFormStarSys.UpdateBBox;
+//----------------------------------------------------------------------------
+// UpdateBBox
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.UpdateBBox;
 var
   v1, v2: TVector3f;
 
@@ -868,36 +897,44 @@ begin
     bb_lines.Scale.SetVector(PickObject.BoundingBox(false).BBox[0]);
     bb_lines.Scale.Scale(2.1);
   end;
-  lineAxis.Matrix^ := PickObject.AbsoluteMatrix;
+  axis_lines.Matrix^ := PickObject.AbsoluteMatrix;
 end;
 
-//---------------------------------------------------------------------------
-procedure TFormStarSys.Sys_doglRender;
+//----------------------------------------------------------------------------
+// Sys_doglRender
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.Sys_doglRender;
 begin
   if PickObject <> nil then
   begin
     rci.GLStates.DepthFunc := cfAlways;
     UpdateBBox;
-    lineAxis.Render(rci);
+    axis_lines.Render(rci);
     bb_lines.Render(rci);
   end;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormStarSys.AsyncTimerTimer;
+// AsyncTimerTimer
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.AsyncTimerTimer;
 begin
-  Caption := 'Звёздная система' + ' / ' + svStarsys.FramesPerSecondText(2);
-  svStarsys.ResetPerformanceMonitor;
+  Caption := 'Solar system' + ' / ' + SceneViewer.FramesPerSecondText(2);
+  SceneViewer.ResetPerformanceMonitor;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormStarSys.miExitClick(Sender: TObject);
+// Exit
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.Exit1Click(Sender: TObject);
 begin
   Close;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormStarSys.FormClose(Sender: TObject; var Action: TCloseAction);
+// Form Close
+//----------------------------------------------------------------------------
+procedure TfrmStellarSys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
 end;

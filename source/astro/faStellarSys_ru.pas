@@ -1,4 +1,4 @@
-unit faSolarSys_ru;
+unit faStellarSys_ru;
 
 interface
 
@@ -58,11 +58,11 @@ uses
   ;
 
 type
-  TFormSolarSys = class(TFormFirst)
-    GLSceneSolarsys: TGLScene;
-    svSolarsys: TGLSceneViewer;
+  TfrmStellarSys = class(TFormFirst)
+    GLSceneStarsys: TGLScene;
+    svStarsys: TGLSceneViewer;
     PanelLeft: TPanel;
-    tvSolarSys: TTreeView;
+    tvStarSys: TTreeView;
     Camera: TGLCamera;
     LightSource: TGLLightSource;
     Cadencer: TGLCadencer;
@@ -156,15 +156,15 @@ type
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
     procedure Sys_doglRender(Sender: TObject; var rci: TGLRenderContextInfo);
-    procedure svSolarsysMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure svStarsysMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure AsyncTimerTimer(Sender: TObject);
-    procedure tvSolarSysChange(Sender: TObject; Node: TTreeNode);
+    procedure tvStarSysChange(Sender: TObject; Node: TTreeNode);
     procedure cbOrbitClick(Sender: TObject);
     procedure cbRotationClick(Sender: TObject);
     procedure cbStarHZClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
-    procedure tvSolarSysClick(Sender: TObject);
+    procedure tvStarSysClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
     procedure miInnerCoreClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
@@ -186,7 +186,7 @@ type
   end;
 
 var
-  FormSolarSys: TFormSolarSys;
+  frmStellarSys: TfrmStellarSys;
 const
   cOmega = 10;  // угловая скорость
 
@@ -195,14 +195,14 @@ implementation //==============================================================
 {$R *.dfm}
 
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.FormCreate;
+procedure TfrmStellarSys.FormCreate;
 begin
   PathToData := GetDataPath();
   CurrentDir := PathToData  + '\starsys\sun\'; // вместо GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
   // Текстуры карт
-  Sun.Material.Texture.Image.LoadFromFile('sun.jpg');
+  Sun.Material.Texture.Image.LoadFromFile('sol.jpg');
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg');
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
 
@@ -250,14 +250,14 @@ begin
     SkyDome.Stars.LoadStarsFile(FileName);
 
   UpdateTreeView;
-  tvSolarSys.Select(tvSolarSys.Items[0]); // выбор первого узла
+  tvStarSys.Select(tvStarSys.Items[0]); // выбор первого узла
 (*
 //  ffAsteroid.LoadFromFile('asteroid.3ds');
 //  ffComet.LoadFromFile('comet.3ds');
 *)
-  tvSolarSys.FullExpand;
+  tvStarSys.FullExpand;
   ///Atmosphere := TGLAtmosphere.Create(Self);
-  svSolarsys.Buffer.RenderingContext.Activate;
+  svStarsys.Buffer.RenderingContext.Activate;
 
   // возврат в папку солнца
   SetCurrentDir(CurrentDir);
@@ -267,7 +267,7 @@ end;
 //----------------------------------------------------------------------------
 // FormShow
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.FormShow(Sender: TObject);
+procedure TfrmStellarSys.FormShow(Sender: TObject);
 begin
   cbOrbitClick(Self);
   cbRotationClick(Self);
@@ -278,7 +278,7 @@ end;
 //----------------------------------------------------------------------------
 // ------------------- Скрыть или показать панели ----------------------------
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.miHidePanelsClick(Sender: TObject);
+procedure TfrmStellarSys.miHidePanelsClick(Sender: TObject);
 begin
    PanelLeft.Visible := not PanelLeft.Visible;
    PanelRight.Visible := not PanelRight.Visible;
@@ -290,17 +290,17 @@ begin
 end;
 
 //--------------------- Внутреннее ядро планеты -------------------------------
-procedure TFormSolarSys.miInnerCoreClick(Sender: TObject);
+procedure TfrmStellarSys.miInnerCoreClick(Sender: TObject);
 begin
   miInnerCore.Checked := not miInnerCore.Checked;
-  tvSolarSysClick(Self);
-  svSolarsys.Invalidate;
+  tvStarSysClick(Self);
+  svStarsys.Invalidate;
 end;
 
 //----------------------------------------------------------------------------
 // Открыть файл и загрузить данные
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.miOpenClick(Sender: TObject);
+procedure TfrmStellarSys.miOpenClick(Sender: TObject);
 begin
   // not ready csv files
 end;
@@ -308,7 +308,7 @@ end;
 //----------------------------------------------------------------------------
 // ---------------------- Прогресс каденсера ---------------------------------
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.CadencerProgress(Sender: TObject;
+procedure TfrmStellarSys.CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
 begin
   //SolarSystem.Turn(deltaTime * cOmega);
@@ -350,7 +350,7 @@ begin
 end;
 
 //---------------------- Показать линии орбит --------------------------------
-procedure TFormSolarSys.cbOrbitClick(Sender: TObject);
+procedure TfrmStellarSys.cbOrbitClick(Sender: TObject);
 begin
   MercuryOrbit.Visible := cbOrbit.Checked;
   VenusOrbit.Visible := cbOrbit.Checked;
@@ -361,25 +361,25 @@ begin
   UranusOrbit.Visible := cbOrbit.Checked;
   NeptuneOrbit.Visible := cbOrbit.Checked;
   PlutoOrbit.Visible := cbOrbit.Checked;
-  svSolarsys.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //--------------------- Вращение планетной системы ----------------------------
-procedure TFormSolarSys.cbRotationClick(Sender: TObject);
+procedure TfrmStellarSys.cbRotationClick(Sender: TObject);
 begin
   Cadencer.Enabled := cbRotation.Checked;
-  svSolarsys.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //----------------------- Показать обитаемую зону звезды ----------------------
-procedure TFormSolarSys.cbStarHZClick(Sender: TObject);
+procedure TfrmStellarSys.cbStarHZClick(Sender: TObject);
 begin
   StarHZUp.Visible := cbStarHZ.Checked;
   StarHZDown.Visible := cbStarHZ.Checked;
 end;
 
 //--------------------- Изменение дерева просмотра ----------------------------
-procedure TFormSolarSys.tvSolarSysChange(Sender: TObject; Node: TTreeNode);
+procedure TfrmStellarSys.tvStarSysChange(Sender: TObject; Node: TTreeNode);
 begin
   if Node <> nil then
   begin
@@ -391,12 +391,12 @@ begin
 end;
 
 //------------------------ клик мыши по узлу дерева ---------------------------
-procedure TFormSolarSys.tvSolarSysClick(Sender: TObject);
+procedure TfrmStellarSys.tvStarSysClick(Sender: TObject);
 var
   i: integer;
 begin
   // Solar System ===============
-  if (tvSolarSys.Selected.Text = SolarSystem.Name) then
+  if (tvStarSys.Selected.Text = SolarSystem.Name) then
   begin
     Camera.MoveTo(SolarSystem);
     Camera.TargetObject := SolarSystem;
@@ -405,7 +405,7 @@ begin
     Camera.Position.Z := 10;
   end;
   //  Sun ===================
-  if (tvSolarSys.Selected.Text = Sun.Name) then
+  if (tvStarSys.Selected.Text = Sun.Name) then
   begin
     Camera.MoveTo(Sun);
     Camera.TargetObject := Sun;
@@ -414,7 +414,7 @@ begin
     Camera.Position.Z := 1;
   end;
   //  Mercury ===================
-  if (tvSolarSys.Selected.Text = Mercury.Name) then
+  if (tvStarSys.Selected.Text = Mercury.Name) then
   begin
     Camera.MoveTo(Mercury);
     Camera.TargetObject := Mercury;
@@ -455,7 +455,7 @@ begin
     end;
   end;
   // Venus ==================
-  if (tvSolarSys.Selected.Text = Venus.Name) then
+  if (tvStarSys.Selected.Text = Venus.Name) then
   begin
     Camera.MoveTo(Venus);
     Camera.TargetObject := Venus;
@@ -496,8 +496,8 @@ begin
     end;
   end;
   // Earth ====================
-  if (tvSolarSys.Selected.Text = Earth.Name) or
-     (tvSolarSys.Selected.Text = Moon.Name) then
+  if (tvStarSys.Selected.Text = Earth.Name) or
+     (tvStarSys.Selected.Text = Moon.Name) then
   begin
     if PickObject = Earth then
     begin
@@ -553,9 +553,9 @@ begin
   end;
 
   // Mars ===================
-  if (tvSolarSys.Selected.Text = Mars.Name) or
-     (tvSolarSys.Selected.Text = Phobos.Name) or
-     (tvSolarSys.Selected.Text = Deimos.Name) then
+  if (tvStarSys.Selected.Text = Mars.Name) or
+     (tvStarSys.Selected.Text = Phobos.Name) or
+     (tvStarSys.Selected.Text = Deimos.Name) then
   begin
     if PickObject = Mars then
     begin
@@ -573,7 +573,7 @@ begin
       Camera.Position.Y := 1;
       Camera.Position.Z := 1;
     end;
-    if (tvSolarSys.Selected.Text = Deimos.Name) then
+    if (tvStarSys.Selected.Text = Deimos.Name) then
     begin
       Camera.MoveTo(dcDeimos);
       Camera.TargetObject := Deimos;
@@ -617,11 +617,11 @@ begin
   end;
 
   // Jupiter ==================
-  if (tvSolarSys.Selected.Text = Jupiter.Name) or
-     (tvSolarSys.Selected.Text = Io.Name) or
-     (tvSolarSys.Selected.Text = Europa.Name) or
-     (tvSolarSys.Selected.Text = Ganymede.Name) or
-     (tvSolarSys.Selected.Text = Callisto.Name) then
+  if (tvStarSys.Selected.Text = Jupiter.Name) or
+     (tvStarSys.Selected.Text = Io.Name) or
+     (tvStarSys.Selected.Text = Europa.Name) or
+     (tvStarSys.Selected.Text = Ganymede.Name) or
+     (tvStarSys.Selected.Text = Callisto.Name) then
   begin
     if PickObject = Jupiter then
     begin
@@ -660,9 +660,9 @@ begin
   end;
 
   //  Saturn ====================
-  if (tvSolarSys.Selected.Text = Saturn.Name) or
-     (tvSolarSys.Selected.Text = Titan.Name) or
-     (tvSolarSys.Selected.Text = Enceladus.Name) then
+  if (tvStarSys.Selected.Text = Saturn.Name) or
+     (tvStarSys.Selected.Text = Titan.Name) or
+     (tvStarSys.Selected.Text = Enceladus.Name) then
   begin
     if PickObject = Saturn then
     begin
@@ -691,9 +691,9 @@ begin
   end;
 
   // Uranus ====================
-  if (tvSolarSys.Selected.Text = Uranus.Name) or
-     (tvSolarSys.Selected.Text = Titania.Name) or
-     (tvSolarSys.Selected.Text = Miranda.Name) then
+  if (tvStarSys.Selected.Text = Uranus.Name) or
+     (tvStarSys.Selected.Text = Titania.Name) or
+     (tvStarSys.Selected.Text = Miranda.Name) then
   begin
     if PickObject = Uranus then
     begin
@@ -722,7 +722,7 @@ begin
   end;
 
   // Neptune ====================
-  if tvSolarSys.Selected.Text = Neptune.Name then
+  if tvStarSys.Selected.Text = Neptune.Name then
   begin
     Camera.MoveTo(Neptune);
     Camera.TargetObject := Neptune;
@@ -732,7 +732,7 @@ begin
   end;
 
   // Pluto ====================
-  if tvSolarSys.Selected.Text = Pluto.Name then
+  if tvStarSys.Selected.Text = Pluto.Name then
   begin
     Camera.MoveTo(Pluto);
     Camera.TargetObject := Pluto;
@@ -740,24 +740,24 @@ begin
     Camera.Position.Y := 0;
     Camera.Position.Z := 1;
   end;
-  svSolarsys.Invalidate;
+  svStarsys.Invalidate;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.svSolarsysMouseDown;
+procedure TfrmStellarSys.svStarsysMouseDown;
 begin
-  newPickObject := svSolarsys.Buffer.GetPickedObject(X, Y);
+  newPickObject := svStarsys.Buffer.GetPickedObject(X, Y);
   if newPickObject is TGLLines then
     exit;
   if newPickObject = nil then
-    tvSolarSys.Select(tvSolarSys.Items[0])
+    tvStarSys.Select(tvStarSys.Items[0])
   else
-    tvSolarSys.Select(TTreeNode(newPickObject.TagObject));
+    tvStarSys.Select(TTreeNode(newPickObject.TagObject));
 end;
 
 
 //---------------------------------------------------------------------------
-procedure TFormSolarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
+procedure TfrmStellarSys.GetObjects(ParentNode: TTreeNode; SceneObject: TGLBaseSceneObject);
 var
   n: Integer;
   Node: TTreeNode;
@@ -766,7 +766,7 @@ begin
   begin
     if (SceneObject.Name <> Camera.Name) then
     begin
-      Node := tvSolarSys.Items.AddChildObject(ParentNode, SceneObject.Name, SceneObject);
+      Node := tvStarSys.Items.AddChildObject(ParentNode, SceneObject.Name, SceneObject);
       SceneObject.TagObject := Node;
       for n := 0 to SceneObject.Count - 1 do
         GetObjects(Node, SceneObject.Children[n]);
@@ -775,14 +775,14 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TFormSolarSys.UpdateTreeView;
+procedure TfrmStellarSys.UpdateTreeView;
 begin
-  tvSolarSys.Items.Clear;
-  GetObjects(tvSolarSys.TopItem, SolarSystem);
+  tvStarSys.Items.Clear;
+  GetObjects(tvStarSys.TopItem, SolarSystem);
 end;
 
 //---------------------------------------------------------------------------
-procedure TFormSolarSys.AddBBox;
+procedure TfrmStellarSys.AddBBox;
 const
   c = 0.5;
   d = 0.3;
@@ -844,7 +844,7 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TFormSolarSys.UpdateBBox;
+procedure TfrmStellarSys.UpdateBBox;
 var
   v1, v2: TVector3f;
 
@@ -872,7 +872,7 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TFormSolarSys.Sys_doglRender;
+procedure TfrmStellarSys.Sys_doglRender;
 begin
   if PickObject <> nil then
   begin
@@ -884,20 +884,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.AsyncTimerTimer;
+procedure TfrmStellarSys.AsyncTimerTimer;
 begin
-  Caption := 'Солнечная система' + ' / ' + svSolarsys.FramesPerSecondText(2);
-  svSolarsys.ResetPerformanceMonitor;
+  Caption := 'Звёздная система' + ' / ' + svStarsys.FramesPerSecondText(2);
+  svStarsys.ResetPerformanceMonitor;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.miExitClick(Sender: TObject);
+procedure TfrmStellarSys.miExitClick(Sender: TObject);
 begin
   Close;
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormSolarSys.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmStellarSys.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 ///  Atmosphere.Free;
 end;

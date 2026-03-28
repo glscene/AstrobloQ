@@ -1,9 +1,9 @@
-object FormStarSys: TFormStarSys
+object frmStellarSys: TfrmStellarSys
   Left = 193
   Top = 128
-  Caption = #1057#1086#1083#1085#1077#1095#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
-  ClientHeight = 528
-  ClientWidth = 971
+  Caption = 'Stellar system'
+  ClientHeight = 553
+  ClientWidth = 979
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,38 +16,38 @@ object FormStarSys: TFormStarSys
   OnCreate = FormCreate
   OnShow = FormShow
   TextHeight = 13
-  object svStarsys: TGLSceneViewer
+  object SceneViewer: TGLSceneViewer
     Left = 195
     Top = 0
-    Width = 629
-    Height = 510
+    Width = 648
+    Height = 535
     Camera = Camera
     Buffer.FogEnvironment.FogColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
     Buffer.FogEnvironment.FogStart = 10.000000000000000000
     Buffer.FogEnvironment.FogEnd = 1000.000000000000000000
     Buffer.FogEnvironment.FogDistance = fdEyePlane
     Buffer.BackgroundColor = clBackground
-    FieldOfView = 137.174057006835900000
+    FieldOfView = 139.005325317382800000
     PenAsTouch = False
     Align = alClient
-    OnMouseDown = svStarsysMouseDown
+    OnMouseDown = SceneViewerMouseDown
     TabOrder = 0
   end
   object PanelLeft: TPanel
     Left = 0
     Top = 0
     Width = 195
-    Height = 510
+    Height = 535
     Align = alLeft
     BevelOuter = bvNone
     BorderWidth = 4
     TabOrder = 1
-    ExplicitHeight = 485
+    ExplicitHeight = 510
     object tvStarSys: TTreeView
       Left = 4
       Top = 4
       Width = 187
-      Height = 502
+      Height = 527
       Align = alClient
       BevelKind = bkTile
       BorderStyle = bsNone
@@ -55,34 +55,33 @@ object FormStarSys: TFormStarSys
       TabOrder = 0
       OnChange = tvStarSysChange
       OnClick = tvStarSysClick
-      ExplicitHeight = 477
+      ExplicitHeight = 502
     end
   end
   object PanelRight: TPanel
-    Left = 824
+    Left = 843
     Top = 0
-    Width = 147
-    Height = 510
+    Width = 136
+    Height = 535
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 816
-    ExplicitHeight = 485
+    ExplicitLeft = 835
+    ExplicitHeight = 510
     object Splitter1: TSplitter
       Left = 1
       Top = 18
-      Width = 145
+      Width = 134
       Height = 20
       Cursor = crVSplit
       Align = alTop
       AutoSnap = False
       MinSize = 120
       ExplicitTop = 81
-      ExplicitWidth = 134
     end
     object stPickObject: TStaticText
       Left = 1
       Top = 1
-      Width = 145
+      Width = 134
       Height = 17
       Align = alTop
       Alignment = taCenter
@@ -94,70 +93,70 @@ object FormStarSys: TFormStarSys
       Top = 173
       Width = 97
       Height = 17
-      Caption = #1054#1088#1073#1080#1090#1099
+      Caption = 'Orbits'
       Checked = True
       State = cbChecked
       TabOrder = 1
       OnClick = cbOrbitClick
     end
-    object cbStarHZ: TCheckBox
+    object cbHabitableZone: TCheckBox
       Left = 29
       Top = 196
       Width = 97
       Height = 17
-      Caption = #1047#1086#1085#1072' '#1086#1073#1080#1090#1072#1085#1080#1103
+      Caption = 'Habzone'
       Checked = True
       State = cbChecked
       TabOrder = 2
-      OnClick = cbStarHZClick
+      OnClick = cbHabitableZoneClick
     end
     object MemoInfo: TMemo
       Left = 1
-      Top = 379
-      Width = 145
+      Top = 404
+      Width = 134
       Height = 130
       Align = alBottom
       Lines.Strings = (
         'Memo1')
       TabOrder = 3
-      ExplicitTop = 354
+      ExplicitTop = 379
     end
     object cbRotation: TCheckBox
       Left = 29
       Top = 224
       Width = 97
       Height = 17
-      Caption = #1042#1088#1072#1097#1077#1085#1080#1077
+      Caption = 'Rotation'
       Checked = True
       State = cbChecked
       TabOrder = 4
       OnClick = cbRotationClick
     end
-    inline FrameParamsR: TFrameParamsR
+    inline FrameParams: TFrameParams
       Left = 1
       Top = 38
-      Width = 145
-      Height = 65
+      Width = 134
+      Height = 119
       Align = alTop
       TabOrder = 5
       ExplicitLeft = 1
       ExplicitTop = 38
-      ExplicitWidth = 145
-      ExplicitHeight = 65
+      ExplicitWidth = 134
+      ExplicitHeight = 119
     end
   end
   object StatusBarSol: TStatusBar
     Left = 0
-    Top = 510
-    Width = 971
+    Top = 535
+    Width = 979
     Height = 18
     Panels = <>
-    ExplicitTop = 485
-    ExplicitWidth = 963
+    ExplicitTop = 510
+    ExplicitWidth = 971
   end
-  object GLSceneStarsys: TGLScene
-    Left = 46
-    Top = 28
+  object Scene: TGLScene
+    Left = 22
+    Top = 20
     object SkyDome: TGLSkyDome
       Bands = <
         item
@@ -201,9 +200,9 @@ object FormStarSys: TFormStarSys
         Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.BlendingMode = bmTransparency
         Material.FaceCulling = fcCull
-        Direction.Coordinates = {000000000000803F0000000000000000}
+        Direction.Coordinates = {000000000000803F2EBD3BB300000000}
         PitchAngle = 90.000000000000000000
-        Up.Coordinates = {0000000000000000000080BF00000000}
+        Up.Coordinates = {000000002EBD3BB3000080BF00000000}
         Visible = False
         Pickable = False
         InnerRadius = 4.800000190734863000
@@ -237,8 +236,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000000400000803F}
           Radius = 0.319999992847442600
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
         end
         object MercuryOrbit: TGLTorus
           Tag = 1
@@ -262,8 +261,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000080400000803F}
           Radius = 0.750000000000000000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
         end
         object VenusOrbit: TGLTorus
           Tag = 2
@@ -289,8 +288,8 @@ object FormStarSys: TFormStarSys
           RollAngle = 23.440000534057620000
           Up.Coordinates = {F0AACBBEC8DF6A3F0000000000000000}
           Radius = 0.800000011920929000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object dcMoon: TGLDummyCube
             Tag = 3
             TagFloat = 1.000000000000000000
@@ -301,8 +300,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000C03F0000803F}
               Radius = 0.200000002980232200
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
         end
@@ -328,8 +327,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000020C10000803F}
           Radius = 0.400000005960464500
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object dcPhobos: TGLDummyCube
             Tag = 4
             TagFloat = 1.000000000000000000
@@ -372,8 +371,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {00000000000000000000B0C10000803F}
           Radius = 3.400000095367432000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object dcIo: TGLDummyCube
             Tag = 5
             TagFloat = 1.000000000000000000
@@ -384,8 +383,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000080C00000803F}
               Radius = 0.239999994635582000
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
           object dcEuropa: TGLDummyCube
@@ -398,8 +397,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000A0400000803F}
               Radius = 0.239999994635582000
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
           object dcGanymede: TGLDummyCube
@@ -412,8 +411,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000C0C00000803F}
               Radius = 0.379999995231628400
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
           object dcCallisto: TGLDummyCube
@@ -426,8 +425,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000E0400000803F}
               Radius = 0.259999990463256800
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
           object JupiterRing: TGLDisk
@@ -474,8 +473,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {0000000000000000000020420000803F}
           Radius = 3.000000000000000000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object SaturnRing: TGLDisk
             Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
             Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
@@ -505,8 +504,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000000410000803F}
               Radius = 0.100000001490116100
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
           object dcTitan: TGLDummyCube
@@ -519,8 +518,8 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000020410000803F}
               Radius = 0.500000000000000000
-              Slices = 64
-              Stacks = 64
+              Slices = 32
+              Stacks = 32
             end
           end
         end
@@ -548,8 +547,8 @@ object FormStarSys: TFormStarSys
           RollAngle = 45.000000000000000000
           Up.Coordinates = {F30435BFF304353F0000000000000000}
           Radius = 2.200000047683716000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object UranusRing: TGLDisk
             Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
             Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
@@ -579,8 +578,6 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000080400000803F}
               Radius = 0.250000000000000000
-              Slices = 64
-              Stacks = 64
             end
           end
           object dcMiranda: TGLDummyCube
@@ -593,8 +590,6 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000040C00000803F}
               Radius = 0.200000002980232200
-              Slices = 64
-              Stacks = 64
             end
           end
         end
@@ -620,8 +615,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {00000000000000000000A0420000803F}
           Radius = 2.099999904632568000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object NeptuneRing: TGLDisk
             Material.BackProperties.Ambient.Color = {0000803FF8FEFE3E000000000000803F}
             Material.BackProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
@@ -651,8 +646,6 @@ object FormStarSys: TFormStarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {00000000000000000000A0400000803F}
               Radius = 0.180000007152557400
-              Slices = 64
-              Stacks = 64
             end
           end
         end
@@ -678,8 +671,8 @@ object FormStarSys: TFormStarSys
           Material.Texture.Disabled = False
           Position.Coordinates = {00000000000000000000C8420000803F}
           Radius = 0.300000011920929000
-          Slices = 64
-          Stacks = 64
+          Slices = 32
+          Stacks = 32
           object dcCharon: TGLDummyCube
             Tag = 9
             TagFloat = 1.000000000000000000
@@ -715,7 +708,7 @@ object FormStarSys: TFormStarSys
       UseBuildList = False
       OnRender = sys_doglRender
       Blend = False
-      object lineAxis: TGLLines
+      object axis_lines: TGLLines
         LineWidth = 2.000000000000000000
         Nodes = <
           item
@@ -752,23 +745,23 @@ object FormStarSys: TFormStarSys
     end
   end
   object Cadencer: TGLCadencer
-    Scene = GLSceneStarsys
+    Scene = Scene
     Mode = cmApplicationIdle
     SleepLength = 1
     OnProgress = CadencerProgress
-    Left = 40
-    Top = 112
+    Left = 24
+    Top = 72
   end
   object AsyncTimer: TGLAsyncTimer
     Enabled = True
     Interval = 800
     OnTimer = AsyncTimerTimer
-    Left = 128
-    Top = 112
+    Left = 112
+    Top = 88
   end
   object MatLib: TGLMaterialLibrary
-    Left = 128
-    Top = 32
+    Left = 120
+    Top = 24
   end
   object FireFXManager: TGLFireFXManager
     FireDir.Coordinates = {00000000000000000000000000000000}
@@ -784,44 +777,64 @@ object FormStarSys: TFormStarSys
     ParticleInterval = 0.500000000000000000
     UseInterval = False
     Reference = Sun
-    Left = 96
-    Top = 208
+    Left = 72
+    Top = 176
   end
   object MainMenu: TMainMenu
-    Left = 278
-    Top = 104
-    object N2: TMenuItem
-      Caption = #1060#1072#1081#1083
-      object miOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100
-        OnClick = miOpenClick
+    Left = 414
+    Top = 40
+    object File1: TMenuItem
+      Caption = 'File'
+      object New1: TMenuItem
+        Caption = 'New'
       end
-      object miExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
-        OnClick = miExitClick
+      object Open1: TMenuItem
+        Caption = 'Open...'
+        OnClick = Open1Click
+      end
+      object Save1: TMenuItem
+        Caption = 'Save'
+      end
+      object SaveAs1: TMenuItem
+        Caption = 'Save as...'
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+        OnClick = Exit1Click
       end
     end
     object Window1: TMenuItem
-      Caption = #1042#1080#1076
+      Caption = 'View'
       object miInnerCore: TMenuItem
-        Caption = #1056#1072#1079#1088#1077#1079
+        Caption = 'Core'
         OnClick = miInnerCoreClick
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object miHidePanels: TMenuItem
-        Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
+        Caption = 'Hide panels'
         Checked = True
         OnClick = miHidePanelsClick
       end
     end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object miWiki: TMenuItem
+        Caption = 'Wiki'
+      end
+      object N7: TMenuItem
+        Caption = '-'
+      end
+    end
   end
-  object SimpleNavigation: TGLSimpleNavigation
+  object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
-    GLSceneViewer = svStarsys
-    FormCaption = #1069#1082#1079#1086#1087#1083#1072#1085#1077#1090#1085#1072#1103' '#1089#1080#1089#1090#1077#1084#1072
-    Options = [snoMouseWheelHandled]
+    GLSceneViewer = SceneViewer
+    FormCaption = 'Stellar system - %FPS'
     KeyCombinations = <
       item
         ShiftState = [ssLeft, ssRight]
@@ -835,7 +848,7 @@ object FormStarSys: TFormStarSys
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 274
-    Top = 180
+    Left = 72
+    Top = 264
   end
 end

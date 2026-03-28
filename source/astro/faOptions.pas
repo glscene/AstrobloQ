@@ -52,7 +52,6 @@ type
     Edit2: TEdit;
     Edit3: TEdit;
     ImageList: TImageList;
-    tsGalaxy: TTabSheet;
     tsStars: TTabSheet;
     tsPlanets: TTabSheet;
     lbExoplanets: TListBox;
@@ -281,7 +280,6 @@ begin
      3: PageControl.ActivePage := tsDatatime;
      4: PageControl.ActivePage := tsPlanets;
      5: PageControl.ActivePage := tsStars;
-     6: PageControl.ActivePage := tsGalaxy;
   end;
 end;
 

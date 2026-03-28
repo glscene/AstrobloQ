@@ -73,11 +73,11 @@ uses
 
   faOptions,
   faMakeStarsys,
-  faConstells,
+  faConstAtlas,
   faSkyPolygons,
   faNewSolblock,
   faViewSolblock,
-  faStarSys
+  faStellarSys
 
   ;
 
@@ -166,7 +166,6 @@ type
     PanelLeft: TPanel;
     DirectoryOutline: TDirectoryOutline;
     N1: TMenuItem;
-    Solarsystem1: TMenuItem;
     Solblock1: TMenuItem;
     N5: TMenuItem;
     miNew: TMenuItem;
@@ -285,10 +284,10 @@ end;
 //------------------------- Form Show ----------------------------------------
 procedure TFormAstroScene.FormShow(Sender: TObject);
 begin
-  FormStarSys.Parent := FormAstroScene;
-  FormStarSys.Align := alClient;
-  FormStarSys.BorderStyle := bsNone;
-  FormStarSys.Show;
+  frmStellarSys.Parent := FormAstroScene;
+  frmStellarSys.Align := alClient;
+  frmStellarSys.BorderStyle := bsNone;
+  frmStellarSys.Show;
 
   // Initialize starsys folders view
   DirectoryOutline.Directory := StarDir;
@@ -777,7 +776,7 @@ end;
 //-----------------------  Stellar system ------------------------------------
 procedure TFormAstroScene.miStellarSystemClick(Sender: TObject);
 begin
-  with TFormStarSys.Create(Self) do
+  with TfrmStellarSys.Create(Self) do
   try
     ShowModal;
   finally

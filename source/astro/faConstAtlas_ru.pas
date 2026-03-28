@@ -1,10 +1,11 @@
-unit faConstells;
+unit faConstAtlas_ru;
 
 interface
 
 uses
   Winapi.Windows,
   Winapi.Messages,
+  Winapi.ShellAPI,
   System.SysUtils,
   System.Variants,
   System.Classes,
@@ -22,13 +23,13 @@ uses
   Vcl.ImgList,
   Vcl.ToolWin,
 
-  Stage.Keyboard,
   GLS.Material,
   GLS.Cadencer,
   GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
 
+  Stage.Keyboard,
   GLS.Coordinates,
   GLS.Texture,
   GLS.SkyDome,
@@ -46,13 +47,12 @@ uses
   ;
 
 type
-  TfrmConstells = class(TForm)
+  TfrmConstAtlas = class(TForm)
     PanelLeft: TPanel;
     StatusBar1: TStatusBar;
     PanelRight: TPanel;
     GLScene: TGLScene;
     GLCadencer: TGLCadencer;
-    PanelBottom: TPanel;
     Camera: TGLCamera;
     LightSource: TGLLightSource;
     dcWorld: TGLDummyCube;
@@ -65,7 +65,9 @@ type
     tvZodiacs: TTreeView;
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
-    Panel1: TPanel;
+    PanelRightTitle: TPanel;
+    VirtualImageFigures: TVirtualImage;
+    PanelLeftTitle: TPanel;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
@@ -74,11 +76,10 @@ type
     procedure tvConstellationsClick(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
-    procedure GLSimpleNavigation1MouseMove(Sender: TObject; Shift: TShiftState;
-      X, Y: Integer);
     procedure tvZodiacsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     DataDir, CatalogDir, StarDir, FileName : TFileName;
     ConstNames, PlanetMap: TFileName;
@@ -88,16 +89,16 @@ type
   end;
 
 var
-  frmConstells: TfrmConstells;
+  frmConstAtlas: TfrmConstAtlas;
 
-implementation //--------------------------------------------------------
+implementation //==============================================================
 
 {$R *.dfm}
 
-//-----------------------------------------------------------------------
-// Loading data and maps for SkyDome
-//-----------------------------------------------------------------------
-procedure TfrmConstells.FormCreate(Sender: TObject);
+//-----------------------------------------------------------------------------
+// «агрузка данных и карт при создании формы
+//-----------------------------------------------------------------------------
+procedure TfrmConstAtlas.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
@@ -129,19 +130,19 @@ begin
   ConstNames := DataDir + 'constellation\ConstShortNames.dat';
     tvConstellations.LoadFromFile(ConstNames);
   *)
-
   ffPlanet.Assign(sfPlanet);
-  tvConstellations.Select(tvConstellations.Items[0]);  // goto to Andromede
+
+  tvConstellations.Select(tvConstellations.Items[0]);  // по умолчанию Andromede
   tvConstellationsClick(Sender);
   HelpWiki := tvConstellations.Selected.Text;
-
 end;
 
 //-----------------------------------------------------------------------
-// Open File of constellations
+//                         ќткрыть файл созвездий
 //-----------------------------------------------------------------------
-procedure TfrmConstells.Open1Click(Sender: TObject);
+procedure TfrmConstAtlas.Open1Click(Sender: TObject);
 begin
+{
   // Load next skyculture for constellations ...
   DataModuleDialogs.OpenDialog.Filter := 'Constellation (*.dat)|*.dat';
   DataModuleDialogs.OpenDialog.InitialDir := DataDir;
@@ -153,10 +154,13 @@ begin
     tvConstellations.Select(tvConstellations.Items[0]);  // goto to new const
     tvConstellationsClick(Sender);
   end;
+}
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.tvConstellationsContextPopup(Sender: TObject;
+//              јктиваци€ узла дерева просмотра созвездий
+//-----------------------------------------------------------------------
+procedure TfrmConstAtlas.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
   tmpNode: TTreeNode;
@@ -166,52 +170,66 @@ begin
     TTreeView(Sender).Selected := tmpNode;
 end;
 
-//----------------------------------------------------------------------------
-// Displaying constellation maps by tree view node index
-//----------------------------------------------------------------------------
-procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
+//-----------------------------------------------------------------------------
+//           ¬ывод карт созвездий по индексу узла дерева просмотра
+//-----------------------------------------------------------------------------
+procedure TfrmConstAtlas.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
+  VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
-//----------------------------------------------------------------------------
-// Displaying maps of the zodiac constellations by tree view node index
-//----------------------------------------------------------------------------
-procedure TfrmConstells.tvZodiacsClick(Sender: TObject);
+//-----------------------------------------------------------------------------
+//      ¬ывод карт зодиакальных созвездий по индексу узла дерева просмотра
+//-----------------------------------------------------------------------------
+procedure TfrmConstAtlas.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
+  VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.Save1Click(Sender: TObject);
+procedure TfrmConstAtlas.Save1Click(Sender: TObject);
 begin
   // Save TreeView
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.SaveAs1Click(Sender: TObject);
+procedure TfrmConstAtlas.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
+procedure TfrmConstAtlas.FormKeyPress(Sender: TObject; var Key: Char);
+var
+  S: String;
 begin
- //
+  case Key of
+    'w','W': // ¬ыход на WIKI по клавише
+      begin
+         S:=  'https://ru.ruwiki.ru/wiki/' + HelpWiki + '_(созвездие)';
+         ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+      end;
+    #27: Close;
+  end;
+end;
+
+//-----------------------------------------------------------------------
+procedure TfrmConstAtlas.GLCadencerProgress(Sender: TObject;
+  const DeltaTime, NewTime: Double);
+begin
   HandleKeys(deltaTime);
-
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
-  Shift: TShiftState; X, Y: Integer);
+procedure TfrmConstAtlas.HandleKeys(d: Double);
+var
+  S:String;
 begin
 
-end;
-
-//-----------------------------------------------------------------------
-procedure TfrmConstells.HandleKeys(d: Double);
-begin
   if (IsKeyDown('W') or IsKeyDown('Z')) then
     Camera.Move(d);
   if (IsKeyDown('S')) then
@@ -226,13 +244,13 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.miSettingsClick(Sender: TObject);
+procedure TfrmConstAtlas.miSettingsClick(Sender: TObject);
 begin
 //
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.Exit1Click(Sender: TObject);
+procedure TfrmConstAtlas.Exit1Click(Sender: TObject);
 begin
   Close;
 end;

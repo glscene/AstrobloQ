@@ -58,7 +58,7 @@ object FormOptions: TFormOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsMap
+      ActivePage = tsScene
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -115,8 +115,8 @@ object FormOptions: TFormOptions
         ImageIndex = 4
         TabVisible = False
         object GroupBox1: TGroupBox
-          Left = 88
-          Top = 104
+          Left = 96
+          Top = 184
           Width = 297
           Height = 105
           Caption = 'GroupBox1'
@@ -124,11 +124,32 @@ object FormOptions: TFormOptions
           object CheckBox1: TCheckBox
             Left = 32
             Top = 40
-            Width = 241
+            Width = 217
             Height = 17
             Caption = #1054#1089#1074#1077#1097#1077#1085#1080#1077' '#1085#1086#1095#1085#1086#1081' '#1089#1090#1086#1088#1086#1085#1099
             TabOrder = 0
           end
+        end
+        object CheckBoxAxes: TCheckBox
+          Left = 279
+          Top = 78
+          Width = 82
+          Height = 25
+          Caption = #1054#1089#1080
+          TabOrder = 1
+          StyleName = 'Windows'
+          OnClick = CheckBoxAxesClick
+        end
+        object CheckBoxRotate: TCheckBox
+          Left = 145
+          Top = 78
+          Width = 120
+          Height = 16
+          Caption = #1042#1088#1072#1097#1077#1085#1080#1077
+          Checked = True
+          State = cbChecked
+          TabOrder = 2
+          StyleName = 'Windows'
         end
       end
       object tsStars: TTabSheet
@@ -186,6 +207,7 @@ object FormOptions: TFormOptions
             Height = 17
             Caption = #1051#1080#1085#1080#1080
             TabOrder = 1
+            OnClick = chbConstLinesClick
           end
           object chbConstBounds: TCheckBox
             Left = 138
@@ -194,6 +216,7 @@ object FormOptions: TFormOptions
             Height = 17
             Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
+            OnClick = chbConstBoundsClick
           end
         end
         object gbShowStars: TGroupBox
@@ -329,34 +352,13 @@ object FormOptions: TFormOptions
           Height = 164
           Caption = #1055#1086#1082#1072#1079#1072#1090#1077#1083#1080
           TabOrder = 1
-          object CheckBoxRotate: TCheckBox
-            Left = 33
-            Top = 30
-            Width = 120
-            Height = 16
-            Caption = #1042#1088#1072#1097#1077#1085#1080#1077
-            Checked = True
-            State = cbChecked
-            TabOrder = 0
-            StyleName = 'Windows'
-          end
-          object CheckBoxAxes: TCheckBox
-            Left = 167
-            Top = 30
-            Width = 82
-            Height = 25
-            Caption = #1054#1089#1080
-            TabOrder = 1
-            StyleName = 'Windows'
-            OnClick = CheckBoxAxesClick
-          end
           object CheckBox4: TCheckBox
             Left = 167
             Top = 109
             Width = 121
             Height = 20
             Caption = #1044#1077#1085#1100' '#1080' '#1085#1086#1095#1100
-            TabOrder = 2
+            TabOrder = 0
             StyleName = 'Windows'
           end
           object CheckBoxCore: TCheckBox
@@ -365,7 +367,7 @@ object FormOptions: TFormOptions
             Width = 98
             Height = 27
             Caption = #1071#1076#1088#1086
-            TabOrder = 3
+            TabOrder = 1
             StyleName = 'Windows'
             OnClick = CheckBoxCoreClick
           end
@@ -375,7 +377,7 @@ object FormOptions: TFormOptions
             Width = 130
             Height = 23
             Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
-            TabOrder = 4
+            TabOrder = 2
             StyleName = 'Windows'
             OnClick = CheckBoxAtmosferaClick
           end
@@ -385,7 +387,7 @@ object FormOptions: TFormOptions
             Width = 98
             Height = 24
             Caption = #1054#1073#1083#1072#1082#1072
-            TabOrder = 5
+            TabOrder = 3
             StyleName = 'Windows'
             OnClick = CheckBoxCoreClick
           end
@@ -395,7 +397,7 @@ object FormOptions: TFormOptions
             Width = 129
             Height = 24
             Caption = #1058#1086#1087#1086#1089#1077#1090#1082#1072
-            TabOrder = 6
+            TabOrder = 4
             StyleName = 'Windows'
             OnClick = chbCartographicGridClick
           end
@@ -405,7 +407,7 @@ object FormOptions: TFormOptions
             Width = 169
             Height = 25
             Caption = #1057#1082#1088#1099#1090#1100' '#1087#1083#1072#1085#1077#1090#1091
-            TabOrder = 7
+            TabOrder = 5
             StyleName = 'Windows'
             OnClick = chbHidePlanetClick
           end
@@ -517,9 +519,22 @@ object FormOptions: TFormOptions
         end
       end
       object tsMap: TTabSheet
-        Caption = #1050#1072#1088#1090#1099
+        Caption = #1050#1072#1088#1090#1072
         ImageIndex = 5
         TabVisible = False
+        object rgMapType: TRadioGroup
+          Left = 80
+          Top = 64
+          Width = 377
+          Height = 161
+          Caption = #1058#1080#1087' '#1082#1072#1088#1090#1099
+          ItemIndex = 0
+          Items.Strings = (
+            #1058#1086#1087#1086#1075#1088#1072#1092#1080#1095#1077#1089#1082#1072#1103
+            #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1085#1072#1103
+            #1050#1083#1080#1084#1072#1090#1080#1095#1077#1089#1082#1072#1103)
+          TabOrder = 0
+        end
       end
     end
     object tvOptions: TTreeView
@@ -535,18 +550,17 @@ object FormOptions: TFormOptions
       TabOrder = 1
       OnClick = tvOptionsClick
       Items.NodeData = {
-        070700000009540054007200650065004E006F00640065002D00000000000000
+        070600000009540054007200650065004E006F00640065002D00000000000000
         0000000000000000FFFFFFFF00000000000000000000000000010713043B0430
         0432043D043E043504000029000000000000000000000001000000FFFFFFFF00
         00000000000000000000000001051A0430044004420430040000290000000000
         00000000000002000000FFFFFFFF000000000000000000000000000105210446
         0435043D043004000037000000000000000000000003000000FFFFFFFF000000
         00000000000000000000010C1404300442043004200038042000320440043504
-        3C044F0400002F000000000000000000000004000000FFFFFFFF000000000000
-        0000000000000001081C043004420435044004380430043B0400002D00000000
-        0000000000000005000000FFFFFFFF0000000000000000000000000001071F04
-        3B0430043D04350442044B0400002B000000000000000000000006000000FFFF
-        FFFF000000000000000000000000000106170432045104370434044B04}
+        3C044F0400002D000000000000000000000005000000FFFFFFFF000000000000
+        0000000000000001071F043B0430043D04350442044B0400002B000000000000
+        000000000006000000FFFFFFFF00000000000000000000000000010617043204
+        5104370434044B04}
       ExplicitHeight = 358
     end
   end

@@ -108,6 +108,20 @@ __published:	// IDE-managed Components
 	TMenuItem *Wiki1;
 	TMenuItem *miHipparcos;
 	TMenuItem *N2;
+	TPanel *Panel1;
+	TStaticText *StaticText3;
+	TTreeView *tvMoons;
+	TToolBar *tbPlanets;
+	TToolButton *tbnSol;
+	TToolButton *tbnMercury;
+	TToolButton *tbnVenus;
+	TToolButton *tbnEarth;
+	TToolButton *tbnMars;
+	TToolButton *tbnJupiter;
+	TToolButton *tbnSaturn;
+	TToolButton *tbnUranus;
+	TToolButton *tbnNeptune;
+	TStaticText *StaticText1;
 	void __fastcall miAboutClick(TObject *Sender);
 	void __fastcall miExitClick(TObject *Sender);
 	void __fastcall miPointtoClick(TObject *Sender);
@@ -128,6 +142,7 @@ __published:	// IDE-managed Components
 	void __fastcall chbPlanetClick(TObject *Sender);
 	void __fastcall chbGridClick(TObject *Sender);
 	void __fastcall miSettingsClick(TObject *Sender);
+	void __fastcall tvPlanetsClick(TObject *Sender);
 private:	// User declarations
 	TFileName DataDir;
 	TFileName CurrDir;

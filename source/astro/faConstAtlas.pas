@@ -1,11 +1,10 @@
-unit faConstells_ru;
+unit faConstAtlas;
 
 interface
 
 uses
   Winapi.Windows,
   Winapi.Messages,
-  Winapi.ShellAPI,
   System.SysUtils,
   System.Variants,
   System.Classes,
@@ -23,13 +22,13 @@ uses
   Vcl.ImgList,
   Vcl.ToolWin,
 
+  Stage.Keyboard,
   GLS.Material,
   GLS.Cadencer,
   GLS.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
 
-  Stage.Keyboard,
   GLS.Coordinates,
   GLS.Texture,
   GLS.SkyDome,
@@ -53,6 +52,7 @@ type
     PanelRight: TPanel;
     GLScene: TGLScene;
     GLCadencer: TGLCadencer;
+    PanelBottom: TPanel;
     Camera: TGLCamera;
     LightSource: TGLLightSource;
     dcWorld: TGLDummyCube;
@@ -65,9 +65,7 @@ type
     tvZodiacs: TTreeView;
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
-    PanelRightTitle: TPanel;
-    VirtualImageFigures: TVirtualImage;
-    PanelLeftTitle: TPanel;
+    Panel1: TPanel;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
@@ -76,10 +74,11 @@ type
     procedure tvConstellationsClick(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
+    procedure GLSimpleNavigation1MouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
     procedure tvZodiacsClick(Sender: TObject);
     procedure tvConstellationsContextPopup(Sender: TObject; MousePos: TPoint;
       var Handled: Boolean);
-    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     DataDir, CatalogDir, StarDir, FileName : TFileName;
     ConstNames, PlanetMap: TFileName;
@@ -91,13 +90,13 @@ type
 var
   frmConstells: TfrmConstells;
 
-implementation //==============================================================
+implementation //--------------------------------------------------------
 
 {$R *.dfm}
 
-//-----------------------------------------------------------------------------
-// «агрузка данных и карт при создании формы
-//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------
+// Loading data and maps for SkyDome
+//-----------------------------------------------------------------------
 procedure TfrmConstells.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
@@ -130,19 +129,19 @@ begin
   ConstNames := DataDir + 'constellation\ConstShortNames.dat';
     tvConstellations.LoadFromFile(ConstNames);
   *)
-  ffPlanet.Assign(sfPlanet);
 
-  tvConstellations.Select(tvConstellations.Items[0]);  // по умолчанию Andromede
+  ffPlanet.Assign(sfPlanet);
+  tvConstellations.Select(tvConstellations.Items[0]);  // goto to Andromede
   tvConstellationsClick(Sender);
   HelpWiki := tvConstellations.Selected.Text;
+
 end;
 
 //-----------------------------------------------------------------------
-//                         ќткрыть файл созвездий
+// Open File of constellations
 //-----------------------------------------------------------------------
 procedure TfrmConstells.Open1Click(Sender: TObject);
 begin
-{
   // Load next skyculture for constellations ...
   DataModuleDialogs.OpenDialog.Filter := 'Constellation (*.dat)|*.dat';
   DataModuleDialogs.OpenDialog.InitialDir := DataDir;
@@ -154,11 +153,8 @@ begin
     tvConstellations.Select(tvConstellations.Items[0]);  // goto to new const
     tvConstellationsClick(Sender);
   end;
-}
 end;
 
-//-----------------------------------------------------------------------
-//              јктиваци€ узла дерева просмотра созвездий
 //-----------------------------------------------------------------------
 procedure TfrmConstells.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
@@ -170,24 +166,20 @@ begin
     TTreeView(Sender).Selected := tmpNode;
 end;
 
-//-----------------------------------------------------------------------------
-//           ¬ывод карт созвездий по индексу узла дерева просмотра
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// Displaying constellation maps by tree view node index
+//----------------------------------------------------------------------------
 procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
-  VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
-  HelpWiki := tvConstellations.Selected.Text;
 end;
 
-//-----------------------------------------------------------------------------
-//      ¬ывод карт зодиакальных созвездий по индексу узла дерева просмотра
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
+// Displaying maps of the zodiac constellations by tree view node index
+//----------------------------------------------------------------------------
 procedure TfrmConstells.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
-  VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
-  HelpWiki := tvConstellations.Selected.Text;
 end;
 
 //-----------------------------------------------------------------------
@@ -203,33 +195,23 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.FormKeyPress(Sender: TObject; var Key: Char);
-var
-  S: String;
+procedure TfrmConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 begin
-  case Key of
-    'w','W': // ¬ыход на WIKI по клавише
-      begin
-         S:=  'https://ru.ruwiki.ru/wiki/' + HelpWiki + '_(созвездие)';
-         ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-      end;
-    #27: Close;
-  end;
+ //
+  HandleKeys(deltaTime);
+
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstells.GLCadencerProgress(Sender: TObject;
-  const DeltaTime, NewTime: Double);
+procedure TfrmConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
 begin
-  HandleKeys(deltaTime);
+
 end;
 
 //-----------------------------------------------------------------------
 procedure TfrmConstells.HandleKeys(d: Double);
-var
-  S:String;
 begin
-
   if (IsKeyDown('W') or IsKeyDown('Z')) then
     Camera.Move(d);
   if (IsKeyDown('S')) then

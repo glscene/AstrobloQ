@@ -61,8 +61,6 @@ type
     LabelCore: TLabel;
     chlbStarClasses: TCheckListBox;
     grbShowPlanets: TGroupBox;
-    CheckBoxRotate: TCheckBox;
-    CheckBoxAxes: TCheckBox;
     CheckBox4: TCheckBox;
     CheckBoxCore: TCheckBox;
     grbPlanetParams: TGroupBox;
@@ -93,6 +91,9 @@ type
     CheckBox1: TCheckBox;
     chbHidePanels: TCheckBox;
     tsMap: TTabSheet;
+    rgMapType: TRadioGroup;
+    CheckBoxAxes: TCheckBox;
+    CheckBoxRotate: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
@@ -103,6 +104,8 @@ type
     procedure CheckBoxAxesClick(Sender: TObject);
     procedure chbCartographicGridClick(Sender: TObject);
     procedure chbHidePanelsClick(Sender: TObject);
+    procedure chbConstLinesClick(Sender: TObject);
+    procedure chbConstBoundsClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -151,9 +154,9 @@ begin
   inherited;
 end;
 
-//---------------------------------------------------
-// Показать кайму атмосферы
-//---------------------------------------------------
+//-----------------------------------------------------------------------------
+//                    Показать кайму атмосферы
+//-----------------------------------------------------------------------------
 procedure TFormOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin
   inherited; // считывает ini файл, не все планеты с атмосферой
@@ -161,9 +164,9 @@ begin
     DirectOpenGL.Visible := not DirectOpenGL.Visible;
 end;
 
-//---------------------------------------------------
-// Показать или скрыть оси X, Y, Z небесного тела
-//---------------------------------------------------
+//-----------------------------------------------------------------------------
+//                 Показать или скрыть оси X, Y, Z небесного тела
+//-----------------------------------------------------------------------------
 procedure TFormOptions.CheckBoxAxesClick(Sender: TObject);
 begin
   inherited; // считывает параметры из ini файла
@@ -186,16 +189,16 @@ begin
   with FormAstroScene do
   if chbHidePanels.Checked then // Показать панели
   begin
-//    PanelLeft.Visible := not PanelLeft.Visible;
-//    PanelRight.Visible := not PanelRight.Visible;
+    PanelLeft.Visible := not PanelLeft.Visible;
+    PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
     FormAstroScene.BorderStyle := bsNone;
   end
   else  // Скрыть панели
   begin
-//    PanelLeft.Visible := not PanelLeft.Visible;
-//    PanelRight.Visible := not PanelRight.Visible;
+    PanelLeft.Visible := not PanelLeft.Visible;
+    PanelRight.Visible := not PanelRight.Visible;
     StatusBar.Visible := not StatusBar.Visible;
     ControlBarTop.Visible := not ControlBarTop.Visible;
     FormAstroScene.BorderStyle := bsSizeable;
@@ -215,7 +218,7 @@ begin
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
-///    PlanetPath := CurrentStar + tvMoons.Selected.Text;
+    PlanetPath := CurrentStar + tvMoons.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
@@ -236,6 +239,30 @@ end;
 procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
 begin
   //
+end;
+
+//---------------------- Вывод линий созвездий -------------------------------
+procedure TFormOptions.chbConstLinesClick(Sender: TObject);
+begin
+  FormAstroScene.ConstLines.Nodes.Clear;
+ // chbConstLines.Checked := not chbConstLines.Checked;
+  if chbConstLines.Checked then
+  begin
+    FormAstroScene.ConstLinesAlpha := 0.5 - FormAstroScene.ConstLinesAlpha;
+    FormAstroScene.LoadConstLines;
+  end;
+end;
+
+//---------------------- Вывод границ созвездий -------------------------------
+procedure TFormOptions.chbConstBoundsClick(Sender: TObject);
+begin
+  FormAstroScene.ConstBorders.Nodes.Clear;
+//  chbConstBounds.Checked := not chbConstBounds.Checked;
+  if chbConstBounds.Checked then
+  begin
+    FormAstroScene.ConstBordersAlpha := 0.5 - FormAstroScene.ConstBordersAlpha;
+    FormAstroScene.LoadConstBorders;
+  end;
 end;
 
 //------------------------------------------------------------------

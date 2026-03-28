@@ -22,11 +22,11 @@ uses
   Vcl.Styles,
   faOptions in '..\source\astro\faOptions.pas' {FormOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  faStarSys in '..\source\astro\faStarSys.pas' {FormStarSys},
+  faStellarSys in '..\source\astro\faStellarSys.pas' {frmStellarSys},
   frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  faConstells in '..\source\astro\faConstells.pas' {frmConstells},
+  faConstAtlas in '..\source\astro\faConstAtlas.pas' {frmConstells},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
@@ -49,6 +49,6 @@ begin
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TFormStarSys, FormStarSys);
+  Application.CreateForm(TfrmStellarSys, frmStellarSys);
   Application.Run;
 end.

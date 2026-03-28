@@ -1,5 +1,6 @@
-//---------------------------------------------------------------------------
-
+/****************************************************************************
+						   AstrobloQ System
+*****************************************************************************/
 #include <vcl.h>
 #pragma hdrstop
 
@@ -273,4 +274,98 @@ void __fastcall TFormAstroScene::miExitClick(TObject* Sender)
 
 //---------------------------------------------------------------------------
 
+
+void __fastcall TFormAstroScene::tvPlanetsClick(TObject *Sender)
+{
+  String Planets;
+  TFileName PlanetFile;
+//  TFileNameFileCSV;
+  TFileName FileJpg;
+  int NLine;
+
+	switch (tvPlanets->Selected->Index) {
+		case 0: {
+		// Sun
+			break;
+		}
+		case 1: {
+		// Mercury
+			break;
+		}
+		case 2: {
+		// Venus
+			break;
+		}
+		case 3: {
+		// Earth
+			break;
+		}
+		case 4: {
+		// Mars
+			break;
+		}
+		default: {
+			break;
+		}
+	}
+
+/* переписать на с++
+  // включаем видимость лун
+  dcMoon.Visible := True;
+  // планеты, астероиды и кометы не видны
+  sfPlanet.Visible := False;
+  ffPlanet.Visible := False;
+
+  dcAsteroid.Visible := False;
+  dcComet.Visible := False;
+
+  // чтение CSV файла трансляции и загрузки карты луны
+  FileCSV := CurrentStar + 'sol_moons.csv';
+  Moon := tvMoons.Selected.Text;  // находим имя луны в поле name_ru
+
+  // передача индекса узла дерева просмотра в CSV
+  NLine := tvMoons.Selected.Index;
+  MoonFile := GetMoonFromCSV(FileCSV, NLine, Moon (*Radous*));
+  FileJpg := CurrentStar + LowerCase(MoonFile) + '.jpg';
+  if FileExists(FileJpg, True) then
+  begin
+//    sfMoon.Radius := Radius; // считывается из csv файла
+	sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
+	ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // фриформа
+	// ffMoon.LoadFromFile(DataDir + '\model\object.3ds'); // модель
+  end
+  else
+  begin
+	sfMoon.Radius := 0.3; // Radius;
+	FileJpg := CurrentStar + 'aMoon.jpg';
+	sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
+	ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
+	// ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
+  end;
+
+(*
+  если карты из VirtPlanetMaps
+  ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
+  Camera.TagObject := ffPlanet;
+*)
+
+  // Показать атмосферу Титана
+  if tvMoons.Selected.Text = 'Титан' then
+  begin
+	sfMoon.Radius := 0.5;
+	DirectOpenGL.Visible := True
+  end
+  else
+  begin
+	sfMoon.Radius := 0.3;
+	DirectOpenGL.Visible := False;
+  end;
+
+  // Имя луны или спутника для веб-справки ruwiki
+  // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
+  miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';
+*/
+
+}
+//---------------------------------------------------------------------------
 

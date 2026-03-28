@@ -26,7 +26,7 @@ type
 implementation //==============================================================
 
 uses
-  faStarSys;
+  faStellarSys;
 
 {$R *.dfm}
 
@@ -58,7 +58,7 @@ procedure TFrameParams.ShowParams;
     ed.Height := 20;
     ed.OnKeyPress := edKeyPress;
     ed.OnChange := edChange;
-    param := GetPropInfo(FormStarSys.PickObject, PChar(prm));
+    param := GetPropInfo(frmStellarSys.PickObject, PChar(prm));
     if param <> nil then
     begin
       if param.PropType^.Kind = tkInteger then
@@ -67,9 +67,9 @@ procedure TFrameParams.ShowParams;
         ed.Tag := 11;
       case ed.Tag of
         10:
-          ed.Text := IntToStr(GetOrdProp(FormStarSys.PickObject, param));
+          ed.Text := IntToStr(GetOrdProp(frmStellarSys.PickObject, param));
         11:
-          ed.Text := Format('%.4f', [GetFloatProp(FormStarSys.PickObject, param)]);
+          ed.Text := Format('%.4f', [GetFloatProp(frmStellarSys.PickObject, param)]);
       end;
     end;
   end;
@@ -141,7 +141,7 @@ var
 begin
   with TEdit(Sender) do
   begin
-    param := GetPropInfo(FormStarSys.PickObject, pchar(Hint));
+    param := GetPropInfo(frmStellarSys.PickObject, pchar(Hint));
     if param <> nil then
     begin
       case Tag of
@@ -149,13 +149,13 @@ begin
           begin
             if not TryStrToInt(Text, i) then
               i := 0;
-            SetOrdProp(FormStarSys.PickObject, param, i);
+            SetOrdProp(frmStellarSys.PickObject, param, i);
           end;
         11:
           begin
             if not TryStrToFloat(Text, f) then
               f := 0;
-            SetFloatProp(FormStarSys.PickObject, param, f);
+            SetFloatProp(frmStellarSys.PickObject, param, f);
           end;
       end;
     end;

@@ -54,7 +54,7 @@ object FormOptions: TFormOptions
       Top = 5
       Width = 643
       Height = 554
-      ActivePage = tsMap
+      ActivePage = tsStars
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -765,11 +765,6 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
           end
         end
-      end
-      object tsGalaxy: TTabSheet
-        Caption = 'Galaxy'
-        ImageIndex = 4
-        TabVisible = False
       end
     end
     object tvOptions: TTreeView

@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{5262A302-6C3C-4CC5-8A9F-7E09B16E32BE}</ProjectGuid>
+        <ProjectGuid>{74582C24-83BE-4628-B9DF-28AF332780EE}</ProjectGuid>
         <MainSource>AstroScene_ru.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
@@ -113,10 +113,6 @@
             <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\faMakeStarsys_ru.pas">
-            <Form>frmMakeStarsys</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\dmImages.pas">
@@ -132,24 +128,15 @@
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\frParams_ru.pas">
-            <Form>FrameParamsR</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faSolarSys_ru.pas">
-            <Form>FormSolarSys</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faConstells_ru.pas">
-            <Form>frmConstells</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ConstBayers.pas"/>
         <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
         <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
+        <DCCReference Include="..\source\lito\flTexCombine_ru.pas">
+            <Form>frmTexCombine</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -165,21 +152,31 @@
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\lito\flCoordinates_ru.pas">
+            <Form>frmCoordinates</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\lito\flPointto_ru.pas">
+            <Form>frmPointto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\lito\Litho.Utils.pas"/>
+        <DCCReference Include="..\source\astro\faStellarSys_ru.pas">
+            <Form>frmStellarSys</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\source\astro\frParams_ru.pas">
+            <Form>FrameParamsR</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <DCCReference Include="..\source\astro\faSkyPolygons_ru.pas">
             <Form>frmSkyPolygons</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\astro\faStarSys_ru.pas">
-            <Form>FormStarSys</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faNewSolblock_ru.pas">
-            <Form>frmNewSolblock</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\faViewSolblock_ru.pas">
-            <Form>frmViewSolblock</Form>
+        <DCCReference Include="..\source\astro\faConstAtlas_ru.pas">
+            <Form>frmConstAtlas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

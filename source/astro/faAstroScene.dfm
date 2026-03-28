@@ -242,7 +242,6 @@ object FormAstroScene: TFormAstroScene
         8000800080008000800080008000800080008000800080008000800080008000
         80008000800080008000}
       TabOrder = 0
-      ExplicitHeight = 595
       Data = {10}
     end
   end
@@ -88824,9 +88823,6 @@ object FormAstroScene: TFormAstroScene
       object miStellarSystem: TMenuItem
         Caption = 'Stellar system...'
         OnClick = miStellarSystemClick
-      end
-      object Solarsystem1: TMenuItem
-        Caption = 'Solar system...'
       end
       object N4: TMenuItem
         Caption = '-'
