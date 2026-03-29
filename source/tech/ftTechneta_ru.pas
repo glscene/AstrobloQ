@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit ftTechneta_ru;
 
 interface
@@ -101,11 +104,9 @@ type
     SkyDome: TGLSkyDome;
     ConstLines: TGLLines;
     MainMenu: TMainMenu;
-    miFile: TMenuItem;
     miSpinThePlanet: TMenuItem;
     miCountries: TMenuItem;
     miFlipFlopLand: TMenuItem;
-    miN1: TMenuItem;
     miExit: TMenuItem;
     miMarkers: TMenuItem;
     miRound: TMenuItem;
@@ -219,6 +220,10 @@ type
     miSpacePilot: TMenuItem;
     N8: TMenuItem;
     miContacthull: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    N11: TMenuItem;
+    N12: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);

@@ -242,6 +242,7 @@ object FormAstroScene: TFormAstroScene
         8000800080008000800080008000800080008000800080008000800080008000
         80008000800080008000}
       TabOrder = 0
+      ExplicitHeight = 595
       Data = {10}
     end
   end
@@ -88862,14 +88863,14 @@ object FormAstroScene: TFormAstroScene
     end
     object miTools: TMenuItem
       Caption = '&Tools'
+      object miToolsOptions: TMenuItem
+        Caption = 'Options...'
+        OnClick = miToolsOptionsClick
+      end
       object Settings1: TMenuItem
         Caption = 'Settings...'
         ImageIndex = 130
         OnClick = Settings1Click
-      end
-      object miToolsOptions: TMenuItem
-        Caption = 'Options...'
-        OnClick = miToolsOptionsClick
       end
       object N7: TMenuItem
         Caption = '-'

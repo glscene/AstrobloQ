@@ -53,7 +53,7 @@ inherited FormSettings: TFormSettings
       Left = 1
       Top = 1
       Width = 218
-      Height = 660
+      Height = 685
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -65,20 +65,19 @@ inherited FormSettings: TFormSettings
       TabOrder = 0
       OnClick = tvSettingsClick
       Items.NodeData = {
-        070800000009540054007200650065004E006F00640065002900000000000000
+        070700000009540054007200650065004E006F00640065002900000000000000
         00000000FFFFFFFFFFFFFFFF0000000000000000000000000001051E04310449
         04380435040000310000000000000000000000FFFFFFFFFFFFFFFF0100000000
         0000000000000000010918043D04420435044004440435043904410400002D00
         00000000000000000000FFFFFFFFFFFFFFFF0200000000000000000000000001
-        071404380441043F043B043504390400002F0000000000000000000000FFFFFF
-        FFFFFFFFFF0300000000000000000000000001081C0430044204350440043804
-        30043B040000310000000000000000000000FFFFFFFFFFFFFFFF000000000000
-        000000000000000109130430043B0430043A04420438043A04300400002B0000
-        000000000000000000FFFFFFFFFFFFFFFF050000000000000000000000000106
-        170432045104370434044B0400002D0000000000000000000000FFFFFFFFFFFF
-        FFFF0000000000000000000000000001071F043B0430043D04350442044B0400
-        00270000000000000000000000FFFFFFFFFFFFFFFF0700000000000000000000
-        000001041F04430442044C04}
+        071404380441043F043B04350439040000310000000000000000000000FFFFFF
+        FFFFFFFFFF000000000000000000000000000109130430043B0430043A044204
+        38043A04300400002B0000000000000000000000FFFFFFFFFFFFFFFF05000000
+        0000000000000000000106170432045104370434044B0400002D000000000000
+        0000000000FFFFFFFFFFFFFFFF0000000000000000000000000001071F043B04
+        30043D04350442044B040000270000000000000000000000FFFFFFFFFFFFFFFF
+        0700000000000000000000000001041F04430442044C04}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -258,56 +257,6 @@ inherited FormSettings: TFormSettings
         Caption = #1044#1080#1089#1087#1083#1077#1081
         ImageIndex = 2
         TabVisible = False
-      end
-      object tsMaterial: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Caption = #1052#1072#1090#1077#1088#1080#1072#1083
-        ImageIndex = 4
-        TabVisible = False
-        object ListView: TListView
-          Left = 0
-          Top = 0
-          Width = 1085
-          Height = 380
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Align = alTop
-          Columns = <
-            item
-              Caption = 'Model'
-              MaxWidth = 100
-              MinWidth = 100
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Table'
-              MaxWidth = 400
-              MinWidth = 400
-              Width = 400
-            end>
-          GridLines = True
-          RowSelect = True
-          TabOrder = 0
-          ViewStyle = vsReport
-        end
-        object ButtonModifyMat: TButton
-          Left = 430
-          Top = 518
-          Width = 182
-          Height = 42
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100'...'
-          TabOrder = 1
-        end
       end
       object tsStars: TTabSheet
         Margins.Left = 5

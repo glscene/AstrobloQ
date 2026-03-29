@@ -24,42 +24,42 @@ object frmSettings: TfrmSettings
       IsExpanded = False
       IsSelected = False
       TabOrder = 0
-      Text = 'General'
+      Text = #1043#1083#1072#1074#1085#1099#1077
     end
     object tvInterface: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 1
-      Text = 'Interface'
+      Text = #1048#1085#1090#1077#1088#1092#1077#1081#1089
     end
     object tvDisplay: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 2
-      Text = 'Display'
+      Text = #1044#1080#1089#1087#1083#1077#1081
     end
     object tvPlanets: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 3
-      Text = 'Planets'
+      Text = #1055#1083#1072#1085#1077#1090#1099
     end
     object tvStars: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 4
-      Text = 'Stars'
+      Text = #1047#1074#1105#1079#1076#1099
     end
     object tvGalaxy: TTreeViewItem
       IsChecked = False
       IsExpanded = False
       IsSelected = False
       TabOrder = 5
-      Text = 'Galaxy'
+      Text = #1043#1072#1083#1072#1082#1090#1080#1082#1072
     end
   end
   object TabControl: TTabControl
@@ -67,7 +67,7 @@ object frmSettings: TfrmSettings
     Size.Width = 471.000000000000000000
     Size.Height = 412.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 4
     TabOrder = 2
     TabPosition = PlatformDefault
     Sizes = (
@@ -87,13 +87,13 @@ object frmSettings: TfrmSettings
       CustomIcon = <
         item
         end>
-      IsSelected = True
-      Size.Width = 61.000000000000000000
+      IsSelected = False
+      Size.Width = 66.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'General'
+      Text = #1043#1083#1072#1074#1085#1099#1077
       ExplicitSize.cx = 61.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -102,12 +102,12 @@ object frmSettings: TfrmSettings
         item
         end>
       IsSelected = False
-      Size.Width = 66.000000000000000000
+      Size.Width = 82.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Interface'
+      Text = #1048#1085#1090#1077#1088#1092#1077#1081#1089
       ExplicitSize.cx = 66.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -116,12 +116,12 @@ object frmSettings: TfrmSettings
         item
         end>
       IsSelected = False
-      Size.Width = 58.000000000000000000
+      Size.Width = 67.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Display'
+      Text = #1044#1080#1089#1087#1083#1077#1081
       ExplicitSize.cx = 58.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -130,12 +130,12 @@ object frmSettings: TfrmSettings
         item
         end>
       IsSelected = False
-      Size.Width = 58.000000000000000000
+      Size.Width = 68.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Planets'
+      Text = #1055#1083#1072#1085#1077#1090#1099
       ExplicitSize.cx = 58.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -143,13 +143,13 @@ object frmSettings: TfrmSettings
       CustomIcon = <
         item
         end>
-      IsSelected = False
-      Size.Width = 46.000000000000000000
+      IsSelected = True
+      Size.Width = 60.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Stars'
+      Text = #1047#1074#1105#1079#1076#1099
       ExplicitSize.cx = 46.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end
@@ -158,12 +158,12 @@ object frmSettings: TfrmSettings
         item
         end>
       IsSelected = False
-      Size.Width = 55.000000000000000000
+      Size.Width = 74.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'Galaxy'
+      Text = #1043#1072#1083#1072#1082#1090#1080#1082#1072
       ExplicitSize.cx = 55.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
     end

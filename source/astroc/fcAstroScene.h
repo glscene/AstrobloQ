@@ -82,12 +82,6 @@ __published:	// IDE-managed Components
 	TGLArrowLine *Arrow_Y;
 	TGLArrowLine *Arrow_Z;
 	TGLDummyCube *dcArrows;
-	TPageControl *PageControl;
-	TTabSheet *tsPlanets;
-	TTreeView *tvPlanets;
-	TTabSheet *tsConstCharts;
-	TVirtualImage *VirtualImageChart;
-	TTreeView *tvConstellations;
 	TControlBar *ControlBar;
 	TToolBar *ToolBar1;
 	TToolButton *ToolButton1;

@@ -52,9 +52,6 @@ type
     tsDisplay: TTabSheet;
     CheckBoxAxes: TCheckBox;
     CheckBoxCoordinates: TCheckBox;
-    tsMaterial: TTabSheet;
-    ListView: TListView;
-    ButtonModifyMat: TButton;
     tsGalaxy: TTabSheet;
     nbRg: TNumberBox;
     tsStars: TTabSheet;
@@ -276,11 +273,10 @@ begin
      0: PageControl.ActivePage := tsGeneral;
      1: PageControl.ActivePage := tsInterface;
      2: PageControl.ActivePage := tsDisplay;
-     3: PageControl.ActivePage := tsMaterial;
-     4: PageControl.ActivePage := tsGalaxy;
-     5: PageControl.ActivePage := tsStars;
-     6: PageControl.ActivePage := tsPlanets;
-     7: PageControl.ActivePage := tsPathway;
+     3: PageControl.ActivePage := tsGalaxy;
+     4: PageControl.ActivePage := tsStars;
+     5: PageControl.ActivePage := tsPlanets;
+     6: PageControl.ActivePage := tsPathway;
   end;
 end;
 

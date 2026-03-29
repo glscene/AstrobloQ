@@ -100,11 +100,9 @@ type
     SkyDome: TGLSkyDome;
     ConstellationLines: TGLLines;
     MainMenu: TMainMenu;
-    miFile: TMenuItem;
     miSpinThePlanet: TMenuItem;
     miCountries: TMenuItem;
     miFlipFlopLand: TMenuItem;
-    miN1: TMenuItem;
     miExit: TMenuItem;
     miMarkers: TMenuItem;
     miRound: TMenuItem;
@@ -201,7 +199,7 @@ type
     ptsSizeUpDown: TUpDown;
     ptsSizeEdit: TEdit;
     N2: TMenuItem;
-    miDisplay: TMenuItem;
+    miView: TMenuItem;
     miLocations: TMenuItem;
     EarthCore: TGLSphere;
     miCore: TMenuItem;
@@ -217,6 +215,11 @@ type
     N6: TMenuItem;
     N7: TMenuItem;
     miSpacePilot: TMenuItem;
+    miFile: TMenuItem;
+    miOpen: TMenuItem;
+    N8: TMenuItem;
+    Saveas1: TMenuItem;
+    N9: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);

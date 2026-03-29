@@ -64,20 +64,18 @@ inherited FormSettings: TFormSettings
       TabOrder = 0
       OnClick = tvSettingsClick
       Items.NodeData = {
-        070800000009540054007200650065004E006F00640065002D00000000000000
+        070700000009540054007200650065004E006F00640065002D00000000000000
         00000000FFFFFFFFFFFFFFFF000000000000000000000000000107470065006E
         006500720061006C000000310000000000000000000000FFFFFFFFFFFFFFFF01
         000000000000000000000000010949006E007400650072006600610063006500
         00002D0000000000000000000000FFFFFFFFFFFFFFFF02000000000000000000
-        000000010744006900730070006C006100790000002F00000000000000000000
-        00FFFFFFFFFFFFFFFF0300000000000000000000000001084D00610074006500
-        7200690061006C0000002B0000000000000000000000FFFFFFFFFFFFFFFF0400
-        00000000000000000000000106470061006C0061007800790000002900000000
-        00000000000000FFFFFFFFFFFFFFFF0500000000000000000000000001055300
-        740061007200730000002D0000000000000000000000FFFFFFFFFFFFFFFF0600
-        0000000000000000000000010750006C0061006E0065007400730000002D0000
-        000000000000000000FFFFFFFFFFFFFFFF070000000000000000000000000107
-        5000610074006800770061007900}
+        000000010744006900730070006C006100790000002B00000000000000000000
+        00FFFFFFFFFFFFFFFF040000000000000000000000000106470061006C006100
+        780079000000290000000000000000000000FFFFFFFFFFFFFFFF050000000000
+        0000000000000001055300740061007200730000002D00000000000000000000
+        00FFFFFFFFFFFFFFFF06000000000000000000000000010750006C0061006E00
+        65007400730000002D0000000000000000000000FFFFFFFFFFFFFFFF07000000
+        00000000000000000001075000610074006800770061007900}
       ExplicitHeight = 660
     end
     object PageControl: TPageControl
@@ -89,7 +87,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsStars
+      ActivePage = tsDisplay
       Align = alClient
       Style = tsButtons
       TabOrder = 1
@@ -218,56 +216,6 @@ inherited FormSettings: TFormSettings
           State = cbChecked
           TabOrder = 2
           StyleName = 'Windows'
-        end
-      end
-      object tsMaterial: TTabSheet
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Caption = 'Material'
-        ImageIndex = 4
-        TabVisible = False
-        object ListView: TListView
-          Left = 0
-          Top = 0
-          Width = 1085
-          Height = 380
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Align = alTop
-          Columns = <
-            item
-              Caption = 'Model'
-              MaxWidth = 100
-              MinWidth = 100
-              Width = 100
-            end
-            item
-              Alignment = taCenter
-              Caption = 'Table'
-              MaxWidth = 400
-              MinWidth = 400
-              Width = 400
-            end>
-          GridLines = True
-          RowSelect = True
-          TabOrder = 0
-          ViewStyle = vsReport
-        end
-        object ButtonModifyMat: TButton
-          Left = 254
-          Top = 478
-          Width = 182
-          Height = 42
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = 'Change...'
-          TabOrder = 1
         end
       end
       object tsGalaxy: TTabSheet
