@@ -54,10 +54,6 @@ type
     tsDisplay: TTabSheet;
     tsStars: TTabSheet;
     chlbStarClasses: TCheckListBox;
-    GroupBox2: TGroupBox;
-    chbConstFigures: TCheckBox;
-    chbConstLines: TCheckBox;
-    chbConstBounds: TCheckBox;
     tsGalaxy: TTabSheet;
     EditNs: TEdit;
     EditLr: TEdit;

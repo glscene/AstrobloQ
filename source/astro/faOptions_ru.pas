@@ -82,8 +82,6 @@ type
     chbClouds: TCheckBox;
     chbCartographicGrid: TCheckBox;
     chbHidePlanet: TCheckBox;
-    gbShowStars: TGroupBox;
-    chbSkyGrid: TCheckBox;
     tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
     rgUnits: TRadioGroup;
@@ -94,6 +92,7 @@ type
     rgMapType: TRadioGroup;
     CheckBoxAxes: TCheckBox;
     CheckBoxRotate: TCheckBox;
+    chbSkyGrid: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
@@ -107,6 +106,7 @@ type
     procedure chbConstLinesClick(Sender: TObject);
     procedure chbConstBoundsClick(Sender: TObject);
     procedure chbCloudsClick(Sender: TObject);
+    procedure chbConstFiguresClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -235,7 +235,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-// Картографическая сетка
+//                           Картографическая сетка
 //-----------------------------------------------------------------------------
 procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
 begin
@@ -271,6 +271,13 @@ begin
     FormAstroScene.ConstBordersAlpha := 0.5 - FormAstroScene.ConstBordersAlpha;
     FormAstroScene.LoadConstBorders;
   end;
+end;
+
+//---------------------- Вывод фигур созвездий -------------------------------
+procedure TFormOptions.chbConstFiguresClick(Sender: TObject);
+begin
+  inherited;
+  //
 end;
 
 //------------------------------------------------------------------

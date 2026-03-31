@@ -197,7 +197,8 @@ type
     procedure miMapClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
   public
-    DataDir, StarDir, CurrentStellar: TFileName;
+    DataDir, StellarDir, CurrentStellar: TFileName;
+    FileCSV, FileJpg: TFileName;
     CatalogName: TFileName;
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
@@ -252,7 +253,7 @@ begin
   Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-  StarDir := DataDir + '\starsys';
+  StellarDir := DataDir + '\starsys';
 
   // путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -291,18 +292,16 @@ begin
   sfComet.Material.Texture.Disabled := False;
   ffComet.Material.Texture.Disabled := False;
 
-  // Текстура облаков д.б. загружена в MatLib
-  if FileExists(CurrentStellar + 'earth_clouds_360.jpg') then
+  // Текстура облаков д.б. загружена в 3й материал компонента GLMatLib
+  if FileExists(CurrentStellar + 'clouds_rare.jpg') then // or clouds_dense
   begin
     GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
-    GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(CurrentStellar + 'earth_clouds_360.jpg');
+    GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(CurrentStellar + 'clouds_rare.jpg');
   end
   else
   begin
     sfClouds.Visible := False;
   end;
-
-
 end;
 
 //----------------------------------------------------------------------------
@@ -329,7 +328,7 @@ begin
   tvMoonsClick(Self);
   miHelpWiki.Caption := tvMoons.Selected.Text; // + ' in ' + 'RuWiki...';
 *)
-  // индексируем узлы дерева компонент TreeView
+  // индексируем узлы дерева tvMoons
   for I := 0 to tvMoons.Items.Count - 1 do
   begin
 //    tvMoons.Items[I].ImageIndex := I;
@@ -341,6 +340,11 @@ begin
 
   //  Астероиды
   //  Открыть файл sol_asteroids.csv и загрузить в tvAsteroids
+  if FileExists(CurrentStellar + 'sol_asteroids.csv') then // or clouds_dense
+  begin
+    tvAsteroids.LoadFromFile(CurrentStellar + 'sol_asteroids.csv');
+  end;
+
   //  tvAsteroids.SetFocus;
   //  tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto by default
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
@@ -415,28 +419,26 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
-  Moon: string;
-  MoonFile, FileCSV, FileJpg: TFileName;
-  NLine: Integer;
+  MoonName : String;
 
 begin
-  // включаем видимость лун
+  // включаем видимость луны
   dcMoon.Visible := True;
   // планеты, астероиды и кометы не видны
   sfPlanet.Visible := False;
   ffPlanet.Visible := False;
-
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
 
-  // чтение CSV файла трансляции и загрузки карты луны
+  // чтение CSV файла для перевода имени луны на английский язык
   FileCSV := CurrentStellar + 'sol_moons.csv';
-  Moon := tvMoons.Selected.Text;  // находим имя луны в поле name_ru
+  // в CSV файле находим имя луны MoonName и её радиус
+  // по полю name_ru и индексу узла дерева просмотра
+  MoonName := GetMoonFromCSV(FileCSV,
+    tvMoons.Selected.Index, tvMoons.Selected.Text (* sfMoon.Radius *));
 
-  // передача индекса узла дерева просмотра в CSV
-  NLine := tvMoons.Selected.Index;
-  MoonFile := GetMoonFromCSV(FileCSV, NLine, Moon (*Radous*));
-  FileJpg := CurrentStellar + LowerCase(MoonFile) + '.jpg';
+  // Загружаем карту по названию луны на английском языке
+  FileJpg := CurrentStellar + LowerCase(MoonName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
 //    sfMoon.Radius := Radius; // считывается из csv файла
@@ -942,7 +944,7 @@ var
   I, J: Integer;
 begin
   OpenDialog.Filter := '(*.star)|*.star';
-  OpenDialog.InitialDir := StarDir;
+  OpenDialog.InitialDir := StellarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
   begin  // новая звезда
@@ -967,7 +969,7 @@ end;
 procedure TFormAstroScene.miFileSaveAsClick(Sender: TObject);
 begin
   SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
-  SaveDialog.InitialDir := StarDir;
+  SaveDialog.InitialDir := StellarDir;
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
   begin

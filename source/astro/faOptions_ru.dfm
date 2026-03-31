@@ -56,12 +56,14 @@ object FormOptions: TFormOptions
     object PageControl: TPageControl
       Left = 169
       Top = 5
-      Width = 568
-      Height = 358
-      ActivePage = tsPlanets
+      Width = 576
+      Height = 383
+      ActivePage = tsStars
       Align = alClient
       Style = tsButtons
       TabOrder = 0
+      ExplicitWidth = 568
+      ExplicitHeight = 358
       object tsGeneral: TTabSheet
         Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
@@ -197,6 +199,7 @@ object FormOptions: TFormOptions
             Height = 17
             Caption = #1060#1080#1075#1091#1088#1099
             TabOrder = 0
+            OnClick = chbConstFiguresClick
           end
           object chbConstLines: TCheckBox
             Left = 26
@@ -210,30 +213,22 @@ object FormOptions: TFormOptions
           object chbConstBounds: TCheckBox
             Left = 138
             Top = 24
-            Width = 79
+            Width = 103
             Height = 17
             Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
             OnClick = chbConstBoundsClick
           end
         end
-        object gbShowStars: TGroupBox
-          Left = 208
-          Top = 137
-          Width = 281
-          Height = 128
-          Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1079#1074#1105#1079#1076#1099
+        object chbSkyGrid: TCheckBox
+          Left = 66
+          Top = 153
+          Width = 146
+          Height = 23
+          Caption = #1057#1077#1090#1082#1072
           TabOrder = 2
-          object chbSkyGrid: TCheckBox
-            Left = 15
-            Top = 48
-            Width = 146
-            Height = 23
-            Caption = 'Sky grid'
-            TabOrder = 0
-            StyleName = 'Windows'
-            OnClick = CheckBoxCoreClick
-          end
+          StyleName = 'Windows'
+          OnClick = chbCartographicGridClick
         end
       end
       object tsPlanets: TTabSheet
@@ -559,6 +554,7 @@ object FormOptions: TFormOptions
         0000000000000001071F043B0430043D04350442044B0400002B000000000000
         000000000006000000FFFFFFFF00000000000000000000000000010617043204
         5104370434044B04}
+      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel

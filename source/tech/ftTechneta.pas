@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit ftTechneta;
 
 interface
@@ -442,10 +445,10 @@ begin
   // Cloud material in MatLib
   DataDir := GetDataPath() + 'starsys\sun\';
   SetCurrentDir(DataDir);
-  if FileExists(DataDir + 'earth_clouds_360.jpg') then
+  if FileExists(DataDir + 'clouds_rare.jpg') then
   begin
     MatLib.Materials[3].Material.Texture.Compression := tcStandard;
-    MatLib.Materials[3].Material.Texture.Image.LoadFromFile(DataDir + 'earth_clouds_360.jpg');
+    MatLib.Materials[3].Material.Texture.Image.LoadFromFile(DataDir + 'clouds_rare.jpg');
   end
   else
   begin

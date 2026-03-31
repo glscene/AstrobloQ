@@ -77,6 +77,7 @@ inherited FormSettings: TFormSettings
         0000000000FFFFFFFFFFFFFFFF0000000000000000000000000001071F043B04
         30043D04350442044B040000270000000000000000000000FFFFFFFFFFFFFFFF
         0700000000000000000000000001041F04430442044C04}
+      ExplicitHeight = 660
     end
     object PageControl: TPageControl
       Left = 219
@@ -87,7 +88,7 @@ inherited FormSettings: TFormSettings
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      ActivePage = tsGalaxy
+      ActivePage = tsStars
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -298,59 +299,9 @@ inherited FormSettings: TFormSettings
           ShowHint = False
           TabOrder = 0
         end
-        object GroupBox2: TGroupBox
-          Left = 56
-          Top = 42
-          Width = 253
-          Height = 183
-          Margins.Left = 5
-          Margins.Top = 5
-          Margins.Right = 5
-          Margins.Bottom = 5
-          Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
-          TabOrder = 1
-          object chbConstFigures: TCheckBox
-            Left = 45
-            Top = 120
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1060#1080#1075#1091#1088#1099
-            TabOrder = 0
-          end
-          object chbConstLines: TCheckBox
-            Left = 45
-            Top = 42
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1051#1080#1085#1080#1080
-            Checked = True
-            State = cbChecked
-            TabOrder = 1
-          end
-          object chbConstBounds: TCheckBox
-            Left = 45
-            Top = 81
-            Width = 138
-            Height = 29
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Caption = #1043#1088#1072#1085#1080#1094#1099
-            TabOrder = 2
-          end
-        end
         object stStarDensity: TStaticText
-          Left = 56
-          Top = 342
+          Left = 80
+          Top = 78
           Width = 175
           Height = 29
           Margins.Left = 5
@@ -358,11 +309,11 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076' '#1074' '#1055#1082'^3'
-          TabOrder = 2
+          TabOrder = 1
         end
         object EditStarDensityPC: TEdit
-          Left = 277
-          Top = 338
+          Left = 357
+          Top = 78
           Width = 156
           Height = 33
           Margins.Left = 5
@@ -370,12 +321,12 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taCenter
-          TabOrder = 3
+          TabOrder = 2
           Text = '0.12'
         end
         object StaticText1: TStaticText
-          Left = 56
-          Top = 398
+          Left = 80
+          Top = 134
           Width = 184
           Height = 29
           Margins.Left = 5
@@ -383,11 +334,11 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Caption = #1063#1080#1089#1083#1086' '#1079#1074#1105#1079#1076' '#1074' '#1082#1055#1089'^3'
-          TabOrder = 4
+          TabOrder = 3
         end
         object EditStarDensityKPC: TEdit
-          Left = 277
-          Top = 394
+          Left = 357
+          Top = 134
           Width = 156
           Height = 33
           Margins.Left = 5
@@ -395,7 +346,7 @@ inherited FormSettings: TFormSettings
           Margins.Right = 5
           Margins.Bottom = 5
           Alignment = taCenter
-          TabOrder = 5
+          TabOrder = 4
           Text = '120000000'
         end
       end
