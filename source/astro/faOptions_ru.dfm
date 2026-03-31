@@ -56,14 +56,12 @@ object FormOptions: TFormOptions
     object PageControl: TPageControl
       Left = 169
       Top = 5
-      Width = 576
-      Height = 383
-      ActivePage = tsScene
+      Width = 568
+      Height = 358
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 568
-      ExplicitHeight = 358
       object tsGeneral: TTabSheet
         Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
@@ -354,7 +352,7 @@ object FormOptions: TFormOptions
           TabOrder = 1
           object CheckBox4: TCheckBox
             Left = 167
-            Top = 109
+            Top = 85
             Width = 121
             Height = 20
             Caption = #1044#1077#1085#1100' '#1080' '#1085#1086#1095#1100
@@ -362,8 +360,8 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
           end
           object CheckBoxCore: TCheckBox
-            Left = 304
-            Top = 103
+            Left = 31
+            Top = 79
             Width = 98
             Height = 27
             Caption = #1071#1076#1088#1086
@@ -373,7 +371,7 @@ object FormOptions: TFormOptions
           end
           object CheckBoxAtmosfera: TCheckBox
             Left = 31
-            Top = 64
+            Top = 36
             Width = 130
             Height = 23
             Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
@@ -383,17 +381,17 @@ object FormOptions: TFormOptions
           end
           object chbClouds: TCheckBox
             Left = 167
-            Top = 65
+            Top = 33
             Width = 98
             Height = 24
             Caption = #1054#1073#1083#1072#1082#1072
             TabOrder = 3
             StyleName = 'Windows'
-            OnClick = CheckBoxCoreClick
+            OnClick = chbCloudsClick
           end
           object chbCartographicGrid: TCheckBox
             Left = 304
-            Top = 73
+            Top = 81
             Width = 129
             Height = 24
             Caption = #1058#1086#1087#1086#1089#1077#1090#1082#1072
@@ -561,7 +559,6 @@ object FormOptions: TFormOptions
         0000000000000001071F043B0430043D04350442044B0400002B000000000000
         000000000006000000FFFFFFFF00000000000000000000000000010617043204
         5104370434044B04}
-      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel

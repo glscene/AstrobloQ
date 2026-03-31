@@ -90,7 +90,6 @@ type
     dcStar: TGLDummyCube;
     dcMoon: TGLDummyCube;
     LensStar: TGLLensFlare;
-    GLMatLib: TGLMaterialLibrary;
     GLTexCombiner: TGLTexCombineShader;
     CameraControler: TGLCamera;
     SkyDome: TGLSkyDome;
@@ -154,7 +153,6 @@ type
     ToolBar2: TToolBar;
     ToolButtonReset: TToolButton;
     ToolButton19: TToolButton;
-    ToolButton20: TToolButton;
     ToolButton21: TToolButton;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
@@ -168,6 +166,7 @@ type
     miConstPolygons: TMenuItem;
     sfClouds: TGLSphere;
     dcClouds: TGLDummyCube;
+    GLMatLib: TGLMaterialLibrary;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -198,7 +197,7 @@ type
     procedure miMapClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
   public
-    DataDir, StarDir, CurrentStar: TFileName;
+    DataDir, StarDir, CurrentStellar: TFileName;
     CatalogName: TFileName;
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
@@ -269,7 +268,7 @@ begin
   // переход по умолчанию в директорию солнечной системы
   if DirectoryExists('starsys\sun') then
         ChDir('starsys\sun');
-  CurrentStar := DataDir + '\starsys\sun\';
+  CurrentStellar := DataDir + '\starsys\sun\';
 
   // разрешенo текстурирования планет
   sfPlanet.Material.Texture.Disabled := False;
@@ -291,6 +290,18 @@ begin
   // разрешенo текстурирования комет
   sfComet.Material.Texture.Disabled := False;
   ffComet.Material.Texture.Disabled := False;
+
+  // Текстура облаков д.б. загружена в MatLib
+  if FileExists(CurrentStellar + 'earth_clouds_360.jpg') then
+  begin
+    GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
+    GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(CurrentStellar + 'earth_clouds_360.jpg');
+  end
+  else
+  begin
+    sfClouds.Visible := False;
+  end;
+
 
 end;
 
@@ -351,7 +362,7 @@ begin
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
 
-  PlanetName := CurrentStar + TToolButton(Sender).ImageName;
+  PlanetName := CurrentStellar + TToolButton(Sender).ImageName;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
 
   // Показать атмосферы планет, заменить на case, толщина атмосфер разная
@@ -379,9 +390,9 @@ begin
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
   (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
   begin
-    diskRingUp.Material.Texture.Image.LoadFromFile(CurrentStar  + 'saturn_ring.png');
+    diskRingUp.Material.Texture.Image.LoadFromFile(CurrentStellar  + 'saturn_ring.png');
     diskRingUp.Visible := True;
-    diskRingDn.Material.Texture.Image.LoadFromFile(CurrentStar  + 'saturn_ring.png');
+    diskRingDn.Material.Texture.Image.LoadFromFile(CurrentStellar  + 'saturn_ring.png');
     diskRingDn.Visible := True;
   end
   else
@@ -419,13 +430,13 @@ begin
   dcComet.Visible := False;
 
   // чтение CSV файла трансляции и загрузки карты луны
-  FileCSV := CurrentStar + 'sol_moons.csv';
+  FileCSV := CurrentStellar + 'sol_moons.csv';
   Moon := tvMoons.Selected.Text;  // находим имя луны в поле name_ru
 
   // передача индекса узла дерева просмотра в CSV
   NLine := tvMoons.Selected.Index;
   MoonFile := GetMoonFromCSV(FileCSV, NLine, Moon (*Radous*));
-  FileJpg := CurrentStar + LowerCase(MoonFile) + '.jpg';
+  FileJpg := CurrentStellar + LowerCase(MoonFile) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
 //    sfMoon.Radius := Radius; // считывается из csv файла
@@ -436,7 +447,7 @@ begin
   else
   begin
     sfMoon.Radius := 0.3; // Radius;
-    FileJpg := CurrentStar + 'aMoon.jpg';
+    FileJpg := CurrentStellar + 'aMoon.jpg';
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
@@ -800,7 +811,7 @@ begin
   end;
 end;
 
-//------------------------ Опускаем мышь -------------------------------------
+//------------------------ Опускаем курсор мыши ------------------------------
 procedure TFormAstroScene.SceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
@@ -808,7 +819,7 @@ begin
   my := y;
 end;
 
-//------------------------ Движение мыши ------------------------------------
+//------------------------ Движение мыши -------------------------------------
 procedure TFormAstroScene.SceneViewerMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -851,7 +862,7 @@ begin
       begin
         SceneViewer.Cursor := crHourGlass;
         try
-          if DirectoryExists(CurrentStar) then
+          if DirectoryExists(CurrentStellar) then
           begin
             LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
             LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
@@ -925,7 +936,7 @@ begin
   tvMoons.Items.Clear;
 end;
 
-//---------------------- Открыть файл экзопланетной системы -----------------
+//---------------------- Открыть файл планетной системы -----------------
 procedure TFormAstroScene.miFileOpenClick(Sender: TObject);
 var
   I, J: Integer;
@@ -937,7 +948,7 @@ begin
   begin  // новая звезда
     tvMoons.LoadFromFile(OpenDialog.FileName, TEncoding.UTF8);
     // tvMoons.Images := dfImages.ImgVirtPlanets; // не загружаются символы
-    CurrentStar := ExtractFilePath(OpenDialog.FileName);
+    CurrentStellar := ExtractFilePath(OpenDialog.FileName);
 
     // Присвоение индексов
     for I := 0 to tvMoons.Items.Count - 1 do
@@ -961,7 +972,7 @@ begin
   if SaveDialog.Execute then
   begin
     tvMoons.SaveToFile(SaveDialog.FileName);
-    CurrentStar := GetCurrentDir();
+    CurrentStellar := GetCurrentDir();
   end;
 end;
 

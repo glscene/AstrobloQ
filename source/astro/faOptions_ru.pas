@@ -106,6 +106,7 @@ type
     procedure chbHidePanelsClick(Sender: TObject);
     procedure chbConstLinesClick(Sender: TObject);
     procedure chbConstBoundsClick(Sender: TObject);
+    procedure chbCloudsClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -218,7 +219,7 @@ begin
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
-    PlanetPath := CurrentStar + tvMoons.Selected.Text;
+    PlanetPath := CurrentStellar + tvMoons.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
       diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
@@ -239,6 +240,13 @@ end;
 procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
 begin
   //
+end;
+
+// ------------------------ Облачность ---------------------------------------
+procedure TFormOptions.chbCloudsClick(Sender: TObject);
+begin
+  FormAstroScene.sfClouds.Visible := chbClouds.Checked;
+  FormAstroScene.SceneViewer.Invalidate;
 end;
 
 //---------------------- Вывод линий созвездий -------------------------------

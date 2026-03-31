@@ -164,7 +164,7 @@ type
     ptsFlashLocations: TGLPoints;
     ShpLines: TGLLines;
     CountryColorPanel: TPanel;
-    GlsGlowLF: TGLLensFlare;
+    lfGlow: TGLLensFlare;
     miSatelliteLight: TMenuItem;
     miCyborg: TMenuItem;
     miRobot: TMenuItem;
@@ -224,6 +224,7 @@ type
     N10: TMenuItem;
     N11: TMenuItem;
     N12: TMenuItem;
+    miOptions: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -308,7 +309,7 @@ type
     procedure miSpacePilotClick(Sender: TObject);
     procedure miContacthullClick(Sender: TObject);
   private
-    TexoDir, StarDir, CurrentStar: TFileName;
+    TechnoDir, StellarDir, CurrentStar: TFileName;
     DataDir, FileName, CatalogName: TFileName;
     MenuVisible, ColorAlltheSame, CapitalsLoaded, EarthLoaded, CitiesLoaded,
       CountriesLoaded: Boolean;
@@ -391,8 +392,8 @@ var
   sDate, sDateSmuoosh, sDateFormat, sWhoWhereFormat: String;
 
 begin
-  TexoDir :=  ExtractFilePath(ParamStr(0)) + 'texodata\'; // not GetDataPath();
-  SetCurrentDir(TexoDir);
+  TechnoDir :=  ExtractFilePath(ParamStr(0)) + 'texodata\'; // not GetDataPath();
+  SetCurrentDir(TechnoDir);
 
   if FileExists('Texosfera.pof') then
   begin
@@ -417,18 +418,18 @@ begin
   MessageY := 123;
   Colorreg := 123;
   GlowUpDowni := 20;
-  ShpPath := TexoDir + 'EarthShp\';
-  EarthDataPath := TexoDir + 'EarthData\';
-  EarthModelPath := TexoDir + 'EarthModel\';
-  EarthPhotoPath := TexoDir + 'EarthPhoto\';
-  EarthHRPath := TexoDir + 'EarthHR\';
+  ShpPath := TechnoDir + 'EarthShp\';
+  EarthDataPath := TechnoDir + 'EarthData\';
+  EarthModelPath := TechnoDir + 'EarthModel\';
+  EarthPhotoPath := TechnoDir + 'EarthPhoto\';
+  EarthHRPath := TechnoDir + 'EarthHR\';
   /// StartedNameNumber:='Alle Alle in Free';
 
   DoSaver;
   top := FormPlanetY;
   left := FormPlanetX;
-  if FileExists(TexoDir + 'Texosfera.chm') then
-    Application.HelpFile := TexoDir + 'Texosfera.chm'; // not ready yet
+  if FileExists(TechnoDir + 'Techneta.chm') then
+    Application.HelpFile := TechnoDir + 'Techneta.chm'; // not ready yet
 
   MenuVisible := True;
   SkyDome.Bands.Clear;
@@ -446,7 +447,7 @@ begin
     LoadConstLines;
 (**)
   timeMultiplier := 1;
-  // Cloud material should be in MatLib
+  // Текстура облаков д.б. загружена в MatLib
   DataDir := GetDataPath() + 'starsys\sun\';
   SetCurrentDir(DataDir);
   if FileExists(DataDir + 'earth_clouds_360.jpg') then
@@ -462,12 +463,13 @@ begin
 
   if FileExists(DataDir + 'earth_bump.bmp') then
     MatLib.Materials[4].Material.Texture.Image.LoadFromFile(DataDir + 'earth_bump.bmp')
-///    MatLib.Materials[4].AddTextureMaterial('EarthBump',DataDir + 'earth_bump.bmp')
+//    MatLib.Materials[4].AddTextureMaterial('EarthBump',DataDir + 'earth_bump.bmp')
   else
     NightSkyorBumpyLand1.Enabled := False;
-  GlsGlowLF.Visible := False;
+
+  lfGlow.Visible := False;
   Randomize;
-  // Seed:=RandSeed;
+  // Seed := RandSeed;
   MasterAsteroidF := TGLFreeForm(dcAsteroids.AddNewChild(TGLFreeForm));
   Temp := TGLMeshObject.CreateOwned(MasterAsteroidF.MeshObjects);
   BuildPotatoid(Temp, 0.7, 3, 2);
@@ -759,7 +761,7 @@ begin
     GLLensFlare1.PreRender(Sender as TGLSceneBuffer);
   if miSatelliteLight.Checked then
     if ptsFlashLocations.Visible then
-      GlsGlowLF.PreRender(Sender as TGLSceneBuffer);
+      lfGlow.PreRender(Sender as TGLSceneBuffer);
 
   MatLib.Materials[0].Shader := TexCombiner;
   if NightSkyorBumpyLand1.Checked then
@@ -1080,15 +1082,15 @@ begin
     If ((MasterAsteroidF.Position.X < 0.7) and
       (MasterAsteroidF.Position.X > (0.5))) then
     begin
-      GlsGlowLF.Size := 1000 -
+      lfGlow.Size := 1000 -
         Round((sfPlanet.Position.X - MasterAsteroidF.Position.X) * 1000);
-      GlsGlowLF.Position.X := (* sfPlanet.Position.X *) -MasterAsteroidF.Position.X;
-      GlsGlowLF.Position.Y := sfPlanet.Position.Y - MasterAsteroidF.Position.Y;
-      GlsGlowLF.Position.Z := sfPlanet.Position.Z - MasterAsteroidF.Position.Z;
-      GlsGlowLF.Visible := True;
+      lfGlow.Position.X := (* sfPlanet.Position.X *) -MasterAsteroidF.Position.X;
+      lfGlow.Position.Y := sfPlanet.Position.Y - MasterAsteroidF.Position.Y;
+      lfGlow.Position.Z := sfPlanet.Position.Z - MasterAsteroidF.Position.Z;
+      lfGlow.Visible := True;
     end
     else
-      GlsGlowLF.Visible := False;
+      lfGlow.Visible := False;
     // sfPlanet.Position.X - 1;//(SPMoon.Position.X/deltaTime  );
     MasterAsteroidF.Position.Y := sfPlanet.Position.Y;
   end;
@@ -1315,12 +1317,12 @@ begin
   If miSatelliteLight.Checked then
   begin
     If ptsFlashLocations.Visible then
-      GlsGlowLF.Visible := True
+      lfGlow.Visible := True
     else
-      GlsGlowLF.Visible := False;
+      lfGlow.Visible := False;
   end
   else
-    GlsGlowLF.Visible := False;
+    lfGlow.Visible := False;
 end;
 
 //-----------------------------------------------------------------------------
@@ -1372,7 +1374,7 @@ procedure TFormTechneta.miAsteroidsClick(Sender: TObject);
 begin
   miAsteroids.Checked := (not miAsteroids.Checked);
   MasterAsteroidF.Position.X := 3;
-  GlsGlowLF.Visible := False;
+  lfGlow.Visible := False;
 end;
 
 //------------------------ miConstLines ---------------------------------------
@@ -2115,7 +2117,7 @@ begin
   (* If (MarkersDisplaySelection=3) then
     ptsFlashLocations.Visible:=True else *)
   ptsFlashLocations.Visible := False;
-  GLSGlowLF.Visible := False;
+  lfGlow.Visible := False;
   DrawPoints;
   (*
    ChoiceRG.Itemindex  MarkersDisplaySelection
@@ -2193,7 +2195,7 @@ begin
       GlowUpDown.Position := TMarkerPosition(markers.Objects[i]).Glow;
       // ptsSizeUpDown.Position:=TMarkerPosition(markers.Objects[i]).Glow;
       ptsFlashLocations.Size := ptsSizeUpDown.Position;
-      GlsGlowLF.Size := GlowUpDown.Position;
+      lfGlow.Size := GlowUpDown.Position;
       lblGLSGlow.Caption := IntToStr(TMarkerPosition(markers.Objects[i]).Glow);
       lblDobDate.Caption := DateToStr(TMarkerPosition(markers.Objects[i]
         ).DateDOB);
@@ -2202,8 +2204,8 @@ begin
       lblDemoName.Caption := TMarkerPosition(markers.Objects[i]).DemoName;
       Memo1.Clear;
       Memo1.Text := TMarkerPosition(markers.Objects[i]).Description;
-      // Display the 'Majic Marker' for the selected person
-      { Latitude := Lat;     Longitude := Lon; }
+      // Показать 'Majic Marker' для выбранного субъекта
+      (* Latitude := Lat;     Longitude := Lon; *)
       ptsFlashLocations.Positions.Clear;
       ptsFlashLocations.Colors.Clear;
       If ColorAlltheSame then
@@ -2218,16 +2220,16 @@ begin
         .GetCartesian(sfPlanet.Radius));
       // Lensflare Z test OFF
       // +(ptsFlashLocations.Size/1000)
-      GlsGlowLF.Position.X := TMarkerPosition(markers.Objects[i])
+      lfGlow.Position.X := TMarkerPosition(markers.Objects[i])
         .GetCartesian(sfPlanet.Radius { +0.1 } ).X;
-      GlsGlowLF.Position.Y := TMarkerPosition(markers.Objects[i])
+      lfGlow.Position.Y := TMarkerPosition(markers.Objects[i])
         .GetCartesian(sfPlanet.Radius { +0.1 } ).Y;
-      GlsGlowLF.Position.Z := TMarkerPosition(markers.Objects[i])
+      lfGlow.Position.Z := TMarkerPosition(markers.Objects[i])
         .GetCartesian(sfPlanet.Radius { +0.1 } ).Z;
       If (miSelectedSatellite.Checked and miSatelliteLight.Checked) then
-        GlsGlowLF.Visible := True
+        lfGlow.Visible := True
       else
-        GlsGlowLF.Visible := False;
+        lfGlow.Visible := False;
     end;
   end;
   DrawPoints; // NameCB
@@ -2310,7 +2312,7 @@ begin
     (ptsFlashLocations.Size:=ptsFlashLocations.Size-1 );
     if ptsFlashLocations.Size < 10 then
     ptsFlashLocations.Size:=10; }
-  GlsGlowLF.Size := GlowUpDown.Position;
+  lfGlow.Size := GlowUpDown.Position;
 end;
 
 //-----------------------------------------------------------------------------
