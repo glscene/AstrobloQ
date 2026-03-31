@@ -166,6 +166,8 @@ type
     ffComet: TGLFreeForm;
     miConstAtlas: TMenuItem;
     miConstPolygons: TMenuItem;
+    sfClouds: TGLSphere;
+    dcClouds: TGLDummyCube;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);

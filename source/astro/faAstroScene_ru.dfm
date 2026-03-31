@@ -790,6 +790,13 @@ object FormAstroScene: TFormAstroScene
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
+          object dcClouds: TGLDummyCube
+            Visible = False
+            CubeSize = 1.000000000000000000
+            object sfClouds: TGLSphere
+              Radius = 0.519999980926513700
+            end
+          end
           object diskRingDn: TGLDisk
             Material.Texture.Disabled = False
             Direction.Coordinates = {000000000000803F2EBD3BB300000000}

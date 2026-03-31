@@ -89,13 +89,13 @@ type
     Scene: TGLScene;
     GLSceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
-    Earth: TGLSphere;
+    sfPlanet: TGLSphere;
     LSSun: TGLLightSource;
     DirectOGL: TGLDirectOpenGL;
     Cadencer: TGLCadencer;
     Timer: TTimer;
     Moon: TGLSphere;
-    dcEarth: TGLDummyCube;
+    dcPlanet: TGLDummyCube;
     dcMoon: TGLDummyCube;
     GLLensFlare1: TGLLensFlare;
     MatLib: TGLMaterialLibrary;
@@ -193,8 +193,8 @@ type
     DateForwardCB: TCheckBox;
     PhotoImage: TImage;
     PhotoCB: TCheckBox;
-    dcPlanetClouds: TGLDummyCube;
-    sfPlanetClouds: TGLSphere;
+    dcClouds: TGLDummyCube;
+    sfClouds: TGLSphere;
     NightSkyorBumpyLand1: TMenuItem;
     MultiMatShader: TGLMultiMaterialShader;
     MMShaderMatLibrary: TGLMaterialLibrary;
@@ -457,7 +457,7 @@ begin
   else
   begin
     miClouds.Enabled := False;
-    sfPlanetClouds.Visible := False;
+    sfClouds.Visible := False;
   end;
 
   if FileExists(DataDir + 'earth_bump.bmp') then
@@ -648,9 +648,9 @@ var
 
 begin
   if miClouds.Checked then
-    PlanetLocation := sfPlanetClouds.Radius
+    PlanetLocation := sfClouds.Radius
   else
-    PlanetLocation := Earth.Radius;
+    PlanetLocation := sfPlanet.Radius;
   ptsLocations.Positions.Clear;
   ptsLocations.Colors.Clear;
   markersCounted := 0;
@@ -1058,9 +1058,8 @@ begin
   // Pluto...
   // d := GMTDateTimeToJulianDay(Now-2+newTime*timeMultiplier);
   // make earth rotate with clouds
-  Earth.TurnAngle := Earth.TurnAngle + deltaTime * timeMultiplier;
-  sfPlanetClouds.TurnAngle := sfPlanetClouds.TurnAngle + deltaTime *
-    timeMultiplier { +timeMultiplier };
+  sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * timeMultiplier;
+  sfClouds.TurnAngle := sfClouds.TurnAngle + deltaTime * timeMultiplier;
   If miSpinSolarSystem.Checked then
   begin
     d := GMTDateTimeToJulianDay(Now - 2 + newTime * timeMultiplier);
@@ -1082,16 +1081,16 @@ begin
       (MasterAsteroidF.Position.X > (0.5))) then
     begin
       GlsGlowLF.Size := 1000 -
-        Round((Earth.Position.X - MasterAsteroidF.Position.X) * 1000);
-      GlsGlowLF.Position.X := { Earth.Position.X } -MasterAsteroidF.Position.X;
-      GlsGlowLF.Position.Y := Earth.Position.Y - MasterAsteroidF.Position.Y;
-      GlsGlowLF.Position.Z := Earth.Position.Z - MasterAsteroidF.Position.Z;
+        Round((sfPlanet.Position.X - MasterAsteroidF.Position.X) * 1000);
+      GlsGlowLF.Position.X := (* sfPlanet.Position.X *) -MasterAsteroidF.Position.X;
+      GlsGlowLF.Position.Y := sfPlanet.Position.Y - MasterAsteroidF.Position.Y;
+      GlsGlowLF.Position.Z := sfPlanet.Position.Z - MasterAsteroidF.Position.Z;
       GlsGlowLF.Visible := True;
     end
     else
       GlsGlowLF.Visible := False;
-    // SPEarth.Position.X - 1;//(SPMoon.Position.X/deltaTime  );
-    MasterAsteroidF.Position.Y := Earth.Position.Y;
+    // sfPlanet.Position.X - 1;//(SPMoon.Position.X/deltaTime  );
+    MasterAsteroidF.Position.Y := sfPlanet.Position.Y;
   end;
 
   // moon rotates on itself and around earth (not sure about the rotation direction!)
@@ -1236,12 +1235,12 @@ begin
         else
           FormTechneta.Menu := nil;
       end;
-    'e', 'E': // Earth
+    'e', 'E': // dcPlanet Earth
       begin
-        Camera.MoveTo(dcEarth);
-        CameraControler.MoveTo(dcEarth);
-        Camera.TargetObject := dcEarth;
-        CameraControler.TargetObject := dcEarth;
+        Camera.MoveTo(dcPlanet);
+        CameraControler.MoveTo(dcPlanet);
+        Camera.TargetObject := dcPlanet;
+        CameraControler.TargetObject := dcPlanet;
       end;
     'm', 'M': // Moon
       begin
@@ -1387,7 +1386,7 @@ end;
 procedure TFormTechneta.miCloudsClick(Sender: TObject);
 begin
   miClouds.Checked := not miClouds.Checked;
-  sfPlanetClouds.Visible := miClouds.Checked;
+  sfClouds.Visible := miClouds.Checked;
   ptsLocations.StructureChanged;
   DrawPoints;
   GLSceneViewer.Invalidate;
@@ -1409,7 +1408,8 @@ end;
 
 // --------------------- miFlipFlopLand ---------------------------------------
 procedure TFormTechneta.miFlipFlopLandClick(Sender: TObject);
-  procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
+
+  (*sub*)procedure LoadHighResTexture(libMat: TGLLibMaterial; const FileName: String);
   begin
     if FileExists(FileName) then
     begin
@@ -1582,7 +1582,7 @@ begin
         Read(ShapeFileOut, dXTemp);
         Read(ShapeFileOut, dYTemp);
         pos2 := GetCartesian(dXTemp { Longitude } , dYTemp { Latitude } ,
-          Earth.Radius);
+          sfPlanet.Radius);
         ShpLines.AddNode(pos2);
       end; // INumPoints
       ShpLines.Nodes.Last.AsVector := pos2;
@@ -1821,7 +1821,7 @@ begin
     { dXTemp:=LayA[LayerDo].LyrShp[ShapeToDo].XMax;
       dYTemp:=LayA[LayerDo].LyrShp[ShapeToDo].YMax; }
     pos2 := GetCartesian(dXTemp { Longitude } , dYTemp { Latitude } ,
-      Earth.Radius);
+      sfPlanet.Radius);
     ShpCapPoints.Positions.Add(pos2);
     ShpCapPoints.Colors.Add(ConvertWinColor(winPointColor));
   end;
@@ -1908,7 +1908,7 @@ begin
     { dXTemp:=LayA[LayerDo].LyrShp[ShapeToDo].XMax;
       dYTemp:=LayA[LayerDo].LyrShp[ShapeToDo].YMax; }
     pos2 := GetCartesian(dXTemp { Longitude } , dYTemp { Latitude } ,
-      Earth.Radius);
+      sfPlanet.Radius);
     ShpPoints.Positions.Add(pos2);
     ShpPoints.Colors.Add(ConvertWinColor(winPointColor));
   end;
@@ -1958,18 +1958,18 @@ begin
   DrawPoints;
 end;
 
-//------------------------- miCore --------------------------------------------
+//------------------------- Полусфера недр --------==--------------------------
 procedure TFormTechneta.miCoreClick(Sender: TObject);
 begin
   miCore.Checked := not miCore.Checked;
   if miCore.Checked then
   begin
-    Earth.Stop := 270;
+    sfPlanet.Stop := 270;
     miAtmosphere.Checked := False;
   end
   else
   begin
-    Earth.Stop := 360;
+    sfPlanet.Stop := 360;
     miAtmosphere.Checked := True;
   end;
   GLSceneViewer.Invalidate;
@@ -2215,15 +2215,15 @@ begin
           (DotColorArray[TMarkerPosition(markers.Objects[i]).membertype]);
 
       ptsFlashLocations.Positions.Add(TMarkerPosition(markers.Objects[i])
-        .GetCartesian(Earth.Radius));
+        .GetCartesian(sfPlanet.Radius));
       // Lensflare Z test OFF
       // +(ptsFlashLocations.Size/1000)
       GlsGlowLF.Position.X := TMarkerPosition(markers.Objects[i])
-        .GetCartesian(Earth.Radius { +0.1 } ).X;
+        .GetCartesian(sfPlanet.Radius { +0.1 } ).X;
       GlsGlowLF.Position.Y := TMarkerPosition(markers.Objects[i])
-        .GetCartesian(Earth.Radius { +0.1 } ).Y;
+        .GetCartesian(sfPlanet.Radius { +0.1 } ).Y;
       GlsGlowLF.Position.Z := TMarkerPosition(markers.Objects[i])
-        .GetCartesian(Earth.Radius { +0.1 } ).Z;
+        .GetCartesian(sfPlanet.Radius { +0.1 } ).Z;
       If (miSelectedSatellite.Checked and miSatelliteLight.Checked) then
         GlsGlowLF.Visible := True
       else
