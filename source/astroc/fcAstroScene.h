@@ -104,7 +104,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N2;
 	TPanel *Panel1;
 	TStaticText *StaticText3;
-	TTreeView *tvMoons;
+	TTreeView *tvPlanets;
 	TToolBar *tbPlanets;
 	TToolButton *tbnSol;
 	TToolButton *tbnMercury;

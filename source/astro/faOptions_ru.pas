@@ -151,8 +151,6 @@ begin
 
 //  tvOptions.Select(tvOptions.Items[0]);
 //  tvOptionsClick(Self);
-
-  inherited;
 end;
 
 //-----------------------------------------------------------------------------
@@ -213,7 +211,7 @@ procedure TFormOptions.CheckBoxCoreClick(Sender: TObject);
 var
   PlanetPath: TFileName;
 begin
-  inherited;  // считывает параметры из ini файла
+  inherited;  // считываем сохранённые параметры из ini файла
   with FormAstroScene do
   if CheckBoxCore.Checked then
   begin

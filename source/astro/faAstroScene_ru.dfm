@@ -5,7 +5,7 @@ object FormAstroScene: TFormAstroScene
   Hint = #1053#1077#1087#1090#1091#1085
   Caption = 'AstroScene'
   ClientHeight = 751
-  ClientWidth = 1415
+  ClientWidth = 1399
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -26,7 +26,7 @@ object FormAstroScene: TFormAstroScene
   object SceneViewer: TGLSceneViewer
     Left = 313
     Top = 57
-    Width = 815
+    Width = 799
     Height = 655
     Cursor = crHandPoint
     Camera = Camera
@@ -463,7 +463,7 @@ object FormAstroScene: TFormAstroScene
   object StatusBar: TStatusBar
     Left = 0
     Top = 712
-    Width = 1415
+    Width = 1399
     Height = 39
     Panels = <
       item
@@ -483,16 +483,16 @@ object FormAstroScene: TFormAstroScene
         Width = 86
       end>
     ExplicitTop = 687
-    ExplicitWidth = 1407
+    ExplicitWidth = 1391
   end
   object PanelRight: TPanel
-    Left = 1128
+    Left = 1112
     Top = 57
     Width = 287
     Height = 655
     Align = alRight
     TabOrder = 3
-    ExplicitLeft = 1120
+    ExplicitLeft = 1104
     ExplicitHeight = 630
     object tvAsteroids: TTreeView
       Left = 1
@@ -559,11 +559,11 @@ object FormAstroScene: TFormAstroScene
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1415
+    Width = 1399
     Height = 57
     Align = alTop
     TabOrder = 4
-    ExplicitWidth = 1407
+    ExplicitWidth = 1391
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
@@ -759,6 +759,7 @@ object FormAstroScene: TFormAstroScene
       ObjectsSorting = osNone
       CubeSize = 1000.000000000000000000
       object dcPlanet: TGLDummyCube
+        OnProgress = GLCadencerProgress
         CubeSize = 1.000000000000000000
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
@@ -768,14 +769,11 @@ object FormAstroScene: TFormAstroScene
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
-          object dcClouds: TGLDummyCube
-            CubeSize = 1.000000000000000000
-            object sfClouds: TGLSphere
-              Material.MaterialLibrary = GLMatLib
-              Material.LibMaterialName = 'earthCloud'
-              Visible = False
-              Radius = 0.519999980926513700
-            end
+          object sfClouds: TGLSphere
+            Material.MaterialLibrary = GLMatLib
+            Material.LibMaterialName = 'globeCloud'
+            Visible = False
+            Radius = 0.519999980926513700
           end
           object diskRingDn: TGLDisk
             Material.Texture.Disabled = False
@@ -819,6 +817,10 @@ object FormAstroScene: TFormAstroScene
             Radius = 0.200000002980232200
             Slices = 64
             Stacks = 64
+          end
+          object sfGrid: TGLSphere
+            OnProgress = GLCadencerProgress
+            Radius = 0.500000000000000000
           end
         end
         object ffPlanet: TGLFreeForm
@@ -4329,6 +4331,7 @@ object FormAstroScene: TFormAstroScene
         Material.Texture.FilteringQuality = tfAnisotropic
         Material.Texture.Disabled = False
         Texture2Name = 'earthNight'
+        Shader = GLTexCombiner
       end
       item
         Name = 'earthNight'
@@ -6089,6 +6092,7 @@ object FormAstroScene: TFormAstroScene
         Material.Texture.TextureMode = tmModulate
         Material.Texture.FilteringQuality = tfAnisotropic
         Material.Texture.Disabled = False
+        Shader = GLTexCombiner
       end
       item
         Name = 'moon'
@@ -7772,7 +7776,7 @@ object FormAstroScene: TFormAstroScene
         Material.Texture.Disabled = False
       end
       item
-        Name = 'earthCloud'
+        Name = 'globeCloud'
         Tag = 0
         Material.BackProperties.Ambient.Color = {00000000000000000000000000000000}
         Material.BackProperties.Diffuse.Color = {00000000000000000000000000000000}
@@ -7796,8 +7800,14 @@ object FormAstroScene: TFormAstroScene
         Material.Texture.TextureMode = tmModulate
         Material.Texture.FilteringQuality = tfAnisotropic
         Material.Texture.Disabled = False
+        Shader = GLTexCombiner
+      end
+      item
+        Name = 'globeGrid'
+        Tag = 0
+        Material.BlendingMode = bmTransparency
       end>
-    Left = 386
-    Top = 228
+    Left = 498
+    Top = 84
   end
 end

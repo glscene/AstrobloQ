@@ -12,7 +12,6 @@ object FormOptions: TFormOptions
   Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
   TextHeight = 21
@@ -58,7 +57,7 @@ object FormOptions: TFormOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsStars
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -184,6 +183,7 @@ object FormOptions: TFormOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
+          ExplicitLeft = -102
         end
         object GroupBox2: TGroupBox
           Left = 40

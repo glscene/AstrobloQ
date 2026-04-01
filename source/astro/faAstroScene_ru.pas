@@ -165,8 +165,8 @@ type
     miConstAtlas: TMenuItem;
     miConstPolygons: TMenuItem;
     sfClouds: TGLSphere;
-    dcClouds: TGLDummyCube;
     GLMatLib: TGLMaterialLibrary;
+    sfGrid: TGLSphere;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -297,10 +297,6 @@ begin
   begin
     GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
     GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(CurrentStellar + 'clouds_rare.jpg');
-  end
-  else
-  begin
-    sfClouds.Visible := False;
   end;
 end;
 
@@ -313,10 +309,10 @@ var
 
 begin
   tbPlanets.SetFocus;
-  tbnEarth.ImageIndex := 3;
+  // показываем Землю для которой tbnEarth.ImageIndex := 3;
   tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
 
-  // Справка - показываем Землю, имя 3-й планеты на кириллице
+  // Справка - Землю, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
   // Луны cмена фокуса
@@ -377,9 +373,18 @@ begin
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Uranus') or
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Neptune')
   then
-    DirectOpenGL.Visible := True
+  begin
+    DirectOpenGL.Visible := True;
+    FormOptions.chbClouds.Checked := True;
+ //   sfClouds.Visible := True;
+
+  end
   else
+  begin
     DirectOpenGL.Visible := False;
+    FormOptions.chbClouds.Checked := False;
+//    sfClouds.Visible := False;
+  end;
  (*
   // Недра планет
   if miInnerCore.Checked then
@@ -752,20 +757,37 @@ var
   p: TAffineVector;
 begin
   d := GMTDateTimeToJulianDay(Now - 2 + newTime * TimeMultiplier);
-
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
+
+  // вращение небесного тела для демонстрации
+  if FormOptions.CheckBoxRotate.Checked then
+  begin
+    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    // географическая сетка, вращается вместе с планетой
+    // sfGrid.TurnAngle := sfPlanet.TurnAngle;
+
+    // облака вращаются только у планет с облачностью
+    if sfClouds.Visible = True then
+      sfClouds.TurnAngle := sfClouds.TurnAngle + deltaTime * timeMultiplier + 0.01;
+
+    sfMoon.TurnAngle := sfMoon.TurnAngle + deltaTime * TimeMultiplier;
+    ffMoon.TurnAngle := ffMoon.TurnAngle + deltaTime * TimeMultiplier;
+
+    sfAsteroid.TurnAngle := sfAsteroid.TurnAngle + deltaTime * TimeMultiplier;
+    ffAsteroid.TurnAngle := ffAsteroid.TurnAngle + deltaTime * TimeMultiplier;
+   end;
+
  /// LSSun.Position.AsAffineVector := p; //остановка движения Солнца
 
   // вращение Луны вокруг себя и Земли, направление вращения можно менять
   p := ComputePlanetPosition(cMoonOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
-
   (*
   dcMoon.TurnAngle := dcMoon.TurnAngle + deltaTime * timeMultiplier / 29.5;
   sfMoon.TurnAngle := 180 - dcMoon.TurnAngle;
   *)
-
   // плавное перемещение камеры
   if (dmy <> 0) or (dmx <> 0) then
   begin
@@ -796,20 +818,6 @@ begin
       ClampValue(ConstBorders.LineColor.Alpha + Sign(ConstBordersAlpha -
                  ConstBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
     ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
-  end;
-
-  // вращение небесных тел для демонстрации
-  if FormOptions.CheckBoxRotate.Checked then
-  begin
-    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
-    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
-
-    sfMoon.TurnAngle := sfMoon.TurnAngle + deltaTime * TimeMultiplier;
-    ffMoon.TurnAngle := ffMoon.TurnAngle + deltaTime * TimeMultiplier;
-
-    sfAsteroid.TurnAngle := sfAsteroid.TurnAngle + deltaTime * TimeMultiplier;
-    ffAsteroid.TurnAngle := ffAsteroid.TurnAngle + deltaTime * TimeMultiplier;
-
   end;
 end;
 
@@ -866,7 +874,7 @@ begin
         try
           if DirectoryExists(CurrentStellar) then
           begin
-            LoadHighResTexture(GLMatLib.Materials[0], 'earth_4096.jpg');
+            LoadHighResTexture(GLMatLib.Materials[0], 'earth_day_4096.jpg');
             LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
             LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
           end;
