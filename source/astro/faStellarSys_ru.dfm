@@ -145,6 +145,15 @@ object frmStellarSys: TfrmStellarSys
       ExplicitWidth = 145
       ExplicitHeight = 65
     end
+    object chbInnerCore: TCheckBox
+      Left = 32
+      Top = 256
+      Width = 97
+      Height = 17
+      Caption = #1056#1072#1079#1088#1077#1079' '#1085#1077#1076#1088
+      TabOrder = 6
+      OnClick = chbInnerCoreClick
+    end
   end
   object StatusBarSol: TStatusBar
     Left = 0
@@ -803,10 +812,6 @@ object frmStellarSys: TfrmStellarSys
     end
     object Window1: TMenuItem
       Caption = #1042#1080#1076
-      object miInnerCore: TMenuItem
-        Caption = #1056#1072#1079#1088#1077#1079
-        OnClick = miInnerCoreClick
-      end
       object N1: TMenuItem
         Caption = '-'
       end

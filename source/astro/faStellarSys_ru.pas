@@ -133,7 +133,6 @@ type
     MainMenu: TMainMenu;
     PanelRight: TPanel;
     Window1: TMenuItem;
-    miInnerCore: TMenuItem;
     miHidePanels: TMenuItem;
     N1: TMenuItem;
     stPickObject: TStaticText;
@@ -152,6 +151,7 @@ type
     miExit: TMenuItem;
     SimpleNavigation: TGLSimpleNavigation;
     StarHZDown: TGLDisk;
+    chbInnerCore: TCheckBox;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -166,10 +166,10 @@ type
     procedure miOpenClick(Sender: TObject);
     procedure tvStarSysClick(Sender: TObject);
     procedure miHidePanelsClick(Sender: TObject);
-    procedure miInnerCoreClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure chbInnerCoreClick(Sender: TObject);
   public
     PickObject: TGLBaseSceneObject;
     procedure UpdateTreeView;
@@ -289,14 +289,6 @@ begin
     miHidePanels.Caption := 'Показать панели';
 end;
 
-//--------------------- Внутреннее ядро планеты -------------------------------
-procedure TfrmStellarSys.miInnerCoreClick(Sender: TObject);
-begin
-  miInnerCore.Checked := not miInnerCore.Checked;
-  tvStarSysClick(Self);
-  svStarsys.Invalidate;
-end;
-
 //----------------------------------------------------------------------------
 // Открыть файл и загрузить данные
 //----------------------------------------------------------------------------
@@ -378,6 +370,14 @@ begin
   StarHZDown.Visible := cbStarHZ.Checked;
 end;
 
+
+//--------------------- Внутреннее ядро планеты -------------------------------
+procedure TfrmStellarSys.chbInnerCoreClick(Sender: TObject);
+begin
+  tvStarSysClick(Self); // в дереве просмотра if chbInnerCore then...
+  svStarsys.Invalidate;
+end;
+
 //--------------------- Изменение дерева просмотра ----------------------------
 procedure TfrmStellarSys.tvStarSysChange(Sender: TObject; Node: TTreeNode);
 begin
@@ -395,6 +395,8 @@ procedure TfrmStellarSys.tvStarSysClick(Sender: TObject);
 var
   i: integer;
 begin
+  SetCurrentDir(CurrentDir);
+
   // Solar System ===============
   if (tvStarSys.Selected.Text = SolarSystem.Name) then
   begin
@@ -421,7 +423,7 @@ begin
     Camera.Position.X := 0.5;
     Camera.Position.Y := 1;
     Camera.Position.Z := 0.5;
-    if miInnerCore.Checked then
+    if chbInnerCore.Checked then
     begin
       // Mercury.Radius := 0.32;
       (PickObject as TGLSphere).Stop := 180;
@@ -462,7 +464,7 @@ begin
     Camera.Position.X := 1;
     Camera.Position.Y := 1;
     Camera.Position.Z := 1;
-    if miInnerCore.Checked then
+    if chbInnerCore.Checked then
     begin
       // Venus.Radius := 0.75;
       (PickObject as TGLSphere).Stop := 180;
@@ -516,7 +518,7 @@ begin
       Camera.Position.Z := -0.6;
     end;
 
-    if miInnerCore.Checked then
+    if chbInnerCore.Checked then
     begin
       // Earth.Radius := 0.8;
       Earth.Stop := 180;
@@ -581,7 +583,7 @@ begin
       Camera.Position.Y := 1;
       Camera.Position.Z := 1;
     end;
-    if miInnerCore.Checked then
+    if chbInnerCore.Checked then
     begin
       // Mars.Radius := 0.4;
       Mars.Stop := 180;   // Half sphere
