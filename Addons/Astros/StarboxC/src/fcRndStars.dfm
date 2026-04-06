@@ -7,8 +7,8 @@ object Form1: TForm1
   Margins.Bottom = 2
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Random stars in container'
-  ClientHeight = 541
-  ClientWidth = 796
+  ClientHeight = 785
+  ClientWidth = 1021
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,21 +23,23 @@ object Form1: TForm1
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 0
-    Width = 610
-    Height = 522
+    Width = 835
+    Height = 766
     Camera = GLCamera1
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 158.310379028320300000
+    FieldOfView = 165.124389648437500000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 0
+    ExplicitWidth = 610
+    ExplicitHeight = 522
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 522
-    Width = 796
+    Top = 766
+    Width = 1021
     Height = 19
     Panels = <
       item
@@ -48,14 +50,18 @@ object Form1: TForm1
         Text = 'FPS:'
         Width = 50
       end>
+    ExplicitTop = 497
+    ExplicitWidth = 788
   end
   object PanelLeft: TPanel
-    Left = 610
+    Left = 835
     Top = 0
     Width = 186
-    Height = 522
+    Height = 766
     Align = alRight
     TabOrder = 2
+    ExplicitLeft = 602
+    ExplicitHeight = 497
     object Button2: TButton
       Left = 50
       Top = 300
