@@ -508,7 +508,7 @@ object FormAstroScene: TFormAstroScene
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
-      Images = DataModuleImages.VirtPlanetSymbols
+      Images = DataModuleImages.ImageListInterface
       Indent = 35
       ParentFont = False
       ParentShowHint = False

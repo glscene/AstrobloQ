@@ -488,7 +488,6 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
 begin
-  // видимости пока нет, отладка sol_asteroids.csv
 (*
   dcAsteroid.Visible := True;
   dcMoon.Visible := False;
@@ -509,7 +508,7 @@ var
 
 begin
 /// ѕланеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
-/// но, однако, некоторые названи€ звЄзд остаютс€ на латинице,
+/// но некоторые названи€ звЄзд не перевод€тс€, остаютс€ на латинице,
 /// например, https://ru.ruwiki.ru/wiki/GJ_1002. „то делать?
 /// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
   S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
