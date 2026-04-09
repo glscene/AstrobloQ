@@ -306,6 +306,9 @@ end;
 procedure TFormAstroScene.FormShow(Sender: TObject);
 var
   I: Integer;
+  Node: TTreeNode;
+  Sl: TStringList;
+  S: String;
 
 begin
   tbPlanets.SetFocus;
@@ -336,9 +339,27 @@ begin
 
   //  Астероиды
   //  Открыть файл sol_asteroids.csv и загрузить в tvAsteroids
+  //  Чтобы загрузить поле name из CSV файла в узлы TTreeView,
+  //  необходимо использовать процедуру LoadIniToTree,
+  //  которая принимает два параметра: имя файла INI для загрузки и контрол TTreeView,
+  //  где будет загружена данные.
+  //  Процедура LoadIniToTree очищает дерево просмотра,
+  //  открывает файл INI, читает содержимое, создает узлы для каждого раздела и паров значений,
+  //  а затем добавляет их в TTreeView
   if FileExists(CurrentStellar + 'sol_asteroids.csv') then // or clouds_dense
   begin
     tvAsteroids.LoadFromFile(CurrentStellar + 'sol_asteroids.csv');
+
+    for I := 0 to tvAsteroids.Items.Count - 1 do
+    begin
+  //    Sl.Create;
+      S := tvAsteroids.Items[I].Text;
+      // извлекаем name_ru
+      // S := name_ru
+      tvAsteroids.Items[I].Text := 'Имя';//S;
+//      Sl.Free;
+    end;
+    tvAsteroids.Items.EndUpdate;
   end;
 
   //  tvAsteroids.SetFocus;

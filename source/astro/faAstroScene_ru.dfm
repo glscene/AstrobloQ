@@ -314,6 +314,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1051#1091#1085#1099
       TabOrder = 1
+      ExplicitWidth = 49
     end
     object StaticText3: TStaticText
       Left = 1
@@ -324,6 +325,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
       TabOrder = 2
+      ExplicitWidth = 168
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -554,6 +556,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       TabOrder = 1
+      ExplicitWidth = 106
     end
   end
   object ControlBarTop: TControlBar
@@ -563,7 +566,6 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 4
-    ExplicitWidth = 1391
     object ToolBar1: TToolBar
       Left = 11
       Top = 2
