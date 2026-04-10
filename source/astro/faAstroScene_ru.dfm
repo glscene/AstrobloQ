@@ -850,6 +850,8 @@ object FormAstroScene: TFormAstroScene
         CubeSize = 1.000000000000000000
         object sfAsteroid: TGLSphere
           Radius = 0.500000000000000000
+          Slices = 64
+          Stacks = 64
         end
         object ffAsteroid: TGLFreeForm
           Visible = False

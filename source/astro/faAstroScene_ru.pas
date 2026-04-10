@@ -225,7 +225,7 @@ var
 
 const
   cOpacity: Single = 5;
-  // более толстая атмосфера чем в действительности
+  // более толстая атмосфера лучше выглядит чем в действительности
   cAtmosphereRadius: Single = 0.55;
   // небольшой радиус взят чтобы исключить эффект наложения линий друг на друга
   cPlanetRadius: Single = 0.495;
@@ -272,8 +272,8 @@ begin
   CurrentStellar := DataDir + '\starsys\sun\';
 
   // разрешенo текстурирования планет
-  sfPlanet.Material.Texture.Disabled := False;
-  ffPlanet.Material.Texture.Disabled := False;
+  sfPlanet.Material.Texture.Disabled := False; // сферические формы
+  ffPlanet.Material.Texture.Disabled := False; // фри формы
   sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
 //  ffPlanet.Scale.Scale(1); // масштаб фриформ планет
 
@@ -293,10 +293,11 @@ begin
   ffComet.Material.Texture.Disabled := False;
 
   // Текстура облаков д.б. загружена в 3й материал компонента GLMatLib
-  if FileExists(CurrentStellar + 'clouds_rare.jpg') then // or clouds_dense
+  FileJpg := CurrentStellar + 'clouds_rare.jpg';
+  if FileExists(FileJpg) then // or clouds_dense
   begin
     GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
-    GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(CurrentStellar + 'clouds_rare.jpg');
+    GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(FileJpg);
   end;
 end;
 
@@ -326,17 +327,18 @@ begin
   end;
 
   //  Астероиды, загрузка имён из файла csv
-  if FileExists(CurrentStellar + 'sol_asteroids.csv') then // or clouds_dense
+  FileCSV := CurrentStellar + 'sol_asteroids.csv';
+  if FileExists(FileCSV) then // or clouds_dense
   begin
     tvAsteroids.Items.BeginUpdate;
     try
       Tl := TStringList.Create;
-      tvAsteroids.LoadFromFile(CurrentStellar + 'sol_asteroids.csv');
+      tvAsteroids.LoadFromFile(FileCSV);
 
       for I := 0 to tvAsteroids.Items.Count - 1 do
       begin
         Tl.CommaText := tvAsteroids.Items[I].Text; //sl[i];
-        S := Tl[3]; // читаем поле name_ru в стринг
+        S := Tl[2]; // читаем поле 2 name_ru в стринг
         tvAsteroids.Items[I].Text := S; // новое имя узла
       end;
     finally
@@ -356,7 +358,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 var
-  PlanetName: TFileName;
+  PlanetPath: TFileName;
 
 begin
   // видимость планет
@@ -367,8 +369,9 @@ begin
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
 
-  PlanetName := CurrentStellar + TToolButton(Sender).ImageName;
-  sfPlanet.Material.Texture.Image.LoadFromFile(PlanetName + '.jpg');
+  PlanetPath := CurrentStellar + TToolButton(Sender).ImageName;
+  FileJpg := PlanetPath + '.jpg';
+  sfPlanet.Material.Texture.Image.LoadFromFile(FileJpg);
 
   // Показать атмосферы планет, заменить на case, толщина атмосфер разная
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Earth') or
@@ -379,6 +382,7 @@ begin
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Neptune')
   then
   begin
+    //  облочность
     DirectOpenGL.Visible := True;
     FormOptions.chbClouds.Checked := True;
  //   sfClouds.Visible := True;
@@ -389,16 +393,16 @@ begin
     FormOptions.chbClouds.Checked := False;
 //    sfClouds.Visible := False;
   end;
- (*
-  // Недра планет
-  if miInnerCore.Checked then
+  // Показать недра планеты
+  if FormOptions.chbCore.Checked then
   begin
-    if FileExists(FileName  + '_core.jpg') then
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '_core.jpg')
+    if FileExists(PlanetPath  + '_core.jpg') then
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath  + '_core.jpg')
     else
-      PlanetMantle.Material.Texture.Image.LoadFromFile(FileName  + '.jpg');
+      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath  + '.jpg');
+//    sfPlanet.Stop := 180; // полусфера
   end;
-*)
+
   // Кольца Сатурна
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
   (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
@@ -435,7 +439,7 @@ begin
   tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
   tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
 *)
-  // включаем видимость луны
+  // включаем видимость лун
   dcMoon.Visible := True;
   // планеты, астероиды и кометы не видны
   sfPlanet.Visible := False;
@@ -445,7 +449,7 @@ begin
 
   // чтение CSV файла для перевода имени луны на английский язык
   FileCSV := CurrentStellar + 'sol_moons.csv';
-  // в CSV файле находим имя луны MoonName и её радиус
+  // в CSV файле находим английское имя луны и её радиус
   // по полю name_ru и индексу узла дерева просмотра
   MoonName := GetMoonFromCSV(FileCSV,
     tvMoons.Selected.Index, tvMoons.Selected.Text (* sfMoon.Radius *));
@@ -495,16 +499,44 @@ end;
 //------------------------------ Астероиды -----------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
-begin
-(*
-  dcAsteroid.Visible := True;
-  dcMoon.Visible := False;
-  dcPlanet.Visible := False;
-*)
-///  AsteroidPath := CurrentStar + tvAsteroids.Selected.Text;
+var
+  AsteroidName : String;
 
-  // Название астероида для веб-справки ruwiki
-  // miHelpWiki->Caption = tvAsteroids->Selected->Text + "_(астероид)";
+begin
+  // включаем видимость астероидов
+  dcAsteroid.Visible := True;
+  // планеты, астероиды и кометы не видны
+  sfPlanet.Visible := False;
+  ffPlanet.Visible := False;
+  dcMoon.Visible := False;
+  dcComet.Visible := False;
+
+  // чтение CSV файла для перевода имени луны на английский язык
+  FileCSV := CurrentStellar + 'sol_asteroids.csv';
+  // в CSV файле находим английское имя астероида и его радиус
+  // по полю name_ru и индексу узла дерева просмотра
+  AsteroidName := GetMoonFromCSV(FileCSV,
+    tvAsteroids.Selected.Index, tvAsteroids.Selected.Text (* sfAsteroids.Radius *));
+
+  // Загружаем карту по названию луны на английском языке
+  FileJpg := CurrentStellar + LowerCase(AsteroidName) + '.jpg';
+  if FileExists(FileJpg, True) then
+  begin
+//    sfAsteroid.Radius := Radius; // считывается из csv файла
+    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
+    ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);  // фриформа
+    // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds'); // модель
+  end
+  else
+  begin
+    sfAsteroid.Radius := 0.3; // Radius;
+    FileJpg := CurrentStellar + 'aAsteroid.jpg';
+    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
+    ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
+    // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds');
+  end;
+
+
   miHelpWiki.Caption := tvAsteroids.Selected.Text + '_(астероид)';
 end;
 
