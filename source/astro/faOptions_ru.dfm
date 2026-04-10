@@ -183,7 +183,6 @@ object FormOptions: TFormOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
-          ExplicitLeft = -102
         end
         object GroupBox2: TGroupBox
           Left = 40
@@ -354,7 +353,7 @@ object FormOptions: TFormOptions
             TabOrder = 0
             StyleName = 'Windows'
           end
-          object CheckBoxCore: TCheckBox
+          object chbCore: TCheckBox
             Left = 31
             Top = 79
             Width = 98
@@ -362,7 +361,7 @@ object FormOptions: TFormOptions
             Caption = #1071#1076#1088#1086
             TabOrder = 1
             StyleName = 'Windows'
-            OnClick = CheckBoxCoreClick
+            OnClick = chbCoreClick
           end
           object CheckBoxAtmosfera: TCheckBox
             Left = 31

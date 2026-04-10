@@ -62,7 +62,7 @@ type
     chlbStarClasses: TCheckListBox;
     grbShowPlanets: TGroupBox;
     CheckBox4: TCheckBox;
-    CheckBoxCore: TCheckBox;
+    chbCore: TCheckBox;
     grbPlanetParams: TGroupBox;
     nbTilt: TNumberBox;
     LabelPlanetTilt: TLabel;
@@ -96,7 +96,7 @@ type
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure CheckBoxCoreClick(Sender: TObject);
+    procedure chbCoreClick(Sender: TObject);
     procedure CheckBoxAtmosferaClick(Sender: TObject);
     procedure chbHidePlanetClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -207,28 +207,27 @@ end;
 //-----------------------------------------------------------------------------
 // Разрез с ядром и мантией
 //-----------------------------------------------------------------------------
-procedure TFormOptions.CheckBoxCoreClick(Sender: TObject);
+procedure TFormOptions.chbCoreClick(Sender: TObject);
 var
   PlanetPath: TFileName;
 begin
   inherited;  // считываем сохранённые параметры из ini файла
-  with FormAstroScene do
-  if CheckBoxCore.Checked then
+  if chbCore.Checked then
   begin
     // Переключить невидимую модель планеты типа GLFreeForm
     // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
-    PlanetPath := CurrentStellar + tvMoons.Selected.Text;
+    PlanetPath := FormAstroScene.StellarDir + FormAstroScene.tvMoons.Selected.Text;
     if FileExists(PlanetPath + '_core.jpg') then
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
+      FormAstroScene.diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
     else
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    sfPlanet.Stop := 180;
-    Atmosphere.Visible := False;
+      FormAstroScene.diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
+    FormAstroScene.sfPlanet.Stop := 180;
+    FormAstroScene.Atmosphere.Visible := False;
   end
   else
   begin
-    sfPlanet.Stop := 360;
-    Atmosphere.Visible := True;
+    FormAstroScene.sfPlanet.Stop := 360;
+    FormAstroScene.Atmosphere.Visible := True;
   end;
 end;
 

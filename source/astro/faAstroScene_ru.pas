@@ -307,7 +307,7 @@ procedure TFormAstroScene.FormShow(Sender: TObject);
 var
   I: Integer;
   Node: TTreeNode;
-  Sl: TStringList;
+  Tl: TStringList;
   S: String;
 
 begin
@@ -315,51 +315,35 @@ begin
   // показываем Землю для которой tbnEarth.ImageIndex := 3;
   tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
 
-  // Справка - Землю, имя 3-й планеты на кириллице
+  // По умолчанию справка - Земля, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
-  // Луны cмена фокуса
-(*
-  tvMoons.SetFocus;
-  tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
-  tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
-  TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);
-  tvMoonsClick(Self);
-  miHelpWiki.Caption := tvMoons.Selected.Text; // + ' in ' + 'RuWiki...';
-*)
-  // индексируем узлы дерева tvMoons
+  // Луны
+  // индексация узлов дерева tvMoons
   for I := 0 to tvMoons.Items.Count - 1 do
   begin
-//    tvMoons.Items[I].ImageIndex := I;
-//    tvMoons.Items[I].SelectedIndex := I;
-//    tvMoons.Items[I].StateIndex := I;
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
-  (**)
 
-  //  Астероиды
-  //  Открыть файл sol_asteroids.csv и загрузить в tvAsteroids
-  //  Чтобы загрузить поле name из CSV файла в узлы TTreeView,
-  //  необходимо использовать процедуру LoadIniToTree,
-  //  которая принимает два параметра: имя файла INI для загрузки и контрол TTreeView,
-  //  где будет загружена данные.
-  //  Процедура LoadIniToTree очищает дерево просмотра,
-  //  открывает файл INI, читает содержимое, создает узлы для каждого раздела и паров значений,
-  //  а затем добавляет их в TTreeView
+  //  Астероиды, загрузка имён из файла csv
   if FileExists(CurrentStellar + 'sol_asteroids.csv') then // or clouds_dense
   begin
-    tvAsteroids.LoadFromFile(CurrentStellar + 'sol_asteroids.csv');
+    tvAsteroids.Items.BeginUpdate;
+    try
+      Tl := TStringList.Create;
+      tvAsteroids.LoadFromFile(CurrentStellar + 'sol_asteroids.csv');
 
-    for I := 0 to tvAsteroids.Items.Count - 1 do
-    begin
-  //    Sl.Create;
-      S := tvAsteroids.Items[I].Text;
-      // извлекаем name_ru
-      // S := name_ru
-      tvAsteroids.Items[I].Text := 'Имя';//S;
-//      Sl.Free;
+      for I := 0 to tvAsteroids.Items.Count - 1 do
+      begin
+        Tl.CommaText := tvAsteroids.Items[I].Text; //sl[i];
+        S := Tl[3]; // читаем поле name_ru в стринг
+        tvAsteroids.Items[I].Text := S; // новое имя узла
+      end;
+    finally
+      Tl.Free;
     end;
-    tvAsteroids.Items.EndUpdate;
+    tvAsteroids.Items[0].Delete; // удаление титульной строки с именами полей
+    tvAsteroids.Items.EndUpdate; // обновляем дерево
   end;
 
   //  tvAsteroids.SetFocus;
@@ -398,7 +382,6 @@ begin
     DirectOpenGL.Visible := True;
     FormOptions.chbClouds.Checked := True;
  //   sfClouds.Visible := True;
-
   end
   else
   begin
@@ -446,8 +429,12 @@ end;
 procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
   MoonName : String;
-
 begin
+(*
+  tvMoons.SetFocus;
+  tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
+  tvMoons.FullExpand;  // раскрываем все узлы дерева просмотра
+*)
   // включаем видимость луны
   dcMoon.Visible := True;
   // планеты, астероиды и кометы не видны
