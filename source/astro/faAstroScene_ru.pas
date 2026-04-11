@@ -529,8 +529,8 @@ begin
   end
   else
   begin
-    sfAsteroid.Radius := 0.3; // Radius;
-    FileJpg := CurrentStellar + 'aAsteroid.jpg';
+    sfAsteroid.Radius := 0.3; // радиус по умолчанию
+    FileJpg := CurrentStellar + 'aAsteroid.jpg'; // паттерн
     sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
     ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds');
