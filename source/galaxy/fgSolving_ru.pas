@@ -20,13 +20,14 @@ uses
 
 type
   TfrmSolving = class(TForm)
-    glsViewer: TGLSceneViewer;
-    GLScene: TGLScene;
-    GLCamera1: TGLCamera;
+    SolvingViewer: TGLSceneViewer;
+    GLSceneSolvings: TGLScene;
+    GLCameraSol: TGLCamera;
     GLLightSource1: TGLLightSource;
-    GLDummyCube1: TGLDummyCube;
-    GLSphere1: TGLSphere;
+    GLDummyCubeSol: TGLDummyCube;
+    GLSphereSol: TGLSphere;
     GLSimpleNavigation1: TGLSimpleNavigation;
+    GLLightSourceSol: TGLLightSource;
   private
   public
   end;

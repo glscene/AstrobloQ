@@ -3,8 +3,6 @@ inherited frmParadox: TfrmParadox
   ClientHeight = 780
   ClientWidth = 1271
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 4
-  ExplicitTop = 4
   ExplicitWidth = 1287
   ExplicitHeight = 819
   TextHeight = 30
@@ -273,7 +271,7 @@ inherited frmParadox: TfrmParadox
       TabOrder = 1
     end
   end
-  object PanelScene: TPanel
+  object PanelSolvings: TPanel
     Left = 457
     Top = 0
     Width = 814
@@ -283,12 +281,72 @@ inherited frmParadox: TfrmParadox
     Margins.Right = 5
     Margins.Bottom = 5
     Align = alClient
-    Caption = 'PanelScene'
+    Caption = #1055#1072#1085#1077#1083#1100' '#1088#1077#1096#1077#1085#1080#1081
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 1302
-    ExplicitTop = 560
-    ExplicitWidth = 324
-    ExplicitHeight = 72
+    OnDblClick = PanelSolvingsDblClick
+    ExplicitWidth = 806
+    ExplicitHeight = 725
+    object ParadoxViewer: TGLSceneViewer
+      Left = 1
+      Top = 1
+      Width = 812
+      Height = 748
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Camera = GLCameraPar
+      Buffer.BackgroundColor = clBackground
+      FieldOfView = 164.770568847656300000
+      PenAsTouch = False
+      Align = alClient
+      TabOrder = 0
+    end
+  end
+  object GLScene1: TGLScene
+    Left = 545
+    Top = 64
+    object GLLightSourcePar: TGLLightSource
+      ConstAttenuation = 1.000000000000000000
+      SpotCutOff = 180.000000000000000000
+      object GLCameraPar: TGLCamera
+        DepthOfView = 100.000000000000000000
+        FocalLength = 50.000000000000000000
+      end
+    end
+    object GLDummyCube1: TGLDummyCube
+      CubeSize = 1.000000000000000000
+      object GLFreeForm1: TGLFreeForm
+      end
+    end
+  end
+  object GLCadencer1: TGLCadencer
+    Left = 553
+    Top = 144
+  end
+  object GLMaterialLibrary1: TGLMaterialLibrary
+    Left = 665
+    Top = 64
+  end
+  object GLSimpleNavigation1: TGLSimpleNavigation
+    Form = Owner
+    GLSceneViewer = ParadoxViewer
+    FormCaption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080' - %FPS'
+    KeyCombinations = <
+      item
+        ShiftState = [ssLeft, ssRight]
+        Action = snaZoom
+      end
+      item
+        ShiftState = [ssLeft]
+        Action = snaMoveAroundTarget
+      end
+      item
+        ShiftState = [ssRight]
+        Action = snaMoveAroundTarget
+      end>
+    Left = 665
+    Top = 144
   end
 end
