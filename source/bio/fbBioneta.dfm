@@ -38,7 +38,6 @@ object FormBioneta: TFormBioneta
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1416
     object panTools: TPanel
       Left = 0
       Top = 231
@@ -47,7 +46,6 @@ object FormBioneta: TFormBioneta
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 1416
       object tbWater: TToolBar
         Left = 0
         Top = 56
@@ -60,7 +58,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 0
         Visible = False
-        ExplicitWidth = 1416
         object Label9: TLabel
           Left = 0
           Top = 0
@@ -189,7 +186,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 1
         Visible = False
-        ExplicitWidth = 1416
         object Label4: TLabel
           Left = 0
           Top = 0
@@ -301,7 +297,6 @@ object FormBioneta: TFormBioneta
         ShowHint = False
         TabOrder = 2
         Visible = False
-        ExplicitWidth = 1416
         object Label12: TLabel
           Left = 0
           Top = 0
@@ -405,7 +400,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 3
         Visible = False
-        ExplicitWidth = 1416
         object Label18: TLabel
           Left = 0
           Top = 0
@@ -560,7 +554,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 4
         Visible = False
-        ExplicitWidth = 1416
         object Label8: TLabel
           Left = 0
           Top = 0
@@ -641,7 +634,7 @@ object FormBioneta: TFormBioneta
           Left = 559
           Top = 0
           Width = 27
-          Height = 13
+          Height = 22
           Caption = 'Kind='
         end
         object cboxThings: TComboBox
@@ -725,7 +718,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 5
         Visible = False
-        ExplicitWidth = 1416
         object Label17: TLabel
           Left = 0
           Top = 0
@@ -903,7 +895,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 6
         Visible = False
-        ExplicitWidth = 1416
         object Label15: TLabel
           Left = 0
           Top = 0
@@ -940,7 +931,7 @@ object FormBioneta: TFormBioneta
           Left = 205
           Top = 0
           Width = 36
-          Height = 13
+          Height = 22
           Caption = 'Control:'
           Color = clInactiveBorder
           ParentColor = False
@@ -959,7 +950,7 @@ object FormBioneta: TFormBioneta
           Left = 307
           Top = 0
           Width = 38
-          Height = 13
+          Height = 22
           Caption = 'Actions:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1027,7 +1018,7 @@ object FormBioneta: TFormBioneta
           Left = 880
           Top = 0
           Width = 22
-          Height = 13
+          Height = 22
           Caption = 'Use:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1079,7 +1070,6 @@ object FormBioneta: TFormBioneta
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         TabOrder = 7
         Visible = False
-        ExplicitWidth = 1416
         object Label1: TLabel
           Left = 0
           Top = 0
@@ -1355,7 +1345,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 8
         Visible = False
-        ExplicitWidth = 1416
         object Label32: TLabel
           Left = 0
           Top = 0
@@ -1379,7 +1368,7 @@ object FormBioneta: TFormBioneta
           Left = 173
           Top = 0
           Width = 28
-          Height = 13
+          Height = 22
           Caption = 'Trails:'
           Color = clInactiveBorder
           ParentColor = False
@@ -1433,7 +1422,6 @@ object FormBioneta: TFormBioneta
         ShowCaptions = True
         TabOrder = 9
         Visible = False
-        ExplicitWidth = 1416
         object Label34: TLabel
           Left = 0
           Top = 0
@@ -1513,7 +1501,6 @@ object FormBioneta: TFormBioneta
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitWidth = 1416
       object tbPlanet: TToolBar
         Left = 0
         Top = 0
@@ -1528,7 +1515,6 @@ object FormBioneta: TFormBioneta
         ParentColor = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1416
         object tbObjectMenu: TToolButton
           Left = 0
           Top = 0
@@ -1727,7 +1713,6 @@ object FormBioneta: TFormBioneta
       BevelOuter = bvNone
       TabOrder = 2
       Visible = False
-      ExplicitWidth = 1416
       object tbObjects: TToolBar
         Left = 176
         Top = 0
@@ -1740,7 +1725,6 @@ object FormBioneta: TFormBioneta
         List = True
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1240
         object Label22: TLabel
           Left = 0
           Top = 0
@@ -1993,7 +1977,6 @@ object FormBioneta: TFormBioneta
       Align = alTop
       TabOrder = 3
       Visible = False
-      ExplicitWidth = 1416
       object Panel1: TPanel
         Left = 1
         Top = 1
@@ -2028,7 +2011,6 @@ object FormBioneta: TFormBioneta
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 1357
         object tbBird: TToolButton
           Left = 0
           Top = 0
@@ -2257,7 +2239,6 @@ object FormBioneta: TFormBioneta
       Align = alTop
       TabOrder = 4
       Visible = False
-      ExplicitWidth = 1416
       object Panel6: TPanel
         Left = 1
         Top = 1
@@ -2426,7 +2407,6 @@ object FormBioneta: TFormBioneta
       Align = alTop
       TabOrder = 5
       Visible = False
-      ExplicitWidth = 1416
       object Panel9: TPanel
         Left = 1
         Top = 1
@@ -2461,7 +2441,6 @@ object FormBioneta: TFormBioneta
         List = True
         ShowCaptions = True
         TabOrder = 1
-        ExplicitWidth = 1357
         object tbPlantForest: TToolButton
           Left = 0
           Top = 0
@@ -2650,8 +2629,6 @@ object FormBioneta: TFormBioneta
         Width = 350
       end>
     OnClick = StatusBarClick
-    ExplicitTop = 722
-    ExplicitWidth = 1416
   end
   object Panel2: TPanel
     Left = 0
@@ -2698,8 +2675,6 @@ object FormBioneta: TFormBioneta
       Height = 31
       Align = alBottom
       TabOrder = 1
-      ExplicitTop = 136
-      ExplicitWidth = 1416
       object tbViews: TToolBar
         Left = 1
         Top = 1
@@ -2717,12 +2692,11 @@ object FormBioneta: TFormBioneta
         ParentFont = False
         ShowCaptions = True
         TabOrder = 0
-        ExplicitWidth = 1414
         object Label19: TLabel
           Left = 0
           Top = 0
           Width = 39
-          Height = 13
+          Height = 22
           Caption = 'Camera:'
         end
         object tbCameraPlanet: TToolButton
@@ -3400,6 +3374,7 @@ object FormBioneta: TFormBioneta
     MaxChannels = 32
     MasterVolume = 1.000000000000000000
     Sources = <>
+    Cadencer = GLCadencer
     Left = 946
     Top = 581
   end

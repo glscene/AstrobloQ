@@ -1,4 +1,4 @@
-unit fbBioneta_ru;
+п»їunit fbBioneta_ru;
 
 interface
 
@@ -124,7 +124,7 @@ type
     GLSceneViewer: TGLSceneViewer;
     GLMaterialLibrary: TGLMaterialLibrary;
 
-    PlanetModel: TGLFreeForm;      // Planet sphere using TGLFreeForm !
+    PlanetModel: TGLFreeForm;      // РџР»Р°РЅРµС‚Р° С‚РёРїР° TGLFreeForm !
     MoonModel: TGLFreeForm;
     SunModel: TGLFreeForm;
     AsteroidModel: TGLFreeForm;
@@ -1048,7 +1048,7 @@ begin
 
   SphereMode := true;
 
-  FormFirst.Construction.AddEvent('Загрузка файлов');
+  FormFirst.Construction.AddEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  ГґГ Г©Г«Г®Гў');
   LoadMaterialLibrary;
   LoadModels;
   GenerateTextureMap;
@@ -1058,13 +1058,13 @@ begin
   // turn sound on
   if not GLBass.Active then
   begin
-    FormFirst.Construction.AddEvent('Активация Bass');
+    FormFirst.Construction.AddEvent('ГЂГЄГІГЁГўГ Г¶ГЁГї Bass');
     GLBass.Active := true;
     if not GLBass.Active then
-      FormFirst.Construction.AddEventFailure(' Нет поддержки звука!');
+      FormFirst.Construction.AddEventFailure(' ГЌГҐГІ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЄГЁ Г§ГўГіГЄГ !');
   end;
   LoadSounds;
-  FormFirst.Construction.AddEvent('Генерация звуковой системы');
+  FormFirst.Construction.AddEvent('ГѓГҐГ­ГҐГ°Г Г¶ГЁГї Г§ГўГіГЄГ®ГўГ®Г© Г±ГЁГ±ГІГҐГ¬Г»');
   GenerateSoundSystem(64);
 
   CleanGalaxy;
@@ -1339,7 +1339,7 @@ begin
       end;
   end;
 
-  FormFirst.Construction.AddEvent('Смена режима камеры = ' +
+  FormFirst.Construction.AddEvent('РЎРјРµРЅР° СЂРµР¶РёРјР° РєР°РјРµСЂС‹ = ' +
     CameraModeString(CameraMode));
 end;
 
@@ -1986,15 +1986,15 @@ end;
 procedure TFormBioneta.LoadTexture(aTexName: string; aFile: string);
 begin
   // Loading aTexName texture from aFile...
-  FormFirst.Construction.AddEvent('Загрузка текстуры ' + aTexName +
-    ' из файла: ' + aFile + '...');
+  FormFirst.Construction.AddEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  ГІГҐГЄГ±ГІГіГ°Г» ' + aTexName +
+    ' ГЁГ§ ГґГ Г©Г«Г : ' + aFile + '...');
   if FileExists(aFile) then
   begin
     with GLMaterialLibrary.AddTextureMaterial(aTexName, aFile) do
       Material.FrontProperties.Emission.Color := clrGray40;
     // Material.FrontProperties.Emission.Color:=clrGray60;
     // done.
-    FormFirst.Construction.AddEventSuccess(' сделано.');
+    FormFirst.Construction.AddEventSuccess(' Г±Г¤ГҐГ«Г Г­Г®.');
   end
   else
   begin
@@ -2002,14 +2002,14 @@ begin
       imgDefaultTexture.Picture.Bitmap) do
       Material.FrontProperties.Emission.Color := clrGray50;
     // not found.
-    FormFirst.Construction.AddEventFailure(' не найдено!');
+    FormFirst.Construction.AddEventFailure(' Г­ГҐ Г­Г Г©Г¤ГҐГ­Г®!');
   end;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadMaterialLibrary;
 begin
-  FormFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки материалов:');
+  FormFirst.Construction.AddUnderlinedEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГЁ Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў:');
   LoadTexture('landtex', 'textures\alltex.bmp');
   LoadTexture('sun', 'textures\sunfire.bmp');
   LoadTexture('moon', 'textures\moonshine.bmp');
@@ -2025,22 +2025,22 @@ end;
 procedure TFormBioneta.LoadModel(aFreeForm: TGLFreeForm; aFile: string);
 begin
   // Loading model aFile...
-  FormFirst.Construction.AddEvent('Загрузка модели из файла: ' + aFile
+  FormFirst.Construction.AddEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  Г¬Г®Г¤ГҐГ«ГЁ ГЁГ§ ГґГ Г©Г«Г : ' + aFile
     + '...');
   if FileExists(aFile) then
   begin
     aFreeForm.LoadFromFile(aFile);
-    FormFirst.Construction.AddEventSuccess(' сделано.');
+    FormFirst.Construction.AddEventSuccess(' Г±Г¤ГҐГ«Г Г­Г®.');
   end
   else
-    FormFirst.Construction.AddEventFailure(' не найдено!');
+    FormFirst.Construction.AddEventFailure(' Г­ГҐ Г­Г Г©Г¤ГҐГ­Г®!');
   aFreeForm.BuildSilhouetteConnectivityData;
 end;
 
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadModels;
 begin
-  FormFirst.Construction.AddUnderlinedEvent('Загрузка библиотеки моделей:');
+  FormFirst.Construction.AddUnderlinedEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГЁ Г¬Г®Г¤ГҐГ«ГҐГ©:');
   LoadModel(AppleTreeModel, 'models\newtree.3ds');
   LoadModel(OrangeTreeModel, 'models\orangetree.3ds');
   LoadModel(AppleModel, 'models\fruit.3ds');
@@ -2105,7 +2105,7 @@ var
   X: Integer;
 begin
   // create grey stars
-  FormFirst.Construction.AddEvent('Добавление звёзд');
+  FormFirst.Construction.AddEvent('Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г§ГўВёГ§Г¤');
   for X := 0 to 6 do
     SkyDome.Stars.AddRandomStars(1000, RGB(50 + X * 25, 50 + X * 25,
       50 + X * 25), false);
@@ -2113,7 +2113,7 @@ begin
   for X := 0 to 50 do
     SkyDome.Stars.AddRandomStars(10, RGB(Random(255), Random(255),
       Random(255)), false);
-  FormFirst.Construction.AddEventSuccess(' Сделано');
+  FormFirst.Construction.AddEventSuccess(' Г‘Г¤ГҐГ«Г Г­Г®');
 end;
 
 // ----------------------------------------------------------------------------
@@ -2711,7 +2711,7 @@ begin
     exit;
   myMoon := TaiMoon(Environment.Things.NewThing(cMoon));
   ReportUserEvent('Added moon: ' + myMoon.OneLineDisplay);
-  FormFirst.Construction.AddEvent('Добавлена луна');
+  FormFirst.Construction.AddEvent('Г„Г®ГЎГ ГўГ«ГҐГ­Г  Г«ГіГ­Г ');
   LastAction('Added=moon');
 end;
 
@@ -2722,14 +2722,14 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Максимум четыре солнца!');
+    ShowMessage('ГЊГ ГЄГ±ГЁГ¬ГіГ¬ Г·ГҐГІГ»Г°ГҐ Г±Г®Г«Г­Г¶Г !');
     exit;
   end;
 
   mySun := TaiSun(Environment.Things.NewThing(cSun));
   if not(mySun = nil) then
     ReportUserEvent('Added sun' + mySun.OneLineDisplay);
-  FormFirst.Construction.AddEvent('Добавлено солнце');
+  FormFirst.Construction.AddEvent('Г„Г®ГЎГ ГўГ«ГҐГ­Г® Г±Г®Г«Г­Г¶ГҐ');
   LastAction('Added=sun');
 end;
 
@@ -3076,18 +3076,22 @@ begin
   UpRightVertex.X := WaterUpRight * myUpRightNormal.X;
   UpRightVertex.Y := WaterUpRight * myUpRightNormal.Y;
   UpRightVertex.Z := WaterUpRight * myUpRightNormal.Z;
+
   // left triangle
   WaterVertices.Items[myCrossover.Vertices[0][0]] := MiddleVertex;
   WaterVertices.Items[myCrossover.Vertices[0][1]] := DownLeftVertex;
   WaterVertices.Items[myCrossover.Vertices[0][2]] := UpLeftVertex;
+
   // bottom triangle
   WaterVertices.Items[myCrossover.Vertices[1][0]] := MiddleVertex;
   WaterVertices.Items[myCrossover.Vertices[1][1]] := DownRightVertex;
   WaterVertices.Items[myCrossover.Vertices[1][2]] := DownLeftVertex;
+
   // right triangle
   WaterVertices.Items[myCrossover.Vertices[2][0]] := MiddleVertex;
   WaterVertices.Items[myCrossover.Vertices[2][1]] := UpRightVertex;
   WaterVertices.Items[myCrossover.Vertices[2][2]] := DownRightVertex;
+
   // top triangle
   WaterVertices.Items[myCrossover.Vertices[3][0]] := MiddleVertex;
   WaterVertices.Items[myCrossover.Vertices[3][1]] := UpLeftVertex;
@@ -3163,6 +3167,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := CloudModel.Up;
   end;
+
   // add rain proxy
   myRain := TGLProxyObject(CloudCube.AddNewChild(TGLProxyObject));
   with myRain do
@@ -3236,7 +3241,9 @@ begin
     Up := AppleTreeModel.Up;
     RollAngle := Random(360);
   end;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aTree;
   result.SubVisuals.Add(myProxy);
@@ -3286,7 +3293,9 @@ begin
     Scale.AsVector := myScale;
     RollAngle := Random(360);
   end;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aApple;
   result.SubVisuals.Add(myProxy);
@@ -3306,6 +3315,7 @@ begin
   begin
     MasterObject := OrangeModel;
     ProxyOptions := [pooObjects];
+
     Up := OrangeModel.Up;
     myFactor := 0.04;
     myScale := OrangeModel.Scale.AsVector;
@@ -3313,7 +3323,9 @@ begin
     Scale.AsVector := myScale;
     RollAngle := Random(360);
   end;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aOrange;
   result.SubVisuals.Add(myProxy);
@@ -3333,7 +3345,9 @@ begin
   begin
     MasterObject := SeedModel;
     ProxyOptions := [pooObjects];
+
     Up := SeedModel.Up;
+
     myFactor := 0.05;
     myScale := SeedModel.Scale.AsVector;
     ScaleVector(myScale, myFactor);
@@ -3364,6 +3378,7 @@ begin
     ProxyOptions := [pooObjects];
     Up := SpiritModel.Up;
   end;
+
   result := Satellites.NewCrossover;
   result.Data := aBot;
   result.SubVisuals.Add(myProxy);
@@ -3388,8 +3403,10 @@ begin
     Up := FishModel.Up;
     RollAngle := Random(360);
   end;
+
   PlaySound(5, 1, aFish.Position);
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aFish;
   result.SubVisuals.Add(myProxy);
@@ -3417,7 +3434,9 @@ begin
     RollAngle := Random(360);
     PitchAngle := Random(360);
   end;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aAsteroid;
   result.SubVisuals.Add(myProxy);
@@ -3503,7 +3522,9 @@ begin
   Scale := AppleTreeModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   PositionThing(myTree.Position, myProxy, 0, factor / 4);
+
   if myTree.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, QuarterPi);
 end;
@@ -3522,7 +3543,9 @@ begin
   Scale := OrangeTreeModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   PositionThing(myTree.Position, myProxy, 0, factor / 4);
+
   if myTree.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, QuarterPi);
 end;
@@ -3535,6 +3558,7 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myApple := TaiFruit(aCrossover.Data);
+
   PositionThing(myApple.Position, myProxy);
 end;
 
@@ -3745,19 +3769,19 @@ procedure TFormBioneta.BuildGalaxy;
 begin
   CameraMode := camPlanet;
 
-  // очистить всё
-  FormFirst.Construction.AddEvent('Клининг галактики');
+  // Г®Г·ГЁГ±ГІГЁГІГј ГўГ±Вё
+  FormFirst.Construction.AddEvent('ГЉГ«ГЁГ­ГЁГ­ГЈ ГЈГ Г«Г ГЄГІГЁГЄГЁ');
   CleanGalaxy;
 
   SphereMode := Environment.Space.Spherical;
   tbSpherical.Down := SphereMode;
 
-  // создать планету
-  FormFirst.Construction.AddEvent('Создание планеты');
+  // Г±Г®Г§Г¤Г ГІГј ГЇГ«Г Г­ГҐГІГі
+  FormFirst.Construction.AddEvent('Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЇГ«Г Г­ГҐГІГ»');
   BuildFromMap;
 
-  // создать новые объекты
-  FormFirst.Construction.AddEvent('Добавление объектов');
+  // Г±Г®Г§Г¤Г ГІГј Г­Г®ГўГ»ГҐ Г®ГЎГєГҐГЄГІГ»
+  FormFirst.Construction.AddEvent('Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г®ГЎГєГҐГЄГІГ®Гў');
   CheckCradle;
 end;
 
@@ -4338,8 +4362,8 @@ begin
   fgLandTex.MaterialName := PlanetModel.MaterialLibrary.Materials.
     Items[0].Name;
 
-  FormFirst.Construction.AddEvent('Planet.Map' + ': ' + 'Высота' + ' = ' +
-     IntToStr(Height) + 'Ширина' + ' = ' + IntToStr(Width));
+  FormFirst.Construction.AddEvent('Planet.Map' + ': ' + 'Г‚Г»Г±Г®ГІГ ' + ' = ' +
+     IntToStr(Height) + 'ГГЁГ°ГЁГ­Г ' + ' = ' + IntToStr(Width));
 
   // height loop
   // we start at the top of the map and go to the bottom, in width strips
@@ -4526,8 +4550,8 @@ begin
     end;
   end;
 
-  FormFirst.Construction.AddEvent('Planet.Mesh: ' + 'Треугольников' + ' = ' +
-    IntToStr(PlanetMesh.TriangleCount) + 'Вершин' + ' = ' +
+  FormFirst.Construction.AddEvent('Planet.Mesh: ' + 'Г’Г°ГҐГіГЈГ®Г«ГјГ­ГЁГЄГ®Гў' + ' = ' +
+    IntToStr(PlanetMesh.TriangleCount) + 'Г‚ГҐГ°ГёГЁГ­' + ' = ' +
     IntToStr(PlanetMesh.Vertices.Count));
 
   // add mesh to freeform (a freeform holds meshes)
@@ -4535,7 +4559,7 @@ begin
   PlanetModel.NormalsOrientation := mnoInvert;
   PlanetModel.StructureChanged;
 
-  FormFirst.Construction.AddEvent('Planet.Freeform: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Planet.Freeform: Г’Г°ГҐГіГЈГ®Г«ГјГ­ГЁГЄГ®Гў = ' +
     IntToStr(PlanetModel.MeshObjects.TriangleCount));
 
   // build the octree for raycastintersect
@@ -5520,12 +5544,12 @@ begin
   if Satellites.AmountOfData(TaiSun) < 4 then
   begin
     mySun := TaiSun(Environment.Things.NewThing(cSun));
-    ReportUserEvent('Добавить солнце: ' + mySun.OneLineDisplay);
+    ReportUserEvent('Г„Г®ГЎГ ГўГЁГІГј Г±Г®Г«Г­Г¶ГҐ: ' + mySun.OneLineDisplay);
     FormFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
       (TaiSatellite(mySun));
   end
   else
-    ShowMessage('Максимум четыре солнца!');
+    ShowMessage('ГЊГ ГЄГ±ГЁГ¬ГіГ¬ Г·ГҐГІГ»Г°ГҐ Г±Г®Г«Г­Г¶Г !');
 end;
 
 // ----------------------------------------------------------------------------
@@ -5539,7 +5563,7 @@ begin
   else
     myMoon := TaiMoon(Environment.Things.NewThing(cMoon));
 
-  ReportUserEvent('Добавить луну: ' + myMoon.OneLineDisplay);
+  ReportUserEvent('Г„Г®ГЎГ ГўГЁГІГј Г«ГіГ­Гі: ' + myMoon.OneLineDisplay);
   FormFirst.RealityForm.ManagerForm.ListsForm.EditSatellite
     (TaiSatellite(myMoon));
 end;
@@ -5728,8 +5752,8 @@ begin
     end;
   end;
 
-  FormFirst.Construction.AddEvent('Water.Mesh: Треугольников = ' +
-    IntToStr(WaterMesh.TriangleCount) + ' Вершин = ' +
+  FormFirst.Construction.AddEvent('Water.Mesh: Г’Г°ГҐГіГЈГ®Г«ГјГ­ГЁГЄГ®Гў = ' +
+    IntToStr(WaterMesh.TriangleCount) + ' Г‚ГҐГ°ГёГЁГ­ = ' +
     IntToStr(WaterMesh.Vertices.Count));
 
   // add mesh to freeform (a freeform holds meshes)
@@ -5737,7 +5761,7 @@ begin
   WaterBubble.NormalsOrientation := mnoInvert;
   WaterBubble.StructureChanged;
 
-  FormFirst.Construction.AddEvent('Water.Freeform: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Water.Freeform: Г’Г°ГҐГіГЈГ®Г«ГјГ­ГЁГЄГ®Гў = ' +
     IntToStr(WaterBubble.MeshObjects.TriangleCount));
 
   for Longitude := 0 to (Width - 1) do
@@ -5801,7 +5825,7 @@ begin
         StrToInt(myFormPhotograph.edThumbHeight.Text));
       SkyDome.Visible := tbShowStars.Down;
     end;
-    ShowMessage('Сохранение фото (' + myFormPhotograph.edPhotograph.Text + ')');
+    ShowMessage('Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГґГ®ГІГ® (' + myFormPhotograph.edPhotograph.Text + ')');
   end;
   myFormPhotograph.Free;
 end;
@@ -5962,7 +5986,7 @@ begin
   // add mesh to freeform (a freeform holds meshes)
   Atmosphere.MeshObjects.Add(Mesh);
   Atmosphere.StructureChanged;
-  FormFirst.Construction.AddEvent('Atmosphere.Freeform: Треугольников = ' +
+  FormFirst.Construction.AddEvent('Atmosphere.Freeform: Г’Г°ГҐГіГЈГ®Г«ГјГ­ГЁГЄГ®Гў = ' +
     IntToStr(Atmosphere.MeshObjects.TriangleCount));
 end;
 
@@ -5997,7 +6021,7 @@ begin
   if not GLBass.Active then
     exit;
 
-  FormFirst.Construction.AddEvent('Генерация звуковой системы');
+  FormFirst.Construction.AddEvent('ГѓГҐГ­ГҐГ°Г Г¶ГЁГї Г§ГўГіГЄГ®ГўГ®Г© Г±ГЁГ±ГІГҐГ¬Г»');
   for i := 0 to aNumberOfSpeakers - 1 do
   begin
     myCrossover := Speakers.NewCrossover;
@@ -6049,7 +6073,7 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadSounds;
 begin
-  FormFirst.Construction.AddUnderlinedEvent('Загрузка звуков');
+  FormFirst.Construction.AddUnderlinedEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  Г§ГўГіГЄГ®Гў');
 
   LoadSound('audio\electronicping.wav'); // 0
   LoadSound('audio\fire.wav'); // 1
@@ -6086,15 +6110,15 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.LoadSound(aFileName: string);
 begin
-  FormFirst.Construction.AddEvent('Загрузка звуков из файла ' + aFileName
+  FormFirst.Construction.AddEvent('Г‡Г ГЈГ°ГіГ§ГЄГ  Г§ГўГіГЄГ®Гў ГЁГ§ ГґГ Г©Г«Г  ' + aFileName
     + '... ');
   if FileExists(aFileName) then
   begin
     GLSoundLibrary.Samples.Add.LoadFromFile(aFileName);
-    FormFirst.Construction.AddEventSuccess(' выполнено.');
+    FormFirst.Construction.AddEventSuccess(' ГўГ»ГЇГ®Г«Г­ГҐГ­Г®.');
   end
   else
-    FormFirst.Construction.AddEventFailure(' не найдено!');
+    FormFirst.Construction.AddEventFailure(' Г­ГҐ Г­Г Г©Г¤ГҐГ­Г®!');
 end;
 
 procedure TFormBioneta.tbPriorTargetClick(Sender: TObject);
@@ -7163,7 +7187,9 @@ begin
   Scale := TerrierModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aTerrier;
   result.SubVisuals.Add(myProxy);
@@ -7239,7 +7265,9 @@ begin
     ProxyOptions := [pooObjects];
     Up := DuckModel.Up;
   end;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aDuck;
   result.SubVisuals.Add(myProxy);
@@ -7261,7 +7289,9 @@ begin
   Scale := DuckModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   PositionThing(myDuck.Position, myProxy, Pi, -0.05);
+
   if myDuck.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, cHalfPi);
 end;
@@ -7299,6 +7329,7 @@ begin
   Scale := FoxModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
   result := Satellites.NewCrossover;
   result.Data := aFox;
@@ -7342,7 +7373,9 @@ begin
   Scale := RabbitModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   GLShadowVolume.Occluders.AddCaster(myProxy);
+  
   result := Satellites.NewCrossover;
   result.Data := aRabbit;
   result.SubVisuals.Add(myProxy);
@@ -7528,6 +7561,7 @@ begin
   Scale := MouseModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
+
   PositionThing(myMouse.Position, myProxy, -HalfPi);
   if myMouse.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
@@ -7701,7 +7735,7 @@ var
 begin
   if not Environment.Things.CanAdd(cSun) then
   begin
-    ShowMessage('Максимум четыре солнца!');
+    ShowMessage('ГЊГ ГЄГ±ГЁГ¬ГіГ¬ Г·ГҐГІГ»Г°ГҐ Г±Г®Г«Г­Г¶Г !');
     exit;
   end;
   mySun := TaiSun(Environment.Things.NewThing(cSun));
@@ -7712,7 +7746,7 @@ begin
     mySun.Position.SetPosition(gHalfWorldWidth, gHalfWorldHeight, 420);
     mySun.Position.Velocity.Zero;
     mySun.Position.Acceleration.Zero;
-    ReportUserEvent('Добавить остывшее Солнце: ' + mySun.OneLineDisplay);
+    ReportUserEvent('Г„Г®ГЎГ ГўГЁГІГј Г®Г±ГІГ»ГўГёГҐГҐ Г‘Г®Г«Г­Г¶ГҐ: ' + mySun.OneLineDisplay);
     FormFirst.Construction.AddEvent('Added fake sun');
     LastAction('Added=fakesun');
   end;
@@ -7872,11 +7906,11 @@ begin
   if (TargetToFollow <> nil) then
   begin
     myKind := TaiThing(TargetToFollow.Data).Kind;
-    if (MessageDlg('Убить ' +
+    if (MessageDlg('Г“ГЎГЁГІГј ' +
       ThingNamePlural(myKind) + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes)
     then
     begin
-      LastAction('Убит: ' + ThingNamePlural(myKind));
+      LastAction('Г“ГЎГЁГІ: ' + ThingNamePlural(myKind));
       gThings.Tables[myKind].KillEverything;
     end;
   end;
@@ -8697,12 +8731,12 @@ procedure TFormBioneta.SetShadowMode(aMode: Boolean);
 begin
   if not aMode then
   begin
-    FormFirst.Construction.AddEvent('Отключить тени');
+    FormFirst.Construction.AddEvent('ГЋГІГЄГ«ГѕГ·ГЁГІГј ГІГҐГ­ГЁ');
     GLShadowVolume.Mode := svmOff;
   end
   else
   begin
-    FormFirst.Construction.AddEvent('Включить тени');
+    FormFirst.Construction.AddEvent('Г‚ГЄГ«ГѕГ·ГЁГІГј ГІГҐГ­ГЁ');
     GLShadowVolume.Mode := svmDarkening;
   end;
   tbShadows.Down := Environment.Shadows;
@@ -8978,7 +9012,7 @@ begin
   end;
 end;
 
-//-------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbReportAllClick(Sender: TObject);
 begin
   Environment.Things.Tangibles.ReportAllCreatures;
@@ -9004,11 +9038,13 @@ begin
   tbShowFire.Enabled := false;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbAVIFrameClick(Sender: TObject);
 begin
   AVIRecorder.AddAVIFrame;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbMissileDefenceClick(Sender: TObject);
 begin
   tbRepeat.Down := false;
@@ -9032,6 +9068,7 @@ begin
   ShowCursor;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbLifeKillerClick(Sender: TObject);
 begin
   Tool := tLifeKiller;
@@ -9042,7 +9079,7 @@ begin
   Tool := tPlantClearer;
 end;
 
-//-------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbBotSelectClick(Sender: TObject);
 begin
   LastAction('Tool=Select');
@@ -9051,6 +9088,7 @@ begin
   HideCursor;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbShadowsClick(Sender: TObject);
 begin
   Environment.Shadows := tbShadows.Down;
@@ -9093,12 +9131,10 @@ var
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
   myMissileDefence := TaiMissileDefence(aCrossover.Data);
-
   myProxy.FrontColor.Diffuse.Red := myMissileDefence.Priority;
   myProxy.FrontColor.Diffuse.Blue := myMissileDefence.Priority;
   myProxy.FrontColor.Ambient.Red := myMissileDefence.Priority;
   myProxy.FrontColor.Emission.Red := myMissileDefence.Priority / 2;
-
   PositionThing(myMissileDefence.Position, myProxy, 0);
 end;
 
@@ -9120,9 +9156,7 @@ begin
     ScaleVector(myScale, myFactor);
     Scale.AsVector := myScale;
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aMissile;
   result.SubVisuals.Add(myProxy);
@@ -9138,7 +9172,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myMissile := TaiMissile(aCrossover.Data);
-
   PositionThing(myMissile.Position, myProxy, 0, -0.15);
 end;
 
@@ -9146,7 +9179,6 @@ procedure TFormBioneta.tbNextKindClick(Sender: TObject);
 begin
   if TargetToFollow = nil then
     exit;
-
   if Satellites.SetCrossoverByKind(TaiThing(TargetToFollow.Data).Kind) then
   begin
     TargetToFollow := Satellites.ActiveItem;

@@ -291,7 +291,7 @@ object FormBioneta: TFormBioneta
         Top = 27
         Width = 1551
         Height = 29
-        ButtonWidth = 110
+        ButtonWidth = 115
         Caption = 'tbGalaxy'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -324,7 +324,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbBuildSunClick
         end
         object tbBuildMoon: TToolButton
-          Left = 183
+          Left = 188
           Top = 0
           Hint = 'Moon'
           Caption = #1051#1091#1085#1072
@@ -334,7 +334,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbBuildMoonClick
         end
         object ToolButton11: TToolButton
-          Left = 293
+          Left = 303
           Top = 0
           Width = 8
           Caption = 'ToolButton11'
@@ -342,17 +342,17 @@ object FormBioneta: TFormBioneta
           Style = tbsSeparator
         end
         object tbFakeSun: TToolButton
-          Left = 301
+          Left = 311
           Top = 0
           Hint = 'Create a sun with only light, no heat.'
-          Caption = #1051#1077#1076#1103#1085#1086#1077' '#1089#1086#1083#1085#1094#1077
+          Caption = #1061#1086#1083#1086#1076#1085#1086#1077' '#1089#1086#1083#1085#1094#1077
           ImageIndex = 58
           ParentShowHint = False
           ShowHint = True
           OnClick = tbFakeSunClick
         end
         object ToolButton10: TToolButton
-          Left = 411
+          Left = 426
           Top = 0
           Width = 8
           Caption = 'ToolButton10'
@@ -360,7 +360,7 @@ object FormBioneta: TFormBioneta
           Style = tbsSeparator
         end
         object tbAsteroid: TToolButton
-          Left = 419
+          Left = 434
           Top = 0
           Hint = 'Asteroid'
           Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
@@ -372,7 +372,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbAsteroidClick
         end
         object tbMissileDefence: TToolButton
-          Left = 529
+          Left = 549
           Top = 0
           Hint = 'Add a missile defence satellite.'
           Caption = #1047#1072#1097#1080#1090#1072
@@ -384,7 +384,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbMissileDefenceClick
         end
         object ToolButton4: TToolButton
-          Left = 639
+          Left = 664
           Top = 0
           Width = 8
           Caption = 'ToolButton4'
@@ -397,7 +397,7 @@ object FormBioneta: TFormBioneta
         Top = 188
         Width = 1551
         Height = 25
-        ButtonWidth = 94
+        ButtonWidth = 110
         Caption = 'tbSettings'
         EdgeBorders = [ebLeft, ebRight, ebBottom]
         Images = frmImages.ImageListIcons
@@ -429,7 +429,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbCameraLightClick
         end
         object tbShowCursor: TToolButton
-          Left = 167
+          Left = 183
           Top = 0
           Hint = 'Shows a cursor on the planet when you move the mouse.'
           Caption = #1050#1091#1088#1089#1086#1088
@@ -441,10 +441,10 @@ object FormBioneta: TFormBioneta
           OnClick = tbShowCursorClick
         end
         object tbFlashlight: TToolButton
-          Left = 261
+          Left = 293
           Top = 0
           Hint = 'Shines a light on the planet that you are looking at.'
-          Caption = 'Flash Light'
+          Caption = #1060#1086#1085#1072#1088#1100
           ImageIndex = 88
           ParentShowHint = False
           ShowHint = True
@@ -452,12 +452,12 @@ object FormBioneta: TFormBioneta
           OnClick = tbFlashlightClick
         end
         object tbStickyFit: TToolButton
-          Left = 355
+          Left = 403
           Top = 0
           Hint = 
             'Sticky fit causes the Space window to stick in its designated de' +
             'sktop position.'
-          Caption = 'Sticky Fit'
+          Caption = #1052#1072#1075#1082#1072#1103' '#1087#1086#1089#1072#1076#1082#1072
           Down = True
           ImageIndex = 90
           ParentShowHint = False
@@ -466,10 +466,10 @@ object FormBioneta: TFormBioneta
           OnClick = tbStickyFitClick
         end
         object tbFullscreen: TToolButton
-          Left = 449
+          Left = 513
           Top = 0
           Hint = 'Press ESC to exit fullscreen mode.'
-          Caption = 'Fullscreen'
+          Caption = #1042#1077#1089#1100#1101#1082#1088#1072#1085
           ImageIndex = 89
           ParentShowHint = False
           ShowHint = True
@@ -477,7 +477,7 @@ object FormBioneta: TFormBioneta
           OnClick = tbFullscreenClick
         end
         object ToolButton6: TToolButton
-          Left = 543
+          Left = 623
           Top = 0
           Width = 8
           Caption = 'ToolButton6'
@@ -485,26 +485,26 @@ object FormBioneta: TFormBioneta
           Style = tbsSeparator
         end
         object tbSnapshot: TToolButton
-          Left = 551
+          Left = 631
           Top = 0
           Hint = 'Take a photograph of your world.'
-          Caption = 'Snapshot'
+          Caption = #1057#1085#1080#1084#1086#1082
           ImageIndex = 5
           ParentShowHint = False
           ShowHint = True
           OnClick = tbSnapshotClick
         end
         object cbAutoSnap: TCheckBox
-          Left = 645
+          Left = 741
           Top = 0
           Width = 69
           Height = 22
-          Caption = 'AutoSnap'
+          Caption = #1055#1088#1080#1074#1103#1079#1082#1072
           TabOrder = 0
           OnClick = cbAutoSnapClick
         end
         object ToolButton9: TToolButton
-          Left = 714
+          Left = 810
           Top = 0
           Width = 8
           Caption = 'ToolButton9'
@@ -512,12 +512,12 @@ object FormBioneta: TFormBioneta
           Style = tbsSeparator
         end
         object tbAVIMovie: TToolButton
-          Left = 722
+          Left = 818
           Top = 0
           Hint = 
             'Start recording an AVI movie. When you close AIPlanet, the movie' +
             ' stops recording.'
-          Caption = 'AVI Start'
+          Caption = 'AVI '#1047#1072#1087#1091#1089#1082
           ImageIndex = 39
           ParentShowHint = False
           ShowHint = True
@@ -525,10 +525,10 @@ object FormBioneta: TFormBioneta
           OnClick = tbAVIMovieClick
         end
         object tbAVIDirect: TToolButton
-          Left = 816
+          Left = 928
           Top = 0
           Hint = 'While this button is down, capture a frame.'
-          Caption = 'AVI Direct'
+          Caption = 'AVI '#1044#1080#1088#1077#1082#1090
           ImageIndex = 39
           ParentShowHint = False
           ShowHint = True
@@ -536,10 +536,10 @@ object FormBioneta: TFormBioneta
           Visible = False
         end
         object tbAVIFrame: TToolButton
-          Left = 910
+          Left = 1038
           Top = 0
           Hint = 'Capture an extra AVI frame (for when time is stopped).'
-          Caption = 'AVI Frame'
+          Caption = 'AVI '#1060#1088#1077#1081#1084
           ImageIndex = 34
           ParentShowHint = False
           ShowHint = True
@@ -967,21 +967,21 @@ object FormBioneta: TFormBioneta
         object tbGrab: TToolButton
           Left = 359
           Top = 0
-          Caption = 'Grab'
+          Caption = #1047#1072#1093#1074#1072#1090
           ImageIndex = 12
           OnClick = tbGrabClick
         end
         object tbDrop: TToolButton
           Left = 428
           Top = 0
-          Caption = 'Drop'
+          Caption = #1055#1080#1085#1086#1082
           ImageIndex = 13
           OnClick = tbDropClick
         end
         object tbKick: TToolButton
           Left = 497
           Top = 0
-          Caption = 'Kick'
+          Caption = #1055#1080#1085#1086#1082
           ImageIndex = 11
           OnClick = tbKickClick
         end
@@ -1005,7 +1005,7 @@ object FormBioneta: TFormBioneta
         object tbBonk: TToolButton
           Left = 708
           Top = 0
-          Caption = 'Bonk'
+          Caption = #1058#1088#1072#1093
           ImageIndex = 16
           OnClick = tbBonkClick
         end
@@ -1665,7 +1665,7 @@ object FormBioneta: TFormBioneta
           Left = 770
           Top = 0
           Hint = 'Visuals'
-          Caption = #1042#1080#1079#1091#1072#1083
+          Caption = #1042#1080#1076#1080#1084#1086#1089#1090#1100
           Grouped = True
           ImageIndex = 20
           ParentShowHint = False
@@ -2692,8 +2692,6 @@ object FormBioneta: TFormBioneta
       OnMouseMove = GLSceneViewerMouseMove
       OnMouseUp = GLSceneViewerMouseUp
       TabOrder = 0
-      ExplicitWidth = 1543
-      ExplicitHeight = 128
     end
     object panCamera: TPanel
       Left = 0
@@ -3406,6 +3404,7 @@ object FormBioneta: TFormBioneta
     MaxChannels = 32
     MasterVolume = 1.000000000000000000
     Sources = <>
+    Cadencer = GLCadencer
     Left = 130
     Top = 573
   end

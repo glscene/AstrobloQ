@@ -9,6 +9,7 @@ uses
   System.Types,
   System.UITypes,
   System.Contnrs,
+
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Menus,
@@ -54,7 +55,6 @@ uses
   GLS.File3DS,
   GLS.SoundFileObjects,
   GLS.Sounds.BASS,
-
   GLS.AVIRecorder,
   GLS.Coordinates,
   GLS.BaseClasses,
@@ -828,7 +828,7 @@ type
     function BuildBall(aBall: TaiBall): TCrossover;
     function BuildLightning(aLightning: TaiLightning): TCrossover;
     function BuildShark(aShark: TaiShark): TCrossover;
-    function BuildTurtle(aTurtle: TaiShark): TCrossover;
+    function BuildTurtle(aTurtle: TaiTurtle): TCrossover;
     function BuildBeacon(aBeacon: TaiBeacon): TCrossover;
     function BuildTerrier(aTerrier: TaiTerrier): TCrossover;
     function BuildFox(aFox: TaiFox): TCrossover;
@@ -2183,7 +2183,7 @@ begin
         cShark:
           result := BuildShark(TaiShark(myThing));
         cTurtle:
-          result := BuildTurtle(TaiShark(myThing));
+          result := BuildTurtle(TaiTurtle(myThing));
         cBeacon:
           result := BuildBeacon(TaiBeacon(myThing));
         cTerrier:
@@ -3149,13 +3149,10 @@ begin
   mySphere := TGLSphere(aCrossover.SubVisuals.Items[0]);
   myLight := TGLLightSource(aCrossover.SubVisuals.Items[1]);
   mySun := TaiSun(aCrossover.Data);
-
   PositionThing(mySun.Position, mySphere);
-
   myLight.Position.X := mySphere.Position.X;
   myLight.Position.Y := mySphere.Position.Y;
   myLight.Position.Z := mySphere.Position.Z;
-
   // mySphere.RollAngle := mySphere.RollAngle + Random(2) * 0.5;
   // mySphere.PitchAngle := mySphere.PitchAngle + Random(2) * 0.5;
 end;
@@ -3186,9 +3183,7 @@ begin
     RollAngle := Random(360);
     PitchAngle := Random(360);
   end;
-
   GLShadowVolume.Occluders.AddCaster(myProxy);
-
   result := Satellites.NewCrossover;
   result.Data := aCloud;
   result.SubVisuals.Add(myProxy);
@@ -3208,16 +3203,12 @@ begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myRain := TGLProxyObject(aCrossover.SubVisuals.Items[1]);
   myCloud := TaiCloud(aCrossover.Data);
-
   PositionThing(myCloud.Position, myProxy, 0);
-
   myScale := CloudModel.Scale.AsVector;
   // ScaleVector(myScale, 0.01 + 0.002 * myCloud.Water);
   ScaleVector(myScale, 0.5 + 0.1 * myCloud.Water);
   myProxy.Scale.AsVector := myScale;
-
   myProxy.RollAngle := myProxy.RollAngle + 0.2;
-
   if myCloud.Raining then
   begin
     if aCrossover.Height <= 0 then
@@ -3299,7 +3290,6 @@ begin
   begin
     MasterObject := AppleModel;
     ProxyOptions := [pooObjects];
-
     Up := AppleModel.Up;
     myFactor := 0.04;
     myScale := AppleModel.Scale.AsVector;
@@ -3553,7 +3543,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myTree := TaiTree(aCrossover.Data);
-
   factor := myTree.Water + 0.01;
   Scale := OrangeTreeModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7116,7 +7105,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-function TFormBioneta.BuildTurtle(aTurtle: TaiShark): TCrossover;
+function TFormBioneta.BuildTurtle(aTurtle: TaiTurtle): TCrossover;
 var
   myProxy: TGLProxyObject;
 begin
@@ -7141,26 +7130,26 @@ end;
 procedure TFormBioneta.UpdateTurtle(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
-  myTurtle: TaiShark;
+  myTurtle: TaiTurtle;
   Scale: TGLVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
-  myTurtle := TaiShark(aCrossover.Data);
-
+  myTurtle := TaiTurtle(aCrossover.Data);
   factor := 0.01 + 0.01 * myTurtle.Size;
   Scale := TurtleModel.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myTurtle.Position, myProxy, HalfPi);
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbBeaconBubbleClick(Sender: TObject);
 begin
   Tool := tBeaconBubble;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbBeaconDrainClick(Sender: TObject);
 begin
   Tool := tBeaconDrain;
@@ -7222,7 +7211,6 @@ begin
     ProxyOptions := [pooObjects];
     Up := TerrierModel.Up;
   end;
-
   factor := 0.3; // + 0.01 * myTerrier.Size;
   Scale := TerrierModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7239,10 +7227,8 @@ end;
 
 // ----------------------------------------------------------------------------
 function TFormBioneta.BuildTiger(aTiger: TaiTiger): TCrossover;
-
 var
   myProxy: TGLProxyObject;
-
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
   with myProxy do
@@ -7267,7 +7253,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myTerrier := TaiTerrier(aCrossover.Data);
-
   myProxy.Up.SetToZero;
   CoordinatesFromPosition(myTerrier.Position, myProxy.Direction,
     myProxy.Position, 0.3);
@@ -7285,7 +7270,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myTiger := TaiTiger(aCrossover.Data);
-
   factor := 1.25; { * myTiger.Size; }
   Scale := TigerModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7329,7 +7313,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myDuck := TaiDuck(aCrossover.Data);
-
   factor := myDuck.Size / 5;
   Scale := DuckModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7347,6 +7330,7 @@ begin
   Tool := tTerrier;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbTrackTerrierClick(Sender: TObject);
 begin
   if Satellites.SetCrossoverByKind(cTerrier) then
@@ -7370,7 +7354,6 @@ begin
     ProxyOptions := [pooObjects];
     Up := FoxModel.Up;
   end;
-
   factor := 0.3; // + 0.01 * myFox.Size;
   Scale := FoxModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7392,7 +7375,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myFox := TaiFox(aCrossover.Data);
-
   if myFox.Alive then
     PositionThing(myFox.Position, myProxy, -HalfPi, 0.25)
   else
@@ -7422,6 +7404,7 @@ begin
   myProxy.Scale.AsVector := Scale;
 
   GLShadowVolume.Occluders.AddCaster(myProxy);
+
   result := Satellites.NewCrossover;
   result.Data := aRabbit;
   result.SubVisuals.Add(myProxy);
@@ -7437,7 +7420,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myRabbit := TaiRabbit(aCrossover.Data);
-
   PositionThing(myRabbit.Position, myProxy, -HalfPi);
   if myRabbit.Dead then
     myProxy.Direction.Rotate(myProxy.Up.AsAffineVector, HalfPi);
@@ -7458,7 +7440,6 @@ begin
     Up := GrassModel.Up;
     RollAngle := Random(360);
   end;
-
   factor := 0.3; // + 0.01 * myGrass.Size;
   Scale := GrassModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7606,7 +7587,6 @@ var
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myMouse := TaiMouse(aCrossover.Data);
-
   factor := 0.75 * myMouse.Position.SizeH;
   Scale := MouseModel.Scale.AsVector;
   ScaleVector(Scale, factor);
@@ -7644,7 +7624,6 @@ begin
       TGridCrossover(myGrid.Crossover).LastValue := myGrid.Height;
       TGridCrossover(myGrid.WaterCrossover).LastValue := myGrid.Water;
     end;
-
   PlanetModel.Position.SetPoint(0, 0, 0);
   EmptyAllSounds;
   InvalidOctree := true;
@@ -7706,7 +7685,6 @@ begin
   Scale := Dolphin1.Scale.AsVector;
   ScaleVector(Scale, factor);
   myProxy.Scale.AsVector := Scale;
-
   PositionThing(myDolphin.Position, myProxy, Pi);
 end;
 
@@ -9069,7 +9047,7 @@ begin
   end;
 end;
 
-//-------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbReportAllClick(Sender: TObject);
 begin
   Environment.Things.Tangibles.ReportAllCreatures;
@@ -9095,18 +9073,20 @@ begin
   tbShowFire.Enabled := false;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbAVIFrameClick(Sender: TObject);
 begin
   AVIRecorder.AddAVIFrame;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbMissileDefenceClick(Sender: TObject);
 begin
   tbRepeat.Down := false;
   Tool := tMissileDefence;
 end;
 
-//-------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbDisastersMenuClick(Sender: TObject);
 begin
   AllToolBarsInvisible;
@@ -9123,6 +9103,7 @@ begin
   ShowCursor;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbLifeKillerClick(Sender: TObject);
 begin
   Tool := tLifeKiller;
@@ -9133,7 +9114,7 @@ begin
   Tool := tPlantClearer;
 end;
 
-//-------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbBotSelectClick(Sender: TObject);
 begin
   LastAction('Tool=Select');
@@ -9142,6 +9123,7 @@ begin
   HideCursor;
 end;
 
+// ----------------------------------------------------------------------------
 procedure TFormBioneta.tbShadowsClick(Sender: TObject);
 begin
   Environment.Shadows := tbShadows.Down;

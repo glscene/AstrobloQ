@@ -130,8 +130,8 @@ object FormOptions: TFormOptions
           end
         end
         object CheckBoxAxes: TCheckBox
-          Left = 279
-          Top = 78
+          Left = 287
+          Top = 74
           Width = 82
           Height = 25
           Caption = #1054#1089#1080
