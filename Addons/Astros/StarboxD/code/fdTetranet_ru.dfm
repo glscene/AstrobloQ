@@ -1,7 +1,7 @@
-object frmStarnets: TfrmStarnets
+object FormTetranet: TFormTetranet
   Left = 0
   Top = 0
-  Caption = 'StarCells'
+  Caption = 'Tetranet GLS'
   ClientHeight = 616
   ClientWidth = 900
   Color = clBtnFace
@@ -62,6 +62,7 @@ object frmStarnets: TfrmStarnets
     Height = 564
     Align = alLeft
     TabOrder = 3
+    ExplicitHeight = 539
     object PanelTop: TPanel
       Left = 1
       Top = 1
@@ -88,6 +89,7 @@ object frmStarnets: TfrmStarnets
       ActivePage = tsDatasets
       Align = alClient
       TabOrder = 2
+      ExplicitHeight = 456
       object tsDatasets: TTabSheet
         Caption = #1044#1072#1085#1085#1099#1077
         object tvDatasets: TTreeView
@@ -108,6 +110,7 @@ object frmStarnets: TfrmStarnets
             FFFFFFFFFF000000000000000000000000000108130430043B04300433044004
             380434040000290000000000000000000000FFFFFFFFFFFFFFFF000000000000
             00000000000000010514044004350439043A04}
+          ExplicitHeight = 428
         end
       end
       object tsModeling: TTabSheet

@@ -1,4 +1,4 @@
-unit fdStarcells_ru;
+unit fdTetranet_ru;
 
 interface
 
@@ -90,7 +90,7 @@ VoronoiBase = record
 end;
 
 type
-  TfrmStarnets = class(TForm)
+  TFormTetranet = class(TForm)
     StatusBar1: TStatusBar;
     GLSceneViewer: TGLSceneViewer;
     PanelRight: TPanel;
@@ -170,7 +170,7 @@ type
   end;
 
 var
-  frmStarnets: TfrmStarnets;
+  FormTetranet: TFormTetranet;
 
   // All Delaunay records
   O_Delaunay,
@@ -210,7 +210,7 @@ implementation
 
 {$R *.dfm}
 
-function TfrmStarnets.GetDataDir(): TFileName;
+function TFormTetranet.GetDataDir(): TFileName;
 var
   path: TFileName;
 begin
@@ -223,7 +223,7 @@ end;
 
 //-----------------------------------------------
 
-procedure TfrmStarnets.FormCreate(Sender: TObject);
+procedure TFormTetranet.FormCreate(Sender: TObject);
 begin
   PathToData := GetDataDir(); // путь к данным
   CurrentDir := PathToData + '\image';
@@ -250,7 +250,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmStarnets.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
+procedure TFormTetranet.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 begin
 ///  dcGalablock.TurnAngle := dcGalablock.TurnAngle - deltaTime * 10; // timeMultiplier / 29.5;
 
@@ -258,7 +258,7 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmStarnets.GLSceneViewerDblClick(Sender: TObject);
+procedure TFormTetranet.GLSceneViewerDblClick(Sender: TObject);
 begin
   GLSceneViewer.OnMouseMove := nil;
   if WindowState = wsMaximized then
@@ -280,13 +280,13 @@ begin
   GLSceneViewer.OnMouseMove := GLSceneViewerMouseMove;
 end;
 
-procedure TfrmStarnets.GLSceneViewerMouseDown(Sender: TObject;
+procedure TFormTetranet.GLSceneViewerMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
 	 mx := X; my := Y;
 end;
 
-procedure TfrmStarnets.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+procedure TFormTetranet.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   if Shift = [ssLeft] then
   begin
@@ -302,12 +302,12 @@ end;
 
 //------------------------------------------------------------------
 
-procedure TfrmStarnets.miOptionsClick(Sender: TObject);
+procedure TFormTetranet.miOptionsClick(Sender: TObject);
 begin
   frmOptions.Show;
 end;
 
-procedure TfrmStarnets.miExitClick(Sender: TObject);
+procedure TFormTetranet.miExitClick(Sender: TObject);
 begin
   Close;
 end;
