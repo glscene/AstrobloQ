@@ -25,6 +25,8 @@ object FormAstroScene: TFormAstroScene
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 909
+    ExplicitHeight = 724
   end
   object ControlBar: TControlBar
     Left = 0
@@ -561,10 +563,11 @@ object FormAstroScene: TFormAstroScene
         Slices = 128
         Stacks = 128
         object Parallel20: TGLLines
+          Visible = False
           Nodes = <>
           Options = []
         end
-        object dmParallelGrid: TGLDummyCube
+        object dcParallelGrid: TGLDummyCube
           CubeSize = 1.000000000000000000
           object PoleN_90: TGLTorus
             Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
@@ -734,7 +737,7 @@ object FormAstroScene: TFormAstroScene
             Parts = [toSides, toStartDisk, toStopDisk]
           end
         end
-        object dmMeridianGrid: TGLDummyCube
+        object dcMeridianGrid: TGLDummyCube
           CubeSize = 1.000000000000000000
           object MeridY_165: TGLTorus
             Direction.Coordinates = {EC83843E00000000EA4677BF00000000}
@@ -969,9 +972,9 @@ object FormAstroScene: TFormAstroScene
     end
     object miTools: TMenuItem
       Caption = #1048#1085#1089#1090#1088#1091#1084#1077#1085#1090#1099
-      object miSettings: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
-        OnClick = miSettingsClick
+      object miOptions: TMenuItem
+        Caption = #1054#1087#1094#1080#1080'...'
+        OnClick = miOptionsClick
       end
     end
     object miHelp: TMenuItem

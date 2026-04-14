@@ -9,7 +9,7 @@
 #include "fcHipparcos.h"
 #include "fcHercrussel.h"
 #include "fcAbout.h"
-#include "fcSettings.h"
+#include "fcOptions.h"
 
 // #include "fcPointto.h"  // need to be converted from fdPointto.pas
 
@@ -60,7 +60,7 @@ void __fastcall TFormAstroScene::LoadPlanetMap(const String &fileName)
 	if (FileExists(imagePath)) {
 		sfPlanet->Material->Texture->Image->LoadFromFile(imagePath);
 	} else {
-		ShowMessage("Map not found: " + imagePath);
+		ShowMessage("Карта не найдена: " + imagePath);
 	}
 }
 
@@ -74,8 +74,9 @@ void __fastcall TFormAstroScene::FormCreate(TObject* Sender)
 		sfPlanet->Material->Texture->Disabled = false;
 		LoadPlanetMap("earth.jpg");
 		sfPlanet->Radius = 6371;
-	} catch (Exception &e) {
-		ShowMessage("Error of initialization: " + e.Message);
+	}
+	catch (Exception &e) {
+		ShowMessage("Ошибка инициализации: " + e.Message);
 	}
 
 /*  // Вариант с BinDir. Получаем путь к исполняемому файлу
@@ -119,16 +120,16 @@ void __fastcall TFormAstroScene::miPointtoClick(TObject* Sender)
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::GLCadencerProgress(
-    TObject* Sender, const double DeltaTime, const double NewTime)
+	TObject* Sender, const double DeltaTime, const double NewTime)
 
 {
-	sfPlanet->TurnAngle = FormSettings->chbRotate->Checked ? 10 * NewTime : 0;
+	sfPlanet->TurnAngle = FormOptions->chbRotate->Checked ? 10 * NewTime : 0;
 	/*
 	if (chbRotate->Checked)
 		sfPlanet->TurnAngle = 10 * NewTime;
 	else
 		sfPlanet->TurnAngle = 0;
-    */
+	*/
 }
 
 //---------------------------------------------------------------------------
@@ -163,7 +164,7 @@ void __fastcall TFormAstroScene::miHercRusselClick(TObject* Sender)
 
 void __fastcall TFormAstroScene::ButtonMercuryClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("mercury.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("mercury.jpg");
 }
 //---------------------------------------------------------------------------
 
@@ -175,13 +176,13 @@ void __fastcall TFormAstroScene::ButtonVenusClick(TObject* Sender)
 
 void __fastcall TFormAstroScene::ButtonEarthClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("earth.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("earth.jpg");
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::ButtonMarsClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("mars.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("mars.jpg");
 }
 //---------------------------------------------------------------------------
 
@@ -193,38 +194,38 @@ void __fastcall TFormAstroScene::ButtonJupiterClick(TObject* Sender)
 
 void __fastcall TFormAstroScene::ButtonSaturnClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("saturn.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("saturn.jpg");
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::ButtonUranusClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("uranus.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("uranus.jpg");
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::ButtonNeptuneClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("neptune.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("neptune.jpg");
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::ButtonPlutoClick(TObject* Sender)
 {
-    sfPlanet->Material->Texture->Image->LoadFromFile("pluto.jpg");
+	sfPlanet->Material->Texture->Image->LoadFromFile("pluto.jpg");
 }
 
 //---------------------------------------------------------------------------
 
 void __fastcall TFormAstroScene::chbAxesClick(TObject* Sender)
 {
-	sfPlanet->ShowAxes = FormSettings->chbAxes->Checked;
-	ArrowX->Visible = FormSettings->chbAxes->Checked;
-	ArrowY->Visible = FormSettings->chbAxes->Checked;
-	ArrowZ->Visible = FormSettings->chbAxes->Checked;
-	Arrow_X->Visible = FormSettings->chbAxes->Checked;
-	Arrow_Y->Visible = FormSettings->chbAxes->Checked;
-	Arrow_Z->Visible = FormSettings->chbAxes->Checked;
+	sfPlanet->ShowAxes = FormOptions->chbAxes->Checked;
+	ArrowX->Visible = FormOptions->chbAxes->Checked;
+	ArrowY->Visible = FormOptions->chbAxes->Checked;
+	ArrowZ->Visible = FormOptions->chbAxes->Checked;
+	Arrow_X->Visible = FormOptions->chbAxes->Checked;
+	Arrow_Y->Visible = FormOptions->chbAxes->Checked;
+	Arrow_Z->Visible = FormOptions->chbAxes->Checked;
 }
 
 //---------------------------------------------------------------------------
@@ -232,25 +233,15 @@ void __fastcall TFormAstroScene::chbAxesClick(TObject* Sender)
 void __fastcall TFormAstroScene::chbPlanetClick(TObject* Sender)
 {
 	///    sfPlanet->Visible = chbPlanet->Checked;
-	if (FormSettings->chbPlanet->Checked)
+	if (FormOptions->chbPlanet->Checked)
 		sfPlanet->Material->PolygonMode = pmFill;
 	else
 		sfPlanet->Material->PolygonMode = pmLines;
 }
 
-//---------------------------------------------------------------------------
-//                       Показать меридианы и параллели
-//---------------------------------------------------------------------------
-void __fastcall TFormAstroScene::chbGridClick(TObject* Sender)
+void __fastcall TFormAstroScene::miOptionsClick(TObject* Sender)
 {
-	dmMeridianGrid->Visible = FormSettings->chbGrid->Checked;
-	dmParallelGrid->Visible = FormSettings->chbGrid->Checked;
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFormAstroScene::miSettingsClick(TObject* Sender)
-{
-	FormSettings->Show();
+	FormOptions->Show();
 }
 //---------------------------------------------------------------------------
 

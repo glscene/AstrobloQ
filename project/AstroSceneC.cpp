@@ -7,7 +7,7 @@
 USEFORM("..\Source\astroc\fcHipparcos.cpp", frmHipparcos);
 USEFORM("..\Source\astroc\fcHercRussel.cpp", frmHercRussel);
 USEFORM("..\source\astroc\fcForm.cpp", FormC);
-USEFORM("..\Source\astroc\fcSettings.cpp", FormSettings);
+USEFORM("..\source\astroc\fcOptions.cpp", FormOptions);
 USEFORM("..\source\astroc\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
 USEFORM("..\source\astroc\dcBase.cpp", dmBase); /* TDataModule: File Type */
 USEFORM("..\source\astroc\fcAstroScene.cpp", FormAstroScene);
@@ -24,7 +24,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->CreateForm(__classid(TdmImages), &dmImages);
 		Application->CreateForm(__classid(TdmDialogs), &dmDialogs);
 		Application->CreateForm(__classid(TdmBase), &dmBase);
-		Application->CreateForm(__classid(TFormSettings), &FormSettings);
+		Application->CreateForm(__classid(TFormOptions), &FormOptions);
 		Application->CreateForm(__classid(TFormC), &FormC);
 		Application->Run();
 	}

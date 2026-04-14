@@ -238,10 +238,10 @@
             <DependentOn>..\Source\astroc\fcHipparcos.h</DependentOn>
             <BuildOrder>14</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\Source\astroc\fcSettings.cpp">
-            <Form>FormSettings</Form>
+        <CppCompile Include="..\source\astroc\fcOptions.cpp">
+            <Form>FormOptions</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\Source\astroc\fcSettings.h</DependentOn>
+            <DependentOn>..\source\astroc\fcOptions.h</DependentOn>
             <BuildOrder>15</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\Source\astroc\ucConstel.c">
@@ -254,7 +254,7 @@
         <FormResources Include="..\Source\astroc\fcHipparcos.dfm"/>
         <FormResources Include="..\Source\astroc\fcHercRussel.dfm"/>
         <FormResources Include="..\source\astroc\fcForm.dfm"/>
-        <FormResources Include="..\Source\astroc\fcSettings.dfm"/>
+        <FormResources Include="..\source\astroc\fcOptions.dfm"/>
         <FormResources Include="..\source\astroc\dcDialogs.dfm"/>
         <FormResources Include="..\source\astroc\dcBase.dfm"/>
         <FormResources Include="..\source\astroc\fcAstroScene.dfm"/>

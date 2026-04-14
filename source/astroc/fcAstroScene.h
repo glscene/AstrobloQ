@@ -71,9 +71,9 @@ __published:	// IDE-managed Components
 	TGLTorus *ParallelS_60;
 	TGLTorus *ParallelS_75;
 	TGLTorus *PoleS_90;
-	TGLDummyCube *dmParallelGrid;
+	TGLDummyCube *dcParallelGrid;
 	TGLLines *Parallel20;
-	TGLDummyCube *dmMeridianGrid;
+	TGLDummyCube *dcMeridianGrid;
 	TGLDummyCube *dcPlanet;
 	TGLArrowLine *ArrowX;
 	TGLArrowLine *ArrowY;
@@ -98,7 +98,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N1;
 	TMenuItem *miExit;
 	TMenuItem *Show1;
-	TMenuItem *miSettings;
+	TMenuItem *miOptions;
 	TMenuItem *Wiki1;
 	TMenuItem *miHipparcos;
 	TMenuItem *N2;
@@ -134,8 +134,7 @@ __published:	// IDE-managed Components
 	void __fastcall ButtonPlutoClick(TObject *Sender);
 	void __fastcall chbAxesClick(TObject *Sender);
 	void __fastcall chbPlanetClick(TObject *Sender);
-	void __fastcall chbGridClick(TObject *Sender);
-	void __fastcall miSettingsClick(TObject *Sender);
+	void __fastcall miOptionsClick(TObject *Sender);
 	void __fastcall tvPlanetsClick(TObject *Sender);
 private:	// User declarations
 	TFileName DataDir;
