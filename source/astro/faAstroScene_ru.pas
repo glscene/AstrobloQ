@@ -266,21 +266,18 @@ begin
     SkyDome.StructureChanged;
   end;
 
-  // переход по умолчанию в директорию солнечной системы
-  if DirectoryExists('starsys\sun') then
-        ChDir('starsys\sun');
   CurrentStellar := DataDir + '\starsys\sun\';
 
   // разрешенo текстурирования планет
-  sfPlanet.Material.Texture.Disabled := False; // сферические формы
-  ffPlanet.Material.Texture.Disabled := False; // фри формы
-  sfPlanet.Material.Texture.Image.LoadFromFile('earth.jpg');
+  sfPlanet.Material.Texture.Disabled := False; // сферическая форма
+  ffPlanet.Material.Texture.Disabled := False; // фри форма
+  sfGrid.Material.Texture.Disabled := False; // сфера сетки
 //  ffPlanet.Scale.Scale(1); // масштаб фриформ планет
 
   // разрешенo текстурирование лун
   sfMoon.Material.Texture.Disabled := False;
   ffMoon.Material.Texture.Disabled := False;
-  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
+//  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
 // ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
 
   // разрешенo текстурирования астероидов
@@ -299,6 +296,9 @@ begin
     GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
     GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(FileJpg);
   end;
+//  sfGrid.Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
+  GLMatLib.Materials[5].Material.Texture.Compression := tcStandard;
+//  GLMatLib.Materials[5].Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
 end;
 
 //----------------------------------------------------------------------------

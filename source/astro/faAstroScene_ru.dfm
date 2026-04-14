@@ -39,8 +39,6 @@ object FormAstroScene: TFormAstroScene
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
-    ExplicitWidth = 791
-    ExplicitHeight = 630
   end
   object PanelLeft: TPanel
     Left = 0
@@ -761,6 +759,16 @@ object FormAstroScene: TFormAstroScene
       object dcPlanet: TGLDummyCube
         OnProgress = GLCadencerProgress
         CubeSize = 1.000000000000000000
+        object sfGrid: TGLSphere
+          Material.BlendingMode = bmTransparency
+          Material.Texture.TextureMode = tmReplace
+          Material.Texture.Disabled = False
+          Visible = False
+          OnProgress = GLCadencerProgress
+          Radius = 0.519999980926513700
+          Slices = 32
+          Stacks = 32
+        end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
           Direction.Coordinates = {000000000000803F0000000000000000}
@@ -773,7 +781,9 @@ object FormAstroScene: TFormAstroScene
             Material.MaterialLibrary = GLMatLib
             Material.LibMaterialName = 'globeCloud'
             Visible = False
-            Radius = 0.519999980926513700
+            Radius = 0.529999971389770500
+            Slices = 32
+            Stacks = 32
           end
           object diskRingDn: TGLDisk
             Material.Texture.Disabled = False
@@ -817,10 +827,6 @@ object FormAstroScene: TFormAstroScene
             Radius = 0.200000002980232200
             Slices = 64
             Stacks = 64
-          end
-          object sfGrid: TGLSphere
-            OnProgress = GLCadencerProgress
-            Radius = 0.500000000000000000
           end
         end
         object ffPlanet: TGLFreeForm
@@ -909,6 +915,7 @@ object FormAstroScene: TFormAstroScene
       'Tex1:=InterPolate(Tex0, Tex1, PrimaryColor);'
       '')
     DesignTimeEnabled = False
+    MaterialLibrary = GLMatLib
     Left = 506
     Top = 152
   end
@@ -7794,7 +7801,7 @@ object FormAstroScene: TFormAstroScene
         Material.Texture.Disabled = False
       end
       item
-        Name = 'earthBump'
+        Name = 'globeBump'
         Tag = 0
         Material.FrontProperties.Diffuse.Color = {0000803F0000803F0000803F0000803F}
         Material.BlendingMode = bmAdditive
@@ -7808,6 +7815,8 @@ object FormAstroScene: TFormAstroScene
         Name = 'globeGrid'
         Tag = 0
         Material.BlendingMode = bmTransparency
+        Material.Texture.TextureMode = tmReplace
+        Material.Texture.Disabled = False
       end>
     Left = 498
     Top = 84

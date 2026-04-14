@@ -359,8 +359,6 @@ object FormOptions: TFormOptions
             Width = 98
             Height = 27
             Caption = #1071#1076#1088#1086
-            Checked = True
-            State = cbChecked
             TabOrder = 1
             StyleName = 'Windows'
             OnClick = chbCoreClick
