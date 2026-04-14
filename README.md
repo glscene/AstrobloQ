@@ -53,7 +53,7 @@
 
 ## Galaqtium
 
-Построение Виртуальной Модели Галактики
+Построение Виртуальной Модели Галактики VRMW
 
 ![Galaqtium](./docs/clips/AstrobloQ_ru.png)
 ![Galaqtium](./docs/clips/Noostages_ru.jpg)
@@ -91,6 +91,5 @@
 в избранное, получите у администратора права на запись в репозиторий и 
 внести вклад в проект, обоработку данных и улучшение программного кода. 
 
-Астроблок
 
-[Admin](https://t.me/glscene)
+[Admin](https://max.ru/join/_UxhOB0pY-8NADATu_IOYuDyEqPpxGyupYTo4ckJkTg)
