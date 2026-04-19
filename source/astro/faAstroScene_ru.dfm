@@ -352,6 +352,7 @@ object FormAstroScene: TFormAstroScene
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'Sol'
+        Grouped = True
         ImageIndex = 0
         ImageName = 'Sol'
         ParentShowHint = False
@@ -367,6 +368,7 @@ object FormAstroScene: TFormAstroScene
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'Mercury'
+        Grouped = True
         ImageIndex = 1
         ImageName = 'Mercury'
         ParentShowHint = False
@@ -382,6 +384,7 @@ object FormAstroScene: TFormAstroScene
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'Venus'
+        Grouped = True
         ImageIndex = 2
         ImageName = 'Venus'
         ParentShowHint = False
@@ -397,6 +400,7 @@ object FormAstroScene: TFormAstroScene
         Margins.Right = 2
         Margins.Bottom = 2
         Caption = 'Earth'
+        Grouped = True
         ImageIndex = 3
         ImageName = 'Earth'
         ParentShowHint = False
@@ -408,6 +412,7 @@ object FormAstroScene: TFormAstroScene
         Top = 0
         Hint = #1052#1072#1088#1089
         Caption = 'Mars'
+        Grouped = True
         ImageIndex = 4
         ImageName = 'Mars'
         ParentShowHint = False
@@ -419,6 +424,7 @@ object FormAstroScene: TFormAstroScene
         Top = 0
         Hint = #1070#1087#1080#1090#1077#1088
         Caption = 'Jupiter'
+        Grouped = True
         ImageIndex = 5
         ImageName = 'Jupiter'
         ParentShowHint = False
@@ -430,6 +436,7 @@ object FormAstroScene: TFormAstroScene
         Top = 0
         Hint = #1057#1072#1090#1091#1088#1085
         Caption = 'Saturn'
+        Grouped = True
         ImageIndex = 6
         ImageName = 'Saturn'
         ParentShowHint = False
@@ -441,6 +448,7 @@ object FormAstroScene: TFormAstroScene
         Top = 0
         Hint = #1059#1088#1072#1085
         Caption = 'Uranus'
+        Grouped = True
         ImageIndex = 7
         ImageName = 'Uranus'
         ParentShowHint = False
@@ -452,6 +460,7 @@ object FormAstroScene: TFormAstroScene
         Top = 0
         Hint = #1053#1077#1087#1090#1091#1085
         Caption = 'Neptune'
+        Grouped = True
         ImageIndex = 8
         ImageName = 'Neptune'
         ParentShowHint = False
@@ -672,12 +681,17 @@ object FormAstroScene: TFormAstroScene
         Top = 0
         Caption = #1057#1073#1088#1086#1089
         ImageIndex = 27
+        OnClick = ToolButtonResetClick
       end
-      object ToolButton19: TToolButton
+      object tbCore: TToolButton
         Left = 32
         Top = 0
-        Caption = 'ToolButton19'
+        Hint = #1071#1076#1088#1086
+        Caption = 'tbCore'
         ImageIndex = 78
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = tbCoreClick
       end
       object ToolButton21: TToolButton
         Left = 64
@@ -766,8 +780,6 @@ object FormAstroScene: TFormAstroScene
           Visible = False
           OnProgress = GLCadencerProgress
           Radius = 0.519999980926513700
-          Slices = 32
-          Stacks = 32
         end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
@@ -782,8 +794,6 @@ object FormAstroScene: TFormAstroScene
             Material.LibMaterialName = 'globeCloud'
             Visible = False
             Radius = 0.529999971389770500
-            Slices = 32
-            Stacks = 32
           end
           object diskRingDn: TGLDisk
             Material.Texture.Disabled = False
@@ -808,7 +818,7 @@ object FormAstroScene: TFormAstroScene
             Slices = 64
             SweepAngle = 360.000000000000000000
           end
-          object diskMantle: TGLDisk
+          object diskCore: TGLDisk
             Material.Texture.Disabled = False
             Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
             PitchAngle = 90.000000000000000000
@@ -871,6 +881,8 @@ object FormAstroScene: TFormAstroScene
         object sfComet: TGLSphere
           Visible = False
           Radius = 0.500000000000000000
+          Slices = 16
+          Stacks = 16
         end
         object ffComet: TGLFreeForm
           Visible = False

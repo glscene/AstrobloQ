@@ -109,7 +109,7 @@ type
     miFileSaveAs: TMenuItem;
     SaveDialog: TSaveDialog;
     Atmosphere: TGLAtmosphere;
-    diskMantle: TGLDisk;
+    diskCore: TGLDisk;
     ffPlanet: TGLFreeForm;
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
@@ -152,7 +152,7 @@ type
     tbnNeptune: TToolButton;
     ToolBar2: TToolBar;
     ToolButtonReset: TToolButton;
-    ToolButton19: TToolButton;
+    tbCore: TToolButton;
     ToolButton21: TToolButton;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
@@ -196,10 +196,12 @@ type
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miMapClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
+    procedure tbCoreClick(Sender: TObject);
+    procedure ToolButtonResetClick(Sender: TObject);
   public
-    DataDir, StellarDir, CurrentStellar: TFileName;
-    FileCSV, FileJpg: TFileName;
+    DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
+    BodyType: Byte; // t
     ConstLinesAlpha: Single;
     ConstBordersAlpha: Single;
     TimeMultiplier: Single;
@@ -222,12 +224,14 @@ type
 
 var
   FormAstroScene: TFormAstroScene;
+  FileCSV, FileJpg: TFileName;
+  vBodyType: Byte = 1; // звёзды 0, планеты 1, луны 2, астероиды 3, кометы 4
 
 const
   cOpacity: Single = 5;
-  // более толстая атмосфера лучше выглядит чем в действительности
+  // более толстая атмосфера лучше выглядит чем в на самом деле
   cAtmosphereRadius: Single = 0.55;
-  // небольшой радиус взят чтобы исключить эффект наложения линий друг на друга
+  // меньший радиус взят для исключения эффекта наложения линий
   cPlanetRadius: Single = 0.495;
   cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
   cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
@@ -250,10 +254,10 @@ uses faStellarSys_ru;
 procedure TFormAstroScene.FormCreate(Sender: TObject);
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(DataDir, Pos('bin', DataDir), Length(DataDir)); // if bin dir for exe
+  Delete(DataDir, Pos('bin', DataDir), Length(DataDir));
   DataDir := IncludeTrailingPathDelimiter(DataDir) + 'data';
   SetCurrentDir(DataDir) ;
-  StellarDir := DataDir + '\starsys';
+  StarDir := DataDir + '\starsys';
 
   // путь к каталогам
   CatalogName := DataDir + '\catalog\hipparcos.stars';
@@ -266,31 +270,31 @@ begin
     SkyDome.StructureChanged;
   end;
 
-  CurrentStellar := DataDir + '\starsys\sun\';
+  CurrentStar := DataDir + '\starsys\sun\';
 
-  // разрешенo текстурирования планет
+  // разрешаем текстурирование планет
   sfPlanet.Material.Texture.Disabled := False; // сферическая форма
   ffPlanet.Material.Texture.Disabled := False; // фри форма
   sfGrid.Material.Texture.Disabled := False; // сфера сетки
 //  ffPlanet.Scale.Scale(1); // масштаб фриформ планет
 
-  // разрешенo текстурирование лун
+  // разрешаем текстурирование лун
   sfMoon.Material.Texture.Disabled := False;
   ffMoon.Material.Texture.Disabled := False;
 //  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
 // ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
 
-  // разрешенo текстурирования астероидов
+  // разрешаем текстурирование астероидов
   sfAsteroid.Material.Texture.Disabled := False;
   ffAsteroid.Material.Texture.Disabled := False;
 // ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
 
-  // разрешенo текстурирования комет
+  // разрешаем текстурирование комет
   sfComet.Material.Texture.Disabled := False;
   ffComet.Material.Texture.Disabled := False;
 
   // Текстура облаков д.б. загружена в 3й материал компонента GLMatLib
-  FileJpg := CurrentStellar + 'clouds_rare.jpg';
+  FileJpg := CurrentStar + 'clouds_rare.jpg';
   if FileExists(FileJpg) then // or clouds_dense
   begin
     GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
@@ -302,7 +306,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//--------------------------- Шоу --------------------------------------------
+//------------------------ Показать форму ------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.FormShow(Sender: TObject);
 var
@@ -310,12 +314,10 @@ var
   Node: TTreeNode;
   Tl: TStringList;
   S: String;
-
 begin
   tbPlanets.SetFocus;
   // показываем Землю для которой tbnEarth.ImageIndex := 3;
   tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
-
   // По умолчанию справка - Земля, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
@@ -327,7 +329,7 @@ begin
   end;
 
   //  Астероиды, загрузка имён из файла csv
-  FileCSV := CurrentStellar + 'sol_asteroids.csv';
+  FileCSV := CurrentStar + 'sol_asteroids.csv';
   if FileExists(FileCSV) then // or clouds_dense
   begin
     tvAsteroids.Items.BeginUpdate;
@@ -354,13 +356,12 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//--------------------------- Планеты   --------------------------------------
+//--------------------------- Планеты с кнопками  ----------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
-var
-  PlanetPath: TFileName;
 
 begin
+  vBodyType := 1;
   // видимость планет
   sfPlanet.Visible := True;
   ffPlanet.Visible := False;
@@ -369,8 +370,7 @@ begin
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
 
-  PlanetPath := CurrentStellar + TToolButton(Sender).ImageName;
-  FileJpg := PlanetPath + '.jpg';
+  FileJpg := CurrentStar + TToolButton(Sender).ImageName + '.jpg';
   sfPlanet.Material.Texture.Image.LoadFromFile(FileJpg);
 
   // Показать атмосферы планет, заменить на case, толщина атмосфер разная
@@ -382,34 +382,26 @@ begin
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Neptune')
   then
   begin
-    //  облочность
+    //  Лёгкие облака
+    //  sfClouds.Visible := True;
     DirectOpenGL.Visible := True;
     FormOptions.chbClouds.Checked := True;
- //   sfClouds.Visible := True;
   end
   else
   begin
+    // Cплошная облочность
+    // sfClouds.Visible := False;
     DirectOpenGL.Visible := False;
     FormOptions.chbClouds.Checked := False;
-//    sfClouds.Visible := False;
-  end;
-  // Показать недра планеты
-  if FormOptions.chbCore.Checked then
-  begin
-    if FileExists(PlanetPath  + '_core.jpg') then
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath  + '_core.jpg')
-    else
-      diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath  + '.jpg');
-//    sfPlanet.Stop := 180; // полусфера
   end;
 
   // Кольца Сатурна
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
   (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
   begin
-    diskRingUp.Material.Texture.Image.LoadFromFile(CurrentStellar  + 'saturn_ring.png');
+    diskRingUp.Material.Texture.Image.LoadFromFile(CurrentStar  + 'saturn_ring.png');
     diskRingUp.Visible := True;
-    diskRingDn.Material.Texture.Image.LoadFromFile(CurrentStellar  + 'saturn_ring.png');
+    diskRingDn.Material.Texture.Image.LoadFromFile(CurrentStar  + 'saturn_ring.png');
     diskRingDn.Visible := True;
   end
   else
@@ -418,9 +410,10 @@ begin
     diskRingDn.Visible := False;
   end;
 
+  // Солнце с короной
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Солнце') then
   begin
-    // корона с протуберанцами
+    // протуберанцы
   end;
 
   // Справка + ' в ' + 'RuWiki...';
@@ -428,12 +421,13 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//----------------------------- Луны -----------------------------------------
+//------------------------------- Луны ---------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
   MoonName : String;
 begin
+  vBodyType := 2;
 (*
   tvMoons.SetFocus;
   tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
@@ -448,14 +442,14 @@ begin
   dcComet.Visible := False;
 
   // чтение CSV файла для перевода имени луны на английский язык
-  FileCSV := CurrentStellar + 'sol_moons.csv';
+  FileCSV := CurrentStar + 'sol_moons.csv';
   // в CSV файле находим английское имя луны и её радиус
   // по полю name_ru и индексу узла дерева просмотра
   MoonName := GetMoonFromCSV(FileCSV,
     tvMoons.Selected.Index, tvMoons.Selected.Text (* sfMoon.Radius *));
 
   // Загружаем карту по названию луны на английском языке
-  FileJpg := CurrentStellar + LowerCase(MoonName) + '.jpg';
+  FileJpg := CurrentStar + LowerCase(MoonName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
 //    sfMoon.Radius := Radius; // считывается из csv файла
@@ -466,7 +460,7 @@ begin
   else
   begin
     sfMoon.Radius := 0.3; // Radius;
-    FileJpg := CurrentStellar + 'aMoon.jpg';
+    FileJpg := CurrentStar + 'aMoon.jpg';
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
@@ -496,30 +490,30 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//------------------------------ Астероиды -----------------------------------
+//-------------------------- Aстероиды ---------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
 var
   AsteroidName : String;
-
 begin
-  // включаем видимость астероидов
+  vBodyType := 3;
+  // включение видимости астероидов
   dcAsteroid.Visible := True;
-  // планеты, астероиды и кометы не видны
+  // остальные планеты, астероиды и кометы не видны
   sfPlanet.Visible := False;
   ffPlanet.Visible := False;
   dcMoon.Visible := False;
   dcComet.Visible := False;
 
   // чтение CSV файла для перевода имени луны на английский язык
-  FileCSV := CurrentStellar + 'sol_asteroids.csv';
+  FileCSV := CurrentStar + 'sol_asteroids.csv';
   // в CSV файле находим английское имя астероида и его радиус
   // по полю name_ru и индексу узла дерева просмотра
   AsteroidName := GetMoonFromCSV(FileCSV,
     tvAsteroids.Selected.Index, tvAsteroids.Selected.Text (* sfAsteroids.Radius *));
 
   // Загружаем карту по названию луны на английском языке
-  FileJpg := CurrentStellar + LowerCase(AsteroidName) + '.jpg';
+  FileJpg := CurrentStar + LowerCase(AsteroidName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
 //    sfAsteroid.Radius := Radius; // считывается из csv файла
@@ -530,14 +524,24 @@ begin
   else
   begin
     sfAsteroid.Radius := 0.3; // радиус по умолчанию
-    FileJpg := CurrentStellar + 'aAsteroid.jpg'; // паттерн
+    FileJpg := CurrentStar + 'aAsteroid.jpg'; // паттерн
     sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
     ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds');
   end;
-
-
   miHelpWiki.Caption := tvAsteroids.Selected.Text + '_(астероид)';
+end;
+
+
+//-------------------------- Кнопка Reset ------------------------------------
+procedure TFormAstroScene.ToolButtonResetClick(Sender: TObject);
+begin
+  tbPlanets.Buttons[3].Click; // Buttons[tbnEarth.ImageIndex].Click;
+  tbPlanets.SetFocus;
+  // показываем Землю для которой tbnEarth.ImageIndex := 3;
+  tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
+  // По умолчанию справка - Земля, имя 3-й планеты на кириллице
+  miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 end;
 
 
@@ -883,6 +887,13 @@ begin
   my := y;
 end;
 
+//----------------- Показать ядро планеты, луны или астероида -----------------
+procedure TFormAstroScene.tbCoreClick(Sender: TObject);
+begin
+  tbCore.Down := not tbCore.Down;
+  FormOptions.chbCore.Checked := not FormOptions.chbCore.Checked;
+end;
+
 //--------------------- Загрузка текстуры высокого разрешения -----------------
 procedure TFormAstroScene.LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
 begin
@@ -911,7 +922,7 @@ begin
       begin
         SceneViewer.Cursor := crHourGlass;
         try
-          if DirectoryExists(CurrentStellar) then
+          if DirectoryExists(CurrentStar) then
           begin
             LoadHighResTexture(GLMatLib.Materials[0], 'earth_day_4096.jpg');
             LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
@@ -991,13 +1002,13 @@ var
   I, J: Integer;
 begin
   OpenDialog.Filter := '(*.star)|*.star';
-  OpenDialog.InitialDir := StellarDir;
+  OpenDialog.InitialDir := StarDir;
   OpenDialog.DefaultExt := '*.star';
   if OpenDialog.Execute then
   begin  // новая звезда
     tvMoons.LoadFromFile(OpenDialog.FileName, TEncoding.UTF8);
     // tvMoons.Images := dfImages.ImgVirtPlanets; // не загружаются символы
-    CurrentStellar := ExtractFilePath(OpenDialog.FileName);
+    CurrentStar := ExtractFilePath(OpenDialog.FileName);
 
     // Присвоение индексов
     for I := 0 to tvMoons.Items.Count - 1 do
@@ -1016,22 +1027,22 @@ end;
 procedure TFormAstroScene.miFileSaveAsClick(Sender: TObject);
 begin
   SaveDialog.Filter := '_(Planet system)' + '(*.star)|*.star';
-  SaveDialog.InitialDir := StellarDir;
+  SaveDialog.InitialDir := StarDir;
   SaveDialog.DefaultExt := '*.star';
   if SaveDialog.Execute then
   begin
     tvMoons.SaveToFile(SaveDialog.FileName);
-    CurrentStellar := GetCurrentDir();
+    CurrentStar := GetCurrentDir();
   end;
 end;
 
 //----------------------------------------------------------------------------
-//---------------------------- Вид -------------------------------------------
+//---------------------------- Меню Вид --------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.miPlanetSystemClick(Sender: TObject);
 begin
   inherited;
-///  frmStellarSys.Show;    // иначе FormSolarSys
+///  frmStarSys.Show;    // иначе FormSolarSys
   with TfrmStellarSys.Create(Self) do
   try
     ShowModal;
@@ -1049,7 +1060,6 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-
 procedure TFormAstroScene.miConstAtlasClick(Sender: TObject);
 begin
   with TfrmConstAtlas.Create(Self) do
@@ -1060,6 +1070,7 @@ begin
   end;
 end;
 
+//----------------------------------------------------------------------------
 procedure TFormAstroScene.miConstPolygonsClick(Sender: TObject);
 begin
   with TfrmSkyPolygons.Create(Self) do
@@ -1071,13 +1082,13 @@ begin
 end;
 
 
-//------------------------- Показать опции ------------------------------------
+//------------------------- Меню Опции ----------------------------------------
 procedure TFormAstroScene.miOptionsClick(Sender: TObject);
 begin
   FormOptions.Show;
 end;
 
-//------------------------ Показать настройки --------------------------------
+//------------------------ Меню настройки -------------------------------------
 procedure TFormAstroScene.miSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;

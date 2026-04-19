@@ -207,26 +207,49 @@ end;
 // Разрез с ядром и мантией
 //-----------------------------------------------------------------------------
 procedure TFormOptions.chbCoreClick(Sender: TObject);
-var
-  PlanetPath: TFileName;
 begin
-  inherited;  // считываем сохранённые параметры из ini файла
+  inherited;  // считываем параметры из ini файла
+
   if chbCore.Checked then
   begin
-    // Переключить невидимую модель планеты типа GLFreeForm
-    // на видимую модель планеты типа GLSphere c моделью сечения типа GLDisk
-    PlanetPath := FormAstroScene.StellarDir + FormAstroScene.tvMoons.Selected.Text;
-    if FileExists(PlanetPath + '_core.jpg') then
-      FormAstroScene.diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '_core.jpg')
+    if chbClouds.Checked = True then chbClouds.Checked := False;
+    // Если активна модель типа GLFreeForm, то переключиться
+    // на модель планеты типа GLSphere c моделью сечения типа GLDisk
+    case vBodyType of
+    1: begin // Planets
+         FileJpg := FormAstroScene.CurrentStar +
+         FormAstroScene.tbPlanets.Buttons[TToolButton(Sender).ImageIndex].ImageName
+          + '.jpg';
+         FormAstroScene.sfPlanet.Stop := 180;
+       end;
+    2: begin // Moons
+         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvMoons.Selected.Text;
+         FormAstroScene.sfMoon.Stop := 180;
+
+       end;
+    3: begin // Asteroids
+         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvAsteroids.Selected.Text;
+         FormAstroScene.sfAsteroid.Stop := 180;
+       end;
+    4: begin // Comets not added
+         /// FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvComets.Selected.Text;
+         /// FormAstroScene.sfComet.Stop := 180;
+
+       end
     else
-      FormAstroScene.diskMantle.Material.Texture.Image.LoadFromFile(PlanetPath + '.jpg');
-    FormAstroScene.sfPlanet.Stop := 180;
-    FormAstroScene.Atmosphere.Visible := False;
+    begin
+        if FileExists(FileJpg + '_core.jpg') then
+        FormAstroScene.diskCore.Material.Texture.Image.LoadFromFile(FileJpg + '_core.jpg')
+      else
+        FormAstroScene.diskCore.Material.Texture.Image.LoadFromFile(FileJpg + '.jpg');
+      end;
+    end; // case
   end
   else
   begin
     FormAstroScene.sfPlanet.Stop := 360;
-    FormAstroScene.Atmosphere.Visible := True;
+    FormAstroScene.sfMoon.Stop := 360;
+    FormAstroScene.sfAsteroid.Stop := 360;
   end;
 end;
 
