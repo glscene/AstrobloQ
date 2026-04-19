@@ -143,18 +143,17 @@ begin
 
   // Выбор начальной темы узла дерева
   tvOptions.Items[1].Selected := True;
-  tvOptionsClick(Self);
   // Подсветка темы узла после клика !
   tvOptions.Items[1].DropHighlighted := True;
   // Раскрываем все узлы дерева
   tvOptions.FullExpand;
 
 //  tvOptions.Select(tvOptions.Items[0]);
-//  tvOptionsClick(Self);
+  tvOptionsClick(Self);
 end;
 
 //-----------------------------------------------------------------------------
-//                    Показать кайму атмосферы
+//                    Показать атмосферу
 //-----------------------------------------------------------------------------
 procedure TFormOptions.CheckBoxAtmosferaClick(Sender: TObject);
 begin

@@ -379,6 +379,8 @@ object FormGalaqtium: TFormGalaqtium
       object sphGalaxy: TGLSphere
         Material.PolygonMode = pmLines
         Radius = 50000.000000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object ansGHZ: TGLAnnulus
         Material.BackProperties.Ambient.Color = {00000000000000000000000000000000}

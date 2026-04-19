@@ -129,7 +129,7 @@ type
     PlutoOrbit: TGLTorus;
     EarthOrbit: TGLTorus;
     UranusRing: TGLDisk;
-    StarHZUp: TGLDisk;
+    diskSHZup: TGLDisk;
     MainMenu: TMainMenu;
     PanelRight: TPanel;
     Window1: TMenuItem;
@@ -150,7 +150,7 @@ type
     miOpen: TMenuItem;
     miExit: TMenuItem;
     SimpleNavigation: TGLSimpleNavigation;
-    StarHZDown: TGLDisk;
+    diskSHZdown: TGLDisk;
     chbInnerCore: TCheckBox;
     procedure CadencerProgress(Sender: TObject;
       const deltaTime, newTime: Double);
@@ -366,8 +366,8 @@ end;
 //----------------------- Показать обитаемую зону звезды ----------------------
 procedure TfrmStellarSys.cbStarHZClick(Sender: TObject);
 begin
-  StarHZUp.Visible := cbStarHZ.Checked;
-  StarHZDown.Visible := cbStarHZ.Checked;
+  diskSHZup.Visible := cbStarHZ.Checked;
+  diskSHZdown.Visible := cbStarHZ.Checked;
 end;
 
 

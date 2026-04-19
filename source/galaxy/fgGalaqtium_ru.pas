@@ -248,7 +248,7 @@ begin
   Screen.Cursors[crRotate] := LoadCursor(HInstance, 'ROTATE');
   Screen.Cursors[crZoom] := LoadCursor(HInstance, 'ZOOM');
 
-  tbSolarcubeClick(Self);
+ // tbSolarcubeClick(Self); // переход в стардлок Солнца
   tbAxesClick(Self);
   inherited;    // inheritance for translation
 end;

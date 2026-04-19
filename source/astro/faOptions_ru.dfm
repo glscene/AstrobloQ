@@ -12,6 +12,7 @@ object FormOptions: TFormOptions
   Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poDefault
   OnClose = FormClose
   OnCreate = FormCreate
   TextHeight = 21

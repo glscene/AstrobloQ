@@ -199,14 +199,16 @@ object frmStellarSys: TfrmStellarSys
         Material.FrontProperties.Emission.Color = {9A99593F9A99593FCDCCCC3D0000803F}
         Material.Texture.Disabled = False
         Radius = 0.699999988079071000
-        Slices = 32
-        Stacks = 32
+        Slices = 16
+        Stacks = 16
         EffectsData = {
           0458434F4C02010201060A54474C424669726546580201020006064669726546
           5802000200060D4669726546584D616E61676572}
       end
-      object StarHZUp: TGLDisk
+      object diskSHZup: TGLDisk
+        Material.BackProperties.Ambient.Color = {0000000000000000000000000000803F}
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
+        Material.FrontProperties.Ambient.Color = {0000000000000000000000000000803F}
         Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.BlendingMode = bmTransparency
         Material.FaceCulling = fcCull
@@ -221,7 +223,7 @@ object frmStellarSys: TfrmStellarSys
         Slices = 64
         SweepAngle = 360.000000000000000000
       end
-      object StarHZDown: TGLDisk
+      object diskSHZdown: TGLDisk
         Material.BackProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
         Material.FrontProperties.Ambient.Color = {000000000000003F000000000000803F}
         Material.FrontProperties.Diffuse.Color = {CDCC4C3E0000803FCDCC4C3E9A99993E}
@@ -699,8 +701,8 @@ object frmStellarSys: TfrmStellarSys
               Material.Texture.Disabled = False
               Position.Coordinates = {0000000000000000000080BF0000803F}
               Radius = 0.100000001490116100
-              Slices = 32
-              Stacks = 32
+              Slices = 16
+              Stacks = 16
             end
           end
         end
