@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{5A868737-E493-4A63-A8BC-67F6DD4928F9}</ProjectGuid>
+        <ProjectGuid>{A17C4DFB-82FE-4608-BF6F-A004B5F6EC8A}</ProjectGuid>
         <ProjectVersion>20.4</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">Universum_ru</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Universum_en</ProjectName>
         <TargetedPlatforms>2</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Universum_ru.dpr</MainSource>
+        <MainSource>Universum_en.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -77,7 +77,7 @@
         <AUP_READ_PHONE_STATE>true</AUP_READ_PHONE_STATE>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
-        <SanitizedProjectName>Universum_ru</SanitizedProjectName>
+        <SanitizedProjectName>Universum_en</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>vclwinx;DataSnapServer;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;FmxTeeUI;emsedge;bindcompfmx;DBXFirebirdDriver;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;GR32_DT;Tee;soapmidas;vclactnband;TeeUI;fmxFireDAC;dbexpress;FireDACInfxDriver;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;vcltouch;fmxase;DBXOdbcDriver;dbrtl;FireDACDBXDriver;Skia.Package.FMX;FireDACOracleDriver;fmxdae;TeeDB;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;Skia.Package.VCL;vcldb;GLScene_GPU_RT;vclFireDAC;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;inetstn;GXScene_GBE_DTRT;IndyCore;RESTBackendComponents;GLScene_Physics_RT;GR32_RT;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;DBXSybaseASEDriver;DBXDb2Driver;GLScene_Sounds_RT;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;FMXTee;DatasnapConnectorsFreePascal;soaprtl;GLScene_RT;GLScene_Cg_RT;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -100,9 +100,9 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UnitSearchPath>..\external\lux;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <DCC_UnitSearchPath>..\external\lux;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -122,9 +122,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -142,19 +142,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\univer\fxUniversum_ru.pas">
+        <DCCReference Include="..\source\univer\fxUniversum.pas">
             <Form>FormUniverse</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxSettings_ru.pas">
+        <DCCReference Include="..\source\univer\fxSettings.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAbout_ru.pas">
-            <Form>FrmAbout</Form>
+        <DCCReference Include="..\source\univer\fxAbout.pas">
+            <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAstrogen_ru.pas">
+        <DCCReference Include="..\source\univer\fxAstrogen.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxScatterPlot_ru.pas">
+        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
+        <DCCReference Include="..\source\univer\fxScatterPlot.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
         <DCCReference Include="..\external\lux\LUX.FMX.ScatterPlotFrame.pas">
@@ -171,14 +172,12 @@
         <DCCReference Include="..\external\lux\LUX.FMX.Types3D.pas"/>
         <DCCReference Include="..\source\univer\fxForm.pas">
             <Form>FormX</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
         <DCCReference Include="..\source\univer\fxVolumeRender.pas">
             <Form>FormTexture3D</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -197,7 +196,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Universum_ru.dpr</Source>
+                    <Source Name="MainSource">Universum_en.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -222,21 +221,21 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\bin\Universum_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Universum_en.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
-                        <RemoteName>Universum_ru.exe</RemoteName>
+                        <RemoteName>Universum_en.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\bin\Universum_ru.rsm" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="..\bin\Universum_en.rsm" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win64">
-                        <RemoteName>Universum_ru.rsm</RemoteName>
+                        <RemoteName>Universum_en.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\Universum_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\Universum_en.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Universum_ru.exe</RemoteName>
+                        <RemoteName>Universum_en.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

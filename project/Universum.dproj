@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{A17C4DFB-82FE-4608-BF6F-A004B5F6EC8A}</ProjectGuid>
+        <ProjectGuid>{5A868737-E493-4A63-A8BC-67F6DD4928F9}</ProjectGuid>
         <ProjectVersion>20.4</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
@@ -100,9 +100,9 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <DCC_UnitSearchPath>..\external\lux;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -122,9 +122,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -142,20 +142,19 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\univer\fxUniversum.pas">
+        <DCCReference Include="..\source\univer\fxUniversum_ru.pas">
             <Form>FormUniverse</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxSettings.pas">
+        <DCCReference Include="..\source\univer\fxSettings_ru.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAbout.pas">
-            <Form>FormAbout</Form>
+        <DCCReference Include="..\source\univer\fxAbout_ru.pas">
+            <Form>FrmAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAstrogen.pas">
+        <DCCReference Include="..\source\univer\fxAstrogen_ru.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
-        <DCCReference Include="..\source\univer\fxScatterPlot.pas">
+        <DCCReference Include="..\source\univer\fxScatterPlot_ru.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
         <DCCReference Include="..\external\lux\LUX.FMX.ScatterPlotFrame.pas">
@@ -172,12 +171,14 @@
         <DCCReference Include="..\external\lux\LUX.FMX.Types3D.pas"/>
         <DCCReference Include="..\source\univer\fxForm.pas">
             <Form>FormX</Form>
+            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
         <DCCReference Include="..\source\univer\fxVolumeRender.pas">
             <Form>FormTexture3D</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

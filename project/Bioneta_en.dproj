@@ -1,15 +1,16 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{DB43E9C1-2F46-4187-9335-E4CB18490378}</ProjectGuid>
-        <MainSource>Galaqtium_ru.dpr</MainSource>
-        <Base>True</Base>
+        <ProjectGuid>{D54C68E8-0F0B-49F9-AEEB-BB0F77F91991}</ProjectGuid>
+        <MainSource>Bioneta_en.dpr</MainSource>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <ProjectName Condition="'$(ProjectName)'==''">Galaqtium_ru</ProjectName>
+        <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+        <ProjectVersion>20.4</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <Base>True</Base>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <FrameworkType>VCL</FrameworkType>
-        <ProjectVersion>20.4</ProjectVersion>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <ProjectName Condition="'$(ProjectName)'==''">Bioneta_en</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -35,6 +36,12 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -46,132 +53,222 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <SanitizedProjectName>Bioneta_en</SanitizedProjectName>
+        <VerInfo_PreRelease>true</VerInfo_PreRelease>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Build>1000</VerInfo_Build>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=Naturally Intelligent;FileDescription=;FileVersion=1.0.0.1000;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;System.Win;Winapi;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_DependencyCheckOutputName>aiplanet.exe</DCC_DependencyCheckOutputName>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_Platform>x86</DCC_Platform>
         <DCC_E>false</DCC_E>
-        <DCC_F>false</DCC_F>
-        <DCC_K>false</DCC_K>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
-        <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>Galaqtium_ru</SanitizedProjectName>
-        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
-        <VerInfo_Locale>1049</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
-        <Custom_Styles>Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;</Custom_Styles>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
-        <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
+        <Icon_MainIcon>..\data\icon\Biosfera.ico</Icon_MainIcon>
+        <DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <VerInfo_Build>0</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
-        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
-        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
-        <DCC_DebugInformation>0</DCC_DebugInformation>
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <Icon_MainIcon>aiplanet_Icon.ico</Icon_MainIcon>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
-        <DCC_Optimize>false</DCC_Optimize>
-        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
-        <DCC_RangeChecking>true</DCC_RangeChecking>
-        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_Build>0</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
+        <Icon_MainIcon>..\Assets\icon\Bioneta.ico</Icon_MainIcon>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
-        <Icon_MainIcon>..\Assets\icon\Galaqtium.ico</Icon_MainIcon>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\galaxy\fgMonitor_ru.pas">
-            <Form>frmMonitor</Form>
+        <DCCReference Include="..\source\bio\Bio.BaseObject.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Birds.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Bot.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Coordinates.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Crab.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Creature.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Environment.pas"/>
+        <DCCReference Include="..\source\bio\Bio.EnvironmentStructures.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Explosions.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Pisces.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Force.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Fox.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Grazer.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Grid.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Life.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Link.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Position.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Rabbit.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Reality.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Satellites.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Space.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Terrier.pas"/>
+        <DCCReference Include="..\source\bio\Bio.ThingReferenceList.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Tool.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Flora.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Trex.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Turtle.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Vibes.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Weather.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Globals.pas"/>
+        <DCCReference Include="..\source\bio\Bio.UserSettings.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Mouse.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Tiger.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Community.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Mating.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Dolphin.pas"/>
+        <DCCReference Include="..\source\bio\Bio.ReportCard.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Insects.pas"/>
+        <DCCReference Include="..\source\bio\Bio.LearningCreature.pas"/>
+        <DCCReference Include="..\source\bio\Bio.DNA.pas"/>
+        <DCCReference Include="..\source\bio\Bio.GeneticCreature.pas"/>
+        <DCCReference Include="..\source\bio\Bio.EvolvingTrees.pas"/>
+        <DCCReference Include="..\source\bio\Bio.MatingSingle.pas"/>
+        <DCCReference Include="..\source\bio\Bio.FireTree.pas"/>
+        <DCCReference Include="..\source\bio\Bio.MissileDefence.pas"/>
+        <DCCReference Include="..\source\bio\fbBioneta.pas">
+            <Form>FormBioneta</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgParadox_ru.pas">
-            <Form>frmParadox</Form>
+        <DCCReference Include="..\source\bio\fbAbout.pas">
+            <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgOptions_ru.pas">
+        <DCCReference Include="..\source\bio\fbConstruction.pas">
+            <Form>FormConstruction</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbCreatingGalaxy.pas">
+            <Form>FormCreatingGalaxy</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbEditLine.pas">
+            <Form>FormEditLine</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbEvents.pas">
+            <Form>FormEvents</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbIntro.pas">
+            <Form>FormIntro</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbKeyboard.pas">
+            <Form>FormKeyboard</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbLists.pas">
+            <Form>FormLists</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbManager.pas">
+            <Form>FormManager</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbMaximums.pas">
+            <Form>FormMaximums</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbNewReality.pas">
+            <Form>FormNewReality</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbPhotograph.pas">
+            <Form>FormPhotograph</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbReality.pas">
+            <Form>FormReality</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbSatellite.pas">
+            <Form>FormSatellite</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbOptions.pas">
             <Form>FormOptions</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgGalaqtium_ru.pas">
-            <Form>FormGalaqtium</Form>
+        <DCCReference Include="..\source\bio\fbSpirit.pas">
+            <Form>FormSpirit</Form>
         </DCCReference>
-        <DCCReference Include="..\source\dmBase.pas">
-            <Form>DataModuleBase</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\dmDialogs.pas">
-            <Form>DataModuleDialogs</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\dmImages.pas">
-            <Form>DataModuleImages</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\fmAbout_ru.pas">
-            <Form>frmAbout</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\fmFormFirst.pas">
+        <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
+        <DCCReference Include="..\source\bio\fbFirstForm.pas">
             <Form>FormFirst</Form>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgGlobulars_ru.pas">
-            <Form>frmProjections</Form>
+        <DCCReference Include="..\source\bio\vSpiritManager.pas"/>
+        <DCCReference Include="..\source\bio\vSplashScreen.pas"/>
+        <DCCReference Include="..\source\bio\fbPopulations.pas">
+            <Form>FormPopulations</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbHeightField.pas">
+            <Form>FormHeightField</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbHumidityMap.pas">
+            <Form>FormHumidityMap</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbPosition.pas">
+            <Form>FormPosition</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbDNA.pas">
+            <Form>FormDNA</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbError.pas">
+            <Form>FormError</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbTip.pas">
+            <Form>FormTip</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbSplash.pas">
+            <Form>FormSplash</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\bio\fbImages.pas">
+            <Form>frmImages</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgDiagramHR_ru.pas">
-            <Form>frmDiagramHR</Form>
+        <DCCReference Include="..\source\bio\Bio.Things.pas"/>
+        <DCCReference Include="..\source\bio\Bio.Utilities.pas"/>
+        <DCCReference Include="..\source\bio\fbTutorial.pas">
+            <Form>FormTutorial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmSettings_ru.pas">
-            <Form>FormSettings</Form>
+        <DCCReference Include="..\source\bio\fbMiniForm.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="..\source\bio\dbImages.pas">
+            <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgEquations_ru.pas">
-            <Form>frmEquations</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgStatistics_ru.pas">
-            <Form>frmStatistics</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\galaxy\fgSolving_ru.pas">
-            <Form>frmSolving</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgNewGalablock_ru.pas">
-            <Form>frmNewStarblock</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgViewGalablock_ru.pas">
-            <Form>frmStarblock</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgTechnets_ru.pas">
-            <Form>frmTechnets</Form>
-            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -185,14 +282,47 @@
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
     </ItemGroup>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
     <ProjectExtensions>
         <Borland.Personality>Delphi.Personality.12</Borland.Personality>
-        <Borland.ProjectType/>
+        <Borland.ProjectType>VCLApplication</Borland.ProjectType>
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Galaqtium_ru.dpr</Source>
+                    <Source Name="MainSource">Bioneta_en.dpr</Source>
                 </Source>
+                <Parameters>
+                    <Parameters Name="UseLauncher">False</Parameters>
+                    <Parameters Name="LoadAllSymbols">True</Parameters>
+                    <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+                </Parameters>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">1000</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">True</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName">Naturally Intelligent</VersionInfoKeys>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.1000</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp370.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
@@ -205,18 +335,16 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\Galaqtium_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\Bin\PlanetAI.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="..\bin\Bioneta_en.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Galaqtium_ru.exe</RemoteName>
+                        <RemoteName>Bioneta_en.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Bin\Biosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                    </Platform>
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win32">
@@ -630,7 +758,6 @@
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win32">
@@ -639,17 +766,14 @@
                 </DeployClass>
                 <DeployClass Name="DependencyFramework">
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.framework</Extensions>
                     </Platform>
                     <Platform Name="OSX64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.framework</Extensions>
                     </Platform>
                     <Platform Name="OSXARM64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.framework</Extensions>
                     </Platform>
@@ -658,30 +782,15 @@
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="DependencyModule">
-                    <Platform Name="iOSDevice32">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSDevice64">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimARM64">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSX64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSXARM64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
@@ -704,17 +813,14 @@
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSX64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSXARM64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
@@ -740,15 +846,12 @@
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="OSX64">
-                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="OSXARM64">
-                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="Win32">
@@ -763,44 +866,9 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectOSXDebug">
-                    <Platform Name="OSX64">
-                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="OSXARM64">
-                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="ProjectOSXEntitlements">
-                    <Platform Name="OSX32">
-                        <RemoteDir>..\</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="OSX64">
-                        <RemoteDir>..\</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="OSXARM64">
-                        <RemoteDir>..\</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="ProjectOSXInfoPList">
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="OSX64">
-                        <RemoteDir>Contents</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="OSXARM64">
-                        <RemoteDir>Contents</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
+                <DeployClass Name="ProjectOSXDebug"/>
+                <DeployClass Name="ProjectOSXEntitlements"/>
+                <DeployClass Name="ProjectOSXInfoPList"/>
                 <DeployClass Name="ProjectOSXResource">
                     <Platform Name="OSX32">
                         <RemoteDir>Contents\Resources</RemoteDir>
@@ -837,15 +905,12 @@
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSX64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSXARM64">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win32">
@@ -886,41 +951,9 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSEntitlements">
-                    <Platform Name="iOSDevice32">
-                        <RemoteDir>..\</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="iOSDevice64">
-                        <RemoteDir>..\</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="iOSSimARM64">
-                        <RemoteDir>..\</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="ProjectiOSInfoPList">
-                    <Platform Name="iOSDevice32">
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="iOSDevice64">
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="iOSSimARM64">
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="ProjectiOSLaunchScreen">
-                    <Platform Name="iOSDevice64">
-                        <RemoteDir>..\$(PROJECTNAME).launchscreen</RemoteDir>
-                        <Operation>64</Operation>
-                    </Platform>
-                    <Platform Name="iOSSimARM64">
-                        <RemoteDir>..\$(PROJECTNAME).launchscreen</RemoteDir>
-                        <Operation>64</Operation>
-                    </Platform>
-                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements"/>
+                <DeployClass Name="ProjectiOSInfoPList"/>
+                <DeployClass Name="ProjectiOSLaunchScreen"/>
                 <DeployClass Name="ProjectiOSResource">
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
@@ -1165,19 +1198,22 @@
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSSimARM64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="OSXARM64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSXARM64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="WinARM64EC" Name="$(PROJECTNAME)"/>
             </Deployment>
+            <UnitTesting>
+                <TestProjectName>D:\AstrobloQ\Projects\Test\LifePlanetsTests.dproj</TestProjectName>
+            </UnitTesting>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
-    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
     <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
     <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
 </Project>

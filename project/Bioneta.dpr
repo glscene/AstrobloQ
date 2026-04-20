@@ -26,7 +26,6 @@ uses
   Bio.Terrier in '..\source\bio\Bio.Terrier.pas',
   Bio.ThingReferenceList in '..\source\bio\Bio.ThingReferenceList.pas',
   Bio.Tool in '..\source\bio\Bio.Tool.pas',
-  Bio.Flora in '..\source\bio\Bio.Flora.pas',
   Bio.Trex in '..\source\bio\Bio.Trex.pas',
   Bio.Turtle in '..\source\bio\Bio.Turtle.pas',
   Bio.Vibes in '..\source\bio\Bio.Vibes.pas',
@@ -47,52 +46,53 @@ uses
   Bio.MatingSingle in '..\source\bio\Bio.MatingSingle.pas',
   Bio.FireTree in '..\source\bio\Bio.FireTree.pas',
   Bio.MissileDefence in '..\source\bio\Bio.MissileDefence.pas',
-  fbBioneta in '..\source\bio\fbBioneta.pas' {FormBioneta},
-  fbAbout in '..\source\bio\fbAbout.pas' {FormAbout},
-  fbConstruction in '..\source\bio\fbConstruction.pas' {FormConstruction},
-  fbCreatingGalaxy in '..\source\bio\fbCreatingGalaxy.pas' {FormCreatingGalaxy},
-  fbEditLine in '..\source\bio\fbEditLine.pas' {FormEditLine},
-  fbEvents in '..\source\bio\fbEvents.pas' {FormEvents},
-  fbIntro in '..\source\bio\fbIntro.pas' {FormIntro},
-  fbKeyboard in '..\source\bio\fbKeyboard.pas' {FormKeyboard},
-  fbLists in '..\source\bio\fbLists.pas' {FormLists},
-  fbManager in '..\source\bio\fbManager.pas' {FormManager},
-  fbMaximums in '..\source\bio\fbMaximums.pas' {FormMaximums},
-  fbNewReality in '..\source\bio\fbNewReality.pas' {FormNewReality},
-  fbPhotograph in '..\source\bio\fbPhotograph.pas' {FormPhotograph},
-  fbReality in '..\source\bio\fbReality.pas' {FormReality},
-  fbSatellite in '..\source\bio\fbSatellite.pas' {FormSatellite},
-  fbOptions in '..\source\bio\fbOptions.pas' {FormOptions},
-  fbSpirit in '..\source\bio\fbSpirit.pas' {FormSpirit},
+  fbAbout_ru in '..\source\bio\fbAbout_ru.pas' {frmAbout},
+  fbConstruction_ru in '..\source\bio\fbConstruction_ru.pas' {FormConstruction},
+  fbCreatingGalaxy_ru in '..\source\bio\fbCreatingGalaxy_ru.pas' {FormCreatingGalaxy},
+  fbEditLine_ru in '..\source\bio\fbEditLine_ru.pas' {FormEditLine},
+  fbEvents_ru in '..\source\bio\fbEvents_ru.pas' {FormEvents},
+  fbIntro_ru in '..\source\bio\fbIntro_ru.pas' {FormIntro},
+  fbKeyboard_ru in '..\source\bio\fbKeyboard_ru.pas' {FormKeyboard},
+  fbLists_ru in '..\source\bio\fbLists_ru.pas' {FormLists},
+  fbManager_ru in '..\source\bio\fbManager_ru.pas' {FormManager},
+  fbMaximums_ru in '..\source\bio\fbMaximums_ru.pas' {FormMaximums},
+  fbNewReality_ru in '..\source\bio\fbNewReality_ru.pas' {FormNewReality},
+  fbPhotograph_ru in '..\source\bio\fbPhotograph_ru.pas' {FormPhotograph},
+  fbReality_ru in '..\source\bio\fbReality_ru.pas' {FormReality},
+  fbSatellite_ru in '..\source\bio\fbSatellite_ru.pas' {FormSatellite},
+  fbOptions_ru in '..\source\bio\fbOptions_ru.pas' {FormOptions},
+  fbSpirit_ru in '..\source\bio\fbSpirit_ru.pas' {FormSpirit},
   vInterfaceClasses in '..\source\bio\vInterfaceClasses.pas',
-  fbFirstForm in '..\source\bio\fbFirstForm.pas' {FormFirst},
-  vSpiritManager in '..\source\bio\vSpiritManager.pas',
+  fbFirstForm_ru in '..\source\bio\fbFirstForm_ru.pas' {FormFirst},
   vSplashScreen in '..\source\bio\vSplashScreen.pas',
-  fbPopulations in '..\source\bio\fbPopulations.pas' {FormPopulations},
-  fbHeightField in '..\source\bio\fbHeightField.pas' {FormHeightField},
-  fbHumidityMap in '..\source\bio\fbHumidityMap.pas' {FormHumidityMap},
-  fbPosition in '..\source\bio\fbPosition.pas' {FormPosition},
-  fbDNA in '..\source\bio\fbDNA.pas' {FormDNA},
-  fbError in '..\source\bio\fbError.pas' {FormError},
-  fbTip in '..\source\bio\fbTip.pas' {FormTip},
-  fbSplash in '..\source\bio\fbSplash.pas' {FormSplash},
-  fbImages in '..\source\bio\fbImages.pas' {frmImages},
+  fbPopulations_ru in '..\source\bio\fbPopulations_ru.pas' {FormPopulations},
+  fbHeightField_ru in '..\source\bio\fbHeightField_ru.pas' {FormHeightField},
+  fbHumidityMap_ru in '..\source\bio\fbHumidityMap_ru.pas' {FormHumidityMap},
+  fbPosition_ru in '..\source\bio\fbPosition_ru.pas' {FormPosition},
+  fbDNAR in '..\source\bio\fbDNAR.pas' {FormDNA},
+  fbError_ru in '..\source\bio\fbError_ru.pas' {FormError},
+  fbTip_ru in '..\source\bio\fbTip_ru.pas' {FormTip},
+  fbSplash_ru in '..\source\bio\fbSplash_ru.pas' {FormSplash},
+  fbImages_ru in '..\source\bio\fbImages_ru.pas' {frmImages},
   Bio.Things in '..\source\bio\Bio.Things.pas',
   Bio.Utilities in '..\source\bio\Bio.Utilities.pas',
-  fbTutorial in '..\source\bio\fbTutorial.pas' {FormTutorial},
-  fbMiniForm in '..\source\bio\fbMiniForm.pas',
+  fbTutorial_ru in '..\source\bio\fbTutorial_ru.pas' {FormTutorial},
+  dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule},
+  fbMiniForm_ru in '..\source\bio\fbMiniForm_ru.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  dbImages in '..\source\bio\dbImages.pas' {DataModuleImages: TDataModule};
+  fbBioneta_ru in '..\source\bio\fbBioneta_ru.pas' {FormBioneta},
+  vSpiritManager_ru in '..\source\bio\vSpiritManager_ru.pas',
+  Bio.Flora in '..\source\bio\Bio.Flora.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.Title := 'Bioneta';
+  Application.Title := 'Biosneta';
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmImages, frmImages);
-  Application.CreateForm(TFormConstruction, FormConstruction);
   Application.CreateForm(TFormLists, FormLists);
+  Application.CreateForm(TFormConstruction, FormConstruction);
+  Application.CreateForm(TfrmImages, frmImages);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.Run;
 end.

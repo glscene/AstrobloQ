@@ -240,7 +240,7 @@ implementation //=============================================================
 
 uses
   fgTechnets_ru,
-  fmSettings_ru;
+  fgSettings_ru;
 
 //----------------------------------------------------------------------------
 procedure TFormGalaqtium.FormCreate(Sender: TObject);

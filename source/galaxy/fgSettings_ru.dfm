@@ -298,6 +298,7 @@ inherited FormSettings: TFormSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
+          ExplicitLeft = 866
         end
         object stStarDensity: TStaticText
           Left = 80

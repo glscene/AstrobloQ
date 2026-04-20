@@ -1,4 +1,4 @@
-unit fmSettings;
+unit fgSettings_en;
 (*
   This unit is part of the Galaxy
 *)

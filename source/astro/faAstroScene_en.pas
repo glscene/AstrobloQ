@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit faAstroScene;
+unit faAstroScene_en;
 
 interface
 
@@ -68,8 +68,7 @@ uses
   dmImages,
 
   fmFormFirst,
-  fmSettings,
-  fmAbout,
+  fmAbout_en,
 
   faOptions,
   faMakeStarsys,
@@ -144,7 +143,6 @@ type
     miCoordinates: TMenuItem;
     ClearTreeView1: TMenuItem;
     Constellations1: TMenuItem;
-    Settings1: TMenuItem;
     ToolBar1: TToolBar;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
@@ -192,7 +190,6 @@ type
     procedure miConstPolygonsClick(Sender: TObject);
     procedure ClearTreeView1Click(Sender: TObject);
     procedure Constellations1Click(Sender: TObject);
-    procedure Settings1Click(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure miNewClick(Sender: TObject);
@@ -646,11 +643,6 @@ begin
     Camera.FocalLength := Camera.FocalLength * Power(1.05, (my - y) * 0.1);
   mx := x;
   my := y;
-end;
-
-procedure TFormAstroScene.Settings1Click(Sender: TObject);
-begin
-  FormSettings.Show;
 end;
 
 

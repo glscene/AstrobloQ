@@ -52,7 +52,7 @@ uses
   GLS.SpaceText,
 
   fmFormFirst,
-  fmAbout,
+  fmAbout_en,
 
   dmImages,
   dmDialogs,
@@ -273,7 +273,7 @@ implementation //==============================================================
 
 uses
   fgTechnets,
-  fmSettings;
+  fgSettings_en;
 
 
 //-----------------------------------------------------------------------------

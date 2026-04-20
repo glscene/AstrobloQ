@@ -5,26 +5,28 @@ uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
-  fgGalaqtium in '..\source\galaxy\fgGalaqtium.pas' {FormGalaqtium},
+  Astro.Globals in '..\source\astro\Astro.Globals.pas',
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
+  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
+  fgMonitor_ru in '..\source\galaxy\fgMonitor_ru.pas' {frmMonitor},
+  fgParadox_ru in '..\source\galaxy\fgParadox_ru.pas' {frmParadox},
+  fgOptions_ru in '..\source\galaxy\fgOptions_ru.pas' {FormOptions},
+  fgGalaqtium_ru in '..\source\galaxy\fgGalaqtium_ru.pas' {FormGalaqtium},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fgOptions in '..\source\galaxy\fgOptions.pas' {FormOptions},
-  fmAbout in '..\source\fmAbout.pas' {frmAbout},
-  Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
-  fgMonitor in '..\source\galaxy\fgMonitor.pas' {frmMonitor},
-  fgParadox in '..\source\galaxy\fgParadox.pas' {frmParadox},
-  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  fmSettings in '..\source\fmSettings.pas' {FormSettings},
-  fgDiagramHR in '..\source\galaxy\fgDiagramHR.pas' {frmDiagramHR},
-  fgEquations in '..\source\galaxy\fgEquations.pas' {frmEquations},
+  fgGlobulars_ru in '..\source\galaxy\fgGlobulars_ru.pas' {frmProjections},
+  fgDiagramHR_ru in '..\source\galaxy\fgDiagramHR_ru.pas' {frmDiagramHR},
+  fgSettings_ru in '..\source\galaxy\fgSettings_ru.pas' {FormSettings},
+  fgEquations_ru in '..\source\galaxy\fgEquations_ru.pas' {frmEquations},
+  fgStatistics_ru in '..\source\galaxy\fgStatistics_ru.pas' {frmStatistics},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
-  fgGlobulars in '..\source\galaxy\fgGlobulars.pas' {frmGlobulars},
-  fgViewGalablock in '..\source\galaxy\fgViewGalablock.pas' {frmGalablock},
-  fgNewGalablock in '..\source\galaxy\fgNewGalablock.pas' {frmNewStarblock},
-  fgTechnets in '..\source\galaxy\fgTechnets.pas' {frmTechnets};
+  fgSolving_ru in '..\source\galaxy\fgSolving_ru.pas' {frmSolving},
+  fgNewGalablock_ru in '..\source\galaxy\fgNewGalablock_ru.pas' {frmNewStarblock},
+  fgViewGalablock_ru in '..\source\galaxy\fgViewGalablock_ru.pas' {frmStarblock},
+  fgTechnets_ru in '..\source\galaxy\fgTechnets_ru.pas' {frmTechnets};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -32,6 +34,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+//  TStyleManager.TrySetStyle('Windows10 Dark');
   Application.CreateForm(TFormGalaqtium, FormGalaqtium);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
@@ -39,8 +42,8 @@ begin
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TfrmGalablock, frmGalablock);
   Application.CreateForm(TfrmNewStarblock, frmNewStarblock);
+  Application.CreateForm(TfrmStarblock, frmStarblock);
   Application.CreateForm(TfrmTechnets, frmTechnets);
   Application.Run;
 end.

@@ -65,7 +65,6 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
 
-  fmSettings_ru,
   fmAbout_ru,
 
   fmFormFirst,
@@ -187,7 +186,6 @@ type
     procedure miHelpWikiClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
     procedure About1Click(Sender: TObject);
-    procedure miSettingsClick(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tvAsteroidsClick(Sender: TObject);
@@ -1086,12 +1084,6 @@ end;
 procedure TFormAstroScene.miOptionsClick(Sender: TObject);
 begin
   FormOptions.Show;
-end;
-
-//------------------------ Меню настройки -------------------------------------
-procedure TFormAstroScene.miSettingsClick(Sender: TObject);
-begin
-  FormSettings.Show;
 end;
 
 //------------------------- ReadIniFile ---------------------------------------

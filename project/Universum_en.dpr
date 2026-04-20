@@ -1,13 +1,14 @@
-program Universum_ru;
+program Universum_en;
 
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxUniversum_ru in '..\source\univer\fxUniversum_ru.pas' {FormUniverse},
-  fxSettings_ru in '..\source\univer\fxSettings_ru.pas' {frmSettings},
-  fxAbout_ru in '..\source\univer\fxAbout_ru.pas' {FrmAbout},
-  fxAstrogen_ru in '..\source\univer\fxAstrogen_ru.pas' {FormAstrogen},
-  fxScatterPlot_ru in '..\source\univer\fxScatterPlot_ru.pas' {FormScatterPlot},
+  fxUniversum in '..\source\univer\fxUniversum.pas' {FormUniverse},
+  fxSettings in '..\source\univer\fxSettings.pas' {frmSettings},
+  fxAbout in '..\source\univer\fxAbout.pas' {FormAbout},
+  fxAstrogen in '..\source\univer\fxAstrogen.pas' {FormAstrogen},
+  Uni.Material in '..\source\univer\Uni.Material.pas',
+  fxScatterPlot in '..\source\univer\fxScatterPlot.pas' {FormScatterPlot},
   LUX.FMX.ScatterPlotFrame in '..\external\lux\LUX.FMX.ScatterPlotFrame.pas' {ScatterPlotFrame: TFrame},
   LUX in '..\external\lux\LUX.pas',
   LUX.D2 in '..\external\lux\LUX.D2.pas',
@@ -19,8 +20,7 @@ uses
   LUX.FMX.Types3D in '..\external\lux\LUX.FMX.Types3D.pas',
   fxForm in '..\source\univer\fxForm.pas' {FormX},
   Uni.Utils in '..\source\univer\Uni.Utils.pas',
-  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D},
-  Uni.Material in '..\source\univer\Uni.Material.pas';
+  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D};
 
 {$R *.res}
 
@@ -28,5 +28,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormUniverse, FormUniverse);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TFormX, FormX);
   Application.Run;
 end.

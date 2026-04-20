@@ -9,46 +9,49 @@
 *)
 program AstroScene;
 
+
+
 uses
   Forms,
-  faAstroScene in '..\source\astro\faAstroScene.pas' {FormAstroScene},
-  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
-  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout in '..\source\fmAbout.pas' {frmAbout},
-  faMakeStarsys in '..\source\astro\faMakeStarsys.pas' {frmMakeStarsys},
-  Astro.Camera in '..\source\astro\Astro.Camera.pas',
-  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   Vcl.Themes,
   Vcl.Styles,
-  faOptions in '..\source\astro\faOptions.pas' {FormOptions},
+  faAstroScene_ru in '..\source\astro\faAstroScene_ru.pas' {FormAstroScene},
+  faOptions_ru in '..\source\astro\faOptions_ru.pas' {FormOptions},
+  Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  faStellarSys in '..\source\astro\faStellarSys.pas' {frmStellarSys},
-  frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
+  fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
+  Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
+  Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
+  Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
+  Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
+  flTexCombine_ru in '..\source\lito\flTexCombine_ru.pas' {frmTexCombine},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  faConstAtlas in '..\source\astro\faConstAtlas.pas' {frmConstells},
-  Astro.Utils in '..\source\astro\Astro.Utils.pas',
-  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
-  Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
-  faSkyPolygons in '..\source\astro\faSkyPolygons.pas' {frmSkyPolygons},
-  fmSettings in '..\source\fmSettings.pas' {FormSettings},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  faViewSolblock in '..\source\astro\faViewSolblock.pas' {frmViewSolblock},
-  faNewSolblock in '..\source\astro\faNewSolblock.pas' {frmNewSolblock};
+  flCoordinates_ru in '..\source\lito\flCoordinates_ru.pas' {frmCoordinates},
+  flPointto_ru in '..\source\lito\flPointto_ru.pas' {frmPointto},
+  Litho.Utils in '..\source\lito\Litho.Utils.pas',
+  faStellarSys_ru in '..\source\astro\faStellarSys_ru.pas' {frmStellarSys},
+  Astro.Utils in '..\source\astro\Astro.Utils.pas',
+  frParams_ru in '..\source\astro\frParams_ru.pas' {FrameParamsR: TFrame},
+  faSkyPolygons_ru in '..\source\astro\faSkyPolygons_ru.pas' {frmSkyPolygons},
+  faConstAtlas_ru in '..\source\astro\faConstAtlas_ru.pas' {frmConstAtlas};
 
 {$R *.res}
 
 begin
   Application.Initialize;
- // TStyleManager.TrySetStyle('Windows10 Dark');
+ // TStyleManager.TrySetStyle('Windows10');
   Application.CreateForm(TFormAstroScene, FormAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormOptions, FormOptions);
-  Application.CreateForm(TFormSettings, FormSettings);
-  Application.CreateForm(TfrmStellarSys, frmStellarSys);
+  Application.CreateForm(TFormFirst, FormFirst);
+  Application.CreateForm(TfrmSkyPolygons, frmSkyPolygons);
+  Application.CreateForm(TfrmConstAtlas, frmConstAtlas);
   Application.Run;
 end.

@@ -723,7 +723,6 @@ inherited FormSettings: TFormSettings
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
-          ExplicitLeft = 546
         end
         object GroupBox2: TGroupBox
           Left = 56

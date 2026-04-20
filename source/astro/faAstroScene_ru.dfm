@@ -47,7 +47,6 @@ object FormAstroScene: TFormAstroScene
     Height = 655
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 630
     object tvMoons: TTreeView
       Left = 1
       Top = 111
@@ -303,7 +302,6 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 518
     end
     object StaticText1: TStaticText
       Left = 1
@@ -314,6 +312,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1051#1091#1085#1099
       TabOrder = 1
+      ExplicitWidth = 49
     end
     object StaticText3: TStaticText
       Left = 1
@@ -324,6 +323,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
       TabOrder = 2
+      ExplicitWidth = 168
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -501,8 +501,6 @@ object FormAstroScene: TFormAstroScene
     Height = 655
     Align = alRight
     TabOrder = 3
-    ExplicitLeft = 1104
-    ExplicitHeight = 630
     object tvAsteroids: TTreeView
       Left = 1
       Top = 29
@@ -550,7 +548,6 @@ object FormAstroScene: TFormAstroScene
         00000000000000010713043E043B04350432043A043004000029000000096101
         0009610100FFFFFFFFFFFFFFFF00000000000000000000000000010521043504
         34043D043004}
-      ExplicitHeight = 600
     end
     object StaticText2: TStaticText
       Left = 1
@@ -561,6 +558,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       TabOrder = 1
+      ExplicitWidth = 106
     end
   end
   object ControlBarTop: TControlBar
@@ -780,6 +778,8 @@ object FormAstroScene: TFormAstroScene
           Visible = False
           OnProgress = GLCadencerProgress
           Radius = 0.519999980926513700
+          Slices = 16
+          Stacks = 16
         end
         object sfPlanet: TGLSphere
           Material.LibMaterialName = 'earthDay'
@@ -794,6 +794,8 @@ object FormAstroScene: TFormAstroScene
             Material.LibMaterialName = 'globeCloud'
             Visible = False
             Radius = 0.529999971389770500
+            Slices = 16
+            Stacks = 16
           end
           object diskRingDn: TGLDisk
             Material.Texture.Disabled = False
@@ -983,7 +985,6 @@ object FormAstroScene: TFormAstroScene
       end
       object miSettings: TMenuItem
         Caption = #1059#1089#1090#1072#1085#1086#1074#1082#1080'...'
-        OnClick = miSettingsClick
       end
       object N7: TMenuItem
         Caption = '-'
