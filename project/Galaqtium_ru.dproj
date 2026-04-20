@@ -1,15 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{D88076E4-3140-4142-9748-C7246D7C3A19}</ProjectGuid>
-        <MainSource>AstroScene_en.dpr</MainSource>
+        <ProjectGuid>{DB43E9C1-2F46-4187-9335-E4CB18490378}</ProjectGuid>
+        <MainSource>Galaqtium_ru.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
+        <ProjectName Condition="'$(ProjectName)'==''">Galaqtium_ru</ProjectName>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>20.4</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">AstroScene_en</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -53,29 +53,27 @@
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>AstroScene_en</SanitizedProjectName>
+        <SanitizedProjectName>Galaqtium_ru</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
-        <Custom_Styles>Sky|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Sky.vsf;&quot;Tablet Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\TabletDark.vsf&quot;;Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;</Custom_Styles>
+        <Custom_Styles>Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;</Custom_Styles>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UsePackage>vcl;rtl;dbrtl;vclx;vcldb;vcldbx;bdertl;$(DCC_UsePackage)</DCC_UsePackage>
-        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UsePackage>vcl;rtl;dbrtl;vclx;vcldb;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -84,7 +82,6 @@
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -98,69 +95,83 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <Icon_MainIcon>..\Assets\icon\Lithoneta.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <Icon_MainIcon>..\Assets\icon\Galaqtium.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\en\faAstroScene_en.pas">
-            <Form>FormAstroScene</Form>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
+        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
+        <DCCReference Include="..\source\galaxy\ru\fgMonitor_ru.pas">
+            <Form>frmMonitor</Form>
         </DCCReference>
-        <DCCReference Include="..\source\fmFormFirst.pas">
-            <Form>FormFirst</Form>
-            <FormType>dfm</FormType>
+        <DCCReference Include="..\source\galaxy\ru\fgParadox_ru.pas">
+            <Form>frmParadox</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgOptions_ru.pas">
+            <Form>FormOptions</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgGalaqtium_ru.pas">
+            <Form>FormGalaqtium</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\dmBase.pas">
+            <Form>DataModuleBase</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\dmDialogs.pas">
+            <Form>DataModuleDialogs</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\source\dmImages.pas">
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_en.pas">
+        <DCCReference Include="..\source\fmAbout_ru.pas">
             <Form>frmAbout</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\fmFormFirst.pas">
+            <Form>FormFirst</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgGlobulars_ru.pas">
+            <Form>frmProjections</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\en\faMakeStarsys_en.pas">
-            <Form>frmMakeStarsys</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
-        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\astro\en\faOptions_en.pas">
-            <Form>FormOptions</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\astro\en\faStarsys_en.pas">
-            <Form>frmStellarSys</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\en\frParams_en.pas">
-            <Form>FrameParams</Form>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\dmBase.pas">
-            <Form>DataModuleBase</Form>
+        <DCCReference Include="..\source\galaxy\ru\fgDiagramHR_ru.pas">
+            <Form>frmDiagramHR</Form>
             <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmDialogs.pas">
-            <Form>DataModuleDialogs</Form>
+        <DCCReference Include="..\source\galaxy\ru\fgSettings_ru.pas">
+            <Form>FormSettings</Form>
             <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\en\faConstAtlas_en.pas">
-            <Form>frmConstells</Form>
+        <DCCReference Include="..\source\galaxy\ru\fgEquations_ru.pas">
+            <Form>frmEquations</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgStatistics_ru.pas">
+            <Form>frmStatistics</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\astro\en\faConstBorders_en.pas">
-            <Form>frmSkyPolygons</Form>
+        <DCCReference Include="..\source\galaxy\ru\fgSolving_ru.pas">
+            <Form>frmSolving</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
-        <DCCReference Include="..\source\astro\en\faGenStarblock_en.pas">
-            <Form>frmGenStarblock</Form>
+        <DCCReference Include="..\source\galaxy\ru\fgNewGalablock_ru.pas">
+            <Form>frmNewStarblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgViewGalablock_ru.pas">
+            <Form>frmStarblock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgTechnets_ru.pas">
+            <Form>frmTechnets</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -180,7 +191,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">AstroScene_en.dpr</Source>
+                    <Source Name="MainSource">Galaqtium_ru.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -194,14 +205,12 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\AstroScene_en.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Galaqtium_ru.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>AstroScene_en.exe</RemoteName>
+                        <RemoteName>Galaqtium_ru.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="TerraPlanets.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -1156,7 +1165,6 @@
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSSimARM64" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
@@ -1166,7 +1174,6 @@
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="WinARM64EC" Name="$(PROJECTNAME)"/>
             </Deployment>
-            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

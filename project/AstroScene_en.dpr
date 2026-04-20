@@ -11,31 +11,29 @@ program AstroScene_en;
 
 uses
   Forms,
-  faAstroScene_en in '..\source\astro\faAstroScene_en.pas' {FormAstroScene},
+  Vcl.Themes,
+  Vcl.Styles,
+  faAstroScene_en in '..\source\astro\en\faAstroScene_en.pas' {FormAstroScene},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fmAbout_en in '..\source\fmAbout_en.pas' {frmAbout},
-  faMakeStarsys in '..\source\astro\faMakeStarsys.pas' {frmMakeStarsys},
+  faMakeStarsys_en in '..\source\astro\en\faMakeStarsys_en.pas' {frmMakeStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  Vcl.Themes,
-  Vcl.Styles,
-  faOptions in '..\source\astro\faOptions.pas' {FormOptions},
+  faOptions_en in '..\source\astro\en\faOptions_en.pas' {FormOptions},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
-  faStellarSys in '..\source\astro\faStellarSys.pas' {frmStellarSys},
-  frParams in '..\source\astro\frParams.pas' {FrameParams: TFrame},
+  faStarsys_en in '..\source\astro\en\faStarsys_en.pas' {frmStellarSys},
+  frParams_en in '..\source\astro\en\frParams_en.pas' {FrameParams: TFrame},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  faConstAtlas in '..\source\astro\faConstAtlas.pas' {frmConstells},
+  faConstAtlas_en in '..\source\astro\en\faConstAtlas_en.pas' {frmConstells},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
-  faSkyPolygons in '..\source\astro\faSkyPolygons.pas' {frmSkyPolygons},
-  fgSettings_en in '..\source\galaxy\fgSettings_en.pas' {FormSettings},
+  faConstBorders_en in '..\source\astro\en\faConstBorders_en.pas' {frmSkyPolygons},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  faViewSolblock in '..\source\astro\faViewSolblock.pas' {frmViewSolblock},
-  faNewSolblock in '..\source\astro\faNewSolblock.pas' {frmNewSolblock};
+  faGenStarblock_en in '..\source\astro\en\faGenStarblock_en.pas' {frmGenStarblock};
 
 {$R *.res}
 
@@ -48,7 +46,6 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormOptions, FormOptions);
-  Application.CreateForm(TFormSettings, FormSettings);
   Application.CreateForm(TfrmStellarSys, frmStellarSys);
   Application.Run;
 end.

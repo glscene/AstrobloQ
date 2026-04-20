@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{D88076E4-3140-4142-9748-C7246D7C3A19}</ProjectGuid>
-        <MainSource>AstroScene_en.dpr</MainSource>
+        <ProjectGuid>{74582C24-83BE-4628-B9DF-28AF332780EE}</ProjectGuid>
+        <MainSource>AstroScene_ru.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
@@ -9,7 +9,7 @@
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>20.4</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">AstroScene_en</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">AstroScene_ru</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -53,11 +53,11 @@
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>AstroScene_en</SanitizedProjectName>
+        <SanitizedProjectName>AstroScene_ru</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
-        <Custom_Styles>Sky|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Sky.vsf;&quot;Tablet Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\TabletDark.vsf&quot;;Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;</Custom_Styles>
+        <Custom_Styles>&quot;Aqua Light Slate|VCLSTYLE|$(BDSCOMMONDIR)\Styles\AquaLightSlate.vsf&quot;;Sky|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Sky.vsf;Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;;&quot;Windows10 Green|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Green.vsf&quot;;&quot;Windows10 Purple|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Purple.vsf&quot;</Custom_Styles>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -106,38 +106,33 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\en\faAstroScene_en.pas">
+        <DCCReference Include="..\source\astro\ru\faAstroScene_ru.pas">
             <Form>FormAstroScene</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\ru\faOptions_ru.pas">
+            <Form>FormOptions</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
+        <DCCReference Include="..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\fmAbout_ru.pas">
+            <Form>frmAbout</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmImages.pas">
-            <Form>DataModuleImages</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\fmAbout_en.pas">
-            <Form>frmAbout</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\en\faMakeStarsys_en.pas">
-            <Form>frmMakeStarsys</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
+        <DCCReference Include="..\source\astro\Astro.ConstBayers.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
+        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\astro\en\faOptions_en.pas">
-            <Form>FormOptions</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\astro\en\faStarsys_en.pas">
-            <Form>frmStellarSys</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\en\frParams_en.pas">
-            <Form>FrameParams</Form>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
+        <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -148,19 +143,32 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\en\faConstAtlas_en.pas">
-            <Form>frmConstells</Form>
+        <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
+        <DCCReference Include="..\source\astro\ru\faStarsys_ru.pas">
+            <Form>frmStellarSys</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\astro\en\faConstBorders_en.pas">
-            <Form>frmSkyPolygons</Form>
+        <DCCReference Include="..\source\astro\ru\frParams_ru.pas">
+            <Form>FrameParamsR</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
-        <DCCReference Include="..\source\astro\en\faGenStarblock_en.pas">
-            <Form>frmGenStarblock</Form>
+        <DCCReference Include="..\source\astro\ru\faConstBorders_ru.pas">
+            <Form>frmSkyPolygons</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\ru\faConstAtlas_ru.pas">
+            <Form>frmConstAtlas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\ru\faMakeStarsys_ru.pas">
+            <Form>frmMakeStarsys</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\ru\faGenStarblock_ru.pas">
+            <Form>frmViewSolblock</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -180,7 +188,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">AstroScene_en.dpr</Source>
+                    <Source Name="MainSource">AstroScene_ru.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -194,9 +202,9 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\AstroScene_en.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\AstroScene_ru.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>AstroScene_en.exe</RemoteName>
+                        <RemoteName>AstroScene_ru.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

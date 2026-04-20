@@ -128,7 +128,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\galaxy\fgGalaqtium.pas">
+        <DCCReference Include="..\source\galaxy\en\fgGalaqtium_en.pas">
             <Form>FormGalaqtium</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -147,7 +147,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgOptions.pas">
+        <DCCReference Include="..\source\galaxy\en\fgOptions_en.pas">
             <Form>FormOptions</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -161,41 +161,41 @@
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgMonitor.pas">
+        <DCCReference Include="..\source\galaxy\en\fgMonitor_en.pas">
             <Form>frmMonitor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgParadox.pas">
+        <DCCReference Include="..\source\galaxy\en\fgParadox_en.pas">
             <Form>frmParadox</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\galaxy\fgSettings_en.pas">
+        <DCCReference Include="..\source\galaxy\en\fgSettings_en.pas">
             <Form>FormSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgDiagramHR.pas">
+        <DCCReference Include="..\source\galaxy\en\fgDiagramHR_en.pas">
             <Form>frmDiagramHR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgEquations.pas">
+        <DCCReference Include="..\source\galaxy\en\fgEquations_en.pas">
             <Form>frmEquations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
-        <DCCReference Include="..\source\galaxy\fgGlobulars.pas">
+        <DCCReference Include="..\source\galaxy\en\fgGlobulars_en.pas">
             <Form>frmGlobulars</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgViewGalablock.pas">
+        <DCCReference Include="..\source\galaxy\en\fgViewGalablock_en.pas">
             <Form>frmGalablock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgNewGalablock.pas">
+        <DCCReference Include="..\source\galaxy\en\fgGenGalablock_en.pas">
             <Form>frmNewStarblock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\fgTechnets.pas">
+        <DCCReference Include="..\source\galaxy\en\fgTechnets_en.pas">
             <Form>frmTechnets</Form>
             <FormType>dfm</FormType>
         </DCCReference>

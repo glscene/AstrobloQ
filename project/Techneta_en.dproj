@@ -108,15 +108,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\tech\ftMeshEditor.pas">
+        <DCCReference Include="..\source\tech\en\ftMeshEditor_en.pas">
             <Form>frmMeshEditor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tech\ftMeshData.pas">
+        <DCCReference Include="..\source\tech\en\ftMeshData_en.pas">
             <Form>FormMeshData</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tech\ftAstroPilot.pas">
+        <DCCReference Include="..\source\tech\en\ftAstroPilot_en.pas">
             <Form>frmSpacePilot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -124,11 +124,11 @@
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tech\ftCyborg.pas">
+        <DCCReference Include="..\source\tech\en\ftCyborg_en.pas">
             <Form>frmCyborg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tech\ftRobot.pas">
+        <DCCReference Include="..\source\tech\en\ftRobot_en.pas">
             <Form>frmRobot</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -157,16 +157,16 @@
         <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
         <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\tech\ftTechneta.pas">
+        <DCCReference Include="..\source\tech\en\ftTechneta_en.pas">
             <Form>FormTechneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\tech\ftLocations.pas">
+        <DCCReference Include="..\source\tech\en\ftLocations_en.pas">
             <Form>FormLocations</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\tech\ftEmpire.pas">
+        <DCCReference Include="..\source\tech\en\ftEmpire_en.pas">
             <Form>FormCETI</Form>
             <FormType>dfm</FormType>
         </DCCReference>

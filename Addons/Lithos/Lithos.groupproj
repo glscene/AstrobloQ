@@ -12,12 +12,6 @@
         <Projects Include="Landscapes\FracArchip.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Landscapes\FracLands.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Landscapes\FracLands_ru.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Gems\SuperGems.dproj">
             <Dependencies/>
         </Projects>
@@ -62,24 +56,6 @@
     <Target Name="FracArchip:Make">
         <MSBuild Projects="Landscapes\FracArchip.dproj" Targets="Make"/>
     </Target>
-    <Target Name="FracLands">
-        <MSBuild Projects="Landscapes\FracLands.dproj"/>
-    </Target>
-    <Target Name="FracLands:Clean">
-        <MSBuild Projects="Landscapes\FracLands.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="FracLands:Make">
-        <MSBuild Projects="Landscapes\FracLands.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="FracLands_ru">
-        <MSBuild Projects="Landscapes\FracLands_ru.dproj"/>
-    </Target>
-    <Target Name="FracLands_ru:Clean">
-        <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="FracLands_ru:Make">
-        <MSBuild Projects="Landscapes\FracLands_ru.dproj" Targets="Make"/>
-    </Target>
     <Target Name="SuperGems">
         <MSBuild Projects="Gems\SuperGems.dproj"/>
     </Target>
@@ -108,13 +84,13 @@
         <MSBuild Projects="Weather\WeatherEffects.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="CloudySky;DuneFighter;FracArchip;FracLands;FracLands_ru;SuperGems;Snow;WeatherEffects"/>
+        <CallTarget Targets="CloudySky;DuneFighter;FracArchip;SuperGems;Snow;WeatherEffects"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CloudySky:Clean;DuneFighter:Clean;FracArchip:Clean;FracLands:Clean;FracLands_ru:Clean;SuperGems:Clean;Snow:Clean;WeatherEffects:Clean"/>
+        <CallTarget Targets="CloudySky:Clean;DuneFighter:Clean;FracArchip:Clean;SuperGems:Clean;Snow:Clean;WeatherEffects:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CloudySky:Make;DuneFighter:Make;FracArchip:Make;FracLands:Make;FracLands_ru:Make;SuperGems:Make;Snow:Make;WeatherEffects:Make"/>
+        <CallTarget Targets="CloudySky:Make;DuneFighter:Make;FracArchip:Make;SuperGems:Make;Snow:Make;WeatherEffects:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

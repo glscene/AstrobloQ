@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{D88076E4-3140-4142-9748-C7246D7C3A19}</ProjectGuid>
-        <MainSource>AstroScene_en.dpr</MainSource>
+        <ProjectGuid>{72E5778A-0C0D-49F7-B591-5060C2E359F2}</ProjectGuid>
+        <MainSource>Techneta_ru.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
@@ -9,7 +9,7 @@
         <FrameworkType>VCL</FrameworkType>
         <ProjectVersion>20.4</ProjectVersion>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <ProjectName Condition="'$(ProjectName)'==''">AstroScene_en</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">Techneta_ru</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -53,11 +53,10 @@
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>AstroScene_en</SanitizedProjectName>
+        <SanitizedProjectName>Techneta_ru</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
-        <Custom_Styles>Sky|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Sky.vsf;&quot;Tablet Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\TabletDark.vsf&quot;;Windows10|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10.vsf;&quot;Windows10 Dark|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Windows10Dark.vsf&quot;</Custom_Styles>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -66,16 +65,18 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>..\data\icon\Noosfera.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UsePackage>vcl;rtl;dbrtl;vclx;vcldb;vcldbx;bdertl;$(DCC_UsePackage)</DCC_UsePackage>
-        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <Icon_MainIcon>EarthScene_Icon.ico</Icon_MainIcon>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <DCC_UsePackage>vcl;rtl;dbrtl;vclx;vcldb;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -86,6 +87,7 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <Icon_MainIcon>..\source\Source\EarthScene_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -99,45 +101,47 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <Icon_MainIcon>..\Assets\icon\Lithoneta.ico</Icon_MainIcon>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <Icon_MainIcon>..\Assets\icon\Techneta.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\astro\en\faAstroScene_en.pas">
-            <Form>FormAstroScene</Form>
+        <DCCReference Include="..\source\tech\ru\ftMeshEditor_ru.pas">
+            <Form>frmMeshEditor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\tech\ru\ftMeshData_ru.pas">
+            <Form>frmMeshData</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\tech\ru\ftAstroPilot_ru.pas">
+            <Form>frmSpacePilot</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\tech\ru\ftLocations_ru.pas">
+            <Form>FormLocations</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\fmFormFirst.pas">
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmImages.pas">
-            <Form>DataModuleImages</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\source\fmAbout_en.pas">
-            <Form>frmAbout</Form>
+        <DCCReference Include="..\source\tech\ru\ftCyborg_ru.pas">
+            <Form>frmCyborg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\en\faMakeStarsys_en.pas">
-            <Form>frmMakeStarsys</Form>
+        <DCCReference Include="..\source\tech\ru\ftRobot_ru.pas">
+            <Form>frmLoadModel</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
-        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
-        <DCCReference Include="..\source\astro\en\faOptions_en.pas">
-            <Form>FormOptions</Form>
+        <DCCReference Include="..\source\tech\ru\ftEmpire_ru.pas">
+            <Form>FormEmpire</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\astro\en\faStarsys_en.pas">
-            <Form>frmStellarSys</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\en\frParams_en.pas">
-            <Form>FrameParams</Form>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
+        <DCCReference Include="..\source\tech\Tech.BoneUtils.pas"/>
+        <DCCReference Include="..\source\tech\Tech.Globals.pas"/>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
             <FormType>dfm</FormType>
@@ -148,20 +152,23 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\en\faConstAtlas_en.pas">
-            <Form>frmConstells</Form>
+        <DCCReference Include="..\source\dmImages.pas">
+            <Form>DataModuleImages</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.Utils.pas"/>
+        <DCCReference Include="..\source\astro\Astro.Camera.pas"/>
+        <DCCReference Include="..\source\astro\Astro.SkyBodies.pas"/>
+        <DCCReference Include="..\source\tech\ru\ftTechneta_ru.pas">
+            <Form>FormTechneta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\fmAbout_ru.pas">
+            <Form>frmAbout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\tech\Tech.Utils.pas"/>
         <DCCReference Include="..\source\astro\Astro.ReadHyg.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Ephemerides.pas"/>
-        <DCCReference Include="..\source\astro\Astro.Vsop2013.pas"/>
-        <DCCReference Include="..\source\astro\en\faConstBorders_en.pas">
-            <Form>frmSkyPolygons</Form>
-        </DCCReference>
-        <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
-        <DCCReference Include="..\source\astro\en\faGenStarblock_en.pas">
-            <Form>frmGenStarblock</Form>
-        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -180,7 +187,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">AstroScene_en.dpr</Source>
+                    <Source Name="MainSource">Techneta_ru.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -194,14 +201,14 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\AstroScene_en.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\Techneta_ru.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>AstroScene_en.exe</RemoteName>
+                        <RemoteName>Techneta_ru.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Litosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
-                <DeployFile LocalName="TerraPlanets.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Bin\Technosphere.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Tehnosfera.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -1166,7 +1173,6 @@
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="WinARM64EC" Name="$(PROJECTNAME)"/>
             </Deployment>
-            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

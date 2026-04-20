@@ -1,29 +1,28 @@
 (*
   Tehnosfera - exoplanets with noos and technospheres
 *)
-program Techneta_en;
+program Techneta_ru;
 uses
   Forms,
-  ftMeshEditor_en in '..\source\tech\en\ftMeshEditor_en.pas' {frmMeshEditor},
-  ftMeshData_en in '..\source\tech\en\ftMeshData_en.pas' {FormMeshData},
-  ftAstroPilot_en in '..\source\tech\en\ftAstroPilot_en.pas' {frmSpacePilot},
+  ftMeshEditor_ru in '..\source\tech\ru\ftMeshEditor_ru.pas' {frmMeshEditor},
+  ftMeshData_ru in '..\source\tech\ru\ftMeshData_ru.pas' {frmMeshData},
+  ftAstroPilot_ru in '..\source\tech\ru\ftAstroPilot_ru.pas' {frmSpacePilot},
+  ftLocations_ru in '..\source\tech\ru\ftLocations_ru.pas' {FormLocations},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
-  ftCyborg_en in '..\source\tech\en\ftCyborg_en.pas' {frmCyborg},
-  ftRobot_en in '..\source\tech\en\ftRobot_en.pas' {frmRobot},
+  ftCyborg_ru in '..\source\tech\ru\ftCyborg_ru.pas' {frmCyborg},
+  ftRobot_ru in '..\source\tech\ru\ftRobot_ru.pas' {frmLoadModel},
+  ftEmpire_ru in '..\source\tech\ru\ftEmpire_ru.pas' {FormEmpire},
   Tech.BoneUtils in '..\source\tech\Tech.BoneUtils.pas',
   Tech.Globals in '..\source\tech\Tech.Globals.pas',
-  Tech.Utils in '..\source\tech\Tech.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_en in '..\source\fmAbout_en.pas' {frmAbout},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
-  Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
-  ftTechneta_en in '..\source\tech\en\ftTechneta_en.pas' {FormTechneta},
-  ftLocations_en in '..\source\tech\en\ftLocations_en.pas' {FormLocations},
-  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas',
-  ftEmpire_en in '..\source\tech\en\ftEmpire_en.pas' {FormCETI};
+  ftTechneta_ru in '..\source\tech\ru\ftTechneta_ru.pas' {FormTechneta},
+  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
+  Tech.Utils in '..\source\tech\Tech.Utils.pas',
+  Astro.ReadHyg in '..\source\astro\Astro.ReadHyg.pas';
 
 {$R *.res}
 
@@ -32,14 +31,13 @@ begin
 
   Application.Title := 'Techneta';
   Application.CreateForm(TFormTechneta, FormTechneta);
+  Application.CreateForm(TfrmMeshData, frmMeshData);
+  Application.CreateForm(TfrmLoadModel, frmLoadModel);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmMeshEditor, frmMeshEditor);
-  Application.CreateForm(TfrmCyborg, frmCyborg);
-  Application.CreateForm(TfrmRobot, frmRobot);
   Application.CreateForm(TfrmSpacePilot, frmSpacePilot);
-  Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TFormCETI, FormCETI);
+  Application.CreateForm(TfrmCyborg, frmCyborg);
   Application.Run;
 end.
