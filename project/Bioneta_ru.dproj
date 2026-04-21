@@ -171,90 +171,90 @@
         <DCCReference Include="..\source\bio\Bio.MatingSingle.pas"/>
         <DCCReference Include="..\source\bio\Bio.FireTree.pas"/>
         <DCCReference Include="..\source\bio\Bio.MissileDefence.pas"/>
-        <DCCReference Include="..\source\bio\fbAbout_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbAbout_ru.pas">
             <Form>frmAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbConstruction_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbConstruction_ru.pas">
             <Form>FormConstruction</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbCreatingGalaxy_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbCreatingGalaxy_ru.pas">
             <Form>FormCreatingGalaxy</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbEditLine_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbEditLine_ru.pas">
             <Form>FormEditLine</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbEvents_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbEvents_ru.pas">
             <Form>FormEvents</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbIntro_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbIntro_ru.pas">
             <Form>FormIntro</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbKeyboard_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbKeyboard_ru.pas">
             <Form>FormKeyboard</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbLists_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbLists_ru.pas">
             <Form>FormLists</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbManager_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbManager_ru.pas">
             <Form>FormManager</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbMaximums_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbMaximums_ru.pas">
             <Form>FormMaximums</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbNewReality_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbNewReality_ru.pas">
             <Form>FormNewReality</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbPhotograph_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbPhotograph_ru.pas">
             <Form>FormPhotograph</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbReality_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbReality_ru.pas">
             <Form>FormReality</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSatellite_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbSatellite_ru.pas">
             <Form>FormSatellite</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbOptions_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbOptions_ru.pas">
             <Form>FormOptions</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSpirit_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbSpirit_ru.pas">
             <Form>FormSpirit</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vInterfaceClasses.pas"/>
-        <DCCReference Include="..\source\bio\fbFirstForm_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbFirstForm_ru.pas">
             <Form>FormFirst</Form>
         </DCCReference>
         <DCCReference Include="..\source\bio\vSplashScreen.pas"/>
-        <DCCReference Include="..\source\bio\fbPopulations_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbPopulations_ru.pas">
             <Form>FormPopulations</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbHeightField_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbHeightField_ru.pas">
             <Form>FormHeightField</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbHumidityMap_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbHumidityMap_ru.pas">
             <Form>FormHumidityMap</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbPosition_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbPosition_ru.pas">
             <Form>FormPosition</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbDNAR.pas">
+        <DCCReference Include="..\source\bio\ru\fbDNAR.pas">
             <Form>FormDNA</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbError_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbError_ru.pas">
             <Form>FormError</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbTip_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbTip_ru.pas">
             <Form>FormTip</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbSplash_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbSplash_ru.pas">
             <Form>FormSplash</Form>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbImages_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbImages_ru.pas">
             <Form>frmImages</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\bio\Bio.Things.pas"/>
         <DCCReference Include="..\source\bio\Bio.Utilities.pas"/>
-        <DCCReference Include="..\source\bio\fbTutorial_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbTutorial_ru.pas">
             <Form>FormTutorial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -263,13 +263,13 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\bio\fbMiniForm_ru.pas"/>
+        <DCCReference Include="..\source\bio\ru\fbMiniForm_ru.pas"/>
         <DCCReference Include="..\source\astro\Astro.Globals.pas"/>
-        <DCCReference Include="..\source\bio\fbBioneta_ru.pas">
+        <DCCReference Include="..\source\bio\ru\fbBioneta_ru.pas">
             <Form>FormBioneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\bio\vSpiritManager_ru.pas"/>
+        <DCCReference Include="..\source\bio\ru\vSpiritManager_ru.pas"/>
         <DCCReference Include="..\source\bio\Bio.Flora.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

@@ -1,9 +1,9 @@
 unit flFracLand_ru;
 (*
-FractaLandscape демонстрирует использование TGLFractalHDS и других функций,
-
-входящих в модуль GLS.RandomHDS. Диалоговое окно взаимодействует практически со всеми свойствами объекта,
-позволяя понять, чем они управляют.
+Генератор фрактальных ландшафтов FractaLandscape на основе компонента TGLFractalHDS
+и других функций, входящих в модуль GLS.RandomHDS.
+Диалоговое окно взаимодействует практически со всеми свойствами объекта,
+позволяя понять, как изменяется ландшафт.
 
 TGLFractalHDS используется так же, как и другие HDS GLScene. Для просмотра результатов необходимо
 связать его с TGLTerrainRenderer. Но он делает следующее:
@@ -14,13 +14,12 @@ TGLFractalHDS используется так же, как и другие HDS GLScene. Для просмотра резул
 творческий потенциал используется в событии OnDrawtexture, которое определяет, как цвета будут
 накладываться на поле высот в соответствии с координатами и топографией.
 
-Чтобы понять, как всё работает, взгляните на модуль agGLRandomHDS и
-на следующие методы этого модуля:
+Чтобы понять, как это работает, взгляните на модуль agGLRandomHDS и
+на следующие методы:
 
 - FormCreate: Как объявить и создать FractalHDS (не компонент типа «подключи и работай»)
 - btApplyClick: Установка свойств
 - GenerateLandscape: Как загрузить текстуры, построить ландшафт и освободить их
-
 после этого
 - OnDrawTexture: Эта функция выбирает правильный цвет для отображения в определенной
 ячейке ландшафта в зависимости от её координат, высоты и уклона. Эта
@@ -33,11 +32,10 @@ TGLFractalHDS, будет использоваться функция по умолчанию:
 - DummyCube для масштабирования;
 - Cadencer заменен на TGLAsyncTimer.
 
-Все остальные методы на данной форме — это просто код для поддержки версии и
-они не имеют прямого отношения к генерации ландшафта.
-
-Исходный код этого модуля основан на демоверсии SynthTerr и улучшениях фрактала
-от Александра Хирзеля.
+Остальные методы данной формы необходимы для интерактивного взаимодействия
+с пользователем и поддержки версий, не имея прямого отношения к генерации ландшафтов.
+Исходный код модуля основан на демоверсии SynthTerr Александра Хирзеля
+и дальнейших улучшениях фрактальных свойств ландшафтов.
 *)
 interface
 
@@ -98,7 +96,7 @@ type
     seDepth: TSpinEdit;
     tbRoughness: TTrackBar;
     ckSea: TCheckBox;
-    GroupBox3: TGroupBox;
+    GroupBoxShadows: TGroupBox;
     ckLighting: TCheckBox;
     ckShadows: TCheckBox;
     Label1: TLabel;
@@ -260,12 +258,14 @@ uses
 var
   Forest, Sea, Beach, Snow, Grass, Cliff, BrownSoil: tBitmap;
 
+  //----------------------------------------------------------------------------
 function TextureSea(const X, Y: Integer): TGLColorVector;
 begin
   Result := ConvertWinColor(Sea.Canvas.Pixels[X * 5 mod Sea.Width, Y * 5 mod Sea.Height]);
   // Result:=TextureBlue(x,y);
 end;
 
+//----------------------------------------------------------------------------
 function TextureForest(const X, Y: Integer): TGLColorVector;
 begin
   with Forest do
@@ -274,6 +274,7 @@ begin
   // Result:=TextureDarkGreen(x,y);
 end;
 
+//----------------------------------------------------------------------------
 function TextureGrass(const X, Y: Integer): TGLColorVector;
 begin
   with Grass do
@@ -281,24 +282,28 @@ begin
   AddVector(Result, 0.2); // Original texture is too dark
 end;
 
+//----------------------------------------------------------------------------
 function TextureSnow(const X, Y: Integer): TGLColorVector;
 begin
   with Snow do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
 end;
 
+//----------------------------------------------------------------------------
 function TextureBeach(const X, Y: Integer): TGLColorVector;
 begin
   with Beach do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
 end;
 
+//----------------------------------------------------------------------------
 function TextureCliff(const X, Y: Integer): TGLColorVector;
 begin
   with Cliff do
     Result := ConvertWinColor(Canvas.Pixels[X * 2 mod Width, Y * 2 mod Height]);
 end;
 
+//----------------------------------------------------------------------------
 function TextureBrownSoil(const X, Y: Integer): TGLColorVector;
 begin
   with BrownSoil do
@@ -328,6 +333,7 @@ begin
   LightChanged := True;
 end;
 
+//----------------------------------------------------------------------------
 function TfrmFracLands.OnDrawTexture(const Sender: tGLBaseRandomHDS;
   X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
 const
@@ -431,6 +437,7 @@ begin
   end; // with
 end;
 
+//----------------------------------------------------------------------------
 function TfrmFracLands.OnDrawTextureSlope(const Sender: tGLBaseRandomHDS;
   X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
 var
@@ -488,13 +495,14 @@ begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmFracLands.FormActivate(Sender: TObject);
 begin
   if not LandscapeGenerated then
   begin
     btApplyClick(Sender);
     Start := GetTickCount;
-  end; // if
+  end;
   LandscapeGenerated := True;
   OnCameraChanged(Sender);
   OnScaleChanged(Sender);
@@ -504,7 +512,7 @@ end;
 procedure TfrmFracLands.GenerateLandscape;
 begin
   try
-    Rendering := False; // No rendering while the landscape is built
+    Rendering := False; // Без рендера пока создаём ландшафт
     frmProgress.lblTask.Caption := 'Создание ландшафта';
     frmProgress.Execute;
     Screen.Cursor := crHourGlass;
@@ -544,8 +552,8 @@ begin
       btApply.Enabled := False;
     end; // with
 
-  finally // Finalisation
-    Sea.Free; // The bitmaps are only needed while landscape is being built
+  finally
+    Sea.Free; // Битмап нужен пока строится ландшафт
     Forest.Free;
     Snow.Free;
     Cliff.Free;
@@ -555,7 +563,7 @@ begin
 
     frmProgress.Close;
     Screen.Cursor := crDefault;
-    Rendering := True; // Enable rendering
+    Rendering := True; // включить рендер
   end;
 end;
 
@@ -563,7 +571,7 @@ end;
 procedure TfrmFracLands.OnTopographyChanged(Sender: TObject);
 begin
   if seDepth.Value > 6 then
-    seDepth.Value := 6;  // otherwise AV
+    seDepth.Value := 6;  // иначе AV
   DummyTrackbar.SetFocus;
   TopographyChanged := True;
   btApply.Enabled := True;

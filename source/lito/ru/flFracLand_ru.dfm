@@ -77,7 +77,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnTopographyChanged
         end
         object ckSea: TCheckBox
-          Left = 16
+          Left = 6
           Top = 17
           Width = 137
           Height = 17
@@ -119,12 +119,12 @@ object frmFracLands: TfrmFracLands
           FocusControl = seDepth
         end
         object Label4: TLabel
-          Left = 7
-          Top = 40
-          Width = 57
+          Left = 11
+          Top = 45
+          Width = 70
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Roughness:'
+          Caption = #1061#1086#1083#1084#1080#1089#1090#1086#1089#1090#1100':'
           FocusControl = tbRoughness
         end
         object Label11: TLabel
@@ -137,7 +137,7 @@ object frmFracLands: TfrmFracLands
           FocusControl = seSeed
         end
         object Label13: TLabel
-          Left = 9
+          Left = 11
           Top = 64
           Width = 55
           Height = 13
@@ -146,8 +146,8 @@ object frmFracLands: TfrmFracLands
           FocusControl = tbAmplitude
         end
         object seDepth: TSpinEdit
-          Left = 57
-          Top = 15
+          Left = 65
+          Top = 20
           Width = 57
           Height = 22
           Hint = 
@@ -162,7 +162,7 @@ object frmFracLands: TfrmFracLands
         object tbRoughness: TTrackBar
           Left = 128
           Top = 40
-          Width = 97
+          Width = 123
           Height = 25
           HelpContext = 45
           Position = 7
@@ -187,7 +187,7 @@ object frmFracLands: TfrmFracLands
         object tbAmplitude: TTrackBar
           Left = 128
           Top = 64
-          Width = 97
+          Width = 123
           Height = 25
           HelpContext = 45
           Max = 200
@@ -318,26 +318,26 @@ object frmFracLands: TfrmFracLands
         object Label8: TLabel
           Left = 6
           Top = 48
-          Width = 66
+          Width = 76
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Beach height:'
+          Caption = #1042#1099#1089#1086#1090#1072' '#1087#1083#1103#1078#1072':'
           FocusControl = tbBeachHeight
         end
         object ckSeaErosion: TCheckBox
-          Left = 3
+          Left = 6
           Top = 16
           Width = 73
           Height = 17
           Alignment = taLeftJustify
-          Caption = 'Enabled'
+          Caption = #1042#1082#1083#1102#1095#1080#1090#1100
           Checked = True
           State = cbChecked
           TabOrder = 0
           OnClick = OnTopographyChanged
         end
         object tbBeachHeight: TTrackBar
-          Left = 72
+          Left = 106
           Top = 48
           Width = 89
           Height = 25
@@ -355,24 +355,24 @@ object frmFracLands: TfrmFracLands
         Width = 216
         Height = 92
         Align = alLeft
-        Caption = #1069#1088#1086#1079#1080#1103' '#1086#1090' '#1076#1086#1078#1076#1103
+        Caption = #1044#1086#1078#1076#1077#1074#1072#1103' '#1101#1088#1086#1079#1080#1103
         TabOrder = 1
         object Label9: TLabel
-          Left = 29
-          Top = 40
-          Width = 59
+          Left = 6
+          Top = 39
+          Width = 69
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Erosion rate:'
+          Caption = #1058#1077#1084#1087' '#1101#1088#1086#1079#1080#1080':'
           FocusControl = tbErosionRate
         end
         object Label10: TLabel
-          Left = 14
+          Left = 6
           Top = 64
-          Width = 74
+          Width = 89
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Deposition rate:'
+          Caption = #1058#1077#1084#1087' '#1086#1089#1072#1078#1076#1077#1085#1080#1103':'
           FocusControl = tbDepositionRate
         end
         object ckRainErosion: TCheckBox
@@ -381,14 +381,14 @@ object frmFracLands: TfrmFracLands
           Width = 73
           Height = 17
           Alignment = taLeftJustify
-          Caption = 'Enabled'
+          Caption = #1042#1082#1083#1102#1095#1080#1090#1100
           Checked = True
           State = cbChecked
           TabOrder = 0
           OnClick = OnTopographyChanged
         end
         object tbErosionRate: TTrackBar
-          Left = 88
+          Left = 104
           Top = 40
           Width = 89
           Height = 25
@@ -399,7 +399,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnTopographyChanged
         end
         object tbDepositionRate: TTrackBar
-          Left = 88
+          Left = 104
           Top = 64
           Width = 89
           Height = 25
@@ -416,15 +416,15 @@ object frmFracLands: TfrmFracLands
         Width = 144
         Height = 92
         Align = alLeft
-        Caption = 'Life erosion'
+        Caption = #1041#1080#1086#1075#1077#1085#1085#1072#1103' '#1101#1088#1086#1079#1080#1103
         TabOrder = 2
         object Label12: TLabel
-          Left = 13
-          Top = 40
-          Width = 59
+          Left = 6
+          Top = 39
+          Width = 74
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Robustness:'
+          Caption = #1059#1089#1090#1086#1081#1095#1080#1074#1086#1089#1090#1100':'
           FocusControl = tbRobustness
         end
         object ckLifeErosion: TCheckBox
@@ -433,16 +433,16 @@ object frmFracLands: TfrmFracLands
           Width = 73
           Height = 17
           Alignment = taLeftJustify
-          Caption = 'Enabled'
+          Caption = #1042#1082#1083#1102#1095#1080#1090#1100
           Checked = True
           State = cbChecked
           TabOrder = 0
           OnClick = OnTopographyChanged
         end
         object tbRobustness: TTrackBar
-          Left = 7
-          Top = 56
-          Width = 90
+          Left = -1
+          Top = 58
+          Width = 114
           Height = 25
           HelpContext = 45
           Max = 5
@@ -462,11 +462,11 @@ object frmFracLands: TfrmFracLands
         TabOrder = 3
         object Label26: TLabel
           Left = 6
-          Top = 40
-          Width = 55
+          Top = 48
+          Width = 74
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Step count:'
+          Caption = #1063#1080#1089#1083#1086' '#1094#1080#1082#1083#1086#1074':'
           FocusControl = seStepCount
         end
         object ckStepped: TCheckBox
@@ -475,13 +475,13 @@ object frmFracLands: TfrmFracLands
           Width = 97
           Height = 17
           Hint = 'Build a stepped landscape'
-          Caption = 'Enabled'
+          Caption = #1042#1082#1083#1102#1095#1080#1090#1100
           TabOrder = 0
           OnClick = OnTopographyChanged
         end
         object seStepCount: TSpinEdit
-          Left = 60
-          Top = 40
+          Left = 100
+          Top = 39
           Width = 49
           Height = 22
           MaxValue = 100
@@ -495,21 +495,21 @@ object frmFracLands: TfrmFracLands
     object TabSheet2: TTabSheet
       Caption = #1057#1074#1077#1090
       ImageIndex = 1
-      object GroupBox3: TGroupBox
+      object GroupBoxShadows: TGroupBox
         Left = 0
         Top = 0
-        Width = 169
+        Width = 217
         Height = 92
         Align = alLeft
-        Caption = 'Shadows'
+        Caption = #1058#1077#1085#1080
         TabOrder = 0
         object Label1: TLabel
-          Left = 10
-          Top = 64
-          Width = 54
+          Left = 8
+          Top = 63
+          Width = 81
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Sun &height:'
+          Caption = #1042#1099#1089#1086#1090#1072' '#1057#1086#1083#1085#1094#1072':'
           FocusControl = tbSunHeight
         end
         object ckLighting: TCheckBox
@@ -518,7 +518,7 @@ object frmFracLands: TfrmFracLands
           Width = 73
           Height = 17
           Alignment = taLeftJustify
-          Caption = 'Enabled'
+          Caption = #1042#1082#1083#1102#1095#1080#1090#1100
           Checked = True
           State = cbChecked
           TabOrder = 0
@@ -530,15 +530,15 @@ object frmFracLands: TfrmFracLands
           Width = 73
           Height = 17
           Alignment = taLeftJustify
-          Caption = 'Shadows'
+          Caption = #1058#1077#1085#1080
           Checked = True
           State = cbChecked
           TabOrder = 1
           OnClick = OnLightChanged
         end
         object tbSunHeight: TTrackBar
-          Left = 64
-          Top = 64
+          Left = 114
+          Top = 65
           Width = 97
           Height = 25
           HelpContext = 45
@@ -549,40 +549,39 @@ object frmFracLands: TfrmFracLands
         end
       end
       object GroupBox4: TGroupBox
-        Left = 169
+        Left = 217
         Top = 0
-        Width = 152
+        Width = 224
         Height = 92
         Align = alLeft
-        Caption = 'Light'
+        Caption = #1057#1074#1077#1090
         TabOrder = 1
         object Label5: TLabel
           Left = 6
           Top = 24
-          Width = 42
+          Width = 46
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Intensity:'
+          Caption = #1071#1088#1082#1086#1089#1090#1100':'
           FocusControl = tbIntensity
         end
         object Label6: TLabel
-          Left = 7
-          Top = 48
-          Width = 41
+          Left = 6
+          Top = 43
+          Width = 70
           Height = 13
           Alignment = taRightJustify
-          Caption = '&Ambient:'
+          Caption = #1056#1072#1089#1089#1077#1080#1074#1072#1085#1080#1077':'
           FocusControl = tbAmbient
         end
         object Label7: TLabel
-          Left = 21
-          Top = 72
-          Width = 27
+          Left = 6
+          Top = 62
+          Width = 28
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Color:'
+          Caption = #1062#1074#1077#1090':'
           FocusControl = tbAmbient
-          Visible = False
         end
         object shColor: TShape
           Left = 54
@@ -594,7 +593,7 @@ object frmFracLands: TfrmFracLands
           OnMouseUp = shColorMouseUp
         end
         object tbIntensity: TTrackBar
-          Left = 48
+          Left = 104
           Top = 24
           Width = 97
           Height = 25
@@ -605,7 +604,7 @@ object frmFracLands: TfrmFracLands
           OnChange = OnLightChanged
         end
         object tbAmbient: TTrackBar
-          Left = 48
+          Left = 104
           Top = 48
           Width = 97
           Height = 25
@@ -626,15 +625,15 @@ object frmFracLands: TfrmFracLands
         Width = 193
         Height = 92
         Align = alLeft
-        Caption = 'Land-cover'
+        Caption = #1047#1077#1084#1077#1083#1100#1085#1099#1081' '#1087#1086#1082#1088#1086#1074
         TabOrder = 0
         object Label14: TLabel
-          Left = 42
+          Left = 36
           Top = 40
-          Width = 30
+          Width = 36
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Scale:'
+          Caption = #1064#1082#1072#1083#1072':'
           FocusControl = tbTextureScale
         end
         object ckTexture: TCheckBox
@@ -646,16 +645,16 @@ object frmFracLands: TfrmFracLands
             'Compute a land-cover for each pixel according to its elevation a' +
             'nd slope'
           Alignment = taLeftJustify
-          Caption = 'Enabled'
+          Caption = #1042#1082#1083#1102#1095#1080#1090#1100
           Checked = True
           State = cbChecked
           TabOrder = 0
           OnClick = OnLightChanged
         end
         object tbTextureScale: TTrackBar
-          Left = 72
-          Top = 40
-          Width = 97
+          Left = 16
+          Top = 59
+          Width = 161
           Height = 25
           Hint = 'Resolution of the land-cover'
           HelpContext = 45
@@ -673,28 +672,28 @@ object frmFracLands: TfrmFracLands
         Width = 193
         Height = 92
         Align = alLeft
-        Caption = 'Topography strata'
+        Caption = #1057#1090#1088#1072#1090#1099' '#1090#1086#1087#1086#1075#1088#1072#1092#1080#1080
         TabOrder = 1
         object Label15: TLabel
-          Left = 5
+          Left = 6
           Top = 24
-          Width = 67
+          Width = 73
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Snow altitude:'
+          Caption = #1042#1099#1089#1086#1090#1072' '#1089#1085#1077#1075#1072':'
           FocusControl = tbSnow
         end
         object Label16: TLabel
-          Left = 13
+          Left = 6
           Top = 48
-          Width = 59
+          Width = 95
           Height = 13
           Alignment = taRightJustify
-          Caption = 'Steep slope:'
+          Caption = #1050#1088#1091#1090#1080#1079#1085#1072' '#1089#1082#1083#1086#1085#1086#1074':'
           FocusControl = tbSteep
         end
         object tbSnow: TTrackBar
-          Left = 72
+          Left = 90
           Top = 24
           Width = 97
           Height = 25
@@ -705,9 +704,9 @@ object frmFracLands: TfrmFracLands
           OnChange = OnLightChanged
         end
         object tbSteep: TTrackBar
-          Left = 72
-          Top = 48
-          Width = 97
+          Left = 6
+          Top = 67
+          Width = 181
           Height = 25
           HelpContext = 45
           Max = 90
@@ -740,20 +739,19 @@ object frmFracLands: TfrmFracLands
         Width = 192
         Height = 92
         Align = alLeft
-        Caption = 'Default texture'
+        Caption = #1042#1099#1073#1086#1088' '#1090#1077#1082#1089#1090#1091#1088#1099
         TabOrder = 3
-        Visible = False
         object Label27: TLabel
           Left = 9
           Top = 16
-          Width = 45
+          Width = 105
           Height = 13
-          Caption = 'Filename:'
+          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1080#1079' '#1092#1072#1081#1083#1072':'
           FocusControl = btDefaultTexture
         end
         object edDefaultTexture: TEdit
-          Left = 8
-          Top = 32
+          Left = 9
+          Top = 35
           Width = 153
           Height = 21
           ReadOnly = True
