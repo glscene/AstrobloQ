@@ -1,4 +1,7 @@
-unit fxUniversum;
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
+unit fxUniversum_ru;
 
 interface
 
@@ -19,20 +22,19 @@ uses
   FMX.Layouts,
   FMX.TreeView,
 
-  fxForm,
-  fxAbout,
-  fxSettings,
-  fxAstrogen,
-
-  fxVolumeRender,
-
   FMX.Memo.Types,
   FMX.Controls.Presentation,
   FMX.ScrollBox,
   FMX.Memo,
 
   FMX.ActnList,
-  FMX.StdCtrls
+  FMX.StdCtrls,
+
+  fxFormFirst_ru,
+  fxAbout_ru,
+  fxSettings_ru,
+///  fxVolumeRender_ru,
+  fxAstrogen_ru
   ;
 
 type
@@ -87,15 +89,14 @@ type
 var
   FormUniverse: TFormUniverse;
 
-implementation //=============================================================
-
-
-uses
-  fxScatterPlot;
+implementation //==============================================================
 
 {$R *.fmx}
 
-//---------------------------------------------------------------------------
+uses
+  fxScatterPlot_ru;
+
+//-----------------------------------------------------------------------------
 procedure TFormUniverse.frmCreate(Sender: TObject);
 var
   I: Integer;
@@ -147,7 +148,7 @@ begin
 end;
 
 
-//---------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormUniverse.miStarsysGenClick(Sender: TObject);
 begin
   inherited;
@@ -163,20 +164,19 @@ end;
 //-----------------------------------------------------------------------------
 procedure TFormUniverse.miVolumeRenderClick(Sender: TObject);
 begin
-  inherited;
-
+(* объёмный рендер директ х не работает
   with TFormTexture3D.Create(Self) do
     try
       ShowModal;
     finally
       Free;
     end;
+*)
 end;
 
 //---------------------------------------------------------------------------
 procedure TFormUniverse.miScatterStarsClick(Sender: TObject);
 begin
-  inherited;
   with TFormScatterPlot.Create(Self) do
     try
       ShowModal;
@@ -197,9 +197,9 @@ end;
 procedure TFormUniverse.miAboutClick(Sender: TObject);
 begin
   inherited;
-  FormAbout := TFormAbout.Create(Application);
-  FormAbout.ShowModal;
-  FormAbout.Free;
+  FrmAbout := TFrmAbout.Create(Application);
+  FrmAbout.ShowModal;
+  FrmAbout.Free;
 end;
 
 //---------------------------------------------------------------------------

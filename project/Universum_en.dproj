@@ -142,20 +142,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\univer\fxUniversum.pas">
+        <DCCReference Include="..\source\univer\en\fxUniversum_en.pas">
             <Form>FormUniverse</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxSettings.pas">
+        <DCCReference Include="..\source\univer\en\fxSettings_en.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAbout.pas">
+        <DCCReference Include="..\source\univer\en\fxAbout_en.pas">
             <Form>FormAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAstrogen.pas">
+        <DCCReference Include="..\source\univer\en\fxAstrogen_en.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
         <DCCReference Include="..\source\univer\Uni.Material.pas"/>
-        <DCCReference Include="..\source\univer\fxScatterPlot.pas">
+        <DCCReference Include="..\source\univer\en\fxScatterPlot_en.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
         <DCCReference Include="..\external\lux\LUX.FMX.ScatterPlotFrame.pas">
@@ -170,12 +170,13 @@
         <DCCReference Include="..\external\lux\LIB.Material.pas"/>
         <DCCReference Include="..\external\lux\LUX.FMX.Material.pas"/>
         <DCCReference Include="..\external\lux\LUX.FMX.Types3D.pas"/>
-        <DCCReference Include="..\source\univer\fxForm.pas">
-            <Form>FormX</Form>
-        </DCCReference>
         <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
-        <DCCReference Include="..\source\univer\fxVolumeRender.pas">
+        <DCCReference Include="..\source\univer\en\fxVolumeRender_en.pas">
             <Form>FormTexture3D</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\univer\en\fxFormFirst_en.pas">
+            <Form>FormX</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

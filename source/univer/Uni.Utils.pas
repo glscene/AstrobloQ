@@ -1,6 +1,6 @@
-//
-// AstroLibrary
-//
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit Uni.Utils;
 
 (* Miscellaneous support utilities & classes for localization *)

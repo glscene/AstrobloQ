@@ -1,4 +1,7 @@
-unit fxSettings;
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
+unit fxSettings_ru;
 
 interface
 
@@ -24,7 +27,8 @@ uses
   FMX.Edit,
   FMX.ComboEdit,
   FMX.ListBox,
-  fxForm;
+
+  fxFormFirst_ru;
 
 type
   TfrmSettings = class(TFormX)
@@ -122,7 +126,7 @@ var
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(frmSettings.Name, 'English', 9);
+    IniFile.WriteInteger(frmSettings.Name, 'Russian', 25);
   finally
     IniFile.Free;
   end;
@@ -140,7 +144,7 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, 'English', 9);
+    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, 'Russian', 25);
   finally
     IniFile.Free;
   end;

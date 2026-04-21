@@ -1,4 +1,4 @@
-unit fxAbout_ru;
+unit fxAbout_en;
 
 interface
 
@@ -23,11 +23,10 @@ uses
   FMX.ScrollBox,
   FMX.Memo,
 
-  fxForm
-  ;
+  fxFormFirst_en;
 
 type
-  TFrmAbout = class(TFormX)
+  TFormAbout = class(TFormX)
     TextAbout: TText;
     TabControl1: TTabControl;
     Memo1: TMemo;
@@ -37,13 +36,13 @@ type
   end;
 
 var
-  FrmAbout: TFrmAbout;
+  FormAbout: TFormAbout;
 
 implementation //-------------------------------------------------------------
 
 {$R *.fmx}
 
-procedure TFrmAbout.FormCreate(Sender: TObject);
+procedure TFormAbout.FormCreate(Sender: TObject);
 begin
   inherited;
   // TabControl

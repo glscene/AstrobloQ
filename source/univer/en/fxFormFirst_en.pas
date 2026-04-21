@@ -1,7 +1,7 @@
 //-------------------------------------
 // This unit is part of the Galaxy
 //-------------------------------------
-unit fxForm;
+unit fxFormFirst_en;
 
 // Original form of the Galaxy
 

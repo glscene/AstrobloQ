@@ -142,19 +142,19 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\univer\fxUniversum_ru.pas">
+        <DCCReference Include="..\source\univer\ru\fxUniversum_ru.pas">
             <Form>FormUniverse</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxSettings_ru.pas">
+        <DCCReference Include="..\source\univer\ru\fxSettings_ru.pas">
             <Form>frmSettings</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAbout_ru.pas">
+        <DCCReference Include="..\source\univer\ru\fxAbout_ru.pas">
             <Form>FrmAbout</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxAstrogen_ru.pas">
+        <DCCReference Include="..\source\univer\ru\fxAstrogen_ru.pas">
             <Form>FormAstrogen</Form>
         </DCCReference>
-        <DCCReference Include="..\source\univer\fxScatterPlot_ru.pas">
+        <DCCReference Include="..\source\univer\ru\fxScatterPlot_ru.pas">
             <Form>FormScatterPlot</Form>
         </DCCReference>
         <DCCReference Include="..\external\lux\LUX.FMX.ScatterPlotFrame.pas">
@@ -169,16 +169,12 @@
         <DCCReference Include="..\external\lux\LIB.Material.pas"/>
         <DCCReference Include="..\external\lux\LUX.FMX.Material.pas"/>
         <DCCReference Include="..\external\lux\LUX.FMX.Types3D.pas"/>
-        <DCCReference Include="..\source\univer\fxForm.pas">
+        <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
+        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
+        <DCCReference Include="..\source\univer\ru\fxFormFirst_ru.pas">
             <Form>FormX</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\univer\Uni.Utils.pas"/>
-        <DCCReference Include="..\source\univer\fxVolumeRender.pas">
-            <Form>FormTexture3D</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="..\source\univer\Uni.Material.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

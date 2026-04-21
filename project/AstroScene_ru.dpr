@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 (*
    Lithosphere - terrestrial exoplanets for near solar stars.
    The atmospheric effect is rendered in DirectOpenGLRender, which essentially

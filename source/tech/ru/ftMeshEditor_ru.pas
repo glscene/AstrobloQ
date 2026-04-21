@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit ftMeshEditor_ru;
 (*
   Changing mesh vertex data, normals and striping redundent data.

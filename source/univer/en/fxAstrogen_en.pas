@@ -1,4 +1,4 @@
-﻿unit fxAstrogen;
+﻿unit fxAstrogen_en;
 
 interface
 
@@ -78,7 +78,7 @@ implementation //============================================================
 {$R *.fmx}
 
 uses
-  fxUniversum;
+  fxUniversum_en;
 
 //----------------------------------------------------------------------------
 procedure TFormAstrogen.FormCreate(Sender: TObject);

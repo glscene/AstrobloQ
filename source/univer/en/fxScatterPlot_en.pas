@@ -1,4 +1,4 @@
-﻿unit fxScatterPlot_ru;
+﻿unit fxScatterPlot_en;
 
 interface
 

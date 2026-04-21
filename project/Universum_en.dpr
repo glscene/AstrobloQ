@@ -3,12 +3,12 @@ program Universum_en;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  fxUniversum in '..\source\univer\fxUniversum.pas' {FormUniverse},
-  fxSettings in '..\source\univer\fxSettings.pas' {frmSettings},
-  fxAbout in '..\source\univer\fxAbout.pas' {FormAbout},
-  fxAstrogen in '..\source\univer\fxAstrogen.pas' {FormAstrogen},
+  fxUniversum_en in '..\source\univer\en\fxUniversum_en.pas' {FormUniverse},
+  fxSettings_en in '..\source\univer\en\fxSettings_en.pas' {frmSettings},
+  fxAbout_en in '..\source\univer\en\fxAbout_en.pas' {FormAbout},
+  fxAstrogen_en in '..\source\univer\en\fxAstrogen_en.pas' {FormAstrogen},
   Uni.Material in '..\source\univer\Uni.Material.pas',
-  fxScatterPlot in '..\source\univer\fxScatterPlot.pas' {FormScatterPlot},
+  fxScatterPlot_en in '..\source\univer\en\fxScatterPlot_en.pas' {FormScatterPlot},
   LUX.FMX.ScatterPlotFrame in '..\external\lux\LUX.FMX.ScatterPlotFrame.pas' {ScatterPlotFrame: TFrame},
   LUX in '..\external\lux\LUX.pas',
   LUX.D2 in '..\external\lux\LUX.D2.pas',
@@ -18,9 +18,9 @@ uses
   LIB.Material in '..\external\lux\LIB.Material.pas',
   LUX.FMX.Material in '..\external\lux\LUX.FMX.Material.pas',
   LUX.FMX.Types3D in '..\external\lux\LUX.FMX.Types3D.pas',
-  fxForm in '..\source\univer\fxForm.pas' {FormX},
   Uni.Utils in '..\source\univer\Uni.Utils.pas',
-  fxVolumeRender in '..\source\univer\fxVolumeRender.pas' {FormTexture3D};
+  fxVolumeRender_en in '..\source\univer\en\fxVolumeRender_en.pas' {FormTexture3D},
+  fxFormFirst_en in '..\source\univer\en\fxFormFirst_en.pas' {FormX};
 
 {$R *.res}
 

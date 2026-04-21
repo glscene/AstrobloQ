@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit Tech.Utils;
 
 (* Miscellaneous support utilities & classes for localization *)

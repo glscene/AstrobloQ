@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit Astro.SkyBodies;
 
 (*-----------------------------------------------------------------------------
@@ -37,14 +40,14 @@ type
     DocIndex: Byte;
   end;
 
-  TOrbitData = record
+  TGLOrbitData = record
     Period: Single;
     Velocity: Single;
     Eccentricity: Single;
     AxisAngle: Single;
   end;
 
-  TPlanetData = record
+  TGLPlanetData = record
     PlanetName: array [0 .. 15] of Char; // материал в GLMatLibExoPlanets
     Distance: Single;
     Diameter: Single;
@@ -56,7 +59,7 @@ type
     DocIndex: Byte;
   end;
 
-  TMoonData = record
+  TGLMoonData = record
     MoonName: array [0 .. 9] of Char;  // материал в GLMatLibExoMoons
     Distance: Single;
     Diameter: Single;
@@ -66,7 +69,7 @@ type
     DocIndex: Byte;
   end;
 
-  TRingData = record
+  TGLRingData = record
     RingName: array [0 .. 9] of Char; // материал в GLMatLibExoRings
     Distance: Single;
     Diameter: Single;
@@ -87,30 +90,30 @@ type
 
   TGLOrbit = class(TGLLines)
   private
-    FExtraData: TOrbitData;
+    FExtraData: TGLOrbitData;
   public
-    property ExtraData: TOrbitData read FExtraData write FExtraData;
+    property ExtraData: TGLOrbitData read FExtraData write FExtraData;
   end;
 
   TGLPlanet = class(TGLFreeForm)
   private
-    FExtraData: TPlanetData;
+    FExtraData: TGLPlanetData;
   public
-    property ExtraData: TPlanetData read FExtraData write FExtraData;
+    property ExtraData: TGLPlanetData read FExtraData write FExtraData;
   end;
 
   TGLPlanetRing = class(TGLDisk)
   Private
-    FExtraData: TRingData;
+    FExtraData: TGLRingData;
   public
-    property ExtraData: TRingData read FExtraData write FExtraData;
+    property ExtraData: TGLRingData read FExtraData write FExtraData;
   end;
 
   TGLMoon = class(TGLFreeForm)
   private
-    FExtraData: TMoonData;
+    FExtraData: TGLMoonData;
   public
-    property ExtraData: TMoonData read FExtraData write FExtraData;
+    property ExtraData: TGLMoonData read FExtraData write FExtraData;
   end;
 
 

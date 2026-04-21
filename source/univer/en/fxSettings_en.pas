@@ -1,4 +1,4 @@
-unit fxSettings_ru;
+unit fxSettings_en;
 
 interface
 
@@ -24,7 +24,8 @@ uses
   FMX.Edit,
   FMX.ComboEdit,
   FMX.ListBox,
-  fxForm;
+
+  fxFormFirst_en;
 
 type
   TfrmSettings = class(TFormX)
@@ -56,15 +57,15 @@ type
 var
   frmSettings: TfrmSettings;
 
-implementation // -------------------------------------------------------------
+implementation //=============================================================
 
 {$R *.fmx}
 
 
+//----------------------------------------------------------------------------
 procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   ReadIniFile;
-
   for var I: Integer := 0 to TabControl.TabCount - 1 do
     TabControl.Tabs[I].Visible := False;
 
@@ -74,6 +75,7 @@ begin
   inherited;
 end;
 
+//----------------------------------------------------------------------------
 procedure TfrmSettings.tvSettingsClick(Sender: TObject);
 var
   I: Integer;
@@ -115,14 +117,14 @@ begin
   end;
 end;
 
-//--------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmSettings.WriteIniFile;
 var
   IniFile: TIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    IniFile.WriteInteger(frmSettings.Name, 'Russian', 25);
+    IniFile.WriteInteger(frmSettings.Name, 'English', 9);
   finally
     IniFile.Free;
   end;
@@ -130,8 +132,7 @@ begin
 end;
 
 
-//--------------------------------------------------------------------------
-
+//----------------------------------------------------------------------------
 procedure TfrmSettings.ReadIniFile;
 var
   IniFile: TIniFile;
@@ -140,14 +141,13 @@ begin
   inherited;
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
   try
-    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, 'Russian', 25);
+    ActiveLangId := IniFile.ReadInteger(frmSettings.Name, 'English', 9);
   finally
     IniFile.Free;
   end;
 end;
 
 //-------------------------------------------------------------------------
-
 procedure TfrmSettings.ButtonOkClick(Sender: TObject);
 var
   FileName: TFileName;
@@ -163,5 +163,5 @@ begin
   frmSettings.Close;
 end;
 
-
+//----------------------------------------------------------------------------
 end.

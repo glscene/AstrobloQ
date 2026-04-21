@@ -1,4 +1,4 @@
-unit fxUniversum_ru;
+unit fxUniversum_en;
 
 interface
 
@@ -19,19 +19,20 @@ uses
   FMX.Layouts,
   FMX.TreeView,
 
+  fxFormFirst_en,
+  fxAbout_en,
+  fxSettings_en,
+  fxAstrogen_en,
+
+  fxVolumeRender_en,
+
   FMX.Memo.Types,
   FMX.Controls.Presentation,
   FMX.ScrollBox,
   FMX.Memo,
 
   FMX.ActnList,
-  FMX.StdCtrls,
-
-  fxForm,
-  fxAbout_ru,
-  fxSettings_ru,
-  fxAstrogen_ru,
-  fxVolumeRender
+  FMX.StdCtrls
   ;
 
 type
@@ -86,14 +87,15 @@ type
 var
   FormUniverse: TFormUniverse;
 
-implementation //==============================================================
+implementation //=============================================================
+
+
+uses
+  fxScatterPlot_en;
 
 {$R *.fmx}
 
-uses
-  fxScatterPlot_ru;
-
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormUniverse.frmCreate(Sender: TObject);
 var
   I: Integer;
@@ -145,7 +147,7 @@ begin
 end;
 
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormUniverse.miStarsysGenClick(Sender: TObject);
 begin
   inherited;
@@ -158,8 +160,11 @@ begin
     end;
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormUniverse.miVolumeRenderClick(Sender: TObject);
 begin
+  inherited;
+
   with TFormTexture3D.Create(Self) do
     try
       ShowModal;
@@ -171,6 +176,7 @@ end;
 //---------------------------------------------------------------------------
 procedure TFormUniverse.miScatterStarsClick(Sender: TObject);
 begin
+  inherited;
   with TFormScatterPlot.Create(Self) do
     try
       ShowModal;
@@ -191,9 +197,9 @@ end;
 procedure TFormUniverse.miAboutClick(Sender: TObject);
 begin
   inherited;
-  FrmAbout := TFrmAbout.Create(Application);
-  FrmAbout.ShowModal;
-  FrmAbout.Free;
+  FormAbout := TFormAbout.Create(Application);
+  FormAbout.ShowModal;
+  FormAbout.Free;
 end;
 
 //---------------------------------------------------------------------------

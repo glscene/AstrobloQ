@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit Astro.ReadCSV;
 (*
   CSV parser for Free. Fields as String, Integer or Extended.

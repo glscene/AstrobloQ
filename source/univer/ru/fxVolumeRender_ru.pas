@@ -1,4 +1,4 @@
-﻿unit fxVolumeRender;
+﻿unit fxVolumeRender_ru;
 
 interface
 
