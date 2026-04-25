@@ -36,6 +36,8 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
+  GLS.Color,
+
   fmFormFirst;
 
 type
@@ -220,32 +222,36 @@ begin
     // на модель планеты типа GLSphere c моделью сечения типа GLDisk
     case vBodyType of
     1: begin // Planets
-         FileJpg := FormAstroScene.CurrentStar +
-         FormAstroScene.tbPlanets.Buttons[TToolButton(Sender).ImageIndex].ImageName
-          + '.jpg';
          FormAstroScene.sfPlanet.Stop := 180;
+//       if aColor then ... получить цвет дисков из файла sol_planets.csv
+         FormAstroScene.sfCore.Material.FrontProperties.Emission.Color := clrRed;
+         FormAstroScene.diskMantle.Material.FrontProperties.Ambient.Color := clrOrangeRed;
+         FormAstroScene.diskCrust.Material.FrontProperties.Ambient.Color := clrYellow;
+(*
+         else // aTexture
+         FileJpg := FormAstroScene.CurrentStar +
+           FormAstroScene.tbPlanets.Buttons[TToolButton(Sender).ImageIndex].ImageName + '.jpg';
+        if FileExists(FileJpg + '_core.jpg') then
+           FormAstroScene.diskMantle.Material.Texture.Image.LoadFromFile(FileJpg + '_core.jpg')
+ *)
        end;
     2: begin // Moons
-         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvMoons.Selected.Text;
          FormAstroScene.sfMoon.Stop := 180;
+         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvMoons.Selected.Text;
 
        end;
     3: begin // Asteroids
-         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvAsteroids.Selected.Text;
          FormAstroScene.sfAsteroid.Stop := 180;
+         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvAsteroids.Selected.Text;
        end;
-    4: begin // Comets not added
-         /// FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvComets.Selected.Text;
+    4: begin // Comets not added yet
          /// FormAstroScene.sfComet.Stop := 180;
-
+         /// FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvComets.Selected.Text;
        end
     else
     begin
-        if FileExists(FileJpg + '_core.jpg') then
-        FormAstroScene.diskCore.Material.Texture.Image.LoadFromFile(FileJpg + '_core.jpg')
-      else
-        FormAstroScene.diskCore.Material.Texture.Image.LoadFromFile(FileJpg + '.jpg');
-      end;
+      //
+    end;
     end; // case
   end
   else

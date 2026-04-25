@@ -751,7 +751,7 @@ object FormAstroScene: TFormAstroScene
       NearPlaneBias = 0.100000001490116100
       TargetObject = dcStar
       CameraStyle = csInfinitePerspective
-      Position.Coordinates = {0000803F000000000000803F0000803F}
+      Position.Coordinates = {0000803F00000000000040400000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
       Up.Coordinates = {00000000000000000000803F00000000}
       object LensStar: TGLLensFlare
@@ -822,8 +822,15 @@ object FormAstroScene: TFormAstroScene
             Slices = 64
             SweepAngle = 360.000000000000000000
           end
-          object diskCore: TGLDisk
-            Material.Texture.Disabled = False
+          object sfCore: TGLSphere
+            Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+            Radius = 0.200000002980232200
+            Slices = 64
+            Stacks = 64
+          end
+          object diskMantle: TGLDisk
             Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
             PitchAngle = 90.000000000000000000
             Position.Coordinates = {0AD723BC00000000000000000000803F}
@@ -831,16 +838,21 @@ object FormAstroScene: TFormAstroScene
             Up.Coordinates = {000000002EBD3BB3000080BF00000000}
             NormalDirection = ndInside
             InnerRadius = 0.200000002980232200
-            OuterRadius = 0.499000012874603300
+            OuterRadius = 0.400000005960464500
             Slices = 64
             SweepAngle = 360.000000000000000000
           end
-          object sfCore: TGLSphere
-            Material.FrontProperties.Ambient.Color = {0000803F00000000000000000000803F}
-            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-            Radius = 0.200000002980232200
+          object diskCrust: TGLDisk
+            Direction.Coordinates = {0000803F2EBD3BB3583DAF2600000000}
+            PitchAngle = 90.000000000000000000
+            Position.Coordinates = {0AD723BC00000000000000000000803F}
+            TurnAngle = 90.000000000000000000
+            Up.Coordinates = {000000002EBD3BB3000080BF00000000}
+            NormalDirection = ndInside
+            InnerRadius = 0.400000005960464500
+            OuterRadius = 0.500000000000000000
             Slices = 64
-            Stacks = 64
+            SweepAngle = 360.000000000000000000
           end
         end
         object ffPlanet: TGLFreeForm

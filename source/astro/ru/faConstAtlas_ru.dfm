@@ -40,7 +40,7 @@ object frmConstAtlas: TfrmConstAtlas
       Left = 1
       Top = 36
       Width = 207
-      Height = 591
+      Height = 566
       Align = alClient
       Color = clWhite
       Images = DataModuleImages.VirtConstelSymbols
@@ -193,7 +193,6 @@ object frmConstAtlas: TfrmConstAtlas
         0000000000000000000000010C1B04350442044304470430044F04200040044B
         043104300400002D0000005700000057000000FFFFFFFFFFFFFFFF0000000000
         000000000000000001071B0438044104380447043A043004}
-      ExplicitHeight = 566
     end
     object PanelLeftTitle: TPanel
       Left = 1

@@ -107,7 +107,7 @@ type
     miFileSaveAs: TMenuItem;
     SaveDialog: TSaveDialog;
     Atmosphere: TGLAtmosphere;
-    diskCore: TGLDisk;
+    diskMantle: TGLDisk;
     ffPlanet: TGLFreeForm;
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
@@ -165,6 +165,7 @@ type
     sfClouds: TGLSphere;
     GLMatLib: TGLMaterialLibrary;
     sfGrid: TGLSphere;
+    diskCrust: TGLDisk;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
