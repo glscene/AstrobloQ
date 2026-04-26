@@ -24,6 +24,8 @@ object FormOptions: TFormOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 377
+    ExplicitWidth = 742
     DesignSize = (
       750
       41)
@@ -37,6 +39,7 @@ object FormOptions: TFormOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
+      ExplicitLeft = 354
     end
   end
   object PanelMiddle: TPanel
@@ -48,6 +51,8 @@ object FormOptions: TFormOptions
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
+    ExplicitWidth = 742
+    ExplicitHeight = 368
     object PageControl: TPageControl
       Left = 169
       Top = 5
@@ -57,6 +62,8 @@ object FormOptions: TFormOptions
       Align = alClient
       Style = tsButtons
       TabOrder = 0
+      ExplicitWidth = 568
+      ExplicitHeight = 358
       object tsGeneral: TTabSheet
         Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
@@ -547,6 +554,7 @@ object FormOptions: TFormOptions
         0000000000000001071F043B0430043D04350442044B0400002B000000000000
         000000000006000000FFFFFFFF00000000000000000000000000010617043204
         5104370434044B04}
+      ExplicitHeight = 358
     end
   end
   object PanelTop: TPanel
@@ -557,6 +565,7 @@ object FormOptions: TFormOptions
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 742
   end
   object ImageList: TImageList
     Left = 427

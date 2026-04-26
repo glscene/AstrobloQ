@@ -71,7 +71,7 @@ uses
   faConstBorders_ru,
   faConstAtlas_ru,
 
-  Astro.ReadCSV
+  Astro.ReadCSV, GLS.Particles
   ;
 
 
@@ -107,8 +107,7 @@ type
     miFileSaveAs: TMenuItem;
     SaveDialog: TSaveDialog;
     Atmosphere: TGLAtmosphere;
-    diskMantle: TGLDisk;
-    ffPlanet: TGLFreeForm;
+    diskPlanetMantle: TGLDisk;
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
@@ -117,7 +116,7 @@ type
     miPlanetSystem: TMenuItem;
     N4: TMenuItem;
     miOptions: TMenuItem;
-    sfCore: TGLSphere;
+    sfPlanetCore: TGLSphere;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -156,16 +155,24 @@ type
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;
     ffMoon: TGLFreeForm;
-    ffAsteroid: TGLFreeForm;
     sfAsteroid: TGLSphere;
-    sfComet: TGLSphere;
     ffComet: TGLFreeForm;
     miConstAtlas: TMenuItem;
     miConstPolygons: TMenuItem;
-    sfClouds: TGLSphere;
+    sfPlanetClouds: TGLSphere;
     GLMatLib: TGLMaterialLibrary;
-    sfGrid: TGLSphere;
-    diskCrust: TGLDisk;
+    diskPlanetCrust: TGLDisk;
+    dcDebris: TGLDummyCube;
+    ffAsteroid: TGLFreeForm;
+    ffPlanet: TGLFreeForm;
+    diskMoonMantle: TGLDisk;
+    diskMoonCrust: TGLDisk;
+    sfMoonCore: TGLSphere;
+    sfPlanetGrid: TGLSphere;
+    sfAsteroidCore: TGLSphere;
+    diskAsteroidMantle: TGLDisk;
+    diskAsteroidCrust: TGLDisk;
+    particlesDebris: TGLParticles;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -271,28 +278,23 @@ begin
 
   CurrentStar := DataDir + '\starsys\sun\';
 
-  // разрешаем текстурирование планет
+  // разрешаем текстурирование
   sfPlanet.Material.Texture.Disabled := False; // сферическая форма
-  ffPlanet.Material.Texture.Disabled := False; // фри форма
-  sfGrid.Material.Texture.Disabled := False; // сфера сетки
-//  ffPlanet.Scale.Scale(1); // масштаб фриформ планет
+//  ffPlanet.Material.Texture.Disabled := False; // фри форма
+//  ffPlanet.Scale.Scale(1); // масштаб фриформ планеты
 
   // разрешаем текстурирование лун
   sfMoon.Material.Texture.Disabled := False;
-  ffMoon.Material.Texture.Disabled := False;
+//  ffMoon.Material.Texture.Disabled := False;
 //  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
 // ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
 
   // разрешаем текстурирование астероидов
   sfAsteroid.Material.Texture.Disabled := False;
-  ffAsteroid.Material.Texture.Disabled := False;
+// ffAsteroid.Material.Texture.Disabled := False;
 // ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
 
-  // разрешаем текстурирование комет
-  sfComet.Material.Texture.Disabled := False;
-  ffComet.Material.Texture.Disabled := False;
-
-  // Текстура облаков д.б. загружена в 3й материал компонента GLMatLib
+  // Текстура облаков д.б. загружена в 3й материал GLMatLib
   FileJpg := CurrentStar + 'clouds_rare.jpg';
   if FileExists(FileJpg) then // or clouds_dense
   begin
@@ -355,28 +357,30 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//--------------------------- Планеты с кнопками  ----------------------------
+//--------------------------- Планета ----------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
-
 begin
   vBodyType := 1;
   // видимость планет
   sfPlanet.Visible := True;
+  sfPlanetGrid.Visible := False; // нет сетки
+
+  // фри форма не видна
   ffPlanet.Visible := False;
   // луны, астероиды и кометы не видны
   dcMoon.Visible := False;
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
 
+  // Загрузка карты планеты
   FileJpg := CurrentStar + TToolButton(Sender).ImageName + '.jpg';
   sfPlanet.Material.Texture.Image.LoadFromFile(FileJpg);
-
-  // Показать атмосферы планет, заменить на case, толщина атмосфер разная
+  // Показать атмосферы планет, заменить на case, так как толщина атмосфер разная
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Earth') or
-     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Venus') or
-     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Jupiter') or
-     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Saturn') or
+  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Venus') or
+  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Jupiter') or
+  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Saturn') or
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Uranus') or
      (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Neptune')
   then
@@ -388,7 +392,7 @@ begin
   end
   else
   begin
-    // Cплошная облочность
+    // Загрузить карту сплошной облочности
     // sfClouds.Visible := False;
     DirectOpenGL.Visible := False;
     FormOptions.chbClouds.Checked := False;
@@ -420,7 +424,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//------------------------------- Луны ---------------------------------------
+//------------------------------- Луна ---------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
@@ -447,41 +451,34 @@ begin
   MoonName := GetMoonFromCSV(FileCSV,
     tvMoons.Selected.Index, tvMoons.Selected.Text (* sfMoon.Radius *));
 
-  // Загружаем карту по названию луны на английском языке
+  // Находим карту луны по названию на английском языке
   FileJpg := CurrentStar + LowerCase(MoonName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
-//    sfMoon.Radius := Radius; // считывается из csv файла
+  //sfMoon.Radius := Radius; // считывается из csv файла
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
-    ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // фриформа
-    // ffMoon.LoadFromFile(DataDir + '\model\object.3ds'); // модель
+    // ffGMoon.LoadFromFile(DataDir + '\model\object.3ds'); // фриформа
+    // ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // карта
   end
   else
-  begin
-    sfMoon.Radius := 0.3; // Radius;
+  begin // если нет ни модели, ни карты, то загружаем прототип
     FileJpg := CurrentStar + 'aMoon.jpg';
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
-    ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
+    // ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
   end;
 
 (*
-  если карты из VirtPlanetMaps
+  если карты грузятся из VirtPlanetMaps
   ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
   Camera.TagObject := ffPlanet;
 *)
 
   // Показать атмосферу Титана
   if tvMoons.Selected.Text = 'Титан' then
-  begin
-    sfMoon.Radius := 0.5;
     DirectOpenGL.Visible := True
-  end
   else
-  begin
-    sfMoon.Radius := 0.3;
     DirectOpenGL.Visible := False;
-  end;
 
   // Имя луны или спутника для веб-справки ruwiki
   // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
@@ -489,7 +486,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//-------------------------- Aстероиды ---------------------------------------
+//-------------------------- Aстероид ----------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
 var
@@ -504,30 +501,34 @@ begin
   dcMoon.Visible := False;
   dcComet.Visible := False;
 
-  // чтение CSV файла для перевода имени луны на английский язык
+  // чтение CSV файла астероидов для перевода имени на английский язык
   FileCSV := CurrentStar + 'sol_asteroids.csv';
   // в CSV файле находим английское имя астероида и его радиус
   // по полю name_ru и индексу узла дерева просмотра
   AsteroidName := GetMoonFromCSV(FileCSV,
     tvAsteroids.Selected.Index, tvAsteroids.Selected.Text (* sfAsteroids.Radius *));
 
-  // Загружаем карту по названию луны на английском языке
+  // Загружаем карту астероида по названию на английском языке
   FileJpg := CurrentStar + LowerCase(AsteroidName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
 //    sfAsteroid.Radius := Radius; // считывается из csv файла
     sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
-    ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);  // фриформа
     // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds'); // модель
   end
   else
   begin
-    sfAsteroid.Radius := 0.3; // радиус по умолчанию
     FileJpg := CurrentStar + 'aAsteroid.jpg'; // паттерн
     sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
-    ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
-    // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds');
+    // ffGlobe.LoadFromFile(DataDir + '\model\object.3ds');
   end;
+
+  // Показать атмосферу Плутона
+  if tvAsteroids.Selected.Text = 'Плутон' then
+    DirectOpenGL.Visible := True
+  else
+    DirectOpenGL.Visible := False;
+
   miHelpWiki.Caption := tvAsteroids.Selected.Text + '_(астероид)';
 end;
 
@@ -802,23 +803,22 @@ begin
   p := ComputePlanetPosition(cSunOrbitalElements, d);
   ScaleVector(p, 0.5 * cAUToKilometers * (1 / cEarthRadius));
 
-  // вращение небесного тела для демонстрации
+  // вращение небесного тела вместе с сеткой и облаками
   if FormOptions.CheckBoxRotate.Checked then
   begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
-    ffPlanet.TurnAngle := ffPlanet.TurnAngle + deltaTime * TimeMultiplier;
-    // географическая сетка, вращается вместе с планетой
-    // sfGrid.TurnAngle := sfPlanet.TurnAngle;
+//    ffPlanet.TurnAngle := ffGlobe.TurnAngle + deltaTime * TimeMultiplier;
+    // географическая сетка, вращается вместе с глобусом
+    sfPlanetGrid.TurnAngle := sfPlanet.TurnAngle;
 
-    // облака вращаются только у планет с облачностью
-    if sfClouds.Visible = True then
-      sfClouds.TurnAngle := sfClouds.TurnAngle + deltaTime * timeMultiplier + 0.01;
+    // облака вращаются только у планет с лёгкой облачностью
+    if sfPlanetClouds.Visible = True then
+      sfPlanetClouds.TurnAngle := sfPlanetClouds.TurnAngle + deltaTime * timeMultiplier + 0.01;
 
     sfMoon.TurnAngle := sfMoon.TurnAngle + deltaTime * TimeMultiplier;
     ffMoon.TurnAngle := ffMoon.TurnAngle + deltaTime * TimeMultiplier;
 
     sfAsteroid.TurnAngle := sfAsteroid.TurnAngle + deltaTime * TimeMultiplier;
-    ffAsteroid.TurnAngle := ffAsteroid.TurnAngle + deltaTime * TimeMultiplier;
    end;
 
  /// LSSun.Position.AsAffineVector := p; //остановка движения Солнца

@@ -213,40 +213,64 @@ end;
 //-----------------------------------------------------------------------------
 procedure TFormOptions.chbCoreClick(Sender: TObject);
 begin
-  inherited;  // считываем параметры из ini файла
+  inherited;  // считываем сохранённые опции из ini файла
 
   if chbCore.Checked then
+  with FormAstroScene do
   begin
-    if chbClouds.Checked = True then chbClouds.Checked := False;
+    if chbClouds.Checked = True then
+    begin
+      chbClouds.Checked := False;
+    end
+    else
+    begin
+
+    end;
     // Если активна модель типа GLFreeForm, то переключиться
-    // на модель планеты типа GLSphere c моделью сечения типа GLDisk
+    // на модель планеты типа GLSphere и сечение типа GLDisk
     case vBodyType of
-    1: begin // Planets
-         FormAstroScene.sfPlanet.Stop := 180;
+    1: begin // Планета
+         sfPlanet.Stop := 180;
 //       if aColor then ... получить цвет дисков из файла sol_planets.csv
-         FormAstroScene.sfCore.Material.FrontProperties.Emission.Color := clrRed;
-         FormAstroScene.diskMantle.Material.FrontProperties.Ambient.Color := clrOrangeRed;
-         FormAstroScene.diskCrust.Material.FrontProperties.Ambient.Color := clrYellow;
+         begin
+           sfPlanetCore.Material.FrontProperties.Emission.Color := clrRed;
+           diskPlanetMantle.Material.FrontProperties.Ambient.Color := clrOrangeRed;
+           diskPlanetCrust.Material.FrontProperties.Ambient.Color := clrYellow;
+         end;
 (*
-         else // aTexture
-         FileJpg := FormAstroScene.CurrentStar +
-           FormAstroScene.tbPlanets.Buttons[TToolButton(Sender).ImageIndex].ImageName + '.jpg';
+        else // если есть карта сечения планеты через ядро
+          FileJpg := CurrentStar +
+          tbPlanets.Buttons[TToolButton(Sender).ImageIndex].ImageName + '.jpg';
         if FileExists(FileJpg + '_core.jpg') then
-           FormAstroScene.diskMantle.Material.Texture.Image.LoadFromFile(FileJpg + '_core.jpg')
+          diskMantle.Material.Texture.Image.LoadFromFile(FileJpg + '_core.jpg')
  *)
        end;
-    2: begin // Moons
-         FormAstroScene.sfMoon.Stop := 180;
-         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvMoons.Selected.Text;
+    2: begin // Луна
+         sfMoon.Stop := 180;
+         sfMoonCore.Material.FrontProperties.Emission.RandomColor;
+         diskMoonMantle.Material.FrontProperties.Emission.RandomColor;
+         diskMoonCrust.Material.FrontProperties.Emission.RandomColor;
+         // если загрузить карту сечения
+         //FileJpg := CurrentStar + tvMoons.Selected.Text;
 
        end;
-    3: begin // Asteroids
-         FormAstroScene.sfAsteroid.Stop := 180;
-         FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvAsteroids.Selected.Text;
+    3: begin // Астероид
+         sfAsteroid.Stop := 180;
+         sfMoonCore.Material.FrontProperties.Emission.RandomColor;
+         diskMoonMantle.Material.FrontProperties.Emission.RandomColor;
+         diskMoonCrust.Material.FrontProperties.Emission.RandomColor;
+//         FileJpg := CurrentStar + FormAstroScene.tvAsteroids.Selected.Text;
        end;
-    4: begin // Comets not added yet
-         /// FormAstroScene.sfComet.Stop := 180;
-         /// FileJpg := FormAstroScene.CurrentStar + FormAstroScene.tvComets.Selected.Text;
+    4: begin // Комета
+         // if aColor then ... получить цвет дисков из файла sol_comets.csv
+         // sfComet.Material.Texture.Disabled := True;
+         // ffComet.Material.Texture.Disabled := True;
+
+         // else разрешаем текстурирование комет
+         // FileJpg := CurrentStar + tvComets.Selected.Text;
+         // sfComet.Material.Texture.Disabled := False;
+         // ffComet.Material.Texture.Disabled := False;
+         //
        end
     else
     begin
@@ -255,10 +279,11 @@ begin
     end; // case
   end
   else
+  with FormAstroScene do
   begin
-    FormAstroScene.sfPlanet.Stop := 360;
-    FormAstroScene.sfMoon.Stop := 360;
-    FormAstroScene.sfAsteroid.Stop := 360;
+    sfPlanet.Stop := 360;
+    sfMoon.Stop := 360;
+    sfAsteroid.Stop := 360;
   end;
 end;
 
@@ -273,7 +298,7 @@ end;
 // ------------------------ Облачность ---------------------------------------
 procedure TFormOptions.chbCloudsClick(Sender: TObject);
 begin
-  FormAstroScene.sfClouds.Visible := chbClouds.Checked;
+  FormAstroScene.sfPlanetClouds.Visible := chbClouds.Checked;
   FormAstroScene.SceneViewer.Invalidate;
 end;
 
