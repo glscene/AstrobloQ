@@ -571,7 +571,7 @@ object FormAstroScene: TFormAstroScene
     Align = alTop
     TabOrder = 4
     ExplicitWidth = 1383
-    object ToolBar1: TToolBar
+    object ToolBarMain: TToolBar
       Left = 11
       Top = 2
       Width = 262
@@ -580,7 +580,7 @@ object FormAstroScene: TFormAstroScene
       ButtonWidth = 33
       Images = DataModuleImages.ImageListInterface
       TabOrder = 0
-      object ToolButton1: TToolButton
+      object tbNew: TToolButton
         Left = 0
         Top = 0
         Hint = 'Skybody'
@@ -590,26 +590,35 @@ object FormAstroScene: TFormAstroScene
         Margins.Bottom = 2
         Caption = 'Skybody'
         ImageIndex = 0
-        ImageName = '0_Sun'
         ParentShowHint = False
         ShowHint = True
+        OnClick = miFileOpenClick
       end
-      object ToolButton2: TToolButton
+      object tbOpen: TToolButton
         Left = 33
         Top = 0
-        Hint = 'View from cosmos'
+        Hint = #1054#1090#1082#1088#1099#1090#1100
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
-        Caption = 'ToolButton3'
+        Caption = 'Open'
         ImageIndex = 2
-        ImageName = '2_Venus'
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = miFileOpenClick
+      end
+      object tbSave: TToolButton
+        Left = 66
+        Top = 0
+        Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        Caption = 'Save'
+        ImageIndex = 6
         ParentShowHint = False
         ShowHint = True
       end
-      object ToolButton3: TToolButton
-        Left = 66
+      object tbSaveAs: TToolButton
+        Left = 99
         Top = 0
         Hint = 'View from low orbit'
         Margins.Left = 2
@@ -618,12 +627,11 @@ object FormAstroScene: TFormAstroScene
         Margins.Bottom = 2
         Caption = 'ToolButton2'
         ImageIndex = 1
-        ImageName = '1_Mercury'
         ParentShowHint = False
         ShowHint = True
       end
       object ToolButton4: TToolButton
-        Left = 99
+        Left = 132
         Top = 0
         Hint = 'Walk on surface'
         Margins.Left = 2
@@ -637,7 +645,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object ToolButton5: TToolButton
-        Left = 132
+        Left = 165
         Top = 0
         Hint = 'Zoom in'
         Caption = 'ToolButton5'
@@ -647,57 +655,81 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object ToolButton6: TToolButton
-        Left = 165
+        Left = 198
         Top = 0
         Hint = 'Zoom out'
         Caption = 'ToolButton6'
         ImageIndex = 5
-        ImageName = '5_Jupiter'
-        ParentShowHint = False
-        ShowHint = True
-      end
-      object ToolButton7: TToolButton
-        Left = 198
-        Top = 0
-        Caption = 'ToolButton7'
-        ImageIndex = 6
-        ImageName = '6_Saturn'
         ParentShowHint = False
         ShowHint = True
       end
     end
-    object ToolBar2: TToolBar
-      Left = 512
+    object ToolBarView: TToolBar
+      Left = 302
       Top = 2
-      Width = 177
+      Width = 225
       Height = 48
       ButtonHeight = 45
       ButtonWidth = 32
-      Caption = 'ToolBar2'
+      Caption = 'ToolBarView'
       Images = DataModuleImages.ImageListInterface
       TabOrder = 1
-      object tbReset: TToolButton
+      object tbScene: TToolButton
         Left = 0
         Top = 0
-        Caption = #1057#1073#1088#1086#1089
+        Hint = #1057#1094#1077#1085#1072
+        Caption = 'Scene'
         ImageIndex = 27
-        OnClick = tbResetClick
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = tbSceneClick
       end
-      object tbCore: TToolButton
+      object tbMap: TToolButton
         Left = 32
         Top = 0
+        Hint = #1050#1072#1088#1090#1072
+        Caption = 'Map'
+        ImageIndex = 30
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object tbGraph: TToolButton
+        Left = 64
+        Top = 0
+        Hint = #1043#1088#1072#1092#1080#1082
+        Caption = 'Graph'
+        ImageIndex = 103
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object tbTable: TToolButton
+        Left = 96
+        Top = 0
+        Hint = #1058#1072#1073#1083#1080#1094#1072
+        Caption = #1058#1072#1073#1083#1080#1094#1072
+        ImageIndex = 143
+        ParentShowHint = False
+        ShowHint = True
+      end
+      object tbCore: TToolButton
+        Left = 128
+        Top = 0
         Hint = #1071#1076#1088#1086
-        Caption = 'tbCore'
+        Caption = 'Core'
         ImageIndex = 78
         ParentShowHint = False
         ShowHint = True
         OnClick = tbCoreClick
       end
-      object tbTable: TToolButton
-        Left = 64
+      object tbGrid: TToolButton
+        Left = 160
         Top = 0
-        Caption = 'tbTable'
-        ImageIndex = 30
+        Hint = #1057#1077#1090#1082#1072
+        Caption = 'Grid'
+        ImageIndex = 97
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = tbGridClick
       end
     end
   end

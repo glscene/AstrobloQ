@@ -126,14 +126,14 @@ type
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
     ControlBarTop: TControlBar;
-    ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
+    ToolBarMain: TToolBar;
+    tbNew: TToolButton;
+    tbOpen: TToolButton;
+    tbSaveAs: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
-    ToolButton7: TToolButton;
+    tbSave: TToolButton;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
@@ -147,10 +147,10 @@ type
     tbnSaturn: TToolButton;
     tbnUranus: TToolButton;
     tbnNeptune: TToolButton;
-    ToolBar2: TToolBar;
-    tbReset: TToolButton;
+    ToolBarView: TToolBar;
+    tbScene: TToolButton;
     tbCore: TToolButton;
-    tbTable: TToolButton;
+    tbMap: TToolButton;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;
@@ -173,6 +173,9 @@ type
     diskAsteroidMantle: TGLDisk;
     diskAsteroidCrust: TGLDisk;
     particlesDebris: TGLParticles;
+    tbTable: TToolButton;
+    tbGraph: TToolButton;
+    tbGrid: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -202,7 +205,8 @@ type
     procedure miMapClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
     procedure tbCoreClick(Sender: TObject);
-    procedure tbResetClick(Sender: TObject);
+    procedure tbSceneClick(Sender: TObject);
+    procedure tbGridClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -534,7 +538,7 @@ end;
 
 
 //-------------------------- Кнопка Reset ------------------------------------
-procedure TFormAstroScene.tbResetClick(Sender: TObject);
+procedure TFormAstroScene.tbSceneClick(Sender: TObject);
 begin
   tbPlanets.Buttons[3].Click; // Buttons[tbnEarth.ImageIndex].Click;
   tbPlanets.SetFocus;
@@ -891,6 +895,12 @@ procedure TFormAstroScene.tbCoreClick(Sender: TObject);
 begin
   tbCore.Down := not tbCore.Down;
   FormOptions.chbCore.Checked := not FormOptions.chbCore.Checked;
+end;
+
+procedure TFormAstroScene.tbGridClick(Sender: TObject);
+begin
+  tbGrid.Down := not tbGrid.Down;
+  FormOptions.chbTopoGrid.Checked := not FormOptions.chbTopoGrid.Checked;
 end;
 
 //--------------------- Загрузка текстуры высокого разрешения -----------------

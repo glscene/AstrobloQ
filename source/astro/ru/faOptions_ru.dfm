@@ -152,8 +152,8 @@ object FormOptions: TFormOptions
           StyleName = 'Windows'
         end
       end
-      object tsStars: TTabSheet
-        Caption = #1047#1074#1105#1079#1076#1099
+      object tsSkyDome: TTabSheet
+        Caption = #1053#1077#1073#1086#1089#1074#1086#1076
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
@@ -210,25 +210,25 @@ object FormOptions: TFormOptions
             TabOrder = 1
             OnClick = chbConstLinesClick
           end
-          object chbConstBounds: TCheckBox
+          object chbConstBorders: TCheckBox
             Left = 138
             Top = 24
             Width = 103
             Height = 17
             Caption = #1043#1088#1072#1085#1080#1094#1099
             TabOrder = 2
-            OnClick = chbConstBoundsClick
+            OnClick = chbConstBordersClick
           end
         end
         object chbSkyGrid: TCheckBox
-          Left = 66
-          Top = 153
+          Left = 178
+          Top = 113
           Width = 146
           Height = 23
-          Caption = #1057#1077#1090#1082#1072
+          Caption = #1057#1077#1090#1082#1072' '#1085#1077#1073#1086#1089#1074#1086#1076#1072
           TabOrder = 2
           StyleName = 'Windows'
-          OnClick = chbCartographicGridClick
+          OnClick = chbTopoGridClick
         end
       end
       object tsPlanets: TTabSheet
@@ -384,22 +384,22 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
             OnClick = chbCloudsClick
           end
-          object chbCartographicGrid: TCheckBox
+          object chbTopoGrid: TCheckBox
             Left = 304
             Top = 81
             Width = 129
             Height = 24
-            Caption = #1058#1086#1087#1086#1089#1077#1090#1082#1072
+            Caption = 'C'#1077#1090#1082#1072' '#1075#1083#1086#1073#1091#1089#1072
             TabOrder = 4
             StyleName = 'Windows'
-            OnClick = chbCartographicGridClick
+            OnClick = chbTopoGridClick
           end
           object chbHidePlanet: TCheckBox
             Left = 304
             Top = 34
             Width = 169
             Height = 25
-            Caption = #1057#1082#1088#1099#1090#1100' '#1087#1083#1072#1085#1077#1090#1091
+            Caption = #1057#1082#1088#1099#1090#1100' '#1086#1073#1098#1077#1082#1090
             TabOrder = 5
             StyleName = 'Windows'
             OnClick = chbHidePlanetClick
@@ -551,9 +551,9 @@ object FormOptions: TFormOptions
         0435043D043004000037000000000000000000000003000000FFFFFFFF000000
         00000000000000000000010C1404300442043004200038042000320440043504
         3C044F0400002D000000000000000000000005000000FFFFFFFF000000000000
-        0000000000000001071F043B0430043D04350442044B0400002B000000000000
-        000000000006000000FFFFFFFF00000000000000000000000000010617043204
-        5104370434044B04}
+        0000000000000001071F043B0430043D04350442044B0400002F000000000000
+        000000000006000000FFFFFFFF0000000000000000000000000001081D043504
+        31043E04410432043E043404}
       ExplicitHeight = 358
     end
   end

@@ -50,7 +50,7 @@ type
     tvOptions: TTreeView;
     PanelTop: TPanel;
     ImageList: TImageList;
-    tsStars: TTabSheet;
+    tsSkyDome: TTabSheet;
     tsPlanets: TTabSheet;
     tsGeneral: TTabSheet;
     grbPlanetGuts: TGroupBox;
@@ -83,9 +83,9 @@ type
     GroupBox2: TGroupBox;
     chbConstFigures: TCheckBox;
     chbConstLines: TCheckBox;
-    chbConstBounds: TCheckBox;
+    chbConstBorders: TCheckBox;
     chbClouds: TCheckBox;
-    chbCartographicGrid: TCheckBox;
+    chbTopoGrid: TCheckBox;
     chbHidePlanet: TCheckBox;
     tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
@@ -106,10 +106,10 @@ type
     procedure chbHidePlanetClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
-    procedure chbCartographicGridClick(Sender: TObject);
+    procedure chbTopoGridClick(Sender: TObject);
     procedure chbHidePanelsClick(Sender: TObject);
     procedure chbConstLinesClick(Sender: TObject);
-    procedure chbConstBoundsClick(Sender: TObject);
+    procedure chbConstBordersClick(Sender: TObject);
     procedure chbCloudsClick(Sender: TObject);
     procedure chbConstFiguresClick(Sender: TObject);
   private
@@ -128,7 +128,7 @@ implementation //==============================================================
 uses
   faAstroScene_ru;
 
-//-------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.FormCreate(Sender: TObject);
 var
   I: Integer;
@@ -288,11 +288,12 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-//                           Картографическая сетка
+//                           Топографическая сетка
 //-----------------------------------------------------------------------------
-procedure TFormOptions.chbCartographicGridClick(Sender: TObject);
+procedure TFormOptions.chbTopoGridClick(Sender: TObject);
 begin
-  //
+  FormAstroScene.sfPlanetGrid.Visible := chbTopoGrid.Checked;
+  FormAstroScene.SceneViewer.Invalidate;
 end;
 
 // ------------------------ Облачность ---------------------------------------
@@ -315,27 +316,26 @@ begin
 end;
 
 //---------------------- Вывод границ созвездий -------------------------------
-procedure TFormOptions.chbConstBoundsClick(Sender: TObject);
+procedure TFormOptions.chbConstBordersClick(Sender: TObject);
 begin
   FormAstroScene.ConstBorders.Nodes.Clear;
-//  chbConstBounds.Checked := not chbConstBounds.Checked;
-  if chbConstBounds.Checked then
+//  chbConstBorders.Checked := not chbConstBorders.Checked;
+  if chbConstBorders.Checked then
   begin
     FormAstroScene.ConstBordersAlpha := 0.5 - FormAstroScene.ConstBordersAlpha;
     FormAstroScene.LoadConstBorders;
   end;
 end;
 
-//---------------------- Вывод фигур созвездий -------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.chbConstFiguresClick(Sender: TObject);
 begin
-  inherited;
-  //
+  // Figures inside borders of costallations
 end;
 
-//------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Показать или скрыть небесное тело
-//------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.chbHidePlanetClick(Sender: TObject);
 begin
   with FormAstroScene do
@@ -355,9 +355,9 @@ begin
   end;
 end;
 
-//---------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Выбор страниц опций
-//---------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.tvOptionsClick(Sender: TObject);
 begin
   tvOptions.Items[1].DropHighlighted := False;
@@ -367,13 +367,13 @@ begin
      2: PageControl.ActivePage := tsScene;
      3: PageControl.ActivePage := tsDataTim;
      4: PageControl.ActivePage := tsPlanets;
-     5: PageControl.ActivePage := tsStars;
+     5: PageControl.ActivePage := tsSkyDome;
   end;
 end;
 
-//------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Чтение установок из ини файла
-//------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.ReadIniFile;
 begin
   inherited;
@@ -386,9 +386,9 @@ begin
   end;
 end;
 
-//------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Запись установок в инифайл
-//------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
@@ -401,9 +401,9 @@ begin
   inherited;
 end;
 
-//--------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Изменение и запись в файл при нажатии на кнопку ОК
-//--------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
@@ -417,13 +417,14 @@ begin
 end;
 
 
-//--------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Запись при закрытии формы
-//--------------------------------------------------------------
+//-----------------------------------------------------------------------------
 procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;
 end;
 
+//-----------------------------------------------------------------------------
 end.
