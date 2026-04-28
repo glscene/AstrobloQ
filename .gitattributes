@@ -1,5 +1,8 @@
-* linguist-vendored
-*.cpp linguist-vendored=false
-*.h linguist-language=Delphi
-*.cpp linguist-language=Delphi
-generated/*.cbproj linguist-generated=true
+* text=auto
+*.pas linguist-language=Delphi
+*.dpr linguist-language=Delphi
+*.dpk linguist-language=Delphi
+*.dproj linguist-language=Delphi
+*.h linguist-language=C++
+*.cpp linguist-language=C++
+*.cbproj linguist-language=C++
