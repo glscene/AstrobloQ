@@ -1,4 +1,4 @@
-* text=auto
+* linguist-vendored
 *.pas linguist-language=Delphi
 *.dpr linguist-language=Delphi
 *.dpk linguist-language=Delphi
