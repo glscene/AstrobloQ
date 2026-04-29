@@ -42,7 +42,7 @@ type
     Image1: TImage;
     Image3: TImage;
     Image4: TImage;
-    Memo1: TMemo;
+    MemoDevelopers: TMemo;
     Image2: TImage;
     ImagePlanets: TImage;
     PanelAllPlanets: TPanel;
@@ -52,6 +52,9 @@ type
     PanelUniverse: TPanel;
     PanelBiosfera: TPanel;
     AGCImage: TImage;
+    tbCertificates: TTabSheet;
+    Image5: TImage;
+    Image6: TImage;
     procedure FormCreate(Sender: TObject);
     procedure AGCImageClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
