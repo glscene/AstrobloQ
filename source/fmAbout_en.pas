@@ -49,6 +49,9 @@ type
     PanelGalaktika: TPanel;
     PanelUniverse: TPanel;
     AGCImage: TImage;
+    tsCertificates: TTabSheet;
+    Image6: TImage;
+    Image5: TImage;
     procedure GLSImageClick(Sender: TObject);
     procedure AGCImageClick(Sender: TObject);
     procedure ImageGalaxyClick(Sender: TObject);
