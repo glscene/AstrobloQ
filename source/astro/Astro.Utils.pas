@@ -267,7 +267,7 @@ var
   vInvPerformanceCounterFrequency: Double;
   vInvPerformanceCounterFrequencyReady: Boolean = False;
 
-//------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 function GetAssetsPath(): TFileName;
 var
   Path: TFileName;
@@ -281,6 +281,7 @@ begin
   Result := Path;
 end;
 
+//----------------------------------------------------------------------------
 function GetDataPath(): TFileName;
 var
   Path: TFileName;
