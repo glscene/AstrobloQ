@@ -3725,6 +3725,7 @@ object frmAbout: TfrmAbout
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 716
       end
     end
     object tsLitosfera: TTabSheet
@@ -194747,19 +194748,17 @@ object frmAbout: TfrmAbout
         Alignment = taCenter
         Lines.Strings = (
           ''
-          'AUTHORS:'
+          'Authors:'
           'Pavel Vassiliev'
           'Lev Koptyaev'
-          'Danil Wasin'
           'Elizaveta Soboleva'
+          'Danil Wasin'
           '**********'
           ''
-          'PARTNERS:'
+          'Partners:'
           'Viktor Raytarovskiy'
-          'Eugeniy Chernyh'
           'Irina Kulakova'
-          'Alexandr Tsvetkov'
-          'Anton Dahin')
+          'Alexandr Tsvetkov')
         TabOrder = 0
       end
     end

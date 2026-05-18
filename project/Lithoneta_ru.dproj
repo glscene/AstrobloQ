@@ -107,10 +107,10 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\source\lito\ru\flProgress_ru.pas">
-            <Form>frmProgress</Form>
+            <Form>FormProgress</Form>
         </DCCReference>
-        <DCCReference Include="..\source\lito\ru\flFracLand_ru.pas">
-            <Form>frmFracLands</Form>
+        <DCCReference Include="..\source\lito\ru\flLithoneta_ru.pas">
+            <Form>FormLithoneta</Form>
         </DCCReference>
         <DCCReference Include="..\source\dmBase.pas">
             <Form>DataModuleBase</Form>
@@ -126,6 +126,14 @@
             <Form>DataModuleImages</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\lito\ru\flDuneFighter_ru.pas">
+            <Form>frmDuneFighter</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\lito\ru\flFractalArch_ru.pas">
+            <Form>frmFracArchip</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

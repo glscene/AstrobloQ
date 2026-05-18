@@ -1,8 +1,8 @@
-object frmFracLands: TfrmFracLands
+object FormLithoneta: TFormLithoneta
   Left = 242
   Top = 106
-  Caption = 'Fractal Landscape'
-  ClientHeight = 496
+  Caption = 'Lithoneta'
+  ClientHeight = 462
   ClientWidth = 693
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object frmFracLands: TfrmFracLands
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   KeyPreview = True
+  Menu = MainMenu1
   Position = poScreenCenter
   ShowHint = True
   OnActivate = FormActivate
@@ -27,7 +28,7 @@ object frmFracLands: TfrmFracLands
   end
   object PageControl1: TPageControl
     Left = 0
-    Top = 351
+    Top = 317
     Width = 693
     Height = 120
     ActivePage = TabSheet1
@@ -1005,7 +1006,7 @@ object frmFracLands: TfrmFracLands
     Left = 0
     Top = 0
     Width = 693
-    Height = 351
+    Height = 317
     Camera = GLCamera1
     Buffer.FogEnvironment.FogColor.Color = {FCA9313F9CC4603F91ED7C3F0000803F}
     Buffer.FogEnvironment.FogStart = 400.000000000000000000
@@ -1014,7 +1015,7 @@ object frmFracLands: TfrmFracLands
     Buffer.BackgroundColor = clSkyBlue
     Buffer.FogEnable = True
     Buffer.Lighting = False
-    FieldOfView = 148.195465087890600000
+    FieldOfView = 144.983474731445300000
     PenAsTouch = False
     OnMouseEnter = GLSceneViewer1MouseEnter
     Align = alClient
@@ -1023,7 +1024,7 @@ object frmFracLands: TfrmFracLands
   end
   object Panel1: TPanel
     Left = 0
-    Top = 471
+    Top = 437
     Width = 693
     Height = 25
     Align = alBottom
@@ -1097,5 +1098,35 @@ object frmFracLands: TfrmFracLands
   object OpenPictureDialog1: TOpenPictureDialog
     Left = 440
     Top = 16
+  end
+  object MainMenu1: TMainMenu
+    Left = 576
+    Top = 16
+    object miFile: TMenuItem
+      Caption = 'File'
+      object miOpen: TMenuItem
+        Caption = 'Open...'
+      end
+      object miSave: TMenuItem
+        Caption = 'Save'
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object miExit: TMenuItem
+        Caption = 'Exit'
+      end
+    end
+    object miView: TMenuItem
+      Caption = 'View'
+      object miDunes: TMenuItem
+        Caption = 'Hunting in the dunes...'
+        OnClick = miDunesClick
+      end
+      object miArchpelago: TMenuItem
+        Caption = 'Archipelago...'
+        OnClick = miArchpelagoClick
+      end
+    end
   end
 end

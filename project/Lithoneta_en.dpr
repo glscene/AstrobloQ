@@ -2,18 +2,20 @@ program Lithoneta_en;
 
 uses
   Forms,
-  flFracLand_en in '..\source\lito\en\flFracLand_en.pas' {frmFracLands},
-  flProgress_en in '..\source\lito\en\flProgress_en.pas' {frmProgress},
+  flLithoneta_en in '..\source\lito\en\flLithoneta_en.pas' {FormLithoneta},
+  flProgress_en in '..\source\lito\en\flProgress_en.pas' {FormProgress},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule};
+  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
+  flDuneFighter_en in '..\source\lito\en\flDuneFighter_en.pas' {frmDuneFighter},
+  flFractalArch_en in '..\source\lito\en\flFractalArch_en.pas' {frmFracArchip};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmFracLands, frmFracLands);
-  Application.CreateForm(TfrmProgress, frmProgress);
+  Application.CreateForm(TFormLithoneta, FormLithoneta);
+  Application.CreateForm(TFormProgress, FormProgress);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TDataModuleImages, DataModuleImages);

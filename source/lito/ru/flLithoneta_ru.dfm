@@ -1,7 +1,7 @@
-object frmFracLands: TfrmFracLands
+object FormLithoneta: TFormLithoneta
   Left = 242
   Top = 106
-  Caption = #1060#1088#1072#1082#1090#1072#1083#1100#1085#1099#1081' '#1083#1072#1085#1076#1096#1072#1092#1090
+  Caption = #1051#1080#1090#1086#1085#1077#1090#1072
   ClientHeight = 586
   ClientWidth = 828
   Color = clBtnFace
@@ -11,6 +11,7 @@ object frmFracLands: TfrmFracLands
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   KeyPreview = True
+  Menu = MainMenu1
   Position = poScreenCenter
   ShowHint = True
   OnActivate = FormActivate
@@ -1095,5 +1096,36 @@ object frmFracLands: TfrmFracLands
   object OpenPictureDialog1: TOpenPictureDialog
     Left = 440
     Top = 16
+  end
+  object MainMenu1: TMainMenu
+    Left = 576
+    Top = 16
+    object miFile: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object miOpen: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+      end
+      object miSave: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object miExit: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = miExitClick
+      end
+    end
+    object miView: TMenuItem
+      Caption = #1042#1080#1076
+      object miDunes: TMenuItem
+        Caption = #1054#1093#1086#1090#1072' '#1074' '#1076#1102#1085#1072#1093'...'
+        OnClick = miDunesClick
+      end
+      object miArchpelago: TMenuItem
+        Caption = #1040#1088#1093#1080#1087#1077#1083#1072#1075'...'
+        OnClick = miArchpelagoClick
+      end
+    end
   end
 end

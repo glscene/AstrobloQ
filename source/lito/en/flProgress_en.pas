@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit flProgress_en;
 
 interface
@@ -17,7 +20,7 @@ uses
   Vcl.Samples.Gauges;
 
 type
-  TfrmProgress = class(TForm)
+  TFormProgress = class(TForm)
     ggTaskProgress: TGauge;
     lblTask: TLabel;
     timTask: TTimer;
@@ -30,28 +33,31 @@ type
   end;
 
 var
-  frmProgress: TfrmProgress;
+  FormProgress: TFormProgress;
 
 implementation //=============================================================
 
 uses
-  flFracLand_en;
+  flLithoneta_en;
 
 {$R *.dfm}
 
-procedure TfrmProgress.Execute;
+//----------------------------------------------------------------------------
+procedure TFormProgress.Execute;
 begin
   Show;
   timTask.Enabled:= True;
 end;
 
-procedure TfrmProgress.timTaskTimer(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormProgress.timTaskTimer(Sender: TObject);
 begin
-  lblTask.Caption:= frmFracLands.FractalHDS.Task;
-  ggTaskProgress.Progress:= frmFracLands.FractalHDS.TaskProgress;
+  lblTask.Caption:= FormLithoneta.FractalHDS.Task;
+  ggTaskProgress.Progress:= FormLithoneta.FractalHDS.TaskProgress;
 end;
 
-procedure TfrmProgress.FormHide(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormProgress.FormHide(Sender: TObject);
 begin
   timTask.Enabled:= False;
   lblTask.Caption:= '';

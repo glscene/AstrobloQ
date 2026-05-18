@@ -121,7 +121,7 @@ type
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
     LightStar: TGLLightSource;
-    About1: TMenuItem;
+    miAbout: TMenuItem;
     miSettings: TMenuItem;
     PanelRight: TPanel;
     tvAsteroids: TTreeView;
@@ -195,7 +195,7 @@ type
     procedure miClearTreeViewClick(Sender: TObject);
     procedure miHelpWikiClick(Sender: TObject);
     procedure miOptionsClick(Sender: TObject);
-    procedure About1Click(Sender: TObject);
+    procedure miAboutClick(Sender: TObject);
     procedure ToolButtonPlanetsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tvAsteroidsClick(Sender: TObject);
@@ -1129,7 +1129,7 @@ end;
 
 
 //----------------------- О программе -----------------------------------------
-procedure TFormAstroScene.About1Click(Sender: TObject);
+procedure TFormAstroScene.miAboutClick(Sender: TObject);
 begin
   with TfrmAbout.Create(Self) do
   try

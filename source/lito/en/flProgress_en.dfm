@@ -1,4 +1,4 @@
-object frmProgress: TfrmProgress
+object FormProgress: TFormProgress
   Left = 698
   Top = 678
   BorderStyle = bsDialog

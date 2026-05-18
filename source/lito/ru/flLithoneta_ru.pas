@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit flFracLand_ru;
+unit flLithoneta_ru;
 (*
 Генератор фрактальных ландшафтов FractaLandscape на основе компонента TGLFractalHDS
 и других функций, входящих в модуль GLS.RandomHDS.
@@ -59,6 +59,7 @@ uses
   Vcl.Samples.Spin,
   Vcl.ComCtrls,
   Vcl.Buttons,
+  Vcl.Menus,
 
   Stage.VectorGeometry,
   Stage.VectorTypes,
@@ -78,7 +79,7 @@ uses
   GLS.SimpleNavigation;
 
 type
-  TfrmFracLands = class(TForm)
+  TFormLithoneta = class(TForm)
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -186,6 +187,15 @@ type
     btDefaultTexture: TButton;
     OpenPictureDialog1: TOpenPictureDialog;
     btApply: TBitBtn;
+    MainMenu1: TMainMenu;
+    miFile: TMenuItem;
+    miOpen: TMenuItem;
+    miSave: TMenuItem;
+    N3: TMenuItem;
+    miExit: TMenuItem;
+    miView: TMenuItem;
+    miArchpelago: TMenuItem;
+    miDunes: TMenuItem;
     procedure GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
@@ -210,6 +220,9 @@ type
     procedure Button1Click(Sender: TObject);
     procedure AsyncTimer1Timer(Sender: TObject);
     procedure btDefaultTextureClick(Sender: TObject);
+    procedure miExitClick(Sender: TObject);
+    procedure miDunesClick(Sender: TObject);
+    procedure miArchpelagoClick(Sender: TObject);
   private
     MediaPath, FileJpg: TFileName;
     mx, my: Integer;
@@ -247,7 +260,7 @@ type
   end;
 
 var
-  frmFracLands: TfrmFracLands;
+  FormLithoneta: TFormLithoneta;
   covFlat, covSteep: Single; // Slope strata
   covLow, covHigh: Single; // Elevation strata
 
@@ -256,12 +269,14 @@ implementation //=============================================================
 {$R *.DFM}
 
 uses
+  flFractalArch_ru,
+  flDuneFighter_ru,
   flProgress_ru;
 
 var
   Forest, Sea, Beach, Snow, Grass, Cliff, BrownSoil: tBitmap;
 
-  //----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 function TextureSea(const X, Y: Integer): TGLColorVector;
 begin
   Result := ConvertWinColor(Sea.Canvas.Pixels[X * 5 mod Sea.Width, Y * 5 mod Sea.Height]);
@@ -314,7 +329,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmFracLands.FormCreate(Sender: TObject);
+procedure TFormLithoneta.FormCreate(Sender: TObject);
 begin
   MediaPath := LowerCase(ExtractFilePath(ParamStr(0)));
   MediaPath := IncludeTrailingPathDelimiter(MediaPath); // + '\media';
@@ -337,7 +352,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-function TfrmFracLands.OnDrawTexture(const Sender: tGLBaseRandomHDS;
+function TFormLithoneta.OnDrawTexture(const Sender: tGLBaseRandomHDS;
   X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
 const
   f = VerticalScalingFactor;
@@ -393,7 +408,7 @@ begin
 end;
 
 //--------------------------------------------------------------------------
-function TfrmFracLands.OnDrawTextureFlashy(const Sender: tGLBaseRandomHDS;
+function TFormLithoneta.OnDrawTextureFlashy(const Sender: tGLBaseRandomHDS;
   X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
 const
   f = VerticalScalingFactor;
@@ -441,7 +456,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-function TfrmFracLands.OnDrawTextureSlope(const Sender: tGLBaseRandomHDS;
+function TFormLithoneta.OnDrawTextureSlope(const Sender: tGLBaseRandomHDS;
   X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
 var
   slope: Single;
@@ -451,14 +466,14 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-function TfrmFracLands.OnDrawTextureGrass(const Sender: tGLBaseRandomHDS;
+function TFormLithoneta.OnDrawTextureGrass(const Sender: tGLBaseRandomHDS;
   X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
 begin
   Result := TextureGrass(X, Y);
 end;
 
 //------------------- Movement, mouse handling etc. -------------------------
-procedure TfrmFracLands.GLSceneViewer1MouseDown(Sender: TObject;
+procedure TFormLithoneta.GLSceneViewer1MouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
@@ -466,7 +481,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmFracLands.GLSceneViewer1MouseMove(Sender: TObject;
+procedure TFormLithoneta.GLSceneViewer1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
 // not workable yet !
@@ -490,8 +505,9 @@ begin
   end;
 end;
 
+
 //----------------------------------------------------------------------------
-procedure TfrmFracLands.Timer1Timer(Sender: TObject);
+procedure TFormLithoneta.Timer1Timer(Sender: TObject);
 begin
   Caption := Format('%.1f FPS - %d', [GLSceneViewer1.FramesPerSecond,
     GLTerrainRenderer1.LastTriangleCount]);
@@ -499,7 +515,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmFracLands.FormActivate(Sender: TObject);
+procedure TFormLithoneta.FormActivate(Sender: TObject);
 begin
   if not LandscapeGenerated then
   begin
@@ -512,15 +528,15 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TfrmFracLands.GenerateLandscape;
+procedure TFormLithoneta.GenerateLandscape;
 begin
   try
     Rendering := False; // Без рендера пока создаём ландшафт
-    frmProgress.lblTask.Caption := 'Создание ландшафта';
-    frmProgress.Execute;
+    FormProgress.lblTask.Caption := 'Создание ландшафта';
+    FormProgress.Execute;
     Screen.Cursor := crHourGlass;
 
-    // Load temporary textures
+    // Загрузка временной текстуры
     Forest := LoadJPGtexture('Forest.jpg');
     Sea := LoadJPGtexture('Sea.jpg');
     Snow := LoadJPGtexture('Snow.jpg');
@@ -564,14 +580,14 @@ begin
     Beach.Free;
     BrownSoil.Free;
 
-    frmProgress.Close;
+    FormProgress.Close;
     Screen.Cursor := crDefault;
     Rendering := True; // включить рендер
   end;
 end;
 
 //-----------------------------------------------------------------------------
-procedure TfrmFracLands.OnTopographyChanged(Sender: TObject);
+procedure TFormLithoneta.OnTopographyChanged(Sender: TObject);
 begin
   if seDepth.Value > 6 then
     seDepth.Value := 6;  // иначе AV
@@ -580,7 +596,8 @@ begin
   btApply.Enabled := True;
 end;
 
-procedure TfrmFracLands.OnLightChanged(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.OnLightChanged(Sender: TObject);
 begin
   DummyTrackbar.SetFocus;
   LightChanged := True;
@@ -590,7 +607,8 @@ begin
   grpDefaultTexture.Visible := not ckTexture.Checked;
 end;
 
-procedure TfrmFracLands.shColorMouseUp(Sender: TObject; Button: TMouseButton;
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.shColorMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   LightChanged := True;
@@ -598,7 +616,7 @@ begin
 end;
 
 //---------------------------------------------------------------------------
-procedure TfrmFracLands.btApplyClick(Sender: TObject);
+procedure TFormLithoneta.btApplyClick(Sender: TObject);
 begin
   if FractalHDS <> nil then
     FractalHDS.Free;
@@ -611,9 +629,9 @@ begin
   // Update HDS properties
   with FractalHDS do
   begin
-    // Topographic properties
+    // свойства топографии
     Depth := seDepth.Value;
-    Cyclic := ckCyclic.Checked; // Cyclic landscape
+    Cyclic := ckCyclic.Checked; // циклический ландшафт
     Seed := seSeed.Value;
     Amplitude := tbAmplitude.Position;
     Roughness := tbRoughness.Position / 10;
@@ -624,7 +642,7 @@ begin
     SeaTransparency := tbTransparency.Position / 10 *
       (SeaLevel + Amplitude / 2);
 
-    // Erosion properties
+    // свойства эрозии
     (*
       ErosionByRain.Enabled := ckRainErosion.Checked;
       ErosionByRain.ErosionRate := tbErosionRate.Position / 10;
@@ -640,7 +658,7 @@ begin
       Steps.Count := seStepCount.Value;
     *)
 
-    // Lighting properties
+    // свойства освещения
     /// ? LightColor := ConvertWinColor(shColor.Brush.Color);
     AmbientLight := tbAmbient.Position / 10;
     LightDirection := VectorMake(-tbSunHeight.Position / 10,
@@ -654,7 +672,7 @@ begin
     covFlat := 5;
     covSteep := tbSteep.Position;
 
-    // Texture properties
+    // свойства текстуры
     LandCover := ckTexture.Checked;
     TextureScale := Round(IntPower(2, tbTextureScale.Position));
     // Number of texture pixels by HDS cell
@@ -679,21 +697,22 @@ begin
       MaterialName := 'Default';
     end; // else
     (*
-     // Landscape without a sea
+     // ландшафт без моря
      PrimerLandscape := True;
      PrimerIsland(0, 100, fHeight);
     *)
   end; // with
-
   GenerateLandscape;
 end;
 
-procedure TfrmFracLands.FormDestroy(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.FormDestroy(Sender: TObject);
 begin
   FractalHDS.Free;
 end;
 
-procedure TfrmFracLands.OnCameraChanged(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.OnCameraChanged(Sender: TObject);
 begin
   DummyTrackbar.SetFocus;
   with GLCamera1 do
@@ -711,7 +730,8 @@ begin
   GLTerrainRenderer1.QualityDistance := GLCamera1.DepthOfView / 2;
 end;
 
-procedure TfrmFracLands.OnScaleChanged(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.OnScaleChanged(Sender: TObject);
 begin
   DummyTrackbar.SetFocus;
   if ckIsometric.Checked then
@@ -724,10 +744,11 @@ begin
     X := tbScaleX.Position;
     Y := tbScaleY.Position;
     z := tbScaleZ.Position;
-  end; // with     }
+  end; // with
 end;
 
-procedure TfrmFracLands.ckIsometricClick(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.ckIsometricClick(Sender: TObject);
 begin
   tbScaleY.Enabled := not ckIsometric.Checked;
   tbScaleZ.Enabled := not ckIsometric.Checked;
@@ -740,28 +761,33 @@ begin
   end; // if
 end;
 
-procedure TfrmFracLands.GLSceneViewer1MouseEnter(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.GLSceneViewer1MouseEnter(Sender: TObject);
 begin
   DummyTrackbar.SetFocus;
 end;
 
-procedure TfrmFracLands.TrackBar2Change(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.TrackBar2Change(Sender: TObject);
 begin
   DummyTrackbar.SetFocus;
 end;
 
-procedure TfrmFracLands.PageControl1Change(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.PageControl1Change(Sender: TObject);
 begin
   DummyTrackbar.SetFocus;
 end;
 
-procedure TfrmFracLands.Button1Click(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.Button1Click(Sender: TObject);
 begin
    AsyncTimer1.Enabled:=True;
   // AsyncTimer1.Enabled:=False;
 end;
 
-procedure TfrmFracLands.AsyncTimer1Timer(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.AsyncTimer1Timer(Sender: TObject);
 var
   DeltaTime: double;
 begin
@@ -770,11 +796,11 @@ begin
 
   lblDebug.Caption := Format('%f,%f,%f', [GLCamera1.Position.X,
     GLCamera1.Position.Y, GLCamera1.Position.z]);
-
   ProcessKeyboard(DeltaTime);
 end;
 
-procedure TfrmFracLands.ProcessKeyboard(const DeltaTime: double);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.ProcessKeyboard(const DeltaTime: double);
 var
   Speed: Single;
 begin
@@ -798,7 +824,6 @@ begin
       FCamHeight := FCamHeight - 10 * Speed;
     if IsKeyDown(VK_ESCAPE) then
       Close;
-
     // Don't leave the map
     if not FractalHDS.Cyclic then
     begin
@@ -811,7 +836,6 @@ begin
       if z < 0 then
         z := 0;
     end; // if
-
     // Don't fall through terrain!
     if FCamHeight < 0 then
       FCamHeight := 1;
@@ -820,7 +844,8 @@ begin
   end; // with
 end;
 
-procedure TfrmFracLands.SetRendering(const Value: boolean);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.SetRendering(const Value: boolean);
 begin
   FRendering := Value;
   AsyncTimer1.Enabled := FRendering;
@@ -831,7 +856,8 @@ begin
     GLTerrainRenderer1.HeightDataSource := FractalHDS;
 end;
 
-procedure TfrmFracLands.btDefaultTextureClick(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.btDefaultTextureClick(Sender: TObject);
 begin
   with OpenPictureDialog1 do
   begin
@@ -842,9 +868,39 @@ begin
   end; // with
 end;
 
-procedure TfrmFracLands.FormClose(Sender: TObject; var Action: TCloseAction);
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Rendering := False;
 end;
 
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.miArchpelagoClick(Sender: TObject);
+begin
+  with TfrmFracArchip.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.miDunesClick(Sender: TObject);
+begin
+  with TfrmDuneFighter.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+//----------------------------------------------------------------------------
+procedure TFormLithoneta.miExitClick(Sender: TObject);
+begin
+  Close;
+end;
+
+//----------------------------------------------------------------------------
 end.
