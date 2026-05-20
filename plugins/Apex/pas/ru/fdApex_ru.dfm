@@ -1,0 +1,193 @@
+object FormApex: TFormApex
+  Left = 0
+  Top = 0
+  Caption = 'ApexD'
+  ClientHeight = 499
+  ClientWidth = 777
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Menu = MainMenu1
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  TextHeight = 15
+  object Splitter1: TSplitter
+    Left = 209
+    Top = 29
+    Width = 2
+    Height = 431
+    ExplicitLeft = 113
+    ExplicitHeight = 346
+  end
+  object PanelLeft: TPanel
+    Left = 0
+    Top = 29
+    Width = 209
+    Height = 431
+    Align = alLeft
+    TabOrder = 0
+    ExplicitHeight = 406
+    object tvApex: TTreeView
+      Left = 1
+      Top = 25
+      Width = 207
+      Height = 378
+      Align = alClient
+      Indent = 19
+      TabOrder = 0
+      OnClick = tvApexClick
+      Items.NodeData = {
+        070F00000009540054007200650065004E006F00640065004F00000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001181F04400435
+        043E0431044004300437043E04320430043D043804350420003A043E043E0440
+        04340438043D04300442040000450000000000000000000000FFFFFFFFFFFFFF
+        FF0000000000000000000000000001131A043E043C04350442044B0420003804
+        20003F043B0430043D04350442043E04380434044B0400004900000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001151F0440043E
+        043204350440043A0430042000340430043D043D044B04450420003E04400431
+        04380442040000430000000000000000000000FFFFFFFFFFFFFFFF0000000000
+        0000000000000000011221043E043B043D04350447043D044B04350420003704
+        300442043C0435043D0438044F0400003D0000000000000000000000FFFFFFFF
+        FFFFFFFF00000000000000000000000000010F2204300439043C043504400420
+        003704300442043C0435043D0438044F040000430000000000000000000000FF
+        FFFFFFFFFFFFFF00000000000000000000000000011210043D0430043B043804
+        3704200044043E0442043E0441043D0438043C043A043E04320400003F000000
+        0000000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001101B
+        0443043D043D044B04350420004D04440435043C0435044004380434044B0400
+        00310000000000000000000000FFFFFFFFFFFFFFFF0000000000000000000000
+        000001091D043E0432043E043B0443043D043804350400004700000000000000
+        00000000FFFFFFFFFFFFFFFF00000000000000000000000000011418043D0442
+        04350433044004380440043E04320430043D043804350420003E044004310438
+        0442040000470000000000000000000000FFFFFFFFFFFFFFFF00000000000000
+        00000000000001141F043E043A0440044B044204380435042000370432045104
+        3704340420001B0443043D043E04390400003D0000000000000000000000FFFF
+        FFFFFFFFFFFF00000000000000000000000000010F130430044304410441043E
+        0432044B0420003E0440043104380442044B0400004700000000000000000000
+        00FFFFFFFFFFFFFFFF0000000000000000000000000001142404380437043804
+        4704350441043A043804350420004D04440435043C0435044004380434044B04
+        00003B0000000000000000000000FFFFFFFFFFFFFFFF00000000000000000000
+        000000010E1F043E043704380446043804380420003F043B0430043D04350442
+        040000490000000000000000000000FFFFFFFFFFFFFFFF000000000000000000
+        00000000011512043E04410445043E0434042000380420003704300445043E04
+        340420003F043B0430043D04350442040000570000000000000000000000FFFF
+        FFFFFFFFFFFF00000000000000000000000000011C12043E04410445043E0434
+        04200038042000370430043A0430044204200021043E043B043D044604300420
+        00380420001B0443043D044B04}
+      ExplicitLeft = -4
+      ExplicitTop = 19
+    end
+    object PanelTop: TPanel
+      Left = 1
+      Top = 1
+      Width = 207
+      Height = 24
+      Align = alTop
+      TabOrder = 1
+    end
+    object PanelBottom: TPanel
+      Left = 1
+      Top = 403
+      Width = 207
+      Height = 27
+      Align = alBottom
+      TabOrder = 2
+      ExplicitTop = 378
+    end
+  end
+  object ControlBar: TControlBar
+    Left = 0
+    Top = 0
+    Width = 777
+    Height = 29
+    Align = alTop
+    TabOrder = 1
+    ExplicitWidth = 769
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 460
+    Width = 777
+    Height = 39
+    Panels = <>
+    ExplicitTop = 435
+    ExplicitWidth = 769
+  end
+  object MainMenu1: TMainMenu
+    Left = 299
+    Top = 105
+    object MenuItem1: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object MenuItem2: TMenuItem
+        Caption = #1053#1086#1074#1099#1081
+      end
+      object MenuItem3: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+      end
+      object MenuItem4: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      end
+      object MenuItem5: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+      end
+      object MenuItem6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem7: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = miExitClick
+      end
+    end
+    object MenuItem8: TMenuItem
+      Caption = #1055#1088#1072#1074#1082#1072
+      object MenuItem9: TMenuItem
+        Caption = #1054#1090#1084#1077#1085#1072
+        ShortCut = 16474
+      end
+      object MenuItem10: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem11: TMenuItem
+        Caption = #1042#1099#1088#1077#1079#1072#1090#1100
+        ShortCut = 16472
+      end
+      object MenuItem12: TMenuItem
+        Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
+        ShortCut = 16451
+      end
+      object MenuItem13: TMenuItem
+        Caption = #1042#1089#1090#1072#1074#1080#1090#1100
+        ShortCut = 16470
+      end
+      object MenuItem14: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem15: TMenuItem
+        Caption = #1053#1072#1081#1090#1080'...'
+      end
+      object MenuItem16: TMenuItem
+        Caption = #1047#1072#1084#1077#1085#1080#1090#1100'...'
+      end
+    end
+    object MenuItem17: TMenuItem
+      Caption = #1042#1080#1076
+      object MenuItem18: TMenuItem
+        Caption = #1057#1082#1088#1099#1090#1100
+      end
+      object MenuItem19: TMenuItem
+        Caption = #1055#1086#1082#1072#1079#1072#1090#1100
+      end
+    end
+    object MenuItem20: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+      object MenuItem21: TMenuItem
+        Caption = 'Ruwiki...'
+      end
+      object MenuItem22: TMenuItem
+        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+      end
+    end
+  end
+end
