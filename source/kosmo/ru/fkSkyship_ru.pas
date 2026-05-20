@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fkSkyRocket_ru;
+unit fkSkyship_ru;
 
 interface
 
@@ -42,7 +42,7 @@ uses
   Stage.Keyboard;
 
 type
-  TForm1 = class(TForm)
+  TFormSkyship = class(TForm)
     GLSceneViewer1: TGLSceneViewer;
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
@@ -73,16 +73,16 @@ type
   end;
 
 var
-  Form1: TForm1;
+  FormSkyship: TFormSkyship;
 
 implementation //============================================================
 
 {$R *.DFM}
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TFormSkyship.FormCreate(Sender: TObject);
 begin
   fullScreen := false;
-  SetCurrentDir(ExtractFilePath(ParamStr(0)));
+  SetCurrentDir(ExtractFilePath(ParamStr(0)) + '\media');
   // 8 MB height data cache
   // Note this is the data size in terms of elevation samples, it does not
   // take into account all the data required/allocated by the renderer
@@ -128,7 +128,7 @@ begin
   FreeForm1.Material.Texture.Image.LoadFromFile('avion512.jpg');
 end;
 
-procedure TForm1.GLCadencer1Progress(Sender: TObject;
+procedure TFormSkyship.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   speed: Single;
@@ -185,7 +185,7 @@ end;
 //-----------------------------------------------------------------------------
 // Standard mouse rotation & FPS code below
 //-----------------------------------------------------------------------------
-procedure TForm1.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormSkyship.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
@@ -193,7 +193,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TForm1.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormSkyship.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 begin
   if ssLeft in Shift then
@@ -205,13 +205,13 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TForm1.Timer1Timer(Sender: TObject);
+procedure TFormSkyship.Timer1Timer(Sender: TObject);
 begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------
-procedure TForm1.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormSkyship.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     'w', 'W':

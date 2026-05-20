@@ -1,8 +1,8 @@
-program AquaRocket;
+program Submarine_en;
 
 uses
   Forms,
-  fkAquaRocket_ru in 'ru\fkAquaRocket_ru.pas' {MainForm};
+  fkSubmarine_en in 'en\fkSubmarine_en.pas' {MainForm};
 
 {$R *.RES}
 

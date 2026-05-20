@@ -1,4 +1,4 @@
-(* Basic terrain rendering demo.
+﻿(* Basic terrain rendering demo.
 
   The base terrain renderer uses a hybrid ROAM/brute-force approach to
   rendering terrain, by requesting height data tiles, then rendering them
@@ -19,7 +19,7 @@
   range the visible area covers 1024x1024 height samples, and with tiles of
   size 16 or less, this is a lot of tiles to prepare).
 *)
-program SkyRoket;
+program Skyship;
 
 uses
   Forms,

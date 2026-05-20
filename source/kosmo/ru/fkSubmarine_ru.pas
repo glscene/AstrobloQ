@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fkAquaRocket_ru;
+unit fkSubmarine_ru;
 
 interface
 
@@ -45,7 +45,7 @@ type
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
-    dcUnderwater: TGLDummyCube;
+    dcSubmarine: TGLDummyCube;
     TerrainRenderer1: TGLTerrainRenderer;
     Timer1: TTimer;
     GLCadencer1: TGLCadencer;
@@ -54,23 +54,23 @@ type
     GLFireFXManager1: TGLFireFXManager;
     DummyCube2: TGLDummyCube;
     GLCamera2: TGLCamera;
-    FreeForm2: TGLFreeForm;
-    FreeForm3: TGLFreeForm;
+    ffPropeller: TGLFreeForm;
+    ffKokpit: TGLFreeForm;
     GLFireFXManager2: TGLFireFXManager;
     DummyCube3: TGLDummyCube;
     GLFireFXManager3: TGLFireFXManager;
-    DummyCube4: TGLDummyCube;
-    FreeForm4: TGLFreeForm;
-    FreeForm5: TGLFreeForm;
-    DummyCube5: TGLDummyCube;
-    FreeForm6: TGLFreeForm;
-    FreeForm7: TGLFreeForm;
-    DummyCube6: TGLDummyCube;
-    FreeForm8: TGLFreeForm;
-    FreeForm9: TGLFreeForm;
-    elisa1: TGLFreeForm;
-    elisa2: TGLFreeForm;
-    elisa3: TGLFreeForm;
+    dcTower1: TGLDummyCube;
+    ffGlass1: TGLFreeForm;
+    ffTower1: TGLFreeForm;
+    dcTower2: TGLDummyCube;
+    ffGlass2: TGLFreeForm;
+    ffTower2: TGLFreeForm;
+    dcFatsub: TGLDummyCube;
+    ffFatsub: TGLFreeForm;
+    ffKokpit2: TGLFreeForm;
+    ffPropeller1: TGLFreeForm;
+    ffPropeller2: TGLFreeForm;
+    ffPropeller3: TGLFreeForm;
     procedure GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; x, y: Integer);
     procedure GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
@@ -81,7 +81,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure checkai;
+    procedure CheckAI;
   private
   public
     mx, my: Integer;
@@ -103,34 +103,35 @@ procedure TMainForm.FormCreate(Sender: TObject);
 begin
   fullScreen := false;
   dspeed := 0;  // othewise it will float away
-  SetCurrentDir(ExtractFilePath(ParamStr(0)) + '\models');
-  FreeForm8.LoadFromFile('fatsub.3ds');
-  FreeForm9.LoadFromFile('kokpit2.3ds');
-  FreeForm8.Material.Texture.Image.LoadFromFile('podmorni.jpg');
-  FreeForm9.Material.Texture.Image.LoadFromFile('podmorni.jpg');
+  SetCurrentDir(ExtractFilePath(ParamStr(0)) + '\media');
+  ffFatsub.LoadFromFile('fatsub.3ds');
+  ffKokpit2.LoadFromFile('kokpit2.3ds');
+  ffFatsub.Material.Texture.Image.LoadFromFile('submarine.jpg');
+  ffKokpit2.Material.Texture.Image.LoadFromFile('submarine.jpg');
 
-  ffSubmarine.LoadFromFile('podmor.3ds');  // flagman submarine
-  FreeForm2.LoadFromFile('elisa.3ds');
-  FreeForm3.LoadFromFile('kokpit.3ds');
-  ffSubmarine.Material.Texture.Image.LoadFromFile('podmorni.jpg');
-  FreeForm2.Material.Texture.Image.LoadFromFile('podmorni.jpg');
-  FreeForm3.Material.Texture.Image.LoadFromFile('podmorni.jpg');
+  ffSubmarine.LoadFromFile('submarine.3ds');  // flagman submarine
+  ffPropeller.LoadFromFile('propeller.3ds');
+  ffKokpit.LoadFromFile('kokpit.3ds');
+  ffSubmarine.Material.Texture.Image.LoadFromFile('submarine.jpg');
+  ffPropeller.Material.Texture.Image.LoadFromFile('submarine.jpg');
+  ffKokpit.Material.Texture.Image.LoadFromFile('submarine.jpg');
 
-  FreeForm4.LoadFromFile('tstaklo.3ds');
-  FreeForm4.Material.Texture.Image.LoadFromFile('snow512.jpg');
-  FreeForm5.LoadFromFile('toranj.3ds');
-  FreeForm5.Material.Texture.Image.LoadFromFile('toranj.jpg');
+  ffGlass1.LoadFromFile('glass.3ds');
+  ffGlass1.Material.Texture.Image.LoadFromFile('snow512.jpg');
+  ffTower1.LoadFromFile('tower.3ds');
+  ffTower1.Material.Texture.Image.LoadFromFile('tower.jpg');
 
-  FreeForm6.LoadFromFile('tstaklo.3ds');
-  FreeForm6.Material.Texture.Image.LoadFromFile('snow512.jpg');
-  FreeForm7.LoadFromFile('toranj.3ds');
-  FreeForm7.Material.Texture.Image.LoadFromFile('toranj.jpg');
-  elisa1.LoadFromFile('elisa.3ds');
-  elisa1.Material.Texture.Image.LoadFromFile('podmorni.jpg');
-  elisa2.LoadFromFile('elisa.3ds');
-  elisa2.Material.Texture.Image.LoadFromFile('podmorni.jpg');
-  elisa3.LoadFromFile('elisa.3ds');
-  elisa3.Material.Texture.Image.LoadFromFile('podmorni.jpg');
+  ffGlass2.LoadFromFile('glass.3ds');
+  ffGlass2.Material.Texture.Image.LoadFromFile('snow512.jpg');
+  ffTower2.LoadFromFile('tower.3ds');
+  ffTower2.Material.Texture.Image.LoadFromFile('tower.jpg');
+
+  ffPropeller1.LoadFromFile('propeller.3ds');
+  ffPropeller1.Material.Texture.Image.LoadFromFile('submarine.jpg');
+  ffPropeller2.LoadFromFile('propeller.3ds');
+  ffPropeller2.Material.Texture.Image.LoadFromFile('submarine.jpg');
+  ffPropeller3.LoadFromFile('propeller.3ds');
+  ffPropeller3.Material.Texture.Image.LoadFromFile('submarine.jpg');
 
   // 8 MB height data cache
   // Note this is the data size in terms of elevation samples, it does not
@@ -152,7 +153,7 @@ begin
     dcUnderwater.Position.X:=570;
     dcUnderwater.Position.Z:=-385;
   *)
-  dcUnderwater.Turn(90);
+  dcSubmarine.Turn(90);
   // Initial camera height offset (controled with pageUp/pageDown)
   FCamHeight := 10;
   (*
@@ -182,42 +183,44 @@ procedure TMainForm.GLCadencer1Progress(Sender: TObject;
 var
   speed: single;
 begin
-  // checkai;
   // handle keypresses
 
   { if IsKeyDown(VK_SHIFT) then
     speed:=300*deltaTime
     else }
   speed := dspeed * 30 * deltaTime + dspeed;
-  FreeForm2.Roll(speed * 20);
-  elisa1.Roll(20);
-  elisa2.Roll(20);
-  elisa3.Roll(20);
+  ffPropeller.Roll(speed * 20);
+  ffPropeller1.Roll(20);
+  ffPropeller2.Roll(20);
+  ffPropeller3.Roll(20);
   DummyCube2.Roll(speed * 20);
-  FreeForm8.Turn(0.08);
-  FreeForm8.Move(-0.2);
-  // zoom pri kretanju
+  ffFatsub.Turn(0.08);
+  ffFatsub.Move(-0.2);
+  // zoom on the fly
   GLCamera1.FocalLength := 50 - dspeed * 7;
   if GLCamera1.FocalLength < 20 then
     GLCamera1.FocalLength := 20;
 
   // with GLCamera1.Position do begin
-  dcUnderwater.Translate(ffSubmarine.direction.z * speed, -ffSubmarine.direction.y *
+  dcSubmarine.Translate(ffSubmarine.direction.z * speed, -ffSubmarine.direction.y *
     speed, -ffSubmarine.direction.x * speed);
   if IsKeyDown(VK_UP) then
   begin
+    // наклон носа вниз
     ffSubmarine.Pitch(0.1);
     /// GLCamera1.Pitch(0.1);
     // GLCamera1.MoveAroundTarget(-1, 0);
   end;
   if IsKeyDown(VK_DOWN) then
   begin
+    // наклон носа вверх
     ffSubmarine.Pitch(-0.1);
     /// GLCamera1.Pitch(-0.1);
     // GLCamera1.MoveAroundTarget(1, 0);
   end;
   if IsKeyDown(VK_LEFT) then
   begin
+    // поворот носа подлодки влево
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
     ffSubmarine.Turn(-0.1);
     GLCamera1.Turn(0.1);
@@ -225,26 +228,33 @@ begin
   end;
   if IsKeyDown(VK_RIGHT) then
   begin
+    // поворот носа подлодки вправо
     // DummyCube1.Translate(X*speed, 0, Z*speed);
     // ffSubmarine.Turn(1);
     ffSubmarine.Turn(0.1);
     GLCamera1.Turn(-0.1);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
-  if IsKeyDown(',') then    // clockwise rotation
+  // вращение по часовой стрелке
+  if IsKeyDown(',') or IsKeyDown('б') then
   begin
     ffSubmarine.Roll(-0.1);
   end;
-  if IsKeyDown('.') then   // counterclockwise rotation
+  // вращение против часовой стрелки
+  if IsKeyDown('.') or IsKeyDown('ю') then
   begin
     ffSubmarine.Roll(0.1);
   end;
-  if IsKeyDown('a') then   //  moving forward
+  //  движение вперёд
+  if IsKeyDown('a') or IsKeyDown('ф') then
     if dspeed < 2 then
-      dspeed := dspeed + 0.0001;  // the speed after "a" keypressed
-  if IsKeyDown('z') then   //  moving backward
+    // приращение скорости после нажатия на клавишу
+      dspeed := dspeed + 0.0001;
+  //  движение назад
+  if IsKeyDown('z') or IsKeyDown('я') then
     if dspeed > -0.5 then
-      dspeed := dspeed - 0.0001;  // the speed after "z" keypressed
+    // приращение скорости после нажатия на клавишу
+      dspeed := dspeed - 0.0001;
 
   { if IsKeyDown(VK_PRIOR) then
     FCamHeight:=FCamHeight+10*speed;
@@ -255,10 +265,87 @@ begin
   // end;
   // don't drop through terrain!
 
-  with dcUnderwater.Position do
+  with dcSubmarine.Position do
     if y < TerrainRenderer1.InterpolatedHeight(AsVector) then
       y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
 
+end;
+
+//-----------------------------------------------------------------------------
+procedure TMainForm.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  case Key of
+    'm','ь':
+      begin
+        if ffSubmarine.Material.Texture.MappingMode = tmmuser then
+          ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
+        else
+          ffSubmarine.Material.Texture.MappingMode := tmmuser;
+      end;
+
+    'c','C','с','С':  // внутри или снаружи подлодки
+      begin
+        if GLSceneViewer1.camera = GLCamera1 then
+        begin
+          GLSceneViewer1.camera := GLCamera2;
+          // ffSubmarine.visible:=false;
+          // glfirefxmanager1.Disabled :=true;
+          ffSubmarine.NormalsOrientation := mnoInvert;
+        end
+        else
+        begin
+          GLSceneViewer1.camera := GLCamera1;
+          // ffSubmarine.visible:=true;
+          ffSubmarine.NormalsOrientation := mnoDefault;
+          // glfirefxmanager1.Disabled :=false;
+        end;
+      end;
+    'w','W', 'ц', 'Ц':  // текстура или каркас
+      with GLMaterialLibrary1.Materials[0].Material do
+      begin
+        if PolygonMode = pmLines then
+          PolygonMode := pmFill
+        else
+          PolygonMode := pmLines;
+      end;
+    '+':  // delete for with shift
+      if GLCamera1.DepthOfView < 2000 then
+      begin
+        GLCamera1.DepthOfView := GLCamera1.DepthOfView * 1.2;
+        with GLSceneViewer1.Buffer.FogEnvironment do
+        begin
+          FogEnd := FogEnd * 1.2;
+          FogStart := FogStart * 1.2;
+        end;
+      end;
+    '-':  // добавить туман без шифта
+      if GLCamera1.DepthOfView > 300 then
+      begin
+        GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
+        with GLSceneViewer1.Buffer.FogEnvironment do
+        begin
+          FogEnd := FogEnd / 1.2;
+          FogStart := FogStart / 1.2;
+        end;
+      end;
+    '*':
+      with TerrainRenderer1 do
+        if CLODPrecision > 20 then
+          CLODPrecision := Round(CLODPrecision * 0.8);
+    '/':
+      with TerrainRenderer1 do
+        if CLODPrecision < 1000 then
+          CLODPrecision := Round(CLODPrecision * 1.2);
+    '8':
+      with TerrainRenderer1 do
+        if QualityDistance > 40 then
+          QualityDistance := Round(QualityDistance * 0.8);
+    '9':
+      with TerrainRenderer1 do
+        if QualityDistance < 1000 then
+          QualityDistance := Round(QualityDistance * 1.2);
+  end;
+  Key := #0;
 end;
 
 //-----------------------------------------------------------------------------
@@ -290,81 +377,21 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TMainForm.CheckAI;
 begin
-  case Key of
-    'm':
-      begin
-        if ffSubmarine.Material.Texture.MappingMode = tmmuser then
-          ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
-        else
-          ffSubmarine.Material.Texture.MappingMode := tmmuser;
-      end;
+  sub.x := ffSubmarine.Position.x;
+  sub.y := ffSubmarine.Position.y;
+  sub.z := ffSubmarine.Position.z;
+  sub.dx := ffSubmarine.Direction.x;
+  sub.dy := ffSubmarine.Direction.y;
+  sub.dz := ffSubmarine.Direction.z;
 
-    'c':  // inside or outside the submarine
-      begin
-        if GLSceneViewer1.camera = GLCamera1 then
-        begin
-          GLSceneViewer1.camera := GLCamera2;
-          // ffSubmarine.visible:=false;
-          // glfirefxmanager1.Disabled :=true;
-          ffSubmarine.NormalsOrientation := mnoInvert;
-        end
-        else
-        begin
-          GLSceneViewer1.camera := GLCamera1;
-          // ffSubmarine.visible:=true;
-          ffSubmarine.NormalsOrientation := mnoDefault;
-          // glfirefxmanager1.Disabled :=false;
-        end;
-      end;
-    'w', 'W':  // texture of wireframe
-      with GLMaterialLibrary1.Materials[0].Material do
-      begin
-        if PolygonMode = pmLines then
-          PolygonMode := pmFill
-        else
-          PolygonMode := pmLines;
-      end;
-    '+':  // delete for with shift
-      if GLCamera1.DepthOfView < 2000 then
-      begin
-        GLCamera1.DepthOfView := GLCamera1.DepthOfView * 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
-        begin
-          FogEnd := FogEnd * 1.2;
-          FogStart := FogStart * 1.2;
-        end;
-      end;
-    '-':  // add fog without shift
-      if GLCamera1.DepthOfView > 300 then
-      begin
-        GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
-        begin
-          FogEnd := FogEnd / 1.2;
-          FogStart := FogStart / 1.2;
-        end;
-      end;
-    '*':
-      with TerrainRenderer1 do
-        if CLODPrecision > 20 then
-          CLODPrecision := Round(CLODPrecision * 0.8);
-    '/':
-      with TerrainRenderer1 do
-        if CLODPrecision < 1000 then
-          CLODPrecision := Round(CLODPrecision * 1.2);
-    '8':
-      with TerrainRenderer1 do
-        if QualityDistance > 40 then
-          QualityDistance := Round(QualityDistance * 0.8);
-    '9':
-      with TerrainRenderer1 do
-        if QualityDistance < 1000 then
-          QualityDistance := Round(QualityDistance * 1.2);
-  end;
-
-  Key := #0;
+  fatsub.x := ffFatsub.Position.x;
+  fatsub.y := ffFatsub.Position.y;
+  fatsub.z := ffFatsub.Position.z;
+  fatsub.dx := ffFatsub.Direction.x;
+  fatsub.dy := ffFatsub.Direction.y;
+  fatsub.dz := ffFatsub.Direction.z;
 end;
 
 //-----------------------------------------------------------------------------
@@ -372,23 +399,6 @@ procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   GLCadencer1.Enabled := false;
   Timer1.Enabled := false;
-end;
-
-procedure TMainForm.checkai;
-begin
-  sub.x := ffSubmarine.Position.x;
-  sub.y := ffSubmarine.Position.y;
-  sub.z := ffSubmarine.Position.z;
-  sub.dx := ffSubmarine.direction.x;
-  sub.dy := ffSubmarine.direction.y;
-  sub.dz := ffSubmarine.direction.z;
-
-  fatsub.x := FreeForm8.Position.x;
-  fatsub.y := FreeForm8.Position.y;
-  fatsub.z := FreeForm8.Position.z;
-  fatsub.dx := FreeForm8.direction.x;
-  fatsub.dy := FreeForm8.direction.y;
-  fatsub.dz := FreeForm8.direction.z;
 end;
 
 end.
