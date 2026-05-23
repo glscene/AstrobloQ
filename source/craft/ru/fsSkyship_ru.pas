@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fkSkyship_ru;
+unit fsSkyship_ru;
 
 interface
 
@@ -19,6 +19,7 @@ uses
   Vcl.Imaging.Jpeg,
 
   Stage.VectorTypes,
+  Stage.VectorGeometry,
   GLS.Scene,
   GLS.State,
   GLS.TerrainRenderer,
@@ -32,7 +33,6 @@ uses
   GLS.BitmapFont,
   GLS.SkyDome,
   GLS.SceneViewer,
-  Stage.VectorGeometry,
   GLS.Mesh,
   GLS.VectorFileObjects,
   GLS.FireFX,
@@ -67,6 +67,7 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
   public
+    CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
     FCamHeight: Single;
@@ -79,10 +80,12 @@ implementation //============================================================
 
 {$R *.DFM}
 
+//-----------------------------------------------------------------------------
 procedure TFormSkyship.FormCreate(Sender: TObject);
 begin
-  fullScreen := false;
-  SetCurrentDir(ExtractFilePath(ParamStr(0)) + '\media');
+  FullScreen := false;
+  CurrentDir := ExtractFilePath(ParamStr(0)) + '\media\craft';
+  SetCurrentDir(CurrentDir);
   // 8 MB height data cache
   // Note this is the data size in terms of elevation samples, it does not
   // take into account all the data required/allocated by the renderer
@@ -102,7 +105,7 @@ begin
   DummyCube1.Position.X := 570;
   DummyCube1.Position.Z := -385;
   DummyCube1.Turn(90);
-  // Initial camera height offset (controled with pageUp/pageDown)
+  // Начальное смещение высоты камеры (контролируется клавишами pgUp/pgDown)
   FCamHeight := 10;
   with SkyDome1 do
   begin
@@ -128,6 +131,7 @@ begin
   FreeForm1.Material.Texture.Image.LoadFromFile('avion512.jpg');
 end;
 
+//-----------------------------------------------------------------------------
 procedure TFormSkyship.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
@@ -214,7 +218,7 @@ end;
 procedure TFormSkyship.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
-    'w', 'W':
+    'w', 'W','ц','Ц':
       with GLMaterialLibrary1.Materials[0].Material do
       begin
         if PolygonMode = pmLines then

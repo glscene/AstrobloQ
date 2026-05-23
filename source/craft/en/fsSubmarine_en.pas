@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fkSubmarine_en;
+unit fsSubmarine_en;
 
 interface
 
@@ -40,7 +40,7 @@ type
     Behaviour: (moving, waiting);
   end;
 
-  TMainForm = class(TForm)
+  TFormSubmarine = class(TForm)
     GLSceneViewer1: TGLSceneViewer;
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
@@ -84,6 +84,7 @@ type
     procedure CheckAI;
   private
   public
+    CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
     FCamHeight: single;
@@ -91,7 +92,7 @@ type
 
 var
   sub, fatsub: TSubmarine;
-  MainForm: TMainForm;
+  FormSubmarine: TFormSubmarine;
   dspeed: single;
 
 implementation //==============================================================
@@ -99,11 +100,12 @@ implementation //==============================================================
 {$R *.DFM}
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormCreate(Sender: TObject);
+procedure TFormSubmarine.FormCreate(Sender: TObject);
 begin
-  fullScreen := false;
+  FullScreen := false;
   dspeed := 0;  // othewise it will float away
-  SetCurrentDir(ExtractFilePath(ParamStr(0)) + '\media');
+  CurrentDir := ExtractFilePath(ParamStr(0)) + '\media\craft';
+  SetCurrentDir(CurrentDir);
   ffFatsub.LoadFromFile('fatsub.3ds');
   ffKokpit2.LoadFromFile('kokpit2.3ds');
   ffFatsub.Material.Texture.Image.LoadFromFile('submarine.jpg');
@@ -178,7 +180,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.GLCadencer1Progress(Sender: TObject;
+procedure TFormSubmarine.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   speed: single;
@@ -206,21 +208,21 @@ begin
     speed, -ffSubmarine.direction.x * speed);
   if IsKeyDown(VK_UP) then
   begin
-    // downward pitch of the nose
+    // наклон носа вниз
     ffSubmarine.Pitch(0.1);
     /// GLCamera1.Pitch(0.1);
     // GLCamera1.MoveAroundTarget(-1, 0);
   end;
   if IsKeyDown(VK_DOWN) then
   begin
-    // upward pitch of the nose
+    // наклон носа вверх
     ffSubmarine.Pitch(-0.1);
     /// GLCamera1.Pitch(-0.1);
     // GLCamera1.MoveAroundTarget(1, 0);
   end;
   if IsKeyDown(VK_LEFT) then
   begin
-    // turning the submarine's bow to the left
+    // поворот носа подлодки влево
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
     ffSubmarine.Turn(-0.1);
     GLCamera1.Turn(0.1);
@@ -228,39 +230,38 @@ begin
   end;
   if IsKeyDown(VK_RIGHT) then
   begin
-    // turning the submarine's bow to the right
+    // поворот носа подлодки вправо
     // DummyCube1.Translate(X*speed, 0, Z*speed);
     // ffSubmarine.Turn(1);
     ffSubmarine.Turn(0.1);
     GLCamera1.Turn(-0.1);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
-  // clockwise rotation
+  // вращение по часовой стрелке
   if IsKeyDown(',') or IsKeyDown('б') then
   begin
     ffSubmarine.Roll(-0.1);
   end;
-  // counterclockwise rotation
+  // вращение против часовой стрелки
   if IsKeyDown('.') or IsKeyDown('ю') then
   begin
     ffSubmarine.Roll(0.1);
   end;
-  //  moving forward
+  //  движение вперЄд
   if IsKeyDown('a') or IsKeyDown('ф') then
     if dspeed < 2 then
-    // speed increment after pressing a key
+    // приращение скорости после нажати€ на клавишу
       dspeed := dspeed + 0.0001;
-  // backward movement
+  //  движение назад
   if IsKeyDown('z') or IsKeyDown('€') then
     if dspeed > -0.5 then
-    // speed increment after pressing a key
+    // приращение скорости после нажати€ на клавишу
       dspeed := dspeed - 0.0001;
-  (*
-    if IsKeyDown(VK_PRIOR) then
+
+  { if IsKeyDown(VK_PRIOR) then
     FCamHeight:=FCamHeight+10*speed;
     if IsKeyDown(VK_NEXT) then
-    FCamHeight:=FCamHeight-10*speed;
-  *)
+    FCamHeight:=FCamHeight-10*speed; }
   if IsKeyDown(VK_ESCAPE) then
     Close;
   // end;
@@ -273,7 +274,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormSubmarine.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     'm','ь':
@@ -283,7 +284,8 @@ begin
         else
           ffSubmarine.Material.Texture.MappingMode := tmmuser;
       end;
-    'c','C','с','—':  // inside or outside the submarine
+
+    'c','C','с','—':  // внутри или снаружи подлодки
       begin
         if GLSceneViewer1.camera = GLCamera1 then
         begin
@@ -297,10 +299,10 @@ begin
           GLSceneViewer1.camera := GLCamera1;
           // ffSubmarine.visible:=true;
           ffSubmarine.NormalsOrientation := mnoDefault;
-          // glfirefxmanager1.Disabled := false;
+          // glfirefxmanager1.Disabled :=false;
         end;
       end;
-    'w','W', 'ц', '÷':  // texture or framework
+    'w','W', 'ц', '÷':  // текстура или каркас
       with GLMaterialLibrary1.Materials[0].Material do
       begin
         if PolygonMode = pmLines then
@@ -318,7 +320,7 @@ begin
           FogStart := FogStart * 1.2;
         end;
       end;
-    '-':  // add fog without shift
+    '-':  // добавить туман без шифта
       if GLCamera1.DepthOfView > 300 then
       begin
         GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
@@ -351,7 +353,7 @@ end;
 //-----------------------------------------------------------------------------
 // Standard mouse rotation & FPS code below
 //-----------------------------------------------------------------------------
-procedure TMainForm.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormSubmarine.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; x, y: Integer);
 begin
   mx := x;
@@ -359,7 +361,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormSubmarine.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
   x, y: Integer);
 begin
   if ssLeft in Shift then
@@ -371,13 +373,13 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.Timer1Timer(Sender: TObject);
+procedure TFormSubmarine.Timer1Timer(Sender: TObject);
 begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.CheckAI;
+procedure TFormSubmarine.CheckAI;
 begin
   sub.x := ffSubmarine.Position.x;
   sub.y := ffSubmarine.Position.y;
@@ -395,7 +397,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormSubmarine.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   GLCadencer1.Enabled := false;
   Timer1.Enabled := false;

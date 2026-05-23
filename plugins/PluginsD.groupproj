@@ -3,22 +3,22 @@
         <ProjectGuid>{34D46BB1-B6F4-4B95-AAE8-B07CDB10AAC1}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Bumps\BumpEarth.dproj">
+        <Projects Include="Astros\Bumps\BumpEarth.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Bumps\BumpSmoke.dproj">
+        <Projects Include="Astros\Bumps\BumpSmoke.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\StarMotion.dproj">
+        <Projects Include="Astros\StarboxD\StarMotion.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\SpaceLink.dproj">
+        <Projects Include="Astros\StarboxD\SpaceLink.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\Tetranets_ru.dproj">
+        <Projects Include="Astros\StarboxD\Tetranets_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxD\Tetranetx_ru.dproj">
+        <Projects Include="Astros\StarboxD\Tetranetx_ru.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -30,58 +30,58 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="BumpEarth">
-        <MSBuild Projects="Bumps\BumpEarth.dproj"/>
+        <MSBuild Projects="Astros\Bumps\BumpEarth.dproj"/>
     </Target>
     <Target Name="BumpEarth:Clean">
-        <MSBuild Projects="Bumps\BumpEarth.dproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\Bumps\BumpEarth.dproj" Targets="Clean"/>
     </Target>
     <Target Name="BumpEarth:Make">
-        <MSBuild Projects="Bumps\BumpEarth.dproj" Targets="Make"/>
+        <MSBuild Projects="Astros\Bumps\BumpEarth.dproj" Targets="Make"/>
     </Target>
     <Target Name="BumpSmoke">
-        <MSBuild Projects="Bumps\BumpSmoke.dproj"/>
+        <MSBuild Projects="Astros\Bumps\BumpSmoke.dproj"/>
     </Target>
     <Target Name="BumpSmoke:Clean">
-        <MSBuild Projects="Bumps\BumpSmoke.dproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\Bumps\BumpSmoke.dproj" Targets="Clean"/>
     </Target>
     <Target Name="BumpSmoke:Make">
-        <MSBuild Projects="Bumps\BumpSmoke.dproj" Targets="Make"/>
+        <MSBuild Projects="Astros\Bumps\BumpSmoke.dproj" Targets="Make"/>
     </Target>
     <Target Name="StarMotion">
-        <MSBuild Projects="StarboxD\StarMotion.dproj"/>
+        <MSBuild Projects="Astros\StarboxD\StarMotion.dproj"/>
     </Target>
     <Target Name="StarMotion:Clean">
-        <MSBuild Projects="StarboxD\StarMotion.dproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxD\StarMotion.dproj" Targets="Clean"/>
     </Target>
     <Target Name="StarMotion:Make">
-        <MSBuild Projects="StarboxD\StarMotion.dproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxD\StarMotion.dproj" Targets="Make"/>
     </Target>
     <Target Name="SpaceLink">
-        <MSBuild Projects="StarboxD\SpaceLink.dproj"/>
+        <MSBuild Projects="Astros\StarboxD\SpaceLink.dproj"/>
     </Target>
     <Target Name="SpaceLink:Clean">
-        <MSBuild Projects="StarboxD\SpaceLink.dproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxD\SpaceLink.dproj" Targets="Clean"/>
     </Target>
     <Target Name="SpaceLink:Make">
-        <MSBuild Projects="StarboxD\SpaceLink.dproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxD\SpaceLink.dproj" Targets="Make"/>
     </Target>
     <Target Name="Tetranets_ru">
-        <MSBuild Projects="StarboxD\Tetranets_ru.dproj"/>
+        <MSBuild Projects="Astros\StarboxD\Tetranets_ru.dproj"/>
     </Target>
     <Target Name="Tetranets_ru:Clean">
-        <MSBuild Projects="StarboxD\Tetranets_ru.dproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxD\Tetranets_ru.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Tetranets_ru:Make">
-        <MSBuild Projects="StarboxD\Tetranets_ru.dproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxD\Tetranets_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Tetranetx_ru">
-        <MSBuild Projects="StarboxD\Tetranetx_ru.dproj"/>
+        <MSBuild Projects="Astros\StarboxD\Tetranetx_ru.dproj"/>
     </Target>
     <Target Name="Tetranetx_ru:Clean">
-        <MSBuild Projects="StarboxD\Tetranetx_ru.dproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxD\Tetranetx_ru.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Tetranetx_ru:Make">
-        <MSBuild Projects="StarboxD\Tetranetx_ru.dproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxD\Tetranetx_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="BumpEarth;BumpSmoke;StarMotion;SpaceLink;Tetranets_ru;Tetranetx_ru"/>

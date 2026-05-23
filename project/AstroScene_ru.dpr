@@ -52,9 +52,5 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
-  Application.CreateForm(TfrmSkyPolygons, frmSkyPolygons);
-  Application.CreateForm(TfrmConstAtlas, frmConstAtlas);
-  Application.CreateForm(TfrmMakeStarsys, frmMakeStarsys);
-  Application.CreateForm(TfrmViewSolblock, frmViewSolblock);
   Application.Run;
 end.

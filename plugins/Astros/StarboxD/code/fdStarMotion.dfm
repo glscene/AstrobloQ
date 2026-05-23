@@ -30,7 +30,7 @@ object frmPlanetFF: TfrmPlanetFF
     Width = 853
     Height = 19
     Panels = <>
-    ExplicitTop = 505
+    ExplicitTop = 539
     ExplicitWidth = 845
   end
   object GLScene1: TGLScene
@@ -60,10 +60,13 @@ object frmPlanetFF: TfrmPlanetFF
           Position.Coordinates = {0000484300000000000000000000803F}
           LightStyle = lsOmni
           SpotCutOff = 180.000000000000000000
-          object RedSphere: TGLSphere
+          object RedStar: TGLSphere
             Material.FrontProperties.Ambient.Color = {0000000000000000000000000000803F}
             Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
             Radius = 100.000000000000000000
+            Slices = 16
+            Stacks = 16
           end
         end
       end
@@ -74,9 +77,12 @@ object frmPlanetFF: TfrmPlanetFF
           Diffuse.Color = {0AD7A33E48E1FA3E1F85EB3E0000803F}
           Position.Coordinates = {0000000000000000000048430000803F}
           SpotCutOff = 180.000000000000000000
-          object GreenSphere: TGLSphere
+          object GreenStar: TGLSphere
             Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
+            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
             Radius = 100.000000000000000000
+            Slices = 16
+            Stacks = 16
           end
         end
       end
@@ -87,9 +93,12 @@ object frmPlanetFF: TfrmPlanetFF
           Diffuse.Color = {00000000000000000000803F0000803F}
           Position.Coordinates = {0000000000004843000000000000803F}
           SpotCutOff = 180.000000000000000000
-          object BlueSphere: TGLSphere
+          object BlueStar: TGLSphere
             Material.FrontProperties.Diffuse.Color = {00000000000000000000803F0000803F}
+            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
             Radius = 100.000000000000000000
+            Slices = 16
+            Stacks = 16
           end
         end
       end

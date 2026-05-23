@@ -3,31 +3,31 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="StarboxC\StarboxС_ru.cbproj">
+        <Projects Include="Astros\StarboxC\StarboxС_ru.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\StarCubeС_ru.cbproj">
+        <Projects Include="Astros\StarboxC\StarCubeС_ru.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\HygViewerC_ru.cbproj">
+        <Projects Include="Astros\StarboxC\HygViewerC_ru.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\HygViewerC.cbproj">
+        <Projects Include="Astros\StarboxC\HygViewerC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\HygSQLiteС.cbproj">
+        <Projects Include="Astros\StarboxC\HygSQLiteС.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\StarsysCx.cbproj">
+        <Projects Include="Astros\StarboxC\StarsysCx.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\HygStarC.cbproj">
+        <Projects Include="Astros\StarboxC\HygStarC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\RndStarC.cbproj">
+        <Projects Include="Astros\StarboxC\RndStarC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="StarboxC\TetraVorC.cbproj">
+        <Projects Include="Astros\StarboxC\TetraVorC.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -39,85 +39,85 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="StarboxС_ru">
-        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\StarboxС_ru.cbproj"/>
     </Target>
     <Target Name="StarboxС_ru:Clean">
-        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\StarboxС_ru.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="StarboxС_ru:Make">
-        <MSBuild Projects="StarboxC\StarboxС_ru.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\StarboxС_ru.cbproj" Targets="Make"/>
     </Target>
     <Target Name="StarCubeС_ru">
-        <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\StarCubeС_ru.cbproj"/>
     </Target>
     <Target Name="StarCubeС_ru:Clean">
-        <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\StarCubeС_ru.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="StarCubeС_ru:Make">
-        <MSBuild Projects="StarboxC\StarCubeС_ru.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\StarCubeС_ru.cbproj" Targets="Make"/>
     </Target>
     <Target Name="HygViewerC_ru">
-        <MSBuild Projects="StarboxC\HygViewerC_ru.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\HygViewerC_ru.cbproj"/>
     </Target>
     <Target Name="HygViewerC_ru:Clean">
-        <MSBuild Projects="StarboxC\HygViewerC_ru.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\HygViewerC_ru.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="HygViewerC_ru:Make">
-        <MSBuild Projects="StarboxC\HygViewerC_ru.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\HygViewerC_ru.cbproj" Targets="Make"/>
     </Target>
     <Target Name="HygViewerC">
-        <MSBuild Projects="StarboxC\HygViewerC.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\HygViewerC.cbproj"/>
     </Target>
     <Target Name="HygViewerC:Clean">
-        <MSBuild Projects="StarboxC\HygViewerC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\HygViewerC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="HygViewerC:Make">
-        <MSBuild Projects="StarboxC\HygViewerC.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\HygViewerC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="HygSQLiteС">
-        <MSBuild Projects="StarboxC\HygSQLiteС.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\HygSQLiteС.cbproj"/>
     </Target>
     <Target Name="HygSQLiteС:Clean">
-        <MSBuild Projects="StarboxC\HygSQLiteС.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\HygSQLiteС.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="HygSQLiteС:Make">
-        <MSBuild Projects="StarboxC\HygSQLiteС.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\HygSQLiteС.cbproj" Targets="Make"/>
     </Target>
     <Target Name="StarsysCx">
-        <MSBuild Projects="StarboxC\StarsysCx.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\StarsysCx.cbproj"/>
     </Target>
     <Target Name="StarsysCx:Clean">
-        <MSBuild Projects="StarboxC\StarsysCx.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\StarsysCx.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="StarsysCx:Make">
-        <MSBuild Projects="StarboxC\StarsysCx.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\StarsysCx.cbproj" Targets="Make"/>
     </Target>
     <Target Name="HygStarC">
-        <MSBuild Projects="StarboxC\HygStarC.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\HygStarC.cbproj"/>
     </Target>
     <Target Name="HygStarC:Clean">
-        <MSBuild Projects="StarboxC\HygStarC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\HygStarC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="HygStarC:Make">
-        <MSBuild Projects="StarboxC\HygStarC.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\HygStarC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="RndStarC">
-        <MSBuild Projects="StarboxC\RndStarC.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\RndStarC.cbproj"/>
     </Target>
     <Target Name="RndStarC:Clean">
-        <MSBuild Projects="StarboxC\RndStarC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\RndStarC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="RndStarC:Make">
-        <MSBuild Projects="StarboxC\RndStarC.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\RndStarC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="TetraVorC">
-        <MSBuild Projects="StarboxC\TetraVorC.cbproj"/>
+        <MSBuild Projects="Astros\StarboxC\TetraVorC.cbproj"/>
     </Target>
     <Target Name="TetraVorC:Clean">
-        <MSBuild Projects="StarboxC\TetraVorC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="Astros\StarboxC\TetraVorC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="TetraVorC:Make">
-        <MSBuild Projects="StarboxC\TetraVorC.cbproj" Targets="Make"/>
+        <MSBuild Projects="Astros\StarboxC\TetraVorC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="StarboxС_ru;StarCubeС_ru;HygViewerC_ru;HygViewerC;HygSQLiteС;StarsysCx;HygStarC;RndStarC;TetraVorC"/>

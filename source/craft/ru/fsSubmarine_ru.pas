@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fkSubmarine_ru;
+unit fsSubmarine_ru;
 
 interface
 
@@ -40,7 +40,7 @@ type
     Behaviour: (moving, waiting);
   end;
 
-  TMainForm = class(TForm)
+  TFormSubmarine = class(TForm)
     GLSceneViewer1: TGLSceneViewer;
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
@@ -84,6 +84,7 @@ type
     procedure CheckAI;
   private
   public
+    CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
     FCamHeight: single;
@@ -91,7 +92,7 @@ type
 
 var
   sub, fatsub: TSubmarine;
-  MainForm: TMainForm;
+  FormSubmarine: TFormSubmarine;
   dspeed: single;
 
 implementation //==============================================================
@@ -99,11 +100,12 @@ implementation //==============================================================
 {$R *.DFM}
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormCreate(Sender: TObject);
+procedure TFormSubmarine.FormCreate(Sender: TObject);
 begin
-  fullScreen := false;
+  FullScreen := false;
   dspeed := 0;  // othewise it will float away
-  SetCurrentDir(ExtractFilePath(ParamStr(0)) + '\media');
+  CurrentDir := ExtractFilePath(ParamStr(0)) + '\media\craft';
+  SetCurrentDir(CurrentDir);
   ffFatsub.LoadFromFile('fatsub.3ds');
   ffKokpit2.LoadFromFile('kokpit2.3ds');
   ffFatsub.Material.Texture.Image.LoadFromFile('submarine.jpg');
@@ -178,7 +180,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.GLCadencer1Progress(Sender: TObject;
+procedure TFormSubmarine.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   speed: single;
@@ -272,7 +274,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TFormSubmarine.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
     'm','ü':
@@ -351,7 +353,7 @@ end;
 //-----------------------------------------------------------------------------
 // Standard mouse rotation & FPS code below
 //-----------------------------------------------------------------------------
-procedure TMainForm.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormSubmarine.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; x, y: Integer);
 begin
   mx := x;
@@ -359,7 +361,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormSubmarine.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
   x, y: Integer);
 begin
   if ssLeft in Shift then
@@ -371,13 +373,13 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.Timer1Timer(Sender: TObject);
+procedure TFormSubmarine.Timer1Timer(Sender: TObject);
 begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.CheckAI;
+procedure TFormSubmarine.CheckAI;
 begin
   sub.x := ffSubmarine.Position.x;
   sub.y := ffSubmarine.Position.y;
@@ -395,7 +397,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormSubmarine.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   GLCadencer1.Enabled := false;
   Timer1.Enabled := false;

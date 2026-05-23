@@ -21,6 +21,9 @@
         <Projects Include="project\Universum_en.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="project\SpaceCrafts_en.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -83,14 +86,23 @@
     <Target Name="Universum_en:Make">
         <MSBuild Projects="project\Universum_en.dproj" Targets="Make"/>
     </Target>
+    <Target Name="SpaceCrafts_en">
+        <MSBuild Projects="project\SpaceCrafts_en.dproj"/>
+    </Target>
+    <Target Name="SpaceCrafts_en:Clean">
+        <MSBuild Projects="project\SpaceCrafts_en.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SpaceCrafts_en:Make">
+        <MSBuild Projects="project\SpaceCrafts_en.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene_en;Lithoneta_en;Bioneta_en;Techneta_en;Galaqtium_en;Universum_en"/>
+        <CallTarget Targets="AstroScene_en;Lithoneta_en;Bioneta_en;Techneta_en;Galaqtium_en;Universum_en;SpaceCrafts_en"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene_en:Clean;Lithoneta_en:Clean;Bioneta_en:Clean;Techneta_en:Clean;Galaqtium_en:Clean;Universum_en:Clean"/>
+        <CallTarget Targets="AstroScene_en:Clean;Lithoneta_en:Clean;Bioneta_en:Clean;Techneta_en:Clean;Galaqtium_en:Clean;Universum_en:Clean;SpaceCrafts_en:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene_en:Make;Lithoneta_en:Make;Bioneta_en:Make;Techneta_en:Make;Galaqtium_en:Make;Universum_en:Make"/>
+        <CallTarget Targets="AstroScene_en:Make;Lithoneta_en:Make;Bioneta_en:Make;Techneta_en:Make;Galaqtium_en:Make;Universum_en:Make;SpaceCrafts_en:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

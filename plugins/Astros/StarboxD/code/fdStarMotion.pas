@@ -41,15 +41,15 @@ type
     CubeBack: TGLCube;
     CubeLeft: TGLCube;
     CubeRight: TGLCube;
-    RedSphere: TGLSphere;
+    RedStar: TGLSphere;
     dcRedLight: TGLDummyCube;
     GLCadencer1: TGLCadencer;
     dcBlueLight: TGLDummyCube;
     dcGreenLight: TGLDummyCube;
     BlueLight: TGLLightSource;
     GreenLight: TGLLightSource;
-    BlueSphere: TGLSphere;
-    GreenSphere: TGLSphere;
+    BlueStar: TGLSphere;
+    GreenStar: TGLSphere;
     dcCubeParts: TGLDummyCube;
     WhiteLight: TGLLightSource;
     ffPlanet: TGLFreeForm;
