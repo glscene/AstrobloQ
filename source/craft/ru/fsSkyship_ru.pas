@@ -43,7 +43,7 @@ uses
 
 type
   TFormSkyship = class(TForm)
-    GLSceneViewer1: TGLSceneViewer;
+    GLSceneViewer: TGLSceneViewer;
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -56,9 +56,9 @@ type
     FreeForm1: TGLFreeForm;
     GLFireFXManager1: TGLFireFXManager;
     DummyCube2: TGLDummyCube;
-    procedure GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+    procedure GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+    procedure GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
     procedure Timer1Timer(Sender: TObject);
     procedure GLCadencer1Progress(Sender: TObject;
@@ -100,7 +100,7 @@ begin
   // apply texture map scale (our heightmap size is 256)
   TerrainRenderer1.TilesPerTexture := 256 / TerrainRenderer1.TileSize;
   // Could've been done at design time, but it the, it hurts the eyes ;)
-  GLSceneViewer1.Buffer.BackgroundColor := clBlack;
+  GLSceneViewer.Buffer.BackgroundColor := clBlack;
   // Move camera starting point to an interesting hand-picked location
   DummyCube1.Position.X := 570;
   DummyCube1.Position.Z := -385;
@@ -120,8 +120,8 @@ begin
       AddRandomStars(100, RGB(200, 200, 255), True); // some blueish ones
       AddRandomStars(100, RGB(255, 255, 200), True); // some yellowish ones
     end;
-    GLSceneViewer1.Buffer.BackgroundColor := clBlack;
-    with GLSceneViewer1.Buffer.FogEnvironment do
+    GLSceneViewer.Buffer.BackgroundColor := clBlack;
+    with GLSceneViewer.Buffer.FogEnvironment do
     begin
       FogColor.AsWinColor := clBlack;
       FogStart := -FogStart; // Fog is used to make things darker
@@ -189,7 +189,7 @@ end;
 //-----------------------------------------------------------------------------
 // Standard mouse rotation & FPS code below
 //-----------------------------------------------------------------------------
-procedure TFormSkyship.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormSkyship.GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   mx := X;
@@ -197,7 +197,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TFormSkyship.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormSkyship.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 begin
   if ssLeft in Shift then
@@ -211,7 +211,7 @@ end;
 //-----------------------------------------------------------------------------
 procedure TFormSkyship.Timer1Timer(Sender: TObject);
 begin
-  GLSceneViewer1.ResetPerformanceMonitor;
+  GLSceneViewer.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------
@@ -230,7 +230,7 @@ begin
       if GLCamera1.DepthOfView < 2000 then
       begin
         GLCamera1.DepthOfView := GLCamera1.DepthOfView * 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
+        with GLSceneViewer.Buffer.FogEnvironment do
         begin
           FogEnd := FogEnd * 1.2;
           FogStart := FogStart * 1.2;
@@ -240,7 +240,7 @@ begin
       if GLCamera1.DepthOfView > 300 then
       begin
         GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
+        with GLSceneViewer.Buffer.FogEnvironment do
         begin
           FogEnd := FogEnd / 1.2;
           FogStart := FogStart / 1.2;
