@@ -6,7 +6,8 @@ uses
   fsSkyship_en in '..\source\craft\en\fsSkyship_en.pas' {FormSkyship},
   fsSubmarine_en in '..\source\craft\en\fsSubmarine_en.pas' {FormSubmarine},
   fsGravijet_en in '..\source\craft\en\fsGravijet_en.pas' {FormGravijet},
-  fsPhotonjet_en in '..\source\craft\en\fsPhotonjet_en.pas' {FormPhotonjet};
+  fsPhotonjet_en in '..\source\craft\en\fsPhotonjet_en.pas' {FormPhotonjet},
+  fsAstrodron_en in '..\source\craft\en\fsAstrodron_en.pas' {FormAstrodron};
 
 {$R *.res}
 
@@ -17,5 +18,6 @@ begin
   Application.CreateForm(TFormSubmarine, FormSubmarine);
   Application.CreateForm(TFormGravijet, FormGravijet);
   Application.CreateForm(TFormPhotonjet, FormPhotonjet);
+  Application.CreateForm(TFormAstrodron, FormAstrodron);
   Application.Run;
 end.

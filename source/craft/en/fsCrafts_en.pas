@@ -22,7 +22,8 @@ uses
   fsSkyship_en,
   fsSubmarine_en,
   fsGravijet_en,
-  fsPhotonJet_en
+  fsPhotonJet_en,
+  fsAstrodron_en
   (*,
   fsNukeShip_en
   *)
@@ -56,7 +57,7 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormCrafts.tvCraftClick(Sender: TObject);
 begin
-  for var I: Integer := 0 to 3 do
+  for var I: Integer := 0 to 4 do
     tvCraft.Items[I].DropHighlighted := False;
   case tvCraft.Selected.Index of
     0:
@@ -65,6 +66,7 @@ begin
         FormSubmarine.Align := alClient;
         FormSubmarine.BorderStyle := bsNone;
         FormSubmarine.Show;
+        FormSubmarine.SetFocus;
         tvCraft.Items[0].DropHighlighted := True;
       end;
     1:
@@ -73,32 +75,42 @@ begin
         FormSkyship.Align := alClient;
         FormSkyship.BorderStyle := bsNone;
         FormSkyship.Show;
+        FormSkyship.SetFocus;
         tvCraft.Items[1].DropHighlighted := True;
       end;
     2:
-      begin // Gravijet
+      begin // Astrodron
+        FormAstrodron.Parent := FormCrafts;
+        FormAstrodron.Align := alClient;
+        FormAstrodron.BorderStyle := bsNone;
+        FormAstrodron.Show;
+        FormAstrodron.SetFocus;
+        tvCraft.Items[2].DropHighlighted := True;
+      end;
+    3:
+      begin // Warpdrive
         FormGravijet.Parent := FormCrafts;
         FormGravijet.Align := alClient;
         FormGravijet.BorderStyle := bsNone;
         FormGravijet.Show;
-        tvCraft.Items[2].DropHighlighted := True;
+        tvCraft.Items[3].DropHighlighted := True;
       end;
-    3:
+    4:
       begin // Photonjet
         FormPhotonjet.Parent := FormCrafts;
         FormPhotonjet.Align := alClient;
         FormPhotonjet.BorderStyle := bsNone;
         FormPhotonjet.Show;
-        tvCraft.Items[3].DropHighlighted := True;
+        tvCraft.Items[4].DropHighlighted := True;
       end;
-    4:
+    5:
       begin  // Nukeship
       (*
         FormNukeship.Parent := FormCrafts;
         FormNukeship.Align := alClient;
         FormNukeship.BorderStyle := bsNone;
         FormNukeship.Show;
-        tvCraft.Items[4].DropHighlighted := True;
+        tvCraft.Items[5].DropHighlighted := True;
 *)
       end;
   end;

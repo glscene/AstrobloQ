@@ -42,5 +42,6 @@ begin
   Application.CreateForm(TfrmMeshEditor, frmMeshEditor);
   Application.CreateForm(TfrmSpacePilot, frmSpacePilot);
   Application.CreateForm(TfrmCyborg, frmCyborg);
+  Application.CreateForm(TFormFirst, FormFirst);
   Application.Run;
 end.

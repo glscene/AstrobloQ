@@ -22,7 +22,8 @@ uses
   fsSkyship_ru,
   fsSubmarine_ru,
   fsGravijet_ru,
-  fsPhotonJet_ru
+  fsPhotonJet_ru,
+  fsAstrodron_ru
 
   (*,
   fsNukeShip_ru
@@ -56,64 +57,71 @@ end;
 
 //----------------------------------------------------------------------------
 procedure TFormCrafts.tvCraftClick(Sender: TObject);
-var
-  I:Integer;
 begin
-  for I := 0 to 3 do
+  for var I:Integer := 0 to 4 do
     tvCraft.Items[I].DropHighlighted := False;
   case tvCraft.Selected.Index of
     0:
-      begin
+      begin // Субмарина
         FormSubmarine.Parent := FormCrafts;
         FormSubmarine.Align := alClient;
         FormSubmarine.BorderStyle := bsNone;
         FormSubmarine.Show;
-        FormSubmarine.SetFocus; // not GLSceneViewer1
+        FormSubmarine.SetFocus; // not GLSceneViewer !
         tvCraft.Items[0].DropHighlighted := True;
       end;
     1:
-      begin
+      begin  // Небесный страж
         FormSkyship.Parent := FormCrafts;
         FormSkyship.Align := alClient;
         FormSkyship.BorderStyle := bsNone;
         FormSkyship.Show;
-        FormSkyship.GLSceneViewer.SetFocus;
+        FormSkyship.SetFocus;
         tvCraft.Items[1].DropHighlighted := True;
       end;
     2:
-      begin // Гравилёт
+      begin // Астродрон
+        FormAstrodron.Parent := FormCrafts;
+        FormAstrodron.Align := alClient;
+        FormAstrodron.BorderStyle := bsNone;
+        FormAstrodron.Show;
+        FormAstrodron.SetFocus;
+        tvCraft.Items[2].DropHighlighted := True;
+      end;
+    3:
+      begin // Гравилёт с варп-двигателем
         FormGravijet.Parent := FormCrafts;
         FormGravijet.Align := alClient;
         FormGravijet.BorderStyle := bsNone;
         FormGravijet.Show;
-        tvCraft.Items[2].DropHighlighted := True;
+        tvCraft.Items[3].DropHighlighted := True;
       end;
-    3:
+    4:
       begin // Фотоннная ракета
         FormPhotonjet.Parent := FormCrafts;
         FormPhotonjet.Align := alClient;
         FormPhotonjet.BorderStyle := bsNone;
         FormPhotonjet.Show;
-        tvCraft.Items[3].DropHighlighted := True;
+        tvCraft.Items[4].DropHighlighted := True;
       end;
-    4:
+    5:
       begin  // Ядерный буксир
       (*
         FormTugboat.Parent := FormCrafts;
         FormTugboat.Align := alClient;
         FormTugboat.BorderStyle := bsNone;
         FormTugboat.Show;
-        tvCraft.Items[4].DropHighlighted := True;
+        tvCraft.Items[5].DropHighlighted := True;
 *)
       end;
-    5:
+    6:
       begin // NukeShip
 (*
         FormNukeShip.Parent := FormCraft;
         FormNukeShip.Align := alClient;
         FormNukeShip.BorderStyle := bsNone;
         FormNukeShip.Show;
-        tvCraft.Items[5].DropHighlighted := True;
+        tvCraft.Items[6].DropHighlighted := True;
 *)
       end;
 
