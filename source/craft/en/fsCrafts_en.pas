@@ -56,21 +56,24 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormCrafts.tvCraftClick(Sender: TObject);
 begin
-  tvCraft.Items[0].DropHighlighted := False;
+  for var I: Integer := 0 to 3 do
+    tvCraft.Items[I].DropHighlighted := False;
   case tvCraft.Selected.Index of
     0:
+      begin  // Submarine
+        FormSubmarine.Parent := FormCrafts;
+        FormSubmarine.Align := alClient;
+        FormSubmarine.BorderStyle := bsNone;
+        FormSubmarine.Show;
+        tvCraft.Items[0].DropHighlighted := True;
+      end;
+    1:
       begin // Skyship
         FormSkyship.Parent := FormCrafts;
         FormSkyship.Align := alClient;
         FormSkyship.BorderStyle := bsNone;
         FormSkyship.Show;
-      end;
-    1:
-      begin // Submarine
-        FormSubmarine.Parent := FormCrafts;
-        FormSubmarine.Align := alClient;
-        FormSubmarine.BorderStyle := bsNone;
-        FormSubmarine.Show;
+        tvCraft.Items[1].DropHighlighted := True;
       end;
     2:
       begin // Gravijet
@@ -78,6 +81,7 @@ begin
         FormGravijet.Align := alClient;
         FormGravijet.BorderStyle := bsNone;
         FormGravijet.Show;
+        tvCraft.Items[2].DropHighlighted := True;
       end;
     3:
       begin // Photonjet
@@ -85,6 +89,7 @@ begin
         FormPhotonjet.Align := alClient;
         FormPhotonjet.BorderStyle := bsNone;
         FormPhotonjet.Show;
+        tvCraft.Items[3].DropHighlighted := True;
       end;
     4:
       begin  // Nukeship
@@ -93,6 +98,7 @@ begin
         FormNukeship.Align := alClient;
         FormNukeship.BorderStyle := bsNone;
         FormNukeship.Show;
+        tvCraft.Items[4].DropHighlighted := True;
 *)
       end;
   end;

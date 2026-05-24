@@ -47,15 +47,15 @@ type
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
-    DummyCube1: TGLDummyCube;
+    dcViewing: TGLDummyCube;
     TerrainRenderer1: TGLTerrainRenderer;
     Timer1: TTimer;
     GLCadencer1: TGLCadencer;
     GLMaterialLibrary1: TGLMaterialLibrary;
     SkyDome1: TGLSkyDome;
-    FreeForm1: TGLFreeForm;
+    ffSkyShip: TGLFreeForm;
     GLFireFXManager1: TGLFireFXManager;
-    DummyCube2: TGLDummyCube;
+    dcFire: TGLDummyCube;
     procedure GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
@@ -77,6 +77,9 @@ var
   FormSkyship: TFormSkyship;
 
 implementation //============================================================
+
+uses
+  fsCrafts_en;
 
 {$R *.DFM}
 
@@ -102,11 +105,11 @@ begin
   // Could've been done at design time, but it the, it hurts the eyes ;)
   GLSceneViewer1.Buffer.BackgroundColor := clBlack;
   // Move camera starting point to an interesting hand-picked location
-  DummyCube1.Position.X := 570;
-  DummyCube1.Position.Z := -385;
-  DummyCube1.Turn(90);
+  dcViewing.Position.X := 570;
+  dcViewing.Position.Z := -385;
+  dcViewing.Turn(90);
   // Начальное смещение высоты камеры (контролируется клавишами pgUp/pgDown)
-  FCamHeight := 10;
+  FCamHeight := 20;
   with SkyDome1 do
   begin
     Bands[1].StopColor.AsWinColor := RGB(0, 0, 16);
@@ -127,8 +130,8 @@ begin
       FogStart := -FogStart; // Fog is used to make things darker
     end;
   end;
-  FreeForm1.LoadFromFile('ship.3ds');
-  FreeForm1.Material.Texture.Image.LoadFromFile('avion512.jpg');
+  ffSkyShip.LoadFromFile('skyship.3ds');
+  ffSkyShip.Material.Texture.Image.LoadFromFile('avion512.jpg');
 end;
 
 //-----------------------------------------------------------------------------
@@ -138,52 +141,56 @@ var
   speed: Single;
 begin
   // handle keypresses
-  { if IsKeyDown(VK_SHIFT) then
-    speed:=300*deltaTime
-    else } speed := 50 * deltaTime;  // speed of flight
+  (*
+  if IsKeyDown(VK_SHIFT) then
+    speed := 300*deltaTime
+  else
+  *)
+  speed := 50 * deltaTime;  // speed of flight
   // with GLCamera1.Position do begin
-  DummyCube1.Translate(FreeForm1.direction.Z * speed, -FreeForm1.direction.Y *
-    speed, -FreeForm1.direction.X * speed);
+  dcViewing.Translate(ffSkyShip.direction.Z * speed, - ffSkyShip.direction.Y *
+    speed, - ffSkyShip.direction.X * speed);
   if IsKeyDown(VK_UP) then
   begin
-    FreeForm1.Pitch(0.1);
-    GLCamera1.Pitch(0.1);
-    // GLCamera1.MoveAroundTarget(-1, 0);
+    ffSkyShip.Pitch(0.1);
+    dcViewing.Pitch(0.1);
+    // dcViewing.MoveAroundTarget(-1, 0);
   end;
   if IsKeyDown(VK_DOWN) then
   begin
-    FreeForm1.Pitch(-0.1);
+    ffSkyShip.Pitch(-0.1);
     GLCamera1.Pitch(-0.1);
     // GLCamera1.MoveAroundTarget(1, 0);
   end;
   if IsKeyDown(VK_LEFT) then
   begin
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
-    // freeform1.Turn(-1);
-    FreeForm1.Roll(-0.1);
+    // ffSkyShip.Turn(-1);
+    ffSkyShip.Roll(-0.1);
     GLCamera1.Roll(0.1);
     // GLCamera1.MoveAroundTarget(0, 1);
   end;
   if IsKeyDown(VK_RIGHT) then
   begin
     // DummyCube1.Translate(X*speed, 0, Z*speed);
-    // freeform1.Turn(1);
-    FreeForm1.Roll(0.1);
+    // ffSkyShip.Turn(1);
+    ffSkyShip.Roll(0.1);
     GLCamera1.Roll(-0.1);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
-  { if IsKeyDown(VK_PRIOR) then
+  (*
+   if IsKeyDown(VK_PRIOR) then
     FCamHeight:=FCamHeight+10*speed;
     if IsKeyDown(VK_NEXT) then
-    FCamHeight:=FCamHeight-10*speed; }
-  if IsKeyDown(VK_ESCAPE) then
-    Close;
-  // end;
+    FCamHeight:=FCamHeight-10*speed;
+  *)
   // don't drop through terrain!
-
-  with DummyCube1.Position do
+  with dcViewing.Position do
     if Y < TerrainRenderer1.InterpolatedHeight(AsVector) then
       Y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
+
+  if IsKeyDown(VK_ESCAPE) then
+    FormCrafts.Close;
 end;
 
 //-----------------------------------------------------------------------------

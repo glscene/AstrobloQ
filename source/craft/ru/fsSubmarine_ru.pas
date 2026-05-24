@@ -91,16 +91,15 @@ type
   end;
 
 var
-  sub, fatsub: TSubmarine;
   FormSubmarine: TFormSubmarine;
+  sub, fatsub: TSubmarine;
   dspeed: single;
 
 implementation //==============================================================
 
-{$R *.DFM}
-
 uses
   fsCrafts_ru;
+{$R *.DFM}
 
 //-----------------------------------------------------------------------------
 procedure TFormSubmarine.FormCreate(Sender: TObject);
@@ -141,17 +140,17 @@ begin
   // 8 MB height data cache
   // Note this is the data size in terms of elevation samples, it does not
   // take into account all the data required/allocated by the renderer
-  GLBitmapHDS1.MaxPoolSize := 8 * 1024 * 1024; // bilo 8
-  // specify height map data
+  GLBitmapHDS1.MaxPoolSize := 8 * 1024 * 1024;
+  // битмап для карты высот
   GLBitmapHDS1.Picture.LoadFromFile('terrain.bmp');
-  // load the texture maps
+  // загрузка текстурных карт
   GLMaterialLibrary1.Materials[0].Material.Texture.Image.LoadFromFile
     ('snow512.jpg');
   GLMaterialLibrary1.Materials[1].Material.Texture.Image.LoadFromFile
     ('detailmap.jpg');
   // apply texture map scale (our heightmap size is 256)
   TerrainRenderer1.TilesPerTexture := 256 / TerrainRenderer1.TileSize;
-  // Could've been done at design time, but it the it hurts the eyes ;)
+  // Could've been done at design time, but it hurts the eyes ;)
   GLSceneViewer.Buffer.BackgroundColor := clBlack;
   // Move camera starting point to an interesting hand-picked location
   (*
@@ -162,16 +161,18 @@ begin
   // Initial camera height offset (controled with pageUp/pageDown)
   FCamHeight := 10;
   (*
-  with skydome1 do begin
-    Bands[1].StopColor.AsWinColor:=RGB(0, 0, 16);
-    Bands[1].StartColor.AsWinColor:=RGB(0, 0, 8);
-    Bands[0].StopColor.AsWinColor:=RGB(0, 0, 8);
-    Bands[0].StartColor.AsWinColor:=RGB(0, 0, 0);
-    with Stars do begin
-    AddRandomStars(700, clWhite, True);   // many white stars
-    AddRandomStars(100, RGB(255, 200, 200), True);  // some redish ones
-    AddRandomStars(100, RGB(200, 200, 255), True);  // some blueish ones
-    AddRandomStars(100, RGB(255, 255, 200), True);  // some yellowish ones
+  with skydome1 do
+  begin
+    Bands[1].StopColor.AsWinColor := RGB(0, 0, 16);
+    Bands[1].StartColor.AsWinColor :=RGB(0, 0, 8);
+    Bands[0].StopColor.AsWinColor :=RGB(0, 0, 8);
+    Bands[0].StartColor.AsWinColor :=RGB(0, 0, 0);
+    with Stars do
+    begin
+      AddRandomStars(700, clWhite, True);   // many white stars
+      AddRandomStars(100, RGB(255, 200, 200), True);  // some redish ones
+      AddRandomStars(100, RGB(200, 200, 255), True);  // some blueish ones
+      AddRandomStars(100, RGB(255, 255, 200), True);  // some yellowish ones
     end;
   *)
   GLSceneViewer.Buffer.BackgroundColor := rgb(0, 0, 160);
@@ -190,9 +191,9 @@ var
 begin
   // handle keypresses
   (*
-  // большая скорость
+  // большая скорость отключена
   if IsKeyDown(VK_SHIFT) then
-    speed:=300*deltaTime
+    speed := 300*deltaTime
   else
   *)
     speed := dspeed * 30 * deltaTime + dspeed;
@@ -267,25 +268,31 @@ begin
   // вид из кокпита субмарины
   if IsKeyDown('c') or IsKeyDown('с') then
   begin
-    GLSceneViewer.camera := GLCamera2;
+    ffSubmarine.Visible := True;
     ffSubmarine.NormalsOrientation := mnoInvert;
+    GLSceneViewer.camera := GLCamera2;
     // ffSubmarine.visible := false;
     // glFireFxManager1.Disabled :=true;
   end;
-  // вид со стороны на субмарину
+  // вид со стороны и сверху
   if IsKeyDown('v') or IsKeyDown('м') then
   begin
-    GLSceneViewer.camera := GLCamera1;
+    ffSubmarine.Visible := True;
     ffSubmarine.NormalsOrientation := mnoDefault;
+    GLSceneViewer.camera := GLCamera1;
     // ffSubmarine.visible := true;
     // glFireFxManager1.Disabled :=false;
   end;
+  // вид перед субмариной
+  if IsKeyDown('x') or IsKeyDown('ч') then
+    ffSubmarine.Visible := False;
+
   // подлодка не погружается в террейн дна!
   with dcSubmarine.Position do
     if y < TerrainRenderer1.InterpolatedHeight(AsVector) then
       y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
   if IsKeyDown(VK_ESCAPE) then
-    FormCrafts.Close; // закрывается главная форма приложения
+    FormCrafts.Close; 
 end;
 
 //-----------------------------------------------------------------------------
@@ -299,25 +306,6 @@ begin
         else
           ffSubmarine.Material.Texture.MappingMode := tmmuser;
       end;
-(*
-    'c','C','с','С':  // внутри или снаружи подлодки
-      begin
-        if GLSceneViewer.camera = GLCamera1 then
-        begin
-          GLSceneViewer.camera := GLCamera2;
-          // ffSubmarine.visible:=false;
-          // glfirefxmanager1.Disabled :=true;
-          ffSubmarine.NormalsOrientation := mnoInvert;
-        end
-        else
-        begin
-          GLSceneViewer.camera := GLCamera1;
-          // ffSubmarine.visible:=true;
-          ffSubmarine.NormalsOrientation := mnoDefault;
-          // glfirefxmanager1.Disabled :=false;
-        end;
-      end;
-*)
     'w','W', 'ц', 'Ц':  // текстура или каркас
       with GLMaterialLibrary1.Materials[0].Material do
       begin

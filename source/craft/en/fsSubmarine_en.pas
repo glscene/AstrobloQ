@@ -91,11 +91,14 @@ type
   end;
 
 var
-  sub, fatsub: TSubmarine;
   FormSubmarine: TFormSubmarine;
+  sub, fatsub: TSubmarine;
   dspeed: single;
 
 implementation //==============================================================
+
+uses
+  fsCrafts_en;
 
 {$R *.DFM}
 
@@ -148,7 +151,7 @@ begin
     ('detailmap.jpg');
   // apply texture map scale (our heightmap size is 256)
   TerrainRenderer1.TilesPerTexture := 256 / TerrainRenderer1.TileSize;
-  // Could've been done at design time, but it the it hurts the eyes ;)
+  // Could've been done at design time, but it hurts the eyes ;)
   GLSceneViewer1.Buffer.BackgroundColor := clBlack;
   // Move camera starting point to an interesting hand-picked location
   (*
@@ -159,12 +162,14 @@ begin
   // Initial camera height offset (controled with pageUp/pageDown)
   FCamHeight := 10;
   (*
-  with skydome1 do begin
+  with skydome1 do 
+  begin
     Bands[1].StopColor.AsWinColor:=RGB(0, 0, 16);
     Bands[1].StartColor.AsWinColor:=RGB(0, 0, 8);
     Bands[0].StopColor.AsWinColor:=RGB(0, 0, 8);
     Bands[0].StartColor.AsWinColor:=RGB(0, 0, 0);
-    with Stars do begin
+    with Stars do 
+	begin
     AddRandomStars(700, clWhite, True);   // many white stars
     AddRandomStars(100, RGB(255, 200, 200), True);  // some redish ones
     AddRandomStars(100, RGB(200, 200, 255), True);  // some blueish ones
@@ -187,9 +192,11 @@ var
 begin
   // handle keypresses
 
-  { if IsKeyDown(VK_SHIFT) then
+  (*
+  if IsKeyDown(VK_SHIFT) then
     speed:=300*deltaTime
-    else }
+  else
+  *)
   speed := dspeed * 30 * deltaTime + dspeed;
   ffPropeller.Roll(speed * 20);
   ffPropeller1.Roll(20);
@@ -204,73 +211,91 @@ begin
     GLCamera1.FocalLength := 20;
 
   // with GLCamera1.Position do begin
-  dcSubmarine.Translate(ffSubmarine.direction.z * speed, -ffSubmarine.direction.y *
-    speed, -ffSubmarine.direction.x * speed);
+  dcSubmarine.Translate(ffSubmarine.direction.z * speed, 
+    -ffSubmarine.direction.y * speed, - ffSubmarine.direction.x * speed);
+  // upward Pitch of the nose
   if IsKeyDown(VK_UP) then
   begin
-    // наклон носа вниз
-    ffSubmarine.Pitch(0.1);
-    /// GLCamera1.Pitch(0.1);
-    // GLCamera1.MoveAroundTarget(-1, 0);
+    ffSubmarine.Pitch(1.0);
+    /// GLCamera1.Pitch(0.1);  // GLCamera1.MoveAroundTarget(-1, 0);
   end;
+  // downward Pitch of the nose
   if IsKeyDown(VK_DOWN) then
   begin
-    // наклон носа вверх
-    ffSubmarine.Pitch(-0.1);
-    /// GLCamera1.Pitch(-0.1);
-    // GLCamera1.MoveAroundTarget(1, 0);
+    ffSubmarine.Pitch(-1.0);
+    /// GLCamera1.Pitch(-0.1); // GLCamera1.MoveAroundTarget(1, 0);
   end;
+  // turning the submarine's bow to the left
   if IsKeyDown(VK_LEFT) then
   begin
-    // поворот носа подлодки влево
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
-    ffSubmarine.Turn(-0.1);
-    GLCamera1.Turn(0.1);
+    ffSubmarine.Turn(-1.0);
+    GLCamera1.Turn(1.0);
     // GLCamera1.MoveAroundTarget(0, 1);
   end;
+  // turning the submarine's bow to the right
   if IsKeyDown(VK_RIGHT) then
   begin
-    // поворот носа подлодки вправо
     // DummyCube1.Translate(X*speed, 0, Z*speed);
     // ffSubmarine.Turn(1);
-    ffSubmarine.Turn(0.1);
-    GLCamera1.Turn(-0.1);
+    ffSubmarine.Turn(1.0);
+    GLCamera1.Turn(-1.0);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
-  // вращение по часовой стрелке
+  // clockwise rotation
   if IsKeyDown(',') or IsKeyDown('б') then
   begin
-    ffSubmarine.Roll(-0.1);
+    ffSubmarine.Roll(-1.0);
   end;
-  // вращение против часовой стрелки
+  // counterclockwise rotation
   if IsKeyDown('.') or IsKeyDown('ю') then
   begin
-    ffSubmarine.Roll(0.1);
+    ffSubmarine.Roll(1.0);
   end;
-  //  движение вперёд
+  //  moving forward
   if IsKeyDown('a') or IsKeyDown('ф') then
     if dspeed < 2 then
-    // приращение скорости после нажатия на клавишу
-      dspeed := dspeed + 0.0001;
-  //  движение назад
+    // speed increment after pressing a key
+      dspeed := dspeed + 0.01;
+  //  backward movement
   if IsKeyDown('z') or IsKeyDown('я') then
     if dspeed > -0.5 then
-    // приращение скорости после нажатия на клавишу
-      dspeed := dspeed - 0.0001;
+    // speed increment after pressing a key
+      dspeed := dspeed - 0.01;
 
-  { if IsKeyDown(VK_PRIOR) then
-    FCamHeight:=FCamHeight+10*speed;
-    if IsKeyDown(VK_NEXT) then
-    FCamHeight:=FCamHeight-10*speed; }
-  if IsKeyDown(VK_ESCAPE) then
-    Close;
-  // end;
+  (*
+   if IsKeyDown(VK_PRIOR) then
+     FCamHeight := FCamHeight+10*speed;
+   if IsKeyDown(VK_NEXT) then
+    FCamHeight := FCamHeight-10*speed;
+  *)
+  // 
+  if IsKeyDown('c') or IsKeyDown('с') then
+  begin
+    ffSubmarine.Visible := True;
+    ffSubmarine.NormalsOrientation := mnoInvert;
+    GLSceneViewer1.camera := GLCamera2;
+    // ffSubmarine.visible := false;
+    // glFireFxManager1.Disabled :=true;
+  end;
+  // 
+  if IsKeyDown('v') or IsKeyDown('м') then
+  begin
+    ffSubmarine.Visible := True;
+    ffSubmarine.NormalsOrientation := mnoDefault;
+    GLSceneViewer1.camera := GLCamera1;
+    // ffSubmarine.visible := true;
+    // glFireFxManager1.Disabled :=false;
+  end;
+  // 
+  if IsKeyDown('x') or IsKeyDown('ч') then
+    ffSubmarine.Visible := False;
   // don't drop through terrain!
-
   with dcSubmarine.Position do
     if y < TerrainRenderer1.InterpolatedHeight(AsVector) then
       y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
-
+  if IsKeyDown(VK_ESCAPE) then
+    FormCrafts.Close;
 end;
 
 //-----------------------------------------------------------------------------
@@ -283,24 +308,6 @@ begin
           ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
         else
           ffSubmarine.Material.Texture.MappingMode := tmmuser;
-      end;
-
-    'c','C','с','С':  // внутри или снаружи подлодки
-      begin
-        if GLSceneViewer1.camera = GLCamera1 then
-        begin
-          GLSceneViewer1.camera := GLCamera2;
-          // ffSubmarine.visible:=false;
-          // glfirefxmanager1.Disabled :=true;
-          ffSubmarine.NormalsOrientation := mnoInvert;
-        end
-        else
-        begin
-          GLSceneViewer1.camera := GLCamera1;
-          // ffSubmarine.visible:=true;
-          ffSubmarine.NormalsOrientation := mnoDefault;
-          // glfirefxmanager1.Disabled :=false;
-        end;
       end;
     'w','W', 'ц', 'Ц':  // текстура или каркас
       with GLMaterialLibrary1.Materials[0].Material do
