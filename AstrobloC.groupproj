@@ -6,6 +6,9 @@
         <Projects Include="project\AstroSceneC.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="project\Nooneta_en.cbproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -23,14 +26,23 @@
     <Target Name="AstroSceneC:Make">
         <MSBuild Projects="project\AstroSceneC.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="Nooneta_en">
+        <MSBuild Projects="project\Nooneta_en.cbproj"/>
+    </Target>
+    <Target Name="Nooneta_en:Clean">
+        <MSBuild Projects="project\Nooneta_en.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Nooneta_en:Make">
+        <MSBuild Projects="project\Nooneta_en.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroSceneC"/>
+        <CallTarget Targets="AstroSceneC;Nooneta_en"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroSceneC:Clean"/>
+        <CallTarget Targets="AstroSceneC:Clean;Nooneta_en:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroSceneC:Make"/>
+        <CallTarget Targets="AstroSceneC:Make;Nooneta_en:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

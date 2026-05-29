@@ -18,6 +18,9 @@
         <Projects Include="project\Galaqtium_ru.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="project\Nooneta_ru.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="project\SpaceCrafts_ru.dproj">
             <Dependencies/>
         </Projects>
@@ -77,6 +80,15 @@
     <Target Name="Galaqtium_ru:Make">
         <MSBuild Projects="project\Galaqtium_ru.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Nooneta_ru">
+        <MSBuild Projects="project\Nooneta_ru.dproj"/>
+    </Target>
+    <Target Name="Nooneta_ru:Clean">
+        <MSBuild Projects="project\Nooneta_ru.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Nooneta_ru:Make">
+        <MSBuild Projects="project\Nooneta_ru.dproj" Targets="Make"/>
+    </Target>
     <Target Name="SpaceCrafts_ru">
         <MSBuild Projects="project\SpaceCrafts_ru.dproj"/>
     </Target>
@@ -96,13 +108,13 @@
         <MSBuild Projects="project\Universum_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroScene_ru;Lithoneta_ru;Bioneta_ru;Techneta_ru;Galaqtium_ru;SpaceCrafts_ru;Universum_ru"/>
+        <CallTarget Targets="AstroScene_ru;Lithoneta_ru;Bioneta_ru;Techneta_ru;Galaqtium_ru;Nooneta_ru;SpaceCrafts_ru;Universum_ru"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroScene_ru:Clean;Lithoneta_ru:Clean;Bioneta_ru:Clean;Techneta_ru:Clean;Galaqtium_ru:Clean;SpaceCrafts_ru:Clean;Universum_ru:Clean"/>
+        <CallTarget Targets="AstroScene_ru:Clean;Lithoneta_ru:Clean;Bioneta_ru:Clean;Techneta_ru:Clean;Galaqtium_ru:Clean;Nooneta_ru:Clean;SpaceCrafts_ru:Clean;Universum_ru:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroScene_ru:Make;Lithoneta_ru:Make;Bioneta_ru:Make;Techneta_ru:Make;Galaqtium_ru:Make;SpaceCrafts_ru:Make;Universum_ru:Make"/>
+        <CallTarget Targets="AstroScene_ru:Make;Lithoneta_ru:Make;Bioneta_ru:Make;Techneta_ru:Make;Galaqtium_ru:Make;Nooneta_ru:Make;SpaceCrafts_ru:Make;Universum_ru:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
