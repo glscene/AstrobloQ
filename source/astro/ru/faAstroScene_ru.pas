@@ -1,6 +1,6 @@
-(****************************************************************************
+(*****************************************************************************
                            AstrobloQ System
-*****************************************************************************)
+******************************************************************************)
 unit faAstroScene_ru;
 
 interface
@@ -64,6 +64,7 @@ uses
   GLS.FileObj,
   GLS.SimpleNavigation,
   GLS.SkyDome,
+  GLS.Particles,
 
   fmFormFirst,
   fmAbout_ru,
@@ -71,7 +72,7 @@ uses
   faConstBorders_ru,
   faConstAtlas_ru,
 
-  Astro.ReadCSV, GLS.Particles
+  Astro.ReadCSV
   ;
 
 
@@ -238,9 +239,9 @@ var
 
 const
   cOpacity: Single = 5;
-  // более толстая атмосфера лучше выглядит чем в на самом деле
+  // толщина атмосферы
   cAtmosphereRadius: Single = 0.55;
-  // меньший радиус взят для исключения эффекта наложения линий
+  // меньший радиус взят для исключения наложения линий
   cPlanetRadius: Single = 0.495;
   cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
   cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
@@ -293,7 +294,7 @@ begin
 //  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
 // ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
 
-  // разрешаем текстурирование астероидов
+  // разрешение текстурирования астероидов
   sfAsteroid.Material.Texture.Disabled := False;
 // ffAsteroid.Material.Texture.Disabled := False;
 // ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
@@ -333,7 +334,8 @@ begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
 
-  //  Астероиды, загрузка имён из файла csv
+  // Астероиды
+  // загрузка имён из файла csv
   FileCSV := CurrentStar + 'sol_asteroids.csv';
   if FileExists(FileCSV) then // or clouds_dense
   begin
@@ -355,9 +357,12 @@ begin
     tvAsteroids.Items.EndUpdate; // обновляем дерево
   end;
 
-  //  tvAsteroids.SetFocus;
-  //  tvAsteroids.Select(tvAsteroids.Items[0]); // show Pluto by default
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
+
+  // скрываем планеты, луны и астероиды при показе небосвода
+  FormOptions.chbHideObjectClick(Self);
+  // включаем линии созвездий
+  FormOptions.chbConstLinesClick(Self);
 end;
 
 //----------------------------------------------------------------------------
@@ -365,12 +370,13 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 begin
+  tbPlanets.SetFocus;
   vBodyType := 1;
   // видимость планет
   sfPlanet.Visible := True;
   sfPlanetGrid.Visible := False; // нет сетки
 
-  // фри форма не видна
+  // пока фри форма не видна
   ffPlanet.Visible := False;
   // луны, астероиды и кометы не видны
   dcMoon.Visible := False;
@@ -434,6 +440,8 @@ procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
   MoonName : String;
 begin
+  tvMoons.SetFocus;
+  FormOptions.chbHideObject.Checked := False;
   vBodyType := 2;
 (*
   tvMoons.SetFocus;
@@ -496,6 +504,9 @@ procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
 var
   AsteroidName : String;
 begin
+  tvAsteroids.SetFocus;
+  FormOptions.chbHideObject.Checked := False;
+
   vBodyType := 3;
   // включение видимости астероидов
   dcAsteroid.Visible := True;
@@ -527,7 +538,7 @@ begin
     // ffGlobe.LoadFromFile(DataDir + '\model\object.3ds');
   end;
 
-  // Показать атмосферу Плутона
+  // У астероидов показать атмосферу Плутона
   if tvAsteroids.Selected.Text = 'Плутон' then
     DirectOpenGL.Visible := True
   else

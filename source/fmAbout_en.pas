@@ -53,8 +53,7 @@ type
     PanelUniverse: TPanel;
     AGCImage: TImage;
     tsCertificates: TTabSheet;
-    Image6: TImage;
-    Image5: TImage;
+    ImageGLXE: TImage;
     procedure GLSImageClick(Sender: TObject);
     procedure AGCImageClick(Sender: TObject);
     procedure ImageGalaxyClick(Sender: TObject);

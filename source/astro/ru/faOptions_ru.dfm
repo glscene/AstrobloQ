@@ -12,6 +12,7 @@ object FormOptions: TFormOptions
   Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
+  FormStyle = fsStayOnTop
   Position = poDefault
   OnClose = FormClose
   OnCreate = FormCreate
@@ -153,7 +154,7 @@ object FormOptions: TFormOptions
         end
       end
       object tsSkyDome: TTabSheet
-        Caption = #1053#1077#1073#1086#1089#1074#1086#1076
+        Caption = #1047#1074#1105#1079#1076#1099
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
@@ -207,6 +208,8 @@ object FormOptions: TFormOptions
             Width = 79
             Height = 17
             Caption = #1051#1080#1085#1080#1080
+            Checked = True
+            State = cbChecked
             TabOrder = 1
             OnClick = chbConstLinesClick
           end
@@ -343,7 +346,7 @@ object FormOptions: TFormOptions
           Top = 206
           Width = 521
           Height = 164
-          Caption = #1055#1086#1082#1072#1079#1072#1090#1077#1083#1080
+          Caption = #1055#1086#1082#1072#1079#1072#1090#1100
           TabOrder = 1
           object CheckBox4: TCheckBox
             Left = 167
@@ -370,6 +373,8 @@ object FormOptions: TFormOptions
             Width = 130
             Height = 23
             Caption = #1040#1090#1084#1086#1089#1092#1077#1088#1072
+            Checked = True
+            State = cbChecked
             TabOrder = 2
             StyleName = 'Windows'
             OnClick = CheckBoxAtmosferaClick
@@ -394,15 +399,17 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
             OnClick = chbTopoGridClick
           end
-          object chbHidePlanet: TCheckBox
+          object chbHideObject: TCheckBox
             Left = 304
             Top = 34
             Width = 169
             Height = 25
             Caption = #1057#1082#1088#1099#1090#1100' '#1086#1073#1098#1077#1082#1090
+            Checked = True
+            State = cbChecked
             TabOrder = 5
             StyleName = 'Windows'
-            OnClick = chbHidePlanetClick
+            OnClick = chbHideObjectClick
           end
         end
         object grbPlanetParams: TGroupBox
@@ -548,12 +555,11 @@ object FormOptions: TFormOptions
         0432043D043E043504000029000000000000000000000001000000FFFFFFFF00
         00000000000000000000000001051A0430044004420430040000290000000000
         00000000000002000000FFFFFFFF000000000000000000000000000105210446
-        0435043D043004000037000000000000000000000003000000FFFFFFFF000000
-        00000000000000000000010C1404300442043004200038042000320440043504
-        3C044F0400002D000000000000000000000005000000FFFFFFFF000000000000
-        0000000000000001071F043B0430043D04350442044B0400002F000000000000
-        000000000006000000FFFFFFFF0000000000000000000000000001081D043504
-        31043E04410432043E043404}
+        0435043D043004000029000000000000000000000003000000FFFFFFFF000000
+        0000000000000000000001051204400435043C044F0400002D00000000000000
+        0000000005000000FFFFFFFF0000000000000000000000000001071F043B0430
+        043D04350442044B0400002B000000000000000000000006000000FFFFFFFF00
+        0000000000000000000000000106170432045104370434044B04}
       ExplicitHeight = 358
     end
   end
@@ -568,8 +574,8 @@ object FormOptions: TFormOptions
     ExplicitWidth = 742
   end
   object ImageList: TImageList
-    Left = 427
-    Top = 376
+    Left = 67
+    Top = 216
     Bitmap = {
       494C010104000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020

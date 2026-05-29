@@ -1,6 +1,6 @@
-(****************************************************************************
+(*****************************************************************************
                            AstrobloQ System
-*****************************************************************************)
+******************************************************************************)
 unit fgGalaqtium_ru;
 
 interface
@@ -68,7 +68,8 @@ uses
   fgParadox_ru,
   fgEquations_ru,
   fgStatistics_ru,
-  fgDiagramHR_ru
+  fgDiagramHR_ru,
+  fgNavigator_ru, GLS.Navigator
   ;
 
 type
@@ -122,7 +123,6 @@ type
     tsGalacube: TTabSheet;
     svGalaxyBlock: TGLSceneViewer;
     LightSol: TGLLightSource;
-    GLSimpleNavigation: TGLSimpleNavigation;
     dcAxes: TGLDummyCube;
     Stars: TGLPoints;
     SpaceTextX: TGLSpaceText;
@@ -152,7 +152,7 @@ type
     miInterpolate: TMenuItem;
     miTetranet: TMenuItem;
     N4: TMenuItem;
-    ranslator1: TMenuItem;
+    miTranslator: TMenuItem;
     GLMatLib: TGLMaterialLibrary;
     miSettings: TMenuItem;
     celGalaxy: TGLCylinder;
@@ -165,6 +165,9 @@ type
     miEquations: TMenuItem;
     miConvolute: TMenuItem;
     miGalablock: TMenuItem;
+    miNavigator: TMenuItem;
+    GLNavigator1: TGLNavigator;
+    GLSimpleNavigation1: TGLSimpleNavigation;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -199,6 +202,8 @@ type
     procedure miInterpolateClick(Sender: TObject);
     procedure miConvoluteClick(Sender: TObject);
     procedure miGalablockClick(Sender: TObject);
+    procedure miTranslatorClick(Sender: TObject);
+    procedure miNavigatorClick(Sender: TObject);
   public
     MousePoint: TPoint;
     procedure MakeRandomStars;
@@ -627,6 +632,12 @@ begin
   //
 end;
 
+procedure TFormGalaqtium.miTranslatorClick(Sender: TObject);
+begin
+  inherited;
+
+end;
+
 //----------------------------------------------------------------------------
 procedure TFormGalaqtium.miGriddingClick(Sender: TObject);
 begin
@@ -750,6 +761,18 @@ procedure TFormGalaqtium.miOptionsClick(Sender: TObject);
 begin
   FormOptions.Show;
 end;
+
+//----------------------- Навигатор ------------------------------------------
+procedure TFormGalaqtium.miNavigatorClick(Sender: TObject);
+begin
+  with TfrmNavigator.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
 
 //----------------------------------------------------------------------------
 //                             Меню справка

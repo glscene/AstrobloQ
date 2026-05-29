@@ -20,8 +20,9 @@ uses
   Vcl.StdCtrls,
   Vcl.NumberBox,
   Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg,
 
-  fmFormFirst, Vcl.Imaging.jpeg;
+  fmFormFirst;
 
 type
   TfrmEquations = class(TFormFirst)

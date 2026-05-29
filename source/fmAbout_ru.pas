@@ -1,6 +1,6 @@
-(****************************************************************************
+(*****************************************************************************
                            AstrobloQ System
-*****************************************************************************)
+******************************************************************************)
 unit fmAbout_ru;
 
 interface
@@ -52,9 +52,7 @@ type
     PanelUniverse: TPanel;
     PanelBiosfera: TPanel;
     AGCImage: TImage;
-    tbCertificates: TTabSheet;
     Image5: TImage;
-    Image6: TImage;
     procedure FormCreate(Sender: TObject);
     procedure AGCImageClick(Sender: TObject);
     procedure GLSImageClick(Sender: TObject);
@@ -98,6 +96,7 @@ begin
   ShellExecute(0, 'open',
    'https://gitflic.ru/project/glscene/glxengine', '', '', SW_SHOW);
 end;
+
 
 
 //-----------------------------------------------------------------------------

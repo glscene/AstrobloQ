@@ -2,8 +2,8 @@ object FormGalaqtium: TFormGalaqtium
   Left = 0
   Top = 0
   Caption = 'Galaqtium'
-  ClientHeight = 601
-  ClientWidth = 982
+  ClientHeight = 752
+  ClientWidth = 1080
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object FormGalaqtium: TFormGalaqtium
   TextHeight = 21
   object StatusBar: TStatusBar
     Left = 0
-    Top = 585
-    Width = 982
+    Top = 736
+    Width = 1080
     Height = 16
     Panels = <
       item
@@ -32,17 +32,17 @@ object FormGalaqtium: TFormGalaqtium
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 560
-    ExplicitWidth = 974
+    ExplicitTop = 711
+    ExplicitWidth = 1072
   end
   object ControlBar: TControlBar
     Left = 0
     Top = 0
-    Width = 982
+    Width = 1080
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 974
+    ExplicitWidth = 1072
     object ToolBarMain: TToolBar
       Left = 19
       Top = 2
@@ -170,23 +170,23 @@ object FormGalaqtium: TFormGalaqtium
   object PageControl1: TPageControl
     Left = 0
     Top = 33
-    Width = 982
-    Height = 552
+    Width = 1080
+    Height = 703
     ActivePage = tsGalacube
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 974
-    ExplicitHeight = 527
+    ExplicitWidth = 1072
+    ExplicitHeight = 678
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalaxyBlock: TGLSceneViewer
         Left = 0
         Top = 0
-        Width = 974
-        Height = 516
+        Width = 1072
+        Height = 667
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 145.545028686523400000
+        FieldOfView = 153.021530151367200000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
@@ -211,7 +211,7 @@ object FormGalaqtium: TFormGalaqtium
         Left = 0
         Top = 0
         Width = 377
-        Height = 516
+        Height = 667
         Align = alLeft
         Lines.Strings = (
           'MemoTable')
@@ -245,6 +245,7 @@ object FormGalaqtium: TFormGalaqtium
         Up.Coordinates = {00000000000000000000803F00000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
+        Slices = 16
         TopRadius = 0.050000000745058060
         Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
@@ -259,6 +260,7 @@ object FormGalaqtium: TFormGalaqtium
         Scale.Coordinates = {00004843000048430000FA4300000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
+        Slices = 16
         TopRadius = 0.050000000745058060
         Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
@@ -272,6 +274,7 @@ object FormGalaqtium: TFormGalaqtium
         Scale.Coordinates = {00004843000048430000FA4300000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
+        Slices = 16
         TopRadius = 0.050000000745058060
         Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
@@ -374,6 +377,7 @@ object FormGalaqtium: TFormGalaqtium
       object celGalaxy: TGLCylinder
         BottomRadius = 0.500000000000000000
         Height = 1.000000000000000000
+        Slices = 16
         TopRadius = 0.500000000000000000
       end
       object sphGalaxy: TGLSphere
@@ -569,8 +573,13 @@ object FormGalaqtium: TFormGalaqtium
       object N8: TMenuItem
         Caption = '-'
       end
-      object ranslator1: TMenuItem
+      object miNavigator: TMenuItem
+        Caption = #1053#1072#1074#1080#1075#1072#1090#1086#1088'...'
+        OnClick = miNavigatorClick
+      end
+      object miTranslator: TMenuItem
         Caption = #1058#1088#1072#1085#1089#1083#1103#1090#1086#1088'...'
+        OnClick = miTranslatorClick
       end
       object miN5: TMenuItem
         Caption = '-'
@@ -600,26 +609,6 @@ object FormGalaqtium: TFormGalaqtium
     OnProgress = GLCadencerProgress
     Left = 77
     Top = 164
-  end
-  object GLSimpleNavigation: TGLSimpleNavigation
-    Form = Owner
-    GLSceneViewer = svGalaxyBlock
-    FormCaption = 'Galaqtium'
-    KeyCombinations = <
-      item
-        ShiftState = [ssLeft, ssRight]
-        Action = snaZoom
-      end
-      item
-        ShiftState = [ssLeft]
-        Action = snaMoveAroundTarget
-      end
-      item
-        ShiftState = [ssRight]
-        Action = snaMoveAroundTarget
-      end>
-    Left = 300
-    Top = 91
   end
   object GLMatLib: TGLMaterialLibrary
     Materials = <
@@ -103473,5 +103462,29 @@ object FormGalaqtium: TFormGalaqtium
       end>
     Left = 180
     Top = 91
+  end
+  object GLNavigator1: TGLNavigator
+    Left = 348
+    Top = 169
+  end
+  object GLSimpleNavigation1: TGLSimpleNavigation
+    Form = Owner
+    GLSceneViewer = svGalaxyBlock
+    FormCaption = 'Galaqtium - %FPS'
+    KeyCombinations = <
+      item
+        ShiftState = [ssLeft, ssRight]
+        Action = snaZoom
+      end
+      item
+        ShiftState = [ssLeft]
+        Action = snaMoveAroundTarget
+      end
+      item
+        ShiftState = [ssRight]
+        Action = snaMoveAroundTarget
+      end>
+    Left = 348
+    Top = 97
   end
 end

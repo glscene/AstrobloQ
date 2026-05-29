@@ -38,6 +38,8 @@ uses
   Vcl.Imaging.Jpeg,
 
   Stage.VectorTypes,
+  Stage.VectorGeometry,
+  Stage.Keyboard,
   GLS.PersistentClasses,
   GLS.Cadencer,
   GLS.VectorFileObjects,
@@ -55,8 +57,6 @@ uses
   GLS.File3DS,
   GLS.Texture,
   GLS.Color,
-  Stage.VectorGeometry,
-  Stage.Keyboard,
   GLS.RandomHDS;
 
 type
@@ -98,7 +98,7 @@ type
 var
   frmDuneFighter: TfrmDuneFighter;
 
-implementation  //===========================================================
+implementation //===========================================================
 
 {$R *.DFM}
 
@@ -215,8 +215,7 @@ begin
     Label3.Font.Style := Label3.Font.Style - [fsBold];
   end;
 
-  // Move Actor in the scene
-
+  // Перемещение Actor по сцене
   // if nothing specified, we are standing
   moving := 'stand';
 

@@ -29,7 +29,8 @@ uses
   fgSolving_ru in '..\source\galaxy\ru\fgSolving_ru.pas' {frmSolving},
   fgNewGalablock_ru in '..\source\galaxy\ru\fgNewGalablock_ru.pas' {frmNewStarblock},
   fgViewGalablock_ru in '..\source\galaxy\ru\fgViewGalablock_ru.pas' {frmStarblock},
-  fgTechnets_ru in '..\source\galaxy\ru\fgTechnets_ru.pas' {frmTechnets};
+  fgTechnets_ru in '..\source\galaxy\ru\fgTechnets_ru.pas' {frmTechnets},
+  fgNavigator_ru in '..\source\galaxy\ru\fgNavigator_ru.pas' {frmNavigator};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

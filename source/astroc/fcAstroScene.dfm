@@ -25,8 +25,6 @@ object FormAstroScene: TFormAstroScene
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 909
-    ExplicitHeight = 724
   end
   object ControlBar: TControlBar
     Left = 0
@@ -347,7 +345,8 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 630
+      ExplicitLeft = 2
+      ExplicitTop = 125
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -856,6 +855,7 @@ object FormAstroScene: TFormAstroScene
             Scale.Coordinates = {00007A4400007A440000FA4500000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
+            Slices = 16
             TopRadius = 0.050000000745058060
             TopArrowHeadHeight = 0.100000001490116100
             TopArrowHeadRadius = 0.100000001490116100
@@ -869,6 +869,7 @@ object FormAstroScene: TFormAstroScene
             Scale.Coordinates = {00007A4400007A440000FA4500000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
+            Slices = 16
             TopRadius = 0.050000000745058060
             TopArrowHeadHeight = 0.100000001490116100
             TopArrowHeadRadius = 0.100000001490116100
@@ -883,6 +884,7 @@ object FormAstroScene: TFormAstroScene
             Up.Coordinates = {00000000000000000000803F00000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
+            Slices = 16
             TopRadius = 0.050000000745058060
             TopArrowHeadHeight = 0.100000001490116100
             TopArrowHeadRadius = 0.100000001490116100
@@ -897,6 +899,7 @@ object FormAstroScene: TFormAstroScene
             Up.Coordinates = {00000000000000000000803F00000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
+            Slices = 16
             TopRadius = 0.050000000745058060
             TopArrowHeadHeight = 0.100000001490116100
             TopArrowHeadRadius = 0.100000001490116100
@@ -909,6 +912,7 @@ object FormAstroScene: TFormAstroScene
             Scale.Coordinates = {0000FA440000FA440000FA4500000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
+            Slices = 16
             TopRadius = 0.050000000745058060
             TopArrowHeadHeight = 0.100000001490116100
             TopArrowHeadRadius = 0.100000001490116100
@@ -922,6 +926,7 @@ object FormAstroScene: TFormAstroScene
             Scale.Coordinates = {0000FA440000FA440000FA4500000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
+            Slices = 16
             Stacks = 8
             TopRadius = 0.050000000745058060
             TopArrowHeadHeight = 0.100000001490116100

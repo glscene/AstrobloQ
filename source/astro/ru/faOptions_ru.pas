@@ -1,6 +1,6 @@
-(****************************************************************************
+(*****************************************************************************
                            AstrobloQ System
-*****************************************************************************)
+******************************************************************************)
 unit faOptions_ru;
 
 interface
@@ -86,7 +86,7 @@ type
     chbConstBorders: TCheckBox;
     chbClouds: TCheckBox;
     chbTopoGrid: TCheckBox;
-    chbHidePlanet: TCheckBox;
+    chbHideObject: TCheckBox;
     tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
     rgUnits: TRadioGroup;
@@ -103,7 +103,7 @@ type
     procedure ButtonOKClick(Sender: TObject);
     procedure chbCoreClick(Sender: TObject);
     procedure CheckBoxAtmosferaClick(Sender: TObject);
-    procedure chbHidePlanetClick(Sender: TObject);
+    procedure chbHideObjectClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
     procedure chbTopoGridClick(Sender: TObject);
@@ -336,21 +336,27 @@ end;
 //-----------------------------------------------------------------------------
 // Показать или скрыть небесное тело
 //-----------------------------------------------------------------------------
-procedure TFormOptions.chbHidePlanetClick(Sender: TObject);
+procedure TFormOptions.chbHideObjectClick(Sender: TObject);
 begin
   with FormAstroScene do
-  if chbHidePlanet.Checked then
+  if chbHideObject.Checked then
   begin
-    dcPlanet.Visible := not dcPlanet.Visible;
-//    sfPlanet.Visible := False;
-//    ffPlanet.Visible := False;
+    sfPlanet.Visible := False;
+    sfMoon.Visible := False;
+    ffMoon.Visible := False;
+    sfAsteroid.Visible := False;
+    ffAsteroid.Visible := False;
+    ffComet.Visible := False;
     DirectOpenGL.Visible := False;
   end
   else
   begin
-    dcPlanet.Visible := not dcPlanet.Visible;
-//    sfPlanet.Visible := True;
-//    ffPlanet.Visible := True;
+    sfPlanet.Visible := True;
+    sfMoon.Visible := True;
+    ffMoon.Visible := True;
+    sfAsteroid.Visible := True;
+    ffAsteroid.Visible := True;
+    ffComet.Visible := True;
     DirectOpenGL.Visible := True;
   end;
 end;
