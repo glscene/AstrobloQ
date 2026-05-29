@@ -3,10 +3,13 @@
         <ProjectGuid>{9164AF8A-55F5-489C-A0AE-0034D6BE1D60}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="project\AstroSceneC.cbproj">
+        <Projects Include="project\AstroSceneC_en.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="project\Nooneta_en.cbproj">
+        <Projects Include="project\AstroSceneC_ru.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="project\NoonetaC_en.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -17,32 +20,41 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="AstroSceneC">
-        <MSBuild Projects="project\AstroSceneC.cbproj"/>
+    <Target Name="AstroSceneC_en">
+        <MSBuild Projects="project\AstroSceneC_en.cbproj"/>
     </Target>
-    <Target Name="AstroSceneC:Clean">
-        <MSBuild Projects="project\AstroSceneC.cbproj" Targets="Clean"/>
+    <Target Name="AstroSceneC_en:Clean">
+        <MSBuild Projects="project\AstroSceneC_en.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="AstroSceneC:Make">
-        <MSBuild Projects="project\AstroSceneC.cbproj" Targets="Make"/>
+    <Target Name="AstroSceneC_en:Make">
+        <MSBuild Projects="project\AstroSceneC_en.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="Nooneta_en">
-        <MSBuild Projects="project\Nooneta_en.cbproj"/>
+    <Target Name="AstroSceneC_ru">
+        <MSBuild Projects="project\AstroSceneC_ru.cbproj"/>
     </Target>
-    <Target Name="Nooneta_en:Clean">
-        <MSBuild Projects="project\Nooneta_en.cbproj" Targets="Clean"/>
+    <Target Name="AstroSceneC_ru:Clean">
+        <MSBuild Projects="project\AstroSceneC_ru.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="Nooneta_en:Make">
-        <MSBuild Projects="project\Nooneta_en.cbproj" Targets="Make"/>
+    <Target Name="AstroSceneC_ru:Make">
+        <MSBuild Projects="project\AstroSceneC_ru.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="NoonetaC_en">
+        <MSBuild Projects="project\NoonetaC_en.cbproj"/>
+    </Target>
+    <Target Name="NoonetaC_en:Clean">
+        <MSBuild Projects="project\NoonetaC_en.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NoonetaC_en:Make">
+        <MSBuild Projects="project\NoonetaC_en.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="AstroSceneC;Nooneta_en"/>
+        <CallTarget Targets="AstroSceneC_en;AstroSceneC_ru;NoonetaC_en"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="AstroSceneC:Clean;Nooneta_en:Clean"/>
+        <CallTarget Targets="AstroSceneC_en:Clean;AstroSceneC_ru:Clean;NoonetaC_en:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="AstroSceneC:Make;Nooneta_en:Make"/>
+        <CallTarget Targets="AstroSceneC_en:Make;AstroSceneC_ru:Make;NoonetaC_en:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
