@@ -30,14 +30,14 @@
 #pragma link "GLS.WindowsFont"
 #pragma resource "*.dfm"
 
-TFormTerraNavi *FormTerraNavi;
+TFormNooneta *FormNooneta;
 float random(void)
 {
 	return (float)(rand() & 0x1FFF) / (float)0x1FFF;
 }
 
 //---------------------------------------------------------------------------
-TFileName __fastcall TFormTerraNavi::GetAssetsDir()
+TFileName __fastcall TFormNooneta::GetAssetsDir()
 {
 
 	AssetsDir = ExtractFilePath(ParamStr(0)).LowerCase();
@@ -52,7 +52,7 @@ TFileName __fastcall TFormTerraNavi::GetAssetsDir()
 
 
 //---------------------------------------------------------------------------
-__fastcall TFormTerraNavi::TFormTerraNavi(TComponent* Owner)
+__fastcall TFormNooneta::TFormNooneta(TComponent* Owner)
 	: TForm(Owner)
 {
 	AssetsDir = GetAssetsDir();
@@ -87,9 +87,9 @@ __fastcall TFormTerraNavi::TFormTerraNavi(TComponent* Owner)
 	SetCurrentDir(AssetsDir  + "\\audio");
 	GLSoundLibrary1->Samples->Add()->LoadFromFile("ChillyWind.mp3");
 	GLSoundLibrary1->Samples->Add()->LoadFromFile("howl.mp3");
-	GLDummyCube2->Position->X = 570;
-	GLDummyCube2->Position->Z = -385;
-	GLDummyCube2->Turn(90);
+	dcCamera->Position->X = 570;
+	dcCamera->Position->Z = -385;
+	dcCamera->Turn(90);
 	FCamHeight = 10;
 	GLTree1->MaterialLibrary = GLMaterialLibrary1;
 	GLTree1->LeafMaterialName = "LeafFront";
@@ -98,43 +98,22 @@ __fastcall TFormTerraNavi::TFormTerraNavi(TComponent* Owner)
 	GLTree1->Position->X = 300;
 	GLTree1->Position->Y = GLTerrainRenderer1->InterpolatedHeight(GLTree1->Position->AsVector) - 6;
 	GLTree1->Position->Z = 60;
+    GLTree1->LeafSize = 5;
 
 	SetCurrentDir(AssetsDir  + "\\model");
 	GLFreeForm1->LoadFromFile("firtree.3ds");
 	GLFreeForm1->Position->X = -40;
 	GLFreeForm1->Position->Y = GLTerrainRenderer1->InterpolatedHeight(GLFreeForm1->Position->AsVector) - 5;
 	GLFreeForm1->Position->Z = -40;
+///	GLFreeForm1->Scale->SetVector(5.0, 5.0, 5.0, 0);
 	CreateTrees();
 	GLHUDText1->Text = " Press \"up left down right\" to navigate, \"PgUp\" - up, \"PgDn\" - down.\r\n Press \"N\" - night, \"D\" - day.\r\n Press \"Q\" to Show Quadtree.\r\n Press \"Esc\" to quit.";
 	GLSceneViewer1->Buffer->BackgroundColor = clWhite;
 	GLTerrainRenderer1->TilesPerTexture = 256.0 / GLTerrainRenderer1->TileSize;
 }
-//---------------------------------------------------------------------------
-void __fastcall TFormTerraNavi::GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button,
-		  TShiftState Shift, int X, int Y)
-{
-	my = Y;
-	mx = X;
-}
-//---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift,
-		  int X, int Y)
-{
-	if (Shift.Contains(ssLeft))
-	{
-		GLCamera1->MoveAroundTarget(my - Y, mx - X);
-	}
-	else if (Shift.Contains(ssRight))
-	{
-		GLCamera1->RotateTarget(my - Y, mx - X, 0);
-    }
-	mx = X;
-	my = Y;
-}
 //---------------------------------------------------------------------------
-
-void __fastcall TFormTerraNavi::FormKeyPress(TObject *Sender, System::WideChar &Key)
+void __fastcall TFormNooneta::FormKeyPress(TObject *Sender, System::WideChar &Key)
 {
 	TGLMaterial *fp;
 	TGLFogEnvironment *fe;
@@ -143,7 +122,6 @@ void __fastcall TFormTerraNavi::FormKeyPress(TObject *Sender, System::WideChar &
 	switch (Key)
 	{
 	case 'w':
-	case 'W':
 		fp = GLMaterialLibrary1->Materials->Items[0]->Material;
 		if(fp->PolygonMode == pmLines)
 		{
@@ -155,14 +133,21 @@ void __fastcall TFormTerraNavi::FormKeyPress(TObject *Sender, System::WideChar &
 		}
 		break;
 	case 'k':
-	case 'K':
 	   {
-		// Camera looking at Red GLTree1
+		// Camera looking at red GLTree1
 		GLCamera1->MoveTo(GLTree1);
 		GLCamera1->TargetObject = GLTree1;
 		}
 		break;
-
+	case 'z':
+	   {
+	   GLCamera1->Position->X = 10;
+	   GLCamera1->Position->Y = 20;
+	   GLCamera1->Position->Z = 30;
+	   GLCamera1->TargetObject = dcCamera;
+	   GLCamera1->MoveTo(dcCamera);
+	   }
+	   break;
 	case '+':
 		if(GLCamera1->DepthOfView < 3000)
 		{
@@ -206,7 +191,6 @@ void __fastcall TFormTerraNavi::FormKeyPress(TObject *Sender, System::WideChar &
 		}
 		break;
 	case 'n':
-	case 'N':
 		if(GLSkyDome1->Stars->Count == 0)
 		{
 			// turn on 'night' mode
@@ -235,7 +219,6 @@ void __fastcall TFormTerraNavi::FormKeyPress(TObject *Sender, System::WideChar &
 		}
 		break;
 	case 'd':
-	case 'D':
 		if(GLSkyDome1->Stars->Count > 0)
 		{
 			// turn on 'day' mode
@@ -261,22 +244,28 @@ void __fastcall TFormTerraNavi::FormKeyPress(TObject *Sender, System::WideChar &
 		else
 		{
 			GLSkyDome1->Options = GLSkyDome1->Options >> sdoTwinkle;
-        }
+		}
 		break;
 	case 'l':
 		GLLensFlare1->Visible = (!GLLensFlare1->Visible) && sun->Visible;
 		break;
 	case 'q':
-	case 'Q':
 		CheckBox1->Checked = !CheckBox1->Checked;
 		CheckBox1Click(Sender);
 	}
-  	Key = '\0';
+	if(IsKeyDown(VK_HOME))
+	{
+	   GLCamera1->Position->X = 5;
+	   GLCamera1->Position->Y = 10;
+	   GLCamera1->Position->Z = 25;
+	   GLCamera1->TargetObject = dcCamera;
+	}
+	Key = '\0';
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::GLCadencer1Progress(TObject *Sender, const double DeltaTime,
-          const double NewTime)
+//---------------------------------------------------------------------------
+void __fastcall TFormNooneta::GLCadencer1Progress(TObject *Sender, const double DeltaTime,
+		  const double NewTime)
 {
 	float speed;
 	// handle keypresses
@@ -286,13 +275,13 @@ void __fastcall TFormTerraNavi::GLCadencer1Progress(TObject *Sender, const doubl
 		speed = DeltaTime;
 	TGLCoordinates *c = GLCamera1->Position;
 	if(IsKeyDown(VK_UP))
-		GLDummyCube2->Translate(c->Z * speed * 10, 0, -c->X * speed * 10);
+		dcCamera->Translate(c->Z * speed * 10, 0, -c->X * speed * 10);
 	if(IsKeyDown(VK_DOWN))
-		GLDummyCube2->Translate(-c->Z * speed * 10, 0, c->X * speed * 10);
+		dcCamera->Translate(-c->Z * speed * 10, 0, c->X * speed * 10);
 	if(IsKeyDown(VK_LEFT))
-		GLDummyCube2->Translate(-c->X * speed * 10, 0, -c->Z * speed * 10);
+		dcCamera->Translate(-c->X * speed * 10, 0, -c->Z * speed * 10);
 	if(IsKeyDown(VK_RIGHT))
-		GLDummyCube2->Translate(c->X * speed * 10, 0, c->Z * speed * 10);
+		dcCamera->Translate(c->X * speed * 10, 0, c->Z * speed * 10);
 	if(IsKeyDown(VK_PRIOR))
 		FCamHeight = FCamHeight + 300 * speed;
 	if(IsKeyDown(VK_NEXT))
@@ -300,11 +289,13 @@ void __fastcall TFormTerraNavi::GLCadencer1Progress(TObject *Sender, const doubl
 	if(IsKeyDown(VK_ESCAPE))
 		Close();
 	// don't drop through terrain!
-	GLDummyCube2->Position->Y = GLTerrainRenderer1->InterpolatedHeight(GLDummyCube2->Position->AsVector) + FCamHeight;
+	dcCamera->Position->Y =
+	  GLTerrainRenderer1->InterpolatedHeight(dcCamera->Position->AsVector) + FCamHeight;
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::Timer1Timer(TObject *Sender)
+
+//---------------------------------------------------------------------------
+void __fastcall TFormNooneta::Timer1Timer(TObject *Sender)
 {
 	TGLVector wolfPos;
 	float c, s;
@@ -328,8 +319,8 @@ void __fastcall TFormTerraNavi::Timer1Timer(TObject *Sender)
 		wolfPos.X = wolfPos.X + c;
 		wolfPos.Z = wolfPos.Z + s;
 		wolfPos.Y = GLTerrainRenderer1->InterpolatedHeight(wolfPos);
-		GLDummyCube1->Position->AsVector = wolfPos;
-		be = GetOrCreateSoundEmitter(GLDummyCube1);
+		dcWolf->Position->AsVector = wolfPos;
+		be = GetOrCreateSoundEmitter(dcWolf);
 		be->Source->SoundLibrary = GLSoundLibrary1;
 		be->Source->SoundName = GLSoundLibrary1->Samples->Items[1]->Name;
 		be->Source->MinDistance = 100;
@@ -340,9 +331,33 @@ void __fastcall TFormTerraNavi::Timer1Timer(TObject *Sender)
 	Timer1->Interval = 10000 + random(10000);
 	Timer1->Enabled = True;
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::CreateTrees()
+//---------------------------------------------------------------------------
+void __fastcall TFormNooneta::GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button,
+		  TShiftState Shift, int X, int Y)
+{
+	my = Y;
+	mx = X;
+}
+
+//---------------------------------------------------------------------------
+void __fastcall TFormNooneta::GLSceneViewer1MouseMove(TObject *Sender, TShiftState Shift,
+		  int X, int Y)
+{
+	if (Shift.Contains(ssLeft))
+	{
+		GLCamera1->MoveAroundTarget(my - Y, mx - X);
+	}
+	else if (Shift.Contains(ssRight))
+	{
+		GLCamera1->RotateTarget(my - Y, mx - X, 0);
+	}
+	mx = X;
+	my = Y;
+}
+
+//---------------------------------------------------------------------------
+void __fastcall TFormNooneta::CreateTrees()
 {
 	const int crange = 40;
 	for (int i = -crange; i < crange; i++)
@@ -378,22 +393,22 @@ void __fastcall TFormTerraNavi::CreateTrees()
 		}
 	}
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::Timer2Timer(TObject *Sender)
+//---------------------------------------------------------------------------
+void __fastcall TFormNooneta::Timer2Timer(TObject *Sender)
 {
-	FormTerraNavi->Caption = "Terrain Navigation - " + GLSceneViewer1->FramesPerSecondText() + " - " + GLTerrainRenderer1->LastTriangleCount;
+	FormNooneta->Caption = "Terrain Navigation - " + GLSceneViewer1->FramesPerSecondText() + " - " + GLTerrainRenderer1->LastTriangleCount;
     GLSceneViewer1->ResetPerformanceMonitor();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::FormDestroy(TObject *Sender)
+void __fastcall TFormNooneta::FormDestroy(TObject *Sender)
 {
 	SpacePartition1->Free();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::GLDirectOpenGL1Render(TObject *Sender, TGLRenderContextInfo &rci)
+void __fastcall TFormNooneta::GLDirectOpenGL1Render(TObject *Sender, TGLRenderContextInfo &rci)
 {
 	for (int i = 0; i < GLDummyCube4->Count - 1; i++)
 	{
@@ -414,13 +429,13 @@ void __fastcall TFormTerraNavi::GLDirectOpenGL1Render(TObject *Sender, TGLRender
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::CheckBox1Click(TObject *Sender)
+void __fastcall TFormNooneta::CheckBox1Click(TObject *Sender)
 {
 	GLDirectOpenGL2->Visible = CheckBox1->Checked;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTerraNavi::GLDirectOpenGL2Render(TObject *Sender, TGLRenderContextInfo &rci)
+void __fastcall TFormNooneta::GLDirectOpenGL2Render(TObject *Sender, TGLRenderContextInfo &rci)
 {
 	RenderSpatialPartitioning(rci, SpacePartition1);
 }

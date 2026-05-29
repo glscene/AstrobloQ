@@ -33,7 +33,7 @@
 #include "GLS.WindowsFont.hpp"
 #include <Vcl.ComCtrls.hpp>
 //---------------------------------------------------------------------------
-class TFormTerraNavi : public TForm
+class TFormNooneta : public TForm
 {
 __published:	// IDE-managed Components
 	TGLSceneViewer *GLSceneViewer1;
@@ -43,8 +43,8 @@ __published:	// IDE-managed Components
 	TGLSoundLibrary *GLSoundLibrary1;
 	TGLSMBASS *GLSMBASS1;
 	TGLMaterialLibrary *GLMaterialLibrary1;
-	TGLDummyCube *GLDummyCube1;
-	TGLDummyCube *GLDummyCube2;
+	TGLDummyCube *dcWolf;
+	TGLDummyCube *dcCamera;
 	TGLCamera *GLCamera1;
 	TGLLensFlare *GLLensFlare1;
 	TGLDummyCube *GLDummyCube3;
@@ -88,9 +88,9 @@ public:		// User declarations
 	TFileName AssetsDir;
 	TFileName __fastcall GetAssetsDir();
 //	__fastcall TFileName GetDataDir();
-	__fastcall TFormTerraNavi(TComponent* Owner);
+	__fastcall TFormNooneta(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFormTerraNavi *FormTerraNavi;
+extern PACKAGE TFormNooneta *FormNooneta;
 //---------------------------------------------------------------------------
 #endif

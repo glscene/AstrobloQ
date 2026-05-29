@@ -559,21 +559,6 @@ begin
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 end;
 
-
-//-------------------------- Меню справки Wiki -------------------------------
-procedure TFormAstroScene.miHelpWikiClick(Sender: TObject);
-var
-  S: String;
-
-begin
-/// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
-/// но некоторые названия звёзд не переводятся, остаются на латинице,
-/// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
-/// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
-  S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
-  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
-end;
-
 //------------------- Перед рендером включение огней городов -----------------
 procedure TFormAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
@@ -1062,8 +1047,8 @@ end;
 procedure TFormAstroScene.miPlanetSystemClick(Sender: TObject);
 begin
   inherited;
-///  frmStarSys.Show;    // иначе FormSolarSys
-  with TfrmStellarSys.Create(Self) do
+///FormStarSys.Show; // <- при автосоздании модальной формы
+  with TfrmStarSys.Create(Self) do
   try
     ShowModal;
   finally
@@ -1101,11 +1086,37 @@ begin
   end;
 end;
 
-
 //------------------------- Меню Опции ----------------------------------------
 procedure TFormAstroScene.miOptionsClick(Sender: TObject);
 begin
   FormOptions.Show;
+end;
+
+//-------------------------- Меню справки Wiki -------------------------------
+procedure TFormAstroScene.miHelpWikiClick(Sender: TObject);
+var
+  S: String;
+
+begin
+/// Планеты, иногда S + '_(planet)' e.g. ../Mercury_(planet)
+/// но некоторые названия звёзд не переводятся, остаются на латинице,
+/// например, https://ru.ruwiki.ru/wiki/GJ_1002. Что делать?
+/// S :=  'https://ru.ruwiki.ru/wiki/' + tvMoons.Selected.Text + _('Earth')
+  S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
+  ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);
+end;
+
+
+//----------------------- О программе -----------------------------------------
+procedure TFormAstroScene.miAboutClick(Sender: TObject);
+begin
+  with TfrmAbout.Create(Self) do
+  try
+    PageControl.ActivePageIndex := 0;
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 //------------------------- ReadIniFile ---------------------------------------
@@ -1138,26 +1149,12 @@ begin
   end;
 end;
 
-
-//----------------------- О программе -----------------------------------------
-procedure TFormAstroScene.miAboutClick(Sender: TObject);
-begin
-  with TfrmAbout.Create(Self) do
-  try
-    PageControl.ActivePageIndex := 0;
-    ShowModal;
-  finally
-    Free;
-  end;
-end;
-
 //-----------------------------------------------------------------------------
 procedure TFormAstroScene.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
   WriteIniFile;   // запись установок в ini файл
 end;
-
 
 //-----------------------------------------------------------------------------
 procedure TFormAstroScene.miFileExitClick(Sender: TObject);
@@ -1170,5 +1167,7 @@ initialization //==============================================================
   FormatSettings.DecimalSeparator := '.';
 
 finalization
+
+//-----------------------------------------------------------------------------
 
 end.

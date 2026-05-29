@@ -1,4 +1,4 @@
-object FormTerraNavi: TFormTerraNavi
+object FormNooneta: TFormNooneta
   Left = 0
   Top = 0
   Caption = 'Terrain navigation'
@@ -55,18 +55,18 @@ object FormTerraNavi: TFormTerraNavi
   end
   object GLScene1: TGLScene
     ObjectsSorting = osNone
-    Left = 16
-    Top = 16
-    object GLDummyCube1: TGLDummyCube
+    Left = 152
+    Top = 88
+    object dcWolf: TGLDummyCube
       CubeSize = 1.000000000000000000
     end
-    object GLDummyCube2: TGLDummyCube
+    object dcCamera: TGLDummyCube
       Position.Coordinates = {0000000000000041000000000000803F}
       CubeSize = 1.000000000000000000
       object GLCamera1: TGLCamera
         DepthOfView = 800.000000000000000000
         FocalLength = 50.000000000000000000
-        TargetObject = GLDummyCube2
+        TargetObject = dcCamera
         Position.Coordinates = {0000A040000020410000C8410000803F}
       end
     end
@@ -204,18 +204,18 @@ object FormTerraNavi: TFormTerraNavi
   object GLCadencer1: TGLCadencer
     Scene = GLScene1
     OnProgress = GLCadencer1Progress
-    Left = 88
-    Top = 16
+    Left = 152
+    Top = 152
   end
   object GLBitmapHDS1: TGLBitmapHDS
     MaxPoolSize = 0
-    Left = 176
-    Top = 16
+    Left = 272
+    Top = 88
   end
   object GLSoundLibrary1: TGLSoundLibrary
     Samples = <>
-    Left = 272
-    Top = 16
+    Left = 392
+    Top = 160
   end
   object GLSMBASS1: TGLSMBASS
     Active = True
@@ -226,8 +226,8 @@ object FormTerraNavi: TFormTerraNavi
     Cadencer = GLCadencer1
     Environment = seForest
     Algorithm3D = algFull
-    Left = 360
-    Top = 16
+    Left = 384
+    Top = 88
     Doppler = 0.000000000000000000
   end
   object GLMaterialLibrary1: TGLMaterialLibrary
@@ -247,19 +247,19 @@ object FormTerraNavi: TFormTerraNavi
         Material.Texture.Disabled = False
         TextureScale.Coordinates = {00000043000000430000004300000000}
       end>
-    Left = 600
-    Top = 16
+    Left = 504
+    Top = 88
   end
   object Timer1: TTimer
     Interval = 3000
     OnTimer = Timer1Timer
-    Left = 680
-    Top = 16
+    Left = 600
+    Top = 88
   end
   object Timer2: TTimer
     OnTimer = Timer2Timer
-    Left = 728
-    Top = 16
+    Left = 600
+    Top = 152
   end
   object GLWindowsBitmapFont1: TGLWindowsBitmapFont
     Font.Charset = RUSSIAN_CHARSET
@@ -267,7 +267,7 @@ object FormTerraNavi: TFormTerraNavi
     Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = []
-    Left = 472
-    Top = 16
+    Left = 272
+    Top = 152
   end
 end

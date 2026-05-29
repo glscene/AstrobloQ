@@ -187,7 +187,7 @@
             <BuildOrder>0</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\source\noo\en\fnNooneta_en.cpp">
-            <Form>FormTerraNavi</Form>
+            <Form>FormNooneta</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\source\noo\en\fnNooneta_en.h</DependentOn>
             <BuildOrder>2</BuildOrder>

@@ -33,7 +33,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  faStarsys_ru in '..\source\astro\ru\faStarsys_ru.pas' {frmStellarSys},
+  faStarsys_ru in '..\source\astro\ru\faStarsys_ru.pas' {frmStarSys},
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   frParams_ru in '..\source\astro\ru\frParams_ru.pas' {FrameParamsR: TFrame},
   faConstBorders_ru in '..\source\astro\ru\faConstBorders_ru.pas' {frmSkyPolygons},

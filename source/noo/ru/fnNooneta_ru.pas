@@ -41,6 +41,7 @@ uses
   GLS.HUDObjects,
 
   GLS.Material,
+  GLS.State,
   GLS.Coordinates,
   GLS.BaseClasses,
   GLS.RenderContextInfo;
@@ -74,6 +75,7 @@ type
     cbUseExtendedFrustum: TCheckBox;
     cbShowQuadtree: TCheckBox;
     Label2: TLabel;
+    dcWorld: TGLDummyCube;
     procedure GLCadencer1Progress(Sender: TObject;
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
@@ -131,9 +133,11 @@ begin
   CreateTrees;
   cullingMode := 'Quadtree ';
   GLUserInterface1.MouseLookActivate;
+
+ // ffTree.Scale.SetVector(5.0, 5.0, 5.0, 0);
 end;
 
-//-----------------------------------------------------------------------------
+//--------------- —оздание прокси деревьев и других объектов ----------------\\
 procedure TFormTerraNavi.CreateTrees;
 const
   cRange = 40; // 40
@@ -175,6 +179,7 @@ var
 begin
   GLUserInterface1.MouseLook;
   GLUserInterface1.MouseUpdate;
+  // скорость навигации
   if IsKeyDown(VK_SHIFT) then
     speed := 6000 * deltaTime
   else
@@ -189,9 +194,9 @@ begin
       GLNavigator1.StrafeHorizontal(-speed);
     if IsKeyDown(68) then
       GLNavigator1.StrafeHorizontal(speed);
-    if IsKeyDown('e') then
+    if (IsKeyDown('e') or IsKeyDown('у')) then
       FCamHeight := FCamHeight + 5;
-    if IsKeyDown('c') then
+    if (IsKeyDown('c') or IsKeyDown('с')) then
       FCamHeight := FCamHeight - 5;
     if IsKeyDown(VK_ESCAPE) then
       Close;
@@ -206,6 +211,87 @@ begin
     ' Press ''V'' to Change quadtree query visible or visiblity culling' +
     #13#10 + ' Press ''Esc'' to quit';
 end;
+
+//-----------------------------------------------------------------------------
+procedure TFormTerraNavi.FormKeyPress(Sender: TObject; var Key: Char);
+var
+  i: integer;
+begin
+  if (Key = 'v') or (Key = 'м') then
+  begin
+    cbUseQuadtree.Checked := not cbUseQuadtree.Checked;
+
+    if cbUseQuadtree.Checked then
+    begin
+      cullingMode := ' Quadtree ';
+      for i := 0 to trees.Count - 1 do
+        trees.Children[i].visible := true;
+      trees.VisibilityCulling := vcNone;
+    end
+    else
+    begin
+      cullingMode := 'visibility culling ';
+      for i := 0 to trees.Count - 1 do
+        trees.Children[i].visible := true;
+      trees.VisibilityCulling := vcObjectBased;
+    end;
+  end;
+
+  case Key of
+    'k','л':
+      begin
+        // камера на красное дерево
+      end;
+(*
+    'w','W', 'ц', '÷':  // текстура или каркас
+      with GLMaterialLibrary1.Materials[0].Material do
+      begin
+        if PolygonMode = pmLines then
+          PolygonMode := pmFill
+        else
+          PolygonMode := pmLines;
+      end;
+    '+':  // уменьшить туман
+      if GLCamera1.DepthOfView < 2000 then
+      begin
+        GLCamera1.DepthOfView := GLCamera1.DepthOfView * 1.2;
+        with GLSceneViewer1.Buffer.FogEnvironment do
+        begin
+          FogEnd := FogEnd * 1.2;
+          FogStart := FogStart * 1.2;
+        end;
+      end;
+    '-':  // добавить тумана
+      if GLCamera1.DepthOfView > 300 then
+      begin
+        GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
+        with GLSceneViewer1.Buffer.FogEnvironment do
+        begin
+          FogEnd := FogEnd / 1.2;
+          FogStart := FogStart / 1.2;
+        end;
+      end;
+    '*':
+      with GLTerrainRenderer1 do
+        if CLODPrecision > 20 then
+          CLODPrecision := Round(CLODPrecision * 0.8);
+    '/':
+      with GLTerrainRenderer1 do
+        if CLODPrecision < 1000 then
+          CLODPrecision := Round(CLODPrecision * 1.2);
+    '8':
+      with GLTerrainRenderer1 do
+        if QualityDistance > 40 then
+          QualityDistance := Round(QualityDistance * 0.8);
+    '9':
+      with GLTerrainRenderer1 do
+        if QualityDistance < 1000 then
+          QualityDistance := Round(QualityDistance * 1.2);
+*)
+  end;
+  Key := #0;
+end;
+
 
 //-----------------------------------------------------------------------------
 procedure TFormTerraNavi.queryVisibleRender(Sender: TObject;
@@ -269,31 +355,6 @@ begin
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.FormKeyPress(Sender: TObject; var Key: Char);
-var
-  i: integer;
-begin
-  if Key = 'v' then
-  begin
-    cbUseQuadtree.Checked := not cbUseQuadtree.Checked;
-
-    if cbUseQuadtree.Checked then
-    begin
-      cullingMode := ' Quadtree ';
-      for i := 0 to trees.Count - 1 do
-        trees.Children[i].visible := true;
-      trees.VisibilityCulling := vcNone;
-    end
-    else
-    begin
-      cullingMode := 'visibility culling ';
-      for i := 0 to trees.Count - 1 do
-        trees.Children[i].visible := true;
-      trees.VisibilityCulling := vcObjectBased;
-    end;
-  end;
-end;
 
 //-----------------------------------------------------------------------------
 procedure TFormTerraNavi.cbShowQuadtreeClick(Sender: TObject);

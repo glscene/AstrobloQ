@@ -117,6 +117,14 @@ object FormTerraNavi: TFormTerraNavi
         end>
       Stars = <>
     end
+    object dcWorld: TGLDummyCube
+      CubeSize = 1.000000000000000000
+    end
+    object GLCamera1: TGLCamera
+      DepthOfView = 4000.000000000000000000
+      FocalLength = 50.000000000000000000
+      Position.Coordinates = {0000000000000000000020410000803F}
+    end
     object GLTerrainRenderer1: TGLTerrainRenderer
       Material.MaterialLibrary = GLMaterialLibrary1
       Material.LibMaterialName = '1'
@@ -128,23 +136,15 @@ object FormTerraNavi: TFormTerraNavi
       TilesPerTexture = 8.000000000000000000
       ContourWidth = 0
     end
-    object queryVisible: TGLDirectOpenGL
-      UseBuildList = False
-      OnRender = queryVisibleRender
-      Blend = False
-    end
-    object GLDirectOpenGL1: TGLDirectOpenGL
-      UseBuildList = False
-      Blend = False
+    object GLSphere1: TGLSphere
+      Position.Coordinates = {00000000000000000000FAC30000803F}
+      Visible = False
+      Radius = 90.000000000000000000
+      Slices = 16
+      Stacks = 16
     end
     object trees: TGLDummyCube
       CubeSize = 1.000000000000000000
-    end
-    object GLHUDText1: TGLHUDText
-      Position.Coordinates = {0000804000008040000000000000803F}
-      BitmapFont = GLWindowsBitmapFont1
-      Text = '0'
-      Rotation = 0.000000000000000000
     end
     object tree: TGLSprite
       Material.BlendingMode = bmTransparency
@@ -155,23 +155,26 @@ object FormTerraNavi: TFormTerraNavi
       Height = 300.000000000000000000
       Rotation = 0.000000000000000000
     end
+    object queryVisible: TGLDirectOpenGL
+      UseBuildList = False
+      OnRender = queryVisibleRender
+      Blend = False
+    end
+    object GLDirectOpenGL1: TGLDirectOpenGL
+      UseBuildList = False
+      Blend = False
+    end
+    object GLHUDText1: TGLHUDText
+      Position.Coordinates = {0000804000008040000000000000803F}
+      BitmapFont = GLWindowsBitmapFont1
+      Text = '0'
+      Rotation = 0.000000000000000000
+    end
     object GLDirectOpenGL2: TGLDirectOpenGL
       Visible = False
       UseBuildList = False
       OnRender = GLDirectOpenGL2Render
       Blend = False
-    end
-    object GLSphere1: TGLSphere
-      Position.Coordinates = {00000000000000000000FAC30000803F}
-      Visible = False
-      Radius = 90.000000000000000000
-      Slices = 16
-      Stacks = 16
-    end
-    object GLCamera1: TGLCamera
-      DepthOfView = 4000.000000000000000000
-      FocalLength = 50.000000000000000000
-      Position.Coordinates = {0000000000000000000020410000803F}
     end
   end
   object GLBitmapHDS1: TGLBitmapHDS

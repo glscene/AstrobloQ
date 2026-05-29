@@ -94,18 +94,18 @@ begin
   // Note this is the data size in terms of elevation samples, it does not
   // take into account all the data required/allocated by the renderer
   GLBitmapHDS1.MaxPoolSize := 8 * 1024 * 1024;
-  // specify height map data
+  // загрузка карты высот террейна
   GLBitmapHDS1.Picture.LoadFromFile('terrain.bmp');
-  // load the texture maps
+  // загрузка текстуры карты
   GLMaterialLibrary1.Materials[0].Material.Texture.Image.LoadFromFile
     ('snow512.jpg');
   GLMaterialLibrary1.Materials[1].Material.Texture.Image.LoadFromFile
     ('detailmap.jpg');
-  // apply texture map scale (our heightmap size is 256)
+  // apply texture map scale (размер нашей карты высот 256)
   TerrainRenderer1.TilesPerTexture := 256 / TerrainRenderer1.TileSize;
-  // Could've been done at design time, but it the, it hurts the eyes ;)
+  // Could've been done at design time, but it hurts the eyes ;)
   GLSceneViewer.Buffer.BackgroundColor := clBlack;
-  // Move camera starting point to an interesting hand-picked location
+  // начальное положение камеры в необходимом месте
   dcViewing.Position.X := 570;
   dcViewing.Position.Z := -385;
   dcViewing.Turn(90);
@@ -132,7 +132,7 @@ begin
       FogStart := -FogStart; // Fog is used to make things darker
     end;
   end;
-  ffSkyShip.LoadFromFile('skyship.3ds'); // or patrol.3ds
+  ffSkyShip.LoadFromFile('skyship.3ds'); // или модель patrol.3ds
 //  ffSkyShip.Scale.SetVector(5.0, 5.0, 5.0, 0); // scaling for patrol
   ffSkyShip.Material.Texture.Image.LoadFromFile('avion512.jpg');
 end;

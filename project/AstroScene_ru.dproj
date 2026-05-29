@@ -178,7 +178,7 @@
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
         <DCCReference Include="..\source\astro\ru\faStarsys_ru.pas">
-            <Form>frmStellarSys</Form>
+            <Form>frmStarSys</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\Astro.Utils.pas"/>

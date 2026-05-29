@@ -4,7 +4,7 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("..\source\noo\en\fnNooneta_en.cpp", FormTerraNavi);
+USEFORM("..\source\noo\en\fnNooneta_en.cpp", FormNooneta);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -12,7 +12,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFormTerraNavi), &FormTerraNavi);
+		Application->CreateForm(__classid(TFormNooneta), &FormNooneta);
 		Application->Run();
 	}
 	catch (Exception &exception)
