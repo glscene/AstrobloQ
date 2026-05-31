@@ -46,7 +46,7 @@ TFileName __fastcall TFormAstroScene::GetDataPath()
 	if (N > 0)
 		Path = Path.SubString(0, N - 1);
 
-	Path = IncludeTrailingPathDelimiter(Path) + "data\\map\\";
+	Path = IncludeTrailingPathDelimiter(Path) + "data\\starsys\\sun\\";
 	SetCurrentDir(Path);
 	return Path;
 }

@@ -80,7 +80,7 @@ __fastcall TFormNooneta::TFormNooneta(TComponent* Owner)
 	GLMaterialLibrary1->Materials->Items[3]->Material->BlendingMode = bmAlphaTest50;
 	GLMaterialLibrary1->Materials->Items[3]->Material->Texture->TextureMode = tmModulate;
 	GLMaterialLibrary1->Materials->Items[3]->Material->Texture->TextureFormat = tfRGBA;
-	GLMaterialLibrary1->AddTextureMaterial("Branch", "zbark_016.jpg");
+	GLMaterialLibrary1->AddTextureMaterial("Branch", "zbark.jpg");
 	GLMaterialLibrary1->Materials->Items[4]->Material->Texture->TextureMode = tmModulate;
 	GLFreeForm1->Material->Texture->Image->LoadFromFile("leafyellow.jpg");
 

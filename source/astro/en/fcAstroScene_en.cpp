@@ -45,8 +45,7 @@ TFileName __fastcall TFormAstroScene::GetDataPath()
 	int N = Path.Pos("bin");
 	if (N > 0)
 		Path = Path.SubString(0, N - 1);
-
-	Path = IncludeTrailingPathDelimiter(Path) + "data\\map\\";
+	Path = IncludeTrailingPathDelimiter(Path) + "data\\starsys\\sun\\";
 	SetCurrentDir(Path);
 	return Path;
 }
@@ -268,48 +267,61 @@ void __fastcall TFormAstroScene::tvPlanetsClick(TObject *Sender)
 {
   String Planets;
   TFileName PlanetFile;
-//  TFileNameFileCSV;
+  TFileName FileCSV;
   TFileName FileJpg;
   int NLine;
 
-	switch (tvPlanets->Selected->Index) {
-		case 0: {
-		// Sun
+  tbPlanets->SetFocus();
+
+  switch (tvPlanets->Selected->Index) {
+	case 0: { // Sun
+
+			break;
+	}
+	case 1: { // Mercury
 			break;
 		}
-		case 1: {
-		// Mercury
+	case 2: { // Venus
 			break;
 		}
-		case 2: {
-		// Venus
+	case 3: { // Earth
 			break;
 		}
-		case 3: {
-		// Earth
+	case 4: { // Mars
 			break;
 		}
-		case 4: {
-		// Mars
+	case 5: { // Jupiter
 			break;
 		}
-		default: {
+	case 6: { // Saturn
+			break;
+		}
+	case 7: { // Uranus
+			break;
+		}
+	case 8: { // Neptune
+			break;
+		}
+	case 9: { // Pluto
+			break;
+		}
+	default: {
 			break;
 		}
 	}
 
 /* переписать на с++
   // включаем видимость лун
-  dcMoon.Visible := True;
+  dcMoon.Visible = true;
   // планеты, астероиды и кометы не видны
-  sfPlanet.Visible := False;
-  ffPlanet.Visible := False;
+  sfPlanet.Visible = false;
+  ffPlanet.Visible = false;
 
-  dcAsteroid.Visible := False;
-  dcComet.Visible := False;
+  dcAsteroid.Visible = false;
+  dcComet.Visible = false;
 
   // чтение CSV файла трансляции и загрузки карты луны
-  FileCSV := CurrentStar + 'sol_moons.csv';
+  FileCSV := CurrentStar + "sol_moons.csv";
   Moon := tvMoons.Selected.Text;  // находим имя луны в поле name_ru
 
   // передача индекса узла дерева просмотра в CSV
@@ -325,8 +337,8 @@ void __fastcall TFormAstroScene::tvPlanetsClick(TObject *Sender)
   end
   else
   begin
-	sfMoon.Radius := 0.3; // Radius;
-	FileJpg := CurrentStar + 'aMoon.jpg';
+	sfMoon.Radius = 0.3; // Radius;
+	FileJpg = CurrentStar + 'aMoon.jpg';
 	sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
 	ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
 	// ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
@@ -335,25 +347,87 @@ void __fastcall TFormAstroScene::tvPlanetsClick(TObject *Sender)
 (*
   если карты из VirtPlanetMaps
   ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
-  Camera.TagObject := ffPlanet;
+  Camera.TagObject = ffPlanet;
 *)
 
-  // Показать атмосферу Титана
-  if tvMoons.Selected.Text = 'Титан' then
-  begin
+  // Show Titan atmosphere
+  if (tvMoons.Selected.Text = 'Титан')
+  {
 	sfMoon.Radius := 0.5;
 	DirectOpenGL.Visible := True
-  end
+  }
   else
-  begin
-	sfMoon.Radius := 0.3;
-	DirectOpenGL.Visible := False;
-  end;
+  {
+	sfMoon.Radius = 0.3;
+	DirectOpenGL.Visible = False;
+  };
 
   // Имя луны или спутника для веб-справки ruwiki
   // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
   miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';
 */
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormAstroScene::tbnPlanetsClick(TObject *Sender)
+{
+  // vBodyType = 1;
+  // viewing planets
+  sfPlanet->Visible = true;
+
+  // freeform not visible yet
+  ffPlanet->Visible = false;
+  // moons, asteroids and comets not visible
+  dcMoon->Visible = false;
+  dcAsteroid->Visible = false;
+  dcComet->Visible = false;
+
+  // Loading the planet map
+  FileJpg = CurrentStar + TToolButton(Sender)->ImageName + ".jpg";
+  sfPlanet->Material->Texture->Image->LoadFromFile(FileJpg);
+  // Показать атмосферы планет, заменить на case, так как толщина атмосфер разная
+  if (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Caption == "Earth") or
+  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption == 'Venus') or
+  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption == 'Jupiter') or
+  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption == 'Saturn') or
+	 (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Caption == "Uranus") or
+	 (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Caption == "Neptune")
+  {
+	//  sfClouds->Visible = true;
+	DirectOpenGL->Visible = true;
+	FormOptions->chbClouds->Checked = true;
+  }
+  else
+  {
+	// sfClouds->Visible = false;
+	DirectOpenGL->Visible = false;
+	FormOptions->chbClouds->Checked = false;
+  };
+
+  // Saturn rings
+  if (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Hint = "Saturn")
+  (* or (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Hint = "Uranus") *)
+  {
+	diskRingUpMaterial->Texture->Image->LoadFromFile(CurrentStar  + "saturn_ring.png");
+	diskRingUp.Visible = True;
+	diskRingDn->Material->Texture.Image.LoadFromFile(CurrentStar  + "saturn_ring.png");
+	diskRingDn->Visible = true;
+  }
+  else
+  {
+	diskRingUp->Visible = false;
+	diskRingDn->Visible := false;
+  };
+
+  // Солнце с короной
+  if (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Hint = "Sun")
+  {
+	// corona
+  };
+
+  // help + ' в ' + 'RuWiki...';
+  miHelpWiki->Caption = tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Hint;
 
 }
 //---------------------------------------------------------------------------

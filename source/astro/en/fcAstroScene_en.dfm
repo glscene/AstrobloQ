@@ -378,6 +378,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '0_Sun'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnMercury: TToolButton
         Left = 31
@@ -392,6 +393,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '1_Mercury'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnVenus: TToolButton
         Left = 62
@@ -406,6 +408,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '2_Venus'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnEarth: TToolButton
         Left = 93
@@ -420,6 +423,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '3_Earth'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnMars: TToolButton
         Left = 124
@@ -430,6 +434,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '4_Mars'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnJupiter: TToolButton
         Left = 155
@@ -440,6 +445,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '5_Jupiter'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnSaturn: TToolButton
         Left = 186
@@ -450,6 +456,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '6_Saturn'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnUranus: TToolButton
         Left = 217
@@ -460,6 +467,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '7_Uranus'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
       object tbnNeptune: TToolButton
         Left = 248
@@ -470,6 +478,7 @@ object FormAstroScene: TFormAstroScene
         ImageName = '8_Neptune'
         ParentShowHint = False
         ShowHint = True
+        OnClick = tbnPlanetsClick
       end
     end
     object StaticText1: TStaticText
@@ -481,7 +490,6 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = 'Moons'
       TabOrder = 3
-      ExplicitWidth = 41
     end
   end
   object GLCadencer: TGLCadencer
@@ -513,6 +521,21 @@ object FormAstroScene: TFormAstroScene
   object GLScene: TGLScene
     Left = 455
     Top = 65
+    object SkyDome: TGLSkyDome
+      Visible = False
+      Bands = <
+        item
+          StartColor.Color = {0000803F0000803F0000803F0000803F}
+          StopAngle = 15.000000000000000000
+        end
+        item
+          StartAngle = 15.000000000000000000
+          StopAngle = 90.000000000000000000
+          StopColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
+          Stacks = 4
+        end>
+      Stars = <>
+    end
     object Camera: TGLCamera
       DepthOfView = 100000.000000000000000000
       FocalLength = 50.000000000000000000
@@ -533,407 +556,404 @@ object FormAstroScene: TFormAstroScene
       DepthOfView = 100.000000000000000000
       FocalLength = 50.000000000000000000
     end
-    object SkyDome: TGLSkyDome
-      Visible = False
-      Bands = <
-        item
-          StartColor.Color = {0000803F0000803F0000803F0000803F}
-          StopAngle = 15.000000000000000000
-        end
-        item
-          StartAngle = 15.000000000000000000
-          StopAngle = 90.000000000000000000
-          StopColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
-          Stacks = 4
-        end>
-      Stars = <>
-    end
-    object dcMeshPlanet: TGLDummyCube
-      CubeSize = 20000.000000000000000000
-      VisibleAtRunTime = True
-      object ffPlanet: TGLFreeForm
-      end
-    end
-    object dcPlanet: TGLDummyCube
+    object dcStellar: TGLDummyCube
       CubeSize = 1.000000000000000000
-      object sfPlanet: TGLSphere
-        ShowAxes = True
-        Radius = 6371.000000000000000000
-        Slices = 128
-        Stacks = 128
-        object Parallel20: TGLLines
-          Visible = False
-          Nodes = <>
-          Options = []
+      object dcPlanet: TGLDummyCube
+        CubeSize = 1.000000000000000000
+        object sfPlanet: TGLSphere
+          ShowAxes = True
+          Radius = 6371.000000000000000000
+          Slices = 128
+          Stacks = 128
+          object Parallel20: TGLLines
+            Visible = False
+            Nodes = <>
+            Options = []
+          end
+          object dcParallelGrid: TGLDummyCube
+            CubeSize = 1.000000000000000000
+            object PoleN_90: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {86870EB1000080BF72BD682E00000000}
+              Position.Coordinates = {000000000080BB45000000000000803F}
+              Up.Coordinates = {57F2D03C80895EA3AEEA7F3F00000000}
+              MajorRadius = 2250.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelN_75: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {712313B4000080BF0F5FBCA600000000}
+              Position.Coordinates = {0000000000409C45000000000000803F}
+              Up.Coordinates = {BBF46E32F12FB5A50000803F00000000}
+              MajorRadius = 4000.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelN_60: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {F404B5B3000080BFEECB40A600000000}
+              Position.Coordinates = {0000000000007A45000000000000803F}
+              Up.Coordinates = {BBF46E3204A063A40000803F00000000}
+              MajorRadius = 4980.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelN_45: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {F56CB7B3000080BF096822A600000000}
+              Position.Coordinates = {0000000000803B45000000000000803F}
+              Up.Coordinates = {BBF46E32971E26A50000803F00000000}
+              MajorRadius = 5640.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelN_30: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {3275B9B3000080BF0112B0A600000000}
+              Position.Coordinates = {000000000000FA44000000000000803F}
+              Up.Coordinates = {BAF46E3202A0F6A40000803F00000000}
+              MajorRadius = 6070.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelN_15: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {3A69BCB3000080BF7719C1A500000000}
+              Position.Coordinates = {0000000000007A44000000000000803F}
+              Up.Coordinates = {BBF46E3201F03B190000803F00000000}
+              MajorRadius = 6290.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelEquator_0: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {CB32F6B3000080BFDC2A3DA700000000}
+              Up.Coordinates = {BDF46E32010080A60000803F00000000}
+              MajorRadius = 6371.000000000000000000
+              MinorRadius = 20.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelS_15: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
+              Position.Coordinates = {0000000000007AC4000000000000803F}
+              Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
+              MajorRadius = 6290.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelS_30: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
+              Position.Coordinates = {000000000000FAC4000000000000803F}
+              Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
+              MajorRadius = 6070.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelS_45: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
+              Position.Coordinates = {0000000000803BC5000000000000803F}
+              Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
+              MajorRadius = 5640.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelS_60: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
+              Position.Coordinates = {0000000000007AC5000000000000803F}
+              Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
+              MajorRadius = 4980.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object ParallelS_75: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
+              Position.Coordinates = {0000000000409CC5000000000000803F}
+              Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
+              MajorRadius = 4000.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object PoleS_90: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
+              Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
+              Material.FrontProperties.Shininess = 1
+              Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
+              Position.Coordinates = {000000000080BBC5000000000000803F}
+              Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
+              MajorRadius = 2250.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+          end
+          object dcMeridianGrid: TGLDummyCube
+            CubeSize = 1.000000000000000000
+            object MeridY_165: TGLTorus
+              Direction.Coordinates = {EC83843E00000000EA4677BF00000000}
+              TurnAngle = 165.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_150: TGLTorus
+              Direction.Coordinates = {FFFFFF3E00000000D8B35DBF00000000}
+              TurnAngle = 150.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_135: TGLTorus
+              Direction.Coordinates = {F304353F00000000F40435BF00000000}
+              TurnAngle = 135.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_120: TGLTorus
+              Direction.Coordinates = {D7B35D3F00000000000000BF00000000}
+              TurnAngle = 120.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_105: TGLTorus
+              Direction.Coordinates = {EA46773F00000000EF8384BE00000000}
+              TurnAngle = 105.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MerGreenwich_90: TGLTorus
+              Material.FrontProperties.Diffuse.Color = {000000000000803FF8FEFE3E0000803F}
+              Direction.Coordinates = {0000803F00000000EC46F7B200000000}
+              TurnAngle = 90.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 20.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_75: TGLTorus
+              Direction.Coordinates = {EA46773F00000000ED83843E00000000}
+              TurnAngle = 75.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_60: TGLTorus
+              Direction.Coordinates = {D7B35D3F00000000FFFFFF3E00000000}
+              TurnAngle = 60.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_45: TGLTorus
+              Direction.Coordinates = {F304353F00000000F304353F00000000}
+              TurnAngle = 45.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_30: TGLTorus
+              Direction.Coordinates = {0000003F00000000D7B35D3F00000000}
+              TurnAngle = 30.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_15: TGLTorus
+              Direction.Coordinates = {EE83843E00000000EA46773F00000000}
+              TurnAngle = 15.000000000000000000
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 250
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+            object MeridY_0: TGLTorus
+              MajorRadius = 6372.000000000000000000
+              MinorRadius = 15.000000000000000000
+              Rings = 256
+              StopAngle = 360.000000000000000000
+              Parts = [toSides, toStartDisk, toStopDisk]
+            end
+          end
+          object dcArrows: TGLDummyCube
+            CubeSize = 1.000000000000000000
+            object ArrowX: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+              Direction.Coordinates = {0000803F000000000000000000000000}
+              Position.Coordinates = {00007A4500000000000000000000803F}
+              Scale.Coordinates = {00007A4400007A440000FA4500000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Slices = 16
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_X: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+              Direction.Coordinates = {000080BF000000000000000000000000}
+              Position.Coordinates = {00007AC500000000000000000000803F}
+              Scale.Coordinates = {00007A4400007A440000FA4500000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Slices = 16
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object ArrowY: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+              Direction.Coordinates = {000000000000803F0000000000000000}
+              Position.Coordinates = {0000000000007A45000000000000803F}
+              Scale.Coordinates = {00007A4400007A440000FA4500000000}
+              Up.Coordinates = {00000000000000000000803F00000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Slices = 16
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_Y: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+              Direction.Coordinates = {00000000000080BF0000000000000000}
+              Position.Coordinates = {0000000000007AC5000000000000803F}
+              Scale.Coordinates = {00007A4400007A440000FA4500000000}
+              Up.Coordinates = {00000000000000000000803F00000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Slices = 16
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object ArrowZ: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+              Position.Coordinates = {000000000000000000007A450000803F}
+              Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Slices = 16
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+            object Arrow_Z: TGLArrowLine
+              Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+              Direction.Coordinates = {0000000000000000000080BF00000000}
+              Position.Coordinates = {000000000000000000007AC50000803F}
+              Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+              BottomRadius = 0.050000000745058060
+              Height = 1.000000000000000000
+              Slices = 16
+              Stacks = 8
+              TopRadius = 0.050000000745058060
+              TopArrowHeadHeight = 0.100000001490116100
+              TopArrowHeadRadius = 0.100000001490116100
+              BottomArrowHeadHeight = 0.300000011920929000
+              BottomArrowHeadRadius = 0.200000002980232200
+            end
+          end
         end
-        object dcParallelGrid: TGLDummyCube
+        object dcMoon: TGLDummyCube
           CubeSize = 1.000000000000000000
-          object PoleN_90: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {86870EB1000080BF72BD682E00000000}
-            Position.Coordinates = {000000000080BB45000000000000803F}
-            Up.Coordinates = {57F2D03C80895EA3AEEA7F3F00000000}
-            MajorRadius = 2250.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelN_75: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {712313B4000080BF0F5FBCA600000000}
-            Position.Coordinates = {0000000000409C45000000000000803F}
-            Up.Coordinates = {BBF46E32F12FB5A50000803F00000000}
-            MajorRadius = 4000.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelN_60: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {F404B5B3000080BFEECB40A600000000}
-            Position.Coordinates = {0000000000007A45000000000000803F}
-            Up.Coordinates = {BBF46E3204A063A40000803F00000000}
-            MajorRadius = 4980.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelN_45: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {F56CB7B3000080BF096822A600000000}
-            Position.Coordinates = {0000000000803B45000000000000803F}
-            Up.Coordinates = {BBF46E32971E26A50000803F00000000}
-            MajorRadius = 5640.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelN_30: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {3275B9B3000080BF0112B0A600000000}
-            Position.Coordinates = {000000000000FA44000000000000803F}
-            Up.Coordinates = {BAF46E3202A0F6A40000803F00000000}
-            MajorRadius = 6070.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelN_15: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {3A69BCB3000080BF7719C1A500000000}
-            Position.Coordinates = {0000000000007A44000000000000803F}
-            Up.Coordinates = {BBF46E3201F03B190000803F00000000}
-            MajorRadius = 6290.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelEquator_0: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {CB32F6B3000080BFDC2A3DA700000000}
-            Up.Coordinates = {BDF46E32010080A60000803F00000000}
-            MajorRadius = 6371.000000000000000000
-            MinorRadius = 20.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelS_15: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
-            Position.Coordinates = {0000000000007AC4000000000000803F}
-            Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
-            MajorRadius = 6290.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelS_30: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
-            Position.Coordinates = {000000000000FAC4000000000000803F}
-            Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
-            MajorRadius = 6070.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelS_45: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
-            Position.Coordinates = {0000000000803BC5000000000000803F}
-            Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
-            MajorRadius = 5640.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelS_60: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
-            Position.Coordinates = {0000000000007AC5000000000000803F}
-            Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
-            MajorRadius = 4980.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object ParallelS_75: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
-            Position.Coordinates = {0000000000409CC5000000000000803F}
-            Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
-            MajorRadius = 4000.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object PoleS_90: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
-            Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
-            Material.FrontProperties.Shininess = 1
-            Direction.Coordinates = {EC4677B3000080BFE4E763A700000000}
-            Position.Coordinates = {000000000080BBC5000000000000803F}
-            Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
-            MajorRadius = 2250.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
         end
-        object dcMeridianGrid: TGLDummyCube
-          CubeSize = 1.000000000000000000
-          object MeridY_165: TGLTorus
-            Direction.Coordinates = {EC83843E00000000EA4677BF00000000}
-            TurnAngle = 165.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_150: TGLTorus
-            Direction.Coordinates = {FFFFFF3E00000000D8B35DBF00000000}
-            TurnAngle = 150.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_135: TGLTorus
-            Direction.Coordinates = {F304353F00000000F40435BF00000000}
-            TurnAngle = 135.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_120: TGLTorus
-            Direction.Coordinates = {D7B35D3F00000000000000BF00000000}
-            TurnAngle = 120.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_105: TGLTorus
-            Direction.Coordinates = {EA46773F00000000EF8384BE00000000}
-            TurnAngle = 105.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MerGreenwich_90: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {000000000000803FF8FEFE3E0000803F}
-            Direction.Coordinates = {0000803F00000000EC46F7B200000000}
-            TurnAngle = 90.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 20.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_75: TGLTorus
-            Direction.Coordinates = {EA46773F00000000ED83843E00000000}
-            TurnAngle = 75.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_60: TGLTorus
-            Direction.Coordinates = {D7B35D3F00000000FFFFFF3E00000000}
-            TurnAngle = 60.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_45: TGLTorus
-            Direction.Coordinates = {F304353F00000000F304353F00000000}
-            TurnAngle = 45.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_30: TGLTorus
-            Direction.Coordinates = {0000003F00000000D7B35D3F00000000}
-            TurnAngle = 30.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_15: TGLTorus
-            Direction.Coordinates = {EE83843E00000000EA46773F00000000}
-            TurnAngle = 15.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_0: TGLTorus
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-        end
-        object dcArrows: TGLDummyCube
-          CubeSize = 1.000000000000000000
-          object ArrowX: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
-            Direction.Coordinates = {0000803F000000000000000000000000}
-            Position.Coordinates = {00007A4500000000000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Slices = 16
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object Arrow_X: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
-            Direction.Coordinates = {000080BF000000000000000000000000}
-            Position.Coordinates = {00007AC500000000000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Slices = 16
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object ArrowY: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
-            Direction.Coordinates = {000000000000803F0000000000000000}
-            Position.Coordinates = {0000000000007A45000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
-            Up.Coordinates = {00000000000000000000803F00000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Slices = 16
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object Arrow_Y: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
-            Direction.Coordinates = {00000000000080BF0000000000000000}
-            Position.Coordinates = {0000000000007AC5000000000000803F}
-            Scale.Coordinates = {00007A4400007A440000FA4500000000}
-            Up.Coordinates = {00000000000000000000803F00000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Slices = 16
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object ArrowZ: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
-            Position.Coordinates = {000000000000000000007A450000803F}
-            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Slices = 16
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
-          object Arrow_Z: TGLArrowLine
-            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
-            Direction.Coordinates = {0000000000000000000080BF00000000}
-            Position.Coordinates = {000000000000000000007AC50000803F}
-            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
-            BottomRadius = 0.050000000745058060
-            Height = 1.000000000000000000
-            Slices = 16
-            Stacks = 8
-            TopRadius = 0.050000000745058060
-            TopArrowHeadHeight = 0.100000001490116100
-            TopArrowHeadRadius = 0.100000001490116100
-            BottomArrowHeadHeight = 0.300000011920929000
-            BottomArrowHeadRadius = 0.200000002980232200
-          end
+      end
+      object dcComet: TGLDummyCube
+        CubeSize = 1.000000000000000000
+      end
+      object dcAsteroid: TGLDummyCube
+        CubeSize = 1.000000000000000000
+      end
+      object dcMeshPlanet: TGLDummyCube
+        CubeSize = 20000.000000000000000000
+        VisibleAtRunTime = True
+        object ffPlanet: TGLFreeForm
         end
       end
     end

@@ -62,7 +62,7 @@ __fastcall TFormNooneta::TFormNooneta(TComponent* Owner)
 	GLMaterialLibrary1->Materials->Items[0]->Material->Texture->Image->LoadFromFile("snow512.jpg");
 	GLMaterialLibrary1->Materials->Items[1]->Material->Texture->Image->LoadFromFile("detailmap.jpg");
 	moon->Material->Texture->Image->LoadFromFile("moon.bmp");
-	sun->Material->Texture->Image->LoadFromFile("flare1.bmp");
+	sun->Material->Texture->Image->LoadFromFile("flaredim.bmp");
 
     // make space partitions before loading trees and models
 	SpacePartition1 = new TGLQuadtreeSpacePartition();
@@ -80,9 +80,9 @@ __fastcall TFormNooneta::TFormNooneta(TComponent* Owner)
 	GLMaterialLibrary1->Materials->Items[3]->Material->BlendingMode = bmAlphaTest50;
 	GLMaterialLibrary1->Materials->Items[3]->Material->Texture->TextureMode = tmModulate;
 	GLMaterialLibrary1->Materials->Items[3]->Material->Texture->TextureFormat = tfRGBA;
-	GLMaterialLibrary1->AddTextureMaterial("Branch", "zbark_016.jpg");
+	GLMaterialLibrary1->AddTextureMaterial("Branch", "zbark.jpg");
 	GLMaterialLibrary1->Materials->Items[4]->Material->Texture->TextureMode = tmModulate;
-	GLFreeForm1->Material->Texture->Image->LoadFromFile("leafyellow.jpg");
+	ffWood->Material->Texture->Image->LoadFromFile("leafyellow.jpg");
 
 	SetCurrentDir(AssetsDir  + "\\audio");
 	GLSoundLibrary1->Samples->Add()->LoadFromFile("ChillyWind.mp3");
@@ -91,23 +91,26 @@ __fastcall TFormNooneta::TFormNooneta(TComponent* Owner)
 	dcCamera->Position->Z = -385;
 	dcCamera->Turn(90);
 	FCamHeight = 10;
-	GLTree1->MaterialLibrary = GLMaterialLibrary1;
-	GLTree1->LeafMaterialName = "LeafFront";
-	GLTree1->LeafBackMaterialName = "LeafBack";
-	GLTree1->BranchMaterialName = "Branch";
-	GLTree1->Position->X = 300;
-	GLTree1->Position->Y = GLTerrainRenderer1->InterpolatedHeight(GLTree1->Position->AsVector) - 6;
-	GLTree1->Position->Z = 60;
-    GLTree1->LeafSize = 5;
+
+	// red tree
+	treeRed->MaterialLibrary = GLMaterialLibrary1;
+	treeRed->LeafMaterialName = "LeafFront";
+	treeRed->LeafBackMaterialName = "LeafBack";
+	treeRed->BranchMaterialName = "Branch";
+	treeRed->Position->X = 320;
+	// height over terrain
+	treeRed->Position->Y = GLTerrainRenderer1->InterpolatedHeight(treeRed->Position->AsVector) + 50;
+	treeRed->Position->Z = -250;
+	treeRed->LeafSize = 3;
 
 	SetCurrentDir(AssetsDir  + "\\model");
-	GLFreeForm1->LoadFromFile("firtree.3ds");
-	GLFreeForm1->Position->X = -40;
-	GLFreeForm1->Position->Y = GLTerrainRenderer1->InterpolatedHeight(GLFreeForm1->Position->AsVector) - 5;
-	GLFreeForm1->Position->Z = -40;
-///	GLFreeForm1->Scale->SetVector(5.0, 5.0, 5.0, 0);
-	CreateTrees();
-	GLHUDText1->Text = " Press \"up left down right\" to navigate, \"PgUp\" - up, \"PgDn\" - down.\r\n Press \"N\" - night, \"D\" - day.\r\n Press \"Q\" to Show Quadtree.\r\n Press \"Esc\" to quit.";
+	ffWood->LoadFromFile("firtree.3ds");
+	ffWood->Position->X = -40;
+	ffWood->Position->Y = GLTerrainRenderer1->InterpolatedHeight(ffWood->Position->AsVector) - 5;
+	ffWood->Position->Z = -40;
+//	ffWood->Scale->SetVector(5.0, 5.0, 5.0, 0);
+	CreateForest();
+	HUDText1->Text = " Press \"up left down right\" to navigate, \"PgUp\" - up, \"PgDn\" - down.\r\n Press \"N\" - night, \"D\" - day.\r\n Press \"Q\" to Show Quadtree.\r\n Press \"Esc\" to quit.";
 	GLSceneViewer1->Buffer->BackgroundColor = clWhite;
 	GLTerrainRenderer1->TilesPerTexture = 256.0 / GLTerrainRenderer1->TileSize;
 }
@@ -133,14 +136,13 @@ void __fastcall TFormNooneta::FormKeyPress(TObject *Sender, System::WideChar &Ke
 		}
 		break;
 	case 'k':
-	   {
-		// Camera looking at red GLTree1
-		GLCamera1->MoveTo(GLTree1);
-		GLCamera1->TargetObject = GLTree1;
+	   { 	// Camera looking at red GLTree1
+		GLCamera1->MoveTo(treeRed);
+		GLCamera1->TargetObject = treeRed;
 		}
 		break;
 	case 'z':
-	   {
+	   { 	// Camera returning back
 	   GLCamera1->Position->X = 10;
 	   GLCamera1->Position->Y = 20;
 	   GLCamera1->Position->Z = 30;
@@ -357,7 +359,7 @@ void __fastcall TFormNooneta::GLSceneViewer1MouseMove(TObject *Sender, TShiftSta
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TFormNooneta::CreateTrees()
+void __fastcall TFormNooneta::CreateForest()
 {
 	const int crange = 40;
 	for (int i = -crange; i < crange; i++)
@@ -379,10 +381,10 @@ void __fastcall TFormNooneta::CreateTrees()
 				a = ((rand() % 7 + 9) * 1.0 / 10);
 				TGLProxyObject *obj2 = new TGLProxyObject(GLDummyCube4);
 				obj2->ProxyOptions = obj2->ProxyOptions << pooObjects;
-				obj2->MasterObject = GLFreeForm1;
-				obj2->Scale->X = GLFreeForm1->Scale->X * a;
-				obj2->Scale->Y = GLFreeForm1->Scale->Y * a;
-				obj2->Scale->Z = GLFreeForm1->Scale->Z * a;
+				obj2->MasterObject = ffWood;
+				obj2->Scale->X = ffWood->Scale->X * a;
+				obj2->Scale->Y = ffWood->Scale->Y * a;
+				obj2->Scale->Z = ffWood->Scale->Z * a;
 				obj2->PitchAngle = 90;
 				obj2->Position->X = i * 125 + rand() % 50 - 50;
 				obj2->Position->Z = j * 125 + rand() % 50 - 50;
@@ -408,7 +410,7 @@ void __fastcall TFormNooneta::FormDestroy(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormNooneta::GLDirectOpenGL1Render(TObject *Sender, TGLRenderContextInfo &rci)
+void __fastcall TFormNooneta::DirectOpenGL1Render(TObject *Sender, TGLRenderContextInfo &rci)
 {
 	for (int i = 0; i < GLDummyCube4->Count - 1; i++)
 	{
@@ -431,11 +433,11 @@ void __fastcall TFormNooneta::GLDirectOpenGL1Render(TObject *Sender, TGLRenderCo
 
 void __fastcall TFormNooneta::CheckBox1Click(TObject *Sender)
 {
-	GLDirectOpenGL2->Visible = CheckBox1->Checked;
+	DirectOpenGL2->Visible = CheckBox1->Checked;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormNooneta::GLDirectOpenGL2Render(TObject *Sender, TGLRenderContextInfo &rci)
+void __fastcall TFormNooneta::DirectOpenGL2Render(TObject *Sender, TGLRenderContextInfo &rci)
 {
 	RenderSpatialPartitioning(rci, SpacePartition1);
 }

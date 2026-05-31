@@ -120,6 +120,10 @@ __published:	// IDE-managed Components
 	TToolButton *tbnUranus;
 	TToolButton *tbnNeptune;
 	TStaticText *StaticText1;
+	TGLDummyCube *dcMoon;
+	TGLDummyCube *dcAsteroid;
+	TGLDummyCube *dcComet;
+	TGLDummyCube *dcStellar;
 	void __fastcall miAboutClick(TObject *Sender);
 	void __fastcall miExitClick(TObject *Sender);
 	void __fastcall miPointtoClick(TObject *Sender);
@@ -140,11 +144,13 @@ __published:	// IDE-managed Components
 	void __fastcall chbPlanetClick(TObject *Sender);
 	void __fastcall miOptionsClick(TObject *Sender);
 	void __fastcall tvPlanetsClick(TObject *Sender);
+	void __fastcall tbnPlanetsClick(TObject *Sender);
 private:	// User declarations
 	TFileName DataDir;
 	TFileName CurrDir;
 	TFileName FileName;
-    TFileName Path;
+	TFileName Path;
+	TFileName FileJpg;
 public:		// User declarations
 	__fastcall TFormAstroScene(TComponent* Owner);
 	__fastcall TFileName GetDataPath();

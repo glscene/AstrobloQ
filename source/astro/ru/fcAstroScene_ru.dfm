@@ -91,6 +91,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
       TabOrder = 0
+      ExplicitWidth = 106
     end
     object tvPlanets: TTreeView
       Left = 1
@@ -345,7 +346,6 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 630
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -481,6 +481,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1051#1091#1085#1099
       TabOrder = 3
+      ExplicitWidth = 34
     end
   end
   object GLCadencer: TGLCadencer

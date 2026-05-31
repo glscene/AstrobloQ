@@ -186,17 +186,23 @@ begin
     speed := 1000 * deltaTime;
   with GLCamera1.Position do
   begin
+    // вперёд по клавише 'w'
     if IsKeyDown(87) then
       GLNavigator1.MoveForward(speed);
+    // назад по клавише 's'
     if IsKeyDown(83) then
       GLNavigator1.MoveForward(-speed);
+    // влево по клавише 'a'
     if IsKeyDown(65) then
       GLNavigator1.StrafeHorizontal(-speed);
+    // вправо по клавише 'd'
     if IsKeyDown(68) then
       GLNavigator1.StrafeHorizontal(speed);
-    if (IsKeyDown('e') or IsKeyDown('у')) then
+    // вверх но клавише 'e'
+    if IsKeyDown(69) then
       FCamHeight := FCamHeight + 5;
-    if (IsKeyDown('c') or IsKeyDown('с')) then
+    // вниз но клавише 'c'
+    if IsKeyDown(67) then
       FCamHeight := FCamHeight - 5;
     if IsKeyDown(VK_ESCAPE) then
       Close;
@@ -238,7 +244,7 @@ begin
   end;
 
   case Key of
-    'k','л':
+    #75: //'k','л':
       begin
         // камера на красное дерево
       end;

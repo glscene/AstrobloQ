@@ -57,12 +57,12 @@ __published:	// IDE-managed Components
 	TGLSprite *GLSprite1;
 	TGLDummyCube *GLDummyCube4;
 	TTimer *Timer2;
-	TGLTree *GLTree1;
-	TGLFreeForm *GLFreeForm1;
-	TGLHUDText *GLHUDText1;
+	TGLTree *treeRed;
+	TGLFreeForm *ffWood;
+	TGLHUDText *HUDText1;
 	TGLWindowsBitmapFont *GLWindowsBitmapFont1;
-	TGLDirectOpenGL *GLDirectOpenGL1;
-	TGLDirectOpenGL *GLDirectOpenGL2;
+	TGLDirectOpenGL *DirectOpenGL1;
+	TGLDirectOpenGL *DirectOpenGL2;
 	TCheckBox *CheckBox1;
 	TStatusBar *StatusBar1;
 	void __fastcall GLSceneViewer1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
@@ -72,12 +72,12 @@ __published:	// IDE-managed Components
 	void __fastcall FormKeyPress(TObject *Sender, System::WideChar &Key);
 	void __fastcall GLCadencer1Progress(TObject *Sender, const double DeltaTime, const double NewTime);
 	void __fastcall Timer1Timer(TObject *Sender);
-    void __fastcall CreateTrees();
+    void __fastcall CreateForest();
 	void __fastcall Timer2Timer(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
-	void __fastcall GLDirectOpenGL1Render(TObject *Sender, TGLRenderContextInfo &rci);
+	void __fastcall DirectOpenGL1Render(TObject *Sender, TGLRenderContextInfo &rci);
 	void __fastcall CheckBox1Click(TObject *Sender);
-	void __fastcall GLDirectOpenGL2Render(TObject *Sender, TGLRenderContextInfo &rci);
+	void __fastcall DirectOpenGL2Render(TObject *Sender, TGLRenderContextInfo &rci);
 
 private:	// User declarations
 public:		// User declarations

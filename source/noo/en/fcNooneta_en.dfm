@@ -57,33 +57,6 @@ object FormNooneta: TFormNooneta
     ObjectsSorting = osNone
     Left = 152
     Top = 88
-    object dcWolf: TGLDummyCube
-      CubeSize = 1.000000000000000000
-    end
-    object dcCamera: TGLDummyCube
-      Position.Coordinates = {0000000000000041000000000000803F}
-      CubeSize = 1.000000000000000000
-      object GLCamera1: TGLCamera
-        DepthOfView = 800.000000000000000000
-        FocalLength = 50.000000000000000000
-        TargetObject = dcCamera
-        Position.Coordinates = {0000A040000020410000C8410000803F}
-      end
-    end
-    object GLLensFlare1: TGLLensFlare
-      Size = 100
-      Seed = 978
-      FlareIsNotOccluded = True
-      PreRenderPoint = GLRenderPoint1
-      Position.Coordinates = {9A620252C9B28B51B743BAD10000803F}
-      Visible = False
-      object GLDummyCube3: TGLDummyCube
-        CubeSize = 100.000000000000000000
-        VisibleAtRunTime = True
-      end
-    end
-    object GLRenderPoint1: TGLRenderPoint
-    end
     object GLSkyDome1: TGLSkyDome
       Direction.Coordinates = {000000000000803F2EBD3BB300000000}
       Up.Coordinates = {000000802EBD3BB3000080BF00000000}
@@ -126,6 +99,33 @@ object FormNooneta: TFormNooneta
         Rotation = 0.000000000000000000
       end
     end
+    object dcWolf: TGLDummyCube
+      CubeSize = 1.000000000000000000
+    end
+    object dcCamera: TGLDummyCube
+      Position.Coordinates = {0000000000000041000000000000803F}
+      CubeSize = 1.000000000000000000
+      object GLCamera1: TGLCamera
+        DepthOfView = 800.000000000000000000
+        FocalLength = 50.000000000000000000
+        TargetObject = dcCamera
+        Position.Coordinates = {0000A040000020410000C8410000803F}
+      end
+    end
+    object GLLensFlare1: TGLLensFlare
+      Size = 100
+      Seed = 978
+      FlareIsNotOccluded = True
+      PreRenderPoint = GLRenderPoint1
+      Position.Coordinates = {9A620252C9B28B51B743BAD10000803F}
+      Visible = False
+      object GLDummyCube3: TGLDummyCube
+        CubeSize = 100.000000000000000000
+        VisibleAtRunTime = True
+      end
+    end
+    object GLRenderPoint1: TGLRenderPoint
+    end
     object GLTerrainRenderer1: TGLTerrainRenderer
       Material.MaterialLibrary = GLMaterialLibrary1
       Material.LibMaterialName = 'ground'
@@ -150,7 +150,7 @@ object FormNooneta: TFormNooneta
       ObjectsSorting = osRenderFarthestFirst
       CubeSize = 1.000000000000000000
     end
-    object GLTree1: TGLTree
+    object treeRed: TGLTree
       Direction.Coordinates = {000000000000803F2EBD3BB300000000}
       PitchAngle = 90.000000000000000000
       Scale.Coordinates = {00002041000020410000204100000000}
@@ -171,7 +171,7 @@ object FormNooneta: TFormNooneta
       AutoRebuild = True
       CenterBranchConstant = 0.899999976158142100
     end
-    object GLFreeForm1: TGLFreeForm
+    object ffWood: TGLFreeForm
       Material.BackProperties.Diffuse.Color = {0000000000000000000000000000803F}
       Material.FrontProperties.Diffuse.Color = {0000000000000000000000000000803F}
       Material.BlendingMode = bmTransparency
@@ -183,21 +183,21 @@ object FormNooneta: TFormNooneta
       Scale.Coordinates = {00004041000040410000404100000000}
       Up.Coordinates = {000000002EBD3BB3000080BF00000000}
     end
-    object GLHUDText1: TGLHUDText
+    object HUDText1: TGLHUDText
       Position.Coordinates = {0000000000002041000000000000803F}
       BitmapFont = GLWindowsBitmapFont1
       Rotation = 0.000000000000000000
       ModulateColor.Color = {E4DB5B3FE4DB5B3FEBE0E03E0000803F}
     end
-    object GLDirectOpenGL1: TGLDirectOpenGL
+    object DirectOpenGL1: TGLDirectOpenGL
       UseBuildList = False
-      OnRender = GLDirectOpenGL1Render
+      OnRender = DirectOpenGL1Render
       Blend = False
     end
-    object GLDirectOpenGL2: TGLDirectOpenGL
+    object DirectOpenGL2: TGLDirectOpenGL
       Visible = False
       UseBuildList = False
-      OnRender = GLDirectOpenGL2Render
+      OnRender = DirectOpenGL2Render
       Blend = False
     end
   end
