@@ -143,41 +143,38 @@ procedure TFormSkyship.GLCadencer1Progress(Sender: TObject;
 var
   speed: Single;
 begin
-  // handle keypresses
+  // обработка нажатия клавиш навигации
   (*
   if IsKeyDown(VK_SHIFT) then
     speed := 300*deltaTime
   else *)
-    speed := 50 * deltaTime;  // speed of flight
-  // with GLCamera1.Position do begin
+    speed := 50 * deltaTime;  // скорость полёта
+  // полёт над террейной со скоростью speed
   dcViewing.Translate(ffSkyShip.direction.Z * speed, - ffSkyShip.direction.Y *
     speed, - ffSkyShip.direction.X * speed);
   if IsKeyDown(VK_UP) then
   begin
-    ffSkyShip.Pitch(0.1);
-    GLCamera1.Pitch(0.1);
+    ffSkyShip.Pitch(1.0);
+    // GLCamera1.Pitch(0.1);
     // GLCamera1.MoveAroundTarget(-1, 0);
   end;
   if IsKeyDown(VK_DOWN) then
   begin
-    ffSkyShip.Pitch(-0.1);
-    GLCamera1.Pitch(-0.1);
+    ffSkyShip.Pitch(-1.0);
+    // GLCamera1.Pitch(-0.1);
     // GLCamera1.MoveAroundTarget(1, 0);
   end;
   if IsKeyDown(VK_LEFT) then
   begin
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
-    // freeform1.Turn(-1);
-    ffSkyShip.Roll(-0.1);
-    GLCamera1.Roll(0.1);
-    // GLCamera1.MoveAroundTarget(0, 1);
+    ffSkyShip.Turn(-1.0);
+    // GLCamera1.Turn(0.1);
   end;
   if IsKeyDown(VK_RIGHT) then
   begin
     // DummyCube1.Translate(X*speed, 0, Z*speed);
-    // freeform1.Turn(1);
-    ffSkyShip.Roll(0.1);
-    GLCamera1.Roll(-0.1);
+    ffSkyShip.Turn(1.0);
+   // GLCamera1.Turn(-0.1);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
   (*
@@ -186,17 +183,17 @@ begin
     if IsKeyDown(VK_NEXT) then
     FCamHeight := FCamHeight-10*speed;
   *)
-  if IsKeyDown('c') or IsKeyDown('с') then  // вид из кабины
+  if IsKeyDown(#67) or IsKeyDown('с') then  // 'c' вид из кабины
   begin
     ffSkyShip.Scale.SetVector(3.0, 3.0, 3.0, 0);
     ffSkyShip.Visible := True;
   end;
-  if IsKeyDown('v') or IsKeyDown('м')  then  // вид со стороны
+  if IsKeyDown(#86)  or IsKeyDown('м') then  // 'м' вид со стороны
   begin
     ffSkyShip.Scale.SetVector(0.3, 0.2, 0.3, 0);
     ffSkyShip.Visible := True;
   end;
-  if IsKeyDown('x') or IsKeyDown('ч') then  // вид из камера впереди
+  if IsKeyDown(#80)  or IsKeyDown('ч') then  // 'ч' вид из камера впереди
     ffSkyShip.Visible := False;
 
   // без погружения в террейн

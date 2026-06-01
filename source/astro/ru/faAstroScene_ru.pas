@@ -92,8 +92,8 @@ type
     GLTexCombiner: TGLTexCombineShader;
     CameraControler: TGLCamera;
     SkyDome: TGLSkyDome;
-    ConstLines: TGLLines;
-    ConstBorders: TGLLines;
+    polylineConstells: TGLLines;
+    polylineBorders: TGLLines;
     MainMenu: TMainMenu;
     miView: TMenuItem;
     miOpen: TMenuItem;
@@ -169,7 +169,7 @@ type
     diskMoonMantle: TGLDisk;
     diskMoonCrust: TGLDisk;
     sfMoonCore: TGLSphere;
-    sfPlanetGrid: TGLSphere;
+    sfGlobeGrid: TGLSphere;
     sfAsteroidCore: TGLSphere;
     diskAsteroidMantle: TGLDisk;
     diskAsteroidCrust: TGLDisk;
@@ -177,6 +177,14 @@ type
     tbTable: TToolButton;
     tbGraph: TToolButton;
     tbGrid: TToolButton;
+    dcArrows: TGLDummyCube;
+    ArrowX: TGLArrowLine;
+    Arrow_X: TGLArrowLine;
+    ArrowY: TGLArrowLine;
+    Arrow_Y: TGLArrowLine;
+    ArrowZ: TGLArrowLine;
+    Arrow_Z: TGLArrowLine;
+    polygonBorders: TGLPolygon;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -306,7 +314,7 @@ begin
     GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
     GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(FileJpg);
   end;
-//  sfGrid.Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
+//  sfGrid.Material.Texture.Image.LoadFromFile('map\celestial_grid.jpg');
   GLMatLib.Materials[5].Material.Texture.Compression := tcStandard;
 //  GLMatLib.Materials[5].Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
 end;
@@ -322,7 +330,7 @@ var
   S: String;
 begin
   tbPlanets.SetFocus;
-  // показываем «емлю дл€ которой tbnEarth.ImageIndex := 3;
+  // ѕланета дл€ которой tbnEarth.ImageIndex := 3;
   tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
   // ѕо умолчанию справка - «емл€, им€ 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
@@ -360,9 +368,10 @@ begin
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращени€ - Power(3, 3);
 
   // скрываем планеты, луны и астероиды при показе небосвода
-  FormOptions.chbHideObjectClick(Self);
+   FormOptions.chbHideObjectClick(Self);
   // включаем линии созвездий
   FormOptions.chbConstLinesClick(Self);
+  FormOptions.chbConstBordersClick(Self);
 end;
 
 //----------------------------------------------------------------------------
@@ -374,15 +383,13 @@ begin
   vBodyType := 1;
   // видимость планет
   sfPlanet.Visible := True;
-  sfPlanetGrid.Visible := False; // нет сетки
-
+  sfGlobeGrid.Visible := False; // нет сетки
   // пока фри форма не видна
   ffPlanet.Visible := False;
   // луны, астероиды и кометы не видны
   dcMoon.Visible := False;
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
-
   // «агрузка карты планеты
   FileJpg := CurrentStar + TToolButton(Sender).ImageName + '.jpg';
   sfPlanet.Material.Texture.Image.LoadFromFile(FileJpg);
@@ -422,13 +429,11 @@ begin
     diskRingUp.Visible := False;
     diskRingDn.Visible := False;
   end;
-
   // —олнце с короной
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = '—олнце') then
   begin
     // протуберанцы
   end;
-
   // —правка + ' в ' + 'RuWiki...';
   miHelpWiki.Caption := tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint;
 end;
@@ -748,26 +753,13 @@ begin
   begin
     line.CommaText := sl[i];
     pos1 := LonLatToPos(StrToFloatDef(line[0], 0), StrToFloatDef(line[1], 0));
-    ConstLines.AddNode(pos1);
+    polylineConstells.AddNode(pos1);
     pos2 := LonLatToPos(StrToFloatDef(line[2], 0), StrToFloatDef(line[3], 0));
-    ConstLines.AddNode(pos2);
+    polylineConstells.AddNode(pos2);
   end;
   sl.Free;
   line.Free;
 end;
-
-(*
-procedure TFormLithoneta.miViewConstlinesClick(Sender: TObject);
-begin
-  ConstLines.Nodes.Clear;
-  miViewConstlines.Checked := not miViewConstlines.Checked;
-  if miViewConstLines.Checked then
-  begin
-    ConstLinesAlpha := 0.5 - ConstLinesAlpha;
-    LoadConstLines;
-  end;
-end;
-*)
 
 //------------------- «агрузка границ созвездий ------------------------------
 procedure TFormAstroScene.LoadConstBorders;
@@ -780,13 +772,16 @@ begin
   line := TStringList.Create;
 //  sl.LoadFromFile(DataDir + '\constellation\ConstB.cby');  // GaiaSky
 //  sl.LoadFromFile(DataDir + '\constellation\ConstBorders.csv'); // Lutz
-  sl.LoadFromFile(DataDir + '\constellation\borders\ant.txt');  // Polygon of Antlia
+  sl.LoadFromFile(DataDir + '\constellation\borders\aps.txt');  // Polygon of Antlia
   for i := 0 to sl.Count - 1 do
   begin
     line.CommaText := sl[i];
     skypos := LonLatToPos(StrToFloatDef(line[0], 0), StrToFloatDef(line[1], 0));
-    ConstBorders.AddNode(skypos);
+//    skypos.X := -0.9;   skypos.Y := -0.9; skypos.Z := 0;
+//    linesBorders.AddNode(skypos);
+    polygonBorders.AddNode(skypos);
   end;
+  polygonBorders.Material.FrontProperties.Emission.RandomColor; // := clrRed;
   sl.Free;
   line.Free;
 end;
@@ -809,7 +804,7 @@ begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
 //    ffPlanet.TurnAngle := ffGlobe.TurnAngle + deltaTime * TimeMultiplier;
     // географическа€ сетка, вращаетс€ вместе с глобусом
-    sfPlanetGrid.TurnAngle := sfPlanet.TurnAngle;
+    sfGlobeGrid.TurnAngle := sfPlanet.TurnAngle;
 
     // облака вращаютс€ только у планет с лЄгкой облачностью
     if sfPlanetClouds.Visible = True then
@@ -846,20 +841,20 @@ begin
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
   // постепенное по€вление/исчезновение линий созвездий
-  if ConstLines.LineColor.Alpha <> ConstLinesAlpha then
+  if polylineConstells.LineColor.Alpha <> ConstLinesAlpha then
   begin
-    ConstLines.LineColor.Alpha :=
-      ClampValue(ConstLines.LineColor.Alpha + Sign(ConstLinesAlpha -
-                 ConstLines.LineColor.Alpha) * deltaTime, 0, 0.5);
-    ConstLines.Visible := (ConstLines.LineColor.Alpha > 0);
+    polylineConstells.LineColor.Alpha :=
+      ClampValue(polylineConstells.LineColor.Alpha + Sign(ConstLinesAlpha -
+                 polylineConstells.LineColor.Alpha) * deltaTime, 0, 0.5);
+    polylineConstells.Visible := (polylineConstells.LineColor.Alpha > 0);
   end;
   // постепенное по€вление/исчезновение границ созвездий
-  if ConstBorders.LineColor.Alpha <> ConstBordersAlpha then
+  if polylineBorders.LineColor.Alpha <> ConstBordersAlpha then
   begin
-    ConstBorders.LineColor.Alpha :=
-      ClampValue(ConstBorders.LineColor.Alpha + Sign(ConstBordersAlpha -
-                 ConstBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
-    ConstBorders.Visible := (ConstBorders.LineColor.Alpha > 0);
+    polylineBorders.LineColor.Alpha :=
+      ClampValue(polylineBorders.LineColor.Alpha + Sign(ConstBordersAlpha -
+                 polylineBorders.LineColor.Alpha) * deltaTime, 0, 0.5);
+    polylineBorders.Visible := (polylineBorders.LineColor.Alpha > 0);
   end;
 end;
 
@@ -886,17 +881,18 @@ begin
   my := y;
 end;
 
-//----------------- ѕоказать €дро планеты, луны или астероида -----------------
+//----------------- ядро планеты, луны или астероида --------------------------
 procedure TFormAstroScene.tbCoreClick(Sender: TObject);
 begin
   tbCore.Down := not tbCore.Down;
   FormOptions.chbCore.Checked := not FormOptions.chbCore.Checked;
 end;
 
+//------------------------ “опосетка глобуса ----------------------------------
 procedure TFormAstroScene.tbGridClick(Sender: TObject);
 begin
   tbGrid.Down := not tbGrid.Down;
-  FormOptions.chbTopoGrid.Checked := not FormOptions.chbTopoGrid.Checked;
+  FormOptions.chbGlobeGrid.Checked := not FormOptions.chbGlobeGrid.Checked;
 end;
 
 //--------------------- «агрузка текстуры высокого разрешени€ -----------------
@@ -922,7 +918,7 @@ begin
         Camera.TargetObject := dcStar;
         CameraControler.TargetObject := dcStar;
       end;
-    'h':  // ¬ысокое разрешение
+    'h', 'р':  // ¬ысокое разрешение
       if not highResResourcesLoaded then
       begin
         SceneViewer.Cursor := crHourGlass;
@@ -939,7 +935,7 @@ begin
         end;
         highResResourcesLoaded := True;
       end;
-    'w','W','ц','÷': // ¬ыход на WIKI по клавише
+    #112: // ¬ыход на WIKI по клавише F1
       begin
          S :=  'https://ru.ruwiki.ru/wiki/' + miHelpWiki.Caption;
          ShellExecute(0, 'open', PWideChar(S), '', '', SW_SHOW);

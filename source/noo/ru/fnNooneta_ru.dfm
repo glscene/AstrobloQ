@@ -2,8 +2,8 @@ object FormTerraNavi: TFormTerraNavi
   Left = 297
   Top = 155
   Caption = 'Quadtree Visibility Culling'
-  ClientHeight = 436
-  ClientWidth = 632
+  ClientHeight = 717
+  ClientWidth = 997
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,7 +12,6 @@ object FormTerraNavi: TFormTerraNavi
   Font.Style = []
   KeyPreview = True
   Position = poScreenCenter
-  WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyPress = FormKeyPress
@@ -20,17 +19,19 @@ object FormTerraNavi: TFormTerraNavi
   object GLSceneViewer1: TGLSceneViewer
     Left = 0
     Top = 41
-    Width = 632
-    Height = 395
+    Width = 997
+    Height = 676
     Camera = GLCamera1
     Buffer.FogEnvironment.FogStart = 3000.000000000000000000
     Buffer.FogEnvironment.FogEnd = 3950.000000000000000000
     Buffer.BackgroundColor = clWhite
     Buffer.Lighting = False
-    FieldOfView = 151.586471557617200000
+    FieldOfView = 163.170639038085900000
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 632
+    ExplicitHeight = 395
   end
   object Panel1: TPanel
     Left = 224
@@ -56,7 +57,7 @@ object FormTerraNavi: TFormTerraNavi
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 632
+    Width = 997
     Height = 41
     Align = alTop
     TabOrder = 2

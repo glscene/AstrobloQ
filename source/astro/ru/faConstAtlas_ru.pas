@@ -106,7 +106,7 @@ begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
   SetCurrentDir(DataDir + 'cubemap');
-  PlanetMap := DataDir + 'map\earth.jpg';
+  PlanetMap := DataDir + 'map\exoearth.jpg';
 
   sfPlanet.Material.Texture.Disabled := False;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetMap);

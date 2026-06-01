@@ -85,7 +85,7 @@ type
     chbConstLines: TCheckBox;
     chbConstBorders: TCheckBox;
     chbClouds: TCheckBox;
-    chbTopoGrid: TCheckBox;
+    chbGlobeGrid: TCheckBox;
     chbHideObject: TCheckBox;
     tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
@@ -106,7 +106,7 @@ type
     procedure chbHideObjectClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
-    procedure chbTopoGridClick(Sender: TObject);
+    procedure chbGlobeGridClick(Sender: TObject);
     procedure chbHidePanelsClick(Sender: TObject);
     procedure chbConstLinesClick(Sender: TObject);
     procedure chbConstBordersClick(Sender: TObject);
@@ -288,11 +288,11 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-//                           Топографическая сетка
+//                           Cетка глобуса
 //-----------------------------------------------------------------------------
-procedure TFormOptions.chbTopoGridClick(Sender: TObject);
+procedure TFormOptions.chbGlobeGridClick(Sender: TObject);
 begin
-  FormAstroScene.sfPlanetGrid.Visible := chbTopoGrid.Checked;
+  FormAstroScene.sfGlobeGrid.Visible := chbGlobeGrid.Checked;
   FormAstroScene.SceneViewer.Invalidate;
 end;
 
@@ -306,7 +306,7 @@ end;
 //---------------------- Вывод линий созвездий -------------------------------
 procedure TFormOptions.chbConstLinesClick(Sender: TObject);
 begin
-  FormAstroScene.ConstLines.Nodes.Clear;
+  FormAstroScene.polylineConstells.Nodes.Clear;
  // chbConstLines.Checked := not chbConstLines.Checked;
   if chbConstLines.Checked then
   begin
@@ -318,7 +318,7 @@ end;
 //---------------------- Вывод границ созвездий -------------------------------
 procedure TFormOptions.chbConstBordersClick(Sender: TObject);
 begin
-  FormAstroScene.ConstBorders.Nodes.Clear;
+  FormAstroScene.polygonBorders.Nodes.Clear;
 //  chbConstBorders.Checked := not chbConstBorders.Checked;
   if chbConstBorders.Checked then
   begin

@@ -59,7 +59,7 @@ object FormOptions: TFormOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsPlanets
+      ActivePage = tsSkyDome
       Align = alClient
       Style = tsButtons
       TabOrder = 0
@@ -219,6 +219,8 @@ object FormOptions: TFormOptions
             Width = 103
             Height = 17
             Caption = #1043#1088#1072#1085#1080#1094#1099
+            Checked = True
+            State = cbChecked
             TabOrder = 2
             OnClick = chbConstBordersClick
           end
@@ -231,7 +233,7 @@ object FormOptions: TFormOptions
           Caption = #1057#1077#1090#1082#1072' '#1085#1077#1073#1086#1089#1074#1086#1076#1072
           TabOrder = 2
           StyleName = 'Windows'
-          OnClick = chbTopoGridClick
+          OnClick = chbGlobeGridClick
         end
       end
       object tsPlanets: TTabSheet
@@ -389,15 +391,15 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
             OnClick = chbCloudsClick
           end
-          object chbTopoGrid: TCheckBox
+          object chbGlobeGrid: TCheckBox
             Left = 304
             Top = 81
             Width = 129
             Height = 24
-            Caption = 'C'#1077#1090#1082#1072' '#1075#1083#1086#1073#1091#1089#1072
+            Caption = #1057#1077#1090#1082#1072' '#1075#1083#1086#1073#1091#1089#1072
             TabOrder = 4
             StyleName = 'Windows'
-            OnClick = chbTopoGridClick
+            OnClick = chbGlobeGridClick
           end
           object chbHideObject: TCheckBox
             Left = 304

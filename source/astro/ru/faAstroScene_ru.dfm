@@ -753,7 +753,7 @@ object FormAstroScene: TFormAstroScene
         item
           Color = clBlack
         end>
-      object ConstLines: TGLLines
+      object polylineConstells: TGLLines
         Direction.Coordinates = {0000803F000000000000008000000000}
         Scale.Coordinates = {00A00C4600A00C4600A00C4600000000}
         Up.Coordinates = {00000000000000000000803F00000000}
@@ -766,7 +766,7 @@ object FormAstroScene: TFormAstroScene
         SplineMode = lsmSegments
         Options = []
       end
-      object ConstBorders: TGLLines
+      object polylineBorders: TGLLines
         Direction.Coordinates = {000000000000803F0000000000000000}
         Up.Coordinates = {0000000000000000000080BF00000000}
         AntiAliased = True
@@ -775,6 +775,9 @@ object FormAstroScene: TFormAstroScene
         Nodes = <>
         NodesAspect = lnaInvisible
         Options = []
+      end
+      object polygonBorders: TGLPolygon
+        Nodes = <>
       end
     end
     object Camera: TGLCamera
@@ -825,7 +828,7 @@ object FormAstroScene: TFormAstroScene
             Slices = 64
             Stacks = 64
           end
-          object sfPlanetGrid: TGLSphere
+          object sfGlobeGrid: TGLSphere
             Material.BlendingMode = bmTransparency
             Material.Texture.TextureMode = tmReplace
             Material.Texture.Disabled = False
@@ -937,6 +940,96 @@ object FormAstroScene: TFormAstroScene
         end
         object ffPlanet: TGLFreeForm
           Visible = False
+        end
+        object dcArrows: TGLDummyCube
+          Visible = False
+          CubeSize = 1.000000000000000000
+          object ArrowX: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+            Direction.Coordinates = {0000803F000000000000000000000000}
+            Position.Coordinates = {00007A4500000000000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Slices = 16
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object Arrow_X: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {0000803F00000000000000000000803F}
+            Direction.Coordinates = {000080BF000000000000000000000000}
+            Position.Coordinates = {00007AC500000000000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Slices = 16
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object ArrowY: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+            Direction.Coordinates = {000000000000803F0000000000000000}
+            Position.Coordinates = {0000000000007A45000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Up.Coordinates = {00000000000000000000803F00000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Slices = 16
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object Arrow_Y: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {000000000000003F000000000000803F}
+            Direction.Coordinates = {00000000000080BF0000000000000000}
+            Position.Coordinates = {0000000000007AC5000000000000803F}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
+            Up.Coordinates = {00000000000000000000803F00000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Slices = 16
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object ArrowZ: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+            Position.Coordinates = {000000000000000000007A450000803F}
+            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Slices = 16
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
+          object Arrow_Z: TGLArrowLine
+            Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
+            Direction.Coordinates = {0000000000000000000080BF00000000}
+            Position.Coordinates = {000000000000000000007AC50000803F}
+            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            BottomRadius = 0.050000000745058060
+            Height = 1.000000000000000000
+            Slices = 16
+            Stacks = 8
+            TopRadius = 0.050000000745058060
+            TopArrowHeadHeight = 0.100000001490116100
+            TopArrowHeadRadius = 0.100000001490116100
+            BottomArrowHeadHeight = 0.300000011920929000
+            BottomArrowHeadRadius = 0.200000002980232200
+          end
         end
       end
       object dcAsteroid: TGLDummyCube
