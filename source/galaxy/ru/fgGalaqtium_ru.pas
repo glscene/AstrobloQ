@@ -50,6 +50,7 @@ uses
   GLS.Color,
   GLS.SpaceText,
   GLS.VectorLists,
+  GLS.Navigator,
 
   dmImages,
   dmDialogs,
@@ -58,7 +59,7 @@ uses
   Astro.Globals,
 
   fmFormFirst,
-  fmAbout_ru,
+  faAbout_ru,
 
   fgGlobulars_ru,
   fgMonitor_ru,
@@ -69,7 +70,7 @@ uses
   fgEquations_ru,
   fgStatistics_ru,
   fgDiagramHR_ru,
-  fgNavigator_ru, GLS.Navigator
+  fgNavigator_ru
   ;
 
 type

@@ -66,9 +66,10 @@ uses
   GLS.SkyDome,
 
   dmImages,
+  daMaps_en,
 
   fmFormFirst,
-  fmAbout_en,
+  faAbout_en,
 
   faOptions_en,
   faMakeStarsys_en,
@@ -160,12 +161,24 @@ type
     dcAsteroid: TGLDummyCube;
     dcComet: TGLDummyCube;
     SceneViewer1: TGLSceneViewer;
-    PanelLeft: TPanel;
-    DirectoryOutline: TDirectoryOutline;
     N1: TMenuItem;
     Solblock1: TMenuItem;
     N5: TMenuItem;
     miNew: TMenuItem;
+    PanelLeft: TPanel;
+    tvMoons: TTreeView;
+    StaticText1: TStaticText;
+    StaticText3: TStaticText;
+    tbPlanets: TToolBar;
+    tbnSol: TToolButton;
+    tbnMercury: TToolButton;
+    tbnVenus: TToolButton;
+    tbnEarth: TToolButton;
+    tbnMars: TToolButton;
+    tbnJupiter: TToolButton;
+    tbnSaturn: TToolButton;
+    tbnUranus: TToolButton;
+    tbnNeptune: TToolButton;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -284,10 +297,6 @@ begin
   frmStellarSys.Align := alClient;
   frmStellarSys.BorderStyle := bsNone;
   frmStellarSys.Show;
-
-  // Initialize starsys folders view
-  DirectoryOutline.Directory := StarDir;
-  //...
 
   //  miHelpWiki.Caption := miItem.Text + ' in ' + 'Wikipedia...';
   TimeMultiplier := Power(1, 3); // 0 - stop, fast ratation - Power(3, 3);

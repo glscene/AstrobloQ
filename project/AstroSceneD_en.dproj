@@ -146,7 +146,7 @@
             <Form>DataModuleImages</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_en.pas">
+        <DCCReference Include="..\source\astro\en\faAbout_en.pas">
             <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -189,6 +189,11 @@
         <DCCReference Include="..\source\astro\Astro.ReadCSV.pas"/>
         <DCCReference Include="..\source\astro\en\faGenStarblock_en.pas">
             <Form>frmGenStarblock</Form>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\en\daMaps_en.pas">
+            <Form>DataModuleMaps</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

@@ -260,7 +260,6 @@ inherited frmParadox: TfrmParadox
         0065006E00730000004F000000410000004100000003000000FFFFFFFF000000
         0000000000000000000001184300360035002E00200044006900720065006300
         7400650064002000500061006E0073007000650072006D0069006100}
-      ExplicitHeight = 686
     end
     object StaticText1: TStaticText
       Left = 1
@@ -281,6 +280,7 @@ inherited frmParadox: TfrmParadox
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 103
     end
   end
   object glsViewer: TGLSceneViewer

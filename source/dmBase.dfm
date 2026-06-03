@@ -3,8 +3,8 @@ object DataModuleBase: TDataModuleBase
   Width = 805
   PixelsPerInch = 168
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
-    Left = 144
-    Top = 312
+    Left = 128
+    Top = 200
   end
   object FDConnection: TFDConnection
     Params.Strings = (
@@ -12,18 +12,18 @@ object DataModuleBase: TDataModuleBase
         'Database=C:\Users\dgoni\Documents\Embarcadero\Studio\STARS_DB\DA' +
         'TA\A_Delaunay.sqlite'
       'DriverID=SQLite')
-    Left = 400
-    Top = 184
+    Left = 320
+    Top = 56
   end
   object FDQuery: TFDQuery
     Connection = FDConnection
-    Left = 152
-    Top = 168
+    Left = 128
+    Top = 56
   end
   object FDBatchMove: TFDBatchMove
     Mappings = <>
     LogFileName = 'Data.log'
-    Left = 394
-    Top = 318
+    Left = 330
+    Top = 198
   end
 end

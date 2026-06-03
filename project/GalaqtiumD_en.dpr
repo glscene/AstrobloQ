@@ -8,9 +8,8 @@ uses
   fgGalaqtium_en in '..\source\galaxy\en\fgGalaqtium_en.pas' {FormGalaqtium},
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
   fgOptions_en in '..\source\galaxy\en\fgOptions_en.pas' {FormOptions},
-  fmAbout_en in '..\source\fmAbout_en.pas' {frmAbout},
+  faAbout_en in '..\source\astro\en\faAbout_en.pas' {frmAbout},
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
@@ -35,7 +34,6 @@ begin
   Application.CreateForm(TFormGalaqtium, FormGalaqtium);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormSettings, FormSettings);

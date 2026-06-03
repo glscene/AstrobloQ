@@ -20,10 +20,10 @@ object frmConstAtlas: TfrmConstAtlas
     Width = 631
     Height = 628
     Align = alClient
-    ImageCollection = DataModuleImages.ConstelCharts
+    ImageCollection = DataModuleMaps.ConstelCharts
     ImageWidth = 0
     ImageHeight = 0
-    ImageIndex = 0
+    ImageIndex = -1
     ImageName = 'AND'
     ExplicitWidth = 613
     ExplicitHeight = 397
@@ -43,7 +43,7 @@ object frmConstAtlas: TfrmConstAtlas
       Height = 591
       Align = alClient
       Color = clWhite
-      Images = DataModuleImages.VirtConstelSymbols
+      Images = DataModuleMaps.VirtConstelSymbols
       Indent = 27
       MultiSelect = True
       TabOrder = 0
@@ -193,7 +193,6 @@ object frmConstAtlas: TfrmConstAtlas
         0000000000000000000000010C1B04350442044304470430044F04200040044B
         043104300400002D0000005700000057000000FFFFFFFFFFFFFFFF0000000000
         000000000000000001071B0438044104380447043A043004}
-      ExplicitHeight = 566
     end
     object PanelLeftTitle: TPanel
       Left = 1
@@ -229,7 +228,7 @@ object frmConstAtlas: TfrmConstAtlas
       Width = 172
       Height = 140
       Align = alTop
-      ImageCollection = DataModuleImages.ConstelFigures
+      ImageCollection = DataModuleMaps.ConstelFigures
       ImageWidth = 0
       ImageHeight = 0
       ImageIndex = -1
@@ -242,7 +241,7 @@ object frmConstAtlas: TfrmConstAtlas
       Height = 304
       Align = alTop
       Color = clWhite
-      Images = DataModuleImages.VirtConstelSymbols
+      Images = DataModuleMaps.VirtConstelSymbols
       Indent = 27
       TabOrder = 0
       OnClick = tvZodiacsClick

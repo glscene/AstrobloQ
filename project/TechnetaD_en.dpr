@@ -15,8 +15,7 @@ uses
   Tech.Utils in '..\source\tech\Tech.Utils.pas',
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
-  dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_en in '..\source\fmAbout_en.pas' {frmAbout},
+  faAbout_en in '..\source\astro\en\faAbout_en.pas' {frmAbout},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
@@ -34,7 +33,6 @@ begin
   Application.CreateForm(TFormTechneta, FormTechneta);
   Application.CreateForm(TDataModuleBase, DataModuleBase);
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
-  Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TfrmMeshEditor, frmMeshEditor);
   Application.CreateForm(TfrmCyborg, frmCyborg);
   Application.CreateForm(TfrmRobot, frmRobot);

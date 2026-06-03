@@ -34,7 +34,6 @@ uses
   Vcl.Themes,
 
   Astro.Globals,
-  dmImages,
   fmFormFirst;
 
 type

@@ -383,9 +383,12 @@ void __fastcall TFormAstroScene::tbnPlanetsClick(TObject *Sender)
   dcAsteroid->Visible = false;
   dcComet->Visible = false;
 
-  // Loading the planet map
-  FileJpg = CurrentStar + TToolButton(Sender)->ImageName + ".jpg";
+ // Loading the planet map
+ // FileJpg = DataDir + TToolButton(Sender)->ImageName + ".jpg";
+  FileJpg = DataDir + tbPlanets->Name + ".jpg";
   sfPlanet->Material->Texture->Image->LoadFromFile(FileJpg);
+
+/*
   // Показать атмосферы планет, заменить на case, так как толщина атмосфер разная
   if (tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Caption == "Earth") or
   //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption == 'Venus') or
@@ -426,8 +429,9 @@ void __fastcall TFormAstroScene::tbnPlanetsClick(TObject *Sender)
 	// corona
   };
 
+*/
   // help + ' в ' + 'RuWiki...';
-  miHelpWiki->Caption = tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Hint;
+///  miHelpWiki->Caption = tbPlanets->Buttons[TToolButton(Sender)->ImageIndex]->Hint;
 
 }
 //---------------------------------------------------------------------------

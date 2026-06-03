@@ -23,7 +23,7 @@ uses
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.Globals in '..\source\astro\Astro.Globals.pas',
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
+  faAbout_ru in '..\source\astro\ru\faAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   Astro.ConstBayers in '..\source\astro\Astro.ConstBayers.pas',
   Astro.Ephemerides in '..\source\astro\Astro.Ephemerides.pas',
@@ -39,7 +39,8 @@ uses
   faConstBorders_ru in '..\source\astro\ru\faConstBorders_ru.pas' {frmSkyPolygons},
   faConstAtlas_ru in '..\source\astro\ru\faConstAtlas_ru.pas' {frmConstAtlas},
   faMakeStarsys_ru in '..\source\astro\ru\faMakeStarsys_ru.pas' {frmMakeStarsys},
-  faGenStarblock_ru in '..\source\astro\ru\faGenStarblock_ru.pas' {frmViewSolblock};
+  faGenStarblock_ru in '..\source\astro\ru\faGenStarblock_ru.pas' {frmViewSolblock},
+  daMaps_ru in '..\source\astro\ru\daMaps_ru.pas' {DataModuleMaps: TDataModule};
 
 {$R *.res}
 
@@ -52,5 +53,6 @@ begin
   Application.CreateForm(TDataModuleDialogs, DataModuleDialogs);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormFirst, FormFirst);
+  Application.CreateForm(TDataModuleMaps, DataModuleMaps);
   Application.Run;
 end.

@@ -19,7 +19,7 @@ object frmConstells: TfrmConstells
     Width = 639
     Height = 628
     Align = alClient
-    ImageCollection = DataModuleImages.ConstelCharts
+    ImageCollection = DataModuleMaps.ConstelCharts
     ImageWidth = 0
     ImageHeight = 0
     ImageIndex = 0
@@ -52,7 +52,6 @@ object frmConstells: TfrmConstells
       Hint = 'Constellations'
       Align = alClient
       Color = clWhite
-      Images = DataModuleImages.VirtConstelSymbols
       Indent = 27
       MultiSelect = True
       ParentShowHint = False
@@ -226,6 +225,19 @@ object frmConstells: TfrmConstells
     TabOrder = 2
     ExplicitLeft = 840
     ExplicitHeight = 603
+    object VirtualImageFigures: TVirtualImage
+      Left = 1
+      Top = 346
+      Width = 174
+      Height = 140
+      Align = alTop
+      ImageCollection = DataModuleMaps.ConstelFigures
+      ImageWidth = 0
+      ImageHeight = 0
+      ImageIndex = -1
+      ExplicitTop = 370
+      ExplicitWidth = 172
+    end
     object tvZodiacs: TTreeView
       Left = 1
       Top = 42
@@ -234,7 +246,6 @@ object frmConstells: TfrmConstells
       Hint = 'Zodiac constellations'
       Align = alTop
       Color = clWhite
-      Images = DataModuleImages.VirtConstelSymbols
       Indent = 27
       ParentShowHint = False
       ShowHint = True

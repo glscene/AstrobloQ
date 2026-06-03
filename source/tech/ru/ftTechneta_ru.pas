@@ -50,7 +50,7 @@ uses
   GLS.Context,
   GLS.GeomObjects,
 
-  fmAbout_ru,
+  faAbout_ru,
   Tech.Utils
   ;
 

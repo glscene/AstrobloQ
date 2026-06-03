@@ -18,7 +18,7 @@ uses
   dmBase in '..\source\dmBase.pas' {DataModuleBase: TDataModule},
   dmDialogs in '..\source\dmDialogs.pas' {DataModuleDialogs: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_ru in '..\source\fmAbout_ru.pas' {frmAbout},
+  faAbout_ru in '..\source\astro\ru\faAbout_ru.pas' {frmAbout},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst},
   fgGlobulars_ru in '..\source\galaxy\ru\fgGlobulars_ru.pas' {frmProjections},
   fgDiagramHR_ru in '..\source\galaxy\ru\fgDiagramHR_ru.pas' {frmDiagramHR},

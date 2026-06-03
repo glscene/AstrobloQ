@@ -191,7 +191,7 @@
             <Form>FormTechneta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_ru.pas">
+        <DCCReference Include="..\source\astro\ru\faAbout_ru.pas">
             <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>

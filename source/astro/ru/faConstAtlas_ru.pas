@@ -45,6 +45,8 @@ uses
   Astro.Globals,
   Astro.Utils,
 
+  daMaps_ru,
+
   dmImages,
   dmDialogs
   ;

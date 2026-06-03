@@ -20,23 +20,12 @@ uses
 
 type
   TDataModuleImages = class(TDataModule)
-    ConstelCharts: TImageCollection;
-    ConstelSymbols: TImageCollection;
-    PlanetSymbols: TImageCollection;
-    VirtPlanetSymbols: TVirtualImageList;
-    VirtConstelSymbols: TVirtualImageList;
     ImageListInterface: TImageList;
-    PlanetMaps: TImageCollection;
-    VirtPlanetMaps: TVirtualImageList;
-    MLStars: TGLMaterialLibrary;
-    MoonMaps: TImageCollection;
-    VirtMoonMaps: TVirtualImageList;
-    StarSymbols: TImageCollection;
-    MLExoPlanets: TGLMaterialLibrary;
-    MLExoAsteroids: TGLMaterialLibrary;
-    MLExoComets: TGLMaterialLibrary;
-    MLExoMoons: TGLMaterialLibrary;
-    ConstelFigures: TImageCollection;
+    MLStarTypes: TGLMaterialLibrary;
+    MLPlanetTypes: TGLMaterialLibrary;
+    MLAsteroidTypes: TGLMaterialLibrary;
+    MLCometTypes: TGLMaterialLibrary;
+    MLMoonTypes: TGLMaterialLibrary;
   private
   public
   end;

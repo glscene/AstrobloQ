@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit faConstAtlas_en;
 
 interface
@@ -41,6 +44,7 @@ uses
   Astro.Globals,
   Astro.Utils,
 
+  daMaps_en,
   dmImages,
   dmDialogs
   ;
@@ -66,6 +70,7 @@ type
     tvConstellations: TTreeView;
     VirtualImageChart: TVirtualImage;
     Panel1: TPanel;
+    VirtualImageFigures: TVirtualImage;
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
     procedure SaveAs1Click(Sender: TObject);
@@ -90,19 +95,19 @@ type
 var
   frmConstells: TfrmConstells;
 
-implementation //--------------------------------------------------------
+implementation //=============================================================
 
 {$R *.dfm}
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 // Loading data and maps for SkyDome
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
   SetCurrentDir(DataDir + 'cubemap');
-  PlanetMap := DataDir + 'map\earth.jpg';
+  PlanetMap := DataDir + 'map\exoearth.jpg';
 
   sfPlanet.Material.Texture.Disabled := False;
   sfPlanet.Material.Texture.Image.LoadFromFile(PlanetMap);
@@ -137,9 +142,9 @@ begin
 
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 // Open File of constellations
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.Open1Click(Sender: TObject);
 begin
   // Load next skyculture for constellations ...
@@ -155,7 +160,7 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
@@ -172,6 +177,8 @@ end;
 procedure TfrmConstells.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
+  VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
 //----------------------------------------------------------------------------
@@ -180,21 +187,23 @@ end;
 procedure TfrmConstells.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
+  VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
+  HelpWiki := tvConstellations.Selected.Text;
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.Save1Click(Sender: TObject);
 begin
   // Save TreeView
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.GLCadencerProgress(Sender: TObject; const DeltaTime, NewTime: Double);
 begin
  //
@@ -202,14 +211,14 @@ begin
 
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.GLSimpleNavigation1MouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
 
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.HandleKeys(d: Double);
 begin
   if (IsKeyDown('W') or IsKeyDown('Z')) then
@@ -225,13 +234,13 @@ begin
     Close;
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.miSettingsClick(Sender: TObject);
 begin
 //
 end;
 
-//-----------------------------------------------------------------------
+//----------------------------------------------------------------------------
 procedure TfrmConstells.Exit1Click(Sender: TObject);
 begin
   Close;

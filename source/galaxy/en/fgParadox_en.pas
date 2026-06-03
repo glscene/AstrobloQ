@@ -14,9 +14,11 @@ uses
   Vcl.Dialogs,
   Vcl.ComCtrls,
   Vcl.VirtualImage,
+  Vcl.ExtCtrls,
+  Vcl.StdCtrls,
 
-  dmImages,
-  fmFormFirst, Vcl.ExtCtrls, Vcl.StdCtrls, GLS.SceneViewer;
+  fmFormFirst,
+  GLS.SceneViewer;
 
 type
   TfrmParadox = class(TFormFirst)

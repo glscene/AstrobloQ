@@ -34,8 +34,6 @@ uses
   Vcl.CheckLst,
   Vcl.ToolWin,
 
-  dmImages,
-
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.TextureFormat,
@@ -67,10 +65,13 @@ uses
   GLS.Particles,
 
   fmFormFirst,
-  fmAbout_ru,
-  faOptions_ru,
   faConstBorders_ru,
   faConstAtlas_ru,
+  faOptions_ru,
+  faAbout_ru,
+
+  daMaps_ru,
+  dmImages,
 
   Astro.ReadCSV
   ;

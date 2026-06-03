@@ -4,8 +4,8 @@ object FormAstroScene: TFormAstroScene
   Cursor = crHelp
   Hint = #1053#1077#1087#1090#1091#1085
   Caption = 'AstroScene'
-  ClientHeight = 726
-  ClientWidth = 1391
+  ClientHeight = 701
+  ClientWidth = 1383
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -26,13 +26,13 @@ object FormAstroScene: TFormAstroScene
   object SceneViewer: TGLSceneViewer
     Left = 313
     Top = 57
-    Width = 791
-    Height = 630
+    Width = 783
+    Height = 605
     Cursor = crHandPoint
     Camera = Camera
     BeforeRender = SceneViewerBeforeRender
     Buffer.BackgroundColor = clBlack
-    FieldOfView = 144.924987792968800000
+    FieldOfView = 143.569610595703100000
     PenAsTouch = False
     Align = alClient
     OnDblClick = SceneViewerDblClick
@@ -44,10 +44,9 @@ object FormAstroScene: TFormAstroScene
     Left = 0
     Top = 57
     Width = 313
-    Height = 630
+    Height = 605
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 605
     object tvMoons: TTreeView
       Left = 1
       Top = 111
@@ -62,10 +61,8 @@ object FormAstroScene: TFormAstroScene
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
-      Images = DataModuleImages.VirtMoonMaps
       Indent = 35
       ParentFont = False
-      StateImages = DataModuleImages.VirtPlanetSymbols
       TabOrder = 0
       OnClick = tvMoonsClick
       Items.NodeData = {
@@ -303,7 +300,6 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 493
     end
     object StaticText1: TStaticText
       Left = 1
@@ -339,7 +335,7 @@ object FormAstroScene: TFormAstroScene
       Font.Height = -21
       Font.Name = 'MS Sans Serif'
       Font.Style = []
-      Images = DataModuleImages.VirtPlanetSymbols
+      Images = DataModuleMaps.VirtPlanetSymbols
       List = True
       ParentFont = False
       TabOrder = 3
@@ -471,8 +467,8 @@ object FormAstroScene: TFormAstroScene
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 687
-    Width = 1391
+    Top = 662
+    Width = 1383
     Height = 39
     Panels = <
       item
@@ -491,18 +487,14 @@ object FormAstroScene: TFormAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 662
-    ExplicitWidth = 1383
   end
   object PanelRight: TPanel
-    Left = 1104
+    Left = 1096
     Top = 57
     Width = 287
-    Height = 630
+    Height = 605
     Align = alRight
     TabOrder = 3
-    ExplicitLeft = 1096
-    ExplicitHeight = 605
     object tvAsteroids: TTreeView
       Left = 1
       Top = 29
@@ -550,7 +542,6 @@ object FormAstroScene: TFormAstroScene
         00000000000000010713043E043B04350432043A043004000029000000096101
         0009610100FFFFFFFFFFFFFFFF00000000000000000000000000010521043504
         34043D043004}
-      ExplicitHeight = 575
     end
     object StaticText2: TStaticText
       Left = 1
@@ -566,11 +557,10 @@ object FormAstroScene: TFormAstroScene
   object ControlBarTop: TControlBar
     Left = 0
     Top = 0
-    Width = 1391
+    Width = 1383
     Height = 57
     Align = alTop
     TabOrder = 4
-    ExplicitWidth = 1383
     object ToolBarMain: TToolBar
       Left = 11
       Top = 2

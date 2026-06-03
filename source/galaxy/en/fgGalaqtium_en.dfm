@@ -628,6 +628,7 @@ object FormGalaqtium: TFormGalaqtium
         Up.Coordinates = {00000000000000000000803F00000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
+        Slices = 16
         TopRadius = 0.050000000745058060
         Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
@@ -642,6 +643,7 @@ object FormGalaqtium: TFormGalaqtium
         Scale.Coordinates = {00004843000048430000FA4300000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
+        Slices = 16
         TopRadius = 0.050000000745058060
         Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200
@@ -655,6 +657,7 @@ object FormGalaqtium: TFormGalaqtium
         Scale.Coordinates = {00004843000048430000FA4300000000}
         BottomRadius = 0.050000000745058060
         Height = 2.000000000000000000
+        Slices = 16
         TopRadius = 0.050000000745058060
         Parts = [alLine, alTopArrow, alBottomArrow]
         TopArrowHeadHeight = 0.200000002980232200

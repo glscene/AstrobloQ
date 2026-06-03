@@ -103,7 +103,7 @@ __published:	// IDE-managed Components
 	TMenuItem *miExit;
 	TMenuItem *Show1;
 	TMenuItem *miOptions;
-	TMenuItem *Wiki1;
+	TMenuItem *miHelpWiki;
 	TMenuItem *miHipparcos;
 	TMenuItem *N2;
 	TPanel *Panel1;

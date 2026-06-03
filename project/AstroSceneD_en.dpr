@@ -10,7 +10,7 @@ uses
   faAstroScene_en in '..\source\astro\en\faAstroScene_en.pas' {FormAstroScene},
   fmFormFirst in '..\source\fmFormFirst.pas' {FormFirst: TDataModule},
   dmImages in '..\source\dmImages.pas' {DataModuleImages: TDataModule},
-  fmAbout_en in '..\source\fmAbout_en.pas' {frmAbout},
+  faAbout_en in '..\source\astro\en\faAbout_en.pas' {frmAbout},
   faMakeStarsys_en in '..\source\astro\en\faMakeStarsys_en.pas' {frmMakeStarsys},
   Astro.Camera in '..\source\astro\Astro.Camera.pas',
   Astro.SkyBodies in '..\source\astro\Astro.SkyBodies.pas',
@@ -27,7 +27,8 @@ uses
   Astro.Vsop2013 in '..\source\astro\Astro.Vsop2013.pas',
   faConstBorders_en in '..\source\astro\en\faConstBorders_en.pas' {frmSkyPolygons},
   Astro.ReadCSV in '..\source\astro\Astro.ReadCSV.pas',
-  faGenStarblock_en in '..\source\astro\en\faGenStarblock_en.pas' {frmGenStarblock};
+  faGenStarblock_en in '..\source\astro\en\faGenStarblock_en.pas' {frmGenStarblock},
+  daMaps_en in '..\source\astro\en\daMaps_en.pas' {DataModuleMaps: TDataModule};
 
 {$R *.res}
 
@@ -41,5 +42,6 @@ begin
   Application.CreateForm(TFormFirst, FormFirst);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TfrmStellarSys, frmStellarSys);
+  Application.CreateForm(TDataModuleMaps, DataModuleMaps);
   Application.Run;
 end.

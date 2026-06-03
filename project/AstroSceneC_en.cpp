@@ -8,11 +8,11 @@ USEFORM("..\source\dcDialogs.cpp", dmDialogs); /* TDataModule: File Type */
 USEFORM("..\source\dcBase.cpp", dmBase); /* TDataModule: File Type */
 USEFORM("..\source\astro\en\fcOptions_en.cpp", FormOptions);
 USEFORM("..\source\fcFormFirst.cpp", FormFirst);
-USEFORM("..\source\fcAbout_en.cpp", frmAbout);
+USEFORM("..\source\astro\en\fcAbout_en.cpp", frmAbout);
 USEFORM("..\source\dcImages.cpp", dmImages); /* TDataModule: File Type */
-USEFORM("..\source\astro\en\fcAstroScene_en.cpp", FormAstroScene);
 USEFORM("..\source\astro\en\fcHipparcos_en.cpp", frmHipparcos);
 USEFORM("..\source\astro\en\fcHercRussel_en.cpp", frmHercRussel);
+USEFORM("..\source\astro\en\fcAstroScene_en.cpp", FormAstroScene);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

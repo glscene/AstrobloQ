@@ -149,11 +149,6 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\dmImages.pas">
-            <Form>DataModuleImages</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="..\source\lito\en\flDuneFighter_en.pas">
             <Form>frmDuneFighter</Form>
             <FormType>dfm</FormType>

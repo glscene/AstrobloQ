@@ -52,9 +52,8 @@ uses
   GLS.SpaceText,
 
   fmFormFirst,
-  fmAbout_en,
+  faAbout_en,
 
-  dmImages,
   dmDialogs,
   dmBase,
 

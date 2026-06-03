@@ -153,7 +153,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\source\fmAbout_ru.pas">
+        <DCCReference Include="..\source\astro\ru\faAbout_ru.pas">
             <Form>frmAbout</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -202,6 +202,11 @@
         <DCCReference Include="..\source\astro\ru\faGenStarblock_ru.pas">
             <Form>frmViewSolblock</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\ru\daMaps_ru.pas">
+            <Form>DataModuleMaps</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

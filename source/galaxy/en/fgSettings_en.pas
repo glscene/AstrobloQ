@@ -35,7 +35,6 @@ uses
   Vcl.Imaging.jpeg,
 
   Astro.Globals,
-  dmImages,
   fmFormFirst;
 
 type

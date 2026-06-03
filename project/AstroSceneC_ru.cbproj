@@ -193,6 +193,12 @@
         <CppCompile Include="..\source\astro\Astro.Constel.c">
             <BuildOrder>11</BuildOrder>
         </CppCompile>
+        <CppCompile Include="..\source\astro\ru\fcAbout_ru.cpp">
+            <Form>frmAbout</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\source\astro\ru\fcAbout_ru.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
         <CppCompile Include="..\source\astro\ru\fcAstroScene_ru.cpp">
             <Form>FormAstroScene</Form>
             <FormType>dfm</FormType>
@@ -238,12 +244,6 @@
             <DependentOn>..\source\dcImages.h</DependentOn>
             <BuildOrder>11</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\source\fcAbout_ru.cpp">
-            <Form>frmAbout</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>..\source\fcAbout_ru.h</DependentOn>
-            <BuildOrder>10</BuildOrder>
-        </CppCompile>
         <CppCompile Include="..\source\fcFormFirst.cpp">
             <Form>FormFirst</Form>
             <FormType>dfm</FormType>
@@ -254,11 +254,11 @@
         <FormResources Include="..\source\dcBase.dfm"/>
         <FormResources Include="..\source\astro\ru\fcOptions_ru.dfm"/>
         <FormResources Include="..\source\fcFormFirst.dfm"/>
-        <FormResources Include="..\source\fcAbout_ru.dfm"/>
+        <FormResources Include="..\source\astro\ru\fcAbout_ru.dfm"/>
         <FormResources Include="..\source\dcImages.dfm"/>
-        <FormResources Include="..\source\astro\ru\fcAstroScene_ru.dfm"/>
         <FormResources Include="..\source\astro\ru\fcHipparcos_ru.dfm"/>
         <FormResources Include="..\source\astro\ru\fcHercRussel_ru.dfm"/>
+        <FormResources Include="..\source\astro\ru\fcAstroScene_ru.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

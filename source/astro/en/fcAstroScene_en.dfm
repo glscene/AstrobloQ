@@ -1004,7 +1004,7 @@ object FormAstroScene: TFormAstroScene
     end
     object miHelp: TMenuItem
       Caption = 'Help'
-      object Wiki1: TMenuItem
+      object miHelpWiki: TMenuItem
         Caption = 'Wiki...'
       end
       object miAbout: TMenuItem
