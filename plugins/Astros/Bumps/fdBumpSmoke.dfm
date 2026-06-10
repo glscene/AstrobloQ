@@ -22,7 +22,7 @@ object Main: TMain
     Top = 0
     Width = 705
     Height = 490
-    Camera = Cam
+    Camera = Camera
     Buffer.BackgroundColor = clBlack
     Buffer.Lighting = False
     Buffer.DepthPrecision = dp32bits
@@ -44,8 +44,17 @@ object Main: TMain
     ExplicitLeft = 618
   end
   object Scene: TGLScene
-    Left = 8
+    Left = 48
     Top = 8
+    object Camera: TGLCamera
+      DepthOfView = 10000.000000000000000000
+      FocalLength = 50.000000000000000000
+      TargetObject = Cube1
+      CameraStyle = csInfinitePerspective
+      Position.Coordinates = {00000C4200007041000000000000803F}
+      Left = 232
+      Top = 152
+    end
     object DummyCube: TGLDummyCube
       CubeSize = 1.000000000000000000
       object Cube1: TGLCube
@@ -61,10 +70,14 @@ object Main: TMain
       object Sphere1: TGLSphere
         Material.MaterialLibrary = tlp
         Radius = 5.000000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object Sphere2: TGLSphere
         Material.MaterialLibrary = tlp
         Radius = 5.000000000000000000
+        Slices = 16
+        Stacks = 16
       end
     end
     object hsp: TGLHUDSprite
@@ -74,31 +87,23 @@ object Main: TMain
       Height = 128.000000000000000000
       Rotation = 0.000000000000000000
     end
-    object Cam: TGLCamera
-      DepthOfView = 1000.000000000000000000
-      FocalLength = 50.000000000000000000
-      TargetObject = Cube1
-      Position.Coordinates = {00000C4200007041000000000000803F}
-      Left = 232
-      Top = 152
-    end
   end
   object Tick: TGLCadencer
     Scene = Scene
     OnProgress = TickProgress
-    Left = 40
-    Top = 8
+    Left = 368
+    Top = 24
   end
   object tlp: TGLMaterialLibrary
-    Left = 72
-    Top = 8
+    Left = 272
+    Top = 16
   end
   object AsyncTimer1: TGLAsyncTimer
     Enabled = True
     OnTimer = AsyncTimer1Timer
     ThreadPriority = tpNormal
-    Left = 8
-    Top = 40
+    Left = 280
+    Top = 80
   end
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
@@ -117,7 +122,7 @@ object Main: TMain
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 184
-    Top = 48
+    Left = 176
+    Top = 40
   end
 end

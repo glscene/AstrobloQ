@@ -14004,7 +14004,7 @@ object DataModuleMaps: TDataModuleMaps
   object ConstelFigures: TImageCollection
     Images = <
       item
-        Name = 'andromeda'
+        Name = #1040#1085#1076#1088#1086#1084#1077#1076#1072
         SourceImages = <
           item
             Image.Data = {
@@ -14228,7 +14228,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'antlia'
+        Name = #1053#1072#1089#1086#1089
         SourceImages = <
           item
             Image.Data = {
@@ -14527,7 +14527,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'apus'
+        Name = #1056#1072#1081#1089#1082#1072#1103' '#1087#1090#1080#1094#1072
         SourceImages = <
           item
             Image.Data = {
@@ -14786,7 +14786,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'aquarius'
+        Name = #1042#1086#1076#1086#1083#1077#1081
         SourceImages = <
           item
             Image.Data = {
@@ -15107,7 +15107,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'aquila'
+        Name = #1054#1088#1105#1083
         SourceImages = <
           item
             Image.Data = {
@@ -18902,7 +18902,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'cassiopeia'
+        Name = #1050#1072#1089#1089#1080#1086#1087#1077#1103
         SourceImages = <
           item
             Image.Data = {
@@ -19218,7 +19218,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'centaurus'
+        Name = #1050#1077#1085#1090#1072#1074#1088
         SourceImages = <
           item
             Image.Data = {
@@ -23917,7 +23917,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'dorado'
+        Name = #1047#1086#1083#1086#1090#1072#1103' '#1088#1099#1073#1072
         SourceImages = <
           item
             Image.Data = {
@@ -24151,7 +24151,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'draco'
+        Name = #1044#1088#1072#1082#1086#1085
         SourceImages = <
           item
             Image.Data = {
@@ -25416,7 +25416,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'gemini'
+        Name = #1041#1083#1080#1079#1085#1077#1094#1099
         SourceImages = <
           item
             Image.Data = {
@@ -26059,7 +26059,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'hercules'
+        Name = #1043#1077#1088#1082#1091#1083#1077#1089
         SourceImages = <
           item
             Image.Data = {
@@ -26788,7 +26788,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'hydra'
+        Name = #1043#1080#1076#1088#1072
         SourceImages = <
           item
             Image.Data = {
@@ -27177,7 +27177,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'indus'
+        Name = #1048#1085#1076#1077#1077#1094
         SourceImages = <
           item
             Image.Data = {
@@ -28014,7 +28014,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'leo'
+        Name = #1051#1077#1074
         SourceImages = <
           item
             Image.Data = {
@@ -28260,7 +28260,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'leo-minor'
+        Name = #1052#1072#1083#1099#1081' '#1083#1077#1074
         SourceImages = <
           item
             Image.Data = {
@@ -28530,7 +28530,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'lepus'
+        Name = #1047#1072#1103#1094
         SourceImages = <
           item
             Image.Data = {
@@ -29326,7 +29326,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'lynx'
+        Name = #1056#1099#1089#1100
         SourceImages = <
           item
             Image.Data = {
@@ -29558,7 +29558,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'lyra'
+        Name = #1051#1080#1088#1072
         SourceImages = <
           item
             Image.Data = {
@@ -30341,7 +30341,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'microscopium'
+        Name = #1052#1080#1082#1088#1086#1089#1082#1086#1087
         SourceImages = <
           item
             Image.Data = {
@@ -32457,7 +32457,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'orion'
+        Name = #1054#1088#1080#1086#1085
         SourceImages = <
           item
             Image.Data = {
@@ -39307,7 +39307,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'ursa-major'
+        Name = #1041#1086#1083#1100#1096#1072#1103' '#1084#1077#1076#1074#1077#1076#1080#1094#1072
         SourceImages = <
           item
             Image.Data = {
@@ -39540,7 +39540,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'ursa-minor'
+        Name = #1052#1072#1083#1072#1103' '#1084#1077#1076#1074#1077#1076#1080#1094#1072
         SourceImages = <
           item
             Image.Data = {
@@ -40106,7 +40106,7 @@ object DataModuleMaps: TDataModuleMaps
           end>
       end
       item
-        Name = 'virgo'
+        Name = #1044#1077#1074#1072
         SourceImages = <
           item
             Image.Data = {

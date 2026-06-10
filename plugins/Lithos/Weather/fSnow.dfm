@@ -47,13 +47,6 @@ object FormSnow: TFormSnow
         CubeSize = 1.000000000000000000
         OnActivateParticle = GLParticles1ActivateParticle
       end
-      object GLSphere1: TGLSphere
-        Material.FrontProperties.Ambient.Color = {0000803F0000803F000000000000803F}
-        Material.FrontProperties.Diffuse.Color = {0000803F0000803F000000000000803F}
-        Material.FrontProperties.Emission.Color = {0000803F0000803F000000000000803F}
-        Material.FrontProperties.Specular.Color = {0000803F0000803F000000000000803F}
-        Radius = 2.000000000000000000
-      end
     end
     object GLCamera1: TGLCamera
       DepthOfView = 100.000000000000000000

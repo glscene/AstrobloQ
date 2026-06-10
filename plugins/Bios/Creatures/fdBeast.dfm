@@ -24,8 +24,6 @@ object FormBeast: TFormBeast
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 538
-    ExplicitHeight = 417
   end
   object Panel1: TPanel
     Left = 546
@@ -122,6 +120,7 @@ object FormBeast: TFormBeast
         Visible = False
         BottomRadius = 0.100000001490116100
         Height = 1.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
       end
     end
@@ -145,6 +144,8 @@ object FormBeast: TFormBeast
       object GLSphere1: TGLSphere
         Scale.Coordinates = {CDCCCC3DCDCCCC3DCDCCCC3D00000000}
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
     end
     object LightSource2: TGLLightSource
@@ -154,6 +155,8 @@ object FormBeast: TFormBeast
       object GLSphere2: TGLSphere
         Scale.Coordinates = {CDCCCC3DCDCCCC3DCDCCCC3D00000000}
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
     end
     object Camera1: TGLCamera

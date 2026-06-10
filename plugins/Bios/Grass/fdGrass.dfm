@@ -34,6 +34,8 @@ object Form1: TForm1
       Scale.Coordinates = {0000A0400000803F0000803F00000000}
       NormalDirection = ndInside
       Radius = 50.000000000000000000
+      Slices = 16
+      Stacks = 16
     end
     object dc_pl: TGLDummyCube
       Position.Coordinates = {0000A0C00000C03F000000000000803F}

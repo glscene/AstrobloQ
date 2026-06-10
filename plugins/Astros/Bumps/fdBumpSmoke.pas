@@ -1,3 +1,6 @@
+(****************************************************************************
+                           AstrobloQ System
+*****************************************************************************)
 unit fdBumpSmoke;
 
 interface
@@ -38,7 +41,7 @@ type
     Scene: TGLScene;
     Tick: TGLCadencer;
     tlp: TGLMaterialLibrary;
-    Cam: TGLCamera;
+    Camera: TGLCamera;
     Cube1: TGLCube;
     AsyncTimer1: TGLAsyncTimer;
     hsp: TGLHUDSprite;

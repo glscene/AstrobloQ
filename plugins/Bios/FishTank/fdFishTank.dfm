@@ -135,6 +135,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -149,6 +150,8 @@ object FormFishTank: TFormFishTank
       object BSphere: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object LinesForDirection: TGLLines
         Nodes = <
@@ -174,11 +177,14 @@ object FormFishTank: TFormFishTank
       Material.FrontProperties.Diffuse.Color = {9A99593F9A99593FCDCCCC3D0000803F}
       Position.Coordinates = {0000A04000000000000000000000803F}
       Radius = 1.000000000000000000
+      Slices = 16
+      Stacks = 16
       object GLArrowLine4: TGLArrowLine
         Material.FrontProperties.Diffuse.Color = {9A99593F9A99593FCDCCCC3D0000803F}
         Position.Coordinates = {00000000000000000000A0400000803F}
         BottomRadius = 0.100000001490116100
         Height = 10.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -222,6 +228,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -236,6 +243,8 @@ object FormFishTank: TFormFishTank
       object GLSphere1: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines1: TGLLines
         Nodes = <
@@ -255,6 +264,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -269,6 +279,8 @@ object FormFishTank: TFormFishTank
       object GLSphere2: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines2: TGLLines
         Nodes = <
@@ -288,6 +300,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -302,6 +315,8 @@ object FormFishTank: TFormFishTank
       object GLSphere3: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines3: TGLLines
         Nodes = <
@@ -321,6 +336,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -335,6 +351,8 @@ object FormFishTank: TFormFishTank
       object GLSphere4: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines4: TGLLines
         Nodes = <
@@ -354,6 +372,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -368,6 +387,8 @@ object FormFishTank: TFormFishTank
       object GLSphere5: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines5: TGLLines
         Nodes = <
@@ -387,6 +408,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -401,6 +423,8 @@ object FormFishTank: TFormFishTank
       object GLSphere6: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines6: TGLLines
         Nodes = <
@@ -420,6 +444,7 @@ object FormFishTank: TFormFishTank
         Position.Coordinates = {0000000000000000000000400000803F}
         BottomRadius = 0.100000001490116100
         Height = 5.000000000000000000
+        Slices = 16
         TopRadius = 0.100000001490116100
         TopArrowHeadHeight = 0.500000000000000000
         TopArrowHeadRadius = 0.200000002980232200
@@ -434,6 +459,8 @@ object FormFishTank: TFormFishTank
       object GLSphere7: TGLSphere
         Material.BlendingMode = bmAdditive
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
       object GLLines7: TGLLines
         Nodes = <

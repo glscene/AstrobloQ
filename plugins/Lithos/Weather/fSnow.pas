@@ -38,7 +38,6 @@ type
     Timer1: TTimer;
     GLDummyCube1: TGLDummyCube;
     Timer2: TTimer;
-    GLSphere1: TGLSphere;
     procedure GLParticles1ActivateParticle(Sender: TObject;
       particle: TGLBaseSceneObject);
     procedure Timer1Timer(Sender: TObject);
@@ -70,11 +69,11 @@ var
   FormSnow: TFormSnow;
   SSprite: TGLSprite;
 
-//====================================
-implementation
+implementation //=============================================================
 
 {$R *.DFM}
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.FormCreate(Sender: TObject);
 begin
   // if we don't do this, our random won't look like random
@@ -86,6 +85,7 @@ begin
   SSprite.OnProgress := SSpriteProgress;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.SSpriteProgress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
@@ -117,6 +117,7 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.GLParticles1ActivateParticle(Sender: TObject;
   particle: TGLBaseSceneObject);
 begin
@@ -124,15 +125,12 @@ begin
   // ie. just before it will be rendered
   with TGLSprite(particle) do
   begin
-    with Material.FrontProperties do
-    begin
-      // we pick a random color
-      Emission.Color := PointMake(1, 1, 1);
-      // random color
-///      Emission.Color := PointMake(Random, Random, Random);
-      // our halo starts transparent
-      Diffuse.Alpha := 1;
-    end;
+    // we pick a random color
+    Material.FrontProperties.Emission.Color := PointMake(1, 1, 1);
+    // random color
+    Material.FrontProperties.Emission.Color := PointMake(Random, Random, Random);
+    // our halo starts transparent
+    Material.FrontProperties.Diffuse.Alpha := 1;
     // this is our "birth time"
     TagFloat := GLCadencer1.CurrentTime;
   end;
@@ -141,6 +139,7 @@ end;
 var
   mx, my: Integer;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -148,6 +147,7 @@ begin
   my := Y;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
   X, Y: Integer);
 begin
@@ -159,6 +159,7 @@ begin
   my := Y;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.Timer1Timer(Sender: TObject);
 var
   i: Integer;
@@ -176,7 +177,7 @@ begin
       Position.Y := GLDummyCube1.Position.Y + (GLDummyCube1.CubeSize / 4);;
 
       Width := random * 0.2;
-      height := Width;
+      Height := Width;
 
       // We need to store some additional info
       TagObject := TSpriteHolder.create;
@@ -186,25 +187,26 @@ begin
       (TagObject as TSpriteHolder).initalPosz := Position.Z;
       (TagObject as TSpriteHolder).speed := random;
     end;
-
   end;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.Timer2Timer(Sender: TObject);
 begin
-
   // infos for the user
   Caption := Format('%d particles, %.1f FPS', [GLParticles1.Count - 1,
     GLSceneViewer1.FramesPerSecond]);
   GLSceneViewer1.ResetPerformanceMonitor;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.FormResize(Sender: TObject);
 begin
   // change focal so the view will shrink and not just get clipped
   GLCamera1.FocalLength := 50 * Width / 280;
 end;
 
+//---------------------------------------------------------------------------
 procedure TFormSnow.FormMouseWheel(Sender: TObject; Shift: TShiftState;
   WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
 begin
@@ -218,4 +220,5 @@ begin
   end;
 end;
 
+//---------------------------------------------------------------------------
 end.

@@ -70,6 +70,8 @@ object frmConnector: TfrmConnector
       end
       object GLSphere1: TGLSphere
         Radius = 0.500000000000000000
+        Slices = 16
+        Stacks = 16
       end
     end
     object Lines: TGLLines

@@ -30,8 +30,6 @@ object FBumpEarth: TFBumpEarth
     PopupMenu = PopupMenu
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 0
-    ExplicitWidth = 772
-    ExplicitHeight = 523
   end
   object GLScene1: TGLScene
     Left = 16
