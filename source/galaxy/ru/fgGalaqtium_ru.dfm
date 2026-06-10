@@ -358,35 +358,35 @@ object FormGalaqtium: TFormGalaqtium
         Slices = 64
         SweepAngle = 360.000000000000000000
       end
-      object XYZGrid: TGLXYZGrid
+      object grdGalaxy: TGLXYZGrid
         Direction.Coordinates = {000000000000803F0000000000000000}
         ShowAxes = True
         Up.Coordinates = {0000000000000000000080BF00000000}
         XSamplingScale.Min = -50000.000000000000000000
         XSamplingScale.Max = 50000.000000000000000000
-        XSamplingScale.Step = 1000.000000000000000000
+        XSamplingScale.Step = 10000.000000000000000000
         YSamplingScale.Min = -50000.000000000000000000
         YSamplingScale.Max = 50000.000000000000000000
-        YSamplingScale.Step = 1000.000000000000000000
+        YSamplingScale.Step = 10000.000000000000000000
         ZSamplingScale.Min = -500.000000000000000000
         ZSamplingScale.Max = 500.000000000000000000
         ZSamplingScale.Origin = -500.000000000000000000
         ZSamplingScale.Step = 1000.000000000000000000
         Parts = [gpX, gpY, gpZ]
       end
-      object celGalaxy: TGLCylinder
+      object cylGalaxy: TGLCylinder
         BottomRadius = 0.500000000000000000
         Height = 1.000000000000000000
         Slices = 16
         TopRadius = 0.500000000000000000
       end
-      object sphGalaxy: TGLSphere
+      object sphGalaxyMW: TGLSphere
         Material.PolygonMode = pmLines
         Radius = 50000.000000000000000000
         Slices = 16
         Stacks = 16
       end
-      object ansGHZ: TGLAnnulus
+      object ansGalaxyHZ: TGLAnnulus
         Material.BackProperties.Ambient.Color = {00000000000000000000000000000000}
         Material.BackProperties.Diffuse.Color = {EBE0E03EE4DB5B3F9A93133F0000803F}
         Material.BackProperties.Emission.Color = {00000000000000000000000000000000}
@@ -403,6 +403,14 @@ object FormGalaqtium: TFormGalaqtium
         BottomInnerRadius = 10000.000000000000000000
         TopInnerRadius = 10000.000000000000000000
         TopRadius = 30000.000000000000000000
+      end
+      object cubeSol: TGLCube
+        Material.FrontProperties.Ambient.Color = {9A99193FCDCC4C3FACC8483E0000803F}
+        Material.FrontProperties.Diffuse.Color = {9A99193FCDCC4C3FACC8483E0000803F}
+        Material.FrontProperties.Emission.Color = {9A99193FCDCC4C3FACC8483E0000803F}
+        Material.FrontProperties.Specular.Color = {9A99193FCDCC4C3FACC8483E0000803F}
+        Position.Coordinates = {00409C45000000000050C3460000803F}
+        CubeSize = {00401C4600007A4400401C46}
       end
     end
   end

@@ -113,7 +113,7 @@ type
     ArrowZ: TGLArrowLine;
     ArrowY: TGLArrowLine;
     ArrowX: TGLArrowLine;
-    XYZGrid: TGLXYZGrid;
+    grdGalaxy: TGLXYZGrid;
     ControlBar: TControlBar;
     diskGalaxy: TGLDisk;
     ToolBarMain: TToolBar;
@@ -156,9 +156,9 @@ type
     miTranslator: TMenuItem;
     GLMatLib: TGLMaterialLibrary;
     miSettings: TMenuItem;
-    celGalaxy: TGLCylinder;
-    sphGalaxy: TGLSphere;
-    ansGHZ: TGLAnnulus;
+    cylGalaxy: TGLCylinder;
+    sphGalaxyMW: TGLSphere;
+    ansGalaxyHZ: TGLAnnulus;
     miAnalytics: TMenuItem;
     N6: TMenuItem;
     N8: TMenuItem;
@@ -169,6 +169,7 @@ type
     miNavigator: TMenuItem;
     GLNavigator1: TGLNavigator;
     GLSimpleNavigation1: TGLSimpleNavigation;
+    cubeSol: TGLCube;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
