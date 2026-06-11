@@ -10,6 +10,7 @@ uses
   Winapi.Messages,
   System.SysUtils,
   System.Classes,
+  System.Math,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
@@ -17,9 +18,11 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
   Vcl.Imaging.Jpeg,
+  Vcl.Imaging.GIFImg,
 
   Stage.VectorTypes,
   Stage.VectorGeometry,
+  Stage.Keyboard,
   GLS.Scene,
   GLS.State,
   GLS.TerrainRenderer,
@@ -37,9 +40,9 @@ uses
   GLS.VectorFileObjects,
   GLS.FireFX,
   GLS.Coordinates,
+  GLS.Color,
 
-  GLS.File3DS,
-  Stage.Keyboard;
+  GLS.File3DS;
 
 type
   TFormSkyship = class(TForm)
@@ -52,7 +55,7 @@ type
     Timer1: TTimer;
     GLCadencer1: TGLCadencer;
     GLMaterialLibrary1: TGLMaterialLibrary;
-    SkyDome1: TGLSkyDome;
+    SkyDome: TGLSkyDome;
     ffSkyShip: TGLFreeForm;
     GLFireFXManager1: TGLFireFXManager;
     dcFire: TGLDummyCube;
@@ -65,12 +68,16 @@ type
       const deltaTime, newTime: Double);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
+    procedure GLSceneViewerMouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; MousePos: TPoint; var Handled: Boolean);
   private
   public
     CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
     FCamHeight: Single;
+    Color: TGIFColor;
   end;
 
 var
@@ -111,20 +118,47 @@ begin
   dcViewing.Turn(90);
   // Начальное смещение высоты камеры (контролируется клавишами pgUp/pgDown)
   FCamHeight := 20;
+  ffSkyShip.LoadFromFile('skyship.3ds'); // или модель patrol.3ds
+//  ffSkyShip.Scale.SetVector(5.0, 5.0, 5.0, 0); // scaling for patrol
+  ffSkyShip.Material.Texture.Image.LoadFromFile('avion512.jpg');
+end;
+
+//-----------------------------------------------------------------------------
+procedure TFormSkyship.FormShow(Sender: TObject);
+var
+  I: Integer;
+
+begin
   // небосвод с мигающими звёздами
-  with SkyDome1 do
+  with SkyDome do
   begin
-    Bands[1].StopColor.AsWinColor := RGB(0, 0, 16);
-    Bands[1].StartColor.AsWinColor := RGB(0, 0, 8);
     Bands[0].StopColor.AsWinColor := RGB(0, 0, 8);
     Bands[0].StartColor.AsWinColor := RGB(0, 0, 0);
-    with Stars do
+    Bands[1].StopColor.AsWinColor := RGB(0, 0, 16);
+    Bands[1].StartColor.AsWinColor := RGB(0, 0, 8);
+
+    // белые звёзды
+    Stars.AddRandomStars(100, clWhite, False);
+    // синие звёзды
+    Stars.AddRandomStars(400, clBlue, False);
+    // жёлтые звёзды
+    Stars.AddRandomStars(500, clYellow, False);
+    // красные звёзды
+    Stars.AddRandomStars(1000, clRed, False);
+
+    // задание светимости, магнитуты, для классов звёзд
+    for I := 0 to Stars.Count -1 do
     begin
-      AddRandomStars(700, clWhite, True); // many white stars
-      AddRandomStars(100, RGB(255, 200, 200), True); // some redish ones
-      AddRandomStars(100, RGB(200, 200, 255), True); // some blueish ones
-      AddRandomStars(100, RGB(255, 255, 200), True); // some yellowish ones
+      if Stars[I].Color = clWhite then
+        Stars[I].Magnitude := -3;
+      if Stars[I].Color = clBlue then
+        Stars[I].Magnitude := -2;
+      if Stars[I].Color = clYellow then
+        Stars[I].Magnitude := -1;
+      if Stars[I].Color = clRed then
+        Stars[I].Magnitude := 0;
     end;
+
     GLSceneViewer.Buffer.BackgroundColor := clBlack;
     with GLSceneViewer.Buffer.FogEnvironment do
     begin
@@ -132,10 +166,8 @@ begin
       FogStart := -FogStart; // Fog is used to make things darker
     end;
   end;
-  ffSkyShip.LoadFromFile('skyship.3ds'); // или модель patrol.3ds
-//  ffSkyShip.Scale.SetVector(5.0, 5.0, 5.0, 0); // scaling for patrol
-  ffSkyShip.Material.Texture.Image.LoadFromFile('avion512.jpg');
 end;
+
 
 //-----------------------------------------------------------------------------
 procedure TFormSkyship.GLCadencer1Progress(Sender: TObject;
@@ -152,29 +184,31 @@ begin
   // полёт над террейной со скоростью speed
   dcViewing.Translate(ffSkyShip.direction.Z * speed, - ffSkyShip.direction.Y *
     speed, - ffSkyShip.direction.X * speed);
-  if IsKeyDown(VK_UP) then
+
+  if IsKeyDown('w') or IsKeyDown('ц') or IsKeyDown(VK_UP) then
   begin
     ffSkyShip.Pitch(1.0);
     // GLCamera1.Pitch(0.1);
     // GLCamera1.MoveAroundTarget(-1, 0);
   end;
-  if IsKeyDown(VK_DOWN) then
+
+  if IsKeyDown('s') or IsKeyDown('ы') or IsKeyDown(VK_DOWN) then
   begin
     ffSkyShip.Pitch(-1.0);
     // GLCamera1.Pitch(-0.1);
     // GLCamera1.MoveAroundTarget(1, 0);
   end;
-  if IsKeyDown(VK_LEFT) then
+  if IsKeyDown('a') or IsKeyDown('ф') or IsKeyDown(VK_LEFT) then
   begin
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
     ffSkyShip.Turn(-1.0);
     // GLCamera1.Turn(0.1);
   end;
-  if IsKeyDown(VK_RIGHT) then
+  if IsKeyDown('d') or IsKeyDown('в') or IsKeyDown(VK_RIGHT) then
   begin
     // DummyCube1.Translate(X*speed, 0, Z*speed);
     ffSkyShip.Turn(1.0);
-   // GLCamera1.Turn(-0.1);
+    // GLCamera1.Turn(-0.1);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
   (*
@@ -183,61 +217,48 @@ begin
     if IsKeyDown(VK_NEXT) then
     FCamHeight := FCamHeight-10*speed;
   *)
-  if IsKeyDown(#67) or IsKeyDown('с') then  // 'c' вид из кабины
+  // вращение корпуса по часовой стрелке
+  if IsKeyDown(',') or IsKeyDown('б') then
+  begin
+    ffSkyShip.Roll(-1.0);
+  end;
+  // вращение корпуса против часовой стрелки
+  if IsKeyDown('.') or IsKeyDown('ю') then
+  begin
+    ffSkyShip.Roll(1.0);
+  end;
+  // 'c' вид из кабины
+  if IsKeyDown(#67) or IsKeyDown('с') then
   begin
     ffSkyShip.Scale.SetVector(3.0, 3.0, 3.0, 0);
     ffSkyShip.Visible := True;
   end;
-  if IsKeyDown(#86)  or IsKeyDown('м') then  // 'м' вид со стороны
+  // 'м' вид со стороны
+  if IsKeyDown(#86)  or IsKeyDown('м') then
   begin
     ffSkyShip.Scale.SetVector(0.3, 0.2, 0.3, 0);
     ffSkyShip.Visible := True;
   end;
-  if IsKeyDown(#80)  or IsKeyDown('ч') then  // 'ч' вид из камера впереди
+  // 'ч' вид из камера впереди
+  if IsKeyDown(#80)  or IsKeyDown('ч') then
     ffSkyShip.Visible := False;
 
-  // без погружения в террейн
+  // запрет погружения в террейн
   with dcViewing.Position do
     if (Y < TerrainRenderer1.InterpolatedHeight(AsVector) + 10) then
       Y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
 
+  // выход по клавише эскейп
   if IsKeyDown(VK_ESCAPE) then
     FormCrafts.Close; // закрыть главную форму приложения
-end;
-
-//-----------------------------------------------------------------------------
-// Standard mouse rotation & FPS code below
-//-----------------------------------------------------------------------------
-procedure TFormSkyship.GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  mx := X;
-  my := Y;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TFormSkyship.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
-  X, Y: Integer);
-begin
-  if ssLeft in Shift then
-  begin
-    // GLCamera1.MoveAroundTarget(my-y, mx-x);
-    mx := X;
-    my := Y;
-  end;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TFormSkyship.Timer1Timer(Sender: TObject);
-begin
-  GLSceneViewer.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------
 procedure TFormSkyship.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
-    'w', 'W','ц','Ц':
+    // текстура или сетка
+    'f', 'F','а','А':
       with GLMaterialLibrary1.Materials[0].Material do
       begin
         if PolygonMode = pmLines then
@@ -282,8 +303,43 @@ begin
         if QualityDistance < 1000 then
           QualityDistance := Round(QualityDistance * 1.2);
   end;
-
   Key := #0;
+end;
+
+//-----------------------------------------------------------------------------
+// Standard mouse rotation & FPS code below
+//-----------------------------------------------------------------------------
+procedure TFormSkyship.GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  mx := X;
+  my := Y;
+end;
+
+//-----------------------------------------------------------------------------
+procedure TFormSkyship.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  if ssLeft in Shift then
+  begin
+    GLCamera1.MoveAroundTarget(my-y, mx-x);
+    mx := X;
+    my := Y;
+  end;
+end;
+
+//-----------------------------------------------------------------------------
+procedure TFormSkyship.GLSceneViewerMouseWheel(Sender: TObject;
+  Shift: TShiftState; WheelDelta: Integer; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+  GLCamera1.AdjustDistanceToTarget(Power(1.03, WheelDelta/120));
+end;
+
+//-----------------------------------------------------------------------------
+procedure TFormSkyship.Timer1Timer(Sender: TObject);
+begin
+  GLSceneViewer.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------

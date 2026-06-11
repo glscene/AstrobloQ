@@ -211,20 +211,25 @@ begin
 
   dcSubmarine.Translate(ffSubmarine.Direction.z * speed,
     -ffSubmarine.Direction.y * speed, -ffSubmarine.Direction.x * speed);
-  // наклон носа вниз
-  if IsKeyDown(VK_UP) then
-  begin
-    ffSubmarine.Pitch(1.0);
-    (* GLCamera1.Pitch(0.1); GLCamera1.MoveAroundTarget(-1, 0); *)
-  end;
-  // наклон носа вверх
-  if IsKeyDown(VK_DOWN) then
-  begin
-    ffSubmarine.Pitch(-1.0);
-    (* GLCamera1.Pitch(-0.1); GLCamera1.MoveAroundTarget(1, 0); *)
-  end;
+
+  // движение вперЄд
+  if IsKeyDown('w') or IsKeyDown('ц') or IsKeyDown(VK_UP) then
+    if dspeed < 2 then
+    // приращение скорости после нажати€ на клавишу
+      dspeed := dspeed + 0.01;  // 0.0001 медленно
+  // движение назад
+  if IsKeyDown('s') or IsKeyDown('ы') or IsKeyDown(VK_DOWN) then
+    if dspeed > -0.5 then
+    // приращение скорости после нажати€ на клавишу
+      dspeed := dspeed - 0.01;  // 0.0001 медленно
+  (*
+    if IsKeyDown(VK_PRIOR) then
+    FCamHeight := FCamHeight + 10*speed;
+    if IsKeyDown(VK_NEXT) then
+    FCamHeight := FCamHeight - 10*speed;
+   *)
   // поворот носа подлодки влево
-  if IsKeyDown(VK_LEFT) then
+  if IsKeyDown('a') or IsKeyDown('ф') or IsKeyDown(VK_LEFT) then
   begin
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
     ffSubmarine.Turn(-1.0);
@@ -232,12 +237,24 @@ begin
     // GLCamera1.MoveAroundTarget(0, 1);
   end;
   // поворот носа подлодки вправо
-  if IsKeyDown(VK_RIGHT) then
+  if IsKeyDown('d') or IsKeyDown('в') or IsKeyDown(VK_RIGHT) then
   begin
     // DummyCube1.Translate(X*speed, 0, Z*speed);
     ffSubmarine.Turn(1.0);
     GLCamera1.Turn(-1.0);
     // GLCamera1.MoveAroundTarget(0, -1);
+  end;
+  // наклон носа вверх
+  if IsKeyDown('x') or IsKeyDown('ч') then
+  begin
+    ffSubmarine.Pitch(1.0);
+    (* GLCamera1.Pitch(0.1); GLCamera1.MoveAroundTarget(-1, 0); *)
+  end;
+  // наклон носа вниз
+  if IsKeyDown('z') or IsKeyDown('€') then
+  begin
+    ffSubmarine.Pitch(-1.0);
+    (* GLCamera1.Pitch(-0.1); GLCamera1.MoveAroundTarget(1, 0); *)
   end;
   // вращение корпуса по часовой стрелке
   if IsKeyDown(',') or IsKeyDown('б') then
@@ -249,22 +266,6 @@ begin
   begin
     ffSubmarine.Roll(1.0);
   end;
-  // движение вперЄд
-  if IsKeyDown('a') or IsKeyDown('ф') then
-    if dspeed < 2 then
-    // приращение скорости после нажати€ на клавишу
-      dspeed := dspeed + 0.01;  // 0.0001 медленно
-  // движение назад
-  if IsKeyDown('z') or IsKeyDown('€') then
-    if dspeed > -0.5 then
-    // приращение скорости после нажати€ на клавишу
-      dspeed := dspeed - 0.01;  // 0.0001 медленно
-  (*
-    if IsKeyDown(VK_PRIOR) then
-    FCamHeight := FCamHeight + 10*speed;
-    if IsKeyDown(VK_NEXT) then
-    FCamHeight := FCamHeight - 10*speed;
-   *)
   // вид из кокпита субмарины
   if IsKeyDown('c') or IsKeyDown('с') then
   begin
@@ -284,35 +285,37 @@ begin
     // glFireFxManager1.Disabled :=false;
   end;
   // вид перед субмариной
-  if IsKeyDown('x') or IsKeyDown('ч') then
+  if IsKeyDown('b') or IsKeyDown('и') then
     ffSubmarine.Visible := False;
 
-  // подлодка не погружаетс€ в террейн дна!
+
+  // запрет погружени€ ниже дна!
   with dcSubmarine.Position do
     if y < TerrainRenderer1.InterpolatedHeight(AsVector) then
       y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
+  // выход по клавише эскейп
   if IsKeyDown(VK_ESCAPE) then
-    FormCrafts.Close; 
+    FormCrafts.Close;
 end;
 
 //-----------------------------------------------------------------------------
 procedure TFormSubmarine.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
-    'm','ь':
-      begin
-        if ffSubmarine.Material.Texture.MappingMode = tmmuser then
-          ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
-        else
-          ffSubmarine.Material.Texture.MappingMode := tmmuser;
-      end;
-    'w','W', 'ц', '÷':  // текстура или каркас
+    'f','F', 'а', 'ј':  // текстура или сетка
       with GLMaterialLibrary1.Materials[0].Material do
       begin
         if PolygonMode = pmLines then
           PolygonMode := pmFill
         else
           PolygonMode := pmLines;
+      end;
+    'm','ь':
+      begin
+        if ffSubmarine.Material.Texture.MappingMode = tmmuser then
+          ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
+        else
+          ffSubmarine.Material.Texture.MappingMode := tmmuser;
       end;
     '+':  // delete for with shift
       if GLCamera1.DepthOfView < 2000 then

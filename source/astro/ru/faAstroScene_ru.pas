@@ -292,20 +292,20 @@ begin
 
   CurrentStar := DataDir + '\starsys\sun\';
 
-  // разрешаем текстурирование
+  // текстурирование планеты вместо цвета
   sfPlanet.Material.Texture.Disabled := False; // сферическая форма
 //  ffPlanet.Material.Texture.Disabled := False; // фри форма
 //  ffPlanet.Scale.Scale(1); // масштаб фриформ планеты
 
-  // разрешаем текстурирование лун
+  // текстурирование луны вместо цвета
   sfMoon.Material.Texture.Disabled := False;
 //  ffMoon.Material.Texture.Disabled := False;
 //  ffMoon.Material.Texture.Image.LoadFromFile('deimos.jpg');
 // ffMoon.Scale.Scale(0.5); // масштаб фриформ лун
 
-  // разрешение текстурирования астероидов
+  // текстурирования астероида вместо цвета
   sfAsteroid.Material.Texture.Disabled := False;
-// ffAsteroid.Material.Texture.Disabled := False;
+  ffAsteroid.Material.Texture.Disabled := False;
 // ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
 
   // Текстура облаков д.б. загружена в 3й материал GLMatLib

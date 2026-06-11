@@ -51,7 +51,7 @@ implementation //=============================================================
 //----------------------------------------------------------------------------
 procedure TFormCrafts.FormShow(Sender: TObject);
 begin
-  tvCraft.Select(tvCraft.Items[0]);  // goto to column 0
+  tvCraft.Select(tvCraft.Items[1]);  // переход к 1му узлу
   tvCraftClick(Sender);
 end;
 

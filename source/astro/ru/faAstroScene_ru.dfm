@@ -47,11 +47,12 @@ object FormAstroScene: TFormAstroScene
     Height = 605
     Align = alLeft
     TabOrder = 1
+    ExplicitHeight = 580
     object tvMoons: TTreeView
       Left = 1
       Top = 111
       Width = 311
-      Height = 518
+      Height = 493
       Hint = #1051#1091#1085#1099
       Align = alClient
       AutoExpand = True
@@ -63,6 +64,7 @@ object FormAstroScene: TFormAstroScene
       HideSelection = False
       Indent = 35
       ParentFont = False
+      StateImages = DataModuleMaps.VirtPlanetSymbols
       TabOrder = 0
       OnClick = tvMoonsClick
       Items.NodeData = {
@@ -300,6 +302,7 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
+      ExplicitHeight = 468
     end
     object StaticText1: TStaticText
       Left = 1
@@ -310,6 +313,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1051#1091#1085#1099
       TabOrder = 1
+      ExplicitWidth = 49
     end
     object StaticText3: TStaticText
       Left = 1
@@ -320,6 +324,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
       TabOrder = 2
+      ExplicitWidth = 168
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -487,6 +492,8 @@ object FormAstroScene: TFormAstroScene
         Text = 'Z:'
         Width = 86
       end>
+    ExplicitTop = 637
+    ExplicitWidth = 1375
   end
   object PanelRight: TPanel
     Left = 1096
@@ -495,11 +502,13 @@ object FormAstroScene: TFormAstroScene
     Height = 605
     Align = alRight
     TabOrder = 3
+    ExplicitLeft = 1088
+    ExplicitHeight = 580
     object tvAsteroids: TTreeView
       Left = 1
       Top = 29
       Width = 285
-      Height = 600
+      Height = 575
       Hint = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       Align = alClient
       AutoExpand = True
@@ -542,6 +551,7 @@ object FormAstroScene: TFormAstroScene
         00000000000000010713043E043B04350432043A043004000029000000096101
         0009610100FFFFFFFFFFFFFFFF00000000000000000000000000010521043504
         34043D043004}
+      ExplicitHeight = 550
     end
     object StaticText2: TStaticText
       Left = 1
@@ -552,6 +562,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       TabOrder = 1
+      ExplicitWidth = 106
     end
   end
   object ControlBarTop: TControlBar
@@ -743,6 +754,9 @@ object FormAstroScene: TFormAstroScene
         item
           Color = clBlack
         end>
+      object polygonBorders: TGLPolygon
+        Nodes = <>
+      end
       object polylineConstells: TGLLines
         Direction.Coordinates = {0000803F000000000000008000000000}
         Scale.Coordinates = {00A00C4600A00C4600A00C4600000000}
@@ -765,9 +779,6 @@ object FormAstroScene: TFormAstroScene
         Nodes = <>
         NodesAspect = lnaInvisible
         Options = []
-      end
-      object polygonBorders: TGLPolygon
-        Nodes = <>
       end
     end
     object Camera: TGLCamera
