@@ -33,9 +33,9 @@ uses
   GLS.Context,
   GLS.Cadencer,
   GLS.Material,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.FileJPEG,
   GLS.RenderContextInfo;
 
@@ -260,7 +260,7 @@ procedure TFBumpEarth.DORenderRender(Sender: TObject;
 
 var
   light, eye: TAffineVector;
-  mat: TGLMatrix;
+  mat: TGSMatrix;
 
 begin
   programObject.UseProgramObject;

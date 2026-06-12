@@ -21,13 +21,13 @@ uses
   Stage.Utils,
 
   GLS.Scene,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.Objects,
   GLS.AsyncTimer,
   GLS.Cadencer,
   GLS.SceneViewer,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.RenderContextInfo,
   GLS.Context,
   GLS.VectorFileObjects,
@@ -123,7 +123,7 @@ procedure genTree;
 var
   x, y: integer;
   b: byte;
-  v: TGLVector;
+  v: TGSVector;
   d: single;
 begin
   repeat

@@ -30,10 +30,10 @@ uses
   GLS.TerrainRenderer,
   GLS.HeightData,
   GLS.FireFX,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
   GLS.File3DS,
-  GLS.BaseClasses;
+  Stage.BaseClasses;
 
 type
   TForm1 = class(TForm)

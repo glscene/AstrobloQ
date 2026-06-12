@@ -26,7 +26,7 @@ uses
   GLS.Scene,
   GLS.State,
   GLS.TerrainRenderer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Objects,
   GLS.HeightData,
   GLS.Material,
@@ -39,8 +39,8 @@ uses
   GLS.Mesh,
   GLS.VectorFileObjects,
   GLS.FireFX,
-  GLS.Coordinates,
-  GLS.Color,
+  Stage.Coordinates,
+  Stage.Color,
 
   GLS.File3DS;
 
@@ -76,7 +76,7 @@ type
     CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
-    FCamHeight: Single;
+    CameraHeight: Single;
     Color: TGIFColor;
   end;
 
@@ -112,14 +112,15 @@ begin
   TerrainRenderer1.TilesPerTexture := 256 / TerrainRenderer1.TileSize;
   // Could've been done at design time, but it hurts the eyes ;)
   GLSceneViewer.Buffer.BackgroundColor := clBlack;
-  // начальное положение камеры в необходимом месте
+  // начальное положение камеры над рельефом
   dcViewing.Position.X := 570;
+  dcViewing.Position.Y := 50;
   dcViewing.Position.Z := -385;
   dcViewing.Turn(90);
   // Начальное смещение высоты камеры (контролируется клавишами pgUp/pgDown)
-  FCamHeight := 20;
+  CameraHeight := 50;
   ffSkyShip.LoadFromFile('skyship.3ds'); // или модель patrol.3ds
-//  ffSkyShip.Scale.SetVector(5.0, 5.0, 5.0, 0); // scaling for patrol
+//  ffSkyShip.Scale.SetVector(1.0, 1.0, 3.0, 0); // scaling for patrol ship
   ffSkyShip.Material.Texture.Image.LoadFromFile('avion512.jpg');
 end;
 
@@ -146,7 +147,7 @@ begin
     // красные звёзды
     Stars.AddRandomStars(1000, clRed, False);
 
-    // задание светимости, магнитуты, для классов звёзд
+    // задание светимости (магнитуты), для классов звёзд
     for I := 0 to Stars.Count -1 do
     begin
       if Stars[I].Color = clWhite then
@@ -213,9 +214,9 @@ begin
   end;
   (*
   if IsKeyDown(VK_PRIOR) then
-    FCamHeight := FCamHeight+10*speed;
+    CameraHeight := CameraHeight+10*speed;
     if IsKeyDown(VK_NEXT) then
-    FCamHeight := FCamHeight-10*speed;
+    CameraHeight := CameraHeight-10*speed;
   *)
   // вращение корпуса по часовой стрелке
   if IsKeyDown(',') or IsKeyDown('б') then
@@ -246,7 +247,7 @@ begin
   // запрет погружения в террейн
   with dcViewing.Position do
     if (Y < TerrainRenderer1.InterpolatedHeight(AsVector) + 10) then
-      Y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
+      Y := TerrainRenderer1.InterpolatedHeight(AsVector) + CameraHeight;
 
   // выход по клавише эскейп
   if IsKeyDown(VK_ESCAPE) then

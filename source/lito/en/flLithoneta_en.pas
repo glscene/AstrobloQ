@@ -71,9 +71,9 @@ uses
   GLS.SceneViewer,
   GLS.AsyncTimer,
   GLS.Material,
-  GLS.Coordinates,
-  GLS.BaseClasses,
-  GLS.Color,
+  Stage.Coordinates,
+  Stage.BaseClasses,
+  Stage.Color,
   GLS.RandomHDS,
   GLS.SimpleNavigation;
 
@@ -238,18 +238,18 @@ type
     The magic numbers here are the result of tweaking, not calculus.
     *)
     function OnDrawTexture(const Sender: tGLBaseRandomHDS; X, Y: Integer;
-      z: double; aNormal: TGLVector): TGLColorVector;
+      z: double; aNormal: TGSVector): TGSColorVector;
     // Flashy version of the regular OnDrawTexture. Helps debugging textures.
     function OnDrawTextureFlashy(const Sender: tGLBaseRandomHDS; X, Y: Integer;
-      z: double; aNormal: TGLVector): TGLColorVector;
+      z: double; aNormal: TGSVector): TGSColorVector;
    (*
     An alternative OnDrawTextureEvent that render slope by a grey scale
     (flat=black, vertical=white )
    *)
     function OnDrawTextureSlope(const Sender: tGLBaseRandomHDS; X, Y: Integer;
-      z: double; aNormal: TGLVector): TGLColorVector;
+      z: double; aNormal: TGSVector): TGSColorVector;
     function OnDrawTextureGrass(const Sender: tGLBaseRandomHDS; X, Y: Integer;
-      z: double; aNormal: TGLVector): TGLColorVector;
+      z: double; aNormal: TGSVector): TGSColorVector;
   public
     FractalHDS: TGLFractalHDS;
     procedure GenerateLandscape;
@@ -275,14 +275,14 @@ var
   Forest, Sea, Beach, Snow, Grass, Cliff, BrownSoil: tBitmap;
 
 //----------------------------------------------------------------------------
-function TextureSea(const X, Y: Integer): TGLColorVector;
+function TextureSea(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Sea.Canvas.Pixels[X * 5 mod Sea.Width, Y * 5 mod Sea.Height]);
   // Result:=TextureBlue(x,y);
 end;
 
 //----------------------------------------------------------------------------
-function TextureForest(const X, Y: Integer): TGLColorVector;
+function TextureForest(const X, Y: Integer): TGSColorVector;
 begin
   with Forest do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
@@ -291,7 +291,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-function TextureGrass(const X, Y: Integer): TGLColorVector;
+function TextureGrass(const X, Y: Integer): TGSColorVector;
 begin
   with Grass do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
@@ -299,28 +299,28 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-function TextureSnow(const X, Y: Integer): TGLColorVector;
+function TextureSnow(const X, Y: Integer): TGSColorVector;
 begin
   with Snow do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
 end;
 
 //----------------------------------------------------------------------------
-function TextureBeach(const X, Y: Integer): TGLColorVector;
+function TextureBeach(const X, Y: Integer): TGSColorVector;
 begin
   with Beach do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
 end;
 
 //----------------------------------------------------------------------------
-function TextureCliff(const X, Y: Integer): TGLColorVector;
+function TextureCliff(const X, Y: Integer): TGSColorVector;
 begin
   with Cliff do
     Result := ConvertWinColor(Canvas.Pixels[X * 2 mod Width, Y * 2 mod Height]);
 end;
 
 //----------------------------------------------------------------------------
-function TextureBrownSoil(const X, Y: Integer): TGLColorVector;
+function TextureBrownSoil(const X, Y: Integer): TGSColorVector;
 begin
   with BrownSoil do
     Result := ConvertWinColor(Canvas.Pixels[X mod Width, Y mod Height]);
@@ -351,7 +351,7 @@ end;
 
 //----------------------------------------------------------------------------
 function TFormLithoneta.OnDrawTexture(const Sender: tGLBaseRandomHDS;
-  X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
+  X, Y: Integer; z: double; aNormal: TGSVector): TGSColorVector;
 const
   f = VerticalScalingFactor;
 var
@@ -407,7 +407,7 @@ end;
 
 //--------------------------------------------------------------------------
 function TFormLithoneta.OnDrawTextureFlashy(const Sender: tGLBaseRandomHDS;
-  X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
+  X, Y: Integer; z: double; aNormal: TGSVector): TGSColorVector;
 const
   f = VerticalScalingFactor;
 var
@@ -455,7 +455,7 @@ end;
 
 //----------------------------------------------------------------------------
 function TFormLithoneta.OnDrawTextureSlope(const Sender: tGLBaseRandomHDS;
-  X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
+  X, Y: Integer; z: double; aNormal: TGSVector): TGSColorVector;
 var
   slope: Single;
 begin
@@ -465,7 +465,7 @@ end;
 
 //---------------------------------------------------------------------------
 function TFormLithoneta.OnDrawTextureGrass(const Sender: tGLBaseRandomHDS;
-  X, Y: Integer; z: double; aNormal: TGLVector): TGLColorVector;
+  X, Y: Integer; z: double; aNormal: TGSVector): TGSColorVector;
 begin
   Result := TextureGrass(X, Y);
 end;

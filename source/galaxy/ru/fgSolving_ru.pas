@@ -18,8 +18,8 @@ uses
   GLS.SceneViewer,
   GLS.Scene,
   GLS.Objects,
-  GLS.Coordinates,
-  GLS.BaseClasses, GLS.SimpleNavigation;
+  Stage.Coordinates,
+  Stage.BaseClasses, GLS.SimpleNavigation;
 
 type
   TfrmSolving = class(TForm)

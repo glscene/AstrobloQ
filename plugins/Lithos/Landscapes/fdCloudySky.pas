@@ -30,8 +30,8 @@ uses
   GLS.FileTGA,
   GLS.XCollection,
   GLS.Material,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.SimpleNavigation,
 
   GLS.CgShader;

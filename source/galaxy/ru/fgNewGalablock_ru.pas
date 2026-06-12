@@ -19,13 +19,13 @@ uses
   Vcl.ExtCtrls,
   Vcl.Menus,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   GLS.Cadencer,
   GLS.AsyncTimer,
   GLS.Objects,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.SimpleNavigation,
 
   fgOptions_ru

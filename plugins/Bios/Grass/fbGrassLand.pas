@@ -24,9 +24,9 @@ uses
   GLS.Cadencer,
   GLS.SceneViewer,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.TerrainRenderer,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.HeightData,
   GLS.Objects,
   GLS.AsyncTimer,

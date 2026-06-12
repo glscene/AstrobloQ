@@ -35,20 +35,20 @@ uses
 
   Stage.VectorTypes,
   Stage.VectorGeometry,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   GLS.AsyncTimer,
   GLS.Cadencer,
   GLS.Objects,
   GLS.Graph,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.GeomObjects,
   GLS.SimpleNavigation,
   GLS.VectorFileObjects,
-  GLS.VectorLists,
+  Stage.VectorLists,
   GLS.Material,
-  GLS.Color,
+  Stage.Color,
   GLS.SpaceText,
 
   fmFormFirst,
@@ -242,12 +242,12 @@ type
     x, y, z, g: Single; // Current coordinates of a star
     spect: string; // Spectral class of stars
     Color: TVector3f;
-    StarColor: TGLColorVector;
+    StarColor: TGSColorVector;
 
     NStars: Integer;
     NSpectralClass: Byte;
     RealColor: TColor;
-    RealGLColor: TGLColor;
+    RealGLColor: TGSColor;
 
   end;
 

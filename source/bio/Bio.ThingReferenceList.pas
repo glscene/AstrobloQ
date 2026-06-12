@@ -321,7 +321,7 @@ var
   i: integer;
   distance: single;
   myThing: TaiThing;
-  myVect: TGLVector;
+  myVect: TGSVector;
 begin
   for i := 0 to Count - 1 do
   begin

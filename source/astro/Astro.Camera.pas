@@ -17,7 +17,7 @@ uses
   Stage.VectorGeometry,
   GLS.VectorFileObjects,
   GLS.Scene,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
   Astro.SkyBodies;
 

@@ -47,16 +47,16 @@ uses
   GLS.LensFlare,
   GLS.Scene,
   GLS.Objects,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.SceneViewer,
   GLS.Texture,
   GLS.RenderContextInfo,
-  GLS.Color,
+  Stage.Color,
   GLS.State,
   GLS.FileJPEG,
   GLS.Context,
   GLSL.TextureShaders,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Atmosphere,
   GLS.GeomObjects,
   GLS.VectorFileObjects,
@@ -215,8 +215,8 @@ type
     HighResResourcesLoaded: Boolean; // for high res textures
     CameraTimeSteps: Single;
     Radius, invAtmosphereHeight: Single;
-    eyePos, lightingVector: TGLVector;
-    diskNormal, diskRight, diskUp: TGLVector;
+    eyePos, lightingVector: TGSVector;
+    diskNormal, diskRight, diskUp: TGSVector;
     procedure LoadConstLines(const aDataPath: TFileName);
     procedure LoadConstBorders(const aDataPath: TFileName);
     procedure LoadStarBayers(const aDataPath: TFileName);
@@ -224,8 +224,8 @@ type
     ConstellationsAlpha: Single;
     mx, my,
     dmx, dmy: Integer;
-    function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
-    function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+    function AtmosphereColor(const rayStart, rayEnd: TGSVector): TGSColorVector;
+    function ComputeColor(var rayDest: TGSVector; mayHitGround: Boolean): TGSColorVector;
     procedure ReadIniFile; override; // from base class
   end;
 
@@ -238,8 +238,8 @@ const
   cAtmosphereRadius: Single = 0.55;
   // smaller radius is taken to eliminate the effect of overlapping lines
   cPlanetRadius: Single = 0.495;
-  cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
-  cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
+  cLowAtmColor: TGSColorVector = (X:1; Y:1; Z:1; W:1);
+  cHighAtmColor: TGSColorVector = (X:0; Y:0; Z:1; W:1);
   cIntDivTable: array[2..20] of Single =
     (1 / 2, 1 / 3, 1 / 4, 1 / 5, 1 / 6, 1 / 7, 1 / 8, 1 / 9, 1 / 10,
     1 / 11, 1 / 12, 1 / 13, 1 / 14, 1 / 15, 1 / 16, 1 / 17, 1 / 18, 1 / 19, 1 / 20);
@@ -337,11 +337,11 @@ begin
 end;
 
 //------------------ Atmosphere rim ------------------------------------------
-function TFormAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TFormAstroScene.AtmosphereColor(const rayStart, rayEnd: TGSVector): TGSColorVector;
 var
   i, n: Integer;
-  atmPoint, normal: TGLVector;
-  altColor: TGLColorVector;
+  atmPoint, normal: TGSVector;
+  altColor: TGSColorVector;
   alt, rayLength, contrib, decay, intensity, invN: Single;
 
 begin
@@ -382,10 +382,10 @@ begin
 end;
 
 //--------------------- ComputeColor ------------------------------------------
-function TFormAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TFormAstroScene.ComputeColor(var rayDest: TGSVector; mayHitGround: Boolean): TGSColorVector;
 var
-  ai1, ai2, pi1, pi2: TGLVector;
-  rayVector: TGLVector;
+  ai1, ai2, pi1, pi2: TGSVector;
+  rayVector: TGSVector;
 begin
   rayVector := VectorNormalize(VectorSubtract(rayDest, eyePos));
   if (RayCastSphereIntersect(eyePos, rayVector, NullHmgPoint, cAtmosphereRadius,
@@ -432,8 +432,8 @@ begin
   lightingVector := VectorNormalize(LightStar.AbsolutePosition); // Star at infinity
   PrepareSinCosCache(sinCache, cosCache, 0, 360);
 
-  GetMem(pVertex, 2 * (cSlices + 1) * SizeOf(TGLVector));
-  GetMem(pColor, 2 * (cSlices + 1) * SizeOf(TGLVector));
+  GetMem(pVertex, 2 * (cSlices + 1) * SizeOf(TGSVector));
+  GetMem(pColor, 2 * (cSlices + 1) * SizeOf(TGSVector));
 
   rci.GLStates.DepthWriteMask := False;
   rci.GLStates.Disable(stLighting);

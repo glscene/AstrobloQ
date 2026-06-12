@@ -36,11 +36,11 @@ uses
   GLS.SceneViewer,
   GLS.State,
   GLS.Context,
-  GLS.VectorLists,
+  Stage.VectorLists,
   GLS.Material,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   fmFormFirst;
 
 type
@@ -219,7 +219,7 @@ implementation //==============================================================
 {$R *.dfm}
 
 uses
-  GLS.PersistentClasses,
+  Stage.PersistentClasses,
   GLS.MeshUtils,
   GLS.FileOBJ,
   GLS.FileSTL,
@@ -236,7 +236,7 @@ uses
   GLS.FilePLY,
   GLS.FileGTS,
   GLS.MeshBuilder,
-  GLS.Color,
+  Stage.Color,
   GLS.RenderContextInfo,
 
   Tech.Globals;
@@ -245,8 +245,8 @@ type
   // Shader for unvisible lines (for viewer, *not* generic)
   THiddenLineShader = class(TGLShader)
   private
-    LinesColor: TGLColorVector;
-    BackgroundColor: TGLColorVector;
+    LinesColor: TGSColorVector;
+    BackgroundColor: TGSColorVector;
     PassCount: Integer;
   public
     procedure DoApply(var rci: TGLRenderContextInfo; Sender: TObject); override;
@@ -906,8 +906,8 @@ end;
 
 procedure TFormCETI.ACConvertToIndexedTrianglesExecute(Sender: TObject);
 var
-  v: TGLAffineVectorList;
-  i: TGLIntegerList;
+  v: TGSAffineVectorList;
+  i: TGSIntegerList;
   m: TGLMeshObject;
   fg: TFGVertexIndexList;
 begin

@@ -35,7 +35,7 @@ uses
   VCL.ExtCtrls,
 
   GLS.Texture,
-  GLS.Color;
+  Stage.Color;
 
 type
   TFormLocations = class(TForm)

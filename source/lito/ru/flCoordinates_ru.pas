@@ -19,9 +19,9 @@ uses
   Stage.VectorTypes,
   GLS.Objects,
   GLS.Cadencer,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.SimpleNavigation, GLS.GeomObjects;
 
 type

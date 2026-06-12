@@ -43,10 +43,10 @@ uses
 
   GLS.AsyncTimer,
   GLS.Material,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
-  GLS.Color,
+  Stage.BaseClasses,
+  Stage.Color,
   GLS.RandomHDS,
   GLS.SimpleNavigation,
   GLS.Cadencer;
@@ -90,15 +90,15 @@ type
       The magic numbers here are the result of tweaking, not calculus.
      *)
     function OnDrawTexture(const Sender: TGLBaseRandomHDS; X, Y: Integer; z: double;
-      aNormal: TGLVector): TGLColorVector;
+      aNormal: TGSVector): TGSColorVector;
     function OnDrawTextureFlashy(const Sender: TGLBaseRandomHDS; X, Y: Integer; z: double;
-      aNormal: TGLVector): TGLColorVector;
+      aNormal: TGSVector): TGSColorVector;
     (*
       An alternative OnDrawTextureEvent that render slope by a grey scale (flat=black,
       vertical = white
     *)
     function OnDrawTextureSlope(const Sender: TGLBaseRandomHDS; X, Y: Integer; z: double;
-      aNormal: TGLVector): TGLColorVector;
+      aNormal: TGSVector): TGSColorVector;
   public
     FractalArchip: TGLFractalArchipelago;
     procedure ProcessKeyboard(const DeltaTime: double);
@@ -118,41 +118,41 @@ implementation // =============================================================
 var
   Forest, Sea, Beach, Snow, Grass, Cliff, BrownSoil: TBitmap;
 
-function TextureSea(const X, Y: Integer): TGLColorVector;
+function TextureSea(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Sea.Canvas.Pixels[X * 5 mod Sea.Width, Y * 5 mod Sea.Height]);
   // Result:=TextureBlue(x,y);
 end;
 
-function TextureForest(const X, Y: Integer): TGLColorVector;
+function TextureForest(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Forest.Canvas.Pixels[X mod Forest.Width, Y mod Forest.Height]);
   AddVector(Result, 0.2); // Original texture is too dark
   // Result:=TextureDarkGreen(x,y);
 end;
 
-function TextureGrass(const X, Y: Integer): TGLColorVector;
+function TextureGrass(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Grass.Canvas.Pixels[X mod Grass.Width, Y mod Grass.Height]);
   AddVector(Result, 0.2); // Original texture is too dark
 end;
 
-function TextureSnow(const X, Y: Integer): TGLColorVector;
+function TextureSnow(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Snow.Canvas.Pixels[X mod Snow.Width, Y mod Snow.Height]);
 end;
 
-function TextureBeach(const X, Y: Integer): TGLColorVector;
+function TextureBeach(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Beach.Canvas.Pixels[X mod Beach.Width, Y mod Beach.Height]);
 end;
 
-function TextureCliff(const X, Y: Integer): TGLColorVector;
+function TextureCliff(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(Cliff.Canvas.Pixels[X * 2 mod Cliff.Width, Y * 2 mod Cliff.Height]);
 end;
 
-function TextureBrownSoil(const X, Y: Integer): TGLColorVector;
+function TextureBrownSoil(const X, Y: Integer): TGSColorVector;
 begin
   Result := ConvertWinColor(BrownSoil.Canvas.Pixels[X mod BrownSoil.Width, Y mod BrownSoil.Height]);
 end;
@@ -197,7 +197,7 @@ end;
 //--------------------------------------------------------------------------------
 
 function TfrmFracArchip.OnDrawTexture(const Sender: TGLBaseRandomHDS; X, Y: Integer; z: double;
-  aNormal: TGLVector): TGLColorVector;
+  aNormal: TGSVector): TGSColorVector;
 const
   f = VerticalScalingFactor;
 var
@@ -236,7 +236,7 @@ end;
 
 // Flashy version of the regular OnDrawTexture. Helps debugging textures.
 function TfrmFracArchip.OnDrawTextureFlashy(const Sender: TGLBaseRandomHDS; X, Y: Integer;
-  z: double; aNormal: TGLVector): TGLColorVector;
+  z: double; aNormal: TGSVector): TGSColorVector;
 const
   f = VerticalScalingFactor;
 var
@@ -480,7 +480,7 @@ begin
 end;
 
 function TfrmFracArchip.OnDrawTextureSlope(const Sender: TGLBaseRandomHDS; X, Y: Integer; z: double;
-  aNormal: TGLVector): TGLColorVector;
+  aNormal: TGSVector): TGSColorVector;
 var
   slope: Single;
 begin

@@ -31,8 +31,8 @@ uses
   GLS.Material,
   GLS.SceneViewer,
   GLS.File3DS,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  Stage.Coordinates,
+  Stage.BaseClasses;
 
 type
   TSubmarine = record

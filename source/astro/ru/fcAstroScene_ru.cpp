@@ -25,8 +25,8 @@
 #pragma link "fcFormFirst"
 #pragma link "dcImages"
 
-#pragma link "GLS.BaseClasses"
-#pragma link "GLS.Coordinates"
+#pragma link "Stage.BaseClasses"
+#pragma link "Stage.Coordinates"
 #pragma resource "*.dfm"
 
 TFormAstroScene* FormAstroScene;

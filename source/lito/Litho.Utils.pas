@@ -22,7 +22,7 @@ uses
   GLS.Canvas,
   GLS.WindowsFont,
   GLS.RenderContextInfo,
-  GLS.Color,
+  Stage.Color,
 
   Astro.ReadHyg;
 
@@ -1490,7 +1490,7 @@ end;
 procedure Picture;
 var
   driver, mode: integer; // ƒл€ инициализации графич. режима
-  Color: TGLColorVector; // Star color
+  Color: TGSColorVector; // Star color
   l, b: double; // √алактические координаты, spherical
   x, y: double; // ƒекартовы координаты
   u, v: integer; // Ёкранные координаты

@@ -26,13 +26,13 @@ uses
   GLS.RenderContextInfo,
   GLS.State,
   Stage.VectorTypes,
-  GLS.VectorLists,
+  Stage.VectorLists,
   GLS.Graph,
-  GLS.Coordinates,
-  GLS.Color,
+  Stage.Coordinates,
+  Stage.Color,
 
 
-  GLS.BaseClasses;
+  Stage.BaseClasses;
 
 type
   TfrmProjections = class(TForm)
@@ -84,9 +84,9 @@ end;
 procedure TfrmProjections.DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
 var
   i: Integer;
-  mat: TGLMatrix;
-  p, pProj: TGLVector;
-  planePoint, planeNormal: TGLVector;
+  mat: TGSMatrix;
+  p, pProj: TGSVector;
+  planePoint, planeNormal: TGSVector;
   plane: THmgPlane;
 begin
   // Here we recover our plane point and normal...

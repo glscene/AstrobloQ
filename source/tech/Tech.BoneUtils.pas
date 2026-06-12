@@ -17,8 +17,8 @@ uses
   Stage.VectorGeometry,
 
   GLS.Scene,
-  GLS.Coordinates,
-  GLS.VectorLists,
+  Stage.Coordinates,
+  Stage.VectorLists,
   GLS.VectorFileObjects;
 
 // Loading glTF/glb models with animation

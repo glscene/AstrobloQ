@@ -40,7 +40,7 @@ uses
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.Keyboard,
-  GLS.PersistentClasses,
+  Stage.PersistentClasses,
   GLS.Cadencer,
   GLS.VectorFileObjects,
   GLS.Scene,
@@ -48,15 +48,15 @@ uses
   GLS.Material,
   GLS.Navigator,
   GLS.TerrainRenderer,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.SceneViewer,
   GLS.SkyDome,
   GLS.FileMD2,
   GLS.File3DS,
   GLS.Texture,
-  GLS.Color,
+  Stage.Color,
   GLS.RandomHDS;
 
 type
@@ -193,7 +193,7 @@ var
   moving: String;
   boost: Single;
   ay, cy: Single;
-  v: TGLVector;
+  v: TGSVector;
 begin
   // This function uses asynchronous keyboard check (see Keyboard.pas)
   if IsKeyDown(VK_ESCAPE) then
@@ -306,7 +306,7 @@ procedure TfrmDuneFighter.AddMushrooms;
 var
   i: Integer;
   proxy: TGLProxyObject;
-  s: TGLVector;
+  s: TGSVector;
   f: Single;
   X, Y, Z: Single;
 begin

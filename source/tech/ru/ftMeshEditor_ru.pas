@@ -40,13 +40,13 @@ uses
   GLS.GeomObjects,
   GLS.Graph,
   GLS.Cadencer,
-  GLS.Coordinates,
-  GLS.Color,
-  GLS.PersistentClasses,
-  GLS.VectorLists,
+  Stage.Coordinates,
+  Stage.Color,
+  Stage.PersistentClasses,
+  Stage.VectorLists,
   GLS.MeshUtils,
 
-  GLS.BaseClasses;
+  Stage.BaseClasses;
 
 type
   TMovingAxis = (maAxisX, maAxisY, maAxisZ, maAxisXY, maAxisXZ, maAxisYZ);
@@ -139,10 +139,10 @@ type
     FModifierList: TObjectList;
     FSelectedModifier: TModifierCube;
     FMoveZ: Boolean;
-    FOldMouseWorldPos: TGLVector;
+    FOldMouseWorldPos: TGSVector;
     function GetPolygonMode: TGLPolygonMode;
     procedure SetPolygonMode(const Value: TGLPolygonMode);
-    (* function MouseWorldPos(x, y: Integer): TGLVector; *)
+    (* function MouseWorldPos(x, y: Integer): TGSVector; *)
 
     // Create cubes used to modify vertex points
     procedure SetVertexModifiers;
@@ -152,7 +152,7 @@ type
     procedure ChangeMeshVector(const aObj: TModifierCube;
       const aPos: TVector4f);
     // Identify mouse position in X, Y and Z axis
-    function MouseWorldPos(X, Y: Integer): TGLVector;
+    function MouseWorldPos(X, Y: Integer): TGSVector;
     // Strip redundent data, recalculate normals and faces
     procedure StripAndRecalc;
     // Set Freeform's polygon mode: line, fill or points
@@ -172,7 +172,7 @@ type
       GizmoCornerXZ,
       GizmoCornerYZ: TGLGizmoCorner; }
     mx, my: Integer;
-    lastMouseWorldPos: TGLVector;
+    lastMouseWorldPos: TGSVector;
     procedure UpdateGizmo;
   end;
 
@@ -195,8 +195,8 @@ const
 
 var
   // Modifier colors
-  CModColorNormal: TGLColorVector;
-  CModColorSelect: TGLColorVector;
+  CModColorNormal: TGSColorVector;
+  CModColorSelect: TGSColorVector;
 
 constructor TModifierCube.Create(AOwner: TComponent);
 begin
@@ -208,8 +208,8 @@ begin
   Material.FrontProperties.Diffuse.Color := CModColorNormal;
 end;
 
-procedure GenerateIcosahedron(Vertices: TGLAffineVectorList;
-  Indices: TGLIntegerList);
+procedure GenerateIcosahedron(Vertices: TGSAffineVectorList;
+  Indices: TGSIntegerList);
 var
   phi, a, b: Single;
 begin
@@ -259,9 +259,9 @@ begin
 end;
 
 (*
-  function THoloForm.MouseWorldPos(x, y: Integer): TGLVector;
+  function THoloForm.MouseWorldPos(x, y: Integer): TGSVector;
   var
-  v : TGLVector;
+  v : TGSVector;
   begin
   y := GLSceneViewer.Height - y;
 
@@ -278,9 +278,9 @@ end;
   end;
 *)
 
-function TfrmMeshEditor.MouseWorldPos(X, Y: Integer): TGLVector;
+function TfrmMeshEditor.MouseWorldPos(X, Y: Integer): TGSVector;
 var
-  v: TGLVector;
+  v: TGSVector;
 begin
   Y := Scn.Height - Y;
   if Assigned(FSelectedModifier) then
@@ -527,10 +527,10 @@ procedure TfrmMeshEditor.ScnMouseMove(Sender: TObject; Shift: TShiftState;
 var
   { vec1,
     vec2,
-    newPos : TGLVector;
+    newPos : TGSVector;
     CursorPick: TGLCustomSceneObject; }
 
-  lCurrentPos: TGLVector;
+  lCurrentPos: TGSVector;
   lOldV: TVector3f;
   lDiff: TVector4f;
 begin
@@ -750,7 +750,7 @@ end;
 
 procedure TfrmMeshEditor.UpdateGizmo;
 var
-  absDir: TGLVector;
+  absDir: TGSVector;
 begin
   if SelectedObject = nil then
   begin
@@ -860,10 +860,10 @@ end;
 
 procedure TfrmMeshEditor.StripAndRecalc;
 var
-  lTrigList, lNormals: TGLAffineVectorList;
-  lIndices: TGLIntegerList;
+  lTrigList, lNormals: TGSAffineVectorList;
+  lIndices: TGSIntegerList;
   lObj: TGLMeshObject;
-  lStrips: TGLPersistentObjectList;
+  lStrips: TGSPersistentObjectList;
 
   lFaceGroup: TFGVertexIndexList;
   i: Integer;
@@ -893,7 +893,7 @@ begin
   for i := 0 to lStrips.Count - 1 do
   begin
     lFaceGroup := TFGVertexIndexList.CreateOwned(lObj.FaceGroups);
-    lFaceGroup.VertexIndices := (lStrips[i] as TGLIntegerList);
+    lFaceGroup.VertexIndices := (lStrips[i] as TGSIntegerList);
     if i > 0 then
       lFaceGroup.Mode := fgmmTriangleStrip
     else

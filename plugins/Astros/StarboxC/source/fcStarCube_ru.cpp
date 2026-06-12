@@ -13,9 +13,7 @@
 #include <vector>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-#pragma link "GLS.BaseClasses"
 #pragma link "GLS.Cadencer"
-#pragma link "GLS.Coordinates"
 #pragma link "GLS.Objects"
 #pragma link "GLS.Scene"
 #pragma link "GLS.SceneViewer"
@@ -23,6 +21,8 @@
 #pragma link "GLS.VectorFileObjects"
 #pragma link "GLS.Mesh"
 #pragma link "GLS.SimpleNavigation"
+#pragma link "Stage.BaseClasses"
+#pragma link "Stage.Coordinates"
 #pragma resource "*.dfm"
 TFormStarcube* FormStarcube;
 

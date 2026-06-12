@@ -36,7 +36,7 @@ uses
   Vcl.NumberBox,
   Vcl.Themes,
 
-  GLS.Color,
+  Stage.Color,
 
   fmFormFirst;
 

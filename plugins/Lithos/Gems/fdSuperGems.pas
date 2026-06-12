@@ -15,9 +15,9 @@ uses
 
   Stage.VectorGeometry,
   GLS.SceneViewer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.Objects,
   GLS.Cadencer,
   GLS.SimpleNavigation,

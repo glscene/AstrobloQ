@@ -82,7 +82,7 @@ uses
   Stage.VectorTypes,
   Stage.VectorGeometry,
 
-  GLS.PersistentClasses,
+  Stage.PersistentClasses,
   GLS.Scene,
   GLS.Objects,
   GLS.VectorFileObjects,
@@ -96,11 +96,11 @@ uses
 
   GLS.BitmapFont,
   GLS.WindowsFont,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.Material,
   GLS.Imposter,
-  GLS.Color,
+  Stage.Color,
   GLS.FileTGA,
   GLS.HUDObjects,
 
@@ -402,7 +402,7 @@ type
     procedure TimeTrackBarChange(Sender: TObject);
     procedure GLCadencerAProgress(Sender: TObject;
       const deltaTime, newTime: Double);
-    procedure AddToTrail(const p: TGLVector);
+    procedure AddToTrail(const p: TGSVector);
 
     procedure SunShineCBClick(Sender: TObject);
     procedure SunShineTBChange(Sender: TObject);
@@ -482,7 +482,7 @@ type
     /// FX : TFireFxDummyCubeBase;
     DebrisDataTmpArray: array of TGLAsteroidData;
     OrbitalElementsDataTmpArray: array of array of array of TOrbitalElementsData;
-    ColorArray: array of TGLColorVector;
+    ColorArray: array of TGSColorVector;
     S3dsScaler,
     // SolarScaleDivisor  and SolarDistance SCALE the Planet size and Distance
     // Read from Data as Sun ScaleObjectEdit: Earth Diameter
@@ -851,7 +851,7 @@ var
   Temp: TGLMeshObject;
   Proxyi: Integer;
   proxy: TGLProxyObject;
-  Proxys: TGLVector;
+  Proxys: TGSVector;
   Proxyr, Proxyf: Double;
   Proxyscale: Single;
   a, b: Double;
@@ -5457,7 +5457,7 @@ var
   i, j, kometcount: Integer;
   a, aBase: Double;
   (* d : Double;    p : TAffineVector; *)
-  pPoint: TGLVector;
+  pPoint: TGSVector;
 begin
   If Running then // Движение камееры без перемещения планет
   begin
@@ -5755,7 +5755,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TfrmMakeStarsys.AddToTrail(const p: TGLVector);
+procedure TfrmMakeStarsys.AddToTrail(const p: TGSVector);
 var
   i, k: Integer;
 begin
@@ -5794,7 +5794,7 @@ begin
       { Perform Selection of Marker.. then
         Select the NameCB.ItemIndex := 0;
         to display the Selected Data }
-      // TGLBaseSceneObject = class (TGLCoordinatesUpdateAbleComponent)
+      // TGLBaseSceneObject = class (TGSCoordinatesUpdateAbleComponent)
       // TGLProxyObject = class (TGLBaseSceneObject)
       // Custom has Hint...
       // TGLCustomSceneObject = class(TGLBaseSceneObject)            //TGLCustomSceneObject

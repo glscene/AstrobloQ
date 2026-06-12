@@ -43,8 +43,8 @@
 #include "GLS.GeomObjects.hpp"
 #include "GLS.VectorFileObjects.hpp"
 #include "GLS.Mesh.hpp"
-#include "GLS.BaseClasses.hpp"
-#include "GLS.Coordinates.hpp"
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 
 //---------------------------------------------------------------------------
 

@@ -42,8 +42,8 @@ uses
   Stage.VectorGeometry,
 
   GLS.VectorLists,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.PersistentClasses,
   Stage.TextureFormat,
   GLS.XCollection,
@@ -58,7 +58,7 @@ uses
   GLS.Cadencer,
   GLS.State,
   GLS.RenderContextInfo,
-  GLS.Color,
+  Stage.Color,
   GLS.Graphics,
   GLS.MeshUtils,
   GLS.AsyncTimer,
@@ -312,8 +312,8 @@ type
   // Hidden line shader (specific implem for the viewer, *not* generic)
   THiddenLineShader = class(TGLShader)
   private
-    LinesColor: TGLColorVector;
-    BackgroundColor: TGLColorVector;
+    LinesColor: TGSColorVector;
+    BackgroundColor: TGSColorVector;
     PassCount: Integer;
   public
     procedure DoApply(var rci: TGLRenderContextInfo; Sender: TObject); override;
@@ -1142,7 +1142,7 @@ end;
 procedure TfrmGLSViewer.tvSceneClick(Sender: TObject);
 var
   I: Integer;
-  pos1, pos2: TGLVector;
+  pos1, pos2: TGSVector;
 const
   Nlines = 1000;
 

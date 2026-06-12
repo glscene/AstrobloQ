@@ -7,9 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "GLS.BaseClasses.hpp"
 #include "GLS.Cadencer.hpp"
-#include "GLS.Coordinates.hpp"
 #include "GLS.Objects.hpp"
 #include "GLS.Scene.hpp"
 #include "GLS.SceneViewer.hpp"
@@ -19,6 +17,8 @@
 #include <Vcl.Dialogs.hpp>
 #include <Vcl.ExtDlgs.hpp>
 #include <Vcl.CheckLst.hpp>
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {

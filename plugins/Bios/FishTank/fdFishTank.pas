@@ -26,7 +26,7 @@ uses
   GLS.Objects,
   GLS.Cadencer,
   GLS.Material,
-  GLS.Color,
+  Stage.Color,
   GLS.SceneViewer,
   Stage.VectorTypes,
   Stage.VectorGeometry,
@@ -35,8 +35,8 @@ uses
   GLS.Texture,
   GLS.FileMS3D,
   GLS.File3DS,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.Vehicles;  // FishTank with Robots
 
 type

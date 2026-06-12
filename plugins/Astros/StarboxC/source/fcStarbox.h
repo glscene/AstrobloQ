@@ -24,7 +24,7 @@
 #include "Stage.VectorTypes.hpp"
 #include "GLS.Cadencer.hpp"
 #include "GLS.Material.hpp"
-#include "GLS.Color.hpp"
+#include "Stage.Color.hpp"
 #include "GLS.SimpleNavigation.hpp"
 
 #include "fProjections.h"

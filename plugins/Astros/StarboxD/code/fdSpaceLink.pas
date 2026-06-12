@@ -23,8 +23,8 @@ uses
   
   Stage.VectorGeometry,
   GLS.Cadencer,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  Stage.Coordinates,
+  Stage.BaseClasses;
 
 type
   TfrmConnector = class(TForm)
@@ -101,7 +101,7 @@ end;
 
 procedure TfrmConnector.GLCadencerProgress;
 var
-  v: TGLVector;
+  v: TGSVector;
   p: TPoint;
 begin
   if select <> nil then

@@ -253,15 +253,15 @@
             <DependentOn>..\source\fcFormFirst.h</DependentOn>
             <BuildOrder>11</BuildOrder>
         </CppCompile>
-        <FormResources Include="..\source\dcDialogs.dfm"/>
         <FormResources Include="..\source\dcBase.dfm"/>
         <FormResources Include="..\source\astro\en\fcOptions_en.dfm"/>
-        <FormResources Include="..\source\fcFormFirst.dfm"/>
-        <FormResources Include="..\source\astro\en\fcAbout_en.dfm"/>
-        <FormResources Include="..\source\dcImages.dfm"/>
         <FormResources Include="..\source\astro\en\fcHipparcos_en.dfm"/>
+        <FormResources Include="..\source\fcFormFirst.dfm"/>
+        <FormResources Include="..\source\dcImages.dfm"/>
+        <FormResources Include="..\source\dcDialogs.dfm"/>
         <FormResources Include="..\source\astro\en\fcHercRussel_en.dfm"/>
         <FormResources Include="..\source\astro\en\fcAstroScene_en.dfm"/>
+        <FormResources Include="..\source\astro\en\fcAbout_en.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

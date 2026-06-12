@@ -7,9 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "GLS.BaseClasses.hpp"
 #include "GLS.Cadencer.hpp"
-#include "GLS.Coordinates.hpp"
 #include "GLS.Objects.hpp"
 #include "GLS.Scene.hpp"
 #include "GLS.SceneViewer.hpp"
@@ -44,6 +42,8 @@
 #include "GLS.Mesh.hpp"
 #include "GLS.SimpleNavigation.hpp"
 #include <FireDAC.Phys.SQLiteWrapper.Stat.hpp>
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 //---------------------------------------------------------------------------
 
 

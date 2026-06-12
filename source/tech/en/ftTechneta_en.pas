@@ -31,22 +31,22 @@ uses
 
   GLS.Scene,
   GLS.Objects,
-  GLS.VectorLists,
+  Stage.VectorLists,
   GLS.SceneViewer,
   GLS.SkyDome,
   GLS.Texture,
   GLS.VectorFileObjects,
   GLS.Mesh,
   GLS.RenderContextInfo,
-  GLS.Color,
+  Stage.Color,
   GLS.Cadencer,
   GLS.LensFlare,
   GLSL.TextureShaders,
   GLSL.MultiMaterialShader,
   GLS.Material,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Context,
   GLS.GeomObjects,
 
@@ -63,7 +63,7 @@ type
     fDateAdded, fDateDOB: TDate;
     fPhoto, fEMail, fUrl, fDemoName, fDescription: String;
   public
-    function GetCartesian(dRadius: single): TGLVector;
+    function GetCartesian(dRadius: single): TGSVector;
     property Name: String read fName write fName;
     property NickName: String read fNickName write fNickName;
     property TypeName: String read fTypeName write fTypeName;
@@ -330,7 +330,7 @@ var
   FormTechneta: TFormTechneta;
   AssetsDir, DataDir, CurrDir: TFileName;
 
-  DotColorArray: array of TGLColorVector;
+  DotColorArray: array of TGSColorVector;
   markers: TStringList; // from Private
   markerIndex, ColorIndex: Integer;
 
@@ -361,7 +361,7 @@ uses
   Correct for offset.
   Longitude are positive eastward and latitude northward
 *)
-function TMarkerPosition.GetCartesian(dRadius: single): TGLVector;
+function TMarkerPosition.GetCartesian(dRadius: single): TGSVector;
 var
   ca, sa, co, so: single;
 begin
@@ -785,23 +785,23 @@ const
   cAtmosphereRadius: single = 0.55;
   // use value slightly lower than actual radius, for antialiasing effect
   cPlanetRadius: single = 0.495;
-  cLowAtmColor: TGLColorVector = (X: 1; Y: 1; Z: 1; W: 1);
-  cHighAtmColor: TGLColorVector = (X: 0; Y: 0; Z: 1; W: 1);
+  cLowAtmColor: TGSColorVector = (X: 1; Y: 1; Z: 1; W: 1);
+  cHighAtmColor: TGSColorVector = (X: 0; Y: 0; Z: 1; W: 1);
   cOpacity: single = 5;
   cIntDivTable: array [2 .. 20] of single = (1 / 2, 1 / 3, 1 / 4, 1 / 5, 1 / 6,
     1 / 7, 1 / 8, 1 / 9, 1 / 10, 1 / 11, 1 / 12, 1 / 13, 1 / 14, 1 / 15, 1 / 16,
     1 / 17, 1 / 18, 1 / 19, 1 / 20);
 var
   Radius, invAtmosphereHeight: single;
-  sunPos, eyePos, lightingVector: TGLVector;
-  diskNormal, diskRight, diskUp: TGLVector;
+  sunPos, eyePos, lightingVector: TGSVector;
+  diskNormal, diskRight, diskUp: TGSVector;
 
 // ----------------------------------------------------------------------------
-  function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+  function AtmosphereColor(const rayStart, rayEnd: TGSVector): TGSColorVector;
   var
     i, n: Integer;
-    atmPoint, normal: TGLVector;
-    altColor: TGLColorVector;
+    atmPoint, normal: TGSVector;
+    altColor: TGSColorVector;
     alt, rayLength, contrib, decay, intensity, invN: single;
   begin
     Result := clrTransparent;
@@ -842,11 +842,11 @@ var
   end;
 
 // ----------------------------------------------------------------------------
-  function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean)
-    : TGLColorVector;
+  function ComputeColor(var rayDest: TGSVector; mayHitGround: Boolean)
+    : TGSColorVector;
   var
-    ai1, ai2, pi1, pi2: TGLVector;
-    rayVector: TGLVector;
+    ai1, ai2, pi1, pi2: TGSVector;
+    rayVector: TGSVector;
   begin
     rayVector := VectorNormalize(VectorSubtract(rayDest, eyePos));
     if RayCastSphereIntersect(eyePos, rayVector, NullHmgPoint,
@@ -893,8 +893,8 @@ begin
     lightingVector := VectorNormalize(sunPos); // sun at infinity
     PrepareSinCosCache(sinCache, cosCache, 0, 360);
 
-    GetMem(pVertex, 2 * (cSlices + 1) * SizeOf(TGLVector));
-    GetMem(pColor, 2 * (cSlices + 1) * SizeOf(TGLVector));
+    GetMem(pVertex, 2 * (cSlices + 1) * SizeOf(TGSVector));
+    GetMem(pColor, 2 * (cSlices + 1) * SizeOf(TGSVector));
 
     glPushAttrib(GL_ENABLE_BIT);
     glDepthMask(0);
@@ -1516,11 +1516,11 @@ var
   INumparts, INumPoints, NumParts, NumPoints: Integer;
   winColor, i, Count: Integer;
   dXTemp, dYTemp: Double;
-  pos2: TGLVector; // TAffineVector;
+  pos2: TGSVector; // TAffineVector;
   ShapeFileOut: file of Double;
   ShapetypeD: Double;
-  function GetCartesian(Longitude, Latitude, dRadius: single): TGLVector;
-  // TAffineVector;//TGLVector;
+  function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
+  // TAffineVector;//TGSVector;
   var
     ca, sa, co, so: single;
   begin
@@ -1628,8 +1628,8 @@ end;
   ShapeType, ShapeToDo,
   NumShape, NumParts, NumPoints : integer;
   dXTemp,dYTemp:Double;
-  pos2 :TGLVector;// TAffineVector;
-  function GetCartesian(Longitude,Latitude,dRadius:single):TGLVector;//TAffineVector;//TGLVector;
+  pos2 :TGSVector;// TAffineVector;
+  function GetCartesian(Longitude,Latitude,dRadius:single):TGSVector;//TAffineVector;//TGSVector;
   var
   ca,sa,co,so	:single;
   begin
@@ -1772,11 +1772,11 @@ function TFormTechneta.LoadCapitalShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
   dXTemp, dYTemp: Double;
-  pos2: TGLVector; // TAffineVector;
+  pos2: TGSVector; // TAffineVector;
   ShapeFileOut: file of Double;
   ShapetypeD: Double;
-  function GetCartesian(Longitude, Latitude, dRadius: single): TGLVector;
-  // TAffineVector;//TGLVector;
+  function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
+  // TAffineVector;//TGSVector;
   var
     ca, sa, co, so: single;
   begin
@@ -1858,11 +1858,11 @@ function TFormTechneta.LoadCityShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
   dXTemp, dYTemp: Double;
-  pos2: TGLVector; // TAffineVector;
+  pos2: TGSVector; // TAffineVector;
   ShapeFileOut: file of Double;
   ShapetypeD: Double;
-  function GetCartesian(Longitude, Latitude, dRadius: single): TGLVector;
-  // TAffineVector;//TGLVector;
+  function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
+  // TAffineVector;//TGSVector;
   var
     ca, sa, co, so: single;
   begin

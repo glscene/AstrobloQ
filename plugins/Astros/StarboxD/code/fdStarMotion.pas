@@ -19,11 +19,11 @@ uses
   Vcl.Menus,
   Vcl.ComCtrls,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   GLS.Objects,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.SimpleNavigation,
   GLS.Cadencer,
   GLS.VectorFileObjects;

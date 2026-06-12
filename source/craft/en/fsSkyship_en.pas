@@ -23,7 +23,7 @@ uses
   GLS.Scene,
   GLS.State,
   GLS.TerrainRenderer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Objects,
   GLS.HeightData,
   GLS.Material,
@@ -36,7 +36,7 @@ uses
   GLS.Mesh,
   GLS.VectorFileObjects,
   GLS.FireFX,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
   GLS.File3DS,
   Stage.Keyboard;

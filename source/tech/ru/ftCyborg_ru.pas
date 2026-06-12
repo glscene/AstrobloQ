@@ -34,8 +34,8 @@ uses
   GLS.SceneViewer,
   GLS.Graph,
   GLS.Material,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  Stage.Coordinates,
+  Stage.BaseClasses;
 
 type
   TfrmCyborg = class(TForm)

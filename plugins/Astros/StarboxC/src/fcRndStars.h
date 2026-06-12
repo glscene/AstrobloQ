@@ -8,17 +8,17 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include "GLS.SceneViewer.hpp"
-#include "GLS.BaseClasses.hpp"
 #include "GLS.Cadencer.hpp"
 #include "GLS.Scene.hpp"
 #include <Vcl.ComCtrls.hpp>
 #include <Vcl.ExtCtrls.hpp>
-#include "GLS.Coordinates.hpp"
 #include "GLS.Objects.hpp"
 #include <Vcl.Menus.hpp>
 #include <Vcl.Samples.Spin.hpp>
 
 #include "uContainers.h"
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {

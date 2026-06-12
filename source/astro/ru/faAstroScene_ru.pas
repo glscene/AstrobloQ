@@ -45,16 +45,16 @@ uses
   GLS.LensFlare,
   GLS.Scene,
   GLS.Objects,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.SceneViewer,
   GLS.Texture,
   GLS.RenderContextInfo,
-  GLS.Color,
+  Stage.Color,
   GLS.State,
   GLS.Context,
   GLS.FileJPEG,
   GLSL.TextureShaders,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Atmosphere,
   GLS.GeomObjects,
   GLS.VectorFileObjects,
@@ -227,8 +227,8 @@ type
     HighResResourcesLoaded: Boolean; // для текстур высокого разрешения
     CameraTimeSteps: Single;
     Radius, invAtmosphereHeight: Single;
-    eyePos, lightingVector: TGLVector;
-    diskNormal, diskRight, diskUp: TGLVector;
+    eyePos, lightingVector: TGSVector;
+    diskNormal, diskRight, diskUp: TGSVector;
     procedure LoadConstLines;
     procedure LoadConstBorders;
     procedure ReadIniFile; override;
@@ -236,14 +236,14 @@ type
   private
     mx, my,
     dmx, dmy: Integer;
-    function AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
-    function ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+    function AtmosphereColor(const rayStart, rayEnd: TGSVector): TGSColorVector;
+    function ComputeColor(var rayDest: TGSVector; mayHitGround: Boolean): TGSColorVector;
     procedure LoadHighResTexture(LibMat: TGLLibMaterial; const FileName: string);
   end;
 
 var
   FormAstroScene: TFormAstroScene;
-  FileCSV, FileJpg: TFileName;
+  FileCSV, FileBody, FileJpg: TFileName;
   vBodyType: Byte = 1; // звёзды 0, планеты 1, луны 2, астероиды 3, кометы 4
 
 const
@@ -252,8 +252,8 @@ const
   cAtmosphereRadius: Single = 0.55;
   // меньший радиус взят для исключения наложения линий
   cPlanetRadius: Single = 0.495;
-  cLowAtmColor: TGLColorVector = (X:1; Y:1; Z:1; W:1);
-  cHighAtmColor: TGLColorVector = (X:0; Y:0; Z:1; W:1);
+  cLowAtmColor: TGSColorVector = (X:1; Y:1; Z:1; W:1);
+  cHighAtmColor: TGSColorVector = (X:0; Y:0; Z:1; W:1);
   cIntDivTable: array[2..20] of Single =
     (1 / 2, 1 / 3, 1 / 4, 1 / 5, 1 / 6, 1 / 7, 1 / 8, 1 / 9, 1 / 10,
     1 / 11, 1 / 12, 1 / 13, 1 / 14, 1 / 15, 1 / 16, 1 / 17, 1 / 18, 1 / 19, 1 / 20);
@@ -306,7 +306,6 @@ begin
   // текстурирования астероида вместо цвета
   sfAsteroid.Material.Texture.Disabled := False;
   ffAsteroid.Material.Texture.Disabled := False;
-// ffAsteroid.Scale.Scale(0.5); // масштаб фриформ астероидов
 
   // Текстура облаков д.б. загружена в 3й материал GLMatLib
   FileJpg := CurrentStar + 'clouds_rare.jpg';
@@ -444,7 +443,8 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
-  MoonName : String;
+  MoonName: String;
+  MoonRadius: Single;
 begin
   tvMoons.SetFocus;
   FormOptions.chbHideObject.Checked := False;
@@ -464,10 +464,10 @@ begin
 
   // чтение CSV файла для перевода имени луны на английский язык
   FileCSV := CurrentStar + 'sol_moons.csv';
-  // в CSV файле находим английское имя луны и её радиус
+  // находим английское имя луны и её радиус в CSV файле
   // по полю name_ru и индексу узла дерева просмотра
-  MoonName := GetMoonFromCSV(FileCSV,
-    tvMoons.Selected.Index, tvMoons.Selected.Text (* sfMoon.Radius *));
+  MoonName := GetBodyFromCSV(FileCSV,
+    tvMoons.Selected.Index, tvMoons.Selected.Text, MoonRadius);
 
   // Находим карту луны по названию на английском языке
   FileJpg := CurrentStar + LowerCase(MoonName) + '.jpg';
@@ -508,51 +508,59 @@ end;
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
 var
-  AsteroidName : String;
+  AsteroidName: String;
+  AsteroidRadius: Single;
+
 begin
   tvAsteroids.SetFocus;
   FormOptions.chbHideObject.Checked := False;
 
   vBodyType := 3;
   // включение видимости астероидов
-  dcAsteroid.Visible := True;
-  // остальные планеты, астероиды и кометы не видны
+  ffAsteroid.Visible := True;
+  // остальные планеты, луны и кометы не видны
   sfPlanet.Visible := False;
   ffPlanet.Visible := False;
   dcMoon.Visible := False;
+  sfAsteroid.Visible := False;
   dcComet.Visible := False;
 
   // чтение CSV файла астероидов для перевода имени на английский язык
   FileCSV := CurrentStar + 'sol_asteroids.csv';
-  // в CSV файле находим английское имя астероида и его радиус
-  // по полю name_ru и индексу узла дерева просмотра
-  AsteroidName := GetMoonFromCSV(FileCSV,
-    tvAsteroids.Selected.Index, tvAsteroids.Selected.Text (* sfAsteroids.Radius *));
+  // находим для выбранного узла дерева просмотра английское
+  // имя астероида и его радиус по полю name_ru
+  AsteroidName := GetBodyFromCSV(FileCSV,
+    tvAsteroids.Selected.Index, tvAsteroids.Selected.Text, AsteroidRadius);
 
-  // Загружаем карту астероида по названию на английском языке
+  // загружаем модель астероида и масштабируем её
+  FileBody := CurrentStar + LowerCase(AsteroidName) + '.3ds';
+
+  FileBody := CurrentStar + 'phobos.3ds';
+
+  if FileExists(FileBody, True) then
+  begin
+    ffAsteroid.LoadFromFile(FileBody);
+ //   ffAsteroid.Scale.Scale(0.05 / ffAsteroid.BoundingSphereRadius);
+    // ..
+ //   ffAsteroid.Scale.Scale(10.0); // общий масштаб
+    //  ffAsteroid.Scale.SetVector(1.0, 2.0, 3.0, 0); // изменение по осям
+  end;
+  // находим текстурную карту астероида по названию на английском языке
   FileJpg := CurrentStar + LowerCase(AsteroidName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
-//    sfAsteroid.Radius := Radius; // считывается из csv файла
-    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
-    // ffAsteroid.LoadFromFile(DataDir + '\model\object.3ds'); // модель
+//    sfAsteroid.Radius := AsteroidRadius; // из csv файла
+ //   sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
+     ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg); // модель
   end
   else
   begin
     FileJpg := CurrentStar + 'aAsteroid.jpg'; // паттерн
-    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
-    // ffGlobe.LoadFromFile(DataDir + '\model\object.3ds');
+//    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
+    ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
   end;
-
-  // У астероидов показать атмосферу Плутона
-  if tvAsteroids.Selected.Text = 'Плутон' then
-    DirectOpenGL.Visible := True
-  else
-    DirectOpenGL.Visible := False;
-
   miHelpWiki.Caption := tvAsteroids.Selected.Text + '_(астероид)';
 end;
-
 
 //-------------------------- Кнопка Reset ------------------------------------
 procedure TFormAstroScene.tbSceneClick(Sender: TObject);
@@ -575,11 +583,11 @@ begin
 end;
 
 //----------------------------- Цвет атмосферы -------------------------------
-function TFormAstroScene.AtmosphereColor(const rayStart, rayEnd: TGLVector): TGLColorVector;
+function TFormAstroScene.AtmosphereColor(const rayStart, rayEnd: TGSVector): TGSColorVector;
 var
   i, n: Integer;
-  atmPoint, normal: TGLVector;
-  altColor: TGLColorVector;
+  atmPoint, normal: TGSVector;
+  altColor: TGSColorVector;
   alt, RayLength, Contrib, Decay, Intensity, invN: Single;
 
 begin
@@ -620,10 +628,10 @@ begin
 end;
 
 //--------------------- Вычисление цвета атмосферы ----------------------------
-function TFormAstroScene.ComputeColor(var rayDest: TGLVector; mayHitGround: Boolean): TGLColorVector;
+function TFormAstroScene.ComputeColor(var rayDest: TGSVector; mayHitGround: Boolean): TGSColorVector;
 var
-  ai1, ai2, pi1, pi2: TGLVector;
-  rayVector: TGLVector;
+  ai1, ai2, pi1, pi2: TGSVector;
+  rayVector: TGSVector;
 begin
   rayVector := VectorNormalize(VectorSubtract(rayDest, eyePos));
   if (RayCastSphereIntersect(eyePos, rayVector, NullHmgPoint, cAtmosphereRadius,
@@ -670,8 +678,8 @@ begin
   lightingVector := VectorNormalize(LightStar.AbsolutePosition); // Star at infinity
   PrepareSinCosCache(sinCache, cosCache, 0, 360);
 
-  GetMem(pVertex, 2 * (cSlices + 1) * SizeOf(TGLVector));
-  GetMem(pColor, 2 * (cSlices + 1) * SizeOf(TGLVector));
+  GetMem(pVertex, 2 * (cSlices + 1) * SizeOf(TGSVector));
+  GetMem(pColor, 2 * (cSlices + 1) * SizeOf(TGSVector));
 
   rci.GLStates.DepthWriteMask := False;
   rci.GLStates.Disable(stLighting);

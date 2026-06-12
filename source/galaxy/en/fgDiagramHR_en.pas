@@ -16,9 +16,9 @@ uses
   Vcl.ExtCtrls,
 
   GLS.Material,
-  GLS.Color,
+  Stage.Color,
   GLS.Canvas,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
 
@@ -84,7 +84,7 @@ var
   BV: single; // Показательцвета
   buf: string[15]; // Буфер для формирования текстовых строк
   x, y, x1, y1: integer; // Экранные координаты
-  Color: TGLColorVector; // Цвет точки
+  Color: TGSColorVector; // Цвет точки
 begin
   // Инициализация графического окна
   mode := 0;

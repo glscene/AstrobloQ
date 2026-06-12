@@ -25,8 +25,8 @@ uses
   GLS.FileSMD,
   GLS.Cadencer,
   GLS.ShadowPlane,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  Stage.Coordinates,
+  Stage.BaseClasses;
 
 type
   TForm1 = class(TForm)

@@ -42,10 +42,9 @@
 #include "GLS.VectorFileObjects.hpp"
 #include "GLS.Mesh.hpp"
 #include <FireDAC.Phys.SQLiteWrapper.Stat.hpp>
-#include "GLS.BaseClasses.hpp"
-#include "GLS.Coordinates.hpp"
-
 #include "uContainers.h"
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 //---------------------------------------------------------------------------
 struct DelaunayBase
 {

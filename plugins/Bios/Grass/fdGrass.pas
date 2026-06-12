@@ -24,9 +24,9 @@ uses
   GLS.Objects,
   GLS.Texture,
   GLS.Material,
-  GLS.Coordinates,
+  Stage.Coordinates,
 
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.VectorFileObjects,
   GLS.File3DS,
   GLS.FileDDS;

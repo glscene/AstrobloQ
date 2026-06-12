@@ -23,8 +23,8 @@
 #include "GLS.SkyDome.hpp"
 #include "GLS.VectorFileObjects.hpp"
 #include "GLS.GeomObjects.hpp"
-#include "GLS.BaseClasses.hpp"
-#include "GLS.Coordinates.hpp"
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 
 #include "fcFormFirst.h"
 #include "fcHercRussel_en.h"

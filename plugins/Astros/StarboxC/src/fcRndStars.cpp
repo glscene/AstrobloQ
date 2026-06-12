@@ -12,11 +12,11 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "GLS.SceneViewer"
-#pragma link "GLS.BaseClasses"
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.Scene"
-#pragma link "GLS.Coordinates"
 #pragma link "GLS.Objects"
+#pragma link "Stage.BaseClasses"
+#pragma link "Stage.Coordinates"
 #pragma resource "*.dfm"
 TForm1* Form1;
 

@@ -24,8 +24,8 @@ uses
   GLS.Cadencer,
   GLS.Scene,
   GLS.Objects,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.SimpleNavigation,
   GLS.SceneViewer
   ;

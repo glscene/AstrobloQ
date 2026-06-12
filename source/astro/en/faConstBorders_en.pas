@@ -20,7 +20,7 @@ uses
 
 
   GLS.SceneViewer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.Cadencer,
   dmImages,

@@ -23,7 +23,7 @@
 #include "GLS.SimpleNavigation.hpp"
 #include "GLS.Behaviours.hpp"
 #include "Vcl.Imaging.JPeg.hpp"
-#include "GLS.Color.hpp"
+#include "Stage.Color.hpp"
 #include "GLS.BaseClasses.hpp"
 #include "GLS.Coordinates.hpp"
 

@@ -27,7 +27,7 @@ uses
   Stage.VectorGeometry,
 
   GLS.Scene,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.SceneViewer,
 
   Bio.Link;

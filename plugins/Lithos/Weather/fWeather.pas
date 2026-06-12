@@ -28,8 +28,8 @@ uses
   Stage.Keyboard,
   GLS.BitmapFont,
   GLS.WindowsFont,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  Stage.Coordinates,
+  Stage.BaseClasses;
 
 type
   TForm1 = class(TForm)

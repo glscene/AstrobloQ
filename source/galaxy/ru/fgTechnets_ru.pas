@@ -19,12 +19,12 @@ uses
   Vcl.ExtCtrls,
   GLS.Material,
   GLS.Cadencer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
   Vcl.StdCtrls,
   GLS.Objects,
-  GLS.Coordinates;
+  Stage.Coordinates;
 
 type
   TfrmTechnets = class(TForm)

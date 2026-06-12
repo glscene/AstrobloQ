@@ -45,8 +45,6 @@ object FormViewerHYG: TFormViewerHYG
     OnMouseDown = GLSceneViewer1MouseDown
     OnMouseMove = GLSceneViewer1MouseMove
     TabOrder = 1
-    ExplicitWidth = 936
-    ExplicitHeight = 608
   end
   object PanelRight: TPanel
     Left = 944

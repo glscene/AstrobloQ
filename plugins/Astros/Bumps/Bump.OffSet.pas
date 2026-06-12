@@ -12,7 +12,7 @@ uses
   Vcl.Dialogs,
 
   Stage.VectorTypes,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.Texture,
   GLS.Material;
 

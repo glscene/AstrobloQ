@@ -30,8 +30,8 @@ uses
   GLS.Texture,
   GLS.SceneViewer,
   GLS.Material,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
 
   GLS.RandomHDS;
 

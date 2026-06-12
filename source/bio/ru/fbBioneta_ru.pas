@@ -26,16 +26,16 @@ uses
   Stage.VectorGeometry,
   Stage.Keyboard,
 
-  GLS.PersistentClasses,
+  Stage.PersistentClasses,
   GLS.ScreenSaver,
-  GLS.VectorLists,
+  Stage.VectorLists,
   GLS.Scene,
   GLS.Objects,
   GLS.Texture,
   GLS.Material,
   GLS.Cadencer,
   GLS.SceneViewer,
-  GLS.Color,
+  Stage.Color,
   GLS.ShadowVolume,
   GLS.Octree,
   GLS.FireFX,
@@ -56,8 +56,8 @@ uses
   GLS.SoundFileObjects,
   GLS.Sounds.BASS,
   GLS.AVIRecorder,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
 
   Bio.Environment,
   Bio.Satellites,
@@ -723,7 +723,7 @@ type
     ViewTrackingSpeed: Single; // how fast the camera moves
     fViewZoom: Single; // zoom distance to target
     fViewOffset: Single; // offset from target
-    ViewUp: TGLCoordinates; // TGLCamera.Up
+    ViewUp: TGSCoordinates; // TGLCamera.Up
     ViewAdjust: Single;
     FocusObject: TGLBaseSceneObject;
     Prediction: TaiPosition; // used to predict positions
@@ -746,8 +746,8 @@ type
     // pointer to mesh data
     PlanetMesh: TGLMeshObject;
     WaterMesh: TGLMeshObject;
-    PlanetVertices: TGLAffineVectorList;
-    WaterVertices: TGLAffineVectorList;
+    PlanetVertices: TGSAffineVectorList;
+    WaterVertices: TGSAffineVectorList;
     InvalidOctree: Boolean;
     fTool: eTool;
     LastTool: eTool;
@@ -757,7 +757,7 @@ type
     WidthAngle: Single;
     HeightAngle: single;
     FrameRate: single;
-    core: TGLVector;
+    core: TGSVector;
     SoundVolume: Single;
     procedure LastAction(aAction: string);
     procedure BuildFromMap;
@@ -765,13 +765,13 @@ type
       The ultimate planet builder that
       builds a facegroup mesh inside a freeform
      *)
-    procedure BuildPlanet(center: TGLVector; radius: single; Height: Integer;
+    procedure BuildPlanet(center: TGSVector; radius: single; Height: Integer;
       Width: Integer; Show: Boolean);
     // builds the water form
-    procedure BuildWater(center: TGLVector; radius: single; Height: Integer;
+    procedure BuildWater(center: TGSVector; radius: single; Height: Integer;
       Width: Integer; Show: Boolean);
     // builds the Atmosphere
-    procedure BuildAtmosphere(center: TGLVector; radius: single;
+    procedure BuildAtmosphere(center: TGSVector; radius: single;
       Height: Integer; Width: Integer; Show: Boolean);
     procedure LoadMaterialLibrary;
     procedure LoadTexture(aTexName: string; aFile: string);
@@ -922,19 +922,19 @@ type
 
     // free floating coordinates
     procedure CoordinatesFromPosition(aPosition: TaiPosition;
-      aCoordinates: TGLCoordinates); overload;
+      aCoordinates: TGSCoordinates); overload;
     procedure CoordinatesFromPosition(aPosition: TaiPosition;
-      aDirection: TGLCoordinates; aCoordinates: TGLCoordinates); overload;
+      aDirection: TGSCoordinates; aCoordinates: TGSCoordinates); overload;
     procedure CoordinatesFromPosition(aPosition: TaiPosition;
-      aCoordinates: TGLCoordinates; aFactor: single); overload;
+      aCoordinates: TGSCoordinates; aFactor: single); overload;
     procedure CoordinatesFromPosition(aPosition: TaiPosition;
-      aCoordinates: TGLCoordinates; aFactor: single;
-      aOffset: TGLVector); overload;
+      aCoordinates: TGSCoordinates; aFactor: single;
+      aOffset: TGSVector); overload;
     procedure CoordinatesFromPosition(aPosition: TaiPosition;
-      aDirection: TGLCoordinates; aCoordinates: TGLCoordinates;
+      aDirection: TGSCoordinates; aCoordinates: TGSCoordinates;
       aFactor: single); overload;
     procedure CoordinatesFromPosition(aX, aY, aHeight: single;
-      aCoordinates: TGLCoordinates); overload;
+      aCoordinates: TGSCoordinates); overload;
     procedure CoordinatesFromPosition(aOrigin: TAffineVector;
       var aVector: TAffineVector); overload;
     // includes proper flat positioning
@@ -1037,7 +1037,7 @@ begin
   ViewDestination := TaiPosition.Create(nil);
   ViewTarget := TaiPosition.Create(nil);
   Prediction := TaiPosition.Create(nil);
-  ViewUp := TGLCoordinates.Create(nil);
+  ViewUp := TGSCoordinates.Create(nil);
   ViewUp.Style := csVector;
   KBStopWatch := TaiStopWatch.Create;
   PlayTarget := nil;
@@ -2500,10 +2500,10 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.CalculateCursorPosition;
 var
-  rayStart, rayVector, iPoint, iNormal: TGLVector;
+  rayStart, rayVector, iPoint, iNormal: TGSVector;
   myCrossover: TCrossover;
   triangle: TOctreeTriangleInfo;
-  locRayStart, locRayVector: TGLVector;
+  locRayStart, locRayVector: TGSVector;
 begin
   SetVector(rayStart, GLCamera.AbsolutePosition);
   SetVector(rayVector, GLSceneViewer.Buffer.ScreenToVector
@@ -3194,7 +3194,7 @@ var
   myProxy: TGLProxyObject;
   myRain: TGLProxyObject;
   myCloud: TaiCloud;
-  myScale: TGLVector;
+  myScale: TGSVector;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
   myRain := TGLProxyObject(aCrossover.SubVisuals.Items[1]);
@@ -3278,7 +3278,7 @@ end;
 function TFormBioneta.BuildApple(aApple: TaiFruit): TCrossover;
 var
   myProxy: TGLProxyObject;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLProxyObject(FruitCube.AddNewChild(TGLProxyObject));
@@ -3307,7 +3307,7 @@ end;
 function TFormBioneta.BuildOrange(aOrange: TaiFruit): TCrossover;
 var
   myProxy: TGLProxyObject;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLProxyObject(FruitCube.AddNewChild(TGLProxyObject));
@@ -3337,7 +3337,7 @@ end;
 function TFormBioneta.BuildSeed(aSeed: TaiSeed): TCrossover;
 var
   myProxy: TGLProxyObject;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLProxyObject(SeedCube.AddNewChild(TGLProxyObject));
@@ -3448,7 +3448,7 @@ end;
 function TFormBioneta.BuildExplosion(aExplosion: TaiExplosion): TCrossover;
 var
   myProxy: TGLProxyObject;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
   myFire: TGLFireFXManager;
   myFireFX: TGLBFireFX;
@@ -3512,7 +3512,7 @@ procedure TFormBioneta.UpdateAppleTree(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTree: TaiTree;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -3534,7 +3534,7 @@ procedure TFormBioneta.UpdateOrangeTree(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTree: TaiTree;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -3590,7 +3590,7 @@ procedure TFormBioneta.UpdateBot(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myBot: TaiBot;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -3610,7 +3610,7 @@ procedure TFormBioneta.UpdateFish(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myFish: TaiFish;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -3650,7 +3650,7 @@ procedure TFormBioneta.UpdateBird(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myBird: TaiBird;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -3698,7 +3698,7 @@ procedure TFormBioneta.UpdateAsteroid(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myAsteroid: TaiAsteroid;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -3841,7 +3841,7 @@ end;
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
 procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
-  aCoordinates: TGLCoordinates);
+  aCoordinates: TGSCoordinates);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3867,7 +3867,7 @@ end;
 // ----------------------------------------------------------------------------
 // basic above-globe positioning
 procedure TFormBioneta.CoordinatesFromPosition(aX, aY, aHeight: single;
-  aCoordinates: TGLCoordinates);
+  aCoordinates: TGSCoordinates);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3919,7 +3919,7 @@ end;
 // ----------------------------------------------------------------------------
 // above-globe positioning + factor
 procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
-  aCoordinates: TGLCoordinates; aFactor: single);
+  aCoordinates: TGSCoordinates; aFactor: single);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3945,7 +3945,7 @@ end;
 // ----------------------------------------------------------------------------
 // above-globe positioning + offset
 procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
-  aCoordinates: TGLCoordinates; aFactor: single; aOffset: TGLVector);
+  aCoordinates: TGSCoordinates; aFactor: single; aOffset: TGSVector);
 var
   myLongitude: single;
   myLatitude: single;
@@ -3972,7 +3972,7 @@ end;
 // ----------------------------------------------------------------------------
 // positioning with direction
 procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
-  aDirection: TGLCoordinates; aCoordinates: TGLCoordinates);
+  aDirection: TGSCoordinates; aCoordinates: TGSCoordinates);
 var
   myLongitude: single;
   myLatitude: single;
@@ -4001,7 +4001,7 @@ end;
 // ----------------------------------------------------------------------------
 // positioning with direction
 procedure TFormBioneta.CoordinatesFromPosition(aPosition: TaiPosition;
-  aDirection: TGLCoordinates; aCoordinates: TGLCoordinates; aFactor: single);
+  aDirection: TGSCoordinates; aCoordinates: TGSCoordinates; aFactor: single);
 var
   myLongitude: single;
   myLatitude: single;
@@ -4274,7 +4274,7 @@ end;
 
 // ----------------------------------------------------------------------------
 
-procedure TFormBioneta.BuildPlanet(center: TGLVector; radius: single;
+procedure TFormBioneta.BuildPlanet(center: TGSVector; radius: single;
   Height: Integer; Width: Integer; Show: Boolean);
 var
   Latitude: Integer; // position along the height axis
@@ -5569,7 +5569,7 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBioneta.BuildWater(center: TGLVector; radius: single;
+procedure TFormBioneta.BuildWater(center: TGSVector; radius: single;
   Height: Integer; Width: Integer; Show: Boolean);
 var
   // grid normal vectors
@@ -5835,15 +5835,15 @@ begin
 end;
 
 // ----------------------------------------------------------------------------
-procedure TFormBioneta.BuildAtmosphere(center: TGLVector; radius: single;
+procedure TFormBioneta.BuildAtmosphere(center: TGSVector; radius: single;
   Height: Integer; Width: Integer; Show: Boolean);
 var
   // grid normal vectors
-  NormalUpLeft: TGLVector;
-  NormalDownLeft: TGLVector;
-  NormalUpRight: TGLVector;
-  NormalDownRight: TGLVector;
-  MiddleNormal: TGLVector;
+  NormalUpLeft: TGSVector;
+  NormalDownLeft: TGSVector;
+  NormalUpRight: TGSVector;
+  NormalDownRight: TGSVector;
+  MiddleNormal: TGSVector;
 
   // grid points
   PointUpLeft: TAffineVector;
@@ -5862,7 +5862,7 @@ var
   AngleStart, AngleFinish, AngleMiddle: single;
   SliceBegin, SliceFinish, SliceMiddle: single;
 
-  function AddToMesh(aVertice: TAffineVector; aNormal: TGLVector): Integer;
+  function AddToMesh(aVertice: TAffineVector; aNormal: TGSVector): Integer;
   begin
     Mesh.Vertices.Add(aVertice);
     Mesh.Normals.Add(aNormal.X, aNormal.Y, aNormal.Z);
@@ -6388,7 +6388,7 @@ procedure TFormBioneta.UpdateCrab(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myCrab: TaiCrab;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -6432,7 +6432,7 @@ procedure TFormBioneta.UpdateHawk(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myHawk: TaiHawk;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -6470,7 +6470,7 @@ procedure TFormBioneta.UpdateGrazer(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myGrazer: TaiGrazer;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -6510,7 +6510,7 @@ procedure TFormBioneta.UpdateTrex(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTrex: TaiTrex;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -6870,7 +6870,7 @@ end;
 procedure TFormBioneta.AddToTrail(aPosition: TaiPosition; aLines: TGLLines);
 var
   p, pt: TAffineVector;
-  v: TGLVector;
+  v: TGSVector;
 begin
   p := aPosition.AsAffineVector;
   // PositionThing(p, pt);
@@ -6959,7 +6959,7 @@ end;
 function TFormBioneta.BuildLightning(aLightning: TaiLightning): TCrossover;
 var
   myProxy: TGLProxyObject;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
   myThor: TGLThorFXManager;
   myThorFX: TGLBThorFX;
@@ -7038,7 +7038,7 @@ procedure TFormBioneta.UpdateShark(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myShark: TaiShark;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7107,7 +7107,7 @@ procedure TFormBioneta.UpdateTurtle(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTurtle: TaiTurtle;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7133,7 +7133,7 @@ end;
 function TFormBioneta.BuildBeacon(aBeacon: TaiBeacon): TCrossover;
 var
   myProxy: TGLProxyObject;
-  Scale: TGLVector;
+  Scale: TGSVector;
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
   with myProxy do
@@ -7173,7 +7173,7 @@ end;
 function TFormBioneta.BuildTerrier(aTerrier: TaiTerrier): TCrossover;
 var
   myProxy: TGLProxyObject;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
@@ -7237,7 +7237,7 @@ procedure TFormBioneta.UpdateTiger(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myTiger: TaiTiger;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7280,7 +7280,7 @@ procedure TFormBioneta.UpdateDuck(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myDuck: TaiDuck;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7315,7 +7315,7 @@ end;
 function TFormBioneta.BuildFox(aFox: TaiFox): TCrossover;
 var
   myProxy: TGLProxyObject;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
@@ -7359,7 +7359,7 @@ end;
 function TFormBioneta.BuildRabbit(aRabbit: TaiRabbit): TCrossover;
 var
   myProxy: TGLProxyObject;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
@@ -7400,7 +7400,7 @@ end;
 function TFormBioneta.BuildGrass(aGrass: TaiGrass): TCrossover;
 var
   myProxy: TGLProxyObject;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(ProxyCube.AddNewChild(TGLProxyObject));
@@ -7428,7 +7428,7 @@ procedure TFormBioneta.UpdateGrass(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myGrass: TaiGrass;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7499,7 +7499,7 @@ procedure TFormBioneta.UpdateIceberg(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myIceberg: TaiIceberg;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7552,7 +7552,7 @@ procedure TFormBioneta.UpdateMouse(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myMouse: TaiMouse;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -7634,7 +7634,7 @@ procedure TFormBioneta.UpdateDolphin(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myDolphin: TaiDolphin;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -8137,7 +8137,7 @@ procedure TFormBioneta.UpdateLadybug(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myLadybug: TaiLadybug;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -8179,7 +8179,7 @@ procedure TFormBioneta.UpdateAnt(aCrossover: TCrossover);
 var
   myProxy: TGLProxyObject;
   myAnt: TaiAnt;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLProxyObject(aCrossover.SubVisuals.Items[0]);
@@ -8546,7 +8546,7 @@ function TFormBioneta.BuildEvolvingFruit(aFruit: TaiEvolvingFruit)
   : TCrossover;
 var
   myProxy: TGLColorProxy;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLColorProxy(FruitCube.AddNewChild(TGLColorProxy));
@@ -8580,7 +8580,7 @@ end;
 function TFormBioneta.BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
 var
   myProxy: TGLColorProxy;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLColorProxy(SeedCube.AddNewChild(TGLColorProxy));
@@ -8624,7 +8624,7 @@ procedure TFormBioneta.UpdateEvolvingTree(aCrossover: TCrossover);
 var
   myProxy: TGLColorProxy;
   myTree: TaiEvolvingTree;
-  Scale: TGLVector;
+  Scale: TGSVector;
   factor: single;
 begin
   myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
@@ -8865,7 +8865,7 @@ end;
 function TFormBioneta.BuildFireTree(aFireTree: TaiFireTree): TCrossover;
 var
   myProxy: TGLColorProxy;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLColorProxy(ForestCube.AddNewChild(TGLColorProxy));
@@ -9100,7 +9100,7 @@ function TFormBioneta.BuildMissileDefence(aMissileDefence: TaiMissileDefence)
   : TCrossover;
 var
   myProxy: TGLColorProxy;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLColorProxy(SatellitesCube.AddNewChild(TGLColorProxy));
@@ -9142,7 +9142,7 @@ end;
 function TFormBioneta.BuildMissile(aMissile: TaiMissile): TCrossover;
 var
   myProxy: TGLProxyObject;
-  myScale: TGLVector;
+  myScale: TGSVector;
   myFactor: single;
 begin
   myProxy := TGLProxyObject(SatellitesCube.AddNewChild(TGLProxyObject));

@@ -63,27 +63,30 @@ type
   public
   end;
 
+function GetBodyFromCSV(const FileName: TFileName; NLine: Integer;
+  Body: string; var Radius: Single): string;
 function GetFieldNameFromCSV(const FileName: TFileName; const Index: Integer; var FieldName: string): string;
-function GetMoonFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
 
 
 implementation //=============================================================
 
 //----------------------------------------------------------------------------
-function GetMoonFromCSV(const FileName: TFileName; NLine: Integer; Moon: string): string;
+function GetBodyFromCSV(const FileName: TFileName; NLine: Integer;
+  Body: string; var Radius: Single): string;
 var
   Sl,Tl: TStringList;
-  index, radius, diameter: Single;
-  end_time,begin_time,planet_name,number,state_index: string;
+  Index, Diameter: Single;
+  end_time,begin_time,body_name,number,state_index: string;
 
 begin
   Sl := TStringList.Create;
   Tl := TStringList.Create;
-  Result := Moon;
+  Result := Body;
   try
     Sl.LoadFromFile(FileName);
     Tl.CommaText := Sl[NLine + 1]; // the lines with values without title
-    Result := Tl[1];        // translation of moon for name field 1
+    Result := Tl[1];   // translation of body name for field [1]
+    Radius := StrToFloat(Tl[3]);
   finally
     Sl.Free;
     Tl.Free;

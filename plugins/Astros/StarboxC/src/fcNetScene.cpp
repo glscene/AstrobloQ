@@ -19,8 +19,8 @@
 #pragma link "GLS.GeomObjects"
 #pragma link "GLS.VectorFileObjects"
 #pragma link "GLS.Mesh"
-#pragma link "GLS.BaseClasses"
-#pragma link "GLS.Coordinates"
+#pragma link "Stage.BaseClasses"
+#pragma link "Stage.Coordinates"
 #pragma resource "*.dfm"
 TFormNetScene *FormNetScene;
 

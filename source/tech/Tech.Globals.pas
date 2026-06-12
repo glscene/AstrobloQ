@@ -11,7 +11,7 @@ uses
   System.IniFiles,
   Vcl.Graphics,
 
-  GLS.Color,
+  Stage.Color,
   GLS.Texture;
 
 const
@@ -73,7 +73,7 @@ var
   StillOpen, FilePreviews, Skip32BitNotice, SkipIntroScreen, ScaleBarVisible,
   WarningBeepOn, InfoBeepOn, ConfirmBeepOn, CompletedBeepOn: Boolean;
 
-  DotColorArray: array of TGLColorVector;
+  DotColorArray: array of TGSColorVector;
   MarkerIndex, ColorIndex: Integer;
 
   MMSysHandle: THandle;

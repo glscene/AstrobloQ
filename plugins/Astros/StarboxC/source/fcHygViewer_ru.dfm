@@ -44,8 +44,6 @@ object FormHygViewer: TFormHygViewer
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 1
-    ExplicitWidth = 633
-    ExplicitHeight = 454
   end
   object Panel1: TPanel
     Left = 0

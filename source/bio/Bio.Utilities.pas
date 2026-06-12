@@ -31,7 +31,7 @@ function Min(const aNum1, aNum2: single): single; overload;
 function Avg(const aNum1, aNum2, aNum3, aNum4: single): single; overload;
 function Avg(const aNum1, aNum2: single): single; overload;
 function Cap(const aNumber, aCap: integer): integer;
-function VectorToString(aVect: TGLVector): string; overload;
+function VectorToString(aVect: TGSVector): string; overload;
 function VectorToString(aVect: TAffineVector): string; overload;
 procedure LimitVector(var aVect: TAffineVector; const aMax: single);
 procedure WriteVector(var aFile: TextFile; var aVector: TAffineVector);
@@ -284,7 +284,7 @@ begin
   result := (aNum1 + aNum2) / 2;
 end;
 
-function VectorToString(aVect: TGLVector): string;
+function VectorToString(aVect: TGSVector): string;
 begin
   result := Format('x=%0.2f y=%0.2f z=%0.2f', [aVect.x, aVect.Y, aVect.Z])
 end;

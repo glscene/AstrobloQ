@@ -13,7 +13,7 @@
 
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.Material"
-#pragma link "GLS.Color"
+#pragma link "Stage.Color"
 
 #pragma link "GLS.SimpleNavigation"
 #pragma resource "*.dfm"

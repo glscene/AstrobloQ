@@ -24,8 +24,8 @@ uses
   GLS.FileTGA,
   GLS.SkyDome,
   GLS.Texture,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.Material;
 
 type

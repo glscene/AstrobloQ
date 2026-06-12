@@ -25,9 +25,9 @@ uses
   GLS.AsyncTimer,
   GLS.FileTGA,
   GLS.Material,
-  GLS.Coordinates,
+  Stage.Coordinates,
   
-  GLS.BaseClasses,
+  Stage.BaseClasses,
 
   Bump.OffSet,
   GLS.SimpleNavigation;

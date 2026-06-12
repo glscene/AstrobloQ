@@ -15,7 +15,7 @@
 
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.Material"
-#pragma link "GLS.Color"
+#pragma link "Stage.Color"
 
 #pragma link "GLS.SimpleNavigation"
 #pragma resource "*.dfm"
@@ -136,7 +136,7 @@ void __fastcall TFormBox::FormCreate(TObject* Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormBox::FormShow(TObject* Sender)
 {
-	TGLVector AColor;
+	TGSVector AColor;
     float d;
 
     // colorize shapes  ConvertColorVector(const aColor: TGLColorVector): TColor;

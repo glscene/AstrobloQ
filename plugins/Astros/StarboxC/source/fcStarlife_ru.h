@@ -23,25 +23,25 @@
 #include "GLS.Atmosphere.hpp"
 #include "GLS.SimpleNavigation.hpp"
 #include "GLS.Behaviours.hpp"
-#include "GLS.Color.hpp"
-#include "GLS.BaseClasses.hpp"
-#include "GLS.Coordinates.hpp"
+#include "Stage.Color.hpp"
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 
 //---------------------------------------------------------------------------
 class TFormLife : public TForm
 {
   __published: // IDE-managed Components
-    TGLScene* GLScene1;
-    TGLSkyDome* GLSkyDome1;
+	TGLScene* GLScene1;
+	TGLSkyDome* GLSkyDome1;
 	TGLDummyCube *dcStarbox;
-    TGLLensFlare* GLLensFlare1;
-    TGLLightSource* GLLightSource1;
-    TGLCamera* GLCamera1;
-    TGLCadencer* GLCadencer1;
-    TGLSimpleNavigation* GLSimpleNavigation1;
-    TTimer* Timer1;
-    TGLSceneViewer* GLSceneViewer1;
-    TPanel* Panel1;
+	TGLLensFlare* GLLensFlare1;
+	TGLLightSource* GLLightSource1;
+	TGLCamera* GLCamera1;
+	TGLCadencer* GLCadencer1;
+	TGLSimpleNavigation* GLSimpleNavigation1;
+	TTimer* Timer1;
+	TGLSceneViewer* GLSceneViewer1;
+	TPanel* Panel1;
     TButton* btnStart;
     TLabel* Label1;
     TCheckBox* chbSpeed10;

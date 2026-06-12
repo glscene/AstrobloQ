@@ -24,14 +24,14 @@
 #include "Stage.VectorTypes.hpp"
 #include "GLS.Cadencer.hpp"
 #include "GLS.Material.hpp"
-#include "GLS.Color.hpp"
+#include "Stage.Color.hpp"
 #include "GLS.SimpleNavigation.hpp"
 
 #include "fcStarLife_ru.h"
 
 
-#include "GLS.BaseClasses.hpp"
-#include "GLS.Coordinates.hpp"
+#include "Stage.BaseClasses.hpp"
+#include "Stage.Coordinates.hpp"
 
 
 // ---------------------------------------------------------------------------

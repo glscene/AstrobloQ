@@ -31,8 +31,8 @@ uses
   GLS.Material,
   GLS.SceneViewer,
   GLS.File3DS,
-  GLS.Coordinates,
-  GLS.BaseClasses;
+  Stage.Coordinates,
+  Stage.BaseClasses;
 
 type
   TSubmarine = record
@@ -87,7 +87,7 @@ type
     CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
-    FCamHeight: single;
+    CameraHeight: single;
   end;
 
 var
@@ -158,9 +158,9 @@ begin
     dcUnderwater.Position.Z:=-385;
   *)
   dcSubmarine.Turn(90);
-  // Initial camera height offset (controled with pageUp/pageDown)
-  FCamHeight := 10;
-  (*
+  // начальная высота камеры над рельефом (controled with pageUp/pageDown)
+  CameraHeight := 10;
+  (* // если субмарина всплыла на поверхность океана
   with skydome1 do
   begin
     Bands[1].StopColor.AsWinColor := RGB(0, 0, 16);
@@ -224,9 +224,9 @@ begin
       dspeed := dspeed - 0.01;  // 0.0001 медленно
   (*
     if IsKeyDown(VK_PRIOR) then
-    FCamHeight := FCamHeight + 10*speed;
+    CameraHeight := CameraHeight + 10*speed;
     if IsKeyDown(VK_NEXT) then
-    FCamHeight := FCamHeight - 10*speed;
+    CameraHeight := CameraHeight - 10*speed;
    *)
   // поворот носа подлодки влево
   if IsKeyDown('a') or IsKeyDown('ф') or IsKeyDown(VK_LEFT) then
@@ -267,7 +267,7 @@ begin
     ffSubmarine.Roll(1.0);
   end;
   // вид из кокпита субмарины
-  if IsKeyDown('c') or IsKeyDown('с') then
+  if IsKeyDown('v') or IsKeyDown('м') then
   begin
     ffSubmarine.Visible := True;
     ffSubmarine.NormalsOrientation := mnoInvert;
@@ -276,7 +276,7 @@ begin
     // glFireFxManager1.Disabled :=true;
   end;
   // вид со стороны и сверху
-  if IsKeyDown('v') or IsKeyDown('м') then
+  if IsKeyDown('c') or IsKeyDown('с') then
   begin
     ffSubmarine.Visible := True;
     ffSubmarine.NormalsOrientation := mnoDefault;
@@ -288,11 +288,10 @@ begin
   if IsKeyDown('b') or IsKeyDown('и') then
     ffSubmarine.Visible := False;
 
-
   // запрет погружения ниже дна!
   with dcSubmarine.Position do
     if y < TerrainRenderer1.InterpolatedHeight(AsVector) then
-      y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
+      y := TerrainRenderer1.InterpolatedHeight(AsVector) + CameraHeight;
   // выход по клавише эскейп
   if IsKeyDown(VK_ESCAPE) then
     FormCrafts.Close;

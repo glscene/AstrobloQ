@@ -16,8 +16,8 @@
 #pragma link "GLS.SkyDome"
 #pragma link "GLS.Atmosphere"
 
-#pragma link "GLS.BaseClasses"
-#pragma link "GLS.Coordinates"
+#pragma link "Stage.BaseClasses"
+#pragma link "Stage.Coordinates"
 #pragma resource "*.dfm"
 TFormLife* FormLife;
 

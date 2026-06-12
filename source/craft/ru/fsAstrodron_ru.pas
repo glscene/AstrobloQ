@@ -25,9 +25,9 @@ uses
   GLS.SceneViewer,
   GLS.Material,
   GLS.Texture,
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.SkyDome,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Graph;
 
 type

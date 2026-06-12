@@ -54,7 +54,7 @@ public
   procedure Advance;
 
   // basic event
-//  function AddEvent(aKind: integer; aOrigin, aTarget: AIThing; aValue: integer; aAmount: single; aVector: TGLVector): boolean; overload;
+//  function AddEvent(aKind: integer; aOrigin, aTarget: AIThing; aValue: integer; aAmount: single; aVector: TGSVector): boolean; overload;
   function AddEvent(aKind: integer; aOrigin, aTarget: AIThing): boolean; overload;
   function AddEvent(aKind: integer; aOrigin, aTarget: AIThing; aValue: integer): boolean; overload;
   function AddEvent(aKind: integer; aOrigin, aTarget: AIThing; aAmount: single): boolean; overload;

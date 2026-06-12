@@ -19,8 +19,8 @@ uses
   GLS.Cadencer,
   GLS.Scene,
   GLS.Objects,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   Vcl.StdCtrls,
   GLS.SceneViewer,
   Vcl.ComCtrls;

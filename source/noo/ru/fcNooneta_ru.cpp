@@ -6,7 +6,7 @@
 #include "fcNooneta_ru.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-#pragma link "GLS.BaseClasses"
+#pragma link "Stage.BaseClasses"
 #pragma link "GLS.Scene"
 #pragma link "GLS.SceneViewer"
 #pragma link "GLS.Cadencer"
@@ -15,7 +15,7 @@
 #pragma link "GLS.Sounds.BASS"
 #pragma link "GLS.BitmapFont"
 #pragma link "GLS.Material"
-#pragma link "GLS.Coordinates"
+#pragma link "Stage.Coordinates"
 #pragma link "GLS.Objects"
 #pragma link "GLS.LensFlare"
 #pragma link "GLS.HUDObjects"
@@ -273,7 +273,7 @@ void __fastcall TFormNooneta::GLCadencer1Progress(TObject *Sender, const double 
 		speed = 5 * DeltaTime;
 	else
 		speed = DeltaTime;
-	TGLCoordinates *c = GLCamera1->Position;
+	TGSCoordinates *c = GLCamera1->Position;
 	if(IsKeyDown(VK_UP))
 		dcCamera->Translate(c->Z * speed * 10, 0, -c->X * speed * 10);
 	if(IsKeyDown(VK_DOWN))
@@ -297,7 +297,7 @@ void __fastcall TFormNooneta::GLCadencer1Progress(TObject *Sender, const double 
 //---------------------------------------------------------------------------
 void __fastcall TFormNooneta::Timer1Timer(TObject *Sender)
 {
-	TGLVector wolfPos;
+	TGSVector wolfPos;
 	float c, s;
 	TGLBSoundEmitter *be;
 	if(!GLSMBASS1->Active)

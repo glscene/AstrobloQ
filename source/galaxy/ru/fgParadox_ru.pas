@@ -26,9 +26,9 @@ uses
   fgSolving_ru,
 
   GLS.SceneViewer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene, GLS.SimpleNavigation, GLS.Material, GLS.Cadencer,
-  GLS.VectorFileObjects, GLS.Objects, GLS.Coordinates;
+  GLS.VectorFileObjects, GLS.Objects, Stage.Coordinates;
 
 type
   TfrmParadox = class(TFormFirst)

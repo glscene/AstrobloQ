@@ -28,11 +28,11 @@ uses
   Stage.Keyboard,
   GLS.Material,
   GLS.Cadencer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
 
-  GLS.Coordinates,
+  Stage.Coordinates,
   GLS.Texture,
   GLS.SkyDome,
   GLS.Navigator,

@@ -17,7 +17,7 @@ uses
   Vcl.ExtCtrls,
   GLS.AsyncTimer,
   GLS.Cadencer,
-  GLS.BaseClasses,
+  Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer;
 

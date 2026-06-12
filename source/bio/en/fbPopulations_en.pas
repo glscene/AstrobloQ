@@ -25,7 +25,7 @@ uses
   (*, TeeProcs, TeEngine, Chart, Series;*)
   //JvEdit, JvTypedEdit
   GLS.Texture,
-  GLS.Color;
+  Stage.Color;
 
 type
   TFormPopulations = class(TForm)
@@ -125,11 +125,11 @@ procedure TFormPopulations.InitializeGraph;
 var
   mySeries: TLineSeries;
   i: integer;
-  myColor: TGLColor;
+  myColor: TGSColor;
 begin
   if Initialized then exit;
 
-  myColor := TGLColor.Create(nil);
+  myColor := TGSColor.Create(nil);
 
   // add all Kinds of things to the graph, and hide them
   // each line becomes active when things appear

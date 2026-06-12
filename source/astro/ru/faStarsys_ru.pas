@@ -27,7 +27,7 @@ uses
   Stage.Keyboard,
 
   GLS.SceneViewer,
-  GLS.PersistentClasses,
+  Stage.PersistentClasses,
 
   GLS.Scene,
   GLS.Context,
@@ -41,13 +41,13 @@ uses
   GLS.FileSTL,
 
   GLS.VectorFileObjects,
-  GLS.Coordinates,
-  GLS.BaseClasses,
+  Stage.Coordinates,
+  Stage.BaseClasses,
   GLS.RenderContextInfo,
   GLS.AsyncTimer,
   GLS.SimpleNavigation,
   GLS.Material,
-  GLS.Color,
+  Stage.Color,
   GLS.SkyDome,
   GLS.FireFX,
   GLS.FileObj,
