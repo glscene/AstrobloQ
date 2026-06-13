@@ -15,7 +15,7 @@ uses
   GLS.Cadencer,
   GLS.Scene,
   GLS.Objects,
-  GLS.AsyncTimer,
+  Stage.AsyncTimer,
   GLS.SceneViewer,
   GLS.GeomObjects,
   GLS.Texture,

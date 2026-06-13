@@ -29,7 +29,7 @@ uses
   Stage.Coordinates,
   GLS.HeightData,
   GLS.Objects,
-  GLS.AsyncTimer,
+  Stage.AsyncTimer,
   GLS.Material,
   GLS.Context,
   GLS.Texture,

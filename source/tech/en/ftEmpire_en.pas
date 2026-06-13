@@ -220,7 +220,7 @@ implementation //==============================================================
 
 uses
   Stage.PersistentClasses,
-  GLS.MeshUtils,
+  Stage.MeshUtils,
   GLS.FileOBJ,
   GLS.FileSTL,
   GLS.FileLWO,

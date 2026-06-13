@@ -38,7 +38,7 @@ uses
   Stage.BaseClasses,
   GLS.Scene,
   GLS.SceneViewer,
-  GLS.AsyncTimer,
+  Stage.AsyncTimer,
   GLS.Cadencer,
   GLS.Objects,
   GLS.Graph,
@@ -73,7 +73,7 @@ type
     GLScene: TGLScene;
     StatusBar: TStatusBar;
     MainMenu: TMainMenu;
-    GLAsyncTimer: TGLAsyncTimer;
+    GLAsyncTimer: TGSAsyncTimer;
     GLCadencer: TGLCadencer;
     miFile: TMenuItem;
     miOpen: TMenuItem;

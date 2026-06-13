@@ -20,15 +20,18 @@ uses
   Vcl.Imaging.pngimage,
   Vcl.Menus,
 
-
   Stage.VectorTypes,
   Stage.VectorGeometry,
   Stage.Utils,
   Stage.Keyboard,
+  Stage.PersistentClasses,
+  Stage.GeometryBB,
+  Stage.Coordinates,
+  Stage.BaseClasses,
+  Stage.AsyncTimer,
+  Stage.Color,
 
   GLS.SceneViewer,
-  Stage.PersistentClasses,
-
   GLS.Scene,
   GLS.Context,
   GLS.State,
@@ -36,18 +39,13 @@ uses
   GLS.GeomObjects,
   GLS.Cadencer,
   GLS.Extrusion,
-  GLS.GeometryBB,
   GLS.File3DS,
   GLS.FileSTL,
 
   GLS.VectorFileObjects,
-  Stage.Coordinates,
-  Stage.BaseClasses,
   GLS.RenderContextInfo,
-  GLS.AsyncTimer,
   GLS.SimpleNavigation,
   GLS.Material,
-  Stage.Color,
   GLS.SkyDome,
   GLS.FireFX,
   GLS.FileObj,
@@ -74,7 +72,7 @@ type
     SolarSystem: TGLDummyCube;
     lineAxis: TGLLines;
     bb_lines: TGLLines;
-    AsyncTimer: TGLAsyncTimer;
+    AsyncTimer: TGSAsyncTimer;
     SaturnRing: TGLDisk;
     Sun: TGLSphere;
     MatLib: TGLMaterialLibrary;

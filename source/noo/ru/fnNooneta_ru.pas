@@ -36,7 +36,7 @@ uses
   GLS.Navigator,
   GLS.SpacePartition,
   GLS.BitmapFont,
-  GLS.GeometryBB,
+  Stage.GeometryBB,
   GLS.WindowsFont,
   GLS.HUDObjects,
 

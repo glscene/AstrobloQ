@@ -33,7 +33,7 @@ TGLFractalHDS используется так же, как и другие HDS GLScene. Для просмотра резул
 TGLFractalHDS, будет использоваться функция по умолчанию:
 
 - DummyCube для масштабирования;
-- Cadencer заменен на TGLAsyncTimer.
+- Cadencer заменен на TGSAsyncTimer.
 
 Остальные методы данной формы необходимы для интерактивного взаимодействия
 с пользователем и поддержки версий, не имея прямого отношения к генерации ландшафтов.
@@ -70,7 +70,7 @@ uses
   GLS.HeightData,
   GLS.Texture,
   GLS.SceneViewer,
-  GLS.AsyncTimer,
+  Stage.AsyncTimer,
   GLS.Material,
   Stage.Coordinates,
   Stage.BaseClasses,
@@ -174,7 +174,7 @@ type
     TrackBar4: TTrackBar;
     DummyTrackbar: TTrackBar;
     Timer1: TTimer;
-    AsyncTimer1: TGLAsyncTimer;
+    AsyncTimer1: TGSAsyncTimer;
     GLDummyCube1: TGLDummyCube;
     rgTextureQuality: TRadioGroup;
     GroupBox14: TGroupBox;

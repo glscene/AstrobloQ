@@ -33,7 +33,7 @@ uses
   GLS.GeomObjects,
   GLS.Cadencer,
   GLS.Extrusion,
-  GLS.GeometryBB,
+  Stage.GeometryBB,
   GLS.File3DS,
   GLS.FileSTL,
 
@@ -41,7 +41,7 @@ uses
   Stage.Coordinates,
   Stage.BaseClasses,
   GLS.RenderContextInfo,
-  GLS.AsyncTimer,
+  Stage.AsyncTimer,
   GLS.SimpleNavigation,
   GLS.Material,
   Stage.Color,
@@ -71,7 +71,7 @@ type
     SolarSystem: TGLDummyCube;
     axis_lines: TGLLines;
     bb_lines: TGLLines;
-    AsyncTimer: TGLAsyncTimer;
+    AsyncTimer: TGSAsyncTimer;
     SaturnRing: TGLDisk;
     Sun: TGLSphere;
     MatLib: TGLMaterialLibrary;

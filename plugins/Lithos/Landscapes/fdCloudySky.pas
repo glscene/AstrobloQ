@@ -23,7 +23,7 @@ uses
   GLS.Scene,
   GLS.Objects,
   GLS.SceneViewer,
-  GLS.AsyncTimer,
+  Stage.AsyncTimer,
   GLS.Cadencer,
   GLS.SkyDome,
   GLS.Texture,

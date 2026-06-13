@@ -44,7 +44,7 @@ uses
   Stage.Color,
   Stage.PersistentClasses,
   Stage.VectorLists,
-  GLS.MeshUtils,
+  Stage.MeshUtils,
 
   Stage.BaseClasses;
 
