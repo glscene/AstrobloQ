@@ -29,7 +29,7 @@ uses
   GLS.Texture,
   GLS.SceneViewer,
 
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.Material,
   Stage.Coordinates,
 
@@ -49,7 +49,7 @@ type
     Panel1: TPanel;
     lblDebug: TLabel;
     Timer1: TTimer;
-    GLAsyncTimer1: TGSAsyncTimer;
+    GLAsyncTimer1: TGLAsyncTimer;
     GLDummyCube1: TGLDummyCube;
     Label1: TLabel;
     GLCadencer1: TGLCadencer;

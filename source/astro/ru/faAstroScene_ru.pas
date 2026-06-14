@@ -186,6 +186,9 @@ type
     ArrowZ: TGLArrowLine;
     Arrow_Z: TGLArrowLine;
     polygonBorders: TGLPolygon;
+    GLPolygon1: TGLPolygon;
+    GLSkyBox1: TGLSkyBox;
+    matlib: TGLMaterialLibrary;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);

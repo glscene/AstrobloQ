@@ -1086,7 +1086,7 @@ object FormLithoneta: TFormLithoneta
     Left = 248
     Top = 16
   end
-  object AsyncTimer1: TGSAsyncTimer
+  object AsyncTimer1: TGLAsyncTimer
     Interval = 1
     OnTimer = AsyncTimer1Timer
     ThreadPriority = tpIdle

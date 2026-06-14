@@ -28,7 +28,7 @@ uses
   Stage.GeometryBB,
   Stage.Coordinates,
   Stage.BaseClasses,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   Stage.Color,
 
   GLS.SceneViewer,
@@ -72,7 +72,7 @@ type
     SolarSystem: TGLDummyCube;
     lineAxis: TGLLines;
     bb_lines: TGLLines;
-    AsyncTimer: TGSAsyncTimer;
+    AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
     Sun: TGLSphere;
     MatLib: TGLMaterialLibrary;

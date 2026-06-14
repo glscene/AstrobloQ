@@ -61,7 +61,7 @@ uses
   Stage.Color,
   GLS.Graphics,
   Stage.MeshUtils,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.Graph,
   GLS.MeshBuilder,
   GLS.Navigator,

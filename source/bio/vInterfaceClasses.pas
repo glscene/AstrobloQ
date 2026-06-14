@@ -34,7 +34,7 @@ type
 
   // [face][vertex-index]
   TVertexIndexList = array of array of integer;
-  TGLVectorList = array of TAffineVector;
+  TGSVectorList = array of TAffineVector;
 
   // *****************************************************************************
   // stores links between data objects and interface objects
@@ -58,7 +58,7 @@ type
   // stores links between grid objects and 3d visual maps
   TGridCrossover = class(TCrossover)
   private
-    fNormals: TGLVectorList; // list of normals (owned)
+    fNormals: TGSVectorList; // list of normals (owned)
     fLastState: integer; // last state of data
     fLastValue: single;
     fVertices: TVertexIndexList;
@@ -67,7 +67,7 @@ type
     constructor Create(aNormals: integer);
     destructor Destroy; override;
 
-    property Normals: TGLVectorList read fNormals;
+    property Normals: TGSVectorList read fNormals;
     property LastState: integer read fLastState write fLastState;
     property LastValue: single read fLastValue write fLastValue;
     property Vertices: TVertexIndexList read fVertices;

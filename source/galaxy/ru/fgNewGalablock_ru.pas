@@ -23,7 +23,7 @@ uses
   GLS.Scene,
   GLS.SceneViewer,
   GLS.Cadencer,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.Objects,
   Stage.Coordinates,
   GLS.SimpleNavigation,
@@ -37,7 +37,7 @@ type
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCadencer1: TGLCadencer;
-    GLAsyncTimer1: TGSAsyncTimer;
+    GLAsyncTimer1: TGLAsyncTimer;
     Timer1: TTimer;
     MainMenu1: TMainMenu;
     miFile: TMenuItem;

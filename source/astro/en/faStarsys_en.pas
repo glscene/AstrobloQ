@@ -41,7 +41,7 @@ uses
   Stage.Coordinates,
   Stage.BaseClasses,
   GLS.RenderContextInfo,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.SimpleNavigation,
   GLS.Material,
   Stage.Color,
@@ -71,7 +71,7 @@ type
     SolarSystem: TGLDummyCube;
     axis_lines: TGLLines;
     bb_lines: TGLLines;
-    AsyncTimer: TGSAsyncTimer;
+    AsyncTimer: TGLAsyncTimer;
     SaturnRing: TGLDisk;
     Sun: TGLSphere;
     MatLib: TGLMaterialLibrary;

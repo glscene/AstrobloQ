@@ -22,7 +22,7 @@ uses
   GLS.Scene,
   GLS.Objects,
   GLS.HUDObjects,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.FileTGA,
   GLS.Material,
   Stage.Coordinates,

@@ -15,7 +15,7 @@ uses
   Vcl.StdCtrls,
   Vcl.Menus,
   Vcl.ExtCtrls,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.Cadencer,
   Stage.BaseClasses,
   GLS.Scene,
@@ -27,7 +27,7 @@ type
     GLSceneViewer1: TGLSceneViewer;
     GLScene1: TGLScene;
     GLCadencer1: TGLCadencer;
-    GLAsyncTimer1: TGSAsyncTimer;
+    GLAsyncTimer1: TGLAsyncTimer;
     Timer1: TTimer;
     MainMenu1: TMainMenu;
     miFile: TMenuItem;

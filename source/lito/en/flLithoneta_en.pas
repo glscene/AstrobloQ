@@ -31,7 +31,7 @@ unit flLithoneta_en;
   it is not mandatory. If no OnDrawTexture event handler is supplied to the
   TGLFractalHDS, a default function will be used:
   - DummyCube for scaling;
-  - Cadencer replaced by an TGSAsyncTimer.
+  - Cadencer replaced by an TGLAsyncTimer.
 
   All the other methods on this form are just maintenance code for the demo;
   they are not related directly to landscape generation.
@@ -69,7 +69,7 @@ uses
   GLS.HeightData,
   GLS.Texture,
   GLS.SceneViewer,
-  Stage.AsyncTimer,
+  GLS.AsyncTimer,
   GLS.Material,
   Stage.Coordinates,
   Stage.BaseClasses,
@@ -173,7 +173,7 @@ type
     TrackBar4: TTrackBar;
     DummyTrackbar: TTrackBar;
     Timer1: TTimer;
-    AsyncTimer1: TGSAsyncTimer;
+    AsyncTimer1: TGLAsyncTimer;
     GLDummyCube1: TGLDummyCube;
     rgTextureQuality: TRadioGroup;
     GroupBox14: TGroupBox;
