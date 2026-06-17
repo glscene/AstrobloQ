@@ -8511,9 +8511,9 @@ end;
 // ========================= EVOLUTION TREES ================================
 function TFormBioneta.BuildEvolvingTree(aTree: TaiEvolvingTree): TCrossover;
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
 begin
-  myProxy := TGLColorProxy(ForestCube.AddNewChild(TGLColorProxy));
+  myProxy := TGSColorProxy(ForestCube.AddNewChild(TGSColorProxy));
   with myProxy do
   begin
     MasterObject := EvolvingTree;
@@ -8545,11 +8545,11 @@ end;
 function TFormBioneta.BuildEvolvingFruit(aFruit: TaiEvolvingFruit)
   : TCrossover;
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myScale: TGSVector;
   myFactor: single;
 begin
-  myProxy := TGLColorProxy(FruitCube.AddNewChild(TGLColorProxy));
+  myProxy := TGSColorProxy(FruitCube.AddNewChild(TGSColorProxy));
   with myProxy do
   begin
     MasterObject := EvolvingFruit;
@@ -8579,11 +8579,11 @@ end;
 // ----------------------------------------------------------------------------
 function TFormBioneta.BuildEvolvingSeed(aSeed: TaiEvolvingSeed): TCrossover;
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myScale: TGSVector;
   myFactor: single;
 begin
-  myProxy := TGLColorProxy(SeedCube.AddNewChild(TGLColorProxy));
+  myProxy := TGSColorProxy(SeedCube.AddNewChild(TGSColorProxy));
   with myProxy do
   begin
     MasterObject := EvolvingSeed;
@@ -8622,12 +8622,12 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.UpdateEvolvingTree(aCrossover: TCrossover);
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myTree: TaiEvolvingTree;
   Scale: TGSVector;
   factor: single;
 begin
-  myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
+  myProxy := TGSColorProxy(aCrossover.SubVisuals.Items[0]);
   myTree := TaiEvolvingTree(aCrossover.Data);
 
   factor := myTree.Water + 0.1;
@@ -8644,10 +8644,10 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.UpdateEvolvingFruit(aCrossover: TCrossover);
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myFruit: TaiEvolvingFruit;
 begin
-  myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
+  myProxy := TGSColorProxy(aCrossover.SubVisuals.Items[0]);
   myFruit := TaiEvolvingFruit(aCrossover.Data);
 
   PositionThing(myFruit.Position, myProxy);
@@ -8656,10 +8656,10 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.UpdateEvolvingSeed(aCrossover: TCrossover);
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   mySeed: TaiEvolvingSeed;
 begin
-  myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
+  myProxy := TGSColorProxy(aCrossover.SubVisuals.Items[0]);
   mySeed := TaiEvolvingSeed(aCrossover.Data);
 
   PositionThing(mySeed.Position, myProxy);
@@ -8864,11 +8864,11 @@ end;
 // ----------------------------------------------------------------------------
 function TFormBioneta.BuildFireTree(aFireTree: TaiFireTree): TCrossover;
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myScale: TGSVector;
   myFactor: single;
 begin
-  myProxy := TGLColorProxy(ForestCube.AddNewChild(TGLColorProxy));
+  myProxy := TGSColorProxy(ForestCube.AddNewChild(TGSColorProxy));
   with myProxy do
   begin
     MasterObject := FireTree;
@@ -8891,10 +8891,10 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.UpdateFireTree(aCrossover: TCrossover);
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myFireTree: TaiFireTree;
 begin
-  myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
+  myProxy := TGSColorProxy(aCrossover.SubVisuals.Items[0]);
   myFireTree := TaiFireTree(aCrossover.Data);
 
   myProxy.FrontColor.Diffuse.Red := myFireTree.Fire / cBurnDown;
@@ -9099,11 +9099,11 @@ end;
 function TFormBioneta.BuildMissileDefence(aMissileDefence: TaiMissileDefence)
   : TCrossover;
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myScale: TGSVector;
   myFactor: single;
 begin
-  myProxy := TGLColorProxy(SatellitesCube.AddNewChild(TGLColorProxy));
+  myProxy := TGSColorProxy(SatellitesCube.AddNewChild(TGSColorProxy));
   with myProxy do
   begin
     MasterObject := MissileDefence;
@@ -9126,10 +9126,10 @@ end;
 // ----------------------------------------------------------------------------
 procedure TFormBioneta.UpdateMissileDefence(aCrossover: TCrossover);
 var
-  myProxy: TGLColorProxy;
+  myProxy: TGSColorProxy;
   myMissileDefence: TaiMissileDefence;
 begin
-  myProxy := TGLColorProxy(aCrossover.SubVisuals.Items[0]);
+  myProxy := TGSColorProxy(aCrossover.SubVisuals.Items[0]);
   myMissileDefence := TaiMissileDefence(aCrossover.Data);
   myProxy.FrontColor.Diffuse.Red := myMissileDefence.Priority;
   myProxy.FrontColor.Diffuse.Blue := myMissileDefence.Priority;
