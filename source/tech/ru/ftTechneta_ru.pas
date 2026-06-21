@@ -1496,7 +1496,7 @@ end;
 //------------------------ miCountries ---------------------------------------
 procedure TFormTechneta.miCountriesClick(Sender: TObject);
 begin
-  If FileExists(ShpPath + 'country.dat') then
+  if FileExists(ShpPath + 'country.dat') then
   begin
     miCountries.Checked := (not miCountries.Checked);
     DisplayCountries(miCountries.Checked)
@@ -1509,20 +1509,20 @@ end;
 procedure TFormTechneta.DisplayCountries(Show: Boolean);
 begin
   If (not Show) then
-  begin { off }
+  begin // off
     ShpLines.Visible := False;
   end;
   If (Show and CountriesLoaded) then
-  begin { on }
+  begin // on
     ShpLines.Visible := True;
   end;
   If (Show and (not CountriesLoaded)) then
   begin
-    { ShapePath := ExtractFilePath(ParamStr(0)); }
-    { ShpFileName := ShpPath+'Country.shp'; }
+    // ShapePath := ExtractFilePath(ParamStr(0));
+    // ShpFileName := ShpPath+'Country.shp';
     ShpLines.Visible := True;
     If LoadCountryShapes then
-    begin { on }
+    begin // on
 
     end
     else
@@ -1536,11 +1536,12 @@ var
   INumparts, INumPoints, NumParts, NumPoints: Integer;
   winColor, i, Count: Integer;
   dXTemp, dYTemp: Double;
-  pos2: TGSVector; // TAffineVector;
+  pos2: TGSVector; // TGSAffineVector;
   ShapeFileOut: file of Double;
   ShapetypeD: Double;
-  function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
-  // TAffineVector;//TGSVector;
+
+  (*sub*)function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
+  // or TGSAffineVector;
   var
     ca, sa, co, so: single;
   begin
@@ -1590,33 +1591,34 @@ begin
       ShpLines.Nodes.Last.AsVector := pos2;
     end; // INumparts
     ShpLines.Nodes.Last.AsVector := pos2;
-  end; // For ShapeToDo
+  end; // for ShapeToDo
   CountriesLoaded := True;
   Result := True;
   GLSceneViewer.Cursor := crDefault;
   ShpPoints.StructureChanged;
 end;
-
-{ Load the Shape File ... then Process ALL the points of the Lines }
-{ Function TEarthForm.LoadShapes:Boolean;
-  begin
-  GLSceneViewer.Cursor:=crHourGlass;
-  If NewLayer then
-  begin
-  DVDORedraw;
-  If (lowercase(ShpFileName) = lowercase(ShpPath+'Country.shp'))
-  then CountriesLoaded:=True;
-  If (lowercase(ShpFileName) = lowercase(ShpPath+'Cities.shp'))
-  then CitiesLoaded:=True;
-  If (lowercase(ShpFileName) = lowercase(ShpPath+'CAPITALS.SHP'))
-  then CapitalsLoaded:=True;
-  Result:=True;
-  end else Result:=False;
-  GLSceneViewer.Cursor:=crDefault;
-  end; }
-
+// Load the Shape File ... then Process ALL the points of the Lines
 (*
-  Function TEarthForm.NewLayer:Boolean;
+  function TEarthForm.LoadShapes: Boolean;
+  begin
+    GLSceneViewer.Cursor := crHourGlass;
+    If NewLayer then
+    begin
+      DVDORedraw;
+      If (lowercase(ShpFileName) = lowercase(ShpPath+'Country.shp'))
+      then CountriesLoaded:=True;
+      If (lowercase(ShpFileName) = lowercase(ShpPath+'Cities.shp'))
+      then CitiesLoaded:=True;
+      If (lowercase(ShpFileName) = lowercase(ShpPath+'CAPITALS.SHP'))
+      then CapitalsLoaded:=True;
+      Result:=True;
+    end
+      else Result:=False;
+    GLSceneViewer.Cursor := crDefault;
+  end;
+*)
+(*
+  function TEarthForm.NewLayer:Boolean;
   var gotloaded:Boolean;
   begin
   gotloaded:=False;
@@ -1636,9 +1638,12 @@ end;
   result:=gotloaded;
   ShowMessage('Error loading Shape (*.shp) file');
   end;
-  end; *)
-{ ============================================================== }
-{ Text X,Y =recompute; if 'set' rescale then recompute }
+  end;
+*)
+
+// ==============================================================
+// Text X,Y =recompute; if 'set' rescale then recompute
+
 (*
   procedure TEarthForm.DVDORedraw;
   var
@@ -1762,20 +1767,20 @@ end;
 procedure TFormTechneta.DisplayCapitals(Show: Boolean);
 begin
   If (not Show) then
-  begin { off }
+  begin // off
     ShpCapPoints.Visible := False;
   end;
   If (Show and CapitalsLoaded) then
-  begin { on }
+  begin // on
     ShpCapPoints.Visible := True;
   end;
   If (Show and (not CapitalsLoaded)) then
   begin
-    { ShapePath := ExtractFilePath(ParamStr(0)); }
-    { ShpFileName := ShpPath+'CAPITALS.dat'; }
+    // ShapePath := ExtractFilePath(ParamStr(0));
+    // ShpFileName := ShpPath+'CAPITALS.dat';
     ShpCapPoints.Visible := True;
     If LoadCapitalShapes then
-    begin { on }
+    begin // on
 
     end
     else
@@ -1792,7 +1797,7 @@ var
   ShapeFileOut: file of Double;
   ShapetypeD: Double;
   function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
-  // TAffineVector;//TGSVector;
+  // TAffineVector;
   var
     ca, sa, co, so: single;
   begin
@@ -1805,7 +1810,7 @@ var
 
 begin
   GLSceneViewer.Cursor := crHourGlass;
-  { Result:=False; }
+  // Result := False;
   ShpCapPoints.Positions.Clear;
   ShpCapPoints.Colors.Clear;
   winPointColor := CapitolPanel.Color;
@@ -1822,7 +1827,7 @@ begin
     Read(ShapeFileOut, dYTemp);
     { dXTemp:=LayA[LayerDo].LyrShp[ShapeToDo].XMax;
       dYTemp:=LayA[LayerDo].LyrShp[ShapeToDo].YMax; }
-    pos2 := GetCartesian(dXTemp { Longitude } , dYTemp { Latitude } ,
+    pos2 := GetCartesian(dXTemp (* Longitude *) , dYTemp (* Latitude *),
       sfPlanet.Radius);
     ShpCapPoints.Positions.Add(pos2);
     ShpCapPoints.Colors.Add(ConvertWinColor(winPointColor));
@@ -1850,20 +1855,20 @@ end;
 procedure TFormTechneta.DisplayCities(Show: Boolean);
 begin
   If (not Show) then
-  begin { off }
+  begin // off
     ShpPoints.Visible := False;
   end;
   If (Show and CitiesLoaded) then
-  begin { on }
+  begin // on
     ShpPoints.Visible := True;
   end;
   If (Show and (not CitiesLoaded)) then
   begin
-    { ShapePath := ExtractFilePath(ParamStr(0)); }
-    { ShpFileName := ShpPath+'Cities.shp'; }
+    // ShapePath := ExtractFilePath(ParamStr(0));
+    // ShpFileName := ShpPath+'Cities.shp';
     ShpPoints.Visible := True;
     If LoadCityShapes then
-    begin { on }
+    begin // on
 
     end
     else
@@ -1876,11 +1881,11 @@ function TFormTechneta.LoadCityShapes: Boolean;
 var
   i, Count, winPointColor: Integer;
   dXTemp, dYTemp: Double;
-  pos2: TGSVector; // TAffineVector;
+  pos2: TGSVector; // TGSAffineVector;
   ShapeFileOut: file of Double;
   ShapetypeD: Double;
   function GetCartesian(Longitude, Latitude, dRadius: single): TGSVector;
-  // TAffineVector;//TGSVector;
+  // TGSAffineVector;
   var
     ca, sa, co, so: single;
   begin
@@ -1909,7 +1914,7 @@ begin
     Read(ShapeFileOut, dYTemp);
     { dXTemp:=LayA[LayerDo].LyrShp[ShapeToDo].XMax;
       dYTemp:=LayA[LayerDo].LyrShp[ShapeToDo].YMax; }
-    pos2 := GetCartesian(dXTemp { Longitude } , dYTemp { Latitude } ,
+    pos2 := GetCartesian(dXTemp (* Longitude *) , dYTemp (* Latitude *) ,
       sfPlanet.Radius);
     ShpPoints.Positions.Add(pos2);
     ShpPoints.Colors.Add(ConvertWinColor(winPointColor));
@@ -1929,7 +1934,7 @@ begin
   begin
     markersCounted := 0;
     MarkersDisplaySelection := 4; // 35065	1/1/1996 12:00 am
-    TemporalFlowDateTime := 35430; { Date Mike Liscke started GLS ? }
+    TemporalFlowDateTime := 35430; // Date Mike Liscke started GLS ?
     DrawPoints;
   end
   else
@@ -1960,7 +1965,7 @@ begin
   DrawPoints;
 end;
 
-//------------------------- Полусфера недр --------==--------------------------
+//------------------------- Core of Earth --------==--------------------------
 procedure TFormTechneta.miCoreClick(Sender: TObject);
 begin
   miCore.Checked := not miCore.Checked;

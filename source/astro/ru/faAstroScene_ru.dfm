@@ -736,21 +736,41 @@ object FormAstroScene: TFormAstroScene
     ObjectsSorting = osNone
     Left = 386
     Top = 83
-    object GLSkyBox1: TGLSkyBox
+    object SkyBox: TGLSkyBox
       Direction.Coordinates = {00000000000080BF0000000000000000}
       Up.Coordinates = {0000000000000000000080BF00000000}
-      MaterialLibrary = matlib
+      Visible = False
+      MaterialLibrary = MatLibSkyBox
       MatNameLeft = 'sky_left'
       MatNameRight = 'sky_right'
       MatNameFront = 'sky_front'
       CloudsPlaneOffset = 0.200000002980232200
       CloudsPlaneSize = 32.000000000000000000
       object GLPolygon1: TGLPolygon
-        Nodes = <>
+        Nodes = <
+          item
+          end
+          item
+            X = 1.000000000000000000
+          end
+          item
+            X = 2.000000000000000000
+          end
+          item
+            X = 3.000000000000000000
+          end
+          item
+            X = 4.000000000000000000
+          end
+          item
+            X = 5.000000000000000000
+          end
+          item
+          end>
       end
     end
     object SkyDome: TGLSkyDome
-      Visible = False
+      OnProgress = GLCadencerProgress
       Bands = <
         item
           StartColor.Color = {0000803F0000803F0000803F0000803F}
@@ -767,6 +787,7 @@ object FormAstroScene: TFormAstroScene
           Color = clBlack
         end>
       object polygonBorders: TGLPolygon
+        Visible = False
         Nodes = <>
       end
       object polylineConstells: TGLLines
@@ -874,7 +895,7 @@ object FormAstroScene: TFormAstroScene
             SweepAngle = 360.000000000000000000
           end
           object sfPlanetClouds: TGLSphere
-            Material.MaterialLibrary = GLMatLib
+            Material.MaterialLibrary = MatLibSkyDome
             Material.LibMaterialName = 'globeCloud'
             Visible = False
             Radius = 0.529999971389770500
@@ -1051,7 +1072,6 @@ object FormAstroScene: TFormAstroScene
         end
         object sfAsteroid: TGLSphere
           Material.Texture.Disabled = False
-          Visible = False
           Radius = 0.500000000000000000
           Slices = 64
           Stacks = 64
@@ -1139,7 +1159,7 @@ object FormAstroScene: TFormAstroScene
       'Tex1:=InterPolate(Tex0, Tex1, PrimaryColor);'
       '')
     DesignTimeEnabled = False
-    MaterialLibrary = GLMatLib
+    MaterialLibrary = MatLibSkyDome
     Left = 506
     Top = 152
   end
@@ -1224,7 +1244,7 @@ object FormAstroScene: TFormAstroScene
     Left = 1001
     Top = 171
   end
-  object GLMatLib: TGLMaterialLibrary
+  object MatLibSkyDome: TGLMaterialLibrary
     Materials = <
       item
         Name = 'earthDay'
@@ -8044,7 +8064,7 @@ object FormAstroScene: TFormAstroScene
     Left = 498
     Top = 84
   end
-  object matlib: TGLMaterialLibrary
+  object MatLibSkyBox: TGLMaterialLibrary
     Materials = <
       item
         Name = 'sky_front'

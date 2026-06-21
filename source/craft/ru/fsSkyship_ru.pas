@@ -42,7 +42,7 @@ uses
   Stage.Coordinates,
   Stage.Color,
 
-  GLS.File3DS;
+  GLS.File3DS, GLS.GeomObjects;
 
 type
   TFormSkyship = class(TForm)
@@ -59,6 +59,8 @@ type
     ffSkyShip: TGLFreeForm;
     GLFireFXManager1: TGLFireFXManager;
     dcFire: TGLDummyCube;
+    linesSkyGrid: TGLLines;
+    polyMark: TGLPolygon;
     procedure GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;

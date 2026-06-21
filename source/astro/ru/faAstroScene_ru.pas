@@ -162,7 +162,7 @@ type
     miConstAtlas: TMenuItem;
     miConstPolygons: TMenuItem;
     sfPlanetClouds: TGLSphere;
-    GLMatLib: TGLMaterialLibrary;
+    MatLibSkyDome: TGLMaterialLibrary;
     diskPlanetCrust: TGLDisk;
     dcDebris: TGLDummyCube;
     ffAsteroid: TGLFreeForm;
@@ -187,8 +187,8 @@ type
     Arrow_Z: TGLArrowLine;
     polygonBorders: TGLPolygon;
     GLPolygon1: TGLPolygon;
-    GLSkyBox1: TGLSkyBox;
-    matlib: TGLMaterialLibrary;
+    SkyBox: TGLSkyBox;
+    MatLibSkyBox: TGLMaterialLibrary;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -266,14 +266,14 @@ const
   Plane1: array [0 .. 3] of Double = (-1, 0, 0, 0.0);
   Plane2: array [0 .. 3] of Double = (0, -1, 0, 0.0);
 
-implementation // =============================================================
+implementation //=============================================================
 
 uses
   faStarsys_ru;
 
 {$R *.dfm}
 
-// --------------------------- Главная форма ----------------------------------
+// -------------------------- Главная форма ----------------------------------
 procedure TFormAstroScene.FormCreate(Sender: TObject);
 begin
   DataDir := LowerCase(ExtractFilePath(ParamStr(0)));
@@ -293,7 +293,7 @@ begin
     SkyDome.StructureChanged;
   end;
 
-  CurrentStar := DataDir + '\starsys\sun\';
+  CurrentStar := DataDir + '\starsys\sol\';
 
   // текстурирование планеты вместо цвета
   sfPlanet.Material.Texture.Disabled := False; // сферическая форма
@@ -314,12 +314,12 @@ begin
   FileJpg := CurrentStar + 'clouds_rare.jpg';
   if FileExists(FileJpg) then // or clouds_dense
   begin
-    GLMatLib.Materials[3].Material.Texture.Compression := tcStandard;
-    GLMatLib.Materials[3].Material.Texture.Image.LoadFromFile(FileJpg);
+    MatLibSkyDome.Materials[3].Material.Texture.Compression := tcStandard;
+    MatLibSkyDome.Materials[3].Material.Texture.Image.LoadFromFile(FileJpg);
   end;
 //  sfGrid.Material.Texture.Image.LoadFromFile('map\celestial_grid.jpg');
-  GLMatLib.Materials[5].Material.Texture.Compression := tcStandard;
-//  GLMatLib.Materials[5].Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
+  MatLibSkyDome.Materials[5].Material.Texture.Compression := tcStandard;
+//  MatLibSkyDome.Materials[5].Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
 end;
 
 //----------------------------------------------------------------------------
@@ -333,20 +333,18 @@ var
   S: String;
 begin
   tbPlanets.SetFocus;
-  // Планета для которой tbnEarth.ImageIndex := 3;
+  // Планеты, для Земли tbnEarth.ImageIndex := 3;
   tbPlanets.Buttons[tbnEarth.ImageIndex].Click;
   // По умолчанию справка - Земля, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
-  // Луны
-  // индексация узлов дерева tvMoons
+  // Луны, индексация узлов дерева tvMoons
   for I := 0 to tvMoons.Items.Count - 1 do
   begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
 
-  // Астероиды
-  // загрузка имён из файла csv
+  // Астероиды, загрузка имён из файла csv
   FileCSV := CurrentStar + 'sol_asteroids.csv';
   if FileExists(FileCSV) then // or clouds_dense
   begin
@@ -354,7 +352,6 @@ begin
     try
       Tl := TStringList.Create;
       tvAsteroids.LoadFromFile(FileCSV);
-
       for I := 0 to tvAsteroids.Items.Count - 1 do
       begin
         Tl.CommaText := tvAsteroids.Items[I].Text; //sl[i];
@@ -367,9 +364,7 @@ begin
     tvAsteroids.Items[0].Delete; // удаление титульной строки с именами полей
     tvAsteroids.Items.EndUpdate; // обновляем дерево
   end;
-
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращения - Power(3, 3);
-
   // скрываем планеты, луны и астероиды при показе небосвода
    FormOptions.chbHideObjectClick(Self);
   // включаем линии созвездий
@@ -378,7 +373,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//--------------------------- Планета ----------------------------------------
+//--------------------------- Планеты ----------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 begin
@@ -412,12 +407,11 @@ begin
   end
   else
   begin
-    // Загрузить карту сплошной облочности
+    // Загрузка карты сплошной облочности
     // sfClouds.Visible := False;
     DirectOpenGL.Visible := False;
     FormOptions.chbClouds.Checked := False;
   end;
-
   // Кольца Сатурна
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
   (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
@@ -442,7 +436,7 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-//------------------------------- Луна ---------------------------------------
+//------------------------------- Луны ---------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvMoonsClick(Sender: TObject);
 var
@@ -488,26 +482,23 @@ begin
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
     // ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
   end;
-
 (*
   если карты грузятся из VirtPlanetMaps
   ffMoon.Material.Texture.Image.Assign(dmImages.VirtPlanetMaps.Images.Items[?]);
   Camera.TagObject := ffPlanet;
 *)
-
   // Показать атмосферу Титана
   if tvMoons.Selected.Text = 'Титан' then
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
-
   // Имя луны или спутника для веб-справки ruwiki
   // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
   miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';
 end;
 
 //----------------------------------------------------------------------------
-//-------------------------- Aстероид ----------------------------------------
+//-------------------------- Aстероиды ---------------------------------------
 //----------------------------------------------------------------------------
 procedure TFormAstroScene.tvAsteroidsClick(Sender: TObject);
 var
@@ -535,9 +526,8 @@ begin
   AsteroidName := GetBodyFromCSV(FileCSV,
     tvAsteroids.Selected.Index, tvAsteroids.Selected.Text, AsteroidRadius);
 
-  // загружаем модель астероида и масштабируем её
+  // загружаем модель астероида и направляем на неё камеру
   FileBody := CurrentStar + LowerCase(AsteroidName) + '.3ds';
-
   FileBody := CurrentStar + 'phobos.3ds';
 
   if FileExists(FileBody, True) then
@@ -581,8 +571,8 @@ procedure TFormAstroScene.SceneViewerBeforeRender(Sender: TObject);
 begin
   LensStar.PreRender(Sender as TGLSceneBuffer);
   // если нет мультитекстурирования и combiner то без света городов
-  GLMatLib.Materials[0].Shader := GLTexCombiner;
-  GLMatLib.Materials[0].Texture2Name := 'earthNight';
+  MatLibSkyDome.Materials[0].Shader := GLTexCombiner;
+  MatLibSkyDome.Materials[0].Texture2Name := 'earthNight';
 end;
 
 //----------------------------- Цвет атмосферы -------------------------------
@@ -925,10 +915,10 @@ begin
   case Key of
     'e', 'E': // Планета
       begin
-        Camera.MoveTo(dcStar);
-        CameraControler.MoveTo(dcStar);
-        Camera.TargetObject := dcStar;
-        CameraControler.TargetObject := dcStar;
+        Camera.MoveTo(dcAsteroid);
+        CameraControler.MoveTo(dcAsteroid);
+        Camera.TargetObject := dcAsteroid;
+        CameraControler.TargetObject := dcAsteroid;
       end;
     'h', 'р':  // Высокое разрешение
       if not highResResourcesLoaded then
@@ -937,9 +927,9 @@ begin
         try
           if DirectoryExists(CurrentStar) then
           begin
-            LoadHighResTexture(GLMatLib.Materials[0], 'earth_day_4096.jpg');
-            LoadHighResTexture(GLMatLib.Materials[1], 'earth_night_4096.jpg');
-            LoadHighResTexture(GLMatLib.Materials[2], 'moon.jpg');  //need moon_4096
+            LoadHighResTexture(MatLibSkyDome.Materials[0], 'earth_day_4096.jpg');
+            LoadHighResTexture(MatLibSkyDome.Materials[1], 'earth_night_4096.jpg');
+            LoadHighResTexture(MatLibSkyDome.Materials[2], 'moon.jpg');  //need moon_4096
           end;
           SceneViewer.Buffer.AntiAliasing := aa2x;
         finally
@@ -1065,7 +1055,6 @@ begin
 end;
 
 //--------------------------------------------------------------------------- -
-
 procedure TFormAstroScene.miMapClick(Sender: TObject);
 begin
   inherited;
@@ -1141,7 +1130,7 @@ begin
   end;
 end;
 
-//------------------------- WriteIniFile --------------------------------------
+//------------------------- WriteIniFile ------------------------------------
 procedure TFormAstroScene.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
@@ -1157,25 +1146,23 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormAstroScene.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
   WriteIniFile;   // запись установок в ini файл
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormAstroScene.miFileExitClick(Sender: TObject);
 begin
   Close;
 end;
 
-initialization //==============================================================
+initialization //============================================================
 
   FormatSettings.DecimalSeparator := '.';
 
-finalization
-
-//-----------------------------------------------------------------------------
+finalization //==============================================================
 
 end.

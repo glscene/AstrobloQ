@@ -205,7 +205,7 @@ implementation //=============================================================
 procedure TfrmStellarSys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\starsys\sun\'; //instead of GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sol\'; //instead of GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
   // Maps as cylindrical textures

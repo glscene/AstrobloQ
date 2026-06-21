@@ -170,7 +170,7 @@ begin
   Timer1.Enabled := False;
   { top := SkypilotFormY; left := SkypilotFormX; }
 
-  DataDir := GetDataPath() + 'starsys\sun\';
+  DataDir := GetDataPath() + 'starsys\sol\';
   SetCurrentDir(DataDir);
 
   PlanetsLoaded := False;

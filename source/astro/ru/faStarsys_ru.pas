@@ -199,7 +199,7 @@ implementation //==============================================================
 procedure TfrmStarSys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\starsys\sun\'; // вместо GetCurrentDir()
+  CurrentDir := PathToData  + '\starsys\sol\'; // вместо GetCurrentDir()
   SetCurrentDir(CurrentDir);
 
   // Текстуры карт

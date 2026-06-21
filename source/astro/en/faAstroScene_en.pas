@@ -276,9 +276,9 @@ begin
   end;
 
   // change currect star dir
-  if DirectoryExists('starsys\sun') then
-        ChDir('starsys\sun');
-  CurrentStar := DataDir + '\starsys\sun\';
+  if DirectoryExists('starsys\sol') then
+        ChDir('starsys\sol');
+  CurrentStar := DataDir + '\starsys\sol\';
 
   // Enable textured maps
   sfPlanet.Material.Texture.Disabled := False;

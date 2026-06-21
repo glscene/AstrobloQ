@@ -443,7 +443,7 @@ begin
     LoadConstellationLines;
   timeMultiplier := 1;
   // Cloud material in MatLib
-  DataDir := GetDataPath() + 'starsys\sun\';
+  DataDir := GetDataPath() + 'starsys\sol\';
   SetCurrentDir(DataDir);
   if FileExists(DataDir + 'clouds_rare.jpg') then
   begin
