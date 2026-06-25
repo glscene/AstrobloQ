@@ -35,6 +35,11 @@ TFormAstroScene* FormAstroScene;
 
 bool grid_on = false;
 
+int CoordRadius[] = { 2260, 4010, 4990, 5650, 6080, 6300, 6381, 6300, 6080,
+	5650, 4990, 4010, 2260 };
+int PositionX[] = { -6000, -5000, -4000, -3000, -2000, -1000, 0, 1000, 2000,
+    3000, 4000, 5000, 6000 };
+
 //---------------------------------------------------------------------------
 __fastcall TFormAstroScene::TFormAstroScene(TComponent* Owner) : TFormFirst(Owner)
 {
@@ -47,7 +52,7 @@ TFileName __fastcall TFormAstroScene::GetDataPath()
 	int N = Path.Pos("bin");
 	if (N > 0)
 		Path = Path.SubString(0, N - 1);
-	Path = IncludeTrailingPathDelimiter(Path) + "data\\starsys\\sun\\";
+	Path = IncludeTrailingPathDelimiter(Path) + "data\\starsys\\sol\\";
 	SetCurrentDir(Path);
 	return Path;
 }

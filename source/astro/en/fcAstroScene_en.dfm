@@ -91,6 +91,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
       TabOrder = 0
+      ExplicitWidth = 106
     end
     object tvPlanets: TTreeView
       Left = 1
@@ -490,6 +491,7 @@ object FormAstroScene: TFormAstroScene
       Alignment = taCenter
       Caption = 'Moons'
       TabOrder = 3
+      ExplicitWidth = 41
     end
   end
   object GLCadencer: TGLCadencer

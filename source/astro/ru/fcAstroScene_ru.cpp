@@ -33,9 +33,44 @@ TFormAstroScene* FormAstroScene;
 
 bool grid_on = false;
 
+// массивы узлов линий кругов
+int CoordRadius[] = { 2260, 4010, 4990, 5650, 6080, 6300, 6381, 6300, 6080,
+	5650, 4990, 4010, 2260 };
+int PositionX[] = { -6000, -5000, -4000, -3000, -2000, -1000, 0, 1000, 2000,
+	3000, 4000, 5000, 6000 };
+
 //---------------------------------------------------------------------------
 __fastcall TFormAstroScene::TFormAstroScene(TComponent* Owner) : TFormFirst(Owner)
 {
+}
+
+//---------------------------------------------------------------------------
+void renderCircle(TGLLines* Line, int radius)
+{
+	double Segments = 64;
+	double RotationAngle = 0;
+	double theta = 0;
+	double x = 0;
+	double y = 0;
+	double xCenter = 0;
+	double xRotated = 0;
+	double yCenter = 0;
+	double yRotated = 0;
+
+	Segments = 128;
+
+	for (int i = 0; i < Segments + 1; i = i + 1) {
+		theta = 360 * (i / Segments) * (3.141593 / 180);
+
+		x = xCenter + radius * Cos(theta);
+		y = yCenter + radius * Sin(theta);
+		xRotated = xCenter + (x - xCenter) * Cos(RotationAngle) -
+				   (y - yCenter) * Sin(RotationAngle);
+		yRotated = yCenter + (x - xCenter) * Sin(RotationAngle) +
+				   (y - yCenter) * Cos(RotationAngle);
+
+		Line->Nodes->AddNode(xRotated, 0, yRotated);
+	}
 }
 
 //---------------------------------------------------------------------------
@@ -46,7 +81,7 @@ TFileName __fastcall TFormAstroScene::GetDataPath()
 	if (N > 0)
 		Path = Path.SubString(0, N - 1);
 
-	Path = IncludeTrailingPathDelimiter(Path) + "data\\starsys\\sun\\";
+	Path = IncludeTrailingPathDelimiter(Path) + "data\\starsys\\sol\\";
 	SetCurrentDir(Path);
 	return Path;
 }
@@ -122,12 +157,10 @@ void __fastcall TFormAstroScene::GLCadencerProgress(
 
 {
 	sfPlanet->TurnAngle = FormOptions->chbRotate->Checked ? 10 * NewTime : 0;
-	/*
-	if (chbRotate->Checked)
+//	if (chbRotate->Checked)
 		sfPlanet->TurnAngle = 10 * NewTime;
-	else
-		sfPlanet->TurnAngle = 0;
-	*/
+//	else
+//		sfPlanet->TurnAngle = 0;
 }
 
 //---------------------------------------------------------------------------
@@ -353,6 +386,138 @@ void __fastcall TFormAstroScene::tvPlanetsClick(TObject *Sender)
   // »м€ луны или спутника дл€ веб-справки ruwiki
   // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
   miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';
+*/
+
+
+bool grid_on = false;
+bool needRender = true;
+
+//---------------------------------------------------------------------------
+// ¬ывод географической сетки на глобусе
+//---------------------------------------------------------------------------
+/*
+void __fastcall TFormAstroScene::ButtonShowPlanetGridClick(TObject* Sender)
+{
+    grid_on = !grid_on;
+
+    GridX_1->Visible = grid_on;
+    GridX_2->Visible = grid_on;
+    GridX_3->Visible = grid_on;
+    GridX_4->Visible = grid_on;
+    GridX_5->Visible = grid_on;
+	GridX_6->Visible = grid_on;
+    GridX_7->Visible = grid_on;
+    GridX_8->Visible = grid_on;
+    GridX_9->Visible = grid_on;
+    GridX_10->Visible = grid_on;
+    GridX_11->Visible = grid_on;
+    GridX_12->Visible = grid_on;
+    GridX_13->Visible = grid_on;
+
+    GridY_1->Visible = grid_on;
+    GridY_2->Visible = grid_on;
+    GridY_3->Visible = grid_on;
+    GridY_4->Visible = grid_on;
+    GridY_5->Visible = grid_on;
+    GridY_6->Visible = grid_on;
+    GridY_7->Visible = grid_on;
+    GridY_8->Visible = grid_on;
+    GridY_9->Visible = grid_on;
+	GridY_10->Visible = grid_on;
+    GridY_11->Visible = grid_on;
+    GridY_12->Visible = grid_on;
+
+    if (needRender) {
+        renderCircle(GridX_1, CoordRadius[0]);
+        GridX_1->Position->Y = PositionX[0];
+
+        renderCircle(GridX_2, CoordRadius[1]);
+        GridX_2->Position->Y = PositionX[1];
+
+        renderCircle(GridX_3, CoordRadius[2]);
+        GridX_3->Position->Y = PositionX[2];
+
+        renderCircle(GridX_4, CoordRadius[3]);
+        GridX_4->Position->Y = PositionX[3];
+
+        renderCircle(GridX_5, CoordRadius[4]);
+        GridX_5->Position->Y = PositionX[4];
+
+        renderCircle(GridX_6, CoordRadius[5]);
+        GridX_6->Position->Y = PositionX[5];
+
+        renderCircle(GridX_7, CoordRadius[6]);
+        GridX_7->Position->Y = PositionX[6];
+
+        renderCircle(GridX_8, CoordRadius[7]);
+        GridX_8->Position->Y = PositionX[7];
+
+        renderCircle(GridX_9, CoordRadius[8]);
+        GridX_9->Position->Y = PositionX[8];
+
+        renderCircle(GridX_10, CoordRadius[9]);
+        GridX_10->Position->Y = PositionX[9];
+
+        renderCircle(GridX_11, CoordRadius[10]);
+        GridX_11->Position->Y = PositionX[10];
+
+		renderCircle(GridX_12, CoordRadius[11]);
+        GridX_12->Position->Y = PositionX[11];
+
+        renderCircle(GridX_13, CoordRadius[12]);
+        GridX_13->Position->Y = PositionX[12];
+
+        renderCircle(GridY_1, CoordRadius[6]);
+        GridY_1->RollAngle = 90;
+        GridY_1->PitchAngle = 15;
+
+        renderCircle(GridY_2, CoordRadius[6]);
+        GridY_2->RollAngle = 90;
+        GridY_2->PitchAngle = 30;
+
+        renderCircle(GridY_3, CoordRadius[6]);
+        GridY_3->RollAngle = 90;
+        GridY_3->PitchAngle = 45;
+
+		renderCircle(GridY_4, CoordRadius[6]);
+        GridY_4->RollAngle = 90;
+        GridY_4->PitchAngle = 60;
+
+        renderCircle(GridY_5, CoordRadius[6]);
+        GridY_5->RollAngle = 90;
+        GridY_5->PitchAngle = 75;
+
+        renderCircle(GridY_6, CoordRadius[6]);
+        GridY_6->RollAngle = 90;
+		GridY_6->PitchAngle = 90;
+
+        renderCircle(GridY_7, CoordRadius[6]);
+        GridY_7->RollAngle = 90;
+        GridY_7->PitchAngle = 105;
+
+        renderCircle(GridY_8, CoordRadius[6]);
+        GridY_8->RollAngle = 90;
+        GridY_8->PitchAngle = 120;
+
+        renderCircle(GridY_9, CoordRadius[6]);
+        GridY_9->RollAngle = 90;
+        GridY_9->PitchAngle = 135;
+
+        renderCircle(GridY_10, CoordRadius[6]);
+        GridY_10->RollAngle = 90;
+        GridY_10->PitchAngle = 150;
+
+		renderCircle(GridY_11, CoordRadius[6]);
+		GridY_11->RollAngle = 90;
+		GridY_11->PitchAngle = 165;
+
+		renderCircle(GridY_12, CoordRadius[6]);
+		GridY_12->RollAngle = 90;
+		GridY_12->PitchAngle = 180;
+		needRender = false;
+	}
+}
+
 */
 
 }
