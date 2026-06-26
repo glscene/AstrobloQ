@@ -172,7 +172,7 @@ object FormOptions: TFormOptions
           Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 17
+          ItemHeight = 15
           Items.Strings = (
             'O'
             'B'
@@ -185,6 +185,7 @@ object FormOptions: TFormOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
+          ExplicitLeft = -15
         end
         object GroupBox2: TGroupBox
           Left = 40
@@ -230,10 +231,10 @@ object FormOptions: TFormOptions
           Top = 113
           Width = 146
           Height = 23
-          Caption = #1057#1077#1090#1082#1072' '#1085#1077#1073#1086#1089#1074#1086#1076#1072
+          Caption = #1053#1077#1073#1077#1089#1085#1072#1103' '#1089#1077#1090#1082#1072
           TabOrder = 2
           StyleName = 'Windows'
-          OnClick = chbTopoGridClick
+          OnClick = chbSkyGridClick
         end
       end
       object tsPlanets: TTabSheet
@@ -391,7 +392,7 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
             OnClick = chbCloudsClick
           end
-          object chbTopoGrid: TCheckBox
+          object chbGlobeGrid: TCheckBox
             Left = 304
             Top = 81
             Width = 129
@@ -401,7 +402,7 @@ object FormOptions: TFormOptions
             State = cbChecked
             TabOrder = 4
             StyleName = 'Windows'
-            OnClick = chbTopoGridClick
+            OnClick = chbGlobeGridClick
           end
           object chbHideObject: TCheckBox
             Left = 304

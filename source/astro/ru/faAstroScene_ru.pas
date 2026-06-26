@@ -36,7 +36,10 @@ uses
 
   Stage.VectorTypes,
   Stage.VectorGeometry,
+  Stage.BaseClasses,
+  Stage.Coordinates,
   Stage.TextureFormat,
+  Stage.Color,
   Stage.Keyboard,
   Stage.Utils,
 
@@ -45,16 +48,12 @@ uses
   GLS.LensFlare,
   GLS.Scene,
   GLS.Objects,
-  Stage.Coordinates,
   GLS.SceneViewer,
   GLS.Texture,
   GLS.RenderContextInfo,
-  Stage.Color,
   GLS.State,
   GLS.Context,
   GLS.FileJPEG,
-  GLSL.TextureShaders,
-  Stage.BaseClasses,
   GLS.Atmosphere,
   GLS.GeomObjects,
   GLS.VectorFileObjects,
@@ -63,6 +62,7 @@ uses
   GLS.SimpleNavigation,
   GLS.SkyDome,
   GLS.Particles,
+  GLSL.TextureShaders,
 
   fmFormFirst,
   faConstBorders_ru,
@@ -82,6 +82,7 @@ type
     GLScene: TGLScene;
     SceneViewer: TGLSceneViewer;
     Camera: TGLCamera;
+    CameraControler: TGLCamera;
     sfPlanet: TGLSphere;
     DirectOpenGL: TGLDirectOpenGL;
     GLCadencer: TGLCadencer;
@@ -91,7 +92,6 @@ type
     dcMoon: TGLDummyCube;
     LensStar: TGLLensFlare;
     GLTexCombiner: TGLTexCombineShader;
-    CameraControler: TGLCamera;
     SkyDome: TGLSkyDome;
     polylineConstells: TGLLines;
     polylineBorders: TGLLines;
@@ -118,7 +118,7 @@ type
     miPlanetSystem: TMenuItem;
     N4: TMenuItem;
     miOptions: TMenuItem;
-    sfInnerCore: TGLSphere;
+    sfCore: TGLSphere;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -151,7 +151,7 @@ type
     tbnNeptune: TToolButton;
     ToolBarView: TToolBar;
     tbScene: TToolButton;
-    tbInnerCore: TToolButton;
+    tbCore: TToolButton;
     tbMap: TToolButton;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
@@ -176,7 +176,7 @@ type
     particlesDebris: TGLParticles;
     tbTable: TToolButton;
     tbGraph: TToolButton;
-    tbTopoGrid: TToolButton;
+    tbGlobeGrid: TToolButton;
     dcArrows: TGLDummyCube;
     ArrowX: TGLArrowLine;
     Arrow_X: TGLArrowLine;
@@ -214,6 +214,32 @@ type
     ParallelS_60: TGLTorus;
     ParallelS_75: TGLTorus;
     ParallelS_90: TGLTorus;
+    dcSkyGrid: TGLDummyCube;
+    torus1: TGLTorus;
+    torus2: TGLTorus;
+    torus3: TGLTorus;
+    torus4: TGLTorus;
+    torus5: TGLTorus;
+    torus6: TGLTorus;
+    torus7: TGLTorus;
+    torus8: TGLTorus;
+    torus9: TGLTorus;
+    torus10: TGLTorus;
+    torus11: TGLTorus;
+    torus12: TGLTorus;
+    torus13: TGLTorus;
+    torus14: TGLTorus;
+    torus15: TGLTorus;
+    torus16: TGLTorus;
+    torus17: TGLTorus;
+    torus18: TGLTorus;
+    torus19: TGLTorus;
+    torus20: TGLTorus;
+    torus21: TGLTorus;
+    torus22: TGLTorus;
+    torus23: TGLTorus;
+    torus24: TGLTorus;
+    torus25: TGLTorus;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -242,9 +268,9 @@ type
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miMapClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
-    procedure tbInnerCoreClick(Sender: TObject);
+    procedure tbCoreClick(Sender: TObject);
     procedure tbSceneClick(Sender: TObject);
-    procedure tbTopoGridClick(Sender: TObject);
+    procedure tbGlobeGridClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -407,7 +433,7 @@ begin
   vBodyType := 1;
   // видимость сферы планеты
   sfPlanet.Visible := True; // or FormOptions.chbHideObject.Checked;
-  dcGlobeGrid.Visible := FormOptions.chbTopoGrid.Checked;
+  dcGlobeGrid.Visible := FormOptions.chbGlobeGrid.Checked;
   // фри форма планеты
   ffPlanet.Visible := True;
   // луны, астероиды и кометы не видны
@@ -829,10 +855,8 @@ begin
   // вращение небесного тела вместе с сеткой и облаками
   if FormOptions.CheckBoxRotate.Checked then
   begin
-    sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
+    dcPlanet.RollAngle := dcPlanet.RollAngle + deltaTime * TimeMultiplier;
 //    ffPlanet.TurnAngle := ffGlobe.TurnAngle + deltaTime * TimeMultiplier;
-    // географическая сетка, вращается вместе с глобусом
-    dcGlobeGrid.TurnAngle := sfPlanet.TurnAngle;
 
     // облака вращаются только у планет с лёгкой облачностью
     if sfGlobeClouds.Visible = True then
@@ -854,6 +878,7 @@ begin
   sfMoon.TurnAngle := 180 - dcMoon.TurnAngle;
   *)
   // плавное перемещение камеры
+
   if (dmy <> 0) or (dmx <> 0) then
   begin
     CameraControler.MoveAroundTarget(ClampValue(dmy * 0.3, -5, 5),
@@ -868,6 +893,7 @@ begin
       CameraControler.Position.AsVector, 0.05);
     cameraTimeSteps := cameraTimeSteps - 0.005;
   end;
+
   // постепенное появление/исчезновение линий созвездий
   if polylineConstells.LineColor.Alpha <> ConstLinesAlpha then
   begin
@@ -910,17 +936,17 @@ begin
 end;
 
 //----------------- Ядро планеты, луны или астероида --------------------------
-procedure TFormAstroScene.tbInnerCoreClick(Sender: TObject);
+procedure TFormAstroScene.tbCoreClick(Sender: TObject);
 begin
-  tbInnerCore.Down := not tbInnerCore.Down;
+  tbCore.Down := not tbCore.Down;
   FormOptions.chbCore.Checked := not FormOptions.chbCore.Checked;
 end;
 
-//------------------------ Топосетка глобуса ----------------------------------
-procedure TFormAstroScene.tbTopoGridClick(Sender: TObject);
+//------------------------ Cетка глобуса ----------------------------------
+procedure TFormAstroScene.tbGlobeGridClick(Sender: TObject);
 begin
-  tbTopoGrid.Down := not tbTopoGrid.Down;
-  FormOptions.chbTopoGrid.Checked := not FormOptions.chbTopoGrid.Checked;
+  tbGlobeGrid.Down := not {}tbGlobeGrid.Down;
+  FormOptions.chbGlobeGrid.Checked := not{} FormOptions.chbGlobeGrid.Checked;
 end;
 
 //--------------------- Загрузка текстуры высокого разрешения -----------------

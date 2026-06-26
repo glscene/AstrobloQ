@@ -85,7 +85,7 @@ type
     chbConstLines: TCheckBox;
     chbConstBorders: TCheckBox;
     chbClouds: TCheckBox;
-    chbTopoGrid: TCheckBox;
+    chbGlobeGrid: TCheckBox;
     chbHideObject: TCheckBox;
     tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
@@ -107,13 +107,14 @@ type
     procedure chbHideObjectClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
-    procedure chbTopoGridClick(Sender: TObject);
+    procedure chbGlobeGridClick(Sender: TObject);
     procedure chbHidePanelsClick(Sender: TObject);
     procedure chbConstLinesClick(Sender: TObject);
     procedure chbConstBordersClick(Sender: TObject);
     procedure chbCloudsClick(Sender: TObject);
     procedure chbConstFiguresClick(Sender: TObject);
     procedure chbAxisClick(Sender: TObject);
+    procedure chbSkyGridClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -211,7 +212,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-// Разрез с ядром и мантией
+//                         Разрез с ядром и мантией
 //-----------------------------------------------------------------------------
 procedure TFormOptions.chbInnerCoreClick(Sender: TObject);
 begin
@@ -235,7 +236,7 @@ begin
          sfPlanet.Stop := 180;
 //       if aColor then ... получить цвет дисков из файла sol_planets.csv
          begin
-           sfInnerCore.Material.FrontProperties.Emission.Color := clrRed;
+           sfCore.Material.FrontProperties.Emission.Color := clrRed;
            diskMantle.Material.FrontProperties.Ambient.Color := clrOrangeRed;
            diskCrust.Material.FrontProperties.Ambient.Color := clrYellow;
          end;
@@ -289,31 +290,37 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
-//                           Cетка глобуса
-//-----------------------------------------------------------------------------
-procedure TFormOptions.chbTopoGridClick(Sender: TObject);
+//---------------------------------------------------------------------------
+//                           Сетка небосвода
+//---------------------------------------------------------------------------
+procedure TFormOptions.chbSkyGridClick(Sender: TObject);
 begin
-  FormAstroScene.dcGlobeGrid.Visible := chbTopoGrid.Checked;
-  FormAstroScene.SceneViewer.Invalidate;
+  FormAstroScene.dcSkyGrid.Visible := chbSkyGrid.Checked;
 end;
 
-// ------------------------ Облачность ---------------------------------------
+//--------------------------------------------------------------------------
+//                           Cетка глобуса
+//--------------------------------------------------------------------------
+procedure TFormOptions.chbGlobeGridClick(Sender: TObject);
+begin
+  FormAstroScene.dcGlobeGrid.Visible := chbGlobeGrid.Checked;
+end;
+
+// ------------------------------- Оси -------------------------------------
 procedure TFormOptions.chbAxisClick(Sender: TObject);
 begin
   FormAstroScene.sfPlanet.ShowAxes := chbAxis.Checked;
   FormAstroScene.ffPlanet.ShowAxes := chbAxis.Checked;
   FormAstroScene.dcArrows.Visible := chbAxis.Checked;
-  FormAstroScene.SceneViewer.Invalidate;
 end;
 
+// ------------------------ Облачность --------------------------------------
 procedure TFormOptions.chbCloudsClick(Sender: TObject);
 begin
   FormAstroScene.sfGlobeClouds.Visible := chbClouds.Checked;
-  FormAstroScene.SceneViewer.Invalidate;
 end;
 
-//---------------------- Вывод линий созвездий -------------------------------
+//---------------------- Вывод линий созвездий ------------------------------
 procedure TFormOptions.chbConstLinesClick(Sender: TObject);
 begin
   FormAstroScene.polylineConstells.Nodes.Clear;
@@ -325,7 +332,7 @@ begin
   end;
 end;
 
-//---------------------- Вывод границ созвездий -------------------------------
+//---------------------- Вывод границ созвездий -----------------------------
 procedure TFormOptions.chbConstBordersClick(Sender: TObject);
 begin
   FormAstroScene.polygonBorders.Nodes.Clear;
@@ -337,15 +344,15 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.chbConstFiguresClick(Sender: TObject);
 begin
   // Figures inside borders of costallations
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Показать или скрыть небесное тело
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.chbHideObjectClick(Sender: TObject);
 begin
   with FormAstroScene do
@@ -371,9 +378,9 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Выбор страниц опций
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.tvOptionsClick(Sender: TObject);
 begin
   tvOptions.Items[1].DropHighlighted := False;
@@ -387,9 +394,9 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Чтение установок из ини файла
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.ReadIniFile;
 begin
   inherited;
@@ -402,9 +409,9 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Запись установок в инифайл
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.WriteIniFile;
 begin
   IniFile := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
@@ -417,9 +424,9 @@ begin
   inherited;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Изменение и запись в файл при нажатии на кнопку ОК
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.ButtonOKClick(Sender: TObject);
 var
   FileName: TFileName;
@@ -433,14 +440,14 @@ begin
 end;
 
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 // Запись при закрытии формы
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   WriteIniFile;
   inherited;
 end;
 
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 end.
