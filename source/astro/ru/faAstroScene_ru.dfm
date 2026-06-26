@@ -710,7 +710,7 @@ object FormAstroScene: TFormAstroScene
         ParentShowHint = False
         ShowHint = True
       end
-      object tbCore: TToolButton
+      object tbInnerCore: TToolButton
         Left = 128
         Top = 0
         Hint = #1071#1076#1088#1086
@@ -718,9 +718,9 @@ object FormAstroScene: TFormAstroScene
         ImageIndex = 78
         ParentShowHint = False
         ShowHint = True
-        OnClick = tbCoreClick
+        OnClick = tbInnerCoreClick
       end
-      object tbGrid: TToolButton
+      object tbTopoGrid: TToolButton
         Left = 160
         Top = 0
         Hint = #1057#1077#1090#1082#1072
@@ -728,7 +728,7 @@ object FormAstroScene: TFormAstroScene
         ImageIndex = 97
         ParentShowHint = False
         ShowHint = True
-        OnClick = tbGridClick
+        OnClick = tbTopoGridClick
       end
     end
   end
@@ -815,7 +815,7 @@ object FormAstroScene: TFormAstroScene
       end
     end
     object Camera: TGLCamera
-      DepthOfView = 200000.000000000000000000
+      DepthOfView = 100000.000000000000000000
       FocalLength = 99.545860290527340000
       NearPlaneBias = 0.100000001490116100
       TargetObject = dcStar

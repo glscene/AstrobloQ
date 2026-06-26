@@ -85,7 +85,7 @@ type
     chbConstLines: TCheckBox;
     chbConstBorders: TCheckBox;
     chbClouds: TCheckBox;
-    chbGlobeGrid: TCheckBox;
+    chbTopoGrid: TCheckBox;
     chbHideObject: TCheckBox;
     tsDataTim: TTabSheet;
     cbSplashStart: TCheckBox;
@@ -98,20 +98,22 @@ type
     CheckBoxAxes: TCheckBox;
     CheckBoxRotate: TCheckBox;
     chbSkyGrid: TCheckBox;
+    chbAxis: TCheckBox;
     procedure tvOptionsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
-    procedure chbCoreClick(Sender: TObject);
+    procedure chbInnerCoreClick(Sender: TObject);
     procedure CheckBoxAtmosferaClick(Sender: TObject);
     procedure chbHideObjectClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CheckBoxAxesClick(Sender: TObject);
-    procedure chbGlobeGridClick(Sender: TObject);
+    procedure chbTopoGridClick(Sender: TObject);
     procedure chbHidePanelsClick(Sender: TObject);
     procedure chbConstLinesClick(Sender: TObject);
     procedure chbConstBordersClick(Sender: TObject);
     procedure chbCloudsClick(Sender: TObject);
     procedure chbConstFiguresClick(Sender: TObject);
+    procedure chbAxisClick(Sender: TObject);
   private
   public
     procedure ReadIniFile; override;
@@ -211,7 +213,7 @@ end;
 //-----------------------------------------------------------------------------
 // Разрез с ядром и мантией
 //-----------------------------------------------------------------------------
-procedure TFormOptions.chbCoreClick(Sender: TObject);
+procedure TFormOptions.chbInnerCoreClick(Sender: TObject);
 begin
   inherited;  // считываем сохранённые опции из ini файла
 
@@ -290,13 +292,21 @@ end;
 //-----------------------------------------------------------------------------
 //                           Cетка глобуса
 //-----------------------------------------------------------------------------
-procedure TFormOptions.chbGlobeGridClick(Sender: TObject);
+procedure TFormOptions.chbTopoGridClick(Sender: TObject);
 begin
-  FormAstroScene.dcGlobeGrid.Visible := chbGlobeGrid.Checked;
+  FormAstroScene.dcGlobeGrid.Visible := chbTopoGrid.Checked;
   FormAstroScene.SceneViewer.Invalidate;
 end;
 
 // ------------------------ Облачность ---------------------------------------
+procedure TFormOptions.chbAxisClick(Sender: TObject);
+begin
+  FormAstroScene.sfPlanet.ShowAxes := chbAxis.Checked;
+  FormAstroScene.ffPlanet.ShowAxes := chbAxis.Checked;
+  FormAstroScene.dcArrows.Visible := chbAxis.Checked;
+  FormAstroScene.SceneViewer.Invalidate;
+end;
+
 procedure TFormOptions.chbCloudsClick(Sender: TObject);
 begin
   FormAstroScene.sfGlobeClouds.Visible := chbClouds.Checked;

@@ -151,7 +151,7 @@ type
     tbnNeptune: TToolButton;
     ToolBarView: TToolBar;
     tbScene: TToolButton;
-    tbCore: TToolButton;
+    tbInnerCore: TToolButton;
     tbMap: TToolButton;
     dcPlanet: TGLDummyCube;
     dcAsteroid: TGLDummyCube;
@@ -176,7 +176,7 @@ type
     particlesDebris: TGLParticles;
     tbTable: TToolButton;
     tbGraph: TToolButton;
-    tbGrid: TToolButton;
+    tbTopoGrid: TToolButton;
     dcArrows: TGLDummyCube;
     ArrowX: TGLArrowLine;
     Arrow_X: TGLArrowLine;
@@ -242,9 +242,9 @@ type
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miMapClick(Sender: TObject);
     procedure miConstAtlasClick(Sender: TObject);
-    procedure tbCoreClick(Sender: TObject);
+    procedure tbInnerCoreClick(Sender: TObject);
     procedure tbSceneClick(Sender: TObject);
-    procedure tbGridClick(Sender: TObject);
+    procedure tbTopoGridClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -407,7 +407,7 @@ begin
   vBodyType := 1;
   // видимость сферы планеты
   sfPlanet.Visible := True; // or FormOptions.chbHideObject.Checked;
-  dcGlobeGrid.Visible := FormOptions.chbGlobeGrid.Checked;
+  dcGlobeGrid.Visible := FormOptions.chbTopoGrid.Checked;
   // фри форма планеты
   ffPlanet.Visible := True;
   // луны, астероиды и кометы не видны
@@ -910,17 +910,17 @@ begin
 end;
 
 //----------------- ядро планеты, луны или астероида --------------------------
-procedure TFormAstroScene.tbCoreClick(Sender: TObject);
+procedure TFormAstroScene.tbInnerCoreClick(Sender: TObject);
 begin
-  tbCore.Down := not tbCore.Down;
+  tbInnerCore.Down := not tbInnerCore.Down;
   FormOptions.chbCore.Checked := not FormOptions.chbCore.Checked;
 end;
 
 //------------------------ “опосетка глобуса ----------------------------------
-procedure TFormAstroScene.tbGridClick(Sender: TObject);
+procedure TFormAstroScene.tbTopoGridClick(Sender: TObject);
 begin
-  tbGrid.Down := not tbGrid.Down;
-  FormOptions.chbGlobeGrid.Checked := not FormOptions.chbGlobeGrid.Checked;
+  tbTopoGrid.Down := not tbTopoGrid.Down;
+  FormOptions.chbTopoGrid.Checked := not FormOptions.chbTopoGrid.Checked;
 end;
 
 //--------------------- «агрузка текстуры высокого разрешени€ -----------------

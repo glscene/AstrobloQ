@@ -33,7 +33,7 @@ void __fastcall TFormOptions::chbPlanetClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormOptions::chbTopoGridClick(TObject *Sender)
 {
-  FormAstroScene->dcTopoGrid->Visible = chbTopoGrid->Checked;
+  FormAstroScene->dcGlobeGrid->Visible = chbTopoGrid->Checked;
 }
 
 //---------------------------------------------------------------------------

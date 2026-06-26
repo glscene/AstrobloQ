@@ -4,8 +4,8 @@ object FormOptions: TFormOptions
   Hint = 'Longevity'
   BorderStyle = bsDialog
   Caption = #1054#1087#1094#1080#1080
-  ClientHeight = 443
-  ClientWidth = 750
+  ClientHeight = 582
+  ClientWidth = 837
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,19 +19,19 @@ object FormOptions: TFormOptions
   TextHeight = 21
   object PanelBottom: TPanel
     Left = 0
-    Top = 402
-    Width = 750
+    Top = 541
+    Width = 837
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 377
-    ExplicitWidth = 742
+    ExplicitTop = 516
+    ExplicitWidth = 829
     DesignSize = (
-      750
+      837
       41)
     object ButtonOK: TButton
-      Left = 362
+      Left = 449
       Top = 1
       Width = 99
       Height = 31
@@ -40,31 +40,31 @@ object FormOptions: TFormOptions
       ModalResult = 1
       TabOrder = 0
       OnClick = ButtonOKClick
-      ExplicitLeft = 354
+      ExplicitLeft = 441
     end
   end
   object PanelMiddle: TPanel
     Left = 0
     Top = 9
-    Width = 750
-    Height = 393
+    Width = 837
+    Height = 532
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 1
-    ExplicitWidth = 742
-    ExplicitHeight = 368
+    ExplicitWidth = 829
+    ExplicitHeight = 507
     object PageControl: TPageControl
       Left = 169
       Top = 5
-      Width = 576
-      Height = 383
+      Width = 663
+      Height = 522
       ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0
-      ExplicitWidth = 568
-      ExplicitHeight = 358
+      ExplicitWidth = 655
+      ExplicitHeight = 497
       object tsGeneral: TTabSheet
         Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
@@ -158,10 +158,10 @@ object FormOptions: TFormOptions
         ImageIndex = 5
         TabVisible = False
         DesignSize = (
-          568
-          373)
+          655
+          512)
         object chlbStarClasses: TCheckListBox
-          Left = -94
+          Left = -7
           Top = 137
           Width = 104
           Height = 128
@@ -233,7 +233,7 @@ object FormOptions: TFormOptions
           Caption = #1057#1077#1090#1082#1072' '#1085#1077#1073#1086#1089#1074#1086#1076#1072
           TabOrder = 2
           StyleName = 'Windows'
-          OnClick = chbGlobeGridClick
+          OnClick = chbTopoGridClick
         end
       end
       object tsPlanets: TTabSheet
@@ -346,8 +346,8 @@ object FormOptions: TFormOptions
         object grbShowPlanets: TGroupBox
           Left = 32
           Top = 206
-          Width = 521
-          Height = 164
+          Width = 593
+          Height = 259
           Caption = #1055#1086#1082#1072#1079#1072#1090#1100
           TabOrder = 1
           object CheckBox4: TCheckBox
@@ -360,14 +360,14 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
           end
           object chbCore: TCheckBox
-            Left = 31
-            Top = 79
+            Left = 304
+            Top = 33
             Width = 98
             Height = 27
             Caption = #1071#1076#1088#1086
             TabOrder = 1
             StyleName = 'Windows'
-            OnClick = chbCoreClick
+            OnClick = chbInnerCoreClick
           end
           object CheckBoxAtmosfera: TCheckBox
             Left = 31
@@ -391,19 +391,21 @@ object FormOptions: TFormOptions
             StyleName = 'Windows'
             OnClick = chbCloudsClick
           end
-          object chbGlobeGrid: TCheckBox
+          object chbTopoGrid: TCheckBox
             Left = 304
             Top = 81
             Width = 129
             Height = 24
-            Caption = #1057#1077#1090#1082#1072' '#1075#1083#1086#1073#1091#1089#1072
+            Caption = #1058#1086#1087#1086#1089#1077#1090#1082#1072
+            Checked = True
+            State = cbChecked
             TabOrder = 4
             StyleName = 'Windows'
-            OnClick = chbGlobeGridClick
+            OnClick = chbTopoGridClick
           end
           object chbHideObject: TCheckBox
             Left = 304
-            Top = 34
+            Top = 194
             Width = 169
             Height = 25
             Caption = #1057#1082#1088#1099#1090#1100' '#1086#1073#1098#1077#1082#1090
@@ -412,6 +414,16 @@ object FormOptions: TFormOptions
             TabOrder = 5
             StyleName = 'Windows'
             OnClick = chbHideObjectClick
+          end
+          object chbAxis: TCheckBox
+            Left = 31
+            Top = 81
+            Width = 98
+            Height = 27
+            Caption = #1054#1089#1080
+            TabOrder = 6
+            StyleName = 'Windows'
+            OnClick = chbAxisClick
           end
         end
         object grbPlanetParams: TGroupBox
@@ -543,7 +555,7 @@ object FormOptions: TFormOptions
       Left = 5
       Top = 5
       Width = 164
-      Height = 383
+      Height = 522
       Align = alLeft
       AutoExpand = True
       HotTrack = True
@@ -562,18 +574,18 @@ object FormOptions: TFormOptions
         0000000005000000FFFFFFFF0000000000000000000000000001071F043B0430
         043D04350442044B0400002B000000000000000000000006000000FFFFFFFF00
         0000000000000000000000000106170432045104370434044B04}
-      ExplicitHeight = 358
+      ExplicitHeight = 497
     end
   end
   object PanelTop: TPanel
     Left = 0
     Top = 0
-    Width = 750
+    Width = 837
     Height = 9
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 742
+    ExplicitWidth = 829
   end
   object ImageList: TImageList
     Left = 67

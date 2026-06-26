@@ -33,7 +33,6 @@ object FormAstroScene: TFormAstroScene
     Height = 29
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1230
     object ToolBar1: TToolBar
       Left = 232
       Top = 2
@@ -81,7 +80,6 @@ object FormAstroScene: TFormAstroScene
     Align = alLeft
     Caption = 'Panel1'
     TabOrder = 2
-    ExplicitHeight = 724
     object StaticText3: TStaticText
       Left = 1
       Top = 1
@@ -345,7 +343,6 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 630
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -559,7 +556,7 @@ object FormAstroScene: TFormAstroScene
           Nodes = <>
           Options = []
         end
-        object dcTopoGrid: TGLDummyCube
+        object dcGlobeGrid: TGLDummyCube
           CubeSize = 1.000000000000000000
           object MeridianY_0: TGLTorus
             MajorRadius = 6372.000000000000000000
@@ -899,7 +896,7 @@ object FormAstroScene: TFormAstroScene
           object ArrowZ: TGLArrowLine
             Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
             Position.Coordinates = {000000000000000000007A450000803F}
-            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
             Slices = 16
@@ -913,7 +910,7 @@ object FormAstroScene: TFormAstroScene
             Material.FrontProperties.Emission.Color = {00000000000000000000803F0000803F}
             Direction.Coordinates = {0000000000000000000080BF00000000}
             Position.Coordinates = {000000000000000000007AC50000803F}
-            Scale.Coordinates = {0000FA440000FA440000FA4500000000}
+            Scale.Coordinates = {00007A4400007A440000FA4500000000}
             BottomRadius = 0.050000000745058060
             Height = 1.000000000000000000
             Slices = 16

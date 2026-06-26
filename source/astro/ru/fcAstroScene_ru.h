@@ -75,7 +75,7 @@ __published:	// IDE-managed Components
 	TGLTorus *ParallelS_60;
 	TGLTorus *ParallelS_75;
 	TGLTorus *ParallelS_90;
-	TGLDummyCube *dcTopoGrid;
+	TGLDummyCube *dcGlobeGrid;
 	TGLLines *Parallel20;
 	TGLDummyCube *dcPlanet;
 	TGLArrowLine *ArrowX;
