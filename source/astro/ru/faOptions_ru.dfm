@@ -59,7 +59,7 @@ object FormOptions: TFormOptions
       Top = 5
       Width = 576
       Height = 383
-      ActivePage = tsSkyDome
+      ActivePage = tsPlanets
       Align = alClient
       Style = tsButtons
       TabOrder = 0

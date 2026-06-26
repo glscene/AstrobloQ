@@ -233,9 +233,9 @@ begin
          sfPlanet.Stop := 180;
 //       if aColor then ... получить цвет дисков из файла sol_planets.csv
          begin
-           sfPlanetCore.Material.FrontProperties.Emission.Color := clrRed;
-           diskPlanetMantle.Material.FrontProperties.Ambient.Color := clrOrangeRed;
-           diskPlanetCrust.Material.FrontProperties.Ambient.Color := clrYellow;
+           sfInnerCore.Material.FrontProperties.Emission.Color := clrRed;
+           diskMantle.Material.FrontProperties.Ambient.Color := clrOrangeRed;
+           diskCrust.Material.FrontProperties.Ambient.Color := clrYellow;
          end;
 (*
         else // если есть карта сечения планеты через ядро
@@ -292,14 +292,14 @@ end;
 //-----------------------------------------------------------------------------
 procedure TFormOptions.chbGlobeGridClick(Sender: TObject);
 begin
-  FormAstroScene.sfGlobeGrid.Visible := chbGlobeGrid.Checked;
+  FormAstroScene.dcGlobeGrid.Visible := chbGlobeGrid.Checked;
   FormAstroScene.SceneViewer.Invalidate;
 end;
 
 // ------------------------ Облачность ---------------------------------------
 procedure TFormOptions.chbCloudsClick(Sender: TObject);
 begin
-  FormAstroScene.sfPlanetClouds.Visible := chbClouds.Checked;
+  FormAstroScene.sfGlobeClouds.Visible := chbClouds.Checked;
   FormAstroScene.SceneViewer.Invalidate;
 end;
 

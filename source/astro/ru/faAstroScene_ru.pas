@@ -109,7 +109,7 @@ type
     miFileSaveAs: TMenuItem;
     SaveDialog: TSaveDialog;
     Atmosphere: TGLAtmosphere;
-    diskPlanetMantle: TGLDisk;
+    diskMantle: TGLDisk;
     diskRingUp: TGLDisk;
     miHelpWiki: TMenuItem;
     diskRingDn: TGLDisk;
@@ -118,7 +118,7 @@ type
     miPlanetSystem: TMenuItem;
     N4: TMenuItem;
     miOptions: TMenuItem;
-    sfPlanetCore: TGLSphere;
+    sfInnerCore: TGLSphere;
     miTools: TMenuItem;
     N7: TMenuItem;
     LensFlare: TGLLensFlare;
@@ -161,16 +161,15 @@ type
     ffComet: TGLFreeForm;
     miConstAtlas: TMenuItem;
     miConstPolygons: TMenuItem;
-    sfPlanetClouds: TGLSphere;
+    sfGlobeClouds: TGLSphere;
     MatLibSkyDome: TGLMaterialLibrary;
-    diskPlanetCrust: TGLDisk;
+    diskCrust: TGLDisk;
     dcDebris: TGLDummyCube;
     ffAsteroid: TGLFreeForm;
     ffPlanet: TGLFreeForm;
     diskMoonMantle: TGLDisk;
     diskMoonCrust: TGLDisk;
     sfMoonCore: TGLSphere;
-    sfGlobeGrid: TGLSphere;
     sfAsteroidCore: TGLSphere;
     diskAsteroidMantle: TGLDisk;
     diskAsteroidCrust: TGLDisk;
@@ -189,6 +188,32 @@ type
     GLPolygon1: TGLPolygon;
     SkyBox: TGLSkyBox;
     MatLibSkyBox: TGLMaterialLibrary;
+    dcGlobeGrid: TGLDummyCube;
+    MeridianY_0: TGLTorus;
+    MeridianY_15: TGLTorus;
+    MeridianY_30: TGLTorus;
+    MeridianY_45: TGLTorus;
+    MeridianY_60: TGLTorus;
+    MeridianY_75: TGLTorus;
+    MerGreenwich_90: TGLTorus;
+    MeridianY_105: TGLTorus;
+    MeridianY_120: TGLTorus;
+    MeridianY_135: TGLTorus;
+    MeridianY_150: TGLTorus;
+    MeridianY_165: TGLTorus;
+    ParallelN_90: TGLTorus;
+    ParallelN_75: TGLTorus;
+    ParallelN_60: TGLTorus;
+    ParallelN_45: TGLTorus;
+    ParallelN_30: TGLTorus;
+    ParallelN_15: TGLTorus;
+    ParallelEquator_0: TGLTorus;
+    ParallelS_15: TGLTorus;
+    ParallelS_30: TGLTorus;
+    ParallelS_45: TGLTorus;
+    ParallelS_60: TGLTorus;
+    ParallelS_75: TGLTorus;
+    ParallelS_90: TGLTorus;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -317,9 +342,10 @@ begin
     MatLibSkyDome.Materials[3].Material.Texture.Compression := tcStandard;
     MatLibSkyDome.Materials[3].Material.Texture.Image.LoadFromFile(FileJpg);
   end;
-//  sfGrid.Material.Texture.Image.LoadFromFile('map\celestial_grid.jpg');
+(* возможна загрузка растровой сетки 'map\celestial_grid.jpg'
   MatLibSkyDome.Materials[5].Material.Texture.Compression := tcStandard;
-//  MatLibSkyDome.Materials[5].Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
+  MatLibSkyDome.Materials[5].Material.Texture.Image.LoadFromFile('map\unigrid.jpg');
+*)
 end;
 
 //----------------------------------------------------------------------------
@@ -366,7 +392,7 @@ begin
   end;
   TimeMultiplier := Power(1, 3); // 0 - стоп, ускорение вращени€ - Power(3, 3);
   // скрываем планеты, луны и астероиды при показе небосвода
-   FormOptions.chbHideObjectClick(Self);
+///   FormOptions.chbHideObjectClick(Self);
   // включаем линии созвездий
   FormOptions.chbConstLinesClick(Self);
   FormOptions.chbConstBordersClick(Self);
@@ -379,11 +405,11 @@ procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 begin
   tbPlanets.SetFocus;
   vBodyType := 1;
-  // видимость планет
-  sfPlanet.Visible := True;
-  sfGlobeGrid.Visible := False; // нет сетки
-  // пока фри форма не видна
-  ffPlanet.Visible := False;
+  // видимость сферы планеты
+  sfPlanet.Visible := True; // or FormOptions.chbHideObject.Checked;
+  dcGlobeGrid.Visible := FormOptions.chbGlobeGrid.Checked;
+  // фри форма планеты
+  ffPlanet.Visible := True;
   // луны, астероиды и кометы не видны
   dcMoon.Visible := False;
   dcAsteroid.Visible := False;
@@ -806,11 +832,11 @@ begin
     sfPlanet.TurnAngle := sfPlanet.TurnAngle + deltaTime * TimeMultiplier;
 //    ffPlanet.TurnAngle := ffGlobe.TurnAngle + deltaTime * TimeMultiplier;
     // географическа€ сетка, вращаетс€ вместе с глобусом
-    sfGlobeGrid.TurnAngle := sfPlanet.TurnAngle;
+    dcGlobeGrid.TurnAngle := sfPlanet.TurnAngle;
 
     // облака вращаютс€ только у планет с лЄгкой облачностью
-    if sfPlanetClouds.Visible = True then
-      sfPlanetClouds.TurnAngle := sfPlanetClouds.TurnAngle + deltaTime * timeMultiplier + 0.01;
+    if sfGlobeClouds.Visible = True then
+      sfGlobeClouds.TurnAngle := sfGlobeClouds.TurnAngle + deltaTime * timeMultiplier + 0.01;
 
     sfMoon.TurnAngle := sfMoon.TurnAngle + deltaTime * TimeMultiplier;
     ffMoon.TurnAngle := ffMoon.TurnAngle + deltaTime * TimeMultiplier;

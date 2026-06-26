@@ -18,10 +18,10 @@ __published:	// IDE-managed Components
 	TCheckBox *chbRotate;
 	TCheckBox *chbAxes;
 	TCheckBox *chbPlanet;
-	TCheckBox *chbGrid;
+	TCheckBox *chbTopoGrid;
 	void __fastcall chbAxesClick(TObject *Sender);
 	void __fastcall chbPlanetClick(TObject *Sender);
-	void __fastcall chbGridClick(TObject *Sender);
+	void __fastcall chbTopoGridClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormOptions(TComponent* Owner);

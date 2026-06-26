@@ -62,14 +62,14 @@ object FormOptions: TFormOptions
       TabOrder = 2
       OnClick = chbPlanetClick
     end
-    object chbGrid: TCheckBox
+    object chbTopoGrid: TCheckBox
       Left = 295
       Top = 125
       Width = 81
       Height = 17
-      Caption = #1043#1077#1086#1089#1077#1090#1082#1072
+      Caption = #1058#1086#1087#1086#1089#1077#1090#1082#1072
       TabOrder = 3
-      OnClick = chbGridClick
+      OnClick = chbTopoGridClick
     end
   end
 end

@@ -106,9 +106,9 @@ object FormAstroScene: TFormAstroScene
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
-      Images = dmImages.VirtualSymbolPlanets
       Indent = 35
       ParentFont = False
+      StateImages = dmImages.VirtualSymbolPlanets
       TabOrder = 1
       Items.NodeData = {
         079600000009540054007200650065004E006F00640065002700000001000000
@@ -547,19 +547,10 @@ object FormAstroScene: TFormAstroScene
         end>
       Stars = <>
     end
-    object dcMeshPlanet: TGLDummyCube
-      CubeSize = 20000.000000000000000000
-      VisibleAtRunTime = True
-      object ffPlanet: TGLFreeForm
-      end
-    end
     object dcPlanet: TGLDummyCube
       CubeSize = 1.000000000000000000
       object sfPlanet: TGLSphere
-        Direction.Coordinates = {00000000E90DC83E35A66B3F00000000}
-        PitchAngle = 23.000000000000000000
         ShowAxes = True
-        Up.Coordinates = {0000000035A66B3FE90DC8BE00000000}
         Radius = 6371.000000000000000000
         Slices = 128
         Stacks = 128
@@ -568,9 +559,116 @@ object FormAstroScene: TFormAstroScene
           Nodes = <>
           Options = []
         end
-        object dcParallelGrid: TGLDummyCube
+        object dcTopoGrid: TGLDummyCube
           CubeSize = 1.000000000000000000
-          object PoleN_90: TGLTorus
+          object MeridianY_0: TGLTorus
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 256
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_15: TGLTorus
+            Direction.Coordinates = {EE83843E00000000EA46773F00000000}
+            TurnAngle = 15.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_30: TGLTorus
+            Direction.Coordinates = {0000003F00000000D7B35D3F00000000}
+            TurnAngle = 30.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_45: TGLTorus
+            Direction.Coordinates = {F304353F00000000F304353F00000000}
+            TurnAngle = 45.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_60: TGLTorus
+            Direction.Coordinates = {D7B35D3F00000000FFFFFF3E00000000}
+            TurnAngle = 60.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_75: TGLTorus
+            Direction.Coordinates = {EA46773F00000000ED83843E00000000}
+            TurnAngle = 75.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MerGreenwich_90: TGLTorus
+            Material.FrontProperties.Diffuse.Color = {000000000000803FF8FEFE3E0000803F}
+            Direction.Coordinates = {0000803F00000000EC46F7B200000000}
+            TurnAngle = 90.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 20.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_105: TGLTorus
+            Direction.Coordinates = {EA46773F00000000EF8384BE00000000}
+            TurnAngle = 105.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_120: TGLTorus
+            Direction.Coordinates = {D7B35D3F00000000000000BF00000000}
+            TurnAngle = 120.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_135: TGLTorus
+            Direction.Coordinates = {F304353F00000000F40435BF00000000}
+            TurnAngle = 135.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_150: TGLTorus
+            Direction.Coordinates = {FFFFFF3E00000000D8B35DBF00000000}
+            TurnAngle = 150.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object MeridianY_165: TGLTorus
+            Direction.Coordinates = {EC83843E00000000EA4677BF00000000}
+            TurnAngle = 165.000000000000000000
+            MajorRadius = 6372.000000000000000000
+            MinorRadius = 15.000000000000000000
+            Rings = 250
+            StopAngle = 360.000000000000000000
+            Parts = [toSides, toStartDisk, toStopDisk]
+          end
+          object ParallelN_90: TGLTorus
             Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
             Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
             Material.FrontProperties.Shininess = 1
@@ -654,7 +752,7 @@ object FormAstroScene: TFormAstroScene
             Direction.Coordinates = {CB32F6B3000080BFDC2A3DA700000000}
             Up.Coordinates = {BDF46E32010080A60000803F00000000}
             MajorRadius = 6371.000000000000000000
-            MinorRadius = 20.000000000000000000
+            MinorRadius = 15.000000000000000000
             Rings = 256
             StopAngle = 360.000000000000000000
             Parts = [toSides, toStartDisk, toStopDisk]
@@ -724,7 +822,7 @@ object FormAstroScene: TFormAstroScene
             StopAngle = 360.000000000000000000
             Parts = [toSides, toStartDisk, toStopDisk]
           end
-          object PoleS_90: TGLTorus
+          object ParallelS_90: TGLTorus
             Material.FrontProperties.Diffuse.Color = {A19E9E3ECFBC3C3ECFBC3C3E0000803F}
             Material.FrontProperties.Emission.Color = {C6BF3F3FDCD8583FDCD8583F0000803F}
             Material.FrontProperties.Shininess = 1
@@ -732,116 +830,6 @@ object FormAstroScene: TFormAstroScene
             Position.Coordinates = {000000000080BBC5000000000000803F}
             Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
             MajorRadius = 2250.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 256
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-        end
-        object dcMeridianGrid: TGLDummyCube
-          CubeSize = 1.000000000000000000
-          object MeridY_165: TGLTorus
-            Direction.Coordinates = {EC83843E00000000EA4677BF00000000}
-            TurnAngle = 165.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_150: TGLTorus
-            Direction.Coordinates = {FFFFFF3E00000000D8B35DBF00000000}
-            TurnAngle = 150.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_135: TGLTorus
-            Direction.Coordinates = {F304353F00000000F40435BF00000000}
-            TurnAngle = 135.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_120: TGLTorus
-            Direction.Coordinates = {D7B35D3F00000000000000BF00000000}
-            TurnAngle = 120.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_105: TGLTorus
-            Direction.Coordinates = {EA46773F00000000EF8384BE00000000}
-            TurnAngle = 105.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MerGreenwich_90: TGLTorus
-            Material.FrontProperties.Diffuse.Color = {000000000000803FF8FEFE3E0000803F}
-            Direction.Coordinates = {0000803F00000000EC46F7B200000000}
-            TurnAngle = 90.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 20.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_75: TGLTorus
-            Direction.Coordinates = {EA46773F00000000ED83843E00000000}
-            TurnAngle = 75.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_60: TGLTorus
-            Direction.Coordinates = {D7B35D3F00000000FFFFFF3E00000000}
-            TurnAngle = 60.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_45: TGLTorus
-            Direction.Coordinates = {F304353F00000000F304353F00000000}
-            TurnAngle = 45.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_30: TGLTorus
-            Direction.Coordinates = {0000003F00000000D7B35D3F00000000}
-            TurnAngle = 30.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_15: TGLTorus
-            Direction.Coordinates = {EE83843E00000000EA46773F00000000}
-            TurnAngle = 15.000000000000000000
-            MajorRadius = 6372.000000000000000000
-            MinorRadius = 15.000000000000000000
-            Rings = 250
-            StopAngle = 360.000000000000000000
-            Parts = [toSides, toStartDisk, toStopDisk]
-          end
-          object MeridY_0: TGLTorus
-            MajorRadius = 6372.000000000000000000
             MinorRadius = 15.000000000000000000
             Rings = 256
             StopAngle = 360.000000000000000000
@@ -937,6 +925,12 @@ object FormAstroScene: TFormAstroScene
             BottomArrowHeadRadius = 0.200000002980232200
           end
         end
+      end
+    end
+    object dcMeshPlanet: TGLDummyCube
+      CubeSize = 20000.000000000000000000
+      VisibleAtRunTime = True
+      object ffPlanet: TGLFreeForm
       end
     end
   end

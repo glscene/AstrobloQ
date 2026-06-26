@@ -31,10 +31,10 @@ void __fastcall TFormOptions::chbPlanetClick(TObject *Sender)
 //---------------------------------------------------------------------------
 //                       Показать меридианы и параллели
 //---------------------------------------------------------------------------
-void __fastcall TFormOptions::chbGridClick(TObject *Sender)
+void __fastcall TFormOptions::chbTopoGridClick(TObject *Sender)
 {
-  FormAstroScene->dcMeridianGrid->Visible = chbGrid->Checked;
-  FormAstroScene->dcParallelGrid->Visible = chbGrid->Checked;
+  FormAstroScene->dcTopoGrid->Visible = chbTopoGrid->Checked;
 }
+
 //---------------------------------------------------------------------------
 

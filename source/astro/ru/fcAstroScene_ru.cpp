@@ -112,7 +112,8 @@ void __fastcall TFormAstroScene::FormCreate(TObject* Sender)
 		ShowMessage("Ошибка инициализации: " + e.Message);
 	}
 
-/*  // Вариант с BinDir. Получаем путь к исполняемому файлу
+/*
+	// Вариант с BinDir. Извлекаем путь к исполняемому файлу
 	String BinDir = ExtractFilePath(ParamStr(0));
 	// Путь к папке с картами
 	DataDir = BinDir + "..\\data\\map\\";
@@ -157,10 +158,10 @@ void __fastcall TFormAstroScene::GLCadencerProgress(
 
 {
 	sfPlanet->TurnAngle = FormOptions->chbRotate->Checked ? 10 * NewTime : 0;
-//	if (chbRotate->Checked)
+	if (FormOptions->chbRotate->Checked)
 		sfPlanet->TurnAngle = 10 * NewTime;
-//	else
-//		sfPlanet->TurnAngle = 0;
+	else
+		sfPlanet->TurnAngle = 0;
 }
 
 //---------------------------------------------------------------------------
