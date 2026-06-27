@@ -6,49 +6,49 @@
         <Projects Include="projects\ApexD_ru.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\coco.dproj">
+        <Projects Include="projects\coco.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\comet.dproj">
+        <Projects Include="projects\comet.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\control.dproj">
+        <Projects Include="projects\control.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\eclipse.dproj">
+        <Projects Include="projects\eclipse.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\ecltimer.dproj">
+        <Projects Include="projects\ecltimer.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\foto.dproj">
+        <Projects Include="projects\foto.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\luna.dproj">
+        <Projects Include="projects\luna.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\newmoon.dproj">
+        <Projects Include="projects\newmoon.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\numint.dproj">
+        <Projects Include="projects\numint.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\occult.dproj">
+        <Projects Include="projects\occult.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\orbdet.dproj">
+        <Projects Include="projects\orbdet.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\phys.dproj">
+        <Projects Include="projects\phys.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\planetpos.dproj">
+        <Projects Include="projects\planetpos.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\planetrise.dproj">
+        <Projects Include="projects\planetrise.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="pas\sunset.dproj">
+        <Projects Include="projects\sunset.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -69,139 +69,139 @@
         <MSBuild Projects="projects\ApexD_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="coco">
-        <MSBuild Projects="pas\coco.dproj"/>
+        <MSBuild Projects="projects\coco.dproj"/>
     </Target>
     <Target Name="coco:Clean">
-        <MSBuild Projects="pas\coco.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\coco.dproj" Targets="Clean"/>
     </Target>
     <Target Name="coco:Make">
-        <MSBuild Projects="pas\coco.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\coco.dproj" Targets="Make"/>
     </Target>
     <Target Name="comet">
-        <MSBuild Projects="pas\comet.dproj"/>
+        <MSBuild Projects="projects\comet.dproj"/>
     </Target>
     <Target Name="comet:Clean">
-        <MSBuild Projects="pas\comet.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\comet.dproj" Targets="Clean"/>
     </Target>
     <Target Name="comet:Make">
-        <MSBuild Projects="pas\comet.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\comet.dproj" Targets="Make"/>
     </Target>
     <Target Name="control">
-        <MSBuild Projects="pas\control.dproj"/>
+        <MSBuild Projects="projects\control.dproj"/>
     </Target>
     <Target Name="control:Clean">
-        <MSBuild Projects="pas\control.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\control.dproj" Targets="Clean"/>
     </Target>
     <Target Name="control:Make">
-        <MSBuild Projects="pas\control.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\control.dproj" Targets="Make"/>
     </Target>
     <Target Name="eclipse">
-        <MSBuild Projects="pas\eclipse.dproj"/>
+        <MSBuild Projects="projects\eclipse.dproj"/>
     </Target>
     <Target Name="eclipse:Clean">
-        <MSBuild Projects="pas\eclipse.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\eclipse.dproj" Targets="Clean"/>
     </Target>
     <Target Name="eclipse:Make">
-        <MSBuild Projects="pas\eclipse.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\eclipse.dproj" Targets="Make"/>
     </Target>
     <Target Name="ecltimer">
-        <MSBuild Projects="pas\ecltimer.dproj"/>
+        <MSBuild Projects="projects\ecltimer.dproj"/>
     </Target>
     <Target Name="ecltimer:Clean">
-        <MSBuild Projects="pas\ecltimer.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\ecltimer.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ecltimer:Make">
-        <MSBuild Projects="pas\ecltimer.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\ecltimer.dproj" Targets="Make"/>
     </Target>
     <Target Name="foto">
-        <MSBuild Projects="pas\foto.dproj"/>
+        <MSBuild Projects="projects\foto.dproj"/>
     </Target>
     <Target Name="foto:Clean">
-        <MSBuild Projects="pas\foto.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\foto.dproj" Targets="Clean"/>
     </Target>
     <Target Name="foto:Make">
-        <MSBuild Projects="pas\foto.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\foto.dproj" Targets="Make"/>
     </Target>
     <Target Name="luna">
-        <MSBuild Projects="pas\luna.dproj"/>
+        <MSBuild Projects="projects\luna.dproj"/>
     </Target>
     <Target Name="luna:Clean">
-        <MSBuild Projects="pas\luna.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\luna.dproj" Targets="Clean"/>
     </Target>
     <Target Name="luna:Make">
-        <MSBuild Projects="pas\luna.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\luna.dproj" Targets="Make"/>
     </Target>
     <Target Name="newmoon">
-        <MSBuild Projects="pas\newmoon.dproj"/>
+        <MSBuild Projects="projects\newmoon.dproj"/>
     </Target>
     <Target Name="newmoon:Clean">
-        <MSBuild Projects="pas\newmoon.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\newmoon.dproj" Targets="Clean"/>
     </Target>
     <Target Name="newmoon:Make">
-        <MSBuild Projects="pas\newmoon.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\newmoon.dproj" Targets="Make"/>
     </Target>
     <Target Name="numint">
-        <MSBuild Projects="pas\numint.dproj"/>
+        <MSBuild Projects="projects\numint.dproj"/>
     </Target>
     <Target Name="numint:Clean">
-        <MSBuild Projects="pas\numint.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\numint.dproj" Targets="Clean"/>
     </Target>
     <Target Name="numint:Make">
-        <MSBuild Projects="pas\numint.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\numint.dproj" Targets="Make"/>
     </Target>
     <Target Name="occult">
-        <MSBuild Projects="pas\occult.dproj"/>
+        <MSBuild Projects="projects\occult.dproj"/>
     </Target>
     <Target Name="occult:Clean">
-        <MSBuild Projects="pas\occult.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\occult.dproj" Targets="Clean"/>
     </Target>
     <Target Name="occult:Make">
-        <MSBuild Projects="pas\occult.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\occult.dproj" Targets="Make"/>
     </Target>
     <Target Name="orbdet">
-        <MSBuild Projects="pas\orbdet.dproj"/>
+        <MSBuild Projects="projects\orbdet.dproj"/>
     </Target>
     <Target Name="orbdet:Clean">
-        <MSBuild Projects="pas\orbdet.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\orbdet.dproj" Targets="Clean"/>
     </Target>
     <Target Name="orbdet:Make">
-        <MSBuild Projects="pas\orbdet.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\orbdet.dproj" Targets="Make"/>
     </Target>
     <Target Name="phys">
-        <MSBuild Projects="pas\phys.dproj"/>
+        <MSBuild Projects="projects\phys.dproj"/>
     </Target>
     <Target Name="phys:Clean">
-        <MSBuild Projects="pas\phys.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\phys.dproj" Targets="Clean"/>
     </Target>
     <Target Name="phys:Make">
-        <MSBuild Projects="pas\phys.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\phys.dproj" Targets="Make"/>
     </Target>
     <Target Name="planetpos">
-        <MSBuild Projects="pas\planetpos.dproj"/>
+        <MSBuild Projects="projects\planetpos.dproj"/>
     </Target>
     <Target Name="planetpos:Clean">
-        <MSBuild Projects="pas\planetpos.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\planetpos.dproj" Targets="Clean"/>
     </Target>
     <Target Name="planetpos:Make">
-        <MSBuild Projects="pas\planetpos.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\planetpos.dproj" Targets="Make"/>
     </Target>
     <Target Name="planetrise">
-        <MSBuild Projects="pas\planetrise.dproj"/>
+        <MSBuild Projects="projects\planetrise.dproj"/>
     </Target>
     <Target Name="planetrise:Clean">
-        <MSBuild Projects="pas\planetrise.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\planetrise.dproj" Targets="Clean"/>
     </Target>
     <Target Name="planetrise:Make">
-        <MSBuild Projects="pas\planetrise.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\planetrise.dproj" Targets="Make"/>
     </Target>
     <Target Name="sunset">
-        <MSBuild Projects="pas\sunset.dproj"/>
+        <MSBuild Projects="projects\sunset.dproj"/>
     </Target>
     <Target Name="sunset:Clean">
-        <MSBuild Projects="pas\sunset.dproj" Targets="Clean"/>
+        <MSBuild Projects="projects\sunset.dproj" Targets="Clean"/>
     </Target>
     <Target Name="sunset:Make">
-        <MSBuild Projects="pas\sunset.dproj" Targets="Make"/>
+        <MSBuild Projects="projects\sunset.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="ApexD_ru;coco;comet;control;eclipse;ecltimer;foto;luna;newmoon;numint;occult;orbdet;phys;planetpos;planetrise;sunset"/>

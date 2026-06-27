@@ -9,7 +9,7 @@
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <CC_Suffix Condition="'$(CC_Suffix)'==''">c</CC_Suffix>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <TargetedPlatforms>1048577</TargetedPlatforms>
         <ProjectName Condition="'$(ProjectName)'==''">ApexC</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -137,7 +137,7 @@
         <LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <FinalOutputDir>..\bin</FinalOutputDir>
         <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
         <IncludePath>..\cpp</IncludePath>
     </PropertyGroup>
@@ -341,6 +341,10 @@
                     <Source Name="MainSource">ApexC.cpp</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\GR32_DT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\GR32_DT.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\GXScene_GBE_DTRT.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\GXScene_GBE_DTRT.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\GBComps.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\GBComps.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\rae.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\37.0\Bpl\rae.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp370.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k370.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -1450,7 +1454,7 @@
             <Platforms>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
-                <Platform value="Win64x">False</Platform>
+                <Platform value="Win64x">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

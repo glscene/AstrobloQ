@@ -749,7 +749,7 @@ void main(int argc, char* argv[])
 
   
   // Find catalogue file and (optional) name of output file
-  GetFilenames( argc, argv, "data\\Occult.dat", InputFile, FoundInputfile,
+  GetFilenames( argc, argv, "data_c\\Occult.dat", InputFile, FoundInputfile,
                 OutputFile, FoundOutputfile );
 
   // Terminate program if input file could not be found

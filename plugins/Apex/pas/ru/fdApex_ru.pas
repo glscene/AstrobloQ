@@ -15,6 +15,7 @@ uses
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
   Vcl.Menus,
+  Vcl.ToolWin,
 
   fpCoco_ru,
   fpComet_ru,
@@ -30,9 +31,7 @@ uses
   fpPhys_ru,
   fpPlanetpos_ru,
   fpPlanetrise_ru,
-  fpSunset_ru,
-
-  Vcl.ToolWin;
+  fpSunset_ru;
 
 type
   TFormApex = class(TForm)

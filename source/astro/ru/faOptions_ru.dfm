@@ -172,7 +172,7 @@ object FormOptions: TFormOptions
           Font.Height = 15
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemHeight = 15
+          ItemHeight = 17
           Items.Strings = (
             'O'
             'B'
@@ -185,7 +185,6 @@ object FormOptions: TFormOptions
           ParentShowHint = False
           ShowHint = False
           TabOrder = 0
-          ExplicitLeft = -15
         end
         object GroupBox2: TGroupBox
           Left = 40
@@ -398,8 +397,6 @@ object FormOptions: TFormOptions
             Width = 129
             Height = 24
             Caption = #1058#1086#1087#1086#1089#1077#1090#1082#1072
-            Checked = True
-            State = cbChecked
             TabOrder = 4
             StyleName = 'Windows'
             OnClick = chbGlobeGridClick

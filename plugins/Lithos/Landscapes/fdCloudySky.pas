@@ -17,6 +17,9 @@ uses
   Vcl.ExtCtrls,
 
   Stage.VectorGeometry,
+  Stage.Coordinates,
+  Stage.BaseClasses,
+  Stage.XCollection,
   Stage.Keyboard,
   Stage.Utils,
 
@@ -28,10 +31,7 @@ uses
   GLS.SkyDome,
   GLS.Texture,
   GLS.FileTGA,
-  GLS.XCollection,
   GLS.Material,
-  Stage.Coordinates,
-  Stage.BaseClasses,
   GLS.SimpleNavigation,
 
   GLS.CgShader;

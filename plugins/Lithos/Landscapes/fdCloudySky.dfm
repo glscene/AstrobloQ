@@ -23,8 +23,6 @@ object MainForm: TMainForm
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 503
-    ExplicitHeight = 400
   end
   object Panel1: TPanel
     Left = 0

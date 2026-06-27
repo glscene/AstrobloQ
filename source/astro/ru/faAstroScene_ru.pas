@@ -221,7 +221,7 @@ type
     torus4: TGLTorus;
     torus5: TGLTorus;
     torus6: TGLTorus;
-    torus7: TGLTorus;
+    torusMeridian7: TGLTorus;
     torus8: TGLTorus;
     torus9: TGLTorus;
     torus10: TGLTorus;
@@ -233,7 +233,7 @@ type
     torus16: TGLTorus;
     torus17: TGLTorus;
     torus18: TGLTorus;
-    torus19: TGLTorus;
+    torusEquator: TGLTorus;
     torus20: TGLTorus;
     torus21: TGLTorus;
     torus22: TGLTorus;
@@ -349,7 +349,7 @@ begin
 
   // текстурирование планеты вместо цвета
   sfPlanet.Material.Texture.Disabled := False; // сферическая форма
-//  ffPlanet.Material.Texture.Disabled := False; // фри форма
+  ffPlanet.Material.Texture.Disabled := False; // фри форма
 //  ffPlanet.Scale.Scale(1); // масштаб фриформ планеты
 
   // текстурирование луны вместо цвета
@@ -391,15 +391,38 @@ begin
   // По умолчанию справка - Земля, имя 3-й планеты на кириллице
   miHelpWiki.Caption := tbPlanets.Buttons[3].Hint; // + ' в ' + 'RuWiki...';
 
-  // Луны, индексация узлов дерева tvMoons
+  // Луны, в индексации узлов дерева tvMoons пока нет необходимости
+(*
   for I := 0 to tvMoons.Items.Count - 1 do
   begin
     tvMoons.Items[I].ExpandedImageIndex := I;
   end;
-
+*)
+  // Луны, загрузка имён из файла csv
+(*
+  FileCSV := CurrentStar + 'sol_moons.csv';
+  if FileExists(FileCSV) then
+  begin
+    tvAsteroids.Items.BeginUpdate;
+    try
+      Tl := TStringList.Create;
+      tvMoons.LoadFromFile(FileCSV);
+      for I := 0 to tvMoons.Items.Count - 1 do
+      begin
+        Tl.CommaText := tvMoons.Items[I].Text; //sl[i];
+        S := Tl[2]; // читаем поле 2 name_ru в стринг
+        tvMoons.Items[I].Text := S; // новое имя узла
+      end;
+    finally
+      Tl.Free;
+    end;
+    tvMoons.Items[0].Delete; // удаление титульной строки с именами полей
+    tvMoons.Items.EndUpdate; // обновляем дерево
+  end;
+*)
   // Астероиды, загрузка имён из файла csv
   FileCSV := CurrentStar + 'sol_asteroids.csv';
-  if FileExists(FileCSV) then // or clouds_dense
+  if FileExists(FileCSV) then
   begin
     tvAsteroids.Items.BeginUpdate;
     try
@@ -432,11 +455,11 @@ procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 begin
   tbPlanets.SetFocus;
   vBodyType := 1;
-  // видимость сферы планеты
+  // видимость сферы и фриформы планеты
   sfPlanet.Visible := True; // or FormOptions.chbHideObject.Checked;
-  dcGlobeGrid.Visible := FormOptions.chbGlobeGrid.Checked;
-  // фри форма планеты
   ffPlanet.Visible := True;
+  // сетка глобуса
+  dcGlobeGrid.Visible := FormOptions.chbGlobeGrid.Checked;
   // луны, астероиды и кометы не видны
   dcMoon.Visible := False;
   dcAsteroid.Visible := False;
@@ -523,7 +546,7 @@ begin
   FileJpg := CurrentStar + LowerCase(MoonName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
-  //sfMoon.Radius := Radius; // считывается из csv файла
+  //sfMoon.Radius := Radius; // считываем из CSV файла
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // сфера
     // ffGMoon.LoadFromFile(DataDir + '\model\object.3ds'); // фриформа
     // ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);  // карта
@@ -581,15 +604,20 @@ begin
 
   // загружаем модель астероида и направляем на неё камеру
   FileBody := CurrentStar + LowerCase(AsteroidName) + '.3ds';
-  FileBody := CurrentStar + 'phobos.3ds';
 
   if FileExists(FileBody, True) then
   begin
     ffAsteroid.LoadFromFile(FileBody);
+    ffAsteroid.Scale.Scale(1.00); // общий масштаб
  //   ffAsteroid.Scale.Scale(0.05 / ffAsteroid.BoundingSphereRadius);
-    // ..
- //   ffAsteroid.Scale.Scale(10.0); // общий масштаб
-    //  ffAsteroid.Scale.SetVector(1.0, 2.0, 3.0, 0); // изменение по осям
+    ffAsteroid.Scale.SetVector(1.0, 1.0, 1.0, 0); // изменение по осям
+
+    Camera.MoveTo(dcAsteroid);
+    Camera.TargetObject := dcAsteroid; //ffAsteroid;
+    Camera.Position.X := -1;
+    Camera.Position.Y := 1;
+    Camera.Position.Z := 1;
+
   end;
   // находим текстурную карту астероида по названию на английском языке
   FileJpg := CurrentStar + LowerCase(AsteroidName) + '.jpg';
@@ -946,8 +974,8 @@ end;
 //------------------------ Cетка глобуса ----------------------------------
 procedure TFormAstroScene.tbGlobeGridClick(Sender: TObject);
 begin
-  tbGlobeGrid.Down := not {}tbGlobeGrid.Down;
-  FormOptions.chbGlobeGrid.Checked := not{} FormOptions.chbGlobeGrid.Checked;
+   // tbGlobeGrid.Down := not tbGlobeGrid.Down;
+  FormOptions.chbGlobeGrid.Checked := not FormOptions.chbGlobeGrid.Checked;
 end;
 
 //--------------------- Загрузка текстуры высокого разрешения -----------------

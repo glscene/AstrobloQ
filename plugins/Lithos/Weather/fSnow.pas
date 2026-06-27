@@ -12,20 +12,21 @@ uses
   Vcl.Controls,
   Vcl.StdCtrls,
 
-  GLS.PersistentClasses,
+  Stage.VectorGeometry,
+  Stage.PersistentClasses,
   Stage.VectorTypes,
+  Stage.Coordinates,
+  Stage.BaseClasses,
+
   GLS.Scene,
   GLS.Objects,
   GLS.Particles,
   GLS.Cadencer,
   GLS.Behaviours,
-  Stage.VectorGeometry,
   GLS.SceneViewer,
   GLS.FileTGA,
   GLS.SkyDome,
   GLS.Texture,
-  Stage.Coordinates,
-  Stage.BaseClasses,
   GLS.Material;
 
 type

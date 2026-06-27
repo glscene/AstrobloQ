@@ -825,7 +825,7 @@ object FormAstroScene: TFormAstroScene
         CubeSize = 1.000000000000000000
         object torus1: TGLTorus
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -834,7 +834,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {EE83843E00000000EA46773F00000000}
           TurnAngle = 15.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -843,7 +843,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {0000003F00000000D7B35D3F00000000}
           TurnAngle = 30.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -852,7 +852,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {F304353F00000000F304353F00000000}
           TurnAngle = 45.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -861,7 +861,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {D7B35D3F00000000FFFFFF3E00000000}
           TurnAngle = 60.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -870,13 +870,13 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {EA46773F00000000ED83843E00000000}
           TurnAngle = 75.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
         end
-        object torus7: TGLTorus
-          Material.FrontProperties.Diffuse.Color = {000000000000803FF8FEFE3E0000803F}
+        object torusMeridian7: TGLTorus
+          Material.FrontProperties.Diffuse.Color = {000000000000003F000000000000803F}
           Direction.Coordinates = {0000803F00000000EC46F7B200000000}
           TurnAngle = 90.000000000000000000
           MajorRadius = 6372.000000000000000000
@@ -889,7 +889,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {EA46773F00000000EF8384BE00000000}
           TurnAngle = 105.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -898,7 +898,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {D7B35D3F00000000000000BF00000000}
           TurnAngle = 120.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -907,7 +907,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {F304353F00000000F40435BF00000000}
           TurnAngle = 135.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -916,7 +916,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {FFFFFF3E00000000D8B35DBF00000000}
           TurnAngle = 150.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -925,7 +925,7 @@ object FormAstroScene: TFormAstroScene
           Direction.Coordinates = {EC83843E00000000EA4677BF00000000}
           TurnAngle = 165.000000000000000000
           MajorRadius = 6372.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 250
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -938,7 +938,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {000000000080BB45000000000000803F}
           Up.Coordinates = {57F2D03C80895EA3AEEA7F3F00000000}
           MajorRadius = 2250.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -951,7 +951,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000409C45000000000000803F}
           Up.Coordinates = {BBF46E32F12FB5A50000803F00000000}
           MajorRadius = 4000.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -964,7 +964,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000007A45000000000000803F}
           Up.Coordinates = {BBF46E3204A063A40000803F00000000}
           MajorRadius = 4980.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -977,7 +977,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000803B45000000000000803F}
           Up.Coordinates = {BBF46E32971E26A50000803F00000000}
           MajorRadius = 5640.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -990,7 +990,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {000000000000FA44000000000000803F}
           Up.Coordinates = {BAF46E3202A0F6A40000803F00000000}
           MajorRadius = 6070.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1003,18 +1003,18 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000007A44000000000000803F}
           Up.Coordinates = {BBF46E3201F03B190000803F00000000}
           MajorRadius = 6290.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
         end
-        object torus19: TGLTorus
+        object torusEquator: TGLTorus
           Material.FrontProperties.Diffuse.Color = {0000803F00000000000000000000803F}
           Material.FrontProperties.Shininess = 1
           Direction.Coordinates = {CB32F6B3000080BFDC2A3DA700000000}
           Up.Coordinates = {BDF46E32010080A60000803F00000000}
           MajorRadius = 6371.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 20.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1027,7 +1027,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000007AC4000000000000803F}
           Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
           MajorRadius = 6290.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1040,7 +1040,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {000000000000FAC4000000000000803F}
           Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
           MajorRadius = 6070.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1053,7 +1053,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000803BC5000000000000803F}
           Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
           MajorRadius = 5640.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1066,7 +1066,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000007AC5000000000000803F}
           Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
           MajorRadius = 4980.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1079,7 +1079,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {0000000000409CC5000000000000803F}
           Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
           MajorRadius = 4000.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1092,7 +1092,7 @@ object FormAstroScene: TFormAstroScene
           Position.Coordinates = {000000000080BBC5000000000000803F}
           Up.Coordinates = {BDF46E3270E81BA60000803F00000000}
           MajorRadius = 2250.000000000000000000
-          MinorRadius = 15.000000000000000000
+          MinorRadius = 10.000000000000000000
           Rings = 256
           StopAngle = 360.000000000000000000
           Parts = [toSides, toStartDisk, toStopDisk]
@@ -1105,7 +1105,7 @@ object FormAstroScene: TFormAstroScene
       NearPlaneBias = 0.100000001490116100
       TargetObject = dcStar
       CameraStyle = csInfinitePerspective
-      Position.Coordinates = {0000204100002041000020410000803F}
+      Position.Coordinates = {0000C8420000C8420000C8420000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
       Up.Coordinates = {00000000000000000000803F00000000}
       object LensStar: TGLLensFlare
@@ -1117,7 +1117,7 @@ object FormAstroScene: TFormAstroScene
       DepthOfView = 10000.000000000000000000
       FocalLength = 50.000000000000000000
       TargetObject = dcStar
-      Position.Coordinates = {0000204100002041000020410000803F}
+      Position.Coordinates = {0000C8420000C8420000C8420000803F}
       Direction.Coordinates = {0000803F000000000000008000000000}
       Up.Coordinates = {00000000000000000000803F00000000}
     end
@@ -1131,10 +1131,9 @@ object FormAstroScene: TFormAstroScene
         OnProgress = GLCadencerProgress
         CubeSize = 1.000000000000000000
         object sfPlanet: TGLSphere
-          Material.Texture.Disabled = False
           Material.LibMaterialName = 'earthDay'
           Direction.Coordinates = {010000BFD7B35DBF0000000000000000}
-          Scale.Coordinates = {0000A0410000A0410000A04100000000}
+          Scale.Coordinates = {0000C8420000C8420000C84200000000}
           Up.Coordinates = {00000000000000000000803F00000000}
           Radius = 0.500000000000000000
           Slices = 64
@@ -1204,6 +1203,7 @@ object FormAstroScene: TFormAstroScene
         object dcGlobeGrid: TGLDummyCube
           Direction.Coordinates = {000000000000803F2EBD3BB300000000}
           PitchAngle = 90.000000000000000000
+          Scale.Coordinates = {00002041000020410000204100000000}
           Up.Coordinates = {000000002EBD3BB3000080BF00000000}
           Visible = False
           CubeSize = 1.000000000000000000
