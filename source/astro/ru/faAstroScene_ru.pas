@@ -241,6 +241,7 @@ type
     torus24: TGLTorus;
     torus25: TGLTorus;
     LightSource: TGLLightSource;
+    pointsBrightStars: TGLPoints;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
