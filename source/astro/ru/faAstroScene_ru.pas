@@ -300,7 +300,7 @@ type
 var
   FormAstroScene: TFormAstroScene;
   FileCSV, FileBody, FileJpg: TFileName;
-  vBodyType: Byte = 1; // звёзды 0, планеты 1, луны 2, астероиды 3, кометы 4
+  vCelestialType: Byte = 1; // звёзды 0, планеты 1, луны 2, астероиды 3, кометы 4
 
 const
   cOpacity: Single = 5;
@@ -455,7 +455,7 @@ end;
 procedure TFormAstroScene.ToolButtonPlanetsClick(Sender: TObject);
 begin
   tbPlanets.SetFocus;
-  vBodyType := 1;
+  vCelestialType := 1; // планеты
   // видимость сферы и фриформы планеты
   sfPlanet.Visible := True; // or FormOptions.chbHideObject.Checked;
   ffPlanet.Visible := True;
@@ -522,7 +522,7 @@ var
 begin
   tvMoons.SetFocus;
   FormOptions.chbHideObject.Checked := False;
-  vBodyType := 2;
+  vCelestialType := 2;  // луны
 (*
   tvMoons.SetFocus;
   tvMoons.Select(tvMoons.Items[0]);  // по умолчанию Луна
@@ -586,7 +586,7 @@ begin
   tvAsteroids.SetFocus;
   FormOptions.chbHideObject.Checked := False;
 
-  vBodyType := 3;
+  vCelestialType := 3; // астероиды и малые планеты
   // включение видимости астероидов
   ffAsteroid.Visible := True;
   // остальные планеты, луны и кометы не видны

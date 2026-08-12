@@ -231,7 +231,7 @@ begin
     end;
     // Если активна модель типа GLFreeForm, то переключиться
     // на модель планеты типа GLSphere и сечение типа GLDisk
-    case vBodyType of
+    case vCelestialType of
     1: begin // Планета
          sfPlanet.Stop := 180;
 //       if aColor then ... получить цвет дисков из файла sol_planets.csv
@@ -347,7 +347,7 @@ end;
 //---------------------------------------------------------------------------
 procedure TFormOptions.chbConstFiguresClick(Sender: TObject);
 begin
-  // Figures inside borders of costallations
+  // Фигуры созвездий внутри границ полигонов
 end;
 
 //---------------------------------------------------------------------------
@@ -441,7 +441,7 @@ end;
 
 
 //---------------------------------------------------------------------------
-// Запись при закрытии формы
+// При закрытии формы запись в ини файл
 //---------------------------------------------------------------------------
 procedure TFormOptions.FormClose(Sender: TObject; var Action: TCloseAction);
 begin

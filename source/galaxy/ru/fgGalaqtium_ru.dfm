@@ -32,7 +32,7 @@ object FormGalaqtium: TFormGalaqtium
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 711
+    ExplicitTop = 709
     ExplicitWidth = 1072
   end
   object ControlBar: TControlBar
@@ -176,7 +176,7 @@ object FormGalaqtium: TFormGalaqtium
     Align = alClient
     TabOrder = 2
     ExplicitWidth = 1072
-    ExplicitHeight = 678
+    ExplicitHeight = 676
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalaxyBlock: TGLSceneViewer
@@ -337,7 +337,10 @@ object FormGalaqtium: TFormGalaqtium
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1000.000000000000000000
       VisibleAtRunTime = True
-      object Stars: TGLPoints
+      object sfStar: TGLSphere
+        Radius = 0.500000000000000000
+      end
+      object ptStars: TGLPoints
         NoZWrite = False
         Static = False
       end
@@ -374,17 +377,6 @@ object FormGalaqtium: TFormGalaqtium
         ZSamplingScale.Step = 1000.000000000000000000
         Parts = [gpX, gpY, gpZ]
       end
-      object cylGalaxy: TGLCylinder
-        BottomRadius = 0.500000000000000000
-        Height = 1.000000000000000000
-        Slices = 16
-        TopRadius = 0.500000000000000000
-      end
-      object sphGalaxyMW: TGLSphere
-        Material.PolygonMode = pmLines
-        Radius = 50000.000000000000000000
-        Stacks = 16
-      end
       object ansGalaxyHZ: TGLAnnulus
         Material.BackProperties.Ambient.Color = {00000000000000000000000000000000}
         Material.BackProperties.Diffuse.Color = {EBE0E03EE4DB5B3F9A93133F0000803F}
@@ -402,6 +394,11 @@ object FormGalaqtium: TFormGalaqtium
         BottomInnerRadius = 10000.000000000000000000
         TopInnerRadius = 10000.000000000000000000
         TopRadius = 30000.000000000000000000
+      end
+      object sphGalaxyMW: TGLSphere
+        Material.PolygonMode = pmLines
+        Radius = 50000.000000000000000000
+        Stacks = 16
       end
       object cubeSol: TGLCube
         Material.FrontProperties.Ambient.Color = {9A99193FCDCC4C3FACC8483E0000803F}

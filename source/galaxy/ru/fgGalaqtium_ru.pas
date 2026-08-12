@@ -126,7 +126,7 @@ type
     svGalaxyBlock: TGLSceneViewer;
     LightSol: TGLLightSource;
     dcAxes: TGLDummyCube;
-    Stars: TGLPoints;
+    ptStars: TGLPoints;
     SpaceTextX: TGLSpaceText;
     SpaceTextY: TGLSpaceText;
     SpaceTextZ: TGLSpaceText;
@@ -157,7 +157,6 @@ type
     miTranslator: TMenuItem;
     GLMatLib: TGLMaterialLibrary;
     miSettings: TMenuItem;
-    cylGalaxy: TGLCylinder;
     sphGalaxyMW: TGLSphere;
     ansGalaxyHZ: TGLAnnulus;
     miAnalytics: TMenuItem;
@@ -171,6 +170,7 @@ type
     GLNavigator1: TGLNavigator;
     GLSimpleNavigation1: TGLSimpleNavigation;
     cubeSol: TGLCube;
+    sfStar: TGLSphere;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);
@@ -293,11 +293,27 @@ procedure TFormGalaqtium.MakeRandomStars;
 var
   i: Integer;
   Edge, Edge05: Integer;
+  sfStars: array of TGLSphere;
 
 begin
-  Stars := TGLPoints(dcGalaxy.AddNewChild(TGLPoints));
-  Stars.Size := 5.0;
-  Stars.Style := psSmooth;
+  NStars := 100;
+  SetLength(sfStars, NStars);
+  for i := 0 to NStars - 1 do
+  begin
+    sfStars[i] := TGLSphere.Create(GLScene.Objects);
+    GLScene.Objects.AddChild(sfStars[i]);
+    sfStars[i].Assign(sfStar);
+    sfStars[i].Radius := 1000;
+    sfStars[i].Position.X := Random(100000) - 50000;
+    sfStars[i].Position.Y := Random(100000) - 50000;
+    sfStars[i].Position.z := Random(100000) - 50000;
+    sfStars[i].Material.FrontProperties.Diffuse.RandomColor;
+  end;
+
+
+  ptStars := TGLPoints(dcGalaxy.AddNewChild(TGLPoints));
+  ptStars.Size := 5.0;
+  ptStars.Style := psSmooth;
   Edge := Round(dcGalaxy.CubeSize);  // or Solcube.CubeSize
   Edge05 := Edge div 2;
 
@@ -307,9 +323,9 @@ begin
     NStars := Round(FormOptions.nbOn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shO.Brush.Color); // clBlue;
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // B class
@@ -318,9 +334,9 @@ begin
     NStars := Round(FormOptions.nbBn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shB.Brush.Color); // clLightBlue;
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // A class
@@ -329,9 +345,9 @@ begin
     NStars := Round(FormOptions.nbAn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shA.Brush.Color); // clCream;
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // F class
@@ -340,9 +356,9 @@ begin
     NStars := Round(FormOptions.nbFn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shF.Brush.Color); // clKhaki
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // G class
@@ -351,9 +367,9 @@ begin
     NStars := Round(FormOptions.nbGn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shG.Brush.Color); // clYellow
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // K class
@@ -362,9 +378,9 @@ begin
     NStars := Round(FormOptions.nbKn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shK.Brush.Color); // clOrange
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // M class
@@ -373,9 +389,9 @@ begin
     NStars := Round(FormOptions.nbMn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shM.Brush.Color); // clRed
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
   // D class of white dwarf
@@ -384,9 +400,9 @@ begin
     NStars := Round(FormOptions.nbDn.Value);
     for i := 0 to NStars - 1 do
     begin
-      Stars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
+      ptStars.Positions.Add(Random(Edge) - Edge05, Random(Edge) - Edge05, Random(Edge) - Edge05);
       StarColor := ConvertWinColor(FormOptions.shD.Brush.Color); // clWhite
-      Stars.Colors.Add(StarColor);
+      ptStars.Colors.Add(StarColor);
     end
   end;
 end;
@@ -465,8 +481,8 @@ end;
 procedure TFormGalaqtium.miOpenClick(Sender: TObject);
 begin
 //  dcSolcube.DeleteChildren();
-  Stars.Free();
-  Stars := TGLPoints(dcSolarBlock.AddNewChild(TGLPoints));
+  ptStars.Free();
+  ptStars := TGLPoints(dcSolarBlock.AddNewChild(TGLPoints));
 
   sl := TStringList.Create;
   tl := TStringList.Create;
@@ -565,50 +581,50 @@ begin
     spect := tl[38];            // spect_design
    // g := StrToFloat(tl[39]);    // color
    // NSpectralClass := StrToInt(tl[40]); // linecolor
-    Stars.Positions.Add(x, y, z);
+    ptStars.Positions.Add(x, y, z);
 
     if ((spect = 'O') and (spect = 'B')) then
     begin
-      Stars.Colors.Add(clrWhite);
+      ptStars.Colors.Add(clrWhite);
     end
     else if (spect = 'A') then
     begin
-      Stars.Colors.Add(clrBlue);
+      ptStars.Colors.Add(clrBlue);
     end
     else if (spect = 'F') then
     begin
-      Stars.Colors.Add(clrYellowGreen);
+      ptStars.Colors.Add(clrYellowGreen);
     end
     else if (spect = 'G') then
     begin
-      Stars.Colors.Add(clrYellow);
+      ptStars.Colors.Add(clrYellow);
     end
     else if (spect = 'K') then
     begin
-      Stars.Colors.Add(clrOrange);
+      ptStars.Colors.Add(clrOrange);
     end
     else  // 'M' class
     begin
-      Stars.Colors.Add(clrRed);
+      ptStars.Colors.Add(clrRed);
     end;
 (*
     if Mag<8 then
-      dotStars.Size := 7.0;
+      ptStars.Size := 7.0;
     else
 *)
-    Stars.Size := 5.0;
-    Stars.Style := psSmooth;    // size of dots
+    ptStars.Size := 5.0;
+    ptStars.Style := psSmooth;    // size of dots
 
     // Stars with real spectral class colors
-    ///RealColor := Round(StrToFloat(tl[NSpectralClass]));
+    /// RealColor := Round(StrToFloat(tl[NSpectralClass]));
     /// ColorToRGB(RealColor);
 
     // Srars with materials
-//  Stars.Material.BackProperties.Ambient.RandomColor;
-//  Stars.Material.FrontProperties.Diffuse.RandomColor;
-//  Stars.Material.BackProperties.Specular.RandomColor;
-//  Stars.Material.BackProperties.Diffuse := RealGLColor;    ???
-//  Stars.Colors.AddPoint(1, 0.5, 0.5); // Temporarily random colors
+//  ptStars.Material.BackProperties.Ambient.RandomColor;
+//  ptStars.Material.FrontProperties.Diffuse.RandomColor;
+//  ptStars.Material.BackProperties.Specular.RandomColor;
+//  ptStars.Material.BackProperties.Diffuse := RealGLColor;    ???
+//  ptStars.Colors.AddPoint(1, 0.5, 0.5); // Temporarily random colors
   end;
 end;
 
