@@ -296,12 +296,12 @@ var
   sfStars: array of TGLSphere;
 
 begin
-  NStars := 100;
+  NStars := 1000;
   SetLength(sfStars, NStars);
   for i := 0 to NStars - 1 do
   begin
-    sfStars[i] := TGLSphere.Create(GLScene.Objects);
-    GLScene.Objects.AddChild(sfStars[i]);
+    sfStars[i] := TGLSphere.Create(dcGalaxy);
+    dcGalaxy.AddChild(sfStars[i]);
     sfStars[i].Assign(sfStar);
     sfStars[i].Radius := 1000;
     sfStars[i].Position.X := Random(100000) - 50000;
@@ -309,7 +309,6 @@ begin
     sfStars[i].Position.z := Random(100000) - 50000;
     sfStars[i].Material.FrontProperties.Diffuse.RandomColor;
   end;
-
 
   ptStars := TGLPoints(dcGalaxy.AddNewChild(TGLPoints));
   ptStars.Size := 5.0;

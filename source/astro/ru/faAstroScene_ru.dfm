@@ -47,18 +47,18 @@ object FormAstroScene: TFormAstroScene
     Height = 605
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 580
+    ExplicitHeight = 578
     object tvMoons: TTreeView
       Left = 1
-      Top = 111
+      Top = 121
       Width = 311
-      Height = 493
+      Height = 483
       Hint = #1051#1091#1085#1099
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -19
+      Font.Height = -24
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
@@ -302,32 +302,49 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 468
+      ExplicitTop = 111
+      ExplicitHeight = 466
     end
     object StaticText1: TStaticText
       Left = 1
-      Top = 83
+      Top = 88
       Width = 311
-      Height = 28
+      Height = 33
       Align = alTop
       Alignment = taCenter
       Caption = #1051#1091#1085#1099
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 62
     end
     object StaticText3: TStaticText
       Left = 1
       Top = 1
       Width = 311
-      Height = 28
+      Height = 33
       Align = alTop
       Alignment = taCenter
       Caption = #1057#1086#1083#1085#1094#1077' '#1080' '#1087#1083#1072#1085#1077#1090#1099
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = False
       TabOrder = 2
+      ExplicitWidth = 222
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
       Left = 4
-      Top = 32
+      Top = 37
       Width = 305
       Height = 48
       ButtonHeight = 45
@@ -342,6 +359,7 @@ object FormAstroScene: TFormAstroScene
       List = True
       ParentFont = False
       TabOrder = 3
+      ExplicitTop = 32
       object tbnSol: TToolButton
         Left = 0
         Top = 0
@@ -490,7 +508,7 @@ object FormAstroScene: TFormAstroScene
         Text = 'Z:'
         Width = 86
       end>
-    ExplicitTop = 637
+    ExplicitTop = 635
     ExplicitWidth = 1375
   end
   object PanelRight: TPanel
@@ -501,18 +519,18 @@ object FormAstroScene: TFormAstroScene
     Align = alRight
     TabOrder = 3
     ExplicitLeft = 1088
-    ExplicitHeight = 580
+    ExplicitHeight = 578
     object tvAsteroids: TTreeView
       Left = 1
-      Top = 29
+      Top = 34
       Width = 285
-      Height = 575
+      Height = 570
       Hint = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       Align = alClient
       AutoExpand = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -18
+      Font.Height = -24
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       HideSelection = False
@@ -549,17 +567,25 @@ object FormAstroScene: TFormAstroScene
         00000000000000010713043E043B04350432043A043004000029000000096101
         0009610100FFFFFFFFFFFFFFFF00000000000000000000000000010521043504
         34043D043004}
-      ExplicitHeight = 550
+      ExplicitTop = 29
+      ExplicitHeight = 548
     end
     object StaticText2: TStaticText
       Left = 1
       Top = 1
       Width = 285
-      Height = 28
+      Height = 33
       Align = alTop
       Alignment = taCenter
       Caption = #1040#1089#1090#1077#1088#1086#1080#1076#1099
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 131
     end
   end
   object ControlBarTop: TControlBar
@@ -573,10 +599,10 @@ object FormAstroScene: TFormAstroScene
     object ToolBarMain: TToolBar
       Left = 11
       Top = 2
-      Width = 262
+      Width = 358
       Height = 48
       ButtonHeight = 45
-      ButtonWidth = 33
+      ButtonWidth = 45
       Images = DataModuleImages.ImageListInterface
       TabOrder = 0
       object tbNew: TToolButton
@@ -594,7 +620,7 @@ object FormAstroScene: TFormAstroScene
         OnClick = miFileOpenClick
       end
       object tbOpen: TToolButton
-        Left = 33
+        Left = 45
         Top = 0
         Hint = #1054#1090#1082#1088#1099#1090#1100
         Margins.Left = 2
@@ -608,7 +634,7 @@ object FormAstroScene: TFormAstroScene
         OnClick = miFileOpenClick
       end
       object tbSave: TToolButton
-        Left = 66
+        Left = 90
         Top = 0
         Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Caption = 'Save'
@@ -617,7 +643,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object tbSaveAs: TToolButton
-        Left = 99
+        Left = 135
         Top = 0
         Hint = 'View from low orbit'
         Margins.Left = 2
@@ -630,7 +656,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object ToolButton4: TToolButton
-        Left = 132
+        Left = 180
         Top = 0
         Hint = 'Walk on surface'
         Margins.Left = 2
@@ -644,7 +670,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object ToolButton5: TToolButton
-        Left = 165
+        Left = 225
         Top = 0
         Hint = 'Zoom in'
         Caption = 'ToolButton5'
@@ -654,22 +680,22 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object ToolButton6: TToolButton
-        Left = 198
+        Left = 270
         Top = 0
         Hint = 'Zoom out'
         Caption = 'ToolButton6'
         ImageIndex = 5
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
       end
     end
     object ToolBarView: TToolBar
-      Left = 302
+      Left = 382
       Top = 2
-      Width = 225
+      Width = 363
       Height = 48
       ButtonHeight = 45
-      ButtonWidth = 32
+      ButtonWidth = 45
       Caption = 'ToolBarView'
       Images = DataModuleImages.ImageListInterface
       TabOrder = 1
@@ -684,7 +710,7 @@ object FormAstroScene: TFormAstroScene
         OnClick = tbSceneClick
       end
       object tbMap: TToolButton
-        Left = 32
+        Left = 45
         Top = 0
         Hint = #1050#1072#1088#1090#1072
         Caption = 'Map'
@@ -693,7 +719,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object tbGraph: TToolButton
-        Left = 64
+        Left = 90
         Top = 0
         Hint = #1043#1088#1072#1092#1080#1082
         Caption = 'Graph'
@@ -702,7 +728,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object tbTable: TToolButton
-        Left = 96
+        Left = 135
         Top = 0
         Hint = #1058#1072#1073#1083#1080#1094#1072
         Caption = #1058#1072#1073#1083#1080#1094#1072
@@ -711,7 +737,7 @@ object FormAstroScene: TFormAstroScene
         ShowHint = True
       end
       object tbCore: TToolButton
-        Left = 128
+        Left = 180
         Top = 0
         Hint = #1071#1076#1088#1086
         Caption = 'Core'
@@ -721,7 +747,7 @@ object FormAstroScene: TFormAstroScene
         OnClick = tbCoreClick
       end
       object tbGlobeGrid: TToolButton
-        Left = 160
+        Left = 225
         Top = 0
         Hint = #1057#1077#1090#1082#1072
         Caption = 'Grid'

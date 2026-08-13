@@ -42,12 +42,12 @@ object FormGalaqtium: TFormGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 1072
     object ToolBarMain: TToolBar
-      Left = 19
+      Left = 11
       Top = 2
-      Width = 150
+      Width = 174
       Height = 22
+      ButtonWidth = 40
       Images = DataModuleImages.ImageListInterface
       TabOrder = 0
       object ToolButton1: TToolButton
@@ -61,7 +61,7 @@ object FormGalaqtium: TFormGalaqtium
         OnClick = miNewStarblockClick
       end
       object ToolButton3: TToolButton
-        Left = 23
+        Left = 40
         Top = 0
         Margins.Left = 2
         Margins.Top = 2
@@ -71,7 +71,7 @@ object FormGalaqtium: TFormGalaqtium
         OnClick = miOpenClick
       end
       object ToolButton4: TToolButton
-        Left = 46
+        Left = 80
         Top = 0
         Margins.Left = 2
         Margins.Top = 2
@@ -81,7 +81,7 @@ object FormGalaqtium: TFormGalaqtium
         OnClick = miSaveAsClick
       end
       object ToolButton2: TToolButton
-        Left = 69
+        Left = 120
         Top = 0
         Margins.Left = 2
         Margins.Top = 2
@@ -91,11 +91,11 @@ object FormGalaqtium: TFormGalaqtium
       end
     end
     object ToolBarView: TToolBar
-      Left = 190
+      Left = 198
       Top = 2
-      Width = 150
+      Width = 243
       Height = 22
-      ButtonWidth = 28
+      ButtonWidth = 40
       Caption = 'ToolBarView'
       Images = DataModuleImages.ImageListInterface
       TabOrder = 1
@@ -113,7 +113,7 @@ object FormGalaqtium: TFormGalaqtium
         OnClick = tbSolarcubeClick
       end
       object tbAddStars: TToolButton
-        Left = 28
+        Left = 40
         Top = 0
         Hint = 'Add stars'
         Margins.Left = 2
@@ -126,7 +126,7 @@ object FormGalaqtium: TFormGalaqtium
         OnClick = ButtonAddStarsClick
       end
       object tbAxes: TToolButton
-        Left = 56
+        Left = 80
         Top = 0
         Hint = 'Axes'
         Margins.Left = 2
@@ -139,7 +139,7 @@ object FormGalaqtium: TFormGalaqtium
         OnClick = tbAxesClick
       end
       object tbRotation: TToolButton
-        Left = 84
+        Left = 120
         Top = 0
         Hint = 'Rotation'
         Margins.Left = 2
@@ -153,7 +153,7 @@ object FormGalaqtium: TFormGalaqtium
         Style = tbsCheck
       end
       object tbClearCubes: TToolButton
-        Left = 112
+        Left = 160
         Top = 0
         Hint = 'Clear solarcube'
         Margins.Left = 2
@@ -174,19 +174,23 @@ object FormGalaqtium: TFormGalaqtium
     Height = 703
     ActivePage = tsGalacube
     Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
-    ExplicitWidth = 1072
-    ExplicitHeight = 676
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalaxyBlock: TGLSceneViewer
         Left = 0
         Top = 0
         Width = 1072
-        Height = 667
+        Height = 656
         Camera = Camera
         Buffer.BackgroundColor = clBlack
-        FieldOfView = 153.021530151367200000
+        FieldOfView = 152.586074829101600000
         PenAsTouch = False
         Align = alClient
         TabOrder = 0
@@ -203,7 +207,7 @@ object FormGalaqtium: TFormGalaqtium
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -16
+        TitleFont.Height = -24
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = []
       end
@@ -211,11 +215,12 @@ object FormGalaqtium: TFormGalaqtium
         Left = 0
         Top = 0
         Width = 377
-        Height = 667
+        Height = 656
         Align = alLeft
         Lines.Strings = (
           'MemoTable')
         TabOrder = 1
+        ExplicitHeight = 667
       end
     end
   end
@@ -337,13 +342,6 @@ object FormGalaqtium: TFormGalaqtium
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1000.000000000000000000
       VisibleAtRunTime = True
-      object sfStar: TGLSphere
-        Radius = 0.500000000000000000
-      end
-      object ptStars: TGLPoints
-        NoZWrite = False
-        Static = False
-      end
       object LightSol: TGLLightSource
         ConstAttenuation = 1.000000000000000000
         SpotCutOff = 180.000000000000000000
@@ -352,6 +350,13 @@ object FormGalaqtium: TFormGalaqtium
     object dcGalaxy: TGLDummyCube
       CubeSize = 100000.000000000000000000
       VisibleAtRunTime = True
+      object sfStar: TGLSphere
+        Radius = 0.500000000000000000
+      end
+      object ptStars: TGLPoints
+        NoZWrite = False
+        Static = False
+      end
       object diskGalaxy: TGLDisk
         Material.MaterialLibrary = GLMatLib
         Material.LibMaterialName = 'Milkyway'
@@ -367,10 +372,10 @@ object FormGalaqtium: TFormGalaqtium
         Up.Coordinates = {0000000000000000000080BF00000000}
         XSamplingScale.Min = -50000.000000000000000000
         XSamplingScale.Max = 50000.000000000000000000
-        XSamplingScale.Step = 10000.000000000000000000
+        XSamplingScale.Step = 1000.000000000000000000
         YSamplingScale.Min = -50000.000000000000000000
         YSamplingScale.Max = 50000.000000000000000000
-        YSamplingScale.Step = 10000.000000000000000000
+        YSamplingScale.Step = 1000.000000000000000000
         ZSamplingScale.Min = -500.000000000000000000
         ZSamplingScale.Max = 500.000000000000000000
         ZSamplingScale.Origin = -500.000000000000000000
@@ -387,6 +392,7 @@ object FormGalaqtium: TFormGalaqtium
         Material.FrontProperties.Emission.Color = {00000000000000000000000000000000}
         Material.FrontProperties.Specular.Color = {00000000000000000000000000000000}
         Material.BlendingMode = bmAdditive
+        Visible = False
         BottomRadius = 30000.000000000000000000
         Height = 3000.000000000000000000
         Slices = 64
@@ -406,7 +412,7 @@ object FormGalaqtium: TFormGalaqtium
         Material.FrontProperties.Emission.Color = {9A99193FCDCC4C3FACC8483E0000803F}
         Material.FrontProperties.Specular.Color = {9A99193FCDCC4C3FACC8483E0000803F}
         Position.Coordinates = {00409C45000000000050C3460000803F}
-        CubeSize = {00401C4600007A4400401C46}
+        CubeSize = {00007A4400007A4400007A44}
       end
     end
   end
