@@ -46,7 +46,7 @@ uses
 
 begin
   Application.Initialize;
- // TStyleManager.TrySetStyle('Windows10');
+  Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFormAstroScene, FormAstroScene);
   Application.CreateForm(TDataModuleImages, DataModuleImages);
   Application.CreateForm(TDataModuleBase, DataModuleBase);

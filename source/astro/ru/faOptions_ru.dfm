@@ -25,7 +25,7 @@ object FormOptions: TFormOptions
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 516
+    ExplicitTop = 514
     ExplicitWidth = 829
     DesignSize = (
       837
@@ -53,18 +53,18 @@ object FormOptions: TFormOptions
     BorderWidth = 5
     TabOrder = 1
     ExplicitWidth = 829
-    ExplicitHeight = 507
+    ExplicitHeight = 505
     object PageControl: TPageControl
       Left = 169
       Top = 5
       Width = 663
       Height = 522
-      ActivePage = tsPlanets
+      ActivePage = tsScene
       Align = alClient
       Style = tsButtons
       TabOrder = 0
       ExplicitWidth = 655
-      ExplicitHeight = 497
+      ExplicitHeight = 495
       object tsGeneral: TTabSheet
         Caption = #1043#1083#1072#1074#1085#1086#1077
         ImageIndex = 7
@@ -72,40 +72,52 @@ object FormOptions: TFormOptions
         object rgUnits: TRadioGroup
           Left = 48
           Top = 24
-          Width = 169
-          Height = 145
+          Width = 281
+          Height = 177
           Hint = 
             'https://ru.ruwiki.ru/wiki/'#1045#1076#1080#1085#1080#1094#1099'+'#1080#1079#1084#1077#1088#1077#1085#1080#1103#13#10'https://ru.ruwiki.r' +
             'u/wiki/'#1057#1074#1077#1090#1086#1074#1086#1081'_'#1075#1086#1076#13#10'https://ru.ruwiki.ru/wiki/'#1055#1072#1088#1089#1077#1082#13#10'https://r' +
             'u.ruwiki.ru/wiki/'#1040#1089#1090#1088#1086#1085#1086#1084#1080#1095#1077#1089#1082#1072#1103'_'#1077#1076#1080#1085#1080#1094#1072#13#10'https://ru.ruwiki.ru/w' +
             'iki/'#1050#1080#1083#1086#1084#1077#1090#1088#1099
           Caption = #1045#1076#1080#1085#1080#1094#1099' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1103
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           ItemIndex = 0
           Items.Strings = (
             #1057#1074#1077#1090#1086#1074#1086#1081' '#1075#1086#1076
             #1055#1072#1088#1089#1077#1082
             #1040#1089#1090#1088#1086#1077#1076#1080#1085#1080#1094#1072
             #1050#1080#1083#1086#1084#1077#1090#1088)
+          ParentFont = False
           TabOrder = 0
         end
       end
       object tsDataTim: TTabSheet
         Caption = #1044#1072#1090#1072' '#1080' '#1074#1088#1077#1084#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         ImageIndex = 4
+        ParentFont = False
         TabVisible = False
         object cbSplashStart: TCheckBox
           Left = 333
           Top = 103
           Width = 131
-          Height = 18
+          Height = 26
           Caption = #1047#1072#1089#1090#1072#1074#1082#1072
           TabOrder = 0
         end
         object chbHidePanels: TCheckBox
           Left = 75
-          Top = 104
+          Top = 96
           Width = 174
-          Height = 17
+          Height = 33
           Caption = #1057#1082#1088#1099#1090#1100' '#1087#1072#1085#1077#1083#1080
           TabOrder = 1
           OnClick = chbHidePanelsClick
@@ -113,10 +125,16 @@ object FormOptions: TFormOptions
       end
       object tsScene: TTabSheet
         Caption = #1057#1094#1077#1085#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         ImageIndex = 4
+        ParentFont = False
         TabVisible = False
         object GroupBox1: TGroupBox
-          Left = 96
+          Left = 120
           Top = 184
           Width = 297
           Height = 105
@@ -126,26 +144,26 @@ object FormOptions: TFormOptions
             Left = 32
             Top = 40
             Width = 217
-            Height = 17
+            Height = 25
             Caption = #1054#1089#1074#1077#1097#1077#1085#1080#1077' '#1085#1086#1095#1085#1086#1081' '#1089#1090#1086#1088#1086#1085#1099
             TabOrder = 0
           end
         end
         object CheckBoxAxes: TCheckBox
-          Left = 287
-          Top = 74
+          Left = 343
+          Top = 81
           Width = 82
-          Height = 25
+          Height = 30
           Caption = #1054#1089#1080
           TabOrder = 1
           StyleName = 'Windows'
           OnClick = CheckBoxAxesClick
         end
         object CheckBoxRotate: TCheckBox
-          Left = 145
-          Top = 78
+          Left = 152
+          Top = 79
           Width = 120
-          Height = 16
+          Height = 34
           Caption = #1042#1088#1072#1097#1077#1085#1080#1077
           Checked = True
           State = cbChecked
@@ -155,7 +173,13 @@ object FormOptions: TFormOptions
       end
       object tsSkyDome: TTabSheet
         Caption = #1047#1074#1105#1079#1076#1099
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         ImageIndex = 5
+        ParentFont = False
         TabVisible = False
         DesignSize = (
           655
@@ -188,25 +212,25 @@ object FormOptions: TFormOptions
         end
         object GroupBox2: TGroupBox
           Left = 40
-          Top = 24
+          Top = 42
           Width = 441
-          Height = 65
+          Height = 79
           Caption = #1057#1086#1079#1074#1077#1079#1076#1080#1103
           TabOrder = 1
           object chbConstFigures: TCheckBox
             Left = 274
-            Top = 24
-            Width = 79
-            Height = 17
+            Top = 32
+            Width = 151
+            Height = 25
             Caption = #1060#1080#1075#1091#1088#1099
             TabOrder = 0
             OnClick = chbConstFiguresClick
           end
           object chbConstLines: TCheckBox
             Left = 26
-            Top = 24
-            Width = 79
-            Height = 17
+            Top = 32
+            Width = 106
+            Height = 25
             Caption = #1051#1080#1085#1080#1080
             Checked = True
             State = cbChecked
@@ -215,9 +239,9 @@ object FormOptions: TFormOptions
           end
           object chbConstBorders: TCheckBox
             Left = 138
-            Top = 24
-            Width = 103
-            Height = 17
+            Top = 32
+            Width = 119
+            Height = 25
             Caption = #1043#1088#1072#1085#1080#1094#1099
             Checked = True
             State = cbChecked
@@ -227,7 +251,7 @@ object FormOptions: TFormOptions
         end
         object chbSkyGrid: TCheckBox
           Left = 178
-          Top = 113
+          Top = 153
           Width = 146
           Height = 23
           Caption = #1053#1077#1073#1077#1089#1085#1072#1103' '#1089#1077#1090#1082#1072
@@ -246,44 +270,50 @@ object FormOptions: TFormOptions
           Width = 177
           Height = 172
           Caption = #1057#1083#1086#1080
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
           object LabelIce: TLabel
             Left = 24
             Top = 22
-            Width = 28
-            Height = 21
+            Width = 42
+            Height = 32
             Alignment = taCenter
             Caption = #1051#1105#1076
           end
           object LabelWater: TLabel
             Left = 24
             Top = 54
-            Width = 35
-            Height = 21
+            Width = 53
+            Height = 32
             Alignment = taCenter
             Caption = #1042#1086#1076#1072
           end
           object LabelCrust: TLabel
             Left = 24
             Top = 84
-            Width = 35
-            Height = 21
+            Width = 54
+            Height = 32
             Alignment = taCenter
             Caption = #1050#1086#1088#1072
           end
           object LabelMantle: TLabel
             Left = 24
             Top = 113
-            Width = 55
-            Height = 21
+            Width = 84
+            Height = 32
             Alignment = taCenter
             Caption = #1052#1072#1085#1090#1080#1103
           end
           object LabelCore: TLabel
             Left = 24
             Top = 143
-            Width = 36
-            Height = 21
+            Width = 55
+            Height = 32
             Alignment = taCenter
             Caption = #1071#1076#1088#1086
           end
@@ -291,7 +321,7 @@ object FormOptions: TFormOptions
             Left = 96
             Top = 13
             Width = 49
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -302,7 +332,7 @@ object FormOptions: TFormOptions
             Left = 96
             Top = 43
             Width = 49
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -313,7 +343,7 @@ object FormOptions: TFormOptions
             Left = 96
             Top = 77
             Width = 49
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -324,7 +354,7 @@ object FormOptions: TFormOptions
             Left = 96
             Top = 111
             Width = 49
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -335,7 +365,7 @@ object FormOptions: TFormOptions
             Left = 96
             Top = 139
             Width = 49
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 1.000000000000000000
@@ -345,10 +375,16 @@ object FormOptions: TFormOptions
         end
         object grbShowPlanets: TGroupBox
           Left = 32
-          Top = 206
+          Top = 240
           Width = 593
-          Height = 259
+          Height = 225
           Caption = #1055#1086#1082#1072#1079#1072#1090#1100
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 1
           object CheckBox4: TCheckBox
             Left = 167
@@ -403,7 +439,7 @@ object FormOptions: TFormOptions
           end
           object chbHideObject: TCheckBox
             Left = 304
-            Top = 194
+            Top = 154
             Width = 169
             Height = 25
             Caption = #1057#1082#1088#1099#1090#1100' '#1086#1073#1098#1077#1082#1090
@@ -428,46 +464,52 @@ object FormOptions: TFormOptions
           Left = 32
           Top = -3
           Width = 209
-          Height = 182
+          Height = 204
           Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 2
           object LabelPlanetTilt: TLabel
             Left = 11
             Top = 88
-            Width = 82
-            Height = 21
+            Width = 128
+            Height = 32
             Alignment = taCenter
             Caption = #1053#1072#1082#1083#1086#1085' '#1086#1089#1080
           end
           object LabelPlanetDensity: TLabel
             Left = 11
             Top = 56
-            Width = 75
-            Height = 21
+            Width = 115
+            Height = 32
             Alignment = taCenter
             Caption = #1055#1083#1086#1090#1085#1086#1089#1090#1100
           end
           object LabelPlanetRadius: TLabel
             Left = 11
             Top = 23
-            Width = 50
-            Height = 21
+            Width = 75
+            Height = 32
             Alignment = taCenter
             Caption = #1056#1072#1076#1080#1091#1089
           end
           object LabelGravityAccel: TLabel
             Left = 11
             Top = 119
-            Width = 84
-            Height = 21
+            Width = 126
+            Height = 32
             Alignment = taCenter
             Caption = #1043#1088#1072#1074#1080#1090#1072#1094#1080#1103
           end
           object Label6: TLabel
             Left = 11
             Top = 147
-            Width = 93
-            Height = 21
+            Width = 144
+            Height = 32
             Alignment = taCenter
             Caption = #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1072
           end
@@ -475,7 +517,7 @@ object FormOptions: TFormOptions
             Left = 115
             Top = 82
             Width = 65
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MinValue = -90.000000000000000000
@@ -487,7 +529,7 @@ object FormOptions: TFormOptions
             Left = 115
             Top = 48
             Width = 65
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Mode = nbmFloat
             MaxValue = 30.000000000000000000
@@ -498,7 +540,7 @@ object FormOptions: TFormOptions
             Left = 115
             Top = 15
             Width = 65
-            Height = 29
+            Height = 40
             Alignment = taCenter
             MaxValue = 100000.000000000000000000
             TabOrder = 2
@@ -508,7 +550,7 @@ object FormOptions: TFormOptions
             Left = 115
             Top = 118
             Width = 65
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Decimal = 1
             Mode = nbmFloat
@@ -520,7 +562,7 @@ object FormOptions: TFormOptions
             Left = 118
             Top = 150
             Width = 65
-            Height = 29
+            Height = 40
             Alignment = taCenter
             Decimal = 0
             MinValue = -373.000000000000000000
@@ -538,13 +580,19 @@ object FormOptions: TFormOptions
           Left = 80
           Top = 64
           Width = 377
-          Height = 161
+          Height = 177
           Caption = #1058#1080#1087' '#1082#1072#1088#1090#1099
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -24
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           ItemIndex = 0
           Items.Strings = (
             #1058#1086#1087#1086#1075#1088#1072#1092#1080#1095#1077#1089#1082#1072#1103
             #1058#1077#1084#1087#1077#1088#1072#1090#1091#1088#1085#1072#1103
             #1050#1083#1080#1084#1072#1090#1080#1095#1077#1089#1082#1072#1103)
+          ParentFont = False
           TabOrder = 0
         end
       end
@@ -556,9 +604,15 @@ object FormOptions: TFormOptions
       Height = 522
       Align = alLeft
       AutoExpand = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Segoe UI'
+      Font.Style = []
       HotTrack = True
       Images = ImageList
       Indent = 19
+      ParentFont = False
       TabOrder = 1
       OnClick = tvOptionsClick
       Items.NodeData = {
@@ -572,6 +626,7 @@ object FormOptions: TFormOptions
         0000000005000000FFFFFFFF0000000000000000000000000001071F043B0430
         043D04350442044B0400002B000000000000000000000006000000FFFFFFFF00
         0000000000000000000000000106170432045104370434044B04}
+      ExplicitHeight = 495
     end
   end
   object PanelTop: TPanel
