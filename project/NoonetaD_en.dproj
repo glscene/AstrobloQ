@@ -1,10 +1,10 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{DA151269-78A5-4BFF-A030-65BAA95EC384}</ProjectGuid>
-        <MainSource>SpaceCraftD_ru.dpr</MainSource>
+        <MainSource>NoonetaD_en.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <ProjectName Condition="'$(ProjectName)'==''">SpaceCraftD_ru</ProjectName>
+        <ProjectName Condition="'$(ProjectName)'==''">NoonetaD_en</ProjectName>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -65,7 +65,7 @@
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <SanitizedProjectName>SpaceCraftD_ru</SanitizedProjectName>
+        <SanitizedProjectName>NoonetaD_en</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
@@ -92,7 +92,6 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
@@ -125,6 +124,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -133,24 +133,24 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\source\craft\ru\fsCrafts_ru.pas">
+        <DCCReference Include="..\source\noo\en\fnNooneta_en.pas">
             <Form>FormCrafts</Form>
         </DCCReference>
-        <DCCReference Include="..\source\craft\ru\fsSkyship_ru.pas">
+        <DCCReference Include="..\source\noo\en\fnSkyship_en.pas">
             <Form>FormSkyship</Form>
         </DCCReference>
-        <DCCReference Include="..\source\craft\ru\fsSubmarine_ru.pas">
+        <DCCReference Include="..\source\noo\en\fnSubmarine_en.pas">
             <Form>FormSubmarine</Form>
         </DCCReference>
-        <DCCReference Include="..\source\craft\ru\fsGravijet_ru.pas">
+        <DCCReference Include="..\source\noo\en\fnGravijet_en.pas">
             <Form>FormGravijet</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\craft\ru\fsPhotonjet_ru.pas">
+        <DCCReference Include="..\source\noo\en\fnPhotonjet_en.pas">
             <Form>FormPhotonjet</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\craft\ru\fsAstrodron_ru.pas">
+        <DCCReference Include="..\source\noo\en\fnAstrodron_en.pas">
             <Form>FormAstrodron</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -172,23 +172,18 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">SpaceCraftD_ru.dpr</Source>
+                    <Source Name="MainSource">NoonetaD_en.dpr</Source>
                 </Source>
-                <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k370.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp370.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k370.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp370.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
-                </Excluded_Packages>
+                <Excluded_Packages/>
             </Delphi.Personality>
             <Platforms>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
             <Deployment Version="5">
-                <DeployFile LocalName="..\bin\SpaceCraftD_ru.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\bin\NoonetaD_en.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>SpaceCraftD_ru.exe</RemoteName>
+                        <RemoteName>NoonetaD_en.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

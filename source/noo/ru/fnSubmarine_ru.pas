@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fsSubmarine_en;
+unit fnSubmarine_ru;
 
 interface
 
@@ -41,7 +41,7 @@ type
   end;
 
   TFormSubmarine = class(TForm)
-    GLSceneViewer1: TGLSceneViewer;
+    GLSceneViewer: TGLSceneViewer;
     GLBitmapHDS1: TGLBitmapHDS;
     GLScene1: TGLScene;
     GLCamera1: TGLCamera;
@@ -71,9 +71,9 @@ type
     ffPropeller1: TGLFreeForm;
     ffPropeller2: TGLFreeForm;
     ffPropeller3: TGLFreeForm;
-    procedure GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+    procedure GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; x, y: Integer);
-    procedure GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+    procedure GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
       x, y: Integer);
     procedure Timer1Timer(Sender: TObject);
     procedure GLCadencer1Progress(Sender: TObject;
@@ -87,7 +87,7 @@ type
     CurrentDir: TFileName;
     mx, my: Integer;
     fullScreen: Boolean;
-    FCamHeight: single;
+    CameraHeight: single;
   end;
 
 var
@@ -97,10 +97,10 @@ var
 
 implementation //==============================================================
 
-uses
-  fsCrafts_en;
-
 {$R *.DFM}
+
+uses
+  fnNooneta_ru;
 
 //-----------------------------------------------------------------------------
 procedure TFormSubmarine.FormCreate(Sender: TObject);
@@ -141,10 +141,10 @@ begin
   // 8 MB height data cache
   // Note this is the data size in terms of elevation samples, it does not
   // take into account all the data required/allocated by the renderer
-  GLBitmapHDS1.MaxPoolSize := 8 * 1024 * 1024; // bilo 8
-  // specify height map data
+  GLBitmapHDS1.MaxPoolSize := 8 * 1024 * 1024;
+  // битмап для карты высот
   GLBitmapHDS1.Picture.LoadFromFile('terrain.bmp');
-  // load the texture maps
+  // загрузка текстурных карт
   GLMaterialLibrary1.Materials[0].Material.Texture.Image.LoadFromFile
     ('snow512.jpg');
   GLMaterialLibrary1.Materials[1].Material.Texture.Image.LoadFromFile
@@ -152,52 +152,52 @@ begin
   // apply texture map scale (our heightmap size is 256)
   TerrainRenderer1.TilesPerTexture := 256 / TerrainRenderer1.TileSize;
   // Could've been done at design time, but it hurts the eyes ;)
-  GLSceneViewer1.Buffer.BackgroundColor := clBlack;
+  GLSceneViewer.Buffer.BackgroundColor := clBlack;
   // Move camera starting point to an interesting hand-picked location
   (*
     dcUnderwater.Position.X:=570;
     dcUnderwater.Position.Z:=-385;
   *)
   dcSubmarine.Turn(90);
-  // Initial camera height offset (controled with pageUp/pageDown)
-  FCamHeight := 10;
-  (*
-  with skydome1 do 
+  // начальная высота камеры над рельефом (controled with pageUp/pageDown)
+  CameraHeight := 10;
+  (* // если субмарина всплыла на поверхность океана
+  with skydome1 do
   begin
-    Bands[1].StopColor.AsWinColor:=RGB(0, 0, 16);
-    Bands[1].StartColor.AsWinColor:=RGB(0, 0, 8);
-    Bands[0].StopColor.AsWinColor:=RGB(0, 0, 8);
-    Bands[0].StartColor.AsWinColor:=RGB(0, 0, 0);
-    with Stars do 
-	begin
-    AddRandomStars(700, clWhite, True);   // many white stars
-    AddRandomStars(100, RGB(255, 200, 200), True);  // some redish ones
-    AddRandomStars(100, RGB(200, 200, 255), True);  // some blueish ones
-    AddRandomStars(100, RGB(255, 255, 200), True);  // some yellowish ones
+    Bands[1].StopColor.AsWinColor := RGB(0, 0, 16);
+    Bands[1].StartColor.AsWinColor :=RGB(0, 0, 8);
+    Bands[0].StopColor.AsWinColor :=RGB(0, 0, 8);
+    Bands[0].StartColor.AsWinColor :=RGB(0, 0, 0);
+    with Stars do
+    begin
+      AddRandomStars(700, clWhite, True);   // many white stars
+      AddRandomStars(100, RGB(255, 200, 200), True);  // some redish ones
+      AddRandomStars(100, RGB(200, 200, 255), True);  // some blueish ones
+      AddRandomStars(100, RGB(255, 255, 200), True);  // some yellowish ones
     end;
   *)
-  GLSceneViewer1.Buffer.BackgroundColor := rgb(0, 0, 160);
-  with GLSceneViewer1.Buffer.FogEnvironment do
+  GLSceneViewer.Buffer.BackgroundColor := rgb(0, 0, 160);
+  with GLSceneViewer.Buffer.FogEnvironment do
   begin
     FogColor.AsWinColor := rgb(0, 0, 160);
     FogStart := -FogStart; // Fog is used to make things darker
   end;
 end;
 
-//-----------------------------------------------------------------------------
+//-------------------------------- Таймер ------------------------------------\\
 procedure TFormSubmarine.GLCadencer1Progress(Sender: TObject;
   const deltaTime, newTime: Double);
 var
   speed: single;
 begin
   // handle keypresses
-
   (*
+  // большая скорость отключена
   if IsKeyDown(VK_SHIFT) then
-    speed:=300*deltaTime
+    speed := 300*deltaTime
   else
   *)
-  speed := dspeed * 30 * deltaTime + dspeed;
+    speed := dspeed * 30 * deltaTime + dspeed;
   ffPropeller.Roll(speed * 20);
   ffPropeller1.Roll(20);
   ffPropeller2.Roll(20);
@@ -210,90 +210,90 @@ begin
   if GLCamera1.FocalLength < 20 then
     GLCamera1.FocalLength := 20;
 
-  // with GLCamera1.Position do begin
-  dcSubmarine.Translate(ffSubmarine.direction.z * speed, 
-    -ffSubmarine.direction.y * speed, - ffSubmarine.direction.x * speed);
-  // upward Pitch of the nose
-  if IsKeyDown(VK_UP) then
-  begin
-    ffSubmarine.Pitch(1.0);
-    /// GLCamera1.Pitch(0.1);  // GLCamera1.MoveAroundTarget(-1, 0);
-  end;
-  // downward Pitch of the nose
-  if IsKeyDown(VK_DOWN) then
-  begin
-    ffSubmarine.Pitch(-1.0);
-    /// GLCamera1.Pitch(-0.1); // GLCamera1.MoveAroundTarget(1, 0);
-  end;
-  // turning the submarine's bow to the left
-  if IsKeyDown(VK_LEFT) then
+  dcSubmarine.Translate(ffSubmarine.Direction.z * speed,
+    -ffSubmarine.Direction.y * speed, -ffSubmarine.Direction.x * speed);
+
+  // движение вперёд
+  if IsKeyDown('w') or IsKeyDown('ц') or IsKeyDown(VK_UP) then
+    if dspeed < 2 then
+    // приращение скорости после нажатия на клавишу
+      dspeed := dspeed + 0.01;  // 0.0001 медленно
+  // движение назад
+  if IsKeyDown('s') or IsKeyDown('ы') or IsKeyDown(VK_DOWN) then
+    if dspeed > -0.5 then
+    // приращение скорости после нажатия на клавишу
+      dspeed := dspeed - 0.01;  // 0.0001 медленно
+  (*
+    if IsKeyDown(VK_PRIOR) then
+    CameraHeight := CameraHeight + 10*speed;
+    if IsKeyDown(VK_NEXT) then
+    CameraHeight := CameraHeight - 10*speed;
+   *)
+  // поворот носа подлодки влево
+  if IsKeyDown('a') or IsKeyDown('ф') or IsKeyDown(VK_LEFT) then
   begin
     // DummyCube1.Translate(-X*speed, 0, -Z*speed);
     ffSubmarine.Turn(-1.0);
     GLCamera1.Turn(1.0);
     // GLCamera1.MoveAroundTarget(0, 1);
   end;
-  // turning the submarine's bow to the right
-  if IsKeyDown(VK_RIGHT) then
+  // поворот носа подлодки вправо
+  if IsKeyDown('d') or IsKeyDown('в') or IsKeyDown(VK_RIGHT) then
   begin
     // DummyCube1.Translate(X*speed, 0, Z*speed);
-    // ffSubmarine.Turn(1);
     ffSubmarine.Turn(1.0);
     GLCamera1.Turn(-1.0);
     // GLCamera1.MoveAroundTarget(0, -1);
   end;
-  // clockwise rotation
+  // наклон носа вверх
+  if IsKeyDown('x') or IsKeyDown('ч') then
+  begin
+    ffSubmarine.Pitch(1.0);
+    (* GLCamera1.Pitch(0.1); GLCamera1.MoveAroundTarget(-1, 0); *)
+  end;
+  // наклон носа вниз
+  if IsKeyDown('z') or IsKeyDown('я') then
+  begin
+    ffSubmarine.Pitch(-1.0);
+    (* GLCamera1.Pitch(-0.1); GLCamera1.MoveAroundTarget(1, 0); *)
+  end;
+  // вращение корпуса по часовой стрелке
   if IsKeyDown(',') or IsKeyDown('б') then
   begin
     ffSubmarine.Roll(-1.0);
   end;
-  // counterclockwise rotation
+  // вращение корпуса против часовой стрелки
   if IsKeyDown('.') or IsKeyDown('ю') then
   begin
     ffSubmarine.Roll(1.0);
   end;
-  //  moving forward
-  if IsKeyDown('a') or IsKeyDown('ф') then
-    if dspeed < 2 then
-    // speed increment after pressing a key
-      dspeed := dspeed + 0.01;
-  //  backward movement
-  if IsKeyDown('z') or IsKeyDown('я') then
-    if dspeed > -0.5 then
-    // speed increment after pressing a key
-      dspeed := dspeed - 0.01;
-
-  (*
-   if IsKeyDown(VK_PRIOR) then
-     FCamHeight := FCamHeight+10*speed;
-   if IsKeyDown(VK_NEXT) then
-    FCamHeight := FCamHeight-10*speed;
-  *)
-  // 
-  if IsKeyDown('c') or IsKeyDown('с') then
-  begin
-    ffSubmarine.Visible := True;
-    ffSubmarine.NormalsOrientation := mnoInvert;
-    GLSceneViewer1.camera := GLCamera2;
-    // ffSubmarine.visible := false;
-    // glFireFxManager1.Disabled :=true;
-  end;
-  // 
+  // вид из кокпита субмарины
   if IsKeyDown('v') or IsKeyDown('м') then
   begin
     ffSubmarine.Visible := True;
+    ffSubmarine.NormalsOrientation := mnoInvert;
+    GLSceneViewer.camera := GLCamera2;
+    // ffSubmarine.visible := false;
+    // glFireFxManager1.Disabled :=true;
+  end;
+  // вид со стороны и сверху
+  if IsKeyDown('c') or IsKeyDown('с') then
+  begin
+    ffSubmarine.Visible := True;
     ffSubmarine.NormalsOrientation := mnoDefault;
-    GLSceneViewer1.camera := GLCamera1;
+    GLSceneViewer.camera := GLCamera1;
     // ffSubmarine.visible := true;
     // glFireFxManager1.Disabled :=false;
   end;
-  // 
-  if IsKeyDown('x') or IsKeyDown('ч') then
+  // вид перед субмариной
+  if IsKeyDown('b') or IsKeyDown('и') then
     ffSubmarine.Visible := False;
-  // don't drop through terrain!
+
+  // запрет погружения ниже дна!
   with dcSubmarine.Position do
     if y < TerrainRenderer1.InterpolatedHeight(AsVector) then
-      y := TerrainRenderer1.InterpolatedHeight(AsVector) + FCamHeight;
+      y := TerrainRenderer1.InterpolatedHeight(AsVector) + CameraHeight;
+  // выход по клавише эскейп
   if IsKeyDown(VK_ESCAPE) then
     FormCrafts.Close;
 end;
@@ -302,14 +302,7 @@ end;
 procedure TFormSubmarine.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   case Key of
-    'm','ь':
-      begin
-        if ffSubmarine.Material.Texture.MappingMode = tmmuser then
-          ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
-        else
-          ffSubmarine.Material.Texture.MappingMode := tmmuser;
-      end;
-    'w','W', 'ц', 'Ц':  // текстура или каркас
+    'f','F', 'а', 'А':  // текстура или сетка
       with GLMaterialLibrary1.Materials[0].Material do
       begin
         if PolygonMode = pmLines then
@@ -317,11 +310,18 @@ begin
         else
           PolygonMode := pmLines;
       end;
+    'm','ь':
+      begin
+        if ffSubmarine.Material.Texture.MappingMode = tmmuser then
+          ffSubmarine.Material.Texture.MappingMode := tmmCubeMapNormal
+        else
+          ffSubmarine.Material.Texture.MappingMode := tmmuser;
+      end;
     '+':  // delete for with shift
       if GLCamera1.DepthOfView < 2000 then
       begin
         GLCamera1.DepthOfView := GLCamera1.DepthOfView * 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
+        with GLSceneViewer.Buffer.FogEnvironment do
         begin
           FogEnd := FogEnd * 1.2;
           FogStart := FogStart * 1.2;
@@ -331,7 +331,7 @@ begin
       if GLCamera1.DepthOfView > 300 then
       begin
         GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
+        with GLSceneViewer.Buffer.FogEnvironment do
         begin
           FogEnd := FogEnd / 1.2;
           FogStart := FogStart / 1.2;
@@ -360,7 +360,7 @@ end;
 //-----------------------------------------------------------------------------
 // Standard mouse rotation & FPS code below
 //-----------------------------------------------------------------------------
-procedure TFormSubmarine.GLSceneViewer1MouseDown(Sender: TObject; Button: TMouseButton;
+procedure TFormSubmarine.GLSceneViewerMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; x, y: Integer);
 begin
   mx := x;
@@ -368,7 +368,7 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TFormSubmarine.GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;
+procedure TFormSubmarine.GLSceneViewerMouseMove(Sender: TObject; Shift: TShiftState;
   x, y: Integer);
 begin
   if ssLeft in Shift then
@@ -382,7 +382,7 @@ end;
 //-----------------------------------------------------------------------------
 procedure TFormSubmarine.Timer1Timer(Sender: TObject);
 begin
-  GLSceneViewer1.ResetPerformanceMonitor;
+  GLSceneViewer.ResetPerformanceMonitor;
 end;
 
 //-----------------------------------------------------------------------------

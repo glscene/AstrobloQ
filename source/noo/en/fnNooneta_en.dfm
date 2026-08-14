@@ -22,7 +22,7 @@ object FormCrafts: TFormCrafts
     Height = 514
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 489
+    ExplicitHeight = 487
     object tvCraft: TTreeView
       Left = 1
       Top = 1
@@ -43,11 +43,32 @@ object FormCrafts: TFormCrafts
         6100760069006A00650074000000310000000000000000000000FFFFFFFFFFFF
         FFFF000000000000000000000000000109500068006F0074006F006E006A0065
         007400}
-      ExplicitHeight = 487
+      ExplicitHeight = 485
     end
   end
   object MainMenu: TMainMenu
     Left = 272
     Top = 64
+    object File1: TMenuItem
+      Caption = 'File'
+      object Create1: TMenuItem
+        Caption = 'Create...'
+      end
+      object Open1: TMenuItem
+        Caption = 'Open...'
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+      end
+    end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object About1: TMenuItem
+        Caption = 'About...'
+      end
+    end
   end
 end

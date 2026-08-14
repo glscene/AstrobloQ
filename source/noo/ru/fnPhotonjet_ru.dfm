@@ -38,6 +38,7 @@ object FormPhotonjet: TFormPhotonjet
     Height = 25
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 521
     object LabelFPS: TLabel
       Left = 288
       Top = 6

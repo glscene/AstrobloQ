@@ -42,7 +42,7 @@ object FormAstrodron: TFormAstrodron
     Align = alRight
     TabOrder = 1
     ExplicitLeft = 588
-    ExplicitHeight = 449
+    ExplicitHeight = 447
     object RadioGroup1: TRadioGroup
       Left = 16
       Top = 16

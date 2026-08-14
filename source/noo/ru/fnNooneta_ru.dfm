@@ -1,238 +1,77 @@
-object FormTerraNavi: TFormTerraNavi
-  Left = 297
-  Top = 155
-  Caption = 'Quadtree Visibility Culling'
-  ClientHeight = 717
-  ClientWidth = 997
+object FormCrafts: TFormCrafts
+  Left = 0
+  Top = 0
+  Caption = #1053#1086#1086#1085#1077#1090#1072
+  ClientHeight = 412
+  ClientWidth = 659
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
-  KeyPreview = True
+  Menu = MainMenu
   Position = poScreenCenter
-  OnCreate = FormCreate
-  OnDestroy = FormDestroy
-  OnKeyPress = FormKeyPress
-  TextHeight = 13
-  object GLSceneViewer1: TGLSceneViewer
-    Left = 0
-    Top = 41
-    Width = 997
-    Height = 676
-    Camera = GLCamera1
-    Buffer.FogEnvironment.FogStart = 3000.000000000000000000
-    Buffer.FogEnvironment.FogEnd = 3950.000000000000000000
-    Buffer.BackgroundColor = clWhite
-    Buffer.Lighting = False
-    FieldOfView = 163.170639038085900000
-    PenAsTouch = False
-    Align = alClient
-    TabOrder = 0
-    ExplicitWidth = 632
-    ExplicitHeight = 395
-  end
-  object Panel1: TPanel
-    Left = 224
-    Top = 216
-    Width = 185
-    Height = 49
-    TabOrder = 1
-    object Label1: TLabel
-      Left = 8
-      Top = 8
-      Width = 82
-      Height = 13
-      Caption = 'Generating Trees'
-    end
-    object ProgressBar1: TProgressBar
-      Left = 8
-      Top = 24
-      Width = 169
-      Height = 17
-      TabOrder = 0
-    end
-  end
-  object Panel2: TPanel
+  WindowState = wsMaximized
+  OnShow = FormShow
+  TextHeight = 15
+  object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 997
-    Height = 41
-    Align = alTop
-    TabOrder = 2
-    ExplicitWidth = 624
-    object Label2: TLabel
-      Left = 344
-      Top = 9
-      Width = 32
-      Height = 13
-      Caption = 'Label2'
-    end
-    object cbUseQuadtree: TCheckBox
-      Left = 16
-      Top = 8
-      Width = 65
-      Height = 17
-      Caption = 'Quadtree'
-      Checked = True
-      State = cbChecked
+    Width = 129
+    Height = 412
+    Align = alLeft
+    TabOrder = 0
+    ExplicitHeight = 385
+    object tvCraft: TTreeView
+      Left = 1
+      Top = 1
+      Width = 127
+      Height = 410
+      Align = alClient
+      Indent = 19
       TabOrder = 0
-    end
-    object cbUseExtendedFrustum: TCheckBox
-      Left = 96
-      Top = 8
-      Width = 105
-      Height = 17
-      Caption = 'E&xtended Frustum'
-      Checked = True
-      State = cbChecked
-      TabOrder = 1
-    end
-    object cbShowQuadtree: TCheckBox
-      Left = 224
-      Top = 8
-      Width = 97
-      Height = 17
-      Caption = 'Show &Quadtree'
-      TabOrder = 2
-      OnClick = cbShowQuadtreeClick
+      OnClick = tvCraftClick
+      Items.NodeData = {
+        070600000009540054007200650065004E006F00640065003100000000000000
+        00000000FFFFFFFFFFFFFFFF0000000000000000000000000001092104430431
+        043C043004400438043D0430040000290000000000000000000000FFFFFFFFFF
+        FFFFFF00000000000000000000000000010528043004420442043B0400003100
+        00000000000000000000FFFFFFFFFFFFFFFF0000000000000000000000000001
+        0910044104420440043E04340440043E043D0400003500000000000000000000
+        00FFFFFFFFFFFFFFFF00000000000000000000000000010B1204300440043F04
+        2D0034043204380436043E043A040000350000000000000000000000FFFFFFFF
+        FFFFFFFF00000000000000000000000000010B10043D043D043804330438043B
+        044F0442043E0440040000330000000000000000000000FFFFFFFFFFFFFFFF00
+        000000000000000000000000010A1D043E043E043B043E043A04300442043E04
+        4004}
+      ExplicitHeight = 383
     end
   end
-  object GLScene1: TGLScene
-    Left = 36
-    Top = 56
-    object GLSkyDome1: TGLSkyDome
-      Direction.Coordinates = {000000000000803F0000000000000000}
-      Up.Coordinates = {0000000000000000000080BF00000000}
-      Bands = <
-        item
-          StartColor.Color = {0000803F0000803F0000803F0000803F}
-          StopAngle = 15.000000000000000000
-        end
-        item
-          StartAngle = 15.000000000000000000
-          StopAngle = 90.000000000000000000
-          StopColor.Color = {938C0C3E938C0C3E938E0E3F0000803F}
-          Stacks = 4
-        end>
-      Stars = <>
-    end
-    object dcWorld: TGLDummyCube
-      CubeSize = 1.000000000000000000
-    end
-    object GLCamera1: TGLCamera
-      DepthOfView = 4000.000000000000000000
-      FocalLength = 50.000000000000000000
-      Position.Coordinates = {0000000000000000000020410000803F}
-    end
-    object GLTerrainRenderer1: TGLTerrainRenderer
-      Material.MaterialLibrary = GLMaterialLibrary1
-      Material.LibMaterialName = '1'
-      Direction.Coordinates = {000000000000803F0000000000000000}
-      Scale.Coordinates = {00000042000000420000004000000000}
-      Up.Coordinates = {00000000000000000000803F00000000}
-      HeightDataSource = GLBitmapHDS1
-      TileSize = 32
-      TilesPerTexture = 8.000000000000000000
-      ContourWidth = 0
-    end
-    object GLSphere1: TGLSphere
-      Position.Coordinates = {00000000000000000000FAC30000803F}
-      Visible = False
-      Radius = 90.000000000000000000
-      Slices = 16
-      Stacks = 16
-    end
-    object trees: TGLDummyCube
-      CubeSize = 1.000000000000000000
-    end
-    object tree: TGLSprite
-      Material.BlendingMode = bmTransparency
-      Material.Texture.ImageAlpha = tiaSuperBlackTransparent
-      Material.Texture.TextureMode = tmReplace
-      Material.Texture.Disabled = False
-      Width = 280.000000000000000000
-      Height = 300.000000000000000000
-      Rotation = 0.000000000000000000
-    end
-    object queryVisible: TGLDirectOpenGL
-      UseBuildList = False
-      OnRender = queryVisibleRender
-      Blend = False
-    end
-    object GLDirectOpenGL1: TGLDirectOpenGL
-      UseBuildList = False
-      Blend = False
-    end
-    object GLHUDText1: TGLHUDText
-      Position.Coordinates = {0000804000008040000000000000803F}
-      BitmapFont = GLWindowsBitmapFont1
-      Text = '0'
-      Rotation = 0.000000000000000000
-    end
-    object GLDirectOpenGL2: TGLDirectOpenGL
-      Visible = False
-      UseBuildList = False
-      OnRender = GLDirectOpenGL2Render
-      Blend = False
-    end
-  end
-  object GLBitmapHDS1: TGLBitmapHDS
-    MaxPoolSize = 0
-    Left = 220
-    Top = 60
-  end
-  object GLMaterialLibrary1: TGLMaterialLibrary
-    Materials = <
-      item
-        Name = '1'
-        Tag = 0
-        Material.Texture.TextureMode = tmReplace
-        Material.Texture.Disabled = False
-        Texture2Name = '2'
-      end
-      item
-        Name = '2'
-        Tag = 0
-        Material.Texture.TextureMode = tmModulate
-        Material.Texture.Disabled = False
-      end>
-    Left = 32
-    Top = 156
-  end
-  object GLCadencer1: TGLCadencer
-    Scene = GLScene1
-    OnProgress = GLCadencer1Progress
-    Left = 128
-    Top = 56
-  end
-  object GLNavigator1: TGLNavigator
-    VirtualUp.Coordinates = {000000000000803F000000000000803F}
-    MovingObject = GLCamera1
-    UseVirtualUp = True
-    AutoUpdateObject = True
-    Left = 284
-    Top = 152
-  end
-  object GLUserInterface1: TGLUserInterface
-    MouseSpeed = 12.000000000000000000
-    GLNavigator = GLNavigator1
-    Left = 316
+  object MainMenu: TMainMenu
+    Left = 272
     Top = 64
-  end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
-    Left = 424
-    Top = 156
-  end
-  object GLWindowsBitmapFont1: TGLWindowsBitmapFont
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -13
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    Left = 160
-    Top = 152
+    object F1: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object N5: TMenuItem
+        Caption = #1057#1086#1079#1076#1072#1090#1100'...'
+      end
+      object N4: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+      end
+      object N6: TMenuItem
+        Caption = '-'
+      end
+      object N3: TMenuItem
+        Caption = #1042#1099#1093#1086#1076'...'
+        OnClick = N3Click
+      end
+    end
+    object N1: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+      object N2: TMenuItem
+        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+      end
+    end
   end
 end

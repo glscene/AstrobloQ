@@ -37,7 +37,7 @@ object FormGravijet: TFormGravijet
     Align = alRight
     TabOrder = 1
     ExplicitLeft = 478
-    ExplicitHeight = 415
+    ExplicitHeight = 413
     object Label1: TLabel
       Left = 48
       Top = 8

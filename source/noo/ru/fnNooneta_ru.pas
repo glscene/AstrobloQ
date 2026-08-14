@@ -7,412 +7,151 @@ interface
 
 uses
   Winapi.Windows,
+  Winapi.Messages,
   System.SysUtils,
+  System.Variants,
   System.Classes,
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  Vcl.Imaging.Jpeg,
   Vcl.ExtCtrls,
-  Vcl.StdCtrls,
+  Vcl.Menus,
   Vcl.ComCtrls,
 
-  Stage.VectorTypes,
-  Stage.Keyboard,
-  Stage.VectorGeometry,
-  Stage.Utils,
+  fnLocator_ru,
+  fnSkyship_ru,
+  fnSubmarine_ru,
+  fnGravijet_ru,
+  fnPhotonJet_ru,
+  fnAstrodron_ru
 
-  GLS.Scene,
-  Stage.PersistentClasses,
-  GLS.SceneViewer,
-  GLS.SkyDome,
-  GLS.Objects,
-  Stage.XCollection,
-  GLS.HeightData,
-  GLS.TerrainRenderer,
-  GLS.Texture,
-  GLS.Cadencer,
-  GLS.Navigator,
-  GLS.SpacePartition,
-  GLS.BitmapFont,
-  Stage.GeometryBB,
-  GLS.WindowsFont,
-  GLS.HUDObjects,
-
-  GLS.Material,
-  GLS.State,
-  Stage.Coordinates,
-  Stage.BaseClasses,
-  GLS.RenderContextInfo;
+  (*,
+  fnNukeShip_ru
+  *)
+  ;
 
 type
-  TFormTerraNavi = class(TForm)
-    GLScene1: TGLScene;
-    trees: TGLDummyCube;
-    GLSkyDome1: TGLSkyDome;
-    GLSceneViewer1: TGLSceneViewer;
-    GLCamera1: TGLCamera;
-    GLTerrainRenderer1: TGLTerrainRenderer;
-    GLBitmapHDS1: TGLBitmapHDS;
-    GLMaterialLibrary1: TGLMaterialLibrary;
-    GLCadencer1: TGLCadencer;
-    GLNavigator1: TGLNavigator;
-    GLUserInterface1: TGLUserInterface;
-    queryVisible: TGLDirectOpenGL;
-    Timer1: TTimer;
-    GLHUDText1: TGLHUDText;
-    GLWindowsBitmapFont1: TGLWindowsBitmapFont;
-    GLDirectOpenGL1: TGLDirectOpenGL;
-    Panel1: TPanel;
-    Label1: TLabel;
-    ProgressBar1: TProgressBar;
-    GLDirectOpenGL2: TGLDirectOpenGL;
-    tree: TGLSprite;
-    GLSphere1: TGLSphere;
-    Panel2: TPanel;
-    cbUseQuadtree: TCheckBox;
-    cbUseExtendedFrustum: TCheckBox;
-    cbShowQuadtree: TCheckBox;
-    Label2: TLabel;
-    dcWorld: TGLDummyCube;
-    procedure GLCadencer1Progress(Sender: TObject;
-      const deltaTime, newTime: Double);
-    procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
-    procedure queryVisibleRender(Sender: TObject;
-      var rci: TGLRenderContextInfo);
-    procedure Timer1Timer(Sender: TObject);
-    procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure cbShowQuadtreeClick(Sender: TObject);
-    procedure GLDirectOpenGL2Render(Sender: TObject;
-      var rci: TGLRenderContextInfo);
-    procedure Button1Click(Sender: TObject);
+  TFormCrafts = class(TForm)
+    PanelLeft: TPanel;
+    tvCraft: TTreeView;
+    MainMenu: TMainMenu;
+    F1: TMenuItem;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    procedure tvCraftClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure N3Click(Sender: TObject);
   private
-    AssetsDir: TFileName;
-    cullingMode: string;
-    visiblecount, treecount: integer;
-    SpacePartition: TGLSectoredSpacePartition;
-    FCamHeight: single;
-    procedure CreateTrees;
   public
-
   end;
 
 var
-  FormTerraNavi: TFormTerraNavi;
+  FormCrafts: TFormCrafts;
 
-implementation //==============================================================
+implementation //=============================================================
 
 {$R *.dfm}
 
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.FormCreate(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormCrafts.FormShow(Sender: TObject);
 begin
-  AssetsDir := LowerCase(ExtractFilePath(ParamStr(0)));
-  Delete(AssetsDir, Pos('bin', AssetsDir), Length(AssetsDir));
-  AssetsDir := IncludeTrailingPathDelimiter(AssetsDir) + 'assets';
-  SetCurrentDir(AssetsDir) ;
-
-  SetCurrentDir(AssetsDir  + '\texture');
-  SpacePartition := TGLQuadtreeSpacePartition.Create;
-  SpacePartition.LeafThreshold := 50;
-  SpacePartition.MaxTreeDepth := 10;
-  SpacePartition.GrowGravy := 0.01;
-
-  tree.visible := false;
-  trees.ObjectsSorting := osRenderFarthestFirst;
-
-  GLBitmapHDS1.Picture.LoadFromFile('terrain.bmp');
-  GLMaterialLibrary1.Materials[0].Material.Texture.Image.LoadFromFile
-    ('snow512.jpg');
-  GLMaterialLibrary1.Materials[1].Material.Texture.Image.LoadFromFile
-    ('detailmap.jpg');
-  tree.Material.Texture.Image.LoadFromFile('tree1.bmp');
-  Show;
-  CreateTrees;
-  cullingMode := 'Quadtree ';
-  GLUserInterface1.MouseLookActivate;
-
- // ffTree.Scale.SetVector(5.0, 5.0, 5.0, 0);
+  tvCraft.Select(tvCraft.Items[1]);  // переход к 1му узлу
+  tvCraftClick(Sender);
 end;
 
-//--------------- Создание прокси деревьев и других объектов ----------------\\
-procedure TFormTerraNavi.CreateTrees;
-const
-  cRange = 40; // 40
-var
-  i, j: integer;
-  obj: TGLProxyObject;
+//----------------------------------------------------------------------
+procedure TFormCrafts.tvCraftClick(Sender: TObject);
 begin
-  GLScene1.BeginUpdate;
-  ProgressBar1.Max := (cRange * 2) * (cRange * 2);
-  Label1.Refresh;
-  for i := -cRange to cRange do
-    for j := -cRange to cRange do
-    begin
-      inc(treecount);
-      ProgressBar1.Position := treecount;
-      obj := TGLProxyObject(trees.AddNewChild(TGLProxyObject));
-      obj.MasterObject := tree;
-      obj.Position.AsAffineVector := AffineVectorMake(i * 500 + random(200), 0,
-        j * 500 + random(200));
-      with obj.Position do
-        Y := GLTerrainRenderer1.InterpolatedHeight(obj.AbsolutePosition) + 150;
-      TGLSceneObj.CreateObj(SpacePartition, obj);
-
-      Label2.Caption := Format('Leaves = %d, Nodes = %d, NodesInRoot = %d  ',
-        [SpacePartition.Leaves.Count, SpacePartition.GetNodeCount,
-        SpacePartition.RootNode.Leaves.Count]);
-
-      Label2.Refresh;
-    end;
-  Panel1.Free;
-  GLScene1.EndUpdate;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.GLCadencer1Progress(Sender: TObject;
-  const deltaTime, newTime: Double);
-var
-  speed: single;
-begin
-  GLUserInterface1.MouseLook;
-  GLUserInterface1.MouseUpdate;
-  // скорость навигации
-  if IsKeyDown(VK_SHIFT) then
-    speed := 6000 * deltaTime
-  else
-    speed := 1000 * deltaTime;
-  with GLCamera1.Position do
-  begin
-    // вперёд по клавише 'w'
-    if IsKeyDown(87) then
-      GLNavigator1.MoveForward(speed);
-    // назад по клавише 's'
-    if IsKeyDown(83) then
-      GLNavigator1.MoveForward(-speed);
-    // влево по клавише 'a'
-    if IsKeyDown(65) then
-      GLNavigator1.StrafeHorizontal(-speed);
-    // вправо по клавише 'd'
-    if IsKeyDown(68) then
-      GLNavigator1.StrafeHorizontal(speed);
-    // вверх но клавише 'e'
-    if IsKeyDown(69) then
-      FCamHeight := FCamHeight + 5;
-    // вниз но клавише 'c'
-    if IsKeyDown(67) then
-      FCamHeight := FCamHeight - 5;
-    if IsKeyDown(VK_ESCAPE) then
-      Close;
-  end;
-
-  GLCamera1.Position.Y := GLTerrainRenderer1.InterpolatedHeight(GLCamera1.Position.AsVector)
-     + 80 + FCamHeight;
-  GLHUDText1.Text := cullingMode + 'visible tree count: ' +
-    IntToStr(visiblecount) + ' / Total:' + IntToStr(treecount) + #13#10 +
-    ' Press ''W A S D'' to navigate, ''E'' - up, ''C'' - down' + #13#10 +
-    ' Press ''Q'' to Show Quadtree, ''X'' - Advanced frustum' + #13#10 +
-    ' Press ''V'' to Change quadtree query visible or visiblity culling' +
-    #13#10 + ' Press ''Esc'' to quit';
-end;
-
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.FormKeyPress(Sender: TObject; var Key: Char);
-var
-  i: integer;
-begin
-  if (Key = 'v') or (Key = 'м') then
-  begin
-    cbUseQuadtree.Checked := not cbUseQuadtree.Checked;
-
-    if cbUseQuadtree.Checked then
-    begin
-      cullingMode := ' Quadtree ';
-      for i := 0 to trees.Count - 1 do
-        trees.Children[i].visible := true;
-      trees.VisibilityCulling := vcNone;
-    end
-    else
-    begin
-      cullingMode := 'visibility culling ';
-      for i := 0 to trees.Count - 1 do
-        trees.Children[i].visible := true;
-      trees.VisibilityCulling := vcObjectBased;
-    end;
-  end;
-
-  case Key of
-    #75: //'k','л':
-      begin
-        // камера на красное дерево
+  for var I:Integer := 0 to 4 do
+    tvCraft.Items[I].DropHighlighted := False;
+  case tvCraft.Selected.Index of
+    0:
+      begin // Субмарина
+        FormSubmarine.Parent := FormCrafts;
+        FormSubmarine.Align := alClient;
+        FormSubmarine.BorderStyle := bsNone;
+        FormSubmarine.Show;
+        FormSubmarine.SetFocus; // not GLSceneViewer !
+        tvCraft.Items[0].DropHighlighted := True;
       end;
-(*
-    'w','W', 'ц', 'Ц':  // текстура или каркас
-      with GLMaterialLibrary1.Materials[0].Material do
-      begin
-        if PolygonMode = pmLines then
-          PolygonMode := pmFill
-        else
-          PolygonMode := pmLines;
+    1:
+      begin  // Небесный страж
+        FormSkyship.Parent := FormCrafts;
+        FormSkyship.Align := alClient;
+        FormSkyship.BorderStyle := bsNone;
+        FormSkyship.Show;
+        FormSkyship.SetFocus;
+        tvCraft.Items[1].DropHighlighted := True;
       end;
-    '+':  // уменьшить туман
-      if GLCamera1.DepthOfView < 2000 then
-      begin
-        GLCamera1.DepthOfView := GLCamera1.DepthOfView * 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
-        begin
-          FogEnd := FogEnd * 1.2;
-          FogStart := FogStart * 1.2;
-        end;
+    2:
+      begin // Астродрон
+        FormAstrodron.Parent := FormCrafts;
+        FormAstrodron.Align := alClient;
+        FormAstrodron.BorderStyle := bsNone;
+        FormAstrodron.Show;
+        FormAstrodron.SetFocus;
+        tvCraft.Items[2].DropHighlighted := True;
       end;
-    '-':  // добавить тумана
-      if GLCamera1.DepthOfView > 300 then
-      begin
-        GLCamera1.DepthOfView := GLCamera1.DepthOfView / 1.2;
-        with GLSceneViewer1.Buffer.FogEnvironment do
-        begin
-          FogEnd := FogEnd / 1.2;
-          FogStart := FogStart / 1.2;
-        end;
+    3:
+      begin // Гравилёт с варп-двигателем
+        FormGravijet.Parent := FormCrafts;
+        FormGravijet.Align := alClient;
+        FormGravijet.BorderStyle := bsNone;
+        FormGravijet.Show;
+        tvCraft.Items[3].DropHighlighted := True;
       end;
-    '*':
-      with GLTerrainRenderer1 do
-        if CLODPrecision > 20 then
-          CLODPrecision := Round(CLODPrecision * 0.8);
-    '/':
-      with GLTerrainRenderer1 do
-        if CLODPrecision < 1000 then
-          CLODPrecision := Round(CLODPrecision * 1.2);
-    '8':
-      with GLTerrainRenderer1 do
-        if QualityDistance > 40 then
-          QualityDistance := Round(QualityDistance * 0.8);
-    '9':
-      with GLTerrainRenderer1 do
-        if QualityDistance < 1000 then
-          QualityDistance := Round(QualityDistance * 1.2);
+    4:
+      begin // Фотоннная ракета
+        FormPhotonjet.Parent := FormCrafts;
+        FormPhotonjet.Align := alClient;
+        FormPhotonjet.BorderStyle := bsNone;
+        FormPhotonjet.Show;
+        tvCraft.Items[4].DropHighlighted := True;
+      end;
+    5:
+      begin // Ноолокатор
+        Application.CreateForm(TFormTerraNavi, FormTerraNavi);
+//        FormTerraNavi.Parent := FormCrafts;
+        FormTerraNavi.Align := alClient;
+        FormTerraNavi.BorderStyle := bsNone;
+        FormTerraNavi.Show;
+        tvCraft.Items[5].DropHighlighted := True;
+(**)
+      end;
+    6:
+      begin  //
+      (*
+        FormTugboat.Parent := FormCrafts;
+        FormTugboat.Align := alClient;
+        FormTugboat.BorderStyle := bsNone;
+        FormTugboat.Show;
+        tvCraft.Items[5].DropHighlighted := True;
 *)
-  end;
-  Key := #0;
-end;
-
-
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.queryVisibleRender(Sender: TObject;
-  var rci: TGLRenderContextInfo);
-
-  (*sub*)function PlaneToStr(const APlane: THmgPlane): string;
-  begin
-    result := Format('(%2.1f, %2.1f, %2.1f, %2.1f)',
-      [APlane.X, APlane.Y, APlane.Z, APlane.W]);
-  end;
-var
-  i: integer;
-
-begin
-  if not cbUseQuadtree.Checked then
-    exit;
-  GLScene1.BeginUpdate;
-  for i := 0 to trees.Count - 1 do
-    trees.Children[i].Visible := false;
-  // Query the Quadtree for objects that intersect the frustum
-  if cbUseExtendedFrustum.Checked then
-    SpacePartition.QueryFrustumEx(ExtendedFrustumMakeFromSceneViewer
-      (rci.rcci.Frustum, GLSceneViewer1))
-  else
-    SpacePartition.QueryFrustum(rci.rcci.Frustum);
-  visiblecount := SpacePartition.QueryResult.Count;
-  Label2.Caption :=
-    Format('NodeTests = %d (of %d), ObjTests = %d (of %d), Visible = %d',
-    [SpacePartition.QueryNodeTests, SpacePartition.GetNodeCount,
-    SpacePartition.QueryInterObjectTests, SpacePartition.Leaves.Count,
-    SpacePartition.QueryResult.Count]); // }
-
-  (* if rci.rcci.frustum.pNear[3]>=0 then
-    Label3.Caption := 'OK'
-    else
-    Label3.Caption := 'BAD';// *)
-
-  (* Label3.Caption :=
-    Format('%s, %s, %s, %s, %s, %s',[
-    PlaneToStr(rci.rcci.frustum.pNear),
-    PlaneToStr(rci.rcci.frustum.pFar),
-    PlaneToStr(rci.rcci.frustum.pTop),
-    PlaneToStr(rci.rcci.frustum.pBottom),
-    PlaneToStr(rci.rcci.frustum.pLeft),
-    PlaneToStr(rci.rcci.frustum.pRight)]);// *)
-
-  for i := 0 to SpacePartition.QueryResult.Count - 1 do
-  begin
-    TGLSceneObj(SpacePartition.QueryResult[i]).obj.visible := true;
-    if cbShowQuadtree.Checked then
-      RenderAABB(rci, TGLSceneObj(SpacePartition.QueryResult[i]).FCachedAABB);
-  end;
-  GLScene1.EndUpdate;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.Timer1Timer(Sender: TObject);
-begin
-  Caption := 'Quardtree Visibility Culling - ' +
-    GLSceneViewer1.FramesPerSecondText;
-  GLSceneViewer1.ResetPerformanceMonitor;
-end;
-
-
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.cbShowQuadtreeClick(Sender: TObject);
-begin
-  GLDirectOpenGL2.visible := cbShowQuadtree.Checked;
-end;
-
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.GLDirectOpenGL2Render(Sender: TObject;
-  var rci: TGLRenderContextInfo);
+      end;
+    7:
+      begin // NukeShip
 (*
-  var
-  ExtendendFrustum : TGLExtendedFrustum;
+        FormNukeShip.Parent := FormCraft;
+        FormNukeShip.Align := alClient;
+        FormNukeShip.BorderStyle := bsNone;
+        FormNukeShip.Show;
+        tvCraft.Items[6].DropHighlighted := True;
 *)
-begin
-  RenderSpatialPartitioning(rci, SpacePartition);
+      end;
 
-  (*
-    ExtendendFrustum := ExtendedFrustumMake(rci.rcci.frustum,
-    GLCamera1.NearPlane,
-    GLCamera1.DepthOfView,
-    GLSceneViewer1.FieldOfView,
-    GLCamera1.Position.AsAffineVector,
-    GLCamera1.Direction.AsAffineVector);//
-  *)
-
-  (*
-    ExtendendFrustum := ExtendedFrustumMakeFromSceneViewer(
-    rci.rcci.frustum, GLSceneViewer1);
-
-    GLSphere1.Position.AsAffineVector :=
-    VectorCombine(ExtendendFrustum.SPCone.Base, ExtendendFrustum.SPCone.Axis, 1, GLCamera1.DepthOfView * 0.05);
-
-    GLSphere1.Radius := sin(ExtendendFrustum.SPCone.Angle) * GLCamera1.DepthOfView  * 0.05;
-
-    GLSphere1.Position.AsAffineVector := ExtendendFrustum.BSphere.Center;
-    GLSphere1.Radius := ExtendendFrustum.BSphere.Radius / 1.42;//
-  *)
+  end;
 end;
 
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.Button1Click(Sender: TObject);
+//----------------------------------------------------------------------------
+procedure TFormCrafts.N3Click(Sender: TObject);
 begin
-  GLSphere1.Position.AsVector := VectorCombine(GLCamera1.Position.AsVector,
-    GLCamera1.Direction.AsVector, 1, GLCamera1.NearPlane)
+  Close;
 end;
 
-//-----------------------------------------------------------------------------
-procedure TFormTerraNavi.FormDestroy(Sender: TObject);
-begin
-  SpacePartition.Free;
-end;
-
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 end.

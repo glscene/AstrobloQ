@@ -81,7 +81,7 @@ object FormAstroScene: TFormAstroScene
     Align = alLeft
     Caption = 'Panel1'
     TabOrder = 2
-    ExplicitHeight = 724
+    ExplicitHeight = 722
     object StaticText3: TStaticText
       Left = 1
       Top = 1
@@ -345,7 +345,7 @@ object FormAstroScene: TFormAstroScene
         0000950000009500000008000000FFFFFFFF0000000000000000000000000001
         071F04410430043C043004440430040000270000009600000096000000080000
         00FFFFFFFF0000000000000000000000000001041D04350441043E04}
-      ExplicitHeight = 630
+      ExplicitHeight = 628
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -659,7 +659,7 @@ object FormAstroScene: TFormAstroScene
               BottomArrowHeadRadius = 0.200000002980232200
             end
           end
-          object dcTopoGrid: TGLDummyCube
+          object dcGlobeGrid: TGLDummyCube
             CubeSize = 1.000000000000000000
             object MeridianY_0: TGLTorus
               MajorRadius = 6372.000000000000000000

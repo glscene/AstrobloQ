@@ -99,7 +99,7 @@ __published:	// IDE-managed Components
 	TGLDummyCube *dcAsteroid;
 	TGLDummyCube *dcComet;
 	TGLDummyCube *dcStellar;
-	TGLDummyCube *dcTopoGrid;
+	TGLDummyCube *dcGlobeGrid;
 	TGLTorus *MeridianY_0;
 	TGLTorus *MeridianY_15;
 	TGLTorus *MeridianY_30;

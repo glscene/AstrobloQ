@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit fsCrafts_ru;
+unit fnNooneta_en;
 
 interface
 
@@ -19,14 +19,13 @@ uses
   Vcl.Menus,
   Vcl.ComCtrls,
 
-  fsSkyship_ru,
-  fsSubmarine_ru,
-  fsGravijet_ru,
-  fsPhotonJet_ru,
-  fsAstrodron_ru
-
+  fnSkyship_en,
+  fnSubmarine_en,
+  fnGravijet_en,
+  fnPhotonJet_en,
+  fnAstrodron_en
   (*,
-  fsNukeShip_ru
+  fnNukeShip_en
   *)
   ;
 
@@ -35,6 +34,13 @@ type
     PanelLeft: TPanel;
     tvCraft: TTreeView;
     MainMenu: TMainMenu;
+    File1: TMenuItem;
+    Help1: TMenuItem;
+    About1: TMenuItem;
+    Open1: TMenuItem;
+    Exit1: TMenuItem;
+    Create1: TMenuItem;
+    N1: TMenuItem;
     procedure tvCraftClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -51,27 +57,27 @@ implementation //=============================================================
 //----------------------------------------------------------------------------
 procedure TFormCrafts.FormShow(Sender: TObject);
 begin
-  tvCraft.Select(tvCraft.Items[1]);  // переход к 1му узлу
+  tvCraft.Select(tvCraft.Items[0]);  // goto to column 0
   tvCraftClick(Sender);
 end;
 
 //----------------------------------------------------------------------------
 procedure TFormCrafts.tvCraftClick(Sender: TObject);
 begin
-  for var I:Integer := 0 to 4 do
+  for var I: Integer := 0 to 4 do
     tvCraft.Items[I].DropHighlighted := False;
   case tvCraft.Selected.Index of
     0:
-      begin // Субмарина
+      begin  // Submarine
         FormSubmarine.Parent := FormCrafts;
         FormSubmarine.Align := alClient;
         FormSubmarine.BorderStyle := bsNone;
         FormSubmarine.Show;
-        FormSubmarine.SetFocus; // not GLSceneViewer !
+        FormSubmarine.SetFocus;
         tvCraft.Items[0].DropHighlighted := True;
       end;
     1:
-      begin  // Небесный страж
+      begin // Skyship
         FormSkyship.Parent := FormCrafts;
         FormSkyship.Align := alClient;
         FormSkyship.BorderStyle := bsNone;
@@ -80,7 +86,7 @@ begin
         tvCraft.Items[1].DropHighlighted := True;
       end;
     2:
-      begin // Астродрон
+      begin // Astrodron
         FormAstrodron.Parent := FormCrafts;
         FormAstrodron.Align := alClient;
         FormAstrodron.BorderStyle := bsNone;
@@ -89,7 +95,7 @@ begin
         tvCraft.Items[2].DropHighlighted := True;
       end;
     3:
-      begin // Гравилёт с варп-двигателем
+      begin // Warpdrive
         FormGravijet.Parent := FormCrafts;
         FormGravijet.Align := alClient;
         FormGravijet.BorderStyle := bsNone;
@@ -97,7 +103,7 @@ begin
         tvCraft.Items[3].DropHighlighted := True;
       end;
     4:
-      begin // Фотоннная ракета
+      begin // Photonjet
         FormPhotonjet.Parent := FormCrafts;
         FormPhotonjet.Align := alClient;
         FormPhotonjet.BorderStyle := bsNone;
@@ -105,26 +111,15 @@ begin
         tvCraft.Items[4].DropHighlighted := True;
       end;
     5:
-      begin  // Ядерный буксир
+      begin  // Nukeship
       (*
-        FormTugboat.Parent := FormCrafts;
-        FormTugboat.Align := alClient;
-        FormTugboat.BorderStyle := bsNone;
-        FormTugboat.Show;
+        FormNukeship.Parent := FormCrafts;
+        FormNukeship.Align := alClient;
+        FormNukeship.BorderStyle := bsNone;
+        FormNukeship.Show;
         tvCraft.Items[5].DropHighlighted := True;
 *)
       end;
-    6:
-      begin // NukeShip
-(*
-        FormNukeShip.Parent := FormCraft;
-        FormNukeShip.Align := alClient;
-        FormNukeShip.BorderStyle := bsNone;
-        FormNukeShip.Show;
-        tvCraft.Items[6].DropHighlighted := True;
-*)
-      end;
-
   end;
 end;
 
