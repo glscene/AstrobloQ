@@ -840,6 +840,7 @@ begin
     polylineConstells.AddNode(pos1);
     pos2 := LonLatToPos(StrToFloatDef(line[2], 0), StrToFloatDef(line[3], 0));
     polylineConstells.AddNode(pos2);
+    polylineConstells.LineColor.Color := clrYellow;
   end;
   sl.Free;
   line.Free;
