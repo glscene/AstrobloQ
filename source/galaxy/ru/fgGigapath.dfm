@@ -19,7 +19,6 @@ object Form1: TForm1
     PenAsTouch = False
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 881
   end
   object Panel1: TPanel
     Left = 672
@@ -29,6 +28,8 @@ object Form1: TForm1
     Align = alRight
     Caption = 'Panel1'
     TabOrder = 1
+    ExplicitLeft = 664
+    ExplicitHeight = 611
     object BtnGenerate: TButton
       Left = 72
       Top = 96
