@@ -30,7 +30,8 @@ uses
   fgNewGalablock_ru in '..\source\galaxy\ru\fgNewGalablock_ru.pas' {frmNewStarblock},
   fgViewGalablock_ru in '..\source\galaxy\ru\fgViewGalablock_ru.pas' {frmStarblock},
   fgTechnets_ru in '..\source\galaxy\ru\fgTechnets_ru.pas' {frmTechnets},
-  fgNavigator_ru in '..\source\galaxy\ru\fgNavigator_ru.pas' {frmNavigator};
+  fgNavigator_ru in '..\source\galaxy\ru\fgNavigator_ru.pas' {frmNavigator},
+  fgGigapath in '..\source\galaxy\ru\fgGigapath.pas' {Form1};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM
@@ -48,6 +49,7 @@ begin
   Application.CreateForm(TfrmNewStarblock, frmNewStarblock);
   Application.CreateForm(TfrmStarblock, frmStarblock);
   Application.CreateForm(TfrmTechnets, frmTechnets);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 
