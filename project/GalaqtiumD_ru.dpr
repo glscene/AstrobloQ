@@ -31,7 +31,9 @@ uses
   fgViewGalablock_ru in '..\source\galaxy\ru\fgViewGalablock_ru.pas' {frmStarblock},
   fgTechnets_ru in '..\source\galaxy\ru\fgTechnets_ru.pas' {frmTechnets},
   fgNavigator_ru in '..\source\galaxy\ru\fgNavigator_ru.pas' {frmNavigator},
-  fgGigapath in '..\source\galaxy\ru\fgGigapath.pas' {Form1};
+  fgStarpath_ru in '..\source\galaxy\ru\fgStarpath_ru.pas' {frmStarpath},
+  fgStarcube_ru in '..\source\galaxy\ru\fgStarcube_ru.pas' {frmStarcube},
+  fgGigastars_ru in '..\source\galaxy\ru\fgGigastars_ru.pas' {Form1};
 
 {$R *.res}
 {$SetPEFlags $20}  // Allows up to 4GB address space with FastMM

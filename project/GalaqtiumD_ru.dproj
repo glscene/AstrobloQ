@@ -206,7 +206,15 @@
             <Form>frmNavigator</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\galaxy\ru\fgGigapath.pas">
+        <DCCReference Include="..\source\galaxy\ru\fgStarpath_ru.pas">
+            <Form>frmStarpath</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgStarcube_ru.pas">
+            <Form>frmStarcube</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\source\galaxy\ru\fgGigastars_ru.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
