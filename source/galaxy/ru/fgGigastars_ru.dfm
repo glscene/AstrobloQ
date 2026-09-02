@@ -23,6 +23,12 @@ object Form1: TForm1
   object GLScene1: TGLScene
     Left = 112
     Top = 72
+    object GLDummyCube1: TGLDummyCube
+      CubeSize = 1.000000000000000000
+      object GLSphere1: TGLSphere
+        Radius = 0.500000000000000000
+      end
+    end
   end
   object GLCadencer1: TGLCadencer
     Left = 232

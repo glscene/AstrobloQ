@@ -70,7 +70,7 @@ uses
   GLS.SceneViewer,
   Stage.BaseClasses,
   GLS.Scene,
-  GLS.Material;
+  GLS.Material, GLS.Objects, Stage.Coordinates;
 
 type
   TForm1 = class(TForm)
@@ -78,6 +78,8 @@ type
     GLSceneViewer1: TGLSceneViewer;
     GLCadencer1: TGLCadencer;
     GLMaterialLibrary1: TGLMaterialLibrary;
+    GLDummyCube1: TGLDummyCube;
+    GLSphere1: TGLSphere;
   private
 
   public
