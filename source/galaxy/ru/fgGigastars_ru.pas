@@ -65,12 +65,15 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
 
+  Stage.BaseClasses,
+  Stage.Coordinates,
   Stage.Color,
+
   GLS.Cadencer,
   GLS.SceneViewer,
-  Stage.BaseClasses,
   GLS.Scene,
-  GLS.Material, GLS.Objects, Stage.Coordinates;
+  GLS.Material,
+  GLS.Objects;
 
 type
   TForm1 = class(TForm)
