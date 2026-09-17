@@ -34,7 +34,7 @@ uses
   fgStarpath_ru in '..\source\galaxy\ru\fgStarpath_ru.pas' {frmStarpath},
   fgStarcube_ru in '..\source\galaxy\ru\fgStarcube_ru.pas' {frmStarcube},
   fgGigastars_ru in '..\source\galaxy\ru\fgGigastars_ru.pas' {Form1},
-  AI.Starcube_ru in '..\source\galaxy\ru\AI.Starcube_ru.pas' {Form2},
+  AI.Starcube_ru in '..\source\galaxy\ru\AI.Starcube_ru.pas' {FormStarCube},
   Galaxy.SpaceObjects in '..\source\galaxy\Galaxy.SpaceObjects.pas';
 
 {$R *.res}
@@ -54,7 +54,7 @@ begin
   Application.CreateForm(TfrmStarblock, frmStarblock);
   Application.CreateForm(TfrmTechnets, frmTechnets);
   Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TFormStarCube, FormStarCube);
   Application.Run;
 end.
 

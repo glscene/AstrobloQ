@@ -219,7 +219,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\ru\AI.Starcube_ru.pas">
-            <Form>Form2</Form>
+            <Form>FormStarCube</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\galaxy\Galaxy.SpaceObjects.pas"/>

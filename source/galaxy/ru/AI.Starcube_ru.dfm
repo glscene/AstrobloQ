@@ -1,7 +1,7 @@
-object Form2: TForm2
+object FormStarCube: TFormStarCube
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = #1057#1090#1072#1088#1082#1091#1073
   ClientHeight = 433
   ClientWidth = 624
   Color = clBtnFace
