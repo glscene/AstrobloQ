@@ -3,12 +3,6 @@
         <ProjectGuid>{34D46BB1-B6F4-4B95-AAE8-B07CDB10AAC1}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Astros\Bumps\BumpEarth.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="Astros\Bumps\BumpSmoke.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="Astros\StarboxD\StarMotion.dproj">
             <Dependencies/>
         </Projects>
@@ -29,24 +23,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="BumpEarth">
-        <MSBuild Projects="Astros\Bumps\BumpEarth.dproj"/>
-    </Target>
-    <Target Name="BumpEarth:Clean">
-        <MSBuild Projects="Astros\Bumps\BumpEarth.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="BumpEarth:Make">
-        <MSBuild Projects="Astros\Bumps\BumpEarth.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="BumpSmoke">
-        <MSBuild Projects="Astros\Bumps\BumpSmoke.dproj"/>
-    </Target>
-    <Target Name="BumpSmoke:Clean">
-        <MSBuild Projects="Astros\Bumps\BumpSmoke.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="BumpSmoke:Make">
-        <MSBuild Projects="Astros\Bumps\BumpSmoke.dproj" Targets="Make"/>
-    </Target>
     <Target Name="StarMotion">
         <MSBuild Projects="Astros\StarboxD\StarMotion.dproj"/>
     </Target>
@@ -84,13 +60,13 @@
         <MSBuild Projects="Astros\StarboxD\Tetranetx_ru.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="BumpEarth;BumpSmoke;StarMotion;SpaceLink;Tetranets_ru;Tetranetx_ru"/>
+        <CallTarget Targets="StarMotion;SpaceLink;Tetranets_ru;Tetranetx_ru"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="BumpEarth:Clean;BumpSmoke:Clean;StarMotion:Clean;SpaceLink:Clean;Tetranets_ru:Clean;Tetranetx_ru:Clean"/>
+        <CallTarget Targets="StarMotion:Clean;SpaceLink:Clean;Tetranets_ru:Clean;Tetranetx_ru:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="BumpEarth:Make;BumpSmoke:Make;StarMotion:Make;SpaceLink:Make;Tetranets_ru:Make;Tetranetx_ru:Make"/>
+        <CallTarget Targets="StarMotion:Make;SpaceLink:Make;Tetranets_ru:Make;Tetranetx_ru:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

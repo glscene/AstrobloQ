@@ -52,7 +52,7 @@ object FormAstroScene: TFormAstroScene
       Left = 1
       Top = 121
       Width = 311
-      Height = 483
+      Height = 456
       Hint = #1051#1091#1085#1099
       Align = alClient
       AutoExpand = True
@@ -302,7 +302,6 @@ object FormAstroScene: TFormAstroScene
         000008000000FFFFFFFF0000000000000000000000000001071F04410430043C
         04300444043004000027000000960000009600000008000000FFFFFFFF000000
         0000000000000000000001041D04350441043E04}
-      ExplicitHeight = 456
     end
     object StaticText1: TStaticText
       Left = 1
@@ -319,6 +318,7 @@ object FormAstroScene: TFormAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 62
     end
     object StaticText3: TStaticText
       Left = 1
@@ -337,6 +337,7 @@ object FormAstroScene: TFormAstroScene
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
+      ExplicitWidth = 222
     end
     object tbPlanets: TToolBar
       AlignWithMargins = True
@@ -520,7 +521,7 @@ object FormAstroScene: TFormAstroScene
       Left = 1
       Top = 34
       Width = 285
-      Height = 570
+      Height = 543
       Hint = #1040#1089#1090#1077#1088#1086#1080#1076#1099
       Align = alClient
       AutoExpand = True
@@ -563,7 +564,6 @@ object FormAstroScene: TFormAstroScene
         00000000000000010713043E043B04350432043A043004000029000000096101
         0009610100FFFFFFFFFFFFFFFF00000000000000000000000000010521043504
         34043D043004}
-      ExplicitHeight = 543
     end
     object StaticText2: TStaticText
       Left = 1
@@ -580,6 +580,7 @@ object FormAstroScene: TFormAstroScene
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      ExplicitWidth = 131
     end
   end
   object ControlBarTop: TControlBar
@@ -589,7 +590,6 @@ object FormAstroScene: TFormAstroScene
     Height = 57
     Align = alTop
     TabOrder = 4
-    ExplicitWidth = 1375
     object ToolBarMain: TToolBar
       Left = 11
       Top = 2
