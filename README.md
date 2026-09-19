@@ -1,24 +1,25 @@
 # AstrobloQ
 
-Система астромоделирования нооэволюции Млечного Пути и численного решения парадокса Ферми. 
+A system for modelling the nooevolution of the Milky Way and numerically solving the Fermi paradox
+with the help of AI assistance.
 
-Проекты по астрометрии включают следующие дополнительные библиотеки: 
-- [SOFA](./Externals/sofa), астрометрия на Cи, рекомендованная Международным Астрономическим Союзом IAU;
-- [Astronomy Engine](./Externals/astronomy), пакет утилит по астрономии и гравитационным взаимодействиям;
-- [IVOA](https://www.ivoa.net/astronomers/applications.html), стандарты Международной Виртуальной Обсерватории;
-- [PostGIS](https://postgis.net/), расширение PostgreSQL для работы с пространственными данными;
-- [CGAL](https://www.cgal.org/), библиотека алгоритмов по вычислительной геометрии на С++;
+The system of projects include the following additional libraries:
+- [SOFA](./Externals/sofa), C-based astrometry library recommended by the International Astronomical Union (IAU);
+- [Astronomy Engine](./Externals/astronomy), a utilities package for astronomy and gravitational interactions;
+- [IVOA](https://www.ivoa.net/astronomers/applications.html), standards of the International Virtual Observatory Alliance;
+- [PostGIS](https://postgis.net/), a PostgreSQL extension for working with spatial data;
+- [CGAL](https://www.cgal.org/), a C++ computational geometry algorithms library;
 
-Интерактивная справка вызывается в зависимости от языка интерфейса:   
-- [Galaxy](https://en.wikipedia.com/wiki/Galaxy), англоязычный раздел энциклопедии Wikipedia;
-- [Галактика](https://ru.ruwiki.ru/wiki/Галактика), российская энциклопедия Рувики;
-- внешний AI-Assistant;
+Interactive help is invoked depending on the interface language:
+- [Galaxy](https://en.wikipedia.com/wiki/Galaxy), the English-language Wikipedia encyclopedia section;
+- [Галактика](https://ru.ruwiki.ru/wiki/Галактика), the Russian encyclopedia Ruviki;
+- external AI-Assistant;
 
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
- 
+
 ### AstroScene
 
-Звёзды с экзопланетными системами
+Stars with exoplanetary systems
 
 ![Nooneta](./docs/clips/Noosfera.png)
 
@@ -29,7 +30,7 @@
 
 ### Litoneta
 
-Экзопланета с литосферой
+Exoplanet with a lithosphere
 ![Litoneta](./docs/clips/Litosfera_ru.png)
 
 ![Litoneta](./docs/clips/AnimationPlanet2a.gif)
@@ -37,8 +38,8 @@
 
 ### Bioneta
 
-Экзопланета с биосферой
- 
+Exoplanet with a biosphere
+
 ![Bioneta](./docs/clips/Biosfera.jpg)
 
 ![Bioneta](./docs/clips/AnimationDolphin.gif)
@@ -48,51 +49,44 @@
 
 ### Texoneta
 
-Экзопланета с техносферой
+Exoplanet with a technosphere
 ![Texoneta](./docs/clips/Tehnosferas.png)
 
 ## Galaqtium
 
-Построение Виртуальной Модели Галактики VMW
+Building AI Model CETI of the Milky Way
 
 ![Galaqtium](./docs/clips/AstrobloQ_ru.png)
 ![Galaqtium](./docs/clips/Noostages_ru.jpg)
 
-При построении VR модели используются следующие данные и методы: 
+The following data and methods are used to build the VR model:
 
-- исходные данные о звёздах и экзопланетах из каталогов [HYG](https://github.com/astronexus/HYG-Database), [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data), [Earthlike Terraplanets](https://phl.upr.edu/hwc);
-- строение, структура и состав объектов в системах "Star->Galaxy->Universe" представляются в соответствующих масштабах с различным уровнем детализации L.O.D; 
-- тетраэдральные сетки TetraDelaunay строятся по известным x,y,z координатам звёзд в галактической системе координат и по векторам vx,vy,vz их собственных движений с экстраполяцией в прошлое и будущее на шкале -10;0;+10 Gyr;
-- диаграммы сеток полиэдров PolyVoronoi рассчитываются как двойственные графы тетраэдрализации Делоне;
-- для построения униформной GalaGrid модели с кубическими ячейками старблоков используется метод интерполяции NNI, Natural Neighbour Interpolation, учитывающем влияние соседних регионов, за исключением областей GalaxyVoids;
-- изменение структуры Галактики во времени моделируется на базе [волновых функций плотности](https://github.com/beltoforion/Galaxy-Renderer) и путём экстраполяции данных звёздных каталогов в будущее;
-- эволюция звёздных ассоциаций оценивается по звёздному каталогу HYG согласно диаграмме Герцшпрунга-Рассела;
-- текстурные карты поверхности [землеподобных экзопланет](https://science.nasa.gov/exoplanets) синтезируются по определённым параметрам террапланет в зонах обитаемости звёзд; 
-- задачи поиска кратчайшего безопасного межзвёздного пути космовояжера, освоения ресурсов и колонизации решаются на графах (x,y,z,t,c) тетрасети и алгоритму A* на GalaGrid; 
-- состав популяции звёзд за ядром Галактики и газово-пылевыми облаками определяется с помощью экстраполяции и методами стереологии;
-- коэволюция звёздных скоплений с экзопланетами во времени моделируется на основе операций свёртки рождения и гибели спектральных классов звёзд; 
-- по результатам интегрирования оценивается среднее число планет с литосферами, биосферами, ноосферами и техносферами в хронологии Млечного Пути;
-- потенциал обитаемости Галактики определяется за период звездообразования 10 gyr и сопоставляется с оценкой по статистическому уравнению Дрейка; 
-- численное решение парадокса Ферми даёт верхнюю оценку вероятного числа КЦ I типа по шкале академика РАН Н.С.Кардашёва;
+- source data on stars and exoplanets from the catalogs [HYG](https://github.com/astronexus/HYG-Database), [Gaia DR3](https://www.cosmos.esa.int/web/gaia/data), [Earthlike Terraplanets](https://phl.upr.edu/hwc);
+- the structure, composition, and layout of objects in "Star -> Galaxy -> Universe" systems are represented at appropriate scales with varying levels of detail (LOD);
+- tetrahedral TetraDelaunay meshes are constructed from known x, y, z coordinates of stars in the galactic coordinate system and from the vx, vy, vz vectors of their proper motions, with extrapolation into the past and future on a -10; 0; +10 Gyr timescale;
+- polyhedron PolyVoronoi grid diagrams are computed as dual graphs of Delaunay tetrahedralization;
+- to build the uniform GalaGrid model with cubic starblock cells, the Natural Neighbour Interpolation (NNI) method is used, which accounts for the influence of neighboring regions, excluding GalaxyVoids areas;
+- changes in the Galaxy's structure over time are modeled using [density wave functions](https://github.com/beltoforion/Galaxy-Renderer) and by extrapolating stellar catalog data into the future;
+- the evolution of stellar associations is estimated from the HYG star catalog according to the Hertzsprung–Russell diagram;
+- surface texture maps of [Earth-like exoplanets](https://science.nasa.gov/exoplanets) are synthesized based on specific parameters of terraplanets in stellar habitable zones;
+- the problems of finding the shortest safe interstellar path of a space traveler, resource exploitation, and colonization are solved on (x, y, z, t, c) graphs of the tetramesh and using the A* algorithm on GalaGrid;
+- the stellar population behind the Galactic core and gas-dust clouds is determined through extrapolation and stereological methods;
+- the co-evolution of star clusters with exoplanets over time is modeled based on convolution operations of birth and death of stellar spectral classes;
+- based on the integration results, the mean number of planets with lithospheres, biospheres, noospheres, and technospheres in the chronology of the Milky Way is estimated;
+- the habitability potential of the Galaxy is determined over a 10 Gyr star formation period and compared with the estimate from the statistical Drake equation;
+- the numerical solution of the Fermi paradox yields an upper bound on the probable number of Type I civilizations on the scale of RAS Academician N. S. Kardashev;
 
-### Среды и инструменты разработки
-- IDE RAD Studio Delphi & C++ Builder, Delphi Community Edition, VS Studio, GigaStudio.
-- [GLXEngine](https://github.com/glscene) или [GaLaXy Engine](https://gitverse.ru/glscene/GLXEngine/);
-- [Git](https://git-scm.com/downloads/win), консольная утилита отслеживания изменений и контроля версий.
-- [TortoiseGit](https://tortoisegit.org/),  графическая оболочка Git с установкой клиента в Windows Explorer.
-- [Beyond Compare](https://www.scootersoftware.com/), программа сравнения, слияния и синхронизации данных. 
-- [Notepad++](https://notepad-plus-plus.org/), текстовый редактор исходных кодов для программистов.
+### Development environments and additional tools
+- IDE RAD Studio Delphi & C++ Builder, Delphi Community Edition, GigaIDE.
+- [GLXEngine](https://github.com/glscene).
+- [Git](https://git-scm.com/downloads/win), a command-line utility for change tracking and version control.
+- [TortoiseGit](https://tortoisegit.org/), a graphical Git client integrated into Windows Explorer.
+- [Beyond Compare](https://www.scootersoftware.com/), a tool for comparing, merging, and synchronizing data.
+- [Notepad++](https://notepad-plus-plus.org/), a source code text editor for programmers.
 
-Подпрограммы системы для MS Windows 11 можно использовать отдельно в [образовании и научных организациях](https://gitverse.ru/UniverseCETI/GalaxyCETI/) 
-с указанием в окне справки логотипа "AsQ" со ссылкой в описании на [AstrobloQ](https://gitverse.ru/glscene/AstrobloQ/).
+The releases of the system's programs can be used separately 
+provided that the help window displays the "AstrobloQ" logo with a reference to the repository of source codes.
 
-Вы можете принять участие в развитии системы AstrobloQ, в комплексе программ по астрономии и космонавтике на российской платформе открытого кода. 
-Для подключения к разработке создайте свой аккаунт на GitVerse, добавьте репозиторий AstrobloQ
-в избранное, отправьте админину запрос участие и внесите вклад в проект, 
-обоработку данных и улучшение программного кода.
-Бонусы. Донаты идут на приобретение лицензионных IDE, средств разработки и развитие.
-Соавторы, зарегистрированные в репозитории AstrobloQ, получают возможность 
-пользоваться программным обеспечением бесплатно, а при продаже программ, входящих в систему, 
-они получают от 10% до 50% от стоимости готовых рабочих версий. 
+You can join the project and participate in the development of the AstrobloQ system. Welcome.
 
-[Admin](https://max.ru/join/_UxhOB0pY-8NADATu_IOYuDyEqPpxGyupYTo4ckJkTg)
+Admin
