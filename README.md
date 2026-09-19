@@ -12,7 +12,6 @@ The system of projects include the following additional libraries:
 
 Interactive help is invoked depending on the interface language:
 - [Galaxy](https://en.wikipedia.com/wiki/Galaxy), the English-language Wikipedia encyclopedia section;
-- [Галактика](https://ru.ruwiki.ru/wiki/Галактика), the Russian encyclopedia Ruviki;
 - external AI-Assistant;
 
 ![GalaxyGrid_ru](./docs/clips/GalaxyGrid.gif)
