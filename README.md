@@ -31,7 +31,7 @@ Stars with exoplanetary systems
 ### Litoneta
 
 Exoplanet with a lithosphere
-![Litoneta](./docs/clips/Litosfera_ru.png)
+![Litoneta](./docs/clips/Litosfera_en.png)
 
 ![Litoneta](./docs/clips/AnimationPlanet2a.gif)
 ![Litoneta](./docs/clips/AnimationAsteroid2.gif)
@@ -56,8 +56,7 @@ Exoplanet with a technosphere
 
 Building AI Model CETI of the Milky Way
 
-![Galaqtium](./docs/clips/AstrobloQ_ru.png)
-![Galaqtium](./docs/clips/Noostages_ru.jpg)
+![Galaqtium](./docs/clips/Noostages_en.jpg)
 
 The following data and methods are used to build the VR model:
 
