@@ -4,7 +4,7 @@ inherited frmEquations: TfrmEquations
   ClientWidth = 1211
   StyleElements = [seFont, seClient, seBorder]
   ExplicitWidth = 1227
-  ExplicitHeight = 874
+  ExplicitHeight = 882
   TextHeight = 30
   object PanelBottom: TPanel
     Left = 0
@@ -18,7 +18,7 @@ inherited frmEquations: TfrmEquations
     Align = alBottom
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 738
+    ExplicitTop = 736
     ExplicitWidth = 1203
     object ButtonOk: TButton
       Left = 937
@@ -83,7 +83,7 @@ inherited frmEquations: TfrmEquations
     ShowCaption = False
     TabOrder = 2
     ExplicitWidth = 1203
-    ExplicitHeight = 666
+    ExplicitHeight = 664
     object grbDrakeFormula: TGroupBox
       Left = 1
       Top = 443
@@ -473,7 +473,7 @@ inherited frmEquations: TfrmEquations
         ParentFont = False
         ReadOnly = True
         TabOrder = 10
-        Text = '1'
+        Text = '10000'
       end
       object nbFp: TNumberBox
         Left = 532
@@ -935,7 +935,7 @@ inherited frmEquations: TfrmEquations
         ParentFont = False
         ReadOnly = True
         TabOrder = 10
-        Text = '1'
+        Text = '1000'
       end
       object NumberBox_ne: TNumberBox
         Left = 532
@@ -1400,7 +1400,7 @@ inherited frmEquations: TfrmEquations
         ParentFont = False
         ReadOnly = True
         TabOrder = 10
-        Text = '1'
+        Text = '100'
       end
       object NumberBox11: TNumberBox
         Left = 532

@@ -24,7 +24,7 @@ Stars with exoplanetary systems
 
 ![Texoneta](./docs/clips/Meteors.gif)
 
-![AstroScene](./docs/clips/PlanetarySystems.png)
+![AstroScene](./docs/clips/Atlas_en.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
 ### Litoneta
@@ -49,7 +49,7 @@ Exoplanet with a biosphere
 ### Texoneta
 
 Exoplanet with a technosphere
-![Texoneta](./docs/clips/Tehnosferas.png)
+![Texoneta](./docs/clips/Drake_en.png)
 
 ## Galaqtium
 
