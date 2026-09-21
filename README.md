@@ -84,7 +84,6 @@ The following data and methods are used to build the VR model:
 
 The releases of the system's programs can be used separately 
 provided that the help window displays the "AstrobloQ" logo with a reference to the repository of source codes.
-
-You can join the project and participate in the development of the AstrobloQ system. Welcome.
+Join the project and participate in the development of the AstrobloQ system. Welcome.
 
 Admin
