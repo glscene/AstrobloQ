@@ -3,7 +3,10 @@
 A system for modelling the nooevolution of the Milky Way and numerically solving the Fermi paradox
 with the help of AI assistance.
 
-The system of projects include the following additional libraries:
+The development based on GLXEngine with component packages GLScene & GXScene 
+for RAD Studio Delphi/C++Builder
+
+Projects of APEX plugins include the following additional libraries:
 - [SOFA](./Externals/sofa), C-based astrometry library recommended by the International Astronomical Union (IAU);
 - [Astronomy Engine](./Externals/astronomy), a utilities package for astronomy and gravitational interactions;
 - [IVOA](https://www.ivoa.net/astronomers/applications.html), standards of the International Virtual Observatory Alliance;
@@ -84,6 +87,6 @@ The following data and methods are used to build the VR model:
 
 The releases of the system's programs can be used separately 
 provided that the help window displays the "AstrobloQ" logo with a reference to the repository of source codes.
-Join the project and participate in the development of the AstrobloQ system. Welcome.
+Welcome to join the project and participate in the development of the AstrobloQ system. 
 
 Admin
