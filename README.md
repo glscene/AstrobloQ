@@ -10,7 +10,6 @@ Projects of APEX plugins include the following additional libraries:
 - [SOFA](./Externals/sofa), C-based astrometry library recommended by the International Astronomical Union (IAU);
 - [Astronomy Engine](./Externals/astronomy), a utilities package for astronomy and gravitational interactions;
 - [IVOA](https://www.ivoa.net/astronomers/applications.html), standards of the International Virtual Observatory Alliance;
-- [PostGIS](https://postgis.net/), a PostgreSQL extension for working with spatial data;
 - [CGAL](https://www.cgal.org/), a C++ computational geometry algorithms library;
 
 Interactive help is invoked depending on the interface language:
