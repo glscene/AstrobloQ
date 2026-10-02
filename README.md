@@ -22,10 +22,6 @@ Interactive help is invoked depending on the interface language:
 
 Stars with exoplanetary systems
 
-![Nooneta](./docs/clips/Noosfera.png)
-
-![Texoneta](./docs/clips/Meteors.gif)
-
 ![AstroScene](./docs/clips/Atlas_en.png)
 ![AstroScene](./docs/clips/SolarSystem.gif)
 
@@ -33,9 +29,9 @@ Stars with exoplanetary systems
 
 Exoplanet with a lithosphere
 ![Litoneta](./docs/clips/Litosfera_en.png)
-
 ![Litoneta](./docs/clips/AnimationPlanet2a.gif)
 ![Litoneta](./docs/clips/AnimationAsteroid2.gif)
+![Nooneta](./docs/clips/Noosfera.png)
 
 ### Bioneta
 
@@ -52,6 +48,7 @@ Exoplanet with a biosphere
 
 Exoplanet with a technosphere
 ![Texoneta](./docs/clips/Drake_en.png)
+![Texoneta](./docs/clips/Meteors.gif)
 
 ## Galaqtium
 
