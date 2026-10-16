@@ -465,8 +465,12 @@ begin
   dcMoon.Visible := False;
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
+  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Index = 0) then
+  // Загрузка карты звезды
+    FileJpg := CurrentStar + TToolButton(Sender).ImageName + '.jpg'
+  else
   // Загрузка карты планеты
-  FileJpg := CurrentStar + TToolButton(Sender).ImageName + '.jpg';
+    FileJpg := CurrentStar + 'planets\' + TToolButton(Sender).ImageName + '.jpg';
   sfPlanet.Material.Texture.Image.LoadFromFile(FileJpg);
   // Показать атмосферы планет, заменить на case, так как толщина атмосфер разная
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Earth') or
@@ -493,9 +497,11 @@ begin
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
   (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
   begin
-    diskRingUp.Material.Texture.Image.LoadFromFile(CurrentStar  + 'saturn_ring.png');
+    diskRingUp.Material.Texture.Image.LoadFromFile(CurrentStar
+     + 'planets\' + 'saturn_ring.png');
     diskRingUp.Visible := True;
-    diskRingDn.Material.Texture.Image.LoadFromFile(CurrentStar  + 'saturn_ring.png');
+    diskRingDn.Material.Texture.Image.LoadFromFile(CurrentStar
+    + 'planets\' + 'saturn_ring.png');
     diskRingDn.Visible := True;
   end
   else
@@ -569,6 +575,13 @@ begin
     DirectOpenGL.Visible := True
   else
     DirectOpenGL.Visible := False;
+
+//    Camera.MoveTo(dcMoon);
+//    Camera.TargetObject := dcMoon;
+//    Camera.Position.X := 1;
+//    Camera.Position.Y := 1;
+//    Camera.Position.Z := 1;
+
   // Имя луны или спутника для веб-справки ruwiki
   // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
   miHelpWiki.Caption := tvMoons.Selected.Text + '_(спутник)';

@@ -1,4 +1,4 @@
-Sun
+Sol
 Mercury
 Venus
 Earth
