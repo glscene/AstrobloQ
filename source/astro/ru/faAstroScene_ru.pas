@@ -368,7 +368,7 @@ begin
   ffAsteroid.Material.Texture.Disabled := False;
 
   // Текстура облаков д.б. загружена в 3й материал GLMatLib
-  FileJpg := CurrentStar + 'clouds_rare.jpg';
+  FileJpg := CurrentStar + 'planets\' + 'earth_clouds.jpg';
   if FileExists(FileJpg) then // or clouds_dense
   begin
     MatLibSkyDome.Materials[3].Material.Texture.Compression := tcStandard;
@@ -426,7 +426,7 @@ begin
   end;
 *)
   // Астероиды, загрузка имён из файла csv
-  FileCSV := CurrentStar + 'sol_asteroids.csv';
+  FileCSV := CurrentStar + 'asteroids\' +'asteroids.csv';
   if FileExists(FileCSV) then
   begin
     tvAsteroids.Items.BeginUpdate;
@@ -470,19 +470,15 @@ begin
   dcAsteroid.Visible := False;
   dcComet.Visible := False;
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Index = 0) then
-  // Загрузка карты звезды
+  // Загрузка карты Солнца или звезды
     FileJpg := CurrentStar + TToolButton(Sender).ImageName + '.jpg'
   else
   // Загрузка карты планеты
     FileJpg := CurrentStar + 'planets\' + TToolButton(Sender).ImageName + '.jpg';
   sfPlanet.Material.Texture.Image.LoadFromFile(FileJpg);
   // Показать атмосферы планет, заменить на case, так как толщина атмосфер разная
-  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Earth') or
-  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Venus') or
-  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Jupiter') or
-  //   (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Saturn') or
-     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Uranus') or
-     (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Neptune')
+  if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Earth')
+  // or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Caption = 'Venus')
   then
   begin
     //  Лёгкие облака
@@ -497,6 +493,7 @@ begin
     DirectOpenGL.Visible := False;
     FormOptions.chbClouds.Checked := False;
   end;
+
   // Кольца Сатурна
   if (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Сатурн') then
   (* or (tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint = 'Уран') *)
@@ -518,6 +515,14 @@ begin
   begin
     // протуберанцы
   end;
+
+   // Камера направлена на планету
+  CameraControler.MoveTo(dcStar);
+  CameraControler.TargetObject := dcPlanet;
+  CameraControler.Position.X := 100;
+  CameraControler.Position.Y := 100;
+  CameraControler.Position.Z := 100;
+
   // Справка + ' в ' + 'RuWiki...';
   miHelpWiki.Caption := tbPlanets.Buttons[TToolButton(Sender).ImageIndex].Hint;
 end;
@@ -547,7 +552,7 @@ begin
   dcComet.Visible := False;
 
   // чтение CSV файла для перевода имени луны на английский язык
-  FileCSV := CurrentStar + 'sol_moons.csv';
+  FileCSV := CurrentStar + 'moons\' +'moons.csv';
   // находим английское имя луны и её радиус в CSV файле
   // по полю name_ru и индексу узла дерева просмотра
   MoonName := GetBodyFromCSV(FileCSV,
@@ -580,11 +585,12 @@ begin
   else
     DirectOpenGL.Visible := False;
 
-//    Camera.MoveTo(dcMoon);
-//    Camera.TargetObject := dcMoon;
-//    Camera.Position.X := 1;
-//    Camera.Position.Y := 1;
-//    Camera.Position.Z := 1;
+  // Камеру направлена на луну
+  CameraControler.MoveTo(dcMoon);
+  CameraControler.TargetObject := dcMoon;
+  CameraControler.Position.X := 1;
+  CameraControler.Position.Y := 1;
+  CameraControler.Position.Z := 1;
 
   // Имя луны или спутника для веб-справки ruwiki
   // miHelpWiki->Caption = tvMoons->Selected->Text + "_(спутник)";
@@ -614,7 +620,7 @@ begin
   dcComet.Visible := False;
 
   // чтение CSV файла астероидов для перевода имени на английский язык
-  FileCSV := CurrentStar + 'sol_asteroids.csv';
+  FileCSV := CurrentStar + 'asteroids\' + 'asteroids.csv';
   // находим для выбранного узла дерева просмотра английское
   // имя астероида и его радиус по полю name_ru
   AsteroidName := GetBodyFromCSV(FileCSV,
@@ -629,13 +635,6 @@ begin
     ffAsteroid.Scale.Scale(1.00); // общий масштаб
  //   ffAsteroid.Scale.Scale(0.05 / ffAsteroid.BoundingSphereRadius);
     ffAsteroid.Scale.SetVector(1.0, 1.0, 1.0, 0); // изменение по осям
-
-    Camera.MoveTo(dcAsteroid);
-    Camera.TargetObject := dcAsteroid; //ffAsteroid;
-    Camera.Position.X := -1;
-    Camera.Position.Y := 1;
-    Camera.Position.Z := 1;
-
   end;
   // находим текстурную карту астероида по названию на английском языке
   FileJpg := CurrentStar + 'asteroids\' + LowerCase(AsteroidName) + '.jpg';
@@ -651,6 +650,14 @@ begin
 //    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
     ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
   end;
+
+  // Камеру направлена на астероид -
+  Camera.MoveTo(dcAsteroid);
+  Camera.TargetObject := dcAsteroid;  //д.б. ffAsteroid;
+  CameraControler.Position.X := 1;
+  CameraControler.Position.Y := 1;
+  CameraControler.Position.Z := 1;
+
   miHelpWiki.Caption := tvAsteroids.Selected.Text + '_(астероид)';
 end;
 

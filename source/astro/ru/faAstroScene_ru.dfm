@@ -39,6 +39,8 @@ object FormAstroScene: TFormAstroScene
     OnMouseDown = SceneViewerMouseDown
     OnMouseMove = SceneViewerMouseMove
     TabOrder = 0
+    ExplicitLeft = 315
+    ExplicitTop = 58
   end
   object PanelLeft: TPanel
     Left = 0
