@@ -37,10 +37,11 @@ uses
   Astro.Utils in '..\source\astro\Astro.Utils.pas',
   frParams_ru in '..\source\astro\ru\frParams_ru.pas' {FrameParamsR: TFrame},
   faConstBorders_ru in '..\source\astro\ru\faConstBorders_ru.pas' {frmSkyPolygons},
-  faConstAtlas_ru in '..\source\astro\ru\faConstAtlas_ru.pas' {frmConstAtlas},
+  faAtlas_ru in '..\source\astro\ru\faAtlas_ru.pas' {frmAtlas},
   faMakeStarsys_ru in '..\source\astro\ru\faMakeStarsys_ru.pas' {frmMakeStarsys},
   faGenStarblock_ru in '..\source\astro\ru\faGenStarblock_ru.pas' {frmViewSolblock},
-  daMaps_ru in '..\source\astro\ru\daMaps_ru.pas' {DataModuleMaps: TDataModule};
+  daMaps_ru in '..\source\astro\ru\daMaps_ru.pas' {DataModuleMaps: TDataModule},
+  faTerrascope_ru in '..\source\astro\ru\faTerrascope_ru.pas' {frmTerrascope};
 
 {$R *.res}
 

@@ -1,7 +1,7 @@
 (****************************************************************************
                            AstrobloQ System
 *****************************************************************************)
-unit faConstAtlas_ru;
+unit faAtlas_ru;
 
 interface
 
@@ -52,7 +52,7 @@ uses
   ;
 
 type
-  TfrmConstAtlas = class(TForm)
+  TfrmAtlas = class(TForm)
     PanelLeft: TPanel;
     StatusBar1: TStatusBar;
     PanelRight: TPanel;
@@ -94,7 +94,7 @@ type
   end;
 
 var
-  frmConstAtlas: TfrmConstAtlas;
+  frmAtlas: TfrmAtlas;
 
 implementation //==============================================================
 
@@ -103,7 +103,7 @@ implementation //==============================================================
 //-----------------------------------------------------------------------------
 // «агрузка данных и карт при создании формы
 //-----------------------------------------------------------------------------
-procedure TfrmConstAtlas.FormCreate(Sender: TObject);
+procedure TfrmAtlas.FormCreate(Sender: TObject);
 begin
   DataDir := GetDataPath(); //ExtractFilePath(ParamStr(0)) + 'data';
   SetCurrentDir(DataDir);
@@ -145,7 +145,7 @@ end;
 //-----------------------------------------------------------------------
 //                         ќткрыть файл созвездий
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.Open1Click(Sender: TObject);
+procedure TfrmAtlas.Open1Click(Sender: TObject);
 begin
 {
   // Load next skyculture for constellations ...
@@ -165,7 +165,7 @@ end;
 //-----------------------------------------------------------------------
 //              јктиваци€ узла дерева просмотра созвездий
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.tvConstellationsContextPopup(Sender: TObject;
+procedure TfrmAtlas.tvConstellationsContextPopup(Sender: TObject;
   MousePos: TPoint; var Handled: Boolean);
 var
   tmpNode: TTreeNode;
@@ -178,7 +178,7 @@ end;
 //-----------------------------------------------------------------------------
 //           ¬ывод карт созвездий по индексу узла дерева просмотра
 //-----------------------------------------------------------------------------
-procedure TfrmConstAtlas.tvConstellationsClick(Sender: TObject);
+procedure TfrmAtlas.tvConstellationsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvConstellations.Selected.ImageIndex;
   VirtualImageFigures.ImageIndex := tvConstellations.Selected.ImageIndex;
@@ -188,7 +188,7 @@ end;
 //-----------------------------------------------------------------------------
 //      ¬ывод карт зодиакальных созвездий по индексу узла дерева просмотра
 //-----------------------------------------------------------------------------
-procedure TfrmConstAtlas.tvZodiacsClick(Sender: TObject);
+procedure TfrmAtlas.tvZodiacsClick(Sender: TObject);
 begin
   VirtualImageChart.ImageIndex := tvZodiacs.Selected.ImageIndex;
   VirtualImageFigures.ImageIndex := tvZodiacs.Selected.ImageIndex;
@@ -196,19 +196,19 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.Save1Click(Sender: TObject);
+procedure TfrmAtlas.Save1Click(Sender: TObject);
 begin
   // Save TreeView
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.SaveAs1Click(Sender: TObject);
+procedure TfrmAtlas.SaveAs1Click(Sender: TObject);
 begin
   // Save TreeView As...
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmAtlas.FormKeyPress(Sender: TObject; var Key: Char);
 var
   S: String;
 begin
@@ -223,14 +223,14 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.GLCadencerProgress(Sender: TObject;
+procedure TfrmAtlas.GLCadencerProgress(Sender: TObject;
   const DeltaTime, NewTime: Double);
 begin
   HandleKeys(deltaTime);
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.HandleKeys(d: Double);
+procedure TfrmAtlas.HandleKeys(d: Double);
 var
   S:String;
 begin
@@ -249,13 +249,13 @@ begin
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.miSettingsClick(Sender: TObject);
+procedure TfrmAtlas.miSettingsClick(Sender: TObject);
 begin
 //
 end;
 
 //-----------------------------------------------------------------------
-procedure TfrmConstAtlas.Exit1Click(Sender: TObject);
+procedure TfrmAtlas.Exit1Click(Sender: TObject);
 begin
   Close;
 end;

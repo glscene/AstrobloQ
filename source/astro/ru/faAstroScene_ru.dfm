@@ -1745,8 +1745,8 @@ object FormAstroScene: TFormAstroScene
     Top = 152
   end
   object MainMenu: TMainMenu
-    Left = 373
-    Top = 352
+    Left = 893
+    Top = 88
     object miOpen: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object miFileOpen: TMenuItem
@@ -1778,9 +1778,16 @@ object FormAstroScene: TFormAstroScene
       object N4: TMenuItem
         Caption = '-'
       end
-      object miConstAtlas: TMenuItem
+      object miAtlas: TMenuItem
         Caption = #1040#1090#1083#1072#1089' '#1089#1086#1079#1074#1077#1079#1076#1080#1081'...'
-        OnClick = miConstAtlasClick
+        OnClick = miAtlasClick
+      end
+      object miTerrascope: TMenuItem
+        Caption = #1058#1077#1088#1088#1072#1089#1082#1086#1087'...'
+        OnClick = miTerrascopeClick
+      end
+      object N5: TMenuItem
+        Caption = '-'
       end
       object miClearTreeView: TMenuItem
         Caption = #1054#1095#1080#1089#1090#1080#1090#1100
@@ -1818,8 +1825,8 @@ object FormAstroScene: TFormAstroScene
     end
   end
   object OpenDialog: TOpenDialog
-    Left = 364
-    Top = 417
+    Left = 1004
+    Top = 265
   end
   object SaveDialog: TSaveDialog
     Left = 1001

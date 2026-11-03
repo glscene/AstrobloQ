@@ -191,8 +191,8 @@
             <Form>frmSkyPolygons</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\source\astro\ru\faConstAtlas_ru.pas">
-            <Form>frmConstAtlas</Form>
+        <DCCReference Include="..\source\astro\ru\faAtlas_ru.pas">
+            <Form>frmAtlas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\source\astro\ru\faMakeStarsys_ru.pas">
@@ -207,6 +207,10 @@
             <Form>DataModuleMaps</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\source\astro\ru\faTerrascope_ru.pas">
+            <Form>frmTerrascope</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

@@ -66,7 +66,8 @@ uses
 
   fmFormFirst,
   faConstBorders_ru,
-  faConstAtlas_ru,
+  faAtlas_ru,
+  faTerrascope_ru,
   faOptions_ru,
   faAbout_ru,
 
@@ -159,7 +160,7 @@ type
     ffMoon: TGLFreeForm;
     sfAsteroid: TGLSphere;
     ffComet: TGLFreeForm;
-    miConstAtlas: TMenuItem;
+    miAtlas: TMenuItem;
     miConstPolygons: TMenuItem;
     sfGlobeClouds: TGLSphere;
     MatLibSkyDome: TGLMaterialLibrary;
@@ -242,6 +243,8 @@ type
     torus25: TGLTorus;
     LightSource: TGLLightSource;
     pointsBrightStars: TGLPoints;
+    miTerrascope: TMenuItem;
+    N5: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure DirectOpenGLRender(Sender: TObject; var rci: TGLRenderContextInfo);
     procedure TimerTimer(Sender: TObject);
@@ -269,10 +272,11 @@ type
     procedure miPlanetSystemClick(Sender: TObject);
     procedure miConstPolygonsClick(Sender: TObject);
     procedure miMapClick(Sender: TObject);
-    procedure miConstAtlasClick(Sender: TObject);
+    procedure miAtlasClick(Sender: TObject);
     procedure tbCoreClick(Sender: TObject);
     procedure tbSceneClick(Sender: TObject);
     procedure tbGlobeGridClick(Sender: TObject);
+    procedure miTerrascopeClick(Sender: TObject);
   public
     DataDir, StarDir, CurrentStar: TFileName;
     CatalogName: TFileName;
@@ -550,7 +554,7 @@ begin
     tvMoons.Selected.Index, tvMoons.Selected.Text, MoonRadius);
 
   // Ќаходим карту луны по названию на английском €зыке
-  FileJpg := CurrentStar + LowerCase(MoonName) + '.jpg';
+  FileJpg := CurrentStar + 'moons\' + LowerCase(MoonName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
   //sfMoon.Radius := Radius; // считываем из CSV файла
@@ -560,7 +564,7 @@ begin
   end
   else
   begin // если нет ни модели, ни карты, то загружаем прототип
-    FileJpg := CurrentStar + 'aMoon.jpg';
+    FileJpg := CurrentStar + 'moons\' + 'aMoon.jpg';
     sfMoon.Material.Texture.Image.LoadFromFile(FileJpg);
     // ffMoon.LoadFromFile(DataDir + '\model\object.3ds');
     // ffMoon.Material.Texture.Image.LoadFromFile(FileJpg);
@@ -617,7 +621,7 @@ begin
     tvAsteroids.Selected.Index, tvAsteroids.Selected.Text, AsteroidRadius);
 
   // загружаем модель астероида и направл€ем на неЄ камеру
-  FileBody := CurrentStar + LowerCase(AsteroidName) + '.3ds';
+  FileBody := CurrentStar + 'asteroids\' + LowerCase(AsteroidName) + '.3ds';
 
   if FileExists(FileBody, True) then
   begin
@@ -634,7 +638,7 @@ begin
 
   end;
   // находим текстурную карту астероида по названию на английском €зыке
-  FileJpg := CurrentStar + LowerCase(AsteroidName) + '.jpg';
+  FileJpg := CurrentStar + 'asteroids\' + LowerCase(AsteroidName) + '.jpg';
   if FileExists(FileJpg, True) then
   begin
 //    sfAsteroid.Radius := AsteroidRadius; // из csv файла
@@ -643,7 +647,7 @@ begin
   end
   else
   begin
-    FileJpg := CurrentStar + 'aAsteroid.jpg'; // паттерн
+    FileJpg := CurrentStar + 'asteroids\' + 'aAsteroid.jpg'; // паттерн
 //    sfAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
     ffAsteroid.Material.Texture.Image.LoadFromFile(FileJpg);
   end;
@@ -1158,9 +1162,20 @@ begin
 end;
 
 //----------------------------------------------------------------------------
-procedure TFormAstroScene.miConstAtlasClick(Sender: TObject);
+procedure TFormAstroScene.miAtlasClick(Sender: TObject);
 begin
-  with TfrmConstAtlas.Create(Self) do
+  with TfrmAtlas.Create(Self) do
+  try
+    ShowModal
+  finally
+    Free
+  end;
+end;
+
+//----------------------------------------------------------------------------
+procedure TFormAstroScene.miTerrascopeClick(Sender: TObject);
+begin
+  with TfrmTerrascope.Create(Self) do
   try
     ShowModal
   finally

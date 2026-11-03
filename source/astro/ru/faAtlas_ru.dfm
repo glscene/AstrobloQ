@@ -1,4 +1,4 @@
-object frmConstAtlas: TfrmConstAtlas
+object frmAtlas: TfrmAtlas
   Left = 0
   Top = 0
   Caption = #1040#1090#1083#1072#1089' '#1089#1086#1079#1074#1077#1079#1076#1080#1081
@@ -35,7 +35,7 @@ object frmConstAtlas: TfrmConstAtlas
     Height = 628
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 603
+    ExplicitHeight = 601
     object tvConstellations: TTreeView
       Left = 1
       Top = 36
@@ -193,6 +193,7 @@ object frmConstAtlas: TfrmConstAtlas
         0000000000000000000000010C1B04350442044304470430044F04200040044B
         043104300400002D0000005700000057000000FFFFFFFFFFFFFFFF0000000000
         000000000000000001071B0438044104380447043A043004}
+      ExplicitHeight = 564
     end
     object PanelLeftTitle: TPanel
       Left = 1
@@ -210,7 +211,7 @@ object frmConstAtlas: TfrmConstAtlas
     Width = 1014
     Height = 19
     Panels = <>
-    ExplicitTop = 603
+    ExplicitTop = 601
     ExplicitWidth = 1006
   end
   object PanelRight: TPanel
@@ -221,7 +222,7 @@ object frmConstAtlas: TfrmConstAtlas
     Align = alRight
     TabOrder = 2
     ExplicitLeft = 832
-    ExplicitHeight = 603
+    ExplicitHeight = 601
     object VirtualImageFigures: TVirtualImage
       Left = 1
       Top = 346
