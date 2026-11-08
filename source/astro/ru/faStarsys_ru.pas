@@ -28,9 +28,9 @@ uses
   Stage.GeometryBB,
   Stage.Coordinates,
   Stage.BaseClasses,
-  GLS.AsyncTimer,
   Stage.Color,
 
+  GLS.AsyncTimer,
   GLS.SceneViewer,
   GLS.Scene,
   GLS.Context,
@@ -199,49 +199,47 @@ implementation //==============================================================
 procedure TfrmStarSys.FormCreate;
 begin
   PathToData := GetDataPath();
-  CurrentDir := PathToData  + '\starsys\sol\'; // вместо GetCurrentDir()
+  CurrentDir := PathToData  + 'starsys\sol\'; // вместо GetCurrentDir()
   SetCurrentDir(CurrentDir);
-
-  // Текстуры карт
+  // Солнце
   Sun.Material.Texture.Image.LoadFromFile('sol.jpg');
+  // Планеты
+  SetCurrentDir(CurrentDir + 'planets\');
   Mercury.Material.Texture.Image.LoadFromFile('mercury.jpg');
   Venus.Material.Texture.Image.LoadFromFile('venus.jpg');
-
   Earth.Material.Texture.Image.LoadFromFile('earth.jpg');
-    Moon.Material.Texture.Image.LoadFromFile('moon.jpg');
-
   Mars.Material.Texture.Image.LoadFromFile('mars.jpg');
-    Phobos.Material.Texture.Image.LoadFromFile('phobos.jpg');
-    Deimos.Material.Texture.Image.LoadFromFile('deimos.jpg');
-
   Jupiter.Material.Texture.Image.LoadFromFile('jupiter.jpg');
-    Io.Material.Texture.Image.LoadFromFile('io.jpg');
-    Europa.Material.Texture.Image.LoadFromFile('europa.jpg');
-    Ganymede.Material.Texture.Image.LoadFromFile('ganymede.jpg');
-    Callisto.Material.Texture.Image.LoadFromFile('callisto.jpg');
-
   Saturn.Material.Texture.Image.LoadFromFile('saturn.jpg');
-    SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.png');
-    Titan.Material.Texture.Image.LoadFromFile('titan.jpg');
-    Enceladus.Material.Texture.Image.LoadFromFile('enceladus.jpg');
-
+  SaturnRing.Material.Texture.Image.LoadFromFile('saturn_ring.png');
   Uranus.Material.Texture.Image.LoadFromFile('uranus.jpg');
-    UranusRing.Material.Texture.Image.LoadFromFile('uranus_ring.png');
-    Titania.Material.Texture.Image.LoadFromFile('titania.jpg');
-    Miranda.Material.Texture.Image.LoadFromFile('miranda.jpg');
-
+  UranusRing.Material.Texture.Image.LoadFromFile('uranus_ring.png');
   Neptune.Material.Texture.Image.LoadFromFile('neptune.jpg');
-    NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.png');
-    Triton.Material.Texture.Image.LoadFromFile('triton.jpg');
+  NeptuneRing.Material.Texture.Image.LoadFromFile('neptune_ring.png');
 
-  Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
-    Charon.Material.Texture.Image.LoadFromFile('charon.jpg');
-
-  // Загрузка моделей в FreeForms
+  // Луны
+  SetCurrentDir(CurrentDir + 'moons\');
+  Moon.Material.Texture.Image.LoadFromFile('moon.jpg');
+  Phobos.Material.Texture.Image.LoadFromFile('phobos.jpg');
   Phobos.LoadFromFile('phobos.3ds');
   Phobos.Scale.Scale(0.05 / Phobos.BoundingSphereRadius);
+  Deimos.Material.Texture.Image.LoadFromFile('deimos.jpg');
   Deimos.LoadFromFile('deimos.3ds');
   Deimos.Scale.Scale(0.05 / Deimos.BoundingSphereRadius);
+  Io.Material.Texture.Image.LoadFromFile('io.jpg');
+  Europa.Material.Texture.Image.LoadFromFile('europa.jpg');
+  Ganymede.Material.Texture.Image.LoadFromFile('ganymede.jpg');
+  Callisto.Material.Texture.Image.LoadFromFile('callisto.jpg');
+  Titan.Material.Texture.Image.LoadFromFile('titan.jpg');
+  Enceladus.Material.Texture.Image.LoadFromFile('enceladus.jpg');
+  Titania.Material.Texture.Image.LoadFromFile('titania.jpg');
+  Miranda.Material.Texture.Image.LoadFromFile('miranda.jpg');
+  Triton.Material.Texture.Image.LoadFromFile('triton.jpg');
+
+  // Астероиды
+  SetCurrentDir(CurrentDir + 'asteroids\');
+  Pluto.Material.Texture.Image.LoadFromFile('pluto.jpg');
+  Charon.Material.Texture.Image.LoadFromFile('charon.jpg');
 
   // Загрузка каталогов звёзд в SkyDome
   SetCurrentDir(PathToData + '\catalog');
