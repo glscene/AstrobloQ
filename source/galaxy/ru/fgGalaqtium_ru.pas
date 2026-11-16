@@ -118,9 +118,9 @@ type
     ControlBar: TControlBar;
     diskGalaxy: TGLDisk;
     ToolBarMain: TToolBar;
-    ToolButton1: TToolButton;
+    tbNew: TToolButton;
     ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
+    tbOpen: TToolButton;
     PageControl1: TPageControl;
     tsGalacube: TTabSheet;
     svGalaxyBlock: TGLSceneViewer;
@@ -133,9 +133,8 @@ type
     tsDatacat: TTabSheet;
     DBGrid: TDBGrid;
     MemoTable: TMemo;
-    ToolButton4: TToolButton;
+    tbSave: TToolButton;
     miDiagramHR: TMenuItem;
-    miMonitor: TMenuItem;
     ToolBarView: TToolBar;
     tbSolarcube: TToolButton;
     tbAddStars: TToolButton;
@@ -171,6 +170,11 @@ type
     GLSimpleNavigation1: TGLSimpleNavigation;
     cubeSol: TGLCube;
     sfStar: TGLSphere;
+    ToolButton1: TToolButton;
+    tbExpansion: TToolButton;
+    tbColonisation: TToolButton;
+    N5: TMenuItem;
+    N7: TMenuItem;
     procedure miExitClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenClick(Sender: TObject);

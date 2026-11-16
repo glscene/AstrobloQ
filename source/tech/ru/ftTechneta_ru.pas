@@ -114,7 +114,7 @@ type
     miSmoothAdditive: TMenuItem;
     miSquare: TMenuItem;
     miN2: TMenuItem;
-    miAddaPeople: TMenuItem;
+    miAddStation: TMenuItem;
     miTools: TMenuItem;
     miMeshEditor: TMenuItem;
     miHelp: TMenuItem;
@@ -247,7 +247,7 @@ type
     procedure miSmoothClick(Sender: TObject);
     procedure miSmoothAdditiveClick(Sender: TObject);
     procedure miSquareClick(Sender: TObject);
-    procedure miAddaPeopleClick(Sender: TObject);
+    procedure miAddStationClick(Sender: TObject);
     procedure ChoiceRGClick(Sender: TObject);
     procedure cbTypesChange(Sender: TObject);
     procedure DateTimePicker1Change(Sender: TObject);
@@ -1326,9 +1326,15 @@ begin
 end;
 
 //-----------------------------------------------------------------------------
-procedure TFormTechneta.miAddaPeopleClick(Sender: TObject);
+procedure TFormTechneta.miAddStationClick(Sender: TObject);
 begin
-  FormLocations.Show;
+//  FormLocations.Show;
+  with TFormLocations.Create(Self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
 end;
 
 //-----------------------------------------------------------------------------
@@ -1508,7 +1514,7 @@ end;
 // ------------------------ DisplayCountries ---------------------------------
 procedure TFormTechneta.DisplayCountries(Show: Boolean);
 begin
-  If (not Show) then
+  if (not Show) then
   begin // off
     ShpLines.Visible := False;
   end;
@@ -1516,7 +1522,7 @@ begin
   begin // on
     ShpLines.Visible := True;
   end;
-  If (Show and (not CountriesLoaded)) then
+  if (Show and (not CountriesLoaded)) then
   begin
     // ShapePath := ExtractFilePath(ParamStr(0));
     // ShpFileName := ShpPath+'Country.shp';

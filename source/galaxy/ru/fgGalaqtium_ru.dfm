@@ -42,6 +42,7 @@ object FormGalaqtium: TFormGalaqtium
     Height = 33
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1072
     object ToolBarMain: TToolBar
       Left = 11
       Top = 2
@@ -50,34 +51,43 @@ object FormGalaqtium: TFormGalaqtium
       ButtonWidth = 40
       Images = DataModuleImages.ImageListInterface
       TabOrder = 0
-      object ToolButton1: TToolButton
+      object tbNew: TToolButton
         Left = 0
         Top = 0
+        Hint = #1053#1086#1074#1099#1081
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         ImageIndex = 0
+        ParentShowHint = False
+        ShowHint = True
         OnClick = miNewStarblockClick
       end
-      object ToolButton3: TToolButton
+      object tbOpen: TToolButton
         Left = 40
         Top = 0
+        Hint = #1054#1090#1082#1088#1099#1090#1100
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         ImageIndex = 2
+        ParentShowHint = False
+        ShowHint = True
         OnClick = miOpenClick
       end
-      object ToolButton4: TToolButton
+      object tbSave: TToolButton
         Left = 80
         Top = 0
+        Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
         Margins.Bottom = 2
         ImageIndex = 3
+        ParentShowHint = False
+        ShowHint = True
         OnClick = miSaveAsClick
       end
       object ToolButton2: TToolButton
@@ -88,12 +98,14 @@ object FormGalaqtium: TFormGalaqtium
         Margins.Right = 2
         Margins.Bottom = 2
         ImageIndex = 1
+        ParentShowHint = False
+        ShowHint = True
       end
     end
     object ToolBarView: TToolBar
       Left = 198
       Top = 2
-      Width = 243
+      Width = 307
       Height = 22
       ButtonWidth = 40
       Caption = 'ToolBarView'
@@ -102,7 +114,7 @@ object FormGalaqtium: TFormGalaqtium
       object tbSolarcube: TToolButton
         Left = 0
         Top = 0
-        Hint = 'Solarcube'
+        Hint = #1057#1090#1072#1088#1082#1091#1073
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
@@ -115,7 +127,7 @@ object FormGalaqtium: TFormGalaqtium
       object tbAddStars: TToolButton
         Left = 40
         Top = 0
-        Hint = 'Add stars'
+        Hint = #1044#1086#1073#1072#1074#1080#1090#1100' '#1079#1074#1105#1079#1076
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
@@ -128,7 +140,7 @@ object FormGalaqtium: TFormGalaqtium
       object tbAxes: TToolButton
         Left = 80
         Top = 0
-        Hint = 'Axes'
+        Hint = #1054#1089#1080
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
@@ -141,7 +153,7 @@ object FormGalaqtium: TFormGalaqtium
       object tbRotation: TToolButton
         Left = 120
         Top = 0
-        Hint = 'Rotation'
+        Hint = #1042#1088#1072#1097#1077#1085#1080#1077
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
@@ -155,7 +167,7 @@ object FormGalaqtium: TFormGalaqtium
       object tbClearCubes: TToolButton
         Left = 160
         Top = 0
-        Hint = 'Clear solarcube'
+        Hint = #1054#1095#1080#1089#1090#1080#1090#1100
         Margins.Left = 2
         Margins.Top = 2
         Margins.Right = 2
@@ -164,6 +176,31 @@ object FormGalaqtium: TFormGalaqtium
         ParentShowHint = False
         ShowHint = True
         OnClick = ButtonClearClick
+      end
+      object ToolButton1: TToolButton
+        Left = 200
+        Top = 0
+        Width = 8
+        Caption = 'ToolButton1'
+        ImageIndex = 123
+        Style = tbsSeparator
+      end
+      object tbExpansion: TToolButton
+        Left = 208
+        Top = 0
+        Hint = #1069#1082#1089#1087#1072#1085#1089#1080#1103
+        ImageIndex = 119
+        ParentShowHint = False
+        ShowHint = True
+        Style = tbsCheck
+      end
+      object tbColonisation: TToolButton
+        Left = 248
+        Top = 0
+        Hint = #1050#1086#1083#1086#1085#1080#1079#1072#1094#1080#1103
+        ImageIndex = 71
+        ParentShowHint = False
+        ShowHint = True
       end
     end
   end
@@ -181,6 +218,8 @@ object FormGalaqtium: TFormGalaqtium
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitWidth = 1072
+    ExplicitHeight = 676
     object tsGalacube: TTabSheet
       Caption = #1047#1074#1105#1079#1076#1099
       object svGalaxyBlock: TGLSceneViewer
@@ -220,7 +259,6 @@ object FormGalaqtium: TFormGalaqtium
         Lines.Strings = (
           'MemoTable')
         TabOrder = 1
-        ExplicitHeight = 667
       end
     end
   end
@@ -423,7 +461,7 @@ object FormGalaqtium: TFormGalaqtium
     object miFile: TMenuItem
       Caption = #1060#1072#1081#1083
       object miNewStarblock: TMenuItem
-        Caption = #1053#1086#1074#1099#1081' '#1075#1072#1083#1072#1073#1083#1086#1082'...'
+        Caption = #1053#1086#1074#1099#1081' '#1089#1090#1072#1088#1073#1083#1086#1082'...'
         ImageIndex = 8
         OnClick = miNewStarblockClick
       end
@@ -494,6 +532,9 @@ object FormGalaqtium: TFormGalaqtium
     end
     object miMethod: TMenuItem
       Caption = #1052#1077#1090#1086#1076
+      object N7: TMenuItem
+        Caption = #1042#1077#1077#1088#1085#1099#1081'...'
+      end
       object miTetranet: TMenuItem
         Caption = #1058#1077#1090#1088#1072#1085#1077#1090'...'
         ImageIndex = 52
@@ -520,8 +561,11 @@ object FormGalaqtium: TFormGalaqtium
     object miView: TMenuItem
       Caption = #1042#1080#1076
       object miGalablock: TMenuItem
-        Caption = #1043#1072#1083#1072#1073#1083#1086#1082'...'
+        Caption = #1057#1090#1072#1088#1073#1083#1086#1082'...'
         OnClick = miGalablockClick
+      end
+      object N5: TMenuItem
+        Caption = #1043#1072#1083#1072#1082#1090#1080#1082#1072'...'
       end
       object miGlobulars: TMenuItem
         Caption = #1064#1072#1088#1086#1074#1099#1077' '#1089#1082#1086#1087#1083#1077#1085#1080#1103'...'
@@ -531,12 +575,8 @@ object FormGalaqtium: TFormGalaqtium
         Caption = '-'
       end
       object miTechnets: TMenuItem
-        Caption = #1040#1090#1083#1072#1089' '#1090#1077#1093#1085#1077#1090'...'
+        Caption = #1040#1090#1083#1072#1089' '#1086#1073#1080#1090#1072#1077#1084#1086#1089#1090#1080'...'
         OnClick = miTechnetsClick
-      end
-      object miMonitor: TMenuItem
-        Caption = #1052#1086#1085#1080#1090#1086#1088'...'
-        OnClick = miMonitorClick
       end
       object N2: TMenuItem
         Caption = '-'
@@ -548,7 +588,7 @@ object FormGalaqtium: TFormGalaqtium
       end
     end
     object miAnalytics: TMenuItem
-      Caption = #1040#1085#1072#1083#1080#1090#1080#1082#1072
+      Caption = #1040#1085#1072#1083#1080#1079
       object miParadox: TMenuItem
         Caption = #1055#1072#1088#1072#1076#1086#1082#1089' '#1060#1077#1088#1084#1080'...'
         OnClick = miParadoxClick
@@ -103474,8 +103514,8 @@ object FormGalaqtium: TFormGalaqtium
     Top = 91
   end
   object GLNavigator1: TGLNavigator
-    Left = 348
-    Top = 169
+    Left = 324
+    Top = 161
   end
   object GLSimpleNavigation1: TGLSimpleNavigation
     Form = Owner
@@ -103494,7 +103534,7 @@ object FormGalaqtium: TFormGalaqtium
         ShiftState = [ssRight]
         Action = snaMoveAroundTarget
       end>
-    Left = 348
-    Top = 97
+    Left = 316
+    Top = 89
   end
 end
